@@ -94,6 +94,30 @@
       },
       "revId": "a67a47b402728e15a7e8e83207ad1b25271693ea",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e4de4ec_96a46029",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-11-25T15:17:15Z",
+      "side": 1,
+      "message": "Simplifier was always the pass just before until we added the new DCE pass (https://cs.android.com/android/platform/superproject/+/master:art/compiler/optimizing/optimizing_compiler.cc;l\u003d694;drc\u003d5fa73a95fcfc638c155511305382ecbe4b75fe43). I think it is fine to remove the check, but it would be better if in the future we also remove the NullChecks.\n\nIt may be worth it to do:\n```\n  while (optimization_happened) {\n    run constant folding\n    run instruction simplifier\n    run DCE\n  }\n```\ni.e. iterating to a fixed point. Those optimizations are fast to run so it shouldn\u0027t impact compilation time that much. Not sure how much we would gain though. It would be interesting to run the numbers.",
+      "parentUuid": "6d979397_d4013b51",
+      "range": {
+        "startLine": 10,
+        "startChar": 1,
+        "endLine": 10,
+        "endChar": 23
+      },
+      "revId": "a67a47b402728e15a7e8e83207ad1b25271693ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
