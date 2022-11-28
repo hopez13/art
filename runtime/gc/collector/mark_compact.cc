@@ -2105,10 +2105,8 @@ class MarkCompact::LinearAllocPageUpdater {
     for (uint8_t* byte = first_obj; byte < page_end;) {
       TrackingHeader* header = reinterpret_cast<TrackingHeader*>(byte);
       obj_size = header->GetSize();
-      LinearAllocKind kind = header->GetKind();
       if (UNLIKELY(obj_size == 0)) {
         // No more objects in this page to visit.
-        DCHECK_EQ(kind, LinearAllocKind::kNoGCRoots);
         break;
       }
       uint8_t* obj = byte + sizeof(TrackingHeader);
@@ -2119,7 +2117,7 @@ class MarkCompact::LinearAllocPageUpdater {
       uint8_t* begin_boundary = std::max(obj, page_begin);
       uint8_t* end_boundary = std::min(obj_end, page_end);
       if (begin_boundary < end_boundary) {
-        VisitObject(kind, obj, begin_boundary, end_boundary);
+        VisitObject(header->GetKind(), obj, begin_boundary, end_boundary);
       }
       if (ArenaAllocator::IsRunningOnMemoryTool()) {
         obj_size += ArenaAllocator::kMemoryToolRedZoneBytes;

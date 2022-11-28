@@ -49,7 +49,10 @@ class TrackingHeader final {
   }
 
   LinearAllocKind GetKind() const { return kind_; }
-  size_t GetSize() const { return size_ & ~kIs16Aligned; }
+  // We use 'size == 0' as an indication that there are no more objects to
+  // visit/update in the given page. So reading past all the allocations is
+  // required.
+  ATTRIBUTE_NO_SANITIZE_ADDRESS size_t GetSize() const { return size_ & ~kIs16Aligned; }
   bool Is16Aligned() const { return size_ & kIs16Aligned; }
 
  private:
