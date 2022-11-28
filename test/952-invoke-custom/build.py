@@ -15,6 +15,25 @@
 
 
 def build(ctx):
+  from os.path import relpath
+  from time import sleep
+  ctx.bash("echo foo > foo.tmp")
+  ctx.bash("ls -l --full-time *.tmp")
+  ctx.bash("sha1sum *.tmp")
+  ctx.rbe_wrap(["--output_files", relpath(ctx.test_dir / "bar.tmp", ctx.rbe_exec_root),
+                "cp", ctx.test_dir / "foo.tmp", ctx.test_dir / "bar.tmp"])
+  ctx.bash("ls -l --full-time *.tmp")
+  ctx.bash("sha1sum *.tmp")
+  print(r"$ echo bar!!! > bar.tmp", flush=True)
+  ctx.bash("echo bar!!! > bar.tmp")
+  ctx.bash("ls -l --full-time *.tmp")
+  ctx.bash("sha1sum *.tmp")
+  ctx.rbe_wrap(["--output_files", relpath(ctx.test_dir / "baz.tmp", ctx.rbe_exec_root),
+                "cp", ctx.test_dir / "bar.tmp", ctx.test_dir / "baz.tmp"])
+  ctx.bash("ls -l --full-time *.tmp")
+  ctx.bash("sha1sum *.tmp")
+  return
+
   ctx.bash("./generate-sources")
   ctx.default_build(use_desugar=False,
                     api_level=28,
