@@ -74,6 +74,24 @@
       "parentUuid": "6632f274_880d1959",
       "revId": "0fc8f25364631d38615eee0d7e76a202e6cc54d9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a36d5c4a_af85e30c",
+        "filename": "test/2248-checker-smali-remove-try-until-the-end/smali/b_260387991.smali",
+        "patchSetId": 4
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-11-28T17:02:54Z",
+      "side": 1,
+      "message": "Does it actually build for the RI? I don\u0027t want to see master-art-host/test-javac turn red.\n\n(While I have a preference for using jasmin and calling the test method, I do not strictly require that and I\u0027m OK with submitting the smali test code.)",
+      "parentUuid": "1389977c_286800bd",
+      "revId": "0fc8f25364631d38615eee0d7e76a202e6cc54d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
