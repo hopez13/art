@@ -92,6 +92,24 @@
       "parentUuid": "1389977c_286800bd",
       "revId": "0fc8f25364631d38615eee0d7e76a202e6cc54d9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35b5640f_58aeed9f",
+        "filename": "test/2248-checker-smali-remove-try-until-the-end/smali/b_260387991.smali",
+        "patchSetId": 4
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-11-28T17:05:38Z",
+      "side": 1,
+      "message": "It succeeded for patchset 3 (https://android-build.googleplex.com/builds/build-details/P44819184/targets/art-test-javac). Patchset 4 was just a commit message update.",
+      "parentUuid": "a36d5c4a_af85e30c",
+      "revId": "0fc8f25364631d38615eee0d7e76a202e6cc54d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
