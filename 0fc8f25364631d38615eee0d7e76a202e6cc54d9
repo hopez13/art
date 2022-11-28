@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d5dd9c5_b171406e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-11-28T16:18:36Z",
+      "side": 1,
+      "message": "Vladimir PTAL",
+      "revId": "0fc8f25364631d38615eee0d7e76a202e6cc54d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e8267e43_6393ff7b",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 558,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-11-28T16:18:36Z",
+      "side": 1,
+      "message": "drive-by: typo `predecessor` is supposed to be `block` in the comment.",
+      "range": {
+        "startLine": 558,
+        "startChar": 12,
+        "endLine": 558,
+        "endChar": 17
+      },
+      "revId": "0fc8f25364631d38615eee0d7e76a202e6cc54d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
