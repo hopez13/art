@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "13654175_367d0add",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-11-28T13:01:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6487b420_3e752a2e",
+      "range": {
+        "startLine": 9,
+        "startChar": 33,
+        "endLine": 9,
+        "endChar": 46
+      },
+      "revId": "694a4a072974305f436eaf74d63d5a103f5cd783",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e6f1e232_5dca690b",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "13f8f0db_93e164ce",
+        "filename": "runtime/indirect_reference_table.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-11-28T13:01:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e6f1e232_5dca690b",
+      "range": {
+        "startLine": 177,
+        "startChar": 2,
+        "endLine": 177,
+        "endChar": 32
+      },
+      "revId": "694a4a072974305f436eaf74d63d5a103f5cd783",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "99321df8_1e677af0",
@@ -60,6 +108,24 @@
       "writtenOn": "2022-11-28T11:33:02Z",
       "side": 1,
       "message": "Add\n`DCHECK_NE(kind, kLocal);`",
+      "revId": "694a4a072974305f436eaf74d63d5a103f5cd783",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "81f35288_316a5036",
+        "filename": "runtime/jni/check_jni.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-11-28T13:01:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "99321df8_1e677af0",
       "revId": "694a4a072974305f436eaf74d63d5a103f5cd783",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
