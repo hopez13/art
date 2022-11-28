@@ -56,6 +56,24 @@
       "message": "I\u0027d prefer a jasmin file for 2 reasons:\n1. Run the test with the RI (you didn\u0027t put the config to known failures).\n2. To call the test method from Main without using reflection.",
       "revId": "0fc8f25364631d38615eee0d7e76a202e6cc54d9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1389977c_286800bd",
+        "filename": "test/2248-checker-smali-remove-try-until-the-end/smali/b_260387991.smali",
+        "patchSetId": 4
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-11-28T16:46:38Z",
+      "side": 1,
+      "message": "Is it necessary to run it? The important bit is that the compilation succeeds i.e. the checker tests are passing.\n\nThere\u0027s no need to add the file to the known failures if we are just checking that the compilation succeeds.",
+      "parentUuid": "6632f274_880d1959",
+      "revId": "0fc8f25364631d38615eee0d7e76a202e6cc54d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
