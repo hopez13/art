@@ -626,7 +626,7 @@ class MarkCompact final : public GarbageCollector {
 
   // TODO: Remove once an efficient mechanism to deal with double root updation
   // is incorporated.
-  void* stack_addr_;
+  void* stack_top_;
   void* stack_end_;
 
   uint8_t* conc_compaction_termination_page_;
