@@ -48,11 +48,6 @@ USE_RBE = 100  # Percentage of tests that can use RBE (between 0 and 100)
 
 lock_file = None  # Keep alive as long as this process is alive.
 
-RBE_D8_DISABLED_FOR = {
-  "089-many-methods",         # D8 compilation intentionally fails.
-  "952-invoke-custom",        # b/228312861: RBE uses wrong inputs.
-  "979-const-method-handle",  # b/228312861: RBE uses wrong inputs.
-}
 
 class BuildTestContext:
   def __init__(self, args, android_build_top, test_dir):
@@ -85,8 +80,7 @@ class BuildTestContext:
     if "RBE_server_address" in os.environ and USE_RBE > (hash(self.test_name) % 100):
       self.rbe_exec_root = os.environ.get("RBE_exec_root")
       self.rbe_rewrapper = self.android_build_top / "prebuilts/remoteexecution-client/live/rewrapper"
-      if self.test_name not in RBE_D8_DISABLED_FOR:
-        self.d8 = functools.partial(self.rbe_d8, args.d8.absolute())
+      self.d8 = functools.partial(self.rbe_d8, args.d8.absolute())
       self.javac = functools.partial(self.rbe_javac, self.javac_path)
       self.smali = functools.partial(self.rbe_smali, args.smali.absolute())
 
@@ -156,6 +150,7 @@ class BuildTestContext:
       input_list.flush()
       return self.run(self.rbe_rewrapper, [
         "--platform=" + os.environ["RBE_platform"],
+        "--exec_strategy=remote",  # Passes with local.
         "--input_list_paths=" + input_list.name,
       ] + args)
 
@@ -381,6 +376,10 @@ class BuildTestContext:
     if any(Path("classes").glob("*")) and need_dex:
       make_dex(Path("classes"))
 
+    # TODO: Remove - isolating bug.
+    dex_size = Path("classes.dex").stat().st_size
+    assert dex_size == 38444, f"classes.dex has bad size {dex_size}"
+
     if Path("jasmin_classes").exists():
       # Compile Jasmin classes as if they were part of the classes.dex file.
       if need_dex:
@@ -494,6 +493,12 @@ def main() -> None:
   tests: List[BuildTestContext] = []
   for srcdir in filter(filter_by_hiddenapi, srcdirs):
     dstdir = ziproot / args.mode / srcdir.name
+
+    # TODO: Remove - isolating bug.
+    if srcdir.name != "952-invoke-custom":
+      os.makedirs(dstdir)
+      continue
+
     copytree(srcdir, dstdir)
     tests.append(BuildTestContext(args, android_build_top, dstdir))
 
