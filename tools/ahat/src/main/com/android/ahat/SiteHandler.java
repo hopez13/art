@@ -42,7 +42,7 @@ class SiteHandler implements AhatHandler {
     int id = query.getInt("id", 0);
     Site site = mSnapshot.getSite(id);
 
-    doc.title("Site");
+    doc.title("Allocations");
     doc.big(Summarizer.summarize(site));
 
     doc.section("Allocation Site");
