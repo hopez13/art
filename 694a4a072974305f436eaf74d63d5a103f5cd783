@@ -1,6 +1,69 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "6487b420_3e752a2e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-11-28T11:33:02Z",
+      "side": 1,
+      "message": "representation",
+      "range": {
+        "startLine": 9,
+        "startChar": 33,
+        "endLine": 9,
+        "endChar": 46
+      },
+      "revId": "694a4a072974305f436eaf74d63d5a103f5cd783",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e6f1e232_5dca690b",
+        "filename": "runtime/indirect_reference_table.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-11-28T11:33:02Z",
+      "side": 1,
+      "message": "Do we need this local variable?",
+      "range": {
+        "startLine": 177,
+        "startChar": 2,
+        "endLine": 177,
+        "endChar": 32
+      },
+      "revId": "694a4a072974305f436eaf74d63d5a103f5cd783",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99321df8_1e677af0",
+        "filename": "runtime/jni/check_jni.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-11-28T11:33:02Z",
+      "side": 1,
+      "message": "Add\n`DCHECK_NE(kind, kLocal);`",
+      "revId": "694a4a072974305f436eaf74d63d5a103f5cd783",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "2e74266e_d5499876",
