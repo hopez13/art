@@ -16,6 +16,92 @@
       "message": "Please review diff PS1 PS3.",
       "revId": "66889ff44754f33f2be815179a78deaa11bf137d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6994c9d5_98df76d8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-11-29T01:00:45Z",
+      "side": 1,
+      "message": "Unfortunately, I have some new concerns that I missed earlier. Lokesh - Could you also look at PS1-\u003ePS3 fault_handler.cc?",
+      "revId": "66889ff44754f33f2be815179a78deaa11bf137d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "418a8aa3_a04d5279",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-11-29T01:00:45Z",
+      "side": 1,
+      "message": "I agree this should solve the immediate problem, and the rest of this is basically as before. But looking at it again in context ...",
+      "range": {
+        "startLine": 303,
+        "startChar": 4,
+        "endLine": 304,
+        "endChar": 73
+      },
+      "revId": "66889ff44754f33f2be815179a78deaa11bf137d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf88e7a2_2858fa35",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-11-29T01:00:45Z",
+      "side": 1,
+      "message": "In this case, we end up suspended, but holding the mutator lock shared.",
+      "range": {
+        "startLine": 310,
+        "startChar": 8,
+        "endLine": 310,
+        "endChar": 70
+      },
+      "revId": "66889ff44754f33f2be815179a78deaa11bf137d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db28523a_340bf5da",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-11-29T01:00:45Z",
+      "side": 1,
+      "message": "In this case, we end up suspended, not holding the mutator lock, which is different from the previous case. Why?\n\nActually, I no longer quite understand why we need to touch the state here at all, except in the IsExclusiveHeld() case. RunEmptyCheckpoint() only seems to say:\n\n  Locks::mutator_lock_-\u003eAssertNotExclusiveHeld(self);\n\nI\u0027m also nervous about (sort of) releasing the mutator lock here, and whether that allows new and interesting deadlocks if another thread decides to suspend us in the middle here, and then block on the GC finishing.",
+      "range": {
+        "startLine": 312,
+        "startChar": 8,
+        "endLine": 312,
+        "endChar": 49
+      },
+      "revId": "66889ff44754f33f2be815179a78deaa11bf137d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
