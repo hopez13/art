@@ -63,6 +63,30 @@
       },
       "revId": "ca268841de1450aa72c542d44895b920d13ea77c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c4ca6310_3c0bd4af",
+        "filename": "test/2246-checker-smali-value-of/smali/b_252803203.smali",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-11-29T17:51:26Z",
+      "side": 1,
+      "message": "The `FindOrAddTypeConversionIfNecessary` is about inserting narrowing type conversions when we eliminate loads, for example\n\n    byteField \u003d intVar1;\n    int intVar2 \u003d byteField;  // Replace with TypeConversion(intVar1, byte).\n\nIf we\u0027re not inserting a type conversion for boolean fields, than for\n\n    booleanField \u003d Phi(0, 256);\n    boolean booleanVar \u003d booleanField;\n\nwe shall replace `booleanVar` with `Phi(0,256)` even though actual store and load would remove the higher bits and give us a plain 0.",
+      "parentUuid": "6a5b195b_ceb01e6b",
+      "range": {
+        "startLine": 48,
+        "startChar": 52,
+        "endLine": 48,
+        "endChar": 53
+      },
+      "revId": "ca268841de1450aa72c542d44895b920d13ea77c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
