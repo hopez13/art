@@ -39,6 +39,30 @@
       },
       "revId": "ca268841de1450aa72c542d44895b920d13ea77c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a5b195b_ceb01e6b",
+        "filename": "test/2246-checker-smali-value-of/smali/b_252803203.smali",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-11-29T17:11:43Z",
+      "side": 1,
+      "message": "That also passes verification and there\u0027s no type conversion. I changed `const/4` to `const/16` and updated the CHECKER tests and it passes.\n\nDoesn\u0027t the first line of `FindOrAddTypeConversionIfNecessary` show that we don\u0027t type convert to boolean?https://cs.android.com/android/platform/superproject/+/master:art/compiler/optimizing/load_store_elimination.cc;l\u003d713;drc\u003d434d968b4af0bc8af9889170250bee3e08839bea",
+      "parentUuid": "cce636bc_e0967285",
+      "range": {
+        "startLine": 48,
+        "startChar": 52,
+        "endLine": 48,
+        "endChar": 53
+      },
+      "revId": "ca268841de1450aa72c542d44895b920d13ea77c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
