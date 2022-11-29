@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c2c1464_c805e9d9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-11-29T13:14:03Z",
+      "side": 1,
+      "message": "Vladimir PTAL",
+      "revId": "8ff0669684484db1e719bfd82541a03303b6e693",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4cf91606_76b3861f",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 770,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-11-29T13:14:03Z",
+      "side": 1,
+      "message": "drive-by formatting",
+      "range": {
+        "startLine": 770,
+        "startChar": 20,
+        "endLine": 770,
+        "endChar": 26
+      },
+      "revId": "8ff0669684484db1e719bfd82541a03303b6e693",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
