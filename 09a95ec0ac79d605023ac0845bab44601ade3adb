@@ -39,6 +39,30 @@
       },
       "revId": "09a95ec0ac79d605023ac0845bab44601ade3adb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "efe1f374_7c6d059b",
+        "filename": "runtime/gc/collector/mark_compact.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 629,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-11-29T21:31:46Z",
+      "side": 1,
+      "message": "Actually I wanted to use names in sync with what we use in Thread.\n\nRenamed in PS4 to \u0027stack_low_addr\u0027 and \u0027stack_high_addr\u0027.",
+      "parentUuid": "feb303c2_abc91530",
+      "range": {
+        "startLine": 629,
+        "startChar": 2,
+        "endLine": 629,
+        "endChar": 19
+      },
+      "revId": "09a95ec0ac79d605023ac0845bab44601ade3adb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
