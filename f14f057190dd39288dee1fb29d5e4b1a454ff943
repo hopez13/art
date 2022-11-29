@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "35dd555f_d3ebaad9",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 5102,
+      "author": {
+        "id": 1863710
+      },
+      "writtenOn": "2022-11-29T13:28:35Z",
+      "side": 1,
+      "message": "This has been reduced as some synthetic methods are no longer necessary.",
+      "revId": "f14f057190dd39288dee1fb29d5e4b1a454ff943",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d9d759f_5f780ed4",
+        "filename": "runtime/dex/dex_file_annotations.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 1768,
+      "author": {
+        "id": 1863710
+      },
+      "writtenOn": "2022-11-29T13:28:35Z",
+      "side": 1,
+      "message": "I tried breaking this up, but it ended up worse than having it like this. The other option was to make ProcessAnnotationValue allow unresolved array members (maybe based on a template flag), but in the end I didn\u0027t want to complicate that code.",
+      "revId": "f14f057190dd39288dee1fb29d5e4b1a454ff943",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

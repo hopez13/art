@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d565bfd2_5cfe1209",
+        "filename": "runtime/mirror/class-inl.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 1225,
+      "author": {
+        "id": 1863710
+      },
+      "writtenOn": "2022-11-29T13:28:35Z",
+      "side": 1,
+      "message": "I\u0027m planning to evolve this to cache the nest group information, so it should be easier to do the check.",
+      "parentUuid": "6175ff16_135645d0",
+      "range": {
+        "startLine": 1220,
+        "startChar": 0,
+        "endLine": 1225,
+        "endChar": 49
+      },
+      "revId": "e4a585d394ead547c2d550bc07dbf45d2e45a8cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "34bc7db4_6a2a3c11",
         "filename": "runtime/mirror/class.cc",
         "patchSetId": 6
