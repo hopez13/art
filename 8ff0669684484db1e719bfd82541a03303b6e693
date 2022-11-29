@@ -65,6 +65,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "407fefbb_1293d055",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 770,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-11-29T13:50:29Z",
+      "side": 1,
+      "message": "I got it by default with clang-format. I can remove it, it is fine by me either way.",
+      "parentUuid": "c823083b_5c175e9c",
+      "range": {
+        "startLine": 770,
+        "startChar": 20,
+        "endLine": 770,
+        "endChar": 26
+      },
+      "revId": "8ff0669684484db1e719bfd82541a03303b6e693",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "88ed54e3_ea1dd4fe",
@@ -88,6 +112,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe3e1c95_f8dd3681",
+        "filename": "compiler/optimizing/dead_code_elimination.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-11-29T13:50:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "88ed54e3_ea1dd4fe",
+      "range": {
+        "startLine": 58,
+        "startChar": 62,
+        "endLine": 58,
+        "endChar": 81
+      },
+      "revId": "8ff0669684484db1e719bfd82541a03303b6e693",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c30e9f7d_68314f32",
@@ -101,6 +149,30 @@
       "writtenOn": "2022-11-29T13:24:39Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 66,
+        "startChar": 23,
+        "endLine": 66,
+        "endChar": 40
+      },
+      "revId": "8ff0669684484db1e719bfd82541a03303b6e693",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1331b50_aedf7ab1",
+        "filename": "compiler/optimizing/dead_code_elimination.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-11-29T13:50:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c30e9f7d_68314f32",
       "range": {
         "startLine": 66,
         "startChar": 23,
