@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f25a5a18_a1d74a51",
+        "filename": "runtime/gc/collector/mark_compact-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-11-29T20:19:46Z",
+      "side": 1,
+      "message": "Updated the comment. Basically it\u0027s ASAN\u0027s stack-use-after-return which promotes frames to heap and causing these issues. Here\u0027s some more info: https://android-review.git.corp.google.com/c/platform/art/+/2321034/comment/3640a980_bad3d69d/",
+      "parentUuid": "3640a980_bad3d69d",
+      "range": {
+        "startLine": 224,
+        "startChar": 50,
+        "endLine": 224,
+        "endChar": 74
+      },
+      "revId": "77685fa2229dd4df896002dbca830ecbbbc60feb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dea44fd7_e240b1da",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-11-29T17:23:14Z",
       "side": 1,
       "message": "I don\u0027t quite understand the comment. The issue is that we access the size_ field in an object that is considered deallocated, but is not getting reused?",
+      "range": {
+        "startLine": 52,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 14
+      },
+      "revId": "77685fa2229dd4df896002dbca830ecbbbc60feb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3920c829_4129d507",
+        "filename": "runtime/linear_alloc.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-11-29T20:19:46Z",
+      "side": 1,
+      "message": "Re-wrote the comment. PTAL.",
+      "parentUuid": "dea44fd7_e240b1da",
       "range": {
         "startLine": 52,
         "startChar": 0,
