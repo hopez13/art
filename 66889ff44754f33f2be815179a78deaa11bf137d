@@ -81,6 +81,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f8b9cdcd_5162dbc2",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-11-29T15:16:25Z",
+      "side": 1,
+      "message": "Removed in PS4.",
+      "parentUuid": "bf88e7a2_2858fa35",
+      "range": {
+        "startLine": 310,
+        "startChar": 8,
+        "endLine": 310,
+        "endChar": 70
+      },
+      "revId": "66889ff44754f33f2be815179a78deaa11bf137d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "db28523a_340bf5da",
@@ -118,6 +142,30 @@
       "side": 1,
       "message": "This code is this complicated only because of the fact that GCs are not using mutator-lock and state transitions correctly (b/259440389)\n\nUntil that is corrected, if we want to keep the empty-checkpoint usage consistent with how it\u0027s used elsewhere, then the mutator-lock should be (shared) unlocked unconditionally first.\n\nOTOH, if the goal is not to add yet another deadlock possibility then I agree that there seems to be no need to either change the state or unlock before running empty-checkpoint.",
       "parentUuid": "db28523a_340bf5da",
+      "range": {
+        "startLine": 312,
+        "startChar": 8,
+        "endLine": 312,
+        "endChar": 49
+      },
+      "revId": "66889ff44754f33f2be815179a78deaa11bf137d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "55cdc741_23bda7fa",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-11-29T15:16:25Z",
+      "side": 1,
+      "message": "I was under the impression that we wanted to avoid requesting checkpoints while holding the mutator lock. But it seems safer to avoid these transitions for now.",
+      "parentUuid": "ba3cce95_27bb5936",
       "range": {
         "startLine": 312,
         "startChar": 8,
