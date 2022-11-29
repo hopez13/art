@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "79c0589d_d0fed2f7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1463403
+      },
+      "writtenOn": "2022-11-29T00:43:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b550581d_533c737b",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 64
+      },
+      "revId": "2aff8546a1ab49d294cf612b7a7d5890b91f03ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f2d687da_3042b58c",
@@ -97,6 +121,24 @@
       "side": 1,
       "message": "So some more context is necessary here: This mostly improves the situation in the Android on Fuchsia project, where we disable debuggerd and let the Fuchsia crash handler dump the stack. Unlike debuggerd it has no knowledge of the original ucontext, so it will display the stack of the abort() call here instead of the segfault.\n\nI believe it\u0027s impossible to get to this abort() with debuggerd enabled, and why would you do that? Without debuggerd on Linux there\u0027s almost nothing else that would dump the stack. But if you do do that for some reason you can see the effect in lldb, since now continuing after a crash will send you back to the segfault instead of exiting. There\u0027s also a bit extra in the kernel log:\n\n    11-28 16:39:34.451     0     0 I ndroid.contacts[1769]: segfault at 0 ip 000078f9db9aba30 sp 00007ffcab234c98 error 4 in libandroid_runtime.so[78f9db98b000+142000]\n    11-28 16:39:34.452     0     0 I Code    : cc cc cc cc cc cc cc cc cc cc bf 9b ff ff ff 31 f6 e9 94 7e 11 00 cc cc cc cc bf 01 00 00 00 31 f6 31 d2 e9 92 7e 11 00 cc cc \u003c8b\u003e 04 25 00 00 00 00 c3 cc cc cc cc cc cc cc cc 8b bf 0c 01 00 00\n\nI\u0027d still like to land this as it\u0027s much easier than making debuggerd work on fuchsia and improves our crash dumps a lot.\n\nI also found b/197044435. I\u0027m not sure what workflow that bug\u0027s filer was using, but this change would probably have fixed it.",
       "parentUuid": "b94c2ff9_6237db1b",
+      "revId": "2aff8546a1ab49d294cf612b7a7d5890b91f03ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a172d45a_2f77458b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1463403
+      },
+      "writtenOn": "2022-11-29T00:43:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "055affae_424ca3b1",
       "revId": "2aff8546a1ab49d294cf612b7a7d5890b91f03ae",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
