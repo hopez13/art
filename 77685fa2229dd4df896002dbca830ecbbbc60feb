@@ -93,6 +93,30 @@
       },
       "revId": "77685fa2229dd4df896002dbca830ecbbbc60feb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "21ebe696_3560afd4",
+        "filename": "runtime/linear_alloc.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-11-29T20:54:54Z",
+      "side": 1,
+      "message": "LGTM",
+      "parentUuid": "3920c829_4129d507",
+      "range": {
+        "startLine": 52,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 14
+      },
+      "revId": "77685fa2229dd4df896002dbca830ecbbbc60feb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
