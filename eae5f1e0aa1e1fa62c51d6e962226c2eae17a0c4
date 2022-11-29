@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cdbe4201_03a95f11",
+        "filename": "runtime/mirror/class-inl.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 1207,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-11-29T16:18:29Z",
+      "side": 1,
+      "message": "Can we move this to static and taking two handles? Callers of it normally don\u0027t expect that the ObjPtr can be moved.",
+      "range": {
+        "startLine": 1207,
+        "startChar": 19,
+        "endLine": 1207,
+        "endChar": 34
+      },
+      "revId": "eae5f1e0aa1e1fa62c51d6e962226c2eae17a0c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "907cebd1_458bcf18",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 2200,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-11-29T16:18:29Z",
+      "side": 1,
+      "message": "Why do we need this check and the check line 2192 isn\u0027t enough? Please add a comment.",
+      "range": {
+        "startLine": 2196,
+        "startChar": 0,
+        "endLine": 2200,
+        "endChar": 3
+      },
+      "revId": "eae5f1e0aa1e1fa62c51d6e962226c2eae17a0c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e61ddb60_3ffa13a8",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 3855,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-11-29T16:18:29Z",
+      "side": 1,
+      "message": "Can we move this to two checks, with different error messages?",
+      "range": {
+        "startLine": 3852,
+        "startChar": 0,
+        "endLine": 3855,
+        "endChar": 68
+      },
+      "revId": "eae5f1e0aa1e1fa62c51d6e962226c2eae17a0c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
