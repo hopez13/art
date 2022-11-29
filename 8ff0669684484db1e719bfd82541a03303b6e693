@@ -39,6 +39,76 @@
       },
       "revId": "8ff0669684484db1e719bfd82541a03303b6e693",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c823083b_5c175e9c",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 770,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-11-29T13:24:39Z",
+      "side": 1,
+      "message": "Why should we add the attribute on namespace closing comments?",
+      "parentUuid": "4cf91606_76b3861f",
+      "range": {
+        "startLine": 770,
+        "startChar": 20,
+        "endLine": 770,
+        "endChar": 26
+      },
+      "revId": "8ff0669684484db1e719bfd82541a03303b6e693",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88ed54e3_ea1dd4fe",
+        "filename": "compiler/optimizing/dead_code_elimination.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-11-29T13:24:39Z",
+      "side": 1,
+      "message": "Renamed in .cc file.",
+      "range": {
+        "startLine": 58,
+        "startChar": 62,
+        "endLine": 58,
+        "endChar": 81
+      },
+      "revId": "8ff0669684484db1e719bfd82541a03303b6e693",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c30e9f7d_68314f32",
+        "filename": "compiler/optimizing/dead_code_elimination.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-11-29T13:24:39Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 66,
+        "startChar": 23,
+        "endLine": 66,
+        "endChar": 40
+      },
+      "revId": "8ff0669684484db1e719bfd82541a03303b6e693",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
