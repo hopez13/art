@@ -40,7 +40,10 @@ class HDeadCodeElimination : public HOptimization {
  private:
   void MaybeRecordDeadBlock(HBasicBlock* block);
   void MaybeRecordSimplifyIf();
-  bool RemoveDeadBlocks();
+  // If `force_recomputation` is true, we will recompute the dominance information even when we
+  // didn't delete any blocks. `force_loop_recomputation` is similar but it also forces the loop
+  // information recomputation.
+  bool RemoveDeadBlocks(bool force_recomputation = false, bool force_loop_recomputation = false);
   void RemoveDeadInstructions();
   bool SimplifyAlwaysThrows();
   bool SimplifyIfs();
