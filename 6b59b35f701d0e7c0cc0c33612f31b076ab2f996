@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d0b59e9a_b15acabc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-11-30T22:04:04Z",
+      "side": 1,
+      "message": "The repo-hooks have started reporting writing style as errors and until they are fixed, doesn\u0027t allow to proceed.",
+      "parentUuid": "2dbae948_851d9eb4",
+      "revId": "6b59b35f701d0e7c0cc0c33612f31b076ab2f996",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8267a794_ce0e2ed9",
@@ -43,6 +61,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3951a8fd_a7070a2e",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-11-30T22:04:04Z",
+      "side": 1,
+      "message": "When I\u0027m mmapping only for the sake of reserving the virtual range but know that I\u0027ll be modifying it later (by another mmap/mremap), I prefer using PROT_NONE so that any accidental access to it gets detected. That\u0027s why PROT_NONE is fine in this case.",
+      "parentUuid": "8267a794_ce0e2ed9",
+      "range": {
+        "startLine": 287,
+        "startChar": 46,
+        "endLine": 287,
+        "endChar": 56
+      },
+      "revId": "6b59b35f701d0e7c0cc0c33612f31b076ab2f996",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b3f7cb53_1eb7ced2",
         "filename": "runtime/gc/collector/mark_compact.cc",
         "patchSetId": 13
@@ -54,6 +96,30 @@
       "writtenOn": "2022-11-30T04:22:32Z",
       "side": 1,
       "message": "dontunmap",
+      "range": {
+        "startLine": 797,
+        "startChar": 30,
+        "endLine": 797,
+        "endChar": 38
+      },
+      "revId": "6b59b35f701d0e7c0cc0c33612f31b076ab2f996",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8d80171_67336953",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 797,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-11-30T22:04:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b3f7cb53_1eb7ced2",
       "range": {
         "startLine": 797,
         "startChar": 30,
@@ -89,6 +155,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9d5ec74f_e8babd30",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 826,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-11-30T22:04:04Z",
+      "side": 1,
+      "message": "Are you suggesting that we don\u0027t use shadow-map, and thereby minor-fault mode, if ASAN is enabled?\n\nWhat I\u0027m suggesting is that if we reserve the mapping using MapAnonymous then we don\u0027t get redzone and therefore ASAN wouldn\u0027t be effective on this range. Is that not sufficient?",
+      "parentUuid": "a704a6cd_c62c7aa9",
+      "range": {
+        "startLine": 826,
+        "startChar": 11,
+        "endLine": 826,
+        "endChar": 69
+      },
+      "revId": "6b59b35f701d0e7c0cc0c33612f31b076ab2f996",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8fbf7df5_f6642307",
         "filename": "runtime/gc/collector/mark_compact.cc",
         "patchSetId": 13
@@ -100,6 +190,30 @@
       "writtenOn": "2022-11-30T04:22:32Z",
       "side": 1,
       "message": "from",
+      "range": {
+        "startLine": 881,
+        "startChar": 44,
+        "endLine": 881,
+        "endChar": 48
+      },
+      "revId": "6b59b35f701d0e7c0cc0c33612f31b076ab2f996",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c4ac720_fe302fcb",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 881,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-11-30T22:04:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8fbf7df5_f6642307",
       "range": {
         "startLine": 881,
         "startChar": 44,
@@ -123,6 +237,30 @@
       "writtenOn": "2022-11-30T04:22:32Z",
       "side": 1,
       "message": "\"we use acq_rel order.\" Otherwise fine.",
+      "range": {
+        "startLine": 1546,
+        "startChar": 5,
+        "endLine": 1546,
+        "endChar": 35
+      },
+      "revId": "6b59b35f701d0e7c0cc0c33612f31b076ab2f996",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "54beaba2_51119703",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1546,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-11-30T22:04:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ccd9e4a6_c3a1bf06",
       "range": {
         "startLine": 1546,
         "startChar": 5,
@@ -158,6 +296,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b9147ec4_66d0fc56",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1637,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-11-30T22:04:04Z",
+      "side": 1,
+      "message": "I\u0027m not able to follow what you mean. When you say \u0027any prior access to the page...\u0027, the page is not even there for anybody to access.\n\nBasically, the highlighted line is in regards to the copy-mode. Since the ioctl acts as a fence, the CAS to moving_spaces_status_ is guaranteed to be done *before* the page becomes accessible to everyone. That\u0027s all we need.",
+      "parentUuid": "c553604a_0aab1178",
+      "range": {
+        "startLine": 1636,
+        "startChar": 53,
+        "endLine": 1637,
+        "endChar": 84
+      },
+      "revId": "6b59b35f701d0e7c0cc0c33612f31b076ab2f996",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "85346c9e_c5f5db51",
         "filename": "runtime/gc/collector/mark_compact.cc",
         "patchSetId": 13
@@ -169,6 +331,30 @@
       "writtenOn": "2022-11-30T04:22:32Z",
       "side": 1,
       "message": "Was this change intentional? The indentation is off, and I don\u0027t think this matches ART style.",
+      "range": {
+        "startLine": 2080,
+        "startChar": 12,
+        "endLine": 2086,
+        "endChar": 0
+      },
+      "revId": "6b59b35f701d0e7c0cc0c33612f31b076ab2f996",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d3ebf8a_3dfba16a",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 2086,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-11-30T22:04:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "85346c9e_c5f5db51",
       "range": {
         "startLine": 2080,
         "startChar": 12,
@@ -202,6 +388,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "aab2dcf3_ce0adbb6",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 2340,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-11-30T22:04:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b3ec6eaf_68356707",
+      "range": {
+        "startLine": 2340,
+        "startChar": 12,
+        "endLine": 2340,
+        "endChar": 90
+      },
+      "revId": "6b59b35f701d0e7c0cc0c33612f31b076ab2f996",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0bf5b736_47ba32e8",
@@ -215,6 +425,30 @@
       "writtenOn": "2022-11-30T04:22:32Z",
       "side": 1,
       "message": "There are various indentation problems here and below.",
+      "range": {
+        "startLine": 2535,
+        "startChar": 9,
+        "endLine": 2538,
+        "endChar": 13
+      },
+      "revId": "6b59b35f701d0e7c0cc0c33612f31b076ab2f996",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "513f5394_eb2d9603",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 2538,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-11-30T22:04:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0bf5b736_47ba32e8",
       "range": {
         "startLine": 2535,
         "startChar": 9,
@@ -248,6 +482,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6365ccca_1e99e4aa",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 2600,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-11-30T22:04:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6809a57e_e2d1d04b",
+      "range": {
+        "startLine": 2600,
+        "startChar": 83,
+        "endLine": 2600,
+        "endChar": 85
+      },
+      "revId": "6b59b35f701d0e7c0cc0c33612f31b076ab2f996",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "32b54e64_3c86faa1",
@@ -261,6 +519,30 @@
       "writtenOn": "2022-11-30T04:22:32Z",
       "side": 1,
       "message": "\"oversight\" is more standard, at least imn American English.",
+      "range": {
+        "startLine": 2765,
+        "startChar": 15,
+        "endLine": 2765,
+        "endChar": 23
+      },
+      "revId": "6b59b35f701d0e7c0cc0c33612f31b076ab2f996",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d93a2da7_c5fe4699",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 2765,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-11-30T22:04:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "32b54e64_3c86faa1",
       "range": {
         "startLine": 2765,
         "startChar": 15,

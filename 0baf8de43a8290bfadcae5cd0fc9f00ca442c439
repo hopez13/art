@@ -369,6 +369,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7f813755_4fb2ce6a",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-11-30T22:04:04Z",
+      "side": 1,
+      "message": "That risk is there on 32-bit apps only. But not sure if it\u0027s a real problem.\n\nIf it is then I can change the implementation for 32-bit: we attempt to reserve in every GC cycle, if we succeed then use minor-fault, else copy-mode and unmap the shadow-map in FinishPhase().\n\nIt\u0027s slightly less ideal as we will require an additional mmap in the compaction pause (but usually mmaps are not very expensive), and then (concurrent) unmap later.\n\nWDYT?",
+      "parentUuid": "fe90ae84_db4f486c",
+      "range": {
+        "startLine": 244,
+        "startChar": 51,
+        "endLine": 245,
+        "endChar": 63
+      },
+      "revId": "0baf8de43a8290bfadcae5cd0fc9f00ca442c439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "60a8553d_64b4d72b",
         "filename": "runtime/gc/collector/mark_compact.cc",
         "patchSetId": 10
@@ -1136,6 +1160,30 @@
       "side": 1,
       "message": "Sorry. My concern here was more about why the first page needs to be \"attempted\". Also why only \"attempted\"?",
       "parentUuid": "7e30c13d_40659537",
+      "range": {
+        "startLine": 1464,
+        "startChar": 4,
+        "endLine": 1466,
+        "endChar": 62
+      },
+      "revId": "0baf8de43a8290bfadcae5cd0fc9f00ca442c439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f46c072_ad22ed0d",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 1466,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-11-30T22:04:04Z",
+      "side": 1,
+      "message": "Re-worded again to clarify \u0027why\u0027.\n\nWe certainly need the first page to be successfully mapped. But that is asserted after returning from ioctl. Given the page state logic, we don\u0027t expect it to fail.",
+      "parentUuid": "d1e26c93_5d280817",
       "range": {
         "startLine": 1464,
         "startChar": 4,
