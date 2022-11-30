@@ -2402,6 +2402,19 @@ void Heap::IncrementFreedEver() {
                                 std::memory_order_release);
 }
 
+class Heap::SetupLinearAllocForZygoteFork : public AllocatorVisitor {
+ public:
+  explicit SetupLinearAllocForZygoteFork(Thread* self) : self_(self) {}
+
+  bool Visit(LinearAlloc* alloc) override {
+    alloc->SetupForPostZygoteFork(self_);
+    return true;
+  }
+
+ private:
+  Thread* self_;
+};
+
 #pragma clang diagnostic push
 #if !ART_USE_FUTEXES
 // Frame gets too large, perhaps due to Bionic pthread_mutex_lock size. We don't care.
@@ -2429,6 +2442,27 @@ void Heap::PreZygoteFork() {
   }
   Runtime::Current()->GetInternTable()->AddNewTable();
   Runtime::Current()->GetClassLinker()->MoveClassTableToPreZygote();
+  if (gUseUserfaultfd) {
+    // Setup all the linear-allocs out there for post-zygote fork. This will
+    // basically force the arena allocator to ask for a new arena for the next
+    // allocation. All arenas allocated from now on will be in the userfaultfd
+    // visited space.
+    Runtime* runtime = Runtime::Current();
+    if (runtime->GetLinearAlloc() != nullptr) {
+      runtime->GetLinearAlloc()->SetupForPostZygoteFork(self);
+    }
+    if (runtime->GetStartupLinearAlloc() != nullptr) {
+      runtime->GetStartupLinearAlloc()->SetupForPostZygoteFork(self);
+    }
+    {
+      Locks::mutator_lock_->AssertNotHeld(self);
+      ReaderMutexLock mu2(self, *Locks::mutator_lock_);
+      ReaderMutexLock mu3(self, *Locks::classlinker_classes_lock_);
+      SetupLinearAllocForZygoteFork visitor(self);
+      runtime->GetClassLinker()->VisitAllocators(&visitor);
+    }
+    static_cast<GcVisitedArenaPool*>(runtime->GetLinearAllocArenaPool())->SetupPostZygoteMode();
+  }
   VLOG(heap) << "Starting PreZygoteFork";
   // The end of the non-moving space may be protected, unprotect it so that we can copy the zygote
   // there.
