@@ -1734,7 +1734,7 @@ bool Runtime::Init(RuntimeArgumentMap&& runtime_options_in) {
   // when we have 64 bit ArtMethod pointers.
   const bool low_4gb = IsAotCompiler() && Is64BitInstructionSet(kRuntimeISA);
   if (gUseUserfaultfd) {
-    linear_alloc_arena_pool_.reset(new GcVisitedArenaPool(low_4gb));
+    linear_alloc_arena_pool_.reset(new GcVisitedArenaPool(low_4gb, IsZygote()));
   } else if (low_4gb) {
     linear_alloc_arena_pool_.reset(new MemMapArenaPool(low_4gb));
   }

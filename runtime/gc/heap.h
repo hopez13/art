@@ -993,6 +993,7 @@ class Heap {
   class HeapTrimTask;
   class TriggerPostForkCCGcTask;
   class ReduceTargetFootprintTask;
+  class SetupLinearAllocForZygoteFork;
 
   // Compact source space to target space. Returns the collector used.
   collector::GarbageCollector* Compact(space::ContinuousMemMapAllocSpace* target_space,
