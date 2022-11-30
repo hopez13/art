@@ -1,0 +1,274 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2bdce99c_92aaec28",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-11-30T09:26:19Z",
+      "side": 1,
+      "message": "Just nits.",
+      "revId": "b1597f49400b54141919e17f769fe3aea130be78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d7a7031c_3f7ca146",
+        "filename": "runtime/base/gc_visited_arena_pool.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-11-30T09:26:19Z",
+      "side": 1,
+      "message": "nit: pre_fork_name ?",
+      "range": {
+        "startLine": 138,
+        "startChar": 14,
+        "endLine": 138,
+        "endChar": 18
+      },
+      "revId": "b1597f49400b54141919e17f769fe3aea130be78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "880551ea_5a5147d6",
+        "filename": "runtime/base/gc_visited_arena_pool.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-11-30T09:26:19Z",
+      "side": 1,
+      "message": "Add a \u0027-\u0027 at the end?",
+      "range": {
+        "startLine": 138,
+        "startChar": 32,
+        "endLine": 138,
+        "endChar": 33
+      },
+      "revId": "b1597f49400b54141919e17f769fe3aea130be78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ad957c86_93fd4a04",
+        "filename": "runtime/base/gc_visited_arena_pool.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-11-30T09:26:19Z",
+      "side": 1,
+      "message": "nit: add a comment.",
+      "range": {
+        "startLine": 156,
+        "startChar": 0,
+        "endLine": 160,
+        "endChar": 3
+      },
+      "revId": "b1597f49400b54141919e17f769fe3aea130be78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc956246_8d7dd8f8",
+        "filename": "runtime/base/gc_visited_arena_pool.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-11-30T09:26:19Z",
+      "side": 1,
+      "message": "pre_zygote_fork",
+      "range": {
+        "startLine": 178,
+        "startChar": 54,
+        "endLine": 178,
+        "endChar": 69
+      },
+      "revId": "b1597f49400b54141919e17f769fe3aea130be78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2734ad39_395f7821",
+        "filename": "runtime/base/gc_visited_arena_pool.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-11-30T09:26:19Z",
+      "side": 1,
+      "message": "pre_zygote_fork",
+      "range": {
+        "startLine": 187,
+        "startChar": 54,
+        "endLine": 187,
+        "endChar": 69
+      },
+      "revId": "b1597f49400b54141919e17f769fe3aea130be78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48f9660b_c504825b",
+        "filename": "runtime/base/gc_visited_arena_pool.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-11-30T09:26:19Z",
+      "side": 1,
+      "message": "Add a comment about what it returns (would be nice to have `AddMap` and `AddPreZygoteForkMap` be consistent in return type).",
+      "range": {
+        "startLine": 140,
+        "startChar": 2,
+        "endLine": 140,
+        "endChar": 10
+      },
+      "revId": "b1597f49400b54141919e17f769fe3aea130be78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "54111626_4ca18d86",
+        "filename": "runtime/base/gc_visited_arena_pool.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-11-30T09:26:19Z",
+      "side": 1,
+      "message": "nit: add a comment.",
+      "range": {
+        "startLine": 186,
+        "startChar": 0,
+        "endLine": 186,
+        "endChar": 42
+      },
+      "revId": "b1597f49400b54141919e17f769fe3aea130be78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6581d63d_95710708",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2046,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-11-30T09:26:19Z",
+      "side": 1,
+      "message": "drop",
+      "range": {
+        "startLine": 2046,
+        "startChar": 2,
+        "endLine": 2046,
+        "endChar": 10
+      },
+      "revId": "b1597f49400b54141919e17f769fe3aea130be78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1fc88c30_7f95ff93",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2341,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-11-30T09:26:19Z",
+      "side": 1,
+      "message": "/* visit_native_roots\u003d */\n\nAlso, add a comment on why.",
+      "range": {
+        "startLine": 2341,
+        "startChar": 48,
+        "endLine": 2341,
+        "endChar": 64
+      },
+      "revId": "b1597f49400b54141919e17f769fe3aea130be78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f9339a36_ce06aed6",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2463,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-11-30T09:26:19Z",
+      "side": 1,
+      "message": "Maybe a method that visits all linear allocs defined in Runtime could help avoid someone adding a new linear alloc but forgetting to update this method?",
+      "range": {
+        "startLine": 2450,
+        "startChar": 0,
+        "endLine": 2463,
+        "endChar": 5
+      },
+      "revId": "b1597f49400b54141919e17f769fe3aea130be78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3318127_d6f988c8",
+        "filename": "runtime/linear_alloc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-11-30T09:26:19Z",
+      "side": 1,
+      "message": "nit: grammar",
+      "range": {
+        "startLine": 93,
+        "startChar": 6,
+        "endLine": 93,
+        "endChar": 73
+      },
+      "revId": "b1597f49400b54141919e17f769fe3aea130be78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
