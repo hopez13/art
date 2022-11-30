@@ -345,6 +345,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fe90ae84_db4f486c",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-11-30T04:22:32Z",
+      "side": 1,
+      "message": "There\u0027s no danger of higher-level code needing \u003c4GB mappings later, e.g. for buffers allocated by native code? I\u0027m worried about us grapping the space up front, and later clients failing. Since our mapping succeeded, we don\u0027t really get an opportunity to back out.  I care less about kObjPtrPoisoning, since customers will not run that way.",
+      "parentUuid": "22692d2c_6dc1b728",
+      "range": {
+        "startLine": 244,
+        "startChar": 51,
+        "endLine": 245,
+        "endChar": 63
+      },
+      "revId": "0baf8de43a8290bfadcae5cd0fc9f00ca442c439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "60a8553d_64b4d72b",
         "filename": "runtime/gc/collector/mark_compact.cc",
         "patchSetId": 10
@@ -626,6 +650,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d54bd73_b8056ecd",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 739,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-11-30T04:22:32Z",
+      "side": 1,
+      "message": "Ack. Thanks for the (re-)explanation.",
+      "parentUuid": "6f7ae001_59777ade",
+      "range": {
+        "startLine": 734,
+        "startChar": 20,
+        "endLine": 739,
+        "endChar": 28
+      },
+      "revId": "0baf8de43a8290bfadcae5cd0fc9f00ca442c439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b7e3d5aa_74618c9c",
@@ -663,6 +711,30 @@
       "side": 1,
       "message": "I have refactored this quite a bit. PTAL.",
       "parentUuid": "b7e3d5aa_74618c9c",
+      "range": {
+        "startLine": 748,
+        "startChar": 8,
+        "endLine": 762,
+        "endChar": 34
+      },
+      "revId": "0baf8de43a8290bfadcae5cd0fc9f00ca442c439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "73d3aec3_980537d7",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 762,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-11-30T04:22:32Z",
+      "side": 1,
+      "message": "Generally looks fine.",
+      "parentUuid": "cb07ec3c_e7bb68cb",
       "range": {
         "startLine": 748,
         "startChar": 8,
@@ -720,6 +792,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c45d986c_2a4bcea5",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 772,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-11-30T04:22:32Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "c88f67f0_c731f58a",
+      "range": {
+        "startLine": 771,
+        "startChar": 8,
+        "endLine": 772,
+        "endChar": 54
+      },
+      "revId": "0baf8de43a8290bfadcae5cd0fc9f00ca442c439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c4ce511e_9f114b23",
@@ -757,6 +853,30 @@
       "side": 1,
       "message": "It has to be mmap as we want the shadow-map to be a shared anonymous range. Later, in KernelPreparation(), this will be mremap(MREMAP_DONTUNMAP) on the moving-space, thereby giving us shared mappings between to-space and shadow. After that, we register the to-space with userfaultfd, and use minor-faults.\n\nThis is the most common case wherein we are able to reserve the virtual memory for shadow-map in the beginning (constructor).",
       "parentUuid": "c4ce511e_9f114b23",
+      "range": {
+        "startLine": 780,
+        "startChar": 20,
+        "endLine": 780,
+        "endChar": 24
+      },
+      "revId": "0baf8de43a8290bfadcae5cd0fc9f00ca442c439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ed1e76b_9bab7883",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 780,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-11-30T04:22:32Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "4e8cf8cd_9c85bcd4",
       "range": {
         "startLine": 780,
         "startChar": 20,
@@ -992,6 +1112,30 @@
       "side": 1,
       "message": "reworded to make it clear.",
       "parentUuid": "a5ef1387_a96195c4",
+      "range": {
+        "startLine": 1464,
+        "startChar": 4,
+        "endLine": 1466,
+        "endChar": 62
+      },
+      "revId": "0baf8de43a8290bfadcae5cd0fc9f00ca442c439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d1e26c93_5d280817",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 1466,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-11-30T04:22:32Z",
+      "side": 1,
+      "message": "Sorry. My concern here was more about why the first page needs to be \"attempted\". Also why only \"attempted\"?",
+      "parentUuid": "7e30c13d_40659537",
       "range": {
         "startLine": 1464,
         "startChar": 4,
