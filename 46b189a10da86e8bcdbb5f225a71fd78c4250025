@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4f3bdcb7_89502406",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-12-01T12:22:01Z",
+      "side": 1,
+      "message": "PTAL. Thanks!",
+      "revId": "46b189a10da86e8bcdbb5f225a71fd78c4250025",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed61628b_4d79e78e",
+        "filename": "runtime/trace.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-12-01T12:22:01Z",
+      "side": 1,
+      "message": "We use a bitset to check if we have seen a thread before or not. When we see the thread for the first time, we record information about thread like thread name etc., Atleast on my cloudtop I am seeing Thread Ids \u003e 1048576 and hence had to update it. We updated this once earlier. \n\nI am planning to update this in my per-thread buffer implementation. We can check if method_trace_buffer is nullptr as a check to see if we have seen this thread before. We can allocate the method trace buffer on the first event on this thread and just record the thread info then. We no longer need this bitset.",
+      "revId": "46b189a10da86e8bcdbb5f225a71fd78c4250025",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
