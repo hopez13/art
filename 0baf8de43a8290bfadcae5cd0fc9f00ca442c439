@@ -391,6 +391,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9851eb47_3790e027",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-12-01T00:47:37Z",
+      "side": 1,
+      "message": "OK. Let\u0027s proceed as is for now.",
+      "parentUuid": "7f813755_4fb2ce6a",
+      "range": {
+        "startLine": 244,
+        "startChar": 51,
+        "endLine": 245,
+        "endChar": 63
+      },
+      "revId": "0baf8de43a8290bfadcae5cd0fc9f00ca442c439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "60a8553d_64b4d72b",
@@ -1184,6 +1208,30 @@
       "side": 1,
       "message": "Re-worded again to clarify \u0027why\u0027.\n\nWe certainly need the first page to be successfully mapped. But that is asserted after returning from ioctl. Given the page state logic, we don\u0027t expect it to fail.",
       "parentUuid": "d1e26c93_5d280817",
+      "range": {
+        "startLine": 1464,
+        "startChar": 4,
+        "endLine": 1466,
+        "endChar": 62
+      },
+      "revId": "0baf8de43a8290bfadcae5cd0fc9f00ca442c439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0112f0b_f1adabc7",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 1466,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-12-01T00:47:37Z",
+      "side": 1,
+      "message": "Thanks! Makes perfect sense.",
+      "parentUuid": "7f46c072_ad22ed0d",
       "range": {
         "startLine": 1464,
         "startChar": 4,

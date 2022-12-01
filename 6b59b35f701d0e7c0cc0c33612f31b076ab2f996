@@ -85,6 +85,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4a7ff014_c1bc5bd2",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-12-01T00:47:37Z",
+      "side": 1,
+      "message": "Maybe make clear in a comment that this is only for address space reservation, and we will not be using this without remapping it?",
+      "parentUuid": "3951a8fd_a7070a2e",
+      "range": {
+        "startLine": 287,
+        "startChar": 46,
+        "endLine": 287,
+        "endChar": 56
+      },
+      "revId": "6b59b35f701d0e7c0cc0c33612f31b076ab2f996",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b3f7cb53_1eb7ced2",
         "filename": "runtime/gc/collector/mark_compact.cc",
         "patchSetId": 13
@@ -167,6 +191,30 @@
       "side": 1,
       "message": "Are you suggesting that we don\u0027t use shadow-map, and thereby minor-fault mode, if ASAN is enabled?\n\nWhat I\u0027m suggesting is that if we reserve the mapping using MapAnonymous then we don\u0027t get redzone and therefore ASAN wouldn\u0027t be effective on this range. Is that not sufficient?",
       "parentUuid": "a704a6cd_c62c7aa9",
+      "range": {
+        "startLine": 826,
+        "startChar": 11,
+        "endLine": 826,
+        "endChar": 69
+      },
+      "revId": "6b59b35f701d0e7c0cc0c33612f31b076ab2f996",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69c85b66_fe4bfe0c",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 826,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-12-01T00:47:37Z",
+      "side": 1,
+      "message": "I\u0027m somehow still confused. We\u0027re not doing anything different in the ASAN case, right? What are we not doing that would generate the redzone? Maybe I\u0027m confused by multiple kinds of shadow map here? Can we clarify the comment?",
+      "parentUuid": "9d5ec74f_e8babd30",
       "range": {
         "startLine": 826,
         "startChar": 11,
@@ -273,6 +321,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "70450c33_63738604",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1546,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-12-01T00:47:37Z",
+      "side": 1,
+      "message": "Why is the question mark still there? Intended?",
+      "parentUuid": "54beaba2_51119703",
+      "range": {
+        "startLine": 1546,
+        "startChar": 5,
+        "endLine": 1546,
+        "endChar": 35
+      },
+      "revId": "6b59b35f701d0e7c0cc0c33612f31b076ab2f996",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c553604a_0aab1178",
         "filename": "runtime/gc/collector/mark_compact.cc",
         "patchSetId": 13
@@ -308,6 +380,30 @@
       "side": 1,
       "message": "I\u0027m not able to follow what you mean. When you say \u0027any prior access to the page...\u0027, the page is not even there for anybody to access.\n\nBasically, the highlighted line is in regards to the copy-mode. Since the ioctl acts as a fence, the CAS to moving_spaces_status_ is guaranteed to be done *before* the page becomes accessible to everyone. That\u0027s all we need.",
       "parentUuid": "c553604a_0aab1178",
+      "range": {
+        "startLine": 1636,
+        "startChar": 53,
+        "endLine": 1637,
+        "endChar": 84
+      },
+      "revId": "6b59b35f701d0e7c0cc0c33612f31b076ab2f996",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a63dc6da_47fb1261",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1637,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-12-01T00:47:37Z",
+      "side": 1,
+      "message": "I probably didn\u0027t highlight the right text here. Especially after your change, we should really focus on the next paragraph and !kCopyMode case, where we actually need acquire ordering. The acquire does not prevent stores inside func() from being reordered with the store part of the CAS. Think of the CAS as being implemented as\n\nacquire lock on moving_pages_status_[page_idx];  // acquire operation\nload for compare exchange;\n...\nstore for compare-exchange;\nrelease lock on moving_pages_status_[page_idx];  // release operation\nfunc();\n\nNothing prevents stores for func() frpm advancing into the critical section.\n\nI don\u0027t think this is a real issue, since anybody looking at the results of func() will presumably read the status byte by acquiring thye same lock first. But I don\u0027t quite see how to read the comment as a correct statement.",
+      "parentUuid": "b9147ec4_66d0fc56",
       "range": {
         "startLine": 1636,
         "startChar": 53,
