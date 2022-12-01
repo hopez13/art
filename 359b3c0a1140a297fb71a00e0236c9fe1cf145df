@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a107d63c_c3cea4ab",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1971751
+      },
+      "writtenOn": "2022-12-01T14:46:41Z",
+      "side": 1,
+      "message": "\"call\" is better choice.\n\"call\" will transfer to \"auipc + jalr\" or \"jal\", but \"jal\" can only access (PC-1M, PC+1M).",
+      "range": {
+        "startLine": 362,
+        "startChar": 4,
+        "endLine": 362,
+        "endChar": 7
+      },
+      "revId": "359b3c0a1140a297fb71a00e0236c9fe1cf145df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
