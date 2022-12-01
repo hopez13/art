@@ -365,7 +365,7 @@ static void ZygoteHooks_nativePostForkChild(JNIEnv* env,
 
     // Only restart if it was streaming mode.
     // TODO: Expose buffer size, so we can also do file mode.
-    if (output_mode == Trace::TraceOutputMode::kStreaming) {
+    if (kIsTargetAndroid && output_mode == Trace::TraceOutputMode::kStreaming) {
       static constexpr size_t kMaxProcessNameLength = 100;
       char name_buf[kMaxProcessNameLength] = {};
       int rc = pthread_getname_np(pthread_self(), name_buf, kMaxProcessNameLength);
