@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a56e067_bcf6d144",
+        "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-12-01T16:14:29Z",
+      "side": 1,
+      "message": "Done. I hope this is what you meant. I think this entire code makes sense only for Android. If I got this wrong just let me know.",
+      "parentUuid": "7991010c_5f80b855",
+      "range": {
+        "startLine": 386,
+        "startChar": 44,
+        "endLine": 386,
+        "endChar": 61
+      },
+      "revId": "46b189a10da86e8bcdbb5f225a71fd78c4250025",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ed61628b_4d79e78e",
@@ -72,6 +96,24 @@
       "side": 1,
       "message": "Ack. Can we at least write those values in hexa?",
       "parentUuid": "ed61628b_4d79e78e",
+      "revId": "46b189a10da86e8bcdbb5f225a71fd78c4250025",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "87175ba7_267509c1",
+        "filename": "runtime/trace.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-12-01T16:14:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cea9ae4b_ed3cf64f",
       "revId": "46b189a10da86e8bcdbb5f225a71fd78c4250025",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
