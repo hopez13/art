@@ -1386,8 +1386,10 @@ ArtField* CompilerDriver::ComputeInstanceFieldInfo(uint32_t field_idx,
   }
   bool can_link = false;
   if (resolved_field != nullptr && referrer_class != nullptr) {
-    std::pair<bool, bool> fast_path = IsFastInstanceField(
-        dex_cache.Get(), referrer_class, resolved_field, field_idx);
+    StackHandleScope<1> hs(Thread::Current());
+    Handle<mirror::Class> h_referrer_class(hs.NewHandle(referrer_class));
+    std::pair<bool, bool> fast_path =
+        IsFastInstanceField(dex_cache, h_referrer_class, resolved_field, field_idx);
     can_link = is_put ? fast_path.second : fast_path.first;
   }
   ProcessedInstanceField(can_link);

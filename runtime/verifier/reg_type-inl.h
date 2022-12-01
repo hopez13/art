@@ -52,7 +52,10 @@ inline bool RegType::CanAccessMember(ObjPtr<mirror::Class> klass, uint32_t acces
     return true;
   }
   if (!IsUnresolvedTypes()) {
-    return GetClass()->CanAccessMember(klass, access_flags);
+    StackHandleScope<2> hs(Thread::Current());
+    Handle<mirror::Class> h_this(hs.NewHandle(GetClass()));
+    Handle<mirror::Class> h_other(hs.NewHandle(klass));
+    return mirror::Class::CanAccessMember(h_this, h_other, access_flags);
   } else {
     return false;  // More complicated test not possible on unresolved types, be conservative.
   }
