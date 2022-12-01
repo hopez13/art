@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a2c810b_278c1624",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-12-01T01:40:47Z",
+      "side": 1,
+      "message": "Any chance we could defer the removal and the empty checkpoint until after the GC is fully done? If so, I think that would be much lower risk.",
+      "revId": "31573ec9a6106627a3a49891bf3c66035a3f930f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1182eb52_a8a4f034",
