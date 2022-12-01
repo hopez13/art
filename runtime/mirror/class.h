@@ -619,38 +619,48 @@ class MANAGED Class final : public Object {
   bool CanAccess(ObjPtr<Class> that) REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Can this class access a member in the provided class with the provided member access flags?
+  // This is a fast check that will not try and establish nest group membership, therefore rejecting
+  // any private access.
   // Note that access to the class isn't checked in case the declaring class is protected and the
   // method has been exposed by a public sub-class
-  bool CanAccessMember(ObjPtr<Class> access_to, uint32_t member_flags)
+  bool CanAccessMemberFast(ObjPtr<Class> access_to, uint32_t member_flags)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
-  // Can this class access a resolved field?
+  // Can a class access a member in the provided class with the provided member access flags?
+  // Note that access to the class isn't checked in case the declaring class is protected and the
+  // method has been exposed by a public sub-class
+  static bool CanAccessMember(Handle<Class> access_from,
+                              Handle<Class> access_to,
+                              uint32_t member_flags) REQUIRES_SHARED(Locks::mutator_lock_);
+
+  // Can a certain class access a resolved field?
   // Note that access to field's class is checked and this may require looking up the class
   // referenced by the FieldId in the DexFile in case the declaring class is inaccessible.
-  bool CanAccessResolvedField(ObjPtr<Class> access_to,
-                              ArtField* field,
-                              ObjPtr<DexCache> dex_cache,
-                              uint32_t field_idx)
-      REQUIRES_SHARED(Locks::mutator_lock_);
-  bool CheckResolvedFieldAccess(ObjPtr<Class> access_to,
-                                ArtField* field,
-                                ObjPtr<DexCache> dex_cache,
-                                uint32_t field_idx)
-      REQUIRES_SHARED(Locks::mutator_lock_);
+  static bool CanAccessResolvedField(Handle<Class> access_from,
+                                     Handle<Class> access_to,
+                                     ArtField* field,
+                                     Handle<DexCache> dex_cache,
+                                     uint32_t field_idx) REQUIRES_SHARED(Locks::mutator_lock_);
+  static bool CheckResolvedFieldAccess(Handle<Class> access_from,
+                                       Handle<Class> access_to,
+                                       ArtField* field,
+                                       Handle<DexCache> dex_cache,
+                                       uint32_t field_idx) REQUIRES_SHARED(Locks::mutator_lock_);
 
-  // Can this class access a resolved method?
+  // Can a certain class access a resolved method?
   // Note that access to methods's class is checked and this may require looking up the class
   // referenced by the MethodId in the DexFile in case the declaring class is inaccessible.
-  bool CanAccessResolvedMethod(ObjPtr<Class> access_to,
-                               ArtMethod* resolved_method,
-                               ObjPtr<DexCache> dex_cache,
-                               uint32_t method_idx)
-      REQUIRES_SHARED(Locks::mutator_lock_);
-  bool CheckResolvedMethodAccess(ObjPtr<Class> access_to,
-                                 ArtMethod* resolved_method,
-                                 ObjPtr<DexCache> dex_cache,
-                                 uint32_t method_idx,
-                                 InvokeType throw_invoke_type)
+  static bool CanAccessResolvedMethod(Handle<Class> access_from,
+                                      Handle<Class> access_to,
+                                      ArtMethod* resolved_method,
+                                      Handle<DexCache> dex_cache,
+                                      uint32_t method_idx) REQUIRES_SHARED(Locks::mutator_lock_);
+  static bool CheckResolvedMethodAccess(Handle<Class> access_from,
+                                        Handle<Class> access_to,
+                                        ArtMethod* resolved_method,
+                                        Handle<DexCache> dex_cache,
+                                        uint32_t method_idx,
+                                        InvokeType throw_invoke_type)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   bool IsSubClass(ObjPtr<Class> klass) REQUIRES_SHARED(Locks::mutator_lock_);
@@ -1393,18 +1403,19 @@ class MANAGED Class final : public Object {
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   template <bool throw_on_failure>
-  bool ResolvedFieldAccessTest(ObjPtr<Class> access_to,
-                               ArtField* field,
-                               ObjPtr<DexCache> dex_cache,
-                               uint32_t field_idx)
-      REQUIRES_SHARED(Locks::mutator_lock_);
+  static bool ResolvedFieldAccessTest(Handle<Class> access_from,
+                                      Handle<Class> access_to,
+                                      ArtField* field,
+                                      Handle<DexCache> dex_cache,
+                                      uint32_t field_idx) REQUIRES_SHARED(Locks::mutator_lock_);
 
   template <bool throw_on_failure>
-  bool ResolvedMethodAccessTest(ObjPtr<Class> access_to,
-                                ArtMethod* resolved_method,
-                                ObjPtr<DexCache> dex_cache,
-                                uint32_t method_idx,
-                                InvokeType throw_invoke_type)
+  static bool ResolvedMethodAccessTest(Handle<Class> access_from,
+                                       Handle<Class> access_to,
+                                       ArtMethod* resolved_method,
+                                       Handle<DexCache> dex_cache,
+                                       uint32_t method_idx,
+                                       InvokeType throw_invoke_type)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   bool IsArrayAssignableFromArray(ObjPtr<Class> klass) REQUIRES_SHARED(Locks::mutator_lock_);

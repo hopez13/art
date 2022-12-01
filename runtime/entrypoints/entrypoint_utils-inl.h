@@ -390,7 +390,7 @@ inline ArtField* ResolveFieldWithAccessChecks(Thread* self,
 
   caller = caller->GetInterfaceMethodIfProxy(class_linker->GetImagePointerSize());
 
-  StackHandleScope<2> hs(self);
+  StackHandleScope<4> hs(self);
   Handle<mirror::DexCache> h_dex_cache(hs.NewHandle(caller->GetDexCache()));
   Handle<mirror::ClassLoader> h_class_loader(hs.NewHandle(caller->GetClassLoader()));
 
@@ -401,16 +401,14 @@ inline ArtField* ResolveFieldWithAccessChecks(Thread* self,
     return nullptr;
   }
 
-  ObjPtr<mirror::Class> fields_class = resolved_field->GetDeclaringClass();
   if (UNLIKELY(resolved_field->IsStatic() != is_static)) {
     ThrowIncompatibleClassChangeErrorField(resolved_field, is_static, caller);
     return nullptr;
   }
-  ObjPtr<mirror::Class> referring_class = caller->GetDeclaringClass();
-  if (UNLIKELY(!referring_class->CheckResolvedFieldAccess(fields_class,
-                                                          resolved_field,
-                                                          caller->GetDexCache(),
-                                                          field_index))) {
+  Handle<mirror::Class> h_referring_class(hs.NewHandle(caller->GetDeclaringClass()));
+  Handle<mirror::Class> h_fields_class(hs.NewHandle(resolved_field->GetDeclaringClass()));
+  if (UNLIKELY(!mirror::Class::CheckResolvedFieldAccess(
+          h_referring_class, h_fields_class, resolved_field, h_dex_cache, field_index))) {
     DCHECK(self->IsExceptionPending());
     return nullptr;
   }
