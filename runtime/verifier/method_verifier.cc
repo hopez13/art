@@ -3840,7 +3840,7 @@ ArtMethod* MethodVerifier<kVerifierDebug>::ResolveMethodAndCheckAccess(
     return nullptr;
   }
   // Check if access is allowed.
-  if (!referrer.CanAccessMember(res_method->GetDeclaringClass(), res_method->GetAccessFlags())) {
+  if (!referrer.CanAccessMember(res_method)) {
     Fail(VERIFY_ERROR_ACCESS_METHOD) << "illegal method access (call "
                                      << res_method->PrettyMethod()
                                      << " from " << referrer << ")";
@@ -4552,8 +4552,7 @@ ArtField* MethodVerifier<kVerifierDebug>::GetStaticField(int field_idx) {
     DCHECK(self_->IsExceptionPending());
     self_->ClearException();
     return nullptr;
-  } else if (!GetDeclaringClass().CanAccessMember(field->GetDeclaringClass(),
-                                                  field->GetAccessFlags())) {
+  } else if (!GetDeclaringClass().CanAccessMember(field)) {
     Fail(VERIFY_ERROR_ACCESS_FIELD) << "cannot access static field " << field->PrettyField()
                                     << " from " << GetDeclaringClass();
     return nullptr;
@@ -4641,8 +4640,7 @@ ArtField* MethodVerifier<kVerifierDebug>::GetInstanceField(const RegType& obj_ty
   }
 
   // Few last soft failure checks.
-  if (!GetDeclaringClass().CanAccessMember(field->GetDeclaringClass(),
-                                           field->GetAccessFlags())) {
+  if (!GetDeclaringClass().CanAccessMember(field)) {
     Fail(VERIFY_ERROR_ACCESS_FIELD) << "cannot access instance field " << field->PrettyField()
                                     << " from " << GetDeclaringClass();
     return nullptr;

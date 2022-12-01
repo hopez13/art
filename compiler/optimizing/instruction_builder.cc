@@ -2227,11 +2227,16 @@ ArtField* HInstructionBuilder::ResolveField(uint16_t field_idx, bool is_static, 
         (!resolved_field->IsPublic() && !declaring_class_accessible)) {
       return nullptr;
     }
-  } else if (!compiling_class->CanAccessResolvedField(resolved_field->GetDeclaringClass(),
-                                                      resolved_field,
-                                                      dex_compilation_unit_->GetDexCache().Get(),
-                                                      field_idx)) {
-    return nullptr;
+  } else {
+    StackHandleScope<1> hs(soa.Self());
+    Handle<mirror::Class> resolved_class(hs.NewHandle(resolved_field->GetDeclaringClass()));
+    if (!mirror::Class::CanAccessResolvedField(compiling_class,
+                                               resolved_class,
+                                               resolved_field,
+                                               dex_compilation_unit_->GetDexCache(),
+                                               field_idx)) {
+      return nullptr;
+    }
   }
 
   if (is_put) {

@@ -1376,18 +1376,20 @@ ArtField* CompilerDriver::ComputeInstanceFieldInfo(uint32_t field_idx,
                                                    const ScopedObjectAccess& soa) {
   // Try to resolve the field and compiling method's class.
   ArtField* resolved_field;
-  ObjPtr<mirror::Class> referrer_class;
+  StackHandleScope<1> hs(soa.Self());
+  MutableHandle<mirror::Class> referrer_class;
   Handle<mirror::DexCache> dex_cache(mUnit->GetDexCache());
   {
     Handle<mirror::ClassLoader> class_loader = mUnit->GetClassLoader();
     resolved_field = ResolveField(soa, dex_cache, class_loader, field_idx, /* is_static= */ false);
-    referrer_class = resolved_field != nullptr
-        ? ResolveCompilingMethodsClass(soa, dex_cache, class_loader, mUnit) : nullptr;
+    if (resolved_field != nullptr) {
+      referrer_class.Assign(ResolveCompilingMethodsClass(soa, dex_cache, class_loader, mUnit));
+    }
   }
   bool can_link = false;
-  if (resolved_field != nullptr && referrer_class != nullptr) {
-    std::pair<bool, bool> fast_path = IsFastInstanceField(
-        dex_cache.Get(), referrer_class, resolved_field, field_idx);
+  if (resolved_field != nullptr && !referrer_class.IsNull()) {
+    std::pair<bool, bool> fast_path =
+        IsFastInstanceField(dex_cache, referrer_class, resolved_field, field_idx);
     can_link = is_put ? fast_path.second : fast_path.first;
   }
   ProcessedInstanceField(can_link);

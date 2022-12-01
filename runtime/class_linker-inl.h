@@ -339,11 +339,12 @@ inline ArtMethod* ClassLinker::GetResolvedMethod(uint32_t method_idx, ArtMethod*
       return nullptr;
     }
     // Check access.
-    ObjPtr<mirror::Class> referring_class = referrer->GetDeclaringClass();
-    if (!referring_class->CanAccessResolvedMethod(resolved_method->GetDeclaringClass(),
-                                                  resolved_method,
-                                                  dex_cache,
-                                                  method_idx)) {
+    StackHandleScope<3> hs(Thread::Current());
+    Handle<mirror::Class> h_referring_class(hs.NewHandle(referrer->GetDeclaringClass()));
+    Handle<mirror::Class> h_target_class(hs.NewHandle(resolved_method->GetDeclaringClass()));
+    Handle<mirror::DexCache> h_dex_cache(hs.NewHandle(dex_cache));
+    if (!mirror::Class::CanAccessResolvedMethod(
+            h_referring_class, h_target_class, resolved_method, h_dex_cache, method_idx)) {
       return nullptr;
     }
     // Check if the invoke type matches the method type.
@@ -407,12 +408,12 @@ inline ArtMethod* ClassLinker::ResolveMethod(Thread* self,
       return nullptr;
     }
     // Check access.
-    ObjPtr<mirror::Class> referring_class = referrer->GetDeclaringClass();
-    if (!referring_class->CheckResolvedMethodAccess(resolved_method->GetDeclaringClass(),
-                                                    resolved_method,
-                                                    referrer->GetDexCache(),
-                                                    method_idx,
-                                                    type)) {
+    StackHandleScope<3> hs(self);
+    Handle<mirror::Class> h_referring_class(hs.NewHandle(referrer->GetDeclaringClass()));
+    Handle<mirror::Class> h_target_class(hs.NewHandle(resolved_method->GetDeclaringClass()));
+    Handle<mirror::DexCache> h_dex_cache(hs.NewHandle(referrer->GetDexCache()));
+    if (!mirror::Class::CheckResolvedMethodAccess(
+            h_referring_class, h_target_class, resolved_method, h_dex_cache, method_idx, type)) {
       DCHECK(Thread::Current()->IsExceptionPending());
       return nullptr;
     }
@@ -497,13 +498,11 @@ inline ArtMethod* ClassLinker::ResolveMethod(uint32_t method_idx,
 
   // Note: We can check for IllegalAccessError only if we have a referrer.
   if (kResolveMode == ResolveMode::kCheckICCEAndIAE && resolved != nullptr && referrer != nullptr) {
-    ObjPtr<mirror::Class> methods_class = resolved->GetDeclaringClass();
-    ObjPtr<mirror::Class> referring_class = referrer->GetDeclaringClass();
-    if (!referring_class->CheckResolvedMethodAccess(methods_class,
-                                                    resolved,
-                                                    dex_cache.Get(),
-                                                    method_idx,
-                                                    type)) {
+    StackHandleScope<2> hs(Thread::Current());
+    Handle<mirror::Class> referring_class(hs.NewHandle(referrer->GetDeclaringClass()));
+    Handle<mirror::Class> methods_class(hs.NewHandle(resolved->GetDeclaringClass()));
+    if (!mirror::Class::CheckResolvedMethodAccess(
+            referring_class, methods_class, resolved, dex_cache, method_idx, type)) {
       DCHECK(Thread::Current()->IsExceptionPending());
       return nullptr;
     }
