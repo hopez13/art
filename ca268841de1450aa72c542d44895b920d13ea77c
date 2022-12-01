@@ -87,6 +87,30 @@
       },
       "revId": "ca268841de1450aa72c542d44895b920d13ea77c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dcce765b_eabffb8d",
+        "filename": "test/2246-checker-smali-value-of/smali/b_252803203.smali",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-12-01T16:28:46Z",
+      "side": 1,
+      "message": "Not sure I follow. Calling `booleanValueOf` with `256` returns `true`, with and without my CL. Should it have returned false?\n\n```\n.method public static repro_with_256(Z)Ljava/lang/Boolean;\n   .registers 1\n   const/16 v0, 0x100\n   invoke-static {v0}, LB252803203;-\u003e$noinline$booleanValueOf(Z)Ljava/lang/Boolean;\n   move-result-object v0\n   return-object v0\n.end method\n\n# Copy of java.lang.Boolean\u0027s ValueOf(boolean)\n.method public static $noinline$booleanValueOf(Z)Ljava/lang/Boolean;\n   .registers 1\n   if-eqz p0, :LFalse\n   sget-object v0, Ljava/lang/Boolean;-\u003eTRUE:Ljava/lang/Boolean;\n   return-object v0\n:LFalse\n   sget-object v0, Ljava/lang/Boolean;-\u003eFALSE:Ljava/lang/Boolean;\n   return-object v0\n.end method\n```\n\nAll values I tried (positive and negative) were `true`, except `0` which was `false`",
+      "parentUuid": "c4ca6310_3c0bd4af",
+      "range": {
+        "startLine": 48,
+        "startChar": 52,
+        "endLine": 48,
+        "endChar": 53
+      },
+      "revId": "ca268841de1450aa72c542d44895b920d13ea77c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
