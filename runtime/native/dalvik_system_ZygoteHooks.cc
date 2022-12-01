@@ -382,7 +382,11 @@ static void ZygoteHooks_nativePostForkChild(JNIEnv* env,
         proc_name = StringPrintf("%u", static_cast<uint32_t>(pid));
       }
 
+#ifdef ART_TARGET_ANDROID
       std::string trace_file = StringPrintf("/data/misc/trace/%s.trace.bin", proc_name.c_str());
+#else
+      std::string trace_file = StringPrintf("/tmp/%s.trace.bin", proc_name.c_str());
+#endif
       Trace::Start(trace_file.c_str(),
                    buffer_size,
                    0,   // TODO: Expose flags.
