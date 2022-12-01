@@ -84,18 +84,18 @@ inline ArtField* CompilerDriver::ResolveField(const ScopedObjectAccess& soa,
 }
 
 inline std::pair<bool, bool> CompilerDriver::IsFastInstanceField(
-    ObjPtr<mirror::DexCache> dex_cache,
-    ObjPtr<mirror::Class> referrer_class,
+    Handle<mirror::DexCache> dex_cache,
+    Handle<mirror::Class> referrer_class,
     ArtField* resolved_field,
     uint16_t field_idx) {
   DCHECK(!resolved_field->IsStatic());
-  ObjPtr<mirror::Class> fields_class = resolved_field->GetDeclaringClass();
+  StackHandleScope<1> hs(Thread::Current());
+  Handle<mirror::Class> fields_class(hs.NewHandle(resolved_field->GetDeclaringClass()));
   bool fast_get = referrer_class != nullptr &&
-      referrer_class->CanAccessResolvedField(fields_class,
-                                             resolved_field,
-                                             dex_cache,
-                                             field_idx);
-  bool fast_put = fast_get && (!resolved_field->IsFinal() || fields_class == referrer_class);
+                  mirror::Class::CanAccessResolvedField(
+                      referrer_class, fields_class, resolved_field, dex_cache, field_idx);
+  bool fast_put =
+      fast_get && (!resolved_field->IsFinal() || fields_class.Get() == referrer_class.Get());
   return std::make_pair(fast_get, fast_put);
 }
 
