@@ -22,6 +22,30 @@
       },
       "revId": "c4f677a7456a9182a1cca8ca832cd1ea1433bcd2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ada961b_c6945ddb",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 3857,
+      "author": {
+        "id": 1863710
+      },
+      "writtenOn": "2022-12-01T15:00:33Z",
+      "side": 1,
+      "message": "It\u0027s a clang-format thing. Also, there is no coding style that would ask for a single check per line.",
+      "parentUuid": "085d087b_62bbb2fa",
+      "range": {
+        "startLine": 3856,
+        "startChar": 6,
+        "endLine": 3857,
+        "endChar": 42
+      },
+      "revId": "c4f677a7456a9182a1cca8ca832cd1ea1433bcd2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
