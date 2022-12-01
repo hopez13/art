@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d68a097f_1f236cf8",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2231,
+      "author": {
+        "id": 1863710
+      },
+      "writtenOn": "2022-12-01T18:32:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6cfdd4b7_48d888a5",
+      "range": {
+        "startLine": 2231,
+        "startChar": 27,
+        "endLine": 2231,
+        "endChar": 44
+      },
+      "revId": "94bf4de2a635d15c7c27f04857b47fdfae7e580f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7d5938f9_87bd4542",
@@ -54,6 +78,30 @@
       "writtenOn": "2022-12-01T14:28:36Z",
       "side": 1,
       "message": "soa.Self()",
+      "range": {
+        "startLine": 1389,
+        "startChar": 27,
+        "endLine": 1389,
+        "endChar": 44
+      },
+      "revId": "94bf4de2a635d15c7c27f04857b47fdfae7e580f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c4c71a43_45eec2c3",
+        "filename": "dex2oat/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1389,
+      "author": {
+        "id": 1863710
+      },
+      "writtenOn": "2022-12-01T18:32:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7d5938f9_87bd4542",
       "range": {
         "startLine": 1389,
         "startChar": 27,
@@ -87,6 +135,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5edc95c2_8f581e1c",
+        "filename": "dex2oat/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1390,
+      "author": {
+        "id": 1863710
+      },
+      "writtenOn": "2022-12-01T18:32:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9555d836_aaf56d41",
+      "range": {
+        "startLine": 1389,
+        "startChar": 0,
+        "endLine": 1390,
+        "endChar": 73
+      },
+      "revId": "94bf4de2a635d15c7c27f04857b47fdfae7e580f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "218904dc_c44bdad1",
@@ -100,6 +172,30 @@
       "writtenOn": "2022-12-01T14:28:36Z",
       "side": 1,
       "message": "self",
+      "range": {
+        "startLine": 411,
+        "startChar": 27,
+        "endLine": 411,
+        "endChar": 44
+      },
+      "revId": "94bf4de2a635d15c7c27f04857b47fdfae7e580f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d8f8be65_65f178c5",
+        "filename": "runtime/class_linker-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 1863710
+      },
+      "writtenOn": "2022-12-01T18:32:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "218904dc_c44bdad1",
       "range": {
         "startLine": 411,
         "startChar": 27,
@@ -146,6 +242,30 @@
       "writtenOn": "2022-12-01T14:28:36Z",
       "side": 1,
       "message": "We need to move this to a handle.",
+      "range": {
+        "startLine": 49,
+        "startChar": 37,
+        "endLine": 49,
+        "endChar": 64
+      },
+      "revId": "94bf4de2a635d15c7c27f04857b47fdfae7e580f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "09bb8080_a65f16c6",
+        "filename": "runtime/verifier/reg_type-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1863710
+      },
+      "writtenOn": "2022-12-01T18:32:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b6665072_15518dba",
       "range": {
         "startLine": 49,
         "startChar": 37,
