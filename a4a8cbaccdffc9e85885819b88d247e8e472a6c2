@@ -16,6 +16,24 @@
       "message": "dx-tests is a bit of an interesting soong target which needs some attention. This is a quick fix in the interim to stop breakage on go/art-buildbot.",
       "revId": "a4a8cbaccdffc9e85885819b88d247e8e472a6c2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "55e99f2d_82585163",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2022-12-02T16:52:25Z",
+      "side": 1,
+      "message": "There should be an `sh_test_host` target associated with the test,",
+      "parentUuid": "edb21230_ecef6ccb",
+      "revId": "a4a8cbaccdffc9e85885819b88d247e8e472a6c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
