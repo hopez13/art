@@ -1,0 +1,412 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d9349213_8571002e",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 1168,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-12-02T12:17:50Z",
+      "side": 1,
+      "message": "Can you provide a `runtime_image.h` and make this a static member of `RuntimeImage`?",
+      "range": {
+        "startLine": 1168,
+        "startChar": 7,
+        "endLine": 1168,
+        "endChar": 23
+      },
+      "revId": "020f864625619aa9016de08775e5537fdfa0f5f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77684a2a_ea6bf7e1",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-12-02T12:17:50Z",
+      "side": 1,
+      "message": "I would move the addition of the offset to the end (`...  + i` instead of `i + ...`). Rename `i` to `offset` or at least `o`.",
+      "range": {
+        "startLine": 73,
+        "startChar": 6,
+        "endLine": 74,
+        "endChar": 98
+      },
+      "revId": "020f864625619aa9016de08775e5537fdfa0f5f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "50520fb1_6a34a393",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-12-02T12:17:50Z",
+      "side": 1,
+      "message": "The boot image can be relocated but I assume we shall load the runtime image just fine if the boot image ends up at a different address. However, we should actually test that by passing `--relocate` to the new tests.",
+      "range": {
+        "startLine": 150,
+        "startChar": 13,
+        "endLine": 150,
+        "endChar": 25
+      },
+      "revId": "020f864625619aa9016de08775e5537fdfa0f5f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b232f2a7_dd95e8a5",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-12-02T12:17:50Z",
+      "side": 1,
+      "message": "The `+ offset` should be last.",
+      "range": {
+        "startLine": 158,
+        "startChar": 59,
+        "endLine": 158,
+        "endChar": 68
+      },
+      "revId": "020f864625619aa9016de08775e5537fdfa0f5f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8bfad06d_8d895264",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-12-02T12:17:50Z",
+      "side": 1,
+      "message": "I\u0027m not too fond of this style. I\u0027d prefer to drop the `class_table_section` reference and repeat `sections[ImageHeader::kSectionClassTable]` below.\n\n(Same for `string_reference_offsets` below and the code in `ImageWriter` that you copied.)",
+      "range": {
+        "startLine": 186,
+        "startChar": 4,
+        "endLine": 188,
+        "endChar": 38
+      },
+      "revId": "020f864625619aa9016de08775e5537fdfa0f5f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8145d32b_936f25e2",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-12-02T12:17:50Z",
+      "side": 1,
+      "message": "Why `hs` if we have the `handles`?",
+      "range": {
+        "startLine": 211,
+        "startChar": 4,
+        "endLine": 212,
+        "endChar": 49
+      },
+      "revId": "020f864625619aa9016de08775e5537fdfa0f5f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "07dcf019_a4e1a36c",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-12-02T12:17:50Z",
+      "side": 1,
+      "message": "Check for OOME. (Though we could simply avoid this allocation and copy the boot image class roots directly to the new data, replacing the special root in the process.)",
+      "revId": "020f864625619aa9016de08775e5537fdfa0f5f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c0b78082_9fe5c3c2",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-12-02T12:17:50Z",
+      "side": 1,
+      "message": "Check for OOME.",
+      "range": {
+        "startLine": 254,
+        "startChar": 26,
+        "endLine": 254,
+        "endChar": 31
+      },
+      "revId": "020f864625619aa9016de08775e5537fdfa0f5f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46f697f6_d15404b6",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-12-02T12:17:50Z",
+      "side": 1,
+      "message": "Check for OOME.",
+      "range": {
+        "startLine": 264,
+        "startChar": 45,
+        "endLine": 264,
+        "endChar": 50
+      },
+      "revId": "020f864625619aa9016de08775e5537fdfa0f5f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9bdf3893_30adaf9b",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-12-02T12:17:50Z",
+      "side": 1,
+      "message": "From this point on, we should use `ScopedAssertNoThreadSuspension`.",
+      "range": {
+        "startLine": 271,
+        "startChar": 4,
+        "endLine": 273,
+        "endChar": 80
+      },
+      "revId": "020f864625619aa9016de08775e5537fdfa0f5f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de5bb238_2759d9f1",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-12-02T12:17:50Z",
+      "side": 1,
+      "message": "Recursion on arbitrary data easily leads to stack overflow. It may be OK while we\u0027re just copying dex caches but we should definitely avoid it for more complicated object graphs.",
+      "range": {
+        "startLine": 276,
+        "startChar": 47,
+        "endLine": 276,
+        "endChar": 58
+      },
+      "revId": "020f864625619aa9016de08775e5537fdfa0f5f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14978393_82cf6880",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-12-02T12:17:50Z",
+      "side": 1,
+      "message": "This is not the `ImageWriter` where the GC is disabled.",
+      "range": {
+        "startLine": 302,
+        "startChar": 59,
+        "endLine": 302,
+        "endChar": 78
+      },
+      "revId": "020f864625619aa9016de08775e5537fdfa0f5f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0fb639af_44f3ff38",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 398,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-12-02T12:17:50Z",
+      "side": 1,
+      "message": "I\u0027d prefer an explicit type here.",
+      "range": {
+        "startLine": 398,
+        "startChar": 9,
+        "endLine": 398,
+        "endChar": 13
+      },
+      "revId": "020f864625619aa9016de08775e5537fdfa0f5f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b3bd4a86_601a7c5a",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-12-02T12:17:50Z",
+      "side": 1,
+      "message": "`Get()` is unnecessary for `Handle\u003c\u003e` comparisons.",
+      "range": {
+        "startLine": 399,
+        "startChar": 15,
+        "endLine": 399,
+        "endChar": 21
+      },
+      "revId": "020f864625619aa9016de08775e5537fdfa0f5f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "58409622_8248acf1",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-12-02T12:17:50Z",
+      "side": 1,
+      "message": "This makes me think that it would be better to pass the `handles` to `CollectDexCacheVisitor` instead of letting it use its own `VariableSizedHandleScope`.",
+      "range": {
+        "startLine": 402,
+        "startChar": 31,
+        "endLine": 402,
+        "endChar": 61
+      },
+      "revId": "020f864625619aa9016de08775e5537fdfa0f5f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a268b78_cbee93cd",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 409,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-12-02T12:17:50Z",
+      "side": 1,
+      "message": "This could sign-extend the pointer value on 32-bit architectures. Use `reinterptet_cast64\u003c\u003e()`.",
+      "range": {
+        "startLine": 409,
+        "startChar": 11,
+        "endLine": 409,
+        "endChar": 42
+      },
+      "revId": "020f864625619aa9016de08775e5537fdfa0f5f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db819bb2_4a48e61b",
+        "filename": "test/845-data-image/src-art/Main.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-12-02T12:17:50Z",
+      "side": 1,
+      "message": "Can we move this before the \"--second-run\" check?",
+      "range": {
+        "startLine": 56,
+        "startChar": 4,
+        "endLine": 59,
+        "endChar": 5
+      },
+      "revId": "020f864625619aa9016de08775e5537fdfa0f5f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "758dd734_14474676",
+        "filename": "test/846-multidex-data-image/src-art/Main.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-12-02T12:17:50Z",
+      "side": 1,
+      "message": "Can we move this before the \"--second-run\" check?",
+      "range": {
+        "startLine": 56,
+        "startChar": 4,
+        "endLine": 59,
+        "endChar": 5
+      },
+      "revId": "020f864625619aa9016de08775e5537fdfa0f5f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
