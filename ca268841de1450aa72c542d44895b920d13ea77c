@@ -111,6 +111,30 @@
       },
       "revId": "ca268841de1450aa72c542d44895b920d13ea77c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7efa222a_f33c6b99",
+        "filename": "test/2246-checker-smali-value-of/smali/b_252803203.smali",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-12-02T16:04:42Z",
+      "side": 1,
+      "message": "Forget `booleanValueOf`. I\u0027m saying that with boolean values other than 0 and 1 there can be a lot of other bugs around. And I\u0027m giving LSE with `Phi(0, 256)` as an example.\n\nThis CL deals with just one specific case but we need a plan to address the general issue of `boolean` variables being initialized by arbitrary values.",
+      "parentUuid": "dcce765b_eabffb8d",
+      "range": {
+        "startLine": 48,
+        "startChar": 52,
+        "endLine": 48,
+        "endChar": 53
+      },
+      "revId": "ca268841de1450aa72c542d44895b920d13ea77c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
