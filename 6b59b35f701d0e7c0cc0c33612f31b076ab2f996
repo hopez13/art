@@ -273,6 +273,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c3209f0_212a7064",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 826,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-12-02T00:10:46Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "5ef5e950_01bebba5",
+      "range": {
+        "startLine": 826,
+        "startChar": 11,
+        "endLine": 826,
+        "endChar": 69
+      },
+      "revId": "6b59b35f701d0e7c0cc0c33612f31b076ab2f996",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8fbf7df5_f6642307",
@@ -500,6 +524,30 @@
       "side": 1,
       "message": "\u003e I probably didn\u0027t highlight the right text here. Especially after your change, we should really focus on the next paragraph and !kCopyMode case, where we actually need acquire ordering. The acquire does not prevent stores inside func() from being reordered with the store part of the CAS. Think of the CAS as being implemented as\n\u003e \n\u003e acquire lock on moving_pages_status_[page_idx];  // acquire operation\n\u003e load for compare exchange;\n\u003e ...\n\u003e store for compare-exchange;\n\u003e release lock on moving_pages_status_[page_idx];  // release operation\n\u003e func();\n\u003e \n\u003e Nothing prevents stores for func() frpm advancing into the critical section.\n\u003e \nI see what you mean. Basically, since a CAS is a read followed by a write, using acquire only guarantees that the memory operations after the CAS won\u0027t be reordered with the CAS\u0027 load, but no guarantees about CAS\u0027 store. Is that right?\n\n\u003e I don\u0027t think this is a real issue, since anybody looking at the results of func() will presumably read the status byte by acquiring thye same lock first. But I don\u0027t quite see how to read the comment as a correct statement.\n\nQuestion: Can the func()\u0027s stores also get reorderd with CAS\u0027 comparison?\n\nWhat happens when CAS is implemented using load-exclusive/store-exclusive rather than a lock. In there is it not possible that func()\u0027s stores get reordered with the store-exclusive. If so, then we have a problem, right? Two threads could read-exclusive `kUnProcessed` and then start storing to the page (in func()), then only one of them does store-exclusive, but by then the data consistency is gone.\nWhat prevents this from happening? I guess only one cpu core can get \u0027exclusive\u0027 tag on the given memory location (moving_pages_status_[page_idx] in our case), right?",
       "parentUuid": "a63dc6da_47fb1261",
+      "range": {
+        "startLine": 1636,
+        "startChar": 53,
+        "endLine": 1637,
+        "endChar": 84
+      },
+      "revId": "6b59b35f701d0e7c0cc0c33612f31b076ab2f996",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af213614_b8651a30",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1637,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-12-02T00:10:46Z",
+      "side": 1,
+      "message": "You mean reordering with the load in the comparison? That can happen, but should not normally be observable for an acquire-CAS. In the lock-based implementation, that\u0027s not observable because the observing thread has to acquire the same lock to read the result of the CAS. To see the updates in the wrong order, an observer would have to see the data changes following the CAS, and then see the status unchanged. But for the status to be unchanged, the observer critical section would have to execute first, and that would mean the observer data access happens before CAS critical section, leading to a contradiction. And the data accesses would have to be atomic here anyway to avoid a data race.\n\nOfficially, the only thing acquire and release guarantee is that a thread whose acquire load sees the release store, will also see accesses preceding the release store.\n\nCan we abstractly describe the scenario we\u0027re trying to handle here?\n\nWe have one thread essentially doing\n\nCAS-acquire status\nread and write data\n\nWhat is the observer thread that should not see these reordered actually doing? It can\u0027t be doing the same thing, because then presumably one of the CASes would fail.",
+      "parentUuid": "3590d18c_7892600a",
       "range": {
         "startLine": 1636,
         "startChar": 53,
