@@ -255,6 +255,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a7c27162_2757407b",
+        "filename": "runtime/entrypoints/quick/quick_field_entrypoints.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-12-02T14:47:52Z",
+      "side": 1,
+      "message": "We should just return null (meaning the field cannot be found fast).",
+      "parentUuid": "59091967_fb3bb1bc",
+      "range": {
+        "startLine": 60,
+        "startChar": 33,
+        "endLine": 60,
+        "endChar": 42
+      },
+      "revId": "94bf4de2a635d15c7c27f04857b47fdfae7e580f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b6665072_15518dba",
         "filename": "runtime/verifier/reg_type-inl.h",
         "patchSetId": 1
