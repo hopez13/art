@@ -560,6 +560,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "284d0e3f_105404aa",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1637,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-12-02T19:32:03Z",
+      "side": 1,
+      "message": "We need acquire ordering here to ensure that when the CAS fails, another thread has completed procesing the page, which is guaranteed by the release below.",
+      "parentUuid": "af213614_b8651a30",
+      "range": {
+        "startLine": 1636,
+        "startChar": 53,
+        "endLine": 1637,
+        "endChar": 84
+      },
+      "revId": "6b59b35f701d0e7c0cc0c33612f31b076ab2f996",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "85346c9e_c5f5db51",
         "filename": "runtime/gc/collector/mark_compact.cc",
         "patchSetId": 13
