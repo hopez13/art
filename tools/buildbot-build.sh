@@ -107,7 +107,7 @@ make_command="build/soong/soong_ui.bash --make-mode $j_arg $extra_args $showcomm
 if [[ $build_host == "yes" ]]; then
   make_command+=" build-art-host-gtests"
   test $skip_run_tests_build == "yes" || make_command+=" build-art-host-run-tests"
-  make_command+=" dx-tests junit-host libjdwp-host"
+  make_command+=" dx dx-tests junit-host libjdwp-host"
   for LIB in ${specific_targets} ; do
     make_command+=" $LIB-host"
   done
