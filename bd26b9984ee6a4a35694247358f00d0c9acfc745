@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "afffb1ba_4ac69333",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-12-03T00:35:45Z",
+      "side": 1,
+      "message": "Without the SafeCopy fix, the test (added in this CL) is consistently failing with `optimizing` in ndebug, but all the other configs pass. Why could that be happening?",
+      "revId": "bd26b9984ee6a4a35694247358f00d0c9acfc745",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
