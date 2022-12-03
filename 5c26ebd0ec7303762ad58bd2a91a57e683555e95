@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2fed93a0_78917833",
+        "filename": "libartbase/base/mem_map.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-12-03T01:07:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4b8273c7_1d9e2823",
+      "range": {
+        "startLine": 325,
+        "startChar": 2,
+        "endLine": 326,
+        "endChar": 13
+      },
+      "revId": "5c26ebd0ec7303762ad58bd2a91a57e683555e95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d28810a6_d8167d00",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c5a9033e_2afa90cb",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-12-03T01:07:59Z",
+      "side": 1,
+      "message": "As discussed offline, since it\u0027s being only used in this file, it\u0027s ok to keep it as is.\n\nIt is more desirable to do this with the main flags (gUseUserfaultfd and gUseReadBarrier), but they are performance critical and hence what we have is the best we can do.",
+      "parentUuid": "d28810a6_d8167d00",
+      "range": {
+        "startLine": 96,
+        "startChar": 0,
+        "endLine": 96,
+        "endChar": 90
+      },
+      "revId": "5c26ebd0ec7303762ad58bd2a91a57e683555e95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "41de6e69_5a9586da",
@@ -60,6 +108,30 @@
       "writtenOn": "2022-12-03T00:50:05Z",
       "side": 1,
       "message": "\"another thread has\"",
+      "range": {
+        "startLine": 1655,
+        "startChar": 16,
+        "endLine": 1655,
+        "endChar": 28
+      },
+      "revId": "5c26ebd0ec7303762ad58bd2a91a57e683555e95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3959f877_c8eb8ea8",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1655,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-12-03T01:07:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "41de6e69_5a9586da",
       "range": {
         "startLine": 1655,
         "startChar": 16,
