@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b8273c7_1d9e2823",
+        "filename": "libartbase/base/mem_map.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-12-03T00:50:05Z",
+      "side": 1,
+      "message": "Should ideally be a single line.",
+      "range": {
+        "startLine": 325,
+        "startChar": 2,
+        "endLine": 326,
+        "endChar": 13
+      },
+      "revId": "5c26ebd0ec7303762ad58bd2a91a57e683555e95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d28810a6_d8167d00",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-12-03T00:50:05Z",
+      "side": 1,
+      "message": "Are we sure this is not ever required during static initialization? The alternative is:\n\nbool HaveMremapDontunmap() {\n  static bool haveMremapDontunmap \u003d IsKernelVersionAtLeast(5, 13) || HaveMremapDontunmap();\n  return haveMremapDontunmap;\n}\n\nwhich should compute this on first call and avoid any static initialization ordering issues.",
+      "range": {
+        "startLine": 96,
+        "startChar": 0,
+        "endLine": 96,
+        "endChar": 90
+      },
+      "revId": "5c26ebd0ec7303762ad58bd2a91a57e683555e95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "41de6e69_5a9586da",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1655,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-12-03T00:50:05Z",
+      "side": 1,
+      "message": "\"another thread has\"",
+      "range": {
+        "startLine": 1655,
+        "startChar": 16,
+        "endLine": 1655,
+        "endChar": 28
+      },
+      "revId": "5c26ebd0ec7303762ad58bd2a91a57e683555e95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
