@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "85c102ae_57ac7d92",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-12-04T17:40:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9007689b_f1534e23",
+      "range": {
+        "startLine": 9,
+        "startChar": 18,
+        "endLine": 9,
+        "endChar": 54
+      },
+      "revId": "3d1fde4258828a544b17b7c1bc085b4a5498a0a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b738cbff_b4ddab02",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-12-04T02:00:17Z",
       "side": 1,
       "message": "delete.",
+      "range": {
+        "startLine": 10,
+        "startChar": 9,
+        "endLine": 10,
+        "endChar": 15
+      },
+      "revId": "3d1fde4258828a544b17b7c1bc085b4a5498a0a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c98ef3b2_89f70186",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-12-04T17:40:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b738cbff_b4ddab02",
       "range": {
         "startLine": 10,
         "startChar": 9,
@@ -87,6 +135,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "06c37104_82fa6522",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1392,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-12-04T17:40:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "664a654b_2da393f2",
+      "range": {
+        "startLine": 1392,
+        "startChar": 5,
+        "endLine": 1392,
+        "endChar": 8
+      },
+      "revId": "3d1fde4258828a544b17b7c1bc085b4a5498a0a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2d51c2d9_ce858628",
@@ -100,6 +172,30 @@
       "writtenOn": "2022-12-04T02:00:17Z",
       "side": 1,
       "message": "Please change to non_moving_first_objs_count_ - 1; i \u003e\u003d 0, and remove the -1 below.",
+      "range": {
+        "startLine": 1397,
+        "startChar": 18,
+        "endLine": 1397,
+        "endChar": 54
+      },
+      "revId": "3d1fde4258828a544b17b7c1bc085b4a5498a0a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "178aa88c_7b291b6f",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1397,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-12-04T17:40:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2d51c2d9_ce858628",
       "range": {
         "startLine": 1397,
         "startChar": 18,
