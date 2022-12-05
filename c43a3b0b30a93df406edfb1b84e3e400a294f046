@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6718fec8_2e1aa0fe",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-12-05T18:18:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b7e8b3c2_b3c31344",
+      "range": {
+        "startLine": 68,
+        "startChar": 33,
+        "endLine": 68,
+        "endChar": 34
+      },
+      "revId": "c43a3b0b30a93df406edfb1b84e3e400a294f046",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f3b50f9d_829a4012",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-12-05T09:06:26Z",
       "side": 1,
       "message": "If we\u0027re trying to give GC more work, wouldn\u0027t `new Object[750]` take more time to process?",
+      "range": {
+        "startLine": 35,
+        "startChar": 25,
+        "endLine": 35,
+        "endChar": 39
+      },
+      "revId": "c43a3b0b30a93df406edfb1b84e3e400a294f046",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3faadc63_98f4dd34",
+        "filename": "test/2045-uffd-kernelfault/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-12-05T18:18:05Z",
+      "side": 1,
+      "message": "That\u0027s true but that\u0027ll also increase the marking phase time. I wanted the compaction phase to take majority of time during GC. I have updated the comment.",
+      "parentUuid": "f3b50f9d_829a4012",
       "range": {
         "startLine": 35,
         "startChar": 25,
