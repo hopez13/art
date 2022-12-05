@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9cbde071_687d54b5",
+        "filename": "test/527-checker-array-access-split/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 612,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-12-05T17:01:22Z",
+      "side": 0,
+      "message": "We can eliminate this `IntermediateAddress` since we know that the ArraySet cannot trigger a GC.",
+      "range": {
+        "startLine": 612,
+        "startChar": 36,
+        "endLine": 612,
+        "endChar": 55
+      },
+      "revId": "56fb841094902d736fc292605d7a7f5362b63741",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

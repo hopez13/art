@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "593e9892_40084e9f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-12-05T17:01:22Z",
+      "side": 1,
+      "message": "Vladimir PTAL",
+      "revId": "02385a95153486d9c9976638420a708b0fd56194",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4459895f_516ef8e2",
+        "filename": "test/521-checker-array-set-null/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-12-05T17:01:22Z",
+      "side": 1,
+      "message": "Drive-bys:\n* Added `$noinline$` to test names\n* Added an explanation as to why we clear the `needs_type_check` flag, and in which pass we eliminate it.",
+      "revId": "02385a95153486d9c9976638420a708b0fd56194",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
