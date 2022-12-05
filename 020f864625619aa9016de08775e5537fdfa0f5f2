@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f9b02c3f_1105f769",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 1168,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-12-05T11:18:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d9349213_8571002e",
+      "range": {
+        "startLine": 1168,
+        "startChar": 7,
+        "endLine": 1168,
+        "endChar": 23
+      },
+      "revId": "020f864625619aa9016de08775e5537fdfa0f5f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "77684a2a_ea6bf7e1",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-12-02T12:17:50Z",
       "side": 1,
       "message": "I would move the addition of the offset to the end (`...  + i` instead of `i + ...`). Rename `i` to `offset` or at least `o`.",
+      "range": {
+        "startLine": 73,
+        "startChar": 6,
+        "endLine": 74,
+        "endChar": 98
+      },
+      "revId": "020f864625619aa9016de08775e5537fdfa0f5f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bec0f9e0_37b61753",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-12-05T11:18:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "77684a2a_ea6bf7e1",
       "range": {
         "startLine": 73,
         "startChar": 6,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "973cbe4c_185400bb",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-12-05T11:18:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "50520fb1_6a34a393",
+      "range": {
+        "startLine": 150,
+        "startChar": 13,
+        "endLine": 150,
+        "endChar": 25
+      },
+      "revId": "020f864625619aa9016de08775e5537fdfa0f5f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b232f2a7_dd95e8a5",
@@ -83,6 +155,30 @@
       "writtenOn": "2022-12-02T12:17:50Z",
       "side": 1,
       "message": "The `+ offset` should be last.",
+      "range": {
+        "startLine": 158,
+        "startChar": 59,
+        "endLine": 158,
+        "endChar": 68
+      },
+      "revId": "020f864625619aa9016de08775e5537fdfa0f5f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "478bdc19_584464f0",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-12-05T11:18:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b232f2a7_dd95e8a5",
       "range": {
         "startLine": 158,
         "startChar": 59,
@@ -116,6 +212,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "461ca7b1_b51d19ec",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-12-05T11:18:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8bfad06d_8d895264",
+      "range": {
+        "startLine": 186,
+        "startChar": 4,
+        "endLine": 188,
+        "endChar": 38
+      },
+      "revId": "020f864625619aa9016de08775e5537fdfa0f5f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8145d32b_936f25e2",
@@ -129,6 +249,30 @@
       "writtenOn": "2022-12-02T12:17:50Z",
       "side": 1,
       "message": "Why `hs` if we have the `handles`?",
+      "range": {
+        "startLine": 211,
+        "startChar": 4,
+        "endLine": 212,
+        "endChar": 49
+      },
+      "revId": "020f864625619aa9016de08775e5537fdfa0f5f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c692836_3fc1a4d6",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-12-05T11:18:03Z",
+      "side": 1,
+      "message": "I was planning to iterate over the VariableSizedHandleScope to iterate over the dex caches, but this brings alongs some complication. So yeah, dropped `hs`.",
+      "parentUuid": "8145d32b_936f25e2",
       "range": {
         "startLine": 211,
         "startChar": 4,
@@ -156,6 +300,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d8144b30_6acc9b7d",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-12-05T11:18:03Z",
+      "side": 1,
+      "message": "Added the check, I find it simpler to not special case here.",
+      "parentUuid": "07dcf019_a4e1a36c",
+      "revId": "020f864625619aa9016de08775e5537fdfa0f5f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c0b78082_9fe5c3c2",
@@ -169,6 +331,30 @@
       "writtenOn": "2022-12-02T12:17:50Z",
       "side": 1,
       "message": "Check for OOME.",
+      "range": {
+        "startLine": 254,
+        "startChar": 26,
+        "endLine": 254,
+        "endChar": 31
+      },
+      "revId": "020f864625619aa9016de08775e5537fdfa0f5f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "81b89711_be7b0cea",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-12-05T11:18:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c0b78082_9fe5c3c2",
       "range": {
         "startLine": 254,
         "startChar": 26,
@@ -202,6 +388,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a1339fe_c3d9aae6",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-12-05T11:18:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "46f697f6_d15404b6",
+      "range": {
+        "startLine": 264,
+        "startChar": 45,
+        "endLine": 264,
+        "endChar": 50
+      },
+      "revId": "020f864625619aa9016de08775e5537fdfa0f5f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9bdf3893_30adaf9b",
@@ -215,6 +425,30 @@
       "writtenOn": "2022-12-02T12:17:50Z",
       "side": 1,
       "message": "From this point on, we should use `ScopedAssertNoThreadSuspension`.",
+      "range": {
+        "startLine": 271,
+        "startChar": 4,
+        "endLine": 273,
+        "endChar": 80
+      },
+      "revId": "020f864625619aa9016de08775e5537fdfa0f5f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f1e02d3_b1ecb861",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-12-05T11:18:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9bdf3893_30adaf9b",
       "range": {
         "startLine": 271,
         "startChar": 4,
@@ -248,6 +482,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "783e4a6d_0f7cb7d0",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-12-05T11:18:03Z",
+      "side": 1,
+      "message": "Agree.",
+      "parentUuid": "de5bb238_2759d9f1",
+      "range": {
+        "startLine": 276,
+        "startChar": 47,
+        "endLine": 276,
+        "endChar": 58
+      },
+      "revId": "020f864625619aa9016de08775e5537fdfa0f5f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "14978393_82cf6880",
@@ -261,6 +519,30 @@
       "writtenOn": "2022-12-02T12:17:50Z",
       "side": 1,
       "message": "This is not the `ImageWriter` where the GC is disabled.",
+      "range": {
+        "startLine": 302,
+        "startChar": 59,
+        "endLine": 302,
+        "endChar": 78
+      },
+      "revId": "020f864625619aa9016de08775e5537fdfa0f5f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0bfe505c_2bd2496f",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-12-05T11:18:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "14978393_82cf6880",
       "range": {
         "startLine": 302,
         "startChar": 59,
@@ -294,6 +576,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd3f5a2c_04fb2bbd",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 398,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-12-05T11:18:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0fb639af_44f3ff38",
+      "range": {
+        "startLine": 398,
+        "startChar": 9,
+        "endLine": 398,
+        "endChar": 13
+      },
+      "revId": "020f864625619aa9016de08775e5537fdfa0f5f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b3bd4a86_601a7c5a",
@@ -307,6 +613,30 @@
       "writtenOn": "2022-12-02T12:17:50Z",
       "side": 1,
       "message": "`Get()` is unnecessary for `Handle\u003c\u003e` comparisons.",
+      "range": {
+        "startLine": 399,
+        "startChar": 15,
+        "endLine": 399,
+        "endChar": 21
+      },
+      "revId": "020f864625619aa9016de08775e5537fdfa0f5f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fcf9d080_a5aaf9fa",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-12-05T11:18:03Z",
+      "side": 1,
+      "message": "Looks like no?\n\n```\nart/runtime/runtime_image.cc:413:17: error: invalid operands to binary expression (\u0027Handle\u003cmirror::DexCache\u003e\u0027 and \u0027std::__vector_base\u003cart::Handle\u003cart::mirror::DexCache\u003e, std::allocator\u003cart::Handle\u003c\nart::mirror::DexCache\u003e\u003e\u003e::value_type\u0027 (aka \u0027art::Handle\u003cart::mirror::DexCache\u003e\u0027))\n```",
+      "parentUuid": "b3bd4a86_601a7c5a",
       "range": {
         "startLine": 399,
         "startChar": 15,
@@ -340,6 +670,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8c16707_8551a01d",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-12-05T11:18:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "58409622_8248acf1",
+      "range": {
+        "startLine": 402,
+        "startChar": 31,
+        "endLine": 402,
+        "endChar": 61
+      },
+      "revId": "020f864625619aa9016de08775e5537fdfa0f5f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5a268b78_cbee93cd",
@@ -353,6 +707,30 @@
       "writtenOn": "2022-12-02T12:17:50Z",
       "side": 1,
       "message": "This could sign-extend the pointer value on 32-bit architectures. Use `reinterptet_cast64\u003c\u003e()`.",
+      "range": {
+        "startLine": 409,
+        "startChar": 11,
+        "endLine": 409,
+        "endChar": 42
+      },
+      "revId": "020f864625619aa9016de08775e5537fdfa0f5f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c0388ba1_42fb7d05",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 409,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-12-05T11:18:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5a268b78_cbee93cd",
       "range": {
         "startLine": 409,
         "startChar": 11,
@@ -386,6 +764,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f74891d_726ce2ac",
+        "filename": "test/845-data-image/src-art/Main.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-12-05T11:18:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "db819bb2_4a48e61b",
+      "range": {
+        "startLine": 56,
+        "startChar": 4,
+        "endLine": 59,
+        "endChar": 5
+      },
+      "revId": "020f864625619aa9016de08775e5537fdfa0f5f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "758dd734_14474676",
@@ -399,6 +801,30 @@
       "writtenOn": "2022-12-02T12:17:50Z",
       "side": 1,
       "message": "Can we move this before the \"--second-run\" check?",
+      "range": {
+        "startLine": 56,
+        "startChar": 4,
+        "endLine": 59,
+        "endChar": 5
+      },
+      "revId": "020f864625619aa9016de08775e5537fdfa0f5f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6b795b2_0470d15d",
+        "filename": "test/846-multidex-data-image/src-art/Main.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-12-05T11:18:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "758dd734_14474676",
       "range": {
         "startLine": 56,
         "startChar": 4,
