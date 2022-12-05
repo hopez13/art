@@ -137,6 +137,15 @@ class MemMap {
                              /*inout*/MemMap* reservation,
                              /*out*/std::string* error_msg,
                              bool use_debug_name = true);
+
+  // Request an aligned anonymous region.
+  static MemMap MapAnonymousAligned(const char* name,
+                                    size_t byte_count,
+                                    int prot,
+                                    bool low_4gb,
+                                    size_t alignment,
+                                    /*out=*/std::string* error_msg);
+
   static MemMap MapAnonymous(const char* name,
                              size_t byte_count,
                              int prot,
