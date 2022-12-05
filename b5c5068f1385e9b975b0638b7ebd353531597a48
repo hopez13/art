@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4fa46e1d_ae649ee1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-12-05T18:21:02Z",
+      "side": 1,
+      "message": "If we start supporting that, we would be able to inline graphs like\n\n```\nint foo(int param) {\n  if (param \u003d\u003d 0) {\n    // normal graph\n  } else {\n    // irreducible loop\n  }\n}\n```\n\nwhen we know its input is 0.",
+      "range": {
+        "startLine": 19,
+        "startChar": 50,
+        "endLine": 20,
+        "endChar": 37
+      },
+      "revId": "b5c5068f1385e9b975b0638b7ebd353531597a48",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "60e256bc_a20c2bd4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-12-05T18:21:02Z",
+      "side": 1,
+      "message": "Vladimir PTAL",
+      "revId": "b5c5068f1385e9b975b0638b7ebd353531597a48",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb6addb4_d39a4b5b",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 572,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-12-05T18:21:02Z",
+      "side": 1,
+      "message": "I defined a new methods since callers of HGraph::SplitEdge might not want to:\nA) incur the cost of updating the RPO because they will recompute the whole graph anyway, or \nB) might not want to update RPO at all e.g this call (https://cs.android.com/android/platform/superproject/+/master:art/compiler/optimizing/block_builder.cc;l\u003d395;drc\u003dcb3bd7c37d630acb613e10f730c532128a02a3d5) happens before we built the dominator tree and updating RPO there would be a mistake.",
+      "range": {
+        "startLine": 572,
+        "startChar": 21,
+        "endLine": 572,
+        "endChar": 42
+      },
+      "revId": "b5c5068f1385e9b975b0638b7ebd353531597a48",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
