@@ -38,6 +38,13 @@ static constexpr size_t kStackAlignment = 16;
 // compile-time constant so the compiler can generate better code.
 static constexpr size_t kPageSize = 4096;
 
+// TODO: Kernels for both 32-bit as well as 64-bit uses 512 entries per page-table
+// page. Find a way to confirm that in userspace.
+// Address range covered by 1 PMD entry in the page table
+static constexpr size_t kPMDSize = (kPageSize / sizeof(uint64_t)) * kPageSize;
+// Address range covered by 1 PUD entry in the page table
+static constexpr size_t kPUDSize = (kPageSize / sizeof(uint64_t)) * kPMDSize;
+
 // Clion, clang analyzer, etc can falsely believe that "if (kIsDebugBuild)" always
 // returns the same value. By wrapping into a call to another constexpr function, we force it
 // to realize that is not actually always evaluating to the same value.
