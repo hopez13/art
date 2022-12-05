@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "da4a9c73_32534c64",
+        "filename": "test/2045-uffd-kernelfault/src/Main.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-12-05T23:02:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a1216541_65aca384",
+      "range": {
+        "startLine": 22,
+        "startChar": 46,
+        "endLine": 22,
+        "endChar": 50
+      },
+      "revId": "be77f0528da480d6059e284e6b549d2f74454754",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "473e90db_67b750ca",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-12-05T22:40:44Z",
       "side": 1,
       "message": "I tend to put something like like System.out.println(\"Finished\") at the end of a run-test, to give the output file comparison at the end something to check for. Otherwise I\u0027m not sure a silent crash will necessarily fail. If we actualy check the exit status, that may not be necessary.",
+      "range": {
+        "startLine": 40,
+        "startChar": 6,
+        "endLine": 40,
+        "endChar": 7
+      },
+      "revId": "be77f0528da480d6059e284e6b549d2f74454754",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a63f04f_ca4a945d",
+        "filename": "test/2045-uffd-kernelfault/src/Main.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-12-05T23:02:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "473e90db_67b750ca",
       "range": {
         "startLine": 40,
         "startChar": 6,
