@@ -81,33 +81,32 @@ uint8_t* GcVisitedArenaPool::AddMap(size_t min_size) {
     size = std::max(min_size, kLow4GBLinearAllocPoolSize);
   }
 #endif
-  Runtime* runtime = Runtime::Current();
-  gc::collector::MarkCompact* mark_compact = runtime->GetHeap()->MarkCompactCollector();
+  size_t alignment = BestPageTableAlignment(size);
+  DCHECK_GE(size, kPMDSize);
   std::string err_msg;
-  bool mapped_shared;
-  // We use MAP_SHARED on non-zygote processes for leveraging userfaultfd's minor-fault feature.
-  if (gUseUserfaultfd && !runtime->IsZygote() && mark_compact->IsUffdMinorFaultSupported()) {
-    maps_.emplace_back(MemMap::MapFile(size,
-                                       PROT_READ | PROT_WRITE,
-                                       MAP_ANONYMOUS | MAP_SHARED,
-                                       -1,
-                                       /*start=*/0,
-                                       low_4gb_,
-                                       name_,
-                                       &err_msg));
-    mapped_shared = true;
-  } else {
-    maps_.emplace_back(
-        MemMap::MapAnonymous(name_, size, PROT_READ | PROT_WRITE, low_4gb_, &err_msg));
-    mapped_shared = false;
-  }
-
+  maps_.emplace_back(MemMap::MapAnonymousAligned(
+      name_, size, PROT_READ | PROT_WRITE, low_4gb_, alignment, &err_msg));
   MemMap& map = maps_.back();
   if (!map.IsValid()) {
     LOG(FATAL) << "Failed to allocate " << name_ << ": " << err_msg;
     UNREACHABLE();
   }
+
   if (gUseUserfaultfd) {
+    Runtime* runtime = Runtime::Current();
+    gc::collector::MarkCompact* mark_compact = runtime->GetHeap()->MarkCompactCollector();
+    bool mapped_shared = false;
+    // We use MAP_SHARED on non-zygote processes for leveraging userfaultfd's minor-fault feature.
+    if (!runtime->IsZygote() && mark_compact->IsUffdMinorFaultSupported()) {
+      void* mmap_ret = mmap(map.Begin(),
+                            map.Size(),
+                            PROT_READ | PROT_WRITE,
+                            MAP_ANONYMOUS | MAP_SHARED | MAP_FIXED,
+                            /*fd=*/-1,
+                            /*offset=*/0);
+      CHECK_EQ(mmap_ret, map.Begin()) << "mmap failed: " << strerror(errno);
+      mapped_shared = true;
+    }
     // Create a shadow-map for the map being added for userfaultfd GC
     mark_compact->AddLinearAllocSpaceData(map.Begin(), map.Size(), mapped_shared);
   }
