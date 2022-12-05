@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "78e38764_3543eeaf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-12-05T21:30:41Z",
+      "side": 1,
+      "message": "Just some nits about the comment. I\u0027m fine with submitting as is, and fixing this in a later CL.",
+      "revId": "94607df3b9372efd01dd8b4610bc45b6b7303621",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e89938d_958ee9f0",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-12-05T21:30:41Z",
+      "side": 1,
+      "message": "\"This can\u0027t be\" seems clearer to me. Can we reformat this comment; it looks a little weird.",
+      "range": {
+        "startLine": 203,
+        "startChar": 31,
+        "endLine": 203,
+        "endChar": 55
+      },
+      "revId": "94607df3b9372efd01dd8b4610bc45b6b7303621",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
