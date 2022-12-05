@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a0f9d96_9b3ab870",
+        "filename": "libartbase/base/globals.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-12-05T10:06:12Z",
+      "side": 1,
+      "message": "Page Middle Directory (PMD)",
+      "range": {
+        "startLine": 43,
+        "startChar": 30,
+        "endLine": 43,
+        "endChar": 33
+      },
+      "revId": "7a2fedbd0549cbdc954632c754cd2db511848ccd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4eb5a304_332f9d82",
+        "filename": "libartbase/base/globals.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-12-05T10:06:12Z",
+      "side": 1,
+      "message": "Page Upper Directory (PUD)",
+      "range": {
+        "startLine": 45,
+        "startChar": 30,
+        "endLine": 45,
+        "endChar": 33
+      },
+      "revId": "7a2fedbd0549cbdc954632c754cd2db511848ccd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "25c06878_e0a06b90",
+        "filename": "runtime/base/gc_visited_arena_pool.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-12-05T10:06:12Z",
+      "side": 1,
+      "message": "Maybe make this a helper method with a comment? It\u0027s also being used in mark_compact.cc.",
+      "range": {
+        "startLine": 84,
+        "startChar": 21,
+        "endLine": 84,
+        "endChar": 59
+      },
+      "revId": "7a2fedbd0549cbdc954632c754cd2db511848ccd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
