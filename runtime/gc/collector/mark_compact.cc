@@ -189,11 +189,29 @@ bool MarkCompact::CreateUserfaultfd(bool post_fork) {
                      << ") and therefore falling back to stop-the-world compaction.";
       } else {
         DCHECK(IsValidFd(uffd_));
+        uint64_t requested_features = UFFD_FEATURE_MISSING_SHMEM | UFFD_FEATURE_MINOR_SHMEM;
         // Get/update the features that we want in userfaultfd
-        struct uffdio_api api = {.api = UFFD_API,
-                                 .features = UFFD_FEATURE_MISSING_SHMEM | UFFD_FEATURE_MINOR_SHMEM};
-        CHECK_EQ(ioctl(uffd_, UFFDIO_API, &api), 0)
-              << "ioctl_userfaultfd: API: " << strerror(errno);
+        struct uffdio_api api = {.api = UFFD_API, .features = requested_features, .ioctls = 0};
+        int ret = ioctl(uffd_, UFFDIO_API, &api);
+        if (UNLIKELY(ret != 0)) {
+          if (errno == EINVAL) {
+            // This could only happen if somebody else already invoked API
+            // ioctl on this uffd, which shouldn't happen.
+            CHECK_EQ(api.ioctls, 0u)
+                << "ioctl_userfaultfd: API: " << strerror(errno) << ". uffd already initialized";
+            // This means we are requesting some feature which doesn't exist
+            // on this kernel. This isn't possible with
+            // UFFD_FEATURE_MISSING_SHMEM as it's one of the earliest features
+            // introduced in userfaultfd.
+            // Invoke the ioctl again, but without UFFD_FEATURE_MINOR_SHMEM.
+            api.features &= ~UFFD_FEATURE_MINOR_SHMEM;
+            // Make last attempt.
+            CHECK_EQ(ioctl(uffd_, UFFDIO_API, &api), 0)
+                << "ioctl_userfaultfd: API: failed again with: " << strerror(errno);
+          } else {
+            LOG(FATAL) << "ioctl_userfaultfd: API: " << strerror(errno);
+          }
+        }
         // Missing userfaults on shmem should always be available.
         DCHECK_NE(api.features & UFFD_FEATURE_MISSING_SHMEM, 0u);
         uffd_minor_fault_supported_ =
