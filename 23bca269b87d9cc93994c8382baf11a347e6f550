@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d0b4f79c_bfbf58df",
+        "filename": "test/default_run.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 648,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-12-05T13:12:40Z",
+      "side": 1,
+      "message": "gdbserver has been removed on the device long time ago, so it does not work.\n\nI suppose people could be using it on host... but I am not sure why...",
+      "parentUuid": "eb8fb21d_96a9c840",
+      "range": {
+        "startLine": 647,
+        "startChar": 0,
+        "endLine": 648,
+        "endChar": 43
+      },
+      "revId": "23bca269b87d9cc93994c8382baf11a347e6f550",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0fba9f37_668903de",
         "filename": "test/default_run.py",
         "patchSetId": 3
@@ -54,6 +78,30 @@
       "writtenOn": "2022-12-05T12:48:54Z",
       "side": 1,
       "message": "You replaced `run` with `check_output` in many places, so these commands will no longer be logged. This is a loss of useful functionality IMO. Why do you need to do that?",
+      "range": {
+        "startLine": 699,
+        "startChar": 28,
+        "endLine": 699,
+        "endChar": 40
+      },
+      "revId": "23bca269b87d9cc93994c8382baf11a347e6f550",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "98b7874a_2adb3387",
+        "filename": "test/default_run.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 699,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-12-05T13:12:40Z",
+      "side": 1,
+      "message": "So the distinction is that these command are not part of \"running\" the test - they just interrogate the linux environment.  Maybe I should see if there is python alternative to get the same value.\n\nThere is only this call, and the others are part of the \"lldb\" debugger setup.",
+      "parentUuid": "0fba9f37_668903de",
       "range": {
         "startLine": 699,
         "startChar": 28,
