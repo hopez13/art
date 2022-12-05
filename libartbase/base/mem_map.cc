@@ -389,6 +389,36 @@ MemMap MemMap::MapAnonymous(const char* name,
                 reuse);
 }
 
+MemMap MemMap::MapAnonymousAligned(const char* name,
+                                   size_t byte_count,
+                                   int prot,
+                                   bool low_4gb,
+                                   size_t alignment,
+                                   /*out=*/std::string* error_msg) {
+  DCHECK(IsPowerOfTwo(alignment));
+  DCHECK_GT(alignment, kPageSize);
+  // Allocate extra 'alignment' bytes so that the mapping can be aligned from both ends.
+  MemMap ret = MapAnonymous(name,
+                            /*addr=*/nullptr,
+                            byte_count + alignment,
+                            prot,
+                            low_4gb,
+                            /*reuse=*/false,
+                            /*reservation=*/nullptr,
+                            error_msg);
+  if (LIKELY(ret.IsValid())) {
+    if (!IsAlignedParam(ret.Begin(), alignment)) {
+      ret.AlignBy(alignment);
+    }
+    DCHECK_GE(ret.Size(), byte_count);
+    // Mostly the requested size would already be a multiple of alignment, and
+    // therefore SetSize() would not require calling munmap().
+    ret.SetSize(byte_count);
+    DCHECK_ALIGNED_PARAM(ret.Begin(), alignment);
+  }
+  return ret;
+}
+
 MemMap MemMap::MapPlaceholder(const char* name, uint8_t* addr, size_t byte_count) {
   if (byte_count == 0) {
     return Invalid();
