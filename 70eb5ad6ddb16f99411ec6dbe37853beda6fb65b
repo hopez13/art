@@ -16,6 +16,29 @@
       "message": "Thanks Vladimir, PTAL.",
       "revId": "70eb5ad6ddb16f99411ec6dbe37853beda6fb65b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef85aebb_41b2c13f",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-12-05T12:30:13Z",
+      "side": 1,
+      "message": "Move to `runtime.cc`.",
+      "range": {
+        "startLine": 52,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 26
+      },
+      "revId": "70eb5ad6ddb16f99411ec6dbe37853beda6fb65b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

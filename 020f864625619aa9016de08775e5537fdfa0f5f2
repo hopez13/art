@@ -318,6 +318,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4466ca0_25815458",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-12-05T12:30:13Z",
+      "side": 1,
+      "message": "Ack.",
+      "parentUuid": "d8144b30_6acc9b7d",
+      "revId": "020f864625619aa9016de08775e5537fdfa0f5f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c0b78082_9fe5c3c2",
@@ -637,6 +655,30 @@
       "side": 1,
       "message": "Looks like no?\n\n```\nart/runtime/runtime_image.cc:413:17: error: invalid operands to binary expression (\u0027Handle\u003cmirror::DexCache\u003e\u0027 and \u0027std::__vector_base\u003cart::Handle\u003cart::mirror::DexCache\u003e, std::allocator\u003cart::Handle\u003c\nart::mirror::DexCache\u003e\u003e\u003e::value_type\u0027 (aka \u0027art::Handle\u003cart::mirror::DexCache\u003e\u0027))\n```",
       "parentUuid": "b3bd4a86_601a7c5a",
+      "range": {
+        "startLine": 399,
+        "startChar": 15,
+        "endLine": 399,
+        "endChar": 21
+      },
+      "revId": "020f864625619aa9016de08775e5537fdfa0f5f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "521ebeaf_b93dcc44",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-12-05T12:30:13Z",
+      "side": 1,
+      "message": "It seems we have `Handle\u003c\u003e::operator!\u003d(std::nullptr_t)` but no comparison to other `Handle\u003c\u003e` or `ObjPtr\u003c\u003e`.",
+      "parentUuid": "fcf9d080_a5aaf9fa",
       "range": {
         "startLine": 399,
         "startChar": 15,
