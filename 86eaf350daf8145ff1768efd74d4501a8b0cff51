@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "326fcc9c_47718e85",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-12-06T23:01:08Z",
+      "side": 1,
+      "message": "Just a couple of nits.",
+      "revId": "86eaf350daf8145ff1768efd74d4501a8b0cff51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "73ffc863_e01df3f0",
+        "filename": "libartbase/base/mem_map.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-12-06T23:01:08Z",
+      "side": 1,
+      "message": "\"directly ask\"? You indirectly do that, right?\n\nLines here are a bit short.",
+      "range": {
+        "startLine": 141,
+        "startChar": 51,
+        "endLine": 141,
+        "endChar": 54
+      },
+      "revId": "86eaf350daf8145ff1768efd74d4501a8b0cff51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce7a5562_f75b3467",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 354,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-12-06T23:01:08Z",
+      "side": 1,
+      "message": "Rename to is_shared?",
+      "range": {
+        "startLine": 354,
+        "startChar": 7,
+        "endLine": 354,
+        "endChar": 21
+      },
+      "revId": "86eaf350daf8145ff1768efd74d4501a8b0cff51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
