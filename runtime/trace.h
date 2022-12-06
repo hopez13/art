@@ -49,9 +49,6 @@ class Thread;
 
 using DexIndexBitSet = std::bitset<65536>;
 
-constexpr size_t kMaxThreadIdNumber = kIsTargetBuild ? 0x10000U : 0x400000U;
-using ThreadIDBitSet = std::bitset<kMaxThreadIdNumber>;
-
 enum TracingMode {
   kTracingInactive,
   kMethodTracingActive,  // Trace activity synchronous with method progress.
@@ -99,6 +96,15 @@ enum TraceAction {
     kTraceUnroll = 0x02,            // method exited by exception unrolling
     // 0x03 currently unused
     kTraceMethodActionMask = 0x03,  // two bits
+};
+
+struct TraceRecord {
+  TraceRecord(ArtMethod* m, Thread* t, uint32_t th_clk_diff, uint32_t wall_clk_diff)
+      : method(m), thread(t), thread_clock_diff(th_clk_diff), wall_clock_diff(wall_clk_diff) {}
+  ArtMethod* method;
+  Thread* thread;
+  uint32_t thread_clock_diff;
+  uint32_t wall_clock_diff;
 };
 
 // Class for recording event traces. Trace data is either collected
@@ -165,6 +171,12 @@ class Trace final : public instrumentation::InstrumentationListener {
   static void Shutdown()
       REQUIRES(!Locks::mutator_lock_, !Locks::thread_list_lock_, !Locks::trace_lock_);
   static TracingMode GetMethodTracingMode() REQUIRES(!Locks::trace_lock_);
+
+  // Flush the per-thread buffer. This is called when the thread is about to detach.
+  static void FlushThreadBuffer(Thread* thread)
+      REQUIRES_SHARED(Locks::mutator_lock_)
+      REQUIRES(!Locks::trace_lock_)
+      NO_THREAD_SAFETY_ANALYSIS;
 
   bool UseWallClock();
   bool UseThreadCpuClock();
@@ -274,13 +286,55 @@ class Trace final : public instrumentation::InstrumentationListener {
   bool RegisterThread(Thread* thread)
       REQUIRES(streaming_lock_);
 
-  // Copy a temporary buffer to the main buffer. Used for streaming. Exposed here for lock
-  // annotation.
-  void WriteToBuf(const uint8_t* src, size_t src_size)
-      REQUIRES(streaming_lock_);
-  // Flush the main buffer to file. Used for streaming. Exposed here for lock annotation.
-  void FlushBuf()
-      REQUIRES(streaming_lock_);
+  void RecordMethodEvent(Thread* thread,
+                         ArtMethod* method,
+                         TraceAction action,
+                         uint32_t thread_clock_diff,
+                         uint32_t wall_clock_diff) REQUIRES(!unique_methods_lock_);
+
+  // Encodes event in non-streaming mode. This assumes that there is enough space reserved to
+  // encode the entry.
+  void EncodeEventEntry(uint8_t* ptr,
+                        Thread* thread,
+                        ArtMethod* method,
+                        TraceAction action,
+                        uint32_t thread_clock_diff,
+                        uint32_t wall_clock_diff) REQUIRES(!unique_methods_lock_);
+
+  // These methods are used to encode events in streaming mode.
+
+  // This records the method event in the per-thread buffer if there is sufficient space for the
+  // entire record. If the buffer is full then it just flushes the buffer and then records the
+  // entry.
+  void RecordStreamingMethodEvent(Thread* thread,
+                                  ArtMethod* method,
+                                  TraceAction action,
+                                  uint32_t thread_clock_diff,
+                                  uint32_t wall_clock_diff) REQUIRES_SHARED(Locks::mutator_lock_)
+      REQUIRES(!unique_methods_lock_) REQUIRES(!streaming_lock_);
+  // This encodes all the events in the per-thread trace buffer and wirtes it to the trace file.
+  // This acquires streaming lock to prevent any other threads writing concurrently. It is required
+  // to serialize these since each method is encoded with a unique id which is assigned when the
+  // method is seen for the first time in the recoreded events. So we need to serialize these
+  // flushes across threads.
+  void FlushStreamingBuffer(Thread* thread) REQUIRES_SHARED(Locks::mutator_lock_)
+      REQUIRES(!unique_methods_lock_) REQUIRES(!streaming_lock_);
+  // Ensures there is sufficient space in the buffer to record the requested_size. If there is not
+  // enough sufficient space the current contents of the buffer are written to the file and
+  // current_index is reset to 0. This doesn't check if buffer_size is big enough to hold the
+  // requested size.
+  void EnsureSpace(uint8_t* buffer,
+                   size_t* current_index,
+                   size_t buffer_size,
+                   size_t required_size);
+  // Writes header followed by data to the buffer at the current_index. This also updates the
+  // current_index to point to the next entry.
+  void WriteToBuf(uint8_t* header,
+                  size_t header_size,
+                  std::string data,
+                  size_t* current_index,
+                  uint8_t* buffer,
+                  size_t buffer_size);
 
   uint32_t EncodeTraceMethod(ArtMethod* method) REQUIRES(!unique_methods_lock_);
   uint32_t EncodeTraceMethodAndAction(ArtMethod* method, TraceAction action)
@@ -327,6 +381,8 @@ class Trace final : public instrumentation::InstrumentationListener {
   // Size of buf_.
   const size_t buffer_size_;
 
+  const size_t per_thread_buffer_size_;
+
   // Time trace was created.
   const uint64_t start_time_;
 
@@ -368,7 +424,6 @@ class Trace final : public instrumentation::InstrumentationListener {
   // Streaming mode data.
   Mutex* streaming_lock_;
   std::map<const DexFile*, DexIndexBitSet*> seen_methods_ GUARDED_BY(streaming_lock_);
-  std::unique_ptr<ThreadIDBitSet> seen_threads_ GUARDED_BY(streaming_lock_);
 
   // Bijective map from ArtMethod* to index.
   // Map from ArtMethod* to index in unique_methods_;
