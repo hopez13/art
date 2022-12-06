@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b85b450d_ab56fe41",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-12-06T01:47:12Z",
+      "side": 1,
+      "message": "Some minor questions, but I don\u0027t see any real problems.",
+      "revId": "9c7ad2d8880e3117fd9180f05743a4b2639d4afb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "120078f6_009fef64",
+        "filename": "libartbase/base/globals.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-12-06T01:47:12Z",
+      "side": 1,
+      "message": "\"uses\" \u003d\u003d\u003e \"use\"\n\nCan we add a comment about which target architectures this is known to be accurate for? Based on our discussion, it holds everywhere that\u0027s currently important, but it is fundamentally architecture specific.",
+      "range": {
+        "startLine": 41,
+        "startChar": 51,
+        "endLine": 41,
+        "endChar": 55
+      },
+      "revId": "9c7ad2d8880e3117fd9180f05743a4b2639d4afb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0d529e4_5dde7380",
+        "filename": "libartbase/base/mem_map.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-12-06T01:47:12Z",
+      "side": 1,
+      "message": "Is there a reason we can\u0027t support MAP_SHARED here and in MapAnonymous, to avoid the redundant mappings later?",
+      "range": {
+        "startLine": 392,
+        "startChar": 0,
+        "endLine": 397,
+        "endChar": 68
+      },
+      "revId": "9c7ad2d8880e3117fd9180f05743a4b2639d4afb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac977eed_3650dafe",
+        "filename": "libartbase/base/mem_map.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 403,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-12-06T01:47:12Z",
+      "side": 1,
+      "message": "To align correctly, we may need to add at most alignment - kPageSize to the start address, so I think byte_count + alignment - kPageSize should do? But maybe such a badly aligned request is actually slower?\n\nIn general, this seems a bit heavyweight, but I guess it\u0027s only a start-up operation.",
+      "range": {
+        "startLine": 403,
+        "startChar": 28,
+        "endLine": 403,
+        "endChar": 50
+      },
+      "revId": "9c7ad2d8880e3117fd9180f05743a4b2639d4afb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1cecf507_22958492",
+        "filename": "runtime/base/gc_visited_arena_pool.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-12-06T01:47:12Z",
+      "side": 1,
+      "message": "This is the code I was talking about. It seems cleaner and faster to plumb through a shared/private argument rather than immediately remapping this here. Am I overlooking something?\n\nIf it does make sense, it seems fine to fix in a separate CL.",
+      "range": {
+        "startLine": 95,
+        "startChar": 1,
+        "endLine": 109,
+        "endChar": 5
+      },
+      "revId": "9c7ad2d8880e3117fd9180f05743a4b2639d4afb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
