@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "848e0de5_a155b473",
+        "filename": "libartbase/base/mem_map.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-12-06T23:14:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "73ffc863_e01df3f0",
+      "range": {
+        "startLine": 141,
+        "startChar": 51,
+        "endLine": 141,
+        "endChar": 54
+      },
+      "revId": "86eaf350daf8145ff1768efd74d4501a8b0cff51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ce7a5562_f75b3467",
@@ -54,6 +78,30 @@
       "writtenOn": "2022-12-06T23:01:08Z",
       "side": 1,
       "message": "Rename to is_shared?",
+      "range": {
+        "startLine": 354,
+        "startChar": 7,
+        "endLine": 354,
+        "endChar": 21
+      },
+      "revId": "86eaf350daf8145ff1768efd74d4501a8b0cff51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "67846765_344162d2",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 354,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-12-06T23:14:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ce7a5562_f75b3467",
       "range": {
         "startLine": 354,
         "startChar": 7,
