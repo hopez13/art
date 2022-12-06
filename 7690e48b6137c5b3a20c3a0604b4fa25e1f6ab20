@@ -22,6 +22,30 @@
       },
       "revId": "7690e48b6137c5b3a20c3a0604b4fa25e1f6ab20",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "63529d49_6a69f459",
+        "filename": "runtime/oat_file_assistant_context.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2022-12-06T15:33:30Z",
+      "side": 1,
+      "message": "The point of this check is to make sure `runtime-\u003eGetBootClassPath()` and `runtime-\u003eGetClassLinker()-\u003eGetBootClassPath()` are in sync. In the ART codebase, we have some code that relies on the former and some code that relies on the latter. Specifically, `OatFileAssistant` replies on the former. That\u0027s why I put the check here.\n\nIf they are out of sync, things can go wrong. For example, `OatFileAssistant` may mistakenly accept an OAT file while it should not, and then the runtime may crash when trying to use that OAT file.\n\nI think the best way forward is to properly fix those \"unusual situations\". One way is to update `runtime-\u003eGetBootClassPath()` to the reduced one when `OpenBootDexFiles()` fails to open some dex files. Another way is to fix the script that runs the `vogar` command so that it never passes missing files.",
+      "parentUuid": "a447231b_b7435785",
+      "range": {
+        "startLine": 83,
+        "startChar": 2,
+        "endLine": 83,
+        "endChar": 65
+      },
+      "revId": "7690e48b6137c5b3a20c3a0604b4fa25e1f6ab20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
