@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "63ae8a65_5c70e2cb",
+        "filename": "libartbase/base/globals.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-12-06T22:27:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "120078f6_009fef64",
+      "range": {
+        "startLine": 41,
+        "startChar": 51,
+        "endLine": 41,
+        "endChar": 55
+      },
+      "revId": "9c7ad2d8880e3117fd9180f05743a4b2639d4afb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a0d529e4_5dde7380",
@@ -54,6 +78,30 @@
       "writtenOn": "2022-12-06T01:47:12Z",
       "side": 1,
       "message": "Is there a reason we can\u0027t support MAP_SHARED here and in MapAnonymous, to avoid the redundant mappings later?",
+      "range": {
+        "startLine": 392,
+        "startChar": 0,
+        "endLine": 397,
+        "endChar": 68
+      },
+      "revId": "9c7ad2d8880e3117fd9180f05743a4b2639d4afb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea5817b9_08fb7357",
+        "filename": "libartbase/base/mem_map.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-12-06T22:27:05Z",
+      "side": 1,
+      "message": "Replying in the comment",
+      "parentUuid": "a0d529e4_5dde7380",
       "range": {
         "startLine": 392,
         "startChar": 0,
@@ -87,6 +135,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ebe75548_a14adf89",
+        "filename": "libartbase/base/mem_map.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 403,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-12-06T22:27:05Z",
+      "side": 1,
+      "message": "I don\u0027t think it will make the call slower as either ways we are asking the kernel to give a 4KB aligned mapping. On the contrary, it might save us one munmap call.",
+      "parentUuid": "ac977eed_3650dafe",
+      "range": {
+        "startLine": 403,
+        "startChar": 28,
+        "endLine": 403,
+        "endChar": 50
+      },
+      "revId": "9c7ad2d8880e3117fd9180f05743a4b2639d4afb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1cecf507_22958492",
@@ -100,6 +172,30 @@
       "writtenOn": "2022-12-06T01:47:12Z",
       "side": 1,
       "message": "This is the code I was talking about. It seems cleaner and faster to plumb through a shared/private argument rather than immediately remapping this here. Am I overlooking something?\n\nIf it does make sense, it seems fine to fix in a separate CL.",
+      "range": {
+        "startLine": 95,
+        "startChar": 1,
+        "endLine": 109,
+        "endChar": 5
+      },
+      "revId": "9c7ad2d8880e3117fd9180f05743a4b2639d4afb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6cb2174b_42085b30",
+        "filename": "runtime/base/gc_visited_arena_pool.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-12-06T22:27:05Z",
+      "side": 1,
+      "message": "As we discussed offline, the file offset matters in MAP_SHARED and/or non-anonymous case. And aligning such a mapping would make the file-offset for the VMAs out of sync among multiple mappings of the same file/fd.\n\nI have a commented regarding this in mem_map.h",
+      "parentUuid": "1cecf507_22958492",
       "range": {
         "startLine": 95,
         "startChar": 1,
