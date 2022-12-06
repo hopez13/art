@@ -1,5 +1,29 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a447231b_b7435785",
+        "filename": "runtime/oat_file_assistant_context.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-12-06T15:09:20Z",
+      "side": 1,
+      "message": "This can fail if `OpenBootDexFiles()` in `runtime.cc` fails to open some dex files.\n\n(In unusual situations, such as trying to run `vogar --mode\u003ddevice --vm-arg -Xbootlasspath:... --chroot ...  --benchmark ...`. This does not propagate the reduced `-Xbootclasspath:` correctly and uses the default BCP, parts of which are missing in the chroot environment.)",
+      "range": {
+        "startLine": 83,
+        "startChar": 2,
+        "endLine": 83,
+        "endChar": 65
+      },
+      "revId": "7690e48b6137c5b3a20c3a0604b4fa25e1f6ab20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
