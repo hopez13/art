@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "30fbc61a_104d16fd",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2733,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-12-07T13:58:31Z",
+      "side": 1,
+      "message": "To clarify what we are doing in the following lines: For any invoke `inv` that we inline, if `inv` is in a try block we want to mark all of its blocks as being in a try block. In order to do that, we use `reference` which is `inv`\u0027s block.\n\nWe don\u0027t do that for catch blocks as only the entry block would be considered a catch block (and not all of `inv`\u0027s graph).",
+      "revId": "ee32b4197dee862804da848ef5bf502a84829843",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
