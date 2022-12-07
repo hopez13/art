@@ -22,6 +22,30 @@
       },
       "revId": "a7b5ca2ced2f679f78a1fdfdfdd6752b8e97aeb0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6954cd38_d216db35",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-12-07T23:24:24Z",
+      "side": 1,
+      "message": "No. The test is failing today due to it failing to reserve memory in low-4gb. The reason for that is that we are not leaving enough space left due to shadow-map also in low-4gb.\n\nBut low-4gb constraint isn\u0027t there if obj-ptr poisoning is disabled.\n\nI re-read the comment and it seems right to me.",
+      "parentUuid": "90405c35_f547b9a1",
+      "range": {
+        "startLine": 330,
+        "startChar": 35,
+        "endLine": 330,
+        "endChar": 50
+      },
+      "revId": "a7b5ca2ced2f679f78a1fdfdfdd6752b8e97aeb0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
