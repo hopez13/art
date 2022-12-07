@@ -18,38 +18,30 @@
 
     <target_preparer class="com.android.compatibility.common.tradefed.targetprep.FilePusher">
         <option name="cleanup" value="true" />
-        <option name="push" value="art_standalone_dexoptanalyzer_tests->/data/local/tmp/art_standalone_dexoptanalyzer_tests/art_standalone_dexoptanalyzer_tests" />
-        <option name="append-bitness" value="true" />
-    </target_preparer>
-
-    <target_preparer class="com.android.compatibility.common.tradefed.targetprep.FilePusher">
-        <option name="cleanup" value="true" />
-        <option name="push" value="art-gtest-jars-LinkageTest.dex->/data/local/tmp/art_standalone_dexoptanalyzer_tests/art-gtest-jars-LinkageTest.dex" />
-        <option name="push" value="art-gtest-jars-Main.jar->/data/local/tmp/art_standalone_dexoptanalyzer_tests/art-gtest-jars-Main.jar" />
-        <option name="push" value="art-gtest-jars-MainStripped.jar->/data/local/tmp/art_standalone_dexoptanalyzer_tests/art-gtest-jars-MainStripped.jar" />
-        <option name="push" value="art-gtest-jars-MultiDex.jar->/data/local/tmp/art_standalone_dexoptanalyzer_tests/art-gtest-jars-MultiDex.jar" />
-        <option name="push" value="art-gtest-jars-MultiDexModifiedSecondary.jar->/data/local/tmp/art_standalone_dexoptanalyzer_tests/art-gtest-jars-MultiDexModifiedSecondary.jar" />
-        <option name="push" value="art-gtest-jars-MyClassNatives.jar->/data/local/tmp/art_standalone_dexoptanalyzer_tests/art-gtest-jars-MyClassNatives.jar" />
-        <option name="push" value="art-gtest-jars-Nested.jar->/data/local/tmp/art_standalone_dexoptanalyzer_tests/art-gtest-jars-Nested.jar" />
-        <option name="push" value="art-gtest-jars-VerifierDeps.dex->/data/local/tmp/art_standalone_dexoptanalyzer_tests/art-gtest-jars-VerifierDeps.dex" />
-        <option name="push" value="art-gtest-jars-VerifierDepsMulti.dex->/data/local/tmp/art_standalone_dexoptanalyzer_tests/art-gtest-jars-VerifierDepsMulti.dex" />
-    </target_preparer>
-
-    <target_preparer class="com.android.compatibility.common.tradefed.targetprep.FilePusher">
-        <option name="cleanup" value="true" />
-        <option name="append-bitness" value="true" />
-        <option name="push-file" key="generate-boot-image" value="/data/local/tmp/art_standalone_dexoptanalyzer_tests/generate-boot-image" />
+        <!-- key==module_name has special meaning, this will push the entire test directory -->
+        <option name="push-file" key="art_standalone_dexoptanalyzer_tests" value="/data/local/tmp/art_standalone_dexoptanalyzer_tests" />
     </target_preparer>
 
     <target_preparer class="com.android.tradefed.targetprep.RunCommandTargetPreparer">
         <option name="throw-if-cmd-fail" value="true" />
-        <option name="run-command" value="mkdir -p /data/local/tmp/art_standalone_dexoptanalyzer_tests/art_boot_images" />
-        <option name="run-command" value="/data/local/tmp/art_standalone_dexoptanalyzer_tests/generate-boot-image --output-dir=/data/local/tmp/art_standalone_dexoptanalyzer_tests/art_boot_images" />
-        <option name="teardown-command" value="rm -rf /data/local/tmp/art_standalone_dexoptanalyzer_tests/art_boot_images" />
+        <!--
+          Generate boot-image for each present ARCH using generate-boot-image with bitness suffix 
+          Target preparers are run for each ARCH, 
+          so there is a mkdir check in order to avoid generating boot-image twice
+        -->
+        <option name="run-command"
+          value="set -e;
+          for ARCH_DIR in /data/local/tmp/art_standalone_dexoptanalyzer_tests/*/; do
+            if mkdir $ARCH_DIR/art_boot_images; then
+              $ARCH_DIR/generate-boot-image?? --output-dir=$ARCH_DIR/art_boot_images;
+            fi;
+          done" />
+        <option name="teardown-command"
+          value="for ARCH_DIR in /data/local/tmp/art_standalone_dexoptanalyzer_tests/*/ ; do rm -rf $ARCH_DIR/art_boot_images ; done" />
     </target_preparer>
 
     <test class="com.android.tradefed.testtype.GTest" >
-        <option name="native-test-device-path" value="/data/local/tmp/art_standalone_dexoptanalyzer_tests" />
+        <option name="native-test-device-path" value="/data/local/tmp" />
         <option name="module-name" value="art_standalone_dexoptanalyzer_tests" />
         <option name="ld-library-path-32" value="/apex/com.android.art/lib" />
         <option name="ld-library-path-64" value="/apex/com.android.art/lib64" />
