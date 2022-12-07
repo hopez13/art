@@ -1553,6 +1553,9 @@ jobject Java_MyClassNatives_staticMethodThatShouldReturnClass(JNIEnv* env, jclas
 }
 
 void JniCompilerTest::UpcallReturnTypeChecking_InstanceImpl() {
+  // Note that gtests are always running in debug mode (`kIsDebugBuild` is true)
+  // which both enables CheckJNI and ensures that the JNI compiler shall not emit
+  // a fast-path that would skip the runtime call where we do these checks.
   SetUpForTest(false, "instanceMethodThatShouldReturnClass", "()Ljava/lang/Class;",
                CURRENT_JNI_WRAPPER(Java_MyClassNatives_instanceMethodThatShouldReturnClass));
 
@@ -1580,6 +1583,9 @@ void JniCompilerTest::UpcallReturnTypeChecking_InstanceImpl() {
 JNI_TEST(UpcallReturnTypeChecking_Instance)
 
 void JniCompilerTest::UpcallReturnTypeChecking_StaticImpl() {
+  // Note that gtests are always running in debug mode (`kIsDebugBuild` is true)
+  // which both enables CheckJNI and ensures that the JNI compiler shall not emit
+  // a fast-path that would skip the runtime call where we do these checks.
   SetUpForTest(true, "staticMethodThatShouldReturnClass", "()Ljava/lang/Class;",
                CURRENT_JNI_WRAPPER(Java_MyClassNatives_staticMethodThatShouldReturnClass));
 
