@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f6d68bad_52fca6fe",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 582,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-12-07T14:55:09Z",
+      "side": 1,
+      "message": "I think a fixed size is fine, and will be better for compiled code.",
+      "parentUuid": "5ac303bd_15de59e2",
+      "revId": "5ea3b932c6e81ad5d047d6df940c4f7b8980cf99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f1f2d14b_7fbc9448",
         "filename": "runtime/trace.h",
         "patchSetId": 2
@@ -31,6 +49,24 @@
       "writtenOn": "2022-12-06T22:05:02Z",
       "side": 1,
       "message": "I can\u0027t seem to add negative annotations for Trace::streaming_lock and Trace::unique_method_lock from static function. There\u0027s a related TODO here: https://cs.android.com/android/platform/superproject/+/master:art/runtime/trace.h;l\u003d248;bpv\u003d1;bpt\u003d1\n\nI could expose a function something like GetTheTrace() and then call a non-static method directly on the trace to flush the method. Should I do that instead?",
+      "revId": "5ea3b932c6e81ad5d047d6df940c4f7b8980cf99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be29afbf_59ecab39",
+        "filename": "runtime/trace.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-12-07T14:55:09Z",
+      "side": 1,
+      "message": "Up to you, the annotations are nice, but maybe addressing that TODO can be done in parallel?",
+      "parentUuid": "f1f2d14b_7fbc9448",
       "revId": "5ea3b932c6e81ad5d047d6df940c4f7b8980cf99",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }

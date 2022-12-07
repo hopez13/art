@@ -1,0 +1,222 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f40871a3_3374c6b2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-12-07T14:55:09Z",
+      "side": 1,
+      "message": "is",
+      "range": {
+        "startLine": 11,
+        "startChar": 22,
+        "endLine": 11,
+        "endChar": 30
+      },
+      "revId": "46eb9348e46aaa604a4970d74b20132cbc9df131",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "24405fda_e5904a00",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-12-07T14:55:09Z",
+      "side": 1,
+      "message": "method",
+      "range": {
+        "startLine": 13,
+        "startChar": 59,
+        "endLine": 13,
+        "endChar": 64
+      },
+      "revId": "46eb9348e46aaa604a4970d74b20132cbc9df131",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "29a95292_79f9937b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-12-07T14:55:09Z",
+      "side": 1,
+      "message": "its",
+      "range": {
+        "startLine": 13,
+        "startChar": 9,
+        "endLine": 13,
+        "endChar": 13
+      },
+      "revId": "46eb9348e46aaa604a4970d74b20132cbc9df131",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f52de938_7a66d8c4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-12-07T14:55:09Z",
+      "side": 1,
+      "message": "the",
+      "range": {
+        "startLine": 14,
+        "startChar": 23,
+        "endLine": 14,
+        "endChar": 24
+      },
+      "revId": "46eb9348e46aaa604a4970d74b20132cbc9df131",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ace4fff9_968085a6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-12-07T14:55:09Z",
+      "side": 1,
+      "message": "Add",
+      "range": {
+        "startLine": 15,
+        "startChar": 3,
+        "endLine": 15,
+        "endChar": 7
+      },
+      "revId": "46eb9348e46aaa604a4970d74b20132cbc9df131",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a969f0b_a0898367",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 876,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-12-07T14:55:09Z",
+      "side": 1,
+      "message": "Use the (new) constant.",
+      "range": {
+        "startLine": 876,
+        "startChar": 40,
+        "endLine": 876,
+        "endChar": 86
+      },
+      "revId": "46eb9348e46aaa604a4970d74b20132cbc9df131",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "118874fc_dbdc4be3",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 901,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-12-07T14:55:09Z",
+      "side": 1,
+      "message": "won\u0027t this miss the ending `\\0` ?",
+      "range": {
+        "startLine": 900,
+        "startChar": 35,
+        "endLine": 901,
+        "endChar": 56
+      },
+      "revId": "46eb9348e46aaa604a4970d74b20132cbc9df131",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f49d5a2a_3a722798",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 910,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-12-07T14:55:09Z",
+      "side": 1,
+      "message": "Don\u0027t you also need to allocate a new buffer?",
+      "revId": "46eb9348e46aaa604a4970d74b20132cbc9df131",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9da6708f_d48d27d1",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 955,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-12-07T14:55:09Z",
+      "side": 1,
+      "message": "This sounds like we only need to take the lock when writing to the file? The code below seems to show other reasons (`RegisterMethod`?).\n\nEventually, we could think of how to only requiring the lock when writing.",
+      "range": {
+        "startLine": 955,
+        "startChar": 0,
+        "endLine": 955,
+        "endChar": 63
+      },
+      "revId": "46eb9348e46aaa604a4970d74b20132cbc9df131",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a46446c2_1e0f8632",
+        "filename": "runtime/trace.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-12-07T14:55:09Z",
+      "side": 1,
+      "message": "nit: add a comment.",
+      "revId": "46eb9348e46aaa604a4970d74b20132cbc9df131",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
