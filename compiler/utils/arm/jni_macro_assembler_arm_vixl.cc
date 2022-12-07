@@ -20,6 +20,7 @@
 #include <type_traits>
 
 #include "entrypoints/quick/quick_entrypoints.h"
+#include "indirect_reference_table.h"
 #include "lock_word.h"
 #include "thread.h"
 
@@ -1014,6 +1015,21 @@ void ArmVIXLJNIMacroAssembler::CreateJObject(FrameOffset out_off,
   asm_.StoreToOffset(kStoreWord, scratch, sp, out_off.Int32Value());
 }
 
+void ArmVIXLJNIMacroAssembler::DecodeJNITransitionOrLocalJObject(ManagedRegister mreg,
+                                                                 JNIMacroLabel* slow_path,
+                                                                 JNIMacroLabel* resume) {
+  constexpr uint32_t kGlobalOrWeakGlobalMask =
+      dchecked_integral_cast<uint32_t>(IndirectReferenceTable::GetGlobalOrWeakGlobalMask());
+  constexpr uint32_t kIndirectRefKindMask =
+      dchecked_integral_cast<uint32_t>(IndirectReferenceTable::GetIndirectRefKindMask());
+  vixl32::Register reg = AsVIXLRegister(mreg.AsArm());
+  ___ Tst(reg, kGlobalOrWeakGlobalMask);
+  ___ B(ne, ArmVIXLJNIMacroLabel::Cast(slow_path)->AsArm());
+  ___ Bics(reg, reg, kIndirectRefKindMask);
+  ___ B(eq, ArmVIXLJNIMacroLabel::Cast(resume)->AsArm());  // Skip load for null.
+  ___ Ldr(reg, MemOperand(reg));
+}
+
 void ArmVIXLJNIMacroAssembler::VerifyObject(ManagedRegister src ATTRIBUTE_UNUSED,
                                             bool could_be_null ATTRIBUTE_UNUSED) {
   // TODO: not validating references.
@@ -1213,7 +1229,7 @@ void ArmVIXLJNIMacroAssembler::TestMarkBit(ManagedRegister mref,
   vixl32::Register scratch = temps.Acquire();
   ___ Ldr(scratch, MemOperand(ref, mirror::Object::MonitorOffset().SizeValue()));
   static_assert(LockWord::kMarkBitStateSize == 1u);
-  ___ Tst(scratch, LockWord::kMarkBitStateMaskShifted);
+  ___ Tst(scratch, LockWord::kMarkBitStateShift);
   switch (cond) {
     case JNIMacroUnaryCondition::kZero:
       ___ B(eq, ArmVIXLJNIMacroLabel::Cast(label)->AsArm());
