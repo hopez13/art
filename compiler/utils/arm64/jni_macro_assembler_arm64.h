@@ -156,6 +156,11 @@ class Arm64JNIMacroAssembler final : public JNIMacroAssemblerFwd<Arm64Assembler,
                      FrameOffset spilled_reference_offset,
                      bool null_allowed) override;
 
+  // Decode JNI transition or local `jobject`. For (weak) global `jobject`, jump to slow path.
+  void DecodeJNITransitionOrLocalJObject(ManagedRegister reg,
+                                         JNIMacroLabel* slow_path,
+                                         JNIMacroLabel* resume) override;
+
   // Heap::VerifyObject on src. In some cases (such as a reference to this) we
   // know that src may not be null.
   void VerifyObject(ManagedRegister src, bool could_be_null) override;
@@ -230,6 +235,10 @@ class Arm64JNIMacroAssembler final : public JNIMacroAssemblerFwd<Arm64Assembler,
                    XRegister rn,
                    int32_t value,
                    vixl::aarch64::Condition cond = vixl::aarch64::al);
+  void TestBit(vixl::aarch64::Register reg,
+               size_t bit,
+               JNIMacroLabel* label,
+               JNIMacroUnaryCondition cond);
 };
 
 class Arm64JNIMacroLabel final

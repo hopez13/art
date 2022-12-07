@@ -173,6 +173,11 @@ class ArmVIXLJNIMacroAssembler final
                      FrameOffset spilled_reference_offset,
                      bool null_allowed) override;
 
+  // Decode JNI transition or local `jobject`. For (weak) global `jobject`, jump to slow path.
+  void DecodeJNITransitionOrLocalJObject(ManagedRegister reg,
+                                         JNIMacroLabel* slow_path,
+                                         JNIMacroLabel* resume) override;
+
   // Heap::VerifyObject on src. In some cases (such as a reference to this) we
   // know that src may not be null.
   void VerifyObject(ManagedRegister src, bool could_be_null) override;
@@ -225,6 +230,11 @@ class ArmVIXLJNIMacroAssembler final
   void Load(ArmManagedRegister dest, vixl32::Register base, int32_t offset, size_t size);
 
  private:
+  void TestBit(vixl32::Register reg,
+               size_t bit,
+               JNIMacroLabel* label,
+               JNIMacroUnaryCondition cond);
+
   // Used for testing.
   friend class ArmVIXLAssemblerTest_VixlLoadFromOffset_Test;
   friend class ArmVIXLAssemblerTest_VixlStoreToOffset_Test;
