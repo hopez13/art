@@ -15,6 +15,7 @@
  */
 
 #include "builder.h"
+#include <sstream>
 
 #include "art_field-inl.h"
 #include "base/arena_bit_vector.h"
@@ -30,6 +31,7 @@
 #include "mirror/dex_cache.h"
 #include "nodes.h"
 #include "optimizing_compiler_stats.h"
+#include "scoped_thread_state_change-inl.h"
 #include "ssa_builder.h"
 #include "thread.h"
 
@@ -124,12 +126,9 @@ void HGraphBuilder::MaybeAddExtraGotoBlocks() {
     if (NeedsExtraGotoBlock(predecessor)) {
       HBasicBlock* new_goto = graph_->SplitEdgeAndUpdateRPO(predecessor, exit);
       new_goto->AddInstruction(new (graph_->GetAllocator()) HGoto(predecessor->GetDexPc()));
-
-      // No need to update loop info of the new block.
-      DCHECK(!predecessor->IsInLoop())
-          << " we should only add the extra Goto blocks for Return/ReturnVoid->TryBoundary->Exit "
-          << "chains. In those chains, the TryBoundary of kind:exit should never be a part of a "
-          << "loop";
+      if (predecessor->IsInLoop()) {
+        new_goto->SetLoopInformation(predecessor->GetLoopInformation());
+      }
 
       // Update domination chain
       if (!predecessor->GetDominatedBlocks().empty()) {
