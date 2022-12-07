@@ -191,6 +191,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ccabfca1_4a846073",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-12-07T01:04:01Z",
+      "side": 1,
+      "message": "Added a comment in PS6.",
+      "parentUuid": "3a7fb542_eb6e516d",
+      "range": {
+        "startLine": 188,
+        "startChar": 15,
+        "endLine": 188,
+        "endChar": 34
+      },
+      "revId": "70d4772898ee92dce25e9069aadbce02cc247779",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9f849fcb_33591f7a",
