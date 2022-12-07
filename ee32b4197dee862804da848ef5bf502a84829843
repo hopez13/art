@@ -16,6 +16,29 @@
       "message": "To clarify what we are doing in the following lines: For any invoke `inv` that we inline, if `inv` is in a try block we want to mark all of its blocks as being in a try block. In order to do that, we use `reference` which is `inv`\u0027s block.\n\nWe don\u0027t do that for catch blocks as only the entry block would be considered a catch block (and not all of `inv`\u0027s graph).",
       "revId": "ee32b4197dee862804da848ef5bf502a84829843",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca8b1098_dd75c76e",
+        "filename": "test/2241-checker-inline-try-catch/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-12-07T14:05:38Z",
+      "side": 1,
+      "message": "Add `CHECK-NOT` for `inliner (after)`.",
+      "range": {
+        "startLine": 108,
+        "startChar": 6,
+        "endLine": 108,
+        "endChar": 35
+      },
+      "revId": "ee32b4197dee862804da848ef5bf502a84829843",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
