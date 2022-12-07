@@ -149,6 +149,11 @@ class X86JNIMacroAssembler final : public JNIMacroAssemblerFwd<X86Assembler, Poi
                      FrameOffset spilled_reference_offset,
                      bool null_allowed) override;
 
+  // Decode JNI transition or local `jobject`. For (weak) global `jobject`, jump to slow path.
+  void DecodeJNITransitionOrLocalJObject(ManagedRegister reg,
+                                         JNIMacroLabel* slow_path,
+                                         JNIMacroLabel* resume) override;
+
   // Heap::VerifyObject on src. In some cases (such as a reference to this) we
   // know that src may not be null.
   void VerifyObject(ManagedRegister src, bool could_be_null) override;

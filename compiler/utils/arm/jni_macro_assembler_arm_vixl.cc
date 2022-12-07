@@ -20,6 +20,7 @@
 #include <type_traits>
 
 #include "entrypoints/quick/quick_entrypoints.h"
+#include "indirect_reference_table.h"
 #include "lock_word.h"
 #include "thread.h"
 
@@ -1012,6 +1013,21 @@ void ArmVIXLJNIMacroAssembler::CreateJObject(FrameOffset out_off,
     asm_.AddConstant(scratch, sp, spilled_reference_offset.Int32Value());
   }
   asm_.StoreToOffset(kStoreWord, scratch, sp, out_off.Int32Value());
+}
+
+void ArmVIXLJNIMacroAssembler::DecodeJNITransitionOrLocalJObject(ManagedRegister mreg,
+                                                                 JNIMacroLabel* slow_path,
+                                                                 JNIMacroLabel* resume) {
+  constexpr uint32_t kGlobalOrWeakGlobalMask =
+      dchecked_integral_cast<uint32_t>(IndirectReferenceTable::GetGlobalOrWeakGlobalMask());
+  constexpr uint32_t kIndirectRefKindMask =
+      dchecked_integral_cast<uint32_t>(IndirectReferenceTable::GetIndirectRefKindMask());
+  vixl32::Register reg = AsVIXLRegister(mreg.AsArm());
+  ___ Tst(reg, kGlobalOrWeakGlobalMask);
+  ___ B(ne, ArmVIXLJNIMacroLabel::Cast(slow_path)->AsArm());
+  ___ Bics(reg, reg, kIndirectRefKindMask);
+  ___ B(eq, ArmVIXLJNIMacroLabel::Cast(resume)->AsArm());  // Skip load for null.
+  ___ Ldr(reg, MemOperand(reg));
 }
 
 void ArmVIXLJNIMacroAssembler::VerifyObject(ManagedRegister src ATTRIBUTE_UNUSED,
