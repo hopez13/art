@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "90405c35_f547b9a1",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-12-07T23:00:09Z",
+      "side": 1,
+      "message": "This happens if you don\u0027t allocate it in the low 4GB, right? How about:\n\u003cperiod\u003e Otherwise Dex... fails in 64-bit.",
+      "range": {
+        "startLine": 330,
+        "startChar": 35,
+        "endLine": 330,
+        "endChar": 50
+      },
+      "revId": "a7b5ca2ced2f679f78a1fdfdfdd6752b8e97aeb0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
