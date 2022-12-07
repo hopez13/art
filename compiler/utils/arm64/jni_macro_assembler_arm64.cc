@@ -17,6 +17,7 @@
 #include "jni_macro_assembler_arm64.h"
 
 #include "entrypoints/quick/quick_entrypoints.h"
+#include "indirect_reference_table.h"
 #include "lock_word.h"
 #include "managed_register_arm64.h"
 #include "offsets.h"
@@ -891,6 +892,19 @@ void Arm64JNIMacroAssembler::CreateJObject(FrameOffset out_off,
   ___ Str(scratch, MEM_OP(reg_x(SP), out_off.Int32Value()));
 }
 
+void Arm64JNIMacroAssembler::DecodeJNITransitionOrLocalJObject(ManagedRegister m_reg,
+                                                               JNIMacroLabel* slow_path,
+                                                               JNIMacroLabel* resume) {
+  constexpr uint64_t kGlobalOrWeakGlobalMask = IndirectReferenceTable::GetGlobalOrWeakGlobalMask();
+  constexpr uint64_t kIndirectRefKindMask = IndirectReferenceTable::GetIndirectRefKindMask();
+  constexpr size_t kGlobalOrWeakGlobalBit = WhichPowerOf2(kGlobalOrWeakGlobalMask);
+  Register reg = reg_w(m_reg.AsArm64().AsWRegister());
+  ___ Tbnz(reg.X(), kGlobalOrWeakGlobalBit, Arm64JNIMacroLabel::Cast(slow_path)->AsArm64());
+  ___ And(reg.X(), reg.X(), ~kIndirectRefKindMask);
+  ___ Cbz(reg.X(), Arm64JNIMacroLabel::Cast(resume)->AsArm64());  // Skip load for null.
+  ___ Ldr(reg, MEM_OP(reg.X()));
+}
+
 void Arm64JNIMacroAssembler::TryToTransitionFromRunnableToNative(
     JNIMacroLabel* label, ArrayRef<const ManagedRegister> scratch_regs ATTRIBUTE_UNUSED) {
   constexpr uint32_t kNativeStateValue = Thread::StoredThreadStateValue(ThreadState::kNative);
@@ -1033,12 +1047,20 @@ void Arm64JNIMacroAssembler::TestMarkBit(ManagedRegister m_ref,
   Register scratch = temps.AcquireW();
   ___ Ldr(scratch, MEM_OP(ref, mirror::Object::MonitorOffset().SizeValue()));
   static_assert(LockWord::kMarkBitStateSize == 1u);
+  TestBit(scratch, LockWord::kMarkBitStateShift, label, cond);
+}
+
+void Arm64JNIMacroAssembler::TestBit(Register reg,
+                                     size_t bit,
+                                     JNIMacroLabel* label,
+                                     JNIMacroUnaryCondition cond) {
+  DCHECK_LT(bit, dchecked_integral_cast<size_t>(reg.GetSizeInBits()));
   switch (cond) {
     case JNIMacroUnaryCondition::kZero:
-      ___ Tbz(scratch, LockWord::kMarkBitStateShift, Arm64JNIMacroLabel::Cast(label)->AsArm64());
+      ___ Tbz(reg, bit, Arm64JNIMacroLabel::Cast(label)->AsArm64());
       break;
     case JNIMacroUnaryCondition::kNotZero:
-      ___ Tbnz(scratch, LockWord::kMarkBitStateShift, Arm64JNIMacroLabel::Cast(label)->AsArm64());
+      ___ Tbnz(reg, bit, Arm64JNIMacroLabel::Cast(label)->AsArm64());
       break;
     default:
       LOG(FATAL) << "Not implemented unary condition: " << static_cast<int>(cond);
