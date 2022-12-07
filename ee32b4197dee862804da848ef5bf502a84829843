@@ -39,6 +39,30 @@
       },
       "revId": "ee32b4197dee862804da848ef5bf502a84829843",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a36610c_32313c3e",
+        "filename": "test/2241-checker-inline-try-catch/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-12-07T14:25:25Z",
+      "side": 1,
+      "message": "I thought about that but the `$inline$` already checks that. WDYT about merging as-is?\n\nI have a `CHECK` for that invoke in `inliner (before)` to make sure we are not removing the catch block before hitting the inliner.",
+      "parentUuid": "ca8b1098_dd75c76e",
+      "range": {
+        "startLine": 108,
+        "startChar": 6,
+        "endLine": 108,
+        "endChar": 35
+      },
+      "revId": "ee32b4197dee862804da848ef5bf502a84829843",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
