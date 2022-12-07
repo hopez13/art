@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3458c27b_ab6e7600",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-12-07T10:17:05Z",
+      "side": 1,
+      "message": "Thanks lgtm! I just have a couple of clarifying questions for my understanding.",
+      "revId": "b39597e1cdde9c5d3ecc7661557399f640ab81a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5cf5dcbd_076bc82b",
+        "filename": "openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3150,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-12-07T10:17:05Z",
+      "side": 1,
+      "message": "Not related to the CL, but I am not sure I understand this comment. Is the first part just saying it is OK to read the obsolete methods and obsolete dex caches anytime since the writes suspend all threads? \n\n\u003e\u003e We do synchronize when setting it however, since that can happen at any time.\n\nI am a bit confused about this. Is that saying we should set the fields with proper synchronization? Is that related to ExtendObsoleteArrays that happens next?",
+      "revId": "b39597e1cdde9c5d3ecc7661557399f640ab81a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aeb479ba_d9454125",
+        "filename": "openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3156,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-12-07T10:17:05Z",
+      "side": 1,
+      "message": "Thanks! I will look at this code soonish and hope to upload a fix for this.",
+      "revId": "b39597e1cdde9c5d3ecc7661557399f640ab81a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb3dcebb_ac229fd7",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-12-07T10:17:05Z",
+      "side": 1,
+      "message": "I don\u0027t understand the implications of reading a from-space or to-space result, but if we are using kWithoutReadBarrier only for PrettyMethod then it should be Ok right? Or is there something else we need to do to avoid this?",
+      "revId": "b39597e1cdde9c5d3ecc7661557399f640ab81a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
