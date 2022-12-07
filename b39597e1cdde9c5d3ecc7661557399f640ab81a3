@@ -35,6 +35,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e19af103_af3865a8",
+        "filename": "openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3150,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-12-07T12:53:10Z",
+      "side": 1,
+      "message": "This comment is a bit unclear to me as well but I\u0027ll leave it as is for now.\n\n(It talks about modifying the contents of these arrays but misses the races when copying old arrays and storing the new array references.)\n\nThis should be cleaned up when addressing the FIXME below.",
+      "parentUuid": "5cf5dcbd_076bc82b",
+      "revId": "b39597e1cdde9c5d3ecc7661557399f640ab81a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "aeb479ba_d9454125",
@@ -52,6 +70,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3da78fe1_8166d4a9",
+        "filename": "openjdkjvmti/ti_redefine.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3156,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-12-07T12:53:10Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "aeb479ba_d9454125",
+      "revId": "b39597e1cdde9c5d3ecc7661557399f640ab81a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "eb3dcebb_ac229fd7",
@@ -65,6 +101,24 @@
       "writtenOn": "2022-12-07T10:17:05Z",
       "side": 1,
       "message": "I don\u0027t understand the implications of reading a from-space or to-space result, but if we are using kWithoutReadBarrier only for PrettyMethod then it should be Ok right? Or is there something else we need to do to avoid this?",
+      "revId": "b39597e1cdde9c5d3ecc7661557399f640ab81a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "25a6d056_6817bff4",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-12-07T12:53:10Z",
+      "side": 1,
+      "message": "We\u0027re using `kWithoutReadBarrier` for `GetDexFile()` and everything that needs it (`GetName()`, `GetSignature()`, `GetShorty()`, `GetDeclaringClassDescriptor()`, ...).\n\nWe are also using it for looking quickly at the `DexCache` entries. The native pointers in `DexCache` used to be constants and therefore identical in from-space and to-space `DexCache`. However, we now allocate dex cache arrays lazily and I think David wanted to remove these `kWithoutReadBarrier` because of this. Anyway, the worst thing that can happen by looking at from-space `DexCache` is that we process a cache miss despite an entry being in the to-space `DexCache`.",
+      "parentUuid": "eb3dcebb_ac229fd7",
       "revId": "b39597e1cdde9c5d3ecc7661557399f640ab81a3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
