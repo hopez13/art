@@ -106,7 +106,12 @@ template<typename T> ART_FRIEND_TEST(test_set_name, individual_test)
 #define LOCKABLE CAPABILITY("mutex")
 #define SHARED_LOCKABLE SHARED_CAPABILITY("mutex")
 
+#if defined(DISABLE_SYMBOL_VISIBILITY_MACROS)
+#define HIDDEN
+#define EXPORT
+#else
 #define HIDDEN __attribute__((visibility("hidden")))
 #define EXPORT __attribute__((visibility("default")))
+#endif
 
 #endif  // ART_LIBARTBASE_BASE_MACROS_H_
