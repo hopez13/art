@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e479dcf4_dc01f0f0",
+        "filename": "runtime/indirect_reference_table.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-12-08T11:33:48Z",
+      "side": 1,
+      "message": "I\u0027ll submit this as is but I\u0027ll update this comment in https://android-review.googlesource.com/2327717 patch set 2 (to be uploaded).",
+      "parentUuid": "3e1d0490_af28ddaa",
+      "range": {
+        "startLine": 92,
+        "startChar": 6,
+        "endLine": 92,
+        "endChar": 36
+      },
+      "revId": "c7d562ede0ee81782a775defa5f9eed3d083cb6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3bb67d34_d7fe0ea8",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-12-08T00:42:45Z",
       "side": 1,
       "message": "Obsolete, now that this is only for locals.",
+      "range": {
+        "startLine": 53,
+        "startChar": 39,
+        "endLine": 54,
+        "endChar": 51
+      },
+      "revId": "c7d562ede0ee81782a775defa5f9eed3d083cb6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "57eec56a_6218d4d2",
+        "filename": "runtime/jni/local_reference_table.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-12-08T11:33:48Z",
+      "side": 1,
+      "message": "This shall be addressed in https://android-review.googlesource.com/2327717 .",
+      "parentUuid": "3bb67d34_d7fe0ea8",
       "range": {
         "startLine": 53,
         "startChar": 39,
