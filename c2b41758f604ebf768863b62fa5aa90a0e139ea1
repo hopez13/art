@@ -16,6 +16,29 @@
       "message": "This CL should fix the golem (art-opt) build failures.",
       "revId": "c2b41758f604ebf768863b62fa5aa90a0e139ea1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "225931d3_b443b9ed",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-12-09T00:39:16Z",
+      "side": 1,
+      "message": "It would be nice to have a pointer to this change in the comment. I found https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id\u003d4064b982706375025628094e51d11cf1a958a5d3, but there may be a better URL.\n\nAlternatively, or in addition, it might be good to be more specific and say why it matters. E.g.: \"This allows a single page fault to be handled, in turn, by each worker thread, only waking up the GC thread at the end.\"",
+      "range": {
+        "startLine": 179,
+        "startChar": 3,
+        "endLine": 179,
+        "endChar": 31
+      },
+      "revId": "c2b41758f604ebf768863b62fa5aa90a0e139ea1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
