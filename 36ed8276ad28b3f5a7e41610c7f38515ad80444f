@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "92532d97_e5c4dc6e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-12-09T23:05:12Z",
+      "side": 1,
+      "message": "I\u0027m still a bit nervous about claiming these are h/w prefetches here without understanding this better. Weasel-word like in the other place? E.g. \"h/w prefetch type accesses\" \u003d\u003d\u003e \"possible prefetch accesses\"? It could be explicit software prefetches.\n\nI\u0027m also still not completely sure whether there could be a futex issue here. Condition variables can be destroyed and deallocated between the last notification and when the notified thread resumes. The notified thread must not touch the futex after it wakes up, but there could conceivably be an issue with the wake-up code in the kernel mapping it? I have no idea.",
+      "parentUuid": "9276d981_34bb1aa9",
+      "range": {
+        "startLine": 9,
+        "startChar": 21,
+        "endLine": 9,
+        "endChar": 24
+      },
+      "revId": "36ed8276ad28b3f5a7e41610c7f38515ad80444f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "0dbec754_02c842b6",
@@ -61,6 +85,23 @@
       "writtenOn": "2022-12-09T21:58:30Z",
       "side": 1,
       "message": "Generally LGTM, but I have some questions about whether this is the best approach.",
+      "revId": "36ed8276ad28b3f5a7e41610c7f38515ad80444f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c304714e_8d501be7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-12-09T23:05:12Z",
+      "side": 1,
+      "message": "LGTM. A couple of minor suggestions for a comment and the commit message.",
       "revId": "36ed8276ad28b3f5a7e41610c7f38515ad80444f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -102,6 +143,30 @@
       "side": 1,
       "message": "I don\u0027t think it can be kernel because I\u0027m always seeing the first page of from-space getting accessed. Kernel won\u0027t prefetch the page in another vma. And since this is a file-back vma, kernel couldn\u0027t have merged the vma with the preceding mapping.",
       "parentUuid": "8293ac95_a357d5b5",
+      "range": {
+        "startLine": 3011,
+        "startChar": 64,
+        "endLine": 3011,
+        "endChar": 68
+      },
+      "revId": "36ed8276ad28b3f5a7e41610c7f38515ad80444f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "215884ff_5690d75d",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3011,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-12-09T23:05:12Z",
+      "side": 1,
+      "message": "Makes sense. I think there are also explicit prefetch instructions. I\u0027ve found it hard to discover whether any of these can cause page faults or give up on a missing mapping. This is sufficiently weasel-worder, it seems fine.",
+      "parentUuid": "d40a3320_10bca38c",
       "range": {
         "startLine": 3011,
         "startChar": 64,
@@ -196,6 +261,30 @@
       "side": 1,
       "message": "We don\u0027t have the issue in this case because in this case, the to-space in next GC cycle will use a fresh MAP_ANONYMOUS+MAP_SHARED pseudo-file. So even if there is some prefetching taking place on the from-space, it would not cause us any issues. And therefore, we don\u0027t have to incur the overhead of mprotect. Also, this is the most likely case for us, so here performance matters.",
       "parentUuid": "2b53ca6d_32e5050e",
+      "range": {
+        "startLine": 3023,
+        "startChar": 6,
+        "endLine": 3023,
+        "endChar": 97
+      },
+      "revId": "36ed8276ad28b3f5a7e41610c7f38515ad80444f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e335b10d_865a04c3",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3023,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-12-09T23:05:12Z",
+      "side": 1,
+      "message": "The comment makes it sound like MADV_REMOVE here is problematic. It sounds like this is really just fine. Maybe clarify?",
+      "parentUuid": "161e3265_a755e7ba",
       "range": {
         "startLine": 3023,
         "startChar": 6,
