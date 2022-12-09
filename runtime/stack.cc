@@ -785,7 +785,9 @@ QuickMethodFrameInfo StackVisitor::GetCurrentQuickFrameInfo() const {
           // The current entrypoint (after filtering out trampolines) may have changed
           // from GenericJNI to JIT-compiled stub since we have entered this frame.
           (runtime->GetJit() != nullptr &&
-           runtime->GetJit()->GetCodeCache()->ContainsPc(entry_point))) << method->PrettyMethod();
+           runtime->GetJit()->GetCodeCache()->ContainsPc(entry_point)))
+        << method->PrettyMethod() << " "
+        << instrumentation::Instrumentation::EntryPointString(entry_point);
   }
   // Generic JNI frame is just like the SaveRefsAndArgs frame.
   // Note that HandleScope, if any, is below the frame.
