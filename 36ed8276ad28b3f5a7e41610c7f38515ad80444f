@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "684ba87d_919afb32",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-12-09T21:58:30Z",
+      "side": 1,
+      "message": "After some internet searching and thinking at lunch, I\u0027m unsure whether this is accurate. Could it also be that the kernel just decides to do this when the previous page is faulted to avoid a second fault? Unless you know better than me, I would delete the \"h/w\". I do think something is doing some kind of prefetching, but that\u0027s all I know.",
+      "range": {
+        "startLine": 9,
+        "startChar": 21,
+        "endLine": 9,
+        "endChar": 24
+      },
+      "revId": "36ed8276ad28b3f5a7e41610c7f38515ad80444f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0dbec754_02c842b6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-12-09T21:58:30Z",
+      "side": 1,
+      "message": "Generally LGTM, but I have some questions about whether this is the best approach.",
+      "revId": "36ed8276ad28b3f5a7e41610c7f38515ad80444f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8293ac95_a357d5b5",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3011,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-12-09T21:58:30Z",
+      "side": 1,
+      "message": "\"h/w or kernel\"? Again unless you know better.",
+      "range": {
+        "startLine": 3011,
+        "startChar": 64,
+        "endLine": 3011,
+        "endChar": 68
+      },
+      "revId": "36ed8276ad28b3f5a7e41610c7f38515ad80444f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14fb8cef_e3558e29",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3016,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-12-09T21:58:30Z",
+      "side": 1,
+      "message": "It doesn\u0027t work to do MADV_REMOVE first and then MPROTECT? I gues the problem is that there is a window in the middle where things can still go wrong?",
+      "range": {
+        "startLine": 3015,
+        "startChar": 6,
+        "endLine": 3016,
+        "endChar": 29
+      },
+      "revId": "36ed8276ad28b3f5a7e41610c7f38515ad80444f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b53ca6d_32e5050e",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3023,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-12-09T21:58:30Z",
+      "side": 1,
+      "message": "Do we potentially have the same issue here? Or why else is this undesirable?\n\nI wonder whether another possible fix might be to ensure that the preceding N pages are not accessible. That admittedly seems brittle.",
+      "range": {
+        "startLine": 3023,
+        "startChar": 6,
+        "endLine": 3023,
+        "endChar": 97
+      },
+      "revId": "36ed8276ad28b3f5a7e41610c7f38515ad80444f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
