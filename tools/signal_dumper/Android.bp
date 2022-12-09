@@ -67,6 +67,10 @@ art_cc_binary {
 
     srcs: ["signal_dumper.cc"],
 
+    shared_libs: [
+        "libartbase",
+    ],
+
     static_libs: [
         "libbase",
         "libunwindstack",
