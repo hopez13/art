@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a7ba85eb_78ddd07b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-12-09T15:44:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f40871a3_3374c6b2",
+      "range": {
+        "startLine": 11,
+        "startChar": 22,
+        "endLine": 11,
+        "endChar": 30
+      },
+      "revId": "46eb9348e46aaa604a4970d74b20132cbc9df131",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "24405fda_e5904a00",
@@ -70,6 +94,54 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "526e21dc_644be2ee",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-12-09T15:44:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "29a95292_79f9937b",
+      "range": {
+        "startLine": 13,
+        "startChar": 9,
+        "endLine": 13,
+        "endChar": 13
+      },
+      "revId": "46eb9348e46aaa604a4970d74b20132cbc9df131",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2360e9d6_d9a4df00",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-12-09T15:44:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "24405fda_e5904a00",
+      "range": {
+        "startLine": 13,
+        "startChar": 59,
+        "endLine": 13,
+        "endChar": 64
+      },
+      "revId": "46eb9348e46aaa604a4970d74b20132cbc9df131",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f52de938_7a66d8c4",
@@ -83,6 +155,30 @@
       "writtenOn": "2022-12-07T14:55:09Z",
       "side": 1,
       "message": "the",
+      "range": {
+        "startLine": 14,
+        "startChar": 23,
+        "endLine": 14,
+        "endChar": 24
+      },
+      "revId": "46eb9348e46aaa604a4970d74b20132cbc9df131",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b26d4673_cd40383a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-12-09T15:44:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f52de938_7a66d8c4",
       "range": {
         "startLine": 14,
         "startChar": 23,
@@ -116,6 +212,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "422ba9f9_b62e08b0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-12-09T15:44:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ace4fff9_968085a6",
+      "range": {
+        "startLine": 15,
+        "startChar": 3,
+        "endLine": 15,
+        "endChar": 7
+      },
+      "revId": "46eb9348e46aaa604a4970d74b20132cbc9df131",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3a969f0b_a0898367",
@@ -129,6 +249,30 @@
       "writtenOn": "2022-12-07T14:55:09Z",
       "side": 1,
       "message": "Use the (new) constant.",
+      "range": {
+        "startLine": 876,
+        "startChar": 40,
+        "endLine": 876,
+        "endChar": 86
+      },
+      "revId": "46eb9348e46aaa604a4970d74b20132cbc9df131",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a7865b6a_4e6360d3",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 876,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-12-09T15:44:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3a969f0b_a0898367",
       "range": {
         "startLine": 876,
         "startChar": 40,
@@ -162,6 +306,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "556e2bf9_4b10f044",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 901,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-12-09T15:44:24Z",
+      "side": 1,
+      "message": "Looks like we don\u0027t need \\0. We encode the length in the header (see line 895) and the parser reads exactly those number of bytes. This was the case earlier as well.",
+      "parentUuid": "118874fc_dbdc4be3",
+      "range": {
+        "startLine": 900,
+        "startChar": 35,
+        "endLine": 901,
+        "endChar": 56
+      },
+      "revId": "46eb9348e46aaa604a4970d74b20132cbc9df131",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f49d5a2a_3a722798",
@@ -175,6 +343,24 @@
       "writtenOn": "2022-12-07T14:55:09Z",
       "side": 1,
       "message": "Don\u0027t you also need to allocate a new buffer?",
+      "revId": "46eb9348e46aaa604a4970d74b20132cbc9df131",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc971b66_cb688789",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 910,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-12-09T15:44:24Z",
+      "side": 1,
+      "message": "Buffer is already allocated. It\u0027s allocated on 876. This is for handling buffer overflows. We just flush the data in the buffer and reuse the buffer to store new contents, so resetting index is sufficient.",
+      "parentUuid": "f49d5a2a_3a722798",
       "revId": "46eb9348e46aaa604a4970d74b20132cbc9df131",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -202,6 +388,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f932669d_70889be4",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 955,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-12-09T15:44:24Z",
+      "side": 1,
+      "message": "Done. Yes, if we have a way to generate method ids (maybe be by using dex_cache and method_index) then we can update it to lock only for writing. It\u0027s not too important for now since Registering method is done as a part of writing and not when we see the event. When we record the event we just record Method*.",
+      "parentUuid": "9da6708f_d48d27d1",
+      "range": {
+        "startLine": 955,
+        "startChar": 0,
+        "endLine": 955,
+        "endChar": 63
+      },
+      "revId": "46eb9348e46aaa604a4970d74b20132cbc9df131",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a46446c2_1e0f8632",
@@ -215,6 +425,24 @@
       "writtenOn": "2022-12-07T14:55:09Z",
       "side": 1,
       "message": "nit: add a comment.",
+      "revId": "46eb9348e46aaa604a4970d74b20132cbc9df131",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cfde782a_30479580",
+        "filename": "runtime/trace.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-12-09T15:44:24Z",
+      "side": 1,
+      "message": "Done. This isn\u0027t used. Initially I added this but decided against it since we may use one timestamp or two and didn\u0027t want to waste space by maintaining both in the per-thread buffer. I forgot to remove this later.",
+      "parentUuid": "a46446c2_1e0f8632",
       "revId": "46eb9348e46aaa604a4970d74b20132cbc9df131",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }

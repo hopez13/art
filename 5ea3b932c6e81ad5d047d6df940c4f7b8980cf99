@@ -36,6 +36,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7bd8579d_1a74dc2f",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 582,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-12-09T15:44:24Z",
+      "side": 1,
+      "message": "Done. Started off with 512 KB. We can adjust depending on performance in future.",
+      "parentUuid": "f6d68bad_52fca6fe",
+      "revId": "5ea3b932c6e81ad5d047d6df940c4f7b8980cf99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f1f2d14b_7fbc9448",
@@ -67,6 +85,24 @@
       "side": 1,
       "message": "Up to you, the annotations are nice, but maybe addressing that TODO can be done in parallel?",
       "parentUuid": "f1f2d14b_7fbc9448",
+      "revId": "5ea3b932c6e81ad5d047d6df940c4f7b8980cf99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "15a5a657_b3b0cb66",
+        "filename": "runtime/trace.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-12-09T15:44:24Z",
+      "side": 1,
+      "message": "Ack. I will leave this as is for now. I will look into addressing the TODO.",
+      "parentUuid": "be29afbf_59ecab39",
       "revId": "5ea3b932c6e81ad5d047d6df940c4f7b8980cf99",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
