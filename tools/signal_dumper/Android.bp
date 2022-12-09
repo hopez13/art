@@ -67,6 +67,11 @@ art_cc_binary {
 
     srcs: ["signal_dumper.cc"],
 
+    shared_libs: [
+        // TODO: Investigate why this dependency is needed.
+        "libartbase",
+    ],
+
     static_libs: [
         "libbase",
         "libunwindstack",
