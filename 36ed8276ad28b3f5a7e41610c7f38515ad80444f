@@ -74,6 +74,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "3b5115b7_308b6d2a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-12-09T23:14:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "92532d97_e5c4dc6e",
+      "range": {
+        "startLine": 9,
+        "startChar": 21,
+        "endLine": 9,
+        "endChar": 24
+      },
+      "revId": "36ed8276ad28b3f5a7e41610c7f38515ad80444f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "0dbec754_02c842b6",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
@@ -285,6 +309,30 @@
       "side": 1,
       "message": "The comment makes it sound like MADV_REMOVE here is problematic. It sounds like this is really just fine. Maybe clarify?",
       "parentUuid": "161e3265_a755e7ba",
+      "range": {
+        "startLine": 3023,
+        "startChar": 6,
+        "endLine": 3023,
+        "endChar": 97
+      },
+      "revId": "36ed8276ad28b3f5a7e41610c7f38515ad80444f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "be04fe40_8910e54e",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3023,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-12-09T23:14:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e335b10d_865a04c3",
       "range": {
         "startLine": 3023,
         "startChar": 6,
