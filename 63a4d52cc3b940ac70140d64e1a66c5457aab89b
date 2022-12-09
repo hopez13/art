@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "48a6c0e6_fd8367b4",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2937,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-12-09T11:29:22Z",
+      "side": 0,
+      "message": "This is false, see test 2249- in aosp/2333185 for an example.",
+      "range": {
+        "startLine": 2936,
+        "startChar": 39,
+        "endLine": 2937,
+        "endChar": 24
+      },
+      "revId": "63a4d52cc3b940ac70140d64e1a66c5457aab89b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
