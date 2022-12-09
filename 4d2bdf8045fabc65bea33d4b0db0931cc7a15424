@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9aa2e607_2701352f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-12-09T19:41:35Z",
+      "side": 1,
+      "message": "Please test with `atest -a` on a multilib target.",
+      "range": {
+        "startLine": 14,
+        "startChar": 6,
+        "endLine": 14,
+        "endChar": 11
+      },
+      "revId": "4d2bdf8045fabc65bea33d4b0db0931cc7a15424",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2440bcd3_bb5a440f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-12-09T19:41:35Z",
+      "side": 1,
+      "message": "There\u0027s a lot of duplication here. I have a few initial questions before reviewing all the files.",
+      "revId": "4d2bdf8045fabc65bea33d4b0db0931cc7a15424",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ade67694_48f5997e",
+        "filename": "compiler/art_standalone_compiler_tests.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-12-09T19:41:35Z",
+      "side": 1,
+      "message": "Is this generalization in these commands useful? Sure, you don\u0027t hardcode the subdir in the test directory that\u0027s no longer mentioned explicitly above. But if another directory was to be added, why would we assume that this is the right treatment for it too?",
+      "range": {
+        "startLine": 28,
+        "startChar": 17,
+        "endLine": 28,
+        "endChar": 76
+      },
+      "revId": "4d2bdf8045fabc65bea33d4b0db0931cc7a15424",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8e9a71b3_2a0f4805",
+        "filename": "compiler/art_standalone_compiler_tests.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-12-09T19:41:35Z",
+      "side": 1,
+      "message": "I gather this is the bitness. It\u0027s worth a comment.\n\nAlso, are we guaranteed that both 32 and 64 bit binaries cannot be present at the same time?",
+      "range": {
+        "startLine": 30,
+        "startChar": 106,
+        "endLine": 30,
+        "endChar": 108
+      },
+      "revId": "4d2bdf8045fabc65bea33d4b0db0931cc7a15424",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a56e07dd_e6b84e2c",
+        "filename": "compiler/art_standalone_compiler_tests.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-12-09T19:41:35Z",
+      "side": 1,
+      "message": "I\u0027m confused on how the bitness suffixes work now: With the added `??` above I take it `append-bitness` only added the bitness to the source and not the target. So changing to pushing the whole test directory means other files as well keep their bitness suffixes, like the test binary itself. But then how is it picked up here?",
+      "range": {
+        "startLine": 37,
+        "startChar": 42,
+        "endLine": 37,
+        "endChar": 71
+      },
+      "revId": "4d2bdf8045fabc65bea33d4b0db0931cc7a15424",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
