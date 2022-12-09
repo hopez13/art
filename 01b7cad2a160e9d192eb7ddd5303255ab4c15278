@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b591161_2bd90341",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-12-09T16:58:20Z",
+      "side": 0,
+      "message": "I dropped this check. I think this was only there because we didn\u0027t want instrumentation entry point there. Let me know if I got that wrong.",
+      "range": {
+        "startLine": 366,
+        "startChar": 45,
+        "endLine": 366,
+        "endChar": 65
+      },
+      "revId": "01b7cad2a160e9d192eb7ddd5303255ab4c15278",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
