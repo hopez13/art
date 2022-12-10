@@ -212,7 +212,7 @@ ObjPtr<mirror::String> InternTable::Insert(ObjPtr<mirror::String> s,
     CHECK_EQ(2u, self->NumberOfHeldMutexes()) << "may only safely hold the mutator lock";
   }
   while (true) {
-    // Check the strong table for a match.
+    // Check the strong table for a match and wait until weak reference access is enabled.
     ObjPtr<mirror::String> strong =
         strong_interns_.Find(s, hash, num_searched_strong_frozen_tables);
     if (strong != nullptr) {
@@ -304,6 +304,58 @@ ObjPtr<mirror::String> InternTable::InternWeak(const char* utf8_data) {
     return nullptr;
   }
   return InternWeak(s);
+}
+
+ObjPtr<mirror::String> InternTable::InternedOrNewString(const char* utf8_data,
+                                                        uint32_t utf16_length) {
+  DCHECK(utf8_data != nullptr);
+  Thread* self = Thread::Current();
+  ObjPtr<mirror::String> result;
+  auto use_tables = [self, this]() REQUIRES(Locks::intern_table_lock_) {
+      if (gUseReadBarrier) {
+        return self->GetWeakRefAccessEnabled();
+      } else {
+        return weak_root_state_ != gc::kWeakRootStateNoReadsOrWrites;
+      }
+  };
+  {
+    MutexLock mu(self, *Locks::intern_table_lock_);
+    if (use_tables()) {
+      uint32_t hash = Utf8String::Hash(utf16_length, utf8_data);
+      result = strong_interns_.Find(Utf8String(utf16_length, utf8_data), hash);
+      if (result != nullptr) {
+        return result;
+      }
+      result = weak_interns_.Find(Utf8String(utf16_length, utf8_data), hash);
+      if (result != nullptr) {
+        return result;
+      }
+    }
+  }
+  // May temporarily release mutator lock; use_tables() value may change. We must not hold
+  // intern_table_lock_ here.
+  result = mirror::String::AllocFromModifiedUtf8(self, utf8_data);
+  if (UNLIKELY(result == nullptr)) {
+    self->AssertPendingOOMException();
+    return nullptr;
+  }
+  bool ut;
+  {
+    MutexLock mu(self, *Locks::intern_table_lock_);
+    ut = use_tables();
+    // Alternatively, we could have reused the value from above, and avoided the extra mutex
+    // acquisition here. But that risks blocking for weak reference access below.
+    // TODO: We may not need the mutex here after the planned weak reference access CL is merged.
+  }
+  if (ut) {
+    return InternWeak(result);  // Should again not hold intern_table_lock_ .
+  } else {
+    return result;
+  }
+}
+
+ObjPtr<mirror::String> InternTable::InternedOrNewString(const char* utf8_data) {
+  return InternedOrNewString(utf8_data, CountModifiedUtf8Chars(utf8_data));
 }
 
 ObjPtr<mirror::String> InternTable::InternWeak(ObjPtr<mirror::String> s) {
