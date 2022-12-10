@@ -138,6 +138,17 @@ class InternTable {
   ObjPtr<mirror::String> InternWeak(ObjPtr<mirror::String> s) REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!Roles::uninterruptible_);
 
+  // Return an interned string for the given modified UTF8 character sequence if we can do so
+  // without blocking for reference processing. Otherwise return a new string. We create any
+  // required new intern table entries in the 'weak' table.
+  ObjPtr<mirror::String> InternedOrNewString(const char* utf8_data, uint32_t utf16_length)
+      REQUIRES_SHARED(Locks::mutator_lock_)
+      REQUIRES(!Locks::intern_table_lock_);
+  // The same, but compute utf16_length internally by looking for terminating null.
+  ObjPtr<mirror::String> InternedOrNewString(const char* utf8_data)
+      REQUIRES_SHARED(Locks::mutator_lock_)
+      REQUIRES(!Locks::intern_table_lock_);
+
   void SweepInternTableWeaks(IsMarkedVisitor* visitor) REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!Locks::intern_table_lock_);
 

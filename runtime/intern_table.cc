@@ -306,6 +306,49 @@ ObjPtr<mirror::String> InternTable::InternWeak(const char* utf8_data) {
   return InternWeak(s);
 }
 
+ObjPtr<mirror::String> InternTable::InternedOrNewString(const char* utf8_data,
+                                                        uint32_t utf16_length) {
+  DCHECK(utf8_data != nullptr);
+  Thread* self = Thread::Current();
+  ObjPtr<mirror::String> result;
+  auto use_tables = [self, this]() {
+      if (gUseReadBarrier) {
+        return self->GetWeakRefAccessEnabled();
+      } else {
+        return weak_root_state_ != gc::kWeakRootStateNoReadsOrWrites;
+      }
+  };
+  {
+    MutexLock mu(self, *Locks::intern_table_lock_);
+    if (use_tables()) {
+      uint32_t hash = Utf8String::Hash(utf16_length, utf8_data);
+      result = strong_interns_.Find(Utf8String(utf16_length, utf8_data), hash);
+      if (result != nullptr) {
+        return result;
+      }
+      result = weak_interns_.Find(Utf8String(utf16_length, utf8_data), hash);
+      if (result != nullptr) {
+        return result;
+      }
+    }
+  }
+  result = mirror::String::AllocFromModifiedUtf8(self, utf8_data);
+  // May have released mutator lock; use_tables() value may have changed.
+  if (UNLIKELY(result == nullptr)) {
+    self->AssertPendingOOMException();
+    return nullptr;
+  }
+  if (use_tables()) {
+    return InternWeak(result);
+  } else {
+    return result;
+  }
+}
+
+ObjPtr<mirror::String> InternTable::InternedOrNewString(const char* utf8_data) {
+  return InternedOrNewString(utf8_data, CountModifiedUtf8Chars(utf8_data));
+}
+
 ObjPtr<mirror::String> InternTable::InternWeak(ObjPtr<mirror::String> s) {
   DCHECK(s != nullptr);
   // `String::GetHashCode()` ensures that the stored hash is calculated.

@@ -552,6 +552,27 @@ static jobject VMRuntime_getBaseApkOptimizationInfo(JNIEnv* env, jclass klass AT
   return env->NewObject(cls.get(), ctor, j_compiler_filter.get(), j_compilation_reason.get());
 }
 
+static jstring InternedOrNewStringUTF(JNIEnv* env, const char* utf8_data) {
+  ScopedObjectAccess soa(env);
+  InternTable* const intern_table = Runtime::Current()->GetInternTable();
+  return soa.AddLocalReference<jstring>(intern_table->InternedOrNewString(utf8_data));
+}
+
+static jlong VMRuntime_getNativeFunctionPtr(JNIEnv* env,
+                                            jclass klass ATTRIBUTE_UNUSED,
+                                            jstring func_name,
+                                            int num_args) {
+  static_assert(sizeof(jlong) >= sizeof(uintptr_t));
+  const char* utfname = env->GetStringUTFChars(func_name, nullptr);
+  // TODO: Generalize this to an actual table when we have enough such functions to warrant it.
+  bool isInternedOrNewStringUTF = strcmp(utfname, "InternedOrNewStringUTF") == 0 && num_args == 2;
+  env->ReleaseStringUTFChars(func_name, utfname);
+  if (isInternedOrNewStringUTF) {
+    return reinterpret_cast<jlong>(&InternedOrNewStringUTF);
+  }
+  return 0;
+}
+
 static JNINativeMethod gMethods[] = {
   FAST_NATIVE_METHOD(VMRuntime, addressOf, "(Ljava/lang/Object;)J"),
   NATIVE_METHOD(VMRuntime, bootClassPath, "()Ljava/lang/String;"),
@@ -603,6 +624,7 @@ static JNINativeMethod gMethods[] = {
   NATIVE_METHOD(VMRuntime, isValidClassLoaderContext, "(Ljava/lang/String;)Z"),
   NATIVE_METHOD(VMRuntime, getBaseApkOptimizationInfo,
       "()Ldalvik/system/DexFile$OptimizationInfo;"),
+  FAST_NATIVE_METHOD(VMRuntime, getNativeFunctionPtr, "(Ljava/lang/String;I)J"),
 };
 
 void register_dalvik_system_VMRuntime(JNIEnv* env) {
