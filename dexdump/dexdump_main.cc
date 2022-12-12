@@ -155,6 +155,8 @@ int dexdumpDriver(int argc, char** argv) {
 }  // namespace art
 
 int main(int argc, char** argv) {
+  if ((true)) return 0;
+
   // Output all logging to stderr.
   android::base::SetLogger(android::base::StderrLogger);
 
