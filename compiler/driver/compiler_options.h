@@ -49,6 +49,46 @@ class CompilerOptions FINAL {
   static const size_t kDefaultInlineMaxCodeUnits = 32;
   static constexpr size_t kUnsetInlineMaxCodeUnits = -1;
 
+  // IntegerOpLatency
+  // FloatingPointOpLatency
+  // DataProcWithShifterOpLatency
+  // MulIntegerLatency
+  // MulFloatingPointLatency
+  // DivIntegerLatency
+  // DivFloatLatency
+  // DivDoubleLatency
+  // TypeConversionFloatingPointIntegerLatency
+  // MemoryLoadLatency
+  // MemoryStoreLatency
+  // MemoryBarrierLatency
+  // BranchLatency
+  // CallLatency
+  // CallInternalLatency
+  // LoadStringInternalLatency
+  // NopLatency
+  // LoadWithBakerReadBarrierLatency
+  // RuntimeTypeCheckLatency
+  static constexpr size_t kSchedulerStrength = 10;
+  static constexpr size_t kArmIntegerOpLatency = 1;                           // 2;
+  static constexpr size_t kArmFloatingPointOpLatency = 1;                     // 15;
+  static constexpr size_t kArmDataProcWithShifterOpLatency = 1;               // 4;
+  static constexpr size_t kArmMulIntegerLatency = 1;                          // 5;
+  static constexpr size_t kArmMulFloatingPointLatency = 1;                    // 11;
+  static constexpr size_t kArmDivIntegerLatency = 1;                          // 20;
+  static constexpr size_t kArmDivFloatLatency = 1;                            // 27;
+  static constexpr size_t kArmDivDoubleLatency = 1;                           // 31;
+  static constexpr size_t kArmTypeConversionFloatingPointIntegerLatency = 1;  // 20;
+  static constexpr size_t kArmMemoryLoadLatency = 1;                          // 8;
+  static constexpr size_t kArmMemoryStoreLatency = 1;                         // 8;
+  static constexpr size_t kArmMemoryBarrierLatency = 1;                       // 8;
+  static constexpr size_t kArmBranchLatency= 1;                               // 4;
+  static constexpr size_t kArmCallLatency = 1;                                // 34;
+  static constexpr size_t kArmCallInternalLatency = 1;                        // 30;
+  static constexpr size_t kArmLoadStringInternalLatency = 1;                  // 11;
+  static constexpr size_t kArmNopLatency = 1;                                 // 3;
+  static constexpr size_t kArmLoadWithBakerReadBarrierLatency = 1;            // 7;
+  static constexpr size_t kArmRuntimeTypeCheckLatency = 1;                    // 80;
+
   CompilerOptions();
   ~CompilerOptions();
 
@@ -73,6 +113,26 @@ class CompilerOptions FINAL {
                   const std::string& dump_cfg_file_name,
                   bool dump_cfg_append,
                   bool force_determinism,
+                  size_t scheduler_strength,
+                  size_t scheduler_ArmIntegerOpLatency,
+                  size_t scheduler_ArmFloatingPointOpLatency,
+                  size_t scheduler_ArmDataProcWithShifterOpLatency,
+                  size_t scheduler_ArmMulIntegerLatency,
+                  size_t scheduler_ArmMulFloatingPointLatency,
+                  size_t scheduler_ArmDivIntegerLatency,
+                  size_t scheduler_ArmDivFloatLatency,
+                  size_t scheduler_ArmDivDoubleLatency,
+                  size_t scheduler_ArmTypeConversionFloatingPointIntegerLatency,
+                  size_t scheduler_ArmMemoryLoadLatency,
+                  size_t scheduler_ArmMemoryStoreLatency,
+                  size_t scheduler_ArmMemoryBarrierLatency,
+                  size_t scheduler_ArmBranchLatency,
+                  size_t scheduler_ArmCallLatency,
+                  size_t scheduler_ArmCallInternalLatency,
+                  size_t scheduler_ArmLoadStringInternalLatency,
+                  size_t scheduler_ArmNopLatency,
+                  size_t scheduler_ArmLoadWithBakerReadBarrierLatency,
+                  size_t scheduler_ArmRuntimeTypeCheckLatency,
                   RegisterAllocator::Strategy regalloc_strategy,
                   const std::vector<std::string>* passes_to_run);
 
@@ -257,6 +317,28 @@ class CompilerOptions FINAL {
     return passes_to_run_;
   }
 
+  size_t GetSchedulerStrength() const {return scheduler_strength_;}
+  // auto generated using string: size_t Get_scheduler_Arm&() const { return scheduler_Arm&_; }
+  size_t Get_scheduler_ArmIntegerOpLatency() const { return scheduler_ArmIntegerOpLatency_; }
+  size_t Get_scheduler_ArmFloatingPointOpLatency() const { return scheduler_ArmFloatingPointOpLatency_; }
+  size_t Get_scheduler_ArmDataProcWithShifterOpLatency() const { return scheduler_ArmDataProcWithShifterOpLatency_; }
+  size_t Get_scheduler_ArmMulIntegerLatency() const { return scheduler_ArmMulIntegerLatency_; }
+  size_t Get_scheduler_ArmMulFloatingPointLatency() const { return scheduler_ArmMulFloatingPointLatency_; }
+  size_t Get_scheduler_ArmDivIntegerLatency() const { return scheduler_ArmDivIntegerLatency_; }
+  size_t Get_scheduler_ArmDivFloatLatency() const { return scheduler_ArmDivFloatLatency_; }
+  size_t Get_scheduler_ArmDivDoubleLatency() const { return scheduler_ArmDivDoubleLatency_; }
+  size_t Get_scheduler_ArmTypeConversionFloatingPointIntegerLatency() const { return scheduler_ArmTypeConversionFloatingPointIntegerLatency_; }
+  size_t Get_scheduler_ArmMemoryLoadLatency() const { return scheduler_ArmMemoryLoadLatency_; }
+  size_t Get_scheduler_ArmMemoryStoreLatency() const { return scheduler_ArmMemoryStoreLatency_; }
+  size_t Get_scheduler_ArmMemoryBarrierLatency() const { return scheduler_ArmMemoryBarrierLatency_; }
+  size_t Get_scheduler_ArmBranchLatency() const { return scheduler_ArmBranchLatency_; }
+  size_t Get_scheduler_ArmCallLatency() const { return scheduler_ArmCallLatency_; }
+  size_t Get_scheduler_ArmCallInternalLatency() const { return scheduler_ArmCallInternalLatency_; }
+  size_t Get_scheduler_ArmLoadStringInternalLatency() const { return scheduler_ArmLoadStringInternalLatency_; }
+  size_t Get_scheduler_ArmNopLatency() const { return scheduler_ArmNopLatency_; }
+  size_t Get_scheduler_ArmLoadWithBakerReadBarrierLatency() const { return scheduler_ArmLoadWithBakerReadBarrierLatency_; }
+  size_t Get_scheduler_ArmRuntimeTypeCheckLatency() const { return scheduler_ArmRuntimeTypeCheckLatency_; }
+
  private:
   void ParseDumpInitFailures(const StringPiece& option, UsageFn Usage);
   void ParseDumpCfgPasses(const StringPiece& option, UsageFn Usage);
@@ -266,6 +348,27 @@ class CompilerOptions FINAL {
   void ParseSmallMethodMax(const StringPiece& option, UsageFn Usage);
   void ParseLargeMethodMax(const StringPiece& option, UsageFn Usage);
   void ParseHugeMethodMax(const StringPiece& option, UsageFn Usage);
+  void ParseSchedulerStrength(const StringPiece& option, UsageFn Usage);
+  // auto generated using string: void Parse_scheduler_Arm&(const StringPiece\& option, UsageFn Usage);
+  void Parse_scheduler_ArmIntegerOpLatency(const StringPiece& option, UsageFn Usage);
+  void Parse_scheduler_ArmFloatingPointOpLatency(const StringPiece& option, UsageFn Usage);
+  void Parse_scheduler_ArmDataProcWithShifterOpLatency(const StringPiece& option, UsageFn Usage);
+  void Parse_scheduler_ArmMulIntegerLatency(const StringPiece& option, UsageFn Usage);
+  void Parse_scheduler_ArmMulFloatingPointLatency(const StringPiece& option, UsageFn Usage);
+  void Parse_scheduler_ArmDivIntegerLatency(const StringPiece& option, UsageFn Usage);
+  void Parse_scheduler_ArmDivFloatLatency(const StringPiece& option, UsageFn Usage);
+  void Parse_scheduler_ArmDivDoubleLatency(const StringPiece& option, UsageFn Usage);
+  void Parse_scheduler_ArmTypeConversionFloatingPointIntegerLatency(const StringPiece& option, UsageFn Usage);
+  void Parse_scheduler_ArmMemoryLoadLatency(const StringPiece& option, UsageFn Usage);
+  void Parse_scheduler_ArmMemoryStoreLatency(const StringPiece& option, UsageFn Usage);
+  void Parse_scheduler_ArmMemoryBarrierLatency(const StringPiece& option, UsageFn Usage);
+  void Parse_scheduler_ArmBranchLatency(const StringPiece& option, UsageFn Usage);
+  void Parse_scheduler_ArmCallLatency(const StringPiece& option, UsageFn Usage);
+  void Parse_scheduler_ArmCallInternalLatency(const StringPiece& option, UsageFn Usage);
+  void Parse_scheduler_ArmLoadStringInternalLatency(const StringPiece& option, UsageFn Usage);
+  void Parse_scheduler_ArmNopLatency(const StringPiece& option, UsageFn Usage);
+  void Parse_scheduler_ArmLoadWithBakerReadBarrierLatency(const StringPiece& option, UsageFn Usage);
+  void Parse_scheduler_ArmRuntimeTypeCheckLatency(const StringPiece& option, UsageFn Usage);
   void ParseRegisterAllocationStrategy(const StringPiece& option, UsageFn Usage);
 
   CompilerFilter::Filter compiler_filter_;
@@ -310,6 +413,27 @@ class CompilerOptions FINAL {
   // Whether the compiler should trade performance for determinism to guarantee exactly reproducible
   // outcomes.
   bool force_determinism_;
+
+  size_t scheduler_strength_;
+  size_t scheduler_ArmIntegerOpLatency_;
+  size_t scheduler_ArmFloatingPointOpLatency_;
+  size_t scheduler_ArmDataProcWithShifterOpLatency_;
+  size_t scheduler_ArmMulIntegerLatency_;
+  size_t scheduler_ArmMulFloatingPointLatency_;
+  size_t scheduler_ArmDivIntegerLatency_;
+  size_t scheduler_ArmDivFloatLatency_;
+  size_t scheduler_ArmDivDoubleLatency_;
+  size_t scheduler_ArmTypeConversionFloatingPointIntegerLatency_;
+  size_t scheduler_ArmMemoryLoadLatency_;
+  size_t scheduler_ArmMemoryStoreLatency_;
+  size_t scheduler_ArmMemoryBarrierLatency_;
+  size_t scheduler_ArmBranchLatency_;
+  size_t scheduler_ArmCallLatency_;
+  size_t scheduler_ArmCallInternalLatency_;
+  size_t scheduler_ArmLoadStringInternalLatency_;
+  size_t scheduler_ArmNopLatency_;
+  size_t scheduler_ArmLoadWithBakerReadBarrierLatency_;
+  size_t scheduler_ArmRuntimeTypeCheckLatency_;
 
   RegisterAllocator::Strategy register_allocation_strategy_;
 

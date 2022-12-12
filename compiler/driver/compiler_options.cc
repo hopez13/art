@@ -46,6 +46,26 @@ CompilerOptions::CompilerOptions()
       dump_cfg_file_name_(""),
       dump_cfg_append_(false),
       force_determinism_(false),
+      scheduler_strength_(kSchedulerStrength),
+      scheduler_ArmIntegerOpLatency_(kArmIntegerOpLatency),
+      scheduler_ArmFloatingPointOpLatency_(kArmFloatingPointOpLatency),
+      scheduler_ArmDataProcWithShifterOpLatency_(kArmDataProcWithShifterOpLatency),
+      scheduler_ArmMulIntegerLatency_(kArmMulIntegerLatency),
+      scheduler_ArmMulFloatingPointLatency_(kArmMulFloatingPointLatency),
+      scheduler_ArmDivIntegerLatency_(kArmDivIntegerLatency),
+      scheduler_ArmDivFloatLatency_(kArmDivFloatLatency),
+      scheduler_ArmDivDoubleLatency_(kArmDivDoubleLatency),
+      scheduler_ArmTypeConversionFloatingPointIntegerLatency_(kArmTypeConversionFloatingPointIntegerLatency),
+      scheduler_ArmMemoryLoadLatency_(kArmMemoryLoadLatency),
+      scheduler_ArmMemoryStoreLatency_(kArmMemoryStoreLatency),
+      scheduler_ArmMemoryBarrierLatency_(kArmMemoryBarrierLatency),
+      scheduler_ArmBranchLatency_(kArmBranchLatency),
+      scheduler_ArmCallLatency_(kArmCallLatency),
+      scheduler_ArmCallInternalLatency_(kArmCallInternalLatency),
+      scheduler_ArmLoadStringInternalLatency_(kArmLoadStringInternalLatency),
+      scheduler_ArmNopLatency_(kArmNopLatency),
+      scheduler_ArmLoadWithBakerReadBarrierLatency_(kArmLoadWithBakerReadBarrierLatency),
+      scheduler_ArmRuntimeTypeCheckLatency_(kArmRuntimeTypeCheckLatency),
       register_allocation_strategy_(RegisterAllocator::kRegisterAllocatorDefault),
       passes_to_run_(nullptr) {
 }
@@ -76,6 +96,26 @@ CompilerOptions::CompilerOptions(CompilerFilter::Filter compiler_filter,
                                  const std::string& dump_cfg_file_name,
                                  bool dump_cfg_append,
                                  bool force_determinism,
+                                 size_t scheduler_strength,
+                                 size_t scheduler_ArmIntegerOpLatency,
+                                 size_t scheduler_ArmFloatingPointOpLatency,
+                                 size_t scheduler_ArmDataProcWithShifterOpLatency,
+                                 size_t scheduler_ArmMulIntegerLatency,
+                                 size_t scheduler_ArmMulFloatingPointLatency,
+                                 size_t scheduler_ArmDivIntegerLatency,
+                                 size_t scheduler_ArmDivFloatLatency,
+                                 size_t scheduler_ArmDivDoubleLatency,
+                                 size_t scheduler_ArmTypeConversionFloatingPointIntegerLatency,
+                                 size_t scheduler_ArmMemoryLoadLatency,
+                                 size_t scheduler_ArmMemoryStoreLatency,
+                                 size_t scheduler_ArmMemoryBarrierLatency,
+                                 size_t scheduler_ArmBranchLatency,
+                                 size_t scheduler_ArmCallLatency,
+                                 size_t scheduler_ArmCallInternalLatency,
+                                 size_t scheduler_ArmLoadStringInternalLatency,
+                                 size_t scheduler_ArmNopLatency,
+                                 size_t scheduler_ArmLoadWithBakerReadBarrierLatency,
+                                 size_t scheduler_ArmRuntimeTypeCheckLatency,
                                  RegisterAllocator::Strategy regalloc_strategy,
                                  const std::vector<std::string>* passes_to_run)
     : compiler_filter_(compiler_filter),
@@ -103,9 +143,54 @@ CompilerOptions::CompilerOptions(CompilerFilter::Filter compiler_filter,
       dump_cfg_file_name_(dump_cfg_file_name),
       dump_cfg_append_(dump_cfg_append),
       force_determinism_(force_determinism),
+      scheduler_strength_(scheduler_strength),
+      scheduler_ArmIntegerOpLatency_(scheduler_ArmIntegerOpLatency),
+      scheduler_ArmFloatingPointOpLatency_(scheduler_ArmFloatingPointOpLatency),
+      scheduler_ArmDataProcWithShifterOpLatency_(scheduler_ArmDataProcWithShifterOpLatency),
+      scheduler_ArmMulIntegerLatency_(scheduler_ArmMulIntegerLatency),
+      scheduler_ArmMulFloatingPointLatency_(scheduler_ArmMulFloatingPointLatency),
+      scheduler_ArmDivIntegerLatency_(scheduler_ArmDivIntegerLatency),
+      scheduler_ArmDivFloatLatency_(scheduler_ArmDivFloatLatency),
+      scheduler_ArmDivDoubleLatency_(scheduler_ArmDivDoubleLatency),
+      scheduler_ArmTypeConversionFloatingPointIntegerLatency_(scheduler_ArmTypeConversionFloatingPointIntegerLatency),
+      scheduler_ArmMemoryLoadLatency_(scheduler_ArmMemoryLoadLatency),
+      scheduler_ArmMemoryStoreLatency_(scheduler_ArmMemoryStoreLatency),
+      scheduler_ArmMemoryBarrierLatency_(scheduler_ArmMemoryBarrierLatency),
+      scheduler_ArmBranchLatency_(scheduler_ArmBranchLatency),
+      scheduler_ArmCallLatency_(scheduler_ArmCallLatency),
+      scheduler_ArmCallInternalLatency_(scheduler_ArmCallInternalLatency),
+      scheduler_ArmLoadStringInternalLatency_(scheduler_ArmLoadStringInternalLatency),
+      scheduler_ArmNopLatency_(scheduler_ArmNopLatency),
+      scheduler_ArmLoadWithBakerReadBarrierLatency_(scheduler_ArmLoadWithBakerReadBarrierLatency),
+      scheduler_ArmRuntimeTypeCheckLatency_(scheduler_ArmRuntimeTypeCheckLatency),
       register_allocation_strategy_(regalloc_strategy),
       passes_to_run_(passes_to_run) {
 }
+
+void CompilerOptions::ParseSchedulerStrength(const StringPiece& option, UsageFn Usage) {
+  ParseUintOption(option, "--scheduler-strength", &scheduler_strength_, Usage);
+}
+
+// auto generated using string: void CompilerOptions::parse_scheduler_Arm&(const StringPiece\& Option, UsageFn Usage) { ParseUintOption(option, "--scheduler-Arm&", \&scheduler_Arm&_, Usage); }
+void CompilerOptions::Parse_scheduler_ArmIntegerOpLatency(const StringPiece& Option, UsageFn Usage) { ParseUintOption(Option, "--scheduler-ArmIntegerOpLatency", &scheduler_ArmIntegerOpLatency_, Usage); }
+void CompilerOptions::Parse_scheduler_ArmFloatingPointOpLatency(const StringPiece& Option, UsageFn Usage) { ParseUintOption(Option, "--scheduler-ArmFloatingPointOpLatency", &scheduler_ArmFloatingPointOpLatency_, Usage); }
+void CompilerOptions::Parse_scheduler_ArmDataProcWithShifterOpLatency(const StringPiece& Option, UsageFn Usage) { ParseUintOption(Option, "--scheduler-ArmDataProcWithShifterOpLatency", &scheduler_ArmDataProcWithShifterOpLatency_, Usage); }
+void CompilerOptions::Parse_scheduler_ArmMulIntegerLatency(const StringPiece& Option, UsageFn Usage) { ParseUintOption(Option, "--scheduler-ArmMulIntegerLatency", &scheduler_ArmMulIntegerLatency_, Usage); }
+void CompilerOptions::Parse_scheduler_ArmMulFloatingPointLatency(const StringPiece& Option, UsageFn Usage) { ParseUintOption(Option, "--scheduler-ArmMulFloatingPointLatency", &scheduler_ArmMulFloatingPointLatency_, Usage); }
+void CompilerOptions::Parse_scheduler_ArmDivIntegerLatency(const StringPiece& Option, UsageFn Usage) { ParseUintOption(Option, "--scheduler-ArmDivIntegerLatency", &scheduler_ArmDivIntegerLatency_, Usage); }
+void CompilerOptions::Parse_scheduler_ArmDivFloatLatency(const StringPiece& Option, UsageFn Usage) { ParseUintOption(Option, "--scheduler-ArmDivFloatLatency", &scheduler_ArmDivFloatLatency_, Usage); }
+void CompilerOptions::Parse_scheduler_ArmDivDoubleLatency(const StringPiece& Option, UsageFn Usage) { ParseUintOption(Option, "--scheduler-ArmDivDoubleLatency", &scheduler_ArmDivDoubleLatency_, Usage); }
+void CompilerOptions::Parse_scheduler_ArmTypeConversionFloatingPointIntegerLatency(const StringPiece& Option, UsageFn Usage) { ParseUintOption(Option, "--scheduler-ArmTypeConversionFloatingPointIntegerLatency", &scheduler_ArmTypeConversionFloatingPointIntegerLatency_, Usage); }
+void CompilerOptions::Parse_scheduler_ArmMemoryLoadLatency(const StringPiece& Option, UsageFn Usage) { ParseUintOption(Option, "--scheduler-ArmMemoryLoadLatency", &scheduler_ArmMemoryLoadLatency_, Usage); }
+void CompilerOptions::Parse_scheduler_ArmMemoryStoreLatency(const StringPiece& Option, UsageFn Usage) { ParseUintOption(Option, "--scheduler-ArmMemoryStoreLatency", &scheduler_ArmMemoryStoreLatency_, Usage); }
+void CompilerOptions::Parse_scheduler_ArmMemoryBarrierLatency(const StringPiece& Option, UsageFn Usage) { ParseUintOption(Option, "--scheduler-ArmMemoryBarrierLatency", &scheduler_ArmMemoryBarrierLatency_, Usage); }
+void CompilerOptions::Parse_scheduler_ArmBranchLatency(const StringPiece& Option, UsageFn Usage) { ParseUintOption(Option, "--scheduler-ArmBranchLatency", &scheduler_ArmBranchLatency_, Usage); }
+void CompilerOptions::Parse_scheduler_ArmCallLatency(const StringPiece& Option, UsageFn Usage) { ParseUintOption(Option, "--scheduler-ArmCallLatency", &scheduler_ArmCallLatency_, Usage); }
+void CompilerOptions::Parse_scheduler_ArmCallInternalLatency(const StringPiece& Option, UsageFn Usage) { ParseUintOption(Option, "--scheduler-ArmCallInternalLatency", &scheduler_ArmCallInternalLatency_, Usage); }
+void CompilerOptions::Parse_scheduler_ArmLoadStringInternalLatency(const StringPiece& Option, UsageFn Usage) { ParseUintOption(Option, "--scheduler-ArmLoadStringInternalLatency", &scheduler_ArmLoadStringInternalLatency_, Usage); }
+void CompilerOptions::Parse_scheduler_ArmNopLatency(const StringPiece& Option, UsageFn Usage) { ParseUintOption(Option, "--scheduler-ArmNopLatency", &scheduler_ArmNopLatency_, Usage); }
+void CompilerOptions::Parse_scheduler_ArmLoadWithBakerReadBarrierLatency(const StringPiece& Option, UsageFn Usage) { ParseUintOption(Option, "--scheduler-ArmLoadWithBakerReadBarrierLatency", &scheduler_ArmLoadWithBakerReadBarrierLatency_, Usage); }
+void CompilerOptions::Parse_scheduler_ArmRuntimeTypeCheckLatency(const StringPiece& Option, UsageFn Usage) { ParseUintOption(Option, "--scheduler-ArmRuntimeTypeCheckLatency", &scheduler_ArmRuntimeTypeCheckLatency_, Usage); }
 
 void CompilerOptions::ParseHugeMethodMax(const StringPiece& option, UsageFn Usage) {
   ParseUintOption(option, "--huge-method-max", &huge_method_threshold_, Usage);
@@ -166,6 +251,28 @@ bool CompilerOptions::ParseCompilerOption(const StringPiece& option, UsageFn Usa
     }
   } else if (option == "--compile-pic") {
     compile_pic_ = true;
+  } else if (option.starts_with("--scheduler-strength=")) {
+    ParseSchedulerStrength(option, Usage);
+    // auto generated using string: } else if (option.starts_with("--scheduler-Arm&=")) { Parse_scheduler_Arm&(option, Usage);
+  } else if (option.starts_with("--scheduler-ArmIntegerOpLatency=")) { Parse_scheduler_ArmIntegerOpLatency(option, Usage);
+  } else if (option.starts_with("--scheduler-ArmFloatingPointOpLatency=")) { Parse_scheduler_ArmFloatingPointOpLatency(option, Usage);
+  } else if (option.starts_with("--scheduler-ArmDataProcWithShifterOpLatency=")) { Parse_scheduler_ArmDataProcWithShifterOpLatency(option, Usage);
+  } else if (option.starts_with("--scheduler-ArmMulIntegerLatency=")) { Parse_scheduler_ArmMulIntegerLatency(option, Usage);
+  } else if (option.starts_with("--scheduler-ArmMulFloatingPointLatency=")) { Parse_scheduler_ArmMulFloatingPointLatency(option, Usage);
+  } else if (option.starts_with("--scheduler-ArmDivIntegerLatency=")) { Parse_scheduler_ArmDivIntegerLatency(option, Usage);
+  } else if (option.starts_with("--scheduler-ArmDivFloatLatency=")) { Parse_scheduler_ArmDivFloatLatency(option, Usage);
+  } else if (option.starts_with("--scheduler-ArmDivDoubleLatency=")) { Parse_scheduler_ArmDivDoubleLatency(option, Usage);
+  } else if (option.starts_with("--scheduler-ArmTypeConversionFloatingPointIntegerLatency=")) { Parse_scheduler_ArmTypeConversionFloatingPointIntegerLatency(option, Usage);
+  } else if (option.starts_with("--scheduler-ArmMemoryLoadLatency=")) { Parse_scheduler_ArmMemoryLoadLatency(option, Usage);
+  } else if (option.starts_with("--scheduler-ArmMemoryStoreLatency=")) { Parse_scheduler_ArmMemoryStoreLatency(option, Usage);
+  } else if (option.starts_with("--scheduler-ArmMemoryBarrierLatency=")) { Parse_scheduler_ArmMemoryBarrierLatency(option, Usage);
+  } else if (option.starts_with("--scheduler-ArmBranchLatency=")) { Parse_scheduler_ArmBranchLatency(option, Usage);
+  } else if (option.starts_with("--scheduler-ArmCallLatency=")) { Parse_scheduler_ArmCallLatency(option, Usage);
+  } else if (option.starts_with("--scheduler-ArmCallInternalLatency=")) { Parse_scheduler_ArmCallInternalLatency(option, Usage);
+  } else if (option.starts_with("--scheduler-ArmLoadStringInternalLatency=")) { Parse_scheduler_ArmLoadStringInternalLatency(option, Usage);
+  } else if (option.starts_with("--scheduler-ArmNopLatency=")) { Parse_scheduler_ArmNopLatency(option, Usage);
+  } else if (option.starts_with("--scheduler-ArmLoadWithBakerReadBarrierLatency=")) { Parse_scheduler_ArmLoadWithBakerReadBarrierLatency(option, Usage);
+  } else if (option.starts_with("--scheduler-ArmRuntimeTypeCheckLatency=")) { Parse_scheduler_ArmRuntimeTypeCheckLatency(option, Usage);
   } else if (option.starts_with("--huge-method-max=")) {
     ParseHugeMethodMax(option, Usage);
   } else if (option.starts_with("--large-method-max=")) {

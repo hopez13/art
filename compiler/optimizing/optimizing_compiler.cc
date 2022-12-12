@@ -638,16 +638,48 @@ void OptimizingCompiler::RunArchOptimizations(InstructionSet instruction_set,
           new (arena) arm::InstructionSimplifierArm(graph, stats);
       SideEffectsAnalysis* side_effects = new (arena) SideEffectsAnalysis(graph);
       GVNOptimization* gvn = new (arena) GVNOptimization(graph, *side_effects, "GVN$after_arch");
-      HInstructionScheduling* scheduling =
-          new (arena) HInstructionScheduling(graph, instruction_set, codegen);
-      HOptimization* arm_optimizations[] = {
-        simplifier,
-        side_effects,
-        gvn,
-        fixups,
-        scheduling,
-      };
-      RunOptimizations(arm_optimizations, arraysize(arm_optimizations), pass_observer);
+
+      HInstructionScheduling* scheduling = nullptr;
+
+      CompilerDriver* compiler_driver = GetCompilerDriver();
+      const CompilerOptions& compiler_options = compiler_driver->GetCompilerOptions();
+      //
+      // note: scheduler_strength >= 10 means disable scheduler32.
+      //
+      if (compiler_options.GetSchedulerStrength() < 10) {
+        scheduling = new (arena) HInstructionScheduling(graph, instruction_set, codegen);
+      }
+      // auto generated using string: HInstructionScheduling::scheduler_Arm& = compiler_options.Get_scheduler_Arm&();
+      HInstructionScheduling::scheduler_ArmIntegerOpLatency = compiler_options.Get_scheduler_ArmIntegerOpLatency();
+      HInstructionScheduling::scheduler_ArmFloatingPointOpLatency = compiler_options.Get_scheduler_ArmFloatingPointOpLatency();
+      HInstructionScheduling::scheduler_ArmDataProcWithShifterOpLatency = compiler_options.Get_scheduler_ArmDataProcWithShifterOpLatency();
+      HInstructionScheduling::scheduler_ArmMulIntegerLatency = compiler_options.Get_scheduler_ArmMulIntegerLatency();
+      HInstructionScheduling::scheduler_ArmMulFloatingPointLatency = compiler_options.Get_scheduler_ArmMulFloatingPointLatency();
+      HInstructionScheduling::scheduler_ArmDivIntegerLatency = compiler_options.Get_scheduler_ArmDivIntegerLatency();
+      HInstructionScheduling::scheduler_ArmDivFloatLatency = compiler_options.Get_scheduler_ArmDivFloatLatency();
+      HInstructionScheduling::scheduler_ArmDivDoubleLatency = compiler_options.Get_scheduler_ArmDivDoubleLatency();
+      HInstructionScheduling::scheduler_ArmTypeConversionFloatingPointIntegerLatency = compiler_options.Get_scheduler_ArmTypeConversionFloatingPointIntegerLatency();
+      HInstructionScheduling::scheduler_ArmMemoryLoadLatency = compiler_options.Get_scheduler_ArmMemoryLoadLatency();
+      HInstructionScheduling::scheduler_ArmMemoryStoreLatency = compiler_options.Get_scheduler_ArmMemoryStoreLatency();
+      HInstructionScheduling::scheduler_ArmMemoryBarrierLatency = compiler_options.Get_scheduler_ArmMemoryBarrierLatency();
+      HInstructionScheduling::scheduler_ArmBranchLatency = compiler_options.Get_scheduler_ArmBranchLatency();
+      HInstructionScheduling::scheduler_ArmCallLatency = compiler_options.Get_scheduler_ArmCallLatency();
+      HInstructionScheduling::scheduler_ArmCallInternalLatency = compiler_options.Get_scheduler_ArmCallInternalLatency();
+      HInstructionScheduling::scheduler_ArmLoadStringInternalLatency = compiler_options.Get_scheduler_ArmLoadStringInternalLatency();
+      HInstructionScheduling::scheduler_ArmNopLatency = compiler_options.Get_scheduler_ArmNopLatency();
+      HInstructionScheduling::scheduler_ArmLoadWithBakerReadBarrierLatency = compiler_options.Get_scheduler_ArmLoadWithBakerReadBarrierLatency();
+      HInstructionScheduling::scheduler_ArmRuntimeTypeCheckLatency = compiler_options.Get_scheduler_ArmRuntimeTypeCheckLatency();
+
+      if (scheduling) {
+        HOptimization* arm_optimizations[] = {simplifier, side_effects, gvn, fixups, scheduling};
+        RunOptimizations(arm_optimizations, arraysize(arm_optimizations), pass_observer);
+        LOG(INFO) << "scheduler32 enabled !!!!!!!";
+      } else {
+        HOptimization* arm_optimizations[] = {simplifier, side_effects, gvn, fixups};
+        LOG(INFO) << "scheduler32 DISABLED !!!!!!!";
+        RunOptimizations(arm_optimizations, arraysize(arm_optimizations), pass_observer);
+      }
+
       break;
     }
 #endif

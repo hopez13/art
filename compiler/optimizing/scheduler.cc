@@ -622,4 +622,24 @@ void HInstructionScheduling::Run(bool only_optimize_loop_blocks,
   }
 }
 
+size_t HInstructionScheduling::scheduler_ArmIntegerOpLatency = 1;
+size_t HInstructionScheduling::scheduler_ArmFloatingPointOpLatency = 1;
+size_t HInstructionScheduling::scheduler_ArmDataProcWithShifterOpLatency = 1;
+size_t HInstructionScheduling::scheduler_ArmMulIntegerLatency = 1;
+size_t HInstructionScheduling::scheduler_ArmMulFloatingPointLatency = 1;
+size_t HInstructionScheduling::scheduler_ArmDivIntegerLatency = 1;
+size_t HInstructionScheduling::scheduler_ArmDivFloatLatency = 1;
+size_t HInstructionScheduling::scheduler_ArmDivDoubleLatency = 1;
+size_t HInstructionScheduling::scheduler_ArmTypeConversionFloatingPointIntegerLatency = 1;
+size_t HInstructionScheduling::scheduler_ArmMemoryLoadLatency = 1;
+size_t HInstructionScheduling::scheduler_ArmMemoryStoreLatency = 1;
+size_t HInstructionScheduling::scheduler_ArmMemoryBarrierLatency = 1;
+size_t HInstructionScheduling::scheduler_ArmBranchLatency = 1;
+size_t HInstructionScheduling::scheduler_ArmCallLatency = 1;
+size_t HInstructionScheduling::scheduler_ArmCallInternalLatency = 1;
+size_t HInstructionScheduling::scheduler_ArmLoadStringInternalLatency = 1;
+size_t HInstructionScheduling::scheduler_ArmNopLatency = 1;
+size_t HInstructionScheduling::scheduler_ArmLoadWithBakerReadBarrierLatency = 1;
+size_t HInstructionScheduling::scheduler_ArmRuntimeTypeCheckLatency = 1;
+
 }  // namespace art

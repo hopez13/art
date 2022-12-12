@@ -29,18 +29,19 @@ using helpers::Uint64ConstantFrom;
 void SchedulingLatencyVisitorARM::HandleBinaryOperationLantencies(HBinaryOperation* instr) {
   switch (instr->GetResultType()) {
     case Primitive::kPrimLong:
+
       // HAdd and HSub long operations translate to ADDS+ADC or SUBS+SBC pairs,
       // so a bubble (kArmNopLatency) is added to represent the internal carry flag
       // dependency inside these pairs.
-      last_visited_internal_latency_ = kArmIntegerOpLatency + kArmNopLatency;
-      last_visited_latency_ = kArmIntegerOpLatency;
+      last_visited_internal_latency_ = HInstructionScheduling::scheduler_ArmIntegerOpLatency;
+      last_visited_latency_ = HInstructionScheduling::scheduler_ArmIntegerOpLatency;
       break;
     case Primitive::kPrimFloat:
     case Primitive::kPrimDouble:
-      last_visited_latency_ = kArmFloatingPointOpLatency;
+      last_visited_latency_ = HInstructionScheduling::scheduler_ArmFloatingPointOpLatency;
       break;
     default:
-      last_visited_latency_ = kArmIntegerOpLatency;
+      last_visited_latency_ = HInstructionScheduling::scheduler_ArmIntegerOpLatency;
       break;
   }
 }
@@ -56,15 +57,15 @@ void SchedulingLatencyVisitorARM::VisitSub(HSub* instr) {
 void SchedulingLatencyVisitorARM::VisitMul(HMul* instr) {
   switch (instr->GetResultType()) {
     case Primitive::kPrimLong:
-      last_visited_internal_latency_ = 3 * kArmMulIntegerLatency;
-      last_visited_latency_ = kArmIntegerOpLatency;
+      last_visited_internal_latency_ = 3 * HInstructionScheduling::scheduler_ArmMulIntegerLatency;
+      last_visited_latency_ = HInstructionScheduling::scheduler_ArmIntegerOpLatency;
       break;
     case Primitive::kPrimFloat:
     case Primitive::kPrimDouble:
-      last_visited_latency_ = kArmMulFloatingPointLatency;
+      last_visited_latency_ = HInstructionScheduling::scheduler_ArmMulFloatingPointLatency;
       break;
     default:
-      last_visited_latency_ = kArmMulIntegerLatency;
+      last_visited_latency_ = HInstructionScheduling::scheduler_ArmMulIntegerLatency;
       break;
   }
 }
@@ -100,7 +101,7 @@ void SchedulingLatencyVisitorARM::VisitXor(HXor* instr) {
 void SchedulingLatencyVisitorARM::VisitRor(HRor* instr) {
   switch (instr->GetResultType()) {
     case Primitive::kPrimInt:
-      last_visited_latency_ = kArmIntegerOpLatency;
+      last_visited_latency_ = HInstructionScheduling::scheduler_ArmIntegerOpLatency;
       break;
     case Primitive::kPrimLong: {
       // HandleLongRotate
@@ -108,15 +109,15 @@ void SchedulingLatencyVisitorARM::VisitRor(HRor* instr) {
       if (rhs->IsConstant()) {
         uint64_t rot = Uint64ConstantFrom(rhs->AsConstant()) & kMaxLongShiftDistance;
         if (rot != 0u) {
-          last_visited_internal_latency_ = 3 * kArmIntegerOpLatency;
-          last_visited_latency_ = kArmIntegerOpLatency;
+          last_visited_internal_latency_ = 3 * HInstructionScheduling::scheduler_ArmIntegerOpLatency;
+          last_visited_latency_ = HInstructionScheduling::scheduler_ArmIntegerOpLatency;
         } else {
-          last_visited_internal_latency_ = kArmIntegerOpLatency;
-          last_visited_latency_ = kArmIntegerOpLatency;
+          last_visited_internal_latency_ = HInstructionScheduling::scheduler_ArmIntegerOpLatency;
+          last_visited_latency_ = HInstructionScheduling::scheduler_ArmIntegerOpLatency;
         }
       } else {
-        last_visited_internal_latency_ = 9 * kArmIntegerOpLatency + kArmBranchLatency;
-        last_visited_latency_ = kArmBranchLatency;
+        last_visited_internal_latency_ = 9 * HInstructionScheduling::scheduler_ArmIntegerOpLatency + HInstructionScheduling::scheduler_ArmBranchLatency;
+        last_visited_latency_ = HInstructionScheduling::scheduler_ArmBranchLatency;
       }
       break;
     }
@@ -132,22 +133,22 @@ void SchedulingLatencyVisitorARM::HandleShiftLatencies(HBinaryOperation* instr) 
   switch (type) {
     case Primitive::kPrimInt:
       if (!rhs->IsConstant()) {
-        last_visited_internal_latency_ = kArmIntegerOpLatency;
+        last_visited_internal_latency_ = HInstructionScheduling::scheduler_ArmIntegerOpLatency;
       }
-      last_visited_latency_ = kArmIntegerOpLatency;
+      last_visited_latency_ = HInstructionScheduling::scheduler_ArmIntegerOpLatency;
       break;
     case Primitive::kPrimLong:
       if (!rhs->IsConstant()) {
-        last_visited_internal_latency_ = 8 * kArmIntegerOpLatency;
+        last_visited_internal_latency_ = 8 * HInstructionScheduling::scheduler_ArmIntegerOpLatency;
       } else {
         uint32_t shift_value = Int32ConstantFrom(rhs->AsConstant()) & kMaxLongShiftDistance;
         if (shift_value == 1 || shift_value >= 32) {
-          last_visited_internal_latency_ = kArmIntegerOpLatency;
+          last_visited_internal_latency_ = HInstructionScheduling::scheduler_ArmIntegerOpLatency;
         } else {
-          last_visited_internal_latency_ = 2 * kArmIntegerOpLatency;
+          last_visited_internal_latency_ = 2 * HInstructionScheduling::scheduler_ArmIntegerOpLatency;
         }
       }
-      last_visited_latency_ = kArmIntegerOpLatency;
+      last_visited_latency_ = HInstructionScheduling::scheduler_ArmIntegerOpLatency;
       break;
     default:
       LOG(FATAL) << "Unexpected operation type " << type;
@@ -170,17 +171,17 @@ void SchedulingLatencyVisitorARM::VisitUShr(HUShr* instr) {
 void SchedulingLatencyVisitorARM::VisitCondition(HCondition* instr) {
   switch (instr->GetLeft()->GetType()) {
     case Primitive::kPrimLong:
-      last_visited_internal_latency_ = 4 * kArmIntegerOpLatency;
+      last_visited_internal_latency_ = 4 * HInstructionScheduling::scheduler_ArmIntegerOpLatency;
       break;
     case Primitive::kPrimFloat:
     case Primitive::kPrimDouble:
-      last_visited_internal_latency_ = 2 * kArmFloatingPointOpLatency;
+      last_visited_internal_latency_ = 2 * HInstructionScheduling::scheduler_ArmFloatingPointOpLatency;
       break;
     default:
-      last_visited_internal_latency_ = 2 * kArmIntegerOpLatency;
+      last_visited_internal_latency_ = 2 * HInstructionScheduling::scheduler_ArmIntegerOpLatency;
       break;
   }
-  last_visited_latency_ = kArmIntegerOpLatency;
+  last_visited_latency_ = HInstructionScheduling::scheduler_ArmIntegerOpLatency;
 }
 
 void SchedulingLatencyVisitorARM::VisitCompare(HCompare* instr) {
@@ -191,47 +192,47 @@ void SchedulingLatencyVisitorARM::VisitCompare(HCompare* instr) {
     case Primitive::kPrimShort:
     case Primitive::kPrimChar:
     case Primitive::kPrimInt:
-      last_visited_internal_latency_ = 2 * kArmIntegerOpLatency;
+      last_visited_internal_latency_ = 2 * HInstructionScheduling::scheduler_ArmIntegerOpLatency;
       break;
     case Primitive::kPrimLong:
-      last_visited_internal_latency_ = 2 * kArmIntegerOpLatency + 3 * kArmBranchLatency;
+      last_visited_internal_latency_ = 2 * HInstructionScheduling::scheduler_ArmIntegerOpLatency + 3 * HInstructionScheduling::scheduler_ArmBranchLatency;
       break;
     case Primitive::kPrimFloat:
     case Primitive::kPrimDouble:
-      last_visited_internal_latency_ = kArmIntegerOpLatency + 2 * kArmFloatingPointOpLatency;
+      last_visited_internal_latency_ = HInstructionScheduling::scheduler_ArmIntegerOpLatency + 2 * HInstructionScheduling::scheduler_ArmFloatingPointOpLatency;
       break;
     default:
-      last_visited_internal_latency_ = 2 * kArmIntegerOpLatency;
+      last_visited_internal_latency_ = 2 * HInstructionScheduling::scheduler_ArmIntegerOpLatency;
       break;
   }
-  last_visited_latency_ = kArmIntegerOpLatency;
+  last_visited_latency_ = HInstructionScheduling::scheduler_ArmIntegerOpLatency;
 }
 
 void SchedulingLatencyVisitorARM::VisitBitwiseNegatedRight(HBitwiseNegatedRight* instruction) {
   if (instruction->GetResultType() == Primitive::kPrimInt) {
-    last_visited_latency_ = kArmIntegerOpLatency;
+    last_visited_latency_ = HInstructionScheduling::scheduler_ArmIntegerOpLatency;
   } else {
-    last_visited_internal_latency_ = kArmIntegerOpLatency;
-    last_visited_latency_ = kArmIntegerOpLatency;
+    last_visited_internal_latency_ = HInstructionScheduling::scheduler_ArmIntegerOpLatency;
+    last_visited_latency_ = HInstructionScheduling::scheduler_ArmIntegerOpLatency;
   }
 }
 
 void SchedulingLatencyVisitorARM::HandleGenerateDataProcInstruction(bool internal_latency) {
   if (internal_latency) {
-    last_visited_internal_latency_ += kArmIntegerOpLatency;
+    last_visited_internal_latency_ += HInstructionScheduling::scheduler_ArmIntegerOpLatency;
   } else {
-    last_visited_latency_ = kArmDataProcWithShifterOpLatency;
+    last_visited_latency_ = HInstructionScheduling::scheduler_ArmDataProcWithShifterOpLatency;
   }
 }
 
 void SchedulingLatencyVisitorARM::HandleGenerateDataProc(HDataProcWithShifterOp* instruction) {
   const HInstruction::InstructionKind kind = instruction->GetInstrKind();
   if (kind == HInstruction::kAdd) {
-    last_visited_internal_latency_ = kArmIntegerOpLatency;
-    last_visited_latency_ = kArmIntegerOpLatency;
+    last_visited_internal_latency_ = HInstructionScheduling::scheduler_ArmIntegerOpLatency;
+    last_visited_latency_ = HInstructionScheduling::scheduler_ArmIntegerOpLatency;
   } else if (kind == HInstruction::kSub) {
-    last_visited_internal_latency_ = kArmIntegerOpLatency;
-    last_visited_latency_ = kArmIntegerOpLatency;
+    last_visited_internal_latency_ = HInstructionScheduling::scheduler_ArmIntegerOpLatency;
+    last_visited_latency_ = HInstructionScheduling::scheduler_ArmIntegerOpLatency;
   } else {
     HandleGenerateDataProcInstruction(/* internal_latency */ true);
     HandleGenerateDataProcInstruction();
@@ -259,7 +260,7 @@ void SchedulingLatencyVisitorARM::HandleGenerateLongDataProc(HDataProcWithShifte
       HandleGenerateDataProcInstruction(/* internal_latency */ true);
       HandleGenerateDataProcInstruction();
     } else {
-      last_visited_internal_latency_ += 2 * kArmIntegerOpLatency;
+      last_visited_internal_latency_ += 2 * HInstructionScheduling::scheduler_ArmIntegerOpLatency;
       HandleGenerateDataProc(instruction);
     }
   }
@@ -284,12 +285,12 @@ void SchedulingLatencyVisitorARM::VisitDataProcWithShifterOp(HDataProcWithShifte
 void SchedulingLatencyVisitorARM::VisitIntermediateAddress(HIntermediateAddress* ATTRIBUTE_UNUSED) {
   // Although the code generated is a simple `add` instruction, we found through empirical results
   // that spacing it from its use in memory accesses was beneficial.
-  last_visited_internal_latency_ = kArmNopLatency;
-  last_visited_latency_ = kArmIntegerOpLatency;
+  last_visited_internal_latency_ = HInstructionScheduling::scheduler_ArmNopLatency;
+  last_visited_latency_ = HInstructionScheduling::scheduler_ArmIntegerOpLatency;
 }
 
 void SchedulingLatencyVisitorARM::VisitMultiplyAccumulate(HMultiplyAccumulate* ATTRIBUTE_UNUSED) {
-  last_visited_latency_ = kArmMulIntegerLatency;
+  last_visited_latency_ = HInstructionScheduling::scheduler_ArmMulIntegerLatency;
 }
 
 void SchedulingLatencyVisitorARM::VisitArrayGet(HArrayGet* instruction) {
@@ -307,27 +308,27 @@ void SchedulingLatencyVisitorARM::VisitArrayGet(HArrayGet* instruction) {
     case Primitive::kPrimChar:
     case Primitive::kPrimInt: {
       if (maybe_compressed_char_at) {
-        last_visited_internal_latency_ += kArmMemoryLoadLatency;
+        last_visited_internal_latency_ += HInstructionScheduling::scheduler_ArmMemoryLoadLatency;
       }
       if (index->IsConstant()) {
         if (maybe_compressed_char_at) {
           last_visited_internal_latency_ +=
-              kArmIntegerOpLatency + kArmBranchLatency + kArmMemoryLoadLatency;
-          last_visited_latency_ = kArmBranchLatency;
+              HInstructionScheduling::scheduler_ArmIntegerOpLatency + HInstructionScheduling::scheduler_ArmBranchLatency + HInstructionScheduling::scheduler_ArmMemoryLoadLatency;
+          last_visited_latency_ = HInstructionScheduling::scheduler_ArmBranchLatency;
         } else {
-          last_visited_latency_ += kArmMemoryLoadLatency;
+          last_visited_latency_ += HInstructionScheduling::scheduler_ArmMemoryLoadLatency;
         }
       } else {
         if (has_intermediate_address) {
         } else {
-          last_visited_internal_latency_ += kArmIntegerOpLatency;
+          last_visited_internal_latency_ += HInstructionScheduling::scheduler_ArmIntegerOpLatency;
         }
         if (maybe_compressed_char_at) {
           last_visited_internal_latency_ +=
-              kArmIntegerOpLatency + kArmBranchLatency + kArmMemoryLoadLatency;
-          last_visited_latency_ = kArmBranchLatency;
+              HInstructionScheduling::scheduler_ArmIntegerOpLatency + HInstructionScheduling::scheduler_ArmBranchLatency + HInstructionScheduling::scheduler_ArmMemoryLoadLatency;
+          last_visited_latency_ = HInstructionScheduling::scheduler_ArmBranchLatency;
         } else {
-          last_visited_latency_ += kArmMemoryLoadLatency;
+          last_visited_latency_ += HInstructionScheduling::scheduler_ArmMemoryLoadLatency;
         }
       }
       break;
@@ -335,16 +336,16 @@ void SchedulingLatencyVisitorARM::VisitArrayGet(HArrayGet* instruction) {
 
     case Primitive::kPrimNot: {
       if (kEmitCompilerReadBarrier && kUseBakerReadBarrier) {
-        last_visited_latency_ = kArmLoadWithBakerReadBarrierLatency;
+        last_visited_latency_ = HInstructionScheduling::scheduler_ArmLoadWithBakerReadBarrierLatency;
       } else {
         if (index->IsConstant()) {
-          last_visited_latency_ = kArmMemoryLoadLatency;
+          last_visited_latency_ = HInstructionScheduling::scheduler_ArmMemoryLoadLatency;
         } else {
           if (has_intermediate_address) {
           } else {
-            last_visited_internal_latency_ += kArmIntegerOpLatency;
+            last_visited_internal_latency_ += HInstructionScheduling::scheduler_ArmIntegerOpLatency;
           }
-          last_visited_internal_latency_ = kArmMemoryLoadLatency;
+          last_visited_internal_latency_ = HInstructionScheduling::scheduler_ArmMemoryLoadLatency;
         }
       }
       break;
@@ -352,30 +353,30 @@ void SchedulingLatencyVisitorARM::VisitArrayGet(HArrayGet* instruction) {
 
     case Primitive::kPrimLong: {
       if (index->IsConstant()) {
-        last_visited_latency_ = kArmMemoryLoadLatency;
+        last_visited_latency_ = HInstructionScheduling::scheduler_ArmMemoryLoadLatency;
       } else {
-        last_visited_internal_latency_ += kArmIntegerOpLatency;
-        last_visited_latency_ = kArmMemoryLoadLatency;
+        last_visited_internal_latency_ += HInstructionScheduling::scheduler_ArmIntegerOpLatency;
+        last_visited_latency_ = HInstructionScheduling::scheduler_ArmMemoryLoadLatency;
       }
       break;
     }
 
     case Primitive::kPrimFloat: {
       if (index->IsConstant()) {
-        last_visited_latency_ = kArmMemoryLoadLatency;
+        last_visited_latency_ = HInstructionScheduling::scheduler_ArmMemoryLoadLatency;
       } else {
-        last_visited_internal_latency_ += kArmIntegerOpLatency;
-        last_visited_latency_ = kArmMemoryLoadLatency;
+        last_visited_internal_latency_ += HInstructionScheduling::scheduler_ArmIntegerOpLatency;
+        last_visited_latency_ = HInstructionScheduling::scheduler_ArmMemoryLoadLatency;
       }
       break;
     }
 
     case Primitive::kPrimDouble: {
       if (index->IsConstant()) {
-        last_visited_latency_ = kArmMemoryLoadLatency;
+        last_visited_latency_ = HInstructionScheduling::scheduler_ArmMemoryLoadLatency;
       } else {
-        last_visited_internal_latency_ += kArmIntegerOpLatency;
-        last_visited_latency_ = kArmMemoryLoadLatency;
+        last_visited_internal_latency_ += HInstructionScheduling::scheduler_ArmIntegerOpLatency;
+        last_visited_latency_ = HInstructionScheduling::scheduler_ArmMemoryLoadLatency;
       }
       break;
     }
@@ -387,10 +388,10 @@ void SchedulingLatencyVisitorARM::VisitArrayGet(HArrayGet* instruction) {
 }
 
 void SchedulingLatencyVisitorARM::VisitArrayLength(HArrayLength* instruction) {
-  last_visited_latency_ = kArmMemoryLoadLatency;
+  last_visited_latency_ = HInstructionScheduling::scheduler_ArmMemoryLoadLatency;
   if (mirror::kUseStringCompression && instruction->IsStringLength()) {
-    last_visited_internal_latency_ = kArmMemoryLoadLatency;
-    last_visited_latency_ = kArmIntegerOpLatency;
+    last_visited_internal_latency_ = HInstructionScheduling::scheduler_ArmMemoryLoadLatency;
+    last_visited_latency_ = HInstructionScheduling::scheduler_ArmIntegerOpLatency;
   }
 }
 
@@ -407,13 +408,13 @@ void SchedulingLatencyVisitorARM::VisitArraySet(HArraySet* instruction) {
     case Primitive::kPrimChar:
     case Primitive::kPrimInt: {
       if (index->IsConstant()) {
-        last_visited_latency_ = kArmMemoryStoreLatency;
+        last_visited_latency_ = HInstructionScheduling::scheduler_ArmMemoryStoreLatency;
       } else {
         if (has_intermediate_address) {
         } else {
-          last_visited_internal_latency_ = kArmIntegerOpLatency;
+          last_visited_internal_latency_ = HInstructionScheduling::scheduler_ArmIntegerOpLatency;
         }
-        last_visited_latency_ = kArmMemoryStoreLatency;
+        last_visited_latency_ = HInstructionScheduling::scheduler_ArmMemoryStoreLatency;
       }
       break;
     }
@@ -421,45 +422,45 @@ void SchedulingLatencyVisitorARM::VisitArraySet(HArraySet* instruction) {
     case Primitive::kPrimNot: {
       if (instruction->InputAt(2)->IsNullConstant()) {
         if (index->IsConstant()) {
-          last_visited_latency_ = kArmMemoryStoreLatency;
+          last_visited_latency_ = HInstructionScheduling::scheduler_ArmMemoryStoreLatency;
         } else {
-          last_visited_internal_latency_ = kArmIntegerOpLatency;
-          last_visited_latency_ = kArmMemoryStoreLatency;
+          last_visited_internal_latency_ = HInstructionScheduling::scheduler_ArmIntegerOpLatency;
+          last_visited_latency_ = HInstructionScheduling::scheduler_ArmMemoryStoreLatency;
         }
       } else {
         // Following the exact instructions of runtime type checks is too complicated,
         // just giving it a simple slow latency.
-        last_visited_latency_ = kArmRuntimeTypeCheckLatency;
+        last_visited_latency_ = HInstructionScheduling::scheduler_ArmRuntimeTypeCheckLatency;
       }
       break;
     }
 
     case Primitive::kPrimLong: {
       if (index->IsConstant()) {
-        last_visited_latency_ = kArmMemoryLoadLatency;
+        last_visited_latency_ = HInstructionScheduling::scheduler_ArmMemoryLoadLatency;
       } else {
-        last_visited_internal_latency_ = kArmIntegerOpLatency;
-        last_visited_latency_ = kArmMemoryLoadLatency;
+        last_visited_internal_latency_ = HInstructionScheduling::scheduler_ArmIntegerOpLatency;
+        last_visited_latency_ = HInstructionScheduling::scheduler_ArmMemoryLoadLatency;
       }
       break;
     }
 
     case Primitive::kPrimFloat: {
       if (index->IsConstant()) {
-        last_visited_latency_ = kArmMemoryLoadLatency;
+        last_visited_latency_ = HInstructionScheduling::scheduler_ArmMemoryLoadLatency;
       } else {
-        last_visited_internal_latency_ = kArmIntegerOpLatency;
-        last_visited_latency_ = kArmMemoryLoadLatency;
+        last_visited_internal_latency_ = HInstructionScheduling::scheduler_ArmIntegerOpLatency;
+        last_visited_latency_ = HInstructionScheduling::scheduler_ArmMemoryLoadLatency;
       }
       break;
     }
 
     case Primitive::kPrimDouble: {
       if (index->IsConstant()) {
-        last_visited_latency_ = kArmMemoryLoadLatency;
+        last_visited_latency_ = HInstructionScheduling::scheduler_ArmMemoryLoadLatency;
       } else {
-        last_visited_internal_latency_ = kArmIntegerOpLatency;
-        last_visited_latency_ = kArmMemoryLoadLatency;
+        last_visited_internal_latency_ = HInstructionScheduling::scheduler_ArmIntegerOpLatency;
+        last_visited_latency_ = HInstructionScheduling::scheduler_ArmMemoryLoadLatency;
       }
       break;
     }
@@ -471,7 +472,7 @@ void SchedulingLatencyVisitorARM::VisitArraySet(HArraySet* instruction) {
 }
 
 void SchedulingLatencyVisitorARM::VisitBoundsCheck(HBoundsCheck* ATTRIBUTE_UNUSED) {
-  last_visited_internal_latency_ = kArmIntegerOpLatency;
+  last_visited_internal_latency_ = HInstructionScheduling::scheduler_ArmIntegerOpLatency;
   // Users do not use any data results.
   last_visited_latency_ = 0;
 }
@@ -481,13 +482,13 @@ void SchedulingLatencyVisitorARM::HandleDivRemConstantIntegralLatencies(int32_t 
     last_visited_internal_latency_ = 0;
     last_visited_latency_ = 0;
   } else if (imm == 1 || imm == -1) {
-    last_visited_latency_ = kArmIntegerOpLatency;
+    last_visited_latency_ = HInstructionScheduling::scheduler_ArmIntegerOpLatency;
   } else if (IsPowerOfTwo(AbsOrMin(imm))) {
-    last_visited_internal_latency_ = 3 * kArmIntegerOpLatency;
-    last_visited_latency_ = kArmIntegerOpLatency;
+    last_visited_internal_latency_ = 3 * HInstructionScheduling::scheduler_ArmIntegerOpLatency;
+    last_visited_latency_ = HInstructionScheduling::scheduler_ArmIntegerOpLatency;
   } else {
-    last_visited_internal_latency_ = kArmMulIntegerLatency + 2 * kArmIntegerOpLatency;
-    last_visited_latency_ = kArmIntegerOpLatency;
+    last_visited_internal_latency_ = HInstructionScheduling::scheduler_ArmMulIntegerLatency + 2 * HInstructionScheduling::scheduler_ArmIntegerOpLatency;
+    last_visited_latency_ = HInstructionScheduling::scheduler_ArmIntegerOpLatency;
   }
 }
 
@@ -500,19 +501,19 @@ void SchedulingLatencyVisitorARM::VisitDiv(HDiv* instruction) {
         int32_t imm = Int32ConstantFrom(rhs->AsConstant());
         HandleDivRemConstantIntegralLatencies(imm);
       } else {
-        last_visited_latency_ = kArmDivIntegerLatency;
+        last_visited_latency_ = HInstructionScheduling::scheduler_ArmDivIntegerLatency;
       }
       break;
     }
     case Primitive::kPrimFloat:
-      last_visited_latency_ = kArmDivFloatLatency;
+      last_visited_latency_ = HInstructionScheduling::scheduler_ArmDivFloatLatency;
       break;
     case Primitive::kPrimDouble:
-      last_visited_latency_ = kArmDivDoubleLatency;
+      last_visited_latency_ = HInstructionScheduling::scheduler_ArmDivDoubleLatency;
       break;
     default:
-      last_visited_internal_latency_ = kArmCallInternalLatency;
-      last_visited_latency_ = kArmCallLatency;
+      last_visited_internal_latency_ = HInstructionScheduling::scheduler_ArmCallInternalLatency;
+      last_visited_latency_ = HInstructionScheduling::scheduler_ArmCallLatency;
       break;
   }
 }
@@ -526,32 +527,32 @@ void SchedulingLatencyVisitorARM::VisitInstanceFieldSet(HInstanceFieldSet* instr
 }
 
 void SchedulingLatencyVisitorARM::VisitInstanceOf(HInstanceOf* ATTRIBUTE_UNUSED) {
-  last_visited_internal_latency_ = kArmCallInternalLatency;
-  last_visited_latency_ = kArmIntegerOpLatency;
+  last_visited_internal_latency_ = HInstructionScheduling::scheduler_ArmCallInternalLatency;
+  last_visited_latency_ = HInstructionScheduling::scheduler_ArmIntegerOpLatency;
 }
 
 void SchedulingLatencyVisitorARM::VisitInvoke(HInvoke* ATTRIBUTE_UNUSED) {
-  last_visited_internal_latency_ = kArmCallInternalLatency;
-  last_visited_latency_ = kArmCallLatency;
+  last_visited_internal_latency_ = HInstructionScheduling::scheduler_ArmCallInternalLatency;
+  last_visited_latency_ = HInstructionScheduling::scheduler_ArmCallLatency;
 }
 
 void SchedulingLatencyVisitorARM::VisitLoadString(HLoadString* ATTRIBUTE_UNUSED) {
-  last_visited_internal_latency_ = kArmLoadStringInternalLatency;
-  last_visited_latency_ = kArmMemoryLoadLatency;
+  last_visited_internal_latency_ = HInstructionScheduling::scheduler_ArmLoadStringInternalLatency;
+  last_visited_latency_ = HInstructionScheduling::scheduler_ArmMemoryLoadLatency;
 }
 
 void SchedulingLatencyVisitorARM::VisitNewArray(HNewArray* ATTRIBUTE_UNUSED) {
-  last_visited_internal_latency_ = kArmIntegerOpLatency + kArmCallInternalLatency;
-  last_visited_latency_ = kArmCallLatency;
+  last_visited_internal_latency_ = HInstructionScheduling::scheduler_ArmIntegerOpLatency + HInstructionScheduling::scheduler_ArmCallInternalLatency;
+  last_visited_latency_ = HInstructionScheduling::scheduler_ArmCallLatency;
 }
 
 void SchedulingLatencyVisitorARM::VisitNewInstance(HNewInstance* instruction) {
   if (instruction->IsStringAlloc()) {
-    last_visited_internal_latency_ = 2 * kArmMemoryLoadLatency + kArmCallInternalLatency;
+    last_visited_internal_latency_ = 2 + HInstructionScheduling::scheduler_ArmMemoryLoadLatency + HInstructionScheduling::scheduler_ArmCallInternalLatency;
   } else {
-    last_visited_internal_latency_ = kArmCallInternalLatency;
+    last_visited_internal_latency_ = HInstructionScheduling::scheduler_ArmCallInternalLatency;
   }
-  last_visited_latency_ = kArmCallLatency;
+  last_visited_latency_ = HInstructionScheduling::scheduler_ArmCallLatency;
 }
 
 void SchedulingLatencyVisitorARM::VisitRem(HRem* instruction) {
@@ -563,14 +564,14 @@ void SchedulingLatencyVisitorARM::VisitRem(HRem* instruction) {
         int32_t imm = Int32ConstantFrom(rhs->AsConstant());
         HandleDivRemConstantIntegralLatencies(imm);
       } else {
-        last_visited_internal_latency_ = kArmDivIntegerLatency;
-        last_visited_latency_ = kArmMulIntegerLatency;
+        last_visited_internal_latency_ = HInstructionScheduling::scheduler_ArmDivIntegerLatency;
+        last_visited_latency_ = HInstructionScheduling::scheduler_ArmMulIntegerLatency;
       }
       break;
     }
     default:
-      last_visited_internal_latency_ = kArmCallInternalLatency;
-      last_visited_latency_ = kArmCallLatency;
+      last_visited_internal_latency_ = HInstructionScheduling::scheduler_ArmCallInternalLatency;
+      last_visited_latency_ = HInstructionScheduling::scheduler_ArmCallLatency;
       break;
   }
 }
@@ -589,48 +590,48 @@ void SchedulingLatencyVisitorARM::HandleFieldGetLatencies(HInstruction* instruct
     case Primitive::kPrimShort:
     case Primitive::kPrimChar:
     case Primitive::kPrimInt:
-      last_visited_latency_ = kArmMemoryLoadLatency;
+      last_visited_latency_ = HInstructionScheduling::scheduler_ArmMemoryLoadLatency;
       break;
 
     case Primitive::kPrimNot:
       if (kEmitCompilerReadBarrier && kUseBakerReadBarrier) {
-        last_visited_internal_latency_ = kArmMemoryLoadLatency + kArmIntegerOpLatency;
-        last_visited_latency_ = kArmMemoryLoadLatency;
+        last_visited_internal_latency_ = HInstructionScheduling::scheduler_ArmMemoryLoadLatency + HInstructionScheduling::scheduler_ArmIntegerOpLatency;
+        last_visited_latency_ = HInstructionScheduling::scheduler_ArmMemoryLoadLatency;
       } else {
-        last_visited_latency_ = kArmMemoryLoadLatency;
+        last_visited_latency_ = HInstructionScheduling::scheduler_ArmMemoryLoadLatency;
       }
       break;
 
     case Primitive::kPrimLong:
       if (is_volatile && !atomic_ldrd_strd) {
-        last_visited_internal_latency_ = kArmMemoryLoadLatency + kArmIntegerOpLatency;
-        last_visited_latency_ = kArmMemoryLoadLatency;
+        last_visited_internal_latency_ = HInstructionScheduling::scheduler_ArmMemoryLoadLatency + HInstructionScheduling::scheduler_ArmIntegerOpLatency;
+        last_visited_latency_ = HInstructionScheduling::scheduler_ArmMemoryLoadLatency;
       } else {
-        last_visited_latency_ = kArmMemoryLoadLatency;
+        last_visited_latency_ = HInstructionScheduling::scheduler_ArmMemoryLoadLatency;
       }
       break;
 
     case Primitive::kPrimFloat:
-      last_visited_latency_ = kArmMemoryLoadLatency;
+      last_visited_latency_ = HInstructionScheduling::scheduler_ArmMemoryLoadLatency;
       break;
 
     case Primitive::kPrimDouble:
       if (is_volatile && !atomic_ldrd_strd) {
         last_visited_internal_latency_ =
-            kArmMemoryLoadLatency + kArmIntegerOpLatency + kArmMemoryLoadLatency;
-        last_visited_latency_ = kArmIntegerOpLatency;
+            HInstructionScheduling::scheduler_ArmMemoryLoadLatency + HInstructionScheduling::scheduler_ArmIntegerOpLatency + HInstructionScheduling::scheduler_ArmMemoryLoadLatency;
+        last_visited_latency_ = HInstructionScheduling::scheduler_ArmIntegerOpLatency;
       } else {
-        last_visited_latency_ = kArmMemoryLoadLatency;
+        last_visited_latency_ = HInstructionScheduling::scheduler_ArmMemoryLoadLatency;
       }
       break;
 
     default:
-      last_visited_latency_ = kArmMemoryLoadLatency;
+      last_visited_latency_ = HInstructionScheduling::scheduler_ArmMemoryLoadLatency;
       break;
   }
 
   if (is_volatile) {
-    last_visited_internal_latency_ += kArmMemoryBarrierLatency;
+    last_visited_internal_latency_ += HInstructionScheduling::scheduler_ArmMemoryBarrierLatency;
   }
 }
 
@@ -650,47 +651,47 @@ void SchedulingLatencyVisitorARM::HandleFieldSetLatencies(HInstruction* instruct
     case Primitive::kPrimShort:
     case Primitive::kPrimChar:
       if (is_volatile) {
-        last_visited_internal_latency_ = kArmMemoryBarrierLatency + kArmMemoryStoreLatency;
-        last_visited_latency_ = kArmMemoryBarrierLatency;
+        last_visited_internal_latency_ = HInstructionScheduling::scheduler_ArmMemoryBarrierLatency + HInstructionScheduling::scheduler_ArmMemoryStoreLatency;
+        last_visited_latency_ = HInstructionScheduling::scheduler_ArmMemoryBarrierLatency;
       } else {
-        last_visited_latency_ = kArmMemoryStoreLatency;
+        last_visited_latency_ = HInstructionScheduling::scheduler_ArmMemoryStoreLatency;
       }
       break;
 
     case Primitive::kPrimInt:
     case Primitive::kPrimNot:
       if (kPoisonHeapReferences && needs_write_barrier) {
-        last_visited_internal_latency_ += kArmIntegerOpLatency * 2;
+        last_visited_internal_latency_ += HInstructionScheduling::scheduler_ArmIntegerOpLatency * 2;
       }
-      last_visited_latency_ = kArmMemoryStoreLatency;
+      last_visited_latency_ = HInstructionScheduling::scheduler_ArmMemoryStoreLatency;
       break;
 
     case Primitive::kPrimLong:
       if (is_volatile && !atomic_ldrd_strd) {
         last_visited_internal_latency_ =
-            kArmIntegerOpLatency + kArmMemoryLoadLatency + kArmMemoryStoreLatency;
-        last_visited_latency_ = kArmIntegerOpLatency;
+            HInstructionScheduling::scheduler_ArmIntegerOpLatency + HInstructionScheduling::scheduler_ArmMemoryLoadLatency + HInstructionScheduling::scheduler_ArmMemoryStoreLatency;
+        last_visited_latency_ = HInstructionScheduling::scheduler_ArmIntegerOpLatency;
       } else {
-        last_visited_latency_ = kArmMemoryStoreLatency;
+        last_visited_latency_ = HInstructionScheduling::scheduler_ArmMemoryStoreLatency;
       }
       break;
 
     case Primitive::kPrimFloat:
-      last_visited_latency_ = kArmMemoryStoreLatency;
+      last_visited_latency_ = HInstructionScheduling::scheduler_ArmMemoryStoreLatency;
       break;
 
     case Primitive::kPrimDouble:
       if (is_volatile && !atomic_ldrd_strd) {
-        last_visited_internal_latency_ = kArmIntegerOpLatency +
-            kArmIntegerOpLatency + kArmMemoryLoadLatency + kArmMemoryStoreLatency;
-        last_visited_latency_ = kArmIntegerOpLatency;
+        last_visited_internal_latency_ = HInstructionScheduling::scheduler_ArmIntegerOpLatency +
+            HInstructionScheduling::scheduler_ArmIntegerOpLatency + HInstructionScheduling::scheduler_ArmMemoryLoadLatency + HInstructionScheduling::scheduler_ArmMemoryStoreLatency;
+        last_visited_latency_ = HInstructionScheduling::scheduler_ArmIntegerOpLatency;
       } else {
-        last_visited_latency_ = kArmMemoryStoreLatency;
+        last_visited_latency_ = HInstructionScheduling::scheduler_ArmMemoryStoreLatency;
       }
       break;
 
     default:
-      last_visited_latency_ = kArmMemoryStoreLatency;
+      last_visited_latency_ = HInstructionScheduling::scheduler_ArmMemoryStoreLatency;
       break;
   }
 }
@@ -719,21 +720,21 @@ void SchedulingLatencyVisitorARM::VisitTypeConversion(HTypeConversion* instr) {
     case Primitive::kPrimByte:
     case Primitive::kPrimChar:
     case Primitive::kPrimShort:
-      last_visited_latency_ = kArmIntegerOpLatency;  // SBFX or UBFX
+      last_visited_latency_ = HInstructionScheduling::scheduler_ArmIntegerOpLatency;  // SBFX or UBFX
       break;
 
     case Primitive::kPrimInt:
       switch (input_type) {
         case Primitive::kPrimLong:
-          last_visited_latency_ = kArmIntegerOpLatency;  // MOV
+          last_visited_latency_ = HInstructionScheduling::scheduler_ArmIntegerOpLatency;  // MOV
           break;
         case Primitive::kPrimFloat:
         case Primitive::kPrimDouble:
-          last_visited_internal_latency_ = kArmTypeConversionFloatingPointIntegerLatency;
-          last_visited_latency_ = kArmFloatingPointOpLatency;
+          last_visited_internal_latency_ = HInstructionScheduling::scheduler_ArmTypeConversionFloatingPointIntegerLatency;
+          last_visited_latency_ = HInstructionScheduling::scheduler_ArmFloatingPointOpLatency;
           break;
         default:
-          last_visited_latency_ = kArmIntegerOpLatency;
+          last_visited_latency_ = HInstructionScheduling::scheduler_ArmIntegerOpLatency;
           break;
       }
       break;
@@ -746,17 +747,17 @@ void SchedulingLatencyVisitorARM::VisitTypeConversion(HTypeConversion* instr) {
         case Primitive::kPrimShort:
         case Primitive::kPrimInt:
           // MOV and extension
-          last_visited_internal_latency_ = kArmIntegerOpLatency;
-          last_visited_latency_ = kArmIntegerOpLatency;
+          last_visited_internal_latency_ = HInstructionScheduling::scheduler_ArmIntegerOpLatency;
+          last_visited_latency_ = HInstructionScheduling::scheduler_ArmIntegerOpLatency;
           break;
         case Primitive::kPrimFloat:
         case Primitive::kPrimDouble:
           // invokes runtime
-          last_visited_internal_latency_ = kArmCallInternalLatency;
+          last_visited_internal_latency_ = HInstructionScheduling::scheduler_ArmCallInternalLatency;
           break;
         default:
-          last_visited_internal_latency_ = kArmIntegerOpLatency;
-          last_visited_latency_ = kArmIntegerOpLatency;
+          last_visited_internal_latency_ = HInstructionScheduling::scheduler_ArmIntegerOpLatency;
+          last_visited_latency_ = HInstructionScheduling::scheduler_ArmIntegerOpLatency;
           break;
       }
       break;
@@ -768,18 +769,18 @@ void SchedulingLatencyVisitorARM::VisitTypeConversion(HTypeConversion* instr) {
         case Primitive::kPrimChar:
         case Primitive::kPrimShort:
         case Primitive::kPrimInt:
-          last_visited_internal_latency_ = kArmTypeConversionFloatingPointIntegerLatency;
-          last_visited_latency_ = kArmFloatingPointOpLatency;
+          last_visited_internal_latency_ = HInstructionScheduling::scheduler_ArmTypeConversionFloatingPointIntegerLatency;
+          last_visited_latency_ = HInstructionScheduling::scheduler_ArmFloatingPointOpLatency;
           break;
         case Primitive::kPrimLong:
           // invokes runtime
-          last_visited_internal_latency_ = kArmCallInternalLatency;
+          last_visited_internal_latency_ = HInstructionScheduling::scheduler_ArmCallInternalLatency;
           break;
         case Primitive::kPrimDouble:
-          last_visited_latency_ = kArmFloatingPointOpLatency;
+          last_visited_latency_ = HInstructionScheduling::scheduler_ArmFloatingPointOpLatency;
           break;
         default:
-          last_visited_latency_ = kArmFloatingPointOpLatency;
+          last_visited_latency_ = HInstructionScheduling::scheduler_ArmFloatingPointOpLatency;
           break;
       }
       break;
@@ -791,31 +792,31 @@ void SchedulingLatencyVisitorARM::VisitTypeConversion(HTypeConversion* instr) {
         case Primitive::kPrimChar:
         case Primitive::kPrimShort:
         case Primitive::kPrimInt:
-          last_visited_internal_latency_ = kArmTypeConversionFloatingPointIntegerLatency;
-          last_visited_latency_ = kArmFloatingPointOpLatency;
+          last_visited_internal_latency_ = HInstructionScheduling::scheduler_ArmTypeConversionFloatingPointIntegerLatency;
+          last_visited_latency_ = HInstructionScheduling::scheduler_ArmFloatingPointOpLatency;
           break;
         case Primitive::kPrimLong:
-          last_visited_internal_latency_ = 5 * kArmFloatingPointOpLatency;
-          last_visited_latency_ = kArmFloatingPointOpLatency;
+          last_visited_internal_latency_ = 5 * HInstructionScheduling::scheduler_ArmFloatingPointOpLatency;
+          last_visited_latency_ = HInstructionScheduling::scheduler_ArmFloatingPointOpLatency;
           break;
         case Primitive::kPrimFloat:
-          last_visited_latency_ = kArmFloatingPointOpLatency;
+          last_visited_latency_ = HInstructionScheduling::scheduler_ArmFloatingPointOpLatency;
           break;
         default:
-          last_visited_latency_ = kArmFloatingPointOpLatency;
+          last_visited_latency_ = HInstructionScheduling::scheduler_ArmFloatingPointOpLatency;
           break;
       }
       break;
 
     default:
-      last_visited_latency_ = kArmTypeConversionFloatingPointIntegerLatency;
+      last_visited_latency_ = HInstructionScheduling::scheduler_ArmTypeConversionFloatingPointIntegerLatency;
       break;
   }
 }
 
 void SchedulingLatencyVisitorARM::VisitArmDexCacheArraysBase(art::HArmDexCacheArraysBase*) {
-  last_visited_internal_latency_ = kArmIntegerOpLatency;
-  last_visited_latency_ = kArmIntegerOpLatency;
+  last_visited_internal_latency_ = HInstructionScheduling::scheduler_ArmIntegerOpLatency;
+  last_visited_latency_ = HInstructionScheduling::scheduler_ArmIntegerOpLatency;
 }
 
 }  // namespace arm

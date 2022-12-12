@@ -130,7 +130,7 @@ static constexpr bool kUseReadBarrier =
 //
 // TODO: Remove this flag when the read barriers compiler
 // instrumentation is completed.
-static constexpr bool kForceReadBarrier = false;
+static constexpr bool kForceReadBarrier = true;
 // TODO: Likewise, remove this flag when kForceReadBarrier is removed
 // and replace it with kUseReadBarrier.
 static constexpr bool kEmitCompilerReadBarrier = kForceReadBarrier || kUseReadBarrier;

@@ -485,6 +485,27 @@ class HInstructionScheduling : public HOptimization {
   CodeGenerator* const codegen_;
   const InstructionSet instruction_set_;
 
+  // auto generated using string: static size_t scheduler_Arm&;
+  static size_t scheduler_ArmIntegerOpLatency;
+  static size_t scheduler_ArmFloatingPointOpLatency;
+  static size_t scheduler_ArmDataProcWithShifterOpLatency;
+  static size_t scheduler_ArmMulIntegerLatency;
+  static size_t scheduler_ArmMulFloatingPointLatency;
+  static size_t scheduler_ArmDivIntegerLatency;
+  static size_t scheduler_ArmDivFloatLatency;
+  static size_t scheduler_ArmDivDoubleLatency;
+  static size_t scheduler_ArmTypeConversionFloatingPointIntegerLatency;
+  static size_t scheduler_ArmMemoryLoadLatency;
+  static size_t scheduler_ArmMemoryStoreLatency;
+  static size_t scheduler_ArmMemoryBarrierLatency;
+  static size_t scheduler_ArmBranchLatency;
+  static size_t scheduler_ArmCallLatency;
+  static size_t scheduler_ArmCallInternalLatency;
+  static size_t scheduler_ArmLoadStringInternalLatency;
+  static size_t scheduler_ArmNopLatency;
+  static size_t scheduler_ArmLoadWithBakerReadBarrierLatency;
+  static size_t scheduler_ArmRuntimeTypeCheckLatency;
+
  private:
   DISALLOW_COPY_AND_ASSIGN(HInstructionScheduling);
 };

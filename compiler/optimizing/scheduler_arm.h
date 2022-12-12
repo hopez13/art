@@ -59,7 +59,7 @@ class SchedulingLatencyVisitorARM : public SchedulingLatencyVisitor {
 
   // Default visitor for instructions not handled specifically below.
   void VisitInstruction(HInstruction* ATTRIBUTE_UNUSED) {
-    last_visited_latency_ = kArmIntegerOpLatency;
+    last_visited_latency_ = HInstructionScheduling::scheduler_ArmIntegerOpLatency;
   }
 
 // We add a second unused parameter to be able to use this macro like the others
