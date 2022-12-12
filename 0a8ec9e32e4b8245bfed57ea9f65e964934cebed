@@ -16,6 +16,24 @@
       "message": "+1 to let mast@ the master of linkers and shared libraries to have a look at the rogue dependency. :)",
       "revId": "0a8ec9e32e4b8245bfed57ea9f65e964934cebed",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "665df163_2977ae2c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-12-12T15:39:55Z",
+      "side": 1,
+      "message": "The specific repro: touching `art/libartbase/base/globals_unix.cc` causes `signal_dumper` to rebuild (without this `.bp` dependency) and I just could not figure out where that build dependency comes from.",
+      "parentUuid": "75df81d5_32d74829",
+      "revId": "0a8ec9e32e4b8245bfed57ea9f65e964934cebed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
