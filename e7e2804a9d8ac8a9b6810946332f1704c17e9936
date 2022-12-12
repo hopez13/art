@@ -16,6 +16,46 @@
       "message": "FYI patchset 3 passed presubmit and 3..4 is a comment update",
       "revId": "e7e2804a9d8ac8a9b6810946332f1704c17e9936",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8e519319_9c113056",
+        "filename": "test/2250-checker-inline-throw-into-try/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-12-12T10:12:10Z",
+      "side": 1,
+      "message": "This is a checker test with no checker statements.",
+      "revId": "e7e2804a9d8ac8a9b6810946332f1704c17e9936",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "280c9211_b7982949",
+        "filename": "test/2250-checker-inline-throw-into-try/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-12-12T10:12:10Z",
+      "side": 1,
+      "message": "Error",
+      "range": {
+        "startLine": 62,
+        "startChar": 18,
+        "endLine": 62,
+        "endChar": 27
+      },
+      "revId": "e7e2804a9d8ac8a9b6810946332f1704c17e9936",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
