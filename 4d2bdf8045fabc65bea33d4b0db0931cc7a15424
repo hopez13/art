@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "796bf10c_3325be25",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2022-12-12T13:05:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9aa2e607_2701352f",
+      "range": {
+        "startLine": 14,
+        "startChar": 6,
+        "endLine": 14,
+        "endChar": 11
+      },
+      "revId": "4d2bdf8045fabc65bea33d4b0db0931cc7a15424",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "2440bcd3_bb5a440f",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -66,6 +90,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "33839dd5_75d93eac",
+        "filename": "compiler/art_standalone_compiler_tests.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2022-12-12T13:05:19Z",
+      "side": 1,
+      "message": "The directories here are related to the build arch.\nE.g., the directory which get pushed:\n`out/target/product/vsoc_x86_64/testcases/art_standalone_runtime_tests`\nTest dir contents:\n`art_standalone_runtime_tests.config  x86  x86_64`\n\nGiven that this .xml config has to work with x86/arm 32/64 bitness (at least), the generalization here seems unavoidable.",
+      "parentUuid": "ade67694_48f5997e",
+      "range": {
+        "startLine": 28,
+        "startChar": 17,
+        "endLine": 28,
+        "endChar": 76
+      },
+      "revId": "4d2bdf8045fabc65bea33d4b0db0931cc7a15424",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8e9a71b3_2a0f4805",
         "filename": "compiler/art_standalone_compiler_tests.xml",
         "patchSetId": 1
@@ -89,6 +137,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4d8fb7c3_14670b09",
+        "filename": "compiler/art_standalone_compiler_tests.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2022-12-12T13:05:19Z",
+      "side": 1,
+      "message": "\u003eIt\u0027s worth a comment.\n\nDone\n\n\u003eAlso, are we guaranteed that both 32 and 64 bit binaries cannot be present at the same time?\n\nIt relies on the buildsystem populating `testcases` dirs correctly. Do you think it\u0027s worth double checking here?",
+      "parentUuid": "8e9a71b3_2a0f4805",
+      "range": {
+        "startLine": 30,
+        "startChar": 106,
+        "endLine": 30,
+        "endChar": 108
+      },
+      "revId": "4d2bdf8045fabc65bea33d4b0db0931cc7a15424",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a56e07dd_e6b84e2c",
         "filename": "compiler/art_standalone_compiler_tests.xml",
         "patchSetId": 1
@@ -100,6 +172,30 @@
       "writtenOn": "2022-12-09T19:41:35Z",
       "side": 1,
       "message": "I\u0027m confused on how the bitness suffixes work now: With the added `??` above I take it `append-bitness` only added the bitness to the source and not the target. So changing to pushing the whole test directory means other files as well keep their bitness suffixes, like the test binary itself. But then how is it picked up here?",
+      "range": {
+        "startLine": 37,
+        "startChar": 42,
+        "endLine": 37,
+        "endChar": 71
+      },
+      "revId": "4d2bdf8045fabc65bea33d4b0db0931cc7a15424",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fbe65fb2_ca18988f",
+        "filename": "compiler/art_standalone_compiler_tests.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2022-12-12T13:05:19Z",
+      "side": 1,
+      "message": "Yes, all files keep their bitness, including test binary.\nTradefed GTest class handles the bitness logic:\nhttps://cs.android.com/android/platform/superproject/+/master:tools/tradefederation/core/test_framework/com/android/tradefed/testtype/GTest.java;l\u003d177\nIt recursively checks each file with `shouldRunFile`, which ignores suffix:\nhttps://cs.android.com/android/platform/superproject/+/master:tools/tradefederation/core/test_framework/com/android/tradefed/testtype/GTest.java;l\u003d238",
+      "parentUuid": "a56e07dd_e6b84e2c",
       "range": {
         "startLine": 37,
         "startChar": 42,
