@@ -367,6 +367,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "918fb220_18dccf84",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 910,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-12-12T13:38:45Z",
+      "side": 1,
+      "message": "I see. Can you add a comment that we\u0027re reusing the buffer?",
+      "parentUuid": "bc971b66_cb688789",
+      "revId": "46eb9348e46aaa604a4970d74b20132cbc9df131",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9da6708f_d48d27d1",
         "filename": "runtime/trace.cc",
         "patchSetId": 4
