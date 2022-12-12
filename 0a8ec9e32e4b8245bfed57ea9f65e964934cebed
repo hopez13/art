@@ -106,6 +106,24 @@
       "parentUuid": "32982767_97c5e79e",
       "revId": "0a8ec9e32e4b8245bfed57ea9f65e964934cebed",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a896095b_fc43462c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-12-12T16:17:28Z",
+      "side": 1,
+      "message": "There\u0027s a dependency on libartbase via `libdexfile_support_static_defaults`, but it\u0027s a static one. It looks like this binary is intended to link all ART libraries statically, so adding libartbase as a shared lib is wrong.\n\nAlso, I can\u0027t reproduce with:\n\n```\n$ touch art/libartbase/base/globals_unix.cc\n$ m signal_dumper\n/.../\n#### build completed successfully (33 seconds) ####\n```\n\nI\u0027ve no idea why you could be seeing a different result than the above, but maybe you got your out tree into a weird state. Have you tried with `installclean` or `clean`? Which lunch or banchan target are you using?",
+      "parentUuid": "f9abb492_e8d91af4",
+      "revId": "0a8ec9e32e4b8245bfed57ea9f65e964934cebed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
