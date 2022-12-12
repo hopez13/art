@@ -22,6 +22,30 @@
       },
       "revId": "43a521c53f85e94bdd444d7f07890998f9a63bf6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f1f770d_f9f97f76",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2927,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-12-12T12:59:51Z",
+      "side": 1,
+      "message": "Which check in particular?\n\nIn `IsInliningSupported` we bail for try inside of try (https://cs.android.com/android/platform/superproject/+/master:art/compiler/optimizing/inliner.cc;l\u003d1443;drc\u003d343b9d9e103e281a4c4c337edb83d23473e28bcc). That hasn\u0027t changed.\n\nWe also have a DCHECK in nodes.cc (https://cs.android.com/android/platform/superproject/+/master:art/compiler/optimizing/nodes.cc;l\u003d2744;drc\u003d343b9d9e103e281a4c4c337edb83d23473e28bcc) to check that we are not inlining try catches inside of try blocks.\n\nAs an FYI, this CL is for the \"try catch caller\" which was preventing callees that sometimes threw to be inlined inside of caller\u0027s try blocks. It is not directly related to try catch inlining as we are not inlining try catches.",
+      "parentUuid": "46dbb7a2_be607632",
+      "range": {
+        "startLine": 2927,
+        "startChar": 0,
+        "endLine": 2927,
+        "endChar": 98
+      },
+      "revId": "43a521c53f85e94bdd444d7f07890998f9a63bf6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
