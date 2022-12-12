@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d52c360_4100dc23",
+        "filename": "tools/signal_dumper/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-12-12T15:02:58Z",
+      "side": 1,
+      "message": "I am not sure what causes this dependency.  It does not sound like the binary should need to depend on it, but somehow we do, and the binary crashes (CHECK fail) without it.",
+      "revId": "6b2c4cf3f4fad07e4f21989dc46981f5f4caa7f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
