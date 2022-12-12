@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa18937c_3950dd1c",
+        "filename": "runtime/gc/collector/mark_compact-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-12-12T22:32:17Z",
+      "side": 1,
+      "message": "Reverse these? The second one seems cheaper and more likely to fail, at least if the klass computation has already been CSEd.\n\nstd::less() also seems more appropriate here, since it\u0027s hard to argue they\u0027re both pointers into the same array.",
+      "range": {
+        "startLine": 30,
+        "startChar": 15,
+        "endLine": 30,
+        "endChar": 69
+      },
+      "revId": "0a4aab828eb630970bf7c5154b1aee0f4f3cc029",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2eca1902_cc884deb",
+        "filename": "runtime/gc/collector/mark_compact-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-12-12T22:32:17Z",
+      "side": 1,
+      "message": "Probably again std::less .",
+      "range": {
+        "startLine": 33,
+        "startChar": 19,
+        "endLine": 33,
+        "endChar": 52
+      },
+      "revId": "0a4aab828eb630970bf7c5154b1aee0f4f3cc029",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c841d6a8_c197b381",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1813,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-12-12T22:32:17Z",
+      "side": 1,
+      "message": "\"pages to be freed\"",
+      "range": {
+        "startLine": 1813,
+        "startChar": 52,
+        "endLine": 1813,
+        "endChar": 65
+      },
+      "revId": "0a4aab828eb630970bf7c5154b1aee0f4f3cc029",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2fe7c1b_9b6700b8",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1815,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-12-12T22:32:17Z",
+      "side": 1,
+      "message": "Does this handle a class object that has reclaim_begin in the middle?",
+      "range": {
+        "startLine": 1815,
+        "startChar": 8,
+        "endLine": 1815,
+        "endChar": 96
+      },
+      "revId": "0a4aab828eb630970bf7c5154b1aee0f4f3cc029",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3777107e_64228e71",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1819,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-12-12T22:32:17Z",
+      "side": 1,
+      "message": "I guess it would be more complicated to just narrow the range instead?",
+      "range": {
+        "startLine": 1819,
+        "startChar": 8,
+        "endLine": 1819,
+        "endChar": 28
+      },
+      "revId": "0a4aab828eb630970bf7c5154b1aee0f4f3cc029",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0b5057f_16c69e2f",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1823,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-12-12T22:32:17Z",
+      "side": 1,
+      "message": "class addresses?",
+      "range": {
+        "startLine": 1823,
+        "startChar": 27,
+        "endLine": 1823,
+        "endChar": 32
+      },
+      "revId": "0a4aab828eb630970bf7c5154b1aee0f4f3cc029",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d8af053_a365c592",
+        "filename": "runtime/gc/collector/mark_compact.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 585,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-12-12T22:32:17Z",
+      "side": 1,
+      "message": "If this is used to iterate over the preceding map, it should preseumably use the same template arguments? Can we name the type to enforce consistency?",
+      "range": {
+        "startLine": 585,
+        "startChar": 63,
+        "endLine": 585,
+        "endChar": 84
+      },
+      "revId": "0a4aab828eb630970bf7c5154b1aee0f4f3cc029",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
