@@ -46,6 +46,30 @@
       },
       "revId": "43a521c53f85e94bdd444d7f07890998f9a63bf6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d7af2cb8_9ae23e4b",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2927,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-12-12T13:22:39Z",
+      "side": 1,
+      "message": "Ack. You can reference `HInliner::IsInliningSupported` or leave it as-is, up to you.",
+      "parentUuid": "4f1f770d_f9f97f76",
+      "range": {
+        "startLine": 2927,
+        "startChar": 0,
+        "endLine": 2927,
+        "endChar": 98
+      },
+      "revId": "43a521c53f85e94bdd444d7f07890998f9a63bf6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
