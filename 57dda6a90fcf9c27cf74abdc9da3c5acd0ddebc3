@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "577a3d9e_86330832",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2392,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-12-13T23:28:41Z",
+      "side": 1,
+      "message": "\"pointed to\"",
+      "range": {
+        "startLine": 2392,
+        "startChar": 57,
+        "endLine": 2392,
+        "endChar": 64
+      },
+      "revId": "57dda6a90fcf9c27cf74abdc9da3c5acd0ddebc3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fde9f1f7_6ff3a744",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2419,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-12-13T23:28:41Z",
+      "side": 1,
+      "message": "If this were expected to be permanent, I\u0027d reverese the then and else clauses to avoid the negation. But this makes it easier to take this out again, so I don\u0027t care much.",
+      "range": {
+        "startLine": 2417,
+        "startChar": 10,
+        "endLine": 2419,
+        "endChar": 38
+      },
+      "revId": "57dda6a90fcf9c27cf74abdc9da3c5acd0ddebc3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
