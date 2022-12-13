@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc573353_a719cd9f",
+        "filename": "runtime/gc/collector/mark_compact-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-12-13T00:56:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aa18937c_3950dd1c",
+      "range": {
+        "startLine": 30,
+        "startChar": 15,
+        "endLine": 30,
+        "endChar": 69
+      },
+      "revId": "0a4aab828eb630970bf7c5154b1aee0f4f3cc029",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2eca1902_cc884deb",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-12-12T22:32:17Z",
       "side": 1,
       "message": "Probably again std::less .",
+      "range": {
+        "startLine": 33,
+        "startChar": 19,
+        "endLine": 33,
+        "endChar": 52
+      },
+      "revId": "0a4aab828eb630970bf7c5154b1aee0f4f3cc029",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a646c3dd_27299966",
+        "filename": "runtime/gc/collector/mark_compact-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-12-13T00:56:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2eca1902_cc884deb",
       "range": {
         "startLine": 33,
         "startChar": 19,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7fcf1045_ae3e9f51",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1813,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-12-13T00:56:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c841d6a8_c197b381",
+      "range": {
+        "startLine": 1813,
+        "startChar": 52,
+        "endLine": 1813,
+        "endChar": 65
+      },
+      "revId": "0a4aab828eb630970bf7c5154b1aee0f4f3cc029",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e2fe7c1b_9b6700b8",
@@ -83,6 +155,30 @@
       "writtenOn": "2022-12-12T22:32:17Z",
       "side": 1,
       "message": "Does this handle a class object that has reclaim_begin in the middle?",
+      "range": {
+        "startLine": 1815,
+        "startChar": 8,
+        "endLine": 1815,
+        "endChar": 96
+      },
+      "revId": "0a4aab828eb630970bf7c5154b1aee0f4f3cc029",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "baf83a43_8cd80685",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1815,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-12-13T00:56:18Z",
+      "side": 1,
+      "message": "You are right. It could have caused issues. Fixed.",
+      "parentUuid": "e2fe7c1b_9b6700b8",
       "range": {
         "startLine": 1815,
         "startChar": 8,
@@ -116,6 +212,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4f78a5c4_a0fe8bb7",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1819,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-12-13T00:56:18Z",
+      "side": 1,
+      "message": "I thought about it but didn\u0027t implement. Not complicated. Done now.",
+      "parentUuid": "3777107e_64228e71",
+      "range": {
+        "startLine": 1819,
+        "startChar": 8,
+        "endLine": 1819,
+        "endChar": 28
+      },
+      "revId": "0a4aab828eb630970bf7c5154b1aee0f4f3cc029",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d0b5057f_16c69e2f",
@@ -139,6 +259,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e9918c29_ccad9334",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1823,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-12-13T00:56:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d0b5057f_16c69e2f",
+      "range": {
+        "startLine": 1823,
+        "startChar": 27,
+        "endLine": 1823,
+        "endChar": 32
+      },
+      "revId": "0a4aab828eb630970bf7c5154b1aee0f4f3cc029",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5d8af053_a365c592",
@@ -152,6 +296,30 @@
       "writtenOn": "2022-12-12T22:32:17Z",
       "side": 1,
       "message": "If this is used to iterate over the preceding map, it should preseumably use the same template arguments? Can we name the type to enforce consistency?",
+      "range": {
+        "startLine": 585,
+        "startChar": 63,
+        "endLine": 585,
+        "endChar": 84
+      },
+      "revId": "0a4aab828eb630970bf7c5154b1aee0f4f3cc029",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc89b2c5_486df9dd",
+        "filename": "runtime/gc/collector/mark_compact.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 585,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-12-13T00:56:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5d8af053_a365c592",
       "range": {
         "startLine": 585,
         "startChar": 63,
