@@ -2430,10 +2430,8 @@ void Heap::PreZygoteFork() {
   if (HasZygoteSpace()) {
     return;
   }
-  Runtime* runtime = Runtime::Current();
-  runtime->GetInternTable()->AddNewTable();
-  runtime->GetClassLinker()->MoveClassTableToPreZygote();
-  runtime->SetupLinearAllocForPostZygoteFork(self);
+  Runtime::Current()->GetInternTable()->AddNewTable();
+  Runtime::Current()->GetClassLinker()->MoveClassTableToPreZygote();
   VLOG(heap) << "Starting PreZygoteFork";
   // The end of the non-moving space may be protected, unprotect it so that we can copy the zygote
   // there.
