@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "19a9aa06_858ddd67",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-12-14T13:55:35Z",
+      "side": 1,
+      "message": "Semi-space GC cleans up in the `MarkingPhase()` while holding mutator lock exclusively (no checkpoint required). All other GCs now do the clean up in `ReclaimPhase()` when it\u0027s safe to release and re-acquire the mutator lock. I added comments to the fault handler.\n\nRefactoring semi-space GC to do the cleanup during `ReclaimPhase()` appears to be a bit difficult as it really wants to clean the from-space during the `MarkingPhase()` and JIT and CHA need to be pruned before we remove the dead from-space class objects. We could split the cleanup to two functions (1. clean up JIT+CHA. 2. clean up class loaders.) but that is a bit pointless as the semi-space GC has a mode where it holds the mutator lock exclusively even in the `ReclaimPhase()`, so the fault handler would still need to deal with that case anyway.",
+      "parentUuid": "9088d003_e9682ea7",
+      "revId": "31573ec9a6106627a3a49891bf3c66035a3f930f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1182eb52_a8a4f034",
         "filename": "runtime/fault_handler.cc",
         "patchSetId": 2
