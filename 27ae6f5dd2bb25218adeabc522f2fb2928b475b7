@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "25ad0d08_8eaec059",
+        "filename": "sigchainlib/sigchain.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-12-14T12:53:39Z",
+      "side": 1,
+      "message": "I am not very familiar with this code either.  Naively it sounds good, but I don\u0027t follow the details.\n\nWhat is the debuggerd interaction here?  How come we never get here is debuggerd is enabled.  Do we register different \"default\" handler if debuggers is enabled?  I don\u0027t see it here.\n\nThe `sigaction` registers a default handler, but if we are here, isn\u0027t the default handler already set, and doesn\u0027t the sigaction affect the next signal but does not affect the current signal?",
+      "revId": "27ae6f5dd2bb25218adeabc522f2fb2928b475b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
