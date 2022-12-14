@@ -16,6 +16,24 @@
       "message": "I am not very familiar with this code either.  Naively it sounds good, but I don\u0027t follow the details.\n\nWhat is the debuggerd interaction here?  How come we never get here is debuggerd is enabled.  Do we register different \"default\" handler if debuggers is enabled?  I don\u0027t see it here.\n\nThe `sigaction` registers a default handler, but if we are here, isn\u0027t the default handler already set, and doesn\u0027t the sigaction affect the next signal but does not affect the current signal?",
       "revId": "27ae6f5dd2bb25218adeabc522f2fb2928b475b7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "619b9e19_ec7f3ef1",
+        "filename": "sigchainlib/sigchain.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1463403
+      },
+      "writtenOn": "2022-12-14T19:20:32Z",
+      "side": 1,
+      "message": "Yes, if debuggerd is enabled, we register a handler for many signals. https://cs.android.com/android/platform/superproject/+/master:system/core/debuggerd/include/debuggerd/handler.h;l\u003d64;drc\u003d7bd6dca85571fbc85767022943109e662d0252ed. This is done very early on, before dynamic linking. So we won\u0027t ever revert to the SIG_DFL action for those.\n\nWe could get here if there was a special signal handler on one of the signals not handled by debuggerd. But the only signals that currently could have special handlers are SIGSEGV and SIGILL, both debuggerd signals. That said, if some other signal were to get a special handler (say SIGCHLD), a crash here would be still be wrong if the signal\u0027s default action is ignore.",
+      "parentUuid": "25ad0d08_8eaec059",
+      "revId": "27ae6f5dd2bb25218adeabc522f2fb2928b475b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
