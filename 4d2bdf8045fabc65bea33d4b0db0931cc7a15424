@@ -114,6 +114,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f9d6a44c_816137e3",
+        "filename": "compiler/art_standalone_compiler_tests.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-12-14T21:30:36Z",
+      "side": 1,
+      "message": "Aha, so there\u0027s a new arch dir level here compared to the old approach. I see. Thanks for clarifying with \"ARCH_DIR\" in the commands.\n\nHowever, judging from the old code these pushers and preparers are run for each arch. So with the new code doesn\u0027t that mean we\u0027re running `generate-boot-image??` for both arches in both preparers? Iow, it gets run twice for each arch.\n\nIf so, that doesn\u0027t seem ideal. Is it possible to use some kind of expansion or environment variable to find out which arch is actually getting tested?",
+      "parentUuid": "33839dd5_75d93eac",
+      "range": {
+        "startLine": 28,
+        "startChar": 17,
+        "endLine": 28,
+        "endChar": 76
+      },
+      "revId": "4d2bdf8045fabc65bea33d4b0db0931cc7a15424",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8e9a71b3_2a0f4805",
         "filename": "compiler/art_standalone_compiler_tests.xml",
         "patchSetId": 1
@@ -149,6 +173,30 @@
       "side": 1,
       "message": "\u003eIt\u0027s worth a comment.\n\nDone\n\n\u003eAlso, are we guaranteed that both 32 and 64 bit binaries cannot be present at the same time?\n\nIt relies on the buildsystem populating `testcases` dirs correctly. Do you think it\u0027s worth double checking here?",
       "parentUuid": "8e9a71b3_2a0f4805",
+      "range": {
+        "startLine": 30,
+        "startChar": 106,
+        "endLine": 30,
+        "endChar": 108
+      },
+      "revId": "4d2bdf8045fabc65bea33d4b0db0931cc7a15424",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "902b7ec7_f8303935",
+        "filename": "compiler/art_standalone_compiler_tests.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-12-14T21:30:36Z",
+      "side": 1,
+      "message": "No, if it doesn\u0027t conflict when you use `atest -a` I think it should be fine.",
+      "parentUuid": "4d8fb7c3_14670b09",
       "range": {
         "startLine": 30,
         "startChar": 106,
