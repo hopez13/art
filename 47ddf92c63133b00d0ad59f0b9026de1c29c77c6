@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "41a389ac_a5e1a036",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-12-14T00:48:18Z",
+      "side": 1,
+      "message": "The identifiable failures here seem to be in 129-ThreadGetId. AFAICT, that very occasionally deadlocks, without meaningful information about its state. Attempting to debug by code inspection, I see that this mostly calls Thread.getAllStackTraces(), which first enumerates threads, and then calls getStackTrace on each one. That in turn suspends each thread to gather the stack trace.\n\nSince gathering the stack trace allocates memory, it would be unfortunate to suspend the HeapTaskDaemon in this way. So we explicitly check for the case in which we have a started HeapTaskDaemon, and we\u0027re asking to suspend it. The checkis in dalvik_system_VMStack.cc:GetThreadStack, and we just return a null stacktrace in that case.\n\nThis seems only 99% correct to me, since the HeapTaskDaemon could have a thread allocated, which would then be enumerated, without actually having called  VMRuntime.getRuntime().startHeapTaskProcessor() to make HeapTaskDaemon::GetRunningThread return non-null.\n\nI\u0027m afraid this is too unlikely to actually explain the failures, but it seems worth fixing.",
+      "revId": "47ddf92c63133b00d0ad59f0b9026de1c29c77c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
