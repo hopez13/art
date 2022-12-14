@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d03f7c09_c5b96009",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-12-14T16:44:47Z",
+      "side": 1,
+      "message": "The added comment helps a lot. I think the DCHECK I suggested would make it still clearer.",
+      "revId": "854823432ccefa37171f2fed5c24320ecf8c6aca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d58790ca_56c610c3",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-12-14T16:44:47Z",
+      "side": 1,
+      "message": "I think a\n\nDCHECK(!Locks::mutator_lock_-\u003eIsSharedHeld(self));\n\nAfter the closing brace would be correct, and clarify the code. As it stands, I was getting confused, and I probably know this code better than most readers.",
+      "range": {
+        "startLine": 316,
+        "startChar": 6,
+        "endLine": 316,
+        "endChar": 7
+      },
+      "revId": "854823432ccefa37171f2fed5c24320ecf8c6aca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
