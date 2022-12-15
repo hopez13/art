@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a092886_e5c19127",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-12-15T15:46:33Z",
+      "side": 1,
+      "message": "Can we just `return InternTable::StringHash()(GcRoot\u003cmirror::String\u003e(str));`? Perhaps with a `ScopedDebugDisallowReadBarriers`?",
+      "revId": "af26d904315ba1ba4274de89b3fe713a8a0be625",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42658e59_d3be38aa",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-12-15T15:46:33Z",
+      "side": 1,
+      "message": "Forward to `InternTable::StringEquals` or add\n\n    if (kIsDebugBuild) {\n      Locks::mutator_lock_-\u003eAssertSharedHeld(Thread::Current());\n    }",
+      "revId": "af26d904315ba1ba4274de89b3fe713a8a0be625",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
