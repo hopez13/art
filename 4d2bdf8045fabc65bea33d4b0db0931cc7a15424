@@ -138,6 +138,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4cf5b455_72081bf6",
+        "filename": "compiler/art_standalone_compiler_tests.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2022-12-15T14:50:21Z",
+      "side": 1,
+      "message": "I\u0027ve checked, the preparer is indeed called twice if I run atest with `-a`.\nUnfortunately, there is no identifying information in `env` on target device during the test run.\nAlso, tradefed classes don\u0027t provide info about arch in preparers. The closest I found is in RunHostCommand preparer: https://cs.android.com/android/platform/superproject/+/master:tools/tradefederation/core/test_framework/com/android/tradefed/targetprep/RunHostCommandTargetPreparer.java;l\u003d319\nBut it only expands paths to host/target test dirs.\n\nFor now I don\u0027t have any better ideas than just to check if boot-image dir exists. This way the second preparer run will just skip generating boot-images",
+      "parentUuid": "f9d6a44c_816137e3",
+      "range": {
+        "startLine": 28,
+        "startChar": 17,
+        "endLine": 28,
+        "endChar": 76
+      },
+      "revId": "4d2bdf8045fabc65bea33d4b0db0931cc7a15424",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8e9a71b3_2a0f4805",
         "filename": "compiler/art_standalone_compiler_tests.xml",
         "patchSetId": 1
