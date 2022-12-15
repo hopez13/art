@@ -162,6 +162,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "27d257a9_f221b91f",
+        "filename": "compiler/art_standalone_compiler_tests.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-12-15T21:28:18Z",
+      "side": 1,
+      "message": "\u003e I\u0027ve checked, the preparer is indeed called twice if I run atest with -a.\n\nI think it may be called twice also when you don\u0027t, if the install tree in out/target/product has an earlier build of the test for the other arch. It\u0027s hardly ever cleaned up unless done explicitly with `m installclean` - normally things are only overwritten.\n\nWhat happens if a user has some old 32 bit build of the test in their install directory, and then tries to build and test only the 64 bit variant? It\u0027d still push and run the old `generate-boot-image32`, won\u0027t it? If there\u0027s some problem there the test may mysteriously fail and the user will probably start looking for problems in the fresh 64 bit build.\n\nIncremental building is used heavily in CI too, and then you never know what kind of build already is present. Some build do `m installclean` first, but I\u0027m not sure all do.\n\nIf this can happen it could be confusing and waste time chasing false leads, so then I think we need to think of another way, unfortunately. Maybe reach out to TradeFed team and see if we can send a CL to implement what we need. But first please check if the case I describe above actually can occur.",
+      "parentUuid": "4cf5b455_72081bf6",
+      "range": {
+        "startLine": 28,
+        "startChar": 17,
+        "endLine": 28,
+        "endChar": 76
+      },
+      "revId": "4d2bdf8045fabc65bea33d4b0db0931cc7a15424",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8e9a71b3_2a0f4805",
         "filename": "compiler/art_standalone_compiler_tests.xml",
         "patchSetId": 1
@@ -268,6 +292,30 @@
       "side": 1,
       "message": "Yes, all files keep their bitness, including test binary.\nTradefed GTest class handles the bitness logic:\nhttps://cs.android.com/android/platform/superproject/+/master:tools/tradefederation/core/test_framework/com/android/tradefed/testtype/GTest.java;l\u003d177\nIt recursively checks each file with `shouldRunFile`, which ignores suffix:\nhttps://cs.android.com/android/platform/superproject/+/master:tools/tradefederation/core/test_framework/com/android/tradefed/testtype/GTest.java;l\u003d238",
       "parentUuid": "a56e07dd_e6b84e2c",
+      "range": {
+        "startLine": 37,
+        "startChar": 42,
+        "endLine": 37,
+        "endChar": 71
+      },
+      "revId": "4d2bdf8045fabc65bea33d4b0db0931cc7a15424",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8307b89d_11334739",
+        "filename": "compiler/art_standalone_compiler_tests.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-12-15T21:28:18Z",
+      "side": 1,
+      "message": "Ok, thanks.",
+      "parentUuid": "fbe65fb2_ca18988f",
       "range": {
         "startLine": 37,
         "startChar": 42,

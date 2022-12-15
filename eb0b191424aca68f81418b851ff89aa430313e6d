@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12095619_2c480ed0",
+        "filename": "compiler/art_standalone_compiler_tests.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-12-15T21:28:18Z",
+      "side": 1,
+      "message": "If the user runs `atest -d` and then another `atest` later, this means they\u0027ll skip this entirely on the second run, I think. That wouldn\u0027t be good. (I use `atest -d` every so often because I want to check the files from the test on device, and/or run the test commands manually with `adb shell`.)\n\nThis is fine if atest cleans things up in the install step before the test run, but I don\u0027t think it necessarily does.",
+      "range": {
+        "startLine": 30,
+        "startChar": 24,
+        "endLine": 30,
+        "endChar": 35
+      },
+      "revId": "eb0b191424aca68f81418b851ff89aa430313e6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
