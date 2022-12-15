@@ -52,6 +52,24 @@
       "parentUuid": "619b9e19_ec7f3ef1",
       "revId": "27ae6f5dd2bb25218adeabc522f2fb2928b475b7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9982271_6fca727f",
+        "filename": "sigchainlib/sigchain.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1463403
+      },
+      "writtenOn": "2022-12-15T16:17:28Z",
+      "side": 1,
+      "message": "Returning from a SIGSEGV handler without doing anything will restore the state just before the segfault, making the segfault happen again. And that will run the default handler. I\u0027ll update the comment to say this.",
+      "parentUuid": "19a8a12d_e93f83d9",
+      "revId": "27ae6f5dd2bb25218adeabc522f2fb2928b475b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
