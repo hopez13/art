@@ -34,6 +34,24 @@
       "parentUuid": "25ad0d08_8eaec059",
       "revId": "27ae6f5dd2bb25218adeabc522f2fb2928b475b7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "19a8a12d_e93f83d9",
+        "filename": "sigchainlib/sigchain.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-12-15T14:20:10Z",
+      "side": 1,
+      "message": "Ah, `debugger` is magically setup in bionic on startup.\n\nI still don\u0027t follow how this \"triggers SIG_DFL\" handler.  This code runs inside the handler.  So `sigaction` will not affect it, right?  It would only affect how the next signal gets handled, no?\n\nAlso, if we don\u0027t fatal-exit here, what happens? What tries the handle it next? (as by definition there is no other handler?)",
+      "parentUuid": "619b9e19_ec7f3ef1",
+      "revId": "27ae6f5dd2bb25218adeabc522f2fb2928b475b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
