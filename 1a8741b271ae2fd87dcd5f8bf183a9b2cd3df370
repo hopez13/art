@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "293d1403_f9cc73a2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-12-16T12:08:41Z",
+      "side": 1,
+      "message": "It was a bug that I discovered when I was dealing with another CL: LSE removing volatile operations (in particular, monitor operations).\n\nI am not sure how to create a regression test as the affected part are the stack maps after inlining. In normal CHECKer tests, we don\u0027t have access to the stack maps. If we try to add it in `stack_map_test.cc` we don\u0027t have the inlining phase running.\n\nWhat I can do is improve the graph_checker.cc by adding a VisitMonitorOperation method. If we see a MonitorOperation instruction but the graph doesn\u0027t have the flag set, we will crash.",
+      "parentUuid": "12d6a0dd_b8a2e037",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 156
+      },
+      "revId": "1a8741b271ae2fd87dcd5f8bf183a9b2cd3df370",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "66cd477d_60abfed3",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
