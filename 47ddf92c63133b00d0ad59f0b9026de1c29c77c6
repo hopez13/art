@@ -33,6 +33,24 @@
       "message": "Running 129-ThreadGetId locally in --dev mode, I also see regular \"No such thread for suspend\" warnings from Thread.getAllStackTraces, which seems fishy. Investigating.",
       "revId": "47ddf92c63133b00d0ad59f0b9026de1c29c77c6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc48870f_5f6de4c8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-12-16T23:53:42Z",
+      "side": 1,
+      "message": "On closer inspection, this appears to be WAI. The test calls getAllStackTraces while threads are finishing. Thus we may find a thread in the enumeration, and it may appear to be alice while we\u0027re enumerating threads, but it can no longer be around when we get to suspending it. Since we hold the thread_list_lock while looking it up inthe suspend code, so if we still find it at that point, it should stick around.",
+      "parentUuid": "37e53081_18cfd36b",
+      "revId": "47ddf92c63133b00d0ad59f0b9026de1c29c77c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
