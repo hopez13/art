@@ -106,6 +106,24 @@
       "parentUuid": "f93f0d02_1012d121",
       "revId": "740bb216840534012a069af18876416dace69d91",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e46d3d87_9967be13",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-12-16T15:00:00Z",
+      "side": 1,
+      "message": "Thanks David! I confused build failures with the test failures. I changed it by just updating knownfailures.json",
+      "parentUuid": "bf2604c7_1595c0ed",
+      "revId": "740bb216840534012a069af18876416dace69d91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
