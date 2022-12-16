@@ -48,6 +48,7 @@ class HDeadCodeElimination : public HOptimization {
   bool SimplifyAlwaysThrows();
   bool SimplifyIfs();
   void ConnectSuccessiveBlocks();
+  void UpdateGraphFlags();
 
   // Helper struct to eliminate tries.
   struct TryBelongingInformation;
