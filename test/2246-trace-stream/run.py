@@ -16,6 +16,11 @@
 
 
 def run(ctx, args):
+  # Skip this test on jvm. This tests art generated method profiling format and
+  # not applicable to jvm
+  if args.jvm:
+    return;
+
   # The expected output is different in debuggable and non debuggable. Just
   # enable debuggable for now.
   # TODO(mythria): Also add tests for non-debuggable mode.
