@@ -629,7 +629,6 @@ bool HDeadCodeElimination::RemoveUnneededTries() {
     }
   }
 
-  const size_t total_tries = tries.size();
   size_t removed_tries = 0;
   bool any_block_in_loop = false;
 
@@ -639,10 +638,6 @@ bool HDeadCodeElimination::RemoveUnneededTries() {
       ++removed_tries;
       RemoveTry(entry.first, entry.second, &any_block_in_loop);
     }
-  }
-
-  if (removed_tries == total_tries) {
-    graph_->SetHasTryCatch(false);
   }
 
   if (removed_tries != 0) {
@@ -741,6 +736,41 @@ void HDeadCodeElimination::RemoveDeadInstructions() {
   }
 }
 
+void HDeadCodeElimination::UpdateGraphFlags() {
+  // TODO(solanes): Integrate `has_try_catch` with `ComputeTryBlockInformation`?
+  bool has_try_catch = false;
+  bool has_monitor_operations = false;
+  // TODO(solanes): `has_loops` shouldn't be needed since we should be recomputing loops when needed
+  // in DCE but we are missing some cases e.g. where we eliminate all loops. Similar with
+  // IrreducibleLoops.
+  bool has_loops = false;
+  bool has_irreducible_loops = false;
+  // TODO(solanes): More flags?
+
+  for (HBasicBlock* block : graph_->GetReversePostOrder()) {
+    if (block->IsInLoop()) {
+      has_loops = true;
+      if (block->GetLoopInformation()->HasBackEdgeNotDominatedByHeader()) {
+        has_irreducible_loops = true;
+      }
+    }
+
+    for (HInstructionIterator it(block->GetInstructions()); !it.Done(); it.Advance()) {
+      HInstruction* instruction = it.Current();
+      if (instruction->IsTryBoundary()) {
+        has_try_catch = true;
+      } else if (instruction->IsMonitorOperation()) {
+        has_monitor_operations = true;
+      }
+    }
+  }
+
+  graph_->SetHasTryCatch(has_try_catch);
+  graph_->SetHasMonitorOperations(has_monitor_operations);
+  graph_->SetHasLoops(has_loops);
+  graph_->SetHasIrreducibleLoops(has_irreducible_loops);
+}
+
 bool HDeadCodeElimination::Run() {
   // Do not eliminate dead blocks if the graph has irreducible loops. We could
   // support it, but that would require changes in our loop representation to handle
@@ -760,6 +790,7 @@ bool HDeadCodeElimination::Run() {
     if (did_any_simplification) {
       // Connect successive blocks created by dead branches.
       ConnectSuccessiveBlocks();
+      UpdateGraphFlags();
     }
   }
   SsaRedundantPhiElimination(graph_).Run();
