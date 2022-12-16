@@ -126,6 +126,11 @@ class GraphChecker : public HGraphDelegateVisitor {
   ArenaVector<std::string> errors_;
 
  private:
+  void VisitReversePostOrder();
+
+  // Checks that the graph's flags are set correctly.
+  void CheckGraphFlags();
+
   // String displayed before dumped errors.
   const char* const dump_prefix_;
   ScopedArenaAllocator allocator_;
@@ -137,6 +142,14 @@ class GraphChecker : public HGraphDelegateVisitor {
 
   // Used to access target information.
   CodeGenerator* codegen_;
+
+  struct FlagInfo {
+    bool seen_try_boundary = false;
+    bool seen_monitor_operation = false;
+    bool seen_loop = false;
+    bool seen_irreducible_loop = false;
+  };
+  FlagInfo flag_info_;
 
   DISALLOW_COPY_AND_ASSIGN(GraphChecker);
 };

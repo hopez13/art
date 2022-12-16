@@ -80,7 +80,66 @@ size_t GraphChecker::Run(bool pass_change, size_t last_size) {
   // as the latter might visit dead blocks removed by the dominator
   // computation.
   VisitReversePostOrder();
+
+  CheckGraphFlags();
   return current_size;
+}
+
+void GraphChecker::VisitReversePostOrder() {
+  for (HBasicBlock* block : GetGraph()->GetReversePostOrder()) {
+    if (block->IsInLoop()) {
+      flag_info_.seen_loop = true;
+      if (block->GetLoopInformation()->HasBackEdgeNotDominatedByHeader()) {
+        flag_info_.seen_irreducible_loop = true;
+      }
+    }
+
+    VisitBasicBlock(block);
+  }
+}
+
+#define BOOL_TO_STRING(val) val ? "true" : "false"
+
+void GraphChecker::CheckGraphFlags() {
+  if (GetGraph()->HasMonitorOperations() != flag_info_.seen_monitor_operation) {
+    AddError(
+        StringPrintf("Flag mismatch: HasMonitorOperations() (%s) should be equal to "
+                     "flag_info_.seen_monitor_operation(%s)",
+                     BOOL_TO_STRING(GetGraph()->HasMonitorOperations()),
+                     BOOL_TO_STRING(flag_info_.seen_monitor_operation)));
+  }
+
+  if (GetGraph()->HasTryCatch() != flag_info_.seen_try_boundary) {
+    AddError(
+        StringPrintf("Flag mismatch: HasTryCatch() (%s) should be equal to "
+                     "flag_info_.seen_try_boundary(%s)",
+                     BOOL_TO_STRING(GetGraph()->HasTryCatch()),
+                     BOOL_TO_STRING(flag_info_.seen_try_boundary)));
+  }
+
+  if (GetGraph()->HasLoops() != flag_info_.seen_loop) {
+    AddError(
+        StringPrintf("Flag mismatch: HasLoops() (%s) should be equal to "
+                     "flag_info_.seen_loop(%s)",
+                     BOOL_TO_STRING(GetGraph()->HasLoops()),
+                     BOOL_TO_STRING(flag_info_.seen_loop)));
+  }
+
+  if (GetGraph()->HasIrreducibleLoops() && !GetGraph()->HasLoops()) {
+    AddError(StringPrintf("Flag mismatch: HasIrreducibleLoops() (%s) implies HasLoops() (%s)",
+                          BOOL_TO_STRING(GetGraph()->HasIrreducibleLoops()),
+                          BOOL_TO_STRING(GetGraph()->HasLoops())));
+  }
+
+  // TODO(solanes): This fails for 638-checker-inline-cache-intrinsic after the builder stage.
+  // Investigate.
+  // if (GetGraph()->HasIrreducibleLoops() != flag_info_.seen_irreducible_loop) {
+  //   AddError(
+  //       StringPrintf("Flag mismatch: HasIrreducibleLoops() (%s) should be equal to "
+  //                    "flag_info_.seen_irreducible_loop(%s)",
+  //                    BOOL_TO_STRING(GetGraph()->HasIrreducibleLoops()),
+  //                    BOOL_TO_STRING(flag_info_.seen_irreducible_loop)));
+  // }
 }
 
 void GraphChecker::VisitBasicBlock(HBasicBlock* block) {
@@ -362,6 +421,8 @@ void GraphChecker::VisitTryBoundary(HTryBoundary* try_boundary) {
                      try_boundary->GetId(),
                      try_boundary->GetBlock()->GetBlockId()));
   }
+
+  flag_info_.seen_try_boundary = true;
 }
 
 void GraphChecker::VisitLoadException(HLoadException* load) {
@@ -393,6 +454,8 @@ void GraphChecker::VisitMonitorOperation(HMonitorOperation* monitor_op) {
                      monitor_op->GetId(),
                      monitor_op->GetBlock()->GetBlockId()));
   }
+
+  flag_info_.seen_monitor_operation = true;
 }
 
 void GraphChecker::VisitInstruction(HInstruction* instruction) {
@@ -1094,8 +1157,8 @@ void GraphChecker::VisitArraySet(HArraySet* instruction) {
         "needs a type check. Needs type check: %s, Can trigger GC: %s",
         instruction->DebugName(),
         instruction->GetId(),
-        instruction->NeedsTypeCheck() ? "true" : "false",
-        instruction->GetSideEffects().Includes(SideEffects::CanTriggerGC()) ? "true" : "false"));
+        BOOL_TO_STRING(instruction->NeedsTypeCheck()),
+        BOOL_TO_STRING(instruction->GetSideEffects().Includes(SideEffects::CanTriggerGC()))));
   }
 }
 
@@ -1218,5 +1281,7 @@ void GraphChecker::VisitVecOperation(HVecOperation* instruction) {
              instruction->GetId()));
   }
 }
+
+#undef BOOL_TO_STRING
 
 }  // namespace art
