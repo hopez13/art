@@ -97,8 +97,7 @@ class LoopOptimizationTest : public OptimizingUnitTest {
     iva_->Run();
     // Do not release the loop hierarchy.
     ScopedArenaAllocator loop_allocator(GetArenaStack());
-    loop_opt_->loop_allocator_ = &loop_allocator;
-    loop_opt_->LocalRun();
+    loop_opt_->Run(loop_allocator);
   }
 
   /** Constructs string representation of computed loop hierarchy. */
