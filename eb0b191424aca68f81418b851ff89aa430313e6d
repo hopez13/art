@@ -46,6 +46,30 @@
       },
       "revId": "eb0b191424aca68f81418b851ff89aa430313e6d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "00f45861_c5e3f6c9",
+        "filename": "compiler/art_standalone_compiler_tests.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-12-16T18:21:39Z",
+      "side": 1,
+      "message": "Well, I suppose in the worst case we can live with the generation happening twice. It\u0027s a waste of time (how much, approximately?) but at least it seems it won\u0027t cause any adverse effects with stale files etc.\n\nHowever it\u0027s also quirky and difficult to reason about. `${ARCH}` would help a lot to make all this much more straightforward, so it definitely has my vote. I don\u0027t know of any other options really, but I suggest reaching out to the tradefed team to see if they have any advice on this. A yaqs/ question could be one option (#tradefed seems like an actively used tag).",
+      "parentUuid": "750520d1_f4d25fd9",
+      "range": {
+        "startLine": 30,
+        "startChar": 24,
+        "endLine": 30,
+        "endChar": 35
+      },
+      "revId": "eb0b191424aca68f81418b851ff89aa430313e6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
