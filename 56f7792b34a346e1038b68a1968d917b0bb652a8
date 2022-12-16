@@ -22,6 +22,30 @@
       },
       "revId": "56f7792b34a346e1038b68a1968d917b0bb652a8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1eb98737_ac4e372e",
+        "filename": "test/ti-agent/ti_utf.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2022-12-16T13:46:02Z",
+      "side": 1,
+      "message": "I\u0027m thinking about a refactoring this using `header_libs` but that\u0027s out of scope for this CL.",
+      "parentUuid": "32ca6c25_0ff46f57",
+      "range": {
+        "startLine": 108,
+        "startChar": 0,
+        "endLine": 108,
+        "endChar": 52
+      },
+      "revId": "56f7792b34a346e1038b68a1968d917b0bb652a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
