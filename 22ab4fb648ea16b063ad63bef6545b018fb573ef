@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b831fdd5_6681e4cb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-12-16T22:00:45Z",
+      "side": 1,
+      "message": "Note that the large PS1-\u003ePS2 change in compiler/utils/assembler_thumb_test_expected.cc.inc is entirely a rebase.\n\nI overrode the automatic reformatting for now to avoid more PS1-\u003ePS2 noise.\n\nI\u0027m still investigating the remaining 129-ThreadGetId issue. Currently I expect a separate CL for that.",
+      "revId": "22ab4fb648ea16b063ad63bef6545b018fb573ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
