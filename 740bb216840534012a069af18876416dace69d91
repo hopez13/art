@@ -88,6 +88,24 @@
       "parentUuid": "f8da8f53_c5c4bbea",
       "revId": "740bb216840534012a069af18876416dace69d91",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf2604c7_1595c0ed",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2022-12-16T13:57:36Z",
+      "side": 1,
+      "message": "Well, I suppose this works, but no other test does it now, and I didn\u0027t intend to do it this way.\n\nI would still suggest adding it to knownfailures (so that the test does not even run, and it not counted towards number of tests to run).\n\nPS: We have no known_build_failures, so I do something like this for the build step, where I just return, leaving the build as no-op.",
+      "parentUuid": "f93f0d02_1012d121",
+      "revId": "740bb216840534012a069af18876416dace69d91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
