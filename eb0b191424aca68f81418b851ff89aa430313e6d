@@ -22,6 +22,30 @@
       },
       "revId": "eb0b191424aca68f81418b851ff89aa430313e6d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "750520d1_f4d25fd9",
+        "filename": "compiler/art_standalone_compiler_tests.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2022-12-16T15:59:27Z",
+      "side": 1,
+      "message": "I\u0027ve tried some workarounds for this, but didn\u0027t manage to make any of them work. It\u0027s possible to fix for single-arch run, but with dual-arch there seem to be no way to generate boot-image exactly once while also keeping the dirs. (I tried to use a timestamp file, but FilePusher is also called twice, so the timestamp always triggers boot-image generation)\n\nI\u0027m thinking about implementing ${ARCH} expansion in RunCommandTargetPreparer, so that each preparer run will only generate boot-image for its arch directory.\nDo you have any other ideas?",
+      "parentUuid": "12095619_2c480ed0",
+      "range": {
+        "startLine": 30,
+        "startChar": 24,
+        "endLine": 30,
+        "endChar": 35
+      },
+      "revId": "eb0b191424aca68f81418b851ff89aa430313e6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

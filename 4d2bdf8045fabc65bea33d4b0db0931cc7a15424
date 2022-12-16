@@ -186,6 +186,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "17571d08_e8ab8193",
+        "filename": "compiler/art_standalone_compiler_tests.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2022-12-16T15:59:27Z",
+      "side": 1,
+      "message": "The case of one arch seems to work fine because of the way `FilePusher` handles directories: https://cs.android.com/android/platform/superproject/+/master:tools/tradefederation/core/test_framework/com/android/tradefed/targetprep/PushFilePreparer.java;l\u003d443;drc\u003d5a4c83d3adbdb8a72a146737fc84965fac26d185\nNote the `filter` argument. In my test it only copied relevant arch dir.",
+      "parentUuid": "27d257a9_f221b91f",
+      "range": {
+        "startLine": 28,
+        "startChar": 17,
+        "endLine": 28,
+        "endChar": 76
+      },
+      "revId": "4d2bdf8045fabc65bea33d4b0db0931cc7a15424",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8e9a71b3_2a0f4805",
         "filename": "compiler/art_standalone_compiler_tests.xml",
         "patchSetId": 1
