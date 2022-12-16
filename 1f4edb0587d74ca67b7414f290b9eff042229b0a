@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5bce321e_36c752ef",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-12-16T11:24:08Z",
+      "side": 1,
+      "message": "Nicolas PTAL",
+      "revId": "1f4edb0587d74ca67b7414f290b9eff042229b0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b0441f3e_f890bc9b",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1931,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2022-12-16T11:24:08Z",
+      "side": 1,
+      "message": "drive-by: added a stat for when we don\u0027t inline when the caller has irreducible loops.",
+      "range": {
+        "startLine": 1931,
+        "startChar": 48,
+        "endLine": 1931,
+        "endChar": 80
+      },
+      "revId": "1f4edb0587d74ca67b7414f290b9eff042229b0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
