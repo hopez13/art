@@ -46,7 +46,9 @@
 #define SA_UNSUPPORTED 0x00000400
 #define SA_EXPOSE_TAGBITS 0x00000800
 
+#include <sys/mman.h>
 #include <ucontext.h>
+#include <unistd.h>
 
 // libsigchain provides an interception layer for signal handlers, to allow ART and others to give
 // their signal handlers the first stab at handling signals before passing them on to user code.
@@ -83,6 +85,42 @@ static int sigdelset(sigset64_t* sigset, int signum) {
   return sigdelset64(sigset, signum);
 }
 #endif
+
+template <typename T>
+class WriteProtected {
+ public:
+  const T& Get() {
+    Initialize();
+    return *data_;
+  }
+  const T& operator->() { return Get(); }
+  const T& operator*() { return Get(); }
+  const typename std::remove_extent<T>::type& operator[](size_t i) { return Get()[i]; }
+
+  template <typename MutatorFunction>
+  void Mutate(MutatorFunction fn) {
+    mprotect(data_, bytes_allocated_, PROT_READ | PROT_WRITE);
+    fn(data_);
+    mprotect(data_, bytes_allocated_, PROT_READ);
+  }
+
+ private:
+  void Initialize() {
+    std::call_once(
+        initialized_,
+        [this](T* data) -> void {
+          size_t page_size = sysconf(_SC_PAGESIZE);
+          bytes_allocated_ = (1 + sizeof(T) / page_size) * page_size;
+          data = static_cast<T*>(
+              mmap(nullptr, bytes_allocated_, PROT_READ, MAP_PRIVATE | MAP_ANONYMOUS, 0, 0));
+          new (data) T;
+        },
+        data_);
+  }
+  std::once_flag initialized_;
+  T* data_;
+  size_t bytes_allocated_;
+};
 
 template<typename SigsetType>
 static int sigorset(SigsetType* dest, SigsetType* left, SigsetType* right) {
@@ -191,9 +229,7 @@ class SignalChain {
   SignalChain() : claimed_(false) {
   }
 
-  bool IsClaimed() {
-    return claimed_;
-  }
+  bool IsClaimed() const { return claimed_; }
 
   void Claim(int signo) {
     if (!claimed_) {
@@ -260,7 +296,7 @@ class SignalChain {
   }
 
   template <typename SigactionType>
-  SigactionType GetAction() {
+  SigactionType GetAction() const {
     if constexpr (std::is_same_v<decltype(action_), SigactionType>) {
       return action_;
     } else {
@@ -336,7 +372,8 @@ class SignalChain {
 
 // _NSIG is 1 greater than the highest valued signal, but signals start from 1.
 // Leave an empty element at index 0 for convenience.
-static SignalChain chains[_NSIG + 1];
+typedef SignalChain SignalChains_t[_NSIG + 1];
+static WriteProtected<SignalChains_t> chains;
 
 static bool is_signal_hook_debuggable = false;
 
@@ -374,10 +411,16 @@ void SignalChain::Handler(int signo, siginfo_t* siginfo, void* ucontext_raw) {
   ucontext_t* ucontext = static_cast<ucontext_t*>(ucontext_raw);
 #if defined(__BIONIC__)
   sigset64_t mask;
-  sigorset(&mask, &ucontext->uc_sigmask64, &chains[signo].action_.sa_mask);
+  // While sigorset() shouldn't mutate the third parameter, it's declared as
+  // non-const. Instead of getting the mutable pointer (involving multiple
+  // mprotect()'s), just const_cast.
+  sigorset(&mask, &ucontext->uc_sigmask64, const_cast<sigset64_t*>(&chains[signo].action_.sa_mask));
 #else
   sigset_t mask;
-  sigorset(&mask, &ucontext->uc_sigmask, &chains[signo].action_.sa_mask);
+  // While sigorset() shouldn't mutate the third parameter, it's declared as
+  // non-const. Instead of getting the mutable pointer (involving multiple
+  // mprotect()'s), just const_cast.
+  sigorset(&mask, &ucontext->uc_sigmask, const_cast<sigset_t*>(&chains[signo].action_.sa_mask));
 #endif
   if (!(handler_flags & SA_NODEFER)) {
     sigaddset(&mask, signo);
@@ -435,7 +478,7 @@ static int __sigaction(int signal, const SigactionType* new_action,
   if (chains[signal].IsClaimed()) {
     SigactionType saved_action = chains[signal].GetAction<SigactionType>();
     if (new_action != nullptr) {
-      chains[signal].SetAction(new_action);
+      chains.Mutate([&](SignalChains_t* chains) { (*chains)[signal].SetAction(new_action); });
     }
     if (old_action != nullptr) {
       *old_action = saved_action;
@@ -481,7 +524,7 @@ extern "C" sighandler_t signal(int signo, sighandler_t handler) {
   if (chains[signo].IsClaimed()) {
     oldhandler = reinterpret_cast<sighandler_t>(
         chains[signo].GetAction<struct sigaction>().sa_handler);
-    chains[signo].SetAction(&sa);
+    chains.Mutate([&](SignalChains_t* chains) { (*chains)[signo].SetAction(&sa); });
     return oldhandler;
   }
 
@@ -552,8 +595,10 @@ extern "C" void AddSpecialSignalHandlerFn(int signal, SigchainAction* sa) {
   }
 
   // Set the managed_handler.
-  chains[signal].AddSpecialHandler(sa);
-  chains[signal].Claim(signal);
+  chains.Mutate([&](SignalChains_t* chains) {
+    (*chains)[signal].AddSpecialHandler(sa);
+    (*chains)[signal].Claim(signal);
+  });
 }
 
 extern "C" void RemoveSpecialSignalHandlerFn(int signal, bool (*fn)(int, siginfo_t*, void*)) {
@@ -563,7 +608,7 @@ extern "C" void RemoveSpecialSignalHandlerFn(int signal, bool (*fn)(int, siginfo
     fatal("Invalid signal %d", signal);
   }
 
-  chains[signal].RemoveSpecialHandler(fn);
+  chains.Mutate([&](SignalChains_t* chains) { (*chains)[signal].RemoveSpecialHandler(fn); });
 }
 
 extern "C" void EnsureFrontOfChain(int signal) {
@@ -586,7 +631,7 @@ extern "C" void EnsureFrontOfChain(int signal) {
   // the main action.
   if (current_action.sa_sigaction != SignalChain::Handler) {
     log("Warning: Unexpected sigaction action found %p\n", current_action.sa_sigaction);
-    chains[signal].Register(signal);
+    chains.Mutate([&](SignalChains_t* chains) { (*chains)[signal].Register(signal); });
   }
 }
 
