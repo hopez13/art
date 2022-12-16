@@ -277,6 +277,8 @@ void HBasicBlockBuilder::InsertTryBoundaryBlocks() {
     return;
   }
 
+  bool inserted_try_boundary = false;
+
   // Keep a map of all try blocks and their respective TryItems. We do not use
   // the block's pointer but rather its id to ensure deterministic iteration.
   ScopedArenaSafeMap<uint32_t, const dex::TryItem*> try_block_info(
@@ -366,6 +368,7 @@ void HBasicBlockBuilder::InsertTryBoundaryBlocks() {
             HTryBoundary::BoundaryKind::kEntry, try_block->GetDexPc());
         try_block->CreateImmediateDominator()->AddInstruction(try_entry);
         LinkToCatchBlocks(try_entry, code_item_accessor_, try_item, catch_blocks);
+        inserted_try_boundary = true;
         break;
       }
     }
@@ -394,8 +397,11 @@ void HBasicBlockBuilder::InsertTryBoundaryBlocks() {
           new (allocator_) HTryBoundary(HTryBoundary::BoundaryKind::kExit, successor->GetDexPc());
       graph_->SplitEdge(try_block, successor)->AddInstruction(try_exit);
       LinkToCatchBlocks(try_exit, code_item_accessor_, try_item, catch_blocks);
+      inserted_try_boundary = true;
     }
   }
+
+  graph_->SetHasTryCatch(inserted_try_boundary);
 }
 
 void HBasicBlockBuilder::InsertSynthesizedLoopsForOsr() {

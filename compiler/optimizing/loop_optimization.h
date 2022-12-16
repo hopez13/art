@@ -140,6 +140,10 @@ class HLoopOptimization : public HOptimization {
   // Loop setup and traversal.
   //
 
+  // loop_optimization_test uses a local ScopedArenaAllocator that we don't want to discard when
+  // LoopOptimization is over.
+  bool RunForTesting(ScopedArenaAllocator& allocator);
+
   bool LocalRun();
   void AddLoop(HLoopInformation* loop_info);
   void RemoveLoop(LoopNode* node);
