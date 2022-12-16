@@ -52,6 +52,24 @@
       "parentUuid": "cfcdfed6_7c056a0b",
       "revId": "740bb216840534012a069af18876416dace69d91",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8da8f53_c5c4bbea",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-12-16T13:40:09Z",
+      "side": 1,
+      "message": "Should I just update knownfailures then? I thought this was the new way after David\u0027s migration to run.py. One good thing with this approach is the test doesn\u0027t even run.",
+      "parentUuid": "bccdfc9f_5702e3cc",
+      "revId": "740bb216840534012a069af18876416dace69d91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
