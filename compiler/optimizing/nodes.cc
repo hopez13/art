@@ -742,6 +742,8 @@ void HGraph::SimplifyLoop(HBasicBlock* header) {
 void HGraph::ComputeTryBlockInformation() {
   // Iterate in reverse post order to propagate try membership information from
   // predecessors to their successors.
+  bool graph_has_try_catch = false;
+
   for (HBasicBlock* block : GetReversePostOrder()) {
     if (block->IsEntryBlock() || block->IsCatchBlock()) {
       // Catch blocks after simplification have only exceptional predecessors
@@ -756,6 +758,7 @@ void HGraph::ComputeTryBlockInformation() {
     DCHECK_IMPLIES(block->IsLoopHeader(),
                    !block->GetLoopInformation()->IsBackEdge(*first_predecessor));
     const HTryBoundary* try_entry = first_predecessor->ComputeTryEntryOfSuccessors();
+    graph_has_try_catch |= try_entry != nullptr;
     if (try_entry != nullptr &&
         (block->GetTryCatchInformation() == nullptr ||
          try_entry != &block->GetTryCatchInformation()->GetTryEntry())) {
@@ -764,6 +767,8 @@ void HGraph::ComputeTryBlockInformation() {
       block->SetTryCatchInformation(new (allocator_) TryCatchInformation(*try_entry));
     }
   }
+
+  SetHasTryCatch(graph_has_try_catch);
 }
 
 void HGraph::SimplifyCFG() {

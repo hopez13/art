@@ -491,14 +491,26 @@ HLoopOptimization::HLoopOptimization(HGraph* graph,
 }
 
 bool HLoopOptimization::Run() {
+  // Phase-local allocator.
+  ScopedArenaAllocator allocator(graph_->GetArenaStack());
+
+  // Perform loop optimizations.
+  const bool did_loop_opt = Run(allocator);
+
+  // Detach.
+  loop_allocator_ = nullptr;
+  last_loop_ = top_loop_ = nullptr;
+
+  return did_loop_opt;
+}
+
+bool HLoopOptimization::Run(ScopedArenaAllocator& allocator) {
   // Skip if there is no loop or the graph has irreducible loops.
   // TODO: make this less of a sledgehammer.
   if (!graph_->HasLoops() || graph_->HasIrreducibleLoops()) {
     return false;
   }
 
-  // Phase-local allocator.
-  ScopedArenaAllocator allocator(graph_->GetArenaStack());
   loop_allocator_ = &allocator;
 
   // Perform loop optimizations.
@@ -506,10 +518,6 @@ bool HLoopOptimization::Run() {
   if (top_loop_ == nullptr) {
     graph_->SetHasLoops(false);  // no more loops
   }
-
-  // Detach.
-  loop_allocator_ = nullptr;
-  last_loop_ = top_loop_ = nullptr;
 
   return did_loop_opt;
 }
@@ -530,11 +538,7 @@ bool HLoopOptimization::LocalRun() {
       AddLoop(block->GetLoopInformation());
     }
   }
-
-  // TODO(solanes): How can `top_loop_` be null if `graph_->HasLoops()` is true?
-  if (top_loop_ == nullptr) {
-    return false;
-  }
+  DCHECK(top_loop_ != nullptr);
 
   // Traverse the loop hierarchy inner-to-outer and optimize. Traversal can use
   // temporary data structures using the phase-local allocator. All new HIR
