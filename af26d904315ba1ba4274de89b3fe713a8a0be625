@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "29a91d2c_f7ca6e2f",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-12-16T10:38:56Z",
+      "side": 1,
+      "message": "Actually no - the GcRoot will cast the pointer to 32bits, but `str` can be 64bits (as it\u0027s stored in a local `std::vector`).",
+      "parentUuid": "6a092886_e5c19127",
+      "revId": "af26d904315ba1ba4274de89b3fe713a8a0be625",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "42658e59_d3be38aa",
@@ -31,6 +49,24 @@
       "writtenOn": "2022-12-15T15:46:33Z",
       "side": 1,
       "message": "Forward to `InternTable::StringEquals` or add\n\n    if (kIsDebugBuild) {\n      Locks::mutator_lock_-\u003eAssertSharedHeld(Thread::Current());\n    }",
+      "revId": "af26d904315ba1ba4274de89b3fe713a8a0be625",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b54b9de3_a67ae151",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-12-16T10:38:56Z",
+      "side": 1,
+      "message": "Added the assert.",
+      "parentUuid": "42658e59_d3be38aa",
       "revId": "af26d904315ba1ba4274de89b3fe713a8a0be625",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
