@@ -576,9 +576,12 @@ class MarkCompact final : public GarbageCollector {
       return std::less<mirror::Object*>{}(a.AsMirrorPtr(), b.AsMirrorPtr());
     }
   };
-  using ClassAfterObjectMap = std::map<ObjReference, ObjReference, LessByObjReference>;
-  // map of <K, V> such that the class K (in moving space) is after its
-  // objects, and its object V is the lowest object (in moving space).
+  using ClassAfterObjectMap =
+      std::map<ObjReference, std::pair<ObjReference, ObjReference>, LessByObjReference>;
+  // map of <K, <S, O>> such that the class K (in moving space) is after its
+  // objects, and its object O is the lowest object (in moving space). S is that
+  // super class (from the hierarchy) of K which is highest in address, otherwise
+  // is equal to K.
   ClassAfterObjectMap class_after_obj_map_;
   // Since the compaction is done in reverse, we use a reverse iterator. It is maintained
   // either at the pair whose class is lower than the first page to be freed, or at the
