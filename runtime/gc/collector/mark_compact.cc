@@ -1818,7 +1818,10 @@ void MarkCompact::FreeFromSpacePages(size_t cur_page_idx) {
     DCHECK_LE(klass_end, last_reclaimed_page_);
     if (reinterpret_cast<uint8_t*>(klass_end) >= reclaim_begin) {
       // Found a class which is in the reclaim range.
-      if (reinterpret_cast<uint8_t*>(class_after_obj_iter_->second.AsMirrorPtr()) < idx_addr) {
+      uint8_t* obj_addr = reinterpret_cast<uint8_t*>(class_after_obj_iter_->second.AsMirrorPtr());
+      // NOTE: Don't assert that obj is of 'klass' type as klass could instead
+      // be its super-class.
+      if (obj_addr < idx_addr) {
         // Its lowest-address object is not compacted yet. Reclaim starting from
         // the end of this class.
         reclaim_begin = AlignUp(klass_end, kPageSize);
@@ -1841,6 +1844,25 @@ void MarkCompact::FreeFromSpacePages(size_t cur_page_idx) {
     last_reclaimed_page_ = reclaim_begin;
   }
   last_checked_reclaim_page_idx_ = idx;
+}
+
+void MarkCompact::UpdateClassAfterObjMap() {
+  for (auto iter = class_after_obj_map_.begin(); iter != class_after_obj_map_.end();) {
+    auto cur_iter = iter;
+    iter++;
+    auto super_class_iter = super_class_after_class_map_.find(cur_iter->first);
+    if (super_class_iter != super_class_after_class_map_.end()) {
+      CHECK(bump_pointer_space_->HasAddress(super_class_iter->second.AsMirrorPtr()));
+      auto nh = class_after_obj_map_.extract(cur_iter);
+      nh.key() = super_class_iter->second;
+      class_after_obj_map_.insert(iter, std::move(nh));
+    } else if (std::less<mirror::Object*>{}(cur_iter->first.AsMirrorPtr(),
+                                            cur_iter->second.AsMirrorPtr()) ||
+               !bump_pointer_space_->HasAddress(cur_iter->first.AsMirrorPtr())) {
+      class_after_obj_map_.erase(cur_iter);
+    }
+  }
+  super_class_after_class_map_.clear();
 }
 
 template <int kMode>
@@ -1867,6 +1889,7 @@ void MarkCompact::CompactMovingSpace(uint8_t* page) {
 
   DCHECK(IsAligned<kPageSize>(pre_compact_page));
 
+  UpdateClassAfterObjMap();
   // These variables are maintained by FreeFromSpacePages().
   last_reclaimed_page_ = pre_compact_page;
   last_checked_reclaim_page_idx_ = idx;

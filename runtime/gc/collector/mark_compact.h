@@ -19,6 +19,7 @@
 
 #include <map>
 #include <memory>
+#include <unordered_map>
 #include <unordered_set>
 
 #include "barrier.h"
@@ -503,6 +504,12 @@ class MarkCompact final : public GarbageCollector {
   ALWAYS_INLINE void UpdateClassAfterObjectMap(mirror::Object* obj)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
+  // Updates 'class_after_obj_map_' map by updating the keys (class) with its
+  // highest-address super-class (obtained from 'super_class_after_class_map_'),
+  // if there is any. This is to ensure we don't free from-space pages before
+  // the lowest-address obj is compacted.
+  void UpdateClassAfterObjMap();
+
   // Buffers, one per worker thread + gc-thread, to be used when
   // kObjPtrPoisoning == true as in that case we can't have the buffer on the
   // stack. The first page of the buffer is assigned to
@@ -570,6 +577,20 @@ class MarkCompact final : public GarbageCollector {
   };
   std::vector<LinearAllocSpaceData> linear_alloc_spaces_data_;
 
+  class ObjReferenceHash {
+   public:
+    uint32_t operator()(const ObjReference& ref) const {
+      return ref.AsVRegValue() >> kObjectAlignmentShift;
+    }
+  };
+
+  class ObjReferenceEqualFn {
+   public:
+    bool operator()(const ObjReference& a, const ObjReference& b) const {
+      return a.AsMirrorPtr() == b.AsMirrorPtr();
+    }
+  };
+
   class LessByObjReference {
    public:
     bool operator()(const ObjReference& a, const ObjReference& b) const {
@@ -577,8 +598,16 @@ class MarkCompact final : public GarbageCollector {
     }
   };
   using ClassAfterObjectMap = std::map<ObjReference, ObjReference, LessByObjReference>;
-  // map of <K, V> such that the class K (in moving space) is after its
-  // objects, and its object V is the lowest object (in moving space).
+  using SuperClassAfterClassUnorderedMap =
+      std::unordered_map<ObjReference, ObjReference, ObjReferenceHash, ObjReferenceEqualFn>;
+  // Unordered map of <K, S> such that the class K (in moving space) has kClassWalkSuper
+  // in reference bitmap and S is its highest address super class.
+  SuperClassAfterClassUnorderedMap super_class_after_class_map_;
+  // Map of <K, V> such that the class K (in moving space) is after its objects or would
+  // require iterating super-class hierarchy when visiting references. And V is its
+  // lowest address object (in moving space).
+  //
+  // Before starting compaction, keys are updated with the highest order super-class, if any.
   ClassAfterObjectMap class_after_obj_map_;
   // Since the compaction is done in reverse, we use a reverse iterator. It is maintained
   // either at the pair whose class is lower than the first page to be freed, or at the
