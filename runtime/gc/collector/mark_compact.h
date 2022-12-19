@@ -577,6 +577,9 @@ class MarkCompact final : public GarbageCollector {
     }
   };
   using ClassAfterObjectMap = std::map<ObjReference, ObjReference, LessByObjReference>;
+  // maps of <K, S> such that the class K (in moving space) has kClassWalkSuper
+  // in reference bitmap and S is its highest address super class.
+  ClassAfterObjectMap super_class_after_class_map_;
   // map of <K, V> such that the class K (in moving space) is after its
   // objects, and its object V is the lowest object (in moving space).
   ClassAfterObjectMap class_after_obj_map_;
