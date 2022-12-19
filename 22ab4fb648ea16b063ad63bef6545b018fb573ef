@@ -75,6 +75,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb5fb856_397db7ae",
+        "filename": "runtime/base/mutex.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-12-19T22:07:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4f945079_c9af0e5f",
+      "range": {
+        "startLine": 190,
+        "startChar": 16,
+        "endLine": 190,
+        "endChar": 21
+      },
+      "revId": "22ab4fb648ea16b063ad63bef6545b018fb573ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "54174885_3a86c3ef",
@@ -88,6 +112,30 @@
       "writtenOn": "2022-12-19T18:51:52Z",
       "side": 1,
       "message": "A more descriptive name to describe \u0027max iterations for what\u0027 would be nice.",
+      "range": {
+        "startLine": 71,
+        "startChar": 21,
+        "endLine": 71,
+        "endChar": 30
+      },
+      "revId": "22ab4fb648ea16b063ad63bef6545b018fb573ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "07266401_b4292e24",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-12-19T22:07:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "54174885_3a86c3ef",
       "range": {
         "startLine": 71,
         "startChar": 21,
