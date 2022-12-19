@@ -33,6 +33,69 @@
       "message": "I\u0027d like to try to submit this again, both because this fixes some issues, and I would hope for more information. Please review.",
       "revId": "22ab4fb648ea16b063ad63bef6545b018fb573ef",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e804cf4b_41af7f20",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-12-19T18:51:52Z",
+      "side": 1,
+      "message": "minor nits. Otherwise LGTM.",
+      "revId": "22ab4fb648ea16b063ad63bef6545b018fb573ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f945079_c9af0e5f",
+        "filename": "runtime/base/mutex.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-12-19T18:51:52Z",
+      "side": 1,
+      "message": "Isn\u0027t the convention to prefix template parameters with `k`. May be use `kCheck`?",
+      "range": {
+        "startLine": 190,
+        "startChar": 16,
+        "endLine": 190,
+        "endChar": 21
+      },
+      "revId": "22ab4fb648ea16b063ad63bef6545b018fb573ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "54174885_3a86c3ef",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-12-19T18:51:52Z",
+      "side": 1,
+      "message": "A more descriptive name to describe \u0027max iterations for what\u0027 would be nice.",
+      "range": {
+        "startLine": 71,
+        "startChar": 21,
+        "endLine": 71,
+        "endChar": 30
+      },
+      "revId": "22ab4fb648ea16b063ad63bef6545b018fb573ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
