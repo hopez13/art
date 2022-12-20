@@ -22,6 +22,30 @@
       },
       "revId": "971cf1ecb174b422e382669a4370bd17a1f82c20",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2840fb9d_7ebe1080",
+        "filename": "runtime/gc/collector/mark_compact.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 584,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-12-20T20:44:52Z",
+      "side": 1,
+      "message": "Made some significant changes as per our discussion offline. PTAL at PS5.",
+      "parentUuid": "59133833_6e32ce65",
+      "range": {
+        "startLine": 583,
+        "startChar": 1,
+        "endLine": 584,
+        "endChar": 19
+      },
+      "revId": "971cf1ecb174b422e382669a4370bd17a1f82c20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
