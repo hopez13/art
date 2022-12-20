@@ -46,7 +46,7 @@ art_runtime_base_binaries_first_on_device_first_on_host = [
 // `art/Android.mk`.
 // TODO(b/121117762): Remove this note when both the ART Buildbot and Golem use
 // the ART APEX.
-art_runtime_base_native_shared_libs_minus_libart = [
+art_runtime_base_native_shared_libs = [
     // External API (having APEX stubs).
     "libdexfile",
     "libnativebridge",
@@ -59,6 +59,7 @@ art_runtime_base_native_shared_libs_minus_libart = [
     // TODO(b/124476339): Clean up the following libraries once "required"
     // dependencies work with APEX libraries.
     "libart-compiler",
+    "libart",
     "libdt_fd_forward",
     "libdt_socket",
     "libjdwp",
@@ -69,12 +70,6 @@ art_runtime_base_native_shared_libs_minus_libart = [
     // when such a target exists
     "libarttools",
 ]
-// Actual version of ART runtime base libs, used in non-test ART APEXes.
-art_runtime_base_native_shared_libs = ["libart"] +
-    art_runtime_base_native_shared_libs_minus_libart
-// "Broken" version of ART runtime base libs, used for testing purposes.
-art_runtime_base_broken_native_shared_libs = ["libart-broken"] +
-    art_runtime_base_native_shared_libs_minus_libart
 
 art_runtime_base_native_device_only_shared_libs = [
     "libperfetto_hprof",
@@ -262,7 +257,6 @@ apex_defaults {
     bootclasspath_fragments: ["art-bootclasspath-fragment"],
     systemserverclasspath_fragments: ["art-systemserverclasspath-fragment"],
     compat_configs: ["libcore-platform-compat-config"],
-    java_libs: libcore_java_libs,
     native_shared_libs: art_runtime_base_native_shared_libs +
         art_runtime_base_native_device_only_shared_libs +
         libcore_native_shared_libs,
@@ -352,7 +346,8 @@ apex_test {
     // the "non-broken" `libart` module into this test APEX and
     // overwrite `libart-broken`. Maybe consider creating "broken"
     // variants of binaries (and other artifacts)?
-    native_shared_libs: art_runtime_base_broken_native_shared_libs,
+    native_shared_libs: art_runtime_base_native_shared_libs + ["libart-broken"],
+    exclude_artifacts_from: ["libart"],
     compile_multilib: "both",
 
     key: "com.android.art.key",
