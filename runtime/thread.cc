@@ -2983,9 +2983,19 @@ class BuildInternalStackTraceVisitor : public StackVisitor {
     methods_and_pcs->SetElementPtrSize</*kTransactionActive=*/ false, /*kCheckTransaction=*/ false>(
         static_cast<uint32_t>(methods_and_pcs->GetLength()) / 2 + count_, dex_pc, pointer_size_);
     // Save the declaring class of the method to ensure that the declaring classes of the methods
-    // do not get unloaded while the stack trace is live.
+    // do not get unloaded while the stack trace is live. However, this does not work for copied
+    // methods because the declaring class of a copied method points to an interface class which
+    // may be in a different class loader. Instead retrieve the class loader associated with the
+    // allocator that holds the copied method. This is much cheaper than finding the actual class.
+    ObjPtr<mirror::Object> keep_alive;
+    if (UNLIKELY(method->IsCopied())) {
+      ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
+      keep_alive = class_linker->GetHoldingClassLoaderOfCopiedMethod(self_, method);
+    } else {
+      keep_alive = method->GetDeclaringClass();
+    }
     trace_->Set</*kTransactionActive=*/ false, /*kCheckTransaction=*/ false>(
-        static_cast<int32_t>(count_) + 1, method->GetDeclaringClass());
+        static_cast<int32_t>(count_) + 1, keep_alive);
     ++count_;
   }
 
