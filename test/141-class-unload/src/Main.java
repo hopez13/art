@@ -49,6 +49,8 @@ public class Main {
             testOatFilesUnloaded(getPid());
             // Test that objects keep class loader live for sticky GC.
             testStickyUnload(constructor);
+            // Test that copied methods recorded in a stack trace prevents unloading.
+            testCopiedMethodInStackTrace(constructor);
         } catch (Exception e) {
             e.printStackTrace(System.out);
         }
@@ -103,13 +105,12 @@ public class Main {
         System.out.println(klass2.get());
     }
 
-    private static void testUnloadLoader(Constructor<?> constructor)
-        throws Exception {
-      WeakReference<ClassLoader> loader = setUpUnloadLoader(constructor, true);
-      // No strong references to class loader, should get unloaded.
-      doUnloading();
-      // If the weak reference is cleared, then it was unloaded.
-      System.out.println(loader.get());
+    private static void testUnloadLoader(Constructor<?> constructor) throws Exception {
+        WeakReference<ClassLoader> loader = setUpUnloadLoader(constructor, true);
+        // No strong references to class loader, should get unloaded.
+        doUnloading();
+        // If the weak reference is cleared, then it was unloaded.
+        System.out.println(loader.get());
     }
 
     private static void testStackTrace(Constructor<?> constructor) throws Exception {
@@ -138,18 +139,18 @@ public class Main {
     }
 
     static class Pair {
-      public Pair(Object o, ClassLoader l) {
-        object = o;
-        classLoader = new WeakReference<ClassLoader>(l);
-      }
+        public Pair(Object o, ClassLoader l) {
+            object = o;
+            classLoader = new WeakReference<ClassLoader>(l);
+        }
 
-      public Object object;
-      public WeakReference<ClassLoader> classLoader;
+        public Object object;
+        public WeakReference<ClassLoader> classLoader;
     }
 
     private static Pair testNoUnloadInstanceHelper(Constructor<?> constructor) throws Exception {
         ClassLoader loader = (ClassLoader) constructor.newInstance(
-            DEX_FILE, LIBRARY_SEARCH_PATH, ClassLoader.getSystemClassLoader());
+                DEX_FILE, LIBRARY_SEARCH_PATH, ClassLoader.getSystemClassLoader());
         Object o = testNoUnloadHelper(loader);
         return new Pair(o, loader);
     }
@@ -164,7 +165,7 @@ public class Main {
 
     private static Class<?> setUpUnloadClass(Constructor<?> constructor) throws Exception {
         ClassLoader loader = (ClassLoader) constructor.newInstance(
-            DEX_FILE, LIBRARY_SEARCH_PATH, ClassLoader.getSystemClassLoader());
+                DEX_FILE, LIBRARY_SEARCH_PATH, ClassLoader.getSystemClassLoader());
         Class<?> intHolder = loader.loadClass("IntHolder");
         Method getValue = intHolder.getDeclaredMethod("getValue");
         Method setValue = intHolder.getDeclaredMethod("setValue", Integer.TYPE);
@@ -199,6 +200,39 @@ public class Main {
             o = null;
         }
         System.out.println("Too small " + (s.length() < 1000));
+    }
+
+    private static void testCopiedMethodInStackTrace(Constructor<?> constructor) throws Exception {
+        Throwable t = $noinline$createStackTraceWithCopiedMethod(constructor);
+        doUnloading();
+        boolean found = false;
+        for (StackTraceElement e : t.getStackTrace()) {
+            if ("Iface".equals(e.getClassName()) && "invokeRun".equals(e.getMethodName())) {
+                found = true;
+                break;
+            }
+        }
+        if (!found) {
+            throw new Error("Did not find Iface.invokeRun()");
+        }
+    }
+
+    private static Throwable $noinline$createStackTraceWithCopiedMethod(Constructor<?> constructor)
+            throws Exception {
+      ClassLoader loader = (ClassLoader) constructor.newInstance(
+              DEX_FILE, LIBRARY_SEARCH_PATH, Main.class.getClassLoader());
+      Iface impl = (Iface) loader.loadClass("Impl").newInstance();
+      try {
+          impl.invokeRun(new Runnable() {
+              public void run() {
+                  throw new Error();
+              }
+          });
+          System.out.println("UNREACHABLE");
+          return null;
+      } catch (Error expected) {
+          return expected;
+      }
     }
 
     private static WeakReference<Class> setUpUnloadClassWeak(Constructor<?> constructor)
@@ -241,7 +275,7 @@ public class Main {
     }
 
     private static int getPid() throws Exception {
-      return Integer.parseInt(new File("/proc/self").getCanonicalFile().getName());
+        return Integer.parseInt(new File("/proc/self").getCanonicalFile().getName());
     }
 
     public static native void stopJit();

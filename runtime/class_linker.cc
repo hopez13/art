@@ -10410,6 +10410,26 @@ ObjPtr<mirror::Class> ClassLinker::GetHoldingClassOfCopiedMethod(ArtMethod* meth
   return visitor.holder_;
 }
 
+ObjPtr<mirror::ClassLoader> ClassLinker::GetHoldingClassLoaderOfCopiedMethod(Thread* self,
+                                                                             ArtMethod* method) {
+  CHECK(method->IsCopied());
+  jweak result = nullptr;
+  {
+    ReaderMutexLock mu(self, *Locks::classlinker_classes_lock_);
+    for (const ClassLoaderData& data : class_loaders_) {
+      if (data.allocator->Contains(method)) {
+        result = data.weak_root;
+        break;
+      }
+    }
+  }
+  CHECK(result != nullptr) << "Did not find allocator holding the copied method: " << method
+      << " " << method->PrettyMethod();
+  // The `method` is alive, so the class loader must also be alive.
+  return ObjPtr<mirror::ClassLoader>::DownCast(
+      Runtime::Current()->GetJavaVM()->DecodeWeakGlobalAsStrong(result));
+}
+
 bool ClassLinker::DenyAccessBasedOnPublicSdk(ArtMethod* art_method ATTRIBUTE_UNUSED) const
     REQUIRES_SHARED(Locks::mutator_lock_) {
   // Should not be called on ClassLinker, only on AotClassLinker that overrides this.
