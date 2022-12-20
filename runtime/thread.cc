@@ -2984,6 +2984,11 @@ class BuildInternalStackTraceVisitor : public StackVisitor {
         static_cast<uint32_t>(methods_and_pcs->GetLength()) / 2 + count_, dex_pc, pointer_size_);
     // Save the declaring class of the method to ensure that the declaring classes of the methods
     // do not get unloaded while the stack trace is live.
+    // FIXME: The declaring class of a copied method points to an interface class which may be in
+    // a different class loader. We need to get hold of an object in the class loader that has the
+    // method (or the the class of `this` but that could keep even more class loaders alive).
+    // We could search `ClassLinker::class_loasders_` for the `LinearAlloc` that holds the method,
+    // retrieve the associated class loader and store the class loader itself.
     trace_->Set</*kTransactionActive=*/ false, /*kCheckTransaction=*/ false>(
         static_cast<int32_t>(count_) + 1, method->GetDeclaringClass());
     ++count_;
