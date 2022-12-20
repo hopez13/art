@@ -39,6 +39,30 @@
       },
       "revId": "eee05ef55a2249c447268ad09edd91603ff5a1a8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d9b564f3_05744a28",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 513,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2022-12-20T15:02:55Z",
+      "side": 1,
+      "message": "I have a fix for that here: https://android-review.git.corp.google.com/c/platform/art/+/2361086. Happy to merge the fix with this if that\u0027s better. I kept them as separate CLs so it\u0027s easier to debug if some tests fail on bots.",
+      "parentUuid": "6e19a5ec_7741518c",
+      "range": {
+        "startLine": 511,
+        "startChar": 0,
+        "endLine": 513,
+        "endChar": 34
+      },
+      "revId": "eee05ef55a2249c447268ad09edd91603ff5a1a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
