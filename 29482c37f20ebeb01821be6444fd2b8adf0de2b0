@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "022eebae_f80fcad7",
+        "filename": "runtime/gc/collector/mark_compact-inl.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-12-20T23:06:14Z",
+      "side": 1,
+      "message": "This scheme seems to have the disadvantage that we call try_emplace for every object of a ClassWalkSuper class. It didn\u0027t sound like that was that uncommon? though usually this will just be a lookup in a modest-sized map? I think there are options for speeding this up if we need to. For example, we could keep a cache of ClassWalkSuper classes that are known to have superclasses inthe expected order. But it\u0027s probably best to leave it as is for now, and see if this is a real issue.",
+      "range": {
+        "startLine": 35,
+        "startChar": 4,
+        "endLine": 37,
+        "endChar": 88
+      },
+      "revId": "29482c37f20ebeb01821be6444fd2b8adf0de2b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cbe10cb1_de48c544",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1891,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-12-20T23:06:14Z",
+      "side": 1,
+      "message": "Can we split this out into a separate function?",
+      "range": {
+        "startLine": 1873,
+        "startChar": 2,
+        "endLine": 1891,
+        "endChar": 39
+      },
+      "revId": "29482c37f20ebeb01821be6444fd2b8adf0de2b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "741ae455_710ba023",
+        "filename": "runtime/gc/collector/mark_compact.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 584,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-12-20T23:06:14Z",
+      "side": 1,
+      "message": "This isn\u0027t accurate anymore. And it should be documented when it\u0027s semantics change. It satisfies different properties ebfore and after the beginning of CompactMovingSpace, so we should specify both here.",
+      "range": {
+        "startLine": 583,
+        "startChar": 1,
+        "endLine": 584,
+        "endChar": 70
+      },
+      "revId": "29482c37f20ebeb01821be6444fd2b8adf0de2b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
