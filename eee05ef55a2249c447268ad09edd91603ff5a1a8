@@ -16,6 +16,29 @@
       "message": "PTAL. Thanks!",
       "revId": "eee05ef55a2249c447268ad09edd91603ff5a1a8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e19a5ec_7741518c",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 513,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-12-20T14:59:58Z",
+      "side": 1,
+      "message": "So for non-debuggable, we\u0027ll get method entries, but not method exits? Is that OK?",
+      "range": {
+        "startLine": 511,
+        "startChar": 0,
+        "endLine": 513,
+        "endChar": 34
+      },
+      "revId": "eee05ef55a2249c447268ad09edd91603ff5a1a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
