@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "59133833_6e32ce65",
+        "filename": "runtime/gc/collector/mark_compact.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 584,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-12-20T16:54:19Z",
+      "side": 1,
+      "message": "I haven\u0027t yet spent a lot of time on this, but I\u0027m currently confused. Maybe we can talk later today. My concern is that we really seem to need O as the key, and you later somewhat establish that? This only describes the map as initially constructed, and it\u0027s then transformed? Can we state more of an invariant here?",
+      "range": {
+        "startLine": 583,
+        "startChar": 1,
+        "endLine": 584,
+        "endChar": 19
+      },
+      "revId": "971cf1ecb174b422e382669a4370bd17a1f82c20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
