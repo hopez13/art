@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2111a0a2_37f310fa",
+        "filename": "runtime/gc/collector/mark_compact-inl.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-12-21T01:38:22Z",
+      "side": 1,
+      "message": "I think some optimization would be required. The map in some cases has ~500 elements in it. Doing an ordered lookup for every object is not cheap. The other map (klass -\u003e super-class where super class is higher address) is extremely small. It\u0027s mostly empty. The walk-super classes in expected (super classes lower than the class) are more frequent (~100 in the ~500 case above). This means that even if we optimized this case, we will still be dealing with 100s of elements in the map and lookup (via try_emplace) will be expensive.\n\nHow about I replace this map also with unordered, and then before during compaction temporarily create one an ordered one?\nI\u0027ll also club the single-reference cache to see how much that helps in the WalkSuper case.",
+      "parentUuid": "d5ff00cf_84a8e7d8",
+      "range": {
+        "startLine": 35,
+        "startChar": 4,
+        "endLine": 37,
+        "endChar": 88
+      },
+      "revId": "29482c37f20ebeb01821be6444fd2b8adf0de2b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cbe10cb1_de48c544",
         "filename": "runtime/gc/collector/mark_compact.cc",
         "patchSetId": 5
