@@ -95,6 +95,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e53a4bd_e0fbc27e",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1863,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-12-21T20:52:46Z",
+      "side": 1,
+      "message": "Sorry. Misread the context there.",
+      "parentUuid": "b01097ed_63511933",
+      "range": {
+        "startLine": 1863,
+        "startChar": 2,
+        "endLine": 1863,
+        "endChar": 44
+      },
+      "revId": "bf7517c330d4e3ebdca29c6641cdae537fd947b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "41bff9ae_474d3fba",
