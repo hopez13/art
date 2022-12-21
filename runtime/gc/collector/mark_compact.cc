@@ -1856,7 +1856,14 @@ void MarkCompact::UpdateClassAfterObjMap() {
                        : iter.first;
     if (std::less<mirror::Object*>{}(iter.second.AsMirrorPtr(), key.AsMirrorPtr()) &&
         bump_pointer_space_->HasAddress(key.AsMirrorPtr())) {
-      CHECK(class_after_obj_ordered_map_.try_emplace(key, iter.second).second);
+      auto [ret_iter, success] = class_after_obj_ordered_map_.try_emplace(key, iter.second);
+      // It could fail only if the class 'key' has objects of its own, which are lower in
+      // address order, as well of some of its derived class. In this case
+      // choose the lowest address object.
+      if (!success &&
+          std::less<mirror::Object*>{}(iter.second.AsMirrorPtr(), ret_iter.second.AsMirrorPtr())) {
+        ret_iter.second = iter.second;
+      }
     }
   }
   class_after_obj_hash_map_.clear();
