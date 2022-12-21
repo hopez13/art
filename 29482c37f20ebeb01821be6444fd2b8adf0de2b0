@@ -146,6 +146,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "555a425c_8ecabd7a",
+        "filename": "runtime/gc/collector/mark_compact-inl.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-12-21T06:04:22Z",
+      "side": 1,
+      "message": "Up to 500 is the number for total entries we get. Without bitmap cases are about half. But this high number is only seen in google app. In majority of cases the number is \u003c100.\n\nI think it\u0027s not so unlikely to have no-bitmap cases. After all it just takes to have more than 32 fields to get there. I\u0027m sure even frameworks code must be having some.\n\nThe number of objects are with such cases are going up to ~6000. And the other case (where we do have bitmap but the class is after its objs) is not that common. Only 1 or 2 objs per class are seen.",
+      "parentUuid": "7c1fe6a9_19732c10",
+      "range": {
+        "startLine": 35,
+        "startChar": 4,
+        "endLine": 37,
+        "endChar": 88
+      },
+      "revId": "29482c37f20ebeb01821be6444fd2b8adf0de2b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cbe10cb1_de48c544",
         "filename": "runtime/gc/collector/mark_compact.cc",
         "patchSetId": 5

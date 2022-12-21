@@ -39,6 +39,30 @@
       },
       "revId": "dcca86cf890e0ec1b55af192107d06e5d382e634",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b363d8c3_f7ff4054",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1862,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-12-21T06:04:22Z",
+      "side": 1,
+      "message": "The \u0027not in moving-space\u0027 check is not required as in that case I don\u0027t add to `super_class_after_class_map_` in the first place. The other check is indeed required.\n\nI\u0027ll fix in the next patch.",
+      "parentUuid": "77bde450_370f6898",
+      "range": {
+        "startLine": 1859,
+        "startChar": 11,
+        "endLine": 1862,
+        "endChar": 43
+      },
+      "revId": "dcca86cf890e0ec1b55af192107d06e5d382e634",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
