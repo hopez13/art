@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a85f1759_7a541510",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-12-21T20:57:20Z",
+      "side": 1,
+      "message": "Thanks for the cleanup!",
+      "revId": "b360c816951197fc9f9a5e384f9187ba8adbc599",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03035a22_7dfd92a0",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-12-21T20:57:20Z",
+      "side": 1,
+      "message": "Please mention that this list must be the same as art-bootclasspath-fragment, because it\u0027s that which is pulled in through bootclasspath_fragments below.",
+      "revId": "b360c816951197fc9f9a5e384f9187ba8adbc599",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4680ad3e_5e8c6d70",
+        "filename": "odrefresh/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2022-12-21T20:57:20Z",
+      "side": 1,
+      "message": "Why is this necessary now?",
+      "range": {
+        "startLine": 125,
+        "startChar": 4,
+        "endLine": 125,
+        "endChar": 23
+      },
+      "revId": "b360c816951197fc9f9a5e384f9187ba8adbc599",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
