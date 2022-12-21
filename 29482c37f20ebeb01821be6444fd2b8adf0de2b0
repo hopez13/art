@@ -98,6 +98,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7685b5f5_90c57722",
+        "filename": "runtime/gc/collector/mark_compact-inl.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-12-21T02:12:55Z",
+      "side": 1,
+      "message": "Another data point: the number of WalkSuper objects are much higher than the \u0027before-class\u0027 objects. I\u0027m going to try single-reference cache and see if it helps.",
+      "parentUuid": "d78ab95f_98c905f3",
+      "range": {
+        "startLine": 35,
+        "startChar": 4,
+        "endLine": 37,
+        "endChar": 88
+      },
+      "revId": "29482c37f20ebeb01821be6444fd2b8adf0de2b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cbe10cb1_de48c544",
         "filename": "runtime/gc/collector/mark_compact.cc",
         "patchSetId": 5
