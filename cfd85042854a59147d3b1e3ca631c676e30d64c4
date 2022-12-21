@@ -16,6 +16,29 @@
       "message": "Fixed the syntax error in PS2. PTAL",
       "revId": "cfd85042854a59147d3b1e3ca631c676e30d64c4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "53209649_a555415f",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1852,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-12-21T23:14:52Z",
+      "side": 1,
+      "message": "In retrospect, this is not a great name, since it\u0027s not actually a C++ iterator. But the renaming can wait.",
+      "range": {
+        "startLine": 1852,
+        "startChar": 19,
+        "endLine": 1852,
+        "endChar": 23
+      },
+      "revId": "cfd85042854a59147d3b1e3ca631c676e30d64c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
