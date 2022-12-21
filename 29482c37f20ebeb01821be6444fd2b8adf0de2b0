@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d5ff00cf_84a8e7d8",
+        "filename": "runtime/gc/collector/mark_compact-inl.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-12-21T01:04:43Z",
+      "side": 1,
+      "message": "As discussed offline, I\u0027ll gather numbers on how many big these maps are, and if required will implement some optimization in a separate CL.",
+      "parentUuid": "022eebae_f80fcad7",
+      "range": {
+        "startLine": 35,
+        "startChar": 4,
+        "endLine": 37,
+        "endChar": 88
+      },
+      "revId": "29482c37f20ebeb01821be6444fd2b8adf0de2b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cbe10cb1_de48c544",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "313983e7_34f0cb22",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1891,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-12-21T01:04:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cbe10cb1_de48c544",
+      "range": {
+        "startLine": 1873,
+        "startChar": 2,
+        "endLine": 1891,
+        "endChar": 39
+      },
+      "revId": "29482c37f20ebeb01821be6444fd2b8adf0de2b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "741ae455_710ba023",
@@ -60,6 +108,30 @@
       "writtenOn": "2022-12-20T23:06:14Z",
       "side": 1,
       "message": "This isn\u0027t accurate anymore. And it should be documented when it\u0027s semantics change. It satisfies different properties ebfore and after the beginning of CompactMovingSpace, so we should specify both here.",
+      "range": {
+        "startLine": 583,
+        "startChar": 1,
+        "endLine": 584,
+        "endChar": 70
+      },
+      "revId": "29482c37f20ebeb01821be6444fd2b8adf0de2b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "43f0c868_25d0f4be",
+        "filename": "runtime/gc/collector/mark_compact.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 584,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-12-21T01:04:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "741ae455_710ba023",
       "range": {
         "startLine": 583,
         "startChar": 1,
