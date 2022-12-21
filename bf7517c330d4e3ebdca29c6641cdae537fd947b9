@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb290444_bc18f807",
+        "filename": "runtime/gc/collector/mark_compact-inl.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-12-21T18:46:37Z",
+      "side": 1,
+      "message": "Reverse these? The first one will almost always succeed, since you\u0027re doing these for every object, right?",
+      "range": {
+        "startLine": 34,
+        "startChar": 12,
+        "endLine": 35,
+        "endChar": 94
+      },
+      "revId": "bf7517c330d4e3ebdca29c6641cdae537fd947b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2dcb767d_f7b12704",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1863,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-12-21T18:46:37Z",
+      "side": 1,
+      "message": "The cache presumably also needs to be cleared here?",
+      "range": {
+        "startLine": 1863,
+        "startChar": 2,
+        "endLine": 1863,
+        "endChar": 44
+      },
+      "revId": "bf7517c330d4e3ebdca29c6641cdae537fd947b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "41bff9ae_474d3fba",
+        "filename": "runtime/gc/collector/mark_compact.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 600,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-12-21T18:46:37Z",
+      "side": 1,
+      "message": "Please insert a comment before all of these explaining the purpose of all of these, and separate the section with blank lines.\n\nE.g.\n\n\"Data structures used to track objects whose layout information is stored in later allocated classes at higher addresses. We must be careful not to unmap these classes prematurely.\"",
+      "range": {
+        "startLine": 600,
+        "startChar": 1,
+        "endLine": 600,
+        "endChar": 84
+      },
+      "revId": "bf7517c330d4e3ebdca29c6641cdae537fd947b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b02802b_b15a64e0",
+        "filename": "runtime/gc/collector/mark_compact.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 611,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-12-21T18:46:37Z",
+      "side": 1,
+      "message": "\"some of its\"?",
+      "range": {
+        "startLine": 611,
+        "startChar": 66,
+        "endLine": 611,
+        "endChar": 75
+      },
+      "revId": "bf7517c330d4e3ebdca29c6641cdae537fd947b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a242f44f_1dec5238",
+        "filename": "runtime/gc/collector/mark_compact.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 612,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-12-21T18:46:37Z",
+      "side": 1,
+      "message": "\"corresponding object with lowest address?",
+      "range": {
+        "startLine": 612,
+        "startChar": 18,
+        "endLine": 612,
+        "endChar": 45
+      },
+      "revId": "bf7517c330d4e3ebdca29c6641cdae537fd947b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
