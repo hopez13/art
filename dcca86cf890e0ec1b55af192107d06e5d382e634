@@ -63,6 +63,30 @@
       },
       "revId": "dcca86cf890e0ec1b55af192107d06e5d382e634",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2be5872_8c1729fc",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1862,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-12-21T08:11:53Z",
+      "side": 1,
+      "message": "The latest PS changes the whole function quite a bit. But addressed this issue.",
+      "parentUuid": "b363d8c3_f7ff4054",
+      "range": {
+        "startLine": 1859,
+        "startChar": 11,
+        "endLine": 1862,
+        "endChar": 43
+      },
+      "revId": "dcca86cf890e0ec1b55af192107d06e5d382e634",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
