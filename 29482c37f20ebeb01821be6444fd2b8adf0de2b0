@@ -122,6 +122,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7c1fe6a9_19732c10",
+        "filename": "runtime/gc/collector/mark_compact-inl.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-12-21T03:56:05Z",
+      "side": 1,
+      "message": "We\u0027re basically talking 500 classes without bitmaps? Any idea how many objects we have with those classes?\n\nThe temporary unordered map should help. But it would be good to understand why we have so many classes without bitmaps. That seems problematic anyway.\n\nAnother more intrusive approach might be to just compute a variable length bitmap when we encounter one of these, possibly just for the duration of the GC. That should only take a few K. It shouldn\u0027t add that much code, since we can presumably get rid of the class-traversal marking code in favor of the bitmap-generation code.",
+      "parentUuid": "2111a0a2_37f310fa",
+      "range": {
+        "startLine": 35,
+        "startChar": 4,
+        "endLine": 37,
+        "endChar": 88
+      },
+      "revId": "29482c37f20ebeb01821be6444fd2b8adf0de2b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cbe10cb1_de48c544",
         "filename": "runtime/gc/collector/mark_compact.cc",
         "patchSetId": 5

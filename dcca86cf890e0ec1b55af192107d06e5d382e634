@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "91104ed3_110aba45",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-12-21T03:56:05Z",
+      "side": 1,
+      "message": "I think the only thing important enough to hold up submission here is the mark_compact.cc question. And I may have mossied something there.",
+      "revId": "dcca86cf890e0ec1b55af192107d06e5d382e634",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77bde450_370f6898",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1862,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-12-21T03:56:05Z",
+      "side": 1,
+      "message": "Don\u0027t we also need the corresponding check in the previous case, when we found the class in super_class_after_class_map_?",
+      "range": {
+        "startLine": 1859,
+        "startChar": 11,
+        "endLine": 1862,
+        "endChar": 43
+      },
+      "revId": "dcca86cf890e0ec1b55af192107d06e5d382e634",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
