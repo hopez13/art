@@ -141,6 +141,30 @@
       },
       "revId": "5374b8d2cf8b666516d08bfba0578fcf4770208a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b338004a_2933cdf1",
+        "filename": "runtime/gc/space/region_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 753,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-12-22T23:35:27Z",
+      "side": 1,
+      "message": "\u003e Actually, do you remember when we revoke TLABs? Under what circumstances will partially occupied TLABs still matter here? They need to be allocated from since the start of the GC? I found Heap::RevokeAllThreadLocalBuffers, and the ConcurrentCopying version, but I\u0027m having trouble finding the right call.\n\u003e \nLook `Heap::AllocWithNewTLAB` calling into `RegionSpace::AllocNewTlab`\n\n\u003e I don\u0027t think we allow large objects smaller than a region to cross region boundaries, right? So there must be cases in which we inherently get fragmentation for large region-allocated objects, right? In the worst case, if we allocate 130KB object arrays in 256KB regions, we get nearly 50% fragmentation, I think. I suspect that we\u0027re not that great at bin packing when copying, so 5% seems plausible in real life, if we have an unusually large number of large object arrays.\n\u003e \nYes we don\u0027t allow `\u003ckRegionSize` objects to cross boundaries. The example of fragmentation you gave won\u0027t hurt I think because of the partial TLAB change in RegionSpace::AllocMewTlab`\n\n\u003e I think our default large object threshold for primitive arrays is 12K. So allocating 10K pointerfree objects exclusively, we\u0027d expect 5K fragmentation per region, which would give us 2%. So I don\u0027t think large-object-based fragmentation of various kinds is impossible, especiually in weird test scnarios. But I\u0027ll add something to the comment about this not being expected with a normal allocation mix.\n\nI agree that large-object based fragmentation is possible. But after the partial-tlab fix in RegionSpace, it shouldn\u0027t be that worse unless the objects are over 256K (say 257K).",
+      "parentUuid": "903d1aaa_49baa6d6",
+      "range": {
+        "startLine": 753,
+        "startChar": 33,
+        "endLine": 753,
+        "endChar": 65
+      },
+      "revId": "5374b8d2cf8b666516d08bfba0578fcf4770208a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
