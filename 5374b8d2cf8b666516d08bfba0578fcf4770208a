@@ -70,6 +70,29 @@
       },
       "revId": "5374b8d2cf8b666516d08bfba0578fcf4770208a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8bc9e45c_aa673a4d",
+        "filename": "runtime/gc/space/region_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 753,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2022-12-22T10:20:54Z",
+      "side": 1,
+      "message": "Drop the parens?",
+      "range": {
+        "startLine": 753,
+        "startChar": 11,
+        "endLine": 753,
+        "endChar": 66
+      },
+      "revId": "5374b8d2cf8b666516d08bfba0578fcf4770208a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
