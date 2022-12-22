@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1208724c_bbddaf1f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2022-12-22T01:17:47Z",
+      "side": 1,
+      "message": "Not just cleanup. This is to fix the duplicate error with the check added in the other change of this topic.",
+      "parentUuid": "a85f1759_7a541510",
+      "revId": "b360c816951197fc9f9a5e384f9187ba8adbc599",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "03035a22_7dfd92a0",
@@ -35,6 +53,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e8c4eeef_f091df16",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2022-12-22T01:17:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "03035a22_7dfd92a0",
+      "revId": "b360c816951197fc9f9a5e384f9187ba8adbc599",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4680ad3e_5e8c6d70",
@@ -48,6 +84,30 @@
       "writtenOn": "2022-12-21T20:57:20Z",
       "side": 1,
       "message": "Why is this necessary now?",
+      "range": {
+        "startLine": 125,
+        "startChar": 4,
+        "endLine": 125,
+        "endChar": 23
+      },
+      "revId": "b360c816951197fc9f9a5e384f9187ba8adbc599",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "66e0a879_2a56fcd1",
+        "filename": "odrefresh/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2022-12-22T01:17:47Z",
+      "side": 1,
+      "message": "Not related. Just noticed that this caused ninja-dup issue on some target. I think it\u0027s no harm.",
+      "parentUuid": "4680ad3e_5e8c6d70",
       "range": {
         "startLine": 125,
         "startChar": 4,
