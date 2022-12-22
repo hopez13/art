@@ -22,6 +22,30 @@
       },
       "revId": "5374b8d2cf8b666516d08bfba0578fcf4770208a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2040cb40_d20959de",
+        "filename": "runtime/gc/space/region_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 753,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-12-22T01:10:14Z",
+      "side": 1,
+      "message": "My conclusion was that it\u0027s probably too complicated to try to summarize here. If they\u0027re really large primitive arrays, they\u0027ll end up in LOS instead. Alignment matters. I\u0027m also not sure about TLAB interaction, though. Can we also waste the tail end of a TLAB reservation? Or do we redirect objects larger than the TLAB expansion interval?",
+      "parentUuid": "ecc7ad89_a4e3012f",
+      "range": {
+        "startLine": 753,
+        "startChar": 33,
+        "endLine": 753,
+        "endChar": 65
+      },
+      "revId": "5374b8d2cf8b666516d08bfba0578fcf4770208a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
