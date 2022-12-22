@@ -46,6 +46,30 @@
       },
       "revId": "5374b8d2cf8b666516d08bfba0578fcf4770208a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4bbd99a_e7b73024",
+        "filename": "runtime/gc/space/region_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 753,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2022-12-22T01:38:51Z",
+      "side": 1,
+      "message": "I\u0027m confused as to how can this situation arise in the first place. We log this when we have exhausted all options to reclaim when an allocation blocks due to GC.\n\nWe have 10MB free space, yet no regions are free. Also, note that our \"less than 1% freed...\" is not the case here either. The only explanation is that there are many threads who allocated all the available regions *before* the thread which did the GC and hence that thread couldn\u0027t allocate and threw exception.\n\nWe could certainly have a situation where a lot of threads have regions, which are mostly empty reserved to themselves. Large objects causing internal fragmentation is also possible, but is less likely as you rightly pointed out that primitive arrays can\u0027t be causing it.\n\nWasting tail end of TLAB was a possibility earlier but I remember fixing it long time back by maintaining a list of revoked TLABs and reusing them.\n\nI think either we can omit large object mention entirely or at least briefly say that it\u0027s only if they are in decent quantity and are misaligned as far as region size is concerned.",
+      "parentUuid": "2040cb40_d20959de",
+      "range": {
+        "startLine": 753,
+        "startChar": 33,
+        "endLine": 753,
+        "endChar": 65
+      },
+      "revId": "5374b8d2cf8b666516d08bfba0578fcf4770208a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
