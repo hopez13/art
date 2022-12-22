@@ -93,6 +93,54 @@
       },
       "revId": "5374b8d2cf8b666516d08bfba0578fcf4770208a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "903d1aaa_49baa6d6",
+        "filename": "runtime/gc/space/region_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 753,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-12-22T18:12:18Z",
+      "side": 1,
+      "message": "Actually, do you remember when we revoke TLABs? Under what circumstances will partially occupied TLABs still matter here? They need to be allocated from since the start of the GC? I found Heap::RevokeAllThreadLocalBuffers, and the ConcurrentCopying version, but I\u0027m having trouble finding the right call.\n\nI don\u0027t think we allow large objects smaller than a region to cross region boundaries, right? So there must be cases in which we inherently get fragmentation for large region-allocated objects, right? In the worst case, if we allocate 130KB object arrays in 256KB regions, we get nearly 50% fragmentation, I think. I suspect that we\u0027re not that great at bin packing when copying, so 5% seems plausible in real life, if we have an unusually large number of large object arrays.\n\nI think our default large object threshold for primitive arrays is 12K. So allocating 10K pointerfree objects exclusively, we\u0027d expect 5K fragmentation per region, which would give us 2%. So I don\u0027t think large-object-based fragmentation of various kinds is impossible, especiually in weird test scnarios. But I\u0027ll add something to the comment about this not being expected with a normal allocation mix.",
+      "parentUuid": "d4bbd99a_e7b73024",
+      "range": {
+        "startLine": 753,
+        "startChar": 33,
+        "endLine": 753,
+        "endChar": 65
+      },
+      "revId": "5374b8d2cf8b666516d08bfba0578fcf4770208a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08da3d1f_3c8d6c48",
+        "filename": "runtime/gc/space/region_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 753,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-12-22T18:12:18Z",
+      "side": 1,
+      "message": "Those are operator precedence parens. Maybe use || and \u0026\u0026 instead? Other suggestions? This message is already rather long.",
+      "parentUuid": "8bc9e45c_aa673a4d",
+      "range": {
+        "startLine": 753,
+        "startChar": 11,
+        "endLine": 753,
+        "endChar": 66
+      },
+      "revId": "5374b8d2cf8b666516d08bfba0578fcf4770208a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
