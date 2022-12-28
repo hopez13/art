@@ -189,6 +189,54 @@
       },
       "revId": "5374b8d2cf8b666516d08bfba0578fcf4770208a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "93e0514a_ffeaf3a3",
+        "filename": "runtime/gc/space/region_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 753,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-12-28T23:17:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bd529146_8f2f5da8",
+      "range": {
+        "startLine": 753,
+        "startChar": 11,
+        "endLine": 753,
+        "endChar": 66
+      },
+      "revId": "5374b8d2cf8b666516d08bfba0578fcf4770208a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8215644_6990aed3",
+        "filename": "runtime/gc/space/region_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 753,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2022-12-28T23:17:39Z",
+      "side": 1,
+      "message": "We\u0027re talking about RevokeThreadLocalBuffersLocked(), right? IIUC, we keep track of TLAB leftovers \u003e\u003d 16KB, so in the worst case, we lose around 6% by allocating largish objects \u003c kPartialTlabSize. We could also get into trouble trying to allocate something between kPartialTlabSize and kRegionSize if none of the leftovers are large enough.\n\nBut it looks to me like we agree that large-bject-based fragmentation is a possibility, but less likely than I once thought. I\u0027ll adjust the text in the comment.",
+      "parentUuid": "b338004a_2933cdf1",
+      "range": {
+        "startLine": 753,
+        "startChar": 33,
+        "endLine": 753,
+        "endChar": 65
+      },
+      "revId": "5374b8d2cf8b666516d08bfba0578fcf4770208a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
