@@ -422,8 +422,8 @@ TEST_F(OdRefreshTest, CompileSetsCompilerFilterWithExplicitValue) {
       ExitCode::kCompilationSuccess);
 }
 
-// Test setup: The compiler filter is not explicitly set. Use "speed-profile" if there is a profile,
-// otherwise fall back to "speed".
+// Test setup: The compiler filter is not explicitly set. Use "speed-profile" if there is a vetted
+// profile (on U+), otherwise fall back to "speed".
 TEST_F(OdRefreshTest, CompileSetsCompilerFilterWithDefaultValue) {
   // Uninteresting calls.
   EXPECT_CALL(
@@ -438,11 +438,13 @@ TEST_F(OdRefreshTest, CompileSetsCompilerFilterWithDefaultValue) {
                                 Not(Contains(HasSubstr("--profile-file-fd="))),
                                 Contains("--compiler-filter=speed"))))
       .WillOnce(Return(0));
-  EXPECT_CALL(
-      *mock_exec_utils_,
-      DoExecAndReturnCode(AllOf(Contains(Concatenate({"--dex-file=", services_jar_})),
-                                Contains(HasSubstr("--profile-file-fd=")),
-                                Contains("--compiler-filter=speed-profile"))))
+  // Only on U+ should we use the profile by default if available.
+  const std::string expected_filter =
+      android_get_device_api_level() >= __ANDROID_API_U__ ? "speed-profile" : "speed";
+  EXPECT_CALL(*mock_exec_utils_,
+              DoExecAndReturnCode(AllOf(Contains(Concatenate({"--dex-file=", services_jar_})),
+                                        Contains(HasSubstr("--profile-file-fd=")),
+                                        Contains("--compiler-filter=" + expected_filter))))
       .WillOnce(Return(0));
   EXPECT_EQ(
       odrefresh_->Compile(*metrics_,
