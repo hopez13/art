@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0df37125_9cc85033",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1064003
+      },
+      "writtenOn": "2022-12-29T19:16:44Z",
+      "side": 1,
+      "message": "Looks like _U_ isn\u0027t defined for aosp-master-art, which makes sense. Wondering what the best way to work around is, there\u0027s this logic: https://cs.android.com/android/platform/superproject/+/master:art/runtime/native/dalvik_system_DexFile.cc;drc\u003dd073a7265cf66bc812b5a2ec3ea17193b4126402;l\u003d320, wondering if there\u0027s a more canonical/central API check we should use though?",
+      "revId": "c473da8f26ee0465936ac12c91f0d703916dd6ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "79fbd1da_a1014dda",
         "filename": "odrefresh/odrefresh_test.cc",
         "patchSetId": 2
