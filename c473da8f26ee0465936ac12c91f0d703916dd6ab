@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fdc1eca5_f03587d2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1064003
+      },
+      "writtenOn": "2022-12-29T19:20:04Z",
+      "side": 1,
+      "message": "What about this IsAtLeastU() check in the module utils? https://cs.android.com/android/platform/superproject/+/master:frameworks/libs/modules-utils/build/include/android-modules-utils/sdk_level.h;drc\u003d2b1c7a4b0fb7ddf6f7916fa038d89c81fc4c2c2f;l\u003d57?",
+      "parentUuid": "0df37125_9cc85033",
+      "revId": "c473da8f26ee0465936ac12c91f0d703916dd6ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "79fbd1da_a1014dda",
         "filename": "odrefresh/odrefresh_test.cc",
         "patchSetId": 2
