@@ -560,6 +560,12 @@ WARN_UNUSED bool CheckCompilationSpace() {
 
 std::string GetSystemBootImageDir() { return GetAndroidRoot() + "/framework"; }
 
+bool DeviceHasVettedSystemServerProfiles() {
+  // While system_server profiles were bundled on the device prior to U+, they were not used by
+  // default or rigorously tested, so we cannot vouch for their efficacy.
+  return android_get_device_api_level() >= __ANDROID_API_U__;
+}
+
 }  // namespace
 
 OnDeviceRefresh::OnDeviceRefresh(const OdrConfig& config)
@@ -1645,13 +1651,16 @@ WARN_UNUSED bool OnDeviceRefresh::CompileSystemServerArtifacts(
       return false;
     }
 
-    const std::string jar_name(android::base::Basename(jar));
-    const std::string profile = Concatenate({GetAndroidRoot(), "/framework/", jar_name, ".prof"});
-    bool has_any_profile = AddDex2OatProfile(args, readonly_files_raii, {profile});
+    bool has_usable_profile = false;
+    if (DeviceHasVettedSystemServerProfiles()) {
+      const std::string jar_name(android::base::Basename(jar));
+      const std::string profile = Concatenate({GetAndroidRoot(), "/framework/", jar_name, ".prof"});
+      has_usable_profile = AddDex2OatProfile(args, readonly_files_raii, {profile});
+    }
     const std::string& compiler_filter = config_.GetSystemServerCompilerFilter();
     if (!compiler_filter.empty()) {
       args.emplace_back("--compiler-filter=" + compiler_filter);
-    } else if (has_any_profile) {
+    } else if (has_usable_profile) {
       args.emplace_back("--compiler-filter=speed-profile");
     } else {
       args.emplace_back("--compiler-filter=speed");
