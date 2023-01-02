@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b07045d_0b92e2b6",
+        "filename": "runtime/mirror/class-inl.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 1226,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-01-02T10:31:34Z",
+      "side": 1,
+      "message": "`*this` may have moved.\n\nParent CL\u0027s correctness should not deliberately depend on the child CL. You should `git rebase -i` and `squash` the https://android-review.googlesource.com/2320557 into this CL. (Or you could reorder the CLs.)",
+      "range": {
+        "startLine": 1226,
+        "startChar": 9,
+        "endLine": 1226,
+        "endChar": 13
+      },
+      "revId": "babdaae738e26f676c727b1dd3da2eb2afdd52e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
