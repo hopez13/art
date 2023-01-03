@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "64e1c1d4_10b937ce",
+        "filename": "test/141-class-unload/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-01-03T11:07:54Z",
+      "side": 1,
+      "message": "If I understand correctly, inlining `testNoUnloadInstanceHelper()` allows LSE to eliminate the `HInstanceFieldGet/Pair.classLoader` because the `Pair` is a singleton - then the `Pair` can be unloaded, right?\n\nCan we simply add `$noinline$` to prevent that? (And maybe add the `$noinline$` to other methods in this test as well.)",
+      "range": {
+        "startLine": 160,
+        "startChar": 20,
+        "endLine": 160,
+        "endChar": 46
+      },
+      "revId": "6a1750a5ba7f2e1976f5588425fcad9ec71c7aa4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
