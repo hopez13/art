@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7541aea3_073d2028",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1661,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-01-03T13:05:07Z",
+      "side": 1,
+      "message": "This also needs to be called when `config_.GetSystemServerCompilerFilter()` is explicitly set, which happens on Go devices. I.e., we use profiles on Go devices prior to U.",
+      "range": {
+        "startLine": 1661,
+        "startChar": 27,
+        "endLine": 1661,
+        "endChar": 44
+      },
+      "revId": "0908c621adea41c15b5df5e275f2531454ecb185",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ab7dace2_55e5a23e",
+        "filename": "odrefresh/odrefresh_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 447,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-01-03T13:05:07Z",
+      "side": 1,
+      "message": "Add `Not()` if the filter is not \"speed-profile\".",
+      "range": {
+        "startLine": 447,
+        "startChar": 40,
+        "endLine": 447,
+        "endChar": 80
+      },
+      "revId": "0908c621adea41c15b5df5e275f2531454ecb185",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
