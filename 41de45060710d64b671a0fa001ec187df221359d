@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc424b28_be118872",
+        "filename": "runtime/string_builder_append.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-01-03T14:36:43Z",
+      "side": 1,
+      "message": "nit: where does this 26 come from? Can we make it a `constexpr`?",
+      "range": {
+        "startLine": 108,
+        "startChar": 48,
+        "endLine": 108,
+        "endChar": 50
+      },
+      "revId": "41de45060710d64b671a0fa001ec187df221359d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94cdd460_7a95ec40",
+        "filename": "runtime/string_builder_append.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-01-03T14:36:43Z",
+      "side": 1,
+      "message": "I am not understanding why we do `[0]` and not `[fp_arg_index]`",
+      "range": {
+        "startLine": 167,
+        "startChar": 48,
+        "endLine": 167,
+        "endChar": 51
+      },
+      "revId": "41de45060710d64b671a0fa001ec187df221359d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
