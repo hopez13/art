@@ -213,6 +213,9 @@ inline ClassTable::TableSlot::TableSlot(ObjPtr<mirror::Class> klass, uint32_t de
   DCHECK_EQ(descriptor_hash, klass->DescriptorHash());
 }
 
+inline ClassTable::TableSlot::TableSlot(uint32_t ptr, uint32_t descriptor_hash)
+    : data_(ptr | MaskHash(descriptor_hash)) {}
+
 template <typename Filter>
 inline void ClassTable::RemoveStrongRoots(const Filter& filter) {
   WriterMutexLock mu(Thread::Current(), lock_);
