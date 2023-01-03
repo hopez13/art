@@ -53,6 +53,8 @@ class SafeMap {
     : map_(cmp, allocator) {
   }
 
+  explicit SafeMap(const allocator_type& allocator) : map_(allocator) {}
+
   Self& operator=(const Self& rhs) {
     map_ = rhs.map_;
     return *this;
