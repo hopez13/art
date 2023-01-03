@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d52350d_cc563814",
+        "filename": "runtime/string_builder_append.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-01-03T15:24:22Z",
+      "side": 1,
+      "message": "Done: https://android-review.googlesource.com/2374168 .",
+      "parentUuid": "cc424b28_be118872",
+      "range": {
+        "startLine": 108,
+        "startChar": 48,
+        "endLine": 108,
+        "endChar": 50
+      },
+      "revId": "41de45060710d64b671a0fa001ec187df221359d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "94cdd460_7a95ec40",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-01-03T14:36:43Z",
       "side": 1,
       "message": "I am not understanding why we do `[0]` and not `[fp_arg_index]`",
+      "range": {
+        "startLine": 167,
+        "startChar": 48,
+        "endLine": 167,
+        "endChar": 51
+      },
+      "revId": "41de45060710d64b671a0fa001ec187df221359d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bdd067c8_3f8c9f4f",
+        "filename": "runtime/string_builder_append.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-01-03T15:24:22Z",
+      "side": 1,
+      "message": "There is no difference for a two-dimensional array.\n\nReplaced by the named constant in https://android-review.googlesource.com/2374168 .",
+      "parentUuid": "94cdd460_7a95ec40",
       "range": {
         "startLine": 167,
         "startChar": 48,
