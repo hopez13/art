@@ -154,12 +154,14 @@ public class Main {
         return new Pair(o, loader);
     }
 
+    static Pair keepAlive;
+
     private static void testNoUnloadInstance(Constructor<?> constructor) throws Exception {
-        Pair p = testNoUnloadInstanceHelper(constructor);
+        keepAlive = testNoUnloadInstanceHelper(constructor);
         doUnloading();
-        // If the class loader was unloded too early due to races, just pass the test.
-        boolean isNull = p.classLoader.get() == null;
+        boolean isNull = keepAlive.classLoader.get() == null;
         System.out.println("loader null " + isNull);
+        keepAlive = null;
     }
 
     private static Class<?> setUpUnloadClass(Constructor<?> constructor) throws Exception {
