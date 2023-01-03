@@ -2185,9 +2185,11 @@ bool ClassLinker::AddImageSpace(
         ObjPtr<mirror::Class> klass(root.Read());
         // Do not update class loader for boot image classes where the app image
         // class loader is only the initiating loader but not the defining loader.
-        // Avoid read barrier since we are comparing against null.
-        if (klass->GetClassLoader<kDefaultVerifyFlags, kWithoutReadBarrier>() != nullptr) {
+        if (space->HasAddress(klass.Ptr())) {
           klass->SetClassLoader(loader);
+        } else {
+          DCHECK(klass->GetClassLoader() == nullptr);
+          DCHECK(Runtime::Current()->GetHeap()->ObjectIsInBootImageSpace(klass.Ptr()));
         }
       }
     }
