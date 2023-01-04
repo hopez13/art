@@ -22,6 +22,30 @@
       },
       "revId": "d818adbd958219655cee380a3a1f6049d78bbcde",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "97d5e4c1_df413376",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2051,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-01-04T19:21:58Z",
+      "side": 1,
+      "message": "I cannot currently imagine us doing that, especially without widespread changes elsewhere. That seems certain to cause a large regression in space use and in cache misses during object accesses. My recollection from experiments long ago on a different Java implementation suggested that an extra header word cost around 5-10% runtime performance at the time, and it may be more now.\n\nCertainly this extra word would somehow have to result in a large compensating win elsewhere. If so, I would imagine that which ever CL made that change would adjust this assertion.",
+      "parentUuid": "de2c563b_9a60dcff",
+      "range": {
+        "startLine": 2050,
+        "startChar": 16,
+        "endLine": 2051,
+        "endChar": 36
+      },
+      "revId": "d818adbd958219655cee380a3a1f6049d78bbcde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
