@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ade39f8a_a9f4bdb2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-01-04T12:27:54Z",
+      "side": 1,
+      "message": "LGTM thanks!",
+      "revId": "cdbcf6ff9dadc11bf09eb0b413134b675af9fb6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7bd0dead_9f230f85",
+        "filename": "runtime/string_builder_append.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-01-04T12:27:54Z",
+      "side": 1,
+      "message": "super nit: there\u0027s an extra space between `java` and `.`.",
+      "range": {
+        "startLine": 108,
+        "startChar": 95,
+        "endLine": 108,
+        "endChar": 97
+      },
+      "revId": "cdbcf6ff9dadc11bf09eb0b413134b675af9fb6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
