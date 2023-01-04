@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de2c563b_9a60dcff",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2051,
+      "author": {
+        "id": 1942415
+      },
+      "writtenOn": "2023-01-04T13:23:34Z",
+      "side": 1,
+      "message": "static_assert(kObjectHeaderSize \u003d\u003d sizeof(mirror::HeapReference\u003cmirror::Class\u003e) +\n                    sizeof(LockWord),\n\nIf we add some new fields (like 64 bits) in mirror::Object, this assert will be failed. Could we just remove it in Android 13? Or how could we fix the failure?",
+      "range": {
+        "startLine": 2050,
+        "startChar": 16,
+        "endLine": 2051,
+        "endChar": 36
+      },
+      "revId": "d818adbd958219655cee380a3a1f6049d78bbcde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
