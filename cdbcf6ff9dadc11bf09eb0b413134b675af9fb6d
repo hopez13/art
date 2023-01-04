@@ -39,6 +39,30 @@
       },
       "revId": "cdbcf6ff9dadc11bf09eb0b413134b675af9fb6d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "230ef62e_9558754f",
+        "filename": "runtime/string_builder_append.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-01-04T13:18:38Z",
+      "side": 1,
+      "message": "This is intentional, I put a space between URLs or file names and the following period or comma. (The space is important, for example, if you want to quickly select the URL or filename by a double-click in a terminal.)",
+      "parentUuid": "7bd0dead_9f230f85",
+      "range": {
+        "startLine": 108,
+        "startChar": 95,
+        "endLine": 108,
+        "endChar": 97
+      },
+      "revId": "cdbcf6ff9dadc11bf09eb0b413134b675af9fb6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
