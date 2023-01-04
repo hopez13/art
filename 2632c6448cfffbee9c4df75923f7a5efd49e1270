@@ -53,6 +53,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "32686d85_0cceebd5",
+        "filename": "test/183-non-bmp-package-name/jni_find_class.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-01-04T16:59:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7613f5fc_2bbb336a",
+      "revId": "2632c6448cfffbee9c4df75923f7a5efd49e1270",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "72441295_94d735c8",
@@ -66,6 +84,30 @@
       "writtenOn": "2023-01-04T16:42:24Z",
       "side": 1,
       "message": "Use a `constexpr kValue \u003d true` to not have the #else bitrot?",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 5
+      },
+      "revId": "2632c6448cfffbee9c4df75923f7a5efd49e1270",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "91227d4d_b020112f",
+        "filename": "test/183-non-bmp-package-name/jni_find_class.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-01-04T16:59:23Z",
+      "side": 1,
+      "message": "Done (without the `constexpr`)",
+      "parentUuid": "72441295_94d735c8",
       "range": {
         "startLine": 28,
         "startChar": 0,
