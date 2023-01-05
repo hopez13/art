@@ -1,0 +1,211 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec2d3f80_28bd6a45",
+        "filename": "dex2oat/driver/compiler_driver.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 1380,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-01-05T17:04:26Z",
+      "side": 1,
+      "message": "Initialize: ` \u003d hs.NewHandle\u003cmirror::Class\u003e(nullptr);`\n\nOtherwise, the `Assign()` and `IsNull()` below should crash.\n\nOr, you can drop the unnecessary scope below and directly initialize with\n\n    MutableHandle\u003cmirror::Class\u003e referrer_class \u003d hs.NewHandle(\n        (resolved_field !\u003d nullptr)\n            ? ResolveCompilingMethodsClass(soa, dex_cache, class_loader, mUnit)\n            : nullptr);",
+      "range": {
+        "startLine": 1380,
+        "startChar": 45,
+        "endLine": 1380,
+        "endChar": 46
+      },
+      "revId": "d62092da3957470f674e9f0a11f7b41f57c7b5a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "02ce8a6a_8620e3f4",
+        "filename": "dex2oat/driver/compiler_driver.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 1390,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-01-05T17:04:26Z",
+      "side": 1,
+      "message": "This could remain unchanged. There is a `Handle\u003c\u003e::operator!\u003d(std::nullptr_t)`.",
+      "range": {
+        "startLine": 1390,
+        "startChar": 35,
+        "endLine": 1390,
+        "endChar": 59
+      },
+      "revId": "d62092da3957470f674e9f0a11f7b41f57c7b5a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b41f8e0_eeeccb74",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 8152,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-01-05T17:04:26Z",
+      "side": 1,
+      "message": "Possible thread suspension in violation of `ScopedAssertNoThreadSuspension` from line 8075.\n\nGarbage collector can move the data referenced by `super_vtable_accessor`.",
+      "range": {
+        "startLine": 8152,
+        "startChar": 4,
+        "endLine": 8152,
+        "endChar": 52
+      },
+      "revId": "d62092da3957470f674e9f0a11f7b41f57c7b5a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a92d5564_0620ec60",
+        "filename": "runtime/dex/dex_file_annotations.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 1815,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-01-05T17:04:26Z",
+      "side": 1,
+      "message": "I would expect most nested classes to be in the same dex file and then it\u0027s enough to compare the type index.\n\nIf the dex files are different... Can the host be in a different package/class loader? (If not, descriptor comparison should be faster.)",
+      "range": {
+        "startLine": 1815,
+        "startChar": 46,
+        "endLine": 1815,
+        "endChar": 65
+      },
+      "revId": "d62092da3957470f674e9f0a11f7b41f57c7b5a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e586f53_0bd8aa38",
+        "filename": "runtime/entrypoints/quick/quick_field_entrypoints.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-01-05T17:04:26Z",
+      "side": 1,
+      "message": "Please revert this formatting change.",
+      "range": {
+        "startLine": 66,
+        "startChar": 64,
+        "endLine": 66,
+        "endChar": 65
+      },
+      "revId": "d62092da3957470f674e9f0a11f7b41f57c7b5a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9dd2cc6c_38e1835b",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 2183,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-01-05T17:04:26Z",
+      "side": 1,
+      "message": "This internally calls `ProcessAnnotationValue()` which is very messy when it comes to error reporting. I obviously have an old bug for that: b/62612630 .\n\nEven when the annotation correctly references a type, `annotations::GetNestHost()` can fail due to OOME. After GC, the same call could succeed. Having the `HaveSameNestHost()` return different values for two different calls on the same classes would be very odd. Member access rights should be invariant.\n\nThis could be solved by actually resolving and recording the nest host in the `Class` object during class linking. This would also remove the need for all these `Handle\u003c\u003e`s. (But then, if two classes reference each other as host, or if a superclass references a subclass as its host, or there is another cycle involving the host, do we throw `ClassCircularityError`? Or do we just allocate placeholder class objects in a \"not ready\" state instead of fully resolving the host?)",
+      "range": {
+        "startLine": 2183,
+        "startChar": 44,
+        "endLine": 2183,
+        "endChar": 77
+      },
+      "revId": "d62092da3957470f674e9f0a11f7b41f57c7b5a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf49b077_62c2afdb",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 1380,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-01-05T17:04:26Z",
+      "side": 1,
+      "message": "This comment is unnecessary, there is no `h_this`.",
+      "range": {
+        "startLine": 1380,
+        "startChar": 5,
+        "endLine": 1380,
+        "endChar": 54
+      },
+      "revId": "d62092da3957470f674e9f0a11f7b41f57c7b5a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "07f38bd0_e75deb8c",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 3857,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-01-05T17:04:26Z",
+      "side": 1,
+      "message": "I would keep the same condition as before and just update the comment and message to include nest groups.\n\nWe already diverge from the RI by prohibiting invoke-virtual for private methods and D8 is rewriting the invoke during the bytecode conversion. I see no reason to relax this for nest groups.",
+      "range": {
+        "startLine": 3857,
+        "startChar": 6,
+        "endLine": 3857,
+        "endChar": 43
+      },
+      "revId": "d62092da3957470f674e9f0a11f7b41f57c7b5a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b48dc965_d6560163",
+        "filename": "test/185-nest-group-access/src/Main.java",
+        "patchSetId": 18
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-01-05T17:04:26Z",
+      "side": 1,
+      "message": "Unused.",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 32
+      },
+      "revId": "d62092da3957470f674e9f0a11f7b41f57c7b5a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
