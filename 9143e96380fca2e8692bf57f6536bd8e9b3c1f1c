@@ -50,6 +50,23 @@
       "message": "Will merge this again once the buildbots are a bit greener.",
       "revId": "9143e96380fca2e8692bf57f6536bd8e9b3c1f1c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fef2cace_32a41d82",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-01-05T22:29:02Z",
+      "side": 1,
+      "message": "All failures correspond to tests that were regularly failing in postsubmit anyway. So I\u0027ll take this as a positive result.",
+      "revId": "9143e96380fca2e8692bf57f6536bd8e9b3c1f1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
