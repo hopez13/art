@@ -70,6 +70,30 @@
       },
       "revId": "d818adbd958219655cee380a3a1f6049d78bbcde",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1eeb8612_a22101dd",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2051,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-01-05T16:17:11Z",
+      "side": 1,
+      "message": "There is clearly an issue here, in that the extra header components also need to be copied properly. I expect the new userfaultfd collector would have similar issues. But I don\u0027t believe there is a generic fix for that; it would depend on what else is in the header. Any CL that changed the header size would also have to fic these.\n\nThere might be similar issues elsewhere in the runtime. But I can\u0027t provide a list of where they might occur.",
+      "parentUuid": "ed263743_74804785",
+      "range": {
+        "startLine": 2050,
+        "startChar": 16,
+        "endLine": 2051,
+        "endChar": 36
+      },
+      "revId": "d818adbd958219655cee380a3a1f6049d78bbcde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
