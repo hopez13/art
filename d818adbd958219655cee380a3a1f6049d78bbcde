@@ -46,6 +46,30 @@
       },
       "revId": "d818adbd958219655cee380a3a1f6049d78bbcde",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed263743_74804785",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2051,
+      "author": {
+        "id": 1942415
+      },
+      "writtenOn": "2023-01-05T08:45:32Z",
+      "side": 1,
+      "message": "Besides performance regression, are there any other issues if we add extra header words? \n\nWe could work around the assert by adding a specify num, will it cause unexpected behavior, like GC crashing?",
+      "parentUuid": "97d5e4c1_df413376",
+      "range": {
+        "startLine": 2050,
+        "startChar": 16,
+        "endLine": 2051,
+        "endChar": 36
+      },
+      "revId": "d818adbd958219655cee380a3a1f6049d78bbcde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
