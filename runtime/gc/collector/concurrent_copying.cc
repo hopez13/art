@@ -468,11 +468,10 @@ class ConcurrentCopying::ThreadFlipVisitor : public Closure, public RootVisitor 
   }
 
   void Run(Thread* thread) override REQUIRES_SHARED(Locks::mutator_lock_) {
-    // Note: self is not necessarily equal to thread since thread may be suspended.
+    // We are either running this in the target thread, or the target thread will wait for us
+    // before switching back to runnable.
     Thread* self = Thread::Current();
-    CHECK(thread == self ||
-          thread->IsSuspended() ||
-          thread->GetState() == ThreadState::kWaitingPerformingGc)
+    DCHECK(thread == self || thread->GetState() != ThreadState::kRunnable)
         << thread->GetState() << " thread " << thread << " self " << self;
     thread->SetIsGcMarkingAndUpdateEntrypoints(true);
     if (use_tlab_ && thread->HasTlab()) {
