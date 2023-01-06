@@ -42,6 +42,8 @@ std::unique_ptr<const InstructionSetFeatures> InstructionSetFeatures::FromVarian
       return ArmInstructionSetFeatures::FromVariant(variant, error_msg);
     case InstructionSet::kArm64:
       return Arm64InstructionSetFeatures::FromVariant(variant, error_msg);
+    case InstructionSet::kRiscv64:
+      return Riscv64InstructionSetFeatures::FromVariant(variant, error_msg);
     case InstructionSet::kX86:
       return X86InstructionSetFeatures::FromVariant(variant, error_msg);
     case InstructionSet::kX86_64:
