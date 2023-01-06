@@ -94,6 +94,30 @@
       },
       "revId": "d818adbd958219655cee380a3a1f6049d78bbcde",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "56d67587_a93d3725",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2051,
+      "author": {
+        "id": 1942415
+      },
+      "writtenOn": "2023-01-06T06:10:12Z",
+      "side": 1,
+      "message": "Thank you for your advice, I will check the status of userfaultfd collector.",
+      "parentUuid": "1eeb8612_a22101dd",
+      "range": {
+        "startLine": 2050,
+        "startChar": 16,
+        "endLine": 2051,
+        "endChar": 36
+      },
+      "revId": "d818adbd958219655cee380a3a1f6049d78bbcde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
