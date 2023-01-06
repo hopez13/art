@@ -1491,12 +1491,24 @@ bool HInliner::IsInliningEncouraged(const HInvoke* invoke_instruction,
     return false;
   }
 
-  if (invoke_instruction->GetBlock()->GetLastInstruction()->IsThrow()) {
+  HBasicBlock* block = invoke_instruction->GetBlock();
+  if (block->GetLastInstruction()->IsThrow()) {
     LOG_FAIL(stats_, MethodCompilationStat::kNotInlinedEndsWithThrow)
         << "Method " << method->PrettyMethod()
         << " is not inlined because its block ends with a throw";
     return false;
   }
+
+  for (HInstructionIterator it(block->GetInstructions()); !it.Done(); it.Advance()) {
+    HInstruction* instruction = it.Current();
+    if (instruction->IsInvoke() && instruction->AsInvoke()->AlwaysThrows()) {
+      LOG_FAIL(stats_, MethodCompilationStat::kNotInlinedHasMethodThatAlwaysThrows)
+        << "Method " << method->PrettyMethod()
+        << " is not inlined because its block has a method that always throws";
+      return false;
+    }
+  }
+
 
   return true;
 }

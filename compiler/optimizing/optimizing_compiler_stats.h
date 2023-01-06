@@ -105,6 +105,7 @@ enum class MethodCompilationStat {
   kNotInlinedNotVerified,
   kNotInlinedCodeItem,
   kNotInlinedEndsWithThrow,
+  kNotInlinedHasMethodThatAlwaysThrows,
   kNotInlinedWont,
   kNotInlinedRecursiveBudget,
   kNotInlinedPolymorphicRecursiveBudget,

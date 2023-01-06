@@ -102,7 +102,7 @@ public class Main {
       int[] numbers = {};
       val = DoNotInlineOOBTryCatch(numbers);
     } catch (Exception ex) {
-      unreachable();
+      System.out.println("Unreachable");
       // This is unreachable but we will still compile it so it works for checking that it inlines.
       int[] numbers = {};
       $inline$OOBTryCatch(numbers);
@@ -232,10 +232,6 @@ public class Main {
     } catch (Exception e) {
       return 1;
     }
-  }
-
-  private static void unreachable() {
-    throw new Error("Unreachable");
   }
 
   private static int $inline$ParseIntTryCatch(String str) {
