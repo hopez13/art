@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6bac2aef_f85d2ad5",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 437,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-01-09T10:43:58Z",
+      "side": 1,
+      "message": "Should we make the object gray\n\n    if (kUseBakerReadBarrier \u0026\u0026 gc::collector::ConcurrentCopying::kGrayDirtyImmuneObjects)\n\n? (See ImageWriter.)",
+      "revId": "e92671a1ad9396040f6db4241aa59085f0ce5801",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
