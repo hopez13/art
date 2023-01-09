@@ -1860,13 +1860,13 @@ void InstructionSimplifierVisitor::VisitDiv(HDiv* instruction) {
 
 // Search HDiv having the specified dividend and divisor which is in the specified basic block.
 // Return nullptr if nothing has been found.
-static HInstruction* FindDivWithInputsInBasicBlock(HInstruction* dividend,
-                                                   HInstruction* divisor,
-                                                   HBasicBlock* basic_block) {
+static HDiv* FindDivWithInputsInBasicBlock(HInstruction* dividend,
+                                           HInstruction* divisor,
+                                           HBasicBlock* basic_block) {
   for (const HUseListNode<HInstruction*>& use : dividend->GetUses()) {
     HInstruction* user = use.GetUser();
     if (user->GetBlock() == basic_block && user->IsDiv() && user->InputAt(1) == divisor) {
-      return user;
+      return user->AsDiv();
     }
   }
   return nullptr;
@@ -1900,11 +1900,18 @@ void InstructionSimplifierVisitor::TryToReuseDiv(HRem* rem) {
     }
   }
 
-  HInstruction* quotient = FindDivWithInputsInBasicBlock(dividend, divisor, basic_block);
+  HDiv* quotient = FindDivWithInputsInBasicBlock(dividend, divisor, basic_block);
   if (quotient == nullptr) {
     return;
   }
   if (!quotient->StrictlyDominates(rem)) {
+    // We can only move it before `rem` iff `quotient`'s inputs strictly dominate `rem`.
+    if (!quotient->GetLeft()->StrictlyDominates(rem) ||
+        !quotient->GetRight()->StrictlyDominates(rem)) {
+      // If we move `quotient` before `rem`, we would move the use (i.e. `quotient`) before its
+      // inputs.
+      return;
+    }
     quotient->MoveBefore(rem);
   }
 
