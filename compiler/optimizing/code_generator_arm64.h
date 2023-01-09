@@ -329,8 +329,7 @@ class InstructionCodeGeneratorARM64 : public InstructionCodeGenerator {
 
   void HandleFieldSet(HInstruction* instruction,
                       const FieldInfo& field_info,
-                      bool value_can_be_null,
-                      WriteBarrierKind write_barrier_kind);
+                      bool value_can_be_null);
   void HandleFieldGet(HInstruction* instruction, const FieldInfo& field_info);
   void HandleCondition(HCondition* instruction);
 
@@ -618,7 +617,7 @@ class CodeGeneratorARM64 : public CodeGenerator {
   // Emit a write barrier.
   void MarkGCCard(vixl::aarch64::Register object,
                   vixl::aarch64::Register value,
-                  bool emit_null_check);
+                  bool value_can_be_null);
 
   void GenerateMemoryBarrier(MemBarrierKind kind);
 

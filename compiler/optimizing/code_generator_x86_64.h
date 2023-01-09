@@ -251,8 +251,7 @@ class InstructionCodeGeneratorX86_64 : public InstructionCodeGenerator {
                       bool is_volatile,
                       bool is_atomic,
                       bool value_can_be_null,
-                      bool byte_swap,
-                      WriteBarrierKind write_barrier_kind);
+                      bool byte_swap = false);
 
   void Bswap(Location value, DataType::Type type, CpuRegister* temp = nullptr);
 
@@ -275,8 +274,7 @@ class InstructionCodeGeneratorX86_64 : public InstructionCodeGenerator {
 
   void HandleFieldSet(HInstruction* instruction,
                       const FieldInfo& field_info,
-                      bool value_can_be_null,
-                      WriteBarrierKind write_barrier_kind);
+                      bool value_can_be_null);
   void HandleFieldGet(HInstruction* instruction, const FieldInfo& field_info);
 
   void GenerateMinMaxInt(LocationSummary* locations, bool is_min, DataType::Type type);
@@ -438,7 +436,7 @@ class CodeGeneratorX86_64 : public CodeGenerator {
                   CpuRegister card,
                   CpuRegister object,
                   CpuRegister value,
-                  bool emit_null_check);
+                  bool value_can_be_null);
 
   void GenerateMemoryBarrier(MemBarrierKind kind);
 

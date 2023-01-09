@@ -43,7 +43,6 @@
 #include "mirror/var_handle.h"
 #include "offsets.h"
 #include "optimizing/common_arm64.h"
-#include "optimizing/nodes.h"
 #include "thread.h"
 #include "utils/arm64/assembler_arm64.h"
 #include "utils/assembler.h"
@@ -1427,12 +1426,12 @@ void CodeGeneratorARM64::AddLocationAsTemp(Location location, LocationSummary* l
   }
 }
 
-void CodeGeneratorARM64::MarkGCCard(Register object, Register value, bool emit_null_check) {
+void CodeGeneratorARM64::MarkGCCard(Register object, Register value, bool value_can_be_null) {
   UseScratchRegisterScope temps(GetVIXLAssembler());
   Register card = temps.AcquireX();
   Register temp = temps.AcquireW();   // Index within the CardTable - 32bit.
   vixl::aarch64::Label done;
-  if (emit_null_check) {
+  if (value_can_be_null) {
     __ Cbz(value, &done);
   }
   // Load the address of the card table into `card`.
@@ -1454,7 +1453,7 @@ void CodeGeneratorARM64::MarkGCCard(Register object, Register value, bool emit_n
   // of the card to mark; and 2. to load the `kCardDirty` value) saves a load
   // (no need to explicitly load `kCardDirty` as an immediate value).
   __ Strb(card, MemOperand(card, temp.X()));
-  if (emit_null_check) {
+  if (value_can_be_null) {
     __ Bind(&done);
   }
 }
@@ -2230,8 +2229,7 @@ void LocationsBuilderARM64::HandleFieldSet(HInstruction* instruction) {
 
 void InstructionCodeGeneratorARM64::HandleFieldSet(HInstruction* instruction,
                                                    const FieldInfo& field_info,
-                                                   bool value_can_be_null,
-                                                   WriteBarrierKind write_barrier_kind) {
+                                                   bool value_can_be_null) {
   DCHECK(instruction->IsInstanceFieldSet() || instruction->IsStaticFieldSet());
   bool is_predicated =
       instruction->IsInstanceFieldSet() && instruction->AsInstanceFieldSet()->GetIsPredicatedSet();
@@ -2271,12 +2269,8 @@ void InstructionCodeGeneratorARM64::HandleFieldSet(HInstruction* instruction,
     }
   }
 
-  if (CodeGenerator::StoreNeedsWriteBarrier(field_type, instruction->InputAt(1)) &&
-      write_barrier_kind != WriteBarrierKind::kDontEmit) {
-    codegen_->MarkGCCard(
-        obj,
-        Register(value),
-        value_can_be_null && write_barrier_kind == WriteBarrierKind::kEmitWithNullCheck);
+  if (CodeGenerator::StoreNeedsWriteBarrier(field_type, instruction->InputAt(1))) {
+    codegen_->MarkGCCard(obj, Register(value), value_can_be_null);
   }
 
   if (is_predicated) {
@@ -2941,11 +2935,7 @@ void InstructionCodeGeneratorARM64::VisitArraySet(HArraySet* instruction) {
       }
     }
 
-    if (instruction->GetWriteBarrierKind() != WriteBarrierKind::kDontEmit) {
-      DCHECK_EQ(instruction->GetWriteBarrierKind(), WriteBarrierKind::kEmitNoNullCheck)
-          << " Already null checked so we shouldn't do it again.";
-      codegen_->MarkGCCard(array, value.W(), /* emit_null_check= */ false);
-    }
+    codegen_->MarkGCCard(array, value.W(), /* value_can_be_null= */ false);
 
     if (can_value_be_null) {
       DCHECK(do_store.IsLinked());
@@ -3967,10 +3957,7 @@ void LocationsBuilderARM64::VisitInstanceFieldSet(HInstanceFieldSet* instruction
 }
 
 void InstructionCodeGeneratorARM64::VisitInstanceFieldSet(HInstanceFieldSet* instruction) {
-  HandleFieldSet(instruction,
-                 instruction->GetFieldInfo(),
-                 instruction->GetValueCanBeNull(),
-                 instruction->GetWriteBarrierKind());
+  HandleFieldSet(instruction, instruction->GetFieldInfo(), instruction->GetValueCanBeNull());
 }
 
 // Temp is used for read barrier.
@@ -6233,10 +6220,7 @@ void LocationsBuilderARM64::VisitStaticFieldSet(HStaticFieldSet* instruction) {
 }
 
 void InstructionCodeGeneratorARM64::VisitStaticFieldSet(HStaticFieldSet* instruction) {
-  HandleFieldSet(instruction,
-                 instruction->GetFieldInfo(),
-                 instruction->GetValueCanBeNull(),
-                 instruction->GetWriteBarrierKind());
+  HandleFieldSet(instruction, instruction->GetFieldInfo(), instruction->GetValueCanBeNull());
 }
 
 void LocationsBuilderARM64::VisitStringBuilderAppend(HStringBuilderAppend* instruction) {

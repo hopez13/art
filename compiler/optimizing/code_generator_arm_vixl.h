@@ -310,9 +310,7 @@ class LocationsBuilderARMVIXL : public HGraphVisitor {
   void HandleIntegerRotate(LocationSummary* locations);
   void HandleLongRotate(LocationSummary* locations);
   void HandleShift(HBinaryOperation* operation);
-  void HandleFieldSet(HInstruction* instruction,
-                      const FieldInfo& field_info,
-                      WriteBarrierKind write_barrier_kind);
+  void HandleFieldSet(HInstruction* instruction, const FieldInfo& field_info);
   void HandleFieldGet(HInstruction* instruction, const FieldInfo& field_info);
 
   Location ArithmeticZeroOrFpuRegister(HInstruction* input);
@@ -381,8 +379,7 @@ class InstructionCodeGeneratorARMVIXL : public InstructionCodeGenerator {
 
   void HandleFieldSet(HInstruction* instruction,
                       const FieldInfo& field_info,
-                      bool value_can_be_null,
-                      WriteBarrierKind write_barrier_kind);
+                      bool value_can_be_null);
   void HandleFieldGet(HInstruction* instruction, const FieldInfo& field_info);
 
   void GenerateMinMaxInt(LocationSummary* locations, bool is_min);
@@ -546,7 +543,7 @@ class CodeGeneratorARMVIXL : public CodeGenerator {
                   vixl::aarch32::Register card,
                   vixl::aarch32::Register object,
                   vixl::aarch32::Register value,
-                  bool emit_null_check);
+                  bool value_can_be_null);
 
   void GenerateMemoryBarrier(MemBarrierKind kind);
 

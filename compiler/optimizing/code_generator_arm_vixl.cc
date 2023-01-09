@@ -5803,9 +5803,8 @@ void InstructionCodeGeneratorARMVIXL::GenerateWideAtomicStore(vixl32::Register a
   __ CompareAndBranchIfNonZero(temp1, &fail);
 }
 
-void LocationsBuilderARMVIXL::HandleFieldSet(HInstruction* instruction,
-                                             const FieldInfo& field_info,
-                                             WriteBarrierKind write_barrier_kind) {
+void LocationsBuilderARMVIXL::HandleFieldSet(
+    HInstruction* instruction, const FieldInfo& field_info) {
   DCHECK(instruction->IsInstanceFieldSet() || instruction->IsStaticFieldSet());
 
   LocationSummary* locations =
@@ -5828,12 +5827,8 @@ void LocationsBuilderARMVIXL::HandleFieldSet(HInstruction* instruction,
   // Temporary registers for the write barrier.
   // TODO: consider renaming StoreNeedsWriteBarrier to StoreNeedsGCMark.
   if (needs_write_barrier) {
-    if (write_barrier_kind != WriteBarrierKind::kDontEmit) {
-      locations->AddTemp(Location::RequiresRegister());
-      locations->AddTemp(Location::RequiresRegister());
-    } else if (kPoisonHeapReferences) {
-      locations->AddTemp(Location::RequiresRegister());
-    }
+    locations->AddTemp(Location::RequiresRegister());  // Possibly used for reference poisoning too.
+    locations->AddTemp(Location::RequiresRegister());
   } else if (generate_volatile) {
     // ARM encoding have some additional constraints for ldrexd/strexd:
     // - registers need to be consecutive
@@ -5854,8 +5849,7 @@ void LocationsBuilderARMVIXL::HandleFieldSet(HInstruction* instruction,
 
 void InstructionCodeGeneratorARMVIXL::HandleFieldSet(HInstruction* instruction,
                                                      const FieldInfo& field_info,
-                                                     bool value_can_be_null,
-                                                     WriteBarrierKind write_barrier_kind) {
+                                                     bool value_can_be_null) {
   DCHECK(instruction->IsInstanceFieldSet() || instruction->IsStaticFieldSet());
 
   LocationSummary* locations = instruction->GetLocations();
@@ -5971,16 +5965,10 @@ void InstructionCodeGeneratorARMVIXL::HandleFieldSet(HInstruction* instruction,
       UNREACHABLE();
   }
 
-  if (CodeGenerator::StoreNeedsWriteBarrier(field_type, instruction->InputAt(1)) &&
-      write_barrier_kind != WriteBarrierKind::kDontEmit) {
+  if (CodeGenerator::StoreNeedsWriteBarrier(field_type, instruction->InputAt(1))) {
     vixl32::Register temp = RegisterFrom(locations->GetTemp(0));
     vixl32::Register card = RegisterFrom(locations->GetTemp(1));
-    codegen_->MarkGCCard(
-        temp,
-        card,
-        base,
-        RegisterFrom(value),
-        value_can_be_null && write_barrier_kind == WriteBarrierKind::kEmitWithNullCheck);
+    codegen_->MarkGCCard(temp, card, base, RegisterFrom(value), value_can_be_null);
   }
 
   if (is_volatile) {
@@ -6253,14 +6241,11 @@ void InstructionCodeGeneratorARMVIXL::HandleFieldGet(HInstruction* instruction,
 }
 
 void LocationsBuilderARMVIXL::VisitInstanceFieldSet(HInstanceFieldSet* instruction) {
-  HandleFieldSet(instruction, instruction->GetFieldInfo(), instruction->GetWriteBarrierKind());
+  HandleFieldSet(instruction, instruction->GetFieldInfo());
 }
 
 void InstructionCodeGeneratorARMVIXL::VisitInstanceFieldSet(HInstanceFieldSet* instruction) {
-  HandleFieldSet(instruction,
-                 instruction->GetFieldInfo(),
-                 instruction->GetValueCanBeNull(),
-                 instruction->GetWriteBarrierKind());
+  HandleFieldSet(instruction, instruction->GetFieldInfo(), instruction->GetValueCanBeNull());
 }
 
 void LocationsBuilderARMVIXL::VisitInstanceFieldGet(HInstanceFieldGet* instruction) {
@@ -6293,14 +6278,11 @@ void InstructionCodeGeneratorARMVIXL::VisitStaticFieldGet(HStaticFieldGet* instr
 }
 
 void LocationsBuilderARMVIXL::VisitStaticFieldSet(HStaticFieldSet* instruction) {
-  HandleFieldSet(instruction, instruction->GetFieldInfo(), instruction->GetWriteBarrierKind());
+  HandleFieldSet(instruction, instruction->GetFieldInfo());
 }
 
 void InstructionCodeGeneratorARMVIXL::VisitStaticFieldSet(HStaticFieldSet* instruction) {
-  HandleFieldSet(instruction,
-                 instruction->GetFieldInfo(),
-                 instruction->GetValueCanBeNull(),
-                 instruction->GetWriteBarrierKind());
+  HandleFieldSet(instruction, instruction->GetFieldInfo(), instruction->GetValueCanBeNull());
 }
 
 void LocationsBuilderARMVIXL::VisitStringBuilderAppend(HStringBuilderAppend* instruction) {
@@ -6782,10 +6764,8 @@ void LocationsBuilderARMVIXL::VisitArraySet(HArraySet* instruction) {
     locations->SetInAt(2, Location::RequiresRegister());
   }
   if (needs_write_barrier) {
-    // Temporary registers for the write barrier or register poisoning.
-    // TODO(solanes): We could reduce the temp usage but it requires some non-trivial refactoring of
-    // InstructionCodeGeneratorARMVIXL::VisitArraySet.
-    locations->AddTemp(Location::RequiresRegister());
+    // Temporary registers for the write barrier.
+    locations->AddTemp(Location::RequiresRegister());  // Possibly used for ref. poisoning too.
     locations->AddTemp(Location::RequiresRegister());
   }
 }
@@ -6937,11 +6917,7 @@ void InstructionCodeGeneratorARMVIXL::VisitArraySet(HArraySet* instruction) {
         }
       }
 
-      if (instruction->GetWriteBarrierKind() != WriteBarrierKind::kDontEmit) {
-        DCHECK_EQ(instruction->GetWriteBarrierKind(), WriteBarrierKind::kEmitNoNullCheck)
-            << " Already null checked so we shouldn't do it again.";
-        codegen_->MarkGCCard(temp1, temp2, array, value, /* emit_null_check= */ false);
-      }
+      codegen_->MarkGCCard(temp1, temp2, array, value, /* value_can_be_null= */ false);
 
       if (can_value_be_null) {
         DCHECK(do_store.IsReferenced());
@@ -7172,9 +7148,9 @@ void CodeGeneratorARMVIXL::MarkGCCard(vixl32::Register temp,
                                       vixl32::Register card,
                                       vixl32::Register object,
                                       vixl32::Register value,
-                                      bool emit_null_check) {
+                                      bool value_can_be_null) {
   vixl32::Label is_null;
-  if (emit_null_check) {
+  if (value_can_be_null) {
     __ CompareAndBranchIfZero(value, &is_null, /* is_far_target=*/ false);
   }
   // Load the address of the card table into `card`.
@@ -7197,7 +7173,7 @@ void CodeGeneratorARMVIXL::MarkGCCard(vixl32::Register temp,
   // of the card to mark; and 2. to load the `kCardDirty` value) saves a load
   // (no need to explicitly load `kCardDirty` as an immediate value).
   __ Strb(card, MemOperand(card, temp));
-  if (emit_null_check) {
+  if (value_can_be_null) {
     __ Bind(&is_null);
   }
 }
