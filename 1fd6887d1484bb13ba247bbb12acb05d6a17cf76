@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "46437b4c_a97f4fb1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-01-09T10:42:12Z",
+      "side": 1,
+      "message": "Thanks! I don\u0027t understand this code well enough. I will let vladimir actually +2 this one.",
+      "revId": "1fd6887d1484bb13ba247bbb12acb05d6a17cf76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2cdd225_edf40573",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 9472,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-01-09T10:42:12Z",
+      "side": 1,
+      "message": "Would this be a change in behaviour? FindResolvedMethod tries to find an accessible interface method here. I don\u0027t understand class resolution well enough to see if finding interface method doesn\u0027t apply here.",
+      "revId": "1fd6887d1484bb13ba247bbb12acb05d6a17cf76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f24f3d97_42b3605a",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2207,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-01-09T10:42:12Z",
+      "side": 1,
+      "message": "I don\u0027t fully understand this code too, but looks like FindMethodToCall could throw where as FindMethodFast wasn\u0027t throwing and also doing a fewer checks. Does that change anything here?",
+      "revId": "1fd6887d1484bb13ba247bbb12acb05d6a17cf76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
