@@ -384,8 +384,8 @@ class DeoptimizeStackVisitor final : public StackVisitor {
   DeoptimizeStackVisitor(Thread* self,
                          Context* context,
                          QuickExceptionHandler* exception_handler,
-                         bool single_frame)
-      REQUIRES_SHARED(Locks::mutator_lock_)
+                         bool single_frame,
+                         bool after_method_exit_cb) REQUIRES_SHARED(Locks::mutator_lock_)
       : StackVisitor(self, context, StackVisitor::StackWalkKind::kIncludeInlinedFrames),
         exception_handler_(exception_handler),
         prev_shadow_frame_(nullptr),
@@ -394,8 +394,8 @@ class DeoptimizeStackVisitor final : public StackVisitor {
         single_frame_done_(false),
         single_frame_deopt_method_(nullptr),
         single_frame_deopt_quick_method_header_(nullptr),
-        callee_method_(nullptr) {
-  }
+        callee_method_(nullptr),
+        after_method_exit_cb_(after_method_exit_cb) {}
 
   ArtMethod* GetSingleFrameDeoptMethod() const {
     return single_frame_deopt_method_;
@@ -482,6 +482,17 @@ class DeoptimizeStackVisitor final : public StackVisitor {
           Runtime::Current()->GetInstrumentation()->MethodSupportsExitEvents(
               method, GetCurrentOatQuickMethodHeader());
       new_frame->SetSkipMethodExitEvents(!supports_exit_events);
+      // If we are deoptimizing after method exit callback we shouldn't call the method exit
+      // callbacks again. We may have to deopt after the callback if the callback either throws or
+      // performs other actions that require a deopt.
+      if (GetFrameDepth() == 0U && after_method_exit_cb_) {
+        new_frame->SetSkipMethodExitEvents(true);
+        // This exception was raised by method exit callbacks and we shouldn't report it to
+        // listeners for these exceptions.
+        if (GetThread()->IsExceptionPending()) {
+          new_frame->SetSkipNextExceptionEvent(true);
+        }
+      }
       if (updated_vregs != nullptr) {
         // Calling Thread::RemoveDebuggerShadowFrameMapping will also delete the updated_vregs
         // array so this must come after we processed the frame.
@@ -638,6 +649,7 @@ class DeoptimizeStackVisitor final : public StackVisitor {
   ArtMethod* single_frame_deopt_method_;
   const OatQuickMethodHeader* single_frame_deopt_quick_method_header_;
   ArtMethod* callee_method_;
+  bool after_method_exit_cb_;
 
   DISALLOW_COPY_AND_ASSIGN(DeoptimizeStackVisitor);
 };
@@ -657,13 +669,13 @@ void QuickExceptionHandler::PrepareForLongJumpToInvokeStubOrInterpreterBridge() 
   }
 }
 
-void QuickExceptionHandler::DeoptimizeStack() {
+void QuickExceptionHandler::DeoptimizeStack(bool after_method_exit_cb) {
   DCHECK(is_deoptimization_);
   if (kDebugExceptionDelivery) {
     self_->DumpStack(LOG_STREAM(INFO) << "Deoptimizing: ");
   }
 
-  DeoptimizeStackVisitor visitor(self_, context_, this, false);
+  DeoptimizeStackVisitor visitor(self_, context_, this, false, after_method_exit_cb);
   visitor.WalkStack(true);
   PrepareForLongJumpToInvokeStubOrInterpreterBridge();
 }
@@ -671,7 +683,7 @@ void QuickExceptionHandler::DeoptimizeStack() {
 void QuickExceptionHandler::DeoptimizeSingleFrame(DeoptimizationKind kind) {
   DCHECK(is_deoptimization_);
 
-  DeoptimizeStackVisitor visitor(self_, context_, this, true);
+  DeoptimizeStackVisitor visitor(self_, context_, this, true, /* after_method_exit_cb= */ false);
   visitor.WalkStack(true);
 
   // Compiled code made an explicit deoptimization.
