@@ -1,0 +1,2 @@
+Smali test checking that we only turn TryToReuseDiv in VisitRem,
+if doing so doesn't break the domination.
