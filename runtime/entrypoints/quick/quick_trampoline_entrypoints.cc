@@ -714,19 +714,12 @@ extern "C" uint64_t artQuickToInterpreterBridge(ArtMethod* method, Thread* self,
     uintptr_t caller_pc = QuickArgumentVisitor::GetCallingPc(sp);
     DCHECK(Runtime::Current()->IsAsyncDeoptimizeable(caller, caller_pc));
     DCHECK(caller != nullptr);
-    VLOG(deopt) << "Forcing deoptimization on return from method " << method->PrettyMethod()
-                << " to " << caller->PrettyMethod() << (force_frame_pop ? " for frame-pop" : "");
-    DCHECK(!force_frame_pop || result.GetJ() == 0) << "Force frame pop should have no result.";
-    if (force_frame_pop && self->GetException() != nullptr) {
-      LOG(WARNING) << "Suppressing exception for instruction-retry: "
-                   << self->GetException()->Dump();
-    }
     DCHECK(self->GetException() != Thread::GetDeoptimizationException());
     // Push the context of the deoptimization stack so we can restore the return value and the
     // exception before executing the deoptimized frames.
     self->PushDeoptimizationContext(result,
                                     shorty[0] == 'L' || shorty[0] == '[', /* class or array */
-                                    force_frame_pop ? nullptr : self->GetException(),
+                                    self->GetException(),
                                     /* from_code= */ false,
                                     DeoptimizationMethodType::kDefault);
 
