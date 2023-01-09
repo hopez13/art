@@ -16,6 +16,24 @@
       "message": "Hello Ulya,\nI Fixed some tests with your patches. And it still has a failed test in my board(android12, test with chroot): 004-SignalTest.\nDoes it pass in your environment?",
       "revId": "0b815f4c3e76dfcd2eabb72d930bd9cc83b899e4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "76f60ab3_7508e2b7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-01-09T14:26:30Z",
+      "side": 1,
+      "message": "No, I have two failing tests that are different: 933-misc-events64 and 595-profile-saving64. Also, 2239-varhandle-perf takes a very long time to finish.",
+      "parentUuid": "77b0f0da_2d8badf3",
+      "revId": "0b815f4c3e76dfcd2eabb72d930bd9cc83b899e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
