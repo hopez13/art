@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "75e41d9e_0d949b85",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 9472,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-01-09T12:09:48Z",
+      "side": 1,
+      "message": "Yes, and that was an oversight not to update this code path. Looks like we never hit the issue with callers of `ResolveMethodWithoutInvokeType`, but this changes makes us have consistent behavior now.",
+      "parentUuid": "e2cdd225_edf40573",
+      "revId": "1fd6887d1484bb13ba247bbb12acb05d6a17cf76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f24f3d97_42b3605a",
         "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
         "patchSetId": 1
@@ -48,6 +66,24 @@
       "writtenOn": "2023-01-09T10:42:12Z",
       "side": 1,
       "message": "I don\u0027t fully understand this code too, but looks like FindMethodToCall could throw where as FindMethodFast wasn\u0027t throwing and also doing a fewer checks. Does that change anything here?",
+      "revId": "1fd6887d1484bb13ba247bbb12acb05d6a17cf76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72f4f1ca_2951b78b",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2207,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-01-09T12:09:48Z",
+      "side": 1,
+      "message": "Yes, `FindMethodToCall` can throw, but that\u0027s OK, as we won\u0027t need to call it again line 2223 (which should throw the same exception).",
+      "parentUuid": "f24f3d97_42b3605a",
       "revId": "1fd6887d1484bb13ba247bbb12acb05d6a17cf76",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
