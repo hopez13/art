@@ -33,6 +33,24 @@
       "message": "Should we make the object gray\n\n    if (kUseBakerReadBarrier \u0026\u0026 gc::collector::ConcurrentCopying::kGrayDirtyImmuneObjects)\n\n? (See ImageWriter.)",
       "revId": "e92671a1ad9396040f6db4241aa59085f0ce5801",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5bb027df_df51dc20",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 437,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-01-09T10:51:44Z",
+      "side": 1,
+      "message": "If it\u0027s only for avoiding dirtying the objects (as the comment in image_writer.cc seems to say), I think it\u0027s ok if we leave it as default: an app image in memory is always dirty.",
+      "parentUuid": "6bac2aef_f85d2ad5",
+      "revId": "e92671a1ad9396040f6db4241aa59085f0ce5801",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
