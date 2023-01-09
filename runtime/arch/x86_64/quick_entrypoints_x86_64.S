@@ -2165,10 +2165,11 @@ END_FUNCTION art_quick_compile_optimized
 DEFINE_FUNCTION art_quick_method_entry_hook
     SETUP_SAVE_EVERYTHING_FRAME
 
-    movq FRAME_SIZE_SAVE_EVERYTHING(%rsp), %rdi // pass ArtMethod
+    movq %rsp, %rdx                             // SP
     movq %gs:THREAD_SELF_OFFSET, %rsi           // pass Thread::Current()
+    movq FRAME_SIZE_SAVE_EVERYTHING(%rsp), %rdi // pass ArtMethod
 
-    call SYMBOL(artMethodEntryHook)              // (ArtMethod*, Thread*)
+    call SYMBOL(artMethodEntryHook)              // (ArtMethod*, Thread*, sp)
 
     RESTORE_SAVE_EVERYTHING_FRAME
     ret
