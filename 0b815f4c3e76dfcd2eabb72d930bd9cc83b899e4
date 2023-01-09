@@ -52,6 +52,24 @@
       "parentUuid": "76f60ab3_7508e2b7",
       "revId": "0b815f4c3e76dfcd2eabb72d930bd9cc83b899e4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "22533c7a_5dac262d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-01-09T17:21:10Z",
+      "side": 1,
+      "message": "Thanks for the patch, I have squashed it in the previous large CL and rebased on top of the latest HEAD. I will let you know the results after I rerun all the tests. This CL can be dropped now.",
+      "parentUuid": "cfef9114_fd3356c3",
+      "revId": "0b815f4c3e76dfcd2eabb72d930bd9cc83b899e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
