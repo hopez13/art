@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4b31458_cc6a81d3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-01-09T19:33:32Z",
+      "side": 1,
+      "message": "This changed recently in https://r.android.com/2317296 by changing the argument to `MarkGCCard`. Can we run tidy-art in presubmit to catch regressions earlier?\n\nNote also that a revert is in flight for that CL, so this may change back again.",
+      "revId": "884be29e260d4adb2d8e1f3fac48de64b2dc97b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
