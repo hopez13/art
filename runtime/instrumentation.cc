@@ -55,7 +55,7 @@
 #include "thread_list.h"
 
 namespace art {
-extern "C" NO_RETURN void artDeoptimize(Thread* self);
+extern "C" NO_RETURN void artDeoptimize(Thread* self, bool after_method_exit_cb);
 extern "C" NO_RETURN void artDeliverPendingExceptionFromCode(Thread* self);
 
 namespace instrumentation {
@@ -1554,7 +1554,7 @@ void Instrumentation::DeoptimizeIfNeeded(Thread* self,
                                     nullptr,
                                     /* from_code= */ false,
                                     type);
-    artDeoptimize(self);
+    artDeoptimize(self, /* after_method_exit_cb= */ false);
   }
 }
 
