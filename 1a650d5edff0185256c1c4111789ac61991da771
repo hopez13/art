@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ce57c10_1624b1af",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 896,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-01-09T19:56:21Z",
+      "side": 1,
+      "message": "I got curious if this function is referenced from anywhere else, where the changed signature may be a problem. I don\u0027t find any, but it is still an exported symbol in the .so file. It\u0027s a bit odd that most the functions in here aren\u0027t in an anonymous namespace. :\\ Out of scope here, though.",
+      "range": {
+        "startLine": 896,
+        "startChar": 5,
+        "endLine": 896,
+        "endChar": 15
+      },
+      "revId": "1a650d5edff0185256c1c4111789ac61991da771",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
