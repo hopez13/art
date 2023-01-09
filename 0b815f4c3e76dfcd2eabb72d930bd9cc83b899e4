@@ -34,6 +34,24 @@
       "parentUuid": "77b0f0da_2d8badf3",
       "revId": "0b815f4c3e76dfcd2eabb72d930bd9cc83b899e4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cfef9114_fd3356c3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-01-09T14:57:15Z",
+      "side": 1,
+      "message": "Actually, sorry for misinformation: I retried it again and it does fail with:\n```\n+sigaction returned different value\n+action.sa_mask \u003d 0xfffffffffffff7ff, check.sa_mask \u003d 0xfffffffffffbf6ff\n+action.sa_sigaction \u003d 0x3d97c24ece, check.sa_sigaction \u003d 0x3d97c24ece\n+action.sa_flags \u003d 8000004, check.sa_flags \u003d 8000004\n```\nI need to rerun all tests to see if any other tests started to fail (so far I\u0027ve been rerunning only the failed ones and didn\u0027t check those that previously passed).",
+      "parentUuid": "76f60ab3_7508e2b7",
+      "revId": "0b815f4c3e76dfcd2eabb72d930bd9cc83b899e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
