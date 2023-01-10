@@ -16,6 +16,92 @@
       "message": "PTAL. Thanks!",
       "revId": "70fe9a3aebbbf6a95c4e970b046c1d67cdc21a0c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "00224d35_2788c92b",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2669,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-01-10T09:35:04Z",
+      "side": 1,
+      "message": "Drop the local variable?",
+      "range": {
+        "startLine": 2669,
+        "startChar": 9,
+        "endLine": 2669,
+        "endChar": 19
+      },
+      "revId": "70fe9a3aebbbf6a95c4e970b046c1d67cdc21a0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "75d98361_19f823ae",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-01-10T09:35:04Z",
+      "side": 1,
+      "message": "Maybe rename this skip_method_exit_callbacks_ ? And comment at the call site why it\u0027s true/false?",
+      "range": {
+        "startLine": 388,
+        "startChar": 30,
+        "endLine": 388,
+        "endChar": 50
+      },
+      "revId": "70fe9a3aebbbf6a95c4e970b046c1d67cdc21a0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b1d81f4e_2bf97e3d",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 488,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-01-10T09:35:04Z",
+      "side": 1,
+      "message": "Why this check? Can you add a comment?",
+      "range": {
+        "startLine": 488,
+        "startChar": 10,
+        "endLine": 488,
+        "endChar": 31
+      },
+      "revId": "70fe9a3aebbbf6a95c4e970b046c1d67cdc21a0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4e68c63_ad0ef084",
+        "filename": "runtime/quick_exception_handler.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-01-10T09:35:04Z",
+      "side": 1,
+      "message": "Expand the comment to explain the argument.",
+      "revId": "70fe9a3aebbbf6a95c4e970b046c1d67cdc21a0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
