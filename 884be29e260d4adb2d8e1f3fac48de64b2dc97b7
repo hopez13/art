@@ -34,6 +34,24 @@
       "parentUuid": "b4b31458_cc6a81d3",
       "revId": "884be29e260d4adb2d8e1f3fac48de64b2dc97b7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16d60ebf_40a1d044",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2023-01-10T12:54:32Z",
+      "side": 1,
+      "message": "To be honest I thought that was the case already, I definitely remember presubmits in a few of my CL failing because of clang-tidy issues. I will double check and fix.",
+      "parentUuid": "a6df5792_22892e44",
+      "revId": "884be29e260d4adb2d8e1f3fac48de64b2dc97b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

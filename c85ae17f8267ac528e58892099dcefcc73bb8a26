@@ -22,6 +22,30 @@
       },
       "revId": "c85ae17f8267ac528e58892099dcefcc73bb8a26",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "32fb7f60_24ccfca0",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1726,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2023-01-10T12:54:32Z",
+      "side": 0,
+      "message": "Thanks for spotting this! I\u0027ve changed the ones I\u0027ve touched to include the space.",
+      "parentUuid": "83871db7_a9ef1789",
+      "range": {
+        "startLine": 1726,
+        "startChar": 70,
+        "endLine": 1726,
+        "endChar": 74
+      },
+      "revId": "c85ae17f8267ac528e58892099dcefcc73bb8a26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
