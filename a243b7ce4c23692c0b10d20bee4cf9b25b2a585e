@@ -65,6 +65,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0949fe6c_198953d4",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1910,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-01-10T14:42:33Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "520002ab_918e4ce2",
+      "range": {
+        "startLine": 1909,
+        "startChar": 7,
+        "endLine": 1910,
+        "endChar": 54
+      },
+      "revId": "a243b7ce4c23692c0b10d20bee4cf9b25b2a585e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5578e3e6_a511bf23",
@@ -96,6 +120,24 @@
       "side": 1,
       "message": "We don\u0027t. I was manually minimizing a failing case and I forgot to remove that line.",
       "parentUuid": "5578e3e6_a511bf23",
+      "revId": "a243b7ce4c23692c0b10d20bee4cf9b25b2a585e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa306c74_56dcc183",
+        "filename": "test/2252-smali-do-not-optimize-rem/smali/b_264903868.smali",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-01-10T14:42:33Z",
+      "side": 1,
+      "message": "I didn\u0027t mean this particular line, I meant the whole file. Why is this not part of the `Main.java`?",
+      "parentUuid": "2fa348db_41265fcd",
       "revId": "a243b7ce4c23692c0b10d20bee4cf9b25b2a585e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
