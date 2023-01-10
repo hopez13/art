@@ -496,6 +496,11 @@ void DeoptManager::AddDeoptimizationRequester() {
   art::ScopedThreadStateChange stsc(self, art::ThreadState::kSuspended);
   deoptimization_status_lock_.ExclusiveLock(self);
   deopter_count_++;
+  if (deopter_count_ == 1) {
+    ScopedDeoptimizationContext sdc(self, this);
+    art::Runtime::Current()->GetInstrumentation()->EnableEntryExitHooks(kInstrumentationKey);
+    return;
+  }
   deoptimization_status_lock_.ExclusiveUnlock(self);
 }
 
