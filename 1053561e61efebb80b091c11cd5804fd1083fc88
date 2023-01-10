@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af8c9779_6d2ab0a4",
+        "filename": "runtime/entrypoints/quick/quick_deoptimization_entrypoints.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-01-10T12:01:58Z",
+      "side": 1,
+      "message": "sorry for the super nit, but I find \u0027cb\u0027 hard to read, ok do use `callbacks` instead?",
+      "range": {
+        "startLine": 31,
+        "startChar": 45,
+        "endLine": 31,
+        "endChar": 64
+      },
+      "revId": "1053561e61efebb80b091c11cd5804fd1083fc88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
