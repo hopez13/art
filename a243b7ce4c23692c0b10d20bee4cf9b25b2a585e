@@ -140,6 +140,24 @@
       "parentUuid": "2fa348db_41265fcd",
       "revId": "a243b7ce4c23692c0b10d20bee4cf9b25b2a585e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d06624ed_957f8d7a",
+        "filename": "test/2252-smali-do-not-optimize-rem/smali/b_264903868.smali",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-01-10T16:26:28Z",
+      "side": 1,
+      "message": "Ah, it was an APK scanner crash and I was minimizing a repro case from there. I can move it to the java file. I could find a way to minimize it further too.",
+      "parentUuid": "aa306c74_56dcc183",
+      "revId": "a243b7ce4c23692c0b10d20bee4cf9b25b2a585e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
