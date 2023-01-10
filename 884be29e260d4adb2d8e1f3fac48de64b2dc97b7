@@ -124,6 +124,24 @@
       "parentUuid": "18f2c62f_b6334522",
       "revId": "884be29e260d4adb2d8e1f3fac48de64b2dc97b7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca9f47f6_dcf2fc09",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-01-10T17:51:19Z",
+      "side": 1,
+      "message": "\u003e \u003e Sure, but I am wondering why m tidy-art found some lines and not the others.\n\u003e \n\u003e Interesting. So you ran `m tidy-art` on aosp/2317296 before upload - it wasn\u0027t just the clang-format upload hook that complained?\n\nI didn\u0027t run anything. However, you ran `m tidy-art` right? And it found some cases but not others.",
+      "parentUuid": "7e7a7e93_11ef7107",
+      "revId": "884be29e260d4adb2d8e1f3fac48de64b2dc97b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
