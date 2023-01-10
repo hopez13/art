@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "520002ab_918e4ce2",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1910,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-01-10T14:36:20Z",
+      "side": 1,
+      "message": "\u003e The name of the function `FindDivWithInputsInBasicBlock()` implies that `quotient-\u003eGetLeft() \u003d\u003d dividend` and `quotient-\u003eGetRight() \u003d\u003d divisor`, so this should be obviously false.\n\u003e \n\u003e Looking at the provided test, the bug is in the `FindDivWithInputsInBasicBlock()` where for `dividend \u003d\u003d divisor` we find `Div(something_else, divisor)`, thus violating the contract promised by the function name.\n\nAck, updated to find the correct `Div(dividend, divisor)`\n \n\u003e We should optimize `Rex(x, x)` as `Constant/0` before calling `FindDivWithInputsInBasicBlock()` where we should `DCHECK(dividend !\u003d divisor)`.\n\nWe already do that in constant folding. There\u0027s at least one case in which we run instruction simplifier before constant folding and that\u0027s [when inlining](https://cs.android.com/android/platform/superproject/+/master:art/compiler/optimizing/inliner.cc;l\u003d2201;drc\u003dfbd11984a289825aa608f532d097eed72eb19d26). I am testing a CL to check if we should move instruction simplifier after constant folding aosp/2380973.\n\nI don\u0027t think the DCHECK is needed, but we could potentially skip the instruction simplifier optimization for `Rem(x,x)`. Note that if we do the optimization for Rem(x,x), would be able to optimize to 0:\n\n```\nDiv(x,x) # which would be folded to 1\nMul(x, 1) # folded to x\nSub(x, Mul) # Fold to 0\n```\n\nside-note: The optimizations for Div or Mul (i.e. Div(x,x) -\u003e 1, Mul(x, 1) -\u003e x) are in instruction simplifier and the Sub one in constant folding. Maybe we should keep them in the same pass (probably instruction simplifier)",
+      "parentUuid": "5e44f310_a0409898",
+      "range": {
+        "startLine": 1909,
+        "startChar": 7,
+        "endLine": 1910,
+        "endChar": 54
+      },
+      "revId": "a243b7ce4c23692c0b10d20bee4cf9b25b2a585e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5578e3e6_a511bf23",
         "filename": "test/2252-smali-do-not-optimize-rem/smali/b_264903868.smali",
         "patchSetId": 1
@@ -54,6 +78,24 @@
       "writtenOn": "2023-01-10T13:55:19Z",
       "side": 1,
       "message": "Why do we need smali for this?",
+      "revId": "a243b7ce4c23692c0b10d20bee4cf9b25b2a585e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2fa348db_41265fcd",
+        "filename": "test/2252-smali-do-not-optimize-rem/smali/b_264903868.smali",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-01-10T14:36:20Z",
+      "side": 1,
+      "message": "We don\u0027t. I was manually minimizing a failing case and I forgot to remove that line.",
+      "parentUuid": "5578e3e6_a511bf23",
       "revId": "a243b7ce4c23692c0b10d20bee4cf9b25b2a585e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
