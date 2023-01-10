@@ -106,6 +106,24 @@
       "parentUuid": "f85704fa_f818abdd",
       "revId": "884be29e260d4adb2d8e1f3fac48de64b2dc97b7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e7a7e93_11ef7107",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-01-10T17:40:13Z",
+      "side": 1,
+      "message": "\u003e Sure, but I am wondering why m tidy-art found some lines and not the others.\n\nInteresting. So you ran `m tidy-art` on aosp/2317296 before upload - it wasn\u0027t just the clang-format upload hook that complained?\n\nBoth clang-format and clang-tidy can restrict themselves to only touched lines. In the case of clang-format I think we have to do that indefinitely, because it\u0027s infeasible/undesirable to reformat all the code to make it pass entirely cleanly. It may very well happen that future versions of the tool won\u0027t even agree entirely with the output of the current one.\n\nFor clang-tidy otoh I hope we can make it run entirely cleanly, so we can catch non-local warnings like these. I thought that\u0027s what `m tidy-art` did.",
+      "parentUuid": "18f2c62f_b6334522",
+      "revId": "884be29e260d4adb2d8e1f3fac48de64b2dc97b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
