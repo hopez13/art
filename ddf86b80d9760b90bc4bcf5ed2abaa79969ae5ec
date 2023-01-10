@@ -24,6 +24,29 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "1af50e0a_4313c697",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-01-10T17:16:01Z",
+      "side": 1,
+      "message": "And here.",
+      "range": {
+        "startLine": 10,
+        "startChar": 8,
+        "endLine": 10,
+        "endChar": 14
+      },
+      "revId": "ddf86b80d9760b90bc4bcf5ed2abaa79969ae5ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "d1182142_d51a01b5",
@@ -37,6 +60,23 @@
       "writtenOn": "2023-01-10T14:50:00Z",
       "side": 1,
       "message": "Thanks! lgtm.",
+      "revId": "ddf86b80d9760b90bc4bcf5ed2abaa79969ae5ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "85614e04_90e30e3b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-01-10T17:16:01Z",
+      "side": 1,
+      "message": "Seems safe to me as well.",
       "revId": "ddf86b80d9760b90bc4bcf5ed2abaa79969ae5ec",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -95,6 +135,29 @@
       "side": 1,
       "message": "Never mind, I saw the e-mail later. Thanks!",
       "parentUuid": "06acdb15_9aebdb41",
+      "revId": "ddf86b80d9760b90bc4bcf5ed2abaa79969ae5ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9877683_699ff460",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 453,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-01-10T17:16:01Z",
+      "side": 1,
+      "message": "And here.",
+      "range": {
+        "startLine": 453,
+        "startChar": 13,
+        "endLine": 453,
+        "endChar": 19
+      },
       "revId": "ddf86b80d9760b90bc4bcf5ed2abaa79969ae5ec",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
