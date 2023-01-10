@@ -16,6 +16,46 @@
       "message": "Vladimir PTAL",
       "revId": "a243b7ce4c23692c0b10d20bee4cf9b25b2a585e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e44f310_a0409898",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1910,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-01-10T13:55:19Z",
+      "side": 1,
+      "message": "The name of the function `FindDivWithInputsInBasicBlock()` implies that `quotient-\u003eGetLeft() \u003d\u003d dividend` and `quotient-\u003eGetRight() \u003d\u003d divisor`, so this should be obviously false.\n\nLooking at the provided test, the bug is in the `FindDivWithInputsInBasicBlock()` where for `dividend \u003d\u003d divisor` we find `Div(something_else, divisor)`, thus violating the contract promised by the function name.\n\nWe should optimize `Rex(x, x)` as `Constant/0` before calling `FindDivWithInputsInBasicBlock()` where we should `DCHECK(dividend !\u003d divisor)`.",
+      "range": {
+        "startLine": 1909,
+        "startChar": 7,
+        "endLine": 1910,
+        "endChar": 54
+      },
+      "revId": "a243b7ce4c23692c0b10d20bee4cf9b25b2a585e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5578e3e6_a511bf23",
+        "filename": "test/2252-smali-do-not-optimize-rem/smali/b_264903868.smali",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-01-10T13:55:19Z",
+      "side": 1,
+      "message": "Why do we need smali for this?",
+      "revId": "a243b7ce4c23692c0b10d20bee4cf9b25b2a585e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
