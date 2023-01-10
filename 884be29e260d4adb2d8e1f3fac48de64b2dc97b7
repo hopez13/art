@@ -142,6 +142,24 @@
       "parentUuid": "7e7a7e93_11ef7107",
       "revId": "884be29e260d4adb2d8e1f3fac48de64b2dc97b7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c44c1fa_e6965a45",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2023-01-10T17:56:12Z",
+      "side": 1,
+      "message": "I think we\u0027re mixing two different topics here:\n  * clang-tidy noticed that the argument name contained in the comment did not match the parameter name of the method being called, so it raised a warning\n  * after I had made the change (manually), clang-format ran only on the lines I had changed, ignoring the rest of the file(s).\n  \nDoes it clear up the situation a bit?",
+      "parentUuid": "ca9f47f6_dcf2fc09",
+      "revId": "884be29e260d4adb2d8e1f3fac48de64b2dc97b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
