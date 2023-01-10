@@ -22,6 +22,30 @@
       },
       "revId": "1053561e61efebb80b091c11cd5804fd1083fc88",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e8736f8_4ea52acb",
+        "filename": "runtime/entrypoints/quick/quick_deoptimization_entrypoints.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-01-10T14:42:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "af8c9779_6d2ab0a4",
+      "range": {
+        "startLine": 31,
+        "startChar": 45,
+        "endLine": 31,
+        "endChar": 64
+      },
+      "revId": "1053561e61efebb80b091c11cd5804fd1083fc88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
