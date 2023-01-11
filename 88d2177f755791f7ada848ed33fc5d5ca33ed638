@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "83b6e152_7bab71fa",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-01-11T10:33:41Z",
+      "side": 1,
+      "message": "We\u0027ll want this to be a WellKnownClasses, to avoid the string creation and comparison.",
+      "range": {
+        "startLine": 110,
+        "startChar": 2,
+        "endLine": 110,
+        "endChar": 39
+      },
+      "revId": "88d2177f755791f7ada848ed33fc5d5ca33ed638",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c95fd0f_797aa899",
+        "filename": "test/2252-class-value-after-u/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-01-11T10:33:41Z",
+      "side": 1,
+      "message": "call `setTargetSdkVersion(33)` here and then paste the other test here?",
+      "revId": "88d2177f755791f7ada848ed33fc5d5ca33ed638",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
