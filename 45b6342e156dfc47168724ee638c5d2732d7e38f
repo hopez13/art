@@ -16,6 +16,24 @@
       "message": "Hi Vladimír, You set the \"Presubmit-Verified\" to +2, did you mean to instead set the reviewed flag? If not, can you clarify what I need to do? (I\u0027m not very familiar with the Android process.) Thanks!",
       "revId": "45b6342e156dfc47168724ee638c5d2732d7e38f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d1d3008_7f9081a4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-01-11T08:11:35Z",
+      "side": 1,
+      "message": "The \"Presubmit-Verified\" was set by the \"Treehugger Robot\". But I have indeed forgotten to set \"Code-Review\" to +2. This has been fixed and the change has been merged.",
+      "parentUuid": "54fd36da_d3befaba",
+      "revId": "45b6342e156dfc47168724ee638c5d2732d7e38f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
