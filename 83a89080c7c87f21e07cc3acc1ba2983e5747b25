@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6054b51c_5286e5df",
+        "filename": "odrefresh/odrefresh_main.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2023-01-11T21:15:02Z",
+      "side": 1,
+      "message": "nit: How about checking the new `ro.log.file_logger.enabled` (and default to false for backward compatability)? There\u0027s a test that uses this on Android.\n\nhttp://cs/android-internal/art/test/odsign/test-src/com/android/tests/odsign/OdrefreshHostTest.java;l\u003d374;rcl\u003dc62ca2d77b2943365259c44b27652839e7e8401a",
+      "range": {
+        "startLine": 264,
+        "startChar": 0,
+        "endLine": 265,
+        "endChar": 39
+      },
+      "revId": "83a89080c7c87f21e07cc3acc1ba2983e5747b25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
