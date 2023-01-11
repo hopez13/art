@@ -196,6 +196,24 @@
       "parentUuid": "f113dcee_c871f4ff",
       "revId": "884be29e260d4adb2d8e1f3fac48de64b2dc97b7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f8ea829_7f01ae49",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-01-11T12:45:20Z",
+      "side": 1,
+      "message": "Ah, I was misreading the change. In the first patchset, there was a space change too (between the name and `*`) and I assumed the change was because of that. I didn\u0027t realize that the change was about the variable name itself. Sorry for the confusion.",
+      "parentUuid": "7b0fa7ce_f6d5daf0",
+      "revId": "884be29e260d4adb2d8e1f3fac48de64b2dc97b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
