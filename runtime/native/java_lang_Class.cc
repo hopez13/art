@@ -21,6 +21,7 @@
 #include "art_field-inl.h"
 #include "art_method-alloc-inl.h"
 #include "base/enums.h"
+#include "base/sdk_version.h"
 #include "class_linker-inl.h"
 #include "class_root-inl.h"
 #include "common_throws.h"
@@ -44,6 +45,7 @@
 #include "mirror/proxy.h"
 #include "mirror/string-alloc-inl.h"
 #include "mirror/string-inl.h"
+#include "mirror/string.h"
 #include "native_util.h"
 #include "nativehelper/jni_macros.h"
 #include "nativehelper/scoped_local_ref.h"
@@ -97,10 +99,28 @@ static jclass Class_classForName(JNIEnv* env, jclass, jstring javaName, jboolean
     return nullptr;
   }
 
+  // java.lang.ClassValue was added in Android U, and proguarding tools
+  // used that as justification to remove computeValue method implementation.
+  // Usual pattern was to check that Class.forName("java.lang.ClassValue")
+  // call does not throw and use ClassValue-based implementation or fallback
+  // to other solution if it does throw.
+  // So far ClassValue is the only class with such a problem and hence this
+  // ad-hoc check.
+  // See b/259501764.
+  std::string name = mirror_name->ToModifiedUtf8();
+  ObjPtr<mirror::Class> java_lang_ClassValue =
+      WellKnownClasses::ToClass(WellKnownClasses::java_lang_ClassValue);
+  if (java_lang_ClassValue->GetName()->Equals(name.c_str())) {
+    uint32_t targetSdkVersion = Runtime::Current()->GetTargetSdkVersion();
+    if (IsSdkVersionSetAndAtMost(targetSdkVersion, SdkVersion::kT)) {
+      soa.Self()->ThrowNewException("Ljava/lang/ClassNotFoundException;", "java.lang.ClassValue");
+      return nullptr;
+    }
+  }
+
   // We need to validate and convert the name (from x.y.z to x/y/z).  This
   // is especially handy for array types, since we want to avoid
   // auto-generating bogus array classes.
-  std::string name = mirror_name->ToModifiedUtf8();
   if (!IsValidBinaryClassName(name.c_str())) {
     soa.Self()->ThrowNewExceptionF("Ljava/lang/ClassNotFoundException;",
                                    "Invalid name: %s", name.c_str());
