@@ -178,6 +178,24 @@
       "parentUuid": "1c44c1fa_e6965a45",
       "revId": "884be29e260d4adb2d8e1f3fac48de64b2dc97b7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b0fa7ce_f6d5daf0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2023-01-11T10:22:51Z",
+      "side": 1,
+      "message": "The issue that clang-tidy is raising is that, whenever there is a method call with a comment before a parameter, that comment should be in the format of `/* {parameter_name}\u003d */ with the correct parameter name. Having no comment before the parameter does not trigger an issue.\n\nI had a look at aosp/2317296 and I have found that it contains the renaming of the last parameter for the `MarkGCCard` method from `value_can_be_null` to `emit_null_check`. Now, if clang-tidy had worked as intended, presubmits for that CL should have failed because the calls to `codegen-\u003eMarkGCCard(...)` contained in the `compiler/optimizing/intrinsics_*.cc` files contain a comment with the old name for the parameter - but in the same CL, the calls to `codegen-\u003eMarkGCCard(...)` contained in the `compiler/optimizing/code_generator_*.cc` files have correctly changed the parameter name in the comment, hence no issue was raised for those files.\n\nAm I (or clang-tidy) missing any other lines in any other flags that should have been flagged?",
+      "parentUuid": "f113dcee_c871f4ff",
+      "revId": "884be29e260d4adb2d8e1f3fac48de64b2dc97b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
