@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc462ad8_895b0040",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-01-11T20:05:42Z",
+      "side": 1,
+      "message": "I\u0027m changing approach from https://r.android.com/2375894 - instead of trying to disable the JniInvocation test whenever the VM cannot be started with the basic `JNI_CreateJavaVM`, I\u0027m trying to create the right BCP arguments using the CommonArtTest functions. Those functions get compiled into the test so they don\u0027t become calls into libart.\n\nI haven\u0027t been able to reproduce b/265157782 locally, so I\u0027m not sure it\u0027ll fix the problem on LUCI. However it works well enough to enable the test on host again.\n\nIf this works we could consider cherry-picking it to android13-tests-dev where the original breaking CL was submitted, but I\u0027m not sure it\u0027s necessary - the tests there won\u0027t run in chroot or LUCI etc.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 59
+      },
+      "revId": "02637ecd88b762a8f298bc3b0e8b07745ec192b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "646fe970_a0dbcbfa",
+        "filename": "libartpalette/apex/palette_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-01-11T20:05:42Z",
+      "side": 1,
+      "message": "+vmarko, does this look ok to get a VM created in a gtest on host, device, chroot, LUCI, etc?",
+      "range": {
+        "startLine": 79,
+        "startChar": 0,
+        "endLine": 87,
+        "endChar": 4
+      },
+      "revId": "02637ecd88b762a8f298bc3b0e8b07745ec192b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
