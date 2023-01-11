@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1f5c4398_6fdc40af",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1793992
+      },
+      "writtenOn": "2023-01-11T12:21:16Z",
+      "side": 1,
+      "message": "I hope this is what you\u0027ve meant :)",
+      "parentUuid": "83b6e152_7bab71fa",
+      "range": {
+        "startLine": 110,
+        "startChar": 2,
+        "endLine": 110,
+        "endChar": 39
+      },
+      "revId": "88d2177f755791f7ada848ed33fc5d5ca33ed638",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4c95fd0f_797aa899",
         "filename": "test/2252-class-value-after-u/src/Main.java",
         "patchSetId": 2
@@ -37,6 +61,24 @@
       "writtenOn": "2023-01-11T10:33:41Z",
       "side": 1,
       "message": "call `setTargetSdkVersion(33)` here and then paste the other test here?",
+      "revId": "88d2177f755791f7ada848ed33fc5d5ca33ed638",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b1ae224c_910aa7a9",
+        "filename": "test/2252-class-value-after-u/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1793992
+      },
+      "writtenOn": "2023-01-11T12:21:16Z",
+      "side": 1,
+      "message": "I was thinking that apps do not change targetSdkVersion on the fly and doing so will deviate from real apps. Will it be safe to do so?",
+      "parentUuid": "4c95fd0f_797aa899",
       "revId": "88d2177f755791f7ada848ed33fc5d5ca33ed638",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
