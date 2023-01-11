@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cd652540_9dca3411",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2023-01-11T13:14:17Z",
+      "side": 1,
+      "message": "The check here could be moved down to line 148 and compare `c` against `java_lang_ClassValue`. This would avoid the string comparison and potentially materializing a Java String object.",
+      "range": {
+        "startLine": 113,
+        "startChar": 6,
+        "endLine": 113,
+        "endChar": 58
+      },
+      "revId": "a9b3bd16b86b7e02c2a8988a27844915f5d66218",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0664793c_f5d24887",
         "filename": "runtime/native/java_lang_Class.cc",
         "patchSetId": 4
