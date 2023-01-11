@@ -35,6 +35,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a09b379_6f1caa5a",
+        "filename": "openjdkjvmti/deopt_manager.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 499,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-01-11T10:23:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "11763b79_d1b2a1a8",
+      "revId": "28b2f3f90d9c12164f2dcd14652d09aadbc15f1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2125144a_dfb41651",
@@ -58,6 +76,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5e0bece_a0cdc882",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 892,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-01-11T10:23:46Z",
+      "side": 1,
+      "message": "Yes, I have a WIP CL. I think we could drop this or at least merge with instrumentation_stubs_installed_. It\u0027s a bit confusing to have two different variables.",
+      "parentUuid": "2125144a_dfb41651",
+      "range": {
+        "startLine": 892,
+        "startChar": 44,
+        "endLine": 892,
+        "endChar": 79
+      },
+      "revId": "28b2f3f90d9c12164f2dcd14652d09aadbc15f1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dfab38af_6843e2b4",
@@ -71,6 +113,24 @@
       "writtenOn": "2023-01-11T10:03:08Z",
       "side": 1,
       "message": "line too long.",
+      "revId": "28b2f3f90d9c12164f2dcd14652d09aadbc15f1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f27addec_e896a566",
+        "filename": "runtime/instrumentation.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-01-11T10:23:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dfab38af_6843e2b4",
       "revId": "28b2f3f90d9c12164f2dcd14652d09aadbc15f1a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
