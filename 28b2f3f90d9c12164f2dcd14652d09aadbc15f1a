@@ -16,6 +16,63 @@
       "message": "PTAL. Thanks!",
       "revId": "28b2f3f90d9c12164f2dcd14652d09aadbc15f1a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "11763b79_d1b2a1a8",
+        "filename": "openjdkjvmti/deopt_manager.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 499,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-01-11T10:03:08Z",
+      "side": 1,
+      "message": "nit: add a comment (like the commit message)",
+      "revId": "28b2f3f90d9c12164f2dcd14652d09aadbc15f1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2125144a_dfb41651",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 892,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-01-11T10:03:08Z",
+      "side": 1,
+      "message": "not this CL, but looks like we should rename these instrumentation levels? (and drop them no?)",
+      "range": {
+        "startLine": 892,
+        "startChar": 44,
+        "endLine": 892,
+        "endChar": 79
+      },
+      "revId": "28b2f3f90d9c12164f2dcd14652d09aadbc15f1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dfab38af_6843e2b4",
+        "filename": "runtime/instrumentation.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-01-11T10:03:08Z",
+      "side": 1,
+      "message": "line too long.",
+      "revId": "28b2f3f90d9c12164f2dcd14652d09aadbc15f1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
