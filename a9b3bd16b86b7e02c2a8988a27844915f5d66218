@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0664793c_f5d24887",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-01-11T12:56:29Z",
+      "side": 1,
+      "message": "You can move this to line 151, and do a pointer comparison.",
+      "range": {
+        "startLine": 102,
+        "startChar": 0,
+        "endLine": 119,
+        "endChar": 3
+      },
+      "revId": "a9b3bd16b86b7e02c2a8988a27844915f5d66218",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e90173d_fcee2870",
+        "filename": "test/2252-class-value-after-u/build.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-01-11T12:56:29Z",
+      "side": 1,
+      "message": "Drop this file, and move the src/ directory to src-art.",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 23
+      },
+      "revId": "a9b3bd16b86b7e02c2a8988a27844915f5d66218",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
