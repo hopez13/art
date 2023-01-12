@@ -1768,9 +1768,9 @@ bool Runtime::Init(RuntimeArgumentMap&& runtime_options_in) {
       break;
   }
 
-  if (HandlesSignalsInCompiledCode()) {
-    fault_manager.Init();
+  fault_manager.Init();
 
+  if (HandlesSignalsInCompiledCode()) {
     // These need to be in a specific order.  The null point check handler must be
     // after the suspend check and stack overflow check handlers.
     //
