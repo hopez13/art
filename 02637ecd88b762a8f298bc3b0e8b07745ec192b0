@@ -45,6 +45,30 @@
       },
       "revId": "02637ecd88b762a8f298bc3b0e8b07745ec192b0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b29b41a4_16bd4e73",
+        "filename": "libartpalette/apex/palette_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-01-12T09:07:20Z",
+      "side": 1,
+      "message": "I\u0027ve never used `JNI_CreateJavaVM()` but the code looks reasonable. We construct `-Xbootclasspath:` and `-Xbootclasspath-locations:` the same way in other tests.",
+      "parentUuid": "646fe970_a0dbcbfa",
+      "range": {
+        "startLine": 79,
+        "startChar": 0,
+        "endLine": 87,
+        "endChar": 4
+      },
+      "revId": "02637ecd88b762a8f298bc3b0e8b07745ec192b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
