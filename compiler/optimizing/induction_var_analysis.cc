@@ -214,18 +214,25 @@ struct HInductionVarAnalysis::StackEntry {
   size_t low_depth;
 };
 
-HInductionVarAnalysis::HInductionVarAnalysis(HGraph* graph, const char* name)
-    : HOptimization(graph, name),
+HInductionVarAnalysis::HInductionVarAnalysis(HGraph* graph,
+                                             OptimizingCompilerStats* stats,
+                                             const char* name)
+    : HOptimization(graph, name, stats),
       induction_(std::less<const HLoopInformation*>(),
                  graph->GetAllocator()->Adapter(kArenaAllocInductionVarAnalysis)),
-      cycles_(std::less<HPhi*>(),
-              graph->GetAllocator()->Adapter(kArenaAllocInductionVarAnalysis)) {
+      cycles_(std::less<HPhi*>(), graph->GetAllocator()->Adapter(kArenaAllocInductionVarAnalysis)) {
 }
 
 bool HInductionVarAnalysis::Run() {
   // Detects sequence variables (generalized induction variables) during an outer to inner
   // traversal of all loops using Gerlek's algorithm. The order is important to enable
   // range analysis on outer loop while visiting inner loops.
+
+  if (IsPathologicalCase()) {
+    MaybeRecordStat(stats_, MethodCompilationStat::kNotVarAnalyzedPathological);
+    return false;
+  }
+
   for (HBasicBlock* graph_block : graph_->GetReversePostOrder()) {
     // Don't analyze irreducible loops.
     if (graph_block->IsLoopHeader() && !graph_block->GetLoopInformation()->IsIrreducible()) {
@@ -1574,6 +1581,68 @@ std::string HInductionVarAnalysis::InductionToString(InductionInfo* info) {
     }
   }
   return "";
+}
+
+int HInductionVarAnalysis::LoopPhisInARow(HPhi* phi,
+                                          ScopedArenaSafeMap<HPhi*, int>& visited_phis,
+                                          std::set<HPhi*>& phis_in_chain) {
+  auto it = visited_phis.find(phi);
+  if (it != visited_phis.end()) {
+    return it->second;
+  }
+
+  if (phis_in_chain.find(phi) != phis_in_chain.end()) {
+    // We are in a loop, bail. Since `phi` exists in the loop, we will set `phi` in `visited_phis`
+    // in the other instance.
+    return 0;
+  }
+
+  phis_in_chain.insert(phi);
+
+  // This lambda will count the amount of different loop phis that we have starting from
+  // phi->InputAt(index).
+  auto recursive_call = [this](HPhi* phi,
+                               size_t index,
+                               ScopedArenaSafeMap<HPhi*, int>& visited_phis,
+                               std::set<HPhi*>& phis_in_chain) {
+    return 1 + (phi->InputAt(index)->IsLoopHeaderPhi() ?
+                    LoopPhisInARow(phi->InputAt(index)->AsPhi(), visited_phis, phis_in_chain) :
+                    0);
+    ;
+  };
+
+  int max_value = recursive_call(phi, 0, visited_phis, phis_in_chain);
+  for (size_t index = 1; index < phi->InputCount(); index++) {
+    max_value = std::max(max_value, recursive_call(phi, index, visited_phis, phis_in_chain));
+  }
+
+  phis_in_chain.erase(phi);
+  visited_phis.FindOrAdd(phi, max_value);
+  return max_value;
+}
+
+bool HInductionVarAnalysis::IsPathologicalCase() {
+  ScopedArenaAllocator local_allocator(graph_->GetArenaStack());
+  // Cache to not recompute results.
+  ScopedArenaSafeMap<HPhi*, int> visited_phis(
+      std::less<HPhi*>(), local_allocator.Adapter(kArenaAllocInductionVarAnalysis));
+
+  for (HBasicBlock* block : graph_->GetReversePostOrder()) {
+    if (!block->IsLoopHeader()) {
+      continue;
+    }
+
+    for (HInstructionIterator it(block->GetPhis()); !it.Done(); it.Advance()) {
+      DCHECK(it.Current()->IsLoopHeaderPhi());
+      std::set<HPhi*> empty_set;
+      const int value = LoopPhisInARow(it.Current()->AsPhi(), visited_phis, empty_set);
+      if (value > 15) {
+        return true;
+      }
+    }
+  }
+
+  return false;
 }
 
 }  // namespace art

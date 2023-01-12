@@ -39,7 +39,9 @@ namespace art HIDDEN {
  */
 class HInductionVarAnalysis : public HOptimization {
  public:
-  explicit HInductionVarAnalysis(HGraph* graph, const char* name = kInductionPassName);
+  explicit HInductionVarAnalysis(HGraph* graph,
+                                 OptimizingCompilerStats* stats = nullptr,
+                                 const char* name = kInductionPassName);
 
   bool Run() override;
 
@@ -307,6 +309,12 @@ class HInductionVarAnalysis : public HOptimization {
   static bool InductionEqual(InductionInfo* info1, InductionInfo* info2);
   static std::string FetchToString(HInstruction* fetch);
   static std::string InductionToString(InductionInfo* info);
+
+  // Returns true if we have a pathological case we don't want to analyse.
+  bool IsPathologicalCase();
+  int LoopPhisInARow(HPhi* phi,
+                     ScopedArenaSafeMap<HPhi*, int>& visited_phis,
+                     std::set<HPhi*>& phis_in_chain);
 
   /**
    * Maintains the results of the analysis as a mapping from loops to a mapping from instructions
