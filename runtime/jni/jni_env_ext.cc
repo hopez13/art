@@ -114,6 +114,7 @@ void JNIEnvExt::DeleteLocalRef(jobject obj) {
 
 void JNIEnvExt::SetCheckJniEnabled(bool enabled) {
   check_jni_ = enabled;
+  locals_.AssertEmpty();
   MutexLock mu(Thread::Current(), *Locks::jni_function_table_lock_);
   functions = GetFunctionTable(enabled);
   // Check whether this is a no-op because of override.

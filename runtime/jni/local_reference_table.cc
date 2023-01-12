@@ -360,13 +360,7 @@ IndirectRef LocalReferenceTable::Add(LRTSegmentState previous_state,
 }
 
 void LocalReferenceTable::AssertEmpty() {
-  for (size_t i = 0; i < Capacity(); ++i) {
-    if (!table_[i].GetReference()->IsNull()) {
-      LOG(FATAL) << "Internal Error: non-empty local reference table\n"
-                 << MutatorLockedDumpable<LocalReferenceTable>(*this);
-      UNREACHABLE();
-    }
-  }
+  CHECK_EQ(Capacity(), 0u) << "Internal Error: non-empty local reference table.";
 }
 
 // Removes an object. We extract the table offset bits from "iref"

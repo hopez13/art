@@ -251,7 +251,7 @@ class LocalReferenceTable {
   // Returns "false" if nothing was removed.
   bool Remove(LRTSegmentState previous_state, IndirectRef iref);
 
-  void AssertEmpty() REQUIRES_SHARED(Locks::mutator_lock_);
+  void AssertEmpty();
 
   void Dump(std::ostream& os) const
       REQUIRES_SHARED(Locks::mutator_lock_)
