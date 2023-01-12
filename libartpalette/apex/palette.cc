@@ -37,8 +37,8 @@ palette_status_t PaletteMethodNotSupported() {
 }
 
 // Declare type aliases for pointers to each function in the interface.
-#define PALETTE_METHOD_TYPE_ALIAS(Name, ...) \
-  using Name ## Method = palette_status_t(*)(__VA_ARGS__);
+#define PALETTE_METHOD_TYPE_ALIAS(ApiLevel, Name, ...) \
+  using Name##Method = palette_status_t (*)(__VA_ARGS__);
 PALETTE_METHOD_LIST(PALETTE_METHOD_TYPE_ALIAS)
 #undef PALETTE_METHOD_TYPE_ALIAS
 
@@ -52,9 +52,9 @@ class PaletteLoader {
   }
 
   // Accessor methods to get instances of palette methods.
-#define PALETTE_LOADER_METHOD_ACCESSOR(Name, ...)                       \
-  Name ## Method Get ## Name ## Method() const { return Name ## Method ## _; }
-PALETTE_METHOD_LIST(PALETTE_LOADER_METHOD_ACCESSOR)
+#define PALETTE_LOADER_METHOD_ACCESSOR(ApiLevel, Name, ...) \
+  Name##Method Get##Name##Method() const { return Name##Method##_; }
+  PALETTE_METHOD_LIST(PALETTE_LOADER_METHOD_ACCESSOR)
 #undef PALETTE_LOADER_METHOD_ACCESSOR
 
  private:
@@ -67,8 +67,7 @@ PALETTE_METHOD_LIST(PALETTE_LOADER_METHOD_ACCESSOR)
   void* palette_lib_;
 
   // Fields to store pointers to palette methods.
-#define PALETTE_LOADER_METHOD_FIELD(Name, ...) \
-  const Name ## Method Name ## Method ## _;
+#define PALETTE_LOADER_METHOD_FIELD(ApiLevel, Name, ...) const Name##Method Name##Method##_;
   PALETTE_METHOD_LIST(PALETTE_LOADER_METHOD_FIELD)
 #undef PALETTE_LOADER_METHOD_FIELD
 
@@ -97,11 +96,11 @@ void* PaletteLoader::GetMethod(void* palette_lib, const char* name) {
   return method;
 }
 
-PaletteLoader::PaletteLoader() :
-    palette_lib_(OpenLibrary())
-#define PALETTE_LOADER_BIND_METHOD(Name, ...)                           \
-    , Name ## Method ## _(reinterpret_cast<Name ## Method>(GetMethod(palette_lib_, #Name)))
-    PALETTE_METHOD_LIST(PALETTE_LOADER_BIND_METHOD)
+PaletteLoader::PaletteLoader()
+    : palette_lib_(OpenLibrary())
+#define PALETTE_LOADER_BIND_METHOD(ApiLevel, Name, ...) \
+  , Name##Method##_(reinterpret_cast<Name##Method>(GetMethod(palette_lib_, #Name)))
+          PALETTE_METHOD_LIST(PALETTE_LOADER_BIND_METHOD)
 #undef PALETTE_LOADER_BIND_METHOD
 {
 }

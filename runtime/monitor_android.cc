@@ -107,16 +107,18 @@ void Monitor::LogContentionEvent(Thread* self,
   ctx << LOG_ID_EVENTS;
 
   // Now report to other interested parties.
-  PaletteReportLockContention(self->GetJniEnv(),
-                              wait_ms,
-                              filename,
-                              line_number,
-                              method_name.c_str(),
-                              owner_filename,
-                              owner_line_number,
-                              owner_method_name.c_str(),
-                              proc_name,
-                              thread_name.c_str());
+  if (__builtin_available(android __ANDROID_API_T__, *)) {
+    PaletteReportLockContention(self->GetJniEnv(),
+                                wait_ms,
+                                filename,
+                                line_number,
+                                method_name.c_str(),
+                                owner_filename,
+                                owner_line_number,
+                                owner_method_name.c_str(),
+                                proc_name,
+                                thread_name.c_str());
+  }
 }
 
 }  // namespace art

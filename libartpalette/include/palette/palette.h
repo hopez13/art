@@ -21,12 +21,18 @@
 
 #include "palette_types.h"
 
+#ifdef __BIONIC__
+#define PALETTE_INTRODUCED_IN(ApiLevel) __INTRODUCED_IN(ApiLevel)
+#else
+#define PALETTE_INTRODUCED_IN(ApiLevel)
+#endif
+
 __BEGIN_DECLS
 
 // Palette method signatures are defined in palette_method_list.h.
 
-#define PALETTE_METHOD_DECLARATION(Name, ...) \
-  palette_status_t Name(__VA_ARGS__);
+#define PALETTE_METHOD_DECLARATION(ApiLevel, Name, ...) \
+  palette_status_t Name(__VA_ARGS__) PALETTE_INTRODUCED_IN(ApiLevel);
 #include "palette_method_list.h"
 PALETTE_METHOD_LIST(PALETTE_METHOD_DECLARATION)
 #undef PALETTE_METHOD_DECLARATION
@@ -42,7 +48,8 @@ __END_DECLS
 
 static inline palette_status_t PaletteSetTaskProfiles(int tid,
                                                       const std::vector<std::string>& profiles,
-                                                      bool use_fd_cache = false) {
+                                                      bool use_fd_cache = false)
+    PALETTE_INTRODUCED_IN(34) {
   std::vector<const char*> profile_c_strs;
   profile_c_strs.reserve(profiles.size());
   for (const std::string& p : profiles) {
@@ -52,5 +59,7 @@ static inline palette_status_t PaletteSetTaskProfiles(int tid,
 }
 
 #endif  // __cplusplus
+
+#undef PALETTE_INTRODUCED_IN
 
 #endif  // ART_LIBARTPALETTE_INCLUDE_PALETTE_PALETTE_H_

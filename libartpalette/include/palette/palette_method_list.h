@@ -23,47 +23,49 @@
 
 #include "jni.h"
 
-#define PALETTE_METHOD_LIST(M)                                                                \
-  /* Methods in version 1 API, corresponding to SDK level 31. */                              \
-  M(PaletteSchedSetPriority, int32_t tid, int32_t java_priority)                              \
-  M(PaletteSchedGetPriority, int32_t tid, /*out*/ int32_t* java_priority)                     \
-  M(PaletteWriteCrashThreadStacks, const char* stacks, size_t stacks_len)                     \
-  M(PaletteTraceEnabled, /*out*/ bool* enabled)                                               \
-  M(PaletteTraceBegin, const char* name)                                                      \
-  M(PaletteTraceEnd)                                                                          \
-  M(PaletteTraceIntegerValue, const char* name, int32_t value)                                \
-  M(PaletteAshmemCreateRegion, const char* name, size_t size, int* fd)                        \
-  M(PaletteAshmemSetProtRegion, int, int)                                                     \
-  /* Create the staging directory for on-device signing.           */                         \
-  /* `staging_dir` is updated to point to a constant string in the */                         \
-  /* palette implementation.                                       */                         \
-  /* This method is not thread-safe.                               */                         \
-  M(PaletteCreateOdrefreshStagingDirectory, /*out*/ const char** staging_dir)                 \
-  M(PaletteShouldReportDex2oatCompilation, bool*)                                             \
-  M(PaletteNotifyStartDex2oatCompilation, int source_fd, int art_fd, int oat_fd, int vdex_fd) \
-  M(PaletteNotifyEndDex2oatCompilation, int source_fd, int art_fd, int oat_fd, int vdex_fd)   \
-  M(PaletteNotifyDexFileLoaded, const char* path)                                             \
-  M(PaletteNotifyOatFileLoaded, const char* path)                                             \
-  M(PaletteShouldReportJniInvocations, bool*)                                                 \
-  M(PaletteNotifyBeginJniInvocation, JNIEnv* env)                                             \
-  M(PaletteNotifyEndJniInvocation, JNIEnv* env)                                               \
-  /* Methods in version 2 API, corresponding to SDK level 33. */                              \
-  M(PaletteReportLockContention,                                                              \
-    JNIEnv* env,                                                                              \
-    int32_t wait_ms,                                                                          \
-    const char* filename,                                                                     \
-    int32_t line_number,                                                                      \
-    const char* method_name,                                                                  \
-    const char* owner_filename,                                                               \
-    int32_t owner_line_number,                                                                \
-    const char* owner_method_name,                                                            \
-    const char* proc_name,                                                                    \
-    const char* thread_name)                                                                  \
-  /* Methods in version 3 API, corresponding to SDK level 34. */                              \
-  M(PaletteSetTaskProfiles,                                                                   \
-    int32_t tid,                                                                              \
-    const char* profiles[],                                                                   \
-    size_t profiles_len,                                                                      \
+#define PALETTE_METHOD_LIST(M)                                                                    \
+  /* Methods in version 1 API, corresponding to SDK level 31. */                                  \
+  M(31, PaletteSchedSetPriority, int32_t tid, int32_t java_priority)                              \
+  M(31, PaletteSchedGetPriority, int32_t tid, /*out*/ int32_t* java_priority)                     \
+  M(31, PaletteWriteCrashThreadStacks, const char* stacks, size_t stacks_len)                     \
+  M(31, PaletteTraceEnabled, /*out*/ bool* enabled)                                               \
+  M(31, PaletteTraceBegin, const char* name)                                                      \
+  M(31, PaletteTraceEnd)                                                                          \
+  M(31, PaletteTraceIntegerValue, const char* name, int32_t value)                                \
+  M(31, PaletteAshmemCreateRegion, const char* name, size_t size, int* fd)                        \
+  M(31, PaletteAshmemSetProtRegion, int, int)                                                     \
+  /* Create the staging directory for on-device signing.           */                             \
+  /* `staging_dir` is updated to point to a constant string in the */                             \
+  /* palette implementation.                                       */                             \
+  /* This method is not thread-safe.                               */                             \
+  M(31, PaletteCreateOdrefreshStagingDirectory, /*out*/ const char** staging_dir)                 \
+  M(31, PaletteShouldReportDex2oatCompilation, bool*)                                             \
+  M(31, PaletteNotifyStartDex2oatCompilation, int source_fd, int art_fd, int oat_fd, int vdex_fd) \
+  M(31, PaletteNotifyEndDex2oatCompilation, int source_fd, int art_fd, int oat_fd, int vdex_fd)   \
+  M(31, PaletteNotifyDexFileLoaded, const char* path)                                             \
+  M(31, PaletteNotifyOatFileLoaded, const char* path)                                             \
+  M(31, PaletteShouldReportJniInvocations, bool*)                                                 \
+  M(31, PaletteNotifyBeginJniInvocation, JNIEnv* env)                                             \
+  M(31, PaletteNotifyEndJniInvocation, JNIEnv* env)                                               \
+  /* Methods in version 2 API, corresponding to SDK level 33. */                                  \
+  M(33,                                                                                           \
+    PaletteReportLockContention,                                                                  \
+    JNIEnv* env,                                                                                  \
+    int32_t wait_ms,                                                                              \
+    const char* filename,                                                                         \
+    int32_t line_number,                                                                          \
+    const char* method_name,                                                                      \
+    const char* owner_filename,                                                                   \
+    int32_t owner_line_number,                                                                    \
+    const char* owner_method_name,                                                                \
+    const char* proc_name,                                                                        \
+    const char* thread_name)                                                                      \
+  /* Methods in version 3 API, corresponding to SDK level 34. */                                  \
+  M(34,                                                                                           \
+    PaletteSetTaskProfiles,                                                                       \
+    int32_t tid,                                                                                  \
+    const char* profiles[],                                                                       \
+    size_t profiles_len,                                                                          \
     bool use_fd_cache)
 
 #endif  // ART_LIBARTPALETTE_INCLUDE_PALETTE_PALETTE_METHOD_LIST_H_
