@@ -16,6 +16,460 @@
       "message": "Friendly TH ping.",
       "revId": "429aa58570294388c74497093a964d843dd8ea19",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "07549eec_72024f3f",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2191,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-01-12T08:24:38Z",
+      "side": 1,
+      "message": "Use `IsBootStrapClassLoaded()` - implicitly avoid read barrier.",
+      "range": {
+        "startLine": 2191,
+        "startChar": 24,
+        "endLine": 2191,
+        "endChar": 51
+      },
+      "revId": "429aa58570294388c74497093a964d843dd8ea19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a87b73c3_b0740684",
+        "filename": "runtime/class_table-inl.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-01-12T08:24:38Z",
+      "side": 1,
+      "message": "DCHECK_ALIGNED(ptr, kObjectAlignment);",
+      "range": {
+        "startLine": 217,
+        "startChar": 45,
+        "endLine": 217,
+        "endChar": 47
+      },
+      "revId": "429aa58570294388c74497093a964d843dd8ea19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e670685c_182732ba",
+        "filename": "runtime/class_table.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-01-12T08:24:38Z",
+      "side": 1,
+      "message": "Data()",
+      "range": {
+        "startLine": 79,
+        "startChar": 24,
+        "endLine": 79,
+        "endChar": 61
+      },
+      "revId": "429aa58570294388c74497093a964d843dd8ea19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f4592f62_928da9b2",
+        "filename": "runtime/mirror/array-inl.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-01-12T08:24:38Z",
+      "side": 1,
+      "message": "\"a\": singular, \"pointers\": plural.",
+      "range": {
+        "startLine": 244,
+        "startChar": 35,
+        "endLine": 244,
+        "endChar": 51
+      },
+      "revId": "429aa58570294388c74497093a964d843dd8ea19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dbfa7b80_adfdec07",
+        "filename": "runtime/mirror/array-inl.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-01-12T08:24:38Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 268,
+        "startChar": 35,
+        "endLine": 268,
+        "endChar": 51
+      },
+      "revId": "429aa58570294388c74497093a964d843dd8ea19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1fb7618d_573380ff",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-01-12T08:24:38Z",
+      "side": 1,
+      "message": "`FromImageOffsetToVectorOffset(offset)`",
+      "range": {
+        "startLine": 262,
+        "startChar": 34,
+        "endLine": 262,
+        "endChar": 77
+      },
+      "revId": "429aa58570294388c74497093a964d843dd8ea19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8e24c985_42e6fa35",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-01-12T08:24:38Z",
+      "side": 1,
+      "message": "`reinterpret_cast32` (same in the next line)",
+      "range": {
+        "startLine": 320,
+        "startChar": 33,
+        "endLine": 320,
+        "endChar": 49
+      },
+      "revId": "429aa58570294388c74497093a964d843dd8ea19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03cc4821_2d2788ec",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-01-12T08:24:38Z",
+      "side": 1,
+      "message": "Cache in local variable (used twice; clang++ probably won\u0027t optimize this properly for read barriers).",
+      "range": {
+        "startLine": 375,
+        "startChar": 10,
+        "endLine": 375,
+        "endChar": 33
+      },
+      "revId": "429aa58570294388c74497093a964d843dd8ea19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f2339205_2f581b2b",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-01-12T08:24:38Z",
+      "side": 1,
+      "message": "This may be worth caching and passing around.",
+      "range": {
+        "startLine": 399,
+        "startChar": 15,
+        "endLine": 399,
+        "endChar": 33
+      },
+      "revId": "429aa58570294388c74497093a964d843dd8ea19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db2cae07_6e7ddbef",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-01-12T08:24:38Z",
+      "side": 1,
+      "message": "`IsBootStrapClassLoaded()`",
+      "range": {
+        "startLine": 465,
+        "startChar": 17,
+        "endLine": 465,
+        "endChar": 44
+      },
+      "revId": "429aa58570294388c74497093a964d843dd8ea19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "802b87a9_9c9416e6",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 486,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-01-12T08:24:38Z",
+      "side": 1,
+      "message": "Please use arena allocator. (Maybe with `Runtime::Current()-\u003eGetArenaPool()`.)\n\n(Maybe also for the `classes_to_write_` with a decent `reserve(.)`.)",
+      "range": {
+        "startLine": 485,
+        "startChar": 4,
+        "endLine": 486,
+        "endChar": 56
+      },
+      "revId": "429aa58570294388c74497093a964d843dd8ea19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "522417fa_69043364",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 605,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-01-12T08:24:38Z",
+      "side": 1,
+      "message": "DCHECK(!IsInBootImage(methods));",
+      "revId": "429aa58570294388c74497093a964d843dd8ea19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae8d7530_c0899e38",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 656,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-01-12T08:24:38Z",
+      "side": 1,
+      "message": "offset",
+      "range": {
+        "startLine": 656,
+        "startChar": 27,
+        "endLine": 656,
+        "endChar": 45
+      },
+      "revId": "429aa58570294388c74497093a964d843dd8ea19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "81ce75c7_efb5940d",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 681,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-01-12T08:24:38Z",
+      "side": 1,
+      "message": "offset",
+      "range": {
+        "startLine": 681,
+        "startChar": 24,
+        "endLine": 681,
+        "endChar": 43
+      },
+      "revId": "429aa58570294388c74497093a964d843dd8ea19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb67b4d7_461ab11a",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 754,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-01-12T08:24:38Z",
+      "side": 1,
+      "message": "offset",
+      "range": {
+        "startLine": 754,
+        "startChar": 22,
+        "endLine": 754,
+        "endChar": 39
+      },
+      "revId": "429aa58570294388c74497093a964d843dd8ea19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df37ddc7_c0fa314f",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 860,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-01-12T08:24:38Z",
+      "side": 1,
+      "message": "This is misleading. We\u0027re now going through the class loader and class table to get classes.",
+      "range": {
+        "startLine": 860,
+        "startChar": 4,
+        "endLine": 860,
+        "endChar": 45
+      },
+      "revId": "429aa58570294388c74497093a964d843dd8ea19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1fe3092f_97e4f851",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 926,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-01-12T08:24:38Z",
+      "side": 1,
+      "message": "`it-\u003esecond`\n\nIf we expect additional insertions from within `CopyObject()`, add a comment that the map iterator remains valid across insertions. (This is the case for `std::map\u003c\u003e` and all aliases and wrappers, including `ArenaMap\u003c\u003e` and `ScopedArenaMap\u003c\u003e`.)",
+      "range": {
+        "startLine": 926,
+        "startChar": 4,
+        "endLine": 926,
+        "endChar": 32
+      },
+      "revId": "429aa58570294388c74497093a964d843dd8ea19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "83ebe3f8_9e5ed6d7",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 929,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-01-12T08:24:38Z",
+      "side": 1,
+      "message": "Should that be conditional on `kIsDebugBuild`?",
+      "range": {
+        "startLine": 929,
+        "startChar": 7,
+        "endLine": 929,
+        "endChar": 66
+      },
+      "revId": "429aa58570294388c74497093a964d843dd8ea19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1c399213_917f49f5",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 931,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-01-12T08:24:38Z",
+      "side": 1,
+      "message": "This is image \"address\", not \"offset\". Also fix parameter names for `CopyFieldArrays` and `CopyMethodArrays`.",
+      "range": {
+        "startLine": 931,
+        "startChar": 13,
+        "endLine": 931,
+        "endChar": 25
+      },
+      "revId": "429aa58570294388c74497093a964d843dd8ea19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cea66a56_f9dd1d53",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 967,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-01-12T08:24:38Z",
+      "side": 1,
+      "message": "offset",
+      "range": {
+        "startLine": 967,
+        "startChar": 28,
+        "endLine": 967,
+        "endChar": 43
+      },
+      "revId": "429aa58570294388c74497093a964d843dd8ea19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
