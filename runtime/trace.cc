@@ -493,7 +493,11 @@ void Trace::StopTracing(bool finish_tracing, bool flush_file) {
                 instrumentation::Instrumentation::kMethodExited |
                 instrumentation::Instrumentation::kMethodUnwind);
         runtime->GetInstrumentation()->DisableMethodTracing(kTracerInstrumentationKey);
-        if (!runtime->IsJavaDebuggableAtInit() && !runtime->IsShuttingDown(self)) {
+        // Check if we need entry / exit stubs for other instrumentation listeners (for ex: jvmti
+        // agent) before changing the runtime state. Also don't change the state if the runtime
+        // started off as debuggable.
+        if (!runtime->IsJavaDebuggableAtInit() && !runtime->IsShuttingDown(self) &&
+            !runtime->GetInstrumentation()->EntryExitStubsInstalled()) {
           art::jit::Jit* jit = runtime->GetJit();
           if (jit != nullptr) {
             jit->GetCodeCache()->InvalidateAllCompiledCode();

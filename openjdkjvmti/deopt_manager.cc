@@ -381,25 +381,28 @@ void DeoptManager::Shutdown() {
   deoptimization_status_lock_.ExclusiveLock(self);
   ScopedDeoptimizationContext sdc(self, this);
 
+  art::RuntimeCallbacks* callbacks = runtime->GetRuntimeCallbacks();
+  callbacks->RemoveMethodInspectionCallback(&inspection_callback_);
+
+  if (runtime->IsShuttingDown(self)) {
+    return;
+  }
+
+  runtime->GetInstrumentation()->DisableDeoptimization(kInstrumentationKey);
+  runtime->GetInstrumentation()->DisableDeoptimization(kDeoptManagerInstrumentationKey);
+  // If we still need entry / exit stubs for ex: tracing is enabled don't switch the state.
+  if (runtime->GetInstrumentation()->EntryExitStubsInstalled() ||
+      runtime->IsJavaDebuggableAtInit()) {
+    return;
+  }
+
   art::jit::Jit* jit = runtime->GetJit();
-  if (jit != nullptr && !runtime->IsShuttingDown(self)) {
+  if (jit != nullptr) {
     jit->GetCodeCache()->InvalidateAllCompiledCode();
     jit->GetCodeCache()->TransitionToDebuggable();
     jit->GetJitCompiler()->SetDebuggableCompilerOption(false);
   }
-
-  art::RuntimeCallbacks* callbacks = runtime->GetRuntimeCallbacks();
-  callbacks->RemoveMethodInspectionCallback(&inspection_callback_);
-  if (!runtime->IsJavaDebuggableAtInit()) {
-    runtime->SetRuntimeDebugState(art::Runtime::RuntimeDebugState::kNonJavaDebuggable);
-  }
-  // TODO(mythria): DeoptManager should use only one key. Merge
-  // kInstrumentationKey and kDeoptManagerInstrumentationKey.
-  if (!runtime->IsShuttingDown(self)) {
-    art::Runtime::Current()->GetInstrumentation()->DisableDeoptimization(kInstrumentationKey);
-    art::Runtime::Current()->GetInstrumentation()->DisableDeoptimization(
-        kDeoptManagerInstrumentationKey);
-  }
+  runtime->SetRuntimeDebugState(art::Runtime::RuntimeDebugState::kNonJavaDebuggable);
 }
 
 void DeoptManager::RemoveDeoptimizeAllMethodsLocked(art::Thread* self) {
