@@ -243,6 +243,10 @@ class Instrumentation {
   void DisableDeoptimization(const char* key)
       REQUIRES(Locks::mutator_lock_, Roles::uninterruptible_);
 
+  // Switches the runtime state to non-java debuggable if entry / exit hooks are no longer required
+  // and the runtime did not start off as java debuggable.
+  void MaybeSwitchRuntimeDebugState() REQUIRES(Locks::mutator_lock_, Roles::uninterruptible_);
+
   // Enables entry exit hooks support. This is called in preparation for debug requests that require
   // calling method entry / exit hooks.
   void EnableEntryExitHooks(const char* key)
