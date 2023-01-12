@@ -22,6 +22,30 @@
       },
       "revId": "83a89080c7c87f21e07cc3acc1ba2983e5747b25",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fdc8e158_faaebf1f",
+        "filename": "odrefresh/odrefresh_main.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2023-01-12T01:34:37Z",
+      "side": 1,
+      "message": "Wouldn\u0027t it better to fix this in the liblog side? I think there are more cases like this.\n\n__android_log_logd_logger should better redirect itself to __android_log_stderr_logger if logd is detected to be absent",
+      "parentUuid": "6054b51c_5286e5df",
+      "range": {
+        "startLine": 264,
+        "startChar": 0,
+        "endLine": 265,
+        "endChar": 39
+      },
+      "revId": "83a89080c7c87f21e07cc3acc1ba2983e5747b25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
