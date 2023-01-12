@@ -112,8 +112,32 @@ class JniInternalTest : public CommonRuntimeTest {
     }
   }
 
+  // RAII helper to set and unset CheckJNI.
+  // Note that CheckJNI can be enabled or disabled only while there are no local references.
+  class ScopedSetCheckJniEnabled {
+   public:
+    ScopedSetCheckJniEnabled(JavaVMExt* vm, JNIEnv* env, bool check_jni)
+        : vm_(vm),
+          env_(down_cast<JNIEnvExt*>(env)),
+          check_jni_(check_jni),
+          old_check_jni_(vm->SetCheckJniEnabled(check_jni)) {
+      env_->PushFrame(0);  // Create a new LRT segment.
+    }
+
+    ~ScopedSetCheckJniEnabled() {
+      env_->PopFrame();  // Pop the LRT segment, deleting all abandoned local references.
+      EXPECT_EQ(check_jni_, vm_->SetCheckJniEnabled(old_check_jni_));
+    }
+
+   private:
+    JavaVMExt* const vm_;
+    JNIEnvExt* const env_;
+    const bool check_jni_;
+    const bool old_check_jni_;
+  };
+
   void FindClassTest(bool check_jni) {
-    bool old_check_jni = vm_->SetCheckJniEnabled(check_jni);
+    ScopedSetCheckJniEnabled sscje(vm_, env_, check_jni);
     CheckJniAbortCatcher check_jni_abort_catcher;
 
     // Null argument is always an abort.
@@ -165,12 +189,10 @@ class JniInternalTest : public CommonRuntimeTest {
 
     // Void arrays aren't allowed.
     ExpectClassNotFound("[V", check_jni, "illegal class name '[V'", &check_jni_abort_catcher);
-
-    EXPECT_EQ(check_jni, vm_->SetCheckJniEnabled(old_check_jni));
   }
 
   void GetFieldIdBadArgumentTest(bool check_jni) {
-    bool old_check_jni = vm_->SetCheckJniEnabled(check_jni);
+    ScopedSetCheckJniEnabled sscje(vm_, env_, check_jni);
     CheckJniAbortCatcher check_jni_abort_catcher;
 
     jclass c = env_->FindClass("java/lang/String");
@@ -188,12 +210,10 @@ class JniInternalTest : public CommonRuntimeTest {
     EXPECT_EQ(nullptr, fid);
     check_jni_abort_catcher.Check(check_jni ? "non-nullable const char* was NULL"
                                             : "sig == null");
-
-    EXPECT_EQ(check_jni, vm_->SetCheckJniEnabled(old_check_jni));
   }
 
   void GetStaticFieldIdBadArgumentTest(bool check_jni) {
-    bool old_check_jni = vm_->SetCheckJniEnabled(check_jni);
+    ScopedSetCheckJniEnabled sscje(vm_, env_, check_jni);
     CheckJniAbortCatcher check_jni_abort_catcher;
 
     jclass c = env_->FindClass("java/lang/String");
@@ -211,12 +231,10 @@ class JniInternalTest : public CommonRuntimeTest {
     EXPECT_EQ(nullptr, fid);
     check_jni_abort_catcher.Check(check_jni ? "non-nullable const char* was NULL"
                                             : "sig == null");
-
-    EXPECT_EQ(check_jni, vm_->SetCheckJniEnabled(old_check_jni));
   }
 
   void GetMethodIdBadArgumentTest(bool check_jni) {
-    bool old_check_jni = vm_->SetCheckJniEnabled(check_jni);
+    ScopedSetCheckJniEnabled sscje(vm_, env_, check_jni);
     CheckJniAbortCatcher check_jni_abort_catcher;
 
     jmethodID method = env_->GetMethodID(nullptr, "<init>", "(Ljava/lang/String;)V");
@@ -233,12 +251,10 @@ class JniInternalTest : public CommonRuntimeTest {
     EXPECT_EQ(nullptr, method);
     check_jni_abort_catcher.Check(check_jni ? "non-nullable const char* was NULL"
                                             : "sig == null");
-
-    EXPECT_EQ(check_jni, vm_->SetCheckJniEnabled(old_check_jni));
   }
 
   void GetStaticMethodIdBadArgumentTest(bool check_jni) {
-    bool old_check_jni = vm_->SetCheckJniEnabled(check_jni);
+    ScopedSetCheckJniEnabled sscje(vm_, env_, check_jni);
     CheckJniAbortCatcher check_jni_abort_catcher;
 
     jmethodID method = env_->GetStaticMethodID(nullptr, "valueOf", "(I)Ljava/lang/String;");
@@ -254,12 +270,10 @@ class JniInternalTest : public CommonRuntimeTest {
     EXPECT_EQ(nullptr, method);
     check_jni_abort_catcher.Check(check_jni ? "non-nullable const char* was NULL"
                                             : "sig == null");
-
-    EXPECT_EQ(check_jni, vm_->SetCheckJniEnabled(old_check_jni));
   }
 
   void GetFromReflectedField_ToReflectedFieldBadArgumentTest(bool check_jni) {
-    bool old_check_jni = vm_->SetCheckJniEnabled(check_jni);
+    ScopedSetCheckJniEnabled sscje(vm_, env_, check_jni);
     CheckJniAbortCatcher check_jni_abort_catcher;
 
     jclass c = env_->FindClass("java/lang/String");
@@ -285,12 +299,10 @@ class JniInternalTest : public CommonRuntimeTest {
     ASSERT_EQ(fid, nullptr);
     check_jni_abort_catcher.Check(check_jni ? "expected non-null java.lang.reflect.Field"
                                             : "jlr_field == null");
-
-    EXPECT_EQ(check_jni, vm_->SetCheckJniEnabled(old_check_jni));
   }
 
   void GetFromReflectedMethod_ToReflectedMethodBadArgumentTest(bool check_jni) {
-    bool old_check_jni = vm_->SetCheckJniEnabled(check_jni);
+    ScopedSetCheckJniEnabled sscje(vm_, env_, check_jni);
     CheckJniAbortCatcher check_jni_abort_catcher;
 
     jclass c = env_->FindClass("java/lang/String");
@@ -314,13 +326,11 @@ class JniInternalTest : public CommonRuntimeTest {
     mid = env_->FromReflectedMethod(method);
     ASSERT_EQ(mid, nullptr);
     check_jni_abort_catcher.Check(check_jni ? "expected non-null method" : "jlr_method == null");
-
-    EXPECT_EQ(check_jni, vm_->SetCheckJniEnabled(old_check_jni));
   }
 
   void RegisterAndUnregisterNativesBadArguments(bool check_jni,
                                                 CheckJniAbortCatcher* check_jni_abort_catcher) {
-    bool old_check_jni = vm_->SetCheckJniEnabled(check_jni);
+    ScopedSetCheckJniEnabled sscje(vm_, env_, check_jni);
     // Passing a class of null is a failure.
     {
       JNINativeMethod methods[] = { };
@@ -338,13 +348,11 @@ class JniInternalTest : public CommonRuntimeTest {
     EXPECT_EQ(env_->UnregisterNatives(nullptr), JNI_ERR);
     check_jni_abort_catcher->Check(check_jni ? "UnregisterNatives received NULL jclass"
                                              : "java_class == null");
-
-    EXPECT_EQ(check_jni, vm_->SetCheckJniEnabled(old_check_jni));
   }
 
 
   void GetPrimitiveArrayElementsOfWrongType(bool check_jni) {
-    bool old_check_jni = vm_->SetCheckJniEnabled(check_jni);
+    ScopedSetCheckJniEnabled sscje(vm_, env_, check_jni);
     CheckJniAbortCatcher jni_abort_catcher;
 
     jbooleanArray array = env_->NewBooleanArray(10);
@@ -389,12 +397,10 @@ class JniInternalTest : public CommonRuntimeTest {
     jni_abort_catcher.Check(
         check_jni ? "jarray argument has non-array type: java.lang.String"
         : "attempt to get boolean primitive array elements with an object of type java.lang.String");
-
-    EXPECT_EQ(check_jni, vm_->SetCheckJniEnabled(old_check_jni));
   }
 
   void ReleasePrimitiveArrayElementsOfWrongType(bool check_jni) {
-    bool old_check_jni = vm_->SetCheckJniEnabled(check_jni);
+    ScopedSetCheckJniEnabled sscje(vm_, env_, check_jni);
     CheckJniAbortCatcher jni_abort_catcher;
     {
       jbooleanArray array = env_->NewBooleanArray(10);
@@ -462,11 +468,10 @@ class JniInternalTest : public CommonRuntimeTest {
       // Don't leak the elements array.
       env_->ReleaseByteArrayElements(array, elements, 0);
     }
-    EXPECT_EQ(check_jni, vm_->SetCheckJniEnabled(old_check_jni));
   }
 
   void GetReleasePrimitiveArrayCriticalOfWrongType(bool check_jni) {
-    bool old_check_jni = vm_->SetCheckJniEnabled(check_jni);
+    ScopedSetCheckJniEnabled sscje(vm_, env_, check_jni);
     CheckJniAbortCatcher jni_abort_catcher;
 
     jobject object = env_->NewStringUTF("Test String");
@@ -477,12 +482,10 @@ class JniInternalTest : public CommonRuntimeTest {
     env_->ReleasePrimitiveArrayCritical(reinterpret_cast<jarray>(object), elements, 0);
     jni_abort_catcher.Check(check_jni ? "jarray argument has non-array type: java.lang.String"
         : "expected primitive array, given java.lang.String");
-
-    EXPECT_EQ(check_jni, vm_->SetCheckJniEnabled(old_check_jni));
   }
 
   void GetPrimitiveArrayRegionElementsOfWrongType(bool check_jni) {
-    bool old_check_jni = vm_->SetCheckJniEnabled(check_jni);
+    ScopedSetCheckJniEnabled sscje(vm_, env_, check_jni);
     CheckJniAbortCatcher jni_abort_catcher;
     constexpr size_t kLength = 10;
     jbooleanArray array = env_->NewBooleanArray(kLength);
@@ -535,12 +538,10 @@ class JniInternalTest : public CommonRuntimeTest {
     jni_abort_catcher.Check(check_jni ? "jarray argument has non-array type: java.lang.String"
         : "attempt to get region of boolean primitive array elements with an object of type "
           "java.lang.String");
-
-    EXPECT_EQ(check_jni, vm_->SetCheckJniEnabled(old_check_jni));
   }
 
   void SetPrimitiveArrayRegionElementsOfWrongType(bool check_jni) {
-    bool old_check_jni = vm_->SetCheckJniEnabled(check_jni);
+    ScopedSetCheckJniEnabled sscje(vm_, env_, check_jni);
     CheckJniAbortCatcher jni_abort_catcher;
     constexpr size_t kLength = 10;
     jbooleanArray array = env_->NewBooleanArray(kLength);
@@ -593,11 +594,10 @@ class JniInternalTest : public CommonRuntimeTest {
     jni_abort_catcher.Check(check_jni ? "jarray argument has non-array type: java.lang.String"
         : "attempt to set region of boolean primitive array elements with an object of type "
           "java.lang.String");
-    EXPECT_EQ(check_jni, vm_->SetCheckJniEnabled(old_check_jni));
   }
 
   void NewObjectArrayBadArguments(bool check_jni) {
-    bool old_check_jni = vm_->SetCheckJniEnabled(check_jni);
+    ScopedSetCheckJniEnabled sscje(vm_, env_, check_jni);
     CheckJniAbortCatcher jni_abort_catcher;
 
     jclass element_class = env_->FindClass("java/lang/String");
@@ -609,8 +609,6 @@ class JniInternalTest : public CommonRuntimeTest {
     env_->NewObjectArray(std::numeric_limits<jint>::min(), element_class, nullptr);
     jni_abort_catcher.Check(check_jni ? "negative jsize: -2147483648"
         : "negative array length: -2147483648");
-
-    EXPECT_EQ(check_jni, vm_->SetCheckJniEnabled(old_check_jni));
   }
 
   void SetUpForTest(bool direct, const char* method_name, const char* method_sig,
@@ -971,6 +969,7 @@ TEST_F(JniInternalTest, FromReflectedField_ToReflectedField) {
   } else {
     ASSERT_EQ(4, env_->GetIntField(s, fid2));
   }
+
   // Bad arguments.
   GetFromReflectedField_ToReflectedFieldBadArgumentTest(false);
   GetFromReflectedField_ToReflectedFieldBadArgumentTest(true);
@@ -1120,8 +1119,8 @@ TEST_F(JniInternalTest, RegisterAndUnregisterNatives) {
   jsize size = 4; \
   \
   { \
+    ScopedSetCheckJniEnabled sscje(vm_, env_, /*check_jni=*/ false); \
     CheckJniAbortCatcher jni_abort_catcher; \
-    down_cast<JNIEnvExt*>(env_)->SetCheckJniEnabled(false); \
     /* Allocate an negative sized array and check it has the right failure type. */ \
     EXPECT_EQ(env_->new_fn(-1), nullptr); \
     jni_abort_catcher.Check("negative array length: -1"); \
@@ -1144,83 +1143,85 @@ TEST_F(JniInternalTest, RegisterAndUnregisterNatives) {
     jni_abort_catcher.Check("buf == null"); \
     env_->set_region_fn(a, 0, size, nullptr); \
     jni_abort_catcher.Check("buf == null"); \
-    down_cast<JNIEnvExt*>(env_)->SetCheckJniEnabled(true); \
   } \
-  /* Allocate an array and check it has the right type and length. */ \
-  scalar_type ## Array a = env_->new_fn(size); \
-  EXPECT_NE(a, nullptr); \
-  EXPECT_TRUE(env_->IsInstanceOf(a, env_->FindClass(expected_class_descriptor))); \
-  EXPECT_EQ(size, env_->GetArrayLength(a)); \
-  \
-  /* GetPrimitiveArrayRegion/SetPrimitiveArrayRegion */ \
-  /* AIOOBE for negative start offset. */ \
-  env_->get_region_fn(a, -1, 1, nullptr); \
-  ExpectException(aioobe_); \
-  env_->set_region_fn(a, -1, 1, nullptr); \
-  ExpectException(aioobe_); \
-  \
-  /* AIOOBE for negative length. */ \
-  env_->get_region_fn(a, 0, -1, nullptr); \
-  ExpectException(aioobe_); \
-  env_->set_region_fn(a, 0, -1, nullptr); \
-  ExpectException(aioobe_); \
-  \
-  /* AIOOBE for buffer overrun. */ \
-  env_->get_region_fn(a, size - 1, size, nullptr); \
-  ExpectException(aioobe_); \
-  env_->set_region_fn(a, size - 1, size, nullptr); \
-  ExpectException(aioobe_); \
-  \
-  /* Regression test against integer overflow in range check. */ \
-  env_->get_region_fn(a, 0x7fffffff, 0x7fffffff, nullptr); \
-  ExpectException(aioobe_); \
-  env_->set_region_fn(a, 0x7fffffff, 0x7fffffff, nullptr); \
-  ExpectException(aioobe_); \
-  \
-  /* It's okay for the buffer to be null as long as the length is 0. */ \
-  env_->get_region_fn(a, 2, 0, nullptr); \
-  /* Even if the offset is invalid... */ \
-  env_->get_region_fn(a, 123, 0, nullptr); \
-  ExpectException(aioobe_); \
-  \
-  /* It's okay for the buffer to be null as long as the length is 0. */ \
-  env_->set_region_fn(a, 2, 0, nullptr); \
-  /* Even if the offset is invalid... */ \
-  env_->set_region_fn(a, 123, 0, nullptr); \
-  ExpectException(aioobe_); \
-  \
-  /* Prepare a couple of buffers. */ \
-  /* NOLINT, no parentheses around scalar_type. */ \
-  std::unique_ptr<scalar_type[]> src_buf(new scalar_type[size]); /* NOLINT */ \
-  std::unique_ptr<scalar_type[]> dst_buf(new scalar_type[size]); /* NOLINT */ \
-  for (jsize i = 0; i < size; ++i) { src_buf[i] = scalar_type(i); } \
-  for (jsize i = 0; i < size; ++i) { dst_buf[i] = scalar_type(-1); } \
-  \
-  /* Copy all of src_buf onto the heap. */ \
-  env_->set_region_fn(a, 0, size, &src_buf[0]); \
-  /* Copy back only part. */ \
-  env_->get_region_fn(a, 1, size - 2, &dst_buf[1]); \
-  EXPECT_NE(memcmp(&src_buf[0], &dst_buf[0], size * sizeof(scalar_type)), 0) \
-    << "short copy equal"; \
-  /* Copy the missing pieces. */ \
-  env_->get_region_fn(a, 0, 1, &dst_buf[0]); \
-  env_->get_region_fn(a, size - 1, 1, &dst_buf[size - 1]); \
-  EXPECT_EQ(memcmp(&src_buf[0], &dst_buf[0], size * sizeof(scalar_type)), 0) \
-    << "fixed copy not equal"; \
-  /* Copy back the whole array. */ \
-  env_->get_region_fn(a, 0, size, &dst_buf[0]); \
-  EXPECT_EQ(memcmp(&src_buf[0], &dst_buf[0], size * sizeof(scalar_type)), 0) \
-    << "full copy not equal"; \
-  /* GetPrimitiveArrayCritical */ \
-  void* v = env_->GetPrimitiveArrayCritical(a, nullptr); \
-  EXPECT_EQ(memcmp(&src_buf[0], v, size * sizeof(scalar_type)), 0) \
-    << "GetPrimitiveArrayCritical not equal"; \
-  env_->ReleasePrimitiveArrayCritical(a, v, 0); \
-  /* GetXArrayElements */ \
-  scalar_type* xs = env_->get_elements_fn(a, nullptr); /* NOLINT, scalar_type */ \
-  EXPECT_EQ(memcmp(&src_buf[0], xs, size * sizeof(scalar_type)), 0) \
-    << # get_elements_fn " not equal"; \
-  env_->release_elements_fn(a, xs, 0); \
+  { \
+    ScopedSetCheckJniEnabled sscje(vm_, env_, /*check_jni=*/ true); \
+    /* Allocate an array and check it has the right type and length. */ \
+    scalar_type ## Array a = env_->new_fn(size); \
+    EXPECT_NE(a, nullptr); \
+    EXPECT_TRUE(env_->IsInstanceOf(a, env_->FindClass(expected_class_descriptor))); \
+    EXPECT_EQ(size, env_->GetArrayLength(a)); \
+    \
+    /* GetPrimitiveArrayRegion/SetPrimitiveArrayRegion */ \
+    /* AIOOBE for negative start offset. */ \
+    env_->get_region_fn(a, -1, 1, nullptr); \
+    ExpectException(aioobe_); \
+    env_->set_region_fn(a, -1, 1, nullptr); \
+    ExpectException(aioobe_); \
+    \
+    /* AIOOBE for negative length. */ \
+    env_->get_region_fn(a, 0, -1, nullptr); \
+    ExpectException(aioobe_); \
+    env_->set_region_fn(a, 0, -1, nullptr); \
+    ExpectException(aioobe_); \
+    \
+    /* AIOOBE for buffer overrun. */ \
+    env_->get_region_fn(a, size - 1, size, nullptr); \
+    ExpectException(aioobe_); \
+    env_->set_region_fn(a, size - 1, size, nullptr); \
+    ExpectException(aioobe_); \
+    \
+    /* Regression test against integer overflow in range check. */ \
+    env_->get_region_fn(a, 0x7fffffff, 0x7fffffff, nullptr); \
+    ExpectException(aioobe_); \
+    env_->set_region_fn(a, 0x7fffffff, 0x7fffffff, nullptr); \
+    ExpectException(aioobe_); \
+    \
+    /* It's okay for the buffer to be null as long as the length is 0. */ \
+    env_->get_region_fn(a, 2, 0, nullptr); \
+    /* Even if the offset is invalid... */ \
+    env_->get_region_fn(a, 123, 0, nullptr); \
+    ExpectException(aioobe_); \
+    \
+    /* It's okay for the buffer to be null as long as the length is 0. */ \
+    env_->set_region_fn(a, 2, 0, nullptr); \
+    /* Even if the offset is invalid... */ \
+    env_->set_region_fn(a, 123, 0, nullptr); \
+    ExpectException(aioobe_); \
+    \
+    /* Prepare a couple of buffers. */ \
+    /* NOLINT, no parentheses around scalar_type. */ \
+    std::unique_ptr<scalar_type[]> src_buf(new scalar_type[size]); /* NOLINT */ \
+    std::unique_ptr<scalar_type[]> dst_buf(new scalar_type[size]); /* NOLINT */ \
+    for (jsize i = 0; i < size; ++i) { src_buf[i] = scalar_type(i); } \
+    for (jsize i = 0; i < size; ++i) { dst_buf[i] = scalar_type(-1); } \
+    \
+    /* Copy all of src_buf onto the heap. */ \
+    env_->set_region_fn(a, 0, size, &src_buf[0]); \
+    /* Copy back only part. */ \
+    env_->get_region_fn(a, 1, size - 2, &dst_buf[1]); \
+    EXPECT_NE(memcmp(&src_buf[0], &dst_buf[0], size * sizeof(scalar_type)), 0) \
+      << "short copy equal"; \
+    /* Copy the missing pieces. */ \
+    env_->get_region_fn(a, 0, 1, &dst_buf[0]); \
+    env_->get_region_fn(a, size - 1, 1, &dst_buf[size - 1]); \
+    EXPECT_EQ(memcmp(&src_buf[0], &dst_buf[0], size * sizeof(scalar_type)), 0) \
+      << "fixed copy not equal"; \
+    /* Copy back the whole array. */ \
+    env_->get_region_fn(a, 0, size, &dst_buf[0]); \
+    EXPECT_EQ(memcmp(&src_buf[0], &dst_buf[0], size * sizeof(scalar_type)), 0) \
+      << "full copy not equal"; \
+    /* GetPrimitiveArrayCritical */ \
+    void* v = env_->GetPrimitiveArrayCritical(a, nullptr); \
+    EXPECT_EQ(memcmp(&src_buf[0], v, size * sizeof(scalar_type)), 0) \
+      << "GetPrimitiveArrayCritical not equal"; \
+    env_->ReleasePrimitiveArrayCritical(a, v, 0); \
+    /* GetXArrayElements */ \
+    scalar_type* xs = env_->get_elements_fn(a, nullptr); /* NOLINT, scalar_type */ \
+    EXPECT_EQ(memcmp(&src_buf[0], xs, size * sizeof(scalar_type)), 0) \
+      << # get_elements_fn " not equal"; \
+    env_->release_elements_fn(a, xs, 0); \
+  }
 
 TEST_F(JniInternalTest, BooleanArrays) {
   EXPECT_PRIMITIVE_ARRAY(NewBooleanArray, GetBooleanArrayRegion, SetBooleanArrayRegion,
@@ -1309,26 +1310,29 @@ TEST_F(JniInternalTest, NewObjectArrayWithPrimitiveClasses) {
   };
   ASSERT_EQ(strlen(primitive_descriptors), arraysize(primitive_names));
 
-  bool old_check_jni = vm_->SetCheckJniEnabled(false);
   CheckJniAbortCatcher jni_abort_catcher;
-  for (size_t i = 0; i < strlen(primitive_descriptors); ++i) {
-    env_->NewObjectArray(0, nullptr, nullptr);
-    jni_abort_catcher.Check("element_jclass == null");
-    jclass primitive_class = GetPrimitiveClass(primitive_descriptors[i]);
-    env_->NewObjectArray(1, primitive_class, nullptr);
-    std::string error_msg(StringPrintf("not an object type: %s", primitive_names[i]));
-    jni_abort_catcher.Check(error_msg.c_str());
+  {
+    ScopedSetCheckJniEnabled sscje(vm_, env_, /*check_jni=*/ false);
+    for (size_t i = 0; i < strlen(primitive_descriptors); ++i) {
+      env_->NewObjectArray(0, nullptr, nullptr);
+      jni_abort_catcher.Check("element_jclass == null");
+      jclass primitive_class = GetPrimitiveClass(primitive_descriptors[i]);
+      env_->NewObjectArray(1, primitive_class, nullptr);
+      std::string error_msg(StringPrintf("not an object type: %s", primitive_names[i]));
+      jni_abort_catcher.Check(error_msg.c_str());
+    }
   }
-  EXPECT_FALSE(vm_->SetCheckJniEnabled(true));
-  for (size_t i = 0; i < strlen(primitive_descriptors); ++i) {
-    env_->NewObjectArray(0, nullptr, nullptr);
-    jni_abort_catcher.Check("NewObjectArray received NULL jclass");
-    jclass primitive_class = GetPrimitiveClass(primitive_descriptors[i]);
-    env_->NewObjectArray(1, primitive_class, nullptr);
-    std::string error_msg(StringPrintf("not an object type: %s", primitive_names[i]));
-    jni_abort_catcher.Check(error_msg.c_str());
+  {
+    ScopedSetCheckJniEnabled sscje(vm_, env_, /*check_jni=*/ true);
+    for (size_t i = 0; i < strlen(primitive_descriptors); ++i) {
+      env_->NewObjectArray(0, nullptr, nullptr);
+      jni_abort_catcher.Check("NewObjectArray received NULL jclass");
+      jclass primitive_class = GetPrimitiveClass(primitive_descriptors[i]);
+      env_->NewObjectArray(1, primitive_class, nullptr);
+      std::string error_msg(StringPrintf("not an object type: %s", primitive_names[i]));
+      jni_abort_catcher.Check(error_msg.c_str());
+    }
   }
-  EXPECT_TRUE(vm_->SetCheckJniEnabled(old_check_jni));
 }
 
 TEST_F(JniInternalTest, NewObjectArrayWithInitialValue) {
@@ -1355,13 +1359,16 @@ TEST_F(JniInternalTest, NewObjectArrayWithInitialValue) {
 TEST_F(JniInternalTest, GetArrayLength) {
   // Already tested in NewObjectArray/NewPrimitiveArray except for null.
   CheckJniAbortCatcher jni_abort_catcher;
-  bool old_check_jni = vm_->SetCheckJniEnabled(false);
-  EXPECT_EQ(0, env_->GetArrayLength(nullptr));
-  jni_abort_catcher.Check("java_array == null");
-  EXPECT_FALSE(vm_->SetCheckJniEnabled(true));
-  EXPECT_EQ(JNI_ERR, env_->GetArrayLength(nullptr));
-  jni_abort_catcher.Check("jarray was NULL");
-  EXPECT_TRUE(vm_->SetCheckJniEnabled(old_check_jni));
+  {
+    ScopedSetCheckJniEnabled sscje(vm_, env_, /*check_jni=*/ false);
+    EXPECT_EQ(0, env_->GetArrayLength(nullptr));
+    jni_abort_catcher.Check("java_array == null");
+  }
+  {
+    ScopedSetCheckJniEnabled sscje(vm_, env_, /*check_jni=*/ true);
+    EXPECT_EQ(JNI_ERR, env_->GetArrayLength(nullptr));
+    jni_abort_catcher.Check("jarray was NULL");
+  }
 }
 
 TEST_F(JniInternalTest, GetObjectClass) {
@@ -1396,13 +1403,16 @@ TEST_F(JniInternalTest, GetSuperclass) {
 
   // Null as class should fail.
   CheckJniAbortCatcher jni_abort_catcher;
-  bool old_check_jni = vm_->SetCheckJniEnabled(false);
-  EXPECT_EQ(env_->GetSuperclass(nullptr), nullptr);
-  jni_abort_catcher.Check("java_class == null");
-  EXPECT_FALSE(vm_->SetCheckJniEnabled(true));
-  EXPECT_EQ(env_->GetSuperclass(nullptr), nullptr);
-  jni_abort_catcher.Check("GetSuperclass received NULL jclass");
-  EXPECT_TRUE(vm_->SetCheckJniEnabled(old_check_jni));
+  {
+    ScopedSetCheckJniEnabled sscje(vm_, env_, /*check_jni=*/ false);
+    EXPECT_EQ(env_->GetSuperclass(nullptr), nullptr);
+    jni_abort_catcher.Check("java_class == null");
+  }
+  {
+    ScopedSetCheckJniEnabled sscje(vm_, env_, /*check_jni=*/ true);
+    EXPECT_EQ(env_->GetSuperclass(nullptr), nullptr);
+    jni_abort_catcher.Check("GetSuperclass received NULL jclass");
+  }
 }
 
 TEST_F(JniInternalTest, IsAssignableFrom) {
@@ -1436,17 +1446,20 @@ TEST_F(JniInternalTest, IsAssignableFrom) {
 
   // Null as either class should fail.
   CheckJniAbortCatcher jni_abort_catcher;
-  bool old_check_jni = vm_->SetCheckJniEnabled(false);
-  EXPECT_EQ(env_->IsAssignableFrom(nullptr, string_class), JNI_FALSE);
-  jni_abort_catcher.Check("java_class1 == null");
-  EXPECT_EQ(env_->IsAssignableFrom(object_class, nullptr), JNI_FALSE);
-  jni_abort_catcher.Check("java_class2 == null");
-  EXPECT_FALSE(vm_->SetCheckJniEnabled(true));
-  EXPECT_EQ(env_->IsAssignableFrom(nullptr, string_class), JNI_FALSE);
-  jni_abort_catcher.Check("IsAssignableFrom received NULL jclass");
-  EXPECT_EQ(env_->IsAssignableFrom(object_class, nullptr), JNI_FALSE);
-  jni_abort_catcher.Check("IsAssignableFrom received NULL jclass");
-  EXPECT_TRUE(vm_->SetCheckJniEnabled(old_check_jni));
+  {
+    ScopedSetCheckJniEnabled sscje(vm_, env_, /*check_jni=*/ false);
+    EXPECT_EQ(env_->IsAssignableFrom(nullptr, string_class), JNI_FALSE);
+    jni_abort_catcher.Check("java_class1 == null");
+    EXPECT_EQ(env_->IsAssignableFrom(object_class, nullptr), JNI_FALSE);
+    jni_abort_catcher.Check("java_class2 == null");
+  }
+  {
+    ScopedSetCheckJniEnabled sscje(vm_, env_, /*check_jni=*/ true);
+    EXPECT_EQ(env_->IsAssignableFrom(nullptr, string_class), JNI_FALSE);
+    jni_abort_catcher.Check("IsAssignableFrom received NULL jclass");
+    EXPECT_EQ(env_->IsAssignableFrom(object_class, nullptr), JNI_FALSE);
+    jni_abort_catcher.Check("IsAssignableFrom received NULL jclass");
+  }
 }
 
 TEST_F(JniInternalTest, GetObjectRefType) {
@@ -1702,17 +1715,20 @@ TEST_F(JniInternalTest, NewStringNullCharsNonzeroLength) {
 
 TEST_F(JniInternalTest, NewStringNegativeLength) {
   CheckJniAbortCatcher jni_abort_catcher;
-  bool old_check_jni = vm_->SetCheckJniEnabled(false);
-  env_->NewString(nullptr, -1);
-  jni_abort_catcher.Check("char_count < 0: -1");
-  env_->NewString(nullptr, std::numeric_limits<jint>::min());
-  jni_abort_catcher.Check("char_count < 0: -2147483648");
-  EXPECT_FALSE(vm_->SetCheckJniEnabled(true));
-  env_->NewString(nullptr, -1);
-  jni_abort_catcher.Check("negative jsize: -1");
-  env_->NewString(nullptr, std::numeric_limits<jint>::min());
-  jni_abort_catcher.Check("negative jsize: -2147483648");
-  EXPECT_TRUE(vm_->SetCheckJniEnabled(old_check_jni));
+  {
+    ScopedSetCheckJniEnabled sscje(vm_, env_, /*check_jni=*/ false);
+    env_->NewString(nullptr, -1);
+    jni_abort_catcher.Check("char_count < 0: -1");
+    env_->NewString(nullptr, std::numeric_limits<jint>::min());
+    jni_abort_catcher.Check("char_count < 0: -2147483648");
+  }
+  {
+    ScopedSetCheckJniEnabled sscje(vm_, env_, /*check_jni=*/ true);
+    env_->NewString(nullptr, -1);
+    jni_abort_catcher.Check("negative jsize: -1");
+    env_->NewString(nullptr, std::numeric_limits<jint>::min());
+    jni_abort_catcher.Check("negative jsize: -2147483648");
+  }
 }
 
 TEST_F(JniInternalTest, GetStringLength_GetStringUTFLength) {
@@ -1905,17 +1921,20 @@ TEST_F(JniInternalTest, GetObjectArrayElement_SetObjectArrayElement) {
 
   // Null as array should fail.
   CheckJniAbortCatcher jni_abort_catcher;
-  bool old_check_jni = vm_->SetCheckJniEnabled(false);
-  EXPECT_EQ(nullptr, env_->GetObjectArrayElement(nullptr, 0));
-  jni_abort_catcher.Check("java_array == null");
-  env_->SetObjectArrayElement(nullptr, 0, nullptr);
-  jni_abort_catcher.Check("java_array == null");
-  EXPECT_FALSE(vm_->SetCheckJniEnabled(true));
-  EXPECT_EQ(nullptr, env_->GetObjectArrayElement(nullptr, 0));
-  jni_abort_catcher.Check("jarray was NULL");
-  env_->SetObjectArrayElement(nullptr, 0, nullptr);
-  jni_abort_catcher.Check("jarray was NULL");
-  EXPECT_TRUE(vm_->SetCheckJniEnabled(old_check_jni));
+  {
+    ScopedSetCheckJniEnabled sscje(vm_, env_, /*check_jni=*/ false);
+    EXPECT_EQ(nullptr, env_->GetObjectArrayElement(nullptr, 0));
+    jni_abort_catcher.Check("java_array == null");
+    env_->SetObjectArrayElement(nullptr, 0, nullptr);
+    jni_abort_catcher.Check("java_array == null");
+  }
+  {
+    ScopedSetCheckJniEnabled sscje(vm_, env_, /*check_jni=*/ true);
+    EXPECT_EQ(nullptr, env_->GetObjectArrayElement(nullptr, 0));
+    jni_abort_catcher.Check("jarray was NULL");
+    env_->SetObjectArrayElement(nullptr, 0, nullptr);
+    jni_abort_catcher.Check("jarray was NULL");
+  }
 }
 
 #define EXPECT_STATIC_PRIMITIVE_FIELD(expect_eq, type, field_name, sig, value1, value2) \
@@ -1926,29 +1945,31 @@ TEST_F(JniInternalTest, GetObjectArrayElement_SetObjectArrayElement) {
     expect_eq(value1, env_->GetStatic ## type ## Field(c, fid)); \
     env_->SetStatic ## type ## Field(c, fid, value2); \
     expect_eq(value2, env_->GetStatic ## type ## Field(c, fid)); \
-    \
-    bool old_check_jni = vm_->SetCheckJniEnabled(false); \
     { \
+      ScopedSetCheckJniEnabled sscje(vm_, env_, /*check_jni=*/ false); \
+      { \
+        CheckJniAbortCatcher jni_abort_catcher; \
+        env_->GetStatic ## type ## Field(nullptr, fid); \
+        env_->SetStatic ## type ## Field(nullptr, fid, value1); \
+      } \
+      CheckJniAbortCatcher jni_abort_catcher; \
+      env_->GetStatic ## type ## Field(c, nullptr); \
+      jni_abort_catcher.Check("fid == null"); \
+      env_->SetStatic ## type ## Field(c, nullptr, value1); \
+      jni_abort_catcher.Check("fid == null"); \
+    } \
+    { \
+      ScopedSetCheckJniEnabled sscje(vm_, env_, /*check_jni=*/ true); \
       CheckJniAbortCatcher jni_abort_catcher; \
       env_->GetStatic ## type ## Field(nullptr, fid); \
+      jni_abort_catcher.Check("received NULL jclass"); \
       env_->SetStatic ## type ## Field(nullptr, fid, value1); \
+      jni_abort_catcher.Check("received NULL jclass"); \
+      env_->GetStatic ## type ## Field(c, nullptr); \
+      jni_abort_catcher.Check("jfieldID was NULL"); \
+      env_->SetStatic ## type ## Field(c, nullptr, value1); \
+      jni_abort_catcher.Check("jfieldID was NULL"); \
     } \
-    CheckJniAbortCatcher jni_abort_catcher; \
-    env_->GetStatic ## type ## Field(c, nullptr); \
-    jni_abort_catcher.Check("fid == null"); \
-    env_->SetStatic ## type ## Field(c, nullptr, value1); \
-    jni_abort_catcher.Check("fid == null"); \
-    \
-    EXPECT_FALSE(vm_->SetCheckJniEnabled(true)); \
-    env_->GetStatic ## type ## Field(nullptr, fid); \
-    jni_abort_catcher.Check("received NULL jclass"); \
-    env_->SetStatic ## type ## Field(nullptr, fid, value1); \
-    jni_abort_catcher.Check("received NULL jclass"); \
-    env_->GetStatic ## type ## Field(c, nullptr); \
-    jni_abort_catcher.Check("jfieldID was NULL"); \
-    env_->SetStatic ## type ## Field(c, nullptr, value1); \
-    jni_abort_catcher.Check("jfieldID was NULL"); \
-    EXPECT_TRUE(vm_->SetCheckJniEnabled(old_check_jni)); \
   } while (false)
 
 #define EXPECT_PRIMITIVE_FIELD(expect_eq, instance, type, field_name, sig, value1, value2) \
@@ -1959,27 +1980,30 @@ TEST_F(JniInternalTest, GetObjectArrayElement_SetObjectArrayElement) {
     expect_eq(value1, env_->Get ## type ## Field(instance, fid)); \
     env_->Set ## type ## Field(instance, fid, value2); \
     expect_eq(value2, env_->Get ## type ## Field(instance, fid)); \
-    \
-    bool old_check_jni = vm_->SetCheckJniEnabled(false); \
-    CheckJniAbortCatcher jni_abort_catcher; \
-    env_->Get ## type ## Field(nullptr, fid); \
-    jni_abort_catcher.Check("obj == null"); \
-    env_->Set ## type ## Field(nullptr, fid, value1); \
-    jni_abort_catcher.Check("obj == null"); \
-    env_->Get ## type ## Field(instance, nullptr); \
-    jni_abort_catcher.Check("fid == null"); \
-    env_->Set ## type ## Field(instance, nullptr, value1); \
-    jni_abort_catcher.Check("fid == null"); \
-    EXPECT_FALSE(vm_->SetCheckJniEnabled(true)); \
-    env_->Get ## type ## Field(nullptr, fid); \
-    jni_abort_catcher.Check("field operation on NULL object:"); \
-    env_->Set ## type ## Field(nullptr, fid, value1); \
-    jni_abort_catcher.Check("field operation on NULL object:"); \
-    env_->Get ## type ## Field(instance, nullptr); \
-    jni_abort_catcher.Check("jfieldID was NULL"); \
-    env_->Set ## type ## Field(instance, nullptr, value1); \
-    jni_abort_catcher.Check("jfieldID was NULL"); \
-    EXPECT_TRUE(vm_->SetCheckJniEnabled(old_check_jni)); \
+    { \
+      ScopedSetCheckJniEnabled sscje(vm_, env_, /*check_jni=*/ false); \
+      CheckJniAbortCatcher jni_abort_catcher; \
+      env_->Get ## type ## Field(nullptr, fid); \
+      jni_abort_catcher.Check("obj == null"); \
+      env_->Set ## type ## Field(nullptr, fid, value1); \
+      jni_abort_catcher.Check("obj == null"); \
+      env_->Get ## type ## Field(instance, nullptr); \
+      jni_abort_catcher.Check("fid == null"); \
+      env_->Set ## type ## Field(instance, nullptr, value1); \
+      jni_abort_catcher.Check("fid == null"); \
+    } \
+    { \
+      ScopedSetCheckJniEnabled sscje(vm_, env_, /*check_jni=*/ true); \
+      CheckJniAbortCatcher jni_abort_catcher; \
+      env_->Get ## type ## Field(nullptr, fid); \
+      jni_abort_catcher.Check("field operation on NULL object:"); \
+      env_->Set ## type ## Field(nullptr, fid, value1); \
+      jni_abort_catcher.Check("field operation on NULL object:"); \
+      env_->Get ## type ## Field(instance, nullptr); \
+      jni_abort_catcher.Check("jfieldID was NULL"); \
+      env_->Set ## type ## Field(instance, nullptr, value1); \
+      jni_abort_catcher.Check("jfieldID was NULL"); \
+    } \
   } while (false)
 
 #define TEST_PRIMITIVE_FIELD_FOR_CLASS(cname) \
@@ -2036,11 +2060,11 @@ TEST_F(JniInternalTest, GetField_SetField_unrelated) {
   LoadDex("AllFields");
   bool started = runtime_->Start();
   ASSERT_TRUE(started);
+  ScopedSetCheckJniEnabled sscje(vm_, env_, /*check_jni=*/ true);
   jclass c = env_->FindClass("AllFields");
   ASSERT_NE(c, nullptr);
   jclass uc = env_->FindClass("AllFieldsUnrelated");
   ASSERT_NE(uc, nullptr);
-  bool old_check_jni = vm_->SetCheckJniEnabled(true);
   EXPECT_UNRELATED_FIELD_FAILURE(Boolean, "sZ", "Z", JNI_TRUE);
   EXPECT_UNRELATED_FIELD_FAILURE(Byte, "sB", "B", 1);
   EXPECT_UNRELATED_FIELD_FAILURE(Char, "sC", "C", 'a');
@@ -2050,7 +2074,6 @@ TEST_F(JniInternalTest, GetField_SetField_unrelated) {
   EXPECT_UNRELATED_FIELD_FAILURE(Long, "sJ", "J", 1);
   EXPECT_UNRELATED_FIELD_FAILURE(Short, "sS", "S", 1);
   EXPECT_UNRELATED_FIELD_FAILURE(Object, "sObject", "Ljava/lang/Object;", c);
-  EXPECT_TRUE(vm_->SetCheckJniEnabled(old_check_jni));
 }
 
 #define TEST_OBJECT_FIELD_FOR_CLASS(cname) \
@@ -2121,12 +2144,11 @@ TEST_F(JniInternalTest, DeleteLocalRef) {
 
   // Currently, deleting an already-deleted reference is just a CheckJNI abort.
   {
-    bool old_check_jni = vm_->SetCheckJniEnabled(true);
+    ScopedSetCheckJniEnabled sscje(vm_, env_, /*check_jni=*/ true);
     CheckJniAbortCatcher check_jni_abort_catcher;
     env_->DeleteLocalRef(s);
     std::string expected = StringPrintf("jobject is an invalid local reference: %p", s);
     check_jni_abort_catcher.Check(expected.c_str());
-    EXPECT_TRUE(vm_->SetCheckJniEnabled(old_check_jni));
   }
 
   s = env_->NewStringUTF("");
@@ -2251,22 +2273,23 @@ TEST_F(JniInternalTest, DeleteGlobalRef) {
 
   jobject o = env_->NewGlobalRef(s);
   ASSERT_NE(o, nullptr);
-  env_->DeleteGlobalRef(o);
-
-  // Currently, deleting an already-deleted reference is just a CheckJNI abort.
-  {
-    bool old_check_jni = vm_->SetCheckJniEnabled(true);
-    CheckJniAbortCatcher check_jni_abort_catcher;
-    env_->DeleteGlobalRef(o);
-    std::string expected = StringPrintf("jobject is an invalid global reference: %p", o);
-    check_jni_abort_catcher.Check(expected.c_str());
-    EXPECT_TRUE(vm_->SetCheckJniEnabled(old_check_jni));
-  }
-
   jobject o1 = env_->NewGlobalRef(s);
   ASSERT_NE(o1, nullptr);
   jobject o2 = env_->NewGlobalRef(s);
   ASSERT_NE(o2, nullptr);
+
+  env_->DeleteLocalRef(s);
+
+  env_->DeleteGlobalRef(o);
+
+  // Currently, deleting an already-deleted reference is just a CheckJNI abort.
+  {
+    ScopedSetCheckJniEnabled sscje(vm_, env_, /*check_jni=*/ true);
+    CheckJniAbortCatcher check_jni_abort_catcher;
+    env_->DeleteGlobalRef(o);
+    std::string expected = StringPrintf("jobject is an invalid global reference: %p", o);
+    check_jni_abort_catcher.Check(expected.c_str());
+  }
 
   env_->DeleteGlobalRef(o1);
   env_->DeleteGlobalRef(o2);
@@ -2299,22 +2322,23 @@ TEST_F(JniInternalTest, DeleteWeakGlobalRef) {
 
   jobject o = env_->NewWeakGlobalRef(s);
   ASSERT_NE(o, nullptr);
-  env_->DeleteWeakGlobalRef(o);
-
-  // Currently, deleting an already-deleted reference is just a CheckJNI abort.
-  {
-    bool old_check_jni = vm_->SetCheckJniEnabled(true);
-    CheckJniAbortCatcher check_jni_abort_catcher;
-    env_->DeleteWeakGlobalRef(o);
-    std::string expected(StringPrintf("jobject is an invalid weak global reference: %p", o));
-    check_jni_abort_catcher.Check(expected.c_str());
-    EXPECT_TRUE(vm_->SetCheckJniEnabled(old_check_jni));
-  }
-
   jobject o1 = env_->NewWeakGlobalRef(s);
   ASSERT_NE(o1, nullptr);
   jobject o2 = env_->NewWeakGlobalRef(s);
   ASSERT_NE(o2, nullptr);
+
+  env_->DeleteLocalRef(s);
+
+  env_->DeleteWeakGlobalRef(o);
+
+  // Currently, deleting an already-deleted reference is just a CheckJNI abort.
+  {
+    ScopedSetCheckJniEnabled sscje(vm_, env_, /*check_jni=*/ true);
+    CheckJniAbortCatcher check_jni_abort_catcher;
+    env_->DeleteWeakGlobalRef(o);
+    std::string expected(StringPrintf("jobject is an invalid weak global reference: %p", o));
+    check_jni_abort_catcher.Check(expected.c_str());
+  }
 
   env_->DeleteWeakGlobalRef(o1);
   env_->DeleteWeakGlobalRef(o2);
@@ -2339,13 +2363,16 @@ TEST_F(JniInternalTest, Throw) {
   EXPECT_TRUE(env_->IsSameObject(exception, thrown_exception));
 
   // Bad argument.
-  bool old_check_jni = vm_->SetCheckJniEnabled(false);
-  EXPECT_EQ(JNI_ERR, env_->Throw(nullptr));
-  EXPECT_FALSE(vm_->SetCheckJniEnabled(true));
-  CheckJniAbortCatcher check_jni_abort_catcher;
-  EXPECT_EQ(JNI_ERR, env_->Throw(nullptr));
-  check_jni_abort_catcher.Check("Throw received NULL jthrowable");
-  EXPECT_TRUE(vm_->SetCheckJniEnabled(old_check_jni));
+  {
+    ScopedSetCheckJniEnabled sscje(vm_, env_, /*check_jni=*/ false);
+    EXPECT_EQ(JNI_ERR, env_->Throw(nullptr));
+  }
+  {
+    ScopedSetCheckJniEnabled sscje(vm_, env_, /*check_jni=*/ true);
+    CheckJniAbortCatcher check_jni_abort_catcher;
+    EXPECT_EQ(JNI_ERR, env_->Throw(nullptr));
+    check_jni_abort_catcher.Check("Throw received NULL jthrowable");
+  }
 }
 
 TEST_F(JniInternalTest, ThrowNew) {
@@ -2367,14 +2394,17 @@ TEST_F(JniInternalTest, ThrowNew) {
   EXPECT_TRUE(env_->IsInstanceOf(thrown_exception, exception_class));
 
   // Bad argument.
-  bool old_check_jni = vm_->SetCheckJniEnabled(false);
   CheckJniAbortCatcher check_jni_abort_catcher;
-  EXPECT_EQ(JNI_ERR, env_->ThrowNew(nullptr, nullptr));
-  check_jni_abort_catcher.Check("c == null");
-  EXPECT_FALSE(vm_->SetCheckJniEnabled(true));
-  EXPECT_EQ(JNI_ERR, env_->ThrowNew(nullptr, nullptr));
-  check_jni_abort_catcher.Check("ThrowNew received NULL jclass");
-  EXPECT_TRUE(vm_->SetCheckJniEnabled(old_check_jni));
+  {
+    ScopedSetCheckJniEnabled sscje(vm_, env_, /*check_jni=*/ false);
+    EXPECT_EQ(JNI_ERR, env_->ThrowNew(nullptr, nullptr));
+    check_jni_abort_catcher.Check("c == null");
+  }
+  {
+    ScopedSetCheckJniEnabled sscje(vm_, env_, /*check_jni=*/ true);
+    EXPECT_EQ(JNI_ERR, env_->ThrowNew(nullptr, nullptr));
+    check_jni_abort_catcher.Check("ThrowNew received NULL jclass");
+  }
 }
 
 TEST_F(JniInternalTest, NewDirectBuffer_GetDirectBufferAddress_GetDirectBufferCapacity) {
@@ -2575,7 +2605,7 @@ TEST_F(JniInternalTest, DetachThreadUnlockJNIMonitors) {
 }
 
 // Test the offset computation of IndirectReferenceTable offsets. b/26071368.
-TEST_F(JniInternalTest, IndirectReferenceTableOffsets) {
+TEST_F(JniInternalTest, LocalReferenceTableOffsets) {
   // The segment_state_ field is private, and we want to avoid friend declaration. So we'll check
   // by modifying memory.
   // The parameters don't really matter here.
@@ -2661,9 +2691,8 @@ TEST_F(JniInternalTest, NonAttachedThread) {
     return nullptr;
   };
 
-  bool old_check_jni = vm_->SetCheckJniEnabled(false);
-  vm_->SetCheckJniEnabled(true);
   {
+    ScopedSetCheckJniEnabled sscje(vm_, env_, /*check_jni=*/ true);
     pthread_t pthread;
     int pthread_create_result = pthread_create(&pthread,
                                                /* pthread_attr */ nullptr,
@@ -2673,7 +2702,6 @@ TEST_F(JniInternalTest, NonAttachedThread) {
     int pthread_join_result = pthread_join(pthread, /* thread_return */ nullptr);
     CHECK_EQ(pthread_join_result, 0);
   }
-  vm_->SetCheckJniEnabled(old_check_jni);
 
   check_jni_abort_catcher.Check("is making JNI calls without being attached");
 }
