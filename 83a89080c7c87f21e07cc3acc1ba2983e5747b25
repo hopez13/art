@@ -63,6 +63,30 @@
       },
       "revId": "83a89080c7c87f21e07cc3acc1ba2983e5747b25",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d748272_35c79bd6",
+        "filename": "odrefresh/odrefresh_main.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-01-12T09:06:03Z",
+      "side": 1,
+      "message": "\u003e nit: How about checking the new ro.log.file_logger.enabled (and default to false for backward compatability)? There\u0027s a test that uses this on Android.\n\nThat will still work fine. The default logger in the absence of calling InitLogging is the LogdLogger anyway. See b/201042799.\n\n\u003e Wouldn\u0027t it better to fix this in the liblog side? I think there are more cases like this.\n\u003e \n\u003e __android_log_logd_logger should better redirect itself to __android_log_stderr_logger if logd is detected to be absent\n\nThis is a pretty clear explicit request to use a specific logger; I\u0027m not sure it would be helpful to ignore that. (It\u0027s quite hard to follow the logging logic already!)\n\nThe default logic works perfectly well in the absence of InitLogging. It\u0027s just that a decision was made to not rely on that here - b/201042799.",
+      "parentUuid": "fdc8e158_faaebf1f",
+      "range": {
+        "startLine": 264,
+        "startChar": 0,
+        "endLine": 265,
+        "endChar": 39
+      },
+      "revId": "83a89080c7c87f21e07cc3acc1ba2983e5747b25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
