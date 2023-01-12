@@ -1551,9 +1551,10 @@
         "variant": "jvm"
     },
     {
-        "tests" : ["305-other-fault-handler"],
+        "tests" : ["004-SignalHandler",
+                   "305-other-fault-handler"],
         "variant": "interpreter",
-        "description": ["This test intentionally segfaults, but the fault handler is only",
-                        " installed if implicit checks are supported (not for switch interpreter)."]
+        "description": ["These tests rely on ART fault handlers that are not necessarily installed",
+                        "in switch interpreter mode."]
     }
 ]
