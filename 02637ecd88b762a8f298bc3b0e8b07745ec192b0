@@ -69,6 +69,30 @@
       },
       "revId": "02637ecd88b762a8f298bc3b0e8b07745ec192b0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d019367_213be2ef",
+        "filename": "libartpalette/apex/palette_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-01-12T18:15:25Z",
+      "side": 1,
+      "message": "Thanks, yes I got that code from runtime/common_runtime_test.cc. I wanted to check if there\u0027s anything else to consider. Let\u0027s try this and see how it goes.",
+      "parentUuid": "b29b41a4_16bd4e73",
+      "range": {
+        "startLine": 79,
+        "startChar": 0,
+        "endLine": 87,
+        "endChar": 4
+      },
+      "revId": "02637ecd88b762a8f298bc3b0e8b07745ec192b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
