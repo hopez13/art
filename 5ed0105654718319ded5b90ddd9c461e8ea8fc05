@@ -50,6 +50,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "34a7b792_62b231aa",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-01-13T14:40:53Z",
+      "side": 1,
+      "message": "Concrete instruction classes such as `HThrow` are `final`, so it does not matter for them, only for the abstract instruction classes.",
+      "parentUuid": "4a7e4832_5c0454f2",
+      "range": {
+        "startLine": 264,
+        "startChar": 10,
+        "endLine": 264,
+        "endChar": 66
+      },
+      "revId": "5ed0105654718319ded5b90ddd9c461e8ea8fc05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "2f157b65_65471b47",
         "filename": "compiler/optimizing/dead_code_elimination.cc",
         "patchSetId": 3
