@@ -16,6 +16,103 @@
       "message": "Thanks Vladimir, PTAL.",
       "revId": "ec3f9be184db70441a839c48761529df4af4eed4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "694a372b_87123b43",
+        "filename": "libartbase/base/safe_map.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-01-13T12:40:11Z",
+      "side": 1,
+      "message": "I would move the new constructor here. (With or without a blank lines around it.)",
+      "revId": "ec3f9be184db70441a839c48761529df4af4eed4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d09a4487_0dd7bae2",
+        "filename": "libartbase/base/safe_map.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-01-13T12:40:11Z",
+      "side": 1,
+      "message": "While you\u0027re here, fix indentation: +2 spaces.",
+      "range": {
+        "startLine": 53,
+        "startChar": 4,
+        "endLine": 53,
+        "endChar": 5
+      },
+      "revId": "ec3f9be184db70441a839c48761529df4af4eed4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d7b2bc8_2324a05c",
+        "filename": "libartbase/base/safe_map.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-01-13T12:40:11Z",
+      "side": 1,
+      "message": "TODO: Remove all the unnecessary `std::less\u003c.\u003e()` arguments in existing code - call this constructor instead of the one above.",
+      "revId": "ec3f9be184db70441a839c48761529df4af4eed4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5065a838_fd2c6e65",
+        "filename": "runtime/class_table-inl.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-01-13T12:40:11Z",
+      "side": 1,
+      "message": "Remove one blank line.",
+      "revId": "ec3f9be184db70441a839c48761529df4af4eed4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e60b1be_4160bafc",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-01-13T12:40:11Z",
+      "side": 1,
+      "message": "We usually use `class_loader` (unlike `klass` which needs to be different from the C++ keyword `class`).",
+      "range": {
+        "startLine": 377,
+        "startChar": 34,
+        "endLine": 377,
+        "endChar": 46
+      },
+      "revId": "ec3f9be184db70441a839c48761529df4af4eed4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

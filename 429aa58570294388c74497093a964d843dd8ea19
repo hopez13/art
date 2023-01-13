@@ -805,6 +805,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5cc65523_d0d8b292",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 926,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-01-13T12:40:11Z",
+      "side": 1,
+      "message": "Sorry, my mistake. The `it` is actually `classes_.end()` in this code path.",
+      "parentUuid": "171f23d6_69dd1cf5",
+      "range": {
+        "startLine": 926,
+        "startChar": 4,
+        "endLine": 926,
+        "endChar": 32
+      },
+      "revId": "429aa58570294388c74497093a964d843dd8ea19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "83ebe3f8_9e5ed6d7",
