@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f596bb22_7adee630",
+        "filename": "test/README.arm_fvp.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-01-13T12:26:56Z",
+      "side": 1,
+      "message": "Can you add the helpful example `repo init -u https://android.googlesource.com/platform/manifest -b android-13.0.0_r12` here to explain what \"stable\" means? With a note like \"replace with the latest Android release manifest\" or something like that. Initially I thought \"stable\" means the latest green build on CI, so a not will help avoid such confusion.",
+      "range": {
+        "startLine": 13,
+        "startChar": 10,
+        "endLine": 13,
+        "endChar": 16
+      },
+      "revId": "d5a0555ebdd99e3d22a5697b44b8c01e4d93eb64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af56f4be_25787396",
+        "filename": "test/README.arm_fvp.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-01-13T12:26:56Z",
+      "side": 1,
+      "message": "Just noticed that you have it mentioned here below. Maybe worth moving this note above to where you define \"stable\"?",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 28
+      },
+      "revId": "d5a0555ebdd99e3d22a5697b44b8c01e4d93eb64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
