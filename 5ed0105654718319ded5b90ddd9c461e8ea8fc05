@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "4a7e4832_5c0454f2",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-01-13T14:36:46Z",
+      "side": 1,
+      "message": "Done\nside-note: should we mark more cases as final in nodes.h? e.g. HThrow::AlwaysThrows()",
+      "parentUuid": "438dd586_a1fcf1e3",
+      "range": {
+        "startLine": 264,
+        "startChar": 10,
+        "endLine": 264,
+        "endChar": 66
+      },
+      "revId": "5ed0105654718319ded5b90ddd9c461e8ea8fc05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "2f157b65_65471b47",
         "filename": "compiler/optimizing/dead_code_elimination.cc",
         "patchSetId": 3
@@ -60,6 +84,30 @@
       "writtenOn": "2023-01-13T14:25:00Z",
       "side": 1,
       "message": "If there are multiple predecessors, none may end with a `HIf` as required in `RemoveNonNullControlDependences(pred, block)` because we split critical edges.",
+      "range": {
+        "startLine": 299,
+        "startChar": 6,
+        "endLine": 299,
+        "endChar": 55
+      },
+      "revId": "5ed0105654718319ded5b90ddd9c461e8ea8fc05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "99250c2c_687d5303",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-01-13T14:36:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b5b485e9_b7cd5039",
       "range": {
         "startLine": 299,
         "startChar": 6,
