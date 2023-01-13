@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1b0279b9_3c5257b1",
+        "filename": "runtime/jni/jni_internal_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-01-13T00:15:13Z",
+      "side": 1,
+      "message": "Is it not possible to reuse https://cs.android.com/android/platform/superproject/+/master:libnativehelper/header_only_include/nativehelper/scoped_local_frame.h ?\n\nIs there a meaningful diffference?",
+      "range": {
+        "startLine": 158,
+        "startChar": 2,
+        "endLine": 158,
+        "endChar": 40
+      },
+      "revId": "c97a3ca18422c11fc501ffff6b1461220a2de302",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
