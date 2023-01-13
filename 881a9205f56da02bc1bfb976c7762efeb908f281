@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2cb7cd0_29983248",
+        "filename": "libartpalette/apex/palette.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-01-13T04:34:13Z",
+      "side": 1,
+      "message": "It got a number in [Bionic](https://cs.android.com/android/platform/superproject/+/master:bionic/libc/include/android/api-level.h;l\u003d166;drc\u003d7b396aee5f747d306e1aad3b9c90db483fc077ca). I opted to use that here right away for consistency. It\u0027s very unlikely to change, and it\u0027s just a comment.",
+      "parentUuid": "6ddc2b64_f2c6759b",
+      "range": {
+        "startLine": 249,
+        "startChar": 56,
+        "endLine": 249,
+        "endChar": 58
+      },
+      "revId": "881a9205f56da02bc1bfb976c7762efeb908f281",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ad7f6206_2d0c8d83",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-01-12T05:41:46Z",
       "side": 1,
       "message": "Add a comment to describe this function?",
+      "range": {
+        "startLine": 251,
+        "startChar": 17,
+        "endLine": 251,
+        "endChar": 39
+      },
+      "revId": "881a9205f56da02bc1bfb976c7762efeb908f281",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "88006709_9b6f7401",
+        "filename": "libartpalette/apex/palette.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-01-13T04:34:13Z",
+      "side": 1,
+      "message": "If comments are needed they should go into the header, i.e. palette_method_list.h. I\u0027ve added a comment there.",
+      "parentUuid": "ad7f6206_2d0c8d83",
       "range": {
         "startLine": 251,
         "startChar": 17,
@@ -93,6 +141,54 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1474a9ca_b26271ba",
+        "filename": "libartpalette/apex/palette.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-01-13T04:34:13Z",
+      "side": 1,
+      "message": "When it\u0027s not clear whether the argument is used for input or output. Judging from other examples, it\u0027s not used when the argument is completely constant, so I changed it to be that.",
+      "parentUuid": "1b95c398_a179c3b9",
+      "range": {
+        "startLine": 252,
+        "startChar": 40,
+        "endLine": 252,
+        "endChar": 46
+      },
+      "revId": "881a9205f56da02bc1bfb976c7762efeb908f281",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "61e5ceb1_18920487",
+        "filename": "libartpalette/apex/palette.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-01-13T04:34:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3961e6b6_3140f6d5",
+      "range": {
+        "startLine": 252,
+        "startChar": 47,
+        "endLine": 252,
+        "endChar": 58
+      },
+      "revId": "881a9205f56da02bc1bfb976c7762efeb908f281",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "761b1e0d_daff56d7",
@@ -116,6 +212,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b40a968_5daceeef",
+        "filename": "libartpalette/include/palette/palette_method_list.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-01-13T04:34:13Z",
+      "side": 1,
+      "message": "Same thing.",
+      "parentUuid": "761b1e0d_daff56d7",
+      "range": {
+        "startLine": 62,
+        "startChar": 58,
+        "endLine": 62,
+        "endChar": 60
+      },
+      "revId": "881a9205f56da02bc1bfb976c7762efeb908f281",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0fe05262_02d2601d",
@@ -129,6 +249,24 @@
       "writtenOn": "2023-01-12T05:41:46Z",
       "side": 1,
       "message": "Just curious, since this file doesn\u0027t define an API, why do we need it?",
+      "revId": "881a9205f56da02bc1bfb976c7762efeb908f281",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e55e079_e8f117eb",
+        "filename": "libartpalette/libartpalette.map",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-01-13T04:34:13Z",
+      "side": 1,
+      "message": "I think it\u0027s an attempt to use the symbol versioning support in ld to hide new functions in libraries that need to work on older platforms.\n\nThese days we got [__INTRODUCED_IN](go/android-ndk-api-guidelines#compatibilty-methods) instead, which works much better, so I think this can be cleaned up, as well as much of the other chicanery libartpalette goes through to work on older platforms. Filed b/XXX about that.",
+      "parentUuid": "0fe05262_02d2601d",
       "revId": "881a9205f56da02bc1bfb976c7762efeb908f281",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
