@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1caec1ec_b79b1467",
+        "filename": "libartpalette/apex/palette.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-01-13T05:12:44Z",
+      "side": 1,
+      "message": "Interesting. I\u0027m surprised that they added a number in Bionic before the SDK is finalized.",
+      "parentUuid": "a2cb7cd0_29983248",
+      "range": {
+        "startLine": 249,
+        "startChar": 56,
+        "endLine": 249,
+        "endChar": 58
+      },
+      "revId": "881a9205f56da02bc1bfb976c7762efeb908f281",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ad7f6206_2d0c8d83",
@@ -85,6 +109,30 @@
       "side": 1,
       "message": "If comments are needed they should go into the header, i.e. palette_method_list.h. I\u0027ve added a comment there.",
       "parentUuid": "ad7f6206_2d0c8d83",
+      "range": {
+        "startLine": 251,
+        "startChar": 17,
+        "endLine": 251,
+        "endChar": 39
+      },
+      "revId": "881a9205f56da02bc1bfb976c7762efeb908f281",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3dcd7043_adc1a64e",
+        "filename": "libartpalette/apex/palette.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-01-13T05:12:44Z",
+      "side": 1,
+      "message": "Thanks. Nit: I think it\u0027s better to add the comment to the function in palette.h. It\u0027s that function that will eventually used by users. I take it the one in palette_method_list.h is an implementation.",
+      "parentUuid": "88006709_9b6f7401",
       "range": {
         "startLine": 251,
         "startChar": 17,
@@ -267,6 +315,24 @@
       "side": 1,
       "message": "I think it\u0027s an attempt to use the symbol versioning support in ld to hide new functions in libraries that need to work on older platforms.\n\nThese days we got [__INTRODUCED_IN](go/android-ndk-api-guidelines#compatibilty-methods) instead, which works much better, so I think this can be cleaned up, as well as much of the other chicanery libartpalette goes through to work on older platforms. Filed b/XXX about that.",
       "parentUuid": "0fe05262_02d2601d",
+      "revId": "881a9205f56da02bc1bfb976c7762efeb908f281",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "790c026f_d1010909",
+        "filename": "libartpalette/libartpalette.map",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-01-13T05:12:44Z",
+      "side": 1,
+      "message": "Thanks. It will be great to clean this up. I don\u0027t see the ticket though :)",
+      "parentUuid": "3e55e079_e8f117eb",
       "revId": "881a9205f56da02bc1bfb976c7762efeb908f281",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
