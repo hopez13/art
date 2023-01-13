@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ede039a4_060cb567",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 502,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-01-13T09:06:06Z",
+      "side": 1,
+      "message": "Can we move the \"Detach\" to `Run(ScopedArenaAllocator\u0026 allocator)`? (To keep \"attach\" and \"detach\" in the same function.)",
+      "range": {
+        "startLine": 500,
+        "startChar": 0,
+        "endLine": 502,
+        "endChar": 35
+      },
+      "revId": "9c5a523be2907cc68366a9dc903cdedb6fdb8720",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "07a4adf2_0ad20cbb",
+        "filename": "compiler/optimizing/loop_optimization_test.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-01-13T09:06:06Z",
+      "side": 1,
+      "message": "The allocator is destroyed at the end of this function, the same as in the main `LoopOtimization::Run()`. Neither the commment, nor the code (old or new) makes any sense to me.",
+      "range": {
+        "startLine": 99,
+        "startChar": 25,
+        "endLine": 99,
+        "endChar": 39
+      },
+      "revId": "9c5a523be2907cc68366a9dc903cdedb6fdb8720",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
