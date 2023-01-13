@@ -72,6 +72,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e5d2de9_8e03fa09",
+        "filename": "libartpalette/apex/palette.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-01-13T17:22:59Z",
+      "side": 1,
+      "message": "Well, the `__availability__` annotations need numbers. I suppose they could introduce some process around it and use 99 or something instead, but apparently not.",
+      "parentUuid": "1caec1ec_b79b1467",
+      "range": {
+        "startLine": 249,
+        "startChar": 56,
+        "endLine": 249,
+        "endChar": 58
+      },
+      "revId": "881a9205f56da02bc1bfb976c7762efeb908f281",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ad7f6206_2d0c8d83",
@@ -133,6 +157,30 @@
       "side": 1,
       "message": "Thanks. Nit: I think it\u0027s better to add the comment to the function in palette.h. It\u0027s that function that will eventually used by users. I take it the one in palette_method_list.h is an implementation.",
       "parentUuid": "88006709_9b6f7401",
+      "range": {
+        "startLine": 251,
+        "startChar": 17,
+        "endLine": 251,
+        "endChar": 39
+      },
+      "revId": "881a9205f56da02bc1bfb976c7762efeb908f281",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f73eed95_ea1b00f6",
+        "filename": "libartpalette/apex/palette.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-01-13T17:22:59Z",
+      "side": 1,
+      "message": "It\u0027s the API methods that need the doc regardless, and I prefer not to duplicate it.",
+      "parentUuid": "3dcd7043_adc1a64e",
       "range": {
         "startLine": 251,
         "startChar": 17,
@@ -333,6 +381,24 @@
       "side": 1,
       "message": "Thanks. It will be great to clean this up. I don\u0027t see the ticket though :)",
       "parentUuid": "3e55e079_e8f117eb",
+      "revId": "881a9205f56da02bc1bfb976c7762efeb908f281",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bfb20357_03eb92df",
+        "filename": "libartpalette/libartpalette.map",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-01-13T17:22:59Z",
+      "side": 1,
+      "message": "Spent all day yesterday trying to create a ticket with number XXX, but it just didn\u0027t work, what an outrage! Gave up and filed b/265435354 instead.",
+      "parentUuid": "790c026f_d1010909",
       "revId": "881a9205f56da02bc1bfb976c7762efeb908f281",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
