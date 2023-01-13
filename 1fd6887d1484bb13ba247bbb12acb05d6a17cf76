@@ -129,6 +129,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "25a82c2f_0436533a",
+        "filename": "runtime/class_linker-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-01-13T14:10:50Z",
+      "side": 1,
+      "message": "It\u0027s OK to fix this one here but we need to fix this in other places as well (in a separate CL).",
+      "parentUuid": "5f6b050d_7ff8028b",
+      "range": {
+        "startLine": 316,
+        "startChar": 4,
+        "endLine": 317,
+        "endChar": 101
+      },
+      "revId": "1fd6887d1484bb13ba247bbb12acb05d6a17cf76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "aff49e31_ef581639",
