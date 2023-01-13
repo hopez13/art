@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f157b65_65471b47",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-01-13T13:17:47Z",
+      "side": 1,
+      "message": "Added early break, which would end up being a no-op",
+      "range": {
+        "startLine": 278,
+        "startChar": 0,
+        "endLine": 282,
+        "endChar": 5
+      },
+      "revId": "5ed0105654718319ded5b90ddd9c461e8ea8fc05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

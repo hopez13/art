@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc2eaccc_73f4e5fa",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-01-13T13:17:47Z",
+      "side": 0,
+      "message": "Changed to `block-\u003eIsTryBlock()`",
+      "range": {
+        "startLine": 251,
+        "startChar": 8,
+        "endLine": 251,
+        "endChar": 50
+      },
+      "revId": "6163b5f652726b58c7d5943a27e9be8297cd2012",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a97e2cec_d8e9d8c3",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-01-13T13:17:47Z",
+      "side": 0,
+      "message": "None of these restrictions are needed. The phi ones was needed because there was a bug in `DisconnectAndDelete` which we solved last year (aosp/2168205). The others might have had similar reasons.",
+      "range": {
+        "startLine": 269,
+        "startChar": 0,
+        "endLine": 280,
+        "endChar": 38
+      },
+      "revId": "6163b5f652726b58c7d5943a27e9be8297cd2012",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "900a5a4f_a09de98a",
+        "filename": "test/2042-checker-dce-always-throw/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-01-13T13:17:47Z",
+      "side": 0,
+      "message": "This was needed only because of the `block-\u003eGetLastInstruction()-\u003eIsGoto() \u0026\u0026` restriction in line 269",
+      "range": {
+        "startLine": 325,
+        "startChar": 0,
+        "endLine": 332,
+        "endChar": 7
+      },
+      "revId": "6163b5f652726b58c7d5943a27e9be8297cd2012",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e72ea3d4_71da8fa0",
+        "filename": "test/2042-checker-dce-always-throw/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-01-13T13:17:47Z",
+      "side": 0,
+      "message": "same here",
+      "range": {
+        "startLine": 369,
+        "startChar": 0,
+        "endLine": 375,
+        "endChar": 7
+      },
+      "revId": "6163b5f652726b58c7d5943a27e9be8297cd2012",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
