@@ -16,6 +16,75 @@
       "message": "PTAL. Thanks!",
       "revId": "4a31af8498ff536c4c06d8a1c0eddd6702e99231",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6c8fbfa_5a8f6967",
+        "filename": "openjdkjvmti/deopt_manager.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 393,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-01-13T11:59:08Z",
+      "side": 1,
+      "message": "nit: grammar",
+      "range": {
+        "startLine": 393,
+        "startChar": 35,
+        "endLine": 393,
+        "endChar": 91
+      },
+      "revId": "4a31af8498ff536c4c06d8a1c0eddd6702e99231",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8344dd37_718e5d02",
+        "filename": "openjdkjvmti/deopt_manager.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-01-13T11:59:08Z",
+      "side": 1,
+      "message": "Looks like this is bogus?",
+      "range": {
+        "startLine": 402,
+        "startChar": 0,
+        "endLine": 402,
+        "endChar": 50
+      },
+      "revId": "4a31af8498ff536c4c06d8a1c0eddd6702e99231",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b7c5c67_44b1b1f0",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 507,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-01-13T11:59:08Z",
+      "side": 1,
+      "message": "This is the same code as in deopt_manager. Add a helper method in instrumentation?",
+      "range": {
+        "startLine": 496,
+        "startChar": 0,
+        "endLine": 507,
+        "endChar": 9
+      },
+      "revId": "4a31af8498ff536c4c06d8a1c0eddd6702e99231",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
