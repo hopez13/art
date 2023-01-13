@@ -35,6 +35,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "66dcf45f_f380adc7",
+        "filename": "libartbase/base/safe_map.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-01-13T13:09:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "694a372b_87123b43",
+      "revId": "ec3f9be184db70441a839c48761529df4af4eed4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d09a4487_0dd7bae2",
@@ -48,6 +66,30 @@
       "writtenOn": "2023-01-13T12:40:11Z",
       "side": 1,
       "message": "While you\u0027re here, fix indentation: +2 spaces.",
+      "range": {
+        "startLine": 53,
+        "startChar": 4,
+        "endLine": 53,
+        "endChar": 5
+      },
+      "revId": "ec3f9be184db70441a839c48761529df4af4eed4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e38f53e_71b04b4b",
+        "filename": "libartbase/base/safe_map.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-01-13T13:09:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d09a4487_0dd7bae2",
       "range": {
         "startLine": 53,
         "startChar": 4,
@@ -92,6 +134,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d15722c2_64e87416",
+        "filename": "runtime/class_table-inl.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-01-13T13:09:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5065a838_fd2c6e65",
+      "revId": "ec3f9be184db70441a839c48761529df4af4eed4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0e60b1be_4160bafc",
@@ -105,6 +165,30 @@
       "writtenOn": "2023-01-13T12:40:11Z",
       "side": 1,
       "message": "We usually use `class_loader` (unlike `klass` which needs to be different from the C++ keyword `class`).",
+      "range": {
+        "startLine": 377,
+        "startChar": 34,
+        "endLine": 377,
+        "endChar": 46
+      },
+      "revId": "ec3f9be184db70441a839c48761529df4af4eed4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "500eec88_4f824c09",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-01-13T13:09:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0e60b1be_4160bafc",
       "range": {
         "startLine": 377,
         "startChar": 34,
