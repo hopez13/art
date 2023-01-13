@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8982a5ac_0e667059",
+        "filename": "runtime/class_linker-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-01-13T11:32:55Z",
+      "side": 0,
+      "message": "Add this back, please. We are intentionally poisoning `ObjPtr\u003c\u003e`s whether we take the fast-path or slow-path.",
+      "range": {
+        "startLine": 367,
+        "startChar": 2,
+        "endLine": 367,
+        "endChar": 40
+      },
+      "revId": "a0dcfaf55971a3c338261bd8b4ed362bceef6515",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

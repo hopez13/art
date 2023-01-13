@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "1c7b0b7a_0ca0c796",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-01-13T11:32:55Z",
+      "side": 1,
+      "message": "This looks like the main purpose of this CL and probably should be the first line of the commit message.\n\nThe rest is a follow-up cleanup of dead code and inlining of code that was previously used twice but we removed one of the callers. Plus an unrelated minor fix in `ClassLinker::ResolveMethodWithoutInvokeType()`.",
+      "range": {
+        "startLine": 10,
+        "startChar": 2,
+        "endLine": 10,
+        "endChar": 51
+      },
+      "revId": "1fd6887d1484bb13ba247bbb12acb05d6a17cf76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "46437b4c_a97f4fb1",
@@ -37,6 +60,75 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d8ddd901_f92c3250",
+        "filename": "runtime/class_linker-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-01-13T11:32:55Z",
+      "side": 1,
+      "message": "This was a bit out-of-date since the lazy initialization of dex cache arrays. The from-space dex cache can have null arrays while the to-space arrays can have initialized arrays but it\u0027s OK to have a false negative and continue with the slow-path below.\n\nAnd since the CL that introduced the full cache arrays for app startup, the full array can change to null. I don\u0027t think it\u0027s safe to read and use the full array pointer from the from-space dex cache anymore. Releasing these arrays in the GC critical section does not prevent us from later seeing a from-space dex cache without a read barrier.\n\nBut we may want to fix that in a separate CL.\n\n(Also line too long.)",
+      "range": {
+        "startLine": 316,
+        "startChar": 4,
+        "endLine": 317,
+        "endChar": 101
+      },
+      "revId": "1fd6887d1484bb13ba247bbb12acb05d6a17cf76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aff49e31_ef581639",
+        "filename": "runtime/class_linker-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-01-13T11:32:55Z",
+      "side": 1,
+      "message": "DCHECK(!resolved_method-\u003eIsRutimeMethod());",
+      "range": {
+        "startLine": 321,
+        "startChar": 6,
+        "endLine": 321,
+        "endChar": 29
+      },
+      "revId": "1fd6887d1484bb13ba247bbb12acb05d6a17cf76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2bfcd6be_0aa8c119",
+        "filename": "runtime/class_linker-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-01-13T11:32:55Z",
+      "side": 1,
+      "message": "Move before the fast-path.",
+      "range": {
+        "startLine": 327,
+        "startChar": 2,
+        "endLine": 327,
+        "endChar": 71
+      },
+      "revId": "1fd6887d1484bb13ba247bbb12acb05d6a17cf76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e2cdd225_edf40573",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 1
@@ -66,6 +158,29 @@
       "side": 1,
       "message": "Yes, and that was an oversight not to update this code path. Looks like we never hit the issue with callers of `ResolveMethodWithoutInvokeType`, but this changes makes us have consistent behavior now.",
       "parentUuid": "e2cdd225_edf40573",
+      "revId": "1fd6887d1484bb13ba247bbb12acb05d6a17cf76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "048000e8_1e72a3dd",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 522,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-01-13T11:32:55Z",
+      "side": 1,
+      "message": "The parameter name is misleading, there are throwing paths below that can suspend even with `!can_suspend`. Use some other name such as `search_only_cache`.",
+      "range": {
+        "startLine": 522,
+        "startChar": 33,
+        "endLine": 522,
+        "endChar": 44
+      },
       "revId": "1fd6887d1484bb13ba247bbb12acb05d6a17cf76",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
