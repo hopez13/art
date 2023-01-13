@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba0e7bc5_6c41d296",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 502,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-01-13T13:03:29Z",
+      "side": 1,
+      "message": "Since we are removing the other method, there\u0027s no need to keep both methods. I can revert this change, having only one `Run` method which does the attach and detach.",
+      "parentUuid": "ede039a4_060cb567",
+      "range": {
+        "startLine": 500,
+        "startChar": 0,
+        "endLine": 502,
+        "endChar": 35
+      },
+      "revId": "9c5a523be2907cc68366a9dc903cdedb6fdb8720",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "07a4adf2_0ad20cbb",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-01-13T09:06:06Z",
       "side": 1,
       "message": "The allocator is destroyed at the end of this function, the same as in the main `LoopOtimization::Run()`. Neither the commment, nor the code (old or new) makes any sense to me.",
+      "range": {
+        "startLine": 99,
+        "startChar": 25,
+        "endLine": 99,
+        "endChar": 39
+      },
+      "revId": "9c5a523be2907cc68366a9dc903cdedb6fdb8720",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7fb0a9c5_2b1139ac",
+        "filename": "compiler/optimizing/loop_optimization_test.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-01-13T13:03:29Z",
+      "side": 1,
+      "message": "I took another look and `last_loop_ \u003d top_loop_ \u003d nullptr;` was the difference. In `loop_optimization_test.cc` we check the [loop structure](https://cs.android.com/android/platform/superproject/+/master:art/compiler/optimizing/loop_optimization_test.cc;l\u003d106;drc\u003d434d968b4af0bc8af9889170250bee3e08839bea) starting with `top_loop_`. We can refactor this as doing `last_loop_ \u003d top_loop_ \u003d nullptr;` in `Run` is not really needed.",
+      "parentUuid": "07a4adf2_0ad20cbb",
       "range": {
         "startLine": 99,
         "startChar": 25,
