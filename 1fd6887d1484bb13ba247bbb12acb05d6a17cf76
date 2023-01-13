@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "efff1c0f_83322493",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-01-13T13:26:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1c7b0b7a_0ca0c796",
+      "range": {
+        "startLine": 10,
+        "startChar": 2,
+        "endLine": 10,
+        "endChar": 51
+      },
+      "revId": "1fd6887d1484bb13ba247bbb12acb05d6a17cf76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "46437b4c_a97f4fb1",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -81,6 +105,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f6b050d_7ff8028b",
+        "filename": "runtime/class_linker-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-01-13T13:26:44Z",
+      "side": 1,
+      "message": "Good catch. While I\u0027m at it refactoring and cleaning up, I\u0027m doing the fix in this CL.",
+      "parentUuid": "d8ddd901_f92c3250",
+      "range": {
+        "startLine": 316,
+        "startChar": 4,
+        "endLine": 317,
+        "endChar": 101
+      },
+      "revId": "1fd6887d1484bb13ba247bbb12acb05d6a17cf76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "aff49e31_ef581639",
@@ -104,6 +152,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "43a6e223_bb8b38ba",
+        "filename": "runtime/class_linker-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-01-13T13:26:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aff49e31_ef581639",
+      "range": {
+        "startLine": 321,
+        "startChar": 6,
+        "endLine": 321,
+        "endChar": 29
+      },
+      "revId": "1fd6887d1484bb13ba247bbb12acb05d6a17cf76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2bfcd6be_0aa8c119",
@@ -117,6 +189,30 @@
       "writtenOn": "2023-01-13T11:32:55Z",
       "side": 1,
       "message": "Move before the fast-path.",
+      "range": {
+        "startLine": 327,
+        "startChar": 2,
+        "endLine": 327,
+        "endChar": 71
+      },
+      "revId": "1fd6887d1484bb13ba247bbb12acb05d6a17cf76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "64e3ebfc_eb1a0c4a",
+        "filename": "runtime/class_linker-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-01-13T13:26:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2bfcd6be_0aa8c119",
       "range": {
         "startLine": 327,
         "startChar": 2,
@@ -175,6 +271,30 @@
       "writtenOn": "2023-01-13T11:32:55Z",
       "side": 1,
       "message": "The parameter name is misleading, there are throwing paths below that can suspend even with `!can_suspend`. Use some other name such as `search_only_cache`.",
+      "range": {
+        "startLine": 522,
+        "startChar": 33,
+        "endLine": 522,
+        "endChar": 44
+      },
+      "revId": "1fd6887d1484bb13ba247bbb12acb05d6a17cf76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e353e3bd_5e9225d8",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 522,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-01-13T13:26:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "048000e8_1e72a3dd",
       "range": {
         "startLine": 522,
         "startChar": 33,
