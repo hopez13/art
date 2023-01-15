@@ -2542,7 +2542,7 @@ void Heap::PreZygoteFork() {
       new accounting::ModUnionTableCardCache("zygote space mod-union table", this, zygote_space_);
   CHECK(mod_union_table != nullptr) << "Failed to create zygote space mod-union table";
 
-  if (collector_type_ != kCollectorTypeCC) {
+  if (collector_type_ != kCollectorTypeCC && collector_type_ != kCollectorTypeCMC) {
     // Set all the cards in the mod-union table since we don't know which objects contain references
     // to large objects.
     mod_union_table->SetCards();
