@@ -1642,11 +1642,10 @@ bool JitCodeCache::IsOsrCompiled(ArtMethod* method) {
 }
 
 void JitCodeCache::VisitRoots(RootVisitor* visitor) {
-  Thread* self = Thread::Current();
   gc::Heap* const heap = Runtime::Current()->GetHeap();
-  if (heap->CurrentCollectorType() != gc::CollectorType::kCollectorTypeCMC
-      || !heap->MarkCompactCollector()->IsCompacting(self)) {
-    MutexLock mu(self, *Locks::jit_lock_);
+  if (heap->CurrentCollectorType() != gc::CollectorType::kCollectorTypeCMC ||
+      !heap->MarkCompactCollector()->IsCompacting()) {
+    MutexLock mu(Thread::Current(), *Locks::jit_lock_);
     UnbufferedRootVisitor root_visitor(visitor, RootInfo(kRootStickyClass));
     for (ArtMethod* method : current_optimized_compilations_) {
       method->VisitRoots(root_visitor, kRuntimePointerSize);

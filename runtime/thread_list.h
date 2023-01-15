@@ -127,14 +127,14 @@ class ThreadList {
       REQUIRES(!Locks::thread_list_lock_, !Locks::thread_suspend_count_lock_);
 
   // Flip thread roots from from-space refs to to-space refs. Used by
-  // the concurrent copying collector.
+  // the concurrent moving collectors.
   size_t FlipThreadRoots(Closure* thread_flip_visitor,
                          Closure* flip_callback,
                          gc::collector::GarbageCollector* collector,
-                         gc::GcPauseListener* pause_listener)
-      REQUIRES(!Locks::mutator_lock_,
-               !Locks::thread_list_lock_,
-               !Locks::thread_suspend_count_lock_);
+                         gc::GcPauseListener* pause_listener,
+                         bool sync_with_jni = true) REQUIRES(!Locks::mutator_lock_,
+                                                             !Locks::thread_list_lock_,
+                                                             !Locks::thread_suspend_count_lock_);
 
   // Iterates over all the threads.
   void ForEach(void (*callback)(Thread*, void*), void* context)

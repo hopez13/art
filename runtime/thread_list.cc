@@ -522,16 +522,17 @@ void ThreadList::RunEmptyCheckpoint() {
 size_t ThreadList::FlipThreadRoots(Closure* thread_flip_visitor,
                                    Closure* flip_callback,
                                    gc::collector::GarbageCollector* collector,
-                                   gc::GcPauseListener* pause_listener) {
+                                   gc::GcPauseListener* pause_listener,
+                                   bool sync_with_jni) {
   TimingLogger::ScopedTiming split("ThreadListFlip", collector->GetTimings());
   Thread* self = Thread::Current();
   Locks::mutator_lock_->AssertNotHeld(self);
   Locks::thread_list_lock_->AssertNotHeld(self);
   Locks::thread_suspend_count_lock_->AssertNotHeld(self);
   CHECK_NE(self->GetState(), ThreadState::kRunnable);
-
-  collector->GetHeap()->ThreadFlipBegin(self);  // Sync with JNI critical calls.
-
+  if (sync_with_jni) {
+    collector->GetHeap()->ThreadFlipBegin(self);
+  }
   // ThreadFlipBegin happens before we suspend all the threads, so it does not count towards the
   // pause.
   const uint64_t suspend_start_time = NanoTime();
@@ -583,7 +584,9 @@ size_t ThreadList::FlipThreadRoots(Closure* thread_flip_visitor,
     Thread::resume_cond_->Broadcast(self);
   }
 
-  collector->GetHeap()->ThreadFlipEnd(self);
+  if (sync_with_jni) {
+    collector->GetHeap()->ThreadFlipEnd(self);
+  }
 
   // Try to run the closure on the other threads.
   {

@@ -68,12 +68,9 @@ class MarkCompact final : public GarbageCollector {
   void RunPhases() override REQUIRES(!Locks::mutator_lock_);
 
   // Updated before (or in) pre-compaction pause and is accessed only in the
-  // pause or during concurrent compaction. The flag is reset after compaction
-  // is completed and never accessed by mutators. Therefore, safe to update
-  // without any memory ordering.
-  bool IsCompacting(Thread* self) const {
-    return compacting_ && self == thread_running_gc_;
-  }
+  // pause or during concurrent compaction. The flag is reset in next GC cycle's
+  // InitializePhasE(). Therefore, it's safe to update without any memory ordering.
+  bool IsCompacting() const { return compacting_; }
 
   GcType GetGcType() const override {
     return kGcTypeFull;
@@ -120,11 +117,6 @@ class MarkCompact final : public GarbageCollector {
 
   mirror::Object* IsMarked(mirror::Object* obj) override
       REQUIRES_SHARED(Locks::mutator_lock_, Locks::heap_bitmap_lock_);
-
-  // Perform GC-root updation and heap protection so that during the concurrent
-  // compaction phase we can receive faults and compact the corresponding pages
-  // on the fly. This is performed in a STW pause.
-  void CompactionPause() REQUIRES(Locks::mutator_lock_, !Locks::heap_bitmap_lock_);
 
   mirror::Object* GetFromSpaceAddrFromBarrier(mirror::Object* old_ref) {
     CHECK(compacting_);
@@ -294,7 +286,7 @@ class MarkCompact final : public GarbageCollector {
   // Updates GC-roots and protects heap so that during the concurrent
   // compaction phase we can receive faults and compact the corresponding pages
   // on the fly.
-  void PreCompactionPhase() REQUIRES(Locks::mutator_lock_);
+  void CompactionPause() REQUIRES(Locks::mutator_lock_);
   // Compute offsets (in chunk_info_vec_) and other data structures required
   // during concurrent compaction.
   void PrepareForCompaction() REQUIRES_SHARED(Locks::mutator_lock_);
@@ -729,6 +721,10 @@ class MarkCompact final : public GarbageCollector {
   // minor-fault from next GC.
   bool map_linear_alloc_shared_;
 
+  class MarkingPauseCallback;
+  class MarkingPauseThreadVisitor;
+  class FlipCallback;
+  class ThreadFlipVisitor;
   class VerifyRootMarkedVisitor;
   class ScanObjectVisitor;
   class CheckpointMarkThreadRoots;

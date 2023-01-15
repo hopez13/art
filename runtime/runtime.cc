@@ -2545,7 +2545,9 @@ void Runtime::VisitNonThreadRoots(RootVisitor* visitor) {
   pre_allocated_OutOfMemoryError_when_handling_stack_overflow_
       .VisitRootIfNonNull(visitor, RootInfo(kRootVMInternal));
   pre_allocated_NoClassDefFoundError_.VisitRootIfNonNull(visitor, RootInfo(kRootVMInternal));
-  VisitImageRoots(visitor);
+  if (kIsDebugBuild) {
+    VisitImageRoots(visitor);
+  }
   verifier::ClassVerifier::VisitStaticRoots(visitor);
   VisitTransactionRoots(visitor);
 }

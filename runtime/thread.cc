@@ -4005,8 +4005,8 @@ class ReferenceMapVisitor : public StackVisitor {
       : StackVisitor(thread, context, StackVisitor::StackWalkKind::kSkipInlinedFrames),
         visitor_(visitor) {
     gc::Heap* const heap = Runtime::Current()->GetHeap();
-    visit_declaring_class_ = heap->CurrentCollectorType() != gc::CollectorType::kCollectorTypeCMC
-                             || !heap->MarkCompactCollector()->IsCompacting(Thread::Current());
+    visit_declaring_class_ = heap->CurrentCollectorType() != gc::CollectorType::kCollectorTypeCMC ||
+                             !heap->MarkCompactCollector()->IsCompacting();
   }
 
   bool VisitFrame() override REQUIRES_SHARED(Locks::mutator_lock_) {
@@ -4440,8 +4440,10 @@ void Thread::VisitRoots(RootVisitor* visitor) {
 }
 #pragma GCC diagnostic pop
 
-static void SweepCacheEntry(IsMarkedVisitor* visitor, const Instruction* inst, size_t* value)
-    REQUIRES_SHARED(Locks::mutator_lock_) {
+static void SweepCacheEntry(IsMarkedVisitor* visitor,
+                            const Instruction* inst,
+                            size_t* value,
+                            bool process_weak_class) REQUIRES_SHARED(Locks::mutator_lock_) {
   if (inst == nullptr) {
     return;
   }
@@ -4458,11 +4460,13 @@ static void SweepCacheEntry(IsMarkedVisitor* visitor, const Instruction* inst, s
         // Entry got deleted in a previous sweep.
         return;
       }
-      Runtime::ProcessWeakClass(
-          reinterpret_cast<GcRoot<mirror::Class>*>(value),
-          visitor,
-          Runtime::GetWeakClassSentinel());
-      return;
+      if (process_weak_class) {
+        Runtime::ProcessWeakClass(reinterpret_cast<GcRoot<mirror::Class>*>(value),
+                                  visitor,
+                                  Runtime::GetWeakClassSentinel());
+        return;
+      }
+      FALLTHROUGH_INTENDED;
     }
     case Opcode::CONST_STRING:
     case Opcode::CONST_STRING_JUMBO: {
@@ -4493,8 +4497,15 @@ static void SweepCacheEntry(IsMarkedVisitor* visitor, const Instruction* inst, s
 }
 
 void Thread::SweepInterpreterCache(IsMarkedVisitor* visitor) {
+  // When interpreter cache is updated during userfaultfd GC, the weak class
+  // entries are already cleared (in the marking phase).
+  bool process_weak_class =
+      !(gUseUserfaultfd && Runtime::Current()->GetHeap()->MarkCompactCollector()->IsCompacting());
   for (InterpreterCache::Entry& entry : GetInterpreterCache()->GetArray()) {
-    SweepCacheEntry(visitor, reinterpret_cast<const Instruction*>(entry.first), &entry.second);
+    SweepCacheEntry(visitor,
+                    reinterpret_cast<const Instruction*>(entry.first),
+                    &entry.second,
+                    process_weak_class);
   }
 }
 
