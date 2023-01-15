@@ -529,11 +529,13 @@ size_t ThreadList::FlipThreadRoots(Closure* thread_flip_visitor,
   Locks::thread_list_lock_->AssertNotHeld(self);
   Locks::thread_suspend_count_lock_->AssertNotHeld(self);
   CHECK_NE(self->GetState(), ThreadState::kRunnable);
+  size_t runnable_thread_count = 0;
+  std::vector<Thread*> other_threads;
 
   collector->GetHeap()->ThreadFlipBegin(self);  // Sync with JNI critical calls.
 
-  // ThreadFlipBegin happens before we suspend all the threads, so it does not count towards the
-  // pause.
+  // ThreadFlipBegin happens before we suspend all the threads, so it does not
+  // count towards the pause.
   const uint64_t suspend_start_time = NanoTime();
   SuspendAllInternal(self, self, nullptr);
   if (pause_listener != nullptr) {
@@ -544,15 +546,8 @@ size_t ThreadList::FlipThreadRoots(Closure* thread_flip_visitor,
   Locks::mutator_lock_->ExclusiveLock(self);
   suspend_all_historam_.AdjustAndAddValue(NanoTime() - suspend_start_time);
   flip_callback->Run(self);
-  Locks::mutator_lock_->ExclusiveUnlock(self);
-  collector->RegisterPause(NanoTime() - suspend_start_time);
-  if (pause_listener != nullptr) {
-    pause_listener->EndPause();
-  }
 
   // Resume runnable threads.
-  size_t runnable_thread_count = 0;
-  std::vector<Thread*> other_threads;
   {
     TimingLogger::ScopedTiming split2("ResumeRunnableThreads", collector->GetTimings());
     MutexLock mu(self, *Locks::thread_list_lock_);
@@ -582,7 +577,11 @@ size_t ThreadList::FlipThreadRoots(Closure* thread_flip_visitor,
     }
     Thread::resume_cond_->Broadcast(self);
   }
-
+  Locks::mutator_lock_->ExclusiveUnlock(self);
+  collector->RegisterPause(NanoTime() - suspend_start_time);
+  if (pause_listener != nullptr) {
+    pause_listener->EndPause();
+  }
   collector->GetHeap()->ThreadFlipEnd(self);
 
   // Try to run the closure on the other threads.
@@ -643,6 +642,12 @@ void ThreadList::SuspendAll(const char* cause, bool long_suspend) {
 #else
     Locks::mutator_lock_->ExclusiveLock(self);
 #endif
+    // Run this thread's flip-function, if one was setup by GC thread when this
+    // thread was waiting for mutator-lock to be free.
+    self->EnsureFlipFunctionStarted(self);
+    // In any case, flip-function must have finished by now.
+    DCHECK(!self->GetStateAndFlags(std::memory_order_relaxed)
+                .IsAnyOfFlagsSet(Thread::FlipFunctionFlags()));
 
     long_suspend_ = long_suspend;
 

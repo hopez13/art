@@ -1497,7 +1497,7 @@ bool Thread::ModifySuspendCountInternal(Thread* self,
     return false;
   }
 
-  if (gUseReadBarrier && delta > 0 && this != self && tlsPtr_.flip_function != nullptr) {
+  if (delta > 0 && this != self && tlsPtr_.flip_function != nullptr) {
     // Force retry of a suspend request if it's in the middle of a thread flip to avoid a
     // deadlock. b/31683379.
     return false;
@@ -4016,14 +4016,11 @@ class ReferenceMapVisitor : public StackVisitor {
  public:
   ReferenceMapVisitor(Thread* thread, Context* context, RootVisitor& visitor)
       REQUIRES_SHARED(Locks::mutator_lock_)
-        // We are visiting the references in compiled frames, so we do not need
-        // to know the inlined frames.
+      // We are visiting the references in compiled frames, so we do not need
+      // to know the inlined frames.
       : StackVisitor(thread, context, StackVisitor::StackWalkKind::kSkipInlinedFrames),
-        visitor_(visitor) {
-    gc::Heap* const heap = Runtime::Current()->GetHeap();
-    visit_declaring_class_ = heap->CurrentCollectorType() != gc::CollectorType::kCollectorTypeCMC
-                             || !heap->MarkCompactCollector()->IsCompacting(Thread::Current());
-  }
+        visitor_(visitor),
+        visit_declaring_class_(!Runtime::Current()->GetHeap()->PerformingUffdCompaction()) {}
 
   bool VisitFrame() override REQUIRES_SHARED(Locks::mutator_lock_) {
     if (false) {
@@ -4471,10 +4468,11 @@ static void SweepCacheEntry(IsMarkedVisitor* visitor, const Instruction* inst, s
         // Entry got deleted in a previous sweep.
         return;
       }
-      Runtime::ProcessWeakClass(
-          reinterpret_cast<GcRoot<mirror::Class>*>(value),
-          visitor,
-          Runtime::GetWeakClassSentinel());
+      // Need to fetch from-space pointer for class in case of userfaultfd GC.
+      Runtime::ProcessWeakClass(reinterpret_cast<GcRoot<mirror::Class>*>(value),
+                                visitor,
+                                Runtime::GetWeakClassSentinel(),
+                                gUseUserfaultfd);
       return;
     }
     case Opcode::CONST_STRING:
