@@ -359,9 +359,9 @@ MarkCompact::MarkCompact(Heap* heap)
       LOG(WARNING) << "Failed to allocate concurrent mark-compact moving-space shadow: " << err_msg;
     }
   }
-  const size_t num_pages = 1 + (use_uffd_sigbus_ ?
-                                kMutatorCompactionBufferCount :
-                                std::min(heap_->GetParallelGCThreadCount(), kMaxNumUffdWorkers));
+  const size_t num_pages =
+      1 + (use_uffd_sigbus_ ? kMutatorCompactionBufferCount :
+                              std::min(heap_->GetParallelGCThreadCount(), kMaxNumUffdWorkers));
   compaction_buffers_map_ = MemMap::MapAnonymous("Concurrent mark-compact compaction buffers",
                                                  kPageSize * num_pages,
                                                  PROT_READ | PROT_WRITE,
@@ -513,9 +513,45 @@ void MarkCompact::InitializePhase() {
   pointer_size_ = Runtime::Current()->GetClassLinker()->GetImagePointerSize();
 }
 
+class MarkCompact::ThreadFlipVisitor : public Closure {
+ public:
+  explicit ThreadFlipVisitor(MarkCompact* collector) : collector_(collector) {}
+
+  void Run(Thread* thread) override REQUIRES_SHARED(Locks::mutator_lock_) {
+    // Note: self is not necessarily equal to thread since thread may be suspended.
+    Thread* self = Thread::Current();
+    CHECK(thread == self || thread->IsSuspended() ||
+          thread->GetState() == ThreadState::kWaitingPerformingGc)
+        << thread->GetState() << " thread " << thread << " self " << self;
+
+    // Interpreter cache is thread-local so it needs to be swept either in a
+    // checkpoint, or a stop-the-world pause.
+    thread->SweepInterpreterCache(collector_);
+    thread->AdjustTlab(collector_->black_objs_slide_diff_);
+    thread->VisitRoots(collector_, kVisitRootFlagAllRoots);
+    collector_->GetBarrier().Pass(self);
+  }
+
+ private:
+  MarkCompact* const collector_;
+};
+
+class MarkCompact::FlipCallback : public Closure {
+ public:
+  explicit FlipCallback(MarkCompact* collector) : collector_(collector) {}
+
+  void Run(Thread* thread ATTRIBUTE_UNUSED) override REQUIRES(Locks::mutator_lock_) {
+    collector_->CompactionPause();
+  }
+
+ private:
+  MarkCompact* const collector_;
+};
+
 void MarkCompact::RunPhases() {
   Thread* self = Thread::Current();
   thread_running_gc_ = self;
+  Runtime* runtime = Runtime::Current();
   InitializePhase();
   GetHeap()->PreGcVerification(this);
   {
@@ -523,11 +559,9 @@ void MarkCompact::RunPhases() {
     MarkingPhase();
   }
   {
+    // Marking pause
     ScopedPause pause(this);
     MarkingPause();
-    if (kIsDebugBuild) {
-      bump_pointer_space_->AssertAllThreadLocalBuffersAreRevoked();
-    }
   }
   // To increase likelihood of black allocations. For testing purposes only.
   if (kIsDebugBuild && heap_->GetTaskProcessor()->GetRunningThread() == thread_running_gc_) {
@@ -541,13 +575,18 @@ void MarkCompact::RunPhases() {
   if (uffd_ != kFallbackMode && !use_uffd_sigbus_) {
     heap_->GetThreadPool()->WaitForWorkersToBeCreated();
   }
+
   {
-    heap_->ThreadFlipBegin(self);
+    // Compaction pause
+    gc_barrier_.Init(self, 0);
+    ThreadFlipVisitor visitor(this);
+    FlipCallback callback(this);
+    size_t barrier_count = runtime->GetThreadList()->FlipThreadRoots(
+        &visitor, &callback, this, GetHeap()->GetGcPauseListener());
     {
-      ScopedPause pause(this);
-      PreCompactionPhase();
+      ScopedThreadStateChange tsc(self, ThreadState::kWaitingForCheckPointsToRun);
+      gc_barrier_.Increment(self, barrier_count);
     }
-    heap_->ThreadFlipEnd(self);
   }
 
   if (IsValidFd(uffd_)) {
@@ -1064,12 +1103,9 @@ void MarkCompact::MarkingPause() {
       MutexLock mu3(thread_running_gc_, *Locks::thread_list_lock_);
       std::list<Thread*> thread_list = runtime->GetThreadList()->GetList();
       for (Thread* thread : thread_list) {
-        thread->VisitRoots(this, static_cast<VisitRootFlags>(0));
-        // Need to revoke all the thread-local allocation stacks since we will
-        // swap the allocation stacks (below) and don't want anybody to allocate
-        // into the live stack.
         thread->RevokeThreadLocalAllocationStack();
         bump_pointer_space_->RevokeThreadLocalBuffers(thread);
+        thread->VisitRoots(this, static_cast<VisitRootFlags>(0));
       }
     }
     // Re-mark root set. Doesn't include thread-roots as they are already marked
@@ -2421,7 +2457,7 @@ class MarkCompact::LinearAllocPageUpdater {
   MarkCompact* const collector_;
 };
 
-void MarkCompact::PreCompactionPhase() {
+void MarkCompact::CompactionPause() {
   TimingLogger::ScopedTiming t(__FUNCTION__, GetTimings());
   Runtime* runtime = Runtime::Current();
   non_moving_space_bitmap_ = non_moving_space_->GetLiveBitmap();
@@ -2473,22 +2509,6 @@ void MarkCompact::PreCompactionPhase() {
     heap_->GetReferenceProcessor()->UpdateRoots(this);
   }
 
-  {
-    // Thread roots must be updated first (before space mremap and native root
-    // updation) to ensure that pre-update content is accessible.
-    TimingLogger::ScopedTiming t2("(Paused)UpdateThreadRoots", GetTimings());
-    MutexLock mu1(thread_running_gc_, *Locks::runtime_shutdown_lock_);
-    MutexLock mu2(thread_running_gc_, *Locks::thread_list_lock_);
-    std::list<Thread*> thread_list = runtime->GetThreadList()->GetList();
-    for (Thread* thread : thread_list) {
-      thread->VisitRoots(this, kVisitRootFlagAllRoots);
-      // Interpreter cache is thread-local so it needs to be swept either in a
-      // checkpoint, or a stop-the-world pause.
-      thread->SweepInterpreterCache(this);
-      thread->AdjustTlab(black_objs_slide_diff_);
-      thread->SetThreadLocalGcBuffer(nullptr);
-    }
-  }
   {
     TimingLogger::ScopedTiming t2("(Paused)UpdateClassLoaderRoots", GetTimings());
     ReaderMutexLock rmu(thread_running_gc_, *Locks::classlinker_classes_lock_);
@@ -3411,6 +3431,8 @@ class MarkCompact::CheckpointMarkThreadRoots : public Closure {
       ThreadRootsVisitor</*kBufferSize*/ 20> visitor(mark_compact_, self);
       thread->VisitRoots(&visitor, kVisitRootFlagAllRoots);
     }
+    // Clear page-buffer to prepare for compaction phase.
+    thread->SetThreadLocalGcBuffer(nullptr);
 
     // If thread is a running mutator, then act on behalf of the garbage
     // collector. See the code in ThreadList::RunCheckpoint.

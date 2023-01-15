@@ -70,12 +70,9 @@ class MarkCompact final : public GarbageCollector {
   void RunPhases() override REQUIRES(!Locks::mutator_lock_, !lock_);
 
   // Updated before (or in) pre-compaction pause and is accessed only in the
-  // pause or during concurrent compaction. The flag is reset after compaction
-  // is completed and never accessed by mutators. Therefore, safe to update
-  // without any memory ordering.
-  bool IsCompacting(Thread* self) const {
-    return compacting_.load(std::memory_order_relaxed) && self == thread_running_gc_;
-  }
+  // pause or during concurrent compaction. The flag is reset in next GC cycle's
+  // InitializePhase(). Therefore, it's safe to update without any memory ordering.
+  bool IsCompacting() const { return compacting_.load(std::memory_order_relaxed); }
 
   bool IsUsingSigbusFeature() const { return use_uffd_sigbus_; }
 
@@ -128,11 +125,6 @@ class MarkCompact final : public GarbageCollector {
 
   mirror::Object* IsMarked(mirror::Object* obj) override
       REQUIRES_SHARED(Locks::mutator_lock_, Locks::heap_bitmap_lock_);
-
-  // Perform GC-root updation and heap protection so that during the concurrent
-  // compaction phase we can receive faults and compact the corresponding pages
-  // on the fly. This is performed in a STW pause.
-  void CompactionPause() REQUIRES(Locks::mutator_lock_, !Locks::heap_bitmap_lock_);
 
   mirror::Object* GetFromSpaceAddrFromBarrier(mirror::Object* old_ref) {
     CHECK(compacting_.load(std::memory_order_relaxed));
@@ -303,7 +295,7 @@ class MarkCompact final : public GarbageCollector {
   // Updates GC-roots and protects heap so that during the concurrent
   // compaction phase we can receive faults and compact the corresponding pages
   // on the fly.
-  void PreCompactionPhase() REQUIRES(Locks::mutator_lock_);
+  void CompactionPause() REQUIRES(Locks::mutator_lock_);
   // Compute offsets (in chunk_info_vec_) and other data structures required
   // during concurrent compaction.
   void PrepareForCompaction() REQUIRES_SHARED(Locks::mutator_lock_);
@@ -525,7 +517,8 @@ class MarkCompact final : public GarbageCollector {
   // Every object inside the immune spaces is assumed to be marked.
   ImmuneSpaces immune_spaces_;
   // Required only when mark-stack is accessed in shared mode, which happens
-  // when collecting thread-stack roots using checkpoint.
+  // when collecting thread-stack roots using checkpoint. Otherwise, we use it
+  // to synchronize on updated_roots_ in debug-builds.
   Mutex lock_;
   accounting::ObjectStack* mark_stack_;
   // Special bitmap wherein all the bits corresponding to an object are set.
@@ -749,6 +742,8 @@ class MarkCompact final : public GarbageCollector {
   // minor-fault from next GC.
   bool map_linear_alloc_shared_;
 
+  class FlipCallback;
+  class ThreadFlipVisitor;
   class VerifyRootMarkedVisitor;
   class ScanObjectVisitor;
   class CheckpointMarkThreadRoots;
