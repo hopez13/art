@@ -282,6 +282,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f18a025f_09be9f4b",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 9472,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-01-16T12:13:56Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "75e41d9e_0d949b85",
+      "revId": "1fd6887d1484bb13ba247bbb12acb05d6a17cf76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "048000e8_1e72a3dd",
@@ -360,6 +378,24 @@
       "side": 1,
       "message": "Yes, `FindMethodToCall` can throw, but that\u0027s OK, as we won\u0027t need to call it again line 2223 (which should throw the same exception).",
       "parentUuid": "f24f3d97_42b3605a",
+      "revId": "1fd6887d1484bb13ba247bbb12acb05d6a17cf76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca1bff73_149de93f",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2207,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-01-16T12:13:56Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "72f4f1ca_2951b78b",
       "revId": "1fd6887d1484bb13ba247bbb12acb05d6a17cf76",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
