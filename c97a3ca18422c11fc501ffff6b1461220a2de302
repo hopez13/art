@@ -22,6 +22,30 @@
       },
       "revId": "c97a3ca18422c11fc501ffff6b1461220a2de302",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc38382f_d03eb8c8",
+        "filename": "runtime/jni/jni_internal_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-01-16T13:19:46Z",
+      "side": 1,
+      "message": "Not really, reserving space for 128 local references does not matter for `JniInternalTest`.\n\nNevertheless, this is moot as I\u0027ve reverted this part of the change. It turns out we cannot really assert that the LRT is empty because the ART module needs to handle `AndroidRuntime.cpp` on Android 12-13 enabling CheckJNI with some local references already created.",
+      "parentUuid": "1b0279b9_3c5257b1",
+      "range": {
+        "startLine": 158,
+        "startChar": 2,
+        "endLine": 158,
+        "endChar": 40
+      },
+      "revId": "c97a3ca18422c11fc501ffff6b1461220a2de302",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
