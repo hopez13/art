@@ -1,0 +1,216 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d8ee6f62_b10f8baa",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-01-16T10:44:31Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 9,
+        "startChar": 39,
+        "endLine": 9,
+        "endChar": 45
+      },
+      "revId": "006466e950853c523e48dcb02c2a28d75f8f2944",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "28e1168f_3a7508c1",
+        "filename": "runtime/common_dex_operations.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-01-16T10:44:31Z",
+      "side": 1,
+      "message": "Reorder (check `reg !\u003d nullptr` first).",
+      "range": {
+        "startLine": 239,
+        "startChar": 10,
+        "endLine": 239,
+        "endChar": 73
+      },
+      "revId": "006466e950853c523e48dcb02c2a28d75f8f2944",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1fd2dd15_0d87d5fd",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-01-16T10:44:31Z",
+      "side": 1,
+      "message": "This is now doing `DoMonitorCheckOnExit()`. Is this behavioral change intended?",
+      "range": {
+        "startLine": 304,
+        "startChar": 8,
+        "endLine": 304,
+        "endChar": 32
+      },
+      "revId": "006466e950853c523e48dcb02c2a28d75f8f2944",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "55994bb8_b9316660",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-01-16T10:44:31Z",
+      "side": 1,
+      "message": "Unnecessary but it can be `DCHECK()`ed in the then-block.\n\nWe know that `DCHECK_IMPLIES(frame-\u003eGetMethod()-\u003eMustCountLocks(), !frame-\u003eGetMethod()-\u003eSkipAccessChecks())` when we\u0027re executing the method. We should clear `kAccSkipAccessChecks` before setting `kAccMustCountLocks` in `ArtMethod::SetMustCountLocks()` to make this valid at all times.",
+      "range": {
+        "startLine": 86,
+        "startChar": 6,
+        "endLine": 86,
+        "endChar": 45
+      },
+      "revId": "006466e950853c523e48dcb02c2a28d75f8f2944",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fffeb804_a9f9fa1f",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-01-16T10:44:31Z",
+      "side": 1,
+      "message": "No longer a template method, so move the definition to the .cc file, drop `static NO_INLINE` and add `COLD_ATTR`.",
+      "range": {
+        "startLine": 158,
+        "startChar": 22,
+        "endLine": 158,
+        "endChar": 40
+      },
+      "revId": "006466e950853c523e48dcb02c2a28d75f8f2944",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b7ceb8a_c59e31c6",
+        "filename": "runtime/interpreter/interpreter_switch_impl-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-01-16T10:44:31Z",
+      "side": 1,
+      "message": "Reorder (check `obj_result !\u003d nullptr` first) and wrap `DoAssignabilityChecks()` in `UNLIKELY()`.",
+      "range": {
+        "startLine": 465,
+        "startChar": 8,
+        "endLine": 465,
+        "endChar": 56
+      },
+      "revId": "006466e950853c523e48dcb02c2a28d75f8f2944",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "21cd57d6_0708ff55",
+        "filename": "runtime/interpreter/interpreter_switch_impl-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 485,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-01-16T10:44:31Z",
+      "side": 1,
+      "message": "Improvement opportunity: Split the `if` below into two and move the SHS and `Handle\u003c\u003e` construction under `if (UNLIKELY(NeedsMethodExitEvent(Instrumentation())))` to avoid the SHS in the main path.",
+      "range": {
+        "startLine": 484,
+        "startChar": 4,
+        "endLine": 485,
+        "endChar": 69
+      },
+      "revId": "006466e950853c523e48dcb02c2a28d75f8f2944",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a17b5bc_4c34816d",
+        "filename": "runtime/interpreter/interpreter_switch_impl-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 558,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-01-16T10:44:31Z",
+      "side": 1,
+      "message": "Line too long.",
+      "revId": "006466e950853c523e48dcb02c2a28d75f8f2944",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff975abc_bebbbee3",
+        "filename": "runtime/interpreter/interpreter_switch_impl-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 621,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-01-16T10:44:31Z",
+      "side": 1,
+      "message": "Line too long.",
+      "revId": "006466e950853c523e48dcb02c2a28d75f8f2944",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45ff90e3_0366df00",
+        "filename": "runtime/interpreter/interpreter_switch_impl-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 638,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-01-16T10:44:31Z",
+      "side": 1,
+      "message": "Line too long.",
+      "revId": "006466e950853c523e48dcb02c2a28d75f8f2944",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
