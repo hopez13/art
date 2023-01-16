@@ -22,6 +22,30 @@
       },
       "revId": "9c01805f0e20cfd26e0bda312f3bfe0809cb4ec1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d0dcc09_1f70b5a1",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1181,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-01-16T15:58:48Z",
+      "side": 1,
+      "message": "Yes, it should be in the suspended state, as it just got created and isn\u0027t invoking Java code.",
+      "parentUuid": "442dca20_5dc2fe7e",
+      "range": {
+        "startLine": 1181,
+        "startChar": 0,
+        "endLine": 1181,
+        "endChar": 41
+      },
+      "revId": "9c01805f0e20cfd26e0bda312f3bfe0809cb4ec1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
