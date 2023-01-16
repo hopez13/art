@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "442dca20_5dc2fe7e",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1181,
+      "author": {
+        "id": 1386032
+      },
+      "writtenOn": "2023-01-16T15:55:59Z",
+      "side": 1,
+      "message": "The \u0027regular-mode\u0027 heap dump is using this thread - it runs no other code besides reacting to the signal and getting the heap dump.\n\nIs it safe to assume that this thread will be in the suspended state? Or should suspend it (\u003d move the suspension into ForkAndRun())",
+      "range": {
+        "startLine": 1181,
+        "startChar": 0,
+        "endLine": 1181,
+        "endChar": 41
+      },
+      "revId": "9c01805f0e20cfd26e0bda312f3bfe0809cb4ec1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
