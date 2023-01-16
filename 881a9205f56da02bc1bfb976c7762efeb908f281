@@ -96,6 +96,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c03767d_ea4889f7",
+        "filename": "libartpalette/apex/palette.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-01-16T08:50:23Z",
+      "side": 1,
+      "message": "I see.",
+      "parentUuid": "8e5d2de9_8e03fa09",
+      "range": {
+        "startLine": 249,
+        "startChar": 56,
+        "endLine": 249,
+        "endChar": 58
+      },
+      "revId": "881a9205f56da02bc1bfb976c7762efeb908f281",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ad7f6206_2d0c8d83",
@@ -399,6 +423,24 @@
       "side": 1,
       "message": "Spent all day yesterday trying to create a ticket with number XXX, but it just didn\u0027t work, what an outrage! Gave up and filed b/265435354 instead.",
       "parentUuid": "790c026f_d1010909",
+      "revId": "881a9205f56da02bc1bfb976c7762efeb908f281",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "415e6bde_0c5393c5",
+        "filename": "libartpalette/libartpalette.map",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-01-16T08:50:23Z",
+      "side": 1,
+      "message": "What an outrage!",
+      "parentUuid": "bfb20357_03eb92df",
       "revId": "881a9205f56da02bc1bfb976c7762efeb908f281",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
