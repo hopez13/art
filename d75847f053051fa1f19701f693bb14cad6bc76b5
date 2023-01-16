@@ -16,6 +16,63 @@
       "message": "This was a bug that existed since some time. I only discovered it now when cleaning up. Unlikely this caused any test failures or related to failures related to structural redefinition since we only ever restore the stack at the end of the test. I will try to create a test but that might take time, so uploaded the fix first.",
       "revId": "d75847f053051fa1f19701f693bb14cad6bc76b5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "91ce5243_9141e1c4",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 670,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-01-16T21:29:38Z",
+      "side": 1,
+      "message": "`return false` here?",
+      "revId": "d75847f053051fa1f19701f693bb14cad6bc76b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b13804ac_138f5a24",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 681,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-01-16T21:29:38Z",
+      "side": 1,
+      "message": "Add a comment why the opposite isn\u0027t true? (ie `IsDeoptCheckRequired` doesn\u0027t mean we will find a `IsDeoptCheckRequired`)",
+      "range": {
+        "startLine": 681,
+        "startChar": 0,
+        "endLine": 681,
+        "endChar": 84
+      },
+      "revId": "d75847f053051fa1f19701f693bb14cad6bc76b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9558d4d6_c27abb61",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 683,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-01-16T21:29:38Z",
+      "side": 1,
+      "message": "nit: add a comment. What if it was `true` before?",
+      "revId": "d75847f053051fa1f19701f693bb14cad6bc76b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
