@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f380fb24_552cd8bc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-01-16T17:32:42Z",
+      "side": 1,
+      "message": "This was a bug that existed since some time. I only discovered it now when cleaning up. Unlikely this caused any test failures or related to failures related to structural redefinition since we only ever restore the stack at the end of the test. I will try to create a test but that might take time, so uploaded the fix first.",
+      "revId": "d75847f053051fa1f19701f693bb14cad6bc76b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
