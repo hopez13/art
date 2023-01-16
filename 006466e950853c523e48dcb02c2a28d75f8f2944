@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "faf8fa7a_9f717e99",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-01-16T15:17:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d8ee6f62_b10f8baa",
+      "range": {
+        "startLine": 9,
+        "startChar": 39,
+        "endLine": 9,
+        "endChar": 45
+      },
+      "revId": "006466e950853c523e48dcb02c2a28d75f8f2944",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "28e1168f_3a7508c1",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-01-16T10:44:31Z",
       "side": 1,
       "message": "Reorder (check `reg !\u003d nullptr` first).",
+      "range": {
+        "startLine": 239,
+        "startChar": 10,
+        "endLine": 239,
+        "endChar": 73
+      },
+      "revId": "006466e950853c523e48dcb02c2a28d75f8f2944",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e08f585c_2adec335",
+        "filename": "runtime/common_dex_operations.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-01-16T15:17:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "28e1168f_3a7508c1",
       "range": {
         "startLine": 239,
         "startChar": 10,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c612007_839bc588",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-01-16T15:17:25Z",
+      "side": 1,
+      "message": "Great catch. No that wasn\u0027t intended (though the logic isn\u0027t documented).",
+      "parentUuid": "1fd2dd15_0d87d5fd",
+      "range": {
+        "startLine": 304,
+        "startChar": 8,
+        "endLine": 304,
+        "endChar": 32
+      },
+      "revId": "006466e950853c523e48dcb02c2a28d75f8f2944",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "55994bb8_b9316660",
@@ -83,6 +155,30 @@
       "writtenOn": "2023-01-16T10:44:31Z",
       "side": 1,
       "message": "Unnecessary but it can be `DCHECK()`ed in the then-block.\n\nWe know that `DCHECK_IMPLIES(frame-\u003eGetMethod()-\u003eMustCountLocks(), !frame-\u003eGetMethod()-\u003eSkipAccessChecks())` when we\u0027re executing the method. We should clear `kAccSkipAccessChecks` before setting `kAccMustCountLocks` in `ArtMethod::SetMustCountLocks()` to make this valid at all times.",
+      "range": {
+        "startLine": 86,
+        "startChar": 6,
+        "endLine": 86,
+        "endChar": 45
+      },
+      "revId": "006466e950853c523e48dcb02c2a28d75f8f2944",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "071d32c6_642362f5",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-01-16T15:17:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "55994bb8_b9316660",
       "range": {
         "startLine": 86,
         "startChar": 6,
@@ -116,6 +212,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "af24f386_a3f27aad",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-01-16T15:17:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fffeb804_a9f9fa1f",
+      "range": {
+        "startLine": 158,
+        "startChar": 22,
+        "endLine": 158,
+        "endChar": 40
+      },
+      "revId": "006466e950853c523e48dcb02c2a28d75f8f2944",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4b7ceb8a_c59e31c6",
@@ -129,6 +249,30 @@
       "writtenOn": "2023-01-16T10:44:31Z",
       "side": 1,
       "message": "Reorder (check `obj_result !\u003d nullptr` first) and wrap `DoAssignabilityChecks()` in `UNLIKELY()`.",
+      "range": {
+        "startLine": 465,
+        "startChar": 8,
+        "endLine": 465,
+        "endChar": 56
+      },
+      "revId": "006466e950853c523e48dcb02c2a28d75f8f2944",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "29bbec2f_2b269a4c",
+        "filename": "runtime/interpreter/interpreter_switch_impl-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-01-16T15:17:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4b7ceb8a_c59e31c6",
       "range": {
         "startLine": 465,
         "startChar": 8,
@@ -162,6 +306,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d37d0d9e_b9c08a94",
+        "filename": "runtime/interpreter/interpreter_switch_impl-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 485,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-01-16T15:17:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "21cd57d6_0708ff55",
+      "range": {
+        "startLine": 484,
+        "startChar": 4,
+        "endLine": 485,
+        "endChar": 69
+      },
+      "revId": "006466e950853c523e48dcb02c2a28d75f8f2944",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1a17b5bc_4c34816d",
@@ -175,6 +343,24 @@
       "writtenOn": "2023-01-16T10:44:31Z",
       "side": 1,
       "message": "Line too long.",
+      "revId": "006466e950853c523e48dcb02c2a28d75f8f2944",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6bdcf8f9_f789386d",
+        "filename": "runtime/interpreter/interpreter_switch_impl-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 558,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-01-16T15:17:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1a17b5bc_4c34816d",
       "revId": "006466e950853c523e48dcb02c2a28d75f8f2944",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -196,6 +382,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "35b65529_e5d25ee5",
+        "filename": "runtime/interpreter/interpreter_switch_impl-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 621,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-01-16T15:17:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ff975abc_bebbbee3",
+      "revId": "006466e950853c523e48dcb02c2a28d75f8f2944",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "45ff90e3_0366df00",
@@ -209,6 +413,24 @@
       "writtenOn": "2023-01-16T10:44:31Z",
       "side": 1,
       "message": "Line too long.",
+      "revId": "006466e950853c523e48dcb02c2a28d75f8f2944",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "93441f9d_808e097f",
+        "filename": "runtime/interpreter/interpreter_switch_impl-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 638,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-01-16T15:17:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "45ff90e3_0366df00",
       "revId": "006466e950853c523e48dcb02c2a28d75f8f2944",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
