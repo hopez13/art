@@ -24,6 +24,7 @@
 #include <sys/utsname.h>
 #include <unistd.h>
 #endif
+#include "arch/instruction_set.h"
 #include "macros.h"
 
 #if defined(__BIONIC__)
@@ -48,6 +49,18 @@ namespace art {
 #if defined(__NR_membarrier)
 
 int membarrier(MembarrierCommand command) {
+  // On x86, the `kPrivateExpedited` command is unnecessary thanks to the memory model.
+  // The corresponding `kRegisterPrivateExpedited` command is not implemented by the kernel.
+  if (kRuntimeISA == InstructionSet::kX86 || kRuntimeISA == InstructionSet::kX86_64) {
+    if (command == MembarrierCommand::kPrivateExpedited) {
+      // We still want to prevent instruction reordering in case of whole program optimization.
+      std::atomic_signal_fence(std::memory_order_seq_cst);
+      return 0;
+    }
+    if (command == MembarrierCommand::kRegisterPrivateExpedited) {
+      return 0;
+    }
+  }
   // Check kernel version supports membarrier(2).
   static constexpr int kRequiredMajor = 4;
   static constexpr int kRequiredMinor = 16;
