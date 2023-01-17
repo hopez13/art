@@ -1831,7 +1831,7 @@ bool Runtime::Init(RuntimeArgumentMap&& runtime_options_in) {
         intern_table_,
         runtime_options.GetOrDefault(Opt::FastClassNotFoundException));
   }
-  if (GetHeap()->HasBootImageSpace()) {
+  if (GetHeap()->HasBootImageSpace()/* && kRuntimeISA != InstructionSet::kRiscv64*/) {
     bool result = class_linker_->InitFromBootImage(&error_msg);
     if (!result) {
       LOG(ERROR) << "Could not initialize from image: " << error_msg;
@@ -3188,7 +3188,7 @@ void Runtime::RegisterSensitiveThread() const {
 
 // Returns true if JIT compilations are enabled. GetJit() will be not null in this case.
 bool Runtime::UseJitCompilation() const {
-  return (jit_ != nullptr) && jit_->UseJitCompilation();
+  return kRuntimeISA != InstructionSet::kRiscv64 && (jit_ != nullptr) && jit_->UseJitCompilation();
 }
 
 void Runtime::EnvSnapshot::TakeSnapshot() {

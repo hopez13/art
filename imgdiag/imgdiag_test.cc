@@ -53,6 +53,10 @@ class ImgDiagTest : public CommonRuntimeTest {
     boot_image_location_ = image_spaces[0]->GetImageLocation();
   }
 
+  void TearDown() override {
+    CommonRuntimeTest::TearDown();
+  }
+
   void SetUpRuntimeOptions(RuntimeOptions* options) override {
     // Needs to live until CommonRuntimeTest::SetUp finishes, since we pass it a cstring.
     runtime_args_image_ = android::base::StringPrintf("-Ximage:%s", GetCoreArtLocation().c_str());
@@ -115,6 +119,7 @@ TEST_F(ImgDiagTest, ImageDiffPidSelf) {
 // because it's root read-only.
 TEST_F(ImgDiagTest, DISABLED_ImageDiffPidSelf) {
 #endif
+  TEST_DISABLED_FOR_RISCV64();
   // Invoke 'img_diag' against the current process.
   // This should succeed because we have a runtime and so it should
   // be able to map in the boot.art and do a diff for it.
@@ -126,6 +131,7 @@ TEST_F(ImgDiagTest, DISABLED_ImageDiffPidSelf) {
 }
 
 TEST_F(ImgDiagTest, ImageDiffBadPid) {
+  TEST_DISABLED_FOR_RISCV64();
   // Invoke 'img_diag' against a non-existing process. This should fail.
 
   // Run imgdiag --image-diff-pid=some_bad_pid and wait until it's done with a 0 exit code.

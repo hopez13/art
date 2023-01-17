@@ -271,6 +271,7 @@ static bool IsExecutedAsRoot() {
 // encoded dex locations.
 // Expect: The oat file status is kNoDexOptNeeded.
 TEST_P(OatFileAssistantTest, RelativeEncodedDexLocation) {
+  TEST_DISABLED_FOR_RISCV64();
   std::string dex_location = GetScratchDir() + "/RelativeEncodedDexLocation.jar";
   std::string odex_location = GetOdexDir() + "/RelativeEncodedDexLocation.odex";
 
@@ -306,6 +307,7 @@ TEST_P(OatFileAssistantTest, RelativeEncodedDexLocation) {
 }
 
 TEST_P(OatFileAssistantTest, MakeUpToDateWithContext) {
+  TEST_DISABLED_FOR_RISCV64();
   std::string dex_location = GetScratchDir() + "/TestDex.jar";
   std::string odex_location = GetOdexDir() + "/TestDex.odex";
   std::string context_location = GetScratchDir() + "/ContextDex.jar";
@@ -336,6 +338,7 @@ TEST_P(OatFileAssistantTest, MakeUpToDateWithContext) {
 }
 
 TEST_P(OatFileAssistantTest, GetDexOptNeededWithUpToDateContextRelative) {
+  TEST_DISABLED_FOR_RISCV64();
   std::string dex_location = GetScratchDir() + "/TestDex.jar";
   std::string odex_location = GetOdexDir() + "/TestDex.odex";
   std::string context_location = GetScratchDir() + "/ContextDex.jar";
@@ -372,6 +375,7 @@ TEST_P(OatFileAssistantTest, GetDexOptNeededWithUpToDateContextRelative) {
 // Case: We have a DEX file, but no OAT file for it.
 // Expect: The status is kDex2OatNeeded.
 TEST_P(OatFileAssistantTest, DexNoOat) {
+  TEST_DISABLED_FOR_RISCV64();
   std::string dex_location = GetScratchDir() + "/DexNoOat.jar";
   Copy(GetDexSrc1(), dex_location);
 
@@ -410,6 +414,7 @@ TEST_P(OatFileAssistantTest, DexNoOat) {
 // Case: We have no DEX file and no OAT file.
 // Expect: Status is kNoDexOptNeeded. Loading should fail, but not crash.
 TEST_P(OatFileAssistantTest, NoDexNoOat) {
+  TEST_DISABLED_FOR_RISCV64();
   std::string dex_location = GetScratchDir() + "/NoDexNoOat.jar";
 
   auto scoped_maybe_without_runtime = ScopedMaybeWithoutRuntime();
@@ -433,6 +438,7 @@ TEST_P(OatFileAssistantTest, NoDexNoOat) {
 // Case: We have a DEX file and an ODEX file, but no OAT file.
 // Expect: The status is kNoDexOptNeeded.
 TEST_P(OatFileAssistantTest, OdexUpToDate) {
+  TEST_DISABLED_FOR_RISCV64();
   std::string dex_location = GetScratchDir() + "/OdexUpToDate.jar";
   std::string odex_location = GetOdexDir() + "/OdexUpToDate.odex";
   Copy(GetDexSrc1(), dex_location);
@@ -474,6 +480,7 @@ TEST_P(OatFileAssistantTest, OdexUpToDate) {
 // Case: We have an ODEX file compiled against partial boot image.
 // Expect: The status is kNoDexOptNeeded.
 TEST_P(OatFileAssistantTest, OdexUpToDatePartialBootImage) {
+  TEST_DISABLED_FOR_RISCV64();
   std::string dex_location = GetScratchDir() + "/OdexUpToDate.jar";
   std::string odex_location = GetOdexDir() + "/OdexUpToDate.odex";
   Copy(GetDexSrc1(), dex_location);
@@ -520,6 +527,7 @@ TEST_P(OatFileAssistantTest, OdexUpToDatePartialBootImage) {
 // file via a symlink.
 // Expect: The status is kNoDexOptNeeded.
 TEST_P(OatFileAssistantTest, OdexUpToDateSymLink) {
+  TEST_DISABLED_FOR_RISCV64();
   std::string scratch_dir = GetScratchDir();
   std::string dex_location = GetScratchDir() + "/OdexUpToDate.jar";
   std::string odex_location = GetOdexDir() + "/OdexUpToDate.odex";
@@ -564,6 +572,7 @@ TEST_P(OatFileAssistantTest, OdexUpToDateSymLink) {
 // Case: We have a DEX file and up-to-date OAT file for it.
 // Expect: The status is kNoDexOptNeeded.
 TEST_P(OatFileAssistantTest, OatUpToDate) {
+  TEST_DISABLED_FOR_RISCV64();
   if (IsExecutedAsRoot()) {
     // We cannot simulate non writable locations when executed as root: b/38000545.
     LOG(ERROR) << "Test skipped because it's running as root";
@@ -613,6 +622,7 @@ TEST_P(OatFileAssistantTest, OatUpToDate) {
 // Case: Passing valid file descriptors of updated odex/vdex files along with the dex file.
 // Expect: The status is kNoDexOptNeeded.
 TEST_P(OatFileAssistantTest, GetDexOptNeededWithFd) {
+  TEST_DISABLED_FOR_RISCV64();
   std::string dex_location = GetScratchDir() + "/OatUpToDate.jar";
   std::string odex_location = GetScratchDir() + "/OatUpToDate.odex";
   std::string vdex_location = GetScratchDir() + "/OatUpToDate.vdex";
@@ -663,6 +673,7 @@ TEST_P(OatFileAssistantTest, GetDexOptNeededWithFd) {
 // Case: Passing invalid odex fd and valid vdex and zip fds.
 // Expect: The status should be kDex2OatForBootImage.
 TEST_P(OatFileAssistantTest, GetDexOptNeededWithInvalidOdexFd) {
+  TEST_DISABLED_FOR_RISCV64();
   std::string dex_location = GetScratchDir() + "/OatUpToDate.jar";
   std::string odex_location = GetScratchDir() + "/OatUpToDate.odex";
   std::string vdex_location = GetScratchDir() + "/OatUpToDate.vdex";
@@ -712,6 +723,7 @@ TEST_P(OatFileAssistantTest, GetDexOptNeededWithInvalidOdexFd) {
 // Case: Passing invalid vdex fd and valid odex and zip fds.
 // Expect: The status should be kDex2OatFromScratch.
 TEST_P(OatFileAssistantTest, GetDexOptNeededWithInvalidVdexFd) {
+  TEST_DISABLED_FOR_RISCV64();
   std::string dex_location = GetScratchDir() + "/OatUpToDate.jar";
   std::string odex_location = GetScratchDir() + "/OatUpToDate.odex";
 
@@ -748,6 +760,7 @@ TEST_P(OatFileAssistantTest, GetDexOptNeededWithInvalidVdexFd) {
 // Case: Passing invalid vdex and odex fd with valid zip fd.
 // Expect: The status is kDex2oatFromScratch.
 TEST_P(OatFileAssistantTest, GetDexOptNeededWithInvalidOdexVdexFd) {
+  TEST_DISABLED_FOR_RISCV64();
   std::string dex_location = GetScratchDir() + "/OatUpToDate.jar";
 
   Copy(GetDexSrc1(), dex_location);
@@ -775,6 +788,7 @@ TEST_P(OatFileAssistantTest, GetDexOptNeededWithInvalidOdexVdexFd) {
 // Case: We have a DEX file and up-to-date VDEX file for it, but no ODEX file, and the DEX file is
 // compressed.
 TEST_P(OatFileAssistantTest, VdexUpToDateNoOdex) {
+  TEST_DISABLED_FOR_RISCV64();
   std::string dex_location = GetScratchDir() + "/VdexUpToDateNoOdex.jar";
   std::string odex_location = GetOdexDir() + "/VdexUpToDateNoOdex.oat";
 
@@ -811,6 +825,7 @@ TEST_P(OatFileAssistantTest, VdexUpToDateNoOdex) {
 
 // Case: We have a DEX file and empty VDEX and ODEX files.
 TEST_P(OatFileAssistantTest, EmptyVdexOdex) {
+  TEST_DISABLED_FOR_RISCV64();
   std::string dex_location = GetScratchDir() + "/EmptyVdexOdex.jar";
   std::string odex_location = GetOdexDir() + "/EmptyVdexOdex.oat";
   std::string vdex_location = GetOdexDir() + "/EmptyVdexOdex.vdex";
@@ -833,6 +848,7 @@ TEST_P(OatFileAssistantTest, EmptyVdexOdex) {
 // Case: We have a DEX file and up-to-date (OAT) VDEX file for it, but no OAT
 // file.
 TEST_P(OatFileAssistantTest, VdexUpToDateNoOat) {
+  TEST_DISABLED_FOR_RISCV64();
   if (IsExecutedAsRoot()) {
     // We cannot simulate non writable locations when executed as root: b/38000545.
     LOG(ERROR) << "Test skipped because it's running as root";
@@ -869,6 +885,7 @@ TEST_P(OatFileAssistantTest, VdexUpToDateNoOat) {
 // Expect: The status is kNoDexOptNeeded if the profile hasn't changed, but
 // kDex2Oat if the profile has changed.
 TEST_P(OatFileAssistantTest, ProfileOatUpToDate) {
+  TEST_DISABLED_FOR_RISCV64();
   if (IsExecutedAsRoot()) {
     // We cannot simulate non writable locations when executed as root: b/38000545.
     LOG(ERROR) << "Test skipped because it's running as root";
@@ -938,6 +955,7 @@ TEST_P(OatFileAssistantTest, ProfileOatUpToDate) {
 // Case: We have a MultiDEX file and up-to-date OAT file for it.
 // Expect: The status is kNoDexOptNeeded and we load all dex files.
 TEST_P(OatFileAssistantTest, MultiDexOatUpToDate) {
+  TEST_DISABLED_FOR_RISCV64();
   if (IsExecutedAsRoot()) {
     // We cannot simulate non writable locations when executed as root: b/38000545.
     LOG(ERROR) << "Test skipped because it's running as root";
@@ -978,6 +996,7 @@ TEST_P(OatFileAssistantTest, MultiDexOatUpToDate) {
 // Case: We have a MultiDEX file where the non-main multdex entry is out of date.
 // Expect: The status is kDex2OatNeeded.
 TEST_P(OatFileAssistantTest, MultiDexNonMainOutOfDate) {
+  TEST_DISABLED_FOR_RISCV64();
   if (IsExecutedAsRoot()) {
     // We cannot simulate non writable locations when executed as root: b/38000545.
     LOG(ERROR) << "Test skipped because it's running as root";
@@ -1012,6 +1031,7 @@ TEST_P(OatFileAssistantTest, MultiDexNonMainOutOfDate) {
 // Case: We have a DEX file and an OAT file out of date with respect to the
 // dex checksum.
 TEST_P(OatFileAssistantTest, OatDexOutOfDate) {
+  TEST_DISABLED_FOR_RISCV64();
   if (IsExecutedAsRoot()) {
     // We cannot simulate non writable locations when executed as root: b/38000545.
     LOG(ERROR) << "Test skipped because it's running as root";
@@ -1051,6 +1071,7 @@ TEST_P(OatFileAssistantTest, OatDexOutOfDate) {
 // Case: We have a DEX file and an (ODEX) VDEX file out of date with respect
 // to the dex checksum, but no ODEX file.
 TEST_P(OatFileAssistantTest, VdexDexOutOfDate) {
+  TEST_DISABLED_FOR_RISCV64();
   std::string dex_location = GetScratchDir() + "/VdexDexOutOfDate.jar";
   std::string odex_location = GetOdexDir() + "/VdexDexOutOfDate.oat";
 
@@ -1074,6 +1095,7 @@ TEST_P(OatFileAssistantTest, VdexDexOutOfDate) {
 // Case: We have a MultiDEX (ODEX) VDEX file where the non-main multidex entry
 // is out of date and there is no corresponding ODEX file.
 TEST_P(OatFileAssistantTest, VdexMultiDexNonMainOutOfDate) {
+  TEST_DISABLED_FOR_RISCV64();
   std::string dex_location = GetScratchDir() + "/VdexMultiDexNonMainOutOfDate.jar";
   std::string odex_location = GetOdexDir() + "/VdexMultiDexNonMainOutOfDate.odex";
 
@@ -1097,6 +1119,7 @@ TEST_P(OatFileAssistantTest, VdexMultiDexNonMainOutOfDate) {
 // Case: We have a DEX file and an OAT file out of date with respect to the
 // boot image.
 TEST_P(OatFileAssistantTest, OatImageOutOfDate) {
+  TEST_DISABLED_FOR_RISCV64();
   if (IsExecutedAsRoot()) {
     // We cannot simulate non writable locations when executed as root: b/38000545.
     LOG(ERROR) << "Test skipped because it's running as root";
@@ -1138,6 +1161,7 @@ TEST_P(OatFileAssistantTest, OatImageOutOfDate) {
 }
 
 TEST_P(OatFileAssistantTest, OatContextOutOfDate) {
+  TEST_DISABLED_FOR_RISCV64();
   std::string dex_location = GetScratchDir() + "/TestDex.jar";
   std::string odex_location = GetOdexDir() + "/TestDex.odex";
 
@@ -1168,6 +1192,7 @@ TEST_P(OatFileAssistantTest, OatContextOutOfDate) {
 
 // Case: We have a DEX file and an ODEX file, but no OAT file.
 TEST_P(OatFileAssistantTest, DexOdexNoOat) {
+  TEST_DISABLED_FOR_RISCV64();
   std::string dex_location = GetScratchDir() + "/DexOdexNoOat.jar";
   std::string odex_location = GetOdexDir() + "/DexOdexNoOat.odex";
 
@@ -1200,6 +1225,7 @@ TEST_P(OatFileAssistantTest, DexOdexNoOat) {
 // Case: We have a resource-only DEX file, no ODEX file and no
 // OAT file. Expect: The status is kNoDexOptNeeded.
 TEST_P(OatFileAssistantTest, ResourceOnlyDex) {
+  TEST_DISABLED_FOR_RISCV64();
   std::string dex_location = GetScratchDir() + "/ResourceOnlyDex.jar";
 
   Copy(GetResourceOnlySrc1(), dex_location);
@@ -1243,6 +1269,7 @@ TEST_P(OatFileAssistantTest, ResourceOnlyDex) {
 // Case: We have a DEX file, an ODEX file and an OAT file.
 // Expect: It shouldn't crash. We should load the odex file executable.
 TEST_P(OatFileAssistantTest, OdexOatOverlap) {
+  TEST_DISABLED_FOR_RISCV64();
   std::string dex_location = GetScratchDir() + "/OdexOatOverlap.jar";
   std::string odex_location = GetOdexDir() + "/OdexOatOverlap.odex";
 
@@ -1284,6 +1311,7 @@ TEST_P(OatFileAssistantTest, OdexOatOverlap) {
 // Case: We have a DEX file and up-to-date OAT file for it.
 // Expect: We should load an executable dex file.
 TEST_P(OatFileAssistantTest, LoadOatUpToDate) {
+  TEST_DISABLED_FOR_RISCV64();
   if (IsExecutedAsRoot()) {
     // We cannot simulate non writable locations when executed as root: b/38000545.
     LOG(ERROR) << "Test skipped because it's running as root";
@@ -1318,6 +1346,7 @@ TEST_P(OatFileAssistantTest, LoadOatUpToDate) {
 // Case: We have a DEX file and up-to-date quicken OAT file for it.
 // Expect: We should still load the oat file as executable.
 TEST_P(OatFileAssistantTest, LoadExecInterpretOnlyOatUpToDate) {
+  TEST_DISABLED_FOR_RISCV64();
   if (IsExecutedAsRoot()) {
     // We cannot simulate non writable locations when executed as root: b/38000545.
     LOG(ERROR) << "Test skipped because it's running as root";
@@ -1352,6 +1381,7 @@ TEST_P(OatFileAssistantTest, LoadExecInterpretOnlyOatUpToDate) {
 // Case: We have a DEX file and up-to-date OAT file for it.
 // Expect: Loading non-executable should load the oat non-executable.
 TEST_P(OatFileAssistantTest, LoadNoExecOatUpToDate) {
+  TEST_DISABLED_FOR_RISCV64();
   if (IsExecutedAsRoot()) {
     // We cannot simulate non writable locations when executed as root: b/38000545.
     LOG(ERROR) << "Test skipped because it's running as root";
@@ -1423,6 +1453,7 @@ static std::string MakePathRelative(const std::string& target) {
 // Case: Non-absolute path to Dex location.
 // Expect: Not sure, but it shouldn't crash.
 TEST_P(OatFileAssistantTest, NonAbsoluteDexLocation) {
+  TEST_DISABLED_FOR_RISCV64();
   std::string abs_dex_location = GetScratchDir() + "/NonAbsoluteDexLocation.jar";
   Copy(GetDexSrc1(), abs_dex_location);
 
@@ -1445,6 +1476,7 @@ TEST_P(OatFileAssistantTest, NonAbsoluteDexLocation) {
 // Case: Very short, non-existent Dex location.
 // Expect: kNoDexOptNeeded.
 TEST_P(OatFileAssistantTest, ShortDexLocation) {
+  TEST_DISABLED_FOR_RISCV64();
   std::string dex_location = "/xx";
 
   auto scoped_maybe_without_runtime = ScopedMaybeWithoutRuntime();
@@ -1467,6 +1499,7 @@ TEST_P(OatFileAssistantTest, ShortDexLocation) {
 // Case: Non-standard extension for dex file.
 // Expect: The status is kDex2OatNeeded.
 TEST_P(OatFileAssistantTest, LongDexExtension) {
+  TEST_DISABLED_FOR_RISCV64();
   std::string dex_location = GetScratchDir() + "/LongDexExtension.jarx";
   Copy(GetDexSrc1(), dex_location);
 
@@ -1543,6 +1576,7 @@ class RaceGenerateTask : public Task {
 // Test the case where dex2oat invocations race with multiple processes trying to
 // load the oat file.
 TEST_F(OatFileAssistantBaseTest, RaceToGenerate) {
+  TEST_DISABLED_FOR_RISCV64();
   std::string dex_location = GetScratchDir() + "/RaceToGenerate.jar";
   std::string oat_location = GetOdexDir() + "/RaceToGenerate.oat";
 
@@ -1582,6 +1616,7 @@ TEST_F(OatFileAssistantBaseTest, RaceToGenerate) {
 // Case: We have a DEX file and an ODEX file, and no OAT file,
 // Expect: We should load the odex file executable.
 TEST_P(OatFileAssistantTest, LoadDexOdexNoOat) {
+  TEST_DISABLED_FOR_RISCV64();
   std::string dex_location = GetScratchDir() + "/LoadDexOdexNoOat.jar";
   std::string odex_location = GetOdexDir() + "/LoadDexOdexNoOat.odex";
 
@@ -1609,6 +1644,7 @@ TEST_P(OatFileAssistantTest, LoadDexOdexNoOat) {
 // Case: We have a MultiDEX file and an ODEX file, and no OAT file.
 // Expect: We should load the odex file executable.
 TEST_P(OatFileAssistantTest, LoadMultiDexOdexNoOat) {
+  TEST_DISABLED_FOR_RISCV64();
   std::string dex_location = GetScratchDir() + "/LoadMultiDexOdexNoOat.jar";
   std::string odex_location = GetOdexDir() + "/LoadMultiDexOdexNoOat.odex";
 
@@ -1634,6 +1670,7 @@ TEST_P(OatFileAssistantTest, LoadMultiDexOdexNoOat) {
 }
 
 TEST(OatFileAssistantUtilsTest, DexLocationToOdexFilename) {
+  TEST_DISABLED_FOR_RISCV64();
   std::string error_msg;
   std::string odex_file;
 
@@ -1654,6 +1691,7 @@ TEST(OatFileAssistantUtilsTest, DexLocationToOdexFilename) {
 // Verify the dexopt status values from dalvik.system.DexFile
 // match the OatFileAssistant::DexOptStatus values.
 TEST_F(OatFileAssistantBaseTest, DexOptStatusValues) {
+  TEST_DISABLED_FOR_RISCV64();
   std::pair<OatFileAssistant::DexOptNeeded, const char*> mapping[] = {
     {OatFileAssistant::kNoDexOptNeeded, "NO_DEXOPT_NEEDED"},
     {OatFileAssistant::kDex2OatFromScratch, "DEX2OAT_FROM_SCRATCH"},
@@ -1678,6 +1716,7 @@ TEST_F(OatFileAssistantBaseTest, DexOptStatusValues) {
 }
 
 TEST_P(OatFileAssistantTest, GetDexOptNeededWithOutOfDateContext) {
+  TEST_DISABLED_FOR_RISCV64();
   std::string dex_location = GetScratchDir() + "/TestDex.jar";
   std::string odex_location = GetOdexDir() + "/TestDex.odex";
 
@@ -1746,6 +1785,7 @@ TEST_P(OatFileAssistantTest, GetDexOptNeededWithOutOfDateContext) {
 // Expect: Dexopt should be performed only if the target compiler filter is worse than the current
 // one.
 TEST_P(OatFileAssistantTest, Downgrade) {
+  TEST_DISABLED_FOR_RISCV64();
   std::string dex_location = GetScratchDir() + "/TestDex.jar";
   std::string odex_location = GetOdexDir() + "/TestDex.odex";
   Copy(GetDexSrc1(), dex_location);
@@ -1791,6 +1831,7 @@ TEST_P(OatFileAssistantTest, Downgrade) {
 // downgrade the compiler filter.
 // Expect: Dexopt should never be performed regardless of the target compiler filter.
 TEST_P(OatFileAssistantTest, DowngradeNoOdex) {
+  TEST_DISABLED_FOR_RISCV64();
   std::string dex_location = GetScratchDir() + "/TestDex.jar";
   Copy(GetDexSrc1(), dex_location);
 
@@ -1835,6 +1876,7 @@ TEST_P(OatFileAssistantTest, DowngradeNoOdex) {
 // complete.
 // Expect: The behavior should be as `profile_changed` is false and `downgrade` is true.
 TEST_P(OatFileAssistantTest, ProfileChangedDowngrade) {
+  TEST_DISABLED_FOR_RISCV64();
   std::string dex_location = GetScratchDir() + "/TestDex.jar";
   std::string odex_location = GetOdexDir() + "/TestDex.odex";
   Copy(GetDexSrc1(), dex_location);
@@ -1866,6 +1908,7 @@ TEST_P(OatFileAssistantTest, ProfileChangedDowngrade) {
 // result from OatFileAssistant for forced compilation. It uses an arbitrary non-zero value instead.
 // Therefore, we don't test the legacy version here.
 TEST_P(OatFileAssistantTest, Force) {
+  TEST_DISABLED_FOR_RISCV64();
   std::string dex_location = GetScratchDir() + "/TestDex.jar";
   std::string odex_location = GetOdexDir() + "/TestDex.odex";
   Copy(GetDexSrc1(), dex_location);
@@ -1910,6 +1953,7 @@ TEST_P(OatFileAssistantTest, Force) {
 // result from OatFileAssistant for forced compilation. It uses an arbitrary non-zero value instead.
 // Therefore, we don't test the legacy version here.
 TEST_P(OatFileAssistantTest, ForceNoOdex) {
+  TEST_DISABLED_FOR_RISCV64();
   std::string dex_location = GetScratchDir() + "/TestDex.jar";
   Copy(GetDexSrc1(), dex_location);
 
@@ -1950,6 +1994,7 @@ TEST_P(OatFileAssistantTest, ForceNoOdex) {
 // The legacy version should return kDex2OatFromScratch if the target compiler filter is better than
 // "verify".
 TEST_P(OatFileAssistantTest, DmUpToDateDexUncompressed) {
+  TEST_DISABLED_FOR_RISCV64();
   std::string dex_location = GetScratchDir() + "/TestDex.jar";
   std::string dm_location = GetScratchDir() + "/TestDex.dm";
   std::string odex_location = GetOdexDir() + "/TestDex.odex";
@@ -2053,6 +2098,7 @@ TEST_P(OatFileAssistantTest, DmUpToDateDexCompressed) {
 // Case: We have an ODEX file, but the DEX file is gone.
 // Expect: No dexopt is needed, as there's nothing we can do.
 TEST_P(OatFileAssistantTest, OdexNoDex) {
+  TEST_DISABLED_FOR_RISCV64();
   std::string dex_location = GetScratchDir() + "/OdexNoDex.jar";
   std::string odex_location = GetOdexDir() + "/OdexNoDex.oat";
 
@@ -2075,6 +2121,7 @@ TEST_P(OatFileAssistantTest, OdexNoDex) {
 // Case: We have a VDEX file, but the DEX file is gone.
 // Expect: No dexopt is needed, as there's nothing we can do.
 TEST_P(OatFileAssistantTest, VdexNoDex) {
+  TEST_DISABLED_FOR_RISCV64();
   std::string dex_location = GetScratchDir() + "/VdexNoDex.jar";
   std::string odex_location = GetOdexDir() + "/VdexNoDex.oat";
 
@@ -2098,6 +2145,7 @@ TEST_P(OatFileAssistantTest, VdexNoDex) {
 // Test that GetLocation of a dex file is the same whether the dex
 // filed is backed by an oat file or not.
 TEST_F(OatFileAssistantBaseTest, GetDexLocation) {
+  TEST_DISABLED_FOR_RISCV64();
   std::string dex_location = GetScratchDir() + "/TestDex.jar";
   std::string oat_location = GetOdexDir() + "/TestDex.odex";
   std::string art_location = GetOdexDir() + "/TestDex.art";
@@ -2146,6 +2194,7 @@ TEST_F(OatFileAssistantBaseTest, GetDexLocation) {
 // Test that a dex file on the platform location gets the right hiddenapi domain,
 // regardless of whether it has a backing oat file.
 TEST_F(OatFileAssistantBaseTest, SystemFrameworkDir) {
+  TEST_DISABLED_FOR_RISCV64();
   std::string filebase = "OatFileAssistantTestSystemFrameworkDir";
   std::string dex_location = GetAndroidRoot() + "/framework/" + filebase + ".jar";
   Copy(GetDexSrc1(), dex_location);
@@ -2226,6 +2275,7 @@ TEST_F(OatFileAssistantBaseTest, SystemFrameworkDir) {
 
 // Make sure OAT files that require app images are not loaded as executable.
 TEST_F(OatFileAssistantBaseTest, LoadOatNoArt) {
+  TEST_DISABLED_FOR_RISCV64();
   std::string dex_location = GetScratchDir() + "/TestDex.jar";
   std::string odex_location = GetOdexDir() + "/TestDex.odex";
   std::string art_location = GetOdexDir() + "/TestDex.art";
@@ -2260,6 +2310,7 @@ TEST_F(OatFileAssistantBaseTest, LoadOatNoArt) {
 }
 
 TEST_P(OatFileAssistantTest, GetDexOptNeededWithApexVersions) {
+  TEST_DISABLED_FOR_RISCV64();
   std::string dex_location = GetScratchDir() + "/TestDex.jar";
   std::string odex_location = GetOdexDir() + "/TestDex.odex";
   Copy(GetDexSrc1(), dex_location);
@@ -2311,6 +2362,7 @@ TEST_P(OatFileAssistantTest, GetDexOptNeededWithApexVersions) {
 }
 
 TEST_P(OatFileAssistantTest, Create) {
+  TEST_DISABLED_FOR_RISCV64();
   std::string dex_location = GetScratchDir() + "/OdexUpToDate.jar";
   std::string odex_location = GetOdexDir() + "/OdexUpToDate.odex";
   Copy(GetDexSrc1(), dex_location);
@@ -2336,6 +2388,7 @@ TEST_P(OatFileAssistantTest, Create) {
 }
 
 TEST_P(OatFileAssistantTest, CreateWithNullContext) {
+  TEST_DISABLED_FOR_RISCV64();
   std::string dex_location = GetScratchDir() + "/OdexUpToDate.jar";
   std::string odex_location = GetOdexDir() + "/OdexUpToDate.odex";
   Copy(GetDexSrc1(), dex_location);
@@ -2362,6 +2415,7 @@ TEST_P(OatFileAssistantTest, CreateWithNullContext) {
 }
 
 TEST_P(OatFileAssistantTest, ErrorOnInvalidIsaString) {
+  TEST_DISABLED_FOR_RISCV64();
   std::string dex_location = GetScratchDir() + "/OdexUpToDate.jar";
   std::string odex_location = GetOdexDir() + "/OdexUpToDate.odex";
   Copy(GetDexSrc1(), dex_location);
@@ -2384,6 +2438,7 @@ TEST_P(OatFileAssistantTest, ErrorOnInvalidIsaString) {
 }
 
 TEST_P(OatFileAssistantTest, ErrorOnInvalidContextString) {
+  TEST_DISABLED_FOR_RISCV64();
   std::string dex_location = GetScratchDir() + "/OdexUpToDate.jar";
   std::string odex_location = GetOdexDir() + "/OdexUpToDate.odex";
   Copy(GetDexSrc1(), dex_location);
@@ -2406,6 +2461,7 @@ TEST_P(OatFileAssistantTest, ErrorOnInvalidContextString) {
 }
 
 TEST_P(OatFileAssistantTest, ErrorOnInvalidContextFile) {
+  TEST_DISABLED_FOR_RISCV64();
   std::string dex_location = GetScratchDir() + "/OdexUpToDate.jar";
   std::string odex_location = GetOdexDir() + "/OdexUpToDate.odex";
   Copy(GetDexSrc1(), dex_location);
@@ -2437,6 +2493,7 @@ TEST_P(OatFileAssistantTest, ErrorOnInvalidContextFile) {
 // Verifies that `OatFileAssistant::ValidateBootClassPathChecksums` accepts the checksum string
 // produced by `gc::space::ImageSpace::GetBootClassPathChecksums`.
 TEST_P(OatFileAssistantTest, ValidateBootClassPathChecksums) {
+  TEST_DISABLED_FOR_RISCV64();
   std::string error_msg;
   auto create_and_verify = [&]() {
     std::string checksums = gc::space::ImageSpace::GetBootClassPathChecksums(

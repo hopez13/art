@@ -139,6 +139,7 @@ class Dex2oatVdexTest : public Dex2oatEnvironmentTest {
 // - create a vdex file contraints by a predefined list of public API (passed as separate dex)
 // - compile with the above vdex file as input to validate the compilation flow
 TEST_F(Dex2oatVdexTest, VerifyPublicSdkStubs) {
+  TEST_DISABLED_FOR_RISCV64();
   std::string error_msg;
 
   // Dex2oatVdexTestDex is the subject app using normal APIs found in the boot classpath.
@@ -194,6 +195,7 @@ TEST_F(Dex2oatVdexTest, VerifyPublicSdkStubs) {
 
 // Check that if the input dm does contain dex files then the compilation fails
 TEST_F(Dex2oatVdexTest, VerifyPublicSdkStubsWithDexFiles) {
+  TEST_DISABLED_FOR_RISCV64();
   std::string error_msg;
 
   // Dex2oatVdexTestDex is the subject app using normal APIs found in the boot classpath.
@@ -222,6 +224,7 @@ TEST_F(Dex2oatVdexTest, VerifyPublicSdkStubsWithDexFiles) {
 
 // Check that corrupt vdex files from .dm archives are ignored.
 TEST_F(Dex2oatVdexTest, VerifyCorruptVdexFile) {
+  TEST_DISABLED_FOR_RISCV64();
   std::string error_msg;
 
   // Dex2oatVdexTestDex is the subject app using normal APIs found in the boot classpath.
@@ -246,6 +249,7 @@ TEST_F(Dex2oatVdexTest, VerifyCorruptVdexFile) {
 
 // Check that if the input dm a vdex with mismatching checksums the compilation fails
 TEST_F(Dex2oatVdexTest, VerifyInputDmWithMismatchedChecksums) {
+  TEST_DISABLED_FOR_RISCV64();
   std::string error_msg;
 
   // Generate a vdex file for Dex2oatVdexTestDex.

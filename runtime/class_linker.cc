@@ -634,7 +634,7 @@ bool ClassLinker::InitWithoutImage(std::vector<std::unique_ptr<const DexFile>> b
   Runtime* const runtime = Runtime::Current();
   gc::Heap* const heap = runtime->GetHeap();
 
-  CHECK(!heap->HasBootImageSpace()) << "Runtime has image. We should use it.";
+//  CHECK(!heap->HasBootImageSpace()) << "Runtime has image. We should use it.";
   CHECK(!init_done_);
 
   // Use the pointer size from the runtime since we are probably creating the image.

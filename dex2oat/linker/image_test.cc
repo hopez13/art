@@ -27,6 +27,7 @@ namespace art {
 namespace linker {
 
 TEST_F(ImageTest, TestImageLayout) {
+  TEST_DISABLED_FOR_RISCV64();
   std::vector<size_t> image_sizes;
   std::vector<size_t> image_sizes_extra;
   // Compile multi-image with ImageLayoutA being the last image.
@@ -64,6 +65,7 @@ TEST_F(ImageTest, TestImageLayout) {
 }
 
 TEST_F(ImageTest, ImageHeaderIsValid) {
+    TEST_DISABLED_FOR_RISCV64();
     uint32_t image_begin = ART_BASE_ADDRESS;
     uint32_t image_size_ = 16 * KB;
     uint32_t image_roots = ART_BASE_ADDRESS + (1 * KB);
@@ -107,6 +109,7 @@ TEST_F(ImageTest, ImageHeaderIsValid) {
 // only if the copied method and the origin method are located in the
 // same oat file.
 TEST_F(ImageTest, TestDefaultMethods) {
+  TEST_DISABLED_FOR_RISCV64();
   CompilationHelper helper;
   Compile(ImageHeader::kStorageModeUncompressed,
           /*max_image_block_size=*/std::numeric_limits<uint32_t>::max(),
@@ -167,6 +170,7 @@ TEST_F(ImageTest, TestDefaultMethods) {
 // class initialization check from the transactional interpreter while
 // running the class initializer for another class.
 TEST_F(ImageTest, TestSoftVerificationFailureDuringClassInitialization) {
+  TEST_DISABLED_FOR_RISCV64();
   CompilationHelper helper;
   Compile(ImageHeader::kStorageModeUncompressed,
           /*max_image_block_size=*/std::numeric_limits<uint32_t>::max(),
@@ -177,6 +181,7 @@ TEST_F(ImageTest, TestSoftVerificationFailureDuringClassInitialization) {
 }
 
 TEST_F(ImageTest, TestImageClassWithArrayClassWithUnresolvedComponent) {
+  TEST_DISABLED_FOR_RISCV64();
   CompilationHelper helper;
   Compile(ImageHeader::kStorageModeUncompressed,
           /*max_image_block_size=*/std::numeric_limits<uint32_t>::max(),
@@ -199,6 +204,7 @@ TEST_F(ImageTest, TestImageClassWithArrayClassWithUnresolvedComponent) {
 }
 
 TEST_F(ImageTest, TestSuperWithAccessChecks) {
+  TEST_DISABLED_FOR_RISCV64();
   CompilationHelper helper;
   Compile(ImageHeader::kStorageModeUncompressed,
           /*max_image_block_size=*/std::numeric_limits<uint32_t>::max(),

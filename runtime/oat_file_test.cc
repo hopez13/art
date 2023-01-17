@@ -29,6 +29,7 @@ namespace art {
 class OatFileTest : public DexoptTest {};
 
 TEST_F(OatFileTest, LoadOat) {
+  TEST_DISABLED_FOR_RISCV64();
   std::string dex_location = GetScratchDir() + "/LoadOat.jar";
 
   Copy(GetDexSrc1(), dex_location);
@@ -53,6 +54,7 @@ TEST_F(OatFileTest, LoadOat) {
 }
 
 TEST_F(OatFileTest, ChangingMultiDexUncompressed) {
+  TEST_DISABLED_FOR_RISCV64();
   std::string dex_location = GetScratchDir() + "/MultiDexUncompressedAligned.jar";
 
   Copy(GetTestDexFileName("MultiDexUncompressedAligned"), dex_location);

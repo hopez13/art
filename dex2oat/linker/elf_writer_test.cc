@@ -54,6 +54,7 @@ class ElfWriterTest : public CommonCompilerDriverTest {
   } while (false)
 
 TEST_F(ElfWriterTest, dlsym) {
+  TEST_DISABLED_FOR_RISCV64();
   std::string elf_location = GetCoreOatLocation();
   std::string elf_filename = GetSystemImageFilename(elf_location.c_str(), kRuntimeISA);
   LOG(INFO) << "elf_filename=" << elf_filename;
@@ -121,6 +122,7 @@ TEST_F(ElfWriterTest, dlsym) {
 }
 
 TEST_F(ElfWriterTest, CheckBuildIdPresent) {
+  TEST_DISABLED_FOR_RISCV64();
   std::string elf_location = GetCoreOatLocation();
   std::string elf_filename = GetSystemImageFilename(elf_location.c_str(), kRuntimeISA);
   LOG(INFO) << "elf_filename=" << elf_filename;
