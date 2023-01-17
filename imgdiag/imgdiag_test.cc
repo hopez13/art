@@ -44,6 +44,7 @@ static const pid_t kImgDiagGuaranteedBadPid = (PID_MAX_LIMIT + 1);
 class ImgDiagTest : public CommonRuntimeTest {
  protected:
   void SetUp() override {
+    TEST_SETUP_DISABLED_FOR_RISCV64();
     CommonRuntimeTest::SetUp();
 
     // We loaded the runtime with an explicit image. Therefore the image space must exist.
@@ -51,6 +52,11 @@ class ImgDiagTest : public CommonRuntimeTest {
         Runtime::Current()->GetHeap()->GetBootImageSpaces();
     ASSERT_TRUE(!image_spaces.empty());
     boot_image_location_ = image_spaces[0]->GetImageLocation();
+  }
+
+  void TearDown() override {
+    TEST_TEARDOWN_DISABLED_FOR_RISCV64();
+    CommonRuntimeTest::TearDown();
   }
 
   void SetUpRuntimeOptions(RuntimeOptions* options) override {
@@ -115,6 +121,7 @@ TEST_F(ImgDiagTest, ImageDiffPidSelf) {
 // because it's root read-only.
 TEST_F(ImgDiagTest, DISABLED_ImageDiffPidSelf) {
 #endif
+  TEST_DISABLED_FOR_RISCV64();
   // Invoke 'img_diag' against the current process.
   // This should succeed because we have a runtime and so it should
   // be able to map in the boot.art and do a diff for it.
@@ -126,6 +133,7 @@ TEST_F(ImgDiagTest, DISABLED_ImageDiffPidSelf) {
 }
 
 TEST_F(ImgDiagTest, ImageDiffBadPid) {
+  TEST_DISABLED_FOR_RISCV64();
   // Invoke 'img_diag' against a non-existing process. This should fail.
 
   // Run imgdiag --image-diff-pid=some_bad_pid and wait until it's done with a 0 exit code.

@@ -65,7 +65,15 @@ std::ostream& operator<<(std::ostream& os, const ImageSizes& sizes) {
 
 class Dex2oatImageTest : public CommonRuntimeTest {
  public:
-  void TearDown() override {}
+  void SetUp() override {
+    TEST_SETUP_DISABLED_FOR_RISCV64();
+    CommonRuntimeTest::SetUp();
+  }
+
+  void TearDown() override {
+    TEST_TEARDOWN_DISABLED_FOR_RISCV64();
+    CommonRuntimeTest::TearDown();
+  }
 
  protected:
   void SetUpRuntimeOptions(RuntimeOptions* options) override {
@@ -173,6 +181,7 @@ class Dex2oatImageTest : public CommonRuntimeTest {
 };
 
 TEST_F(Dex2oatImageTest, TestModesAndFilters) {
+  TEST_DISABLED_FOR_RISCV64();
   // This test crashes on the gtest-heap-poisoning configuration
   // (AddressSanitizer + CMS/RosAlloc + heap-poisoning); see b/111061592.
   // Temporarily disable this test on this configuration to keep
@@ -250,6 +259,7 @@ TEST_F(Dex2oatImageTest, TestModesAndFilters) {
 }
 
 TEST_F(Dex2oatImageTest, TestExtension) {
+  TEST_DISABLED_FOR_RISCV64();
   std::string error_msg;
   MemMap reservation = ReserveCoreImageAddressSpace(&error_msg);
   ASSERT_TRUE(reservation.IsValid()) << error_msg;

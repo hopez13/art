@@ -39,9 +39,16 @@
 #include "profile/profile_compilation_info.h"
 
 namespace art {
+
 void DexoptTest::SetUp() {
+  TEST_SETUP_DISABLED_FOR_RISCV64();
   ReserveImageSpace();
   Dex2oatEnvironmentTest::SetUp();
+}
+
+void DexoptTest::TearDown() {
+  TEST_TEARDOWN_DISABLED_FOR_RISCV64();
+  Dex2oatEnvironmentTest::TearDown();
 }
 
 void DexoptTest::PreRuntimeCreate() {

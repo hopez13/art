@@ -219,11 +219,13 @@ struct jni_remove_extra_parameters : public remove_extra_parameters_helper<T, fn
 class JniCompilerTest : public CommonCompilerTest {
  protected:
   void SetUp() override {
+    TEST_SETUP_DISABLED_FOR_RISCV64();
     CommonCompilerTest::SetUp();
     check_generic_jni_ = false;
   }
 
   void TearDown() override {
+    TEST_TEARDOWN_DISABLED_FOR_RISCV64();
     android::ResetNativeLoader();
     CommonCompilerTest::TearDown();
   }
@@ -446,12 +448,14 @@ LockWord JniCompilerTest::GetLockWord(jobject obj) {
 // 1) synchronized keyword
 # define JNI_TEST_NORMAL_ONLY(TestName)          \
   TEST_F(JniCompilerTest, TestName ## NormalCompiler) { \
+    TEST_DISABLED_FOR_RISCV64(); \
     ScopedCheckHandleScope top_handle_scope_check;  \
     SCOPED_TRACE("Normal JNI with compiler");    \
     gCurrentJni = static_cast<uint32_t>(JniKind::kNormal); \
     TestName ## Impl();                          \
   }                                              \
   TEST_F(JniCompilerTest, TestName ## NormalGeneric) { \
+    TEST_DISABLED_FOR_RISCV64(); \
     ScopedCheckHandleScope top_handle_scope_check;  \
     SCOPED_TRACE("Normal JNI with generic");     \
     gCurrentJni = static_cast<uint32_t>(JniKind::kNormal); \
@@ -463,6 +467,7 @@ LockWord JniCompilerTest::GetLockWord(jobject obj) {
 #define JNI_TEST(TestName) \
   JNI_TEST_NORMAL_ONLY(TestName)                 \
   TEST_F(JniCompilerTest, TestName ## FastCompiler) {    \
+    TEST_DISABLED_FOR_RISCV64(); \
     ScopedCheckHandleScope top_handle_scope_check;  \
     SCOPED_TRACE("@FastNative JNI with compiler");  \
     gCurrentJni = static_cast<uint32_t>(JniKind::kFast); \
@@ -470,6 +475,7 @@ LockWord JniCompilerTest::GetLockWord(jobject obj) {
   }                                              \
                                                  \
   TEST_F(JniCompilerTest, TestName ## FastGeneric) { \
+    TEST_DISABLED_FOR_RISCV64(); \
     ScopedCheckHandleScope top_handle_scope_check;  \
     SCOPED_TRACE("@FastNative JNI with generic");  \
     gCurrentJni = static_cast<uint32_t>(JniKind::kFast); \
@@ -480,12 +486,14 @@ LockWord JniCompilerTest::GetLockWord(jobject obj) {
 // Test (@CriticalNative) x (compiler, generic) only.
 #define JNI_TEST_CRITICAL_ONLY(TestName) \
   TEST_F(JniCompilerTest, TestName ## CriticalCompiler) { \
+    TEST_DISABLED_FOR_RISCV64(); \
     ScopedCheckHandleScope top_handle_scope_check;  \
     SCOPED_TRACE("@CriticalNative JNI with compiler");  \
     gCurrentJni = static_cast<uint32_t>(JniKind::kCritical); \
     TestName ## Impl();                          \
   }                                              \
   TEST_F(JniCompilerTest, TestName ## CriticalGeneric) { \
+    TEST_DISABLED_FOR_RISCV64(); \
     ScopedCheckHandleScope top_handle_scope_check;  \
     SCOPED_TRACE("@CriticalNative JNI with generic");  \
     gCurrentJni = static_cast<uint32_t>(JniKind::kCritical); \

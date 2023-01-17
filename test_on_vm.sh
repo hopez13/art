@@ -59,9 +59,9 @@ art/tools/buildbot-sync.sh
 #art/test/run-test --chroot $ART_TEST_CHROOT --64 --interpreter -O --never-clean --no-relocate --runtime-option -Xcheck:jni --runtime-option -verbose:jni,startup,threads,class --no-image 001-HelloWorld
 #art/test/run-test --chroot $ART_TEST_CHROOT --64 --interpreter -O --never-clean --no-relocate --runtime-option -Xcheck:jni --no-image 001-HelloWorld
 
-art/test.py -j8 --target -r --no-prebuild --ndebug --no-image --64 --interpreter $@
+#art/test.py -j8 --target -r --no-prebuild --ndebug --no-image --64 --interpreter $@
 
-#art/tools/run-gtests.sh
+art/tools/run-gtests.sh
 
 #art/test/run-test --chroot $ART_TEST_CHROOT --64 --interpreter -O --never-clean --no-relocate --no-image 001-HelloWorld
 

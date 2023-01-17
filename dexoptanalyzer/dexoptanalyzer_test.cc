@@ -114,6 +114,7 @@ class DexoptAnalyzerTest : public DexoptTest {
 
 // Case: We have a DEX file, but no ODEX file for it.
 TEST_F(DexoptAnalyzerTest, DexNoOat) {
+  TEST_DISABLED_FOR_RISCV64();
   std::string dex_location = GetScratchDir() + "/DexNoOat.jar";
   Copy(GetDexSrc1(), dex_location);
 
@@ -127,6 +128,7 @@ TEST_F(DexoptAnalyzerTest, DexNoOat) {
 
 // Case: We have a DEX file and up-to-date ODEX file for it.
 TEST_F(DexoptAnalyzerTest, OatUpToDate) {
+  TEST_DISABLED_FOR_RISCV64();
   std::string dex_location = GetScratchDir() + "/OatUpToDate.jar";
   std::string odex_location = GetOdexDir() + "/OatUpToDate.odex";
   Copy(GetDexSrc1(), dex_location);
@@ -142,6 +144,7 @@ TEST_F(DexoptAnalyzerTest, OatUpToDate) {
 
 // Case: We have a DEX file and speed-profile ODEX file for it.
 TEST_F(DexoptAnalyzerTest, ProfileOatUpToDate) {
+  TEST_DISABLED_FOR_RISCV64();
   std::string dex_location = GetScratchDir() + "/ProfileOatUpToDate.jar";
   std::string odex_location = GetOdexDir() + "/ProfileOatUpToDate.odex";
   Copy(GetDexSrc1(), dex_location);
@@ -157,6 +160,7 @@ TEST_F(DexoptAnalyzerTest, ProfileOatUpToDate) {
 // Case: We have a DEX file, verify odex file for it, and we ask if it's up to date
 // when the profiles are empty or full.
 TEST_F(DexoptAnalyzerTest, VerifyAndEmptyProfiles) {
+  TEST_DISABLED_FOR_RISCV64();
   std::string dex_location = GetScratchDir() + "/VerifyAndEmptyProfiles.jar";
   std::string odex_location = GetOdexDir() + "/VerifyAndEmptyProfiles.odex";
   Copy(GetDexSrc1(), dex_location);
@@ -185,6 +189,7 @@ TEST_F(DexoptAnalyzerTest, VerifyAndEmptyProfiles) {
 }
 
 TEST_F(DexoptAnalyzerTest, Downgrade) {
+  TEST_DISABLED_FOR_RISCV64();
   std::string dex_location = GetScratchDir() + "/Downgrade.jar";
   std::string odex_location = GetOdexDir() + "/Downgrade.odex";
   Copy(GetDexSrc1(), dex_location);
@@ -200,6 +205,7 @@ TEST_F(DexoptAnalyzerTest, Downgrade) {
 
 // Case: We have a MultiDEX file and up-to-date ODEX file for it.
 TEST_F(DexoptAnalyzerTest, MultiDexOatUpToDate) {
+  TEST_DISABLED_FOR_RISCV64();
   std::string dex_location = GetScratchDir() + "/MultiDexOatUpToDate.jar";
   std::string odex_location = GetOdexDir() + "/MultiDexOatUpToDate.odex";
 
@@ -211,6 +217,7 @@ TEST_F(DexoptAnalyzerTest, MultiDexOatUpToDate) {
 
 // Case: We have a MultiDEX file where the secondary dex file is out of date.
 TEST_F(DexoptAnalyzerTest, MultiDexSecondaryOutOfDate) {
+  TEST_DISABLED_FOR_RISCV64();
   std::string dex_location = GetScratchDir() + "/MultiDexSecondaryOutOfDate.jar";
   std::string odex_location = GetOdexDir() + "/MultiDexSecondaryOutOfDate.odex";
 
@@ -228,6 +235,7 @@ TEST_F(DexoptAnalyzerTest, MultiDexSecondaryOutOfDate) {
 // Case: We have a DEX file and an ODEX file out of date with respect to the
 // dex checksum.
 TEST_F(DexoptAnalyzerTest, OatDexOutOfDate) {
+  TEST_DISABLED_FOR_RISCV64();
   std::string dex_location = GetScratchDir() + "/OatDexOutOfDate.jar";
   std::string odex_location = GetOdexDir() + "/OatDexOutOfDate.odex";
 
@@ -244,6 +252,7 @@ TEST_F(DexoptAnalyzerTest, OatDexOutOfDate) {
 // Case: We have a DEX file and an ODEX file out of date with respect to the
 // boot image.
 TEST_F(DexoptAnalyzerTest, OatImageOutOfDate) {
+  TEST_DISABLED_FOR_RISCV64();
   std::string dex_location = GetScratchDir() + "/OatImageOutOfDate.jar";
   std::string odex_location = GetOdexDir() + "/OatImageOutOfDate.odex";
 
@@ -263,6 +272,7 @@ TEST_F(DexoptAnalyzerTest, OatImageOutOfDate) {
 // It shouldn't matter that the OAT file is out of date, because it is
 // verify-at-runtime.
 TEST_F(DexoptAnalyzerTest, OatVerifyAtRuntimeImageOutOfDate) {
+  TEST_DISABLED_FOR_RISCV64();
   std::string dex_location = GetScratchDir() + "/OatVerifyAtRuntimeImageOutOfDate.jar";
   std::string odex_location = GetOdexDir() + "/OatVerifyAtRuntimeImageOutOfDate.odex";
 
@@ -278,6 +288,7 @@ TEST_F(DexoptAnalyzerTest, OatVerifyAtRuntimeImageOutOfDate) {
 
 // Case: We have a DEX file and an ODEX file, but no OAT file.
 TEST_F(DexoptAnalyzerTest, DexOdexNoOat) {
+  TEST_DISABLED_FOR_RISCV64();
   std::string dex_location = GetScratchDir() + "/DexOdexNoOat.jar";
   std::string odex_location = GetOdexDir() + "/DexOdexNoOat.odex";
 
@@ -292,6 +303,7 @@ TEST_F(DexoptAnalyzerTest, DexOdexNoOat) {
 // Case: We have a stripped (or resource-only) DEX file, no ODEX file and no
 // OAT file. Expect: The status is kNoDexOptNeeded.
 TEST_F(DexoptAnalyzerTest, ResourceOnlyDex) {
+  TEST_DISABLED_FOR_RISCV64();
   std::string dex_location = GetScratchDir() + "/ResourceOnlyDex.jar";
 
   Copy(GetResourceOnlySrc1(), dex_location);
@@ -303,6 +315,7 @@ TEST_F(DexoptAnalyzerTest, ResourceOnlyDex) {
 
 // Case: We have a DEX file, an ODEX file and an OAT file.
 TEST_F(DexoptAnalyzerTest, OdexOatOverlap) {
+  TEST_DISABLED_FOR_RISCV64();
   std::string dex_location = GetScratchDir() + "/OdexOatOverlap.jar";
   std::string odex_location = GetOdexDir() + "/OdexOatOverlap.odex";
   std::string oat_location = GetOdexDir() + "/OdexOatOverlap.oat";
@@ -319,6 +332,7 @@ TEST_F(DexoptAnalyzerTest, OdexOatOverlap) {
 
 // Case: We have a DEX file and a VerifyAtRuntime ODEX file, but no OAT file..
 TEST_F(DexoptAnalyzerTest, DexVerifyAtRuntimeOdexNoOat) {
+  TEST_DISABLED_FOR_RISCV64();
   std::string dex_location = GetScratchDir() + "/DexVerifyAtRuntimeOdexNoOat.jar";
   std::string odex_location = GetOdexDir() + "/DexVerifyAtRuntimeOdexNoOat.odex";
 
@@ -331,6 +345,7 @@ TEST_F(DexoptAnalyzerTest, DexVerifyAtRuntimeOdexNoOat) {
 
 // Case: Non-standard extension for dex file.
 TEST_F(DexoptAnalyzerTest, LongDexExtension) {
+  TEST_DISABLED_FOR_RISCV64();
   std::string dex_location = GetScratchDir() + "/LongDexExtension.jarx";
   Copy(GetDexSrc1(), dex_location);
 
@@ -339,6 +354,7 @@ TEST_F(DexoptAnalyzerTest, LongDexExtension) {
 
 // Case: Very short, non-existent Dex location.
 TEST_F(DexoptAnalyzerTest, ShortDexLocation) {
+  TEST_DISABLED_FOR_RISCV64();
   std::string dex_location = "/xx";
 
   Verify(dex_location, CompilerFilter::kSpeed);
@@ -347,6 +363,7 @@ TEST_F(DexoptAnalyzerTest, ShortDexLocation) {
 // Case: We have a DEX file and up-to-date OAT file for it, and we check with
 // a class loader context.
 TEST_F(DexoptAnalyzerTest, ClassLoaderContext) {
+  TEST_DISABLED_FOR_RISCV64();
   std::string dex_location1 = GetScratchDir() + "/DexToAnalyze.jar";
   std::string odex_location1 = GetOdexDir() + "/DexToAnalyze.odex";
   std::string dex_location2 = GetScratchDir() + "/DexInContext.jar";

@@ -137,22 +137,26 @@ void ImageWriteReadTest::TestWriteRead(ImageHeader::StorageMode storage_mode,
 }
 
 TEST_F(ImageWriteReadTest, WriteReadUncompressed) {
+  TEST_DISABLED_FOR_RISCV64();
   TestWriteRead(ImageHeader::kStorageModeUncompressed,
                 /*max_image_block_size=*/std::numeric_limits<uint32_t>::max());
 }
 
 TEST_F(ImageWriteReadTest, WriteReadLZ4) {
+  TEST_DISABLED_FOR_RISCV64();
   TestWriteRead(ImageHeader::kStorageModeLZ4,
                 /*max_image_block_size=*/std::numeric_limits<uint32_t>::max());
 }
 
 TEST_F(ImageWriteReadTest, WriteReadLZ4HC) {
+  TEST_DISABLED_FOR_RISCV64();
   TestWriteRead(ImageHeader::kStorageModeLZ4HC,
                 /*max_image_block_size=*/std::numeric_limits<uint32_t>::max());
 }
 
 
 TEST_F(ImageWriteReadTest, WriteReadLZ4HCKBBlock) {
+  TEST_DISABLED_FOR_RISCV64();
   TestWriteRead(ImageHeader::kStorageModeLZ4HC, /*max_image_block_size=*/KB);
 }
 

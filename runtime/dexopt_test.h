@@ -27,6 +27,7 @@ namespace art {
 class DexoptTest : public Dex2oatEnvironmentTest {
  public:
   void SetUp() override;
+  void TearDown() override;
 
   void PreRuntimeCreate() override;
 

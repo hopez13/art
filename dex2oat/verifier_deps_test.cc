@@ -343,6 +343,7 @@ class VerifierDepsTest : public CommonCompilerDriverTest {
 };
 
 TEST_F(VerifierDepsTest, StringToId) {
+  TEST_DISABLED_FOR_RISCV64();  // no compiler support for RISC-V yet
   ScopedObjectAccess soa(Thread::Current());
   LoadDexFile(soa);
 
@@ -368,12 +369,14 @@ TEST_F(VerifierDepsTest, StringToId) {
 }
 
 TEST_F(VerifierDepsTest, Assignable_BothInBoot) {
+  TEST_DISABLED_FOR_RISCV64();
   ASSERT_TRUE(TestAssignabilityRecording(/* dst= */ "Ljava/util/TimeZone;",
                                          /* src= */ "Ljava/util/SimpleTimeZone;"));
   ASSERT_TRUE(HasAssignable("Ljava/util/TimeZone;", "Ljava/util/SimpleTimeZone;"));
 }
 
 TEST_F(VerifierDepsTest, Assignable_BothArrays_Resolved) {
+  TEST_DISABLED_FOR_RISCV64();
   ASSERT_TRUE(TestAssignabilityRecording(/* dst= */ "[[Ljava/util/TimeZone;",
                                          /* src= */ "[[Ljava/util/SimpleTimeZone;"));
   // If the component types of both arrays are resolved, we optimize the list of
@@ -384,16 +387,19 @@ TEST_F(VerifierDepsTest, Assignable_BothArrays_Resolved) {
 }
 
 TEST_F(VerifierDepsTest, ReturnType_Reference) {
+  TEST_DISABLED_FOR_RISCV64();
   ASSERT_TRUE(VerifyMethod("ReturnType_Reference"));
   ASSERT_TRUE(HasAssignable("Ljava/lang/Throwable;", "Ljava/lang/IllegalStateException;"));
 }
 
 TEST_F(VerifierDepsTest, InvokeArgumentType) {
+  TEST_DISABLED_FOR_RISCV64();
   ASSERT_TRUE(VerifyMethod("InvokeArgumentType"));
   ASSERT_TRUE(HasAssignable("Ljava/util/TimeZone;", "Ljava/util/SimpleTimeZone;"));
 }
 
 TEST_F(VerifierDepsTest, MergeTypes_RegisterLines) {
+  TEST_DISABLED_FOR_RISCV64();
   ASSERT_TRUE(VerifyMethod("MergeTypes_RegisterLines"));
   ASSERT_TRUE(HasAssignable("Ljava/lang/Exception;", "LMySocketTimeoutException;"));
   ASSERT_TRUE(HasAssignable(
@@ -401,6 +407,7 @@ TEST_F(VerifierDepsTest, MergeTypes_RegisterLines) {
 }
 
 TEST_F(VerifierDepsTest, MergeTypes_IfInstanceOf) {
+  TEST_DISABLED_FOR_RISCV64();
   ASSERT_TRUE(VerifyMethod("MergeTypes_IfInstanceOf"));
   ASSERT_TRUE(HasAssignable("Ljava/lang/Exception;", "Ljava/net/SocketTimeoutException;"));
   ASSERT_TRUE(HasAssignable(
@@ -408,6 +415,7 @@ TEST_F(VerifierDepsTest, MergeTypes_IfInstanceOf) {
 }
 
 TEST_F(VerifierDepsTest, MergeTypes_Unresolved) {
+  TEST_DISABLED_FOR_RISCV64();
   ASSERT_TRUE(VerifyMethod("MergeTypes_Unresolved"));
   ASSERT_TRUE(HasAssignable("Ljava/lang/Exception;", "Ljava/net/SocketTimeoutException;"));
   ASSERT_TRUE(HasAssignable(
@@ -415,11 +423,13 @@ TEST_F(VerifierDepsTest, MergeTypes_Unresolved) {
 }
 
 TEST_F(VerifierDepsTest, Throw) {
+  TEST_DISABLED_FOR_RISCV64();
   ASSERT_TRUE(VerifyMethod("Throw"));
   ASSERT_TRUE(HasAssignable("Ljava/lang/Throwable;", "Ljava/lang/IllegalStateException;"));
 }
 
 TEST_F(VerifierDepsTest, MoveException_Resolved) {
+  TEST_DISABLED_FOR_RISCV64();
   ASSERT_TRUE(VerifyMethod("MoveException_Resolved"));
 
   // Testing that all exception types are assignable to Throwable.
@@ -438,41 +448,48 @@ TEST_F(VerifierDepsTest, MoveException_Resolved) {
 }
 
 TEST_F(VerifierDepsTest, InstanceField_Resolved_DeclaredInReferenced) {
+  TEST_DISABLED_FOR_RISCV64();
   ASSERT_TRUE(VerifyMethod("InstanceField_Resolved_DeclaredInReferenced"));
   ASSERT_TRUE(HasAssignable(
       "Ljava/io/InterruptedIOException;", "LMySocketTimeoutException;"));
 }
 
 TEST_F(VerifierDepsTest, InstanceField_Resolved_DeclaredInSuperclass1) {
+  TEST_DISABLED_FOR_RISCV64();
   ASSERT_TRUE(VerifyMethod("InstanceField_Resolved_DeclaredInSuperclass1"));
   ASSERT_TRUE(HasAssignable(
       "Ljava/io/InterruptedIOException;", "LMySocketTimeoutException;"));
 }
 
 TEST_F(VerifierDepsTest, InstanceField_Resolved_DeclaredInSuperclass2) {
+  TEST_DISABLED_FOR_RISCV64();
   ASSERT_TRUE(VerifyMethod("InstanceField_Resolved_DeclaredInSuperclass2"));
   ASSERT_TRUE(HasAssignable(
       "Ljava/io/InterruptedIOException;", "LMySocketTimeoutException;"));
 }
 
 TEST_F(VerifierDepsTest, InvokeVirtual_Resolved_DeclaredInReferenced) {
+  TEST_DISABLED_FOR_RISCV64();
   ASSERT_TRUE(VerifyMethod("InvokeVirtual_Resolved_DeclaredInReferenced"));
   // Type dependency on `this` argument.
   ASSERT_TRUE(HasAssignable("Ljava/lang/Throwable;", "LMySocketTimeoutException;"));
 }
 
 TEST_F(VerifierDepsTest, InvokeVirtual_Resolved_DeclaredInSuperclass1) {
+  TEST_DISABLED_FOR_RISCV64();
   ASSERT_TRUE(VerifyMethod("InvokeVirtual_Resolved_DeclaredInSuperclass1"));
   // Type dependency on `this` argument.
   ASSERT_TRUE(HasAssignable("Ljava/lang/Throwable;", "LMySocketTimeoutException;"));
 }
 
 TEST_F(VerifierDepsTest, InvokeSuper_ThisAssignable) {
+  TEST_DISABLED_FOR_RISCV64();
   ASSERT_TRUE(VerifyMethod("InvokeSuper_ThisAssignable"));
   ASSERT_TRUE(HasAssignable("Ljava/lang/Runnable;", "LMain;"));
 }
 
 TEST_F(VerifierDepsTest, EncodeDecode) {
+  TEST_DISABLED_FOR_RISCV64();
   VerifyDexFile();
 
   ASSERT_EQ(1u, NumberOfCompiledDexFiles());
@@ -489,6 +506,7 @@ TEST_F(VerifierDepsTest, EncodeDecode) {
 }
 
 TEST_F(VerifierDepsTest, EncodeDecodeMulti) {
+  TEST_DISABLED_FOR_RISCV64();
   VerifyDexFile("MultiDex");
 
   ASSERT_GT(NumberOfCompiledDexFiles(), 1u);
@@ -519,6 +537,7 @@ TEST_F(VerifierDepsTest, EncodeDecodeMulti) {
 }
 
 TEST_F(VerifierDepsTest, UnverifiedClasses) {
+  TEST_DISABLED_FOR_RISCV64();
   VerifyDexFile();
   ASSERT_FALSE(HasUnverifiedClass("LMyThread;"));
   // Test that a class with a soft failure is recorded.
@@ -532,6 +551,7 @@ TEST_F(VerifierDepsTest, UnverifiedClasses) {
 }
 
 TEST_F(VerifierDepsTest, UnverifiedOrder) {
+  TEST_DISABLED_FOR_RISCV64();
   ScopedObjectAccess soa(Thread::Current());
   jobject loader = LoadDex("VerifierDeps");
   std::vector<const DexFile*> dex_files = GetDexFiles(loader);
@@ -563,6 +583,7 @@ TEST_F(VerifierDepsTest, UnverifiedOrder) {
 }
 
 TEST_F(VerifierDepsTest, VerifyDeps) {
+  TEST_DISABLED_FOR_RISCV64();
   std::string error_msg;
 
   VerifyDexFile();
@@ -583,6 +604,7 @@ TEST_F(VerifierDepsTest, VerifyDeps) {
 }
 
 TEST_F(VerifierDepsTest, CompilerDriver) {
+  TEST_DISABLED_FOR_RISCV64();
   SetupCompilerDriver();
 
   // Test both multi-dex and single-dex configuration.
@@ -619,6 +641,7 @@ TEST_F(VerifierDepsTest, CompilerDriver) {
 }
 
 TEST_F(VerifierDepsTest, MultiDexVerification) {
+  TEST_DISABLED_FOR_RISCV64();
   VerifyDexFile("VerifierDepsMulti");
   ASSERT_EQ(NumberOfCompiledDexFiles(), 2u);
 

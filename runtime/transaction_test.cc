@@ -649,6 +649,9 @@ TEST_F(TransactionTest, FinalizableAbortClass) {
 }
 
 TEST_F(TransactionTest, Constraints) {
+  // On RISC-V boot images are not supported, so the test fails.
+  TEST_DISABLED_FOR_RISCV64();
+
   ScopedObjectAccess soa(Thread::Current());
   StackHandleScope<11> hs(soa.Self());
   Handle<mirror::ClassLoader> class_loader(

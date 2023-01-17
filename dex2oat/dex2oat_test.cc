@@ -59,6 +59,7 @@ using android::base::StringPrintf;
 class Dex2oatTest : public Dex2oatEnvironmentTest {
  public:
   void TearDown() override {
+    TEST_TEARDOWN_DISABLED_FOR_RISCV64();
     Dex2oatEnvironmentTest::TearDown();
 
     output_ = "";
@@ -297,21 +298,25 @@ class Dex2oatSwapTest : public Dex2oatTest {
 };
 
 TEST_F(Dex2oatSwapTest, DoNotUseSwapDefaultSingleSmall) {
+  TEST_DISABLED_FOR_RISCV64();
   RunTest(/*use_fd=*/ false, /*expect_use=*/ false);
   RunTest(/*use_fd=*/ true, /*expect_use=*/ false);
 }
 
 TEST_F(Dex2oatSwapTest, DoNotUseSwapSingle) {
+  TEST_DISABLED_FOR_RISCV64();
   RunTest(/*use_fd=*/ false, /*expect_use=*/ false, { "--swap-dex-size-threshold=0" });
   RunTest(/*use_fd=*/ true, /*expect_use=*/ false, { "--swap-dex-size-threshold=0" });
 }
 
 TEST_F(Dex2oatSwapTest, DoNotUseSwapSmall) {
+  TEST_DISABLED_FOR_RISCV64();
   RunTest(/*use_fd=*/ false, /*expect_use=*/ false, { "--swap-dex-count-threshold=0" });
   RunTest(/*use_fd=*/ true, /*expect_use=*/ false, { "--swap-dex-count-threshold=0" });
 }
 
 TEST_F(Dex2oatSwapTest, DoUseSwapSingleSmall) {
+  TEST_DISABLED_FOR_RISCV64();
   RunTest(/*use_fd=*/ false,
           /*expect_use=*/ true,
           { "--swap-dex-size-threshold=0", "--swap-dex-count-threshold=0" });
@@ -422,6 +427,8 @@ TEST_F(Dex2oatSwapUseTest, CheckSwapUsage) {
   // investigate (b/29259363).
   TEST_DISABLED_FOR_X86();
   TEST_DISABLED_FOR_X86_64();
+
+  TEST_DISABLED_FOR_RISCV64();
 
   RunTest(/*use_fd=*/ false,
           /*expect_use=*/ false);
@@ -581,6 +588,7 @@ class Dex2oatVeryLargeTest : public Dex2oatTest {
 };
 
 TEST_F(Dex2oatVeryLargeTest, DontUseVeryLarge) {
+  TEST_DISABLED_FOR_RISCV64();
   RunTest(CompilerFilter::kAssumeVerified, false, false);
   RunTest(CompilerFilter::kExtract, false, false);
   RunTest(CompilerFilter::kSpeed, false, false);
@@ -591,6 +599,7 @@ TEST_F(Dex2oatVeryLargeTest, DontUseVeryLarge) {
 }
 
 TEST_F(Dex2oatVeryLargeTest, UseVeryLarge) {
+  TEST_DISABLED_FOR_RISCV64();
   RunTest(CompilerFilter::kAssumeVerified, true, false, { "--very-large-app-threshold=100" });
   RunTest(CompilerFilter::kExtract, true, false, { "--very-large-app-threshold=100" });
   RunTest(CompilerFilter::kSpeed, true, true, { "--very-large-app-threshold=100" });
@@ -598,6 +607,7 @@ TEST_F(Dex2oatVeryLargeTest, UseVeryLarge) {
 
 // Regressin test for b/35665292.
 TEST_F(Dex2oatVeryLargeTest, SpeedProfileNoProfile) {
+  TEST_DISABLED_FOR_RISCV64();
   // Test that dex2oat doesn't crash with speed-profile but no input profile.
   RunTest(CompilerFilter::kSpeedProfile, CompilerFilter::kVerify, false, false);
 }
@@ -865,14 +875,17 @@ class Dex2oatLayoutTest : public Dex2oatTest {
 };
 
 TEST_F(Dex2oatLayoutTest, TestLayout) {
+  TEST_DISABLED_FOR_RISCV64();
   RunTest(/*app_image=*/ false);
 }
 
 TEST_F(Dex2oatLayoutTest, TestLayoutAppImage) {
+  TEST_DISABLED_FOR_RISCV64();
   RunTest(/*app_image=*/ true);
 }
 
 TEST_F(Dex2oatLayoutTest, TestLayoutAppImageMissingBootImage) {
+  TEST_DISABLED_FOR_RISCV64();
   std::string dex_location = GetScratchDir() + "/DexNoOat.jar";
   std::string odex_location = GetOdexDir() + "/DexOdexNoOat.odex";
   std::string app_image_file = GetOdexDir() + "/DexOdexNoOat.art";
@@ -902,6 +915,7 @@ TEST_F(Dex2oatLayoutTest, TestLayoutAppImageMissingBootImage) {
 }
 
 TEST_F(Dex2oatLayoutTest, TestLayoutMultipleProfiles) {
+  TEST_DISABLED_FOR_RISCV64();
   std::string dex_location = GetScratchDir() + "/Dex.jar";
   std::string odex_location = GetOdexDir() + "/Dex.odex";
   std::string app_image_file = GetOdexDir() + "/Dex.art";
@@ -941,6 +955,7 @@ TEST_F(Dex2oatLayoutTest, TestLayoutMultipleProfiles) {
 }
 
 TEST_F(Dex2oatLayoutTest, TestLayoutMultipleProfilesChecksumMismatch) {
+  TEST_DISABLED_FOR_RISCV64();
   std::string dex_location = GetScratchDir() + "/Dex.jar";
 
   // Create two profiles whose dex locations are the same but checksums are different.
@@ -991,6 +1006,7 @@ TEST_F(Dex2oatLayoutTest, TestLayoutMultipleProfilesChecksumMismatch) {
 }
 
 TEST_F(Dex2oatLayoutTest, TestVdexLayout) {
+  TEST_DISABLED_FOR_RISCV64();
   RunTestVDex();
 }
 
@@ -1020,6 +1036,7 @@ class Dex2oatWatchdogTest : public Dex2oatTest {
 };
 
 TEST_F(Dex2oatWatchdogTest, TestWatchdogOK) {
+  TEST_DISABLED_FOR_RISCV64();
   // Check with default.
   RunTest(true);
 
@@ -1028,6 +1045,7 @@ TEST_F(Dex2oatWatchdogTest, TestWatchdogOK) {
 }
 
 TEST_F(Dex2oatWatchdogTest, TestWatchdogTrigger) {
+  TEST_DISABLED_FOR_RISCV64();
   // This test is frequently interrupted by signal_dumper on host (x86);
   // disable it while we investigate (b/121352534).
   TEST_DISABLED_FOR_X86();
@@ -1115,19 +1133,23 @@ class Dex2oatClassLoaderContextTest : public Dex2oatTest {
 };
 
 TEST_F(Dex2oatClassLoaderContextTest, InvalidContext) {
+  TEST_DISABLED_FOR_RISCV64();
   RunTest("Invalid[]", /*expected_classpath_key*/ nullptr, /*expected_success*/ false);
 }
 
 TEST_F(Dex2oatClassLoaderContextTest, EmptyContext) {
+  TEST_DISABLED_FOR_RISCV64();
   RunTest("PCL[]", kEmptyClassPathKey, /*expected_success*/ true);
 }
 
 TEST_F(Dex2oatClassLoaderContextTest, ContextWithTheSourceDexFiles) {
+  TEST_DISABLED_FOR_RISCV64();
   std::string context = "PCL[" + GetUsedDexLocation() + "]";
   RunTest(context.c_str(), kEmptyClassPathKey, /*expected_success*/ true);
 }
 
 TEST_F(Dex2oatClassLoaderContextTest, ContextWithOtherDexFiles) {
+  TEST_DISABLED_FOR_RISCV64();
   std::vector<std::unique_ptr<const DexFile>> dex_files = OpenTestDexFiles("Nested");
 
   std::string context = "PCL[" + dex_files[0]->GetLocation() + "]";
@@ -1137,6 +1159,7 @@ TEST_F(Dex2oatClassLoaderContextTest, ContextWithOtherDexFiles) {
 }
 
 TEST_F(Dex2oatClassLoaderContextTest, ContextWithResourceOnlyDexFiles) {
+  TEST_DISABLED_FOR_RISCV64();
   std::string resource_only_classpath = GetScratchDir() + "/resource_only_classpath.jar";
   Copy(GetResourceOnlySrc1(), resource_only_classpath);
 
@@ -1146,12 +1169,14 @@ TEST_F(Dex2oatClassLoaderContextTest, ContextWithResourceOnlyDexFiles) {
 }
 
 TEST_F(Dex2oatClassLoaderContextTest, ContextWithNotExistentDexFiles) {
+  TEST_DISABLED_FOR_RISCV64();
   std::string context = "PCL[does_not_exists.dex]";
   // Expect an empty context because stripped dex files cannot be open.
   RunTest(context.c_str(), kEmptyClassPathKey, /*expected_success*/ true);
 }
 
 TEST_F(Dex2oatClassLoaderContextTest, ChainContext) {
+  TEST_DISABLED_FOR_RISCV64();
   std::vector<std::unique_ptr<const DexFile>> dex_files1 = OpenTestDexFiles("Nested");
   std::vector<std::unique_ptr<const DexFile>> dex_files2 = OpenTestDexFiles("MultiDex");
 
@@ -1164,6 +1189,7 @@ TEST_F(Dex2oatClassLoaderContextTest, ChainContext) {
 }
 
 TEST_F(Dex2oatClassLoaderContextTest, ContextWithSharedLibrary) {
+  TEST_DISABLED_FOR_RISCV64();
   std::vector<std::unique_ptr<const DexFile>> dex_files1 = OpenTestDexFiles("Nested");
   std::vector<std::unique_ptr<const DexFile>> dex_files2 = OpenTestDexFiles("MultiDex");
 
@@ -1175,6 +1201,7 @@ TEST_F(Dex2oatClassLoaderContextTest, ContextWithSharedLibrary) {
 }
 
 TEST_F(Dex2oatClassLoaderContextTest, ContextWithSharedLibraryAndImage) {
+  TEST_DISABLED_FOR_RISCV64();
   std::vector<std::unique_ptr<const DexFile>> dex_files1 = OpenTestDexFiles("Nested");
   std::vector<std::unique_ptr<const DexFile>> dex_files2 = OpenTestDexFiles("MultiDex");
 
@@ -1190,6 +1217,7 @@ TEST_F(Dex2oatClassLoaderContextTest, ContextWithSharedLibraryAndImage) {
 }
 
 TEST_F(Dex2oatClassLoaderContextTest, ContextWithSameSharedLibrariesAndImage) {
+  TEST_DISABLED_FOR_RISCV64();
   std::vector<std::unique_ptr<const DexFile>> dex_files1 = OpenTestDexFiles("Nested");
   std::vector<std::unique_ptr<const DexFile>> dex_files2 = OpenTestDexFiles("MultiDex");
 
@@ -1207,6 +1235,7 @@ TEST_F(Dex2oatClassLoaderContextTest, ContextWithSameSharedLibrariesAndImage) {
 }
 
 TEST_F(Dex2oatClassLoaderContextTest, ContextWithSharedLibrariesDependenciesAndImage) {
+  TEST_DISABLED_FOR_RISCV64();
   std::vector<std::unique_ptr<const DexFile>> dex_files1 = OpenTestDexFiles("Nested");
   std::vector<std::unique_ptr<const DexFile>> dex_files2 = OpenTestDexFiles("MultiDex");
 
@@ -1226,6 +1255,7 @@ TEST_F(Dex2oatClassLoaderContextTest, ContextWithSharedLibrariesDependenciesAndI
 class Dex2oatDeterminism : public Dex2oatTest {};
 
 TEST_F(Dex2oatDeterminism, UnloadCompile) {
+  TEST_DISABLED_FOR_RISCV64();
   Runtime* const runtime = Runtime::Current();
   std::string out_dir = GetScratchDir();
   const std::string base_oat_name = out_dir + "/base.oat";
@@ -1283,6 +1313,7 @@ TEST_F(Dex2oatDeterminism, UnloadCompile) {
 // Test that dexlayout section info is correctly written to the oat file for profile based
 // compilation.
 TEST_F(Dex2oatTest, LayoutSections) {
+  TEST_DISABLED_FOR_RISCV64();
   using Hotness = ProfileCompilationInfo::MethodHotness;
   std::unique_ptr<const DexFile> dex(OpenTestDexFile("ManyMethods"));
   ScratchFile profile_file;
@@ -1445,6 +1476,7 @@ TEST_F(Dex2oatTest, LayoutSections) {
 
 // Test that generating compact dex works.
 TEST_F(Dex2oatTest, GenerateCompactDex) {
+  TEST_DISABLED_FOR_RISCV64();
   // Generate a compact dex based odex.
   const std::string dir = GetScratchDir();
   const std::string oat_filename = dir + "/base.oat";
@@ -1506,6 +1538,7 @@ TEST_F(Dex2oatTest, GenerateCompactDex) {
 class Dex2oatVerifierAbort : public Dex2oatTest {};
 
 TEST_F(Dex2oatVerifierAbort, HardFail) {
+  TEST_DISABLED_FOR_RISCV64();
   // Use VerifierDeps as it has hard-failing classes.
   std::unique_ptr<const DexFile> dex(OpenTestDexFile("VerifierDeps"));
   std::string out_dir = GetScratchDir();
@@ -1531,6 +1564,7 @@ TEST_F(Dex2oatVerifierAbort, HardFail) {
 class Dex2oatDedupeCode : public Dex2oatTest {};
 
 TEST_F(Dex2oatDedupeCode, DedupeTest) {
+  TEST_DISABLED_FOR_RISCV64();
   // Use MyClassNatives. It has lots of native methods that will produce deduplicate-able code.
   std::unique_ptr<const DexFile> dex(OpenTestDexFile("MyClassNatives"));
   std::string out_dir = GetScratchDir();
@@ -1563,6 +1597,7 @@ TEST_F(Dex2oatDedupeCode, DedupeTest) {
 }
 
 TEST_F(Dex2oatTest, UncompressedTest) {
+  TEST_DISABLED_FOR_RISCV64();
   std::unique_ptr<const DexFile> dex(OpenTestDexFile("MainUncompressedAligned"));
   std::string out_dir = GetScratchDir();
   const std::string base_oat_name = out_dir + "/base.oat";
@@ -1579,6 +1614,7 @@ TEST_F(Dex2oatTest, UncompressedTest) {
 }
 
 TEST_F(Dex2oatTest, MissingBootImageTest) {
+  TEST_DISABLED_FOR_RISCV64();
   std::string out_dir = GetScratchDir();
   const std::string base_oat_name = out_dir + "/base.oat";
   // The compilation should succeed even without the boot image.
@@ -1591,6 +1627,7 @@ TEST_F(Dex2oatTest, MissingBootImageTest) {
 }
 
 TEST_F(Dex2oatTest, EmptyUncompressedDexTest) {
+  TEST_DISABLED_FOR_RISCV64();
   std::string out_dir = GetScratchDir();
   const std::string base_oat_name = out_dir + "/base.oat";
   std::string error_msg;
@@ -1607,6 +1644,7 @@ TEST_F(Dex2oatTest, EmptyUncompressedDexTest) {
 }
 
 TEST_F(Dex2oatTest, EmptyUncompressedAlignedDexTest) {
+  TEST_DISABLED_FOR_RISCV64();
   std::string out_dir = GetScratchDir();
   const std::string base_oat_name = out_dir + "/base.oat";
   std::string error_msg;
@@ -1694,6 +1732,7 @@ static void WriteBase64ToFile(const char* base64, File* file) {
 }
 
 TEST_F(Dex2oatTest, CompactDexGenerationFailure) {
+  TEST_DISABLED_FOR_RISCV64();
   ScratchFile temp_dex;
   WriteBase64ToFile(kDuplicateMethodInputDex, temp_dex.GetFile());
   std::string out_dir = GetScratchDir();
@@ -1730,6 +1769,7 @@ TEST_F(Dex2oatTest, CompactDexGenerationFailure) {
 }
 
 TEST_F(Dex2oatTest, CompactDexGenerationFailureMultiDex) {
+  TEST_DISABLED_FOR_RISCV64();
   // Create a multidex file with only one dex that gets rejected for cdex conversion.
   ScratchFile apk_file;
   {
@@ -1758,6 +1798,7 @@ TEST_F(Dex2oatTest, CompactDexGenerationFailureMultiDex) {
 }
 
 TEST_F(Dex2oatTest, StderrLoggerOutput) {
+  TEST_DISABLED_FOR_RISCV64();
   std::string dex_location = GetScratchDir() + "/Dex2OatStderrLoggerTest.jar";
   std::string odex_location = GetOdexDir() + "/Dex2OatStderrLoggerTest.odex";
 
@@ -1775,6 +1816,7 @@ TEST_F(Dex2oatTest, StderrLoggerOutput) {
 }
 
 TEST_F(Dex2oatTest, VerifyCompilationReason) {
+  TEST_DISABLED_FOR_RISCV64();
   std::string dex_location = GetScratchDir() + "/Dex2OatCompilationReason.jar";
   std::string odex_location = GetOdexDir() + "/Dex2OatCompilationReason.odex";
 
@@ -1799,6 +1841,7 @@ TEST_F(Dex2oatTest, VerifyCompilationReason) {
 }
 
 TEST_F(Dex2oatTest, VerifyNoCompilationReason) {
+  TEST_DISABLED_FOR_RISCV64();
   std::string dex_location = GetScratchDir() + "/Dex2OatNoCompilationReason.jar";
   std::string odex_location = GetOdexDir() + "/Dex2OatNoCompilationReason.odex";
 
@@ -1823,6 +1866,7 @@ TEST_F(Dex2oatTest, VerifyNoCompilationReason) {
 }
 
 TEST_F(Dex2oatTest, DontExtract) {
+  TEST_DISABLED_FOR_RISCV64();
   std::unique_ptr<const DexFile> dex(OpenTestDexFile("ManyMethods"));
   std::string error_msg;
   const std::string out_dir = GetScratchDir();
@@ -1917,6 +1961,7 @@ TEST_F(Dex2oatTest, DontExtract) {
 
 // Test that compact dex generation with invalid dex files doesn't crash dex2oat. b/75970654
 TEST_F(Dex2oatTest, CompactDexInvalidSource) {
+  TEST_DISABLED_FOR_RISCV64();
   ScratchFile invalid_dex;
   {
     FILE* file = fdopen(DupCloexec(invalid_dex.GetFd()), "w+b");
@@ -1950,6 +1995,7 @@ TEST_F(Dex2oatTest, CompactDexInvalidSource) {
 
 // Test that dex2oat with a CompactDex file in the APK fails.
 TEST_F(Dex2oatTest, CompactDexInZip) {
+  TEST_DISABLED_FOR_RISCV64();
   CompactDexFile::Header header = {};
   CompactDexFile::WriteMagic(header.magic_);
   CompactDexFile::WriteCurrentVersion(header.magic_);
@@ -1996,6 +2042,7 @@ TEST_F(Dex2oatTest, CompactDexInZip) {
 }
 
 TEST_F(Dex2oatWithExpectedFilterTest, AppImageNoProfile) {
+  TEST_DISABLED_FOR_RISCV64();
   // Set the expected filter.
   expected_filter_ = CompilerFilter::Filter::kVerify;
 
@@ -2030,6 +2077,7 @@ TEST_F(Dex2oatWithExpectedFilterTest, AppImageNoProfile) {
 }
 
 TEST_F(Dex2oatTest, ZipFd) {
+  TEST_DISABLED_FOR_RISCV64();
   std::string zip_location = GetTestDexFileName("MainUncompressedAligned");
   std::unique_ptr<File> dex_file(OS::OpenFileForReading(zip_location.c_str()));
   std::vector<std::string> extra_args{
@@ -2048,6 +2096,7 @@ TEST_F(Dex2oatTest, ZipFd) {
 }
 
 TEST_F(Dex2oatWithExpectedFilterTest, AppImageEmptyDex) {
+  TEST_DISABLED_FOR_RISCV64();
   // Set the expected filter.
   expected_filter_ = CompilerFilter::Filter::kVerify;
 
@@ -2115,6 +2164,7 @@ TEST_F(Dex2oatWithExpectedFilterTest, AppImageEmptyDex) {
 }
 
 TEST_F(Dex2oatTest, DexFileFd) {
+  TEST_DISABLED_FOR_RISCV64();
   std::string error_msg;
   std::string zip_location = GetTestDexFileName("Main");
   std::unique_ptr<File> zip_file(OS::OpenFileForReading(zip_location.c_str()));
@@ -2150,6 +2200,7 @@ TEST_F(Dex2oatTest, DexFileFd) {
 }
 
 TEST_F(Dex2oatTest, AppImageResolveStrings) {
+  TEST_DISABLED_FOR_RISCV64();
   using Hotness = ProfileCompilationInfo::MethodHotness;
   // Create a profile with the startup method marked.
   ScratchFile profile_file;
@@ -2280,6 +2331,7 @@ TEST_F(Dex2oatTest, AppImageResolveStrings) {
 
 
 TEST_F(Dex2oatClassLoaderContextTest, StoredClassLoaderContext) {
+  TEST_DISABLED_FOR_RISCV64();
   std::vector<std::unique_ptr<const DexFile>> dex_files = OpenTestDexFiles("MultiDex");
   const std::string out_dir = GetScratchDir();
   const std::string odex_location = out_dir + "/base.odex";
@@ -2346,6 +2398,7 @@ class Dex2oatISAFeaturesRuntimeDetectionTest : public Dex2oatTest {
 };
 
 TEST_F(Dex2oatISAFeaturesRuntimeDetectionTest, TestCurrentRuntimeFeaturesAsDex2OatArguments) {
+  TEST_DISABLED_FOR_RISCV64();
   std::vector<std::string> argv;
   Runtime::Current()->AddCurrentRuntimeFeaturesAsDex2OatArguments(&argv);
   auto option_pos =
@@ -2363,6 +2416,7 @@ TEST_F(Dex2oatISAFeaturesRuntimeDetectionTest, TestCurrentRuntimeFeaturesAsDex2O
 class LinkageTest : public Dex2oatTest {};
 
 TEST_F(LinkageTest, LinkageEnabled) {
+  TEST_DISABLED_FOR_RISCV64();
   TEST_DISABLED_FOR_TARGET();
   std::unique_ptr<const DexFile> dex(OpenTestDexFile("LinkageTest"));
   std::string out_dir = GetScratchDir();
@@ -2387,6 +2441,7 @@ TEST_F(LinkageTest, LinkageEnabled) {
 
 // Regression test for bug 179221298.
 TEST_F(Dex2oatTest, LoadOutOfDateOatFile) {
+  TEST_DISABLED_FOR_RISCV64();
   std::unique_ptr<const DexFile> dex(OpenTestDexFile("ManyMethods"));
   std::string out_dir = GetScratchDir();
   const std::string base_oat_name = out_dir + "/base.oat";

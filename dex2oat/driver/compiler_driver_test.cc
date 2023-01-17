@@ -123,6 +123,7 @@ class CompilerDriverTest : public CommonCompilerDriverTest {
 // Disabled due to 10 second runtime on host
 // TODO: Update the test for hash-based dex cache arrays. Bug: 30627598
 TEST_F(CompilerDriverTest, DISABLED_LARGE_CompileDexLibCore) {
+  TEST_DISABLED_FOR_RISCV64();
   CompileAllAndMakeExecutable(nullptr);
 
   // All libcore references should resolve
@@ -163,6 +164,7 @@ TEST_F(CompilerDriverTest, DISABLED_LARGE_CompileDexLibCore) {
 }
 
 TEST_F(CompilerDriverTest, AbstractMethodErrorStub) {
+  TEST_DISABLED_FOR_RISCV64();
   jobject class_loader;
   {
     ScopedObjectAccess soa(Thread::Current());
@@ -261,6 +263,7 @@ class CompilerDriverProfileTest : public CompilerDriverTest {
 };
 
 TEST_F(CompilerDriverProfileTest, ProfileGuidedCompilation) {
+  TEST_DISABLED_FOR_RISCV64();
   Thread* self = Thread::Current();
   jobject class_loader;
   {
@@ -311,6 +314,7 @@ class CompilerDriverVerifyTest : public CompilerDriverTest {
 };
 
 TEST_F(CompilerDriverVerifyTest, VerifyCompilation) {
+  TEST_DISABLED_FOR_RISCV64();
   Thread* self = Thread::Current();
   jobject class_loader;
   {
@@ -328,6 +332,7 @@ TEST_F(CompilerDriverVerifyTest, VerifyCompilation) {
 // Test that a class of status ClassStatus::kRetryVerificationAtRuntime is indeed
 // recorded that way in the driver.
 TEST_F(CompilerDriverVerifyTest, RetryVerifcationStatusCheckVerified) {
+  TEST_DISABLED_FOR_RISCV64();
   Thread* const self = Thread::Current();
   jobject class_loader;
   std::vector<const DexFile*> dex_files;

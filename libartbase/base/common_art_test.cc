@@ -548,6 +548,10 @@ std::unique_ptr<const DexFile> CommonArtTestImpl::OpenTestDexFile(const char* na
 }
 
 std::string CommonArtTestImpl::GetImageDirectory() {
+  if (kRuntimeISA == InstructionSet::kRiscv64) {
+    return "/nonexistent";
+  }
+
   if (IsHost()) {
     const char* host_dir = getenv("ANDROID_HOST_OUT");
     CHECK(host_dir != nullptr);

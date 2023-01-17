@@ -24,9 +24,14 @@ namespace art {
 // This test creates two runtimes consecutively to check that state is
 // setup and cleaned-up correctly each time.
 
+#ifdef __riscv
+// DexoptTest requires TEST_DISABLED_ON_RISCV64, as images are not supported on RISC-V.
+class TwoRuntimesTest : public CommonRuntimeTest {};
+#else
 // Make this a DexoptTest, which makes sure runtime images get mapped
 // at random addresses.
 class TwoRuntimesTest : public DexoptTest {};
+#endif
 
 TEST_F(TwoRuntimesTest, FirstInvocation) {
   Thread::Current()->TransitionFromSuspendedToRunnable();

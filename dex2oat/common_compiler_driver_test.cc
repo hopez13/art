@@ -105,6 +105,7 @@ void CommonCompilerDriverTest::SetUpRuntimeOptions(RuntimeOptions* options) {
 }
 
 void CommonCompilerDriverTest::SetUp() {
+  TEST_SETUP_DISABLED_FOR_RISCV64();
   CommonCompilerTest::SetUp();
 
   CreateCompilerDriver();
@@ -116,6 +117,7 @@ void CommonCompilerDriverTest::SetUp() {
 }
 
 void CommonCompilerDriverTest::TearDown() {
+  TEST_TEARDOWN_DISABLED_FOR_RISCV64();
   if (inaccessible_page_ != nullptr) {
     munmap(inaccessible_page_, kPageSize);
     inaccessible_page_ = nullptr;

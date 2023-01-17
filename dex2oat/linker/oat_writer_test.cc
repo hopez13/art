@@ -423,6 +423,7 @@ class ZipBuilder {
 };
 
 TEST_F(OatTest, WriteRead) {
+  TEST_DISABLED_FOR_RISCV64();
   TimingLogger timings("OatTest::WriteRead", false, false);
   ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
 
@@ -503,6 +504,7 @@ TEST_F(OatTest, WriteRead) {
 }
 
 TEST_F(OatTest, OatHeaderSizeCheck) {
+  TEST_DISABLED_FOR_RISCV64();
   // If this test is failing and you have to update these constants,
   // it is time to update OatHeader::kOatVersion
   EXPECT_EQ(68U, sizeof(OatHeader));
@@ -513,6 +515,7 @@ TEST_F(OatTest, OatHeaderSizeCheck) {
 }
 
 TEST_F(OatTest, OatHeaderIsValid) {
+  TEST_DISABLED_FOR_RISCV64();
   InstructionSet insn_set = InstructionSet::kX86;
   std::string error_msg;
   std::unique_ptr<const InstructionSetFeatures> insn_features(
@@ -533,6 +536,7 @@ TEST_F(OatTest, OatHeaderIsValid) {
 }
 
 TEST_F(OatTest, EmptyTextSection) {
+  TEST_DISABLED_FOR_RISCV64();
   TimingLogger timings("OatTest::EmptyTextSection", false, false);
 
   std::vector<std::string> compiler_options;
@@ -694,18 +698,22 @@ void OatTest::TestDexFileInput(bool verify, bool low_4gb, bool use_profile) {
 }
 
 TEST_F(OatTest, DexFileInputCheckOutput) {
+  TEST_DISABLED_FOR_RISCV64();
   TestDexFileInput(/*verify*/false, /*low_4gb*/false, /*use_profile*/false);
 }
 
 TEST_F(OatTest, DexFileInputCheckOutputLow4GB) {
+  TEST_DISABLED_FOR_RISCV64();
   TestDexFileInput(/*verify*/false, /*low_4gb*/true, /*use_profile*/false);
 }
 
 TEST_F(OatTest, DexFileInputCheckVerifier) {
+  TEST_DISABLED_FOR_RISCV64();
   TestDexFileInput(/*verify*/true, /*low_4gb*/false, /*use_profile*/false);
 }
 
 TEST_F(OatTest, DexFileFailsVerifierWithLayout) {
+  TEST_DISABLED_FOR_RISCV64();
   TestDexFileInput(/*verify*/true, /*low_4gb*/false, /*use_profile*/true);
 }
 
@@ -854,14 +862,17 @@ void OatTest::TestZipFileInput(bool verify, CopyOption copy) {
 }
 
 TEST_F(OatTest, ZipFileInputCheckOutput) {
+  TEST_DISABLED_FOR_RISCV64();
   TestZipFileInput(false, CopyOption::kOnlyIfCompressed);
 }
 
 TEST_F(OatTest, ZipFileInputCheckOutputWithoutCopy) {
+  TEST_DISABLED_FOR_RISCV64();
   TestZipFileInput(false, CopyOption::kNever);
 }
 
 TEST_F(OatTest, ZipFileInputCheckVerifier) {
+  TEST_DISABLED_FOR_RISCV64();
   TestZipFileInput(true, CopyOption::kOnlyIfCompressed);
 }
 
@@ -888,6 +899,7 @@ void OatTest::TestZipFileInputWithEmptyDex() {
 }
 
 TEST_F(OatTest, ZipFileInputWithEmptyDex) {
+  TEST_DISABLED_FOR_RISCV64();
   TestZipFileInputWithEmptyDex();
 }
 
