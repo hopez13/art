@@ -16,6 +16,29 @@
       "message": "Thanks!",
       "revId": "ad402c3e7a69523fbb043dc44a4a5e4543e4d41a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "83044c7a_fabf9a8b",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 692,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-01-17T13:18:08Z",
+      "side": 1,
+      "message": "Should you do this in the caller instead? The method is called `HasFramesNeedingForceDeopt` and the name would suggest there isn\u0027t any side effect.",
+      "range": {
+        "startLine": 687,
+        "startChar": 84,
+        "endLine": 692,
+        "endChar": 3
+      },
+      "revId": "ad402c3e7a69523fbb043dc44a4a5e4543e4d41a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
