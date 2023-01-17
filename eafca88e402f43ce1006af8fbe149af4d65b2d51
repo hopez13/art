@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8bd3a38a_3c9594af",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-01-17T14:54:28Z",
+      "side": 1,
+      "message": "And the registration call is unimplemented, causing unnecessary warnings on host, for example when running host gtests.",
+      "range": {
+        "startLine": 85,
+        "startChar": 43,
+        "endLine": 85,
+        "endChar": 54
+      },
+      "revId": "eafca88e402f43ce1006af8fbe149af4d65b2d51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
