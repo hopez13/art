@@ -82,10 +82,13 @@ void FaultManager::Init() {
   AddSpecialSignalHandlerFn(SIGSEGV, &sa);
 
   // Notify the kernel that we intend to use a specific `membarrier()` command.
-  int result = art::membarrier(MembarrierCommand::kRegisterPrivateExpedited);
-  if (result != 0) {
-    LOG(WARNING) << "FaultHandler: MEMBARRIER_CMD_REGISTER_PRIVATE_EXPEDITED failed: "
-                 << errno << " " << strerror(errno);
+  // On x86, the `membarrier()` command is unnecessary thanks to the memory model.
+  if (kRuntimeISA != InstructionSet::kX86 && kRuntimeISA != InstructionSet::kX86_64) {
+    int result = art::membarrier(MembarrierCommand::kRegisterPrivateExpedited);
+    if (result != 0) {
+      LOG(WARNING) << "FaultHandler: MEMBARRIER_CMD_REGISTER_PRIVATE_EXPEDITED failed: "
+                   << errno << " " << strerror(errno);
+    }
   }
 
   {
@@ -295,7 +298,11 @@ void FaultManager::AddGeneratedCodeRange(const void* start, size_t size) {
   // However a thread that did not try to load a class with oat code can execute the
   // code if a direct or indirect reference to such class escapes from one of the
   // threads that loaded it. Use `membarrier()` for memory visibility in this case.
-  art::membarrier(MembarrierCommand::kPrivateExpedited);
+
+  // On x86, this is unnecessary thanks to the memory model.
+  if (kRuntimeISA != InstructionSet::kX86 && kRuntimeISA != InstructionSet::kX86_64) {
+    art::membarrier(MembarrierCommand::kPrivateExpedited);
+  }
 }
 
 void FaultManager::RemoveGeneratedCodeRange(const void* start, size_t size) {
