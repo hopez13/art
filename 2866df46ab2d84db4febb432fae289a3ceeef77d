@@ -35,6 +35,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4d80171_60e8af77",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 10417,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-01-17T08:29:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "82a6c3b5_dcdc25db",
+      "revId": "2866df46ab2d84db4febb432fae289a3ceeef77d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "535884f7_b93251af",
@@ -48,6 +66,30 @@
       "writtenOn": "2022-12-21T10:27:19Z",
       "side": 1,
       "message": "Update comment.",
+      "range": {
+        "startLine": 3017,
+        "startChar": 40,
+        "endLine": 3019,
+        "endChar": 16
+      },
+      "revId": "2866df46ab2d84db4febb432fae289a3ceeef77d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1473856b_78284de8",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3019,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-01-17T08:29:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "535884f7_b93251af",
       "range": {
         "startLine": 3017,
         "startChar": 40,
