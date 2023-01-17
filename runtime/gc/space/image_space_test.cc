@@ -50,6 +50,7 @@ class ImageSpaceTest : public CommonRuntimeTest {
 };
 
 TEST_F(ImageSpaceTest, StringDeduplication) {
+  TEST_DISABLED_FOR_RISCV64();
   const char* const kBaseNames[] = { "Extension1", "Extension2" };
 
   ScratchDir scratch;
@@ -226,6 +227,7 @@ TEST_F(ImageSpaceTest, StringDeduplication) {
 }
 
 TEST_F(DexoptTest, ValidateOatFile) {
+  TEST_DISABLED_FOR_RISCV64();
   std::string dex1 = GetScratchDir() + "/Dex1.jar";
   std::string multidex1 = GetScratchDir() + "/MultiDex1.jar";
   std::string dex2 = GetScratchDir() + "/Dex2.jar";
@@ -349,6 +351,7 @@ class ImageSpaceLoadingTest : public CommonRuntimeTest {
   }
 
   void TearDown() override {
+    TEST_TEARDOWN_DISABLED_FOR_RISCV64();
     if (old_dex2oat_bcp_ != nullptr) {
       int result = setenv("DEX2OATBOOTCLASSPATH", old_dex2oat_bcp_.get(), /* replace */ 0);
       CHECK_EQ(result, 0);
@@ -390,18 +393,21 @@ class ImageSpaceLoadingTest : public CommonRuntimeTest {
 
 using ImageSpaceNoDex2oatTest = ImageSpaceLoadingTest</*kImage=*/true, /*kRelocate=*/true>;
 TEST_F(ImageSpaceNoDex2oatTest, Test) {
+  TEST_DISABLED_FOR_RISCV64();
   EXPECT_FALSE(Runtime::Current()->GetHeap()->GetBootImageSpaces().empty());
 }
 
 using ImageSpaceNoRelocateNoDex2oatTest =
     ImageSpaceLoadingTest</*kImage=*/true, /*kRelocate=*/false>;
 TEST_F(ImageSpaceNoRelocateNoDex2oatTest, Test) {
+  TEST_DISABLED_FOR_RISCV64();
   EXPECT_FALSE(Runtime::Current()->GetHeap()->GetBootImageSpaces().empty());
 }
 
 using ImageSpaceNoImageNoProfileTest = ImageSpaceLoadingTest</*kImage=*/false, /*kRelocate=*/true>;
 TEST_F(ImageSpaceNoImageNoProfileTest, Test) {
   // Imageless mode.
+  TEST_DISABLED_FOR_RISCV64();
   EXPECT_TRUE(Runtime::Current()->GetHeap()->GetBootImageSpaces().empty());
 }
 
@@ -436,6 +442,7 @@ class ImageSpaceLoadingSingleComponentWithProfilesTest
 
 TEST_F(ImageSpaceLoadingSingleComponentWithProfilesTest, Test) {
   // Compiling the primary boot image into a single image is not allowed on host.
+  TEST_DISABLED_FOR_RISCV64();
   TEST_DISABLED_FOR_HOST();
 
   CheckImageSpaceAndOatFile(/*space_count=*/1);
@@ -490,6 +497,7 @@ class ImageSpaceLoadingMultipleComponentsWithProfilesTest
 
 TEST_F(ImageSpaceLoadingMultipleComponentsWithProfilesTest, Test) {
   // Compiling the primary boot image into a single image is not allowed on host.
+  TEST_DISABLED_FOR_RISCV64();
   TEST_DISABLED_FOR_HOST();
 
   CheckImageSpaceAndOatFile(/*space_count=*/1);

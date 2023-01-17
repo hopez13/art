@@ -94,6 +94,10 @@ class Dex2oatScratchDirs {
 class Dex2oatEnvironmentTest : public Dex2oatScratchDirs, public CommonRuntimeTest {
  public:
   void SetUp() override {
+    if (kRuntimeISA == InstructionSet::kRiscv64) {
+      return; // setup fails on RISC-V because there is no image
+    }
+
     CommonRuntimeTest::SetUp();
     Dex2oatScratchDirs::SetUp(android_data_);
 

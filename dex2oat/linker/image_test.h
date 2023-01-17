@@ -79,6 +79,7 @@ struct CompilationHelper {
 class ImageTest : public CommonCompilerDriverTest {
  protected:
   void SetUp() override {
+    TEST_SETUP_DISABLED_FOR_RISCV64();
     ReserveImageSpace();
     CommonCompilerDriverTest::SetUp();
   }

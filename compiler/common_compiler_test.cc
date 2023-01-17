@@ -207,6 +207,7 @@ const void* CommonCompilerTestImpl::MakeExecutable(ArrayRef<const uint8_t> code,
 }
 
 void CommonCompilerTestImpl::SetUp() {
+  TEST_SETUP_DISABLED_FOR_RISCV64();
   {
     ScopedObjectAccess soa(Thread::Current());
 
@@ -262,6 +263,7 @@ void CommonCompilerTestImpl::SetCompilerKind(Compiler::Kind compiler_kind) {
 }
 
 void CommonCompilerTestImpl::TearDown() {
+  TEST_TEARDOWN_DISABLED_FOR_RISCV64();
   code_and_metadata_.clear();
   compiler_options_.reset();
 }

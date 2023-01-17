@@ -414,6 +414,7 @@ class StubTest : public CommonRuntimeTest {
 
 
 TEST_F(StubTest, Memcpy) {
+  TEST_DISABLED_FOR_RISCV64();
 #if defined(__i386__) || (defined(__x86_64__) && !defined(__APPLE__))
   Thread* self = Thread::Current();
 
@@ -451,6 +452,7 @@ TEST_F(StubTest, Memcpy) {
 }
 
 TEST_F(StubTest, LockObject) {
+  TEST_DISABLED_FOR_RISCV64();
 #if defined(__i386__) || defined(__arm__) || defined(__aarch64__) || \
     (defined(__x86_64__) && !defined(__APPLE__))
   static constexpr size_t kThinLockLoops = 100;
@@ -670,6 +672,8 @@ static void TestUnlockObject(StubTest* test) NO_THREAD_SAFETY_ANALYSIS {
 }
 
 TEST_F(StubTest, UnlockObject) {
+  TEST_DISABLED_FOR_RISCV64();
+
   // This will lead to monitor error messages in the log.
   ScopedLogSeverity sls(LogSeverity::FATAL);
 
@@ -682,6 +686,7 @@ extern "C" void art_quick_check_instance_of(void);
 #endif
 
 TEST_F(StubTest, CheckCast) {
+  TEST_DISABLED_FOR_RISCV64();
 #if defined(__i386__) || defined(__arm__) || defined(__aarch64__) || \
     (defined(__x86_64__) && !defined(__APPLE__))
   Thread* self = Thread::Current();
@@ -781,6 +786,7 @@ TEST_F(StubTest, CheckCast) {
 }
 
 TEST_F(StubTest, AllocObject) {
+  TEST_DISABLED_FOR_RISCV64();
 #if defined(__i386__) || defined(__arm__) || defined(__aarch64__) || \
     (defined(__x86_64__) && !defined(__APPLE__))
   // This will lead to OOM  error messages in the log.
@@ -898,6 +904,7 @@ TEST_F(StubTest, AllocObject) {
 }
 
 TEST_F(StubTest, AllocObjectArray) {
+  TEST_DISABLED_FOR_RISCV64();
 #if defined(__i386__) || defined(__arm__) || defined(__aarch64__) || \
     (defined(__x86_64__) && !defined(__APPLE__))
   // TODO: Check the "Unresolved" allocation stubs
@@ -961,6 +968,7 @@ TEST_F(StubTest, AllocObjectArray) {
 
 
 TEST_F(StubTest, StringCompareTo) {
+  TEST_DISABLED_FOR_RISCV64();
   // There is no StringCompareTo runtime entrypoint for __arm__ or __aarch64__.
 #if defined(__i386__) || (defined(__x86_64__) && !defined(__APPLE__))
   // TODO: Check the "Unresolved" allocation stubs
@@ -1640,6 +1648,8 @@ static void TestFields(Thread* self, StubTest* test, Primitive::Type test_type) 
 }
 
 TEST_F(StubTest, Fields8) {
+  TEST_DISABLED_FOR_RISCV64();
+
   Thread* self = Thread::Current();
 
   self->TransitionFromSuspendedToRunnable();
@@ -1652,6 +1662,8 @@ TEST_F(StubTest, Fields8) {
 }
 
 TEST_F(StubTest, Fields16) {
+  TEST_DISABLED_FOR_RISCV64();
+
   Thread* self = Thread::Current();
 
   self->TransitionFromSuspendedToRunnable();
@@ -1664,6 +1676,8 @@ TEST_F(StubTest, Fields16) {
 }
 
 TEST_F(StubTest, Fields32) {
+  TEST_DISABLED_FOR_RISCV64();
+
   Thread* self = Thread::Current();
 
   self->TransitionFromSuspendedToRunnable();
@@ -1675,6 +1689,8 @@ TEST_F(StubTest, Fields32) {
 }
 
 TEST_F(StubTest, FieldsObj) {
+  TEST_DISABLED_FOR_RISCV64();
+
   Thread* self = Thread::Current();
 
   self->TransitionFromSuspendedToRunnable();
@@ -1686,6 +1702,8 @@ TEST_F(StubTest, FieldsObj) {
 }
 
 TEST_F(StubTest, Fields64) {
+  TEST_DISABLED_FOR_RISCV64();
+
   Thread* self = Thread::Current();
 
   self->TransitionFromSuspendedToRunnable();
@@ -1702,6 +1720,7 @@ TEST_F(StubTest, Fields64) {
 // and gets a bogus OatQuickMethodHeader* pointing into our assembly code just before
 // the bridge and uses that to check for inlined frames, crashing in the process.
 TEST_F(StubTest, DISABLED_IMT) {
+  TEST_DISABLED_FOR_RISCV64();
 #if defined(__i386__) || defined(__arm__) || defined(__aarch64__) || \
     (defined(__x86_64__) && !defined(__APPLE__))
   Thread* self = Thread::Current();
@@ -1842,6 +1861,7 @@ TEST_F(StubTest, DISABLED_IMT) {
 }
 
 TEST_F(StubTest, StringIndexOf) {
+  TEST_DISABLED_FOR_RISCV64();
 #if defined(__arm__) || defined(__aarch64__)
   Thread* self = Thread::Current();
   ScopedObjectAccess soa(self);
@@ -1918,6 +1938,7 @@ TEST_F(StubTest, StringIndexOf) {
 // TODO: Exercise the ReadBarrierMarkRegX entry points.
 
 TEST_F(StubTest, ReadBarrier) {
+  TEST_DISABLED_FOR_RISCV64();
 #if defined(__i386__) || defined(__arm__) || defined(__aarch64__) ||\
       (defined(__x86_64__) && !defined(__APPLE__))
   if (gUseReadBarrier) {
@@ -1954,6 +1975,7 @@ TEST_F(StubTest, ReadBarrier) {
 }
 
 TEST_F(StubTest, ReadBarrierForRoot) {
+  TEST_DISABLED_FOR_RISCV64();
 #if defined(__i386__) || defined(__arm__) || defined(__aarch64__) ||\
       (defined(__x86_64__) && !defined(__APPLE__))
   if (gUseReadBarrier) {

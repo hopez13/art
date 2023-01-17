@@ -1469,6 +1469,10 @@ class Dex2Oat final {
   // Set up the environment for compilation. Includes starting the runtime and loading/opening the
   // boot class path.
   dex2oat::ReturnCode Setup() {
+//  if (kRuntimeISA == InstructionSet::kRiscv64) {
+//    return dex2oat::ReturnCode::kOther; // setup fails for RISC-V because there is no image
+//  }
+
     TimingLogger::ScopedTiming t("dex2oat Setup", timings_);
 
     if (!PrepareDirtyObjects()) {
