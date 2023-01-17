@@ -22,6 +22,29 @@
       },
       "revId": "eafca88e402f43ce1006af8fbe149af4d65b2d51",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d837896f_50e08cf5",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-01-17T21:48:38Z",
+      "side": 1,
+      "message": "I think this is likely to work fine. But at least in theory, the compiler could still incorrectly reorder things here, even on x86. One possibility would be just to add an else clause that does std::atomic_signal_fence(std::memory_order_seq_cst).\n\nBut it seems cleaner to me to move all of this into membarrier.cc, noting that the instruction reordering stuff is still needed on x86. So this shortcut applies to MembarrierCommand::kPrivateExpedited, but not the SyncCore variants.\n\n(Technically, atomic_signal_fence is not guaranteed to be sufficient here. We intended to allow it to be abused as a compiler barrier and, based on a simple godbolt experiment, clang and gcc seem to comply.)\n\nWe\u0027re similarly relying on the absence of compiler reordering on the reader side. But I think the problematic reordering there is impossible there for semantics reasons, where on this side, it\u0027s conceivable with whole program optimization.",
+      "range": {
+        "startLine": 302,
+        "startChar": 2,
+        "endLine": 305,
+        "endChar": 3
+      },
+      "revId": "eafca88e402f43ce1006af8fbe149af4d65b2d51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
