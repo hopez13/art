@@ -35,6 +35,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0ad1bc9_1e85b830",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 670,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-01-17T12:39:44Z",
+      "side": 1,
+      "message": "Thanks! Done",
+      "parentUuid": "91ce5243_9141e1c4",
+      "revId": "d75847f053051fa1f19701f693bb14cad6bc76b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b13804ac_138f5a24",
@@ -58,6 +76,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5449b5a_adacbd53",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 681,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-01-17T12:39:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b13804ac_138f5a24",
+      "range": {
+        "startLine": 681,
+        "startChar": 0,
+        "endLine": 681,
+        "endChar": 84
+      },
+      "revId": "d75847f053051fa1f19701f693bb14cad6bc76b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9558d4d6_c27abb61",
@@ -71,6 +113,24 @@
       "writtenOn": "2023-01-16T21:29:38Z",
       "side": 1,
       "message": "nit: add a comment. What if it was `true` before?",
+      "revId": "d75847f053051fa1f19701f693bb14cad6bc76b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6eeb79cf_a591226f",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 683,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-01-17T12:39:44Z",
+      "side": 1,
+      "message": "Not sure that comment addresses your comment. If not let me know.",
+      "parentUuid": "9558d4d6_c27abb61",
       "revId": "d75847f053051fa1f19701f693bb14cad6bc76b5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
