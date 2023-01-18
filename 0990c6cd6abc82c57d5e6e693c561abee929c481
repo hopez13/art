@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5b3e86b_72bd5b77",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-01-18T11:03:06Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 12,
+        "startChar": 32,
+        "endLine": 12,
+        "endChar": 35
+      },
+      "revId": "0990c6cd6abc82c57d5e6e693c561abee929c481",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d1c8dfd_39577e9b",
+        "filename": "dex2oat/driver/compiler_driver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1288,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-01-18T11:03:06Z",
+      "side": 1,
+      "message": "Why do we need to keep such classes? Is it because a class initializer for another class could have initialized these static fields during AOT compilation and that initializer shall not run again at runtime?",
+      "range": {
+        "startLine": 1288,
+        "startChar": 70,
+        "endLine": 1288,
+        "endChar": 83
+      },
+      "revId": "0990c6cd6abc82c57d5e6e693c561abee929c481",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
