@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c285f8c_f51cabbf",
+        "filename": "runtime/interpreter/unstarted_runtime.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-01-18T16:30:04Z",
+      "side": 1,
+      "message": "You can move this to the helper, and maybe rename the helper with `CheckIsVisibleWithTargetSdk`?",
+      "range": {
+        "startLine": 143,
+        "startChar": 0,
+        "endLine": 144,
+        "endChar": 65
+      },
+      "revId": "f5eae85d36e77a9f534e21a8abbdc78985371670",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

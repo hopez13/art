@@ -74,6 +74,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1e7ae7ad_01b86033",
+        "filename": "runtime/interpreter/unstarted_runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-01-18T16:30:04Z",
+      "side": 1,
+      "message": "It\u0027s likely going to be unset for when we are compiling the boot image. So you should allow seeing `ClassValue` if it\u0027s unset.",
+      "parentUuid": "c7833d3a_c6ac7fbf",
+      "range": {
+        "startLine": 142,
+        "startChar": 34,
+        "endLine": 142,
+        "endChar": 58
+      },
+      "revId": "1a7dce4f1a7babc68f5b72b0fd95d114285a1e90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c806fd7b_df3486fb",
         "filename": "runtime/interpreter/unstarted_runtime.cc",
         "patchSetId": 2
