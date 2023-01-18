@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88d8226f_e9dbcfe8",
+        "filename": "libartbase/base/utils.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-01-18T17:00:15Z",
+      "side": 1,
+      "message": "I\u0027m unclear on what changed here. \u003cmembarrier.h\u003e is just no longer needed here?",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 6
+      },
+      "revId": "2b7a480b7840f84aa1e04b7cdd8d90145f5b5fa7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
