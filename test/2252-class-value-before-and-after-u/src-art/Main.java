@@ -30,6 +30,10 @@ public class Main {
         try {
             Class classValueClass = Class.forName("java.lang.ClassValue");
             throw new Error("Was able to find " + classValueClass + " on targetSdkLevel 33");
-        } catch (ClassNotFoundException expected) {}
+        } catch (ClassNotFoundException expected) {
+            if (!expected.getMessage().contains("java.lang.ClassValue")) {
+                throw new Error("Thrown exception should contain class name, but was: " + expected);
+            }
+        }
     }
 }
