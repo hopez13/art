@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9eee56e2_90ead834",
+        "filename": "runtime/interpreter/unstarted_runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2023-01-18T10:51:50Z",
+      "side": 1,
+      "message": "Is the target SDK set when running the unstarted runtime?",
+      "range": {
+        "startLine": 142,
+        "startChar": 34,
+        "endLine": 142,
+        "endChar": 58
+      },
+      "revId": "1a7dce4f1a7babc68f5b72b0fd95d114285a1e90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c806fd7b_df3486fb",
+        "filename": "runtime/interpreter/unstarted_runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1071150
+      },
+      "writtenOn": "2023-01-18T10:51:50Z",
+      "side": 1,
+      "message": "`className-\u003eToModifiedUtf8().c_str()`",
+      "range": {
+        "startLine": 143,
+        "startChar": 67,
+        "endLine": 143,
+        "endChar": 88
+      },
+      "revId": "1a7dce4f1a7babc68f5b72b0fd95d114285a1e90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
