@@ -1356,6 +1356,8 @@ class MANAGED Class final : public Object {
   size_t GetMethodIdOffset(ArtMethod* method, PointerSize pointer_size)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
+  bool IsVisibleAt(uint32_t targetSdkVersion) REQUIRES_SHARED(Locks::mutator_lock_);
+
  private:
   template <typename T, VerifyObjectFlags kVerifyFlags, typename Visitor>
   void FixupNativePointer(
