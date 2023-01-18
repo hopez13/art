@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c7833d3a_c6ac7fbf",
+        "filename": "runtime/interpreter/unstarted_runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1793992
+      },
+      "writtenOn": "2023-01-18T15:29:39Z",
+      "side": 1,
+      "message": "It is also set directly in Runtime::Init [1]. Default value is kUnset [2].\n\n[1] http://cs/android-internal/art/runtime/runtime.cc;l\u003d1560;rcl\u003d222ffc5e96a2c3ebfb7f36c652d6b051da2ed935\n\n[2] http://cs/android-internal/art/runtime/runtime_options.def;l\u003d138;rcl\u003d222ffc5e96a2c3ebfb7f36c652d6b051da2ed935",
+      "parentUuid": "49c1f0b0_a3e67194",
+      "range": {
+        "startLine": 142,
+        "startChar": 34,
+        "endLine": 142,
+        "endChar": 58
+      },
+      "revId": "1a7dce4f1a7babc68f5b72b0fd95d114285a1e90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c806fd7b_df3486fb",
         "filename": "runtime/interpreter/unstarted_runtime.cc",
         "patchSetId": 2
