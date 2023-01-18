@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42a83625_39caedba",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1359,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-01-18T10:11:46Z",
+      "side": 1,
+      "message": "`IsVisibleWithTargetSdk` ? Also add a comment.",
+      "range": {
+        "startLine": 1359,
+        "startChar": 7,
+        "endLine": 1359,
+        "endChar": 18
+      },
+      "revId": "76aea33a0807441f27d1414509b67c4a7a79208d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c38d6a03_904aad8e",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1359,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-01-18T10:11:46Z",
+      "side": 1,
+      "message": "Drop this argument and fetch it in the method?",
+      "range": {
+        "startLine": 1359,
+        "startChar": 19,
+        "endLine": 1359,
+        "endChar": 44
+      },
+      "revId": "76aea33a0807441f27d1414509b67c4a7a79208d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
