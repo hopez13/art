@@ -22,6 +22,30 @@
       },
       "revId": "2b7a480b7840f84aa1e04b7cdd8d90145f5b5fa7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8e45669_c5847213",
+        "filename": "libartbase/base/utils.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-01-18T17:07:10Z",
+      "side": 1,
+      "message": "It was added with `FlushInstructionPipeline()` which was replaced with `art::membarrier()` in https://android-review.googlesource.com/759679 . The #include here should have been removed in that CL.\n\nI\u0027m conservatively removing only the `membarrier` include, I\u0027m not sure if the `syscall` include is still needed.",
+      "parentUuid": "88d8226f_e9dbcfe8",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 6
+      },
+      "revId": "2b7a480b7840f84aa1e04b7cdd8d90145f5b5fa7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
