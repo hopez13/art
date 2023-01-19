@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "93a2d35c_86a4da2d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-01-19T13:21:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a5b3e86b_72bd5b77",
+      "range": {
+        "startLine": 12,
+        "startChar": 32,
+        "endLine": 12,
+        "endChar": 35
+      },
+      "revId": "0990c6cd6abc82c57d5e6e693c561abee929c481",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6d1c8dfd_39577e9b",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-01-18T11:03:06Z",
       "side": 1,
       "message": "Why do we need to keep such classes? Is it because a class initializer for another class could have initialized these static fields during AOT compilation and that initializer shall not run again at runtime?",
+      "range": {
+        "startLine": 1288,
+        "startChar": 70,
+        "endLine": 1288,
+        "endChar": 83
+      },
+      "revId": "0990c6cd6abc82c57d5e6e693c561abee929c481",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a09febd_08109fb7",
+        "filename": "dex2oat/driver/compiler_driver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1288,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-01-19T13:21:38Z",
+      "side": 1,
+      "message": "Because such classes are marked initialized, the oat file will have the status of the class as initialized.\n\nIf they have static fields, then they need to be put in the image otherwise they would be created at runtime with an empty value for the static fields.",
+      "parentUuid": "6d1c8dfd_39577e9b",
       "range": {
         "startLine": 1288,
         "startChar": 70,
