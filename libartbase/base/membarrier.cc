@@ -24,6 +24,8 @@
 #include <sys/utsname.h>
 #include <unistd.h>
 #endif
+#include "arch/instruction_set.h"
+#include "casts.h"
 #include "macros.h"
 
 #if defined(__BIONIC__)
@@ -45,9 +47,8 @@ CHECK_MEMBARRIER_CMD(art::MembarrierCommand::kPrivateExpedited, MEMBARRIER_CMD_P
 
 namespace art {
 
-#if defined(__NR_membarrier)
-
 int membarrier(MembarrierCommand command) {
+#if defined(__NR_membarrier)
   // Check kernel version supports membarrier(2).
   static constexpr int kRequiredMajor = 4;
   static constexpr int kRequiredMinor = 16;
@@ -71,17 +72,40 @@ int membarrier(MembarrierCommand command) {
   }
 #endif  // __BIONIC__
   return syscall(__NR_membarrier, static_cast<int>(command), 0);
-}
-
 #else  // __NR_membarrier
-
-int membarrier(MembarrierCommand command ATTRIBUTE_UNUSED) {
   // In principle this could be supported on linux, but Android's prebuilt glibc does not include
   // the system call number defintions (b/111199492).
+
+  // On x86, the `kPrivateExpedited` command is unnecessary thanks to the memory model, but we want
+  // to prevent instruction reordering in the calling thread in case of whole program optimization.
+  // We also want to return an error if the process did not register for the command.
+  // This "implementation" is used on x86/x86-64 to eliminate log spam for host tests.
+  if (kRuntimeISA == InstructionSet::kX86 || kRuntimeISA == InstructionSet::kX86_64) {
+    static std::atomic<bool> registered(false);
+    if (command == MembarrierCommand::kPrivateExpedited) {
+      if (registered.load(std::memory_order_seq_cst)) {
+        return 0;
+      } else {
+        errno = EPERM;
+        return -1;
+      }
+    }
+    if (command == MembarrierCommand::kRegisterPrivateExpedited) {
+      registered.store(true, std::memory_order_seq_cst);
+      return 0;
+    }
+    if (command == art::MembarrierCommand::kQuery) {
+      return enum_cast<int>(MembarrierCommand::kQuery) |
+             enum_cast<int>(MembarrierCommand::kPrivateExpedited) |
+             enum_cast<int>(MembarrierCommand::kRegisterPrivateExpedited);
+    }
+    errno = EINVAL;
+    return -1;
+  }
+
   errno = ENOSYS;
   return -1;
-}
-
 #endif  // __NR_membarrier
+}
 
 }  // namespace art
