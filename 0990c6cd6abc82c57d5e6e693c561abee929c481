@@ -93,6 +93,30 @@
       },
       "revId": "0990c6cd6abc82c57d5e6e693c561abee929c481",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d6995bc1_3c0cca7f",
+        "filename": "dex2oat/driver/compiler_driver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1288,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-01-19T13:35:50Z",
+      "side": 1,
+      "message": "The old code can be traced to https://android-review.googlesource.com/138253 . Maybe Andreas missed that there are things other than \u003cclinit\u003e of that class that can touch the class\u0027s static fields (`class_def_item.static_values_off` and `\u003cclinit\u003e` of other classes; without these, zero-initialized static fields would be OK).",
+      "parentUuid": "9a09febd_08109fb7",
+      "range": {
+        "startLine": 1288,
+        "startChar": 70,
+        "endLine": 1288,
+        "endChar": 83
+      },
+      "revId": "0990c6cd6abc82c57d5e6e693c561abee929c481",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
