@@ -19,6 +19,8 @@
 
 . "$(dirname $0)/buildbot-utils.sh"
 
+[[ -n "$ART_TEST_ON_LINUX" ]] && exit 0
+
 # Setup as root, as some actions performed here require it.
 adb root
 adb wait-for-device
