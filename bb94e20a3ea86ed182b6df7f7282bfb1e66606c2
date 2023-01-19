@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f74838fe_8991a96a",
+        "filename": "runtime/gc/collector/mark_compact.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 542,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-01-19T21:39:57Z",
+      "side": 1,
+      "message": "What was the reason for this change? I wouldn\u0027t expect an empty unordered set to be very big?",
+      "range": {
+        "startLine": 542,
+        "startChar": 2,
+        "endLine": 542,
+        "endChar": 60
+      },
+      "revId": "bb94e20a3ea86ed182b6df7f7282bfb1e66606c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
