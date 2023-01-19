@@ -401,20 +401,16 @@ inline ArtMethod* ClassLinker::ResolveMethod(uint32_t method_idx,
 
   // Note: We can check for IllegalAccessError only if we have a referrer.
   if (kResolveMode == ResolveMode::kCheckICCEAndIAE && resolved != nullptr && referrer != nullptr) {
-    ObjPtr<mirror::Class> methods_class = resolved->GetDeclaringClass();
     ObjPtr<mirror::Class> referring_class = referrer->GetDeclaringClass();
-    if (UNLIKELY(!referring_class->CanAccess(methods_class))) {
-      // The referrer class can't access the method's declaring class but may still be able
-      // to access the method if the MethodId specifies an accessible subclass of the declaring
-      // class rather than the declaring class itself.
-      if (UNLIKELY(!referring_class->CanAccess(klass))) {
-        ThrowIllegalAccessErrorClassForMethodDispatch(referring_class,
-                                                      klass,
-                                                      resolved,
-                                                      type);
-        return nullptr;
-      }
+    if (UNLIKELY(!referring_class->CanAccess(klass))) {
+      ThrowIllegalAccessErrorClassForMethodDispatch(referring_class,
+                                                    klass,
+                                                    resolved,
+                                                    type);
+      return nullptr;
     }
+
+    ObjPtr<mirror::Class> methods_class = resolved->GetDeclaringClass();
     if (UNLIKELY(!referring_class->CanAccessMember(methods_class, resolved->GetAccessFlags()))) {
       ThrowIllegalAccessErrorMethod(referring_class, resolved);
       return nullptr;
