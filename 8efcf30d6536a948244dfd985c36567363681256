@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "62011cd9_e0358387",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 916,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-01-19T03:57:26Z",
+      "side": 0,
+      "message": "Should this not have been:\n\nLocks::mutator_lock_-\u003eAssertNotHeld(self);\n\nIn the debuggable case hat would fail, if we are runnable, since the last TransitionFromSuspendedToRunnable() call would have added the mutator mutex to the list of held mutexes.",
+      "range": {
+        "startLine": 916,
+        "startChar": 1,
+        "endLine": 916,
+        "endChar": 30
+      },
+      "revId": "8efcf30d6536a948244dfd985c36567363681256",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
