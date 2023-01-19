@@ -22,6 +22,30 @@
       },
       "revId": "8efcf30d6536a948244dfd985c36567363681256",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e468cdaf_d6cda284",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 916,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-01-19T12:36:07Z",
+      "side": 0,
+      "message": "Indeed - and the `Locks::mutator_lock_-\u003eAssertNotHeld(self);` is already in the `ScopedSuspendAll` code.\n\nThe problem is only in the naming, I found it odd that `ScopedThreadSuspension sts(self, ThreadState::kSuspended);` doesn\u0027t imply `self-\u003eIsSuspended()`.",
+      "parentUuid": "62011cd9_e0358387",
+      "range": {
+        "startLine": 916,
+        "startChar": 1,
+        "endLine": 916,
+        "endChar": 30
+      },
+      "revId": "8efcf30d6536a948244dfd985c36567363681256",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
