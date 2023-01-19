@@ -462,6 +462,10 @@ class ImageWriter final {
       REQUIRES_SHARED(Locks::mutator_lock_);
   void CalculateObjectBinSlots(mirror::Object* obj)
       REQUIRES_SHARED(Locks::mutator_lock_);
+  // Save object offsets after CalculateNewObjectOffsets
+  HashMap<size_t, mirror::Object*> GetObjectOffsets() REQUIRES_SHARED(Locks::mutator_lock_);
+  // Undo the changes of CalculateNewObjectOffsets
+  void ResetObjectOffsets() REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Creates the contiguous image in memory and adjusts pointers.
   void CopyAndFixupNativeData(size_t oat_index) REQUIRES_SHARED(Locks::mutator_lock_);
@@ -685,8 +689,11 @@ class ImageWriter final {
   // Map of dex files to the indexes of oat files that they were compiled into.
   const HashMap<const DexFile*, size_t>& dex_file_oat_index_map_;
 
-  // Set of objects known to be dirty in the image. Can be nullptr if there are none.
+  // Set of classess/objects known to be dirty in the image. Can be nullptr if there are none.
   const HashSet<std::string>* dirty_image_objects_;
+
+  // Dirty object instances parsed from dirty_image_object_
+  HashSet<mirror::Object*> dirty_objects_;
 
   // Objects are guaranteed to not cross the region size boundary.
   size_t region_size_ = 0u;

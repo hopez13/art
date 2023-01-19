@@ -25,6 +25,7 @@
 #include <numeric>
 #include <vector>
 
+#include "android-base/strings.h"
 #include "art_field-inl.h"
 #include "art_method-inl.h"
 #include "base/callee_save_type.h"
@@ -229,6 +230,66 @@ static ObjPtr<mirror::ObjectArray<mirror::Object>> AllocateBootImageLiveObjects(
   return live_objects;
 }
 
+// Match dirty objects using offsets from saved_offset_map
+// Return the set of dirty objects if there are no mismatches
+static std::optional<HashSet<mirror::Object*>> MatchDirtyObjectOffsets(
+    const HashSet<std::string>& dirty_image_objects,
+    const HashMap<size_t, mirror::Object*>& saved_offset_map)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  HashSet<mirror::Object*> dirty_objects;
+
+  const std::string prefix = "dirty_obj:";
+  errno = 0;  // for strtoull error check
+  for (const std::string& entry : dirty_image_objects) {
+    // Skip the lines of old dirty-image-object format
+    if (0 != std::strncmp(entry.data(), prefix.data(), prefix.size())) {
+      continue;
+    }
+
+    const auto tokens = android::base::Split(entry, " ");
+    if (tokens.size() != 4) {
+      LOG(WARNING) << "Invalid dirty image objects format: \"" << entry << "\"";
+      return {};
+    }
+
+    const size_t offset = std::strtoull(tokens[1].data(), /* str_end */ nullptr, 10);
+    if (errno != 0) {
+      LOG(WARNING) << "Couldn't parse diry object offset: \"" << entry << "\"";
+      errno = 0;
+      return {};
+    }
+
+    const bool is_class = (tokens[2] == "class");
+    const std::string& descriptor = tokens[3];
+
+    auto saved_it = saved_offset_map.find(offset);
+    if (saved_it == saved_offset_map.end()) {
+      LOG(WARNING) << "Dirty image objects offset mismatch (outdated file?)";
+      return {};
+    }
+
+    auto* obj = saved_it->second;
+    const size_t saved_offset = saved_it->first;
+    const bool saved_is_class = obj->IsClass();
+    std::string temp;
+    const char* saved_descriptor = obj->IsClass() ? obj->AsClass()->GetDescriptor(&temp) :
+                                                    obj->GetClass()->GetDescriptor(&temp);
+
+    if (offset != saved_offset || is_class != saved_is_class || descriptor != saved_descriptor) {
+      LOG(WARNING) << "Dirty image objects offset mismatch (outdated file?)";
+      return {};
+    }
+    dirty_objects.insert(obj);
+  }
+
+  if (dirty_objects.empty()) {
+    // No use recalculating the offsets if there are no dirty_objects
+    return {};
+  }
+
+  return dirty_objects;
+}
+
 template <typename MirrorType>
 ObjPtr<MirrorType> ImageWriter::DecodeGlobalWithoutRB(JavaVMExt* vm, jobject obj) {
   DCHECK_EQ(IndirectReferenceTable::GetIndirectRefKind(obj), kGlobal);
@@ -334,6 +395,25 @@ bool ImageWriter::PrepareImageAddressSpace(TimingLogger* timings) {
     TimingLogger::ScopedTiming t("CalculateNewObjectOffsets", timings);
     ScopedObjectAccess soa(self);
     CalculateNewObjectOffsets();
+
+    // If dirty_image_objects_ is present - try optimizing object layout
+    // It can only be done after the first CalculateNewObjectOffsets,
+    // because calculated offsets are used to match dirty objects between imgdiag and dex2oat
+    if (compiler_options_.IsBootImage() && dirty_image_objects_ != nullptr) {
+      // Save original object offsets. These must be identical to the offsets in imgdiag
+      const auto saved_offset_map = GetObjectOffsets();
+      // Check that each dirty object offset has the same type as in saved object offsets map
+      const std::optional<HashSet<mirror::Object*>> dirty_objects =
+          MatchDirtyObjectOffsets(*dirty_image_objects_, saved_offset_map);
+
+      if (dirty_objects) {
+        LOG(INFO) << "Recalculating object offsets using dirty-image-objects";
+        dirty_objects_ = std::move(*dirty_objects);
+        // Calculate offsets again, now with dirty object offsets
+        ResetObjectOffsets();
+        CalculateNewObjectOffsets();
+      }
+    }
   }
 
   // This needs to happen after CalculateNewObjectOffsets since it relies on intern_table_bytes_ and
@@ -729,7 +809,9 @@ ImageWriter::Bin ImageWriter::AssignImageBinSlot(mirror::Object* object, size_t 
     // so packing them together will not result in a noticeably tighter dirty-to-clean ratio.
     //
     ObjPtr<mirror::Class> klass = object->GetClass<kVerifyNone, kWithoutReadBarrier>();
-    if (klass->IsClassClass()) {
+    if (dirty_objects_.find(object) != dirty_objects_.end()) {
+      bin = Bin::kKnownDirty;
+    } else if (klass->IsClassClass()) {
       bin = Bin::kClassVerified;
       ObjPtr<mirror::Class> as_klass = object->AsClass<kVerifyNone>();
 
@@ -2531,6 +2613,43 @@ void ImageWriter::CalculateNewObjectOffsets() {
     ImageInfo& image_info = GetImageInfo(relocation.oat_index);
     relocation.offset += image_info.GetBinSlotOffset(bin_type);
   }
+}
+
+HashMap<size_t, mirror::Object*> ImageWriter::GetObjectOffsets() {
+  HashMap<size_t, mirror::Object*> saved_offset_map;
+
+  auto visitor = [&](Object* obj) REQUIRES_SHARED(Locks::mutator_lock_) {
+    DCHECK(obj != nullptr);
+    if (!IsImageBinSlotAssigned(obj)) {
+      return;
+    }
+
+    uint8_t* image_address = reinterpret_cast<uint8_t*>(GetImageAddress(obj));
+    size_t offset = static_cast<size_t>(image_address - global_image_begin_);
+
+    saved_offset_map.insert(std::make_pair(offset, obj));
+  };
+  Runtime::Current()->GetHeap()->VisitObjects(visitor);
+  return saved_offset_map;
+}
+
+void ImageWriter::ResetObjectOffsets() {
+  const auto image_infos_size = image_infos_.size();
+  image_infos_.clear();
+  image_infos_.resize(image_infos_size);
+
+  native_object_relocations_.clear();
+
+  auto visitor = [&](Object* obj) REQUIRES_SHARED(Locks::mutator_lock_) {
+    DCHECK(obj != nullptr);
+    const auto it = saved_hashcode_map_.find(obj);
+    obj->SetLockWord(it != saved_hashcode_map_.end() ? LockWord::FromHashCode(it->second, 0u) :
+                                                       LockWord::Default(),
+                     false);
+  };
+  Runtime::Current()->GetHeap()->VisitObjects(visitor);
+
+  saved_hashcode_map_.clear();
 }
 
 std::pair<size_t, dchecked_vector<ImageSection>>
