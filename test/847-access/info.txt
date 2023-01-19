@@ -1,0 +1,2 @@
+Regression test for b/259266411: we need to look at the static type for knowing
+if we have access to a field or method, not the runtime type.

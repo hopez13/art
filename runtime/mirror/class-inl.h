@@ -469,25 +469,20 @@ inline bool Class::ResolvedFieldAccessTest(ObjPtr<Class> access_to,
                                            ObjPtr<DexCache> dex_cache,
                                            uint32_t field_idx) {
   DCHECK(dex_cache != nullptr);
-  if (UNLIKELY(!this->CanAccess(access_to))) {
-    // The referrer class can't access the field's declaring class but may still be able
-    // to access the field if the FieldId specifies an accessible subclass of the declaring
-    // class rather than the declaring class itself.
-    dex::TypeIndex class_idx = dex_cache->GetDexFile()->GetFieldId(field_idx).class_idx_;
-    // The referenced class has already been resolved with the field, but may not be in the dex
-    // cache. Use LookupResolveType here to search the class table if it is not in the dex cache.
-    // should be no thread suspension due to the class being resolved.
-    ObjPtr<Class> dex_access_to = Runtime::Current()->GetClassLinker()->LookupResolvedType(
-        class_idx,
-        dex_cache,
-        GetClassLoader());
-    DCHECK(dex_access_to != nullptr);
-    if (UNLIKELY(!this->CanAccess(dex_access_to))) {
-      if (throw_on_failure) {
-        ThrowIllegalAccessErrorClass(this, dex_access_to);
-      }
-      return false;
+  dex::TypeIndex class_idx = dex_cache->GetDexFile()->GetFieldId(field_idx).class_idx_;
+  // The referenced class has already been resolved with the field, but may not be in the dex
+  // cache. Use LookupResolveType here to search the class table if it is not in the dex cache.
+  // should be no thread suspension due to the class being resolved.
+  ObjPtr<Class> dex_access_to = Runtime::Current()->GetClassLinker()->LookupResolvedType(
+      class_idx,
+      dex_cache,
+      GetClassLoader());
+  DCHECK(dex_access_to != nullptr);
+  if (UNLIKELY(!this->CanAccess(dex_access_to))) {
+    if (throw_on_failure) {
+      ThrowIllegalAccessErrorClass(this, dex_access_to);
     }
+    return false;
   }
   if (LIKELY(this->CanAccessMember(access_to, field->GetAccessFlags()))) {
     return true;
