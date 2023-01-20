@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89b43ac3_1747e257",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-01-20T10:20:01Z",
+      "side": 1,
+      "message": "nit: we usually put the constant on the right hand side.",
+      "range": {
+        "startLine": 245,
+        "startChar": 8,
+        "endLine": 245,
+        "endChar": 12
+      },
+      "revId": "8c5d03061e69ff46e776efeaa22816e4cb41f38d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "11eff626_fbb36f26",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-01-20T10:20:01Z",
+      "side": 1,
+      "message": "nit: avoid auto for non-iterator types.",
+      "range": {
+        "startLine": 249,
+        "startChar": 10,
+        "endLine": 249,
+        "endChar": 14
+      },
+      "revId": "8c5d03061e69ff46e776efeaa22816e4cb41f38d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7533ee16_793dbf2c",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-01-20T10:20:01Z",
+      "side": 1,
+      "message": "Just use PLOG(WARNING)",
+      "range": {
+        "startLine": 257,
+        "startChar": 0,
+        "endLine": 258,
+        "endChar": 16
+      },
+      "revId": "8c5d03061e69ff46e776efeaa22816e4cb41f38d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb9f627b_78c3f073",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-01-20T10:20:01Z",
+      "side": 1,
+      "message": "nit: avoid",
+      "range": {
+        "startLine": 271,
+        "startChar": 4,
+        "endLine": 271,
+        "endChar": 8
+      },
+      "revId": "8c5d03061e69ff46e776efeaa22816e4cb41f38d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c57edf8b_ed673026",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-01-20T10:20:01Z",
+      "side": 1,
+      "message": "Do we want to tolerate such mismatches and just continue?",
+      "range": {
+        "startLine": 279,
+        "startChar": 0,
+        "endLine": 280,
+        "endChar": 16
+      },
+      "revId": "8c5d03061e69ff46e776efeaa22816e4cb41f38d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca928b59_09921034",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2628,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-01-20T10:20:01Z",
+      "side": 1,
+      "message": "If this can be easily calculated, why not calculating it while parsing dirty image objects, instead of creating a map?",
+      "range": {
+        "startLine": 2627,
+        "startChar": 0,
+        "endLine": 2628,
+        "endChar": 77
+      },
+      "revId": "8c5d03061e69ff46e776efeaa22816e4cb41f38d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
