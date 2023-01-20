@@ -786,6 +786,11 @@
         "description": ["Hangs forever, times out."]
     },
     {
+        "tests": ["2254-class-value-before-and-after-u"],
+        "variant": "jvm",
+        "description": "This test relies on dalvik.system.VMRuntime"
+    },
+    {
         "tests": [
           "004-JniTest",
           "004-NativeAllocations",
