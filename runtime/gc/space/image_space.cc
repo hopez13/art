@@ -3157,9 +3157,13 @@ bool ImageSpace::BootImageLoader::LoadFromSystem(
                          boot_class_path_image_fds_,
                          boot_class_path_vdex_fds_,
                          boot_class_path_oat_fds_);
+  auto start_time = std::chrono::system_clock::now();
   if (!layout.LoadFromSystem(image_isa_, allow_in_memory_compilation, error_msg)) {
     return false;
   }
+  auto end_time = std::chrono::system_clock::now();
+  std::chrono::duration<double, std::milli> elapsed_ms = end_time - start_time;
+  LOG(INFO) << "jiakaiz LoadFromSystem took " << elapsed_ms.count() << "ms.";
 
   // Load the image. We don't validate oat files in this stage because they have been validated
   // before.
@@ -3172,6 +3176,9 @@ bool ImageSpace::BootImageLoader::LoadFromSystem(
                  error_msg)) {
     return false;
   }
+  auto end_time_2 = std::chrono::system_clock::now();
+  std::chrono::duration<double, std::milli> elapsed_ms2 = end_time_2 - end_time;
+  LOG(INFO) << "jiakaiz LoadImage took " << elapsed_ms2.count() << "ms.";
 
   if (VLOG_IS_ON(image)) {
     LOG(INFO) << "ImageSpace::BootImageLoader::LoadFromSystem exiting "

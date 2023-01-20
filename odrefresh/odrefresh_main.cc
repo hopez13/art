@@ -252,6 +252,8 @@ NO_RETURN void UsageHelp(const char* argv0) {
 }  // namespace
 
 int main(int argc, char** argv) {
+  auto start_time = std::chrono::system_clock::now();
+
   // odrefresh is launched by `init` which sets the umask of forked processed to
   // 077 (S_IRWXG | S_IRWXO). This blocks the ability to make files and directories readable
   // by others and prevents system_server from loading generated artifacts.
@@ -286,6 +288,9 @@ int main(int argc, char** argv) {
     // to write metrics; if compilation is required, `--compile` will write metrics. Therefore,
     // `--check` should only write metrics when things went wrong.
     metrics.SetEnabled(exit_code != ExitCode::kOkay && exit_code != ExitCode::kCompilationRequired);
+    auto end_time = std::chrono::system_clock::now();
+    std::chrono::duration<double, std::milli> elapsed_ms = end_time - start_time;
+    LOG(INFO) << "jiakaiz odrefresh took " << elapsed_ms.count() << "ms.";
     return exit_code;
   } else if (action == "--compile") {
     ExitCode exit_code = odr.CheckArtifactsAreUpToDate(metrics, &compilation_options);
