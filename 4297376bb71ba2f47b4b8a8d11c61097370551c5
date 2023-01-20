@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d886a52a_03bb17c0",
+        "filename": "runtime/entrypoints/quick/quick_field_entrypoints.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-01-20T10:45:49Z",
+      "side": 1,
+      "message": "This shall be slower now. Should we just do a quick check with a referenced type from the dex cache and return null on cache miss?",
+      "range": {
+        "startLine": 58,
+        "startChar": 38,
+        "endLine": 58,
+        "endChar": 60
+      },
+      "revId": "4297376bb71ba2f47b4b8a8d11c61097370551c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
