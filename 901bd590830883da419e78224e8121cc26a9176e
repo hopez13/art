@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "68458ae5_ea013bae",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-01-20T10:23:49Z",
+      "side": 1,
+      "message": "We historically allowed access if either the declaring class or the referenced class is accessible. And you want to change ART to check only if the referenced class is accessible.\n\nI was previously thinking about making this change but this may have app compat implications, so we should use available tools to check whether this affects many existing apks.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 38
+      },
+      "revId": "901bd590830883da419e78224e8121cc26a9176e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22ecaa2c_89b3b627",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-01-20T10:23:49Z",
+      "side": 1,
+      "message": "How is this change related to bug 259266411?\n\nThe bug is about getting an unexpected IAE. But this change makes ART throw IAE in more situations, not fewer.",
+      "range": {
+        "startLine": 13,
+        "startChar": 5,
+        "endLine": 13,
+        "endChar": 14
+      },
+      "revId": "901bd590830883da419e78224e8121cc26a9176e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6a7102d_b1d34e4e",
+        "filename": "test/847-access/info.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-01-20T10:23:49Z",
+      "side": 1,
+      "message": "New field access tests should be added to the existing `064-field-access` run-test instead.",
+      "range": {
+        "startLine": 1,
+        "startChar": 52,
+        "endLine": 2,
+        "endChar": 60
+      },
+      "revId": "901bd590830883da419e78224e8121cc26a9176e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

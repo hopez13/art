@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52ebe173_a634181a",
+        "filename": "runtime/entrypoints/quick/quick_field_entrypoints.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-01-20T10:23:49Z",
+      "side": 0,
+      "message": "Note: The failure of this check in `FindFieldFast()` was benign as the slow path would have checked also whether the referenced class is accessible. And this was WAI as we didn\u0027t want to do the slower checks in the fast-path.",
+      "range": {
+        "startLine": 59,
+        "startChar": 16,
+        "endLine": 59,
+        "endChar": 56
+      },
+      "revId": "d80bbba155fd18a38075cf6f626bee382c2b492c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
