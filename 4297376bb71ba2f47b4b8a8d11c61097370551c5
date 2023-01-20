@@ -46,6 +46,30 @@
       },
       "revId": "4297376bb71ba2f47b4b8a8d11c61097370551c5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4fd627aa_b192bfbb",
+        "filename": "runtime/entrypoints/quick/quick_field_entrypoints.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-01-20T11:17:33Z",
+      "side": 1,
+      "message": "Yes, a clean up for fields similar to https://android-review.git.corp.google.com/2375905 for methods would be nice.",
+      "parentUuid": "64bc0a38_b3974596",
+      "range": {
+        "startLine": 58,
+        "startChar": 38,
+        "endLine": 58,
+        "endChar": 60
+      },
+      "revId": "4297376bb71ba2f47b4b8a8d11c61097370551c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
