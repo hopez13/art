@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "65af7d32_5e27b4c2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-01-23T14:44:45Z",
+      "side": 1,
+      "message": "deoptimizing",
+      "range": {
+        "startLine": 11,
+        "startChar": 20,
+        "endLine": 11,
+        "endChar": 29
+      },
+      "revId": "19c6242471f7ae5221a829ab1def563288c09ee2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "c1a01f29_466ec8d2",
@@ -14,6 +37,46 @@
       "writtenOn": "2023-01-23T12:02:50Z",
       "side": 1,
       "message": "PTAL. Thanks!",
+      "revId": "19c6242471f7ae5221a829ab1def563288c09ee2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "da099f2c_b3c6ad23",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-01-23T14:44:45Z",
+      "side": 1,
+      "message": "LGTM, thanks!\nI left a suggestion but feel free to dismiss it.",
+      "revId": "19c6242471f7ae5221a829ab1def563288c09ee2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2fa2429_10e1f69a",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2587,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-01-23T14:44:45Z",
+      "side": 1,
+      "message": "suggestion: Extract this to a new method `ShouldDeoptimizeMethod` which returns `Dbg::IsForcedInterpreterNeededForUpcall(self, method)`. My reasoning is that readers of `artMethodExitHook` might not care about why the current methods needs a deopt, just that it needs one. It would have a similar style to `ShouldDeoptimizeCaller`.\n\nIf you end up extracting, `deoptimize` could be marked as `const` too.",
+      "range": {
+        "startLine": 2587,
+        "startChar": 20,
+        "endLine": 2587,
+        "endChar": 74
+      },
       "revId": "19c6242471f7ae5221a829ab1def563288c09ee2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
