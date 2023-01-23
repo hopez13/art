@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "4cb2a26c_e0eb12b3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-01-23T15:53:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "65af7d32_5e27b4c2",
+      "range": {
+        "startLine": 11,
+        "startChar": 20,
+        "endLine": 11,
+        "endChar": 29
+      },
+      "revId": "19c6242471f7ae5221a829ab1def563288c09ee2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "c1a01f29_466ec8d2",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -71,6 +95,30 @@
       "writtenOn": "2023-01-23T14:44:45Z",
       "side": 1,
       "message": "suggestion: Extract this to a new method `ShouldDeoptimizeMethod` which returns `Dbg::IsForcedInterpreterNeededForUpcall(self, method)`. My reasoning is that readers of `artMethodExitHook` might not care about why the current methods needs a deopt, just that it needs one. It would have a similar style to `ShouldDeoptimizeCaller`.\n\nIf you end up extracting, `deoptimize` could be marked as `const` too.",
+      "range": {
+        "startLine": 2587,
+        "startChar": 20,
+        "endLine": 2587,
+        "endChar": 74
+      },
+      "revId": "19c6242471f7ae5221a829ab1def563288c09ee2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e6508a01_f0a0fba3",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2587,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-01-23T15:53:45Z",
+      "side": 1,
+      "message": "Thanks! I updated it const. \n\nThere is  NeedsSlowInterpreterForMethod that checks if method needs deoptimization. I considered using it here but didn\u0027t because this is happening at method exit and several of those conditions aren\u0027t required here. For ex: we don\u0027t need to deoptimize on method exit if it was marked for a deoptimization now since we are exiting anyway. I wanted to kind of make it explicit that this is the only reason we want to deoptimize method here to avoid confusion on why / whether those conditions might apply here.So I am leaving that as is.",
+      "parentUuid": "c2fa2429_10e1f69a",
       "range": {
         "startLine": 2587,
         "startChar": 20,
