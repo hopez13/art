@@ -75,6 +75,9 @@ class HDeadCodeElimination : public HOptimization {
   // instructions.
   bool RemoveUnneededTries();
 
+  // TODO(solanes): rename and explain.
+  bool MaybeAddPhi(HBasicBlock* block);
+
   DISALLOW_COPY_AND_ASSIGN(HDeadCodeElimination);
 };
 
