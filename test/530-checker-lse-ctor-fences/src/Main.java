@@ -118,7 +118,19 @@ public class Main {
   /// CHECK-DAG: ConstructorFence
   /// CHECK-DAG: InstanceFieldGet
 
+  /// CHECK-START: double Main.calcCircleAreaOrCircumference(double, boolean) load_store_elimination (before)
+  // Live phi which will become dead in LSE
+  /// CHECK:     Phi
+  // Phi added by DCE
+  /// CHECK:     Phi
+  /// CHECK-NOT: Phi
+
   /// CHECK-START: double Main.calcCircleAreaOrCircumference(double, boolean) load_store_elimination (after)
+  // Dead phi
+  /// CHECK:     Phi
+  // Phi added by DCE
+  /// CHECK:     Phi
+  // Phi added by LSE
   /// CHECK:     Phi
   /// CHECK-NOT: Phi
 

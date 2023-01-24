@@ -75,6 +75,28 @@ class HDeadCodeElimination : public HOptimization {
   // instructions.
   bool RemoveUnneededTries();
 
+  // Adds a phi in `block`, if `block` and its dominator have the same (or opposite) condition.
+  // For example it turns:
+  // if(cond)
+  //   /  \
+  //  B1  B2
+  //   \ /
+  // if(cond)
+  //   /  \
+  //  B3  B4
+  //
+  // into:
+  // if(cond)
+  //   /  \
+  //  B1  B2
+  //   \ /
+  // if(Phi(1, 0))
+  //   /  \
+  //  B3  B4
+  //
+  // Following this, SimplifyIfs is able to connect B1->B3 and B2->B4 effectively skipping an if.
+  void MaybeAddPhi(HBasicBlock* block);
+
   DISALLOW_COPY_AND_ASSIGN(HDeadCodeElimination);
 };
 

@@ -131,6 +131,8 @@ enum class MethodCompilationStat {
   kPredicatedLoadAdded,
   kPredicatedStoreAdded,
   kDevirtualized,
+  kBranchRedirectionAddedPhi,
+  kBranchRedirectionOppositeCondition,
   kLastStat
 };
 std::ostream& operator<<(std::ostream& os, MethodCompilationStat rhs);
