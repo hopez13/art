@@ -313,6 +313,95 @@ bool HDeadCodeElimination::SimplifyAlwaysThrows() {
   return false;
 }
 
+bool HDeadCodeElimination::MaybeAddPhi(HBasicBlock* block) {
+  DCHECK(block->GetLastInstruction()->IsIf());
+  HIf* if_instruction = block->GetLastInstruction()->AsIf();
+  if (if_instruction->InputAt(0)->IsConstant()) {
+    // Constant values are handled in RemoveDeadBlocks.
+    return false;
+  }
+
+  if (block->GetNumberOfPredecessors() < 2u) {
+    // Nothing to redirect.
+    return false;
+  }
+
+  HBasicBlock* dominator = block->GetDominator();
+  if (!dominator->EndsWithIf()) {
+    return false;
+  }
+
+  const bool same_condition =
+      dominator->GetLastInstruction()->AsIf()->InputAt(0) == if_instruction->InputAt(0);
+  if (!same_condition) {
+    // Try to see if the opposite condition is valid too.
+    HIf* dominator_if = dominator->GetLastInstruction()->AsIf();
+    if (!dominator_if->InputAt(0)->IsCondition() ||
+        !if_instruction->InputAt(0)->IsCondition()) {
+      return false;
+    }
+
+    HCondition* block_cond = if_instruction->InputAt(0)->AsCondition();
+    HCondition* dominator_cond = dominator_if->InputAt(0)->AsCondition();
+
+    if (block_cond->GetLeft() != dominator_cond->GetLeft() ||
+        block_cond->GetRight() != dominator_cond->GetRight() ||
+        block_cond->GetOppositeCondition() != dominator_cond->GetCondition()) {
+      return false;
+    }
+
+    // We now have the opposite conidition. We can perform the optimization with false and true branches reversed.
+  }
+
+  CHECK_GE(block->GetNumberOfPredecessors(), 2u);
+  // `block`'s successors should have only one predecessor
+  for (HBasicBlock* succ : block->GetSuccessors()) {
+    CHECK_EQ(succ->GetNumberOfPredecessors(), 1u);
+  }
+
+  // Use local allocator for allocating memory.
+  ScopedArenaAllocator allocator(graph_->GetArenaStack());
+  size_t pred_size = block->GetNumberOfPredecessors();
+  ArenaBitVector true_successor_blocks(&allocator, pred_size, false, kArenaAllocDCE);
+  true_successor_blocks.ClearAllBits();
+
+  for (size_t index = 0; index < pred_size; index++) {
+    HBasicBlock* pred = block->GetPredecessors()[index];
+    if (dominator->GetLastInstruction()->AsIf()->IfTrueSuccessor()->Dominates(pred) ==
+        dominator->GetLastInstruction()->AsIf()->IfFalseSuccessor()->Dominates(pred)) {
+      MaybeRecordStat(stats_, MethodCompilationStat::kBranchRedirectionTrueAndFalse);
+      return false;
+    }
+
+    // If below is equivalent to:
+    // if ((same_condition &&
+    //      dominator->GetLastInstruction()->AsIf()->IfTrueSuccessor()->Dominates(pred)) ||
+    //     (!same_condition &&
+    //      dominator->GetLastInstruction()->AsIf()->IfFalseSuccessor()->Dominates(pred))) {
+    // Given that `dominator->GetLastInstruction()->AsIf()->IfTrueSuccessor()->Dominates(pred)`
+    // is the exact opposite of
+    // `dominator->GetLastInstruction()->AsIf()->IfFalseSuccessor()->Dominates(pred)`.
+    if (same_condition ==
+        dominator->GetLastInstruction()->AsIf()->IfTrueSuccessor()->Dominates(pred)) {
+      true_successor_blocks.SetBit(index);
+    }
+  }
+
+  HPhi* new_phi = new (graph_->GetAllocator())
+      HPhi(graph_->GetAllocator(), kNoRegNumber, pred_size, DataType::Type::kInt32);
+  for (size_t index = 0; index < pred_size; index++) {
+    new_phi->SetRawInputAt(index,
+                           true_successor_blocks.IsBitSet(index) ? graph_->GetIntConstant(1) :
+                                                                   graph_->GetIntConstant(0));
+  }
+  block->AddPhi(new_phi);
+  if_instruction->ReplaceInput(new_phi, 0);
+  MaybeRecordStat(stats_,
+                  same_condition ? MethodCompilationStat::kBranchRedirectionPhis :
+                                   MethodCompilationStat::kBranchRedirectionOppositeCondition);
+  return true;
+}
+
 // Simplify the pattern:
 //
 //        B1    B2    ...
@@ -337,29 +426,40 @@ bool HDeadCodeElimination::SimplifyAlwaysThrows() {
 // can be redirected as B2->B5) without applying this optimization
 // to other incoming edges.
 //
-// This simplification cannot be applied to catch blocks, because
-// exception handler edges do not represent normal control flow.
-// Though in theory this could still apply to normal control flow
-// going directly to a catch block, we cannot support it at the
-// moment because the catch Phi's inputs do not correspond to the
-// catch block's predecessors, so we cannot identify which
-// predecessor corresponds to a given statically evaluated input.
-//
-// We do not apply this optimization to loop headers as this could
-// create irreducible loops. We rely on the suspend check in the
-// loop header to prevent the pattern match.
-//
 // Note that we rely on the dead code elimination to get rid of B3.
 bool HDeadCodeElimination::SimplifyIfs() {
   bool simplified_one_or_more_ifs = false;
   bool rerun_dominance_and_loop_analysis = false;
 
-  for (HBasicBlock* block : graph_->GetReversePostOrder()) {
+  // TODO(solanes): Post order is better for MaybeAddPhi. Looks to be fine for the other opt.
+  for (HBasicBlock* block : graph_->GetPostOrder()) {
+    if (block->IsCatchBlock()) {
+      // This simplification cannot be applied to catch blocks, because
+      // exception handler edges do not represent normal control flow.
+      // Though in theory this could still apply to normal control flow
+      // going directly to a catch block, we cannot support it at the
+      // moment because the catch Phi's inputs do not correspond to the
+      // catch block's predecessors, so we cannot identify which
+      // predecessor corresponds to a given statically evaluated input.
+      continue;
+    }
+    
     HInstruction* last = block->GetLastInstruction();
+    if (!last->IsIf()) {
+      continue;
+    }
+
+    if (block->IsLoopHeader()) {
+      // We do not apply this optimization to loop headers as this could
+      // create irreducible loops.
+      continue;
+    }
+
     HInstruction* first = block->GetFirstInstruction();
-    if (!block->IsCatchBlock() &&
-        last->IsIf() &&
-        block->HasSinglePhi() &&
+
+    MaybeAddPhi(block);
+    
+    if (block->HasSinglePhi() &&
         block->GetFirstPhi()->HasOnlyOneNonEnvironmentUse()) {
       bool has_only_phi_and_if = (last == first) && (last->InputAt(0) == block->GetFirstPhi());
       bool has_only_phi_condition_and_if =
@@ -371,7 +471,6 @@ bool HDeadCodeElimination::SimplifyIfs() {
           first->HasOnlyOneNonEnvironmentUse();
 
       if (has_only_phi_and_if || has_only_phi_condition_and_if) {
-        DCHECK(!block->IsLoopHeader());
         HPhi* phi = block->GetFirstPhi()->AsPhi();
         bool phi_input_is_left = (first->InputAt(0) == phi);
 

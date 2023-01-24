@@ -118,7 +118,14 @@ public class Main {
   /// CHECK-DAG: ConstructorFence
   /// CHECK-DAG: InstanceFieldGet
 
+  /// CHECK-START: double Main.calcCircleAreaOrCircumference(double, boolean) load_store_elimination (before)
+  /// CHECK:     Phi
+  /// CHECK:     Phi
+  /// CHECK-NOT: Phi
+
   /// CHECK-START: double Main.calcCircleAreaOrCircumference(double, boolean) load_store_elimination (after)
+  /// CHECK:     Phi
+  /// CHECK:     Phi
   /// CHECK:     Phi
   /// CHECK-NOT: Phi
 
