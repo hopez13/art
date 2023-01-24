@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a6bbb24_3dd03ae3",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-01-24T15:37:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "89b43ac3_1747e257",
+      "range": {
+        "startLine": 245,
+        "startChar": 8,
+        "endLine": 245,
+        "endChar": 12
+      },
+      "revId": "8c5d03061e69ff46e776efeaa22816e4cb41f38d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "11eff626_fbb36f26",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-01-20T10:20:01Z",
       "side": 1,
       "message": "nit: avoid auto for non-iterator types.",
+      "range": {
+        "startLine": 249,
+        "startChar": 10,
+        "endLine": 249,
+        "endChar": 14
+      },
+      "revId": "8c5d03061e69ff46e776efeaa22816e4cb41f38d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f8177d9d_d8342db1",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-01-24T15:37:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "11eff626_fbb36f26",
       "range": {
         "startLine": 249,
         "startChar": 10,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3385e7fa_3a6e8d63",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-01-24T15:37:55Z",
+      "side": 1,
+      "message": "Removed errno altogether",
+      "parentUuid": "7533ee16_793dbf2c",
+      "range": {
+        "startLine": 257,
+        "startChar": 0,
+        "endLine": 258,
+        "endChar": 16
+      },
+      "revId": "8c5d03061e69ff46e776efeaa22816e4cb41f38d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "eb9f627b_78c3f073",
@@ -83,6 +155,30 @@
       "writtenOn": "2023-01-20T10:20:01Z",
       "side": 1,
       "message": "nit: avoid",
+      "range": {
+        "startLine": 271,
+        "startChar": 4,
+        "endLine": 271,
+        "endChar": 8
+      },
+      "revId": "8c5d03061e69ff46e776efeaa22816e4cb41f38d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "88220fdc_9ac5d336",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-01-24T15:37:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eb9f627b_78c3f073",
       "range": {
         "startLine": 271,
         "startChar": 4,
@@ -118,6 +214,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "474b2391_7a506559",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-01-24T15:37:55Z",
+      "side": 1,
+      "message": "In case of mismatch -- the code just skips recalculating offsets and works as before.\nI don\u0027t know if there is a better way. Breaking boot-image compilation because of outdated optional file doesn\u0027t sound good to me.",
+      "parentUuid": "c57edf8b_ed673026",
+      "range": {
+        "startLine": 279,
+        "startChar": 0,
+        "endLine": 280,
+        "endChar": 16
+      },
+      "revId": "8c5d03061e69ff46e776efeaa22816e4cb41f38d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ca928b59_09921034",
         "filename": "dex2oat/linker/image_writer.cc",
         "patchSetId": 1
@@ -129,6 +249,30 @@
       "writtenOn": "2023-01-20T10:20:01Z",
       "side": 1,
       "message": "If this can be easily calculated, why not calculating it while parsing dirty image objects, instead of creating a map?",
+      "range": {
+        "startLine": 2627,
+        "startChar": 0,
+        "endLine": 2628,
+        "endChar": 77
+      },
+      "revId": "8c5d03061e69ff46e776efeaa22816e4cb41f38d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cdcc6c58_5226da2f",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2628,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-01-24T15:37:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ca928b59_09921034",
       "range": {
         "startLine": 2627,
         "startChar": 0,
