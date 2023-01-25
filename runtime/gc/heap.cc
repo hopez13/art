@@ -4653,6 +4653,14 @@ void Heap::PostForkChildAction(Thread* self) {
   if (gUseUserfaultfd) {
     DCHECK_NE(mark_compact_, nullptr);
     mark_compact_->CreateUserfaultfd(/*post_fork*/true);
+  } else {
+    // This ensures that userfaultfd syscall is done before any seccomp filter is installed.
+    // TODO(b/266731037): Remove this when we no longer need to collect metric on userfaultfd
+    // support.
+    auto [uffd_supported, minor_fault_supported] = collector::MarkCompact::GetUffdAndMinorFault();
+    // The check is just to ensure that compiler doesn't eliminate the function call above.
+    // Userfaultfd support is certain to be there if its minor-fault feature is supported.
+    CHECK_IMPLIES(minor_fault_supported, uffd_supported);
   }
 
   // Temporarily increase target_footprint_ and concurrent_start_bytes_ to
