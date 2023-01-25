@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5860987_c06dbe64",
+        "filename": "runtime/gc/collector/mark_compact.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-01-25T21:09:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "18831d7d_8cb38f87",
+      "range": {
+        "startLine": 72,
+        "startChar": 5,
+        "endLine": 72,
+        "endChar": 20
+      },
+      "revId": "d47ced19f7446ff2d3f1f7cd0b26f8fa73fd39f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "89bf62d7_9fa59c65",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-01-18T09:52:43Z",
       "side": 1,
       "message": "Add a comment?",
+      "range": {
+        "startLine": 2548,
+        "startChar": 0,
+        "endLine": 2550,
+        "endChar": 3
+      },
+      "revId": "d47ced19f7446ff2d3f1f7cd0b26f8fa73fd39f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b02e40b6_0b9981a9",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2550,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-01-25T21:09:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "89bf62d7_9fa59c65",
       "range": {
         "startLine": 2548,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a86e2861_e857708b",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4009,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-01-25T21:09:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c49e1600_bf303cc2",
+      "range": {
+        "startLine": 4008,
+        "startChar": 29,
+        "endLine": 4009,
+        "endChar": 75
+      },
+      "revId": "d47ced19f7446ff2d3f1f7cd0b26f8fa73fd39f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1146e8c1_f8c4a432",
@@ -83,6 +155,30 @@
       "writtenOn": "2023-01-18T09:52:43Z",
       "side": 1,
       "message": "why not looking at the collector type here?",
+      "range": {
+        "startLine": 4503,
+        "startChar": 8,
+        "endLine": 4503,
+        "endChar": 23
+      },
+      "revId": "d47ced19f7446ff2d3f1f7cd0b26f8fa73fd39f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b857d4c_592e3229",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4503,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-01-25T21:09:24Z",
+      "side": 1,
+      "message": "Both confirm the same thing. If gUseUserfaultfd is true then current collector ought to be mark-compact. I have added a check in Heap regarding this.",
+      "parentUuid": "1146e8c1_f8c4a432",
       "range": {
         "startLine": 4503,
         "startChar": 8,
@@ -116,6 +212,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dcfb4dda_ecd31c13",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 534,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-01-25T21:09:24Z",
+      "side": 1,
+      "message": "I have renamed it to generalize. But as of now the only user was JNI critical.",
+      "parentUuid": "04c12277_c03b7701",
+      "range": {
+        "startLine": 534,
+        "startChar": 26,
+        "endLine": 534,
+        "endChar": 41
+      },
+      "revId": "d47ced19f7446ff2d3f1f7cd0b26f8fa73fd39f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4c460bdd_4f1fc627",
@@ -129,6 +249,30 @@
       "writtenOn": "2023-01-18T09:52:43Z",
       "side": 1,
       "message": "Add a comment about this new parameter?",
+      "range": {
+        "startLine": 135,
+        "startChar": 25,
+        "endLine": 135,
+        "endChar": 50
+      },
+      "revId": "d47ced19f7446ff2d3f1f7cd0b26f8fa73fd39f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3206d08c_64d735d5",
+        "filename": "runtime/thread_list.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-01-25T21:09:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4c460bdd_4f1fc627",
       "range": {
         "startLine": 135,
         "startChar": 25,
