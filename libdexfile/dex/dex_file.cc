@@ -74,11 +74,6 @@ uint32_t DexFile::ChecksumMemoryRange(const uint8_t* begin, size_t size) {
   return adler32(adler32(0L, Z_NULL, 0), begin, size);
 }
 
-int DexFile::GetPermissions() const {
-  CHECK(container_.get() != nullptr);
-  return container_->GetPermissions();
-}
-
 bool DexFile::IsReadOnly() const {
   CHECK(container_.get() != nullptr);
   return container_->IsReadOnly();
@@ -101,7 +96,7 @@ DexFile::DexFile(const uint8_t* base,
                  const std::string& location,
                  uint32_t location_checksum,
                  const OatDexFile* oat_dex_file,
-                 std::unique_ptr<DexFileContainer> container,
+                 std::shared_ptr<DexFileContainer> container,
                  bool is_compact_dex)
     : begin_(base),
       size_(size),

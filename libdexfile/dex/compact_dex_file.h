@@ -309,7 +309,7 @@ class CompactDexFile : public DexFile {
                  const std::string& location,
                  uint32_t location_checksum,
                  const OatDexFile* oat_dex_file,
-                 std::unique_ptr<DexFileContainer> container);
+                 std::shared_ptr<DexFileContainer> container);
 
   CompactOffsetTable::Accessor debug_info_offsets_;
 

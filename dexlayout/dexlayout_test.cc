@@ -802,18 +802,18 @@ TEST_F(DexLayoutTest, ClassFilter) {
         &out,
         &error_msg);
     ASSERT_TRUE(result) << "Failed to run dexlayout " << error_msg;
+    auto container = std::make_shared<DexLoaderContainer>(out->GetMainSection()->Begin(),
+                                                          out->GetMainSection()->End(),
+                                                          out->GetDataSection()->Begin(),
+                                                          out->GetDataSection()->End());
     std::unique_ptr<const DexFile> output_dex_file(
-        dex_file_loader.OpenWithDataSection(
-            out->GetMainSection()->Begin(),
-            out->GetMainSection()->Size(),
-            out->GetDataSection()->Begin(),
-            out->GetDataSection()->Size(),
-            dex_file->GetLocation().c_str(),
-            /* location_checksum= */ 0,
-            /*oat_dex_file=*/ nullptr,
-            /* verify= */ true,
-            /*verify_checksum=*/ false,
-            &error_msg));
+        dex_file_loader.Open(std::move(container),
+                             dex_file->GetLocation().c_str(),
+                             /* location_checksum= */ 0,
+                             /*oat_dex_file=*/nullptr,
+                             /* verify= */ true,
+                             /*verify_checksum=*/false,
+                             &error_msg));
     ASSERT_TRUE(output_dex_file != nullptr);
 
     ASSERT_EQ(output_dex_file->NumClassDefs(), options.class_filter_.size());
