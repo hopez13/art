@@ -35,6 +35,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "24c987d1_b856a7cd",
+        "filename": "test/default_run.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-01-25T14:53:19Z",
+      "side": 1,
+      "message": "Changed to ON_VM as discussed.",
+      "parentUuid": "fc7560bf_ad8293b0",
+      "revId": "201bb55343a19ea06913dab609f551300543168d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1bf436bc_8c109807",
@@ -52,6 +70,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c226c35_287b9220",
+        "filename": "test/run-test",
+        "patchSetId": 3
+      },
+      "lineNbr": 1019,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-01-25T14:53:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1bf436bc_8c109807",
+      "revId": "201bb55343a19ea06913dab609f551300543168d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "de14d50c_e8053c99",
@@ -65,6 +101,24 @@
       "writtenOn": "2023-01-25T13:45:53Z",
       "side": 1,
       "message": "why `rsync` rather than `scp` as in other places?",
+      "revId": "201bb55343a19ea06913dab609f551300543168d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "899590e3_f6b4b590",
+        "filename": "test/run-test",
+        "patchSetId": 3
+      },
+      "lineNbr": 1081,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-01-25T14:53:19Z",
+      "side": 1,
+      "message": "scp has a known limitation that it can\u0027t copy symlinks as symlinks. But this is irrelevant here (it was the reason I used rsync in art/tools/buildbot-*.sh scripts, not here). Changed the whole script to use scp (via ART_SCP_CMD env var).",
+      "parentUuid": "de14d50c_e8053c99",
       "revId": "201bb55343a19ea06913dab609f551300543168d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
