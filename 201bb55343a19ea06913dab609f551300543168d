@@ -16,6 +16,57 @@
       "message": "Test instructions for ARM64 mentioned in the commit message should be reproducible.",
       "revId": "201bb55343a19ea06913dab609f551300543168d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc7560bf_ad8293b0",
+        "filename": "test/default_run.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-01-25T13:45:53Z",
+      "side": 1,
+      "message": "Bikeshedding: What would be a good name for this?  Host is linux, and android is linux as well.\n\n`SSH_TARGET` ? `VIA_SSH` ? `USE_SSH` ? `SSH_DEVICE` ?  I am not quite sure myself.",
+      "revId": "201bb55343a19ea06913dab609f551300543168d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1bf436bc_8c109807",
+        "filename": "test/run-test",
+        "patchSetId": 3
+      },
+      "lineNbr": 1019,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-01-25T13:45:53Z",
+      "side": 1,
+      "message": "It is always non-empty.",
+      "revId": "201bb55343a19ea06913dab609f551300543168d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de14d50c_e8053c99",
+        "filename": "test/run-test",
+        "patchSetId": 3
+      },
+      "lineNbr": 1081,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-01-25T13:45:53Z",
+      "side": 1,
+      "message": "why `rsync` rather than `scp` as in other places?",
+      "revId": "201bb55343a19ea06913dab609f551300543168d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
