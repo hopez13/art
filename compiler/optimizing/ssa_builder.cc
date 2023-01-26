@@ -549,27 +549,10 @@ GraphAnalysisResult SsaBuilder::BuildSsa() {
     return kAnalysisFailAmbiguousArrayOp;
   }
 
-  // Mark dead phis. This will mark phis which are not used by instructions
-  // or other live phis. If compiling as debuggable code, phis will also be kept
-  // live if they have an environment use.
-  SsaDeadPhiElimination dead_phi_elimimation(graph_);
-  dead_phi_elimimation.MarkDeadPhis();
-
-  // Make sure environments use the right phi equivalent: a phi marked dead
-  // can have a phi equivalent that is not dead. In that case we have to replace
-  // it with the live equivalent because deoptimization and try/catch rely on
-  // environments containing values of all live vregs at that point. Note that
-  // there can be multiple phis for the same Dex register that are live
-  // (for example when merging constants), in which case it is okay for the
-  // environments to just reference one.
-  FixEnvironmentPhis();
-
-  // Now that the right phis are used for the environments, we can eliminate
-  // phis we do not need. Regardless of the debuggable status, this phase is
-  /// necessary for statement (b) of the SsaBuilder (see ssa_builder.h), as well
-  // as for the code generation, which does not deal with phis of conflicting
-  // input types.
-  dead_phi_elimimation.EliminateDeadPhis();
+  // Regardless of the debuggable status, DeadPhiElimination is necessary for statement (b) of the
+  // SsaBuilder (see ssa_builder.h), as well as for the code generation, which does not deal with
+  // phis of conflicting input types.
+  SsaDeadPhiElimination(graph_).Run();
 
   // Replace Phis that feed in a String.<init> during instruction building. We
   // run this after redundant and dead phi elimination to make sure the phi will have

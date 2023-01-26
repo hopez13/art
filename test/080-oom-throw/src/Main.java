@@ -180,7 +180,7 @@ public class Main {
         Object memory = eatAllMemory();
         boolean result = false;
         try {
-            Main.class.getDeclaredMethods();
+            $noinline$getDeclaredMethods()
         } catch (OutOfMemoryError e) {
             result = true;
         }
@@ -190,5 +190,9 @@ public class Main {
             System.out.println("memoryWasAllocated = " + memoryWasAllocated);
         }
         return result;
+    }
+
+    static Method[] $noinline$getDeclaredMethods() {
+        return Main.class.getDeclaredMethods();
     }
 }
