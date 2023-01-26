@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6f8a20da_59a5201b",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1607,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-01-26T09:54:14Z",
+      "side": 1,
+      "message": "recursivity in a compiler should usually be avoided. Can you change this to a work queue?",
+      "range": {
+        "startLine": 1607,
+        "startChar": 17,
+        "endLine": 1607,
+        "endChar": 37
+      },
+      "revId": "23ab5ba067594bbb8c6b765261f73f86d89fcf30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "909cf67a_15c8dc71",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1624,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-01-26T09:54:14Z",
+      "side": 1,
+      "message": "Move this before the definition of `kMaximumLoopHeaderPhisInARow`. What does \"in a row\" mean here? Can you expand the comment?",
+      "range": {
+        "startLine": 1624,
+        "startChar": 0,
+        "endLine": 1624,
+        "endChar": 69
+      },
+      "revId": "23ab5ba067594bbb8c6b765261f73f86d89fcf30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
