@@ -869,6 +869,7 @@ bool HDeadCodeElimination::Run() {
       ConnectSuccessiveBlocks();
     }
   }
+  SsaDeadPhiElimination(graph_).Run();
   SsaRedundantPhiElimination(graph_).Run();
   RemoveDeadInstructions();
   UpdateGraphFlags();

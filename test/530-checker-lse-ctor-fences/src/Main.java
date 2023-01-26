@@ -138,6 +138,16 @@ public class Main {
   /// CHECK-NOT: NewInstance
   /// CHECK-NOT: ConstructorFence
 
+  // Side-note: The dead phi will get deleted in `dead_code_elimination$after_lse`, but we are not
+  // able to redirect the branches due to the order of the optimizations inside DCE (i.e. removing
+  // dead phis comes after SimplifyIf).
+  /// CHECK-START: double Main.calcCircleAreaOrCircumference(double, boolean) dead_code_elimination$after_lse (after)
+  // Phi added by DCE
+  /// CHECK:     Phi
+  // Phi added by LSE
+  /// CHECK:     Phi
+  /// CHECK-NOT: Phi
+
   // The object allocation shall be eliminated by LSE and the load shall be replaced
   // by a Phi with the values that were previously being stored.
   static double calcCircleAreaOrCircumference(double radius, boolean area_or_circumference) {
