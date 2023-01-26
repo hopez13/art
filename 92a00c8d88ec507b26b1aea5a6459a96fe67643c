@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae97a236_e9c4a580",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2608,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-01-26T09:50:54Z",
+      "side": 1,
+      "message": "nit: add a comment that at this point, the offset of objects in the image are stored in the lock word.",
+      "range": {
+        "startLine": 2602,
+        "startChar": 0,
+        "endLine": 2608,
+        "endChar": 4
+      },
+      "revId": "92a00c8d88ec507b26b1aea5a6459a96fe67643c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e89cb72a_ee14af5f",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2616,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-01-26T09:50:54Z",
+      "side": 1,
+      "message": "This is parsing the dirty image objects file for a second time, no? If that\u0027s the case, can we only parse it once?",
+      "range": {
+        "startLine": 2616,
+        "startChar": 6,
+        "endLine": 2616,
+        "endChar": 29
+      },
+      "revId": "92a00c8d88ec507b26b1aea5a6459a96fe67643c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e4423e1_c954485c",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2623,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-01-26T09:50:54Z",
+      "side": 1,
+      "message": "nit: how about passing `dirty_objects_` (and remove the optional) to `MatchDirtyObjectOffsets` ? This will avoid the need to `std::move` line 2631.",
+      "range": {
+        "startLine": 2623,
+        "startChar": 6,
+        "endLine": 2623,
+        "endChar": 29
+      },
+      "revId": "92a00c8d88ec507b26b1aea5a6459a96fe67643c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "25094960_f5e1af7f",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2636,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-01-26T09:50:54Z",
+      "side": 1,
+      "message": "nit: add a comment in the method giving an example of what is expected from the dirty image objects file.",
+      "range": {
+        "startLine": 2636,
+        "startChar": 71,
+        "endLine": 2636,
+        "endChar": 94
+      },
+      "revId": "92a00c8d88ec507b26b1aea5a6459a96fe67643c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c8ff51e_4d210223",
+        "filename": "dex2oat/linker/image_writer.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 707,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-01-26T09:50:54Z",
+      "side": 1,
+      "message": "classes",
+      "range": {
+        "startLine": 707,
+        "startChar": 12,
+        "endLine": 707,
+        "endChar": 20
+      },
+      "revId": "92a00c8d88ec507b26b1aea5a6459a96fe67643c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a3fc128_5323caf3",
+        "filename": "dex2oat/linker/image_writer.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 708,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-01-26T09:50:54Z",
+      "side": 1,
+      "message": "What does the string mean for objects?",
+      "range": {
+        "startLine": 708,
+        "startChar": 21,
+        "endLine": 708,
+        "endChar": 27
+      },
+      "revId": "92a00c8d88ec507b26b1aea5a6459a96fe67643c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
