@@ -155,6 +155,12 @@ bool SsaRedundantPhiElimination::Run() {
       continue;
     }
 
+    // Remove dead Phis, if possible.
+    if (phi->IsDeadAndRemovable()) {
+      phi->GetBlock()->RemovePhi(phi);
+      continue;
+    }
+
     // If the phi is dead, we know we won't revive it and it will be removed,
     // so don't process it.
     if (phi->IsDead()) {
