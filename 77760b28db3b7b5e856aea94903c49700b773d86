@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2cf767d6_0a9a8d89",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-01-26T09:16:45Z",
+      "side": 1,
+      "message": "The CL is now WIP - but is this ready for another round of review?",
+      "revId": "77760b28db3b7b5e856aea94903c49700b773d86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6dc828ee_d800c79e",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 833,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-01-26T09:16:45Z",
+      "side": 1,
+      "message": "super nit: `IsPerformingUffdCompaction` ?",
+      "range": {
+        "startLine": 833,
+        "startChar": 7,
+        "endLine": 833,
+        "endChar": 31
+      },
+      "revId": "77760b28db3b7b5e856aea94903c49700b773d86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
