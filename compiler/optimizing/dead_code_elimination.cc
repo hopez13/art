@@ -883,6 +883,7 @@ bool HDeadCodeElimination::Run() {
     }
   }
   SsaRedundantPhiElimination(graph_).Run();
+  SsaDeadPhiElimination(graph_).Run();
   RemoveDeadInstructions();
   UpdateGraphFlags();
   return true;

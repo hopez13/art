@@ -34,7 +34,20 @@ class SsaDeadPhiElimination : public HOptimization {
 
   bool Run() override;
 
+  // Marks phis which are not used by instructions or other live phis. If compiling as debuggable
+  // code, phis will also be kept live if they have an environment use.
   void MarkDeadPhis();
+
+  // Make sure environments use the right phi equivalent: a phi marked dead
+  // can have a phi equivalent that is not dead. In that case we have to replace
+  // it with the live equivalent because deoptimization and try/catch rely on
+  // environments containing values of all live vregs at that point. Note that
+  // there can be multiple phis for the same Dex register that are live
+  // (for example when merging constants), in which case it is okay for the
+  // environments to just reference one.
+  void FixEnvironmentPhis();
+
+  // Eliminates phis we do not need. 
   void EliminateDeadPhis();
 
   static constexpr const char* kSsaDeadPhiEliminationPassName = "dead_phi_elimination";
