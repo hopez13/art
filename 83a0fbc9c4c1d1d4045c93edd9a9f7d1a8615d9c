@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d8b1e56_7583023e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-01-26T19:11:10Z",
+      "side": 1,
+      "message": "ART_TEST_ON_VM",
+      "range": {
+        "startLine": 15,
+        "startChar": 2,
+        "endLine": 15,
+        "endChar": 8
+      },
+      "revId": "83a0fbc9c4c1d1d4045c93edd9a9f7d1a8615d9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "e1319f20_9b7c6a5c",
@@ -14,6 +37,23 @@
       "writtenOn": "2023-01-26T15:01:33Z",
       "side": 1,
       "message": "PTAL",
+      "revId": "83a0fbc9c4c1d1d4045c93edd9a9f7d1a8615d9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d85db91a_698bc63c",
+        "filename": "test/default_run.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 967,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-01-26T19:11:10Z",
+      "side": 1,
+      "message": "Is this initialized otherwise?  Or will it cause \"undefined variable\" for non-VM paths?\n\nHave you checked that non-VM paths still work?",
       "revId": "83a0fbc9c4c1d1d4045c93edd9a9f7d1a8615d9c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
