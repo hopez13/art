@@ -34,7 +34,11 @@ class SsaDeadPhiElimination : public HOptimization {
 
   bool Run() override;
 
+  // Marks phis which are not used by instructions or other live phis. If compiling as debuggable
+  // code, phis will also be kept live if they have an environment use.
   void MarkDeadPhis();
+
+  // Eliminates phis we do not need.
   void EliminateDeadPhis();
 
   static constexpr const char* kSsaDeadPhiEliminationPassName = "dead_phi_elimination";
