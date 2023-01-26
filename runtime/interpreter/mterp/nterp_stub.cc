@@ -46,6 +46,10 @@ extern "C" void ExecuteNterpImpl() REQUIRES_SHARED(Locks::mutator_lock_) {
   UNIMPLEMENTED(FATAL);
 }
 
+extern "C" void ExecuteNterpWithClinitImpl() REQUIRES_SHARED(Locks::mutator_lock_) {
+  UNIMPLEMENTED(FATAL);
+}
+
 extern "C" void* artNterpAsmInstructionStart[] = { nullptr };
 extern "C" void* artNterpAsmInstructionEnd[] = { nullptr };
 
