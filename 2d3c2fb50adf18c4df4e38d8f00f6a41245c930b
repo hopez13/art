@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "17159ca4_267c925e",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4658,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-01-26T15:57:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "78dcddf2_3786c317",
+      "range": {
+        "startLine": 4658,
+        "startChar": 7,
+        "endLine": 4658,
+        "endChar": 11
+      },
+      "revId": "2d3c2fb50adf18c4df4e38d8f00f6a41245c930b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "477c0231_992652e2",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-01-26T10:09:28Z",
       "side": 1,
       "message": "Sugggestion: Replace this with:\n\n```\nDCHECK_IMPLIES(minor_fault_supported, uffd_supported);\n```",
+      "range": {
+        "startLine": 4662,
+        "startChar": 4,
+        "endLine": 4662,
+        "endChar": 52
+      },
+      "revId": "2d3c2fb50adf18c4df4e38d8f00f6a41245c930b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "66f51682_85496f5c",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4662,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-01-26T15:57:11Z",
+      "side": 1,
+      "message": "Thanks for the suggestion. Didn\u0027t know it existed 😊\n\nReplaced with `CHECK_IMPLIES` to make sure it doesn\u0027t get optimized out on user builds.",
+      "parentUuid": "477c0231_992652e2",
       "range": {
         "startLine": 4662,
         "startChar": 4,
