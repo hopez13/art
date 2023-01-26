@@ -14,34 +14,20 @@
  * limitations under the License.
  */
 
-#ifndef ART_RUNTIME_ARCH_RISCV64_ASM_SUPPORT_RISCV64_S_
-#define ART_RUNTIME_ARCH_RISCV64_ASM_SUPPORT_RISCV64_S_
+#include "entrypoints/quick/quick_default_init_entrypoints.h"
+#include "entrypoints/quick/quick_entrypoints.h"
 
-#include "asm_support_riscv64.h"
-#include "interpreter/cfi_asm_support.h"
+namespace art {
 
-// Define special registers.
+void UpdateReadBarrierEntrypoints(QuickEntryPoints* /*qpoints*/, bool /*is_active*/) {
+  // TODO(riscv64): add read barrier entrypoints
+}
 
-// Register holding Thread::Current().
-#define xSELF x9
+void InitEntryPoints(JniEntryPoints* jpoints,
+                     QuickEntryPoints* qpoints,
+                     bool monitor_jni_entry_exit) {
+  DefaultInitEntryPoints(jpoints, qpoints, monitor_jni_entry_exit);
+  // TODO(riscv64): add other entrypoints
+}
 
-
-.macro ENTRY name
-    .globl \name
-    .byte 0xFF, 0xFF, 0xFF, 0xFF
-    .balign 16, 0xFF
-\name:
-    .cfi_startproc
-.endm
-
-.macro END name
-    .cfi_endproc
-.endm
-
-.macro UNDEFINED name
-    ENTRY \name
-        unimp
-    END \name
-.endm
-
-#endif  // ART_RUNTIME_ARCH_RISCV64_ASM_SUPPORT_RISCV64_S_
+}  // namespace art

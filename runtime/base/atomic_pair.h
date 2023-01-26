@@ -51,6 +51,20 @@ ALWAYS_INLINE static inline void AtomicPairStoreRelease(
   target->store(value, std::memory_order_release);
 }
 
+// RISC-V (rv64imafdc) does not support 128-bit atomics, so llvm uses a generic non lock-free
+// implementation. Specialize the template for uint64_t to avoid `is_always_lock_free` check.
+#if defined(__riscv)
+ALWAYS_INLINE static inline AtomicPair<uint64_t> AtomicPairLoadAcquire(
+    std::atomic<AtomicPair<uint64_t>>* target) {
+  return target->load(std::memory_order_acquire);
+}
+
+ALWAYS_INLINE static inline void AtomicPairStoreRelease(std::atomic<AtomicPair<uint64_t>>* target,
+                                                        AtomicPair<uint64_t> value) {
+  target->store(value, std::memory_order_release);
+}
+#endif  // defined(__riiscv)
+
 // llvm does not implement 16-byte atomic operations on x86-64.
 #if defined(__x86_64__)
 ALWAYS_INLINE static inline AtomicPair<uint64_t> AtomicPairLoadAcquire(
