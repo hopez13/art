@@ -89,8 +89,7 @@ void SsaDeadPhiElimination::MarkDeadPhis() {
 }
 
 void SsaDeadPhiElimination::EliminateDeadPhis() {
-  // Remove phis that are not live. Visit in post order so that phis
-  // that are not inputs of loop phis can be removed when they have
+  // Visit in post order so that phis that are not inputs of loop phis can be removed when they have
   // no users left (dead phis might use dead phis).
   for (HBasicBlock* block : graph_->GetPostOrder()) {
     HInstruction* current = block->GetFirstPhi();
@@ -104,8 +103,17 @@ void SsaDeadPhiElimination::EliminateDeadPhis() {
         if (kIsDebugBuild) {
           for (const HUseListNode<HInstruction*>& use : phi->GetUses()) {
             HInstruction* user = use.GetUser();
-            DCHECK(user->IsLoopHeaderPhi());
-            DCHECK(user->AsPhi()->IsDead());
+            DCHECK(user->IsPhi());
+            HPhi* phi_user = user->AsPhi();
+            DCHECK(phi_user->IsDead());
+            // Since we are iterating in PostOrder, we can encounter loop header phis.
+            // We can also encounter catch phis: If in DCE we detect that we have a block
+            // that can't throw, we disconnect said block from its handler but we don't update the
+            // handler's phis (as we do not remove the corresponding inputs when we prove that an
+            // instruction cannot throw). In that same DCE pass, we will recompute the dominance
+            // information and the handler may appear in PostOrder before the
+            // now-known-not-to-throw-block.
+            DCHECK(phi_user->IsLoopHeaderPhi() || phi_user->IsCatchPhi());
           }
         }
         // Remove the phi from use lists of its inputs.
