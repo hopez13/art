@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f6b4d33_a0778332",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-01-26T16:17:20Z",
+      "side": 1,
+      "message": "I have moved the call to Heap\u0027s constructor which makes it happen only once in Zygote, which is sufficient. There is no need to do it in PostFork function. PTAL",
+      "revId": "6c6e2df516583f0bd6983e8d3e72dcab26f49615",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
