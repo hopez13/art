@@ -79,6 +79,21 @@ ALWAYS_INLINE static inline void AtomicPairStoreRelease(
 }
 #endif  // defined(__x86_64__)
 
+// llvm does not implement 16-byte atomic operations on riscv64.
+#if defined(__riscv)
+ALWAYS_INLINE static inline AtomicPair<uint64_t> AtomicPairLoadAcquire(
+    std::atomic<AtomicPair<uint64_t>>* /*target*/) {
+  uint64_t first = 0, second = 0;
+  __asm__ __volatile__("unimp" :::);
+  return {first, second};
+}
+
+ALWAYS_INLINE static inline void AtomicPairStoreRelease(
+    std::atomic<AtomicPair<uint64_t>>* /*target*/, AtomicPair<uint64_t> /*value*/) {
+  __asm__ __volatile__("unimp" :::);
+}
+#endif  // defined(__x86_64__)
+
 }  // namespace art
 
 #endif  // ART_RUNTIME_BASE_ATOMIC_PAIR_H_
