@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "477c0231_992652e2",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4662,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2023-01-26T10:09:28Z",
+      "side": 1,
+      "message": "Sugggestion: Replace this with:\n\n```\nDCHECK_IMPLIES(minor_fault_supported, uffd_supported);\n```",
+      "range": {
+        "startLine": 4662,
+        "startChar": 4,
+        "endLine": 4662,
+        "endChar": 52
+      },
+      "revId": "2d3c2fb50adf18c4df4e38d8f00f6a41245c930b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
