@@ -14,34 +14,10 @@
  * limitations under the License.
  */
 
-#ifndef ART_RUNTIME_ARCH_RISCV64_ASM_SUPPORT_RISCV64_S_
-#define ART_RUNTIME_ARCH_RISCV64_ASM_SUPPORT_RISCV64_S_
+#ifndef ART_COMPILER_OPTIMIZING_CODE_GENERATOR_RISCV64_H_
+#define ART_COMPILER_OPTIMIZING_CODE_GENERATOR_RISCV64_H_
 
-#include "asm_support_riscv64.h"
-#include "interpreter/cfi_asm_support.h"
+#include "code_generator.h"
+#include "driver/compiler_options.h"
 
-// Define special registers.
-
-// Register holding Thread::Current().
-#define xSELF x9
-
-
-.macro ENTRY name
-    .globl \name
-    .byte 0xFF, 0xFF, 0xFF, 0xFF
-    .balign 16, 0xFF
-\name:
-    .cfi_startproc
-.endm
-
-.macro END name
-    .cfi_endproc
-.endm
-
-.macro UNDEFINED name
-    ENTRY \name
-        unimp
-    END \name
-.endm
-
-#endif  // ART_RUNTIME_ARCH_RISCV64_ASM_SUPPORT_RISCV64_S_
+#endif  // ART_COMPILER_OPTIMIZING_CODE_GENERATOR_RISCV64_H_
