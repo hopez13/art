@@ -1,0 +1,13 @@
+#include "asm_support_riscv64.S"
+
+UNDEFINED art_jni_dlsym_lookup_stub
+UNDEFINED art_jni_dlsym_lookup_critical_stub
+UNDEFINED art_jni_method_start
+UNDEFINED art_jni_method_end
+UNDEFINED art_jni_read_barrier
+UNDEFINED art_jni_method_entry_hook
+UNDEFINED art_jni_lock_object_no_inline
+UNDEFINED art_jni_lock_object
+UNDEFINED art_jni_unlock_object_no_inline
+UNDEFINED art_jni_unlock_object
+
