@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "45ac754d_26674716",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2608,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-01-26T15:25:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ae97a236_e9c4a580",
+      "range": {
+        "startLine": 2602,
+        "startChar": 0,
+        "endLine": 2608,
+        "endChar": 4
+      },
+      "revId": "92a00c8d88ec507b26b1aea5a6459a96fe67643c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e89cb72a_ee14af5f",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-01-26T09:50:54Z",
       "side": 1,
       "message": "This is parsing the dirty image objects file for a second time, no? If that\u0027s the case, can we only parse it once?",
+      "range": {
+        "startLine": 2616,
+        "startChar": 6,
+        "endLine": 2616,
+        "endChar": 29
+      },
+      "revId": "92a00c8d88ec507b26b1aea5a6459a96fe67643c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f90300cb_8b2656c4",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2616,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-01-26T15:25:32Z",
+      "side": 1,
+      "message": "If you count reading the file into HashSet\u003cstd::string\u003e -- then yes.\nHashSet is required for the old dirty-image-object format to perform lookup `dirty_image_objects_-\u003efind(descriptor)` in `ImageWriter::AssignImageBinSlot`",
+      "parentUuid": "e89cb72a_ee14af5f",
       "range": {
         "startLine": 2616,
         "startChar": 6,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f87f1f84_124dd69a",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2623,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-01-26T15:25:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0e4423e1_c954485c",
+      "range": {
+        "startLine": 2623,
+        "startChar": 6,
+        "endLine": 2623,
+        "endChar": 29
+      },
+      "revId": "92a00c8d88ec507b26b1aea5a6459a96fe67643c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "25094960_f5e1af7f",
@@ -83,6 +155,30 @@
       "writtenOn": "2023-01-26T09:50:54Z",
       "side": 1,
       "message": "nit: add a comment in the method giving an example of what is expected from the dirty image objects file.",
+      "range": {
+        "startLine": 2636,
+        "startChar": 71,
+        "endLine": 2636,
+        "endChar": 94
+      },
+      "revId": "92a00c8d88ec507b26b1aea5a6459a96fe67643c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2273a208_72ecc607",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2636,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-01-26T15:25:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "25094960_f5e1af7f",
       "range": {
         "startLine": 2636,
         "startChar": 71,
@@ -116,6 +212,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a251442_514ca372",
+        "filename": "dex2oat/linker/image_writer.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 707,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-01-26T15:25:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4c8ff51e_4d210223",
+      "range": {
+        "startLine": 707,
+        "startChar": 12,
+        "endLine": 707,
+        "endChar": 20
+      },
+      "revId": "92a00c8d88ec507b26b1aea5a6459a96fe67643c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4a3fc128_5323caf3",
@@ -129,6 +249,30 @@
       "writtenOn": "2023-01-26T09:50:54Z",
       "side": 1,
       "message": "What does the string mean for objects?",
+      "range": {
+        "startLine": 708,
+        "startChar": 21,
+        "endLine": 708,
+        "endChar": 27
+      },
+      "revId": "92a00c8d88ec507b26b1aea5a6459a96fe67643c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26b22e3a_d07d67bc",
+        "filename": "dex2oat/linker/image_writer.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 708,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-01-26T15:25:32Z",
+      "side": 1,
+      "message": "Those are the lines of dirty-image-objects file, which are either in old format (descriptors of dirty classes) or new format (offsets of dirty objects)",
+      "parentUuid": "4a3fc128_5323caf3",
       "range": {
         "startLine": 708,
         "startChar": 21,
