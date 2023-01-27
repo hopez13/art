@@ -340,7 +340,33 @@ static SignalChain chains[_NSIG + 1];
 
 static bool is_signal_hook_debuggable = false;
 
+// Weak linkage, as the libart apex might be deployed on devices where this
+// symbol doesn't exist (i.e. all OS's before Android U). This symbol comes from
+// libdl.
+__attribute__((weak)) extern "C" bool debuggerd_first_chance_signal_handler(int signal_number,
+                                                                            siginfo_t* info,
+                                                                            void* context);
+
 void SignalChain::Handler(int signo, siginfo_t* siginfo, void* ucontext_raw) {
+  // In Android U, there's aspecial feature called "recoverable" GWP-ASan.
+  // GWP-ASan is a tool that finds heap-buffer-overflow and heap-use-after-free
+  // using page protections. The new "recoverable" mode is designed to allow
+  // debuggerd to print a crash report, but for the app or process in question
+  // to not crash (i.e. recover) and continue even after the bug is detected.
+  // Sigchain thus must allow debuggerd to handle the signal first, and if
+  // debuggerd has promised that it can recover, and it's done the steps to
+  // allow recovery (as identified by debuggerd_first_chance_signal_handler
+  // returning true), then we should return from this handler and let the app
+  // continue.
+  //
+  // For all non-GWP-ASan-recoverable crashes, or crashes where recovery is not
+  // possible, debuggerd_first_chance_signal_handler returns false, and we will
+  // continue to the rest of the sigchain handler logic.
+  if (debuggerd_first_chance_signal_handler &&
+      debuggerd_first_chance_signal_handler(signo, siginfo, ucontext_raw)) {
+    return;
+  }
+
   // Try the special handlers first.
   // If one of them crashes, we'll reenter this handler and pass that crash onto the user handler.
   if (!GetHandlingSignal()) {
