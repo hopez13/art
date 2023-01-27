@@ -16,6 +16,24 @@
       "message": "I\u0027m uneasy about how this is cleaning things up. I see there\u0027s a few lines less, but the introduction of `shared_ptr` creates a new overhead in trying to chase ownership.",
       "revId": "0d43053903db9c08c7b525f7f2175d496dd124b9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4cb2467f_a117ac0a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-01-27T15:14:08Z",
+      "side": 1,
+      "message": "There is two orthogonal parts to this.\n\nThe removal of arguments just intends to remove the redundancy. I can also keep them and CHECK that they are always equal.\n\nThe shared_ptr is intended for future multi dex where several Dex files will share the same file / mmap and thus we need to keep ref count. (Note that I made sure it is still just single malloc and no extra ref count manipulations)",
+      "tag": "mailMessageId\u003d\u003cCAGPRgkUEZGMe9yR0OcJy_B00bAUbobiBUsNm_65UWErkOKTR1g@mail.gmail.com\u003e",
+      "revId": "0d43053903db9c08c7b525f7f2175d496dd124b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
