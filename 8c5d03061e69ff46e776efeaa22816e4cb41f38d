@@ -286,6 +286,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "314c57e9_13d3b8a2",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-01-27T14:28:25Z",
+      "side": 1,
+      "message": "Ack, can you add that as a comment?",
+      "parentUuid": "e92221a5_9ac9bd47",
+      "range": {
+        "startLine": 279,
+        "startChar": 0,
+        "endLine": 280,
+        "endChar": 16
+      },
+      "revId": "8c5d03061e69ff46e776efeaa22816e4cb41f38d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ca928b59_09921034",
         "filename": "dex2oat/linker/image_writer.cc",
         "patchSetId": 1

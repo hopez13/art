@@ -95,6 +95,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c897fd70_d796ed68",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2616,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-01-27T14:28:25Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "f90300cb_8b2656c4",
+      "range": {
+        "startLine": 2616,
+        "startChar": 6,
+        "endLine": 2616,
+        "endChar": 29
+      },
+      "revId": "92a00c8d88ec507b26b1aea5a6459a96fe67643c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0e4423e1_c954485c",
@@ -273,6 +297,30 @@
       "side": 1,
       "message": "Those are the lines of dirty-image-objects file, which are either in old format (descriptors of dirty classes) or new format (offsets of dirty objects)",
       "parentUuid": "4a3fc128_5323caf3",
+      "range": {
+        "startLine": 708,
+        "startChar": 21,
+        "endLine": 708,
+        "endChar": 27
+      },
+      "revId": "92a00c8d88ec507b26b1aea5a6459a96fe67643c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7abaa230_38e3a236",
+        "filename": "dex2oat/linker/image_writer.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 708,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-01-27T14:28:25Z",
+      "side": 1,
+      "message": "Thanks! Can you add that as a comment?",
+      "parentUuid": "26b22e3a_d07d67bc",
       "range": {
         "startLine": 708,
         "startChar": 21,
