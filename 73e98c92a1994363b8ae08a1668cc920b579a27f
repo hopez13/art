@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e08849b6_baa69dd7",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2586,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-01-27T23:09:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f01842bd_f67110d6",
+      "range": {
+        "startLine": 2586,
+        "startChar": 4,
+        "endLine": 2586,
+        "endChar": 26
+      },
+      "revId": "73e98c92a1994363b8ae08a1668cc920b579a27f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "34d55eaf_4701778a",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-01-27T14:28:25Z",
       "side": 1,
       "message": "nit: here and other comments, don\u0027t forget full-stops `.` at the end of the sentences.",
+      "range": {
+        "startLine": 465,
+        "startChar": 0,
+        "endLine": 465,
+        "endChar": 50
+      },
+      "revId": "73e98c92a1994363b8ae08a1668cc920b579a27f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0dbc82e_fa28bd30",
+        "filename": "dex2oat/linker/image_writer.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-01-27T23:09:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "34d55eaf_4701778a",
       "range": {
         "startLine": 465,
         "startChar": 0,
