@@ -16,6 +16,24 @@
       "message": "How come this is no longer needed?",
       "revId": "ecd3acedf1c83cc76c0741894eeab58329a3915d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "540d3b8d_3e8d9784",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-01-27T16:10:35Z",
+      "side": 0,
+      "message": "It has moved to buildbot-utils.sh, as it is needed in other scripts as well.",
+      "parentUuid": "ee689a8e_d6b214c5",
+      "revId": "ecd3acedf1c83cc76c0741894eeab58329a3915d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
