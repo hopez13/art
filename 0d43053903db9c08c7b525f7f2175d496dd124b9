@@ -34,6 +34,24 @@
       "tag": "mailMessageId\u003d\u003cCAGPRgkUEZGMe9yR0OcJy_B00bAUbobiBUsNm_65UWErkOKTR1g@mail.gmail.com\u003e",
       "revId": "0d43053903db9c08c7b525f7f2175d496dd124b9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "575e7a2e_c35b3136",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-01-27T15:29:16Z",
+      "side": 1,
+      "message": "Ack, maybe introduce the shared_ptr in a separate CL, so that it\u0027s explicit that it\u0027s due to multiple dex file being in the same container?",
+      "parentUuid": "4cb2467f_a117ac0a",
+      "revId": "0d43053903db9c08c7b525f7f2175d496dd124b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
