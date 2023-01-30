@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d50186a_e6113b3c",
+        "filename": "test/2005-pause-all-redefine-multithreaded/pause-all.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2023-01-30T11:52:35Z",
+      "side": 1,
+      "message": "Suggestion: Retain the length of the array to avoid a repeated call:\n\n```\n  jsize threads_arr_length \u003d env-\u003eGetArrayLength(threads_arr);\n  threads.reserve(threads_arr_length);\n  for (jint i \u003d 0; i \u003c threads_arr_length; i++) {\n    // ...\n```",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 63
+      },
+      "revId": "4c9b8b917f217d87075e3393ed1ce84f9503c879",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "36bc3cc4_00d51d39",
+        "filename": "test/2005-pause-all-redefine-multithreaded/pause-all.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2023-01-30T11:52:35Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 50,
+        "endChar": 62
+      },
+      "revId": "4c9b8b917f217d87075e3393ed1ce84f9503c879",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
