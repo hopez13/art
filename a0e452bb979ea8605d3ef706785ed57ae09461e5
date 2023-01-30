@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e106a18f_82160b2e",
+        "filename": "sigchainlib/sigchain.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-01-30T10:08:11Z",
+      "side": 1,
+      "message": "a special",
+      "range": {
+        "startLine": 350,
+        "startChar": 27,
+        "endLine": 350,
+        "endChar": 35
+      },
+      "revId": "a0e452bb979ea8605d3ef706785ed57ae09461e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa7740dd_be75f031",
+        "filename": "sigchainlib/sigchain.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-01-30T10:08:11Z",
+      "side": 1,
+      "message": "!\u003d nullptr",
+      "range": {
+        "startLine": 362,
+        "startChar": 6,
+        "endLine": 362,
+        "endChar": 27
+      },
+      "revId": "a0e452bb979ea8605d3ef706785ed57ae09461e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d9c88f84_3d9bb430",
+        "filename": "sigchainlib/sigchain.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-01-30T10:08:11Z",
+      "side": 1,
+      "message": "Could we move this after ART\u0027s handlers, to line 393?",
+      "range": {
+        "startLine": 351,
+        "startChar": 2,
+        "endLine": 365,
+        "endChar": 0
+      },
+      "revId": "a0e452bb979ea8605d3ef706785ed57ae09461e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
