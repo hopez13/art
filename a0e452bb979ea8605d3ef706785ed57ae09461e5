@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a2aa1d6_d668f995",
+        "filename": "sigchainlib/sigchain.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 343,
+      "author": {
+        "id": 1453063
+      },
+      "writtenOn": "2023-01-30T18:10:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d14de9f7_561633b7",
+      "range": {
+        "startLine": 343,
+        "startChar": 24,
+        "endLine": 343,
+        "endChar": 35
+      },
+      "revId": "a0e452bb979ea8605d3ef706785ed57ae09461e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e106a18f_82160b2e",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-01-30T10:08:11Z",
       "side": 1,
       "message": "a special",
+      "range": {
+        "startLine": 350,
+        "startChar": 27,
+        "endLine": 350,
+        "endChar": 35
+      },
+      "revId": "a0e452bb979ea8605d3ef706785ed57ae09461e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f177e24_ee2876de",
+        "filename": "sigchainlib/sigchain.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1453063
+      },
+      "writtenOn": "2023-01-30T18:10:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e106a18f_82160b2e",
       "range": {
         "startLine": 350,
         "startChar": 27,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6cf0c4c_9a939e0f",
+        "filename": "sigchainlib/sigchain.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1453063
+      },
+      "writtenOn": "2023-01-30T18:10:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fa7740dd_be75f031",
+      "range": {
+        "startLine": 362,
+        "startChar": 6,
+        "endLine": 362,
+        "endChar": 27
+      },
+      "revId": "a0e452bb979ea8605d3ef706785ed57ae09461e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d9c88f84_3d9bb430",
@@ -83,6 +155,30 @@
       "writtenOn": "2023-01-30T10:08:11Z",
       "side": 1,
       "message": "Could we move this after ART\u0027s handlers, to line 393?",
+      "range": {
+        "startLine": 351,
+        "startChar": 2,
+        "endLine": 365,
+        "endChar": 0
+      },
+      "revId": "a0e452bb979ea8605d3ef706785ed57ae09461e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "275989a3_bac403b7",
+        "filename": "sigchainlib/sigchain.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1453063
+      },
+      "writtenOn": "2023-01-30T18:10:53Z",
+      "side": 1,
+      "message": "It looks like in practice this is fine, I\u0027m just a little worried about bad interactions particularly with the native bridge.\n\nI\u0027ve updated the code and moved it below, but do you think it\u0027s possible that one of the special handlers could mistakenly \"handle\" a SEGV on the heap?",
+      "parentUuid": "d9c88f84_3d9bb430",
       "range": {
         "startLine": 351,
         "startChar": 2,
