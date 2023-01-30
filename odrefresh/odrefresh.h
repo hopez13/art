@@ -30,6 +30,7 @@
 #include "com_android_apex.h"
 #include "com_android_art.h"
 #include "exec_utils.h"
+#include "oat_file_assistant_context.h"
 #include "odr_artifacts.h"
 #include "odr_config.h"
 #include "odr_metrics.h"
@@ -77,20 +78,11 @@ class OnDeviceRefresh final {
 
   time_t GetSubprocessTimeout() const;
 
-  // Gets the `ApexInfo` for active APEXes.
-  std::optional<std::vector<com::android::apex::ApexInfo>> GetApexInfoList() const;
-
   // Reads the ART APEX cache information (if any) found in the output artifact directory.
   std::optional<com::android::art::CacheInfo> ReadCacheInfo() const;
 
   // Writes ART APEX cache information to `kOnDeviceRefreshOdrefreshArtifactDirectory`.
   android::base::Result<void> WriteCacheInfo() const;
-
-  std::vector<com::android::art::Component> GenerateBootClasspathComponents() const;
-
-  std::vector<com::android::art::Component> GenerateBootClasspathCompilableComponents() const;
-
-  std::vector<com::android::art::SystemServerComponent> GenerateSystemServerComponents() const;
 
   // Returns the symbolic boot image location (without ISA). If `minimal` is true, returns the
   // symbolic location of the minimal boot image.
@@ -130,16 +122,6 @@ class OnDeviceRefresh final {
       /*out*/ std::string* error_msg,
       /*out*/ std::vector<std::string>* checked_artifacts = nullptr) const;
 
-  // Checks whether all system_server artifacts are present. The artifacts are checked in their
-  // order of compilation. Returns true if all are present, false otherwise.
-  // Adds the paths to the jars that are missing artifacts in `jars_with_missing_artifacts`.
-  // If `checked_artifacts` is present, adds checked artifacts to `checked_artifacts`.
-  WARN_UNUSED bool SystemServerArtifactsExist(
-      bool on_system,
-      /*out*/ std::string* error_msg,
-      /*out*/ std::set<std::string>* jars_missing_artifacts,
-      /*out*/ std::vector<std::string>* checked_artifacts = nullptr) const;
-
   // Returns true if all of the system properties listed in `kSystemProperties` are set to the
   // default values. This function is usually called when cache-info.xml does not exist (i.e.,
   // compilation has not been done before).
@@ -150,27 +132,14 @@ class OnDeviceRefresh final {
   WARN_UNUSED bool CheckSystemPropertiesHaveNotChanged(
       const com::android::art::CacheInfo& cache_info) const;
 
-  // Returns true if the system image is built with the right userfaultfd GC flag.
-  WARN_UNUSED bool CheckBuildUserfaultFdGc() const;
-
-  // Returns true if boot classpath artifacts on /system are usable if they exist. Note that this
-  // function does not check file existence.
-  WARN_UNUSED bool BootClasspathArtifactsOnSystemUsable(
-      const com::android::apex::ApexInfo& art_apex_info) const;
-
-  // Returns true if system_server artifacts on /system are usable if they exist. Note that this
-  // function does not check file existence.
-  WARN_UNUSED bool SystemServerArtifactsOnSystemUsable(
-      const std::vector<com::android::apex::ApexInfo>& apex_info_list) const;
-
   // Checks whether all boot classpath artifacts are up to date. Returns true if all are present,
   // false otherwise.
   // If `checked_artifacts` is present, adds checked artifacts to `checked_artifacts`.
   WARN_UNUSED bool CheckBootClasspathArtifactsAreUpToDate(
       OdrMetrics& metrics,
+      bool on_system,
       const InstructionSet isa,
-      const com::android::apex::ApexInfo& art_apex_info,
-      const std::optional<com::android::art::CacheInfo>& cache_info,
+      OatFileAssistantContext* ofa_context,
       /*out*/ std::vector<std::string>* checked_artifacts) const;
 
   // Checks whether all system_server artifacts are up to date. The artifacts are checked in their
@@ -179,8 +148,7 @@ class OnDeviceRefresh final {
   // If `checked_artifacts` is present, adds checked artifacts to `checked_artifacts`.
   bool CheckSystemServerArtifactsAreUpToDate(
       OdrMetrics& metrics,
-      const std::vector<com::android::apex::ApexInfo>& apex_info_list,
-      const std::optional<com::android::art::CacheInfo>& cache_info,
+      OatFileAssistantContext* ofa_context,
       /*out*/ std::set<std::string>* jars_to_compile,
       /*out*/ std::vector<std::string>* checked_artifacts) const;
 
