@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d847715_29370be5",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-01-30T15:02:10Z",
+      "side": 1,
+      "message": "Made this explicit. We were relying on suspend check in the loop header to prevent the pattern match, but I think that can be brittle and the check is fast anyway.",
+      "range": {
+        "startLine": 337,
+        "startChar": 0,
+        "endLine": 342,
+        "endChar": 0
+      },
+      "revId": "7241590327921277c05f868e0f3e37c6ac47e38c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
