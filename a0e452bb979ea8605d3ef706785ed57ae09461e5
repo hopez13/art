@@ -259,6 +259,30 @@
       },
       "revId": "a0e452bb979ea8605d3ef706785ed57ae09461e5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc55c62b_b96264f6",
+        "filename": "sigchainlib/sigchain.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1453063
+      },
+      "writtenOn": "2023-01-30T22:18:30Z",
+      "side": 1,
+      "message": "Yes, well-separated mappings.\n\nSounds good, I\u0027ll leave the ordering as is then to keep ART\u0027s performance. I\u0027ll shuffle it around only if we see issues.",
+      "parentUuid": "6edda432_1a8e5e14",
+      "range": {
+        "startLine": 351,
+        "startChar": 2,
+        "endLine": 365,
+        "endChar": 0
+      },
+      "revId": "a0e452bb979ea8605d3ef706785ed57ae09461e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
