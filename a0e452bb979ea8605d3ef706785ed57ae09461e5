@@ -235,6 +235,30 @@
       },
       "revId": "a0e452bb979ea8605d3ef706785ed57ae09461e5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6edda432_1a8e5e14",
+        "filename": "sigchainlib/sigchain.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-01-30T22:13:33Z",
+      "side": 1,
+      "message": "So these would be faults in a region mapped by GWP-ASan, and well-separated from other mappings?\n\nI would be surprised if it mattered for correctness which handler is tried first. It probably does matter for performance that we try ART\u0027s handlers first,as Nicolas suggested. I think suspend checks and soon userfaulfd faults will go through here, and both are hopefully much more frequent than yours, and somewhat performance-critical.",
+      "parentUuid": "0794f505_6a311212",
+      "range": {
+        "startLine": 351,
+        "startChar": 2,
+        "endLine": 365,
+        "endChar": 0
+      },
+      "revId": "a0e452bb979ea8605d3ef706785ed57ae09461e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
