@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fdf78ff9_e4831e1e",
+        "filename": "dex2oat/linker/image_writer.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 477,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-01-30T10:11:17Z",
+      "side": 1,
+      "message": "Won\u0027t this and the returned HashSet line 480 copy data? Why having removed the std::optional?",
+      "range": {
+        "startLine": 477,
+        "startChar": 2,
+        "endLine": 477,
+        "endChar": 38
+      },
+      "revId": "316243e4a3b67063edf1e95d936bd6ac4e98b097",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
