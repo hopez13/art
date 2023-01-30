@@ -211,6 +211,30 @@
       },
       "revId": "a0e452bb979ea8605d3ef706785ed57ae09461e5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0794f505_6a311212",
+        "filename": "sigchainlib/sigchain.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1453063
+      },
+      "writtenOn": "2023-01-30T21:49:54Z",
+      "side": 1,
+      "message": "For more context: GWP-ASan is a separate heap allocator that sits alongside scudo, and steals a very small %% of native malloc()\u0027s from scudo, instrumenting them to find heap-use-after-free and heap-buffer-overflow.",
+      "parentUuid": "fb5da4e6_1ced340f",
+      "range": {
+        "startLine": 351,
+        "startChar": 2,
+        "endLine": 365,
+        "endChar": 0
+      },
+      "revId": "a0e452bb979ea8605d3ef706785ed57ae09461e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

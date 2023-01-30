@@ -22,6 +22,30 @@
       },
       "revId": "1951ff597ca7ca982bea8f8b97a09a7e2654bc42",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ca5394f_75dea427",
+        "filename": "sigchainlib/sigchain.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 1453063
+      },
+      "writtenOn": "2023-01-30T21:49:54Z",
+      "side": 1,
+      "message": "i\u0027ve added some extra context here and answered your scudo-specific question in the comment above.",
+      "parentUuid": "4854c19b_a75a4138",
+      "range": {
+        "startLine": 379,
+        "startChar": 11,
+        "endLine": 379,
+        "endChar": 78
+      },
+      "revId": "1951ff597ca7ca982bea8f8b97a09a7e2654bc42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
