@@ -187,6 +187,30 @@
       },
       "revId": "a0e452bb979ea8605d3ef706785ed57ae09461e5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb5da4e6_1ced340f",
+        "filename": "sigchainlib/sigchain.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-01-30T21:25:22Z",
+      "side": 1,
+      "message": "These would be faults on unmapped or protected pages in the scudo heap? AFAIK, our handlers look for very specific faults, e.g. on the zero page from ART generated code. But Nicolas may know more.",
+      "parentUuid": "275989a3_bac403b7",
+      "range": {
+        "startLine": 351,
+        "startChar": 2,
+        "endLine": 365,
+        "endChar": 0
+      },
+      "revId": "a0e452bb979ea8605d3ef706785ed57ae09461e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
