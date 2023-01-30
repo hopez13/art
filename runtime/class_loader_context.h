@@ -204,6 +204,8 @@ class ClassLoaderContext {
   // method returns null.
   static std::unique_ptr<ClassLoaderContext> CreateContextForClassLoader(jobject class_loader,
                                                                          jobjectArray dex_elements);
+  static std::unique_ptr<ClassLoaderContext> CreateContextForClassLoader(
+      Handle<mirror::ClassLoader> class_loader) REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Returns the default class loader context to be used when none is specified.
   // This will return a context with a single and empty PathClassLoader.

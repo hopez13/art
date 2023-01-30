@@ -1266,6 +1266,27 @@ std::unique_ptr<ClassLoaderContext> ClassLoaderContext::CreateContextForClassLoa
   return result;
 }
 
+std::unique_ptr<ClassLoaderContext> ClassLoaderContext::CreateContextForClassLoader(
+    Handle<mirror::ClassLoader> class_loader) {
+  ScopedTrace trace(__FUNCTION__);
+
+  if (class_loader == nullptr) {
+    return nullptr;
+  }
+  ScopedObjectAccessUnchecked soa(Thread::Current());
+  ScopedNullHandle<mirror::ObjectArray<mirror::Object>> h_dex_elements;
+  std::unique_ptr<ClassLoaderContext> result(new ClassLoaderContext(/*owns_the_dex_files=*/ false));
+  if (!result->CreateInfoFromClassLoader(soa,
+                                         class_loader,
+                                         h_dex_elements,
+                                         nullptr,
+                                         /*is_shared_library=*/ false,
+                                         /*is_after=*/ false)) {
+    return nullptr;
+  }
+  return result;
+}
+
 std::map<std::string, std::string>
 ClassLoaderContext::EncodeClassPathContextsForClassLoader(jobject class_loader) {
   std::unique_ptr<ClassLoaderContext> clc =
