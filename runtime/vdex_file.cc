@@ -27,6 +27,7 @@
 #include <log/log.h>
 
 #include "base/bit_utils.h"
+#include "base/file_utils.h"
 #include "base/leb128.h"
 #include "base/stl_util.h"
 #include "base/systrace.h"
@@ -241,23 +242,6 @@ bool VdexFile::OpenAllDexFiles(std::vector<std::unique_ptr<const DexFile>>* dex_
     dex_files->push_back(std::move(dex));
   }
   return true;
-}
-
-static bool CreateDirectories(const std::string& child_path, /* out */ std::string* error_msg) {
-  size_t last_slash_pos = child_path.find_last_of('/');
-  CHECK_NE(last_slash_pos, std::string::npos) << "Invalid path: " << child_path;
-  std::string parent_path = child_path.substr(0, last_slash_pos);
-  if (OS::DirectoryExists(parent_path.c_str())) {
-    return true;
-  } else if (CreateDirectories(parent_path, error_msg)) {
-    if (mkdir(parent_path.c_str(), 0700) == 0) {
-      return true;
-    }
-    *error_msg = "Could not create directory " + parent_path;
-    return false;
-  } else {
-    return false;
-  }
 }
 
 bool VdexFile::WriteToDisk(const std::string& path,
