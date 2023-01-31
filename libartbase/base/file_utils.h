@@ -199,6 +199,9 @@ int DupCloexec(int fd);
 // Returns true if `path` begins with a slash.
 inline bool IsAbsoluteLocation(const std::string& path) { return !path.empty() && path[0] == '/'; }
 
+// Create all directories needed for `child_path`.
+bool CreateDirectories(const std::string& child_path, /* out */ std::string* error_msg);
+
 }  // namespace art
 
 #endif  // ART_LIBARTBASE_BASE_FILE_UTILS_H_
