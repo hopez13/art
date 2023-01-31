@@ -111,6 +111,30 @@
       },
       "revId": "bcabbacbd7f7b18f18bf1766daffb9648c160a94",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "08fac770_67fdb697",
+        "filename": "runtime/quick_exception_handler.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1080076
+      },
+      "writtenOn": "2023-01-31T21:36:26Z",
+      "side": 1,
+      "message": "you could always do a `std::vector{}.swap(member_)` to make sure it releases memory, or use `clearAndFree()` from https://cs.android.com/android/platform/superproject/+/master:system/libziparchive/incfs_support/include/incfs_support/util.h;drc\u003d93ad1e8da2c749ab6ebc7e0c9187c8bfdf5e8d87;l\u003d31",
+      "parentUuid": "b0da5fc2_e0a9684f",
+      "range": {
+        "startLine": 169,
+        "startChar": 5,
+        "endLine": 169,
+        "endChar": 88
+      },
+      "revId": "bcabbacbd7f7b18f18bf1766daffb9648c160a94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
