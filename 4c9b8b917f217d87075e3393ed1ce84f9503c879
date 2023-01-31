@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "53d7eebf_30775ade",
+        "filename": "test/2005-pause-all-redefine-multithreaded/pause-all.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2023-01-31T11:03:02Z",
+      "side": 1,
+      "message": "I had thought about that, indeed - I might need to leave this CL as it is (otherwise it won\u0027t be a \"pure\" cherry-pick anymore) and resolve this in a following CL, WDYT?",
+      "parentUuid": "1d50186a_e6113b3c",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 63
+      },
+      "revId": "4c9b8b917f217d87075e3393ed1ce84f9503c879",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "36bc3cc4_00d51d39",
         "filename": "test/2005-pause-all-redefine-multithreaded/pause-all.cc",
         "patchSetId": 2
@@ -37,6 +61,30 @@
       "writtenOn": "2023-01-30T11:52:35Z",
       "side": 1,
       "message": "Ditto.",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 50,
+        "endChar": 62
+      },
+      "revId": "4c9b8b917f217d87075e3393ed1ce84f9503c879",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4083085e_e839ad1e",
+        "filename": "test/2005-pause-all-redefine-multithreaded/pause-all.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2023-01-31T11:03:02Z",
+      "side": 1,
+      "message": "Same as above.",
+      "parentUuid": "36bc3cc4_00d51d39",
       "range": {
         "startLine": 49,
         "startChar": 0,
