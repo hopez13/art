@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "be1bb58b_c43729b3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 18
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1863710
+      },
+      "writtenOn": "2023-01-31T14:35:13Z",
+      "side": 1,
+      "message": "I still need to resolve some conflicts with I1f42b5d0ac1dcd9c5eb483db9c5c5eefc9b2f4d1.",
+      "revId": "d62092da3957470f674e9f0a11f7b41f57c7b5a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ec2d3f80_28bd6a45",
@@ -14,6 +31,30 @@
       "writtenOn": "2023-01-05T17:04:26Z",
       "side": 1,
       "message": "Initialize: ` \u003d hs.NewHandle\u003cmirror::Class\u003e(nullptr);`\n\nOtherwise, the `Assign()` and `IsNull()` below should crash.\n\nOr, you can drop the unnecessary scope below and directly initialize with\n\n    MutableHandle\u003cmirror::Class\u003e referrer_class \u003d hs.NewHandle(\n        (resolved_field !\u003d nullptr)\n            ? ResolveCompilingMethodsClass(soa, dex_cache, class_loader, mUnit)\n            : nullptr);",
+      "range": {
+        "startLine": 1380,
+        "startChar": 45,
+        "endLine": 1380,
+        "endChar": 46
+      },
+      "revId": "d62092da3957470f674e9f0a11f7b41f57c7b5a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "555c58e8_0d6e8856",
+        "filename": "dex2oat/driver/compiler_driver.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 1380,
+      "author": {
+        "id": 1863710
+      },
+      "writtenOn": "2023-01-31T14:35:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ec2d3f80_28bd6a45",
       "range": {
         "startLine": 1380,
         "startChar": 45,
@@ -47,6 +88,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "43813c0f_07f3258f",
+        "filename": "dex2oat/driver/compiler_driver.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 1390,
+      "author": {
+        "id": 1863710
+      },
+      "writtenOn": "2023-01-31T14:35:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "02ce8a6a_8620e3f4",
+      "range": {
+        "startLine": 1390,
+        "startChar": 35,
+        "endLine": 1390,
+        "endChar": 59
+      },
+      "revId": "d62092da3957470f674e9f0a11f7b41f57c7b5a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3b41f8e0_eeeccb74",
@@ -60,6 +125,30 @@
       "writtenOn": "2023-01-05T17:04:26Z",
       "side": 1,
       "message": "Possible thread suspension in violation of `ScopedAssertNoThreadSuspension` from line 8075.\n\nGarbage collector can move the data referenced by `super_vtable_accessor`.",
+      "range": {
+        "startLine": 8152,
+        "startChar": 4,
+        "endLine": 8152,
+        "endChar": 52
+      },
+      "revId": "d62092da3957470f674e9f0a11f7b41f57c7b5a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5435559a_2836c476",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 8152,
+      "author": {
+        "id": 1863710
+      },
+      "writtenOn": "2023-01-31T14:35:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3b41f8e0_eeeccb74",
       "range": {
         "startLine": 8152,
         "startChar": 4,
@@ -95,6 +184,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cd403606_4669378a",
+        "filename": "runtime/dex/dex_file_annotations.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 1815,
+      "author": {
+        "id": 1863710
+      },
+      "writtenOn": "2023-01-31T14:35:13Z",
+      "side": 1,
+      "message": "I\u0027m not sure. I was thinking the same thing, but from what I understand classes from the same nest group could at least in theory end up in different dex files. This is slower, but feels safer.",
+      "parentUuid": "a92d5564_0620ec60",
+      "range": {
+        "startLine": 1815,
+        "startChar": 46,
+        "endLine": 1815,
+        "endChar": 65
+      },
+      "revId": "d62092da3957470f674e9f0a11f7b41f57c7b5a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3e586f53_0bd8aa38",
         "filename": "runtime/entrypoints/quick/quick_field_entrypoints.cc",
         "patchSetId": 18
@@ -106,6 +219,30 @@
       "writtenOn": "2023-01-05T17:04:26Z",
       "side": 1,
       "message": "Please revert this formatting change.",
+      "range": {
+        "startLine": 66,
+        "startChar": 64,
+        "endLine": 66,
+        "endChar": 65
+      },
+      "revId": "d62092da3957470f674e9f0a11f7b41f57c7b5a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "de81bc03_477f5da4",
+        "filename": "runtime/entrypoints/quick/quick_field_entrypoints.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1863710
+      },
+      "writtenOn": "2023-01-31T14:35:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3e586f53_0bd8aa38",
       "range": {
         "startLine": 66,
         "startChar": 64,
@@ -141,6 +278,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "517c09d5_aa223aaa",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 2183,
+      "author": {
+        "id": 1863710
+      },
+      "writtenOn": "2023-01-31T14:35:13Z",
+      "side": 1,
+      "message": "\u003e This could be solved by actually resolving and recording the nest host in the Class object during class linking.\n\nI\u0027d like to do that actually, though I wasn\u0027t sure what the process would be. I was thinking of something where during linking we just store the value from annotation without further check until the load is complete. Only afterwards have a validation step where the host gets verified (by looking at the members list). The problem I have with it is not fully understanding the sequence of class loading and verifying. If we could do something where we:\n\n1. Load\n2. Validate nest info (and store correct host)\n3. Do the rest of the verification\n\nwould that work?",
+      "parentUuid": "9dd2cc6c_38e1835b",
+      "range": {
+        "startLine": 2183,
+        "startChar": 44,
+        "endLine": 2183,
+        "endChar": 77
+      },
+      "revId": "d62092da3957470f674e9f0a11f7b41f57c7b5a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cf49b077_62c2afdb",
         "filename": "runtime/mirror/class.h",
         "patchSetId": 18
@@ -152,6 +313,30 @@
       "writtenOn": "2023-01-05T17:04:26Z",
       "side": 1,
       "message": "This comment is unnecessary, there is no `h_this`.",
+      "range": {
+        "startLine": 1380,
+        "startChar": 5,
+        "endLine": 1380,
+        "endChar": 54
+      },
+      "revId": "d62092da3957470f674e9f0a11f7b41f57c7b5a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d2c5d57_90f58289",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 1380,
+      "author": {
+        "id": 1863710
+      },
+      "writtenOn": "2023-01-31T14:35:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cf49b077_62c2afdb",
       "range": {
         "startLine": 1380,
         "startChar": 5,
@@ -187,6 +372,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bd2f9cfe_74f68882",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 3857,
+      "author": {
+        "id": 1863710
+      },
+      "writtenOn": "2023-01-31T14:35:13Z",
+      "side": 1,
+      "message": "I\u0027m waiting for a desugaring of invoke-super in this situation: b/263462148. In any case the check here is not enough, so if the invoke-super doesn\u0027t get desugared to invoke-direct for private methods, then I may need to keep this.",
+      "parentUuid": "07f38bd0_e75deb8c",
+      "range": {
+        "startLine": 3857,
+        "startChar": 6,
+        "endLine": 3857,
+        "endChar": 43
+      },
+      "revId": "d62092da3957470f674e9f0a11f7b41f57c7b5a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b48dc965_d6560163",
         "filename": "test/185-nest-group-access/src/Main.java",
         "patchSetId": 18
@@ -198,6 +407,30 @@
       "writtenOn": "2023-01-05T17:04:26Z",
       "side": 1,
       "message": "Unused.",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 32
+      },
+      "revId": "d62092da3957470f674e9f0a11f7b41f57c7b5a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5fdca0df_b6a37c08",
+        "filename": "test/185-nest-group-access/src/Main.java",
+        "patchSetId": 18
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1863710
+      },
+      "writtenOn": "2023-01-31T14:35:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b48dc965_d6560163",
       "range": {
         "startLine": 17,
         "startChar": 0,
