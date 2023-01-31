@@ -149,6 +149,10 @@ art_module_art_global_defaults {
         "-D_LIBCPP_ENABLE_THREAD_SAFETY_ANNOTATIONS",
     ],
 
+    // Don't export symbols of statically linked libziparchive.
+    // Workaround to fix ODR violations (b/264235288) in gtests.
+    ldflags: ["-Wl,--exclude-libs=libziparchive.a"],
+
     arch: {
         x86: {
             avx2: {
