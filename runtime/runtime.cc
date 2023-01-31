@@ -237,6 +237,19 @@ void CheckConstants() {
 
 }  // namespace
 
+// Signal handler called on SIGBUS when no_sig_chain_ == true.
+static void art_no_sigchain_sigbus_handler(int sig, siginfo_t* info, void* context ATTRIBUTE_UNUSED)
+    NO_THREAD_SAFETY_ANALYSIS {
+  DCHECK_EQ(sig, SIGBUS);
+  if (!Runtime::Current()->GetHeap()->MarkCompactCollector()->SigbusHandler(info)) {
+    std::ostringstream oss;
+    FaultManager::PrintSignalInfo(oss, info);
+    LOG(FATAL) << "Couldn't handle SIGBUS fault:"
+               << "\n"
+               << oss.str();
+  }
+}
+
 Runtime::Runtime()
     : resolution_method_(nullptr),
       imt_conflict_method_(nullptr),
@@ -1778,7 +1791,17 @@ bool Runtime::Init(RuntimeArgumentMap&& runtime_options_in) {
       break;
   }
 
-  if (!no_sig_chain_) {
+  if (no_sig_chain_) {
+    if (gUseUserfaultfd && heap_->MarkCompactCollector()->IsUsingSigbusFeature()) {
+      struct sigaction act;
+      std::memset(&act, '\0', sizeof(act));
+      act.sa_flags = SA_SIGINFO | SA_RESTART;
+      act.sa_sigaction = art_no_sigchain_sigbus_handler;
+      if (sigaction(SIGBUS, &act, nullptr)) {
+        LOG(FATAL) << "Fault handler for SIGBUS couldn't be setup: " << strerror(errno);
+      }
+    }
+  } else {
     fault_manager.Init();
 
     if (HandlesSignalsInCompiledCode()) {

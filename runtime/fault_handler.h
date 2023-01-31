@@ -33,6 +33,10 @@ namespace art {
 class ArtMethod;
 class FaultHandler;
 
+namespace gc {
+class Heap;
+}  // namespace gc
+
 class FaultManager {
  public:
   FaultManager();
@@ -46,8 +50,11 @@ class FaultManager {
   // Unclaim signals and delete registered handlers.
   void Shutdown();
 
-  // Try to handle a fault, returns true if successful.
-  bool HandleFault(int sig, siginfo_t* info, void* context);
+  // Try to handle a SIGSEGV fault, returns true if successful.
+  bool HandleSigsegvFault(int sig, siginfo_t* info, void* context);
+
+  // Try to handle a SIGBUS fault, returns true if successful.
+  bool HandleSigbusFault(int sig, siginfo_t* info, void* context) NO_THREAD_SAFETY_ANALYSIS;
 
   // Added handlers are owned by the fault handler and will be freed on Shutdown().
   void AddHandler(FaultHandler* handler, bool generated_code);
@@ -68,6 +75,9 @@ class FaultManager {
   // Checks if the fault happened while running generated code.
   // Called in the context of a signal handler.
   bool IsInGeneratedCode(siginfo_t* siginfo, void *context) NO_THREAD_SAFETY_ANALYSIS;
+
+  static const char* SignalCodeName(int sig, int code);
+  static std::ostream& PrintSignalInfo(std::ostream& os, siginfo_t* info);
 
  private:
   struct GeneratedCodeRange {
@@ -91,7 +101,7 @@ class FaultManager {
 
   std::vector<FaultHandler*> generated_code_handlers_;
   std::vector<FaultHandler*> other_handlers_;
-  struct sigaction oldaction_;
+  gc::Heap* heap_;
   bool initialized_;
 
   // We keep a certain number of generated code ranges locally to avoid too many
