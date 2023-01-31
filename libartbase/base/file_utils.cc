@@ -739,4 +739,26 @@ int DupCloexec(int fd) {
 #endif
 }
 
+bool CreateDirectories(const std::string& child_path, /* out */ std::string* error_msg) {
+#ifdef _WIN32
+  UNUSED(child_path, error_msg);
+  LOG(FATAL) << "Unimplemented CreateDirectories";
+#else
+  size_t last_slash_pos = child_path.find_last_of('/');
+  CHECK_NE(last_slash_pos, std::string::npos) << "Invalid path: " << child_path;
+  std::string parent_path = child_path.substr(0, last_slash_pos);
+  if (OS::DirectoryExists(parent_path.c_str())) {
+    return true;
+  } else if (CreateDirectories(parent_path, error_msg)) {
+    if (mkdir(parent_path.c_str(), 0700) == 0) {
+      return true;
+    }
+    *error_msg = "Could not create directory " + parent_path;
+    return false;
+  } else {
+    return false;
+  }
+#endif
+}
+
 }  // namespace art
