@@ -33,6 +33,24 @@
       "message": "For my understanding, we are now looking up the chain to see if you can share IMT. It\u0027s an optimization and not necessary for correctness right? The earlier code was correct too?",
       "revId": "cc7540e242d0655e941a8497a0480fcd591788d2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e5c11aec_186dde40",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 6385,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-01-31T12:20:50Z",
+      "side": 1,
+      "message": "Yes, earlier code was correct too, but was calling `Populate` for no reason (the IMT was already shared from a previous linking phase).",
+      "parentUuid": "1a6f301a_1cea4c1d",
+      "revId": "cc7540e242d0655e941a8497a0480fcd591788d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
