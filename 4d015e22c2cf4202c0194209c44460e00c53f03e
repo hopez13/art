@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3828a56f_8de5934d",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-01-31T09:57:07Z",
+      "side": 1,
+      "message": "One line ?",
+      "range": {
+        "startLine": 215,
+        "startChar": 0,
+        "endLine": 217,
+        "endChar": 26
+      },
+      "revId": "4d015e22c2cf4202c0194209c44460e00c53f03e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e76cd0d_d4d976f8",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-01-31T09:57:07Z",
+      "side": 1,
+      "message": "drop the field and use `Runtime::Current()-\u003eGetHeap()` ? Unless this is performance critical?",
+      "range": {
+        "startLine": 224,
+        "startChar": 9,
+        "endLine": 224,
+        "endChar": 14
+      },
+      "revId": "4d015e22c2cf4202c0194209c44460e00c53f03e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "357fe468_86a33bf8",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-01-31T09:57:07Z",
+      "side": 1,
+      "message": "One line?",
+      "range": {
+        "startLine": 229,
+        "startChar": 0,
+        "endLine": 231,
+        "endChar": 26
+      },
+      "revId": "4d015e22c2cf4202c0194209c44460e00c53f03e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bcad7230_db67bceb",
+        "filename": "runtime/fault_handler.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-01-31T09:57:07Z",
+      "side": 1,
+      "message": "Looks like you could avoid this caching?",
+      "range": {
+        "startLine": 104,
+        "startChar": 3,
+        "endLine": 104,
+        "endChar": 18
+      },
+      "revId": "4d015e22c2cf4202c0194209c44460e00c53f03e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2e7d6fd_ae8b1774",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-01-31T09:57:07Z",
+      "side": 1,
+      "message": "If we make this required, why do we need to check in other places that SIGBUS feature is available?",
+      "range": {
+        "startLine": 105,
+        "startChar": 33,
+        "endLine": 105,
+        "endChar": 55
+      },
+      "revId": "4d015e22c2cf4202c0194209c44460e00c53f03e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1fc674e_611672ef",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2839,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-01-31T09:57:07Z",
+      "side": 1,
+      "message": "Locking (and doing all the code here) in a signal handler sounds scary. Is it the same level of work in the SIGSEGV handler for userfaultfd?",
+      "range": {
+        "startLine": 2839,
+        "startChar": 0,
+        "endLine": 2839,
+        "endChar": 40
+      },
+      "revId": "4d015e22c2cf4202c0194209c44460e00c53f03e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "50ade7c0_25464c24",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1803,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-01-31T09:57:07Z",
+      "side": 1,
+      "message": "Can we move this logic in the FaultHandler::Init ?",
+      "range": {
+        "startLine": 1795,
+        "startChar": 0,
+        "endLine": 1803,
+        "endChar": 5
+      },
+      "revId": "4d015e22c2cf4202c0194209c44460e00c53f03e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
