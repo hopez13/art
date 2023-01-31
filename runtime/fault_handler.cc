@@ -16,10 +16,11 @@
 
 #include "fault_handler.h"
 
-#include <atomic>
 #include <string.h>
 #include <sys/mman.h>
 #include <sys/ucontext.h>
+
+#include <atomic>
 
 #include "art_method-inl.h"
 #include "base/logging.h"  // For VLOG
@@ -27,6 +28,7 @@
 #include "base/safe_copy.h"
 #include "base/stl_util.h"
 #include "dex/dex_file_types.h"
+#include "gc/heap.h"
 #include "jit/jit.h"
 #include "jit/jit_code_cache.h"
 #include "mirror/class.h"
@@ -49,16 +51,19 @@ extern "C" NO_INLINE __attribute__((visibility("default"))) void art_sigsegv_fau
 }
 
 // Signal handler called on SIGSEGV.
-static bool art_fault_handler(int sig, siginfo_t* info, void* context) {
-  return fault_manager.HandleFault(sig, info, context);
+static bool art_sigsegv_handler(int sig, siginfo_t* info, void* context) {
+  return fault_manager.HandleSigsegvFault(sig, info, context);
+}
+
+// Signal handler called on SIGBUS.
+static bool art_sigbus_handler(int sig, siginfo_t* info, void* context) {
+  return fault_manager.HandleSigbusFault(sig, info, context);
 }
 
 FaultManager::FaultManager()
     : generated_code_ranges_lock_("FaultHandler generated code ranges lock",
                                   LockLevel::kGenericBottomLock),
-      initialized_(false) {
-  sigaction(SIGSEGV, nullptr, &oldaction_);
-}
+      initialized_(false) {}
 
 FaultManager::~FaultManager() {
 }
@@ -74,12 +79,21 @@ void FaultManager::Init() {
   sigdelset(&mask, SIGSEGV);
 
   SigchainAction sa = {
-    .sc_sigaction = art_fault_handler,
-    .sc_mask = mask,
-    .sc_flags = 0UL,
+      .sc_sigaction = art_sigsegv_handler,
+      .sc_mask = mask,
+      .sc_flags = 0UL,
   };
 
   AddSpecialSignalHandlerFn(SIGSEGV, &sa);
+
+  if (gUseUserfaultfd) {
+    gc::Heap* heap = Runtime::Current()->GetHeap();
+    if (heap->MarkCompactCollector()->IsUsingSigbusFeature()) {
+      sa.sc_sigaction = art_sigbus_handler;
+      AddSpecialSignalHandlerFn(SIGBUS, &sa);
+      heap_ = heap;
+    }
+  }
 
   // Notify the kernel that we intend to use a specific `membarrier()` command.
   int result = art::membarrier(MembarrierCommand::kRegisterPrivateExpedited);
@@ -106,7 +120,10 @@ void FaultManager::Init() {
 
 void FaultManager::Release() {
   if (initialized_) {
-    RemoveSpecialSignalHandlerFn(SIGSEGV, art_fault_handler);
+    RemoveSpecialSignalHandlerFn(SIGSEGV, art_sigsegv_handler);
+    if (heap_ != nullptr) {
+      RemoveSpecialSignalHandlerFn(SIGBUS, art_sigbus_handler);
+    }
     initialized_ = false;
   }
 }
@@ -157,10 +174,8 @@ bool FaultManager::HandleFaultByOtherHandlers(int sig, siginfo_t* info, void* co
   return false;
 }
 
-static const char* SignalCodeName(int sig, int code) {
-  if (sig != SIGSEGV) {
-    return "UNKNOWN";
-  } else {
+const char* FaultManager::SignalCodeName(int sig, int code) {
+  if (sig == SIGSEGV) {
     switch (code) {
       case SEGV_MAPERR: return "SEGV_MAPERR";
       case SEGV_ACCERR: return "SEGV_ACCERR";
@@ -168,21 +183,52 @@ static const char* SignalCodeName(int sig, int code) {
       case 9:           return "SEGV_MTESERR";
       default:          return "UNKNOWN";
     }
+  } else if (sig == SIGBUS) {
+    switch (code) {
+      case BUS_ADRALN:
+        return "BUS_ADRALN";
+      case BUS_ADRERR:
+        return "BUS_ADRERR";
+      case BUS_OBJERR:
+        return "BUS_OBJERR";
+      default:
+        return "UNKNOWN";
+    }
+  } else {
+    return "UNKNOWN";
   }
 }
-static std::ostream& PrintSignalInfo(std::ostream& os, siginfo_t* info) {
+
+std::ostream& FaultManager::PrintSignalInfo(std::ostream& os, siginfo_t* info) {
   os << "  si_signo: " << info->si_signo << " (" << strsignal(info->si_signo) << ")\n"
      << "  si_code: " << info->si_code
      << " (" << SignalCodeName(info->si_signo, info->si_code) << ")";
-  if (info->si_signo == SIGSEGV) {
+  if (info->si_signo == SIGSEGV || info->si_signo == SIGBUS) {
     os << "\n" << "  si_addr: " << info->si_addr;
   }
   return os;
 }
 
-bool FaultManager::HandleFault(int sig, siginfo_t* info, void* context) {
+bool FaultManager::HandleSigbusFault(int sig, siginfo_t* info, void* context ATTRIBUTE_UNUSED) {
+  DCHECK_EQ(sig, SIGBUS);
   if (VLOG_IS_ON(signals)) {
-    PrintSignalInfo(VLOG_STREAM(signals) << "Handling fault:" << "\n", info);
+    PrintSignalInfo(VLOG_STREAM(signals) << "Handling SIGBUS fault:"
+                                         << "\n",
+                    info);
+  }
+
+#ifdef TEST_NESTED_SIGNAL
+  // Simulate a crash in a handler.
+  raise(SIGBUS);
+#endif
+  return heap_->MarkCompactCollector()->SigbusHandler(info);
+}
+
+bool FaultManager::HandleSigsegvFault(int sig, siginfo_t* info, void* context) {
+  if (VLOG_IS_ON(signals)) {
+    PrintSignalInfo(VLOG_STREAM(signals) << "Handling SIGSEGV fault:"
+                                         << "\n",
+                    info);
   }
 
 #ifdef TEST_NESTED_SIGNAL
