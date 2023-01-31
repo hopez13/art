@@ -27,6 +27,8 @@
 #endif
 
 #include <algorithm>
+#include <atomic>
+#include <bitset>
 #include <initializer_list>
 #include <mutex>
 #include <type_traits>
@@ -151,11 +153,16 @@ __attribute__((constructor)) static void InitializeSignalChain() {
   });
 }
 
+// Use a bitmap to indicate which signal is being handled so that other
+// non-blocked signals are allowed to be handled, if raised.
+using KeyValueType = std::bitset<_NSIG - 1>;
 static pthread_key_t GetHandlingSignalKey() {
   static pthread_key_t key;
   static std::once_flag once;
   std::call_once(once, []() {
-    int rc = pthread_key_create(&key, nullptr);
+    int rc = pthread_key_create(&key, [](void* ptr) {
+      delete reinterpret_cast<KeyValueType*>(ptr);
+    });
     if (rc != 0) {
       fatal("failed to create sigchain pthread key: %s", strerror(rc));
     }
@@ -164,25 +171,52 @@ static pthread_key_t GetHandlingSignalKey() {
 }
 
 static bool GetHandlingSignal() {
-  void* result = pthread_getspecific(GetHandlingSignalKey());
-  return reinterpret_cast<uintptr_t>(result);
+  pthread_key_t key = GetHandlingSignalKey();
+  void* result = pthread_getspecific(key);
+  if (result == nullptr) {
+    result = new KeyValueType();
+    pthread_setspecific(key, result);
+    return false;
+  }
+  return reinterpret_cast<KeyValueType*>(result)->any();
 }
 
-static void SetHandlingSignal(bool value) {
-  pthread_setspecific(GetHandlingSignalKey(),
-                      reinterpret_cast<void*>(static_cast<uintptr_t>(value)));
+static bool GetHandlingSignal(int signo) {
+  pthread_key_t key = GetHandlingSignalKey();
+  void* result = pthread_getspecific(key);
+  if (result == nullptr) {
+    result = new KeyValueType();
+    pthread_setspecific(key, result);
+    return false;
+  }
+  return reinterpret_cast<KeyValueType*>(result)->test(signo - 1);
+}
+
+static void SetHandlingSignal(int signo, bool value) {
+  // Use signe-fence to ensure that compiler doesn't reorder generated code
+  // across signal handlers.
+  pthread_key_t key = GetHandlingSignalKey();
+  std::atomic_signal_fence(std::memory_order_seq_cst);
+  void* result = pthread_getspecific(key);
+  if (result == nullptr) {
+    result = new KeyValueType();
+    pthread_setspecific(key, result);
+  }
+  reinterpret_cast<KeyValueType*>(result)->set(signo - 1, value);
+  std::atomic_signal_fence(std::memory_order_seq_cst);
 }
 
 class ScopedHandlingSignal {
  public:
-  ScopedHandlingSignal() : original_value_(GetHandlingSignal()) {
+  ScopedHandlingSignal(int signo) : signo_(signo), original_value_(GetHandlingSignal(signo)) {
   }
 
   ~ScopedHandlingSignal() {
-    SetHandlingSignal(original_value_);
+    SetHandlingSignal(signo_, original_value_);
   }
 
  private:
+  int signo_;
   bool original_value_;
 };
 
@@ -343,7 +377,7 @@ static bool is_signal_hook_debuggable = false;
 void SignalChain::Handler(int signo, siginfo_t* siginfo, void* ucontext_raw) {
   // Try the special handlers first.
   // If one of them crashes, we'll reenter this handler and pass that crash onto the user handler.
-  if (!GetHandlingSignal()) {
+  if (!GetHandlingSignal(signo)) {
     for (const auto& handler : chains[signo].special_handlers_) {
       if (handler.sc_sigaction == nullptr) {
         break;
@@ -356,9 +390,9 @@ void SignalChain::Handler(int signo, siginfo_t* siginfo, void* ucontext_raw) {
       sigset_t previous_mask;
       linked_sigprocmask(SIG_SETMASK, &handler.sc_mask, &previous_mask);
 
-      ScopedHandlingSignal restorer;
+      ScopedHandlingSignal restorer(signo);
       if (!handler_noreturn) {
-        SetHandlingSignal(true);
+        SetHandlingSignal(signo, true);
       }
 
       if (handler.sc_sigaction(signo, siginfo, ucontext_raw)) {
