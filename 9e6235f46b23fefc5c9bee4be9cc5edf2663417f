@@ -46,6 +46,30 @@
       },
       "revId": "9e6235f46b23fefc5c9bee4be9cc5edf2663417f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f5437da_3af8fba4",
+        "filename": "runtime/quick_exception_handler.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1080076
+      },
+      "writtenOn": "2023-02-01T22:58:05Z",
+      "side": 0,
+      "message": "no, without an explicit std::move() any use of an rvalue reference via named variable isn\u0027t a move - https://en.cppreference.com/w/cpp/utility/move\n\u003eNames of rvalue reference variables are lvalues and have to be converted to xvalues to be bound to the function overloads that accept rvalue reference parameters, which is why move constructors and move assignment operators typically use std::move",
+      "parentUuid": "24ed0ce9_1076d42b",
+      "range": {
+        "startLine": 114,
+        "startChar": 27,
+        "endLine": 114,
+        "endChar": 36
+      },
+      "revId": "9e6235f46b23fefc5c9bee4be9cc5edf2663417f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
