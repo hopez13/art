@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1488a381_f3fedab0",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-02-01T00:00:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3828a56f_8de5934d",
+      "range": {
+        "startLine": 215,
+        "startChar": 0,
+        "endLine": 217,
+        "endChar": 26
+      },
+      "revId": "4d015e22c2cf4202c0194209c44460e00c53f03e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0e76cd0d_d4d976f8",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-01-31T09:57:07Z",
       "side": 1,
       "message": "drop the field and use `Runtime::Current()-\u003eGetHeap()` ? Unless this is performance critical?",
+      "range": {
+        "startLine": 224,
+        "startChar": 9,
+        "endLine": 224,
+        "endChar": 14
+      },
+      "revId": "4d015e22c2cf4202c0194209c44460e00c53f03e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a4b0c3e1_a21a3dd7",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-02-01T00:00:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0e76cd0d_d4d976f8",
       "range": {
         "startLine": 224,
         "startChar": 9,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "12c774e3_416e53ba",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-02-01T00:00:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "357fe468_86a33bf8",
+      "range": {
+        "startLine": 229,
+        "startChar": 0,
+        "endLine": 231,
+        "endChar": 26
+      },
+      "revId": "4d015e22c2cf4202c0194209c44460e00c53f03e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bcad7230_db67bceb",
@@ -83,6 +155,30 @@
       "writtenOn": "2023-01-31T09:57:07Z",
       "side": 1,
       "message": "Looks like you could avoid this caching?",
+      "range": {
+        "startLine": 104,
+        "startChar": 3,
+        "endLine": 104,
+        "endChar": 18
+      },
+      "revId": "4d015e22c2cf4202c0194209c44460e00c53f03e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6eeb7e26_c2422bc3",
+        "filename": "runtime/fault_handler.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-02-01T00:00:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bcad7230_db67bceb",
       "range": {
         "startLine": 104,
         "startChar": 3,
@@ -118,6 +214,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3acdd8f2_64d2ef01",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-02-01T00:00:24Z",
+      "side": 1,
+      "message": "I\u0027ve added SIGBUS to the required set because we want to use the GC only with it. But checking at other places for testing purposes. For instance, if we are running on an old kernel then we can run in threaded mode. Since all the code already exists and the checking is only during GC object construction, I thought it\u0027s fine.\n\nLater on if and when we implement features only for SIGBUS, then I\u0027ll change it such that we use the GC only if SIGBUS feature exists.",
+      "parentUuid": "c2e7d6fd_ae8b1774",
+      "range": {
+        "startLine": 105,
+        "startChar": 33,
+        "endLine": 105,
+        "endChar": 55
+      },
+      "revId": "4d015e22c2cf4202c0194209c44460e00c53f03e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a1fc674e_611672ef",
         "filename": "runtime/gc/collector/mark_compact.cc",
         "patchSetId": 2
@@ -141,6 +261,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "69952975_3731ea9d",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2839,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-02-01T00:00:24Z",
+      "side": 1,
+      "message": "We don\u0027t have SIGSEGV handler for userfaultfd. I guess you are referring to the thread-based userfaultfd implementation. In that case we need one buffer per uffd-worker, so currently only two. In this case, we need one for every mutator thread that cause SIGBUS.\n\nBut as you can see, we do the buffer allocation only once for any thread when it triggers the first SIGBUS signal in that compaction cycle. Also only push_back is done in the critical section. So there are no recurring locking issues.",
+      "parentUuid": "a1fc674e_611672ef",
+      "range": {
+        "startLine": 2839,
+        "startChar": 0,
+        "endLine": 2839,
+        "endChar": 40
+      },
+      "revId": "4d015e22c2cf4202c0194209c44460e00c53f03e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "50ade7c0_25464c24",
         "filename": "runtime/runtime.cc",
         "patchSetId": 2
@@ -152,6 +296,30 @@
       "writtenOn": "2023-01-31T09:57:07Z",
       "side": 1,
       "message": "Can we move this logic in the FaultHandler::Init ?",
+      "range": {
+        "startLine": 1795,
+        "startChar": 0,
+        "endLine": 1803,
+        "endChar": 5
+      },
+      "revId": "4d015e22c2cf4202c0194209c44460e00c53f03e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2596bdca_7de2ea0c",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1803,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-02-01T00:00:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "50ade7c0_25464c24",
       "range": {
         "startLine": 1795,
         "startChar": 0,
