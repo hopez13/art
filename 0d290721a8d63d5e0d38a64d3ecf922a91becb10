@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a96c7ca3_68e2e1a1",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 513,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-02-01T22:51:49Z",
+      "side": 1,
+      "message": "Revisiting this, I think both the lock acquisition here, and RequestSynchronousCheckPoint below can violate lock ordering and deadlock, since we may be called on behalf of a low-level lock. At a minimum, we should document that deadlocks should be expected, if this is enabled.",
+      "range": {
+        "startLine": 513,
+        "startChar": 2,
+        "endLine": 513,
+        "endChar": 48
+      },
+      "revId": "0d290721a8d63d5e0d38a64d3ecf922a91becb10",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
