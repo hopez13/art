@@ -1033,7 +1033,14 @@ class Dex2Oat final {
     original_argv = argv;
 
     Locks::Init();
-    InitLogging(argv, Runtime::Abort);
+
+    // If file logging has been configured (e.g. in Microdroid), don't overwrite that with
+    // logd logging.
+    if (android::base::GetProperty("ro.log.file_logger.path", "").empty()) {
+      InitLogging(argv, Runtime::Abort);
+    } else {
+      android::base::SetAborter(Runtime::Abort);
+    }
 
     compiler_options_.reset(new CompilerOptions());
 
