@@ -3,6 +3,69 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "aacf7b21_f376aef7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-02-01T00:33:32Z",
+      "side": 1,
+      "message": "Should eventually say something about why.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 58
+      },
+      "revId": "4d015e22c2cf4202c0194209c44460e00c53f03e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a4b5a67_72b805c9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-02-01T00:33:32Z",
+      "side": 1,
+      "message": "Switching to a newer PS for the rest ...",
+      "revId": "4d015e22c2cf4202c0194209c44460e00c53f03e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "06512514_eb7bcfe2",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-02-01T00:33:32Z",
+      "side": 1,
+      "message": "Nit: Indentation is conspicuously inconsistent with the above. Probably fix the preceding lines.",
+      "range": {
+        "startLine": 188,
+        "startChar": 5,
+        "endLine": 195,
+        "endChar": 25
+      },
+      "revId": "4d015e22c2cf4202c0194209c44460e00c53f03e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3828a56f_8de5934d",
         "filename": "runtime/fault_handler.cc",
         "patchSetId": 2
@@ -144,6 +207,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "923a64b8_78c1a840",
+        "filename": "runtime/fault_handler.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-02-01T00:33:32Z",
+      "side": 1,
+      "message": "I would try to avoid or justify this in a comment.",
+      "range": {
+        "startLine": 57,
+        "startChar": 66,
+        "endLine": 57,
+        "endChar": 92
+      },
+      "revId": "4d015e22c2cf4202c0194209c44460e00c53f03e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bcad7230_db67bceb",
         "filename": "runtime/fault_handler.h",
         "patchSetId": 2
@@ -225,6 +311,30 @@
       "writtenOn": "2023-02-01T00:00:24Z",
       "side": 1,
       "message": "I\u0027ve added SIGBUS to the required set because we want to use the GC only with it. But checking at other places for testing purposes. For instance, if we are running on an old kernel then we can run in threaded mode. Since all the code already exists and the checking is only during GC object construction, I thought it\u0027s fine.\n\nLater on if and when we implement features only for SIGBUS, then I\u0027ll change it such that we use the GC only if SIGBUS feature exists.",
+      "parentUuid": "c2e7d6fd_ae8b1774",
+      "range": {
+        "startLine": 105,
+        "startChar": 33,
+        "endLine": 105,
+        "endChar": 55
+      },
+      "revId": "4d015e22c2cf4202c0194209c44460e00c53f03e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "05f06828_04d30e2f",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-02-01T00:33:32Z",
+      "side": 1,
+      "message": "+1. Maybe explain your answer to Nicolas in a comment, if you haven\u0027t already?\nWhere those features introduced at basically the same time, or is there really a difference?",
       "parentUuid": "c2e7d6fd_ae8b1774",
       "range": {
         "startLine": 105,
