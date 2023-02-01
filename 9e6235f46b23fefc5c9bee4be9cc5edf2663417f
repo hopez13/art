@@ -22,6 +22,30 @@
       },
       "revId": "9e6235f46b23fefc5c9bee4be9cc5edf2663417f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "24ed0ce9_1076d42b",
+        "filename": "runtime/quick_exception_handler.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-02-01T11:37:32Z",
+      "side": 0,
+      "message": "The arg is `\u0026\u0026`.  I think it is the same.",
+      "parentUuid": "99d222a0_6d2dd0c5",
+      "range": {
+        "startLine": 114,
+        "startChar": 27,
+        "endLine": 114,
+        "endChar": 36
+      },
+      "revId": "9e6235f46b23fefc5c9bee4be9cc5edf2663417f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
