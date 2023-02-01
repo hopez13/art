@@ -22,6 +22,30 @@
       },
       "revId": "bb94e20a3ea86ed182b6df7f7282bfb1e66606c2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4d542c0_6ac63e5b",
+        "filename": "runtime/gc/collector/mark_compact.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 542,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-02-01T18:58:19Z",
+      "side": 1,
+      "message": "I agree. It wasn\u0027t really needed. I just thought since this set is used only in debug builds, why have it at all in the other case.",
+      "parentUuid": "f74838fe_8991a96a",
+      "range": {
+        "startLine": 542,
+        "startChar": 2,
+        "endLine": 542,
+        "endChar": 60
+      },
+      "revId": "bb94e20a3ea86ed182b6df7f7282bfb1e66606c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
