@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dcb6bf27_518b3e9a",
+        "filename": "sigchainlib/sigchain.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-02-01T01:28:32Z",
+      "side": 1,
+      "message": "Maybe call this something mentioing SignalSet?\n\nDoes the -1 actually save space? Otherwiise it seems cleaner to drop the -1\u0027s everywhere?",
+      "range": {
+        "startLine": 158,
+        "startChar": 34,
+        "endLine": 158,
+        "endChar": 42
+      },
+      "revId": "f64ce9aa75e1bbce8b9bd73ab8511e6bdabf45dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b9fe3b1_b960a82d",
+        "filename": "sigchainlib/sigchain.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 395,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-02-01T01:28:32Z",
+      "side": 1,
+      "message": "Move this into ScopedHandlingSignal, passing handler_no_return into the constructor?",
+      "range": {
+        "startLine": 395,
+        "startChar": 7,
+        "endLine": 395,
+        "endChar": 39
+      },
+      "revId": "f64ce9aa75e1bbce8b9bd73ab8511e6bdabf45dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
