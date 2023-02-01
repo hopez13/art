@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eae1081e_170bc5d9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-02-01T16:55:02Z",
+      "side": 1,
+      "message": "This seems to work, but I\u0027m not entirely happy with it.\nThe problem is that knowledge of the file logger override is neatly encapsulated in the low-level logging functions (system/logging/liblog/logger_write.cpp), and so the higher-level functions like SetLogger and InitLogging in system/libbase/include/android-base/logging.h aren\u0027t aware of it, and so neither are their clients.",
+      "revId": "fd91dbb71cc549b05ffe7ff278b4d2265defcfe2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
