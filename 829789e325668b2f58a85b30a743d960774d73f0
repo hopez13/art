@@ -16,6 +16,29 @@
       "message": "PTAL. Thanks!",
       "revId": "829789e325668b2f58a85b30a743d960774d73f0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4646af04_3133748d",
+        "filename": "runtime/trace.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-02-01T14:58:08Z",
+      "side": 1,
+      "message": "Does this need to be a pointer?",
+      "range": {
+        "startLine": 413,
+        "startChar": 7,
+        "endLine": 413,
+        "endChar": 8
+      },
+      "revId": "829789e325668b2f58a85b30a743d960774d73f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
