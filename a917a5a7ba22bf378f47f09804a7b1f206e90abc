@@ -1,0 +1,182 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df0cde3f_b88b129a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-02-01T23:13:19Z",
+      "side": 1,
+      "message": "\"be alternately scheduled\" ?\n\nI guess other advantages might be that we can handle all faults simultaneously? Or do we run into a kernel lock?\n\nDoes the kernel attempt to schedule a userfaultfd handler thread on the same core as the faulting thread? If not, we\u0027re also setting up the cache context on the wrong thread. But, if so, that eould seem to be a kernel misfeature?\n\nNone of this needs to be addressed here. I\u0027m just curious, especially since setting up a signal handler has traditionally not been that cheap either.",
+      "range": {
+        "startLine": 10,
+        "startChar": 35,
+        "endLine": 10,
+        "endChar": 49
+      },
+      "revId": "a917a5a7ba22bf378f47f09804a7b1f206e90abc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3722c010_eaaec249",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-02-01T23:13:19Z",
+      "side": 1,
+      "message": "Not quite done yet, but the async-signal-safety issues here may require some work.",
+      "revId": "a917a5a7ba22bf378f47f09804a7b1f206e90abc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "00f1e12e_0eed4ba5",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-02-01T23:13:19Z",
+      "side": 1,
+      "message": "Seems questionable for a lock acquired in a signal handler, which can thus preumable be acquired pretty much anywhere. I would use something very near the bottom of the hierarchy. Oddly, candidates like kSignalHandlingLock and kUnexpectedSignalLock seem dead, and we should probably just remove them?\n\nBut then, I\u0027m not sure this can be a mutex anyway. See below.",
+      "range": {
+        "startLine": 256,
+        "startChar": 33,
+        "endLine": 256,
+        "endChar": 56
+      },
+      "revId": "a917a5a7ba22bf378f47f09804a7b1f206e90abc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ba36fad_13b8eafc",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1737,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-02-01T23:13:19Z",
+      "side": 1,
+      "message": "happening \u003d\u003d\u003e happens",
+      "range": {
+        "startLine": 1737,
+        "startChar": 69,
+        "endLine": 1737,
+        "endChar": 78
+      },
+      "revId": "a917a5a7ba22bf378f47f09804a7b1f206e90abc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a988bfc_588da355",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1737,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-02-01T23:13:19Z",
+      "side": 1,
+      "message": "delete.",
+      "range": {
+        "startLine": 1737,
+        "startChar": 38,
+        "endLine": 1737,
+        "endChar": 40
+      },
+      "revId": "a917a5a7ba22bf378f47f09804a7b1f206e90abc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5fabc408_465b31ff",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2800,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-02-01T23:13:19Z",
+      "side": 1,
+      "message": "Explain this? Presumably we need this to be ordered wrt the compacting_ load below. But that\u0027s not obvious here.",
+      "range": {
+        "startLine": 2800,
+        "startChar": 62,
+        "endLine": 2800,
+        "endChar": 87
+      },
+      "revId": "a917a5a7ba22bf378f47f09804a7b1f206e90abc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "480dc5e5_f5645919",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2846,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-02-01T23:13:19Z",
+      "side": 1,
+      "message": "Definitely async-signal-unsafe. Needs to be done differently. See above.",
+      "range": {
+        "startLine": 2846,
+        "startChar": 14,
+        "endLine": 2846,
+        "endChar": 43
+      },
+      "revId": "a917a5a7ba22bf378f47f09804a7b1f206e90abc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "04f741d5_df167b7a",
+        "filename": "runtime/gc/collector/mark_compact.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 555,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-02-01T23:13:19Z",
+      "side": 1,
+      "message": "Should clarify that this is not used with SIGBUS. Instead one of the following fields is.",
+      "range": {
+        "startLine": 555,
+        "startChar": 4,
+        "endLine": 555,
+        "endChar": 52
+      },
+      "revId": "a917a5a7ba22bf378f47f09804a7b1f206e90abc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
