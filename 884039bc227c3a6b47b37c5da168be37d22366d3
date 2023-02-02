@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "baef60a5_4fa85910",
+        "filename": "sigchainlib/sigchain.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-02-02T23:53:53Z",
+      "side": 1,
+      "message": "I knew that but thought we didn\u0027t want to create a dependency on libbase.so so didn\u0027t use them. Do you think it\u0027s not an issue?",
+      "parentUuid": "53e56ca4_7be7764b",
+      "range": {
+        "startLine": 155,
+        "startChar": 0,
+        "endLine": 165,
+        "endChar": 1
+      },
+      "revId": "884039bc227c3a6b47b37c5da168be37d22366d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "77289461_b8480f0f",
         "filename": "sigchainlib/sigchain.cc",
         "patchSetId": 3
@@ -37,6 +61,30 @@
       "writtenOn": "2023-02-02T22:02:04Z",
       "side": 1,
       "message": "Actually https://man7.org/linux/man-pages/man7/signal-safety.7.html says that none of these are async-signal-safe. Or did you mean something else?",
+      "range": {
+        "startLine": 175,
+        "startChar": 0,
+        "endLine": 175,
+        "endChar": 70
+      },
+      "revId": "884039bc227c3a6b47b37c5da168be37d22366d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de558417_1f8e18a8",
+        "filename": "sigchainlib/sigchain.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-02-02T23:53:53Z",
+      "side": 1,
+      "message": "I mistakenly wrote async-signal-safe at the end. Fixed in the latest patch.",
+      "parentUuid": "77289461_b8480f0f",
       "range": {
         "startLine": 175,
         "startChar": 0,
