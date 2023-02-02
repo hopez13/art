@@ -94,6 +94,30 @@
       },
       "revId": "9e6235f46b23fefc5c9bee4be9cc5edf2663417f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "af8ffea9_879be90d",
+        "filename": "runtime/quick_exception_handler.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-02-02T12:38:19Z",
+      "side": 0,
+      "message": "Yeah, the referenced example isn\u0027t great, but I think Yurii is right anyway.  The same thing applies even if was just `arg`.  (random example: https://stackoverflow.com/questions/38926753/r-value-parameters-in-a-function)  I still find that confusing and I will probably forget that again in a month.\n\nYurii: What motivated the random drive by old review?",
+      "parentUuid": "8f76724e_1e6d5fe5",
+      "range": {
+        "startLine": 114,
+        "startChar": 27,
+        "endLine": 114,
+        "endChar": 36
+      },
+      "revId": "9e6235f46b23fefc5c9bee4be9cc5edf2663417f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
