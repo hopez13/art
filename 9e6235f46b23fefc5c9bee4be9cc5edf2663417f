@@ -70,6 +70,30 @@
       },
       "revId": "9e6235f46b23fefc5c9bee4be9cc5edf2663417f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8f76724e_1e6d5fe5",
+        "filename": "runtime/quick_exception_handler.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-02-02T10:32:04Z",
+      "side": 0,
+      "message": "Maybe I am misreading things but what you quoted I think applied to things like `arg.inner` rather than this operator.\n\nI think this line would call optional\u0027s move assignment operator (https://cs.android.com/android/platform/superproject/+/master:external/libcxx/include/optional;l\u003d688;drc\u003d134a848236518442cc6b4b8006a2927db2e6636b) and a move will be performed.",
+      "parentUuid": "2f5437da_3af8fba4",
+      "range": {
+        "startLine": 114,
+        "startChar": 27,
+        "endLine": 114,
+        "endChar": 36
+      },
+      "revId": "9e6235f46b23fefc5c9bee4be9cc5edf2663417f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
