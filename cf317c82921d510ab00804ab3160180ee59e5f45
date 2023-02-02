@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "bd1891a0_647de4ae",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-02-02T20:38:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ae685be4_f62f9794",
+      "range": {
+        "startLine": 11,
+        "startChar": 69,
+        "endLine": 11,
+        "endChar": 76
+      },
+      "revId": "cf317c82921d510ab00804ab3160180ee59e5f45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "48b5846f_410e686d",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
@@ -64,6 +88,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "25a77803_b1c01319",
+        "filename": "sigchainlib/sigchain.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-02-02T20:38:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4fba14e7_fd719e22",
+      "range": {
+        "startLine": 158,
+        "startChar": 1,
+        "endLine": 159,
+        "endChar": 83
+      },
+      "revId": "cf317c82921d510ab00804ab3160180ee59e5f45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3ec04683_b7ac128c",
@@ -87,6 +135,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e7ddc944_f00c76da",
+        "filename": "sigchainlib/sigchain.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-02-02T20:38:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3ec04683_b7ac128c",
+      "range": {
+        "startLine": 160,
+        "startChar": 0,
+        "endLine": 160,
+        "endChar": 87
+      },
+      "revId": "cf317c82921d510ab00804ab3160180ee59e5f45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b69478c8_d3cfd4ba",
@@ -100,6 +172,30 @@
       "writtenOn": "2023-02-02T19:12:05Z",
       "side": 1,
       "message": "Really a comment about pre-existing code:\n\nWe should add a comment that we\u0027re relying on async-sgnal-safety of pthread_key_create and friends. That seems to not be guaranteed. But it looks safe for the Bionic implementation.",
+      "range": {
+        "startLine": 165,
+        "startChar": 2,
+        "endLine": 171,
+        "endChar": 5
+      },
+      "revId": "cf317c82921d510ab00804ab3160180ee59e5f45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f85b7a7_027f67a7",
+        "filename": "sigchainlib/sigchain.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-02-02T20:38:10Z",
+      "side": 1,
+      "message": "Added a comment.",
+      "parentUuid": "b69478c8_d3cfd4ba",
       "range": {
         "startLine": 165,
         "startChar": 2,
