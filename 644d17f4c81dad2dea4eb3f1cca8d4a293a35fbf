@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6281ed5b_91dbf68d",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-02-02T20:37:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8fdb7de3_d5ec6a33",
+      "range": {
+        "startLine": 78,
+        "startChar": 32,
+        "endLine": 78,
+        "endChar": 39
+      },
+      "revId": "644d17f4c81dad2dea4eb3f1cca8d4a293a35fbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "86e86d7d_2b10bd72",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-02-02T12:39:23Z",
       "side": 1,
       "message": "BUS_UNKNOWN?",
+      "range": {
+        "startLine": 85,
+        "startChar": 35,
+        "endLine": 85,
+        "endChar": 36
+      },
+      "revId": "644d17f4c81dad2dea4eb3f1cca8d4a293a35fbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac401108_9f8e7d8d",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-02-02T20:37:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "86e86d7d_2b10bd72",
       "range": {
         "startLine": 85,
         "startChar": 35,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a221bbc2_d3fbf3d2",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-02-02T20:37:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cf9aec98_f535d08b",
+      "range": {
+        "startLine": 105,
+        "startChar": 6,
+        "endLine": 106,
+        "endChar": 84
+      },
+      "revId": "644d17f4c81dad2dea4eb3f1cca8d4a293a35fbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d5b8778a_6c0c617d",
@@ -83,6 +155,30 @@
       "writtenOn": "2023-02-02T12:39:23Z",
       "side": 1,
       "message": "The code indicates we setup in both cases (just differently) ?",
+      "range": {
+        "startLine": 45,
+        "startChar": 56,
+        "endLine": 46,
+        "endChar": 40
+      },
+      "revId": "644d17f4c81dad2dea4eb3f1cca8d4a293a35fbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "af456207_32983187",
+        "filename": "runtime/fault_handler.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-02-02T20:37:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d5b8778a_6c0c617d",
       "range": {
         "startLine": 45,
         "startChar": 56,

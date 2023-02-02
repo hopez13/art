@@ -516,6 +516,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "864ac4ec_beeeaa9c",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-02-02T20:37:05Z",
+      "side": 1,
+      "message": "We are actually increasing coverage if the only dependency is SIGBUS feature. It was introduced in 4.19, whereas minor-fault in 5.14 (backported to android12-5.4).",
+      "parentUuid": "c93954a4_a9a0c869",
+      "range": {
+        "startLine": 105,
+        "startChar": 33,
+        "endLine": 105,
+        "endChar": 55
+      },
+      "revId": "4d015e22c2cf4202c0194209c44460e00c53f03e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a1fc674e_611672ef",
         "filename": "runtime/gc/collector/mark_compact.cc",
         "patchSetId": 2
