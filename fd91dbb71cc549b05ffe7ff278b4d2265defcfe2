@@ -33,6 +33,24 @@
       "message": "An alternative might be to ignore SetLogger calls if we\u0027ve picked the file logger. But I don\u0027t really like that either - ignoring a clear request will cause confusion, and it would be fine to use e.g. a stdout logger.",
       "revId": "fd91dbb71cc549b05ffe7ff278b4d2265defcfe2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "111eee3a_b8eb0e9d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-02-02T02:27:56Z",
+      "side": 1,
+      "message": "AFAIK, the motivation of the explicit logging initialization is to force write the log to logd even if partners has changed the default logger (b/201042799). Setting \"ro.log.file_logger.path\" is one of the ways that a partner may use to change the default logger, so we do want to override that.\n\nTo solve the logging problem in Microdroid, one way I can see is to call InitLogging only if it\u0027s Android. This means we need dynamically determine if it\u0027s Android or Microdroid. I don\u0027t know what\u0027s the best approach to achieve this. Maybe you can try checking some sysprops that only exists on Android, such as `ro.build.version.sdk`?",
+      "parentUuid": "eae1081e_170bc5d9",
+      "revId": "fd91dbb71cc549b05ffe7ff278b4d2265defcfe2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
