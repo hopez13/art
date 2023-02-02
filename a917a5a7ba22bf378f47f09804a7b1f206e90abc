@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "10073ade_18c39f28",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-02-02T08:19:53Z",
+      "side": 1,
+      "message": "\u003e \"be alternately scheduled\" ?\n\nDone\n\u003e \n\u003e I guess other advantages might be that we can handle all faults simultaneously? Or do we run into a kernel lock?\n\nThat\u0027s right. It\u0027s more scalable than the threading based implementation. All the kernel locks involved are in shared-mode.\n\u003e \n\u003e Does the kernel attempt to schedule a userfaultfd handler thread on the same core as the faulting thread? If not, we\u0027re also setting up the cache context on the wrong thread. But, if so, that eould seem to be a kernel misfeature?\n\u003e \nKernel scheduler is agnostic about which threads are uffd handler threads. So it\u0027s very much possible that they are scheduled on another core.\n\n\u003e None of this needs to be addressed here. I\u0027m just curious, especially since setting up a signal handler has traditionally not been that cheap either.\n\nThe main comes out of the fact that there is no inter-thread dependency and hence no time is wasted in scheduling. Also, if the ui-thread runs with higher priority, then we benefit.",
+      "parentUuid": "df0cde3f_b88b129a",
+      "range": {
+        "startLine": 10,
+        "startChar": 35,
+        "endLine": 10,
+        "endChar": 49
+      },
+      "revId": "a917a5a7ba22bf378f47f09804a7b1f206e90abc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "3722c010_eaaec249",
@@ -54,6 +78,30 @@
       "writtenOn": "2023-02-01T23:13:19Z",
       "side": 1,
       "message": "Seems questionable for a lock acquired in a signal handler, which can thus preumable be acquired pretty much anywhere. I would use something very near the bottom of the hierarchy. Oddly, candidates like kSignalHandlingLock and kUnexpectedSignalLock seem dead, and we should probably just remove them?\n\nBut then, I\u0027m not sure this can be a mutex anyway. See below.",
+      "range": {
+        "startLine": 256,
+        "startChar": 33,
+        "endLine": 256,
+        "endChar": 56
+      },
+      "revId": "a917a5a7ba22bf378f47f09804a7b1f206e90abc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b5a0f925_47d39d36",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-02-02T08:19:53Z",
+      "side": 1,
+      "message": "Not relevant anymore as the lock is not being used in the signal handler.",
+      "parentUuid": "00f1e12e_0eed4ba5",
       "range": {
         "startLine": 256,
         "startChar": 33,
@@ -110,6 +158,54 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "717a44a5_a8d73e65",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1737,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-02-02T08:19:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5a988bfc_588da355",
+      "range": {
+        "startLine": 1737,
+        "startChar": 38,
+        "endLine": 1737,
+        "endChar": 40
+      },
+      "revId": "a917a5a7ba22bf378f47f09804a7b1f206e90abc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1267d021_dc46da9f",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1737,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-02-02T08:19:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7ba36fad_13b8eafc",
+      "range": {
+        "startLine": 1737,
+        "startChar": 69,
+        "endLine": 1737,
+        "endChar": 78
+      },
+      "revId": "a917a5a7ba22bf378f47f09804a7b1f206e90abc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5fabc408_465b31ff",
@@ -123,6 +219,30 @@
       "writtenOn": "2023-02-01T23:13:19Z",
       "side": 1,
       "message": "Explain this? Presumably we need this to be ordered wrt the compacting_ load below. But that\u0027s not obvious here.",
+      "range": {
+        "startLine": 2800,
+        "startChar": 62,
+        "endLine": 2800,
+        "endChar": 87
+      },
+      "revId": "a917a5a7ba22bf378f47f09804a7b1f206e90abc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e94f1bbf_cbe3c42b",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2800,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-02-02T08:19:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5fabc408_465b31ff",
       "range": {
         "startLine": 2800,
         "startChar": 62,
@@ -156,6 +276,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "22a96261_f92dcb5e",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2846,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-02-02T08:19:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "480dc5e5_f5645919",
+      "range": {
+        "startLine": 2846,
+        "startChar": 14,
+        "endLine": 2846,
+        "endChar": 43
+      },
+      "revId": "a917a5a7ba22bf378f47f09804a7b1f206e90abc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "04f741d5_df167b7a",
@@ -169,6 +313,30 @@
       "writtenOn": "2023-02-01T23:13:19Z",
       "side": 1,
       "message": "Should clarify that this is not used with SIGBUS. Instead one of the following fields is.",
+      "range": {
+        "startLine": 555,
+        "startChar": 4,
+        "endLine": 555,
+        "endChar": 52
+      },
+      "revId": "a917a5a7ba22bf378f47f09804a7b1f206e90abc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9fe43dfb_e45c4847",
+        "filename": "runtime/gc/collector/mark_compact.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 555,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-02-02T08:19:53Z",
+      "side": 1,
+      "message": "Not relevant anymore.",
+      "parentUuid": "04f741d5_df167b7a",
       "range": {
         "startLine": 555,
         "startChar": 4,

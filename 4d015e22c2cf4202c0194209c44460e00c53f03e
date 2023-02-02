@@ -468,6 +468,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "64782cd3_75957a00",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-02-02T08:19:53Z",
+      "side": 1,
+      "message": "It\u0027s the other way. minor-fault support implies SIGBUS as the latter was introduced earlier than the former. Add a comment to this effect.",
+      "parentUuid": "8150f8ca_38892a99",
+      "range": {
+        "startLine": 105,
+        "startChar": 33,
+        "endLine": 105,
+        "endChar": 55
+      },
+      "revId": "4d015e22c2cf4202c0194209c44460e00c53f03e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a1fc674e_611672ef",
         "filename": "runtime/gc/collector/mark_compact.cc",
         "patchSetId": 2
@@ -527,6 +551,30 @@
       "side": 1,
       "message": "I don\u0027t think this is safe. The usual reason that mutexes are not safe is that you may have interrupted a critical section in the main code. That probably can\u0027t happen here. But Mutex internally logs, etc. I\u0027m not at all sure that that\u0027s async-signal-safe. (Actually, this pointed out a problem in the fairly recent \"dump stack on long contention CL, that definitely makes this unsafe. But that should probably be viewed as a best effort debugging tool anyway.)\n\nYou really only need the mutex to maintain a list of pages, right? We could easily do this in a lock-free manner, I think.\n\nBut I worry about MemMap::MapAnonymous, which also internally acquires a mutex. We probably need to grab a page from a large preallocated region, so that allocation is just an atomic increment.",
       "parentUuid": "69952975_3731ea9d",
+      "range": {
+        "startLine": 2839,
+        "startChar": 0,
+        "endLine": 2839,
+        "endChar": 40
+      },
+      "revId": "4d015e22c2cf4202c0194209c44460e00c53f03e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1213e5b0_d69a1ad0",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2839,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-02-02T08:19:53Z",
+      "side": 1,
+      "message": "Changed the whole logic by creating a range of pages out of which mutator thread atomically claim pages if they require.",
+      "parentUuid": "303ca367_ad587b99",
       "range": {
         "startLine": 2839,
         "startChar": 0,
