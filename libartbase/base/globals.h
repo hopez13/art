@@ -36,7 +36,20 @@ static constexpr size_t kStackAlignment = 16;
 
 // System page size. We check this against sysconf(_SC_PAGE_SIZE) at runtime, but use a simple
 // compile-time constant so the compiler can generate better code.
+#if defined(PAGE_SIZE_AGNOSTIC) && (defined(__aarch64__) || defined(__arm__))
+static constexpr size_t kPageSize = 16384;
+#else
 static constexpr size_t kPageSize = 4096;
+#endif
+
+// Targets can have different page size (eg. 4kB or 16kB). Because Art can crosscompile, it needs
+// to be able to generate OAT (ELF) files with alignment other than the host page size.
+// kElfSegmentAlignment needs to be equal to the largest page size supported.
+#if defined(PAGE_SIZE_AGNOSTIC)
+static constexpr size_t kElfSegmentAlignment = 16384;
+#else
+static constexpr size_t kElfSegmentAlignment = kPageSize;
+#endif
 
 // TODO: Kernels for arm and x86 in both, 32-bit and 64-bit modes use 512 entries per page-table
 // page. Find a way to confirm that in userspace.
