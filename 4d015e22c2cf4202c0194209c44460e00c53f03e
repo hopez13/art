@@ -492,6 +492,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c93954a4_a9a0c869",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-02-02T12:39:23Z",
+      "side": 1,
+      "message": "Are we loosing that much coverage if we only support userfaultfd if SIGBUS feature is available?",
+      "parentUuid": "64782cd3_75957a00",
+      "range": {
+        "startLine": 105,
+        "startChar": 33,
+        "endLine": 105,
+        "endChar": 55
+      },
+      "revId": "4d015e22c2cf4202c0194209c44460e00c53f03e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a1fc674e_611672ef",
         "filename": "runtime/gc/collector/mark_compact.cc",
         "patchSetId": 2
