@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "53e56ca4_7be7764b",
+        "filename": "sigchainlib/sigchain.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-02-02T22:02:04Z",
+      "side": 1,
+      "message": "Actually, I had missed that these already exist in bit_utils.h.",
+      "range": {
+        "startLine": 155,
+        "startChar": 0,
+        "endLine": 165,
+        "endChar": 1
+      },
+      "revId": "884039bc227c3a6b47b37c5da168be37d22366d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77289461_b8480f0f",
+        "filename": "sigchainlib/sigchain.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-02-02T22:02:04Z",
+      "side": 1,
+      "message": "Actually https://man7.org/linux/man-pages/man7/signal-safety.7.html says that none of these are async-signal-safe. Or did you mean something else?",
+      "range": {
+        "startLine": 175,
+        "startChar": 0,
+        "endLine": 175,
+        "endChar": 70
+      },
+      "revId": "884039bc227c3a6b47b37c5da168be37d22366d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
