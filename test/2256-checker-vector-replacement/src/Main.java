@@ -22,16 +22,16 @@ public class Main {
     // Before loop optimization we only had an array get. After it, we optimized to also have
     // VecLoad operations.
 
-    /// CHECK-START: void Main.$noinline$testVectorAndNonVector() loop_optimization (before)
+    /// CHECK-START-{ARM,ARM64}: void Main.$noinline$testVectorAndNonVector() loop_optimization (before)
     /// CHECK:     ArrayGet
 
-    /// CHECK-START: void Main.$noinline$testVectorAndNonVector() loop_optimization (after)
+    /// CHECK-START-{ARM,ARM64}: void Main.$noinline$testVectorAndNonVector() loop_optimization (after)
     /// CHECK:     ArrayGet
 
-    /// CHECK-START: void Main.$noinline$testVectorAndNonVector() loop_optimization (before)
+    /// CHECK-START-{ARM,ARM64}: void Main.$noinline$testVectorAndNonVector() loop_optimization (before)
     /// CHECK-NOT: VecLoad
 
-    /// CHECK-START: void Main.$noinline$testVectorAndNonVector() loop_optimization (after)
+    /// CHECK-START-{ARM,ARM64}: void Main.$noinline$testVectorAndNonVector() loop_optimization (after)
     /// CHECK:     VecLoad
 
     // In LoadStoreElimination both ArrayGet and VecLoad have the same heap location. We will try to
@@ -40,15 +40,15 @@ public class Main {
 
     // We can eliminate the ArraySet and ArrayGet, but not the VectorOperations.
 
-    /// CHECK-START: void Main.$noinline$testVectorAndNonVector() load_store_elimination (before)
+    /// CHECK-START-{ARM,ARM64}: void Main.$noinline$testVectorAndNonVector() load_store_elimination (before)
     /// CHECK:     ArraySet
     /// CHECK:     VecLoad
     /// CHECK:     ArrayGet
 
-    /// CHECK-START: void Main.$noinline$testVectorAndNonVector() load_store_elimination (after)
+    /// CHECK-START-{ARM,ARM64}: void Main.$noinline$testVectorAndNonVector() load_store_elimination (after)
     /// CHECK-NOT: ArraySet
 
-    /// CHECK-START: void Main.$noinline$testVectorAndNonVector() load_store_elimination (after)
+    /// CHECK-START-{ARM,ARM64}: void Main.$noinline$testVectorAndNonVector() load_store_elimination (after)
     /// CHECK-NOT: ArrayGet
 
     private static void $noinline$testVectorAndNonVector() {
