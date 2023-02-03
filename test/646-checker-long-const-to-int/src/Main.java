@@ -17,7 +17,8 @@
 public class Main {
 
   public static void main(String[] args) {
-    System.out.println(test());
+      System.out.println(test(false));
+      System.out.println(test(true));
   }
 
   public static long testField = 0;
@@ -32,25 +33,32 @@ public class Main {
 
   /// CHECK-START-ARM: int Main.test() register (after)
   /// CHECK: TypeConversion locations:[#-8690466096623102344]->{{.*}}
-  public static int test() {
-    // To avoid constant folding TypeConversion(const), hide the constant in a field.
-    // We do not run constant folding after load-store-elimination.
-    testField = 0x8765432112345678L;
-    long value = testField;
-    // Now, the `value` is in a register because of the store but we need
-    // a constant location to trigger the bug, so load a bunch of other fields.
-    long l0 = longField0;
-    long l1 = longField1;
-    long l2 = longField2;
-    long l3 = longField3;
-    long l4 = longField4;
-    long l5 = longField5;
-    long l6 = longField6;
-    long l7 = longField7;
-    if (l0 != 0 || l1 != 0 || l2 != 0 || l3 != 0 || l4 != 0 || l5 != 0 || l6 != 0 || l7 != 0) {
-      throw new Error();
-    }
-    // Do the conversion from constant location.
-    return (int)value;
+  public static int test(boolean param) {
+      // To avoid constant folding TypeConversion(const), hide the constant in a field.
+      // We do not run constant folding after load-store-elimination.
+      // This if else is to avoid constant folding the long constant into a float constant.
+      if (param) {
+          // starts with 87, ends the same.
+          testField = 0x8765432112345678L;
+      } else {
+          // starts with 86, ends the same.
+          testField = 0x8665432112345678L;
+      }
+      long value = testField;
+      // Now, the `value` is in a register because of the store but we need
+      // a constant location to trigger the bug, so load a bunch of other fields.
+      long l0 = longField0;
+      long l1 = longField1;
+      long l2 = longField2;
+      long l3 = longField3;
+      long l4 = longField4;
+      long l5 = longField5;
+      long l6 = longField6;
+      long l7 = longField7;
+      if (l0 != 0 || l1 != 0 || l2 != 0 || l3 != 0 || l4 != 0 || l5 != 0 || l6 != 0 || l7 != 0) {
+          throw new Error();
+      }
+      // Do the conversion from constant location.
+      return (int) value;
   }
 }
