@@ -1,0 +1,297 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd575c62_02097fb4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-02-03T01:20:56Z",
+      "side": 1,
+      "message": "Finished a pass.",
+      "revId": "e21809c020bac6b2cfba9d3517c447cdd89d7bba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ba7db48_de992196",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-02-03T01:20:56Z",
+      "side": 1,
+      "message": "We talked about making this larger in production than kObjPtrPoisoning or 32-bit builds? I still think that\u0027s a good idea, since it gives us advance internal warning if this is likely to become an issue.",
+      "range": {
+        "startLine": 193,
+        "startChar": 0,
+        "endLine": 193,
+        "endChar": 61
+      },
+      "revId": "e21809c020bac6b2cfba9d3517c447cdd89d7bba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "715863f3_ee75a11b",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-02-03T01:20:56Z",
+      "side": 1,
+      "message": "Isn\u0027t this always set in IntializePhase anyway?",
+      "range": {
+        "startLine": 271,
+        "startChar": 6,
+        "endLine": 271,
+        "endChar": 36
+      },
+      "revId": "e21809c020bac6b2cfba9d3517c447cdd89d7bba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eed8a6c0_7724d139",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 2870,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-02-03T01:20:56Z",
+      "side": 1,
+      "message": "Seems a little small to me, especially with linear growth. I think a microsecond is on the order of the context switch time? Maybe 10X that?\n\nAlso nanosleep is not in the async-signal-safe list. But AFAICT, it\u0027s basically a pure system call in bionic, so it should be fine. But add a comment.",
+      "range": {
+        "startLine": 2870,
+        "startChar": 14,
+        "endLine": 2870,
+        "endChar": 21
+      },
+      "revId": "e21809c020bac6b2cfba9d3517c447cdd89d7bba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7695ee48_0743adef",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 2932,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-02-03T01:20:56Z",
+      "side": 1,
+      "message": "Again, it looks to me like we need store-\u003eload ordering here, so I think both the increment and CAS need to be seq_cst,",
+      "range": {
+        "startLine": 2931,
+        "startChar": 11,
+        "endLine": 2932,
+        "endChar": 25
+      },
+      "revId": "e21809c020bac6b2cfba9d3517c447cdd89d7bba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "918be9c4_2bc2148d",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 2937,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-02-03T01:20:56Z",
+      "side": 1,
+      "message": "Looks like an accidental indentation change here and below?",
+      "range": {
+        "startLine": 2936,
+        "startChar": 12,
+        "endLine": 2937,
+        "endChar": 72
+      },
+      "revId": "e21809c020bac6b2cfba9d3517c447cdd89d7bba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a1b3750_4e8f216d",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 3053,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-02-03T01:20:56Z",
+      "side": 1,
+      "message": "What release order?",
+      "range": {
+        "startLine": 3051,
+        "startChar": 51,
+        "endLine": 3053,
+        "endChar": 27
+      },
+      "revId": "e21809c020bac6b2cfba9d3517c447cdd89d7bba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a32a233_e7288234",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 3061,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-02-03T01:20:56Z",
+      "side": 1,
+      "message": "More weird indentation from here on down.",
+      "range": {
+        "startLine": 3056,
+        "startChar": 10,
+        "endLine": 3061,
+        "endChar": 0
+      },
+      "revId": "e21809c020bac6b2cfba9d3517c447cdd89d7bba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee6dab88_421b35d8",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 3111,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-02-03T01:20:56Z",
+      "side": 1,
+      "message": "Seems simpler to just say \"return;\"",
+      "range": {
+        "startLine": 3111,
+        "startChar": 10,
+        "endLine": 3111,
+        "endChar": 31
+      },
+      "revId": "e21809c020bac6b2cfba9d3517c447cdd89d7bba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b68ff671_1b187465",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 3115,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-02-03T01:20:56Z",
+      "side": 1,
+      "message": "This seems a bit inconsistent with the relaxed load of the state. If we see kProcessedAndMapped, we are assuming the other thread is done. I guess it\u0027s OK because we issued a system call in the other thread, and the return here involves another system call for the signal return? Does kernel signal return really involve a fence? (Not a rehtorical question; I don\u0027t have a clue.)",
+      "range": {
+        "startLine": 3113,
+        "startChar": 9,
+        "endLine": 3115,
+        "endChar": 0
+      },
+      "revId": "e21809c020bac6b2cfba9d3517c447cdd89d7bba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c0fb6244_2b5b78c0",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 3176,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-02-03T01:20:56Z",
+      "side": 1,
+      "message": "Probably impacted by the above question about signal returns.",
+      "range": {
+        "startLine": 3176,
+        "startChar": 70,
+        "endLine": 3176,
+        "endChar": 95
+      },
+      "revId": "e21809c020bac6b2cfba9d3517c447cdd89d7bba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16c9a77c_21b1d076",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 3240,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-02-03T01:20:56Z",
+      "side": 1,
+      "message": "Maybe add a comment that any signal handler that starts processing a page after this will see that the page has already been completed and do nothing.",
+      "range": {
+        "startLine": 3236,
+        "startChar": 2,
+        "endLine": 3240,
+        "endChar": 3
+      },
+      "revId": "e21809c020bac6b2cfba9d3517c447cdd89d7bba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d8dfc15_ba52b673",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 3853,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-02-03T01:20:56Z",
+      "side": 1,
+      "message": "compacting_ is set in the same thread?",
+      "range": {
+        "startLine": 3853,
+        "startChar": 6,
+        "endLine": 3853,
+        "endChar": 49
+      },
+      "revId": "e21809c020bac6b2cfba9d3517c447cdd89d7bba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

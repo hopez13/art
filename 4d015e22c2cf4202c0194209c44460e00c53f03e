@@ -540,6 +540,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6cae13de_7b4e71db",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-02-03T01:20:56Z",
+      "side": 1,
+      "message": "So it sounds like currently CMC won\u0027t be usable for something in the middle of that range, even with SIGBUS. Is that a concern?\n\nI don\u0027t follow the logic here fully. This is a simplification that\u0027s stronger than what the rest of the GC actually requires? If so, maybe state that in the comment?",
+      "parentUuid": "864ac4ec_beeeaa9c",
+      "range": {
+        "startLine": 105,
+        "startChar": 33,
+        "endLine": 105,
+        "endChar": 55
+      },
+      "revId": "4d015e22c2cf4202c0194209c44460e00c53f03e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a1fc674e_611672ef",
         "filename": "runtime/gc/collector/mark_compact.cc",
         "patchSetId": 2
