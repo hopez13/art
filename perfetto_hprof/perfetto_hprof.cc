@@ -164,6 +164,29 @@ uint64_t GetCurrentBootClockNs() {
   return ts.tv_sec * 1000000000LL + ts.tv_nsec;
 }
 
+bool IsDebugBuild() {
+  std::string build_type = android::base::GetProperty("ro.build.type", "");
+  return !build_type.empty() && build_type != "user";
+}
+
+bool IsHeapDumpAllowed(const perfetto::DataSourceConfig& ds_config) {
+  bool is_system_initiator =
+      ds_config.session_initiator() == perfetto::DataSourceConfig::SESSION_INITIATOR_TRUSTED_SYSTEM;
+  return (art::Runtime::Current()->IsProfileable() && is_system_initiator) ||
+         (art::Runtime::Current()->IsProfileableFromShell() && !is_system_initiator) ||
+         (art::Runtime::Current()->IsSystemServer() && is_system_initiator) ||
+         art::Runtime::Current()->IsJavaDebuggable() || IsDebugBuild();
+}
+
+// Cannot be evaluated on plugin init as process fork happens afterwards.
+// Not the final decision on whether we should collect a heap dump
+bool ShouldTriggerPerfetto() {
+  return art::Runtime::Current()->IsProfileable() ||
+         art::Runtime::Current()->IsProfileableFromShell() ||
+         art::Runtime::Current()->IsSystemServer() || art::Runtime::Current()->IsJavaDebuggable() ||
+         IsDebugBuild();
+}
+
 class JavaHprofDataSource : public perfetto::DataSource<JavaHprofDataSource> {
  public:
   constexpr static perfetto::BufferExhaustedPolicy kBufferExhaustedPolicy =
@@ -197,7 +220,8 @@ class JavaHprofDataSource : public perfetto::DataSource<JavaHprofDataSource> {
     }
     // This tracing session ID matches the requesting tracing session ID, so we know heapprofd
     // has verified it targets this process.
-    enabled_ = dispatched_from_heapprofd_ || IsDumpEnabled(*cfg.get());
+    enabled_ = dispatched_from_heapprofd_ ||
+               (IsProcessSelected(*cfg.get()) && IsHeapDumpAllowed(*args.config));
   }
 
   bool dump_smaps() { return dump_smaps_; }
@@ -251,7 +275,7 @@ class JavaHprofDataSource : public perfetto::DataSource<JavaHprofDataSource> {
   }
 
  private:
-  static bool IsDumpEnabled(const perfetto::protos::pbzero::JavaHprofConfig::Decoder& cfg) {
+  static bool IsProcessSelected(const perfetto::protos::pbzero::JavaHprofConfig::Decoder& cfg) {
     std::string cmdline;
     if (!android::base::ReadFileToString("/proc/self/cmdline", &cmdline)) {
       return false;
@@ -1067,6 +1091,10 @@ void DumpPerfettoOutOfMemory() REQUIRES_SHARED(art::Locks::mutator_lock_) {
     }
     g_oome_triggered = true;
   }
+  // In case we cannot profile the process, exit early and avoid triggering.
+  if (!ShouldTriggerPerfetto()) {
+    return;
+  }
 
   art::ScopedThreadSuspension sts(self, art::ThreadState::kSuspended);
   // If we fork & resume the original process execution it will most likely exit
@@ -1106,11 +1134,6 @@ void DumpPerfettoOutOfMemory() REQUIRES_SHARED(art::Locks::mutator_lock_) {
       WriteHeapPackets(dumped_pid, timestamp);
       LOG(INFO) << "finished dumping heap for OOME " << dumped_pid;
     });
-}
-
-bool CanProfile() {
-  std::string build_type = android::base::GetProperty("ro.build.type", "");
-  return !build_type.empty() && build_type != "user";
 }
 
 // The plugin initialization function.
@@ -1201,17 +1224,13 @@ extern "C" bool ArtPlugin_Initialize() {
   th.detach();
 
   // Register the OOM error handler.
-  if (CanProfile()) {
-    art::Runtime::Current()->SetOutOfMemoryErrorHook(perfetto_hprof::DumpPerfettoOutOfMemory);
-  }
+  art::Runtime::Current()->SetOutOfMemoryErrorHook(perfetto_hprof::DumpPerfettoOutOfMemory);
 
   return true;
 }
 
 extern "C" bool ArtPlugin_Deinitialize() {
-  if (CanProfile()) {
-    art::Runtime::Current()->SetOutOfMemoryErrorHook(nullptr);
-  }
+  art::Runtime::Current()->SetOutOfMemoryErrorHook(nullptr);
 
   if (sigaction(kJavaHeapprofdSignal, &g_orig_act, nullptr) != 0) {
     PLOG(ERROR) << "failed to reset signal handler";
