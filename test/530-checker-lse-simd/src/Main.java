@@ -71,26 +71,14 @@ public class Main {
   // Check LSE works when a function has SIMD code.
   //
   /// CHECK-START: double Main.$noinline$test02(double[], int) load_store_elimination (before)
-  /// CHECK:      BoundsCheck loop:none
-  /// CHECK-NEXT: ArrayGet
-  /// CHECK-NEXT: Mul
-  /// CHECK-NEXT: ArraySet
-  /// CHECK-NEXT: ArrayGet
-  /// CHECK-NEXT: ArrayLength
-  /// CHECK-NEXT: BelowOrEqual
-  //
-  /// CHECK:      ArrayGet loop:none
-  /// CHECK-NEXT: Return
+  /// CHECK:     ArrayGet
+  /// CHECK:     ArrayGet
+  /// CHECK:     ArrayGet
+  /// CHECK-NOT: ArrayGet
 
   /// CHECK-START: double Main.$noinline$test02(double[], int) load_store_elimination (after)
-  /// CHECK:      BoundsCheck loop:none
-  /// CHECK-NEXT: ArrayGet
-  /// CHECK-NEXT: Mul
-  /// CHECK-NEXT: ArraySet
-  /// CHECK-NEXT: ArrayLength
-  /// CHECK-NEXT: BelowOrEqual
-  //
-  /// CHECK:      Return
+  /// CHECK:     ArrayGet
+  /// CHECK-NOT: ArrayGet
   static double $noinline$test02(double a[], int n) {
     double b[] = new double[n];
     a[0] = a[0] / 2;

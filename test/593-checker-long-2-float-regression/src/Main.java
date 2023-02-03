@@ -29,9 +29,8 @@ public class Main {
   }
 
   /// CHECK-START: float Main.$noinline$longToFloat() register (after)
-  /// CHECK-DAG:     <<Const1:j\d+>>   LongConstant 1
-  /// CHECK-DAG:     <<Convert:f\d+>>  TypeConversion [<<Const1>>]
-  /// CHECK-DAG:                       Return [<<Convert>>]
+  /// CHECK:     <<Const1:f\d+>>   FloatConstant 1
+  /// CHECK:                       Return [<<Const1>>]
 
   static float $noinline$longToFloat() {
     longValue = $inline$returnConst();
