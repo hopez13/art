@@ -105,19 +105,17 @@ def get_bcp_runtime_args(additions, image, arch):
         "art/tools/host_bcp.sh",
         os.path.expandvars(
             "${{OUT}}/system/framework/oat/{}/services.odex".format(arch)),
-        "--use-first-dir"
     ]
     print("Running: {}".format(run_print(args)))
     print("=START=======================================")
     res = subprocess.run(args, capture_output=True, text=True)
     print("=END=========================================")
     if res.returncode != 0:
-      print("Falling back to com.android.art BCP")
+      print("Falling back to com.android.art BCP: {}".format(res))
       args = [
           "art/tools/host_bcp.sh",
           os.path.expandvars(
               "${{OUT}}/apex/com.android.art.debug/javalib/{}/boot.oat".format(arch)),
-          "--use-first-dir"
       ]
       print("Running: {}".format(run_print(args)))
       print("=START=======================================")
