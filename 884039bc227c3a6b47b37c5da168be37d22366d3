@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f76a03b5_f0e1fc67",
+        "filename": "sigchainlib/sigchain.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-02-03T01:37:10Z",
+      "side": 1,
+      "message": "Sorry. I\u0027m not talking about system/libbase. These are in art/libartbase, which I thought we use all over the place?",
+      "parentUuid": "baef60a5_4fa85910",
+      "range": {
+        "startLine": 155,
+        "startChar": 0,
+        "endLine": 165,
+        "endChar": 1
+      },
+      "revId": "884039bc227c3a6b47b37c5da168be37d22366d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "77289461_b8480f0f",
         "filename": "sigchainlib/sigchain.cc",
         "patchSetId": 3
@@ -85,6 +109,30 @@
       "side": 1,
       "message": "I mistakenly wrote async-signal-safe at the end. Fixed in the latest patch.",
       "parentUuid": "77289461_b8480f0f",
+      "range": {
+        "startLine": 175,
+        "startChar": 0,
+        "endLine": 175,
+        "endChar": 70
+      },
+      "revId": "884039bc227c3a6b47b37c5da168be37d22366d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "05cfa6af_db30548e",
+        "filename": "sigchainlib/sigchain.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-02-03T01:37:10Z",
+      "side": 1,
+      "message": "I think we just rely on async-signal-safety of pthread_key_create() and pthread_(get/set)specific(). That seems to be valis only based on inspection of bionic code.",
+      "parentUuid": "de558417_1f8e18a8",
       "range": {
         "startLine": 175,
         "startChar": 0,
