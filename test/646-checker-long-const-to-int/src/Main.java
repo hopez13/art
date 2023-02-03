@@ -17,7 +17,8 @@
 public class Main {
 
   public static void main(String[] args) {
-    System.out.println(test());
+    System.out.println(test(false));
+    System.out.println(test(true));
   }
 
   public static long testField = 0;
@@ -32,10 +33,17 @@ public class Main {
 
   /// CHECK-START-ARM: int Main.test() register (after)
   /// CHECK: TypeConversion locations:[#-8690466096623102344]->{{.*}}
-  public static int test() {
+  public static int test(boolean param) {
     // To avoid constant folding TypeConversion(const), hide the constant in a field.
     // We do not run constant folding after load-store-elimination.
-    testField = 0x8765432112345678L;
+    // This if else is to avoid constant folding the long constant into a float constant.
+    if (param) {
+      // starts with 87, ends the same.
+      testField = 0x8765432112345678L;
+    } else {
+      // starts with 86, ends the same.
+      testField = 0x8665432112345678L;
+    }
     long value = testField;
     // Now, the `value` is in a register because of the store but we need
     // a constant location to trigger the bug, so load a bunch of other fields.
