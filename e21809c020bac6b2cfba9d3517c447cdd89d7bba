@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a5e906ea_56b81fcf",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-02-04T00:41:46Z",
+      "side": 1,
+      "message": "As we discussed, we need to make arrangement for how many distinct threads could trigger userfault during one compaction cycle. For that, even 1024 seems like an overkill to me.",
+      "parentUuid": "1ba7db48_de992196",
+      "range": {
+        "startLine": 193,
+        "startChar": 0,
+        "endLine": 193,
+        "endChar": 61
+      },
+      "revId": "e21809c020bac6b2cfba9d3517c447cdd89d7bba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "715863f3_ee75a11b",
         "filename": "runtime/gc/collector/mark_compact.cc",
         "patchSetId": 9
@@ -54,6 +78,30 @@
       "writtenOn": "2023-02-03T01:20:56Z",
       "side": 1,
       "message": "Isn\u0027t this always set in IntializePhase anyway?",
+      "range": {
+        "startLine": 271,
+        "startChar": 6,
+        "endLine": 271,
+        "endChar": 36
+      },
+      "revId": "e21809c020bac6b2cfba9d3517c447cdd89d7bba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1dae07e5_a8e9bacd",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-02-04T00:41:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "715863f3_ee75a11b",
       "range": {
         "startLine": 271,
         "startChar": 6,
@@ -77,6 +125,30 @@
       "writtenOn": "2023-02-03T01:20:56Z",
       "side": 1,
       "message": "Seems a little small to me, especially with linear growth. I think a microsecond is on the order of the context switch time? Maybe 10X that?\n\nAlso nanosleep is not in the async-signal-safe list. But AFAICT, it\u0027s basically a pure system call in bionic, so it should be fine. But add a comment.",
+      "range": {
+        "startLine": 2870,
+        "startChar": 14,
+        "endLine": 2870,
+        "endChar": 21
+      },
+      "revId": "e21809c020bac6b2cfba9d3517c447cdd89d7bba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f8ba401c_84f137c4",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 2870,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-02-04T00:41:46Z",
+      "side": 1,
+      "message": "I checked that `sleep` is in the list and its manpage says that on Linux it\u0027s implemented using nanosleep. So that makes nanosleep safe too, right?",
+      "parentUuid": "eed8a6c0_7724d139",
       "range": {
         "startLine": 2870,
         "startChar": 14,
@@ -112,6 +184,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ceaf1c9c_eaa30607",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 2932,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-02-04T00:41:46Z",
+      "side": 1,
+      "message": "I am not sure it does. Wouldn\u0027t the acq-rel of the CAS ensure that the increment is done by the time CAS is? This on the GC-thread\u0027s side, will ensure that it sees the increment as the loop waiting for the count to reach 0 is after CAS (acquire) of all pages of the moving-space page.\nIOW, I don\u0027t think it\u0027s possible that some mutator starts working on a page after gc-thread observes 0 count.",
+      "parentUuid": "7695ee48_0743adef",
+      "range": {
+        "startLine": 2931,
+        "startChar": 11,
+        "endLine": 2932,
+        "endChar": 25
+      },
+      "revId": "e21809c020bac6b2cfba9d3517c447cdd89d7bba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "918be9c4_2bc2148d",
         "filename": "runtime/gc/collector/mark_compact.cc",
         "patchSetId": 9
@@ -123,6 +219,30 @@
       "writtenOn": "2023-02-03T01:20:56Z",
       "side": 1,
       "message": "Looks like an accidental indentation change here and below?",
+      "range": {
+        "startLine": 2936,
+        "startChar": 12,
+        "endLine": 2937,
+        "endChar": 72
+      },
+      "revId": "e21809c020bac6b2cfba9d3517c447cdd89d7bba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "020abb74_2d78712d",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 2937,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-02-04T00:41:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "918be9c4_2bc2148d",
       "range": {
         "startLine": 2936,
         "startChar": 12,
@@ -156,6 +276,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f556968_336b0342",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 3053,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-02-04T00:41:46Z",
+      "side": 1,
+      "message": "Bad case of copy paste. removed the comment as it wasn\u0027t applicable in linear-alloc\u0027s case.",
+      "parentUuid": "8a1b3750_4e8f216d",
+      "range": {
+        "startLine": 3051,
+        "startChar": 51,
+        "endLine": 3053,
+        "endChar": 27
+      },
+      "revId": "e21809c020bac6b2cfba9d3517c447cdd89d7bba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1a32a233_e7288234",
@@ -179,6 +323,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dae99dd0_eddacdef",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 3061,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-02-04T00:41:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1a32a233_e7288234",
+      "range": {
+        "startLine": 3056,
+        "startChar": 10,
+        "endLine": 3061,
+        "endChar": 0
+      },
+      "revId": "e21809c020bac6b2cfba9d3517c447cdd89d7bba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ee6dab88_421b35d8",
@@ -192,6 +360,30 @@
       "writtenOn": "2023-02-03T01:20:56Z",
       "side": 1,
       "message": "Seems simpler to just say \"return;\"",
+      "range": {
+        "startLine": 3111,
+        "startChar": 10,
+        "endLine": 3111,
+        "endChar": 31
+      },
+      "revId": "e21809c020bac6b2cfba9d3517c447cdd89d7bba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c5c1748_27e98bac",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 3111,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-02-04T00:41:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ee6dab88_421b35d8",
       "range": {
         "startLine": 3111,
         "startChar": 10,
@@ -227,6 +419,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8d1c01fd_ef3a76f0",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 3115,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-02-04T00:41:46Z",
+      "side": 1,
+      "message": "Thanks for pointing it out. After our offline discussion I have removed the assumption everywhere in the code that syscalls act as fence.\n\nIn this case, I am now using acquire for loads and release when setting the state to kProcessedAndMapped.",
+      "parentUuid": "b68ff671_1b187465",
+      "range": {
+        "startLine": 3113,
+        "startChar": 9,
+        "endLine": 3115,
+        "endChar": 0
+      },
+      "revId": "e21809c020bac6b2cfba9d3517c447cdd89d7bba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c0fb6244_2b5b78c0",
         "filename": "runtime/gc/collector/mark_compact.cc",
         "patchSetId": 9
@@ -238,6 +454,30 @@
       "writtenOn": "2023-02-03T01:20:56Z",
       "side": 1,
       "message": "Probably impacted by the above question about signal returns.",
+      "range": {
+        "startLine": 3176,
+        "startChar": 70,
+        "endLine": 3176,
+        "endChar": 95
+      },
+      "revId": "e21809c020bac6b2cfba9d3517c447cdd89d7bba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7c07c56_e8ae00a6",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 3176,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-02-04T00:41:46Z",
+      "side": 1,
+      "message": "Replying in the above comment.",
+      "parentUuid": "c0fb6244_2b5b78c0",
       "range": {
         "startLine": 3176,
         "startChar": 70,
@@ -271,6 +511,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d6d84be_9b63f367",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 3240,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-02-04T00:41:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "16c9a77c_21b1d076",
+      "range": {
+        "startLine": 3236,
+        "startChar": 2,
+        "endLine": 3240,
+        "endChar": 3
+      },
+      "revId": "e21809c020bac6b2cfba9d3517c447cdd89d7bba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2d8dfc15_ba52b673",
@@ -284,6 +548,30 @@
       "writtenOn": "2023-02-03T01:20:56Z",
       "side": 1,
       "message": "compacting_ is set in the same thread?",
+      "range": {
+        "startLine": 3853,
+        "startChar": 6,
+        "endLine": 3853,
+        "endChar": 49
+      },
+      "revId": "e21809c020bac6b2cfba9d3517c447cdd89d7bba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b48d0c2_a842051d",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 3853,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-02-04T00:41:46Z",
+      "side": 1,
+      "message": "As discussed offline, this is not atomic anymore. It\u0027s a normal flag, set in compaction-pause prior to thread-flip (which has happens-before relationship).",
+      "parentUuid": "2d8dfc15_ba52b673",
       "range": {
         "startLine": 3853,
         "startChar": 6,
