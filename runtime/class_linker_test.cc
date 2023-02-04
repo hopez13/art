@@ -285,6 +285,10 @@ class ClassLinkerTest : public CommonRuntimeTest {
       EXPECT_TRUE(klass->IsAbstract());
       // Check that all direct methods are static (either <clinit> or a regular static method).
       for (ArtMethod& m : klass->GetDirectMethods(kRuntimePointerSize)) {
+        if (m.IsSynthetic()) {
+          // b/267839015: Synthetic private methods could be generated.
+          continue;
+        }
         EXPECT_TRUE(m.IsStatic());
         EXPECT_TRUE(m.IsDirect());
       }
