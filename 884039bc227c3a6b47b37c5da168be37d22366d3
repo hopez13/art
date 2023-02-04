@@ -74,6 +74,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "529d03b2_19c345bf",
+        "filename": "sigchainlib/sigchain.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-02-04T00:41:24Z",
+      "side": 1,
+      "message": "I trued using base/bit_utils.h header but it failed to compile, as I was expecting. libartbase is a separate library and libsigchain doesn\u0027t have the dependency yet.\n\nI guess we can leave it as is?",
+      "parentUuid": "f76a03b5_f0e1fc67",
+      "range": {
+        "startLine": 155,
+        "startChar": 0,
+        "endLine": 165,
+        "endChar": 1
+      },
+      "revId": "884039bc227c3a6b47b37c5da168be37d22366d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "77289461_b8480f0f",
         "filename": "sigchainlib/sigchain.cc",
         "patchSetId": 3
@@ -133,6 +157,30 @@
       "side": 1,
       "message": "I think we just rely on async-signal-safety of pthread_key_create() and pthread_(get/set)specific(). That seems to be valis only based on inspection of bionic code.",
       "parentUuid": "de558417_1f8e18a8",
+      "range": {
+        "startLine": 175,
+        "startChar": 0,
+        "endLine": 175,
+        "endChar": 70
+      },
+      "revId": "884039bc227c3a6b47b37c5da168be37d22366d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b5477d78_b356aeb6",
+        "filename": "sigchainlib/sigchain.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-02-04T00:41:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "05cfa6af_db30548e",
       "range": {
         "startLine": 175,
         "startChar": 0,
