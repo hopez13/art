@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0cd59279_6ed6ea67",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1064003
+      },
+      "writtenOn": "2023-02-04T00:10:14Z",
+      "side": 1,
+      "message": "Feel free to reject this, as there\u0027s probably a better way of reverse mapping the apex jars on the host? In any case, this at least gets the script working for the 3 targets I tested (aosp + cf_x86_64, master + Pixel, master + Go). Maybe there\u0027s a more current version of doing the same thing (quick and dirty compilation on the host for simple code snippets).",
+      "revId": "df6e229e56fdf628a2cfc96a5ca81d74adb9d5bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
