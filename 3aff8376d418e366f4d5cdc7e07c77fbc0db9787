@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23bce90d_832d9cf6",
+        "filename": "runtime/class_linker_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-02-05T17:48:29Z",
+      "side": 1,
+      "message": "suggest changing this to `IsStatic() || IsPrivate()`",
+      "range": {
+        "startLine": 292,
+        "startChar": 0,
+        "endLine": 292,
+        "endChar": 34
+      },
+      "revId": "3aff8376d418e366f4d5cdc7e07c77fbc0db9787",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
