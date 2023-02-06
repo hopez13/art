@@ -33,6 +33,24 @@
       "message": "Roland, do you know if these scripts are still being used by any chance? Are they used in any tests? I did a Code Search and only found that `compile-jar.py` is used by `compile-jar.sh`, which is used by `compile-classes.sh`, which is used by nobody. If this is dead code, I think the best way forward is to get rid of it instead of keeping it updated.",
       "revId": "df6e229e56fdf628a2cfc96a5ca81d74adb9d5bf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef2efe8d_42e9052c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1064003
+      },
+      "writtenOn": "2023-02-06T18:48:45Z",
+      "side": 1,
+      "message": "I\u0027ve used these sripts in the past, but it\u0027s been a while, and only noticed they were broken when I tried to use the other day without success.\n\nHowever, if they\u0027re neither maintained nor used by anybody else, also OK moving them elsewhere or deleting. There is value in having a simple frontend for getting dex2oat output from a simple set of inputs, but if it\u0027s inconsistent with the actual compilation pipeline (and potentially leading to different output than you\u0027d see in production), maybe best to avoid any false confidence, or at least get it into a state where it can be tested and avoid bit rot.",
+      "parentUuid": "bbc3dba3_e1d2c01a",
+      "revId": "df6e229e56fdf628a2cfc96a5ca81d74adb9d5bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
