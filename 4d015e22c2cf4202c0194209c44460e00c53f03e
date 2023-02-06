@@ -732,6 +732,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5aa40d7a_c26ced56",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-02-06T18:28:29Z",
+      "side": 1,
+      "message": "Once things stabilize and we are certain that we will use SIGBUS permanently, it\u0027s very likely that future improvements will become SIGBUS specific. When that happens, I intend to change `use_uffd_sigbus_` to a constexpr constant.",
+      "parentUuid": "2d34855d_af9af5de",
+      "range": {
+        "startLine": 105,
+        "startChar": 33,
+        "endLine": 105,
+        "endChar": 55
+      },
+      "revId": "4d015e22c2cf4202c0194209c44460e00c53f03e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a1fc674e_611672ef",
         "filename": "runtime/gc/collector/mark_compact.cc",
         "patchSetId": 2
