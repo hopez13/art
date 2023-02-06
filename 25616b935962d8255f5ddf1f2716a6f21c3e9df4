@@ -16,6 +16,57 @@
       "message": "TF failures may be caused by running presubmit too soon after merging the previous CL in chain, because the missing file `registers_riscv64.h` was added by that CL.",
       "revId": "25616b935962d8255f5ddf1f2716a6f21c3e9df4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "74fb9b05_f8bee7fe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-02-06T16:15:20Z",
+      "side": 1,
+      "message": "Thanks! lgtm with few minor nits just for clarity.",
+      "revId": "25616b935962d8255f5ddf1f2716a6f21c3e9df4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "87bc5fb4_dc660ba8",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-02-06T16:15:20Z",
+      "side": 1,
+      "message": "minor nit: maybe a comment reminding x9 is S1?",
+      "revId": "25616b935962d8255f5ddf1f2716a6f21c3e9df4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "78a4fe05_69745ea9",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-02-06T16:15:20Z",
+      "side": 1,
+      "message": "minor nit: maybe a comment about A0. I am assuming it is because it is a method pointer. Also a comment about S1 to say it is a TR so not included here.",
+      "revId": "25616b935962d8255f5ddf1f2716a6f21c3e9df4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
