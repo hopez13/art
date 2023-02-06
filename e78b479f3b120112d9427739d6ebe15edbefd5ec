@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51d6feec_f8efacc9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2023-02-06T16:49:19Z",
+      "side": 1,
+      "message": "@jiakaiz@google.com - is this correct? I could not confirm that this is what dexopt runs with.",
+      "range": {
+        "startLine": 14,
+        "startChar": 34,
+        "endLine": 15,
+        "endChar": 29
+      },
+      "revId": "e78b479f3b120112d9427739d6ebe15edbefd5ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "74cbe48b_1a30f0de",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 396,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2023-02-06T16:49:19Z",
+      "side": 1,
+      "message": "We could simplify by constructing the name of the prop, but I figured it\u0027s better to keep it `grep`able.",
+      "range": {
+        "startLine": 396,
+        "startChar": 0,
+        "endLine": 396,
+        "endChar": 100
+      },
+      "revId": "e78b479f3b120112d9427739d6ebe15edbefd5ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
