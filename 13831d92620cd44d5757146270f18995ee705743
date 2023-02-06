@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3da0a324_ea68b58c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-02-06T18:13:38Z",
+      "side": 1,
+      "message": "I still have to look at the memory ordering issues again.",
+      "revId": "13831d92620cd44d5757146270f18995ee705743",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e02502bd_390c75c4",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 3246,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-02-06T18:13:38Z",
+      "side": 1,
+      "message": "\"after this, it will\"",
+      "range": {
+        "startLine": 3246,
+        "startChar": 63,
+        "endLine": 3246,
+        "endChar": 78
+      },
+      "revId": "13831d92620cd44d5757146270f18995ee705743",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
