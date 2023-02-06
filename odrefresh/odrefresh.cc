@@ -390,13 +390,16 @@ bool IsCpuSetSpecValid(const std::string& cpu_set) {
   return true;
 }
 
-bool AddDex2OatConcurrencyArguments(/*inout*/ std::vector<std::string>& args) {
-  std::string threads = android::base::GetProperty("dalvik.vm.boot-dex2oat-threads", "");
+bool AddDex2OatConcurrencyArguments(/*inout*/ std::vector<std::string>& args,
+                                    bool is_compilation_os) {
+  std::string prop_prefix = "dalvik.vm." + (is_compilation_os ? "background" : "boot");
+
+  std::string threads = android::base::GetProperty(prop_prefix + "-threads", "");
   if (!threads.empty()) {
     args.push_back("-j" + threads);
   }
 
-  std::string cpu_set = android::base::GetProperty("dalvik.vm.boot-dex2oat-cpu-set", "");
+  std::string cpu_set = android::base::GetProperty(prop_prefix + "-cpu-set", "");
   if (cpu_set.empty()) {
     return true;
   }
@@ -1480,7 +1483,7 @@ WARN_UNUSED bool OnDeviceRefresh::CompileBootClasspathArtifacts(
   AddDex2OatCommonOptions(args);
   AddDex2OatDebugInfo(args);
   AddDex2OatInstructionSet(args, isa);
-  if (!AddDex2OatConcurrencyArguments(args)) {
+  if (!AddDex2OatConcurrencyArguments(args, config_.GetCompilationOsMode())) {
     return false;
   }
 
@@ -1650,7 +1653,7 @@ WARN_UNUSED bool OnDeviceRefresh::CompileSystemServerArtifacts(
     AddDex2OatCommonOptions(args);
     AddDex2OatDebugInfo(args);
     AddDex2OatInstructionSet(args, isa);
-    if (!AddDex2OatConcurrencyArguments(args)) {
+    if (!AddDex2OatConcurrencyArguments(args, config_.GetCompilationOsMode())) {
       return false;
     }
 
