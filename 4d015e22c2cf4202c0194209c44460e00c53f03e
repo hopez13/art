@@ -684,6 +684,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e25208b5_149b4fb2",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-02-06T17:14:08Z",
+      "side": 1,
+      "message": "Not sure I follow - why do we have if/else line 351 if we only support CMC with SIGBUS?",
+      "parentUuid": "22e413cf_c0b26302",
+      "range": {
+        "startLine": 105,
+        "startChar": 33,
+        "endLine": 105,
+        "endChar": 55
+      },
+      "revId": "4d015e22c2cf4202c0194209c44460e00c53f03e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a1fc674e_611672ef",
         "filename": "runtime/gc/collector/mark_compact.cc",
         "patchSetId": 2
