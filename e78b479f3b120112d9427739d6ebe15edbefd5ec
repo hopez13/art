@@ -151,6 +151,30 @@
       },
       "revId": "e78b479f3b120112d9427739d6ebe15edbefd5ec",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "960d2a37_d0491016",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 396,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-02-06T19:05:41Z",
+      "side": 1,
+      "message": "\"dalvik.vm.background-dex2oat-threads\" should have a fallback, while \"dalvik.vm.boot-dex2oat-threads\" should not.",
+      "parentUuid": "740e4bf5_29e15ed6",
+      "range": {
+        "startLine": 396,
+        "startChar": 26,
+        "endLine": 396,
+        "endChar": 64
+      },
+      "revId": "e78b479f3b120112d9427739d6ebe15edbefd5ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
