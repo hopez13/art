@@ -1,0 +1,78 @@
+cc_binary {
+    name: "testMadvFree",
+    defaults: ["art_defaults"],
+    host_supported: true,
+    srcs: [
+        "test_madv_free.cc",
+    ],
+    cflags: [
+        "-Wall",
+        "-Werror",
+    ],
+    stl: "libc++_static",
+}
+
+cc_binary {
+    name: "createMemPressure",
+    defaults: ["art_defaults"],
+    host_supported: true,
+    srcs: [
+        "create_mem_pressure.cc",
+    ],
+    cflags: [
+        "-Wall",
+        "-Werror",
+    ],
+    stl: "libc++_static",
+}
+
+cc_binary {
+    name: "userfaultfdSimple",
+    defaults: ["art_defaults"],
+    static_executable: true,
+    srcs: [
+        "userfaultfd_simple.cc",
+    ],
+    cflags: [
+        "-Wall",
+        "-Werror",
+    ],
+    static_libs: [
+        "libc",
+    ],
+    stl: "libc++_static",
+}
+
+cc_binary {
+    name: "segfault-cost-userfaultfd",
+    defaults: ["art_defaults"],
+    static_executable: true,
+    srcs: [
+        "segfault-cost-userfaultfd.cc",
+    ],
+    cflags: [
+        "-Wall",
+        "-Werror",
+    ],
+    static_libs: [
+        "libc",
+    ],
+    stl: "libc++_static",
+}
+
+cc_binary {
+    name: "uffdSigbusTest",
+    defaults: ["art_defaults"],
+    static_executable: true,
+    srcs: [
+        "userfaultd-with-sigbus-test1.cc",
+    ],
+    cflags: [
+        "-Wall",
+        "-Werror",
+    ],
+    static_libs: [
+        "libc",
+    ],
+    stl: "libc++_static",
+}
