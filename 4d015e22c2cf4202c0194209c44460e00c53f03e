@@ -708,6 +708,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2d34855d_af9af5de",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-02-06T18:24:18Z",
+      "side": 1,
+      "message": "When `ART_USE_READ_BARRIER\u003dfalse`, which is only done in testing, we have the option to work without SIGBUS as in that case `KernelSupportsUffd()` doesn\u0027t get called. We force use of this GC, no matter what. So with the checks like the one on line 361, we are allowing the flexibility during testing. If we ever wanted to test without SIGBUS, we just have to make `IsSigbusFeatureAvailable` (below) return false.",
+      "parentUuid": "e25208b5_149b4fb2",
+      "range": {
+        "startLine": 105,
+        "startChar": 33,
+        "endLine": 105,
+        "endChar": 55
+      },
+      "revId": "4d015e22c2cf4202c0194209c44460e00c53f03e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a1fc674e_611672ef",
         "filename": "runtime/gc/collector/mark_compact.cc",
         "patchSetId": 2
