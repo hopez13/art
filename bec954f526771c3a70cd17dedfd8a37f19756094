@@ -18,6 +18,29 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "096070c1_751d4f10",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-02-07T16:24:26Z",
+      "side": 1,
+      "message": "|sort?",
+      "range": {
+        "startLine": 313,
+        "startChar": 0,
+        "endLine": 316,
+        "endChar": 0
+      },
+      "revId": "bec954f526771c3a70cd17dedfd8a37f19756094",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "5c6afb37_bd6f0139",
@@ -37,6 +60,57 @@
         "endLine": 28,
         "endChar": 0
       },
+      "revId": "bec954f526771c3a70cd17dedfd8a37f19756094",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f577be67_dc852ae3",
+        "filename": "runtime/arch/riscv64/instruction_set_features_riscv64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-02-07T16:24:26Z",
+      "side": 1,
+      "message": "is this the only place where the defaults are recorded?",
+      "revId": "bec954f526771c3a70cd17dedfd8a37f19756094",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0548325_b4ac226d",
+        "filename": "runtime/arch/riscv64/instruction_set_features_riscv64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-02-07T16:24:26Z",
+      "side": 1,
+      "message": "ah, yeah, we should probably factor this out, since this is definitely going to increase? (to at least \"gcv\", if nothing else!)",
+      "revId": "bec954f526771c3a70cd17dedfd8a37f19756094",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d89909c2_115b21a8",
+        "filename": "runtime/arch/riscv64/instruction_set_features_riscv64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-02-07T16:24:26Z",
+      "side": 1,
+      "message": "is that helpful? wouldn\u0027t \u0027g\u0027 be clearer?\n\n(especially because we\u0027ll have all kinds of `Zisslpcfi` crap on the end of this before long; we\u0027ll need that space :-) but also because it\u0027s not like we\u0027re going to allow granularity smaller than \"all of g\" anyway.)",
       "revId": "bec954f526771c3a70cd17dedfd8a37f19756094",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
