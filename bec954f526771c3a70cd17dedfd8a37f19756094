@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c6afb37_bd6f0139",
+        "filename": "runtime/arch/instruction_set_features.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-02-07T11:40:23Z",
+      "side": 1,
+      "message": "A note for Mythri and other reviewers: some cosmetic \"fixes\" here and in other CLs are imposed by clang-format presubmit hook, sorry for the noise.",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 0
+      },
+      "revId": "bec954f526771c3a70cd17dedfd8a37f19756094",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
