@@ -52,6 +52,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "295a4ab6_d602fe4e",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1971751
+      },
+      "writtenOn": "2023-02-07T01:47:38Z",
+      "side": 1,
+      "message": "Thanks!\nThe comment has been updated.",
+      "parentUuid": "87bc5fb4_dc660ba8",
+      "revId": "25616b935962d8255f5ddf1f2716a6f21c3e9df4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "78a4fe05_69745ea9",
@@ -65,6 +83,24 @@
       "writtenOn": "2023-02-06T16:15:20Z",
       "side": 1,
       "message": "minor nit: maybe a comment about A0. I am assuming it is because it is a method pointer. Also a comment about S1 to say it is a TR so not included here.",
+      "revId": "25616b935962d8255f5ddf1f2716a6f21c3e9df4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "33558f0a_ecb55f9a",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1971751
+      },
+      "writtenOn": "2023-02-07T01:47:38Z",
+      "side": 1,
+      "message": "thanks for reviewing. The comment has been updated",
+      "parentUuid": "78a4fe05_69745ea9",
       "revId": "25616b935962d8255f5ddf1f2716a6f21c3e9df4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
