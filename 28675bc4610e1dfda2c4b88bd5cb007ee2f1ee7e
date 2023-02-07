@@ -33,6 +33,63 @@
       "message": "Unrelated build error on git_master-art manifest, revert in progress: ag/21305470",
       "revId": "28675bc4610e1dfda2c4b88bd5cb007ee2f1ee7e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa59711c_2d3b6e28",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-02-07T16:29:31Z",
+      "side": 1,
+      "message": "does the reader need to know s1 \u003d\u003d x9? i thought you were going to consistently use the \"logical names\" like s1 rather than the \"physical names\" like x9 throughout anyway? (and certainly debuggerd does, so you won\u0027t be seeing x9 mentioned in crashes :-) )",
+      "revId": "28675bc4610e1dfda2c4b88bd5cb007ee2f1ee7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bac85c1d_99b95ee9",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-02-07T16:29:31Z",
+      "side": 1,
+      "message": "is",
+      "range": {
+        "startLine": 25,
+        "startChar": 64,
+        "endLine": 25,
+        "endChar": 66
+      },
+      "revId": "28675bc4610e1dfda2c4b88bd5cb007ee2f1ee7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f1a923c7_c96a7d4b",
+        "filename": "runtime/entrypoints/quick/callee_save_frame.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-02-07T16:29:31Z",
+      "side": 1,
+      "message": "if you care you can use\n```\n// clang-format off\n// clang-format on\n```\naround a block of code with custom formatting like this to avoid clang-format mangling things.",
+      "revId": "28675bc4610e1dfda2c4b88bd5cb007ee2f1ee7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
