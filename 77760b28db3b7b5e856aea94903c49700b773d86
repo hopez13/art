@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "712b2637_2671b0ff",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-02-07T07:29:24Z",
+      "side": 1,
+      "message": "The CL is active for reviews. PTAL.",
+      "parentUuid": "8fc60e6b_e96f49f7",
+      "revId": "77760b28db3b7b5e856aea94903c49700b773d86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6dc828ee_d800c79e",
         "filename": "runtime/gc/heap.h",
         "patchSetId": 2
@@ -73,6 +91,30 @@
       "side": 1,
       "message": "Thanks. Will fix in the next PS.",
       "parentUuid": "6dc828ee_d800c79e",
+      "range": {
+        "startLine": 833,
+        "startChar": 7,
+        "endLine": 833,
+        "endChar": 31
+      },
+      "revId": "77760b28db3b7b5e856aea94903c49700b773d86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b97804f_291c8013",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 833,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-02-07T07:29:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ef55bd40_f2f797b4",
       "range": {
         "startLine": 833,
         "startChar": 7,
