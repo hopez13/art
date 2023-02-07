@@ -26,6 +26,47 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "0d128c6e_d4f0f549",
+        "filename": "build/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-02-07T21:34:37Z",
+      "side": 1,
+      "message": "yeah, rv64 supports 2MiB huge pages, so that should be right.",
+      "parentUuid": "248260ea_aa678c44",
+      "range": {
+        "startLine": 286,
+        "startChar": 0,
+        "endLine": 289,
+        "endChar": 0
+      },
+      "revId": "6fe768b6027d85f223517bd5d1e55a069e147d0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ef405fb_9e9dfeb7",
+        "filename": "libartbase/arch/instruction_set.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-02-07T21:34:37Z",
+      "side": 1,
+      "message": "add riscv64 here too?",
+      "revId": "6fe768b6027d85f223517bd5d1e55a069e147d0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "b6be4e7d_a909e41f",
         "filename": "runtime/Android.bp",
         "patchSetId": 5
@@ -49,6 +90,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "980ca21e_187514c8",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 378,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-02-07T21:34:37Z",
+      "side": 1,
+      "message": "|sort",
+      "revId": "6fe768b6027d85f223517bd5d1e55a069e147d0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "afa06ca9_452c8ad8",
         "filename": "runtime/arch/riscv64/asm_support_riscv64.S",
         "patchSetId": 5
@@ -60,6 +118,30 @@
       "writtenOn": "2023-02-07T15:57:56Z",
       "side": 1,
       "message": "Elliott (and anyone who has better understanding than me): note the 16-byte padding for all entrypoints, as we do on ARM64. Do you think it\u0027s useful?",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 0
+      },
+      "revId": "6fe768b6027d85f223517bd5d1e55a069e147d0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "31908d1d_d2a9bd9e",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-02-07T21:34:37Z",
+      "side": 1,
+      "message": "probably not for existing hardware, but probably doesn\u0027t hurt either. (and we\u0027ve gone with 16 in bionic for now.)\n\nwhy fill with 0xff?",
+      "parentUuid": "afa06ca9_452c8ad8",
       "range": {
         "startLine": 31,
         "startChar": 0,
@@ -111,6 +193,70 @@
         "startChar": 0,
         "endLine": 166,
         "endChar": 0
+      },
+      "revId": "6fe768b6027d85f223517bd5d1e55a069e147d0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "15df8190_0fc41f25",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-02-07T21:34:37Z",
+      "side": 1,
+      "message": "as a guilty party for having done such things with the JNI functions in the past, i mostly regret such things :-)\n\nthese will all get removed as they get implemented anyway, right?",
+      "parentUuid": "690536f3_1f1fa02e",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 166,
+        "endChar": 0
+      },
+      "revId": "6fe768b6027d85f223517bd5d1e55a069e147d0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a582f2f_1bf62fec",
+        "filename": "runtime/base/atomic_pair.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-02-07T21:34:37Z",
+      "side": 1,
+      "message": "(not in this CL; more for documentation purposes if there is a reason...) is there a reason that the x86-64 implementation below doesn\u0027t just let std::atomic generate the compare and exchange?\n\n(at a higher level: \"do we need to come back to add rv64 assembler, or should we come back to _remove_ x86-64 assembler?\" :-) )\n\n((and should this file really just have the L40-51 implementation, but the static_assert should be `#if defined(__aarch64__)`? i\u0027m assuming this code just isn\u0027t built for ILP32?))",
+      "revId": "6fe768b6027d85f223517bd5d1e55a069e147d0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "75fee14e_c558a926",
+        "filename": "runtime/base/atomic_pair.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-02-07T21:34:37Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 66,
+        "startChar": 19,
+        "endLine": 66,
+        "endChar": 27
       },
       "revId": "6fe768b6027d85f223517bd5d1e55a069e147d0a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
