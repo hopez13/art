@@ -54,6 +54,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e7353c03_2f304c3d",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-02-07T16:39:54Z",
+      "side": 1,
+      "message": "I agree just `s1` is sufficient here. Initially I used `x9` and Mythri asked to clarify, so Lifang added the comment. I think it\u0027s fine to drop the comment on line 25.",
+      "parentUuid": "fa59711c_2d3b6e28",
+      "revId": "28675bc4610e1dfda2c4b88bd5cb007ee2f1ee7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bac85c1d_99b95ee9",
         "filename": "runtime/arch/riscv64/asm_support_riscv64.h",
         "patchSetId": 3
@@ -88,6 +106,24 @@
       "writtenOn": "2023-02-07T16:29:31Z",
       "side": 1,
       "message": "if you care you can use\n```\n// clang-format off\n// clang-format on\n```\naround a block of code with custom formatting like this to avoid clang-format mangling things.",
+      "revId": "28675bc4610e1dfda2c4b88bd5cb007ee2f1ee7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c7b5191_78298b81",
+        "filename": "runtime/entrypoints/quick/callee_save_frame.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-02-07T16:39:54Z",
+      "side": 1,
+      "message": "Thanks for the tip!\n\nI\u0027d rather reformat the whole block as clang-format likes it in this case (meaning use the same formatting for other arches), but it\u0027s up to Lifang.",
+      "parentUuid": "f1a923c7_c96a7d4b",
       "revId": "28675bc4610e1dfda2c4b88bd5cb007ee2f1ee7e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
