@@ -94,6 +94,30 @@
       },
       "revId": "eb0b191424aca68f81418b851ff89aa430313e6d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d34df42_76ca4e00",
+        "filename": "compiler/art_standalone_compiler_tests.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-02-07T16:09:23Z",
+      "side": 1,
+      "message": "We had a discussion about `${ARCH}` with EngProd last week. To summarize: they don\u0027t want to allow tests to be aware of current ABI.\nOne of the possible solutions is to make a separate .xml file for each ABI and hardcode all paths in those files. But given the amount of art_standalone*.xml files -- it doesn\u0027t look feasible to support.\n\n\nAlso, from the discussion: `atest` should push and run only one ARCH dir at a time (and I\u0027ve double checked that it is the case, including with `--all-abi` flag).\nSo it is possible to implement your mtime proposal by checking if `ARCH_DIR` is newer than `art_boot_images`. This should work even for `--all-abi -d` runs.\nBash code for this will get more complicated of course.\n\n\n\u003ein the worst case we can live with the generation happening twice. It\u0027s a waste of time (how much, approximately?)\n\nIt takes a bit more than 2.1-2.3 seconds on x86_64 VM. If `-d` flag is only used in manual testing -- this could be a reasonable trade-off to avoid complicating the code.",
+      "parentUuid": "5c549170_67d8469c",
+      "range": {
+        "startLine": 30,
+        "startChar": 24,
+        "endLine": 30,
+        "endChar": 35
+      },
+      "revId": "eb0b191424aca68f81418b851ff89aa430313e6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
