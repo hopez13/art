@@ -2654,6 +2654,10 @@ void Thread::HandleUncaughtExceptions() {
 
   // Get and clear the exception.
   ObjPtr<mirror::Object> exception = self->GetException();
+  if (exception->InstanceOf(art::WellKnownClasses::java_lang_OutOfMemoryError.Get())) {
+    // Allow plugins to intercept out of memory errors.
+    Runtime::Current()->OutOfMemoryErrorHook();
+  }
   self->ClearException();
 
   // Call the Thread instance's dispatchUncaughtException(Throwable)
