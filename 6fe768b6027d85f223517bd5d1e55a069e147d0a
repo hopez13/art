@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "248260ea_aa678c44",
+        "filename": "build/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-02-07T15:57:56Z",
+      "side": 1,
+      "message": "Elliott: does it look reasonable? I copy-pasted from other arches.",
+      "range": {
+        "startLine": 286,
+        "startChar": 0,
+        "endLine": 289,
+        "endChar": 0
+      },
+      "revId": "6fe768b6027d85f223517bd5d1e55a069e147d0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6be4e7d_a909e41f",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-02-07T15:57:56Z",
+      "side": 1,
+      "message": "A note for Mythri: there is some common functionality needed by both nterp.cc and nterp_stub.cc (that previously was in nterp.cc). Initially I wanted to extract it into some common file nterp_common.cc, but this was problematic because of inlined static functions in nterp.cc. So instead, I extracted the functionality from nterp.cc that corresponds to stubs in nterp_stub.cc. Now every arch needs to include either nterp.cc and nterp_impl.cc (if it supports nterp), or nterp.cc and nterp_stub.cc (if it does not support nterp). Hope that clarifies the change.",
+      "range": {
+        "startLine": 341,
+        "startChar": 0,
+        "endLine": 341,
+        "endChar": 50
+      },
+      "revId": "6fe768b6027d85f223517bd5d1e55a069e147d0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "afa06ca9_452c8ad8",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-02-07T15:57:56Z",
+      "side": 1,
+      "message": "Elliott (and anyone who has better understanding than me): note the 16-byte padding for all entrypoints, as we do on ARM64. Do you think it\u0027s useful?",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 0
+      },
+      "revId": "6fe768b6027d85f223517bd5d1e55a069e147d0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "352529d0_42a550da",
+        "filename": "runtime/arch/riscv64/entrypoints_init_riscv64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-02-07T15:57:56Z",
+      "side": 1,
+      "message": "A note for Mythri: I talked to Lokesh to make sure these are only needed for entrypoints that are not implemented yet (and won\u0027t be needed for the switch interpreter).",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 48
+      },
+      "revId": "6fe768b6027d85f223517bd5d1e55a069e147d0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "690536f3_1f1fa02e",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-02-07T15:57:56Z",
+      "side": 1,
+      "message": "If anyone knows a good way to generate this mechanically rather than spelling out every entrypoint, let me know.",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 166,
+        "endChar": 0
+      },
+      "revId": "6fe768b6027d85f223517bd5d1e55a069e147d0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
