@@ -70,6 +70,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6391eaac_ef9ea424",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-02-08T15:00:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e7353c03_2f304c3d",
+      "revId": "28675bc4610e1dfda2c4b88bd5cb007ee2f1ee7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1e9a15e3_df4fa9ba",
@@ -93,6 +111,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "077eed8b_bb1dea1f",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-02-08T15:00:04Z",
+      "side": 1,
+      "message": "Ah, right. Fixed.",
+      "parentUuid": "1e9a15e3_df4fa9ba",
+      "range": {
+        "startLine": 22,
+        "startChar": 32,
+        "endLine": 22,
+        "endChar": 39
+      },
+      "revId": "28675bc4610e1dfda2c4b88bd5cb007ee2f1ee7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6c89ec66_68e857a6",
@@ -106,6 +148,30 @@
       "writtenOn": "2023-02-08T09:45:43Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 24,
+        "startChar": 44,
+        "endLine": 24,
+        "endChar": 51
+      },
+      "revId": "28675bc4610e1dfda2c4b88bd5cb007ee2f1ee7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed00c7d6_b1524355",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-02-08T15:00:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6c89ec66_68e857a6",
       "range": {
         "startLine": 24,
         "startChar": 44,
@@ -162,6 +228,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "79dda36c_b60f692b",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-02-08T15:00:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bac85c1d_99b95ee9",
+      "range": {
+        "startLine": 25,
+        "startChar": 64,
+        "endLine": 25,
+        "endChar": 66
+      },
+      "revId": "28675bc4610e1dfda2c4b88bd5cb007ee2f1ee7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7a9f1146_383ba3fe",
@@ -175,6 +265,30 @@
       "writtenOn": "2023-02-08T09:45:43Z",
       "side": 1,
       "message": "ArtMethod*",
+      "range": {
+        "startLine": 27,
+        "startChar": 56,
+        "endLine": 27,
+        "endChar": 63
+      },
+      "revId": "28675bc4610e1dfda2c4b88bd5cb007ee2f1ee7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b9317302_87519eab",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-02-08T15:00:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7a9f1146_383ba3fe",
       "range": {
         "startLine": 27,
         "startChar": 56,
@@ -208,6 +322,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "69022f5f_18ad30ac",
+        "filename": "runtime/arch/riscv64/callee_save_frame_riscv64.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-02-08T15:00:04Z",
+      "side": 1,
+      "message": "Thanks for clarifying! I had no idea about why TR is needed, just mimicked what ARM64 does. Fixed the comment.",
+      "parentUuid": "72984567_613bb3be",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 80
+      },
+      "revId": "28675bc4610e1dfda2c4b88bd5cb007ee2f1ee7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "96a3221e_e7602554",
@@ -221,6 +359,30 @@
       "writtenOn": "2023-02-08T09:45:43Z",
       "side": 1,
       "message": "SP should not be listed as saved.",
+      "range": {
+        "startLine": 50,
+        "startChar": 24,
+        "endLine": 50,
+        "endChar": 26
+      },
+      "revId": "28675bc4610e1dfda2c4b88bd5cb007ee2f1ee7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "df5c7980_6e9e8dfb",
+        "filename": "runtime/arch/riscv64/callee_save_frame_riscv64.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-02-08T15:00:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "96a3221e_e7602554",
       "range": {
         "startLine": 50,
         "startChar": 24,
@@ -280,6 +442,24 @@
       "side": 1,
       "message": "yeah, personally the older i get, the more i to just go with \"meh, i\u0027ll let the tools do what they want to do --- less work for me\" :-)",
       "parentUuid": "3c7b5191_78298b81",
+      "revId": "28675bc4610e1dfda2c4b88bd5cb007ee2f1ee7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4629c1b3_1045f13e",
+        "filename": "runtime/entrypoints/quick/callee_save_frame.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-02-08T15:00:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "88eb4481_57d09660",
       "revId": "28675bc4610e1dfda2c4b88bd5cb007ee2f1ee7e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
