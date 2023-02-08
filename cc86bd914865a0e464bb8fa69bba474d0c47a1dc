@@ -69,6 +69,24 @@
       "parentUuid": "d52ea9e5_e27be8bb",
       "revId": "cc86bd914865a0e464bb8fa69bba474d0c47a1dc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f9e2f36_4b7ebb35",
+        "filename": "runtime/arch/riscv64/registers_riscv64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-02-08T16:47:57Z",
+      "side": 1,
+      "message": "Ok, then I will tentatively assume it\u0027s for long and exclude from stack frames. If you remember please tell me when your patch lands.\n\n+1 for discussing on the meeting, I\u0027ll add it to the agenda.",
+      "parentUuid": "6fea2fd6_5cf1bb3f",
+      "revId": "cc86bd914865a0e464bb8fa69bba474d0c47a1dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
