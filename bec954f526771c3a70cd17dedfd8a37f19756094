@@ -43,6 +43,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "8868194c_399187fb",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-02-08T16:02:08Z",
+      "side": 1,
+      "message": "This is what happens when my ssh connection is too slow and I desperately press \"arrow down\" too many times. :D Fixed.",
+      "parentUuid": "096070c1_751d4f10",
+      "range": {
+        "startLine": 313,
+        "startChar": 0,
+        "endLine": 316,
+        "endChar": 0
+      },
+      "revId": "bec954f526771c3a70cd17dedfd8a37f19756094",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "5c6afb37_bd6f0139",
         "filename": "runtime/arch/instruction_set_features.cc",
         "patchSetId": 2
@@ -81,6 +105,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bdc60e29_21097fb0",
+        "filename": "runtime/arch/riscv64/instruction_set_features_riscv64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-02-08T16:02:08Z",
+      "side": 1,
+      "message": "No (as you noticed below). I factored it out to `basicFeatures` helper.",
+      "parentUuid": "f577be67_dc852ae3",
+      "revId": "bec954f526771c3a70cd17dedfd8a37f19756094",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a0548325_b4ac226d",
@@ -94,6 +136,24 @@
       "writtenOn": "2023-02-07T16:24:26Z",
       "side": 1,
       "message": "ah, yeah, we should probably factor this out, since this is definitely going to increase? (to at least \"gcv\", if nothing else!)",
+      "revId": "bec954f526771c3a70cd17dedfd8a37f19756094",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ef0a956_664f2838",
+        "filename": "runtime/arch/riscv64/instruction_set_features_riscv64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-02-08T16:02:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a0548325_b4ac226d",
       "revId": "bec954f526771c3a70cd17dedfd8a37f19756094",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -121,6 +181,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d43c675b_91fb1b20",
+        "filename": "runtime/arch/riscv64/instruction_set_features_riscv64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-02-08T16:02:08Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "602cc798_5078d054",
+      "range": {
+        "startLine": 76,
+        "startChar": 9,
+        "endLine": 76,
+        "endChar": 37
+      },
+      "revId": "bec954f526771c3a70cd17dedfd8a37f19756094",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d89909c2_115b21a8",
@@ -138,6 +222,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6378362d_8e59881f",
+        "filename": "runtime/arch/riscv64/instruction_set_features_riscv64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-02-08T16:02:08Z",
+      "side": 1,
+      "message": "Agreed, fixed to \"g\".",
+      "parentUuid": "d89909c2_115b21a8",
+      "revId": "bec954f526771c3a70cd17dedfd8a37f19756094",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bcd0a147_6acefbac",
@@ -151,6 +253,30 @@
       "writtenOn": "2023-02-08T09:53:31Z",
       "side": 1,
       "message": "This looks like it should have `UNIMPLEMENTED(WARNING)`.",
+      "range": {
+        "startLine": 97,
+        "startChar": 18,
+        "endLine": 97,
+        "endChar": 46
+      },
+      "revId": "bec954f526771c3a70cd17dedfd8a37f19756094",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e39e938d_82e15136",
+        "filename": "runtime/arch/riscv64/instruction_set_features_riscv64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-02-08T16:02:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bcd0a147_6acefbac",
       "range": {
         "startLine": 97,
         "startChar": 18,
