@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be025487_25e21a84",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 557,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-02-08T09:31:59Z",
+      "side": 0,
+      "message": "Does DexFileLoader handle unaligned dex header?",
+      "range": {
+        "startLine": 557,
+        "startChar": 10,
+        "endLine": 557,
+        "endChar": 32
+      },
+      "revId": "bfb2591159eb3f48c29ddd78cc3102c89f57b442",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
