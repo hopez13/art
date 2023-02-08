@@ -103,6 +103,24 @@
       "parentUuid": "b5bcbe95_986e5dfb",
       "revId": "df6e229e56fdf628a2cfc96a5ca81d74adb9d5bf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8003f266_51a51c35",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2023-02-08T15:19:48Z",
+      "side": 1,
+      "message": "Script `tools/host_bcp.sh` was introduced as a helper for ART host tools, which started to require additional options to find the boot classpath on host after the introduction of the ART APEX at the end of 2018 (see b/128990084).\n\nAFAIU, this was purely for local uses. Bug b/137257397 contains an example of such an invocation:\n\n```\n$ dex2oatd \\\n    --runtime-arg -Xms64m --runtime-arg -Xmx512m \\\n    --boot-image\u003d${OUT}/system/framework/boot.art \\\n    `$ANDROID_BUILD_TOP/art/tools/host_bcp.sh $OUT/system/framework/arm64/boot.oat` \\\n    --dex-file\u003d${FILE} --dex-location\u003d/system/framework/${FILE} \\\n    --oat-file\u003d${FILE}.oat \\\n    --android-root\u003d${OUT}/system \\\n    --instruction-set\u003dXXX --instruction-set-features\u003dYYY\n```\n\nAs for `tools/compile-jar.py`, it\u0027s a rewriting/improvement of `tools/compile-jar.sh`, which is also a host tool for local uses (see b/137257397).\n\nMy understanding is that `tools/host_bcp.sh` still has value for local uses; not sure about `tools/compile-jar.py`. Adding Nicolas for additional comments.",
+      "parentUuid": "ef2efe8d_42e9052c",
+      "revId": "df6e229e56fdf628a2cfc96a5ca81d74adb9d5bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
