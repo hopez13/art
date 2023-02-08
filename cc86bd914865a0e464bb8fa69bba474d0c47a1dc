@@ -51,6 +51,24 @@
       "parentUuid": "c3493ae0_826c3322",
       "revId": "cc86bd914865a0e464bb8fa69bba474d0c47a1dc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6fea2fd6_5cf1bb3f",
+        "filename": "runtime/arch/riscv64/registers_riscv64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-02-08T16:42:52Z",
+      "side": 1,
+      "message": "\u003e How short is the short term? If it\u0027s for 5+ years, it may be worth excluding S2 from save/restore stack frames to make them smaller (like we do with platform-specific registers TP, GP). If it\u0027s more like a few years, I wouldn\u0027t bother with this optimization, just add a comment that S2 is saved but doesn\u0027t need to be.\n\nthat\u0027s the bummer --- \"we don\u0027t know\". _hopefully_ we\u0027ll get the hardware (that has its own special purpose register) and we\u0027ll be able to back this out and get a whole general purpose register back. but will that extension be ratified/implemented/shipped in time? we just don\u0027t know.\n\n(but given tape out times and what have you, it\u0027s at least a few years.)\n\nthis might be worth bringing up at the android sig meeting, just to help the SoC vendors understand why they should care about the Zblahblahblahcfi extension.",
+      "parentUuid": "d52ea9e5_e27be8bb",
+      "revId": "cc86bd914865a0e464bb8fa69bba474d0c47a1dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
