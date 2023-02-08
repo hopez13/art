@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3dcfd103_0e48db60",
+        "filename": "runtime/gc/collector/mark_compact-inl.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-02-08T09:47:54Z",
+      "side": 1,
+      "message": "IS that because of `udpated_roots`? Should you mark `updated_roots` as GUARDED_BY? Otherwise, add a comment here why you need to lock?",
+      "range": {
+        "startLine": 279,
+        "startChar": 0,
+        "endLine": 279,
+        "endChar": 32
+      },
+      "revId": "d855c4ae7fa47cebfd5150db76e3d3ac01810aeb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd9fdc5e_b8181b6d",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1118,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-02-08T09:47:54Z",
+      "side": 1,
+      "message": "nit: add a comment about why this needs to be done last?",
+      "range": {
+        "startLine": 1118,
+        "startChar": 0,
+        "endLine": 1118,
+        "endChar": 65
+      },
+      "revId": "d855c4ae7fa47cebfd5150db76e3d3ac01810aeb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae8bf616_6af05f58",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1629,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-02-08T09:47:54Z",
+      "side": 1,
+      "message": "Reverse the if and add a comment why it\u0027s ok to just return?",
+      "revId": "d855c4ae7fa47cebfd5150db76e3d3ac01810aeb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
