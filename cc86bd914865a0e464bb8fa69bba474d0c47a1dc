@@ -16,6 +16,23 @@
       "message": "Thanks!",
       "revId": "cc86bd914865a0e464bb8fa69bba474d0c47a1dc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c3493ae0_826c3322",
+        "filename": "runtime/arch/riscv64/registers_riscv64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-02-08T16:23:01Z",
+      "side": 1,
+      "message": "fyi, https://github.com/google/android-riscv64/issues/52 probably means that -- at least in the short term -- we\u0027ll need to reserve x18 on riscv64 just like we do on arm64.\n\nif it would help, i\u0027ll try to get that turned on this week. (it\u0027s high up my list anyway because of the potential for disruption.)",
+      "revId": "cc86bd914865a0e464bb8fa69bba474d0c47a1dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
