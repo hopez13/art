@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d3c6f7d_6d1dbffc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-02-08T10:59:27Z",
+      "side": 1,
+      "message": "Thanks Ulya! lgtm with a couple of comments.",
+      "revId": "6fe768b6027d85f223517bd5d1e55a069e147d0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "248260ea_aa678c44",
@@ -175,6 +192,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "26f40bf0_36337949",
+        "filename": "runtime/arch/riscv64/entrypoints_init_riscv64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-02-08T10:59:27Z",
+      "side": 1,
+      "message": "Thanks!",
+      "parentUuid": "352529d0_42a550da",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 48
+      },
+      "revId": "6fe768b6027d85f223517bd5d1e55a069e147d0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5ff9ad35_7b9d11b9",
@@ -308,6 +349,46 @@
         "startChar": 19,
         "endLine": 66,
         "endChar": 27
+      },
+      "revId": "6fe768b6027d85f223517bd5d1e55a069e147d0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45f8ac32_ac1925d4",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-02-08T10:59:27Z",
+      "side": 1,
+      "message": "Should this move to nterp_impl.cc too?",
+      "revId": "6fe768b6027d85f223517bd5d1e55a069e147d0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "546d66df_9e1f634e",
+        "filename": "runtime/interpreter/mterp/nterp_impl.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-02-08T10:59:27Z",
+      "side": 1,
+      "message": "These are the real implementations right? Update the comment.",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 0
       },
       "revId": "6fe768b6027d85f223517bd5d1e55a069e147d0a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
