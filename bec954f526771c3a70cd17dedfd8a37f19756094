@@ -100,6 +100,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "602cc798_5078d054",
+        "filename": "runtime/arch/riscv64/instruction_set_features_riscv64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-02-08T09:53:31Z",
+      "side": 1,
+      "message": "Why not `bits_`?",
+      "range": {
+        "startLine": 76,
+        "startChar": 9,
+        "endLine": 76,
+        "endChar": 37
+      },
+      "revId": "bec954f526771c3a70cd17dedfd8a37f19756094",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d89909c2_115b21a8",
         "filename": "runtime/arch/riscv64/instruction_set_features_riscv64.cc",
         "patchSetId": 2
@@ -111,6 +134,29 @@
       "writtenOn": "2023-02-07T16:24:26Z",
       "side": 1,
       "message": "is that helpful? wouldn\u0027t \u0027g\u0027 be clearer?\n\n(especially because we\u0027ll have all kinds of `Zisslpcfi` crap on the end of this before long; we\u0027ll need that space :-) but also because it\u0027s not like we\u0027re going to allow granularity smaller than \"all of g\" anyway.)",
+      "revId": "bec954f526771c3a70cd17dedfd8a37f19756094",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bcd0a147_6acefbac",
+        "filename": "runtime/arch/riscv64/instruction_set_features_riscv64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-02-08T09:53:31Z",
+      "side": 1,
+      "message": "This looks like it should have `UNIMPLEMENTED(WARNING)`.",
+      "range": {
+        "startLine": 97,
+        "startChar": 18,
+        "endLine": 97,
+        "endChar": 46
+      },
       "revId": "bec954f526771c3a70cd17dedfd8a37f19756094",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
