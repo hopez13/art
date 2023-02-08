@@ -16,6 +16,24 @@
       "message": "Could you avoid the tab changes?",
       "revId": "14f47fc6e087023f0520e6a404a64d1d01954d74",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "076c0d88_49ef0e66",
+        "filename": "test/646-checker-long-const-to-int/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-02-08T12:07:17Z",
+      "side": 1,
+      "message": "4-spaces is now the recommended formatting. We have even been doing some CLs which are just the tab changes e.g. aosp/2329125\nI think we can take the opportunity and update this test from 2 to 4, so we don\u0027t have to do it in the future.",
+      "parentUuid": "70ca9a53_1f0a8efc",
+      "revId": "14f47fc6e087023f0520e6a404a64d1d01954d74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
