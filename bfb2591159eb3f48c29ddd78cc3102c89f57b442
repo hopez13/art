@@ -22,6 +22,30 @@
       },
       "revId": "bfb2591159eb3f48c29ddd78cc3102c89f57b442",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c33ef0d_a820a30a",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 557,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-02-08T12:01:45Z",
+      "side": 0,
+      "message": "It will internally `MemMap::MapFile` the `fd`, so I am hopping that will be 4k-aligned.\n\nNote that the data is unaligned here because it reads from the `fd` into the `raw_header` buffer above, which is unaligned.\n\nHowever, I don\u0027t fully understand the old code.  Why wasn\u0027t it just `DexFile::Header raw_header;`, and `fd` would be read into that... ?",
+      "parentUuid": "be025487_25e21a84",
+      "range": {
+        "startLine": 557,
+        "startChar": 10,
+        "endLine": 557,
+        "endChar": 32
+      },
+      "revId": "bfb2591159eb3f48c29ddd78cc3102c89f57b442",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
