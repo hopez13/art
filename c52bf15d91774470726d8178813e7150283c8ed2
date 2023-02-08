@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3084502c_a53df3e8",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2347,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-02-08T09:39:49Z",
+      "side": 1,
+      "message": "WasLastPageTouched?",
+      "range": {
+        "startLine": 2347,
+        "startChar": 7,
+        "endLine": 2347,
+        "endChar": 21
+      },
+      "revId": "c52bf15d91774470726d8178813e7150283c8ed2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b2b8768b_9fe0946d",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2429,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-02-08T09:39:49Z",
+      "side": 1,
+      "message": "redundant? If it\u0027s udpated, it\u0027s touched?",
+      "range": {
+        "startLine": 2429,
+        "startChar": 22,
+        "endLine": 2429,
+        "endChar": 29
+      },
+      "revId": "c52bf15d91774470726d8178813e7150283c8ed2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "39b88107_4563808f",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2430,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-02-08T09:39:49Z",
+      "side": 1,
+      "message": "last_page_touched?",
+      "range": {
+        "startLine": 2430,
+        "startChar": 7,
+        "endLine": 2430,
+        "endChar": 20
+      },
+      "revId": "c52bf15d91774470726d8178813e7150283c8ed2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "344401b2_c654ead9",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3215,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-02-08T09:39:49Z",
+      "side": 1,
+      "message": "Consider moving this to a helper method and share it with line 3086?",
+      "range": {
+        "startLine": 3204,
+        "startChar": 0,
+        "endLine": 3215,
+        "endChar": 11
+      },
+      "revId": "c52bf15d91774470726d8178813e7150283c8ed2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
