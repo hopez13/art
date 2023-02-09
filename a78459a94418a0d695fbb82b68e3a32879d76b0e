@@ -35,6 +35,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "23a473a7_d6537d08",
+        "filename": "runtime/arch/riscv64/context_riscv64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-02-09T15:03:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c9425ef5_117d39a0",
+      "revId": "a78459a94418a0d695fbb82b68e3a32879d76b0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6687c6f4_e354a24f",
@@ -48,6 +66,30 @@
       "writtenOn": "2023-02-08T09:53:59Z",
       "side": 1,
       "message": "of",
+      "range": {
+        "startLine": 52,
+        "startChar": 88,
+        "endLine": 52,
+        "endChar": 90
+      },
+      "revId": "a78459a94418a0d695fbb82b68e3a32879d76b0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "56b8b6b8_49a85bb8",
+        "filename": "runtime/arch/riscv64/context_riscv64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-02-09T15:03:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6687c6f4_e354a24f",
       "range": {
         "startLine": 52,
         "startChar": 88,
