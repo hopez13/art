@@ -71,6 +71,7 @@ class ReferenceTypePropagation : public HOptimization {
                                       HandleCache* handle_cache)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
+  void SetUntypedInstructionsToDefault();
   void ValidateTypes();
 
   // Note: hint_dex_cache_ is usually, but not necessarily, the dex cache associated with
