@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8ddbe1a_bfab2ce8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-02-09T18:59:37Z",
+      "side": 1,
+      "message": "PTAL, some docs have been added since PS6, and the use_fd_cache argument has been dropped.",
+      "revId": "9a2d11319579084033db9c1833992aed3f0041eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6fec7735_7a7e55a2",
+        "filename": "libartpalette/include/palette/palette_method_list.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-02-09T18:59:37Z",
+      "side": 1,
+      "message": "This is a nonsense character to make it pass cpplint, which detects it as a C++ comment starter. I\u0027ll fix it when we move away from this macro madness in b/265438024.",
+      "range": {
+        "startLine": 67,
+        "startChar": 27,
+        "endLine": 67,
+        "endChar": 28
+      },
+      "revId": "9a2d11319579084033db9c1833992aed3f0041eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
