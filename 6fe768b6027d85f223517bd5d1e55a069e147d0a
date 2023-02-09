@@ -543,6 +543,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8249c314_b65fa9a0",
+        "filename": "runtime/base/atomic_pair.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-02-09T21:13:05Z",
+      "side": 1,
+      "message": "\u003e But my vague recollection from an earlier discussion is that these are not guaranteed to mix with cmpxchg16b, so this may not work for a general atomics implementation.\n\nwhich answers the \"can we just fix this in llvm?\" that was forming in my mind :-( (although it sounds like for armv8.4 we _will_, so that\u0027s something.)",
+      "parentUuid": "7f56df98_4cb0e6e1",
+      "revId": "6fe768b6027d85f223517bd5d1e55a069e147d0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "75fee14e_c558a926",
         "filename": "runtime/base/atomic_pair.h",
         "patchSetId": 5
