@@ -507,6 +507,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "754e5882_aa2033a7",
+        "filename": "runtime/base/atomic_pair.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-02-09T20:13:28Z",
+      "side": 1,
+      "message": "\u003e Maybe Elliott knows what the library function does? I suspect it\u0027s just a lock-table access?\n\nyeah, i think so. i think you\u0027re probably referring to one of these: https://source.corp.google.com/android/toolchain/llvm-project/compiler-rt/lib/builtins/atomic.c",
+      "parentUuid": "ded8a1b5_72c121e4",
+      "revId": "6fe768b6027d85f223517bd5d1e55a069e147d0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "75fee14e_c558a926",
         "filename": "runtime/base/atomic_pair.h",
         "patchSetId": 5
