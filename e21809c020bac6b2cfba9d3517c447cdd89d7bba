@@ -115,6 +115,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a3d046de_e0090e3e",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-02-09T06:27:18Z",
+      "side": 1,
+      "message": "Agreed. But I still think it would be good to know that the limit we use in production is at least N times as large as what we saw during testing. For that, a test configuration with a lower limit would be very useful. If we had a way to actually get metrics on how many are needed in real use, that would be better, but seems like a lot more work.\n\nN \u003d 2 is probably OK.",
+      "parentUuid": "4122fc88_52fb64c3",
+      "range": {
+        "startLine": 193,
+        "startChar": 0,
+        "endLine": 193,
+        "endChar": 61
+      },
+      "revId": "e21809c020bac6b2cfba9d3517c447cdd89d7bba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "715863f3_ee75a11b",
         "filename": "runtime/gc/collector/mark_compact.cc",
         "patchSetId": 9
@@ -268,6 +292,30 @@
       "side": 1,
       "message": "I am not sure it does. Wouldn\u0027t the acq-rel of the CAS ensure that the increment is done by the time CAS is? This on the GC-thread\u0027s side, will ensure that it sees the increment as the loop waiting for the count to reach 0 is after CAS (acquire) of all pages of the moving-space page.\nIOW, I don\u0027t think it\u0027s possible that some mutator starts working on a page after gc-thread observes 0 count.",
       "parentUuid": "7695ee48_0743adef",
+      "range": {
+        "startLine": 2931,
+        "startChar": 11,
+        "endLine": 2932,
+        "endChar": 25
+      },
+      "revId": "e21809c020bac6b2cfba9d3517c447cdd89d7bba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61e6fe38_34a2e0b5",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 2932,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-02-09T06:27:18Z",
+      "side": 1,
+      "message": "I was worried that the write of the counter can be reordered with the CAS read of the state. But that may not matter. I guess all the relevant updates to the state here are done using a CAS? So the load-acquire-\u003estore-release ranges effectively have to  be ordered? And thus if the mutator thought it had work to do, then its CAS must have come first, so the increment happens-before the test?\n\nIf so, this is sufficiently unusual that it should probably be written down.",
+      "parentUuid": "ceaf1c9c_eaa30607",
       "range": {
         "startLine": 2931,
         "startChar": 11,
@@ -644,6 +692,30 @@
       "side": 1,
       "message": "As discussed offline, this is not atomic anymore. It\u0027s a normal flag, set in compaction-pause prior to thread-flip (which has happens-before relationship).",
       "parentUuid": "2d8dfc15_ba52b673",
+      "range": {
+        "startLine": 3853,
+        "startChar": 6,
+        "endLine": 3853,
+        "endChar": 49
+      },
+      "revId": "e21809c020bac6b2cfba9d3517c447cdd89d7bba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d3c0e73_719d419c",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 3853,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-02-09T06:27:18Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "3b48d0c2_a842051d",
       "range": {
         "startLine": 3853,
         "startChar": 6,
