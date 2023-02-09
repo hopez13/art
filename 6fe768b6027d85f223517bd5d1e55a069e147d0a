@@ -489,6 +489,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ded8a1b5_72c121e4",
+        "filename": "runtime/base/atomic_pair.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-02-09T19:57:12Z",
+      "side": 1,
+      "message": "I have a slight personal preference for just using the L40-51 implementation, and deleting the offending static_assert. There has been controversy, some of which I may have started, about whether the cmpxchg invitation should advertise itself as lock-free. It is in the theoretical sense. It isn\u0027t in the sense that I usually find more important: I don\u0027t thiunk it avoids cache contention between load operations, and you can\u0027t load from a read-only mapping. I would not presume that compilers would label it one way or the other. (IMO, this 16-byte load operation is better than the lock-based one. But a spin-lock is probably not that much worse in practice. And both are MUCH worse than a real 16-byte load would be. But we don\u0027t have that on any supported architecture.)\n\nIt\u0027s hard to tell whether the x86-64 specialization might be worthwhile. Clang seems to generate a call to an out-of-line function. Maybe Elliott knows what the library function does? I suspect it\u0027s just a lock-table access?\n\nIf the x86 specialization is worthwhile, I\u0027m not sure why the ARM one wouldn\u0027t be. We need an LDAXRP, followed by the corresponding store exclusive to write the same value back. This is very similar to the x86 requirement.\n\nEither David\u0027s or my seqlock-based implementation might be better. But neither one of us managed to demonstrate a convincing improvement before. So it\u0027s not pressing.",
+      "parentUuid": "371bc005_d3412903",
+      "revId": "6fe768b6027d85f223517bd5d1e55a069e147d0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "75fee14e_c558a926",
         "filename": "runtime/base/atomic_pair.h",
         "patchSetId": 5
