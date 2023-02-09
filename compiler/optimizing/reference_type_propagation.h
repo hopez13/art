@@ -71,6 +71,11 @@ class ReferenceTypePropagation : public HOptimization {
                                       HandleCache* handle_cache)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
+  // In some cases, the fix-point iteration will leave DataType::Type::kReference instructions with
+  // invalid RTI because the bytecode does not provide enough typing information. In those cases set
+  // the default value of Object. For BoundType instructions, we can instead use its UpperBound (as
+  // long as it is valid).
+  void SetUntypedInstructionsToDefault();
   void ValidateTypes();
 
   // Note: hint_dex_cache_ is usually, but not necessarily, the dex cache associated with

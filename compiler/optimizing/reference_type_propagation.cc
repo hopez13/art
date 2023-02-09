@@ -123,12 +123,20 @@ ReferenceTypePropagation::ReferenceTypePropagation(HGraph* graph,
     : HOptimization(graph, name), hint_dex_cache_(hint_dex_cache), is_first_run_(is_first_run) {}
 
 void ReferenceTypePropagation::ValidateTypes() {
-  // TODO: move this to the graph checker. Note: There may be no Thread for gtests.
+  // TODO(solanes):
+  //   * Move this to the graph checker.
+  //   * Try to remove `ScopedObjectAccess` or limit it. Note: There may be no Thread for gtests.
+  //   * Also check Phis, as we are only checking instructions right now.
+
   if (kIsDebugBuild && Thread::Current() != nullptr) {
     ScopedObjectAccess soa(Thread::Current());
     for (HBasicBlock* block : graph_->GetReversePostOrder()) {
       for (HInstructionIterator iti(block->GetInstructions()); !iti.Done(); iti.Advance()) {
         HInstruction* instr = iti.Current();
+        if (instr->IsDeadAndRemovable()) {
+          continue;
+        }
+
         if (instr->GetType() == DataType::Type::kReference) {
           DCHECK(instr->GetReferenceTypeInfo().IsValid())
               << "Invalid RTI for instruction: " << instr->DebugName();
@@ -332,6 +340,62 @@ static void BoundTypeForClassCheck(HInstruction* check) {
   }
 }
 
+// Call `fn` to all alive DataType::Type::kReference instructions and phis which do not have a valid
+// RTI.
+template <typename Functor>
+static void ForEachAliveUntypedInstructionAndPhi(HGraph* graph, Functor fn) {
+  for (HBasicBlock* block : graph->GetReversePostOrder()) {
+    for (HInstructionIterator it(block->GetPhis()); !it.Done(); it.Advance()) {
+      HPhi* phi = it.Current()->AsPhi();
+      if (phi->IsDead()) {
+        continue;
+      }
+      if (phi->GetType() == DataType::Type::kReference && !phi->GetReferenceTypeInfo().IsValid()) {
+        fn(phi);
+      }
+    }
+    for (HInstructionIterator it(block->GetInstructions()); !it.Done(); it.Advance()) {
+      HInstruction* ins = it.Current();
+      if (ins->IsDeadAndRemovable()) {
+        continue;
+      }
+      if (ins->GetType() == DataType::Type::kReference && !ins->GetReferenceTypeInfo().IsValid()) {
+        fn(ins);
+      }
+    }
+  }
+}
+
+void ReferenceTypePropagation::SetUntypedInstructionsToDefault() {
+  if (kIsDebugBuild) {
+    // Check that if we are going to set RTI from invalid to a valid one, it currently doesn't have
+    // any typed inputs and therefore its type cannot be inferred.
+    ForEachAliveUntypedInstructionAndPhi(graph_, [](HInstruction* instr) {
+      for (HInstruction* input : instr->GetInputs()) {
+        if (input->GetType() != DataType::Type::kReference || input->IsNullConstant()) {
+          // NullConstant is the only input allowed to have valid RTI because it is ignored.
+          continue;
+        }
+        DCHECK(!input->GetReferenceTypeInfo().IsValid())
+            << "Found a valid RTI in input " << input->GetId() << " " << input->DebugName()
+            << "(RTI: " << input->GetReferenceTypeInfo() << "). instr: " << instr->GetId() << " "
+            << instr->DebugName();
+      }
+    });
+  }
+
+  ReferenceTypeInfo obj_rti = ReferenceTypeInfo::Create(
+      graph_->GetHandleCache()->GetObjectClassHandle(), /* is_exact */ false);
+  ForEachAliveUntypedInstructionAndPhi(graph_, [obj_rti](HInstruction* instr) {
+    if (instr->IsBoundType() && instr->AsBoundType()->GetUpperBound().IsValid()) {
+      // This BoundType instruction has an RTI we can take advantage of.
+      instr->SetReferenceTypeInfo(instr->AsBoundType()->GetUpperBound());
+    } else {
+      instr->SetReferenceTypeInfo(obj_rti);
+    }
+  });
+}
+
 bool ReferenceTypePropagation::Run() {
   RTPVisitor visitor(graph_, hint_dex_cache_, is_first_run_);
 
@@ -343,6 +407,7 @@ bool ReferenceTypePropagation::Run() {
   }
 
   visitor.ProcessWorklist();
+  SetUntypedInstructionsToDefault();
   ValidateTypes();
   return true;
 }
