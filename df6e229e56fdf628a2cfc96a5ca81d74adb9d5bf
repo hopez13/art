@@ -157,6 +157,65 @@
       "parentUuid": "de1c9856_4a86ca64",
       "revId": "df6e229e56fdf628a2cfc96a5ca81d74adb9d5bf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1eb48aee_988253ff",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-02-09T15:54:24Z",
+      "side": 1,
+      "message": "Ack.",
+      "parentUuid": "cdcf5b09_105640c2",
+      "revId": "df6e229e56fdf628a2cfc96a5ca81d74adb9d5bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "38da6de1_519b25ba",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-02-09T15:54:24Z",
+      "side": 1,
+      "message": "I see. Thanks for the inputs. Sorry for the delay on the review.",
+      "parentUuid": "c655d098_19773890",
+      "revId": "df6e229e56fdf628a2cfc96a5ca81d74adb9d5bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f717df75_d0e93383",
+        "filename": "tools/host_bcp.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-02-09T15:54:24Z",
+      "side": 1,
+      "message": "This is based on the assumption that the build system generates `apex-info-list.xml` puts the BCP jars in `$ANDROID_PRODUCT_OUT/\u003capex-package-name\u003e/\u003cmodule-jar\u003e`, so it still looks a bit fragile to me.\n\nAn alternative way I can see is to extract the BCP paths and locations from\n`${ANDROID_PRODUCT_OUT/target\\/product/soong}/dex_artjars/android/apex/art_boot_images/javalib/\u003carch\u003e/boot.invocation` or `${ANDROID_PRODUCT_OUT/target\\/product/soong}/dex_bootjars/android/system/framework/x86_64/boot.invocation`. This is also based on some assumptions (the path to the `.invocation` file, etc.), but I\u0027m more inclined to rely on these assumptions because they are more under the control of our team.\n\nAnyway, we have to live with some assumptions, and unfortunately we don\u0027t have continuous testing for this script to enforce whoever break the assumptions to update this script. This suggestion is completely optional. Feel free to keep the code as is.",
+      "range": {
+        "startLine": 68,
+        "startChar": 0,
+        "endLine": 72,
+        "endChar": 58
+      },
+      "revId": "df6e229e56fdf628a2cfc96a5ca81d74adb9d5bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
