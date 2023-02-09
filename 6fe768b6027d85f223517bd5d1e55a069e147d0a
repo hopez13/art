@@ -525,6 +525,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7f56df98_4cb0e6e1",
+        "filename": "runtime/base/atomic_pair.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-02-09T21:03:14Z",
+      "side": 1,
+      "message": "It appears to me that it doesn\u0027t use the \"use 16-byte cmpxchg for everything\" optimization at all. So we should probably keep the x86-64 specialization for now, and possibly add an ARM64 equivalent. It appears that starting with v8.4, we even have a real 16-byte atomic load on ARM, so the win there would be more substantial.\n\n(There are numerous discussions about atomicity of 16-byte vector loads/stores (vmovdqa) on x86-64. That\u0027s probably another faster option here. But my vague recollection from an earlier discussion is that these are not guaranteed to mix with cmpxchg16b, so this may not work for a general atomics implementation.)",
+      "parentUuid": "754e5882_aa2033a7",
+      "revId": "6fe768b6027d85f223517bd5d1e55a069e147d0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "75fee14e_c558a926",
         "filename": "runtime/base/atomic_pair.h",
         "patchSetId": 5
