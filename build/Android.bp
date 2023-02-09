@@ -139,6 +139,9 @@ art_module_art_global_defaults {
         "-Wunreachable-code-break",
         "-Wunreachable-code-return",
 
+        // Enable warning for constant conversion
+        "-Wconstant-conversion",
+
         // Disable warning for use of offsetof on non-standard layout type.
         // We use it to implement OFFSETOF_MEMBER - see macros.h.
         "-Wno-invalid-offsetof",
