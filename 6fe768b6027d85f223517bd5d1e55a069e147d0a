@@ -84,6 +84,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "1343512f_bffdd432",
+        "filename": "libartbase/arch/instruction_set.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-02-09T14:59:33Z",
+      "side": 1,
+      "message": "Good catch, thanks. Done.",
+      "parentUuid": "3ef405fb_9e9dfeb7",
+      "revId": "6fe768b6027d85f223517bd5d1e55a069e147d0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "b6be4e7d_a909e41f",
         "filename": "runtime/Android.bp",
         "patchSetId": 5
@@ -118,6 +136,24 @@
       "writtenOn": "2023-02-07T21:34:37Z",
       "side": 1,
       "message": "|sort",
+      "revId": "6fe768b6027d85f223517bd5d1e55a069e147d0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ec2ccda_f874c041",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 378,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-02-09T14:59:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "980ca21e_187514c8",
       "revId": "6fe768b6027d85f223517bd5d1e55a069e147d0a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -159,6 +195,30 @@
       "side": 1,
       "message": "probably not for existing hardware, but probably doesn\u0027t hurt either. (and we\u0027ve gone with 16 in bionic for now.)\n\nwhy fill with 0xff?",
       "parentUuid": "afa06ca9_452c8ad8",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 0
+      },
+      "revId": "6fe768b6027d85f223517bd5d1e55a069e147d0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "861cd3f3_370af6f6",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-02-09T14:59:33Z",
+      "side": 1,
+      "message": "I added a comment. Zeroes map to NOP. With `riscv64-linux-gnu-objdump -d out/soong/.intermediates/art/runtime/libartd/android_riscv64_static/obj/art/runtime/arch/riscv64/quick_entrypoints_riscv64.o` I see:\n```\n       0:       ffff                    .2byte  0xffff\n       2:       ffff                    .2byte  0xffff\n       4:       0001                    nop\n       6:       00000013                nop\n       a:       00000013                nop\n       e:       00000013                nop\n```\n\nAlso I added comment about OAT header and the .hidden attribute (from a corresponding ARM64 file).",
+      "parentUuid": "31908d1d_d2a9bd9e",
       "range": {
         "startLine": 31,
         "startChar": 0,
@@ -233,6 +293,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1029c107_be332ff7",
+        "filename": "runtime/arch/riscv64/jni_entrypoints_riscv64.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-02-09T14:59:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5ff9ad35_7b9d11b9",
+      "revId": "6fe768b6027d85f223517bd5d1e55a069e147d0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9d48d144_b5a37ae4",
@@ -250,6 +328,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4980a047_35cec7f6",
+        "filename": "runtime/arch/riscv64/jni_entrypoints_riscv64.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-02-09T14:59:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9d48d144_b5a37ae4",
+      "revId": "6fe768b6027d85f223517bd5d1e55a069e147d0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "eb7b43d3_76556963",
@@ -263,6 +359,24 @@
       "writtenOn": "2023-02-08T09:28:26Z",
       "side": 1,
       "message": "copryright",
+      "revId": "6fe768b6027d85f223517bd5d1e55a069e147d0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c3929b53_70bbb261",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-02-09T14:59:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eb7b43d3_76556963",
       "revId": "6fe768b6027d85f223517bd5d1e55a069e147d0a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -314,6 +428,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae5ccab8_4c51cbe6",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-02-09T14:59:33Z",
+      "side": 1,
+      "message": "Right, they will get removed. I\u0027ll leave it as is for the time being.",
+      "parentUuid": "15df8190_0fc41f25",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 166,
+        "endChar": 0
+      },
+      "revId": "6fe768b6027d85f223517bd5d1e55a069e147d0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8a582f2f_1bf62fec",
@@ -327,6 +465,24 @@
       "writtenOn": "2023-02-07T21:34:37Z",
       "side": 1,
       "message": "(not in this CL; more for documentation purposes if there is a reason...) is there a reason that the x86-64 implementation below doesn\u0027t just let std::atomic generate the compare and exchange?\n\n(at a higher level: \"do we need to come back to add rv64 assembler, or should we come back to _remove_ x86-64 assembler?\" :-) )\n\n((and should this file really just have the L40-51 implementation, but the static_assert should be `#if defined(__aarch64__)`? i\u0027m assuming this code just isn\u0027t built for ILP32?))",
+      "revId": "6fe768b6027d85f223517bd5d1e55a069e147d0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "371bc005_d3412903",
+        "filename": "runtime/base/atomic_pair.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-02-09T14:59:33Z",
+      "side": 1,
+      "message": "\u003e is there a reason that the x86-64 implementation below doesn\u0027t just let std::atomic generate the compare and exchange?\n\nWe discussed this internally with hboehm@ and dsrbecky@ before, and the general understanding is that for platforms where 128-bit atomics is non-lock-free, we want to avoid using global pthread_mutex in the libc. Hans had an abandoned CL aosp/1281632 to circumvent this, which we planned to resurrect after merging RISC_V patchet (this is an optimization rather than a correctness issue). David also has an alternative abandoned patch. I\u0027m not sure about bionic implementation for x86_64, probably we still want to keep this custom one to be on the safe side, but I\u0027ll let Hans be the judge.\n\n\u003e and should this file really just have the L40-51 implementation, but the static_assert should be #if defined(__aarch64__)?\n\nIn that opt-in case I\u0027d never notice something is wrong with the default RISC-V implementation. If we have a suitable default, we can flip the defines as you suggest, but not before that.",
+      "parentUuid": "8a582f2f_1bf62fec",
       "revId": "6fe768b6027d85f223517bd5d1e55a069e147d0a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -354,6 +510,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab1b7af4_3faef0eb",
+        "filename": "runtime/base/atomic_pair.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-02-09T14:59:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "75fee14e_c558a926",
+      "range": {
+        "startLine": 66,
+        "startChar": 19,
+        "endLine": 66,
+        "endChar": 27
+      },
+      "revId": "6fe768b6027d85f223517bd5d1e55a069e147d0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "45f8ac32_ac1925d4",
@@ -371,6 +551,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "41d5de95_3d1db408",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-02-09T14:59:33Z",
+      "side": 1,
+      "message": "Makes sense, done (a couple of formatting fixes due to clang-format preferences).",
+      "parentUuid": "45f8ac32_ac1925d4",
+      "revId": "6fe768b6027d85f223517bd5d1e55a069e147d0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "546d66df_9e1f634e",
@@ -384,6 +582,30 @@
       "writtenOn": "2023-02-08T10:59:27Z",
       "side": 1,
       "message": "These are the real implementations right? Update the comment.",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 0
+      },
+      "revId": "6fe768b6027d85f223517bd5d1e55a069e147d0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "227fadcb_89a596a9",
+        "filename": "runtime/interpreter/mterp/nterp_impl.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-02-09T14:59:33Z",
+      "side": 1,
+      "message": "Ah, good catch! Blind copy-paste on my side. Fixed.",
+      "parentUuid": "546d66df_9e1f634e",
       "range": {
         "startLine": 29,
         "startChar": 0,
