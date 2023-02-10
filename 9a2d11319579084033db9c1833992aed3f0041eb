@@ -18,6 +18,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "d8b2dee9_4a438c15",
+        "filename": "libartpalette/include/palette/palette_method_list.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-02-10T10:18:44Z",
+      "side": 1,
+      "message": "Not sure if it\u0027s expected to use a javadoc-like syntax in C++, but I don\u0027t mind.\n\nDumb question: Is it possible to wrap this multi-line comment with `/**` and `*/` to avoid `/* ... */` on every line? Maybe it\u0027s not possible in a macro?",
+      "revId": "9a2d11319579084033db9c1833992aed3f0041eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "6fec7735_7a7e55a2",
@@ -36,6 +53,53 @@
         "startChar": 27,
         "endLine": 67,
         "endChar": 28
+      },
+      "revId": "9a2d11319579084033db9c1833992aed3f0041eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ee31e97_8e8dbe6e",
+        "filename": "libartpalette/include/palette/palette_method_list.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-02-10T10:18:44Z",
+      "side": 1,
+      "message": "An alternative way is to add NOLINTBEGIN ... NOLINTEND around this doc.",
+      "parentUuid": "6fec7735_7a7e55a2",
+      "range": {
+        "startLine": 67,
+        "startChar": 27,
+        "endLine": 67,
+        "endChar": 28
+      },
+      "revId": "9a2d11319579084033db9c1833992aed3f0041eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "462c4017_b00a2875",
+        "filename": "libartpalette/include/palette/palette_method_list.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-02-10T10:18:44Z",
+      "side": 1,
+      "message": "The parameter name shouldn\u0027t be followed by an \"is\". go/java-practices/javadoc#param",
+      "range": {
+        "startLine": 70,
+        "startChar": 16,
+        "endLine": 70,
+        "endChar": 18
       },
       "revId": "9a2d11319579084033db9c1833992aed3f0041eb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
