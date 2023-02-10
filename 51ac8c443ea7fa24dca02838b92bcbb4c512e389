@@ -45,6 +45,30 @@
       },
       "revId": "51ac8c443ea7fa24dca02838b92bcbb4c512e389",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94a8ffd1_81e0a307",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-02-10T17:03:38Z",
+      "side": 1,
+      "message": "Those tests are passing since they don\u0027t go through `ReferenceTypePropagation::Run` so they can remain.\n\nThis comment is about the other gtests which go through the SSA builder which runs ReferenceTypePropagation and may encounter crashes when dealing with `Thread::Current()`. We weren\u0027t hitting those paths before but we will for sure if we land aosp/2427479 which is a fix for a crash.",
+      "parentUuid": "4e7f4bb1_5c8ffa8c",
+      "range": {
+        "startLine": 336,
+        "startChar": 0,
+        "endLine": 340,
+        "endChar": 3
+      },
+      "revId": "51ac8c443ea7fa24dca02838b92bcbb4c512e389",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
