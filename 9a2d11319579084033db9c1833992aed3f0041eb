@@ -37,6 +37,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "49ce1eed_03dfe088",
+        "filename": "libartpalette/include/palette/palette_method_list.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-02-10T13:40:06Z",
+      "side": 1,
+      "message": "I\u0027m using some doxygen markup here, as per [NDK API recommendation](http://go/android-ndk-api-guidelines#well-documented). They\u0027re still not proper doxygen comments, because cpplint doesn\u0027t accept that in here.\n\n\u003e Is it possible to wrap this multi-line comment with /** and */ to avoid /* ... */ on every line?\n\nI believe this is the only safe way to do comments in multiline macro. There\u0027s also the aspect on how editors, formatters, and syntax highlighters deal with it. However I haven\u0027t spent much time investigating other variants, since this should go away anyway (b/265435354).",
+      "parentUuid": "d8b2dee9_4a438c15",
+      "revId": "9a2d11319579084033db9c1833992aed3f0041eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "6fec7735_7a7e55a2",
         "filename": "libartpalette/include/palette/palette_method_list.h",
         "patchSetId": 8
@@ -82,6 +100,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e25f3d2_7121d99c",
+        "filename": "libartpalette/include/palette/palette_method_list.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-02-10T13:40:06Z",
+      "side": 1,
+      "message": "That doesn\u0027t work for cpplint.",
+      "parentUuid": "0ee31e97_8e8dbe6e",
+      "range": {
+        "startLine": 67,
+        "startChar": 27,
+        "endLine": 67,
+        "endChar": 28
+      },
+      "revId": "9a2d11319579084033db9c1833992aed3f0041eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "462c4017_b00a2875",
@@ -95,6 +137,30 @@
       "writtenOn": "2023-02-10T10:18:44Z",
       "side": 1,
       "message": "The parameter name shouldn\u0027t be followed by an \"is\". go/java-practices/javadoc#param",
+      "range": {
+        "startLine": 70,
+        "startChar": 16,
+        "endLine": 70,
+        "endChar": 18
+      },
+      "revId": "9a2d11319579084033db9c1833992aed3f0041eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa5bc9e9_7a3abfd4",
+        "filename": "libartpalette/include/palette/palette_method_list.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-02-10T13:40:06Z",
+      "side": 1,
+      "message": "Java style doesn\u0027t necessarily apply here, but I did a code search for some doxygen examples and they mostly use that style too. Fixed.",
+      "parentUuid": "462c4017_b00a2875",
       "range": {
         "startLine": 70,
         "startChar": 16,
