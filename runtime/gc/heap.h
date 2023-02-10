@@ -837,6 +837,8 @@ class Heap {
     return collector_type_;
   }
 
+  bool IsMovingGc() { return IsMovingGc(CurrentCollectorType()); }
+
   CollectorType GetForegroundCollectorType() const { return foreground_collector_type_; }
 
   bool IsGcConcurrentAndMoving() const {
