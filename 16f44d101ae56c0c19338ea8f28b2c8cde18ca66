@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "05ff144f_d62c1ef9",
+        "filename": "runtime/arch/riscv64/context_riscv64.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-02-10T16:16:46Z",
+      "side": 1,
+      "message": "Should I remove it from RISC-V in this CL, or remove it from all arches where it is unused in a follow up CL?",
+      "parentUuid": "9dd3d831_d0bef122",
+      "range": {
+        "startLine": 44,
+        "startChar": 8,
+        "endLine": 44,
+        "endChar": 24
+      },
+      "revId": "16f44d101ae56c0c19338ea8f28b2c8cde18ca66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "dc524658_15d99724",
         "filename": "runtime/arch/riscv64/context_riscv64.cc",
         "patchSetId": 8
@@ -37,6 +61,24 @@
       "writtenOn": "2023-02-10T07:43:02Z",
       "side": 1,
       "message": "We should add\n\n    DCHECK_NE(frame_info.CoreSpillMask() \u0026 ~(1u \u003c\u003c RA), 0u);\n\n(Though this is essentially checked by the `DCHECK_EQ()` in line 59, that\u0027s quite far from the code to fill RA.)",
+      "revId": "16f44d101ae56c0c19338ea8f28b2c8cde18ca66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8582dfc_f741f618",
+        "filename": "runtime/arch/riscv64/context_riscv64.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-02-10T16:16:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dc524658_15d99724",
       "revId": "16f44d101ae56c0c19338ea8f28b2c8cde18ca66",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -54,6 +96,30 @@
       "writtenOn": "2023-02-10T07:43:02Z",
       "side": 1,
       "message": "Just `1u`, please. The `frame_info.CoreSpillMask()` returns `uint32_t`.",
+      "range": {
+        "startLine": 55,
+        "startChar": 72,
+        "endLine": 55,
+        "endChar": 75
+      },
+      "revId": "16f44d101ae56c0c19338ea8f28b2c8cde18ca66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1dab62d4_3e008029",
+        "filename": "runtime/arch/riscv64/context_riscv64.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-02-10T16:16:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5a1e3627_8019f96d",
       "range": {
         "startLine": 55,
         "startChar": 72,
@@ -87,6 +153,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "146f95ea_7ba054d5",
+        "filename": "runtime/arch/riscv64/context_riscv64.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-02-10T16:16:46Z",
+      "side": 1,
+      "message": "This means that TR can be excluded from the callee-saved stack frames, right?\n\nTogether with the exclusion of S2 (which we\u0027ll be occupied by the bionic/kernel for shadow stack if I understood enh@ correctly) this will give us frame size reduction by 16 bytes, which is good.\n\nI\u0027ll make the change as a follow-up CL aosp/2430733.",
+      "parentUuid": "951e6d25_ded2383c",
+      "range": {
+        "startLine": 142,
+        "startChar": 2,
+        "endLine": 142,
+        "endChar": 70
+      },
+      "revId": "16f44d101ae56c0c19338ea8f28b2c8cde18ca66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "24e06338_053a2723",
@@ -100,6 +190,30 @@
       "writtenOn": "2023-02-10T07:43:02Z",
       "side": 1,
       "message": "Should we not provide an (empty?) implementation for this function in this CL? Otherwise we should get unresolved reference errors during linking (as long as the entire `Riscv64Context` is not removed as unused by the linker).",
+      "range": {
+        "startLine": 145,
+        "startChar": 2,
+        "endLine": 145,
+        "endChar": 24
+      },
+      "revId": "16f44d101ae56c0c19338ea8f28b2c8cde18ca66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "49a91f6a_8f42d8cb",
+        "filename": "runtime/arch/riscv64/context_riscv64.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-02-10T16:16:46Z",
+      "side": 1,
+      "message": "Fixed. I did compile it, so it must be like you said a linker optimization.",
+      "parentUuid": "24e06338_053a2723",
       "range": {
         "startLine": 145,
         "startChar": 2,
