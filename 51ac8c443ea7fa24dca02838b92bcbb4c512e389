@@ -117,6 +117,30 @@
       },
       "revId": "51ac8c443ea7fa24dca02838b92bcbb4c512e389",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "784b37ab_1626c8ab",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-02-10T17:12:52Z",
+      "side": 1,
+      "message": "Yeah, if our passes depend on having a runtime. It\u0027s a shame if we do though, because testing the compiler standalone is simpler and nicer.",
+      "parentUuid": "9b2f27ac_e7c5de9b",
+      "range": {
+        "startLine": 336,
+        "startChar": 0,
+        "endLine": 340,
+        "endChar": 3
+      },
+      "revId": "51ac8c443ea7fa24dca02838b92bcbb4c512e389",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
