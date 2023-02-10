@@ -55,6 +55,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "d0252dd4_b67255ce",
+        "filename": "libartpalette/include/palette/palette_method_list.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-02-10T16:02:34Z",
+      "side": 1,
+      "message": "I see. I didn\u0027t know about doxygen.",
+      "parentUuid": "49ce1eed_03dfe088",
+      "revId": "9a2d11319579084033db9c1833992aed3f0041eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "6fec7735_7a7e55a2",
         "filename": "libartpalette/include/palette/palette_method_list.h",
         "patchSetId": 8
@@ -161,6 +179,30 @@
       "side": 1,
       "message": "Java style doesn\u0027t necessarily apply here, but I did a code search for some doxygen examples and they mostly use that style too. Fixed.",
       "parentUuid": "462c4017_b00a2875",
+      "range": {
+        "startLine": 70,
+        "startChar": 16,
+        "endLine": 70,
+        "endChar": 18
+      },
+      "revId": "9a2d11319579084033db9c1833992aed3f0041eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "106b886f_59da586e",
+        "filename": "libartpalette/include/palette/palette_method_list.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-02-10T16:02:34Z",
+      "side": 1,
+      "message": "Sorry, I thought it was javadoc.",
+      "parentUuid": "aa5bc9e9_7a3abfd4",
       "range": {
         "startLine": 70,
         "startChar": 16,
