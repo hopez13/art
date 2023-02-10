@@ -137,6 +137,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "276539fd_39fe0f71",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-02-10T06:12:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a3d046de_e0090e3e",
+      "range": {
+        "startLine": 193,
+        "startChar": 0,
+        "endLine": 193,
+        "endChar": 61
+      },
+      "revId": "e21809c020bac6b2cfba9d3517c447cdd89d7bba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "715863f3_ee75a11b",
@@ -316,6 +340,30 @@
       "side": 1,
       "message": "I was worried that the write of the counter can be reordered with the CAS read of the state. But that may not matter. I guess all the relevant updates to the state here are done using a CAS? So the load-acquire-\u003estore-release ranges effectively have to  be ordered? And thus if the mutator thought it had work to do, then its CAS must have come first, so the increment happens-before the test?\n\nIf so, this is sufficiently unusual that it should probably be written down.",
       "parentUuid": "ceaf1c9c_eaa30607",
+      "range": {
+        "startLine": 2931,
+        "startChar": 11,
+        "endLine": 2932,
+        "endChar": 25
+      },
+      "revId": "e21809c020bac6b2cfba9d3517c447cdd89d7bba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f7e8b33f_45417a0f",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 2932,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-02-10T06:12:24Z",
+      "side": 1,
+      "message": "My thinking was simpler: the write to counter will make it to memory before the CAS store of the state (since acq_rel is being used). And this thread will start accessing the from-space only after CAS succeeds. This is sufficient because the GC thread is waiting for the counter to reach 0 `after` ensuring (via the pages\u0027 state) that either the page is already processed, or is being processed. IOW, there can\u0027t be any page left unprocessed when it starts looping on the counter.\n\nOf course the gc-thread is also using acq_rel order for the CAS to state.",
+      "parentUuid": "61e6fe38_34a2e0b5",
       "range": {
         "startLine": 2931,
         "startChar": 11,
