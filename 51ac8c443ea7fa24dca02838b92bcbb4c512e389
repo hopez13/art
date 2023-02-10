@@ -93,6 +93,30 @@
       },
       "revId": "51ac8c443ea7fa24dca02838b92bcbb4c512e389",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b2f27ac_e7c5de9b",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-02-10T17:08:58Z",
+      "side": 1,
+      "message": "Double checking I misspoke: The reason that the ReferenceTypePropagation gtests are passing is because they create a runtime. Other tests, e.g. ConstantFoldingTest do not and can crash. Do you think we should create a runtime in those too?",
+      "parentUuid": "94a8ffd1_81e0a307",
+      "range": {
+        "startLine": 336,
+        "startChar": 0,
+        "endLine": 340,
+        "endChar": 3
+      },
+      "revId": "51ac8c443ea7fa24dca02838b92bcbb4c512e389",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
