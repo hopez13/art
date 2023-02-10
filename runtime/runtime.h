@@ -902,15 +902,7 @@ class Runtime {
   // Use a sentinel for marking entries in a table that have been cleared.
   // This helps diagnosing in case code tries to wrongly access such
   // entries.
-  static mirror::Class* GetWeakClassSentinel() {
-    return reinterpret_cast<mirror::Class*>(0xebadbeef);
-  }
-
-  // Helper for the GC to process a weak class in a table.
-  static void ProcessWeakClass(GcRoot<mirror::Class>* root_ptr,
-                               IsMarkedVisitor* visitor,
-                               mirror::Class* update)
-      REQUIRES_SHARED(Locks::mutator_lock_);
+  static mirror::Object* GetWeakSentinel() { return reinterpret_cast<mirror::Object*>(0xebadbeef); }
 
   // Create a normal LinearAlloc or low 4gb version if we are 64 bit AOT compiler.
   LinearAlloc* CreateLinearAlloc();
