@@ -559,6 +559,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b4a43e4f_e609fd4b",
+        "filename": "runtime/base/atomic_pair.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-02-10T17:04:56Z",
+      "side": 1,
+      "message": "My understanding is that for this CL I should delete the `static_assert` from the generic implementation and remove the RISC-V specialization, and for a follow-up CL, resurrect seqlock or David\u0027s implementation. Please reopen if you think it\u0027s not good enough.",
+      "parentUuid": "8249c314_b65fa9a0",
+      "revId": "6fe768b6027d85f223517bd5d1e55a069e147d0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "75fee14e_c558a926",
