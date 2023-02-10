@@ -141,6 +141,30 @@
       },
       "revId": "51ac8c443ea7fa24dca02838b92bcbb4c512e389",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b218850_a877e19a",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-02-10T17:23:16Z",
+      "side": 1,
+      "message": "Ack. Just for context/reference the runtime creation in gtests was removed in aosp/1310447 due to taking a long time to run gtests.",
+      "parentUuid": "784b37ab_1626c8ab",
+      "range": {
+        "startLine": 336,
+        "startChar": 0,
+        "endLine": 340,
+        "endChar": 3
+      },
+      "revId": "51ac8c443ea7fa24dca02838b92bcbb4c512e389",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
