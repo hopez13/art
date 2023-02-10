@@ -1452,14 +1452,14 @@ void MarkSweep::ProcessMarkStack(bool paused) {
   }
 }
 
-inline mirror::Object* MarkSweep::IsMarked(mirror::Object* object) {
-  if (immune_spaces_.IsInImmuneRegion(object)) {
-    return object;
+inline mirror::Object* MarkSweep::IsMarked(mirror::Object* obj) {
+  if (immune_spaces_.IsInImmuneRegion(obj)) {
+    return obj;
   }
-  if (current_space_bitmap_->HasAddress(object)) {
-    return current_space_bitmap_->Test(object) ? object : nullptr;
+  if (current_space_bitmap_->HasAddress(obj)) {
+    return current_space_bitmap_->Test(obj) ? obj : nullptr;
   }
-  return mark_bitmap_->Test(object) ? object : nullptr;
+  return (mark_bitmap_->Test(obj) || heap_->allocation_stack_->Contains(obj)) ? obj : nullptr;
 }
 
 void MarkSweep::FinishPhase() {
