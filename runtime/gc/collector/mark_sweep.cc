@@ -1459,7 +1459,9 @@ inline mirror::Object* MarkSweep::IsMarked(mirror::Object* object) {
   if (current_space_bitmap_->HasAddress(object)) {
     return current_space_bitmap_->Test(object) ? object : nullptr;
   }
-  return mark_bitmap_->Test(object) ? object : nullptr;
+  return (mark_bitmap_->Test(object) || heap_->allocation_stack_->Contains(object)) ?
+         object :
+         nullptr;
 }
 
 void MarkSweep::FinishPhase() {
