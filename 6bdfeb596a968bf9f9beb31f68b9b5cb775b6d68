@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f3408ab_1af8c8a7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-02-10T20:58:06Z",
+      "side": 1,
+      "message": "There are merge failures to internal:\n\n```\ndiff --cc TEST_MAPPING\nindex d01c7394,81535d3f..00000000\n--- i/TEST_MAPPING\n+++ w/TEST_MAPPING\n@@@ -1321,10 -1348,12 +1351,21 @@@\n        \"name\": \"art_standalone_dexoptanalyzer_tests[com.google.android.art.apex]\"\n      },\n      {\n++\u003c\u003c\u003c\u003c\u003c\u003c\u003c HEAD\n +      \"name\": \"art_standalone_libartbase_tests[com.google.android.art.apex]\"\n +    },\n +    {\n +      \"name\": \"art_standalone_libartpalette_tests[com.google.android.art.apex]\"\n++||||||| parent of 6bdfeb59 (Regenerate the ART MTS definition (2023-02-10).)\n++      \"name\": \"art_standalone_libartpalette_tests[com.google.android.art.apex]\"\n++\u003d\u003d\u003d\u003d\u003d\u003d\u003d\n+       \"name\": \"art_standalone_libartpalette_tests[com.google.android.art.apex]\",\n+       \"options\": [\n+         {\n+           \"exclude-filter\": \"PaletteClientJniTest*\"\n+         }\n+       ]\n++\u003e\u003e\u003e\u003e\u003e\u003e\u003e 6bdfeb59 (Regenerate the ART MTS definition (2023-02-10).)\n      },\n      {\n        \"name\": \"art_standalone_libartservice_tests[com.google.android.art.apex]\"\n```\n\nThe conflicting `art_standalone_libartbase_tests` line on HEAD comes from http://ag/15241582. It was reverted in http://ag/15836038, but I suspect the revert didn\u0027t land in internal master. Roland, can we just resolve this with --ours to get these files back in sync? And why is `art_standalone_libartbase_tests` present there but not in AOSP?",
+      "revId": "6bdfeb596a968bf9f9beb31f68b9b5cb775b6d68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
