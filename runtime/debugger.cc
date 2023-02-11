@@ -209,7 +209,11 @@ bool Dbg::DdmHandleChunk(JNIEnv* env,
   }
 
   if (chunk == nullptr) {
-    return false;
+    // To minic pre API-28 behavior, we request an empty ddm packet to be sent if the Chunk
+    //  was null
+    *out_type = 0;
+    out_data->resize(0);
+    return true;
   }
 
   /*
