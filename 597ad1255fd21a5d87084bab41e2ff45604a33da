@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96ebec64_f866c8c8",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4474,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-02-11T14:03:53Z",
+      "side": 1,
+      "message": "Given this, I suggest dissociating strings and class still in this method: for strings, we expect them to always be live (so a few DCHECKs could be added), whereas classes may not be live.",
+      "range": {
+        "startLine": 4473,
+        "startChar": 0,
+        "endLine": 4474,
+        "endChar": 81
+      },
+      "revId": "597ad1255fd21a5d87084bab41e2ff45604a33da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
