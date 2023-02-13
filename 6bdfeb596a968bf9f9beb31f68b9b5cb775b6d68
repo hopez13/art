@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ac192d66_a1a18667",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2023-02-13T14:50:36Z",
+      "side": 1,
+      "message": "This is incorrect: the files regenerated in this CL are just ART test files (Blueprint files + Test Mapping file), not MTS ones.\n\nTo regenerate the ART MTS definition, you need to invoke `art/test/utils/regen-test-files` with option `-m` and upload a CL for the changes that occurred to project `test/mts`.",
+      "range": {
+        "startLine": 7,
+        "startChar": 15,
+        "endLine": 7,
+        "endChar": 33
+      },
+      "revId": "6bdfeb596a968bf9f9beb31f68b9b5cb775b6d68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0f3408ab_1af8c8a7",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -14,6 +37,24 @@
       "writtenOn": "2023-02-10T20:58:06Z",
       "side": 1,
       "message": "There are merge failures to internal:\n\n```\ndiff --cc TEST_MAPPING\nindex d01c7394,81535d3f..00000000\n--- i/TEST_MAPPING\n+++ w/TEST_MAPPING\n@@@ -1321,10 -1348,12 +1351,21 @@@\n        \"name\": \"art_standalone_dexoptanalyzer_tests[com.google.android.art.apex]\"\n      },\n      {\n++\u003c\u003c\u003c\u003c\u003c\u003c\u003c HEAD\n +      \"name\": \"art_standalone_libartbase_tests[com.google.android.art.apex]\"\n +    },\n +    {\n +      \"name\": \"art_standalone_libartpalette_tests[com.google.android.art.apex]\"\n++||||||| parent of 6bdfeb59 (Regenerate the ART MTS definition (2023-02-10).)\n++      \"name\": \"art_standalone_libartpalette_tests[com.google.android.art.apex]\"\n++\u003d\u003d\u003d\u003d\u003d\u003d\u003d\n+       \"name\": \"art_standalone_libartpalette_tests[com.google.android.art.apex]\",\n+       \"options\": [\n+         {\n+           \"exclude-filter\": \"PaletteClientJniTest*\"\n+         }\n+       ]\n++\u003e\u003e\u003e\u003e\u003e\u003e\u003e 6bdfeb59 (Regenerate the ART MTS definition (2023-02-10).)\n      },\n      {\n        \"name\": \"art_standalone_libartservice_tests[com.google.android.art.apex]\"\n```\n\nThe conflicting `art_standalone_libartbase_tests` line on HEAD comes from http://ag/15241582. It was reverted in http://ag/15836038, but I suspect the revert didn\u0027t land in internal master. Roland, can we just resolve this with --ours to get these files back in sync? And why is `art_standalone_libartbase_tests` present there but not in AOSP?",
+      "revId": "6bdfeb596a968bf9f9beb31f68b9b5cb775b6d68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d9a3941_5651f2fd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2023-02-13T14:50:36Z",
+      "side": 1,
+      "message": "\u003e There are merge failures to internal:\n\n[…]\n\n\u003e The conflicting `art_standalone_libartbase_tests` line on HEAD comes from http://ag/15241582. It was reverted in http://ag/15836038, but I suspect the revert didn\u0027t land in internal master.\n\nThe revert (http://ag/15836038) seems to be in internal master, according to the build page (https://android-build.googleplex.com/builds/where-is-my-cl/search/I6166e7146a4bd07fce8acde381caa9a741ecc254).\n\n\u003e Roland, can we just resolve this with --ours to get these files back in sync? And why is `art_standalone_libartbase_tests` present there but not in AOSP?\n\nI think the reason `art_standalone_libartbase_tests` is missing from AOSP is http://ag/19717164, which was was merged in Android T QPR1 but not in internal master (thanks to `RESTRICT AUTOMERGE`), and presumably is now in AOSP because Android T QPR1 sources have been merged back to AOSP. \n\nI think the best course of action is to regenerate the files in internal master, then in AOSP; sorry about this. Let me know if you want me to help.",
+      "parentUuid": "0f3408ab_1af8c8a7",
       "revId": "6bdfeb596a968bf9f9beb31f68b9b5cb775b6d68",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
