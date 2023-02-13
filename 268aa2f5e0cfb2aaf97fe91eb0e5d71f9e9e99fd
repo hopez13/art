@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "869e66d1_45a0eb40",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-02-13T12:00:57Z",
+      "side": 1,
+      "message": "Just to understand, When would this happen? Is it when we have a runtime image from an earlier version of ART but the newer version updated the boot image in a inconsistent way? Wouldn\u0027t some version checks fail in that case?",
+      "range": {
+        "startLine": 14,
+        "startChar": 7,
+        "endLine": 14,
+        "endChar": 25
+      },
+      "revId": "268aa2f5e0cfb2aaf97fe91eb0e5d71f9e9e99fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4393afac_ba22bae5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-02-13T12:00:57Z",
+      "side": 1,
+      "message": "Thanks! just a couple of questions to understand better.",
+      "revId": "268aa2f5e0cfb2aaf97fe91eb0e5d71f9e9e99fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
