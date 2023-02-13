@@ -376,6 +376,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f31243d4_2d372ce0",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 2932,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-02-13T23:41:47Z",
+      "side": 1,
+      "message": "I think we\u0027re actually kind of saying the same thing. So how about a comment along the following lines:\n\n\"The mutator and GC may race to set a page state to processing or further along. The two attempts are ordered. If the collector wins, then the mutator here will see that and not access the page. If the muator wins, then the compaction_in_progress_count_ increment here happens-before the corresponding test in the GC, and we will not see a zero value until the mutator has completed.\"\n\nThis may be more appropriate around line 3248 than here.",
+      "parentUuid": "f7e8b33f_45417a0f",
+      "range": {
+        "startLine": 2931,
+        "startChar": 11,
+        "endLine": 2932,
+        "endChar": 25
+      },
+      "revId": "e21809c020bac6b2cfba9d3517c447cdd89d7bba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "918be9c4_2bc2148d",
         "filename": "runtime/gc/collector/mark_compact.cc",
         "patchSetId": 9
@@ -599,6 +623,30 @@
       "side": 1,
       "message": "Thanks for pointing it out. After our offline discussion I have removed the assumption everywhere in the code that syscalls act as fence.\n\nIn this case, I am now using acquire for loads and release when setting the state to kProcessedAndMapped.",
       "parentUuid": "b68ff671_1b187465",
+      "range": {
+        "startLine": 3113,
+        "startChar": 9,
+        "endLine": 3115,
+        "endChar": 0
+      },
+      "revId": "e21809c020bac6b2cfba9d3517c447cdd89d7bba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0642724_181ed536",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 3115,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-02-13T23:41:47Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "8d1c01fd_ef3a76f0",
       "range": {
         "startLine": 3113,
         "startChar": 9,

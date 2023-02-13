@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b13f68fa_9caafb71",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-02-13T23:41:47Z",
+      "side": 1,
+      "message": "A couple of questions/suggestions. No more correctness concerns.",
+      "revId": "41df8fa6e2e8d4546ba70be7e701549080817a20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9763a148_9b31fe4a",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-02-13T23:41:47Z",
+      "side": 1,
+      "message": "Is this needed, since it is set in InitializePhase?",
+      "range": {
+        "startLine": 275,
+        "startChar": 6,
+        "endLine": 275,
+        "endChar": 25
+      },
+      "revId": "41df8fa6e2e8d4546ba70be7e701549080817a20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
