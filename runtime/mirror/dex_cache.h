@@ -229,6 +229,16 @@ template <typename T> class NativeArray {
     return entries_[index];
   }
 
+  T** GetPtrEntryPtrSize(uint32_t index, PointerSize ptr_size) {
+    if (ptr_size == PointerSize::k64) {
+      return reinterpret_cast<T**>(
+          reinterpret_cast64<uint64_t>(entries_) + index * sizeof(uint64_t));
+    } else {
+      return reinterpret_cast<T**>(
+          reinterpret_cast32<uint32_t>(entries_) + index * sizeof(uint32_t));
+    }
+  }
+
   void Set(uint32_t index, T* value) {
     entries_[index] = value;
   }
