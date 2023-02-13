@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3fdd2f78_191d9182",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.S",
+        "patchSetId": 12
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-02-13T15:11:56Z",
+      "side": 1,
+      "message": "I took this from ARM and ARM64 which have similar misleading comments, so I fixed them as well. This has moved to aosp/2421276 where the file is added.",
+      "parentUuid": "ca138365_6bb12586",
+      "range": {
+        "startLine": 35,
+        "startChar": 24,
+        "endLine": 35,
+        "endChar": 92
+      },
+      "revId": "ca4f909ac001966a93e14be7a582066b1558b827",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7919a64b_4fb6d680",
@@ -58,6 +82,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c255354_403ca338",
+        "filename": "runtime/interpreter/mterp/nterp_impl.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-02-13T15:11:56Z",
+      "side": 1,
+      "message": "No, removed.",
+      "parentUuid": "7919a64b_4fb6d680",
+      "revId": "ca4f909ac001966a93e14be7a582066b1558b827",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "84ef1e15_97a6cc52",
@@ -71,6 +113,30 @@
       "writtenOn": "2023-02-10T19:58:47Z",
       "side": 1,
       "message": "unused",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 16
+      },
+      "revId": "ca4f909ac001966a93e14be7a582066b1558b827",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "93f30899_39666b7f",
+        "filename": "runtime/interpreter/mterp/nterp_impl.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-02-13T15:11:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "84ef1e15_97a6cc52",
       "range": {
         "startLine": 35,
         "startChar": 0,
