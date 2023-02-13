@@ -1024,6 +1024,8 @@ void MemMap::Init() {
   TargetMMapInit();
 }
 
+bool MemMap::IsInitialized() { return mem_maps_lock_ != nullptr; }
+
 void MemMap::Shutdown() {
   if (mem_maps_lock_ == nullptr) {
     // If MemMap::Shutdown is called more than once, there is no effect.
