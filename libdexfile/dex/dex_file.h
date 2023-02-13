@@ -58,6 +58,7 @@ class DexFileContainer {
  public:
   DexFileContainer() { }
   virtual ~DexFileContainer() {}
+  virtual bool Init(std::string* ATTRIBUTE_UNUSED error_msg) { return true; }
   virtual bool IsReadOnly() const = 0;
   virtual bool EnableWrite() = 0;
   virtual bool DisableWrite() = 0;
@@ -70,9 +71,12 @@ class DexFileContainer {
   virtual const uint8_t* DataBegin() const { return nullptr; }
   virtual const uint8_t* DataEnd() const { return nullptr; }
 
-  virtual bool IsDirectMmap() { return false; }
+  virtual bool IsZip() const { return is_zip_; }
+  virtual void SetIsZip() { is_zip_ = true; }
+  virtual bool IsFileMap() const { return false; }
 
  private:
+  bool is_zip_ = false;
   DISALLOW_COPY_AND_ASSIGN(DexFileContainer);
 };
 
@@ -849,7 +853,7 @@ class DexFile {
           const std::string& location,
           uint32_t location_checksum,
           const OatDexFile* oat_dex_file,
-          std::unique_ptr<DexFileContainer> container,
+          std::shared_ptr<DexFileContainer> container,
           bool is_compact_dex);
 
   // Top-level initializer that calls other Init methods.
@@ -924,7 +928,7 @@ class DexFile {
   mutable const OatDexFile* oat_dex_file_;
 
   // Manages the underlying memory allocation.
-  std::unique_ptr<DexFileContainer> container_;
+  std::shared_ptr<DexFileContainer> container_;
 
   // If the dex file is a compact dex file. If false then the dex file is a standard dex file.
   const bool is_compact_dex_;

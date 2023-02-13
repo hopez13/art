@@ -295,7 +295,6 @@ class ClassPath final {
   void OpenDexFiles(const std::vector<std::string>& dex_paths,
                     bool open_writable,
                     bool ignore_empty) {
-    ArtDexFileLoader dex_loader;
     std::string error_msg;
 
     if (open_writable) {
@@ -309,12 +308,11 @@ class ClassPath final {
         // such as that at most one of public/private/protected flag is set.
         // We do those checks here and skip them when loading the processed file
         // into boot class path.
-        std::unique_ptr<const DexFile> dex_file(dex_loader.OpenDex(fd.Release(),
-                                                                   /* location= */ filename,
-                                                                   /* verify= */ true,
-                                                                   /* verify_checksum= */ true,
-                                                                   /* mmap_shared= */ true,
-                                                                   &error_msg));
+        ArtDexFileLoader dex_loader(fd.Release(), filename);
+        std::unique_ptr<const DexFile> dex_file(dex_loader.Open(/* verify= */ true,
+                                                                /* verify_checksum= */ true,
+                                                                /* mmap_shared= */ true,
+                                                                &error_msg));
         CHECK(dex_file.get() != nullptr) << "Open failed for '" << filename << "' " << error_msg;
         CHECK(dex_file->IsStandardDexFile()) << "Expected a standard dex file '" << filename << "'";
         CHECK(dex_file->EnableWrite())
@@ -323,12 +321,11 @@ class ClassPath final {
       }
     } else {
       for (const std::string& filename : dex_paths) {
-        bool success = dex_loader.Open(filename.c_str(),
-                                       /* location= */ filename,
-                                       /* verify= */ true,
-                                       /* verify_checksum= */ true,
-                                       &error_msg,
-                                       &dex_files_);
+        DexFileLoader dex_file_loader(filename);
+        bool success = dex_file_loader.Open(/* verify= */ true,
+                                            /* verify_checksum= */ true,
+                                            &error_msg,
+                                            &dex_files_);
         // If requested ignore a jar with no classes.dex files.
         if (!success && ignore_empty && error_msg != "Entry not found") {
           CHECK(success) << "Open failed for '" << filename << "' " << error_msg;
@@ -781,11 +778,9 @@ class DexFileEditor final {
 
   void ReloadDex(const char* filename) {
     std::string error_msg;
-    ArtDexFileLoader loader;
+    ArtDexFileLoader loader(filename);
     std::vector<std::unique_ptr<const DexFile>> dex_files;
-    bool ok = loader.Open(filename,
-                          filename,
-                          /*verify*/ true,
+    bool ok = loader.Open(/*verify*/ true,
                           /*verify_checksum*/ true,
                           &error_msg,
                           &dex_files);
