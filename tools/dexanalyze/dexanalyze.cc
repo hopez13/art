@@ -207,15 +207,13 @@ class DexAnalyze {
         return kExitCodeFailedToOpenFile;
       }
       std::vector<std::unique_ptr<const DexFile>> dex_files;
-      const DexFileLoader dex_file_loader;
-      if (!dex_file_loader.OpenAll(reinterpret_cast<const uint8_t*>(content.data()),
-                                   content.size(),
-                                   filename.c_str(),
-                                   options.run_dex_file_verifier_,
-                                   options.verify_checksum_,
-                                   &error_code,
-                                   &error_msg,
-                                   &dex_files)) {
+      DexFileLoader dex_file_loader(
+          reinterpret_cast<const uint8_t*>(content.data()), content.size(), filename);
+      if (!dex_file_loader.Open(options.run_dex_file_verifier_,
+                                options.verify_checksum_,
+                                &error_code,
+                                &error_msg,
+                                &dex_files)) {
         LOG(ERROR) << "OpenAll failed for " + filename << " with " << error_msg << std::endl;
         return kExitCodeFailedToOpenDex;
       }

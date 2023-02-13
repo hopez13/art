@@ -96,7 +96,7 @@ DexFile::DexFile(const uint8_t* base,
                  const std::string& location,
                  uint32_t location_checksum,
                  const OatDexFile* oat_dex_file,
-                 std::unique_ptr<DexFileContainer> container,
+                 const std::shared_ptr<DexFileContainer>& container,
                  bool is_compact_dex)
     : begin_(base),
       size_(size),
@@ -117,7 +117,7 @@ DexFile::DexFile(const uint8_t* base,
       num_call_site_ids_(0),
       hiddenapi_class_data_(nullptr),
       oat_dex_file_(oat_dex_file),
-      container_(std::move(container)),
+      container_(container),
       is_compact_dex_(is_compact_dex),
       hiddenapi_domain_(hiddenapi::Domain::kApplication) {
   CHECK(begin_ != nullptr) << GetLocation();
