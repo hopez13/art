@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "78adf8d8_100f1c8d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-02-13T12:56:26Z",
+      "side": 1,
+      "message": "You could have dex code being changed that doesn\u0027t change the boot image. This is rare, but could happen.",
+      "parentUuid": "869e66d1_45a0eb40",
+      "range": {
+        "startLine": 14,
+        "startChar": 7,
+        "endLine": 14,
+        "endChar": 25
+      },
+      "revId": "268aa2f5e0cfb2aaf97fe91eb0e5d71f9e9e99fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "4393afac_ba22bae5",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2

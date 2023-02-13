@@ -16,6 +16,24 @@
       "message": "Is this no longer needed?",
       "revId": "7524649d64ed0dd8db160a3ab39b6148b9cf5fa8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "929f5d92_a915c884",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3336,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-02-13T12:56:26Z",
+      "side": 0,
+      "message": "Yes, that was for when we embedded oat/art files in the ART apex. We stopped doing this in Android13.",
+      "parentUuid": "ac16ec15_5ab9dc98",
+      "revId": "7524649d64ed0dd8db160a3ab39b6148b9cf5fa8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
