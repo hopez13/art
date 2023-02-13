@@ -135,6 +135,24 @@
       "parentUuid": "ae949a4f_3a02d0e1",
       "revId": "6bdfeb596a968bf9f9beb31f68b9b5cb775b6d68",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1666b69_5174506e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2023-02-13T19:34:01Z",
+      "side": 1,
+      "message": "Sorry, I think there was some confusion in my comments. Yes, I think we should revert https://android.git.corp.google.com/platform/art/+/9587cc51bad1e49f9b03c643d32797144b58c35f in AOSP.\n\n(It should not be necessary to revert it in internal master, as that CL has not been merged as-is in internal master: instead, it was merged with the strategy \"ours\", which is a no-op; see http://ag/19719890).",
+      "parentUuid": "fba71cda_b02dd19b",
+      "revId": "6bdfeb596a968bf9f9beb31f68b9b5cb775b6d68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
