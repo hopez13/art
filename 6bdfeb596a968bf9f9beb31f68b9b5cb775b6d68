@@ -99,6 +99,24 @@
       "parentUuid": "7d9a3941_5651f2fd",
       "revId": "6bdfeb596a968bf9f9beb31f68b9b5cb775b6d68",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae949a4f_3a02d0e1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2023-02-13T19:13:20Z",
+      "side": 1,
+      "message": "\u003e \u003e I think the reason art_standalone_libartbase_tests is missing from AOSP is http://ag/19717164, which was was merged in Android T QPR1 but not in internal master\n\u003e \n\u003e Do we have to avoid it in internal master? It\u0027d be nice to have TEST_MAPPING in sync to not need to do separate regens.\n\nNo, it\u0027s fine to have this test enabled in internal master; the intent was to only disable it (along with `art_standalone_dex2oat_tests`) in Android T QPR branches because of a version skew between the pre-built ART Module and the ART MTS tests built from source.\n\n\u003e \u003e I think the best course of action is to regenerate the files in internal master, then in AOSP\n\u003e \n\u003e Ok, I\u0027ll do that for now: http://ag/21402860\n\nThanks!",
+      "parentUuid": "4afbd0a1_e1e714fc",
+      "revId": "6bdfeb596a968bf9f9beb31f68b9b5cb775b6d68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
