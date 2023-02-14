@@ -184,7 +184,7 @@ class ProfileCompilationInfoTest : public CommonArtTest, public ProfileTestHelpe
       dex_files.push_back(BuildDex(std::to_string(i), i, "LC;", kMaxMethodIds));
     }
 
-    std::srand(0);
+    std::srand(0);  // NOLINT
     // Set a few flags on a 2 different methods in each of the profile.
     for (const DexFile* dex_file : dex_files) {
       for (uint32_t method_idx = 0; method_idx < kMaxMethodIds; method_idx++) {
