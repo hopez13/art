@@ -85,6 +85,24 @@
       "parentUuid": "8c962588_fa5bc94c",
       "revId": "4496b5224145d4255f65e98160eed827a8b09f36",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2343dc9e_7f40dff4",
+        "filename": "runtime/arch/riscv64/callee_save_frame_riscv64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-02-14T16:21:35Z",
+      "side": 1,
+      "message": "correct. just the github bug. (we\u0027re trying to do as much rv64 stuff in the open as possible. internal bugs are just annoying to partners, and aren\u0027t generally useful to us either, since we don\u0027t tend to work on anything that\u0027s actually secret.)",
+      "parentUuid": "9b42b855_b91eb1fb",
+      "revId": "4496b5224145d4255f65e98160eed827a8b09f36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af655fe9_3342d38d",
+        "filename": "runtime/arch/riscv64/registers_riscv64.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-02-14T16:21:35Z",
+      "side": 1,
+      "message": "well, _you_ don\u0027t care about the kernel, because it\u0027s going to save/restore all your registers every time you switch to/from userspace :-) i suspect you meant \"compiler\" here instead?\n\n(see https://clang.llvm.org/docs/ShadowCallStack.html#example for how the software shadow stack stuff works. it really is just \"hey, compiler, here\u0027s another register you can use as a stack pointer just for return addresses\".)",
+      "range": {
+        "startLine": 50,
+        "startChar": 79,
+        "endLine": 50,
+        "endChar": 85
+      },
+      "revId": "8be084e80eee0b51af3a1d24bc104563d693bd3d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
