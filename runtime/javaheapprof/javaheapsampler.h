@@ -26,10 +26,11 @@ namespace art {
 
 class HeapSampler {
  public:
-  HeapSampler() : rng_(/*seed=*/std::minstd_rand::default_seed),
-                  geo_dist_(1.0 / /*expected value=4KB*/ 4096),
-                  geo_dist_rng_lock_("Heap Sampler RNG Geometric Dist lock",
-                                     art::LockLevel::kGenericBottomLock) {}
+  HeapSampler()
+      : rng_(/*seed=*/std::minstd_rand::default_seed),  // NOLINT
+        geo_dist_(1.0 / /*expected value=4KB*/ 4096),
+        geo_dist_rng_lock_("Heap Sampler RNG Geometric Dist lock",
+                           art::LockLevel::kGenericBottomLock) {}
 
   // Set the bytes until sample.
   void SetBytesUntilSample(size_t bytes) {
