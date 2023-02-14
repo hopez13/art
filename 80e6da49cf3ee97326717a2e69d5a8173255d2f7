@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "11af31ef_89eed0e5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-02-14T14:55:21Z",
+      "side": 1,
+      "message": "Thanks!",
+      "revId": "80e6da49cf3ee97326717a2e69d5a8173255d2f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a81f615_36c6ecd8",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1546,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-02-14T14:55:21Z",
+      "side": 1,
+      "message": "really minor nit: should ffff be FFFF?",
+      "range": {
+        "startLine": 1546,
+        "startChar": 27,
+        "endLine": 1546,
+        "endChar": 31
+      },
+      "revId": "80e6da49cf3ee97326717a2e69d5a8173255d2f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
