@@ -319,7 +319,7 @@ TEST_F(LoadStoreAnalysisTest, ArrayIndexAliasingTest) {
   loc2 = heap_location_collector.GetArrayHeapLocation(arr_set8);
   ASSERT_TRUE(heap_location_collector.MayAlias(loc1, loc2));
 
-  EXPECT_TRUE(CheckGraphSkipRefTypeInfoChecks(graph_));
+  EXPECT_TRUE(CheckGraph(graph_));
 }
 
 TEST_F(LoadStoreAnalysisTest, ArrayAliasingTest) {

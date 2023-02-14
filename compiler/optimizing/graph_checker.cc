@@ -627,16 +627,6 @@ void GraphChecker::VisitInstruction(HInstruction* instruction) {
     }
   }
 
-  // Ensure that reference type instructions have reference type info.
-  if (check_reference_type_info_ && instruction->GetType() == DataType::Type::kReference) {
-    if (!instruction->GetReferenceTypeInfo().IsValid()) {
-      AddError(StringPrintf("Reference type instruction %s:%d does not have "
-                            "valid reference type information.",
-                            instruction->DebugName(),
-                            instruction->GetId()));
-    }
-  }
-
   if (instruction->CanThrow() && !instruction->HasEnvironment()) {
     AddError(StringPrintf("Throwing instruction %s:%d in block %d does not have an environment.",
                           instruction->DebugName(),
