@@ -49,6 +49,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fde8230a_c4803667",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-02-14T10:23:16Z",
+      "side": 1,
+      "message": "In VisitPhi we don\u0027t assign types to [dead phis](https://cs.android.com/android/platform/superproject/+/master:art/compiler/optimizing/reference_type_propagation.cc;l\u003d765;drc\u003d9b25969d7bf3e31c5b7fec5b34c37a304b6a7fa7), presumably to save compile time on Phis that are going to be deleted. Those phis could be potentially typed if we take a look at their inputs.",
+      "parentUuid": "99bee832_1c4becf7",
+      "range": {
+        "startLine": 355,
+        "startChar": 0,
+        "endLine": 357,
+        "endChar": 7
+      },
+      "revId": "a74772995ee2848e60dbe233095a2f97f0b4407c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b49ed337_d9ebca45",
         "filename": "compiler/optimizing/reference_type_propagation.cc",
         "patchSetId": 7
@@ -60,6 +84,30 @@
       "writtenOn": "2023-02-14T10:10:42Z",
       "side": 1,
       "message": "Why do we need a second pass? Can\u0027t we make sure we type every instruction during the first pass?",
+      "range": {
+        "startLine": 418,
+        "startChar": 10,
+        "endLine": 418,
+        "endChar": 41
+      },
+      "revId": "a74772995ee2848e60dbe233095a2f97f0b4407c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5fcc2fc6_f9fd0aed",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 418,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-02-14T10:23:16Z",
+      "side": 1,
+      "message": "We have a first pass (line 414) where we can type most things. For some instructions (live phis, BoundType, NullCheck, ArrayGet) we add them to the worklist as they can be updated later on if we have more information. For example, the loop header phis might have more information after typing the loop, and can now be properly typed.\n\nSaid worklist is the second pass (line 417). As a note, if we can update something in the worklist, we also add its [dependent instructions](https://cs.android.com/android/platform/superproject/+/master:art/compiler/optimizing/reference_type_propagation.cc;l\u003d1024;drc\u003d9b25969d7bf3e31c5b7fec5b34c37a304b6a7fa7).\n\nAfter all of that, anything that we don\u0027t have enough information to type will be set to the default value. We could potentially have another worklist which is \"instructions that we should type but we couldn\u0027t\", but that requires housekeeping and adds complexity. I think that a linear pass here shouldn\u0027t cost too much.",
+      "parentUuid": "b49ed337_d9ebca45",
       "range": {
         "startLine": 418,
         "startChar": 10,
