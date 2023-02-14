@@ -22,6 +22,52 @@
       },
       "revId": "a74772995ee2848e60dbe233095a2f97f0b4407c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99bee832_1c4becf7",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-02-14T10:10:42Z",
+      "side": 1,
+      "message": "I suggest dropping these dead checks. It\u0027s not the RTP\u0027s business to figure this out.",
+      "range": {
+        "startLine": 355,
+        "startChar": 0,
+        "endLine": 357,
+        "endChar": 7
+      },
+      "revId": "a74772995ee2848e60dbe233095a2f97f0b4407c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b49ed337_d9ebca45",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 418,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-02-14T10:10:42Z",
+      "side": 1,
+      "message": "Why do we need a second pass? Can\u0027t we make sure we type every instruction during the first pass?",
+      "range": {
+        "startLine": 418,
+        "startChar": 10,
+        "endLine": 418,
+        "endChar": 41
+      },
+      "revId": "a74772995ee2848e60dbe233095a2f97f0b4407c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
