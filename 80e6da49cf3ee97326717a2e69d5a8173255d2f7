@@ -39,6 +39,30 @@
       },
       "revId": "80e6da49cf3ee97326717a2e69d5a8173255d2f7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4bba56e5_e733456b",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1546,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-02-14T15:08:51Z",
+      "side": 1,
+      "message": "Thanks, fixed.\n\n(I have a habit of switching case every octet just to make them visually stand out. :)",
+      "parentUuid": "7a81f615_36c6ecd8",
+      "range": {
+        "startLine": 1546,
+        "startChar": 27,
+        "endLine": 1546,
+        "endChar": 31
+      },
+      "revId": "80e6da49cf3ee97326717a2e69d5a8173255d2f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
