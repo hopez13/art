@@ -33,6 +33,40 @@
       "message": "Lifang: this is the change that excludes S2. We may need similar changes in compiler/nterp when we get to them.",
       "revId": "4496b5224145d4255f65e98160eed827a8b09f36",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b7280bbb_8a254a03",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-02-14T15:44:35Z",
+      "side": 1,
+      "message": "Thanks!",
+      "revId": "4496b5224145d4255f65e98160eed827a8b09f36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c962588_fa5bc94c",
+        "filename": "runtime/arch/riscv64/callee_save_frame_riscv64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-02-14T15:44:35Z",
+      "side": 1,
+      "message": "Do you know if there is a bug for adding support for shadow stack register. If yes, maybe add it here.",
+      "revId": "4496b5224145d4255f65e98160eed827a8b09f36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
