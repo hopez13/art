@@ -39,6 +39,30 @@
       },
       "revId": "41df8fa6e2e8d4546ba70be7e701549080817a20",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "164415fe_85eeeb21",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-02-14T00:01:10Z",
+      "side": 1,
+      "message": "You are right. But in one of the next CLs I\u0027m going to remove the set in InitializePhase and set it to false in FinishPhase. So it will be needed then.",
+      "parentUuid": "9763a148_9b31fe4a",
+      "range": {
+        "startLine": 275,
+        "startChar": 6,
+        "endLine": 275,
+        "endChar": 25
+      },
+      "revId": "41df8fa6e2e8d4546ba70be7e701549080817a20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
