@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "92fac3a6_763fcf92",
+        "filename": "runtime/javaheapprof/javaheapsampler.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-02-14T12:57:58Z",
+      "side": 1,
+      "message": "Isn\u0027t there a risk that this causes consistent biases in the sampling? Would it be possible to use getrandom(2) instead, just to put any worry to rest?",
+      "range": {
+        "startLine": 30,
+        "startChar": 22,
+        "endLine": 30,
+        "endChar": 52
+      },
+      "revId": "e9fda25d189349599a59b6b346b29dbeea392219",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
