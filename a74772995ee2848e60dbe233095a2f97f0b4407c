@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "83e19723_6e9b5501",
+        "filename": "compiler/optimizing/optimizing_unit_test.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-02-14T10:02:55Z",
+      "side": 1,
+      "message": "We need non-null handles. All callers tip-of-tree had `handles` as nullptr.\nAs a note, we already needed it for [this path](https://cs.android.com/android/platform/superproject/+/master:art/compiler/optimizing/reference_type_propagation.cc;l\u003d406;drc\u003d2c50b3a4f31cb9e845f80299e684cd9937b61e24) but we weren\u0027t hitting it on gtests.",
+      "range": {
+        "startLine": 267,
+        "startChar": 33,
+        "endLine": 267,
+        "endChar": 40
+      },
+      "revId": "a74772995ee2848e60dbe233095a2f97f0b4407c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
