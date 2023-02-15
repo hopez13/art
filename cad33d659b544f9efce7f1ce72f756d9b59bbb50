@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "039af1e7_880341ca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-02-15T09:45:56Z",
+      "side": 1,
+      "message": "Alternative CL that removes our checks for valid RTI. Test 2258- makes sure we can build the graph successfully, even though it doesn\u0027t have valid RTI after the builder stage.",
+      "revId": "cad33d659b544f9efce7f1ce72f756d9b59bbb50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
