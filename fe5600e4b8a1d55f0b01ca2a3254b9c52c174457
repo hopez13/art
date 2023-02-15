@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc3f8e4c_024d3702",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-02-15T11:16:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "13b65c3e_22b44a1e",
+      "range": {
+        "startLine": 13,
+        "startChar": 9,
+        "endLine": 13,
+        "endChar": 13
+      },
+      "revId": "fe5600e4b8a1d55f0b01ca2a3254b9c52c174457",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4499fd34_8391fdad",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc61dedd_cba08447",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-02-15T11:16:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4499fd34_8391fdad",
+      "range": {
+        "startLine": 17,
+        "startChar": 43,
+        "endLine": 17,
+        "endChar": 46
+      },
+      "revId": "fe5600e4b8a1d55f0b01ca2a3254b9c52c174457",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3323c232_82b61a17",
@@ -60,6 +108,30 @@
       "writtenOn": "2023-02-15T09:16:10Z",
       "side": 1,
       "message": "its",
+      "range": {
+        "startLine": 21,
+        "startChar": 39,
+        "endLine": 21,
+        "endChar": 43
+      },
+      "revId": "fe5600e4b8a1d55f0b01ca2a3254b9c52c174457",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "43d26ac2_425b5b6f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-02-15T11:16:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3323c232_82b61a17",
       "range": {
         "startLine": 21,
         "startChar": 39,
@@ -110,6 +182,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dbc8fbfa_98305e8a",
+        "filename": "dexlayout/dexlayout.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2016,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-02-15T11:16:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "57ef99ad_38b44543",
+      "range": {
+        "startLine": 2016,
+        "startChar": 28,
+        "endLine": 2016,
+        "endChar": 39
+      },
+      "revId": "fe5600e4b8a1d55f0b01ca2a3254b9c52c174457",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "20396eef_88bf4238",
@@ -123,6 +219,30 @@
       "writtenOn": "2023-02-15T09:16:10Z",
       "side": 1,
       "message": "I do not like this, traces are developer things that should not require us creating abstractions like this. Can you avoid it / rewrite the logic?",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 62,
+        "endChar": 92
+      },
+      "revId": "fe5600e4b8a1d55f0b01ca2a3254b9c52c174457",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d1d9474_a0c0d9cd",
+        "filename": "libdexfile/dex/art_dex_file_loader.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-02-15T11:16:32Z",
+      "side": 1,
+      "message": "I have tried slightly different approach.",
+      "parentUuid": "20396eef_88bf4238",
       "range": {
         "startLine": 62,
         "startChar": 0,
@@ -156,6 +276,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e4e0ec3_6f4c03b4",
+        "filename": "libdexfile/dex/compact_dex_file.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-02-15T11:16:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0f4651db_50e2bd2b",
+      "range": {
+        "startLine": 314,
+        "startChar": 22,
+        "endLine": 314,
+        "endChar": 32
+      },
+      "revId": "fe5600e4b8a1d55f0b01ca2a3254b9c52c174457",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "02671c8f_532b5a58",
@@ -169,6 +313,30 @@
       "writtenOn": "2023-02-15T09:16:10Z",
       "side": 1,
       "message": "No need to make these virtual?",
+      "range": {
+        "startLine": 74,
+        "startChar": 0,
+        "endLine": 75,
+        "endChar": 45
+      },
+      "revId": "fe5600e4b8a1d55f0b01ca2a3254b9c52c174457",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3afbe576_7ec4b053",
+        "filename": "libdexfile/dex/dex_file.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-02-15T11:16:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "02671c8f_532b5a58",
       "range": {
         "startLine": 74,
         "startChar": 0,
@@ -202,6 +370,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "311adfaf_4c04b445",
+        "filename": "libdexfile/dex/dex_file.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 931,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-02-15T11:16:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d417087f_737ebed9",
+      "range": {
+        "startLine": 931,
+        "startChar": 7,
+        "endLine": 931,
+        "endChar": 17
+      },
+      "revId": "fe5600e4b8a1d55f0b01ca2a3254b9c52c174457",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8a6582d2_4b35dd1b",
@@ -215,6 +407,30 @@
       "writtenOn": "2023-02-15T09:16:10Z",
       "side": 1,
       "message": "Looks like we need some commenting at the definition of these methods in `DexFileContainer`. Could you add them and what\u0027s the return values?",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 46
+      },
+      "revId": "fe5600e4b8a1d55f0b01ca2a3254b9c52c174457",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "010d2013_710d860f",
+        "filename": "libdexfile/dex/dex_file_loader.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-02-15T11:16:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8a6582d2_4b35dd1b",
       "range": {
         "startLine": 49,
         "startChar": 0,
@@ -248,6 +464,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c17ef521_5dfe7f66",
+        "filename": "libdexfile/dex/dex_file_loader.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-02-15T11:16:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dbb182f7_df85f042",
+      "range": {
+        "startLine": 195,
+        "startChar": 24,
+        "endLine": 195,
+        "endChar": 25
+      },
+      "revId": "fe5600e4b8a1d55f0b01ca2a3254b9c52c174457",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "750bf0e3_cf83c0b4",
@@ -271,6 +511,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6bd3463c_a804359d",
+        "filename": "libdexfile/dex/dex_file_loader.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-02-15T11:16:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "750bf0e3_cf83c0b4",
+      "range": {
+        "startLine": 197,
+        "startChar": 0,
+        "endLine": 203,
+        "endChar": 3
+      },
+      "revId": "fe5600e4b8a1d55f0b01ca2a3254b9c52c174457",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b0df2b65_20aa45c6",
@@ -284,6 +548,30 @@
       "writtenOn": "2023-02-15T09:16:10Z",
       "side": 1,
       "message": "const",
+      "range": {
+        "startLine": 205,
+        "startChar": 19,
+        "endLine": 205,
+        "endChar": 20
+      },
+      "revId": "fe5600e4b8a1d55f0b01ca2a3254b9c52c174457",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fdcf9226_5bfe92b2",
+        "filename": "libdexfile/dex/dex_file_loader.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-02-15T11:16:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0df2b65_20aa45c6",
       "range": {
         "startLine": 205,
         "startChar": 19,
