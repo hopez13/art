@@ -375,6 +375,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f6d90817_5d0a2368",
+        "filename": "libdexfile/dex/art_dex_file_loader.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-02-15T14:44:15Z",
+      "side": 1,
+      "message": "Ah! Can you change veridex bp files to link against libartpalette?",
+      "parentUuid": "af4a5e17_4bee045f",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 62,
+        "endChar": 92
+      },
+      "revId": "fe5600e4b8a1d55f0b01ca2a3254b9c52c174457",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0f4651db_50e2bd2b",
         "filename": "libdexfile/dex/compact_dex_file.h",
         "patchSetId": 1
