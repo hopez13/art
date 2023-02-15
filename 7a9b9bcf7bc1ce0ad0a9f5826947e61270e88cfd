@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d2896e6_7cbdfe94",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-02-15T10:29:06Z",
+      "side": 1,
+      "message": "Thanks!",
+      "revId": "7a9b9bcf7bc1ce0ad0a9f5826947e61270e88cfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f7617682_ccc05acc",
+        "filename": "runtime/startup_completed_task.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-02-15T10:29:06Z",
+      "side": 1,
+      "message": "Just curious, do we want to generate runtime app image so early? Do we expect to have sufficient JITed code by the end of startup itself? I guess if app doesn\u0027t notify and we wait for 5seconds that would be fine but I was wondering about cases when we get a notification too soon.",
+      "revId": "7a9b9bcf7bc1ce0ad0a9f5826947e61270e88cfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
