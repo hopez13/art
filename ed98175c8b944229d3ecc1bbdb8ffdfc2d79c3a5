@@ -22,6 +22,30 @@
       },
       "revId": "ed98175c8b944229d3ecc1bbdb8ffdfc2d79c3a5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "24a6e5ce_0bf06be5",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-02-15T10:22:11Z",
+      "side": 0,
+      "message": "Sure. Moved those to GraphChecker.\nThe BoundType one was already there so there was no need to add it.",
+      "parentUuid": "d8959492_77d43321",
+      "range": {
+        "startLine": 131,
+        "startChar": 0,
+        "endLine": 153,
+        "endChar": 9
+      },
+      "revId": "ed98175c8b944229d3ecc1bbdb8ffdfc2d79c3a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
