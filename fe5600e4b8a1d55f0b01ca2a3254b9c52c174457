@@ -397,6 +397,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "84556f7e_7507115e",
+        "filename": "libdexfile/dex/art_dex_file_loader.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-02-15T14:53:41Z",
+      "side": 1,
+      "message": "Oh!  It was just `veridex`.\n\nI assumed that not using Android trace on host was a constraint... but it seems it is not.",
+      "parentUuid": "f6d90817_5d0a2368",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 62,
+        "endChar": 92
+      },
+      "revId": "fe5600e4b8a1d55f0b01ca2a3254b9c52c174457",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0f4651db_50e2bd2b",
