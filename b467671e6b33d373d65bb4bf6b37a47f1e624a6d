@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c4e2a931_a9a90723",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 459,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-02-15T14:01:01Z",
+      "side": 1,
+      "message": "We allow invalid RTI due to unresolved classes https://cs.android.com/android/platform/superproject/+/master:art/compiler/optimizing/graph_visualizer.cc;l\u003d765;drc\u003dd4229601e0fb46b0a013b52370aeda3887aea8e9",
+      "parentUuid": "b49f8a96_21ba9978",
+      "range": {
+        "startLine": 459,
+        "startChar": 6,
+        "endLine": 459,
+        "endChar": 41
+      },
+      "revId": "b467671e6b33d373d65bb4bf6b37a47f1e624a6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3547af76_dfde7689",
         "filename": "compiler/optimizing/graph_checker.cc",
         "patchSetId": 3
@@ -37,6 +61,30 @@
       "writtenOn": "2023-02-15T13:03:31Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 760,
+        "startChar": 3,
+        "endLine": 760,
+        "endChar": 42
+      },
+      "revId": "b467671e6b33d373d65bb4bf6b37a47f1e624a6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b1a42138_e7bacb0f",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 760,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-02-15T14:01:01Z",
+      "side": 1,
+      "message": "Same as the other comment.",
+      "parentUuid": "3547af76_dfde7689",
       "range": {
         "startLine": 760,
         "startChar": 3,
