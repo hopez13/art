@@ -33,6 +33,24 @@
       "message": "Just curious, do we want to generate runtime app image so early? Do we expect to have sufficient JITed code by the end of startup itself? I guess if app doesn\u0027t notify and we wait for 5seconds that would be fine but I was wondering about cases when we get a notification too soon.",
       "revId": "7a9b9bcf7bc1ce0ad0a9f5826947e61270e88cfd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "993d1d39_1de27d05",
+        "filename": "runtime/startup_completed_task.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-02-15T12:44:22Z",
+      "side": 1,
+      "message": "Note it\u0027s not aboute what\u0027s JITTed but instead what classes have been loaded. An app image is only really about startup. If the app says it has started up, we trust it.",
+      "parentUuid": "f7617682_ccc05acc",
+      "revId": "7a9b9bcf7bc1ce0ad0a9f5826947e61270e88cfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
