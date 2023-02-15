@@ -118,6 +118,30 @@
       },
       "revId": "eb0b191424aca68f81418b851ff89aa430313e6d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99225818_4b5be028",
+        "filename": "compiler/art_standalone_compiler_tests.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-02-15T21:35:45Z",
+      "side": 1,
+      "message": "Checking mtime on directories seems fragile. Is it possible to use some specific files instead?\n\n\u003e Bash code for this will get more complicated of course.\n\nYes, and given these commands are heavily duplicated it gets even worse. WDYT about putting both the run-command and the teardown-command, along with explanatory comments etc, in a bash script that\u0027s pushed to device and then run from this preparer? Is it possible to push a file from the source directory?\n\nIf that\u0027s a feasible approach it may even be worthwhile compared to the brute force regen approach, due to the amount of duplication. Not sure though, it\u0027s borderline.\n\nBut if you don\u0027t like it I suppose we can just go with the repeated regen.",
+      "parentUuid": "8d34df42_76ca4e00",
+      "range": {
+        "startLine": 30,
+        "startChar": 24,
+        "endLine": 30,
+        "endChar": 35
+      },
+      "revId": "eb0b191424aca68f81418b851ff89aa430313e6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
