@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d8959492_77d43321",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-02-15T09:49:24Z",
+      "side": 0,
+      "message": "The checks like getTargetClassRTI, getLoadedClassRTI can still be kept, no?",
+      "range": {
+        "startLine": 131,
+        "startChar": 0,
+        "endLine": 153,
+        "endChar": 9
+      },
+      "revId": "ed98175c8b944229d3ecc1bbdb8ffdfc2d79c3a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
