@@ -16,6 +16,24 @@
       "message": "I started looking at the traces to see if anything stood out, but probably best to revert given the number of apps/tests impacted.",
       "revId": "6bf9ddc8116eba646c82c8c2153688ea0450bb84",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a7081ca1_bf8bdb2d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-02-16T19:49:05Z",
+      "side": 1,
+      "message": "Thanks Jared. I\u0027ve found the issue earlier today, fix was here: https://android-review.git.corp.google.com/c/platform/art/+/2441281",
+      "parentUuid": "31c653d3_d9e21c97",
+      "revId": "6bf9ddc8116eba646c82c8c2153688ea0450bb84",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
