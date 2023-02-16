@@ -15,6 +15,11 @@
  */
 
 public class Main {
+  static class ValueHolder {
+    int getValue() {
+      return 1;
+    }
+  }
 
   public static void main(String[] args) {
     testSimpleUse();
@@ -28,6 +33,7 @@ public class Main {
     testVolatileStore();
     testCatchBlock();
     $noinline$testTwoThrowingPathsAndStringBuilderAppend();
+    $noinline$testDoNotSinkClinitCheckNewInstance();
     doThrow = true;
     try {
       testInstanceSideEffects();
@@ -561,6 +567,32 @@ public class Main {
       throw new Error("Unreachable");
     } catch (Error expected) {
       assertEquals("s1s2", expected.getMessage());
+    }
+  }
+
+  // Consistency check: only one ClinitCheck
+  /// CHECK-START: void Main.$noinline$testDoNotSinkClinitCheckNewInstance() code_sinking (before)
+  /// CHECK:                ClinitCheck
+  /// CHECK-NOT:            ClinitCheck
+
+  /// CHECK-START: void Main.$noinline$testDoNotSinkClinitCheckNewInstance() code_sinking (before)
+  /// CHECK: <<Check:l\d+>> ClinitCheck
+  /// CHECK:                NewInstance [<<Check>>]
+  /// CHECK:                NewInstance
+  /// CHECK:                If
+
+  /// CHECK-START: void Main.$noinline$testDoNotSinkClinitCheckNewInstance() code_sinking (after)
+  /// CHECK: <<Check:l\d+>> ClinitCheck
+  /// CHECK:                NewInstance [<<Check>>]
+  /// CHECK:                If
+  /// CHECK:                NewInstance
+  private static void $noinline$testDoNotSinkClinitCheckNewInstance() {
+    // Can't be sunk
+    ValueHolder vh = new ValueHolder();
+    // Can be sunk
+    Object o = new Object();
+    if (doThrow) {
+      throw new Error(Integer.toString(vh.getValue()) + o.toString());
     }
   }
 

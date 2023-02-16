@@ -61,7 +61,11 @@ static bool IsInterestingInstruction(HInstruction* instruction) {
   }
 
   // Check allocations and strings first, as they can throw, but it is safe to move them.
-  if (instruction->IsNewInstance() || instruction->IsNewArray() || instruction->IsLoadString()) {
+  // We only sink NewInstance without ClinitChecks. If allow that, there might be throwing
+  // instructions between them, which is something we don't allow.
+  if ((instruction->IsNewInstance() && !instruction->InputAt(0)->IsClinitCheck()) ||
+       instruction->IsNewArray() ||
+       instruction->IsLoadString()) {
     return true;
   }
 
