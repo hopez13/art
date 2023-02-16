@@ -26,16 +26,9 @@ public class Main {
     static final String LIBRARY_SEARCH_PATH = System.getProperty("java.library.path");
     static AtomicBoolean completed = new AtomicBoolean(false);
 
-    public static void assertFalse(boolean value) {
-        if (value) {
-            throw new Error("Expected false false");
-        }
-    }
-
     public static void main(String[] args) {
         System.loadLibrary(args[0]);
-        assertFalse(hasStartupCompleted());
-
+        System.out.println("Startup completed: " + hasStartupCompleted());
         Thread workerThread = new WorkerThread();
         workerThread.start();
         do {
@@ -48,9 +41,7 @@ public class Main {
         } catch (Throwable e) {
             System.err.println(e);
         }
-        while (!hasStartupCompleted()) {
-            Thread.yield();
-        }
+        System.out.println("Startup completed: " + hasStartupCompleted());
     }
 
     private static class WorkerThread extends Thread {
@@ -58,7 +49,7 @@ public class Main {
 
         private WeakReference<Class<?>> $noinline$loadClassInLoader() throws Exception {
             ClassLoader loader = new PathClassLoader(
-                    DEX_FILE, LIBRARY_SEARCH_PATH, Object.class.getClassLoader());
+                    DEX_FILE, LIBRARY_SEARCH_PATH, ClassLoader.getSystemClassLoader());
             Class ret = loader.loadClass("Main");
             return new WeakReference(ret);
         }

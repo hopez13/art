@@ -61,7 +61,6 @@ extern "C" void android_set_application_target_sdk_version(uint32_t version);
 #include "runtime.h"
 #include "scoped_fast_native_object_access-inl.h"
 #include "scoped_thread_state_change-inl.h"
-#include "startup_completed_task.h"
 #include "string_array_utils.h"
 #include "thread-inl.h"
 #include "thread_list.h"
@@ -324,7 +323,7 @@ static void VMRuntime_updateProcessState(JNIEnv*, jobject, jint process_state) {
 }
 
 static void VMRuntime_notifyStartupCompleted(JNIEnv*, jobject) {
-  Runtime::Current()->GetHeap()->AddHeapTask(new StartupCompletedTask(NanoTime()));
+  Runtime::Current()->NotifyStartupCompleted();
 }
 
 static void VMRuntime_trimHeap(JNIEnv* env, jobject) {

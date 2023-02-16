@@ -1091,8 +1091,8 @@ class Runtime {
   void ResetStartupCompleted();
 
   // Notify the runtime that application startup is considered completed. Only has effect for the
-  // first call. Returns whether this was the first call.
-  bool NotifyStartupCompleted();
+  // first call.
+  void NotifyStartupCompleted();
 
   // Notify the runtime that the application finished loading some dex/odex files. This is
   // called everytime we load a set of dex files in a class loader.
@@ -1614,6 +1614,7 @@ class Runtime {
   friend class Dex2oatImageTest;
   friend class ScopedThreadPoolUsage;
   friend class OatFileAssistantTest;
+  class NotifyStartupCompletedTask;
   class SetupLinearAllocForZygoteFork;
 
   DISALLOW_COPY_AND_ASSIGN(Runtime);
