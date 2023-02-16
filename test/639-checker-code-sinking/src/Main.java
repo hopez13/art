@@ -15,6 +15,11 @@
  */
 
 public class Main {
+  static class ValueHolder {
+    int getValue() {
+      return 1;
+    }
+  }
 
   public static void main(String[] args) {
     testSimpleUse();
@@ -28,6 +33,7 @@ public class Main {
     testVolatileStore();
     testCatchBlock();
     $noinline$testTwoThrowingPathsAndStringBuilderAppend();
+    $noinline$testSinkClinitCheck();
     doThrow = true;
     try {
       testInstanceSideEffects();
@@ -561,6 +567,22 @@ public class Main {
       throw new Error("Unreachable");
     } catch (Error expected) {
       assertEquals("s1s2", expected.getMessage());
+    }
+  }
+
+  /// CHECK-START: void Main.$noinline$testSinkClinitCheck() code_sinking (before)
+  /// CHECK: ClinitCheck
+  /// CHECK: NewInstance
+  /// CHECK: If
+
+  /// CHECK-START: void Main.$noinline$testSinkClinitCheck() code_sinking (after)
+  /// CHECK: If
+  /// CHECK: ClinitCheck
+  /// CHECK: NewInstance
+  private static void $noinline$testSinkClinitCheck() {
+    ValueHolder o = new ValueHolder();
+    if (doThrow) {
+      throw new Error(Integer.toString(o.getValue()));
     }
   }
 
