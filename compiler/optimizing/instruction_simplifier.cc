@@ -969,7 +969,8 @@ void InstructionSimplifierVisitor::VisitPredicatedInstanceFieldGet(
                           pred_get->GetFieldInfo().GetDeclaringClassDefIndex(),
                           pred_get->GetFieldInfo().GetDexFile(),
                           pred_get->GetDexPc());
-    if (pred_get->GetType() == DataType::Type::kReference) {
+    if (pred_get->GetType() == DataType::Type::kReference &&
+        pred_get->GetReferenceTypeInfo().IsValid()) {
       replace_with->SetReferenceTypeInfo(pred_get->GetReferenceTypeInfo());
     }
     pred_get->GetBlock()->InsertInstructionBefore(replace_with, pred_get);
@@ -2782,7 +2783,9 @@ static bool TryReplaceStringBuilderAppend(HInvoke* invoke) {
   ArenaAllocator* allocator = block->GetGraph()->GetAllocator();
   HStringBuilderAppend* append = new (allocator) HStringBuilderAppend(
       fmt, num_args, has_fp_args, allocator, invoke->GetDexPc());
-  append->SetReferenceTypeInfo(invoke->GetReferenceTypeInfo());
+  if (invoke->GetReferenceTypeInfo().IsValid()) {
+    append->SetReferenceTypeInfo(invoke->GetReferenceTypeInfo());
+  }
   for (size_t i = 0; i != num_args; ++i) {
     append->SetArgumentAt(i, args[num_args - 1u - i]);
   }

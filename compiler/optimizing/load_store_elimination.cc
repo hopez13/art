@@ -3384,7 +3384,8 @@ class PartialLoadStoreEliminationHelper {
               helper_->lse_->GetPartialValueAt(OriginalNewInstance(), ins));
           MaybeRecordStat(helper_->lse_->stats_, MethodCompilationStat::kPredicatedLoadAdded);
           ins->GetBlock()->InsertInstructionBefore(new_fget, ins);
-          if (ins->GetType() == DataType::Type::kReference) {
+          if (ins->GetType() == DataType::Type::kReference &&
+              ins->GetReferenceTypeInfo().IsValid()) {
             // Reference info is the same
             new_fget->SetReferenceTypeInfo(ins->GetReferenceTypeInfo());
           }

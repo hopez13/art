@@ -1326,7 +1326,8 @@ bool HInliner::TryDevirtualize(HInvoke* invoke_instruction,
   }
   invoke_instruction->GetBlock()->InsertInstructionBefore(new_invoke, invoke_instruction);
   new_invoke->CopyEnvironmentFrom(invoke_instruction->GetEnvironment());
-  if (invoke_instruction->GetType() == DataType::Type::kReference) {
+  if (invoke_instruction->GetType() == DataType::Type::kReference &&
+      invoke_instruction->GetReferenceTypeInfo().IsValid()) {
     new_invoke->SetReferenceTypeInfo(invoke_instruction->GetReferenceTypeInfo());
   }
   *replacement = new_invoke;
@@ -1528,7 +1529,8 @@ bool HInliner::TryBuildAndInline(HInvoke* invoke_instruction,
     }
     invoke_instruction->GetBlock()->InsertInstructionBefore(new_invoke, invoke_instruction);
     new_invoke->CopyEnvironmentFrom(invoke_instruction->GetEnvironment());
-    if (invoke_instruction->GetType() == DataType::Type::kReference) {
+    if (invoke_instruction->GetType() == DataType::Type::kReference &&
+        invoke_instruction->GetReferenceTypeInfo().IsValid()) {
       new_invoke->SetReferenceTypeInfo(invoke_instruction->GetReferenceTypeInfo());
     }
     *return_replacement = new_invoke;
