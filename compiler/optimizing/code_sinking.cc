@@ -171,15 +171,9 @@ static bool ShouldFilterUse(HInstruction* instruction,
   return false;
 }
 
-
-// Find the ideal position for moving `instruction`. If `filter` is true,
-// we filter out store instructions to that instruction, which are processed
-// first in the step (3) of the sinking algorithm.
-// This method is tailored to the sinking algorithm, unlike
-// the generic HInstruction::MoveBeforeFirstUserAndOutOfLoops.
-static HInstruction* FindIdealPosition(HInstruction* instruction,
-                                       const ArenaBitVector& post_dominated,
-                                       bool filter = false) {
+HInstruction* CodeSinking::FindIdealPosition(HInstruction* instruction,
+                                             const ArenaBitVector& post_dominated,
+                                             bool filter) {
   DCHECK(!instruction->IsPhi());  // Makes no sense for Phi.
 
   // Find the target block.
@@ -210,14 +204,23 @@ static HInstruction* FindIdealPosition(HInstruction* instruction,
     return nullptr;
   }
 
-  // Move to the first dominator not in a loop, if we can.
-  while (target_block->IsInLoop()) {
-    if (!post_dominated.IsBitSet(target_block->GetDominator()->GetBlockId())) {
-      break;
+  // If the graph has a try catch, we have the (unlikely) possibility of having an infinite loop
+  // where the try flows into the catch, and the catch into the try. In that case we cannot traverse
+  // up the domination chain or we might end up with a bad CFG. This scenario happens because we
+  // have an exit block even though it is an infinite loop so we don't bail at the beginning of
+  // CodeSinking::Run.
+  // TODO(solanes): Figure out if we can detect these try/catch infinite loops.
+  if (!graph_->HasTryCatch()) {
+    // Move to the first dominator not in a loop, if we can.
+    while (target_block->IsInLoop()) {
+      if (!post_dominated.IsBitSet(target_block->GetDominator()->GetBlockId())) {
+        break;
+      }
+      target_block = target_block->GetDominator();
+      DCHECK(target_block != nullptr);
     }
-    target_block = target_block->GetDominator();
-    DCHECK(target_block != nullptr);
   }
+
   const bool was_in_loop = target_block->IsInLoop();
 
   // For throwing instructions we can move them into:
@@ -303,7 +306,6 @@ static HInstruction* FindIdealPosition(HInstruction* instruction,
   DCHECK(!insert_pos->IsPhi());
   return insert_pos;
 }
-
 
 void CodeSinking::SinkCodeToUncommonBranch(HBasicBlock* end_block) {
   // Local allocator to discard data structures created below at the end of this optimization.

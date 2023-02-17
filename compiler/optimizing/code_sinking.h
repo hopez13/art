@@ -43,6 +43,15 @@ class CodeSinking : public HOptimization {
   // blocks, to these blocks.
   void SinkCodeToUncommonBranch(HBasicBlock* end_block);
 
+  // Find the ideal position for moving `instruction`. If `filter` is true,
+  // we filter out store instructions to that instruction, which are processed
+  // first in the step (3) of the sinking algorithm.
+  // This method is tailored to the sinking algorithm, unlike
+  // the generic HInstruction::MoveBeforeFirstUserAndOutOfLoops.
+  HInstruction* FindIdealPosition(HInstruction* instruction,
+                                  const ArenaBitVector& post_dominated,
+                                  bool filter = false);
+
   DISALLOW_COPY_AND_ASSIGN(CodeSinking);
 };
 
