@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79fb137d_f9f09c42",
+        "filename": "libartpalette/apex/palette_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-02-17T17:15:21Z",
+      "side": 1,
+      "message": "Use `::android::modules::sdklevel::IsAtLeastU`. It works even though the UDC SDK isn\u0027t frozen.",
+      "range": {
+        "startLine": 113,
+        "startChar": 0,
+        "endLine": 126,
+        "endChar": 1
+      },
+      "revId": "782e5711e82cc3d0e088bd446fb07962ebc3732d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
