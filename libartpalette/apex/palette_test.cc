@@ -23,6 +23,10 @@
 
 #include <filesystem>
 
+#ifdef ART_TARGET_ANDROID
+#include <android/api-level.h>
+#endif
+
 #include "base/common_art_test.h"
 #include "gtest/gtest.h"
 
@@ -105,6 +109,21 @@ TEST_F(PaletteClientJniTest, JniInvocation) {
   EXPECT_EQ(JNI_OK, jvm->DestroyJavaVM());
 }
 
+static bool PaletteSetTaskProfilesIsSupported(palette_status_t res) {
+  int api_level = android_get_device_api_level();
+  if (api_level >= __ANDROID_API_U__) {
+    return true;  // PaletteSetTaskProfiles should always be supported on UDC and later.
+  }
+  if (api_level == __ANDROID_API_T__) {
+    // TODO(b/238182454): As long as the UDC SDK isn't frozen, we'll get the T
+    // API level even though the function is present, so we must allow either
+    // case. Clean this up once the SDK level has been bumped.
+    return res != PALETTE_STATUS_NOT_SUPPORTED;
+  }
+  EXPECT_EQ(PALETTE_STATUS_NOT_SUPPORTED, res) << "Device API level: " << api_level;
+  return false;
+}
+
 TEST_F(PaletteClientTest, SetTaskProfiles) {
 #ifndef ART_TARGET_ANDROID
   GTEST_SKIP() << "SetTaskProfiles is only supported on Android";
@@ -116,12 +135,14 @@ TEST_F(PaletteClientTest, SetTaskProfiles) {
 
   const char* profiles[] = {"NormalIoPriority", "TimerSlackNormal"};
   palette_status_t res = PaletteSetTaskProfiles(GetTid(), &profiles[0], 2);
-  // SetTaskProfiles will only work fully if we run as root. Otherwise it'll
-  // return false which is mapped to PALETTE_STATUS_FAILED_CHECK_LOG.
-  if (getuid() == 0) {
-    EXPECT_EQ(PALETTE_STATUS_OK, res);
-  } else {
-    EXPECT_EQ(PALETTE_STATUS_FAILED_CHECK_LOG, res);
+  if (PaletteSetTaskProfilesIsSupported(res)) {
+    // SetTaskProfiles will only work fully if we run as root. Otherwise it'll
+    // return false which is mapped to PALETTE_STATUS_FAILED_CHECK_LOG.
+    if (getuid() == 0) {
+      EXPECT_EQ(PALETTE_STATUS_OK, res);
+    } else {
+      EXPECT_EQ(PALETTE_STATUS_FAILED_CHECK_LOG, res);
+    }
   }
 #endif
 }
@@ -137,12 +158,14 @@ TEST_F(PaletteClientTest, SetTaskProfilesCpp) {
 
   std::vector<std::string> profiles = {"NormalIoPriority", "TimerSlackNormal"};
   palette_status_t res = PaletteSetTaskProfiles(GetTid(), profiles);
-  // SetTaskProfiles will only work fully if we run as root. Otherwise it'll
-  // return false which is mapped to PALETTE_STATUS_FAILED_CHECK_LOG.
-  if (getuid() == 0) {
-    EXPECT_EQ(PALETTE_STATUS_OK, res);
-  } else {
-    EXPECT_EQ(PALETTE_STATUS_FAILED_CHECK_LOG, res);
+  if (PaletteSetTaskProfilesIsSupported(res)) {
+    // SetTaskProfiles will only work fully if we run as root. Otherwise it'll
+    // return false which is mapped to PALETTE_STATUS_FAILED_CHECK_LOG.
+    if (getuid() == 0) {
+      EXPECT_EQ(PALETTE_STATUS_OK, res);
+    } else {
+      EXPECT_EQ(PALETTE_STATUS_FAILED_CHECK_LOG, res);
+    }
   }
 #endif
 }
