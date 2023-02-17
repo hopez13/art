@@ -171,15 +171,9 @@ static bool ShouldFilterUse(HInstruction* instruction,
   return false;
 }
 
-
-// Find the ideal position for moving `instruction`. If `filter` is true,
-// we filter out store instructions to that instruction, which are processed
-// first in the step (3) of the sinking algorithm.
-// This method is tailored to the sinking algorithm, unlike
-// the generic HInstruction::MoveBeforeFirstUserAndOutOfLoops.
-static HInstruction* FindIdealPosition(HInstruction* instruction,
-                                       const ArenaBitVector& post_dominated,
-                                       bool filter = false) {
+HInstruction* CodeSinking::FindIdealPosition(HInstruction* instruction,
+                                             const ArenaBitVector& post_dominated,
+                                             bool filter) {
   DCHECK(!instruction->IsPhi());  // Makes no sense for Phi.
 
   // Find the target block.
@@ -210,14 +204,17 @@ static HInstruction* FindIdealPosition(HInstruction* instruction,
     return nullptr;
   }
 
-  // Move to the first dominator not in a loop, if we can.
-  while (target_block->IsInLoop()) {
+  // Move to the first dominator not in a loop, if we can. We only do this if we are trying to hoist
+  // `instruction` out of a loop it wasn't a part of.
+  const HLoopInformation* loop_info = instruction->GetBlock()->GetLoopInformation();
+  while (target_block->IsInLoop() && target_block->GetLoopInformation() != loop_info) {
     if (!post_dominated.IsBitSet(target_block->GetDominator()->GetBlockId())) {
       break;
     }
     target_block = target_block->GetDominator();
     DCHECK(target_block != nullptr);
   }
+
   const bool was_in_loop = target_block->IsInLoop();
 
   // For throwing instructions we can move them into:
@@ -303,7 +300,6 @@ static HInstruction* FindIdealPosition(HInstruction* instruction,
   DCHECK(!insert_pos->IsPhi());
   return insert_pos;
 }
-
 
 void CodeSinking::SinkCodeToUncommonBranch(HBasicBlock* end_block) {
   // Local allocator to discard data structures created below at the end of this optimization.
