@@ -687,7 +687,8 @@ void HGraph::TransformLoopToSinglePreheaderFormat(HBasicBlock* header) {
                                                     header_phi->GetRegNumber(),
                                                     0,
                                                     header_phi->GetType());
-    if (header_phi->GetType() == DataType::Type::kReference) {
+    if (header_phi->GetType() == DataType::Type::kReference &&
+        header_phi->GetReferenceTypeInfo().IsValid()) {
       preheader_phi->SetReferenceTypeInfo(header_phi->GetReferenceTypeInfo());
     }
     preheader->AddPhi(preheader_phi);

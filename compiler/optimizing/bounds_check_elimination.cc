@@ -2010,7 +2010,7 @@ class BCEVisitor : public HGraphVisitor {
         HPhi(graph->GetAllocator(), kNoRegNumber, /*number_of_inputs*/ 2, HPhi::ToPhiType(type));
     phi->SetRawInputAt(0, instruction);
     phi->SetRawInputAt(1, zero);
-    if (type == DataType::Type::kReference) {
+    if (type == DataType::Type::kReference && instruction->GetReferenceTypeInfo().IsValid()) {
       phi->SetReferenceTypeInfo(instruction->GetReferenceTypeInfo());
     }
     new_preheader->AddPhi(phi);

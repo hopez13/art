@@ -632,7 +632,7 @@ void SuperblockCloner::ConstructSubgraphClosedSSA() {
     HInstruction* value = live_out_it->first;
     HPhi* phi = new (arena_) HPhi(arena_, kNoRegNumber, 0, value->GetType());
 
-    if (value->GetType() == DataType::Type::kReference) {
+    if (value->GetType() == DataType::Type::kReference && value->GetReferenceTypeInfo().IsValid()) {
       phi->SetReferenceTypeInfo(value->GetReferenceTypeInfo());
     }
 
