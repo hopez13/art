@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fadbae03_304fa966",
+        "filename": "libartpalette/apex/palette_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2023-02-18T11:16:51Z",
+      "side": 1,
+      "message": "Nit: Consider moving this function to the anonymous namespace lines 34–44 and not making it `static`.",
+      "range": {
+        "startLine": 114,
+        "startChar": 0,
+        "endLine": 114,
+        "endChar": 6
+      },
+      "revId": "bbe7ca16a9ccbebfdd5e96d0fd71bd268c750a03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "50492bff_3c1ae63a",
         "filename": "libartpalette/apex/palette_test.cc",
         "patchSetId": 4
