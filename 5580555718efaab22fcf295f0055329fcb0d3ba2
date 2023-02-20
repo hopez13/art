@@ -178,6 +178,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "33fac522_48f8f847",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-02-20T16:55:07Z",
+      "side": 1,
+      "message": "Thanks! lgtm.",
+      "parentUuid": "04bb4af5_5db9ab92",
+      "range": {
+        "startLine": 178,
+        "startChar": 7,
+        "endLine": 178,
+        "endChar": 33
+      },
+      "revId": "5580555718efaab22fcf295f0055329fcb0d3ba2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "29bf466c_65f6efea",
         "filename": "runtime/arch/riscv64/asm_support_riscv64.S",
         "patchSetId": 3
@@ -493,6 +517,30 @@
       "side": 1,
       "message": "Yes, and for other architectures as well.",
       "parentUuid": "35ed8228_3f997330",
+      "range": {
+        "startLine": 377,
+        "startChar": 13,
+        "endLine": 377,
+        "endChar": 17
+      },
+      "revId": "5580555718efaab22fcf295f0055329fcb0d3ba2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fdb1ad03_e641b0c9",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-02-20T16:55:07Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "aa7cb7e7_096556d4",
       "range": {
         "startLine": 377,
         "startChar": 13,
