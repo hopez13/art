@@ -34,6 +34,24 @@
       "parentUuid": "3beba277_2908d7d4",
       "revId": "c4e119c2714a362c302ecd1b2bbb4266bace6ec8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52acb13e_b2e94fa9",
+        "filename": "runtime/arch/riscv64/context_riscv64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-02-20T09:05:52Z",
+      "side": 1,
+      "message": "For other architectures, this requires rewriting many assembler macros.\n\nFor riscv, you should update the comments in `asm_support_riscv.h` - we no longer want to save S1 but we shall need a padding instead for stack alignment.",
+      "parentUuid": "2c7eea9e_bebc5fcc",
+      "revId": "c4e119c2714a362c302ecd1b2bbb4266bace6ec8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
