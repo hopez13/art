@@ -34,6 +34,24 @@
       "parentUuid": "f23bb16b_8990e938",
       "revId": "cac3b9c7317bb31f1ad5b23ca3e84e79c6d7bbaa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e76f550_25e2cd99",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-02-20T15:33:26Z",
+      "side": 1,
+      "message": "LGTM, thanks.\n\n\u003e we will default to 0 in android versions before U\n\nIt looks like you default to that even on U+. It may be reasonable to make a bit more noise if that\u0027s not the case, but up to you.",
+      "parentUuid": "b6b148bd_2aaafe67",
+      "revId": "cac3b9c7317bb31f1ad5b23ca3e84e79c6d7bbaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
