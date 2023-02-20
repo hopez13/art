@@ -74,6 +74,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b8ca6eb0_5f496a73",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2014,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-02-20T11:16:18Z",
+      "side": 1,
+      "message": "Would we DCHECK that we could set it in cases like the BoundType example above? Otherwise the graph might be built wrongly. I think that the GraphChecker would catch those cases but still.",
+      "parentUuid": "d9926218_b3a34776",
+      "range": {
+        "startLine": 2014,
+        "startChar": 11,
+        "endLine": 2014,
+        "endChar": 31
+      },
+      "revId": "e1431ada785d24a1e606bcb4ad33dd65e437ad28",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6b394a94_8520ffee",
         "filename": "compiler/optimizing/dead_code_elimination.cc",
         "patchSetId": 2
