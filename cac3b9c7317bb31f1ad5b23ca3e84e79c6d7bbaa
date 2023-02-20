@@ -16,6 +16,24 @@
       "message": "Just for my edification, where is the condition that\u0027ll skip the OOME dump on older platforms?",
       "revId": "cac3b9c7317bb31f1ad5b23ca3e84e79c6d7bbaa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6b148bd_2aaafe67",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1386032
+      },
+      "writtenOn": "2023-02-20T14:59:15Z",
+      "side": 1,
+      "message": "In DumpPerfettoOutOfMemory() we check that the \"traced.oome_heap_session.count\" \u003e 0. This is a sysprop set by traced.\n\nUnfortunately given traced is not a mainline module and cannot be updated to populate this, we will default to 0 in android versions before U (and as a result will skip the OOME dump).",
+      "parentUuid": "f23bb16b_8990e938",
+      "revId": "cac3b9c7317bb31f1ad5b23ca3e84e79c6d7bbaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
