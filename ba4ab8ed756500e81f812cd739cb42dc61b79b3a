@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4b97189_ca9c9d80",
+        "filename": "runtime/mirror/dex_cache.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-02-20T16:44:28Z",
+      "side": 0,
+      "message": "More for my understanding, we don\u0027t expect these to be null anymore because we might get these from runtime app image right? i.e. when called from ClassLinker::AddImageSpace.",
+      "revId": "ba4ab8ed756500e81f812cd739cb42dc61b79b3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
