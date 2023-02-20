@@ -32,7 +32,6 @@ void X86Context::Reset() {
   gprs_[ESP] = &esp_;
   gprs_[EAX] = &arg0_;
   // Initialize registers with easy to spot debug values.
-  esp_ = X86Context::kBadGprBase + ESP;
   eip_ = X86Context::kBadGprBase + kNumberOfCpuRegisters;
   arg0_ = 0;
 }
