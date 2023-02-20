@@ -58,6 +58,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fbd23490_6dbfb258",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-02-20T16:52:41Z",
+      "side": 1,
+      "message": "I removed these in a follow up CL so that I can clean for ARM64 as well: aosp/2447023",
+      "parentUuid": "e6102fb1_210346c1",
+      "range": {
+        "startLine": 77,
+        "startChar": 38,
+        "endLine": 77,
+        "endChar": 63
+      },
+      "revId": "5580555718efaab22fcf295f0055329fcb0d3ba2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f1659f72_7c80d58b",
@@ -81,6 +105,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c981b6ab_32a2924e",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-02-20T16:52:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f1659f72_7c80d58b",
+      "range": {
+        "startLine": 86,
+        "startChar": 49,
+        "endLine": 86,
+        "endChar": 51
+      },
+      "revId": "5580555718efaab22fcf295f0055329fcb0d3ba2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4dd9ad52_256823cd",
@@ -94,6 +142,30 @@
       "writtenOn": "2023-02-20T15:48:07Z",
       "side": 1,
       "message": "I was thinking maybe we should rename it but can\u0027t think of a good name. WDYT about  SETUP_CALLEE_SAVE_METHOD_AND_FRAME? I am not too strong so ok if you leave as is too.",
+      "range": {
+        "startLine": 178,
+        "startChar": 7,
+        "endLine": 178,
+        "endChar": 33
+      },
+      "revId": "5580555718efaab22fcf295f0055329fcb0d3ba2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "04bb4af5_5db9ab92",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-02-20T16:52:41Z",
+      "side": 1,
+      "message": "The fact is, it\u0027s not a full setup_XXX_frame method, it\u0027s the common part of all callee-save frame setups factored out (maybe later I will do so on other architectures, as it repeats a few times.\n\nWDYT about SETUP_CALLEE_SAVE_FRAME_COMMON?\n\nI also changed SAVE_METHOD_AND_FRAME to SETUP_CALLEE_SAVE_FRAME_COMMON_INTERNAL to match.",
+      "parentUuid": "4dd9ad52_256823cd",
       "range": {
         "startLine": 178,
         "startChar": 7,
@@ -144,6 +216,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0cfa2f08_28098f57",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-02-20T16:52:41Z",
+      "side": 1,
+      "message": "I think so, because we come here from `art_quick_invoke(_static)_stub` which is called by `ArtMethod::Invoke` when it wants to call a native method. So we come from a C++ function --- it was compiled by the C++ compiler that knows nothing about the ART thread register TR (aka S1 or xSELF here) and probably uses it for other purposes.\n\nAlso arm64 code for INVOKE_STUB_CREATE_FRAME does the same.",
+      "parentUuid": "f77687d0_72d0bec7",
+      "range": {
+        "startLine": 61,
+        "startChar": 3,
+        "endLine": 61,
+        "endChar": 16
+      },
+      "revId": "5580555718efaab22fcf295f0055329fcb0d3ba2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "533c7044_ae42aa4f",
@@ -157,6 +253,24 @@
       "writtenOn": "2023-02-20T15:48:07Z",
       "side": 1,
       "message": "Just a comment reminding a5 has the shorty and a4 the result ptr.",
+      "revId": "5580555718efaab22fcf295f0055329fcb0d3ba2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d7801552_5238fa41",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-02-20T16:52:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "533c7044_ae42aa4f",
       "revId": "5580555718efaab22fcf295f0055329fcb0d3ba2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -178,6 +292,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4059d72a_2bc6a611",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-02-20T16:52:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8ef6560a_ae48a048",
+      "revId": "5580555718efaab22fcf295f0055329fcb0d3ba2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "da7044f8_b7cedf1b",
@@ -195,6 +327,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cbc44fe9_30a56d4e",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-02-20T16:52:41Z",
+      "side": 1,
+      "message": "Thanks! I want, if this passes your and Vladimir\u0027s review, to suggest the same for ARM64 (maybe other architectures if they have similar code).",
+      "parentUuid": "da7044f8_b7cedf1b",
+      "revId": "5580555718efaab22fcf295f0055329fcb0d3ba2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "81697f08_e77df2a9",
@@ -208,6 +358,30 @@
       "writtenOn": "2023-02-20T15:48:07Z",
       "side": 1,
       "message": "missing space",
+      "range": {
+        "startLine": 200,
+        "startChar": 57,
+        "endLine": 200,
+        "endChar": 65
+      },
+      "revId": "5580555718efaab22fcf295f0055329fcb0d3ba2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "362e0757_6d1b0c2b",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-02-20T16:52:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "81697f08_e77df2a9",
       "range": {
         "startLine": 200,
         "startChar": 57,
@@ -258,6 +432,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab77c0ee_2060140c",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-02-20T16:52:41Z",
+      "side": 1,
+      "message": "Well spotted, thanks! Copy-pase.",
+      "parentUuid": "bb910683_ecba46ac",
+      "range": {
+        "startLine": 246,
+        "startChar": 78,
+        "endLine": 246,
+        "endChar": 84
+      },
+      "revId": "5580555718efaab22fcf295f0055329fcb0d3ba2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "35ed8228_3f997330",
@@ -271,6 +469,30 @@
       "writtenOn": "2023-02-20T15:48:07Z",
       "side": 1,
       "message": "Not for this CL, but maybe we should move this to a common defines and explain the reasoning behind 5120. For this CL, we can leave this as is.",
+      "range": {
+        "startLine": 377,
+        "startChar": 13,
+        "endLine": 377,
+        "endChar": 17
+      },
+      "revId": "5580555718efaab22fcf295f0055329fcb0d3ba2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa7cb7e7_096556d4",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-02-20T16:52:41Z",
+      "side": 1,
+      "message": "Yes, and for other architectures as well.",
+      "parentUuid": "35ed8228_3f997330",
       "range": {
         "startLine": 377,
         "startChar": 13,
@@ -298,6 +520,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "89ce12ee_959cd8d1",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 390,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-02-20T16:52:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3523dd40_e1d215ac",
+      "revId": "5580555718efaab22fcf295f0055329fcb0d3ba2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ee9914f4_06bef233",
@@ -315,6 +555,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a21f163_63a2e26a",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 418,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-02-20T16:52:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ee9914f4_06bef233",
+      "revId": "5580555718efaab22fcf295f0055329fcb0d3ba2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "762856be_fbd6b71c",
@@ -328,6 +586,24 @@
       "writtenOn": "2023-02-20T15:48:07Z",
       "side": 1,
       "message": "Maybe a comment saying move result to floating point result register as well.",
+      "revId": "5580555718efaab22fcf295f0055329fcb0d3ba2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "745cb645_970114b3",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 462,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-02-20T16:52:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "762856be_fbd6b71c",
       "revId": "5580555718efaab22fcf295f0055329fcb0d3ba2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
