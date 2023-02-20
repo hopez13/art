@@ -52,6 +52,24 @@
       "parentUuid": "b6b148bd_2aaafe67",
       "revId": "cac3b9c7317bb31f1ad5b23ca3e84e79c6d7bbaa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "df7a5080_891422b8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1386032
+      },
+      "writtenOn": "2023-02-20T15:38:53Z",
+      "side": 1,
+      "message": "Thanks, this is actually WAI.\n\nBasically the prerequisite for the heap dumps are:\n1. There is an active perfetto tracing session (which is configured e.g. via shell or via statsd). This prop will only be \u003e 0 if such a session exists (the value will reflect the count of such sessions).\n2. An unfortunate artifact of #1 -\u003e must be running \u003e\u003d Android U because traced does not set this prop in previous versions.",
+      "parentUuid": "7e76f550_25e2cd99",
+      "revId": "cac3b9c7317bb31f1ad5b23ca3e84e79c6d7bbaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
