@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2eb9058_5ce2c5c2",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2014,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-02-20T10:17:40Z",
+      "side": 1,
+      "message": "Should we change this to discard the assignment if the given type is invalid?",
+      "range": {
+        "startLine": 2014,
+        "startChar": 11,
+        "endLine": 2014,
+        "endChar": 31
+      },
+      "revId": "e1431ada785d24a1e606bcb4ad33dd65e437ad28",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b394a94_8520ffee",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-02-20T10:17:40Z",
+      "side": 1,
+      "message": "nit: add a comment like \"No need to ... if we have an invalid type\".",
+      "range": {
+        "startLine": 185,
+        "startChar": 0,
+        "endLine": 188,
+        "endChar": 3
+      },
+      "revId": "e1431ada785d24a1e606bcb4ad33dd65e437ad28",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
