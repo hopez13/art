@@ -17,6 +17,8 @@ Using unsafe to access obsolete values directly from memory.
 Using obsolete class object!
 
 
+Calling public java.lang.Class java.lang.Class.arrayType() with params: []
+public java.lang.Class java.lang.Class.arrayType() on (obsolete)class Main$Transform with [] = class [LMain$Transform;
 Calling public java.lang.Class java.lang.Class.asSubclass(java.lang.Class) with params: [[null, class java.lang.Object, (obsolete)class Main$Transform, class Main$Transform, long, class java.lang.Class]]
 public java.lang.Class java.lang.Class.asSubclass(java.lang.Class) with [null] throws java.lang.reflect.InvocationTargetException: java.lang.NullPointerException: Attempt to invoke virtual method 'boolean java.lang.Class.isAssignableFrom(java.lang.Class)' on a null object reference
 public java.lang.Class java.lang.Class.asSubclass(java.lang.Class) on (obsolete)class Main$Transform with [class java.lang.Object] = (obsolete)class Main$Transform
@@ -252,6 +254,8 @@ public java.lang.String java.lang.Class.toString() on (obsolete)class Main$Trans
 Using non-obsolete class object!
 
 
+Calling public java.lang.Class java.lang.Class.arrayType() with params: []
+public java.lang.Class java.lang.Class.arrayType() on class Main$Transform with [] = class [LMain$Transform;
 Calling public java.lang.Class java.lang.Class.asSubclass(java.lang.Class) with params: [[null, class java.lang.Object, (obsolete)class Main$Transform, class Main$Transform, long, class java.lang.Class]]
 public java.lang.Class java.lang.Class.asSubclass(java.lang.Class) with [null] throws java.lang.reflect.InvocationTargetException: java.lang.NullPointerException: Attempt to invoke virtual method 'boolean java.lang.Class.isAssignableFrom(java.lang.Class)' on a null object reference
 public java.lang.Class java.lang.Class.asSubclass(java.lang.Class) on class Main$Transform with [class java.lang.Object] = class Main$Transform
