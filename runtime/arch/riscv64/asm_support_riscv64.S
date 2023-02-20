@@ -74,7 +74,7 @@
 
 
 .macro LOAD_RUNTIME_INSTANCE reg
-#if __has_feature(hwaddress_sanitizer) && __clang_major__ >= 10
+#if __has_feature(hwaddress_sanitizer)
     la \reg, :pg_hi21_nc:_ZN3art7Runtime9instance_E
 #else
     la \reg, _ZN3art7Runtime9instance_E
