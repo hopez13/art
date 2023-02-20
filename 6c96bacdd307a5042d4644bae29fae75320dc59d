@@ -22,6 +22,30 @@
       },
       "revId": "6c96bacdd307a5042d4644bae29fae75320dc59d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "41896e16_69373c3b",
+        "filename": "libartbase/base/file_utils.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-02-20T18:01:30Z",
+      "side": 1,
+      "message": "I considered this, but it needs a lot of changes. Right now, the runtime only supports the boot image location being `\u003cprimary-boot-image-stem\u003e-\u003cfirst-library-name\u003e.art`. This is for the logic in the runtime that finds the library in BCP that the boot image extension corresponds to.\n\nSee details in http://go/android-art/art/aot/images.md#boot-images-2. Note this paragraph (https://screenshot.googleplex.com/6EwPYketKytGZMG).",
+      "parentUuid": "e1547387_d6e2e38d",
+      "range": {
+        "startLine": 304,
+        "startChar": 19,
+        "endLine": 304,
+        "endChar": 55
+      },
+      "revId": "6c96bacdd307a5042d4644bae29fae75320dc59d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
