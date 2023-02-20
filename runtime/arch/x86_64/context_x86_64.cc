@@ -31,7 +31,6 @@ void X86_64Context::Reset() {
   gprs_[RSP] = &rsp_;
   gprs_[RDI] = &arg0_;
   // Initialize registers with easy to spot debug values.
-  rsp_ = X86_64Context::kBadGprBase + RSP;
   rip_ = X86_64Context::kBadGprBase + kNumberOfCpuRegisters;
   arg0_ = 0;
 }

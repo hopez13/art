@@ -41,7 +41,6 @@ void Riscv64Context::Reset() {
   gprs_[kPC] = &pc_;
   gprs_[A0] = &arg0_;
   // Initialize registers with easy to spot debug values.
-  sp_ = Riscv64Context::kBadGprBase + SP;
   pc_ = Riscv64Context::kBadGprBase + kPC;
   arg0_ = 0;
 }

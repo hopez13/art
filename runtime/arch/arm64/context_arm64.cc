@@ -45,7 +45,6 @@ void Arm64Context::Reset() {
   gprs_[kPC] = &pc_;
   gprs_[X0] = &arg0_;
   // Initialize registers with easy to spot debug values.
-  sp_ = Arm64Context::kBadGprBase + SP;
   pc_ = Arm64Context::kBadGprBase + kPC;
   arg0_ = 0;
 }
