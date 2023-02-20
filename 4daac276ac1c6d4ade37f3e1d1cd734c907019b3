@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "92dddeb9_2c9d235c",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-02-20T14:40:40Z",
+      "side": 1,
+      "message": "We cannot?\n\n(otherwise I don\u0027t understand the comment)",
+      "range": {
+        "startLine": 185,
+        "startChar": 5,
+        "endLine": 185,
+        "endChar": 14
+      },
+      "revId": "4daac276ac1c6d4ade37f3e1d1cd734c907019b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9eacd6a2_b60350b7",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 2382,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-02-20T14:40:40Z",
+      "side": 1,
+      "message": "we don\u0027t change the type info of this instruction.",
+      "range": {
+        "startLine": 2382,
+        "startChar": 65,
+        "endLine": 2382,
+        "endChar": 78
+      },
+      "revId": "4daac276ac1c6d4ade37f3e1d1cd734c907019b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
