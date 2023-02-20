@@ -18,6 +18,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0754a866_7d677a5a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-02-20T15:48:07Z",
+      "side": 1,
+      "message": "Thanks Ulya! lgtm with minor suggestions mostly about adding a few more comments.",
+      "revId": "5580555718efaab22fcf295f0055329fcb0d3ba2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e6102fb1_210346c1",
@@ -41,6 +58,52 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "f1659f72_7c80d58b",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-02-20T15:48:07Z",
+      "side": 1,
+      "message": "drop in?",
+      "range": {
+        "startLine": 86,
+        "startChar": 49,
+        "endLine": 86,
+        "endChar": 51
+      },
+      "revId": "5580555718efaab22fcf295f0055329fcb0d3ba2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4dd9ad52_256823cd",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-02-20T15:48:07Z",
+      "side": 1,
+      "message": "I was thinking maybe we should rename it but can\u0027t think of a good name. WDYT about  SETUP_CALLEE_SAVE_METHOD_AND_FRAME? I am not too strong so ok if you leave as is too.",
+      "range": {
+        "startLine": 178,
+        "startChar": 7,
+        "endLine": 178,
+        "endChar": 33
+      },
+      "revId": "5580555718efaab22fcf295f0055329fcb0d3ba2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "29bf466c_65f6efea",
@@ -54,6 +117,217 @@
       "writtenOn": "2023-02-17T22:07:33Z",
       "side": 1,
       "message": "(lol at all these macros ... it\u0027s like reading cobol!)",
+      "revId": "5580555718efaab22fcf295f0055329fcb0d3ba2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f77687d0_72d0bec7",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-02-20T15:48:07Z",
+      "side": 1,
+      "message": "Just for my understanding, can xSelf be different from a3 here?",
+      "range": {
+        "startLine": 61,
+        "startChar": 3,
+        "endLine": 61,
+        "endChar": 16
+      },
+      "revId": "5580555718efaab22fcf295f0055329fcb0d3ba2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "533c7044_ae42aa4f",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-02-20T15:48:07Z",
+      "side": 1,
+      "message": "Just a comment reminding a5 has the shorty and a4 the result ptr.",
+      "revId": "5580555718efaab22fcf295f0055329fcb0d3ba2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ef6560a_ae48a048",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-02-20T15:48:07Z",
+      "side": 1,
+      "message": "maybe also mention about s3 here?",
+      "revId": "5580555718efaab22fcf295f0055329fcb0d3ba2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da7044f8_b7cedf1b",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-02-20T15:48:07Z",
+      "side": 1,
+      "message": "Nice that we can share this!",
+      "revId": "5580555718efaab22fcf295f0055329fcb0d3ba2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "81697f08_e77df2a9",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-02-20T15:48:07Z",
+      "side": 1,
+      "message": "missing space",
+      "range": {
+        "startLine": 200,
+        "startChar": 57,
+        "endLine": 200,
+        "endChar": 65
+      },
+      "revId": "5580555718efaab22fcf295f0055329fcb0d3ba2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bdb74cc4_9257aeb5",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-02-20T15:48:07Z",
+      "side": 1,
+      "message": "Not for this CL, but just a thought: maybe we can initialize s4 to 1 for invoke_stub and 0 for invoke_static_stub and then we could also share the code for sotreA4, storeA8. As far as I understand, the only difference is that invoke_stub cannot use a1 since it already has this, so initialising s4 to 1 will omit that and we can just move the store* labels into this macro.",
+      "revId": "5580555718efaab22fcf295f0055329fcb0d3ba2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb910683_ecba46ac",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-02-20T15:48:07Z",
+      "side": 1,
+      "message": "4-byte value?",
+      "range": {
+        "startLine": 246,
+        "startChar": 78,
+        "endLine": 246,
+        "endChar": 84
+      },
+      "revId": "5580555718efaab22fcf295f0055329fcb0d3ba2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35ed8228_3f997330",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-02-20T15:48:07Z",
+      "side": 1,
+      "message": "Not for this CL, but maybe we should move this to a common defines and explain the reasoning behind 5120. For this CL, we can leave this as is.",
+      "range": {
+        "startLine": 377,
+        "startChar": 13,
+        "endLine": 377,
+        "endChar": 17
+      },
+      "revId": "5580555718efaab22fcf295f0055329fcb0d3ba2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3523dd40_e1d215ac",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 390,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-02-20T15:48:07Z",
+      "side": 1,
+      "message": "Maybe a comment saying load register arguments from the stack",
+      "revId": "5580555718efaab22fcf295f0055329fcb0d3ba2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee9914f4_06bef233",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 418,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-02-20T15:48:07Z",
+      "side": 1,
+      "message": "Maybe just adding the signature of artQuickGenericJniEndTrampoline might help here. something like  artQuickGenericJniEndTrampoline(Thread* /* expected in a0*/, result /*expected in a1*/, result_f /*expected in a2*/).",
+      "revId": "5580555718efaab22fcf295f0055329fcb0d3ba2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "762856be_fbd6b71c",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 462,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-02-20T15:48:07Z",
+      "side": 1,
+      "message": "Maybe a comment saying move result to floating point result register as well.",
       "revId": "5580555718efaab22fcf295f0055329fcb0d3ba2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
