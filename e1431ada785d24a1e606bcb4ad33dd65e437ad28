@@ -98,6 +98,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "80b94a2e_2b444af1",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2014,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-02-20T12:04:28Z",
+      "side": 1,
+      "message": "This would just be a helper, avoiding the need to check `IsValid` on all these call sites.",
+      "parentUuid": "b8ca6eb0_5f496a73",
+      "range": {
+        "startLine": 2014,
+        "startChar": 11,
+        "endLine": 2014,
+        "endChar": 31
+      },
+      "revId": "e1431ada785d24a1e606bcb4ad33dd65e437ad28",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6b394a94_8520ffee",
         "filename": "compiler/optimizing/dead_code_elimination.cc",
         "patchSetId": 2
