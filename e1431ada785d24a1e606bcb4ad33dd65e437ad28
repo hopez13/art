@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f825c1e5_bb1b82a6",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2014,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-02-20T10:39:26Z",
+      "side": 1,
+      "message": "Do you mean in `SetReferenceTypeInfo` itself? In some cases, we expect it to be valid. For example setting [this BoundType](https://cs.android.com/android/platform/superproject/+/master:art/compiler/optimizing/dead_code_elimination.cc;l\u003d199;drc\u003d10d6870ae4d0a52579fd520e8ee0fdcb4dfcd25a) with an invalid RTI would mean that its upper bound is also invalid (which we don\u0027t allow). At the moment cases like that skip the `IsValid` check, but now they wouldn\u0027t which would incur in a very slight performance decrease.\n\nAlso, there are cases that if we have an invalid RTI we just want to return from the method ([example](https://cs.android.com/android/platform/superproject/+/master:art/compiler/optimizing/reference_type_propagation.cc;l\u003d263;drc\u003db22e708890b61e6a82bb8a18e98413c2bd4933c9)) so we can\u0027t skip asking `IsValid` in the caller either way.\n\nMy opinion would be to keep the responsibility on the caller and have `SetReferenceTypeInfo` require a valid RTI, but I\u0027d be okay with changing it if it makes sense.",
+      "parentUuid": "c2eb9058_5ce2c5c2",
+      "range": {
+        "startLine": 2014,
+        "startChar": 11,
+        "endLine": 2014,
+        "endChar": 31
+      },
+      "revId": "e1431ada785d24a1e606bcb4ad33dd65e437ad28",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6b394a94_8520ffee",
         "filename": "compiler/optimizing/dead_code_elimination.cc",
         "patchSetId": 2
