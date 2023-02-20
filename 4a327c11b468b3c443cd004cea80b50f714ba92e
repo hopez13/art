@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3a673ac_7a74ef6c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1386032
+      },
+      "writtenOn": "2023-02-20T12:12:31Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "57279581_90766e5a",
+      "revId": "4a327c11b468b3c443cd004cea80b50f714ba92e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7ed653e7_1b5bea95",
@@ -31,6 +49,30 @@
       "writtenOn": "2023-02-07T14:34:36Z",
       "side": 1,
       "message": "optional: imo this would be more readable with early-returns followed by switching on \"who the requester is\", similar to perfetto\u0027s producer_support.cc. Something like:\n```\nif (debuggable || java_debuggable) \n  return true;\nelse if (is_system_initiator)\n  return is_profileable || is_system_server;\nelse\n  return is_profileable_shell;\n```",
+      "range": {
+        "startLine": 175,
+        "startChar": 0,
+        "endLine": 178,
+        "endChar": 71
+      },
+      "revId": "4a327c11b468b3c443cd004cea80b50f714ba92e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "855c46c6_4ac88927",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1386032
+      },
+      "writtenOn": "2023-02-20T12:12:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7ed653e7_1b5bea95",
       "range": {
         "startLine": 175,
         "startChar": 0,
