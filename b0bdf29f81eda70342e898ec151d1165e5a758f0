@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2533d869_cfe339ce",
+        "filename": "compiler/optimizing/optimizing_unit_test.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-02-20T09:18:30Z",
+      "side": 0,
+      "message": "All callers tip-of-tree had `handles` as nullptr so it was an unused parameter.",
+      "range": {
+        "startLine": 265,
+        "startChar": 46,
+        "endLine": 265,
+        "endChar": 53
+      },
+      "revId": "b0bdf29f81eda70342e898ec151d1165e5a758f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
