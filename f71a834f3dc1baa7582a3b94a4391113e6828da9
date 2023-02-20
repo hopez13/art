@@ -1,0 +1,159 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf3ebfe7_2e3d2af6",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1196,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-02-20T16:23:47Z",
+      "side": 1,
+      "message": "Judging from a [quick experiment](https://paste.googleplex.com/6675477694513152), it seems to me that the framework normally creates the \"cache\" directory beforehand. That\u0027s good.",
+      "range": {
+        "startLine": 1196,
+        "startChar": 22,
+        "endLine": 1196,
+        "endChar": 27
+      },
+      "revId": "f71a834f3dc1baa7582a3b94a4391113e6828da9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "864fb14d_86d40629",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1203,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-02-20T16:23:47Z",
+      "side": 1,
+      "message": "The path now looks exactly the same as the one that artd/installd would generate for secondary dex files, so there\u0027s a risk of having conflicts. Besides, it matches [the pattern used by the ART Service GC](http://cs/android-internal/art/artd/path_utils.cc;l\u003d148;rcl\u003d6c72bef2ccadc78a9c5410503deb0cd0a2b5d454), meaning ART Service will aggressively delete this file during background dexopt job even if it\u0027s still needed (note that the background dexopt job doesn\u0027t necessarily dexopt all apps because we allow the OEM to override the package list).\n\nPlease consider varying this path a little bit. E.g., use \"oat_primary\" instead of \"oat\".",
+      "revId": "f71a834f3dc1baa7582a3b94a4391113e6828da9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "45946f32_fc6fd339",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1206,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-02-20T16:23:47Z",
+      "side": 1,
+      "message": "There\u0027s a function in odrefresh that has the same name but does very different things. Though it\u0027s not a big deal, this function can be changed and renamed. See my comment below.",
+      "range": {
+        "startLine": 1206,
+        "startChar": 12,
+        "endLine": 1206,
+        "endChar": 33
+      },
+      "revId": "f71a834f3dc1baa7582a3b94a4391113e6828da9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2431647f_dfc0b787",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1209,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-02-20T16:23:47Z",
+      "side": 1,
+      "message": "It\u0027s tricky that a trailing \"/\" in `path` makes a lot of difference here. It will be more straightforward if you drop this magic and rename this function to `CreateDirectory`.\n\nThen you can call `android::base::Dirname` before you pass the path to this function on line 1241.",
+      "range": {
+        "startLine": 1207,
+        "startChar": 0,
+        "endLine": 1209,
+        "endChar": 57
+      },
+      "revId": "f71a834f3dc1baa7582a3b94a4391113e6828da9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ee45db6_100263be",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1212,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-02-20T16:23:47Z",
+      "side": 1,
+      "message": "Does this call keep the setgid bit?",
+      "range": {
+        "startLine": 1212,
+        "startChar": 8,
+        "endLine": 1212,
+        "endChar": 13
+      },
+      "revId": "f71a834f3dc1baa7582a3b94a4391113e6828da9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d493ecc5_9e40cc90",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1227,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-02-20T16:23:47Z",
+      "side": 1,
+      "message": "If `oat_path` is empty then early return? And set an error message?",
+      "range": {
+        "startLine": 1227,
+        "startChar": 14,
+        "endLine": 1227,
+        "endChar": 22
+      },
+      "revId": "f71a834f3dc1baa7582a3b94a4391113e6828da9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5cac656_a47dbed2",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1247,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-02-20T16:23:47Z",
+      "side": 1,
+      "message": "Optional: It will be better if the name ends with \".tmp\", to indicate that it\u0027s a temp file. E.g., `base.art.\u003cpid\u003e.tmp`.",
+      "range": {
+        "startLine": 1247,
+        "startChar": 59,
+        "endLine": 1247,
+        "endChar": 91
+      },
+      "revId": "f71a834f3dc1baa7582a3b94a4391113e6828da9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
