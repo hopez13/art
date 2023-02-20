@@ -22,6 +22,30 @@
       },
       "revId": "8be084e80eee0b51af3a1d24bc104563d693bd3d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "659935d9_f2aeff8b",
+        "filename": "runtime/arch/riscv64/registers_riscv64.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-02-20T16:53:59Z",
+      "side": 1,
+      "message": "Fixed, thanks! I thought x18 is part of the ABI with the kernel.",
+      "parentUuid": "af655fe9_3342d38d",
+      "range": {
+        "startLine": 50,
+        "startChar": 79,
+        "endLine": 50,
+        "endChar": 85
+      },
+      "revId": "8be084e80eee0b51af3a1d24bc104563d693bd3d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
