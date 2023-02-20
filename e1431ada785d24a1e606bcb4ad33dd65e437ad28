@@ -120,6 +120,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "065a815c_524cdd8f",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2014,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-02-20T14:38:56Z",
+      "side": 1,
+      "message": "Ack, I thought you meant replacing the current `SetReferenceTypeInfo. Done.",
+      "parentUuid": "80b94a2e_2b444af1",
+      "range": {
+        "startLine": 2014,
+        "startChar": 11,
+        "endLine": 2014,
+        "endChar": 31
+      },
+      "revId": "e1431ada785d24a1e606bcb4ad33dd65e437ad28",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6b394a94_8520ffee",
@@ -133,6 +157,30 @@
       "writtenOn": "2023-02-20T10:17:40Z",
       "side": 1,
       "message": "nit: add a comment like \"No need to ... if we have an invalid type\".",
+      "range": {
+        "startLine": 185,
+        "startChar": 0,
+        "endLine": 188,
+        "endChar": 3
+      },
+      "revId": "e1431ada785d24a1e606bcb4ad33dd65e437ad28",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "875b1e5b_55a31b1c",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-02-20T14:38:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6b394a94_8520ffee",
       "range": {
         "startLine": 185,
         "startChar": 0,
