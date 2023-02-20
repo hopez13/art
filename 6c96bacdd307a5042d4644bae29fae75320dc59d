@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1547387_d6e2e38d",
+        "filename": "libartbase/base/file_utils.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-02-20T16:54:09Z",
+      "side": 1,
+      "message": "Could we settle on a name instead of arbitrarily choosing the first jar? How about `updatable-boot`, or `updatable-framework` ?",
+      "range": {
+        "startLine": 304,
+        "startChar": 19,
+        "endLine": 304,
+        "endChar": 55
+      },
+      "revId": "6c96bacdd307a5042d4644bae29fae75320dc59d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
