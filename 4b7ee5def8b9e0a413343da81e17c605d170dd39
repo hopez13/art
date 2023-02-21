@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "92cbed81_42a10aa3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2023-02-21T16:45:31Z",
+      "side": 1,
+      "message": "Due to changing author, progress on this CL has continued in aosp/2423348 where all comments have been addressed, and this CL should therefore be abandoned.",
+      "revId": "4b7ee5def8b9e0a413343da81e17c605d170dd39",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "390e5a81_a1b3f388",
@@ -14,6 +31,30 @@
       "writtenOn": "2022-02-09T14:08:29Z",
       "side": 1,
       "message": "Pass `Register()` and in `GenSystemArrayCopyAddresses()` check if `src_end.IsValid()` to avoid generating a dead instruction.",
+      "range": {
+        "startLine": 2794,
+        "startChar": 30,
+        "endLine": 2794,
+        "endChar": 43
+      },
+      "revId": "4b7ee5def8b9e0a413343da81e17c605d170dd39",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "15b52e2e_f6edc4aa",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2794,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2023-02-21T16:45:31Z",
+      "side": 1,
+      "message": "Addressed at aosp/2423348: compiler/optimizing/intrinsics_arm64.cc #2713",
+      "parentUuid": "390e5a81_a1b3f388",
       "range": {
         "startLine": 2794,
         "startChar": 30,
@@ -47,6 +88,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7c74bab_ab970c09",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2807,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2023-02-21T16:45:31Z",
+      "side": 1,
+      "message": "Addressed at aosp/2423348: compiler/optimizing/intrinsics_arm64.cc #2809 and the condition codes throughout.",
+      "parentUuid": "21da00ab_2e99eb8d",
+      "range": {
+        "startLine": 2807,
+        "startChar": 12,
+        "endLine": 2807,
+        "endChar": 22
+      },
+      "revId": "4b7ee5def8b9e0a413343da81e17c605d170dd39",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c73d26d9_2953a6fa",
@@ -60,6 +125,30 @@
       "writtenOn": "2022-02-09T14:08:29Z",
       "side": 1,
       "message": "If `constant \u003c 2 * chars_per_block`, do not emit this MOV and the SUBS/B.cond in the loop 1.\n\nAlternatively, just emit fully unrolled loop up to a certain threshold (maybe even use LDP/STP).",
+      "range": {
+        "startLine": 2817,
+        "startChar": 4,
+        "endLine": 2817,
+        "endChar": 46
+      },
+      "revId": "4b7ee5def8b9e0a413343da81e17c605d170dd39",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "21b9765b_209b7238",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2817,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2023-02-21T16:45:31Z",
+      "side": 1,
+      "message": "Addressed at aosp/2423348: compiler/optimizing/intrinsics_arm64.cc #2857-2863",
+      "parentUuid": "c73d26d9_2953a6fa",
       "range": {
         "startLine": 2817,
         "startChar": 4,
@@ -93,6 +182,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "525d26e0_3a76c3f0",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2822,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2023-02-21T16:45:31Z",
+      "side": 1,
+      "message": "Addressed at aosp/2423348: compiler/optimizing/intrinsics_arm64.cc #2868",
+      "parentUuid": "8ee30bd8_e2e3d0a7",
+      "range": {
+        "startLine": 2822,
+        "startChar": 21,
+        "endLine": 2822,
+        "endChar": 23
+      },
+      "revId": "4b7ee5def8b9e0a413343da81e17c605d170dd39",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f9615143_91ee3cbc",
@@ -116,6 +229,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "615b8b38_272aa88b",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2832,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2023-02-21T16:45:31Z",
+      "side": 1,
+      "message": "Addressed at aosp/2423348: compiler/optimizing/intrinsics_arm64.cc #2821",
+      "parentUuid": "f9615143_91ee3cbc",
+      "range": {
+        "startLine": 2832,
+        "startChar": 17,
+        "endLine": 2832,
+        "endChar": 19
+      },
+      "revId": "4b7ee5def8b9e0a413343da81e17c605d170dd39",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3b4a51c1_8306c711",
@@ -129,6 +266,30 @@
       "writtenOn": "2022-02-09T14:08:29Z",
       "side": 1,
       "message": "If `length.IsConstant()`, we know exactly how many remaining characters we need to copy, so we could replace the loop 2 with a 32-bit and/or 16-bit copy. (If `(length \u0026 2) !\u003d 0`, copy 32 bits; if `(length \u0026 1) !\u003d 0`, copy 16 bits.)",
+      "range": {
+        "startLine": 2839,
+        "startChar": 2,
+        "endLine": 2844,
+        "endChar": 19
+      },
+      "revId": "4b7ee5def8b9e0a413343da81e17c605d170dd39",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a770f578_441daef2",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2844,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2023-02-21T16:45:31Z",
+      "side": 1,
+      "message": "Addressed at aosp/2423348: compiler/optimizing/intrinsics_arm64.cc #2835-2842",
+      "parentUuid": "3b4a51c1_8306c711",
       "range": {
         "startLine": 2839,
         "startChar": 2,
