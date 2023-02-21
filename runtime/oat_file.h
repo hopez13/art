@@ -18,6 +18,7 @@
 #define ART_RUNTIME_OAT_FILE_H_
 
 #include <list>
+#include <memory>
 #include <string>
 #include <string_view>
 #include <vector>
@@ -42,6 +43,7 @@ class DexFile;
 class ClassLoaderContext;
 class ElfFile;
 class DexLayoutSections;
+class DexFileContainer;
 template <class MirrorType> class GcRoot;
 class MemMap;
 class OatDexFile;
@@ -586,6 +588,7 @@ class OatDexFile final {
              const std::string& dex_file_location,
              const std::string& canonical_dex_file_location,
              uint32_t dex_file_checksum,
+             std::shared_ptr<DexFileContainer> dex_file_container,
              const uint8_t* dex_file_pointer,
              const uint8_t* lookup_table_data,
              const IndexBssMapping* method_bss_mapping,
@@ -599,6 +602,7 @@ class OatDexFile final {
   // Create an OatDexFile wrapping an existing DexFile. Will set the OatDexFile
   // pointer in the DexFile.
   OatDexFile(const OatFile* oat_file,
+             const std::shared_ptr<DexFileContainer> dex_file_container_,
              const uint8_t* dex_file_pointer,
              uint32_t dex_file_checksum,
              const std::string& dex_file_location,
@@ -614,6 +618,7 @@ class OatDexFile final {
   const std::string dex_file_location_;
   const std::string canonical_dex_file_location_;
   const uint32_t dex_file_location_checksum_ = 0u;
+  const std::shared_ptr<DexFileContainer> dex_file_container_;
   const uint8_t* const dex_file_pointer_ = nullptr;
   const uint8_t* const lookup_table_data_ = nullptr;
   const IndexBssMapping* const method_bss_mapping_ = nullptr;

@@ -74,9 +74,8 @@ std::string FindAddr2line() {
 #endif
 #if defined(ART_CLANG_PATH)
   const char* env_value = getenv("ANDROID_BUILD_TOP");
-  if (env_value != nullptr) {
-    return std::string(env_value) + "/" + ART_CLANG_PATH + "/bin/llvm-addr2line";
-  }
+  std::string_view top(env_value != nullptr ? env_value : ".");
+  return std::string(top) + "/" + ART_CLANG_PATH + "/bin/llvm-addr2line";
 #endif
   return std::string("llvm-addr2line");
 }

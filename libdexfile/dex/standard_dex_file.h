@@ -89,7 +89,7 @@ class StandardDexFile : public DexFile {
   static void WriteVersionBeforeDefaultMethods(uint8_t* magic);
 
   static const uint8_t kDexMagic[kDexMagicSize];
-  static constexpr size_t kNumDexVersions = 5;
+  static constexpr size_t kNumDexVersions = 6;
   static const uint8_t kDexMagicVersions[kNumDexVersions][kDexVersionLen];
 
   // Returns true if the byte string points to the magic value.
@@ -117,11 +117,9 @@ class StandardDexFile : public DexFile {
                   const std::string& location,
                   uint32_t location_checksum,
                   const OatDexFile* oat_dex_file,
-                  std::unique_ptr<DexFileContainer> container)
+                  std::shared_ptr<DexFileContainer> container)
       : DexFile(base,
                 size,
-                /*data_begin*/ base,
-                /*data_size*/ size,
                 location,
                 location_checksum,
                 oat_dex_file,

@@ -27,12 +27,7 @@ class DexFile;
 
 namespace dex {
 
-bool Verify(const DexFile* dex_file,
-            const uint8_t* begin,
-            size_t size,
-            const char* location,
-            bool verify_checksum,
-            std::string* error_msg);
+bool Verify(const DexFile* dex_file, bool verify_checksum, std::string* error_msg);
 
 }  // namespace dex
 }  // namespace art

@@ -305,13 +305,18 @@ class VdexFile {
     return mmap_.GetName();
   }
 
- private:
-  bool ContainsDexFile(const DexFile& dex_file) const;
-
   const uint8_t* DexBegin() const {
     DCHECK(HasDexSection());
     return Begin() + GetSectionHeader(VdexSection::kDexFileSection).section_offset;
   }
+
+  const uint8_t* DexEnd() const {
+    DCHECK(HasDexSection());
+    return DexBegin() + GetSectionHeader(VdexSection::kDexFileSection).section_size;
+  }
+
+ private:
+  bool ContainsDexFile(const DexFile& dex_file) const;
 
   const uint8_t* TypeLookupTableDataBegin() const {
     DCHECK(HasTypeLookupTableSection());

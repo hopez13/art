@@ -14,6 +14,10 @@
  * limitations under the License.
  */
 
+#include <utility>
+#pragma clang optimize off
+#pragma clang diagnostic ignored "-Weverything"
+
 #ifndef ART_LIBDEXFILE_DEX_DEX_FILE_H_
 #define ART_LIBDEXFILE_DEX_DEX_FILE_H_
 
@@ -25,6 +29,7 @@
 #include <string_view>
 #include <vector>
 
+#include "base/array_ref.h"
 #include "base/globals.h"
 #include "base/macros.h"
 #include "base/mman.h"  // For the PROT_* and MAP_* constants.
@@ -72,8 +77,7 @@ class DexFileContainer {
 
   // TODO: Remove. This is only used by dexlayout to override the data section of the dex header,
   //       and redirect it to intermediate memory buffer at completely unrelated memory location.
-  virtual const uint8_t* DataBegin() const { return nullptr; }
-  virtual const uint8_t* DataEnd() const { return nullptr; }
+  virtual ArrayRef<const uint8_t> Data() const { return {}; }
 
   bool IsZip() const { return is_zip_; }
   void SetIsZip() { is_zip_ = true; }
@@ -87,6 +91,7 @@ class DexFileContainer {
 class MemoryDexFileContainer : public DexFileContainer {
  public:
   MemoryDexFileContainer(const uint8_t* begin, const uint8_t* end) : begin_(begin), end_(end) {}
+  MemoryDexFileContainer(const uint8_t* data, size_t size) : begin_(data), end_(data + size) {}
   bool IsReadOnly() const override { return true; }
   bool EnableWrite() override { return false; }
   bool DisableWrite() override { return false; }
@@ -148,6 +153,10 @@ class DexFile {
 
     // Decode the dex magic version
     uint32_t GetVersion() const;
+  };
+
+  struct HeaderV41 : public Header {
+    uint32_t multidex_offset = 0;
   };
 
   // Map item type codes.
@@ -575,9 +584,8 @@ class DexFile {
     // Check that the offset is in bounds.
     // Note that although the specification says that 0 should be used if there
     // is no debug information, some applications incorrectly use 0xFFFFFFFF.
-    return (debug_info_off == 0 || debug_info_off >= data_size_)
-        ? nullptr
-        : DataBegin() + debug_info_off;
+    return (debug_info_off == 0 || debug_info_off >= DataSize()) ? nullptr :
+                                                                   DataBegin() + debug_info_off;
   }
 
   struct PositionInfo {
@@ -756,13 +764,13 @@ class DexFile {
     return size_;
   }
 
-  const uint8_t* DataBegin() const {
-    return data_begin_;
-  }
+  static ArrayRef<const uint8_t> GetDataRange(const uint8_t* data,
+                                              size_t size,
+                                              DexFileContainer* container);
 
-  size_t DataSize() const {
-    return data_size_;
-  }
+  const uint8_t* DataBegin() const { return data_.data(); }
+
+  size_t DataSize() const { return data_.size(); }
 
   template <typename T>
   const T* DataPointer(size_t offset) const {
@@ -833,9 +841,7 @@ class DexFile {
     return DataBegin() <= addr && addr < DataBegin() + DataSize();
   }
 
-  DexFileContainer* GetContainer() const {
-    return container_.get();
-  }
+  const std::shared_ptr<DexFileContainer>& GetContainer() const { return container_; }
 
   IterationRange<ClassIterator> GetClasses() const;
 
@@ -849,16 +855,18 @@ class DexFile {
  protected:
   // First Dex format version supporting default methods.
   static constexpr uint32_t kDefaultMethodsVersion = 37;
+  static constexpr uint32_t kMultidexVersion = 41;
 
   DexFile(const uint8_t* base,
           size_t size,
-          const uint8_t* data_begin,
-          size_t data_size,
           const std::string& location,
           uint32_t location_checksum,
           const OatDexFile* oat_dex_file,
-          std::unique_ptr<DexFileContainer> container,
+          std::shared_ptr<DexFileContainer> container,
           bool is_compact_dex);
+
+  template <typename T>
+  const T* GetSection(size_t offset);
 
   // Top-level initializer that calls other Init methods.
   bool Init(std::string* error_msg);
@@ -875,11 +883,11 @@ class DexFile {
   // The size of the underlying memory allocation in bytes.
   const size_t size_;
 
-  // The base address of the data section (same as Begin() for standard dex).
-  const uint8_t* const data_begin_;
-
-  // The size of the data section.
-  const size_t data_size_;
+  // Data memory range: Most dex offsets are relative to this memory range.
+  // Standard dex: same as (begin_, size_).
+  // Multi-dex: all dex files (starting from the first header).
+  // Compact: shared data which is located after all non-shared data.
+  ArrayRef<const uint8_t> const data_;
 
   // Typically the dex file name when available, alternatively some identifying string.
   //
@@ -932,7 +940,7 @@ class DexFile {
   mutable const OatDexFile* oat_dex_file_;
 
   // Manages the underlying memory allocation.
-  std::unique_ptr<DexFileContainer> container_;
+  std::shared_ptr<DexFileContainer> container_;
 
   // If the dex file is a compact dex file. If false then the dex file is a standard dex file.
   const bool is_compact_dex_;
