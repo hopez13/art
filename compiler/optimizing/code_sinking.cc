@@ -37,6 +37,18 @@ bool CodeSinking::Run() {
   // as an indicator of an uncommon branch.
   for (HBasicBlock* exit_predecessor : exit->GetPredecessors()) {
     HInstruction* last = exit_predecessor->GetLastInstruction();
+    if (last->IsTryBoundary()) {
+      // We have an exit try boundary. Fetch the previous instruction.
+      DCHECK(!last->AsTryBoundary()->IsEntry());
+      if (last->GetPrevious() == nullptr) {
+        DCHECK(exit_predecessor->IsSingleTryBoundary());
+        exit_predecessor = exit_predecessor->GetSinglePredecessor();
+        last = exit_predecessor->GetLastInstruction();
+      } else {
+        last = last->GetPrevious();
+      }
+    }
+
     // Any predecessor of the exit that does not return, throws an exception.
     if (!last->IsReturn() && !last->IsReturnVoid()) {
       SinkCodeToUncommonBranch(exit_predecessor);
