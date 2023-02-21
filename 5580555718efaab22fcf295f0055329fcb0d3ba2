@@ -553,6 +553,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c620ecac_ec913d83",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-02-21T13:21:55Z",
+      "side": 1,
+      "message": "Thanks Mythri. I\u0027ll reopen it so that I don\u0027t forget.",
+      "parentUuid": "fdb1ad03_e641b0c9",
+      "range": {
+        "startLine": 377,
+        "startChar": 13,
+        "endLine": 377,
+        "endChar": 17
+      },
+      "revId": "5580555718efaab22fcf295f0055329fcb0d3ba2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3523dd40_e1d215ac",
         "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
         "patchSetId": 3
