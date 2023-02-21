@@ -39,6 +39,7 @@ public class Main {
     } catch (Error e) {
       // expected
     }
+    assertEquals(0, $noinline$testDontSinkToReturnBranch(0, 0, false, new Object()));
     doThrow = true;
     try {
       testInstanceSideEffects();
@@ -299,6 +300,33 @@ public class Main {
     if (doThrow) {
       throw new Error(m.toString());
     }
+  }
+
+  // Consistency check: only one add
+  /// CHECK-START: int Main.$noinline$testDontSinkToReturnBranch(int, int, boolean, java.lang.Object) code_sinking (before)
+  /// CHECK:     Add
+  /// CHECK-NOT: Add
+
+  /// CHECK-START: int Main.$noinline$testDontSinkToReturnBranch(int, int, boolean, java.lang.Object) code_sinking (before)
+  /// CHECK:      Add
+  /// CHECK-NEXT: If
+
+  /// CHECK-START: int Main.$noinline$testDontSinkToReturnBranch(int, int, boolean, java.lang.Object) code_sinking (after)
+  /// CHECK:      Add
+  /// CHECK-NEXT: If
+  private static int $noinline$testDontSinkToReturnBranch(int a, int b, boolean flag, Object obj) {
+    int c = a + b;
+    if (flag) {
+      return 1;
+    }
+
+    synchronized (obj) {
+      return $noinline$returnSameValue(c);
+    }
+  }
+
+  private static int $noinline$returnSameValue(int value) {
+    return value;
   }
 
   public static void testInstanceSideEffects() {
