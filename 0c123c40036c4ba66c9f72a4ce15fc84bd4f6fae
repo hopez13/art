@@ -50,6 +50,24 @@
       "message": "Hi Richard, thanks for reducing the attention set and sorry for confusion.\n\nI noticed that there were some unresolved comments on https://r.android.com/1951944 by Vladimir. Since this change is a continuation of that one, can you make sure all those questions are addressed here? After that you can mark them as resolved or obsolete on the old change and abandon it for clarity. Also I think Vladimir should be in review for this CL as he already was reviewing the old one, so adding him back.",
       "revId": "0c123c40036c4ba66c9f72a4ce15fc84bd4f6fae",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b99c4127_1728e489",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2023-02-21T16:49:00Z",
+      "side": 1,
+      "message": "Hi Ulya, thanks for taking a look and re-adding Vladimir (I wasn\u0027t sure just how long he\u0027s on leave!) \n\nI know it\u0027s a bit of a pain to diff the two, so I\u0027ve tried to explicitly link each previously-unresolved comment from the old CL to the lines in which they are resolved in this CL, which will hopefully help a little.\n\nUnfortunately I don\u0027t have the option to abandon the previous CL, presumably because I\u0027m not its associated author. Perhaps you are able to abandon it from your side?",
+      "parentUuid": "215f6e0f_fea409b8",
+      "revId": "0c123c40036c4ba66c9f72a4ce15fc84bd4f6fae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
