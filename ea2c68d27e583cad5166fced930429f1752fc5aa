@@ -70,6 +70,30 @@
       },
       "revId": "ea2c68d27e583cad5166fced930429f1752fc5aa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "faeb9a54_1d5d08ac",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 823,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-02-21T13:20:26Z",
+      "side": 1,
+      "message": "Although I\u0027d much prefer just adding the check so we keep adhering to the compat behaviour in this case and don\u0027t have to scrutinise the legacy code for subtle pitfalls.",
+      "parentUuid": "c7680446_95165fb8",
+      "range": {
+        "startLine": 820,
+        "startChar": 0,
+        "endLine": 823,
+        "endChar": 3
+      },
+      "revId": "ea2c68d27e583cad5166fced930429f1752fc5aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
