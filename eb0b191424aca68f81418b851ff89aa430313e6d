@@ -142,6 +142,30 @@
       },
       "revId": "eb0b191424aca68f81418b851ff89aa430313e6d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "15638d99_b690522c",
+        "filename": "compiler/art_standalone_compiler_tests.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-02-21T23:23:45Z",
+      "side": 1,
+      "message": "We could check mtime of `generate-boot-image` executable, but it wouldn\u0027t be a complete solution, because its outputs depend on `dex2oat` and boot-image jar files.\nPaths for these files are not necessarily constant, for example: https://cs.android.com/android/platform/superproject/+/master:art/test/generate-boot-image/generate-boot-image.cc;l\u003d43\nThat logic would have to be implemented in the script.\n\nAssuming that `atest -d` is not used on pre-/post-submit runs, I\u0027m slightly more in favor of repeated regen.",
+      "parentUuid": "99225818_4b5be028",
+      "range": {
+        "startLine": 30,
+        "startChar": 24,
+        "endLine": 30,
+        "endChar": 35
+      },
+      "revId": "eb0b191424aca68f81418b851ff89aa430313e6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
