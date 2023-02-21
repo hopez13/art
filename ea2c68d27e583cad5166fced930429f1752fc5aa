@@ -94,6 +94,30 @@
       },
       "revId": "ea2c68d27e583cad5166fced930429f1752fc5aa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae25f8a1_b71584eb",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 823,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-02-21T15:01:53Z",
+      "side": 1,
+      "message": "Discussed offline. The concern is that some installd code may assume that not only the content of the file doesn\u0027t change but also the file at the path doesn\u0027t change. Especially some partners code may do. Let\u0027s add a check on the property.",
+      "parentUuid": "faeb9a54_1d5d08ac",
+      "range": {
+        "startLine": 820,
+        "startChar": 0,
+        "endLine": 823,
+        "endChar": 3
+      },
+      "revId": "ea2c68d27e583cad5166fced930429f1752fc5aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
