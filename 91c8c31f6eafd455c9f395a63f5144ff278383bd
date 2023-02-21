@@ -16,6 +16,24 @@
       "message": "I think gerrit\u0027s rendering bug changed the meaning of my comment in https://android-review.git.corp.google.com/c/platform/art/+/2421276/8/runtime/arch/riscv64/context_riscv64.cc .\n\nIf you look at diff base PS8, you\u0027ll see that my comment was only on the `RiscvContext::`, not the entire line. However, looking at diff PS8 PS11, for example, makes it look as if the comment applied to the entire line.\n\nThe style cleanup I suggested was to just get rid of the `\u003carch\u003eContext::` qualification. Besides being unnecessary, that qualification is quite odd, considering that it all resolves to the architecture-independent `Context` anyway.",
       "revId": "91c8c31f6eafd455c9f395a63f5144ff278383bd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "334c966a_c95d86a6",
+        "filename": "runtime/arch/riscv64/context_riscv64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-02-21T12:23:10Z",
+      "side": 0,
+      "message": "Ah! This makes more sense for me as well. It could be gerrit highlighting, but it\u0027s more likely that I didn\u0027t read the comment properly. Fixed.",
+      "parentUuid": "54ae2e3a_97937e21",
+      "revId": "91c8c31f6eafd455c9f395a63f5144ff278383bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
