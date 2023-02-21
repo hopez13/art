@@ -22,6 +22,30 @@
       },
       "revId": "ea2c68d27e583cad5166fced930429f1752fc5aa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cec20d51_fb6c202c",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 823,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-02-21T11:47:46Z",
+      "side": 1,
+      "message": "No, this change doesn\u0027t rely on the implementation on the other side. The other side can still acquire a flock. I added this fallback just for the SELinux policy limitation.",
+      "parentUuid": "52e90cd9_c50127f2",
+      "range": {
+        "startLine": 820,
+        "startChar": 0,
+        "endLine": 823,
+        "endChar": 3
+      },
+      "revId": "ea2c68d27e583cad5166fced930429f1752fc5aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
