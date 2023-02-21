@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e312085a_dfb5fb6e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2023-02-21T17:08:59Z",
+      "side": 1,
+      "message": "There is a stack trace associated with every object allocation. That stack trace is the \u0027site\u0027 of the allocation. Sites are organized into a tree based on the stack trace.\n\nIf stack traces aren\u0027t enabled (I think they are disabled by default), then every object is considered to be allocated at the same, root \u0027site\u0027.\n\nThe \u0027Site\u0027 page prints the following information about a particular stack trace:\n* The stack trace itself.\n* The list of children of the site (that is, all stack traces that have this site\u0027s stack trace as a prefix).\n* The list of objects allocated at that site.\n\nSo, while \u0027Allocations\u0027 may make sense as a title for the root site when stack traces are disabled, in general it\u0027s more than just allocations being described by the \u0027Site\u0027 page.\n\nI don\u0027t have a big concern changing the title to \u0027Allocations\u0027. Just wanted to provide more context.",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 106
+      },
+      "revId": "9a5bfa121758be4d32e0baed07353e7fb4c4b079",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
