@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52e90cd9_c50127f2",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 823,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-02-21T11:23:14Z",
+      "side": 1,
+      "message": "I think installd also uses flock on these files, which is active when the legacy implementation is used: http://cs/android-internal/frameworks/native/cmds/installd/dexopt.cpp;l\u003d198;rcl\u003d73c728e883c8f300623b00cd84b25f79e8e3c5b6 So don\u0027t we need to go into the legacy code path when dalvik.vm.useartservice isn\u0027t true?",
+      "range": {
+        "startLine": 820,
+        "startChar": 0,
+        "endLine": 823,
+        "endChar": 3
+      },
+      "revId": "ea2c68d27e583cad5166fced930429f1752fc5aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
