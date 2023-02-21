@@ -176,6 +176,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d2e3a6a_c5b5603b",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1212,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-02-21T15:11:32Z",
+      "side": 1,
+      "message": "Thanks.",
+      "parentUuid": "b667b9a4_fe9cbdd6",
+      "range": {
+        "startLine": 1212,
+        "startChar": 8,
+        "endLine": 1212,
+        "endChar": 13
+      },
+      "revId": "f71a834f3dc1baa7582a3b94a4391113e6828da9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d493ecc5_9e40cc90",
@@ -213,6 +237,30 @@
       "side": 1,
       "message": "oat_path can be empty for tests (see comment in `GetOatPath`).",
       "parentUuid": "d493ecc5_9e40cc90",
+      "range": {
+        "startLine": 1227,
+        "startChar": 14,
+        "endLine": 1227,
+        "endChar": 22
+      },
+      "revId": "f71a834f3dc1baa7582a3b94a4391113e6828da9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d464415_9d718d51",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1227,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-02-21T15:11:32Z",
+      "side": 1,
+      "message": "In this case, where is the runtime written to? Which piece of code determines the path?",
+      "parentUuid": "cfb6cea8_6c320928",
       "range": {
         "startLine": 1227,
         "startChar": 14,
