@@ -70,6 +70,30 @@
       },
       "revId": "9a5bfa121758be4d32e0baed07353e7fb4c4b079",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89cca4c6_dde7fb79",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1272573
+      },
+      "writtenOn": "2023-02-21T22:49:01Z",
+      "side": 1,
+      "message": "I think \u0027by function\u0027 implies grouping by function (e.g. `ArrayList.\u003cinit\u003e`) rather than by stack-of-functions (e.g. `Activity.onCreate;Fragment.onCreate;ArrayList.\u003cinit\u003e`).\n\nAre there any other types of \u0027site\u0027 collected, other than a stack trace?\n\nWe could call the page \u0027allocation site\u0027, I think that\u0027d be clear-ish, though I think \u0027allocation callstack\u0027 might be even clearer?\n\nDo you know how often we collect stacks vs not? (is it only e.g. android OS developers who explicitly turn on a flag that get stacks?)",
+      "parentUuid": "81a88fdc_7b00e4e6",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 106
+      },
+      "revId": "9a5bfa121758be4d32e0baed07353e7fb4c4b079",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
