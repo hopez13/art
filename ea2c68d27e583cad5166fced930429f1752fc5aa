@@ -46,6 +46,30 @@
       },
       "revId": "ea2c68d27e583cad5166fced930429f1752fc5aa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c7680446_95165fb8",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 823,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-02-21T13:10:27Z",
+      "side": 1,
+      "message": "Locks are a two way street. The code in installd is presumably written with the assumption that no other code changes the profile while it holds the flock. I think you\u0027ll have to motivate better that this change doesn\u0027t break that.",
+      "parentUuid": "cec20d51_fb6c202c",
+      "range": {
+        "startLine": 820,
+        "startChar": 0,
+        "endLine": 823,
+        "endChar": 3
+      },
+      "revId": "ea2c68d27e583cad5166fced930429f1752fc5aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
