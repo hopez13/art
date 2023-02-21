@@ -297,6 +297,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d64a3103_1def2838",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1227,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-02-21T15:46:18Z",
+      "side": 1,
+      "message": "Ah, okay. It\u0027s worth adding a comment that `GetRuntimeImagePath` may return a relative path.",
+      "parentUuid": "5fb1d6ec_7af68f5c",
+      "range": {
+        "startLine": 1227,
+        "startChar": 14,
+        "endLine": 1227,
+        "endChar": 22
+      },
+      "revId": "f71a834f3dc1baa7582a3b94a4391113e6828da9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f5cac656_a47dbed2",
         "filename": "runtime/runtime_image.cc",
         "patchSetId": 2
