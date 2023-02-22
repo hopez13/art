@@ -77,12 +77,15 @@ class AppInfo {
   void GetPrimaryApkOptimizationStatus(std::string* out_compiler_filter,
                                        std::string* out_compilation_reason);
 
+  std::string GetPrimaryApkReferenceProfile();
+
   // Whether we've received a call to RegisterAppInfo.
   bool HasRegisteredAppInfo();
 
   // The registered code type for a given code path. Note that this will
   // be kUnknown until an explicit registration for that path has been made.
   CodeType GetRegisteredCodeType(const std::string& code_path);
+
 
  private:
   // Encapsulates optimization information about a particular code location.
