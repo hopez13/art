@@ -86,6 +86,207 @@
       "parentUuid": "b99c4127_1728e489",
       "revId": "0c123c40036c4ba66c9f72a4ce15fc84bd4f6fae",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "200bd4f1_db24a646",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-02-22T15:36:45Z",
+      "side": 1,
+      "message": "FYI I haven\u0027t been involved in the other CL\u0027s review so I am taking a look at it with a fresh set of eyes.",
+      "revId": "0c123c40036c4ba66c9f72a4ce15fc84bd4f6fae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dfb6cd26_64ddfdbe",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2803,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-02-22T15:36:45Z",
+      "side": 1,
+      "message": "We only copy one-by-one in `emitTailLoop`. A proposed alternative:\n```\n[...]\n// A second loop handles the tail by copying the remaining characters.\n// If the copy length is not constant, we copy one-by-one.\n// If the copy length is constant [...]\n```",
+      "range": {
+        "startLine": 2803,
+        "startChar": 5,
+        "endLine": 2803,
+        "endChar": 15
+      },
+      "revId": "0c123c40036c4ba66c9f72a4ce15fc84bd4f6fae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0b6f35a0_c52c3f51",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2810,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-02-22T15:36:45Z",
+      "side": 1,
+      "message": "constexpr?\nWe can remove `constant_` from the name",
+      "range": {
+        "startLine": 2809,
+        "startChar": 0,
+        "endLine": 2810,
+        "endChar": 65
+      },
+      "revId": "0c123c40036c4ba66c9f72a4ce15fc84bd4f6fae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "76f00c24_40354e7d",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2820,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-02-22T15:36:45Z",
+      "side": 1,
+      "message": "`Subs` is the one setting the flag for the branch right? If so, what do you think about reordering to:\n```\nLDR\nSTR\nSUB\nB\n``` ?\n\nTo me, load/store and sub/branch go together logically. Same for `emitTailLoop`",
+      "range": {
+        "startLine": 2818,
+        "startChar": 0,
+        "endLine": 2820,
+        "endChar": 83
+      },
+      "revId": "0c123c40036c4ba66c9f72a4ce15fc84bd4f6fae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "55a97860_96d96695",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2821,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-02-22T15:36:45Z",
+      "side": 1,
+      "message": "It took me a while to understand why we are doing `ge` here, and not `gt` like `emitTailLoop`. Is there a reason we are doing a `do while` loop? Is it better for performance or code size?\n\nThis also makes it so that:\n* we have an extra add after `emitHeadLoop`.\n* we have to substract `chars_per_block` before calling `emitHeadLoop`\n* there\u0027s a difference between `emitHeadLoop` and `emitTailLoop` which might not be needed.",
+      "range": {
+        "startLine": 2821,
+        "startChar": 17,
+        "endLine": 2821,
+        "endChar": 19
+      },
+      "revId": "0c123c40036c4ba66c9f72a4ce15fc84bd4f6fae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a07f320_3406b076",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2846,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-02-22T15:36:45Z",
+      "side": 1,
+      "message": "const? Also we can remove `constant_` from its name",
+      "range": {
+        "startLine": 2846,
+        "startChar": 4,
+        "endLine": 2846,
+        "endChar": 11
+      },
+      "revId": "0c123c40036c4ba66c9f72a4ce15fc84bd4f6fae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "113dc124_323747bf",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2854,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-02-22T15:36:45Z",
+      "side": 1,
+      "message": "One `(`",
+      "range": {
+        "startLine": 2854,
+        "startChar": 26,
+        "endLine": 2854,
+        "endChar": 28
+      },
+      "revId": "0c123c40036c4ba66c9f72a4ce15fc84bd4f6fae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6661c234_4d1526e7",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2857,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-02-22T15:36:45Z",
+      "side": 1,
+      "message": "static assert?",
+      "range": {
+        "startLine": 2857,
+        "startChar": 6,
+        "endLine": 2857,
+        "endChar": 51
+      },
+      "revId": "0c123c40036c4ba66c9f72a4ce15fc84bd4f6fae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "25b3a2d6_14764f95",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2863,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-02-22T15:36:45Z",
+      "side": 1,
+      "message": "One `(`",
+      "range": {
+        "startLine": 2863,
+        "startChar": 26,
+        "endLine": 2863,
+        "endChar": 28
+      },
+      "revId": "0c123c40036c4ba66c9f72a4ce15fc84bd4f6fae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
