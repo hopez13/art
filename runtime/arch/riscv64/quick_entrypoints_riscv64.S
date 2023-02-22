@@ -76,6 +76,10 @@ END ExecuteSwitchImplAsm
     j    1b
 2:
     sd zero, (sp)  // Store null into ArtMethod* at bottom of frame.
+
+    // Init LOADREG* offsets for GPRs (s4) and FPRs (s5). They are used in INVOKE_STUB_LOOP.
+    mv  s4, zero
+    mv  s5, zero
 .endm
 
 
@@ -198,63 +202,103 @@ END art_deliver_pending_exception
 // Fill registers a1 - a7 and fa0 - fa7 with parameters in a loop, parse shorty to determine which
 // register to load next. Parameters that do not fit into registers remain on stack.
 //
-.macro INVOKE_STUB_LOOP maxgprs storeA4 storeA8 storeF4 storeF8 start end
+// Arguments:
+//   - sfx: unique label suffix among all procedures that use this macro
+//   - maxgprs: maximum number of available GPRs at the start of the loop
+//
+.macro INVOKE_STUB_LOOP sfx maxgprs
     LOADREG_SIZE_CHECK_ALL  // check that the jump table below has expected slot size
 
     // Load addresses for routines that load registers.
-    la  t3, \storeA4
-    la  t4, \storeA8
-    la  t5, \storeF4
-    la  t6, \storeF8
+    la  t3, .LstoreA4_\sfx
+    la  t4, .LstoreA8_\sfx
+    la  t5, .LstoreF4_\sfx
+    la  t6, .LstoreF8_\sfx
 
-    // Initialize routine offsets to 0 for integers (s4) and floating point (s5).
-    mv  s4, zero
-    mv  s5, zero
-
-    mv   t0, a5                // Load shorty address.
+    mv   t0, a5  // Load shorty address.
 
     // Loop to fill registers.
-\start:
-    addi t0, t0, 1             // Increment (first increment skips return value).
-    lb   t1, (t0)              // Load next character in signature.
-    beqz t1, \end              // Exit at end of signature. Shorty is null-terminated.
+.Lstart_\sfx:
+    addi t0, t0, 1                 // Increment (first increment skips return value).
+    lb   t1, (t0)                  // Load next character in signature.
+    beqz t1, .Lend_\sfx            // Exit at end of signature. Shorty is null-terminated.
 
-    li   t2, 'F'               // Check if current shorty character is 'F' for float.
-    bne  t1, t2, 1f
-    li   t2, 8 * LOADREG_SIZE  // Maximum 8 FPRs are available.
-    beq  s5, t2, 4f            // Skip this load if all registers full.
-    add  t2, t5, s5            // Calculate subroutine to jump to for loading float in a register.
+    li   t2, 'F'                   // Check if current shorty character is 'F' for float.
+    bne  t1, t2, .Ldouble_\sfx
+    li   t2, 8 * LOADREG_SIZE      // Maximum 8 FPRs are available.
+    beq  s5, t2, .Ladvance4_\sfx   // Skip this load if all registers full.
+    add  t2, t5, s5                // Calculate LOADREG_F4 address.
     jr   t2
 
-1:
-    li   t2, 'D'               // Check if current shorty character is 'D' for double.
-    bne  t1, t2, 2f
-    li   t2, 8 * LOADREG_SIZE  // Maximum 8 FPRs are available.
-    beq  s5, t2, 5f            // Skip this load if all registers full.
-    add  t2, t6, s5            // Calculate subroutine to jump to for loading double in a register.
+.Ldouble_\sfx:
+    li   t2, 'D'                   // Check if current shorty character is 'D' for double.
+    bne  t1, t2, .Llong_\sfx
+    li   t2, 8 * LOADREG_SIZE      // Maximum 8 FPRs are available.
+    beq  s5, t2, .Ladvance8_\sfx   // Skip this load if all registers full.
+    add  t2, t6, s5                // Calculate LOADREG_F8 address.
     jr   t2
 
-2:
-    li   t2, 'J'               // Check if current shorty character is 'J' for long.
-    bne  t1, t2, 3f
+.Llong_\sfx:
+    li   t2, 'J'                   // Check if current shorty character is 'J' for long.
+    bne  t1, t2, .Lother_\sfx
     li   t2, \maxgprs * LOADREG_SIZE
-    beq  s4, t2, 5f            // Skip this load if all registers full.
-    add  t2, t4, s4            // Calculate subroutine to jump to for loading long in a register.
+    beq  s4, t2, .Ladvance8_\sfx   // Skip this load if all registers full.
+    add  t2, t4, s4                // Calculate LOADREG_I8 address.
     jr   t2
 
-3:                             // Everything else takes one vReg (4 bytes).
+.Lother_\sfx:                      // Everything else takes one vReg (4 bytes).
     li   t2, \maxgprs * LOADREG_SIZE
-    beq  s4, t2, 4f            // Skip this load if all registers full.
-    add  t2, t3, s4            // Calculate subroutine to jump to for loading 4 bytes in a register.
+    beq  s4, t2, .Ladvance4_\sfx   // Skip this load if all registers full.
+    add  t2, t3, s4                // Calculate LOADREG_I4 address.
     jr   t2
 
-4:  // advance 4 bytes
+.Ladvance4_\sfx:
     addi s3, s3, 4
-    j    \start
+    j    .Lstart_\sfx
 
-5:  // advance 8 bytes
+.Ladvance8_\sfx:
     addi s3, s3, 8
-    j    \start
+    j    .Lstart_\sfx
+
+.LstoreA4_\sfx:
+    LOADREG_I4 s4 a1 .Lstart_\sfx  // only used by static invoke stub, non-static one skips it
+    LOADREG_I4 s4 a2 .Lstart_\sfx
+    LOADREG_I4 s4 a3 .Lstart_\sfx
+    LOADREG_I4 s4 a4 .Lstart_\sfx
+    LOADREG_I4 s4 a5 .Lstart_\sfx
+    LOADREG_I4 s4 a6 .Lstart_\sfx
+    LOADREG_I4 s4 a7 .Lstart_\sfx
+
+.LstoreA8_\sfx:
+    LOADREG_I8 s4 a1 .Lstart_\sfx  // only used by static invoke stub, non-static one skips it
+    LOADREG_I8 s4 a2 .Lstart_\sfx
+    LOADREG_I8 s4 a3 .Lstart_\sfx
+    LOADREG_I8 s4 a4 .Lstart_\sfx
+    LOADREG_I8 s4 a5 .Lstart_\sfx
+    LOADREG_I8 s4 a6 .Lstart_\sfx
+    LOADREG_I8 s4 a7 .Lstart_\sfx
+
+.LstoreF4_\sfx:
+    LOADREG_F4 s5 fa0 .Lstart_\sfx
+    LOADREG_F4 s5 fa1 .Lstart_\sfx
+    LOADREG_F4 s5 fa2 .Lstart_\sfx
+    LOADREG_F4 s5 fa3 .Lstart_\sfx
+    LOADREG_F4 s5 fa4 .Lstart_\sfx
+    LOADREG_F4 s5 fa5 .Lstart_\sfx
+    LOADREG_F4 s5 fa6 .Lstart_\sfx
+    LOADREG_F4 s5 fa7 .Lstart_\sfx
+
+.LstoreF8_\sfx:
+    LOADREG_F8 s5 fa0 .Lstart_\sfx
+    LOADREG_F8 s5 fa1 .Lstart_\sfx
+    LOADREG_F8 s5 fa2 .Lstart_\sfx
+    LOADREG_F8 s5 fa3 .Lstart_\sfx
+    LOADREG_F8 s5 fa4 .Lstart_\sfx
+    LOADREG_F8 s5 fa5 .Lstart_\sfx
+    LOADREG_F8 s5 fa6 .Lstart_\sfx
+    LOADREG_F8 s5 fa7 .Lstart_\sfx
+
+.Lend_\sfx:
 .endm
 
 
@@ -267,49 +311,12 @@ END art_deliver_pending_exception
 ENTRY art_quick_invoke_stub
     INVOKE_STUB_CREATE_FRAME
 
-    lw   a1, (s3)   // Load `this`.
-    addi s3, s3, 4  // Increment argument pointer.
+    lw   a1, (s3)              // Load `this`.
+    addi s3, s3, 4             // Increment argument pointer to skip `this`.
+    addi s4, s4, LOADREG_SIZE  // Increment LOADREG* offset for GPRs  to skip `this` in a1.
 
-    INVOKE_STUB_LOOP 6 /* max GPRs available: a0 is for ArtMethod*, a1 is for `this` */ \
-        .LstoreA4_1 .LstoreA8_1 .LstoreF4_1 .LstoreF8_1 .LfillRegisters1 .LcallFunction1
+    INVOKE_STUB_LOOP 1 /* label suffix */ 6 /* max GPRs available: a0 is ArtMethod*, a1 is `this` */
 
-.LstoreA4_1:
-    LOADREG_I4 s4 a2 .LfillRegisters1
-    LOADREG_I4 s4 a3 .LfillRegisters1
-    LOADREG_I4 s4 a4 .LfillRegisters1
-    LOADREG_I4 s4 a5 .LfillRegisters1
-    LOADREG_I4 s4 a6 .LfillRegisters1
-    LOADREG_I4 s4 a7 .LfillRegisters1
-
-.LstoreA8_1:
-    LOADREG_I8 s4 a2 .LfillRegisters1
-    LOADREG_I8 s4 a3 .LfillRegisters1
-    LOADREG_I8 s4 a4 .LfillRegisters1
-    LOADREG_I8 s4 a5 .LfillRegisters1
-    LOADREG_I8 s4 a6 .LfillRegisters1
-    LOADREG_I8 s4 a7 .LfillRegisters1
-
-.LstoreF4_1:
-    LOADREG_F4 s5 fa0 .LfillRegisters1
-    LOADREG_F4 s5 fa1 .LfillRegisters1
-    LOADREG_F4 s5 fa2 .LfillRegisters1
-    LOADREG_F4 s5 fa3 .LfillRegisters1
-    LOADREG_F4 s5 fa4 .LfillRegisters1
-    LOADREG_F4 s5 fa5 .LfillRegisters1
-    LOADREG_F4 s5 fa6 .LfillRegisters1
-    LOADREG_F4 s5 fa7 .LfillRegisters1
-
-.LstoreF8_1:
-    LOADREG_F8 s5 fa0 .LfillRegisters1
-    LOADREG_F8 s5 fa1 .LfillRegisters1
-    LOADREG_F8 s5 fa2 .LfillRegisters1
-    LOADREG_F8 s5 fa3 .LfillRegisters1
-    LOADREG_F8 s5 fa4 .LfillRegisters1
-    LOADREG_F8 s5 fa5 .LfillRegisters1
-    LOADREG_F8 s5 fa6 .LfillRegisters1
-    LOADREG_F8 s5 fa7 .LfillRegisters1
-
-.LcallFunction1:
     INVOKE_STUB_CALL_AND_RETURN
 END art_quick_invoke_stub
 
@@ -324,48 +331,7 @@ ENTRY art_quick_invoke_static_stub
     INVOKE_STUB_CREATE_FRAME
 
     // The only difference with art_quick_invoke_stub is the absence of `this` in a1.
-
-    INVOKE_STUB_LOOP 7 /* max GPRs available: a0 is for ArtMethod* */ \
-        .LstoreA4_2 .LstoreA8_2 .LstoreF4_2 .LstoreF8_2 .LfillRegisters2 .LcallFunction2
-
-.LstoreA4_2:
-    LOADREG_I4 s4 a1 .LfillRegisters2
-    LOADREG_I4 s4 a2 .LfillRegisters2
-    LOADREG_I4 s4 a3 .LfillRegisters2
-    LOADREG_I4 s4 a4 .LfillRegisters2
-    LOADREG_I4 s4 a5 .LfillRegisters2
-    LOADREG_I4 s4 a6 .LfillRegisters2
-    LOADREG_I4 s4 a7 .LfillRegisters2
-
-.LstoreA8_2:
-    LOADREG_I8 s4 a1 .LfillRegisters2
-    LOADREG_I8 s4 a2 .LfillRegisters2
-    LOADREG_I8 s4 a3 .LfillRegisters2
-    LOADREG_I8 s4 a4 .LfillRegisters2
-    LOADREG_I8 s4 a5 .LfillRegisters2
-    LOADREG_I8 s4 a6 .LfillRegisters2
-    LOADREG_I8 s4 a7 .LfillRegisters2
-
-.LstoreF4_2:
-    LOADREG_F4 s5 fa0 .LfillRegisters2
-    LOADREG_F4 s5 fa1 .LfillRegisters2
-    LOADREG_F4 s5 fa2 .LfillRegisters2
-    LOADREG_F4 s5 fa3 .LfillRegisters2
-    LOADREG_F4 s5 fa4 .LfillRegisters2
-    LOADREG_F4 s5 fa5 .LfillRegisters2
-    LOADREG_F4 s5 fa6 .LfillRegisters2
-    LOADREG_F4 s5 fa7 .LfillRegisters2
-
-.LstoreF8_2:
-    LOADREG_F8 s5 fa0 .LfillRegisters2
-    LOADREG_F8 s5 fa1 .LfillRegisters2
-    LOADREG_F8 s5 fa2 .LfillRegisters2
-    LOADREG_F8 s5 fa3 .LfillRegisters2
-    LOADREG_F8 s5 fa4 .LfillRegisters2
-    LOADREG_F8 s5 fa5 .LfillRegisters2
-    LOADREG_F8 s5 fa6 .LfillRegisters2
-    LOADREG_F8 s5 fa7 .LfillRegisters2
-.LcallFunction2:
+    INVOKE_STUB_LOOP 2 /* label suffix */ 7 /* max GPRs available: a0 is ArtMethod* */
 
     INVOKE_STUB_CALL_AND_RETURN
 END art_quick_invoke_static_stub
