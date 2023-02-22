@@ -433,6 +433,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "eed53b1d_03019a6d",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-02-22T16:17:11Z",
+      "side": 1,
+      "message": "Good idea, implemented in aosp/2449537.",
+      "parentUuid": "bdb74cc4_9257aeb5",
+      "revId": "5580555718efaab22fcf295f0055329fcb0d3ba2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bb910683_ecba46ac",
