@@ -214,6 +214,10 @@ public class Main implements Itf {
     assertEquals(3, foo.someMethod());
     assertEquals(42, foo.someDefaultMethod());
 
+    // Test with array classes.
+    assertEquals("[LMain;", Main[].class.getName());
+    assertEquals("[[LMain;", Main[][].class.getName());
+
     // Call all interface methods to trigger the creation of a imt conflict method.
     itf2.defaultMethod1();
     itf2.defaultMethod2();
