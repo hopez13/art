@@ -230,6 +230,9 @@ class PACKED(8) ImageHeader {
     // Aliases.
     kAppImageClassLoader = kSpecialRoots,   // The class loader used to build the app image.
     kBootImageLiveObjects = kSpecialRoots,  // Array of boot image objects that must be kept live.
+    kAppImageOatHeader = kSpecialRoots,     // A byte array containing 1) a fake OatHeader to check
+                                            // if the image can be loaded against the current
+                                            // runtime, and 2) the dex checksums.
   };
 
   enum BootImageLiveObjects {
@@ -261,6 +264,7 @@ class PACKED(8) ImageHeader {
     kSectionInternedStrings,
     kSectionClassTable,
     kSectionStringReferenceOffsets,
+    kSectionDexCacheArrays,
     kSectionMetadata,
     kSectionImageBitmap,
     kSectionCount,  // Number of elements in enum.
@@ -502,6 +506,7 @@ class PACKED(8) ImageHeader {
   uint32_t blocks_count_ = 0u;
 
   friend class linker::ImageWriter;
+  friend class RuntimeImageHelper;
 };
 
 /*
