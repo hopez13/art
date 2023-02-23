@@ -342,7 +342,7 @@ ENTRY art_quick_generic_jni_trampoline
 
     mv   fp, sp
 
-    li   t0, 5120
+    li   t0, GENERIC_JNI_TRAMPOLINE_RESERVED_AREA
     sub  sp, sp, t0
 
     mv   a0, xSELF    // Thread*
