@@ -46,6 +46,30 @@
       },
       "revId": "d4c0d322d91e8cd35ee61a65ab3aaa683f27a77e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7787bef5_63243d7e",
+        "filename": "runtime/native_stack_dump.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-02-23T20:27:31Z",
+      "side": 1,
+      "message": "Aren\u0027t you doing it already? Line 78 creates one string for `top` and then one string for the concatenated string.",
+      "parentUuid": "30b3b9aa_d306d1cc",
+      "range": {
+        "startLine": 78,
+        "startChar": 9,
+        "endLine": 78,
+        "endChar": 25
+      },
+      "revId": "d4c0d322d91e8cd35ee61a65ab3aaa683f27a77e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
