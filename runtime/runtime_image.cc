@@ -686,6 +686,34 @@ class RuntimeImageHelper {
     cache->SetStringsArray(visitor(old_strings_array));
     // No need to relocate string entries in the array, we have already done this when
     // creating the DexCache copy.
+
+    // Relocate the type array and its entries.
+    mirror::GcRootArray<mirror::Class>* old_types_array = cache->GetResolvedTypesArray();
+    if (HasNativeRelocation(old_types_array)) {
+      cache->SetResolvedTypesArray(visitor(old_types_array));
+      auto it = native_relocations_[old_types_array];
+        std::vector<uint8_t>& data = (it.first == NativeRelocationKind::kFullNativeDexCacheArray)
+            ? dex_cache_arrays_ : metadata_;
+
+      mirror::GcRootArray<mirror::Class>* content_array =
+          reinterpret_cast<mirror::GcRootArray<mirror::Class>*>(data.data() + it.second);
+      for (uint32_t i = 0; i < dex_file.NumTypeIds(); ++i) {
+        ObjPtr<mirror::Class> cls = old_types_array->Get(i);
+        if (cls == nullptr || IsInBootImage(cls.Ptr())) {
+          content_array->Set(i, cls.Ptr());
+        } else {
+          const dex::ClassDef* class_def = cls->GetClassDef();
+          auto it2 = classes_.find(class_def);
+          if (it2 == classes_.end()) {
+            content_array->Set(i,  nullptr);
+          } else {
+            content_array->Set(
+                i,
+                reinterpret_cast<mirror::Class*>(image_begin_ + sizeof(ImageHeader) + it2->second));
+          }
+        }
+      }
+    }
   }
 
   void RelocateNativePointers() {
@@ -1164,8 +1192,17 @@ class RuntimeImageHelper {
     // Store the array pointer in the dex cache, which will be relocated at the end.
     reinterpret_cast<mirror::DexCache*>(copy)->SetResolvedFieldsArray(resolved_fields);
 
+    // Copy the type array.
+    mirror::GcRootArray<mirror::Class>* resolved_types = cache->GetResolvedTypesArray();
+    CreateGcRootDexCacheArray(cache->GetDexFile()->NumTypeIds(),
+                              mirror::DexCache::kDexCacheTypeCacheSize,
+                              resolved_types);
+    // Store the array pointer in the dex cache, which will be relocated at the end.
+    reinterpret_cast<mirror::DexCache*>(copy)->SetResolvedTypesArray(resolved_types);
+
     // Copy the string array.
     mirror::GcRootArray<mirror::String>* strings = cache->GetStringsArray();
+    // Note: `new_strings` points to temporary data, and is only valid here.
     mirror::GcRootArray<mirror::String>* new_strings =
         CreateGcRootDexCacheArray(cache->GetDexFile()->NumStringIds(),
                                   mirror::DexCache::kDexCacheStringCacheSize,
