@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b31dab5_29a03f06",
+        "filename": "runtime/native_stack_dump.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-02-23T20:22:48Z",
+      "side": 1,
+      "message": "Declare `top` as a std::string?",
+      "range": {
+        "startLine": 78,
+        "startChar": 9,
+        "endLine": 78,
+        "endChar": 25
+      },
+      "revId": "d4c0d322d91e8cd35ee61a65ab3aaa683f27a77e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
