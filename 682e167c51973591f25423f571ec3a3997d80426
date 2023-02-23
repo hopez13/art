@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ee2e6fe_72b14168",
+        "filename": "libdexfile/dex/dex_file_loader.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-02-23T20:57:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "934e2451_2a5fdebc",
+      "range": {
+        "startLine": 299,
+        "startChar": 0,
+        "endLine": 299,
+        "endChar": 99
+      },
+      "revId": "682e167c51973591f25423f571ec3a3997d80426",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1b710bdf_80863363",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-02-23T20:25:59Z",
       "side": 1,
       "message": "Should that be under `if (!ok) {` ?",
+      "range": {
+        "startLine": 299,
+        "startChar": 0,
+        "endLine": 301,
+        "endChar": 7
+      },
+      "revId": "682e167c51973591f25423f571ec3a3997d80426",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "813c9ec8_e4af2c64",
+        "filename": "libdexfile/dex/dex_file_loader.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-02-23T20:57:21Z",
+      "side": 1,
+      "message": "Could be, but does not have to be.  Either way is fine.",
+      "parentUuid": "1b710bdf_80863363",
       "range": {
         "startLine": 299,
         "startChar": 0,
