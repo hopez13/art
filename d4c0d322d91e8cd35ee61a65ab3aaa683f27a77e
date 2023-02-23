@@ -70,6 +70,30 @@
       },
       "revId": "d4c0d322d91e8cd35ee61a65ab3aaa683f27a77e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "733a3601_b822b8ea",
+        "filename": "runtime/native_stack_dump.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-02-23T20:29:35Z",
+      "side": 1,
+      "message": "Three concatenations actually, but since the string is temporary value, I am hoping that will result all of above actually operating on single string (which will also get returned).",
+      "parentUuid": "7787bef5_63243d7e",
+      "range": {
+        "startLine": 78,
+        "startChar": 9,
+        "endLine": 78,
+        "endChar": 25
+      },
+      "revId": "d4c0d322d91e8cd35ee61a65ab3aaa683f27a77e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
