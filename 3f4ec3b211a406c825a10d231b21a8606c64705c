@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e2df33d_3b032afe",
+        "filename": "runtime/entrypoints/entrypoint_asm_constants.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-02-23T13:35:45Z",
+      "side": 1,
+      "message": "I copy-pasted this comment from X86 code (which was the only arch that had an explanation for it). I think it\u0027s correct for all architectures, but I don\u0027t know for sure. Mythri, Vladimir, please double-check.",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 0
+      },
+      "revId": "3f4ec3b211a406c825a10d231b21a8606c64705c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
