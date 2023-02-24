@@ -18,6 +18,29 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "5851217b_706334bf",
+        "filename": "compiler/optimizing/code_sinking.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-02-24T17:19:25Z",
+      "side": 1,
+      "message": "Drop this.",
+      "range": {
+        "startLine": 348,
+        "startChar": 0,
+        "endLine": 348,
+        "endChar": 26
+      },
+      "revId": "4e84f380702b03aa47193d534c8c69835585cd7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "e086950a_f2b3701a",
@@ -31,6 +54,29 @@
       "writtenOn": "2023-02-24T17:12:56Z",
       "side": 1,
       "message": "The rest of the code is just space formatting.",
+      "revId": "4e84f380702b03aa47193d534c8c69835585cd7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d265039a_279deec1",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-02-24T17:19:25Z",
+      "side": 1,
+      "message": "successor",
+      "range": {
+        "startLine": 324,
+        "startChar": 43,
+        "endLine": 324,
+        "endChar": 53
+      },
       "revId": "4e84f380702b03aa47193d534c8c69835585cd7f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
