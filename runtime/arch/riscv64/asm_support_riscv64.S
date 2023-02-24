@@ -452,4 +452,55 @@
     DELIVER_PENDING_EXCEPTION
 .endm
 
+
+.macro SAVE_ALL_ARGS_INCREASE_FRAME extra_space
+    // Reserve space for all argument registers, plus the extra space.
+    INCREASE_FRAME (ALL_ARGS_SIZE + \extra_space)
+
+    // Argument GPRs a0 - a7.
+    SAVE_GPR a0 (8*0)
+    SAVE_GPR a1 (8*1)
+    SAVE_GPR a2 (8*2)
+    SAVE_GPR a3 (8*3)
+    SAVE_GPR a4 (8*4)
+    SAVE_GPR a5 (8*5)
+    SAVE_GPR a6 (8*6)
+    SAVE_GPR a7 (8*7)
+
+    // Argument FPRs fa0 - fa7.
+    SAVE_FPR fa0 (8*8)
+    SAVE_FPR fa1 (8*9)
+    SAVE_FPR fa2 (8*10)
+    SAVE_FPR fa3 (8*11)
+    SAVE_FPR fa4 (8*12)
+    SAVE_FPR fa5 (8*13)
+    SAVE_FPR fa6 (8*14)
+    SAVE_FPR fa7 (8*15)
+.endm
+
+
+.macro RESTORE_ALL_ARGS_DECREASE_FRAME extra_space
+    // Argument GPRs a0 - a7.
+    RESTORE_GPR a0 (8*0)
+    RESTORE_GPR a1 (8*1)
+    RESTORE_GPR a2 (8*2)
+    RESTORE_GPR a3 (8*3)
+    RESTORE_GPR a4 (8*4)
+    RESTORE_GPR a5 (8*5)
+    RESTORE_GPR a6 (8*6)
+    RESTORE_GPR a7 (8*7)
+
+    // Argument FPRs fa0 - fa7.
+    RESTORE_FPR fa0 (8*8)
+    RESTORE_FPR fa1 (8*9)
+    RESTORE_FPR fa2 (8*10)
+    RESTORE_FPR fa3 (8*11)
+    RESTORE_FPR fa4 (8*12)
+    RESTORE_FPR fa5 (8*13)
+    RESTORE_FPR fa6 (8*14)
+    RESTORE_FPR fa7 (8*15)
+
+    DECREASE_FRAME (ALL_ARGS_SIZE + \extra_space)
+.endm
+
 #endif  // ART_RUNTIME_ARCH_RISCV64_ASM_SUPPORT_RISCV64_S_

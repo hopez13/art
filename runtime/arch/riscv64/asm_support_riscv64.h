@@ -29,4 +29,7 @@
 // Excluded GPRs are: SP, Zero, TP, GP, S1/TR (ART thread register), S2 (shadow stack).
 #define FRAME_SIZE_SAVE_EVERYTHING       480
 
+// 8 argument GPRS: a0 - a7 and 8 argument FPRs: fa0 - fa7
+#define ALL_ARGS_SIZE (8 * (8 + 8))
+
 #endif  // ART_RUNTIME_ARCH_RISCV64_ASM_SUPPORT_RISCV64_H_
