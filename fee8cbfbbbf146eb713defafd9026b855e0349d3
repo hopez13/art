@@ -70,6 +70,30 @@
       },
       "revId": "fee8cbfbbbf146eb713defafd9026b855e0349d3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6ae56383_17bacf52",
+        "filename": "compiler/optimizing/code_sinking.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-02-24T12:01:13Z",
+      "side": 1,
+      "message": "Currently we don\u0027t profile branches on ART. We use throwing branches to indicate which branches are \"uncommon\" since throws shouldn\u0027t be in the regular flow.\n\nHowever, you can see in this example that our \"throwing branches\" heuristics is not perfect. In fact, pushing down that `Add` would be worth it in this case. However, if we push down instructions for this case, we should also do it for other \"returning branches\" for consistency.\n\nI will make a comment of this in the code, and add the `throwing` example too for good measure.",
+      "parentUuid": "ed94daea_94178e31",
+      "range": {
+        "startLine": 53,
+        "startChar": 50,
+        "endLine": 53,
+        "endChar": 51
+      },
+      "revId": "fee8cbfbbbf146eb713defafd9026b855e0349d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
