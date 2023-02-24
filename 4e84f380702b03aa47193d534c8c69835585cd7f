@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7a051f9c_475d5e7e",
+        "filename": "compiler/optimizing/code_sinking.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-02-24T17:12:56Z",
+      "side": 1,
+      "message": "Refactored this block to make it easier to understand. Also, previously we were asking `instruction-\u003eCanThrow()` and `instruction-\u003eGetBlock()-\u003eIsTryBlock()` inside the while loop when those things are constant in this codepath.",
+      "revId": "4e84f380702b03aa47193d534c8c69835585cd7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e086950a_f2b3701a",
+        "filename": "compiler/optimizing/code_sinking.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-02-24T17:12:56Z",
+      "side": 1,
+      "message": "The rest of the code is just space formatting.",
+      "revId": "4e84f380702b03aa47193d534c8c69835585cd7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

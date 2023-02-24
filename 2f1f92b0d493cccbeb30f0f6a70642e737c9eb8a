@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b8fc274a_a3f9ffba",
+        "filename": "compiler/optimizing/code_sinking.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-02-24T17:12:56Z",
+      "side": 0,
+      "message": "Only the exit block has no successors, and we shouldn\u0027t bump into that block here. The `We currently bail for loops` was incorrect.",
+      "range": {
+        "startLine": 353,
+        "startChar": 17,
+        "endLine": 353,
+        "endChar": 38
+      },
+      "revId": "2f1f92b0d493cccbeb30f0f6a70642e737c9eb8a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
