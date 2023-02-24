@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d6526c94_5b0358a7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-02-24T11:42:30Z",
+      "side": 1,
+      "message": "Thanks for the CL. However, I think the test is not supposed to fail on any device that takes mainline updates, and its failure indicates a real issue. Let\u0027s discuss a solution in the bug instead of skipping the test.",
+      "revId": "ea4a86cd2408a3c4924b697226acf1d39a524866",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
