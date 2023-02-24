@@ -3182,7 +3182,7 @@ bool OatWriter::WriteDexFiles(File* file,
   if (copy_dex_files == CopyOption::kOnlyIfCompressed) {
     extract_dex_files_into_vdex_ = false;
     for (OatDexFile& oat_dex_file : oat_dex_files_) {
-      const DexFileContainer* container = oat_dex_file.GetDexFile()->GetContainer();
+      const DexFileContainer* container = oat_dex_file.GetDexFile()->GetContainer().get();
       if (!(container->IsZip() && container->IsFileMap())) {
         extract_dex_files_into_vdex_ = true;
         break;
@@ -3465,6 +3465,7 @@ bool OatWriter::OpenDexFiles(
   DCHECK_EQ(opened_dex_files_map->size(), 1u);
   DCHECK(vdex_begin_ == opened_dex_files_map->front().Begin());
   std::vector<std::unique_ptr<const DexFile>> dex_files;
+  auto container = std::make_shared<MemoryDexFileContainer>(vdex_begin_, vdex_size_);
   for (OatDexFile& oat_dex_file : oat_dex_files_) {
     const uint8_t* raw_dex_file = vdex_begin_ + oat_dex_file.dex_file_offset_;
 
@@ -3484,13 +3485,16 @@ bool OatWriter::OpenDexFiles(
     }
 
     // Now, open the dex file.
+    DexFileLoaderErrorCode error_code;
     std::string error_msg;
-    ArtDexFileLoader dex_file_loader(
-        raw_dex_file, oat_dex_file.dex_file_size_, oat_dex_file.GetLocation());
-    dex_files.emplace_back(dex_file_loader.Open(oat_dex_file.dex_file_location_checksum_,
+    ArtDexFileLoader dex_file_loader(container, oat_dex_file.GetLocation());
+    dex_files.emplace_back(dex_file_loader.Open(raw_dex_file,
+                                                oat_dex_file.dex_file_size_,
+                                                oat_dex_file.dex_file_location_checksum_,
                                                 /* oat_dex_file */ nullptr,
                                                 verify,
                                                 verify,
+                                                &error_code,
                                                 &error_msg));
     if (dex_files.back() == nullptr) {
       LOG(ERROR) << "Failed to open dex file from oat file. File: " << oat_dex_file.GetLocation()

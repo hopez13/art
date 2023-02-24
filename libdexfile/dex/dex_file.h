@@ -87,6 +87,7 @@ class DexFileContainer {
 class MemoryDexFileContainer : public DexFileContainer {
  public:
   MemoryDexFileContainer(const uint8_t* begin, const uint8_t* end) : begin_(begin), end_(end) {}
+  MemoryDexFileContainer(const uint8_t* data, size_t size) : begin_(data), end_(data + size) {}
   bool IsReadOnly() const override { return true; }
   bool EnableWrite() override { return false; }
   bool DisableWrite() override { return false; }
@@ -148,6 +149,10 @@ class DexFile {
 
     // Decode the dex magic version
     uint32_t GetVersion() const;
+  };
+
+  struct HeaderV41 : public Header {
+    uint32_t multidex_offset = 0;
   };
 
   // Map item type codes.
@@ -832,9 +837,7 @@ class DexFile {
     return DataBegin() <= addr && addr < DataBegin() + DataSize();
   }
 
-  DexFileContainer* GetContainer() const {
-    return container_.get();
-  }
+  const std::shared_ptr<DexFileContainer>& GetContainer() const { return container_; }
 
   IterationRange<ClassIterator> GetClasses() const;
 
@@ -848,6 +851,7 @@ class DexFile {
  protected:
   // First Dex format version supporting default methods.
   static constexpr uint32_t kDefaultMethodsVersion = 37;
+  static constexpr uint32_t kMultidexVersion = 41;
 
   DexFile(const uint8_t* base,
           size_t size,
@@ -857,6 +861,9 @@ class DexFile {
           // Shared since several dex files may be stored in the same logical container.
           std::shared_ptr<DexFileContainer> container,
           bool is_compact_dex);
+
+  template <typename T>
+  const T* GetSection(size_t offset);
 
   // Top-level initializer that calls other Init methods.
   bool Init(std::string* error_msg);
@@ -875,6 +882,7 @@ class DexFile {
 
   // Data memory range: Most dex offsets are relative to this memory range.
   // Standard dex: same as (begin_, size_).
+  // Multi-dex: all dex files (starting from the first header).
   // Compact: shared data which is located after all non-shared data.
   //
   // This is different to the "data section" in the standard dex header.

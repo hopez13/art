@@ -17,6 +17,8 @@
 #include "oat_file.h"
 
 #include <dlfcn.h>
+
+#include <memory>
 #ifndef __APPLE__
 #include <link.h>  // for dl_iterate_phdr.
 #endif
@@ -547,13 +549,13 @@ bool OatFileBase::Setup(const std::vector<const DexFile*>& dex_files, std::strin
       return false;
     }
     // Create an OatDexFile and add it to the owning container.
-    OatDexFile* oat_dex_file = new OatDexFile(
-        this,
-        dex_file->Begin(),
-        dex_file->GetLocationChecksum(),
-        dex_location,
-        canonical_location,
-        type_lookup_table_data);
+    OatDexFile* oat_dex_file = new OatDexFile(this,
+                                              dex_file->GetContainer(),
+                                              dex_file->Begin(),
+                                              dex_file->GetLocationChecksum(),
+                                              dex_location,
+                                              canonical_location,
+                                              type_lookup_table_data);
     oat_dex_files_storage_.push_back(oat_dex_file);
 
     // Add the location and canonical location (if different) to the oat_dex_files_ table.
@@ -773,6 +775,7 @@ bool OatFileBase::Setup(int zip_fd,
       return false;
     }
     const uint8_t* dex_file_pointer = nullptr;
+    std::shared_ptr<DexFileContainer> dex_file_container;
     if (UNLIKELY(dex_file_offset == 0U)) {
       // Do not support mixed-mode oat files.
       if (i != 0u && external_dex_files_.empty()) {
@@ -857,6 +860,7 @@ bool OatFileBase::Setup(int zip_fd,
         return false;
       }
       dex_file_pointer = external_dex_files_[i]->Begin();
+      dex_file_container = external_dex_files_[i]->GetContainer();
     } else {
       // Do not support mixed-mode oat files.
       if (!external_dex_files_.empty()) {
@@ -879,6 +883,8 @@ bool OatFileBase::Setup(int zip_fd,
         return false;
       }
       dex_file_pointer = DexBegin() + dex_file_offset;
+      dex_file_container =
+          std::make_shared<MemoryDexFileContainer>(vdex_->DexBegin(), vdex_->DexEnd());
     }
 
     const bool valid_magic = DexFileLoader::IsMagicValid(dex_file_pointer);
@@ -1001,20 +1007,21 @@ bool OatFileBase::Setup(int zip_fd,
     }
 
     // Create the OatDexFile and add it to the owning container.
-    OatDexFile* oat_dex_file = new OatDexFile(
-        this,
-        dex_file_location,
-        DexFileLoader::GetDexCanonicalLocation(dex_file_name.c_str()),
-        dex_file_checksum,
-        dex_file_pointer,
-        lookup_table_data,
-        method_bss_mapping,
-        type_bss_mapping,
-        public_type_bss_mapping,
-        package_type_bss_mapping,
-        string_bss_mapping,
-        class_offsets_pointer,
-        dex_layout_sections);
+    OatDexFile* oat_dex_file =
+        new OatDexFile(this,
+                       dex_file_location,
+                       DexFileLoader::GetDexCanonicalLocation(dex_file_name.c_str()),
+                       dex_file_checksum,
+                       dex_file_container,
+                       dex_file_pointer,
+                       lookup_table_data,
+                       method_bss_mapping,
+                       type_bss_mapping,
+                       public_type_bss_mapping,
+                       package_type_bss_mapping,
+                       string_bss_mapping,
+                       class_offsets_pointer,
+                       dex_layout_sections);
     oat_dex_files_storage_.push_back(oat_dex_file);
 
     // Add the location and canonical location (if different) to the oat_dex_files_ table.
@@ -1781,7 +1788,10 @@ class OatFileBackedByVdex final : public OatFileBase {
           return nullptr;
         }
 
+        auto container =
+            std::make_shared<MemoryDexFileContainer>(vdex_file->DexBegin(), vdex_file->DexEnd());
         OatDexFile* oat_dex_file = new OatDexFile(oat_file.get(),
+                                                  std::move(container),
                                                   dex_file_start,
                                                   vdex_file->GetLocationChecksum(i),
                                                   location,
@@ -2158,6 +2168,7 @@ OatDexFile::OatDexFile(const OatFile* oat_file,
                        const std::string& dex_file_location,
                        const std::string& canonical_dex_file_location,
                        uint32_t dex_file_location_checksum,
+                       std::shared_ptr<DexFileContainer> dex_file_container,
                        const uint8_t* dex_file_pointer,
                        const uint8_t* lookup_table_data,
                        const IndexBssMapping* method_bss_mapping_data,
@@ -2171,6 +2182,7 @@ OatDexFile::OatDexFile(const OatFile* oat_file,
       dex_file_location_(dex_file_location),
       canonical_dex_file_location_(canonical_dex_file_location),
       dex_file_location_checksum_(dex_file_location_checksum),
+      dex_file_container_(std::move(dex_file_container)),
       dex_file_pointer_(dex_file_pointer),
       lookup_table_data_(lookup_table_data),
       method_bss_mapping_(method_bss_mapping_data),
@@ -2183,6 +2195,7 @@ OatDexFile::OatDexFile(const OatFile* oat_file,
       dex_layout_sections_(dex_layout_sections) {
   InitializeTypeLookupTable();
   DCHECK(!IsBackedByVdexOnly());
+  DCHECK(dex_file_container_ != nullptr);
 }
 
 void OatDexFile::InitializeTypeLookupTable() {
@@ -2206,6 +2219,7 @@ void OatDexFile::InitializeTypeLookupTable() {
 }
 
 OatDexFile::OatDexFile(const OatFile* oat_file,
+                       std::shared_ptr<DexFileContainer> dex_file_container_,
                        const uint8_t* dex_file_pointer,
                        uint32_t dex_file_location_checksum,
                        const std::string& dex_file_location,
@@ -2215,10 +2229,12 @@ OatDexFile::OatDexFile(const OatFile* oat_file,
       dex_file_location_(dex_file_location),
       canonical_dex_file_location_(canonical_dex_file_location),
       dex_file_location_checksum_(dex_file_location_checksum),
+      dex_file_container_(std::move(dex_file_container_)),
       dex_file_pointer_(dex_file_pointer),
       lookup_table_data_(lookup_table_data) {
   InitializeTypeLookupTable();
   DCHECK(IsBackedByVdexOnly());
+  DCHECK(dex_file_container_ != nullptr);
 }
 
 OatDexFile::OatDexFile(TypeLookupTable&& lookup_table) : lookup_table_(std::move(lookup_table)) {
@@ -2240,9 +2256,17 @@ std::unique_ptr<const DexFile> OatDexFile::OpenDexFile(std::string* error_msg) c
   ScopedTrace trace(__PRETTY_FUNCTION__);
   static constexpr bool kVerify = false;
   static constexpr bool kVerifyChecksum = false;
-  ArtDexFileLoader dex_file_loader(dex_file_pointer_, FileSize(), dex_file_location_);
-  return dex_file_loader.Open(
-      dex_file_location_checksum_, this, kVerify, kVerifyChecksum, error_msg);
+  ArtDexFileLoader dex_file_loader(std::shared_ptr<DexFileContainer>(dex_file_container_),
+                                   dex_file_location_);
+  DexFileLoaderErrorCode error_code;
+  return dex_file_loader.Open(dex_file_pointer_,
+                              FileSize(),
+                              dex_file_location_checksum_,
+                              this,
+                              kVerify,
+                              kVerifyChecksum,
+                              &error_code,
+                              error_msg);
 }
 
 uint32_t OatDexFile::GetOatClassOffset(uint16_t class_def_index) const {
