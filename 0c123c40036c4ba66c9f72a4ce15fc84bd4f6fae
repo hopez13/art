@@ -128,6 +128,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "940b8b64_be1e82c1",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2803,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2023-02-24T15:50:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dfb6cd26_64ddfdbe",
+      "range": {
+        "startLine": 2803,
+        "startChar": 5,
+        "endLine": 2803,
+        "endChar": 15
+      },
+      "revId": "0c123c40036c4ba66c9f72a4ce15fc84bd4f6fae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0b6f35a0_c52c3f51",
@@ -141,6 +165,30 @@
       "writtenOn": "2023-02-22T15:36:45Z",
       "side": 1,
       "message": "constexpr?\nWe can remove `constant_` from the name",
+      "range": {
+        "startLine": 2809,
+        "startChar": 0,
+        "endLine": 2810,
+        "endChar": 65
+      },
+      "revId": "0c123c40036c4ba66c9f72a4ce15fc84bd4f6fae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f317b4c_32e759d6",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2810,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2023-02-24T15:50:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0b6f35a0_c52c3f51",
       "range": {
         "startLine": 2809,
         "startChar": 0,
@@ -176,6 +224,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "40568143_95c85684",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2820,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2023-02-24T15:50:18Z",
+      "side": 1,
+      "message": "While I agree that aesthetically it would be nice for the load/store and sub/branch to go together, I believe that we observe improved performance with this ordering (though I don\u0027t have the exact numbers to hand), so perhaps it\u0027s reasonable to continue with our variant?",
+      "parentUuid": "76f00c24_40354e7d",
+      "range": {
+        "startLine": 2818,
+        "startChar": 0,
+        "endLine": 2820,
+        "endChar": 83
+      },
+      "revId": "0c123c40036c4ba66c9f72a4ce15fc84bd4f6fae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "55a97860_96d96695",
         "filename": "compiler/optimizing/intrinsics_arm64.cc",
         "patchSetId": 1
@@ -187,6 +259,30 @@
       "writtenOn": "2023-02-22T15:36:45Z",
       "side": 1,
       "message": "It took me a while to understand why we are doing `ge` here, and not `gt` like `emitTailLoop`. Is there a reason we are doing a `do while` loop? Is it better for performance or code size?\n\nThis also makes it so that:\n* we have an extra add after `emitHeadLoop`.\n* we have to substract `chars_per_block` before calling `emitHeadLoop`\n* there\u0027s a difference between `emitHeadLoop` and `emitTailLoop` which might not be needed.",
+      "range": {
+        "startLine": 2821,
+        "startChar": 17,
+        "endLine": 2821,
+        "endChar": 19
+      },
+      "revId": "0c123c40036c4ba66c9f72a4ce15fc84bd4f6fae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c473e2b4_cad1cd85",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2821,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2023-02-24T15:50:18Z",
+      "side": 1,
+      "message": "The do-while structure is mainly for performance reasons: one of the goals was to eliminate some conditional jumps through loop inversion. I guess without loop inversion, implementing it as a conditional-while-do would look something like\n\n    __ Mov(length_tmp, length_reg);\n    __ Bind(\u0026loop1);\n    __ Cmp(length_tmp, chars_per_block); \n    __ B(\u0026loop2, lt); \n    __ Ldr(...)\n    __ Str(...)\n    __ Sub(length_tmp, length_tmp, chars_per_block); \n    __ B(\u0026loop1); \n\n    __ Bind(\u0026loop2);\n    __ Cmp(length_tmp, 1)\n    __ B(\u0026done, lt);\n    __ Ldrh(...)\n    __ Strh(...)\n    __ Sub(length_tmp, length_tmp, 1);\n    __ B(\u0026loop2);\n\nHere, both loops have unconditional jumps only to immediately check if we should jump again to past the loop. In this case, when `length \u003d\u003d chars_per_block`, we jump a total of 3 times despite only running one loop body.\n\nWith loop inversion, we move the initial conditional jump out of the loop, then have a tighter loop body which contains only a single conditional jump, which is only taken when we definitely need to run another iteration. For example, in the current proposed patchset, when `length \u003d\u003d chars_per_block`, we jump just 1 time in total.\n\nAs for the `SUBS` and `ADDS` structure of the current patchset: if we don\u0027t `SUBS` and `ADDS` a full block before and after the head loop respectively, we would still need to similarly perform extra conditionals as part of it.\n\nFor example, in this case at the end of the head loop\u0027s `SUBS`, a `B.gt` would succeed if there were one or more characters remaining. But we would still need the second comparison between the remaining length and `chars_per_block` to decide if we should run the head loop body again. With the current patchset, because we `SUBS` at the start, if a second `SUBS` within the head loop results in the `B.ge` being taken then we know for sure that we have enough to run another head iteration without additional conditions. Because the tail loop is guaranteed to have fewer than `chars_per_block` iterations, reducing the conditional branching required by the head loop will have an increasingly bigger impact due to its proportion of the overall work.\n\nFurther, the `SUBS` and the `ADDS` start to appear a little less laborious when the alternative is considered: without them we would have to replace them respectively with a `MOV+Cmp` and a `Cmp`, as in the code sample above.\n\nWhen I initially picked up this CL up I had very similar thoughts, but hopefully some of this reasoning makes sense (sorry for the length!). Do let me know if I can clarify anything further, or if you think I\u0027ve missed something and see a preferable alternative implementation. Thanks!",
+      "parentUuid": "55a97860_96d96695",
       "range": {
         "startLine": 2821,
         "startChar": 17,
@@ -220,6 +316,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d939a944_efd84e10",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2846,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2023-02-24T15:50:18Z",
+      "side": 1,
+      "message": "Done. Similarly, took the opportunity to remove constant_ prefix from the argument to emitUnrolledTailLoop (#2832).",
+      "parentUuid": "1a07f320_3406b076",
+      "range": {
+        "startLine": 2846,
+        "startChar": 4,
+        "endLine": 2846,
+        "endChar": 11
+      },
+      "revId": "0c123c40036c4ba66c9f72a4ce15fc84bd4f6fae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "113dc124_323747bf",
@@ -233,6 +353,30 @@
       "writtenOn": "2023-02-22T15:36:45Z",
       "side": 1,
       "message": "One `(`",
+      "range": {
+        "startLine": 2854,
+        "startChar": 26,
+        "endLine": 2854,
+        "endChar": 28
+      },
+      "revId": "0c123c40036c4ba66c9f72a4ce15fc84bd4f6fae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "327c861f_2f71b4e6",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2854,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2023-02-24T15:50:18Z",
+      "side": 1,
+      "message": "Done.\n\nI also noticed on re-review that we have some extra unnecessary indentation, which I\u0027ve cleaned up.",
+      "parentUuid": "113dc124_323747bf",
       "range": {
         "startLine": 2854,
         "startChar": 26,
@@ -266,6 +410,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "56a0dcbb_a86ec954",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2857,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2023-02-24T15:50:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6661c234_4d1526e7",
+      "range": {
+        "startLine": 2857,
+        "startChar": 6,
+        "endLine": 2857,
+        "endChar": 51
+      },
+      "revId": "0c123c40036c4ba66c9f72a4ce15fc84bd4f6fae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "25b3a2d6_14764f95",
@@ -279,6 +447,30 @@
       "writtenOn": "2023-02-22T15:36:45Z",
       "side": 1,
       "message": "One `(`",
+      "range": {
+        "startLine": 2863,
+        "startChar": 26,
+        "endLine": 2863,
+        "endChar": 28
+      },
+      "revId": "0c123c40036c4ba66c9f72a4ce15fc84bd4f6fae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5dfa903c_6f899bd9",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2863,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2023-02-24T15:50:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "25b3a2d6_14764f95",
       "range": {
         "startLine": 2863,
         "startChar": 26,
