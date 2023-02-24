@@ -20,7 +20,10 @@ import static com.google.common.truth.Truth.assertThat;
 import static com.google.common.truth.Truth.assertWithMessage;
 import static org.junit.Assume.assumeTrue;
 
+import android.content.Context;
+import android.content.pm.PackageManager;
 import androidx.annotation.NonNull;
+import androidx.test.InstrumentationRegistry;
 
 import org.junit.Test;
 
@@ -61,6 +64,7 @@ public class ArtifactsSignedTest {
 
     @Test
     public void testArtArtifactsHaveFsverity() throws Exception {
+	assumeHasSecureLockScreen();
         assumeTrue("fs-verity is not supported on this device.", isFsVeritySupported());
         assertWithMessage("Found artifacts not in fs-verity")
                 .that(getArtifacts().map(File::getPath).filter((path) -> !hasFsverityNative(path))
@@ -70,12 +74,14 @@ public class ArtifactsSignedTest {
 
     @Test
     public void testGeneratesRequiredArtArtifacts() throws Exception {
+	assumeHasSecureLockScreen();
         assertThat(getArtifacts().map(File::getName).collect(Collectors.toList()))
                 .containsAtLeastElementsIn(REQUIRED_ARTIFACT_NAMES);
     }
 
     @Test
     public void testGeneratesAnyArtArtifacts() throws Exception {
+	assumeHasSecureLockScreen();
         assertThat(getArtifacts().collect(Collectors.toList())).isNotEmpty();
     }
 
@@ -83,5 +89,15 @@ public class ArtifactsSignedTest {
         return Files.walk(Paths.get(ARTIFACTS_DIR), Integer.MAX_VALUE)
                 .map(Path::toFile)
                 .filter(File::isFile);
+    }
+
+    private Context getContext() {
+	return InstrumentationRegistry.getInstrumentation().getTargetContext();
+    }
+
+    private void assumeHasSecureLockScreen() throws Exception {
+	PackageManager pm = getContext().getPackageManager();
+	boolean hasSecureLockScreen = (pm != null && pm.hasSystemFeature(PackageManager.FEATURE_SECURE_LOCK_SCREEN));
+	assumeTrue("Device doesn't support secure lock screen", hasSecureLockScreen);
     }
 }
