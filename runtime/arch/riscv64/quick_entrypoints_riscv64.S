@@ -375,7 +375,7 @@ ENTRY art_quick_generic_jni_trampoline
     fld  fa6, 8*14(sp)
     fld  fa7, 8*15(sp)
 
-    ld  t6, 8*16(sp)  // @CriticalNative arg
+    ld  t6, 8*16(sp)  // @CriticalNative arg, used by art_jni_dlsym_lookup_critical_stub
 
     ld  t1, 8*17(sp)  // restore stack
     mv  sp, t1
