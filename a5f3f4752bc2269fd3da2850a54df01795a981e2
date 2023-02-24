@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "399dd0fd_7f5bdd4d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-02-24T09:58:00Z",
+      "side": 1,
+      "message": "Thanks!",
+      "revId": "a5f3f4752bc2269fd3da2850a54df01795a981e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "449aa64c_09d0f28c",
+        "filename": "runtime/image.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 422,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-02-24T09:58:00Z",
+      "side": 1,
+      "message": "Just curious, is the checksum optional? Won\u0027t we need it for runtime app image?",
+      "revId": "a5f3f4752bc2269fd3da2850a54df01795a981e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
