@@ -22,6 +22,30 @@
       },
       "revId": "fee8cbfbbbf146eb713defafd9026b855e0349d3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d44f6557_6daa9ba5",
+        "filename": "compiler/optimizing/code_sinking.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-02-24T11:55:09Z",
+      "side": 1,
+      "message": "We could have `Throw -\u003e TryBoundary -\u003e Exit`. I can add such an example if you want. It would be the same test but having a `throw` instead of a `return`.",
+      "parentUuid": "36a16635_b233cdc0",
+      "range": {
+        "startLine": 53,
+        "startChar": 50,
+        "endLine": 53,
+        "endChar": 51
+      },
+      "revId": "fee8cbfbbbf146eb713defafd9026b855e0349d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
