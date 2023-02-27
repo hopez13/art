@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f1235103_17061c1a",
+        "filename": "libdexfile/dex/dex_file_loader.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-02-27T13:42:48Z",
+      "side": 0,
+      "message": "Why not keeping this and dropping the new compact dex check you\u0027ve added?",
+      "range": {
+        "startLine": 386,
+        "startChar": 0,
+        "endLine": 387,
+        "endChar": 19
+      },
+      "revId": "3b17ccb6deb7015fa3859319d3711c5ff11aecbb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
