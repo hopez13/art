@@ -16,6 +16,69 @@
       "message": "Thanks for taking a look at this!",
       "revId": "65f89fb1b229945209df2fed654ed916688c64c8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a51c1e4_5ba5fa91",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2842,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-02-27T10:35:56Z",
+      "side": 1,
+      "message": "Nit: The last copy does not need to update source and destination address registers. (Post-indexed load/store is more expensive, isn\u0027t it?)\n\nOr, we could use constant offsets instead of updating the source and destination address registers.",
+      "revId": "65f89fb1b229945209df2fed654ed916688c64c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f3e1220b_33c893d3",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2852,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-02-27T10:35:56Z",
+      "side": 1,
+      "message": "Remove.\n\n(We do not use the result of the ADD here, only the Z flag, and this comparison can be done at compile time anyway. And we do not need to jump over an empty `emitUnrolledTailLoop()`.)",
+      "range": {
+        "startLine": 2851,
+        "startChar": 6,
+        "endLine": 2852,
+        "endChar": 22
+      },
+      "revId": "65f89fb1b229945209df2fed654ed916688c64c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42a6d476_7da272f2",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2854,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-02-27T10:35:56Z",
+      "side": 1,
+      "message": "Move this shared code after the `if` instead of having a copy in both then-block and else-block.",
+      "range": {
+        "startLine": 2854,
+        "startChar": 6,
+        "endLine": 2854,
+        "endChar": 62
+      },
+      "revId": "65f89fb1b229945209df2fed654ed916688c64c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
