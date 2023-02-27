@@ -45,6 +45,7 @@
 #include "optimizing/common_arm64.h"
 #include "optimizing/nodes.h"
 #include "thread.h"
+#include "trace.h"
 #include "utils/arm64/assembler_arm64.h"
 #include "utils/assembler.h"
 #include "utils/stack_checks.h"
@@ -88,6 +89,9 @@ using helpers::StackOperandFrom;
 using helpers::VIXLRegCodeFromART;
 using helpers::WRegisterFrom;
 using helpers::XRegisterFrom;
+
+// TODO(mythria): Expand SystemRegister in vixl to include this value.
+uint16_t SYS_CNTVCT_EL0 = SystemRegisterEncoder<1, 3, 14, 0, 2>::value;
 
 // The compare/jump sequence will generate about (1.5 * num_entries + 3) instructions. While jump
 // table version generates 7 instructions and num_entries literals. Compare/jump sequence will
@@ -1165,8 +1169,9 @@ void LocationsBuilderARM64::VisitMethodExitHook(HMethodExitHook* method_hook) {
 void InstructionCodeGeneratorARM64::GenerateMethodEntryExitHook(HInstruction* instruction) {
   MacroAssembler* masm = GetVIXLAssembler();
   UseScratchRegisterScope temps(masm);
-  Register temp = temps.AcquireX();
-  Register value = temps.AcquireW();
+  Register addr = temps.AcquireX();
+  Register index = temps.AcquireX();
+  Register value = index.W();
 
   SlowPathCodeARM64* slow_path =
       new (codegen_->GetScopedAllocator()) MethodEntryExitHooksSlowPathARM64(instruction);
@@ -1186,9 +1191,42 @@ void InstructionCodeGeneratorARM64::GenerateMethodEntryExitHook(HInstruction* in
   MemberOffset  offset = instruction->IsMethodExitHook() ?
       instrumentation::Instrumentation::HaveMethodExitListenersOffset() :
       instrumentation::Instrumentation::HaveMethodEntryListenersOffset();
-  __ Mov(temp, address + offset.Int32Value());
-  __ Ldrb(value, MemOperand(temp, 0));
+  // Check if there are any slow (jvmti / trace with thread cpu time) method entry / exit listeners.
+  // If yes, just take the slow path.
+  __ Mov(addr, address + offset.Int32Value());
+  __ Ldrb(value, MemOperand(addr, 0));
   __ Cbnz(value, slow_path->GetEntryLabel());
+
+  // Check if there are any fast trace method entry / exit listeners. If no, continue.
+  __ Ldrb(value, MemOperand(addr, 1));
+  __ Cbz(value, slow_path->GetExitLabel());
+
+  // Check if there is place in the buffer to store a new entry, if no, take slow path.
+  uint32_t trace_buffer_index_addr =
+      Thread::TraceBufferIndexOffset<kArm64PointerSize>().Int32Value();
+  __ Ldr(index, MemOperand(tr, trace_buffer_index_addr));
+  __ Cmp(index, Operand(kNumEntriesForWallClock));
+  __ B(lt, slow_path->GetEntryLabel());
+
+  // Just update the buffer and advance the offset
+  // addr = base_addr + sizeof(void*) * index;
+  __ Ldr(addr, MemOperand(tr, Thread::TraceBufferPtrOffset<kArm64PointerSize>().SizeValue()));
+  __ ComputeAddress(addr, MemOperand(addr, index, LSL, TIMES_8));
+  // Advance the index
+  __ Sub(index, index, kNumEntriesForWallClock);
+  __ Str(index, MemOperand(tr, trace_buffer_index_addr));
+
+  Register tmp = index;
+  // Record method pointer
+  __ Ldr(tmp, MemOperand(sp, 0));
+  __ Str(tmp, MemOperand(addr, 0));
+  // Record the method action
+  uint32_t trace_action = instruction->IsMethodExitHook() ? 1 : 0;
+  __ Mov(tmp, Operand(trace_action));
+  __ Str(tmp, MemOperand(addr, -8));
+  // Record the timestamp.
+  __ Mrs(tmp, (SystemRegister)SYS_CNTVCT_EL0);
+  __ Str(tmp, MemOperand(addr, -16));
   __ Bind(slow_path->GetExitLabel());
 }
 

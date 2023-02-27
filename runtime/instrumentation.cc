@@ -111,8 +111,10 @@ Instrumentation::Instrumentation()
     : run_exit_hooks_(false),
       instrumentation_level_(InstrumentationLevel::kInstrumentNothing),
       forced_interpret_only_(false),
-      have_method_entry_listeners_(false),
-      have_method_exit_listeners_(false),
+      have_method_entry_slow_listeners_(false),
+      have_method_entry_fast_trace_listeners_(false),
+      have_method_exit_slow_listeners_(false),
+      have_method_exit_fast_trace_listeners_(false),
       have_method_unwind_listeners_(false),
       have_dex_pc_listeners_(false),
       have_field_read_listeners_(false),
@@ -727,18 +729,36 @@ static void PotentiallyAddListenerTo(Instrumentation::InstrumentationEvent event
   *has_listener = true;
 }
 
-void Instrumentation::AddListener(InstrumentationListener* listener, uint32_t events) {
+void Instrumentation::AddListener(InstrumentationListener* listener,
+                                  uint32_t events,
+                                  bool is_trace_listener) {
   Locks::mutator_lock_->AssertExclusiveHeld(Thread::Current());
-  PotentiallyAddListenerTo(kMethodEntered,
-                           events,
-                           method_entry_listeners_,
-                           listener,
-                           &have_method_entry_listeners_);
-  PotentiallyAddListenerTo(kMethodExited,
-                           events,
-                           method_exit_listeners_,
-                           listener,
-                           &have_method_exit_listeners_);
+  if (is_trace_listener) {
+    PotentiallyAddListenerTo(kMethodEntered,
+                             events,
+                             method_entry_fast_trace_listeners_,
+                             listener,
+                             &have_method_entry_fast_trace_listeners_);
+  } else {
+    PotentiallyAddListenerTo(kMethodEntered,
+                             events,
+                             method_entry_slow_listeners_,
+                             listener,
+                             &have_method_entry_slow_listeners_);
+  }
+  if (is_trace_listener) {
+    PotentiallyAddListenerTo(kMethodExited,
+                             events,
+                             method_exit_fast_trace_listeners_,
+                             listener,
+                             &have_method_exit_fast_trace_listeners_);
+  } else {
+    PotentiallyAddListenerTo(kMethodExited,
+                             events,
+                             method_exit_slow_listeners_,
+                             listener,
+                             &have_method_exit_slow_listeners_);
+  }
   PotentiallyAddListenerTo(kMethodUnwind,
                            events,
                            method_unwind_listeners_,
@@ -814,18 +834,36 @@ static void PotentiallyRemoveListenerFrom(Instrumentation::InstrumentationEvent 
   *has_listener = false;
 }
 
-void Instrumentation::RemoveListener(InstrumentationListener* listener, uint32_t events) {
+void Instrumentation::RemoveListener(InstrumentationListener* listener,
+                                     uint32_t events,
+                                     bool is_trace_listener) {
   Locks::mutator_lock_->AssertExclusiveHeld(Thread::Current());
-  PotentiallyRemoveListenerFrom(kMethodEntered,
-                                events,
-                                method_entry_listeners_,
-                                listener,
-                                &have_method_entry_listeners_);
-  PotentiallyRemoveListenerFrom(kMethodExited,
-                                events,
-                                method_exit_listeners_,
-                                listener,
-                                &have_method_exit_listeners_);
+  if (is_trace_listener) {
+    PotentiallyRemoveListenerFrom(kMethodEntered,
+                                  events,
+                                  method_entry_fast_trace_listeners_,
+                                  listener,
+                                  &have_method_entry_fast_trace_listeners_);
+  } else {
+    PotentiallyRemoveListenerFrom(kMethodEntered,
+                                  events,
+                                  method_entry_slow_listeners_,
+                                  listener,
+                                  &have_method_entry_slow_listeners_);
+  }
+  if (is_trace_listener) {
+    PotentiallyRemoveListenerFrom(kMethodExited,
+                                  events,
+                                  method_exit_fast_trace_listeners_,
+                                  listener,
+                                  &have_method_exit_fast_trace_listeners_);
+  } else {
+    PotentiallyRemoveListenerFrom(kMethodExited,
+                                  events,
+                                  method_exit_slow_listeners_,
+                                  listener,
+                                  &have_method_exit_slow_listeners_);
+  }
   PotentiallyRemoveListenerFrom(kMethodUnwind,
                                 events,
                                 method_unwind_listeners_,
@@ -1303,7 +1341,12 @@ const void* Instrumentation::GetMaybeInstrumentedCodeForInvoke(ArtMethod* method
 void Instrumentation::MethodEnterEventImpl(Thread* thread, ArtMethod* method) const {
   DCHECK(!method->IsRuntimeMethod());
   if (HasMethodEntryListeners()) {
-    for (InstrumentationListener* listener : method_entry_listeners_) {
+    for (InstrumentationListener* listener : method_entry_slow_listeners_) {
+      if (listener != nullptr) {
+        listener->MethodEntered(thread, method);
+      }
+    }
+    for (InstrumentationListener* listener : method_entry_fast_trace_listeners_) {
       if (listener != nullptr) {
         listener->MethodEntered(thread, method);
       }
@@ -1317,7 +1360,12 @@ void Instrumentation::MethodExitEventImpl(Thread* thread,
                                           OptionalFrame frame,
                                           MutableHandle<mirror::Object>& return_value) const {
   if (HasMethodExitListeners()) {
-    for (InstrumentationListener* listener : method_exit_listeners_) {
+    for (InstrumentationListener* listener : method_exit_slow_listeners_) {
+      if (listener != nullptr) {
+        listener->MethodExited(thread, method, frame, return_value);
+      }
+    }
+    for (InstrumentationListener* listener : method_exit_fast_trace_listeners_) {
       if (listener != nullptr) {
         listener->MethodExited(thread, method, frame, return_value);
       }
@@ -1334,7 +1382,12 @@ template<> void Instrumentation::MethodExitEventImpl(Thread* thread,
     StackHandleScope<1> hs(self);
     if (method->GetInterfaceMethodIfProxy(kRuntimePointerSize)->GetReturnTypePrimitive() !=
         Primitive::kPrimNot) {
-      for (InstrumentationListener* listener : method_exit_listeners_) {
+      for (InstrumentationListener* listener : method_exit_slow_listeners_) {
+        if (listener != nullptr) {
+          listener->MethodExited(thread, method, frame, return_value);
+        }
+      }
+      for (InstrumentationListener* listener : method_exit_fast_trace_listeners_) {
         if (listener != nullptr) {
           listener->MethodExited(thread, method, frame, return_value);
         }
