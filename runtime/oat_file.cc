@@ -17,6 +17,8 @@
 #include "oat_file.h"
 
 #include <dlfcn.h>
+
+#include <memory>
 #ifndef __APPLE__
 #include <link.h>  // for dl_iterate_phdr.
 #endif
@@ -656,6 +658,9 @@ bool OatFileBase::Setup(int zip_fd,
                               bss_methods_);
     return false;
   }
+
+  // Dex container (memory range) that represents the OAT file.
+  auto oat_dex_file_container = std::make_shared<MemoryDexFileContainer>(DexBegin(), DexEnd());
 
   std::string_view primary_location;
   std::string_view primary_location_replacement;
@@ -2211,7 +2216,7 @@ void OatDexFile::InitializeTypeLookupTable() {
   // Initialize TypeLookupTable.
   if (lookup_table_data_ != nullptr) {
     // Peek the number of classes from the DexFile.
-    const DexFile::Header* dex_header = reinterpret_cast<const DexFile::Header*>(dex_file_pointer_);
+    auto* dex_header = reinterpret_cast<const DexFile::HeaderV41*>(dex_file_pointer_);
     const uint32_t num_class_defs = dex_header->class_defs_size_;
     if (lookup_table_data_ + TypeLookupTable::RawDataLength(num_class_defs) >
             GetOatFile()->DexEnd()) {
@@ -2219,6 +2224,11 @@ void OatDexFile::InitializeTypeLookupTable() {
     } else {
       const uint8_t* dex_data = dex_file_pointer_;
       // TODO: Clean this up to create the type lookup table after the dex file has been created?
+      if (StandardDexFile::IsMagicValid(dex_header->magic_)) {
+        if (dex_header->HasContainer()) {
+          dex_data -= dex_header->container_offset;
+        }
+      }
       if (CompactDexFile::IsMagicValid(dex_header->magic_)) {
         dex_data += dex_header->data_off_;
       }
@@ -2562,6 +2572,10 @@ void OatFile::InitializeRelocations() const {
 
 void OatDexFile::AssertAotCompiler() {
   CHECK(Runtime::Current()->IsAotCompiler());
+}
+
+uint32_t OatDexFile::GetDexVersion() const {
+  return atoi(reinterpret_cast<const char*>(&dex_file_magic_[4]));
 }
 
 bool OatFile::IsBackedByVdexOnly() const {

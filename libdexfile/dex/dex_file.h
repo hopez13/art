@@ -116,6 +116,8 @@ class DexFile {
   static constexpr size_t kDexMagicSize = 4;
   static constexpr size_t kDexVersionLen = 4;
 
+  static constexpr uint32_t kDexContainerVersion = 41;
+
   // First Dex format version enforcing class definition ordering rules.
   static constexpr uint32_t kClassDefinitionOrderEnforcedVersion = 37;
 
@@ -162,6 +164,12 @@ class DexFile {
 
     // Decode the dex magic version
     uint32_t GetVersion() const;
+    bool HasContainer() const { return GetVersion() >= 41; }
+  };
+
+  struct HeaderV41 : public Header {
+    uint32_t container_size = 0;    // total size of all dex files in the container.
+    uint32_t container_offset = 0;  // offset of this dex's header in the container.
   };
 
   // Map item type codes.
@@ -262,9 +270,24 @@ class DexFile {
     return *header_;
   }
 
+  const HeaderV41& GetHeaderV41() const {
+    DCHECK(header_ != nullptr) << GetLocation();
+    return *reinterpret_cast<const HeaderV41*>(header_);
+  }
+
   // Decode the dex magic version
   uint32_t GetDexVersion() const {
     return GetHeader().GetVersion();
+  }
+
+  bool IsDexContainer() const { return GetDexVersion() >= kDexContainerVersion; }
+
+  bool IsDexContainerPrimary() const {
+    return IsDexContainer() && GetHeaderV41().container_offset == 0;
+  }
+
+  bool IsDexContainerSecondary() const {
+    return IsDexContainer() && GetHeaderV41().container_offset != 0;
   }
 
   // Returns true if the byte string points to the magic value.
@@ -771,6 +794,11 @@ class DexFile {
 
   size_t Size() const { return header_->file_size_; }
 
+  size_t SizeIncludingSharedData() const {
+    return IsDexContainer() ? GetHeaderV41().container_size - GetHeaderV41().container_offset :
+                              Size();
+  }
+
   static ArrayRef<const uint8_t> GetDataRange(const uint8_t* data, DexFileContainer* container);
 
   const uint8_t* DataBegin() const { return data_.data(); }
@@ -869,6 +897,9 @@ class DexFile {
           std::shared_ptr<DexFileContainer> container,
           bool is_compact_dex);
 
+  template <typename T>
+  const T* GetSection(size_t offset);
+
   // Top-level initializer that calls other Init methods.
   bool Init(std::string* error_msg);
 
@@ -883,6 +914,7 @@ class DexFile {
 
   // Data memory range: Most dex offsets are relative to this memory range.
   // Standard dex: same as (begin_, size_).
+  // Dex container: all dex files (starting from the first header).
   // Compact: shared data which is located after all non-shared data.
   //
   // This is different to the "data section" in the standard dex header.

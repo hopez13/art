@@ -3145,6 +3145,15 @@ bool OatWriter::WriteDexFiles(File* file,
     }
   }
 
+  // Compact dex reader/writer does not understand dex containers,
+  // which is ok since dex containers replace compat-dex.
+  for (OatDexFile& oat_dex_file : oat_dex_files_) {
+    const DexFile* dex_file = oat_dex_file.GetDexFile();
+    if (dex_file->IsDexContainer()) {
+      compact_dex_level_ = CompactDexLevel::kCompactDexLevelNone;
+    }
+  }
+
   if (extract_dex_files_into_vdex_) {
     vdex_dex_files_offset_ = vdex_size_;
 
@@ -3256,7 +3265,7 @@ bool OatWriter::WriteDexFiles(File* file,
         memcpy(out, cdex_data.data(), cdex_data.size());
       } else {
         const DexFile* dex_file = oat_dex_file.GetDexFile();
-        DCHECK_EQ(oat_dex_file.dex_file_size_, dex_file->Size());
+        DCHECK_EQ(oat_dex_file.dex_file_size_, dex_file->GetHeader().file_size_);
         if (use_existing_vdex) {
           // The vdex already contains the data.
           DCHECK_EQ(memcmp(out, dex_file->Begin(), dex_file->Size()), 0);
@@ -3739,7 +3748,7 @@ void OatWriter::SetMultiOatRelativePatcherAdjustment() {
 OatWriter::OatDexFile::OatDexFile(std::unique_ptr<const DexFile> dex_file)
     : dex_file_(std::move(dex_file)),
       dex_file_location_(std::make_unique<std::string>(dex_file_->GetLocation())),
-      dex_file_size_(dex_file_->Size()),
+      dex_file_size_(dex_file_->GetHeader().file_size_),
       offset_(0),
       dex_file_location_size_(strlen(dex_file_location_->c_str())),
       dex_file_location_data_(dex_file_location_->c_str()),
