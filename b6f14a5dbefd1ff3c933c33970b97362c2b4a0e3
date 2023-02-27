@@ -73,6 +73,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1ad8fe1b_82384830",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-02-27T10:41:32Z",
+      "side": 1,
+      "message": "I do not think we shall need it anywhere else, so I\u0027d prefer to keep it in `jni_entrypoints_riscv.S`.\n\n(Note that \"ALL_ARGS_SIZE\" could be misinterpreted to mean different things for JNI and managed code, providing another weak reason to keep that in the JNI file.)",
+      "parentUuid": "68f5bab1_8f159fae",
+      "revId": "b6f14a5dbefd1ff3c933c33970b97362c2b4a0e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "72948917_84b7e02e",
         "filename": "runtime/arch/riscv64/asm_support_riscv64.h",
         "patchSetId": 2
