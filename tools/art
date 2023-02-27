@@ -348,7 +348,6 @@ while [[ "$1" = "-"* ]]; do
     ;;
   --32)
     ART_BINARY=dalvikvm32
-    DEX2OAT_SUFFIX=32
     ;;
   --64)
     ART_BINARY=dalvikvm64
