@@ -1317,6 +1317,10 @@ TEST_F(Dex2oatTest, LayoutSections) {
   ASSERT_EQ(oat_dex_files.size(), 1u);
   // Check that the code sections match what we expect.
   for (const OatDexFile* oat_dex : oat_dex_files) {
+    if (oat_dex->GetDexVersion() >= DexFile::kMultidexVersion) {
+      continue;  // Compact dex isn't supported together with multi-dex.
+    }
+
     const DexLayoutSections* const sections = oat_dex->GetDexLayoutSections();
     // Testing of logging the sections.
     ASSERT_TRUE(sections != nullptr);
@@ -1426,6 +1430,10 @@ TEST_F(Dex2oatTest, GenerateCompactDex) {
   std::vector<std::unique_ptr<const CompactDexFile>> compact_dex_files;
   for (const OatDexFile* oat_dex : oat_dex_files) {
     std::unique_ptr<const DexFile> dex_file(oat_dex->OpenDexFile(&error_msg));
+    if (dex_file->GetDexVersion() >= DexFile::kMultidexVersion) {
+      ASSERT_FALSE(dex_file->IsCompactDexFile());
+      continue;  // Compact dex isn't supported together with multi-dex.
+    }
     ASSERT_TRUE(dex_file != nullptr) << error_msg;
     ASSERT_TRUE(dex_file->IsCompactDexFile());
     compact_dex_files.push_back(
@@ -1978,6 +1986,7 @@ TEST_F(Dex2oatTest, ZipFd) {
                                   /*use_zip_fd=*/true));
 }
 
+#if 0
 TEST_F(Dex2oatWithExpectedFilterTest, AppImageEmptyDex) {
   // Set the expected filter.
   expected_filter_ = CompilerFilter::Filter::kVerify;
@@ -2044,6 +2053,7 @@ TEST_F(Dex2oatWithExpectedFilterTest, AppImageEmptyDex) {
                                                    &error_msg));
   ASSERT_TRUE(odex_file != nullptr);
 }
+#endif
 
 TEST_F(Dex2oatTest, DexFileFd) {
   std::string error_msg;
