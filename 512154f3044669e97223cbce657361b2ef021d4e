@@ -49,6 +49,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b19992d1_f1629a64",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-02-27T16:31:50Z",
+      "side": 1,
+      "message": "there are 20 rather than 21 bits, and the usual syntax is `%pcrel_hi(symbol)`.\n\nhttps://github.com/riscv-non-isa/riscv-elf-psabi-doc/blob/master/riscv-elf.adoc#pc-relative-symbol-addresses\n\n(so, yes, that implies that no-one\u0027s tested hwasan, probably because only qemu supports it so far.)",
+      "parentUuid": "9a8e1ef8_0c0734a1",
+      "range": {
+        "startLine": 78,
+        "startChar": 13,
+        "endLine": 78,
+        "endChar": 25
+      },
+      "revId": "512154f3044669e97223cbce657361b2ef021d4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0051609d_a8e65e8c",
         "filename": "runtime/arch/riscv64/asm_support_riscv64.S",
         "patchSetId": 8
@@ -238,6 +262,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c5894c10_0801eacc",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-02-27T16:31:50Z",
+      "side": 1,
+      "message": "(yes, there\u0027s a full set of such _pseudo_ instructions, even though they\u0027re constructed from a smaller set of instructions with arguments flipped in many cases. https://github.com/riscv-non-isa/riscv-asm-manual/blob/master/riscv-asm.md#-a-listing-of-standard-risc-v-pseudoinstructions)",
+      "parentUuid": "38154ba3_1ba4e021",
+      "range": {
+        "startLine": 76,
+        "startChar": 4,
+        "endLine": 76,
+        "endChar": 11
+      },
+      "revId": "512154f3044669e97223cbce657361b2ef021d4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b77953b5_ad60b2d3",
         "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
         "patchSetId": 8
@@ -249,6 +297,30 @@
       "writtenOn": "2023-02-27T08:59:35Z",
       "side": 1,
       "message": "Is unaligned load OK on riscv? (Same question for `LOADREG_F8`.)",
+      "range": {
+        "startLine": 152,
+        "startChar": 4,
+        "endLine": 152,
+        "endChar": 26
+      },
+      "revId": "512154f3044669e97223cbce657361b2ef021d4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72ca8343_6211b424",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-02-27T16:31:50Z",
+      "side": 1,
+      "message": "(yes. we\u0027ll be enabling the kernel config flag that says they\u0027re fast, too.)",
+      "parentUuid": "b77953b5_ad60b2d3",
       "range": {
         "startLine": 152,
         "startChar": 4,
