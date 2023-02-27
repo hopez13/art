@@ -647,6 +647,11 @@ class OatDumper {
         CHECK(oat_dex_file != nullptr);
         CHECK(vdex_dex_file != nullptr);
 
+        if (vdex_dex_file->IsMultiDexV41Secondary()) {
+          // All the data was already expeorted together with the primary dex file.
+          continue;
+        }
+
         // If a CompactDex file is detected within a Vdex container, DexLayout is used to convert
         // back to a StandardDex file. Since the converted DexFile will most likely not reproduce
         // the original input Dex file, the `update_checksum_` option is used to recompute the
@@ -992,6 +997,11 @@ class OatDumper {
           os << "Unexpected checksum from unquicken dex file '" << dex_file_location << "'\n";
           return false;
         }
+      }
+      if (dex_file->IsMultiDexV41()) {
+        // Extend the data range to export all the dex files in the multi-dex container.
+        DCHECK(dex_file->IsMultiDexV41Primary()) << dex_file_location;
+        fsize = dex_file->GetHeaderV41().container_size;
       }
     }
 
