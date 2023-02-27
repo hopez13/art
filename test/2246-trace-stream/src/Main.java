@@ -27,6 +27,7 @@ public class Main {
     private static File file;
 
     public static void main(String[] args) throws Exception {
+        System.loadLibrary(args[0]);
         String name = System.getProperty("java.vm.name");
         if (!"Dalvik".equals(name)) {
             System.out.println("This test is not supported on " + name);
@@ -82,6 +83,20 @@ public class Main {
                 VMDebug.$noinline$stopMethodTracing();
             }
 
+<<<<<<< PATCH SET (772ef4 Collect timestamps directly from the JITed code)
+            // TODO(mythria): Also test thread cpu timestamps too. They take different paths for
+            // JITed code.
+            int flags = 0x010; // Enables wall clock timestamps only.
+            VMDebug.startMethodTracing(file.getPath(), out_file.getFD(), /* buffer_size= */ 0,
+                    flags, /* sampling_enabled= */ false, /* intervalUs= */ 0,
+                    /* streaming_output= */ true);
+            ensureJitCompiled(Main.class, "$noinline$doSomeWork");
+            // Call JITed code multiple times to flush out any issues with timestamps.
+            for (int i = 0; i < 20; i++) {
+                m.$noinline$doSomeWork();
+            }
+=======
+>>>>>>> BASE      (85752e Add fence to allocations in nterp.)
             t.start();
             t.join();
 
@@ -100,6 +115,42 @@ public class Main {
         }
     }
 
+<<<<<<< PATCH SET (772ef4 Collect timestamps directly from the JITed code)
+    private void CheckTraceFileFormat(File trace_file) throws Exception {
+        StreamTraceParser parser = new StreamTraceParser(trace_file);
+        parser.validateTraceHeader(StreamTraceParser.TRACE_VERSION_WALL_CLOCK);
+        boolean has_entries = true;
+        boolean seen_stop_tracing_method = false;
+        while (has_entries) {
+            int header_type = parser.GetEntryHeader();
+            switch (header_type) {
+                case 1:
+                    parser.ProcessMethodInfoEntry();
+                    break;
+                case 2:
+                    parser.ProcessThreadInfoEntry();
+                    break;
+                case 3:
+                    // TODO(mythria): Add test to also check format of trace summary.
+                    has_entries = false;
+                    break;
+                default:
+                    String event_string = parser.ProcessEventEntry(header_type);
+                    // Ignore events after method tracing was stopped. The code that is executed
+                    // later could be non-deterministic.
+                    if (!seen_stop_tracing_method) {
+                        System.out.println(event_string);
+                    }
+                    if (event_string.contains("Main$VMDebug $noinline$stopMethodTracing")) {
+                        seen_stop_tracing_method = true;
+                    }
+            }
+        }
+        parser.closeFile();
+    }
+
+=======
+>>>>>>> BASE      (85752e Add fence to allocations in nterp.)
     private static File createTempFile() throws Exception {
         try {
             return File.createTempFile(TEMP_FILE_NAME_PREFIX, TEMP_FILE_NAME_SUFFIX);
@@ -166,4 +217,6 @@ public class Main {
             return (int) getMethodTracingModeMethod.invoke(null);
         }
     }
+
+    private static native void ensureJitCompiled(Class<?> cls, String methodName);
 }
