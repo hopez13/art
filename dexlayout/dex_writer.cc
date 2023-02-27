@@ -789,7 +789,7 @@ void DexWriter::GenerateAndWriteMapItems(Stream* stream) {
 }
 
 void DexWriter::WriteHeader(Stream* stream) {
-  StandardDexFile::Header header;
+  StandardDexFile::HeaderV41 header{};
   if (CompactDexFile::IsMagicValid(header_->Magic())) {
     StandardDexFile::WriteMagic(header.magic_.data());
     if (header_->SupportDefaultMethods()) {
@@ -821,17 +821,24 @@ void DexWriter::WriteHeader(Stream* stream) {
   header.method_ids_off_ = header_->MethodIds().GetOffset();
   header.class_defs_size_ = header_->ClassDefs().Size();
   header.class_defs_off_ = header_->ClassDefs().GetOffset();
-  header.data_size_ = header_->DataSize();
-  header.data_off_ = header_->DataOffset();
 
-  CHECK_EQ(sizeof(header), GetHeaderSize());
-  static_assert(sizeof(header) == 0x70, "Size doesn't match dex spec");
+  if (header.header_size_ == sizeof(StandardDexFile::Header)) {
+    header.data_size_ = header_->DataSize();
+    header.data_off_ = header_->DataOffset();
+  } else {
+    CHECK_EQ(header.header_size_, sizeof(StandardDexFile::HeaderV41));
+    header.container_size = header_->FileSize();
+  }
+
+  static_assert(sizeof(header) == 0x78, "Size doesn't match dex spec");
   stream->Seek(0);
-  stream->Overwrite(reinterpret_cast<uint8_t*>(&header), sizeof(header));
+  stream->Overwrite(reinterpret_cast<uint8_t*>(&header), GetHeaderSize());
 }
 
 size_t DexWriter::GetHeaderSize() const {
-  return sizeof(StandardDexFile::Header);
+  return header_->Magic() == DexFile::Magic{'d', 'e', 'x', '\n', '0', '4', '1', '\0'} ?
+             sizeof(StandardDexFile::HeaderV41) :
+             sizeof(StandardDexFile::Header);
 }
 
 bool DexWriter::Write(DexContainer* output, std::string* error_msg) {
