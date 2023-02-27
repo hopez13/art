@@ -169,7 +169,18 @@ ADexFile_Error ADexFile_create(const void* _Nonnull address,
     if (computed_file_size > full_size) {
       full_size = computed_file_size;
     }
-  } else if (!art::StandardDexFile::IsMagicValid(header->magic_)) {
+  } else if (art::StandardDexFile::IsMagicValid(header->magic_)) {
+    if (header->HasContainer()) {
+      auto* headerV41 = reinterpret_cast<const art::DexFile::HeaderV41*>(address);
+      if (size < sizeof(*header)) {
+        if (new_size != nullptr) {
+          *new_size = sizeof(art::DexFile::Header);
+        }
+        return ADEXFILE_ERROR_NOT_ENOUGH_DATA;
+      }
+      full_size = (headerV41->container_size - headerV41->container_offset);
+    }
+  } else {
     return ADEXFILE_ERROR_INVALID_HEADER;
   }
 

@@ -18,6 +18,7 @@
 #define ART_RUNTIME_OAT_FILE_H_
 
 #include <list>
+#include <memory>
 #include <string>
 #include <string_view>
 #include <vector>
@@ -523,6 +524,8 @@ class OatDexFile final {
 
   DexFile::Magic GetMagic() const { return dex_file_magic_; }
 
+  uint32_t GetDexVersion() const;
+
   // Returns checksum of original DexFile that was the source of this OatDexFile;
   uint32_t GetDexFileLocationChecksum() const {
     return dex_file_location_checksum_;
@@ -594,6 +597,7 @@ class OatDexFile final {
              DexFile::Magic dex_file_magic,
              uint32_t dex_file_checksum,
              DexFile::Sha1 dex_file_sha1,
+             const std::shared_ptr<DexFileContainer>& dex_file_container_,
              const uint8_t* dex_file_pointer,
              const uint8_t* lookup_table_data,
              const IndexBssMapping* method_bss_mapping,
@@ -607,6 +611,7 @@ class OatDexFile final {
   // Create an OatDexFile wrapping an existing DexFile. Will set the OatDexFile
   // pointer in the DexFile.
   OatDexFile(const OatFile* oat_file,
+             const std::shared_ptr<DexFileContainer>& dex_file_container_,
              const uint8_t* dex_file_pointer,
              DexFile::Magic dex_file_magic,
              uint32_t dex_file_checksum,
@@ -626,6 +631,7 @@ class OatDexFile final {
   const DexFile::Magic dex_file_magic_ = {};
   const uint32_t dex_file_location_checksum_ = 0u;
   const DexFile::Sha1 dex_file_sha1_ = {};
+  const std::shared_ptr<DexFileContainer> dex_file_container_;
   const uint8_t* const dex_file_pointer_ = nullptr;
   const uint8_t* const lookup_table_data_ = nullptr;
   const IndexBssMapping* const method_bss_mapping_ = nullptr;

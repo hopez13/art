@@ -22,6 +22,7 @@
 #include <string.h>
 #include <zlib.h>
 
+#include <limits>
 #include <memory>
 #include <optional>
 #include <ostream>
@@ -69,7 +70,7 @@ std::string DexFile::Sha1::ToString() const {
 }
 
 uint32_t DexFile::CalculateChecksum() const {
-  return CalculateChecksum(Begin(), Size());
+  return CalculateChecksum(Begin(), std::min<size_t>(header_->file_size_, Size()));
 }
 
 uint32_t DexFile::CalculateChecksum(const uint8_t* begin, size_t size) {
@@ -96,25 +97,36 @@ bool DexFile::DisableWrite() const {
   return container_->DisableWrite();
 }
 
+template <typename T>
+ALWAYS_INLINE const T* DexFile::GetSection(size_t offset) {
+  // Compact dex is inconsistent: section offsets are relative to the
+  // header as opposed to the data section like all other its offsets.
+  if (CompactDexFile::IsMagicValid(begin_)) {
+    const uint8_t* data = reinterpret_cast<const uint8_t*>(header_);
+    return reinterpret_cast<const T*>(data + offset);
+  }
+  return reinterpret_cast<const T*>(data_.data() + offset);
+}
+
 DexFile::DexFile(const uint8_t* base,
-                 size_t size,
+                 [[maybe_unused]] size_t size,
                  const std::string& location,
                  uint32_t location_checksum,
                  const OatDexFile* oat_dex_file,
                  std::shared_ptr<DexFileContainer> container,
                  bool is_compact_dex)
     : begin_(base),
-      size_(size),
-      data_(GetDataRange(base, size, container.get())),
+      end_(container->End()),
+      data_(GetDataRange(base, end_ - begin_, container.get())),
       location_(location),
       location_checksum_(location_checksum),
       header_(reinterpret_cast<const Header*>(base)),
-      string_ids_(reinterpret_cast<const StringId*>(base + header_->string_ids_off_)),
-      type_ids_(reinterpret_cast<const TypeId*>(base + header_->type_ids_off_)),
-      field_ids_(reinterpret_cast<const FieldId*>(base + header_->field_ids_off_)),
-      method_ids_(reinterpret_cast<const MethodId*>(base + header_->method_ids_off_)),
-      proto_ids_(reinterpret_cast<const ProtoId*>(base + header_->proto_ids_off_)),
-      class_defs_(reinterpret_cast<const ClassDef*>(base + header_->class_defs_off_)),
+      string_ids_(GetSection<StringId>(header_->string_ids_off_)),
+      type_ids_(GetSection<TypeId>(header_->type_ids_off_)),
+      field_ids_(GetSection<FieldId>(header_->field_ids_off_)),
+      method_ids_(GetSection<MethodId>(header_->method_ids_off_)),
+      proto_ids_(GetSection<ProtoId>(header_->proto_ids_off_)),
+      class_defs_(GetSection<ClassDef>(header_->class_defs_off_)),
       method_handles_(nullptr),
       num_method_handles_(0),
       call_site_ids_(nullptr),
@@ -125,7 +137,7 @@ DexFile::DexFile(const uint8_t* base,
       is_compact_dex_(is_compact_dex),
       hiddenapi_domain_(hiddenapi::Domain::kApplication) {
   CHECK(begin_ != nullptr) << GetLocation();
-  CHECK_GT(size_, 0U) << GetLocation();
+  CHECK_GT(end_, begin_) << GetLocation();
   // Check base (=header) alignment.
   // Must be 4-byte aligned to avoid undefined behavior when accessing
   // any of the sections via a pointer.
@@ -195,7 +207,17 @@ ArrayRef<const uint8_t> DexFile::GetDataRange(const uint8_t* data,
                                               size_t size,
                                               DexFileContainer* container) {
   CHECK(container != nullptr);
-  if (size >= sizeof(CompactDexFile::Header) && CompactDexFile::IsMagicValid(data)) {
+  if (size >= sizeof(StandardDexFile::Header) && StandardDexFile::IsMagicValid(data)) {
+    auto header = reinterpret_cast<const DexFile::HeaderV41*>(data);
+    CHECK_EQ(container->Data().size(), 0u) << "Unsupported for standard dex";
+    if (size >= sizeof(*header) && header->header_size_ >= sizeof(*header)) {
+      data -= header->container_offset;
+      size = header->container_size;
+    }
+    CHECK_GE(data, container->Begin());
+    CHECK_LE(data, container->End());
+    CHECK_LE(size, container->Size());
+  } else if (size >= sizeof(CompactDexFile::Header) && CompactDexFile::IsMagicValid(data)) {
     auto header = reinterpret_cast<const CompactDexFile::Header*>(data);
     // TODO: Remove. This is a hack. See comment of the Data method.
     ArrayRef<const uint8_t> separate_data = container->Data();
@@ -205,6 +227,9 @@ ArrayRef<const uint8_t> DexFile::GetDataRange(const uint8_t* data,
     // Shared compact dex data is located at the end after all dex files.
     data += header->data_off_;
     size = header->data_size_;
+  } else {
+    // Invalid dex file header.
+    // Some tests create dex files using just zeroed memory.
   }
   return {data, size};
 }
@@ -232,10 +257,10 @@ void DexFile::InitializeSectionsFromMapList() {
   for (size_t i = 0; i < count; ++i) {
     const MapItem& map_item = map_list->list_[i];
     if (map_item.type_ == kDexTypeMethodHandleItem) {
-      method_handles_ = reinterpret_cast<const MethodHandleItem*>(Begin() + map_item.offset_);
+      method_handles_ = GetSection<MethodHandleItem>(map_item.offset_);
       num_method_handles_ = map_item.size_;
     } else if (map_item.type_ == kDexTypeCallSiteIdItem) {
-      call_site_ids_ = reinterpret_cast<const CallSiteIdItem*>(Begin() + map_item.offset_);
+      call_site_ids_ = GetSection<CallSiteIdItem>(map_item.offset_);
       num_call_site_ids_ = map_item.size_;
     } else if (map_item.type_ == kDexTypeHiddenapiClassData) {
       hiddenapi_class_data_ =
