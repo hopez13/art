@@ -16,6 +16,10 @@
 
 #include <limits>
 #include <memory>
+#include <vector>
+
+#include "base/array_ref.h"
+#include "dex/dex_file.h"
 
 #include "jni.h"
 #include "jvmti.h"
@@ -34,6 +38,21 @@
 #pragma clang diagnostic pop
 
 namespace art {
+
+// The slicer library does not handle v41 yet, so downgrade it to v40.
+std::vector<uint8_t> DowngradeDexVersion(const uint8_t* dex, size_t size) {
+  std::vector<uint8_t> new_dex(dex, dex + size);
+  CHECK_GE(new_dex.size(), sizeof(DexFile::Header));
+  auto* header = reinterpret_cast<DexFile::HeaderV41*>(new_dex.data());
+  if (header->GetVersion() == 41) {
+    CHECK_EQ(header->container_offset, 0u);
+    CHECK_EQ(header->container_size, header->file_size_);
+    header->magic_ = { 'd', 'e', 'x', '\n', '0', '4', '0', '\0'};
+    header->header_size_ = sizeof(DexFile::Header);
+  }
+  return new_dex;
+}
+
 namespace Test980RedefineObject {
 
 static void JNICALL RedefineObjectHook(jvmtiEnv *jvmti_env,
@@ -50,9 +69,10 @@ static void JNICALL RedefineObjectHook(jvmtiEnv *jvmti_env,
     return;
   }
 
-  dex::Reader reader(class_data, class_data_len);
-  dex::u4 class_index = reader.FindClassIndex("Ljava/lang/Object;");
-  if (class_index == dex::kNoIndex) {
+  std::vector<uint8_t> new_dex = DowngradeDexVersion(class_data, class_data_len);
+  ::dex::Reader reader(new_dex.data(), new_dex.size());
+  ::dex::u4 class_index = reader.FindClassIndex("Ljava/lang/Object;");
+  if (class_index == ::dex::kNoIndex) {
     env->ThrowNew(env->FindClass("java/lang/RuntimeException"),
                   "Failed to find object in dex file!");
     return;
@@ -74,9 +94,9 @@ static void JNICALL RedefineObjectHook(jvmtiEnv *jvmti_env,
   }
 
 
-  dex::Writer writer(dex_ir);
+  ::dex::Writer writer(dex_ir);
 
-  class JvmtiAllocator : public dex::Writer::Allocator {
+  class JvmtiAllocator : public ::dex::Writer::Allocator {
    public:
     explicit JvmtiAllocator(jvmtiEnv* jvmti) : jvmti_(jvmti) {}
 

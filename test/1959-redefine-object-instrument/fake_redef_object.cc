@@ -34,7 +34,12 @@
 #pragma clang diagnostic pop
 
 namespace art {
+
+// The slicer library does not handle v41 yet, so downgrade it to v40.
+std::vector<uint8_t> DowngradeDexVersion(const uint8_t* dex, size_t size);
+
 namespace Test1959RedefineObjectInstrument {
+
 
 // Just pull it out of the dex file but don't bother changing anything.
 static void JNICALL RedefineObjectHook(jvmtiEnv *jvmti_env,
@@ -51,7 +56,8 @@ static void JNICALL RedefineObjectHook(jvmtiEnv *jvmti_env,
     return;
   }
 
-  dex::Reader reader(class_data, class_data_len);
+  std::vector<uint8_t> new_dex = DowngradeDexVersion(class_data, class_data_len);
+  dex::Reader reader(new_dex.data(), new_dex.size());
   dex::u4 class_index = reader.FindClassIndex("Ljava/lang/Object;");
   if (class_index == dex::kNoIndex) {
     env->ThrowNew(env->FindClass("java/lang/RuntimeException"),
