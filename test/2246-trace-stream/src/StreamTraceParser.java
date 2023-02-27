@@ -24,12 +24,13 @@ import java.util.HashMap;
 public class StreamTraceParser {
     public static final int MAGIC_NUMBER = 0x574f4c53;
     public static final int DUAL_CLOCK_VERSION = 3;
-    public static final int TRACE_VERSION_DUAL_CLOCK = 0xF3;
+    public static final int TRACE_VERSION_WALL_CLOCK = 0xF2;
 
     public StreamTraceParser(File file) throws IOException {
         dataStream = new DataInputStream(new FileInputStream(file));
         method_id_map = new HashMap<Integer, String>();
         thread_id_map = new HashMap<Integer, String>();
+        thread_to_timestamp_map = new HashMap<Integer, Integer>();
     }
 
     public void closeFile() throws IOException {
@@ -141,7 +142,7 @@ public class StreamTraceParser {
         return str;
     }
 
-    public String ProcessEventEntry(int thread_id) throws IOException {
+    public String ProcessEventEntry(int thread_id) throws IOException, Exception {
         // Read 4-byte method value
         int method_and_event = readNumber(4);
         int method_id = method_and_event & ~0x3;
@@ -149,17 +150,27 @@ public class StreamTraceParser {
 
         String str = eventTypeToString(event_type) + " " + thread_id_map.get(thread_id) + " "
                 + method_id_map.get(method_id);
-        // Depending on the version skip either one or two timestamps.
-        // TODO(mythria): Probably add a check that time stamps are always greater than initial
-        // timestamp.
-        int num_bytes_timestamp = (trace_format_version == 2) ? 4 : 8;
-        dataStream.skipBytes(num_bytes_timestamp);
+        // Depending on the version read one or two timestamps.
+        int timestamp = readNumber(4);
+        if (thread_to_timestamp_map.containsKey(thread_id)) {
+            int old_timestamp = thread_to_timestamp_map.get(thread_id);
+            if (timestamp < old_timestamp) {
+                throw new Exception("timestamps are not increasing current: " + timestamp
+                        + "  earlier: " + old_timestamp);
+            }
+        }
+        thread_to_timestamp_map.put(thread_id, timestamp);
+        if (trace_format_version != 2) {
+            // Skip the second timestamp.
+            dataStream.skipBytes(4);
+        }
         return str;
     }
 
     DataInputStream dataStream;
     HashMap<Integer, String> method_id_map;
     HashMap<Integer, String> thread_id_map;
+    HashMap<Integer, Integer> thread_to_timestamp_map;
     int record_size = 0;
     int trace_format_version = 0;
     int nesting_level = 0;

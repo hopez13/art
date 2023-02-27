@@ -26,6 +26,7 @@ public class Main {
     private static File file;
 
     public static void main(String[] args) throws Exception {
+        System.loadLibrary(args[0]);
         String name = System.getProperty("java.vm.name");
         if (!"Dalvik".equals(name)) {
             System.out.println("This test is not supported on " + name);
@@ -43,7 +44,14 @@ public class Main {
                 VMDebug.$noinline$stopMethodTracing();
             }
 
-            VMDebug.startMethodTracing(file.getPath(), out_file.getFD(), 0, 0, false, 0, true);
+            int flags = 0x010; // Enables wall clock timestamps only.
+            VMDebug.startMethodTracing(file.getPath(), out_file.getFD(), /* buffer_size= */ 0,
+                    flags, /* sampling_enabled= */ false, /* intervalUs= */ 0,
+                    /* streaming_output= */ true);
+            ensureJitCompiled(Main.class, "$noinline$doSomeWork");
+            for (int i = 0; i < 20; i++) {
+                m.$noinline$doSomeWork();
+            }
             t.start();
             t.join();
             m.$noinline$doSomeWork();
@@ -60,7 +68,7 @@ public class Main {
 
     private void CheckTraceFileFormat(File trace_file) throws Exception {
         StreamTraceParser parser = new StreamTraceParser(trace_file);
-        parser.validateTraceHeader(StreamTraceParser.TRACE_VERSION_DUAL_CLOCK);
+        parser.validateTraceHeader(StreamTraceParser.TRACE_VERSION_WALL_CLOCK);
         boolean has_entries = true;
         boolean seen_stop_tracing_method = false;
         while (has_entries) {
@@ -157,4 +165,6 @@ public class Main {
             return (int) getMethodTracingModeMethod.invoke(null);
         }
     }
+
+    private static native void ensureJitCompiled(Class<?> cls, String methodName);
 }
