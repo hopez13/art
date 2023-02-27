@@ -22,6 +22,30 @@
       },
       "revId": "3b17ccb6deb7015fa3859319d3711c5ff11aecbb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c0e76812_c6c2474f",
+        "filename": "libdexfile/dex/dex_file_loader.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-02-27T17:34:35Z",
+      "side": 0,
+      "message": "It works either way, but it is somewhat subtle here.  I missed it a few times.  So I wanted to make it really explicit next to the Verify call.",
+      "parentUuid": "f1235103_17061c1a",
+      "range": {
+        "startLine": 386,
+        "startChar": 0,
+        "endLine": 387,
+        "endChar": 19
+      },
+      "revId": "3b17ccb6deb7015fa3859319d3711c5ff11aecbb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
