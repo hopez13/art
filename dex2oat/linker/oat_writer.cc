@@ -3217,6 +3217,15 @@ bool OatWriter::WriteDexFiles(File* file,
     }
   }
 
+  // Compact dex reader/writer does not understand multi-dex format,
+  // which is ok since multi-dex replaces compat-dex.
+  for (OatDexFile& oat_dex_file : oat_dex_files_) {
+    const DexFile* dex_file = oat_dex_file.GetDexFile();
+    if (dex_file->GetDexVersion() >= DexFile::kMultidexVersion) {
+      compact_dex_level_ = CompactDexLevel::kCompactDexLevelNone;
+    }
+  }
+
   if (extract_dex_files_into_vdex_) {
     vdex_dex_files_offset_ = vdex_size_;
 

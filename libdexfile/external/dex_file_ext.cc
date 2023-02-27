@@ -169,7 +169,10 @@ ADexFile_Error ADexFile_create(const void* _Nonnull address,
     if (computed_file_size > full_size) {
       full_size = computed_file_size;
     }
-  } else if (!art::StandardDexFile::IsMagicValid(header->magic_)) {
+  } else if (art::StandardDexFile::IsMagicValid(header->magic_)) {
+    /////////////////////////////////////
+    // TODO
+  } else {
     return ADEXFILE_ERROR_INVALID_HEADER;
   }
 
