@@ -76,6 +76,7 @@ TEST_P(OatDumpTest, TestSymbolize) {
   ASSERT_TRUE(Exec(GetParam(), kArgSymbolize, {}, /*expects=*/0));
 }
 
+#if 0  // The test splits multidex to separate single dex files, which is invalid.
 TEST_P(OatDumpTest, TestExportDex) {
   TEST_DISABLED_FOR_RISCV64();
   if (GetParam() == Flavor::kStatic) {
@@ -98,5 +99,6 @@ TEST_P(OatDumpTest, TestExportDex) {
     ASSERT_TRUE(res.StandardSuccess());
   }
 }
+#endif
 
 }  // namespace art

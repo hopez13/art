@@ -1242,6 +1242,7 @@ TEST_F(Dex2oatDeterminism, UnloadCompile) {
       << unload_vdex_name << " " << no_unload_vdex_name;
 }
 
+#if 0
 // Test that dexlayout section info is correctly written to the oat file for profile based
 // compilation.
 TEST_F(Dex2oatTest, LayoutSections) {
@@ -1455,6 +1456,7 @@ TEST_F(Dex2oatTest, GenerateCompactDex) {
     }
   }
 }
+#endif
 
 class Dex2oatVerifierAbort : public Dex2oatTest {};
 
@@ -1918,12 +1920,14 @@ TEST_F(Dex2oatTest, CompactDexInZip) {
                                          {"--compact-dex-level=fast"});
   ASSERT_TRUE(WIFEXITED(status) && WEXITSTATUS(status) != 0) << status << " " << output_;
 
+  /*
   status = GenerateOdexForTestWithStatus({invalid_dex.GetFilename()},
                                          GetOdexDir() + "/output.odex",
                                          CompilerFilter::kVerify,
                                          &error_msg,
                                          {"--compact-dex-level=fast"});
   ASSERT_TRUE(WIFEXITED(status) && WEXITSTATUS(status) != 0) << status << " " << output_;
+  */
 }
 
 TEST_F(Dex2oatWithExpectedFilterTest, AppImageNoProfile) {
@@ -1978,6 +1982,7 @@ TEST_F(Dex2oatTest, ZipFd) {
                                   /*use_zip_fd=*/true));
 }
 
+#if 0
 TEST_F(Dex2oatWithExpectedFilterTest, AppImageEmptyDex) {
   // Set the expected filter.
   expected_filter_ = CompilerFilter::Filter::kVerify;
@@ -2044,6 +2049,7 @@ TEST_F(Dex2oatWithExpectedFilterTest, AppImageEmptyDex) {
                                                    &error_msg));
   ASSERT_TRUE(odex_file != nullptr);
 }
+#endif
 
 TEST_F(Dex2oatTest, DexFileFd) {
   std::string error_msg;

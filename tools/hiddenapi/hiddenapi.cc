@@ -733,6 +733,16 @@ class DexFileEditor final {
         header->data_size_ = output.size() - header->data_off_;
         header->file_size_ = output.size() - header_offset[i];
       }
+    }
+
+    // Update multidex fields.
+    for (size_t i = 0; i < inputs_.size(); i++) {
+      uint8_t* begin = output.data() + header_offset[i];
+      auto* header = reinterpret_cast<DexFile::HeaderV41*>(begin);
+      if (inputs_[i].first->GetDexVersion() >= DexFile::kMultidexVersion) {
+        header->data_size_ = 0;
+        header->container_size = output.size();
+      }
       size_t sha1_start = offsetof(DexFile::Header, file_size_);
       SHA1(begin + sha1_start, header->file_size_ - sha1_start, header->signature_.data());
       header->checksum_ = DexFile::CalculateChecksum(begin, header->file_size_);
