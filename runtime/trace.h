@@ -98,6 +98,10 @@ enum TraceAction {
     kTraceMethodActionMask = 0x03,  // two bits
 };
 
+static constexpr size_t kPerThreadBufSize = 512 * 1024;
+// TSC is a 64-bit value. We need 4 entries to store it as two 32-bit values.
+static constexpr uint32_t kNumEntriesForWallClock = (kRuntimePointerSize == PointerSize::k64) ? 3 : 4;
+
 // Class for recording event traces. Trace data is either collected
 // synchronously during execution (TracingMode::kMethodTracingActive),
 // or by a separate sampling thread (TracingMode::kSampleProfilingActive).

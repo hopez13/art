@@ -43,7 +43,10 @@ public class Main {
                 VMDebug.$noinline$stopMethodTracing();
             }
 
-            VMDebug.startMethodTracing(file.getPath(), out_file.getFD(), 0, 0, false, 0, true);
+            int flags = 0x010; // Enables wall clock timestamps only.
+            VMDebug.startMethodTracing(file.getPath(), out_file.getFD(), /* buffer_size= */ 0,
+                    flags, /* sampling_enabled= */ false, /* intervalUs= */ 0,
+                    /* streaming_output= */ true);
             t.start();
             t.join();
             m.$noinline$doSomeWork();
@@ -60,7 +63,7 @@ public class Main {
 
     private void CheckTraceFileFormat(File trace_file) throws Exception {
         StreamTraceParser parser = new StreamTraceParser(trace_file);
-        parser.validateTraceHeader(StreamTraceParser.TRACE_VERSION_DUAL_CLOCK);
+        parser.validateTraceHeader(StreamTraceParser.TRACE_VERSION_WALL_CLOCK);
         boolean has_entries = true;
         boolean seen_stop_tracing_method = false;
         while (has_entries) {

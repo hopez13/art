@@ -213,29 +213,37 @@ class Instrumentation {
     // Assert that have_method_entry_listeners_ is 8bits wide. If the size changes
     // update the compare instructions in the code generator when generating checks for
     // MethodEntryExitHooks.
-    static_assert(sizeof(have_method_entry_listeners_) == 1,
+    static_assert(sizeof(have_method_entry_slow_listeners_) == 1,
                   "have_method_entry_listeners_ isn't expected size");
-    return MemberOffset(OFFSETOF_MEMBER(Instrumentation, have_method_entry_listeners_));
+    static_assert(OFFSETOF_MEMBER(Instrumentation, have_method_entry_slow_listeners_) + 1 ==
+                  OFFSETOF_MEMBER(Instrumentation, have_method_entry_fast_trace_listeners_));
+    return MemberOffset(OFFSETOF_MEMBER(Instrumentation, have_method_entry_slow_listeners_));
   }
 
   static constexpr MemberOffset HaveMethodExitListenersOffset() {
     // Assert that have_method_exit_listeners_ is 8bits wide. If the size changes
     // update the compare instructions in the code generator when generating checks for
     // MethodEntryExitHooks.
-    static_assert(sizeof(have_method_exit_listeners_) == 1,
+    static_assert(sizeof(have_method_exit_slow_listeners_) == 1,
                   "have_method_exit_listeners_ isn't expected size");
-    return MemberOffset(OFFSETOF_MEMBER(Instrumentation, have_method_exit_listeners_));
+    static_assert(OFFSETOF_MEMBER(Instrumentation, have_method_exit_slow_listeners_) + 1 ==
+                  OFFSETOF_MEMBER(Instrumentation, have_method_exit_fast_trace_listeners_));
+    return MemberOffset(OFFSETOF_MEMBER(Instrumentation, have_method_exit_slow_listeners_));
   }
 
   // Add a listener to be notified of the masked together sent of instrumentation events. This
   // suspend the runtime to install stubs. You are expected to hold the mutator lock as a proxy
   // for saying you should have suspended all threads (installing stubs while threads are running
   // will break).
-  void AddListener(InstrumentationListener* listener, uint32_t events)
+  void AddListener(InstrumentationListener* listener,
+                   uint32_t events,
+                   bool is_trace_listener = false)
       REQUIRES(Locks::mutator_lock_, !Locks::thread_list_lock_, !Locks::classlinker_classes_lock_);
 
   // Removes listeners for the specified events.
-  void RemoveListener(InstrumentationListener* listener, uint32_t events)
+  void RemoveListener(InstrumentationListener* listener,
+                      uint32_t events,
+                      bool is_trace_listener = false)
       REQUIRES(Locks::mutator_lock_, !Locks::thread_list_lock_, !Locks::classlinker_classes_lock_);
 
   // Calls UndeoptimizeEverything which may visit class linker classes through ConfigureStubs.
@@ -678,42 +686,45 @@ class Instrumentation {
   // Did the runtime request we only run in the interpreter? ie -Xint mode.
   bool forced_interpret_only_;
 
-  // Do we have any listeners for method entry events? Short-cut to avoid taking the
-  // instrumentation_lock_.
-  bool have_method_entry_listeners_ GUARDED_BY(Locks::mutator_lock_);
+  // For method entry / exit events, we maintain jvmti + slow trace / fast trace listeners in
+  // different lists. We do that to make implementation of fast trace listeners more efficient by
+  // JITing the code to handle fast trace events.
+  // Do we have any listeners for method entry events.
+  bool have_method_entry_slow_listeners_ GUARDED_BY(Locks::mutator_lock_);
+  bool have_method_entry_fast_trace_listeners_ GUARDED_BY(Locks::mutator_lock_);
 
-  // Do we have any listeners for method exit events? Short-cut to avoid taking the
-  // instrumentation_lock_.
-  bool have_method_exit_listeners_ GUARDED_BY(Locks::mutator_lock_);
+  // Do we have any listeners for method exit events.
+  bool have_method_exit_slow_listeners_ GUARDED_BY(Locks::mutator_lock_);
+  bool have_method_exit_fast_trace_listeners_ GUARDED_BY(Locks::mutator_lock_);
 
-  // Do we have any listeners for method unwind events? Short-cut to avoid taking the
-  // instrumentation_lock_.
+  // Do we have any listeners for method unwind events?
   bool have_method_unwind_listeners_ GUARDED_BY(Locks::mutator_lock_);
 
-  // Do we have any listeners for dex move events? Short-cut to avoid taking the
-  // instrumentation_lock_.
+  // Do we have any listeners for dex move events?
   bool have_dex_pc_listeners_ GUARDED_BY(Locks::mutator_lock_);
 
-  // Do we have any listeners for field read events? Short-cut to avoid taking the
-  // instrumentation_lock_.
+  // Do we have any listeners for field read events?
   bool have_field_read_listeners_ GUARDED_BY(Locks::mutator_lock_);
 
-  // Do we have any listeners for field write events? Short-cut to avoid taking the
-  // instrumentation_lock_.
+  // Do we have any listeners for field write events?
   bool have_field_write_listeners_ GUARDED_BY(Locks::mutator_lock_);
 
-  // Do we have any exception thrown listeners? Short-cut to avoid taking the instrumentation_lock_.
+  // Do we have any exception thrown listeners?
   bool have_exception_thrown_listeners_ GUARDED_BY(Locks::mutator_lock_);
 
-  // Do we have any frame pop listeners? Short-cut to avoid taking the instrumentation_lock_.
+  // Do we have any frame pop listeners?
   bool have_watched_frame_pop_listeners_ GUARDED_BY(Locks::mutator_lock_);
 
-  // Do we have any branch listeners? Short-cut to avoid taking the instrumentation_lock_.
+  // Do we have any branch listeners?
   bool have_branch_listeners_ GUARDED_BY(Locks::mutator_lock_);
 
-  // Do we have any exception handled listeners? Short-cut to avoid taking the
-  // instrumentation_lock_.
+  // Do we have any exception handled listeners?
   bool have_exception_handled_listeners_ GUARDED_BY(Locks::mutator_lock_);
+
+  // Thes specifies if there are any method entry / exit listeners. We maintain these so we need to
+  // check only for one flag in JITed code.
+  bool have_method_entry_listeners_ GUARDED_BY(Locks::mutator_lock_);
+  bool have_method_exit_listeners_ GUARDED_BY(Locks::mutator_lock_);
 
   // Contains the instrumentation level required by each client of the instrumentation identified
   // by a string key.
@@ -730,8 +741,12 @@ class Instrumentation {
   // listeners can also be deleted concurrently.
   // As a result, these lists are never trimmed. That's acceptable given the low number of
   // listeners we have.
-  std::list<InstrumentationListener*> method_entry_listeners_ GUARDED_BY(Locks::mutator_lock_);
-  std::list<InstrumentationListener*> method_exit_listeners_ GUARDED_BY(Locks::mutator_lock_);
+  std::list<InstrumentationListener*> method_entry_slow_listeners_ GUARDED_BY(Locks::mutator_lock_);
+  std::list<InstrumentationListener*> method_entry_fast_trace_listeners_
+      GUARDED_BY(Locks::mutator_lock_);
+  std::list<InstrumentationListener*> method_exit_slow_listeners_ GUARDED_BY(Locks::mutator_lock_);
+  std::list<InstrumentationListener*> method_exit_fast_trace_listeners_
+      GUARDED_BY(Locks::mutator_lock_);
   std::list<InstrumentationListener*> method_unwind_listeners_ GUARDED_BY(Locks::mutator_lock_);
   std::list<InstrumentationListener*> branch_listeners_ GUARDED_BY(Locks::mutator_lock_);
   std::list<InstrumentationListener*> dex_pc_listeners_ GUARDED_BY(Locks::mutator_lock_);

@@ -24,7 +24,7 @@ import java.util.HashMap;
 public class StreamTraceParser {
     public static final int MAGIC_NUMBER = 0x574f4c53;
     public static final int DUAL_CLOCK_VERSION = 3;
-    public static final int TRACE_VERSION_DUAL_CLOCK = 0xF3;
+    public static final int TRACE_VERSION_WALL_CLOCK = 0xF2;
 
     public StreamTraceParser(File file) throws IOException {
         dataStream = new DataInputStream(new FileInputStream(file));
