@@ -2197,6 +2197,16 @@ bool DexLayout::ProcessDexFile(const char* file_name,
                                                                GetOptions()));
   SetHeader(header.get());
 
+  // Dexlayout does not support multidex, but allow it if it has just single dex file.
+  if (dex_file->GetHeader().GetVersion() == 41) {
+    auto headerV41 = reinterpret_cast<const DexFile::HeaderV41&>(dex_file->GetHeader());
+    if (headerV41.container_offset != 0 || headerV41.container_size != headerV41.file_size_) {
+      *error_msg = "Multi-dex is not supported in dex layout";
+      DCHECK(false) << *error_msg;
+      return false;
+    }
+  }
+
   if (options_.verbose_) {
     fprintf(out_file_,
             "Opened '%s', DEX version '%.3s'\n",
