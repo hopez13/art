@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1297fa74_9d7c39fd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-02-27T10:21:50Z",
+      "side": 1,
+      "message": "Thanks!",
+      "revId": "45b46ddb60855953be23359421efd9cbd9d3cb44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94bd939c_2a399c8e",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 558,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-02-27T10:21:50Z",
+      "side": 1,
+      "message": "minor nit: maybe reloc_it instead of it2?",
+      "range": {
+        "startLine": 558,
+        "startChar": 13,
+        "endLine": 558,
+        "endChar": 16
+      },
+      "revId": "45b46ddb60855953be23359421efd9cbd9d3cb44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c0684172_20bf190a",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 579,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-02-27T10:21:50Z",
+      "side": 1,
+      "message": "also here maybe class_it",
+      "range": {
+        "startLine": 579,
+        "startChar": 17,
+        "endLine": 579,
+        "endChar": 20
+      },
+      "revId": "45b46ddb60855953be23359421efd9cbd9d3cb44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
