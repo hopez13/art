@@ -34,6 +34,7 @@
 #include "base/leb128.h"
 #include "base/stl_util.h"
 #include "class_accessor-inl.h"
+#include "compact_dex_file.h"
 #include "descriptors_names.h"
 #include "dex_file-inl.h"
 #include "standard_dex_file.h"
@@ -96,13 +97,52 @@ bool DexFile::DisableWrite() const {
   return container_->DisableWrite();
 }
 
+bool DexFile::Header::HasDexContainer() const {
+  if (CompactDexFile::IsMagicValid(magic_.data())) {
+    return false;
+  }
+  DCHECK_EQ(header_size_, GetVersion() >= 41 ? sizeof(HeaderV41) : sizeof(Header));
+  return header_size_ >= sizeof(HeaderV41);
+}
+
+std::pair<uint32_t, uint32_t> DexFile::Header::GetDexContainer() const {
+  if (HasDexContainer()) {
+    auto* header = reinterpret_cast<const HeaderV41*>(this);
+    return {header->container_offset_, header->container_size_};
+  } else {
+    return {0, file_size_};
+  }
+}
+
+void DexFile::Header::SetDexContainer(size_t offset, size_t size) {
+  if (HasDexContainer()) {
+    DCHECK_LE(offset, size);
+    DCHECK_LE(file_size_, size - offset);
+    data_off_ = 0;
+    data_size_ = 0;
+    auto* headerV41 = reinterpret_cast<HeaderV41*>(this);
+    DCHECK_GE(header_size_, sizeof(*headerV41));
+    headerV41->container_offset_ = offset;
+    headerV41->container_size_ = size;
+  } else {
+    DCHECK_EQ(offset, 0u);
+    DCHECK_EQ(size, file_size_);
+  }
+}
+
 template <typename T>
 ALWAYS_INLINE const T* DexFile::GetSection(const uint32_t* offset, DexFileContainer* container) {
   size_t size = container->End() - begin_;
   if (size < sizeof(Header)) {
     return nullptr;  // Invalid dex file.
   }
-  return reinterpret_cast<const T*>(begin_ + *offset);
+  // Compact dex is inconsistent: section offsets are relative to the
+  // header as opposed to the data section like all other its offsets.
+  if (CompactDexFile::IsMagicValid(begin_)) {
+    const uint8_t* data = reinterpret_cast<const uint8_t*>(header_);
+    return reinterpret_cast<const T*>(data + *offset);
+  }
+  return reinterpret_cast<const T*>(data_.data() + *offset);
 }
 
 DexFile::DexFile(const uint8_t* base,
@@ -204,8 +244,17 @@ ArrayRef<const uint8_t> DexFile::GetDataRange(const uint8_t* data, DexFileContai
   CHECK_LE(data, container->End());
   size_t size = container->End() - data;
   if (size >= sizeof(StandardDexFile::Header) && StandardDexFile::IsMagicValid(data)) {
-    auto header = reinterpret_cast<const DexFile::Header*>(data);
-    size = header->file_size_;
+    auto header = reinterpret_cast<const DexFile::HeaderV41*>(data);
+    CHECK_EQ(container->Data().size(), 0u) << "Unsupported for standard dex";
+    if (size >= sizeof(*header) && header->header_size_ >= sizeof(*header)) {
+      if (header->container_offset_ > reinterpret_cast<uintptr_t>(data)) {
+        return {nullptr, 0};  // Invalid dex: arithmetic overflow.
+      }
+      data -= header->container_offset_;
+      size = header->container_size_;
+    } else {
+      size = header->file_size_;
+    }
   } else if (size >= sizeof(CompactDexFile::Header) && CompactDexFile::IsMagicValid(data)) {
     auto header = reinterpret_cast<const CompactDexFile::Header*>(data);
     // TODO: Remove. This is a hack. See comment of the Data method.
@@ -222,13 +271,18 @@ ArrayRef<const uint8_t> DexFile::GetDataRange(const uint8_t* data, DexFileContai
 }
 
 void DexFile::InitializeSectionsFromMapList() {
+  // NB: This function must survive random data to pass fuzzing and testing.
   static_assert(sizeof(MapList) <= sizeof(Header));
   DCHECK_GE(DataSize(), sizeof(MapList));
   if (header_->map_off_ == 0 || header_->map_off_ > DataSize() - sizeof(MapList)) {
     // Bad offset. The dex file verifier runs after this method and will reject the file.
     return;
   }
-  const MapList* map_list = reinterpret_cast<const MapList*>(DataBegin() + header_->map_off_);
+  const uint8_t* map_list_raw = DataBegin() + header_->map_off_;
+  if (map_list_raw < container_->Begin()) {
+    return;
+  }
+  const MapList* map_list = reinterpret_cast<const MapList*>(map_list_raw);
   const size_t count = map_list->size_;
 
   size_t map_limit =
@@ -244,10 +298,10 @@ void DexFile::InitializeSectionsFromMapList() {
   for (size_t i = 0; i < count; ++i) {
     const MapItem& map_item = map_list->list_[i];
     if (map_item.type_ == kDexTypeMethodHandleItem) {
-      method_handles_ = reinterpret_cast<const MethodHandleItem*>(Begin() + map_item.offset_);
+      method_handles_ = GetSection<MethodHandleItem>(&map_item.offset_, container_.get());
       num_method_handles_ = map_item.size_;
     } else if (map_item.type_ == kDexTypeCallSiteIdItem) {
-      call_site_ids_ = reinterpret_cast<const CallSiteIdItem*>(Begin() + map_item.offset_);
+      call_site_ids_ = GetSection<CallSiteIdItem>(&map_item.offset_, container_.get());
       num_call_site_ids_ = map_item.size_;
     } else if (map_item.type_ == kDexTypeHiddenapiClassData) {
       hiddenapi_class_data_ =
