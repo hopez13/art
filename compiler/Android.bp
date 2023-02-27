@@ -157,6 +157,12 @@ art_cc_defaults {
                 "utils/x86_64/managed_register_x86_64.cc",
             ],
         },
+        riscv64: {
+            srcs: [
+                "utils/riscv64/assembler_riscv64.cc",
+                "utils/riscv64/managed_register_riscv64.cc",
+            ],
+        },
     },
     static: {
         cflags: ["-DART_STATIC_LIBART_COMPILER"],
@@ -456,6 +462,11 @@ art_cc_defaults {
                 // "utils/x86_64/managed_register_x86_64_test.cc",
             ],
         },
+        riscv64: {
+            srcs: [
+                "utils/riscv64/managed_register_riscv64_test.cc",
+            ],
+        },
     },
 
     header_libs: [
@@ -548,6 +559,11 @@ art_cc_test {
         x86_64: {
             srcs: [
                 "utils/x86_64/assembler_x86_64_test.cc",
+            ],
+        },
+        riscv64: {
+            srcs: [
+                "utils/riscv64/assembler_riscv64_test.cc",
             ],
         },
     },
