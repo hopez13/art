@@ -49,6 +49,9 @@ class Signature;
 class StandardDexFile;
 class ZipArchive;
 
+// #pragma clang optimize off
+// #pragma clang diagnostic ignored "-Weverything"
+
 namespace hiddenapi {
 enum class Domain : char;
 }  // namespace hiddenapi
@@ -56,19 +59,23 @@ enum class Domain : char;
 // Owns the physical storage that backs one or more DexFiles (that is, it can be shared).
 // It frees the storage (e.g. closes file) when all DexFiles that use it are all closed.
 //
-// The Begin()-End() range represents exactly one DexFile (with the size from the header).
-// In particular, the End() does NOT include any shared cdex data from other DexFiles.
+// The Begin()-End() range represents either one DexFile (with the size from the header),
+// or several strictly consecutive DexFiles with no padding before, in between, or after.
+//
+// In particular, the End() does NOT include any shared data the DexFile(s) are using
+// (unless that shared data is covered by another DexFile, which is itself included).
+//
+// In other words, the first dex file shall start at Begin(), and the last dex file shall
+// finish at End(), which makes loading of all dex files from the container unambiguous.
 class DexFileContainer {
  public:
   DexFileContainer() { }
   virtual ~DexFileContainer() {}
 
-  virtual bool IsReadOnly() const = 0;
+  virtual bool IsReadOnly() const { return true; }
 
-  // Make the underlying writeable. Return true on success (memory can be written).
-  virtual bool EnableWrite() = 0;
-  // Make the underlying read-only. Return true on success (memory is read-only now).
-  virtual bool DisableWrite() = 0;
+  // Make the underlying read-only or writeable. Return true on success.
+  virtual bool SetReadOnly(bool read_only ATTRIBUTE_UNUSED = true) { return false; }
 
   virtual const uint8_t* Begin() const = 0;
   virtual const uint8_t* End() const = 0;
@@ -91,9 +98,7 @@ class MemoryDexFileContainer : public DexFileContainer {
  public:
   MemoryDexFileContainer(const uint8_t* begin, const uint8_t* end) : begin_(begin), end_(end) {}
   MemoryDexFileContainer(const uint8_t* begin, size_t size) : begin_(begin), end_(begin + size) {}
-  bool IsReadOnly() const override { return true; }
-  bool EnableWrite() override { return false; }
-  bool DisableWrite() override { return false; }
+
   const uint8_t* Begin() const override { return begin_; }
   const uint8_t* End() const override { return end_; }
 
@@ -113,6 +118,8 @@ class DexFile {
   // Number of bytes in the dex file magic.
   static constexpr size_t kDexMagicSize = 4;
   static constexpr size_t kDexVersionLen = 4;
+
+  static constexpr uint32_t kMultidexVersion = 41;
 
   // First Dex format version enforcing class definition ordering rules.
   static constexpr uint32_t kClassDefinitionOrderEnforcedVersion = 37;
@@ -152,6 +159,10 @@ class DexFile {
 
     // Decode the dex magic version
     uint32_t GetVersion() const;
+  };
+
+  struct HeaderV41 : public Header {
+    uint32_t multidex_offset = 0;
   };
 
   // Map item type codes.
@@ -862,6 +873,9 @@ class DexFile {
           std::shared_ptr<DexFileContainer> container,
           bool is_compact_dex);
 
+  template <typename T>
+  const T* GetSection(size_t offset);
+
   // Top-level initializer that calls other Init methods.
   bool Init(std::string* error_msg);
 
@@ -879,6 +893,7 @@ class DexFile {
 
   // Data memory range: Most dex offsets are relative to this memory range.
   // Standard dex: same as (begin_, size_).
+  // Multi-dex: all dex files (starting from the first header).
   // Compact: shared data which is located after all non-shared data.
   //
   // This is different to the "data section" in the standard dex header.
