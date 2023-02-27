@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1fd83966_50eeda93",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-02-27T10:28:10Z",
+      "side": 1,
+      "message": "Thanks!",
+      "revId": "b6f14a5dbefd1ff3c933c33970b97362c2b4a0e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ae95f1da_a5bea97a",
@@ -14,6 +31,24 @@
       "writtenOn": "2023-02-27T09:35:22Z",
       "side": 1,
       "message": "Why is this in the generic `asm_support_riscv.S` instead of `jni_entrypoints_riscv.S` as on arm64?",
+      "revId": "b6f14a5dbefd1ff3c933c33970b97362c2b4a0e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2840c559_23a7f180",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-02-27T10:28:10Z",
+      "side": 1,
+      "message": "Just a quick question, do we want to move it to jni_entrypoints_riscv.S to keep it consistent with other archs? I would have thought asm_support_riscv is a good place since this sounds like a common macro and asm_support_riscv is a good place.",
+      "parentUuid": "ae95f1da_a5bea97a",
       "revId": "b6f14a5dbefd1ff3c933c33970b97362c2b4a0e3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
