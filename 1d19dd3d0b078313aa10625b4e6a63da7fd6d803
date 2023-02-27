@@ -1,0 +1,314 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f9265725_18f3786f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-02-27T11:05:39Z",
+      "side": 1,
+      "message": "Thanks a lot for this CL! I haven\u0027t finished the review but a couple of high level comments:\n1. Please align the comments and keep the line length to 100. Those are the style guidelines we follow.\n2. When there is disabled code, i.e. commented or under if 0 please either remove them or add a comment on why it is commented. I would prefer removing it if they aren\u0027t really needed. We can always add them in a later CL.",
+      "revId": "1d19dd3d0b078313aa10625b4e6a63da7fd6d803",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f452f272_8d386a55",
+        "filename": "compiler/utils/assembler_test.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 494,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-02-27T11:05:39Z",
+      "side": 1,
+      "message": "Should we move the test to a follow up CL if possible? The CL is large so maybe easier to review if we move this to a follow up CL?",
+      "revId": "1d19dd3d0b078313aa10625b4e6a63da7fd6d803",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d1dfb8b2_3c4fa275",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1341,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-02-27T11:05:39Z",
+      "side": 1,
+      "message": "If we don\u0027t expect this type then we can just add DCHECK(type_ !\u003d kLiteralLong) and remove this code.",
+      "range": {
+        "startLine": 1341,
+        "startChar": 2,
+        "endLine": 1341,
+        "endChar": 32
+      },
+      "revId": "1d19dd3d0b078313aa10625b4e6a63da7fd6d803",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b51ca597_6ba36b12",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1975,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-02-27T11:05:39Z",
+      "side": 1,
+      "message": "Is this intended? Are we planning to enable this soon? If yes, maybe a TODO comment might be good. If not, we should remove these from this CL and add it back when we need them.",
+      "range": {
+        "startLine": 1975,
+        "startChar": 0,
+        "endLine": 1975,
+        "endChar": 5
+      },
+      "revId": "1d19dd3d0b078313aa10625b4e6a63da7fd6d803",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c44c78c_bc4b8beb",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-02-27T11:05:39Z",
+      "side": 1,
+      "message": "remove this? If we want to keep this a comment saying why this is commented out.",
+      "range": {
+        "startLine": 223,
+        "startChar": 4,
+        "endLine": 223,
+        "endChar": 39
+      },
+      "revId": "1d19dd3d0b078313aa10625b4e6a63da7fd6d803",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51fd5332_0d36126e",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-02-27T11:05:39Z",
+      "side": 1,
+      "message": "similarly here.",
+      "range": {
+        "startLine": 229,
+        "startChar": 2,
+        "endLine": 230,
+        "endChar": 84
+      },
+      "revId": "1d19dd3d0b078313aa10625b4e6a63da7fd6d803",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "698c9b95_a3aced47",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-02-27T11:05:39Z",
+      "side": 1,
+      "message": "Please fix this ERROR reported by Common Typos: Common typo found: \"Less Then\" -- should it be \"Less than\"?\n\nAnalyzer Description: Linter for catching common typos motivated by go/todo-fail and go/lol-codesearch. Shared with google3 common typos library go/common-typos.\nOwner: ayeaye-team@google.com\n\nCommon typo found: \"Less Then\" -- should it be \"Less than\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027No-Typo-Check: \u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 316,
+        "startChar": 70,
+        "endLine": 316,
+        "endChar": 79
+      },
+      "revId": "1d19dd3d0b078313aa10625b4e6a63da7fd6d803",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eccde5dc_e4ad4b8c",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-02-27T11:05:39Z",
+      "side": 1,
+      "message": "Please fix this ERROR reported by Common Typos: Common typo found: \"Less Then\" -- should it be \"Less than\"?\n\nAnalyzer Description: Linter for catching common typos motivated by go/todo-fail and go/lol-codesearch. Shared with google3 common typos library go/common-typos.\nOwner: ayeaye-team@google.com\n\nCommon typo found: \"Less Then\" -- should it be \"Less than\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027No-Typo-Check: \u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 316,
+        "startChar": 70,
+        "endLine": 316,
+        "endChar": 79
+      },
+      "revId": "1d19dd3d0b078313aa10625b4e6a63da7fd6d803",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35ea3026_5a8023ff",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-02-27T11:05:39Z",
+      "side": 1,
+      "message": "Line too long",
+      "range": {
+        "startLine": 318,
+        "startChar": 2,
+        "endLine": 318,
+        "endChar": 101
+      },
+      "revId": "1d19dd3d0b078313aa10625b4e6a63da7fd6d803",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9fcbd907_81700182",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-02-27T11:05:39Z",
+      "side": 1,
+      "message": "Comments not aligned and lines too long. We have a limit of 100 for line length.",
+      "range": {
+        "startLine": 321,
+        "startChar": 2,
+        "endLine": 326,
+        "endChar": 117
+      },
+      "revId": "1d19dd3d0b078313aa10625b4e6a63da7fd6d803",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a24afcb5_6c6a7e5c",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-02-27T11:05:39Z",
+      "side": 1,
+      "message": "nit: please align the comment",
+      "range": {
+        "startLine": 329,
+        "startChar": 65,
+        "endLine": 329,
+        "endChar": 75
+      },
+      "revId": "1d19dd3d0b078313aa10625b4e6a63da7fd6d803",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b44c6ee4_35227226",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-02-27T11:05:39Z",
+      "side": 1,
+      "message": "Delete them if we aren\u0027t using them? If we want to then please add a TODO saying why we have commented them and when we want to enable them.",
+      "range": {
+        "startLine": 331,
+        "startChar": 2,
+        "endLine": 332,
+        "endChar": 99
+      },
+      "revId": "1d19dd3d0b078313aa10625b4e6a63da7fd6d803",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e544221c_af5d74b0",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-02-27T11:05:39Z",
+      "side": 1,
+      "message": "Lines too long. Also alignment of comments.",
+      "range": {
+        "startLine": 345,
+        "startChar": 1,
+        "endLine": 349,
+        "endChar": 122
+      },
+      "revId": "1d19dd3d0b078313aa10625b4e6a63da7fd6d803",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a33712cd_85fde20d",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 575,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-02-27T11:05:39Z",
+      "side": 1,
+      "message": "Here and below functions, should we move these to .cc file?",
+      "range": {
+        "startLine": 575,
+        "startChar": 1,
+        "endLine": 575,
+        "endChar": 87
+      },
+      "revId": "1d19dd3d0b078313aa10625b4e6a63da7fd6d803",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
