@@ -98,6 +98,10 @@ enum TraceAction {
     kTraceMethodActionMask = 0x03,  // two bits
 };
 
+// We need 4 entries to store 64-bit timestamp counter as two 32-bit values on 32-bit architectures.
+static constexpr uint32_t kNumEntriesForWallClock =
+    (kRuntimePointerSize == PointerSize::k64) ? 3 : 4;
+
 // Class for recording event traces. Trace data is either collected
 // synchronously during execution (TracingMode::kMethodTracingActive),
 // or by a separate sampling thread (TracingMode::kSampleProfilingActive).
