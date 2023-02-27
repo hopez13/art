@@ -746,6 +746,11 @@ TEST_F(DexLayoutTest, LinkData) {
     header.link_off_ = header.file_size_;
     header.link_size_ = 16 * KB;
     header.file_size_ += header.link_size_;
+    if (header.HasContainer()) {
+      auto& headerV41 = const_cast<DexFile::HeaderV41&>(dex->GetHeaderV41());
+      DCHECK_EQ(headerV41.container_offset, 0u);
+      headerV41.container_size = header.file_size_;
+    }
     file_size = header.file_size_;
   });
   TEMP_FAILURE_RETRY(temp_dex.GetFile()->SetLength(file_size));
