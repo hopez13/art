@@ -95,6 +95,7 @@ TEST_F(OatDumpTest, TestSymbolizeStatic) {
   ASSERT_TRUE(Exec(Flavor::kStatic, kModeSymbolize, {}, kListOnly));
 }
 
+#if 0  // The test splits multidex to separate single dex files, which is invalid.
 TEST_F(OatDumpTest, TestExportDex) {
   TEST_DISABLED_FOR_RISCV64();
   std::string error_msg;
@@ -112,6 +113,8 @@ TEST_F(OatDumpTest, TestExportDex) {
   ForkAndExecResult res = ForkAndExec({dexdump, "-d", dex_location}, post_fork_fn, &output);
   ASSERT_TRUE(res.StandardSuccess());
 }
+#endif
+
 TEST_F(OatDumpTest, TestExportDexStatic) {
   TEST_DISABLED_FOR_RISCV64();
   TEST_DISABLED_FOR_ARM_AND_ARM64();
