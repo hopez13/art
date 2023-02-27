@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "655ef28a_df589f8a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-02-27T10:37:35Z",
+      "side": 1,
+      "message": "Thanks!",
+      "revId": "7593660915d91ccee81ab7db7f8f4a4de39edb12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9fe693f5_0fa82d15",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1516,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-02-27T10:37:35Z",
+      "side": 1,
+      "message": "Maybe a comment about why checksum doesn\u0027t need to be updated?",
+      "range": {
+        "startLine": 1516,
+        "startChar": 10,
+        "endLine": 1516,
+        "endChar": 39
+      },
+      "revId": "7593660915d91ccee81ab7db7f8f4a4de39edb12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
