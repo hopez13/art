@@ -663,13 +663,11 @@ class DexFileEditor final {
     std::vector<uint8_t> output;
 
     // Copy the old dex files into the backing data vector.
-    size_t truncated_size = 0;
     std::vector<size_t> header_offset;
     for (size_t i = 0; i < inputs_.size(); i++) {
       const DexFile* dex = inputs_[i].first;
       header_offset.push_back(output.size());
-      std::copy(
-          dex->Begin(), dex->Begin() + dex->GetHeader().file_size_, std::back_inserter(output));
+      std::copy(dex->Begin(), dex->End(), std::back_inserter(output));
 
       // Clear the old map list (make it into padding).
       const dex::MapList* map = dex->GetMapList();
@@ -678,9 +676,7 @@ class DexFileEditor final {
       CHECK_LE(map_off, output.size()) << "Map list past the end of file";
       CHECK_EQ(map_size, output.size() - map_off) << "Map list expected at the end of file";
       std::fill_n(output.data() + map_off, map_size, 0);
-      truncated_size = output.size() - map_size;
     }
-    output.resize(truncated_size);  // Truncate last map list.
 
     // Append the hidden api data into the backing data vector.
     std::vector<size_t> hiddenapi_offset;
@@ -691,7 +687,8 @@ class DexFileEditor final {
       std::copy(hiddenapi_data.begin(), hiddenapi_data.end(), std::back_inserter(output));
     }
 
-    // Update the dex headers and map lists.
+    // Append modified map lists.
+    std::vector<uint32_t> map_list_offset;
     for (size_t i = 0; i < inputs_.size(); i++) {
       output.resize(RoundUp(output.size(), kMapListAlignment));  // Align.
 
@@ -716,16 +713,18 @@ class DexFileEditor final {
         uint32_t payload_offset = hiddenapi_offset[i];
         items.push_back(dex::MapItem{DexFile::kDexTypeHiddenapiClassData, 0, 1u, payload_offset});
       }
-      uint32_t map_offset = output.size();
-      items.push_back(dex::MapItem{DexFile::kDexTypeMapList, 0, 1u, map_offset});
+      map_list_offset.push_back(output.size());
+      items.push_back(dex::MapItem{DexFile::kDexTypeMapList, 0, 1u, map_list_offset.back()});
       uint32_t item_count = items.size();
       Append(&output, &item_count, 1);
       Append(&output, items.data(), items.size());
+    }
 
-      // Update header.
+    // Update headers.
+    for (size_t i = 0; i < inputs_.size(); i++) {
       uint8_t* begin = output.data() + header_offset[i];
       auto* header = reinterpret_cast<DexFile::Header*>(begin);
-      header->map_off_ = map_offset;
+      header->map_off_ = map_list_offset[i];
       if (i + 1 < inputs_.size()) {
         CHECK_EQ(header->file_size_, header_offset[i + 1] - header_offset[i]);
       } else {
@@ -733,6 +732,7 @@ class DexFileEditor final {
         header->data_size_ = output.size() - header->data_off_;
         header->file_size_ = output.size() - header_offset[i];
       }
+      header->SetDexContainer(header_offset[i], output.size());
       size_t sha1_start = offsetof(DexFile::Header, file_size_);
       SHA1(begin + sha1_start, header->file_size_ - sha1_start, header->signature_.data());
       header->checksum_ = DexFile::CalculateChecksum(begin, header->file_size_);

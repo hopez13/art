@@ -191,8 +191,9 @@ class DexFileVerifier {
  public:
   DexFileVerifier(const DexFile* dex_file, const char* location, bool verify_checksum)
       : dex_file_(dex_file),
-        begin_(dex_file->Begin()),
-        size_(dex_file->Size()),
+        // All dex offsets are relative to begin_ and must be within bounds of size_.
+        begin_(dex_file->DataBegin()),
+        size_(dex_file->DataSize()),
         location_(location),
         verify_checksum_(verify_checksum),
         header_(&dex_file->GetHeader()),
@@ -374,9 +375,12 @@ class DexFileVerifier {
   const DexFile* const dex_file_;
   const uint8_t* const begin_;
   const size_t size_;
+  const uint8_t* data_begin_ = nullptr;
+  const uint8_t* data_end_ = nullptr;
   const char* const location_;
   const bool verify_checksum_;
   const DexFile::Header* const header_;
+  uint32_t dex_version_ = 0;
 
   struct OffsetTypeMapEmptyFn {
     // Make a hash map slot empty by making the offset 0. Offset 0 is a valid dex file offset that
@@ -576,16 +580,30 @@ bool DexFileVerifier::CheckValidOffsetAndSize(uint32_t offset,
 }
 
 bool DexFileVerifier::CheckHeader() {
-  // Check file size from the header.
-  CHECK_EQ(size_, header_->file_size_);
-  uint32_t expected_header_size = sizeof(StandardDexFile::Header);
-  if (size_ < expected_header_size) {
-    ErrorStringPrintf("Bad file size (%zd, expected at least %u)", size_, expected_header_size);
+  if (!StandardDexFile::IsMagicValid(header_->magic_)) {
+    ErrorStringPrintf("Bad file magic");
     return false;
   }
-  uint32_t expected_file_size = dex_file_->GetContainer()->End() - begin_;
-  if (size_ > expected_file_size) {
-    ErrorStringPrintf("Bad file size (%zd, expected at most %u)", size_, expected_file_size);
+
+  if (!StandardDexFile::IsVersionValid(header_->magic_.data())) {
+    ErrorStringPrintf("Unknown dex version");
+    return false;
+  }
+  dex_version_ = header_->GetVersion();
+
+  // Check file size from the header.
+  size_t file_size = header_->file_size_;
+  size_t expected_header_size =
+      (dex_version_ >= 41) ? sizeof(DexFile::HeaderV41) : sizeof(DexFile::Header);
+  if (file_size < expected_header_size) {
+    ErrorStringPrintf(
+        "Bad file size (%zu, expected at least %zu)", file_size, expected_header_size);
+    return false;
+  }
+  size_t expected_file_size =
+      dex_file_->GetContainer()->End() - reinterpret_cast<const uint8_t*>(header_);
+  if (file_size > expected_file_size) {
+    ErrorStringPrintf("Bad file size (%zu, expected at most %zu)", file_size, expected_file_size);
     return false;
   }
 
@@ -608,10 +626,25 @@ bool DexFileVerifier::CheckHeader() {
   }
 
   if (header_->header_size_ != expected_header_size) {
-    ErrorStringPrintf("Bad header size: %ud expected %ud",
-                      header_->header_size_,
-                      expected_header_size);
+    ErrorStringPrintf(
+        "Bad header size: %ud expected %zud", header_->header_size_, expected_header_size);
     return false;
+  }
+
+  if (dex_version_ >= 41) {
+    auto headerV41 = reinterpret_cast<const DexFile::HeaderV41*>(header_);
+    if (headerV41->container_size_ <= headerV41->container_offset_) {
+      ErrorStringPrintf("Dex container is too small: size=%ud header_offset=%ud",
+                        headerV41->container_size_,
+                        headerV41->container_offset_);
+      return false;
+    }
+    uint32_t remainder = headerV41->container_size_ - headerV41->container_offset_;
+    if (headerV41->file_size_ > remainder) {
+      ErrorStringPrintf(
+          "Header file_size(%ud) is past multi-dex size(%ud)", headerV41->file_size_, remainder);
+      return false;
+    }
   }
 
   // Check that all offsets are inside the file.
@@ -656,6 +689,15 @@ bool DexFileVerifier::CheckHeader() {
                               // is supposed to be a multiple of 4.
                               /* alignment= */ 0,
                               "data");
+
+  if (dex_version_ >= 41) {
+    data_begin_ = begin_;
+    data_end_ = begin_ + size_;
+  } else {
+    data_begin_ = begin_ + header_->data_off_;
+    data_end_ = begin_ + header_->data_off_ + header_->data_size_;
+  }
+
   return result;
 }
 
@@ -672,7 +714,7 @@ bool DexFileVerifier::CheckMap() {
   uint32_t last_offset = 0;
   uint32_t last_type = 0;
   uint32_t data_item_count = 0;
-  uint32_t data_items_left = header_->data_size_;
+  uint32_t data_items_left = data_end_ - data_begin_;
   uint32_t used_bits = 0;
 
   // Check the validity of the size of the map list.
@@ -690,9 +732,8 @@ bool DexFileVerifier::CheckMap() {
                         last_type);
       return false;
     }
-    if (UNLIKELY(item->offset_ >= header_->file_size_)) {
-      ErrorStringPrintf("Map item after end of file: %x, size %x",
-                        item->offset_, header_->file_size_);
+    if (UNLIKELY(item->offset_ >= size_)) {
+      ErrorStringPrintf("Map item after end of file: %x, size %zx", item->offset_, size_);
       return false;
     }
 
@@ -937,7 +978,7 @@ bool DexFileVerifier::CheckPadding(size_t offset,
       return false;
     }
     while (offset < aligned_offset) {
-      if (UNLIKELY(*ptr_ != '\0')) {
+      if (UNLIKELY(*ptr_ != '\0') && dex_version_ < 41) {
         ErrorStringPrintf("Non-zero padding %x before section of type %zu at offset 0x%zx",
                           *ptr_,
                           static_cast<size_t>(type),
@@ -1398,13 +1439,12 @@ bool DexFileVerifier::CheckIntraClassDataItemFields(size_t count) {
 
   // We cannot use ClassAccessor::Field yet as it could read beyond the end of the data section.
   const uint8_t* ptr = ptr_;
-  const uint8_t* data_end = begin_ + header_->data_off_ + header_->data_size_;
 
   uint32_t prev_index = 0;
   for (size_t i = 0; i != count; ++i) {
     uint32_t field_idx_diff, access_flags;
-    if (UNLIKELY(!DecodeUnsignedLeb128Checked(&ptr, data_end, &field_idx_diff)) ||
-        UNLIKELY(!DecodeUnsignedLeb128Checked(&ptr, data_end, &access_flags))) {
+    if (UNLIKELY(!DecodeUnsignedLeb128Checked(&ptr, data_end_, &field_idx_diff)) ||
+        UNLIKELY(!DecodeUnsignedLeb128Checked(&ptr, data_end_, &access_flags))) {
       ErrorStringPrintf("encoded_field read out of bounds");
       return false;
     }
@@ -1438,7 +1478,6 @@ bool DexFileVerifier::CheckIntraClassDataItemMethods(size_t num_methods,
 
   // We cannot use ClassAccessor::Method yet as it could read beyond the end of the data section.
   const uint8_t* ptr = ptr_;
-  const uint8_t* data_end = begin_ + header_->data_off_ + header_->data_size_;
 
   // Load the first direct method for the check below.
   size_t remaining_direct_methods = num_direct_methods;
@@ -1450,9 +1489,9 @@ bool DexFileVerifier::CheckIntraClassDataItemMethods(size_t num_methods,
   uint32_t prev_index = 0;
   for (size_t i = 0; i != num_methods; ++i) {
     uint32_t method_idx_diff, access_flags, code_off;
-    if (UNLIKELY(!DecodeUnsignedLeb128Checked(&ptr, data_end, &method_idx_diff)) ||
-        UNLIKELY(!DecodeUnsignedLeb128Checked(&ptr, data_end, &access_flags)) ||
-        UNLIKELY(!DecodeUnsignedLeb128Checked(&ptr, data_end, &code_off))) {
+    if (UNLIKELY(!DecodeUnsignedLeb128Checked(&ptr, data_end_, &method_idx_diff)) ||
+        UNLIKELY(!DecodeUnsignedLeb128Checked(&ptr, data_end_, &access_flags)) ||
+        UNLIKELY(!DecodeUnsignedLeb128Checked(&ptr, data_end_, &code_off))) {
       ErrorStringPrintf("encoded_method read out of bounds");
       return false;
     }
@@ -1498,13 +1537,12 @@ bool DexFileVerifier::CheckIntraClassDataItemMethods(size_t num_methods,
 bool DexFileVerifier::CheckIntraClassDataItem() {
   // We cannot use ClassAccessor yet as it could read beyond the end of the data section.
   const uint8_t* ptr = ptr_;
-  const uint8_t* data_end = begin_ + header_->data_off_ + header_->data_size_;
 
   uint32_t static_fields_size, instance_fields_size, direct_methods_size, virtual_methods_size;
-  if (UNLIKELY(!DecodeUnsignedLeb128Checked(&ptr, data_end, &static_fields_size)) ||
-      UNLIKELY(!DecodeUnsignedLeb128Checked(&ptr, data_end, &instance_fields_size)) ||
-      UNLIKELY(!DecodeUnsignedLeb128Checked(&ptr, data_end, &direct_methods_size)) ||
-      UNLIKELY(!DecodeUnsignedLeb128Checked(&ptr, data_end, &virtual_methods_size))) {
+  if (UNLIKELY(!DecodeUnsignedLeb128Checked(&ptr, data_end_, &static_fields_size)) ||
+      UNLIKELY(!DecodeUnsignedLeb128Checked(&ptr, data_end_, &instance_fields_size)) ||
+      UNLIKELY(!DecodeUnsignedLeb128Checked(&ptr, data_end_, &direct_methods_size)) ||
+      UNLIKELY(!DecodeUnsignedLeb128Checked(&ptr, data_end_, &virtual_methods_size))) {
     ErrorStringPrintf("class_data_item read out of bounds");
     return false;
   }
@@ -2210,8 +2248,8 @@ bool DexFileVerifier::CheckIntraIdSection(size_t offset, uint32_t count) {
 
 template <DexFile::MapItemType kType>
 bool DexFileVerifier::CheckIntraDataSection(size_t offset, uint32_t count) {
-  size_t data_start = header_->data_off_;
-  size_t data_end = data_start + header_->data_size_;
+  size_t data_start = data_begin_ - begin_;
+  size_t data_end = data_end_ - begin_;
 
   // Check the validity of the offset of the section.
   if (UNLIKELY((offset < data_start) || (offset > data_end))) {
@@ -2266,20 +2304,26 @@ bool DexFileVerifier::CheckIntraSection() {
       return false;
     }
 
+    offset = section_offset;
+    ptr_ = begin_ + offset;
+
     // Check each item based on its type.
     switch (type) {
-      case DexFile::kDexTypeHeaderItem:
+      case DexFile::kDexTypeHeaderItem: {
         if (UNLIKELY(section_count != 1)) {
           ErrorStringPrintf("Multiple header items");
           return false;
         }
-        if (UNLIKELY(section_offset != 0)) {
-          ErrorStringPrintf("Header at %x, not at start of file", section_offset);
+        uint32_t expected =
+            dex_version_ >= 41 ? reinterpret_cast<const uint8_t*>(header_) - data_begin_ : 0;
+        if (UNLIKELY(section_offset != expected)) {
+          ErrorStringPrintf("Header at %x, expected %x", section_offset, expected);
           return false;
         }
         ptr_ = begin_ + header_->header_size_;
         offset = header_->header_size_;
         break;
+      }
 
 #define CHECK_INTRA_ID_SECTION_CASE(type)                                   \
       case type:                                                            \
