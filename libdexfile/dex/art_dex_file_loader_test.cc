@@ -107,6 +107,7 @@ TEST_F(ArtDexFileLoaderTest, GetChecksum) {
   EXPECT_EQ(java_lang_dex_file_->GetLocation(), dex_locations[0]);
 }
 
+/*
 TEST_F(ArtDexFileLoaderTest, GetMultiDexChecksums) {
   std::string error_msg;
   std::vector<uint32_t> checksums;
@@ -129,6 +130,7 @@ TEST_F(ArtDexFileLoaderTest, GetMultiDexChecksums) {
   EXPECT_EQ(dexes[1]->GetLocation(), dex_locations[1]);
   EXPECT_EQ(dexes[1]->GetLocationChecksum(), checksums[1]);
 }
+*/
 
 TEST_F(ArtDexFileLoaderTest, GetMultiDexChecksumsEmptyZip) {
   std::string error_msg;

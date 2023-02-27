@@ -85,6 +85,7 @@ TEST_F(OatDumpTest, TestSymbolizeStatic) {
   ASSERT_TRUE(Exec(Flavor::kStatic, kModeSymbolize, {}, kListOnly));
 }
 
+#if 0  // The test splits multidex to separate single dex files, which is invalid.
 TEST_F(OatDumpTest, TestExportDex) {
   std::string error_msg;
   ASSERT_TRUE(GenerateAppOdexFile(Flavor::kDynamic, {"--runtime-arg", "-Xmx64M"}));
@@ -101,6 +102,8 @@ TEST_F(OatDumpTest, TestExportDex) {
   ForkAndExecResult res = ForkAndExec({dexdump, "-d", dex_location}, post_fork_fn, &output);
   ASSERT_TRUE(res.StandardSuccess());
 }
+#endif
+
 TEST_F(OatDumpTest, TestExportDexStatic) {
   TEST_DISABLED_FOR_ARM_AND_ARM64();
   TEST_DISABLED_FOR_NON_STATIC_HOST_BUILDS();
