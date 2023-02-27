@@ -3195,10 +3195,16 @@ bool OatWriter::WriteDexFiles(File* file,
     extract_dex_files_into_vdex_ = false;
   }
 
+  ////////////////////////////
+  compact_dex_level_ = CompactDexLevel::kCompactDexLevelNone;
+
   if (verify) {
     TimingLogger::ScopedTiming split2("Verify input Dex files", timings_);
     for (OatDexFile& oat_dex_file : oat_dex_files_) {
       const DexFile* dex_file = oat_dex_file.GetDexFile();
+      if (dex_file->IsCompactDexFile()) {
+        continue;
+      }
       std::string error_msg;
       if (!dex::Verify(dex_file,
                        dex_file->GetLocation().c_str(),
