@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae1b80d8_824d6621",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 562,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-02-27T09:57:40Z",
+      "side": 1,
+      "message": "We should define the CFI_REMEMBER_STATE macro as mentioned on one of the parent CLs.",
+      "range": {
+        "startLine": 562,
+        "startChar": 4,
+        "endLine": 562,
+        "endChar": 23
+      },
+      "revId": "94b229561a50073db4c3591218721efde3c5e320",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
