@@ -252,6 +252,7 @@ class DexFileLoader {
                         std::optional<uint32_t> location_checksum,
                         bool verify,
                         bool verify_checksum,
+                        size_t* multidex_count,
                         DexFileLoaderErrorCode* error_code,
                         std::string* error_msg,
                         std::vector<std::unique_ptr<const DexFile>>* dex_files) const;

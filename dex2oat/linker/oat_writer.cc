@@ -3202,6 +3202,9 @@ bool OatWriter::WriteDexFiles(File* file,
     TimingLogger::ScopedTiming split2("Verify input Dex files", timings_);
     for (OatDexFile& oat_dex_file : oat_dex_files_) {
       const DexFile* dex_file = oat_dex_file.GetDexFile();
+      if (dex_file->IsCompactDexFile()) {
+        continue;  // cdex verification is not supported.
+      }
       std::string error_msg;
       if (!dex::Verify(dex_file,
                        dex_file->GetLocation().c_str(),
@@ -3210,6 +3213,15 @@ bool OatWriter::WriteDexFiles(File* file,
         LOG(ERROR) << "Failed to verify " << dex_file->GetLocation() << ": " << error_msg;
         return false;
       }
+    }
+  }
+
+  // Compact dex reader/writer does not understand multi-dex format,
+  // which is ok since multi-dex replaces compat-dex.
+  for (OatDexFile& oat_dex_file : oat_dex_files_) {
+    const DexFile* dex_file = oat_dex_file.GetDexFile();
+    if (dex_file->GetDexVersion() >= DexFile::kMultidexVersion) {
+      compact_dex_level_ = CompactDexLevel::kCompactDexLevelNone;
     }
   }
 
