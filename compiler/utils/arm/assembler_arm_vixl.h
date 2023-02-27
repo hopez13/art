@@ -156,6 +156,14 @@ class ArmVIXLMacroAssembler final : public vixl32::MacroAssembler {
     }
   }
   using MacroAssembler::Vmov;
+
+  void Mrrc(vixl32::Register r1, vixl32::Register r2, int coproc, int opc1, int crm) {
+    if (IsUsingT32()) {
+      uint32_t inst = (0b011000101 << 4 | r1.GetCode()) << 16 | (r2.GetCode() << 12) | (coproc << 8) | (opc1 << 4) | crm;
+      EmitT32_32(inst);
+    } else {
+    }
+  }
 };
 
 class ArmVIXLAssembler final : public Assembler {
