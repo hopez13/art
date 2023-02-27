@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51baf562_46c9f326",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2060,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-02-27T11:08:33Z",
+      "side": 1,
+      "message": "Should we first check that the length is 2 and the array contains a `String` and an `IntArray`?\n\nShould we avoid the read barrier at this point? (And in `class_roots-\u003eGet(i)` at line 2019?)",
+      "range": {
+        "startLine": 2060,
+        "startChar": 57,
+        "endLine": 2060,
+        "endChar": 63
+      },
+      "revId": "0f6af5e3b51a7f5905d09a98ec8d531541666015",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a44e1e2_1411277e",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 743,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-02-27T11:08:33Z",
+      "side": 1,
+      "message": "We should check if Nterp is supported for the current architecture and this method (excluding methods with very large frames).",
+      "range": {
+        "startLine": 743,
+        "startChar": 8,
+        "endLine": 743,
+        "endChar": 42
+      },
+      "revId": "0f6af5e3b51a7f5905d09a98ec8d531541666015",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "41d2dc2b_3df675eb",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 874,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-02-27T11:08:33Z",
+      "side": 1,
+      "message": "Check for OOME.",
+      "revId": "0f6af5e3b51a7f5905d09a98ec8d531541666015",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
