@@ -246,6 +246,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f87cc6b_98d92a85",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2820,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-02-27T09:55:04Z",
+      "side": 1,
+      "message": "I\u0027d be okay with these variant as long as there\u0027s a reason.",
+      "parentUuid": "40568143_95c85684",
+      "range": {
+        "startLine": 2818,
+        "startChar": 0,
+        "endLine": 2820,
+        "endChar": 83
+      },
+      "revId": "0c123c40036c4ba66c9f72a4ce15fc84bd4f6fae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "55a97860_96d96695",
@@ -283,6 +307,30 @@
       "side": 1,
       "message": "The do-while structure is mainly for performance reasons: one of the goals was to eliminate some conditional jumps through loop inversion. I guess without loop inversion, implementing it as a conditional-while-do would look something like\n\n    __ Mov(length_tmp, length_reg);\n    __ Bind(\u0026loop1);\n    __ Cmp(length_tmp, chars_per_block); \n    __ B(\u0026loop2, lt); \n    __ Ldr(...)\n    __ Str(...)\n    __ Sub(length_tmp, length_tmp, chars_per_block); \n    __ B(\u0026loop1); \n\n    __ Bind(\u0026loop2);\n    __ Cmp(length_tmp, 1)\n    __ B(\u0026done, lt);\n    __ Ldrh(...)\n    __ Strh(...)\n    __ Sub(length_tmp, length_tmp, 1);\n    __ B(\u0026loop2);\n\nHere, both loops have unconditional jumps only to immediately check if we should jump again to past the loop. In this case, when `length \u003d\u003d chars_per_block`, we jump a total of 3 times despite only running one loop body.\n\nWith loop inversion, we move the initial conditional jump out of the loop, then have a tighter loop body which contains only a single conditional jump, which is only taken when we definitely need to run another iteration. For example, in the current proposed patchset, when `length \u003d\u003d chars_per_block`, we jump just 1 time in total.\n\nAs for the `SUBS` and `ADDS` structure of the current patchset: if we don\u0027t `SUBS` and `ADDS` a full block before and after the head loop respectively, we would still need to similarly perform extra conditionals as part of it.\n\nFor example, in this case at the end of the head loop\u0027s `SUBS`, a `B.gt` would succeed if there were one or more characters remaining. But we would still need the second comparison between the remaining length and `chars_per_block` to decide if we should run the head loop body again. With the current patchset, because we `SUBS` at the start, if a second `SUBS` within the head loop results in the `B.ge` being taken then we know for sure that we have enough to run another head iteration without additional conditions. Because the tail loop is guaranteed to have fewer than `chars_per_block` iterations, reducing the conditional branching required by the head loop will have an increasingly bigger impact due to its proportion of the overall work.\n\nFurther, the `SUBS` and the `ADDS` start to appear a little less laborious when the alternative is considered: without them we would have to replace them respectively with a `MOV+Cmp` and a `Cmp`, as in the code sample above.\n\nWhen I initially picked up this CL up I had very similar thoughts, but hopefully some of this reasoning makes sense (sorry for the length!). Do let me know if I can clarify anything further, or if you think I\u0027ve missed something and see a preferable alternative implementation. Thanks!",
       "parentUuid": "55a97860_96d96695",
+      "range": {
+        "startLine": 2821,
+        "startChar": 17,
+        "endLine": 2821,
+        "endChar": 19
+      },
+      "revId": "0c123c40036c4ba66c9f72a4ce15fc84bd4f6fae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d71806ef_a6c4b21d",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2821,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-02-27T09:55:04Z",
+      "side": 1,
+      "message": "Ack. Can you add these information to the codebase as comments? It doesn\u0027t have to be as detailed as this comment but it would be nice to get clarification. I can see other engineers having the same questions as we did, and being confused as to why it was done in this fashion.\n\nIn a way, we are having a tradeoff of performance for codebase clarity by having e.g. a `do-while` instead of a `while` loop. That\u0027s fine since we can offset that tradeoff with code comments.",
+      "parentUuid": "c473e2b4_cad1cd85",
       "range": {
         "startLine": 2821,
         "startChar": 17,
