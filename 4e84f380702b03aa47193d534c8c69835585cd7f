@@ -43,6 +43,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "ba29fd08_50996ded",
+        "filename": "compiler/optimizing/code_sinking.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-02-27T09:29:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5851217b_706334bf",
+      "range": {
+        "startLine": 348,
+        "startChar": 0,
+        "endLine": 348,
+        "endChar": 26
+      },
+      "revId": "4e84f380702b03aa47193d534c8c69835585cd7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "e086950a_f2b3701a",
         "filename": "compiler/optimizing/code_sinking.cc",
         "patchSetId": 7
@@ -71,6 +95,30 @@
       "writtenOn": "2023-02-24T17:19:25Z",
       "side": 1,
       "message": "successor",
+      "range": {
+        "startLine": 324,
+        "startChar": 43,
+        "endLine": 324,
+        "endChar": 53
+      },
+      "revId": "4e84f380702b03aa47193d534c8c69835585cd7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d533880_1a837dfb",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-02-27T09:29:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d265039a_279deec1",
       "range": {
         "startLine": 324,
         "startChar": 43,
