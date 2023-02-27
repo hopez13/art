@@ -40,6 +40,11 @@ class X86_64Assembler;
 class NearLabel;
 }  // namespace x86_64
 
+namespace riscv64 {
+class Riscv64Assembler;
+class Riscv64Label;
+}  // namespace riscv64
+
 class ExternalLabel {
  public:
   ExternalLabel(const char* name_in, uintptr_t address_in)
@@ -113,6 +118,8 @@ class Label {
   friend class x86::NearLabel;
   friend class x86_64::X86_64Assembler;
   friend class x86_64::NearLabel;
+  friend class riscv64::Riscv64Assembler;
+  friend class riscv64::Riscv64Label;
 
   DISALLOW_COPY_AND_ASSIGN(Label);
 };

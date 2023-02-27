@@ -145,6 +145,13 @@ class AssemblerTestBase : public testing::Test {
         return {FindTool("clang"), "--compile", "-target", "i386-linux-gnu"};
       case InstructionSet::kX86_64:
         return {FindTool("clang"), "--compile", "-target", "x86_64-linux-gnu"};
+      case InstructionSet::kRiscv64:
+        return {FindTool("clang"),
+                "--compile",
+                "-target",
+                "riscv64-linux-gnu",
+                "-march=rv64g",
+                "-mno-relax"};
       default:
         LOG(FATAL) << "Unknown instruction set: " << isa;
         UNREACHABLE();

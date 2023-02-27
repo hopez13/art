@@ -64,10 +64,16 @@ enum XRegister {
   T6 = 31,  // X31, temporary 6
 
   kNumberOfXRegisters = 32,
-  kNoRegister = -1,  // Signals an illegal register.
+  kNoXRegister = -1,  // Signals an illegal register.
 
   // Aliases.
-  TR = S1,  // ART Thread Register - managed runtime
+  TR = S1,    // ART Thread Register - managed runtime
+  AT = T2,    // Assembler temporary. !!Assembler prefers to use this.
+  TMP = T1,   // scratch register (in addition to AT), !!Code generator prefers to use this.
+  TMP2 = T3,  // scratch register (in addition to AT, shared between Assemebler and code generator,
+              // !!use as less as possible.
+              // !!!Once Assembler uses TMP2, Assembler should "CHECK_NE(Reg/*reg input from code
+              // generator*/, TMP2);" to avoid it used from both side at same time
 };
 
 std::ostream& operator<<(std::ostream& os, const XRegister& rhs);
@@ -110,7 +116,41 @@ enum FRegister {
   FT10 = 30,  // F30, temporary 10
   FT11 = 31,  // F31, temporary 11
 
+  F0 = FT0,  // Temporaries.
+  F1 = FT1,
+  F2 = FT2,
+  F3 = FT3,
+  F4 = FT4,
+  F5 = FT5,
+  F6 = FT6,
+  F7 = FT7,
+  F8 = FS0,  // Callee-saved registers.
+  F9 = FS1,
+  F10 = FA0,  // Arguments / Return registers.
+  F11 = FA1,
+  F12 = FA2,  // More arguments registers.
+  F13 = FA3,
+  F14 = FA4,
+  F15 = FA5,
+  F16 = FA6,
+  F17 = FA7,
+  F18 = FS2,  // Callee-saved registers.
+  F19 = FS3,
+  F20 = FS4,
+  F21 = FS5,
+  F22 = FS6,
+  F23 = FS7,
+  F24 = FS8,
+  F25 = FS9,
+  F26 = FS10,
+  F27 = FS11,
+  F28 = FT8,  // More temporaries.
+  F29 = FT9,
+  F30 = FT10,
+  F31 = FT11,
+
   kNumberOfFRegisters = 32,
+  kNoFRegister = -1,  // Signals an illegal register.
 };
 
 std::ostream& operator<<(std::ostream& os, const FRegister& rhs);
