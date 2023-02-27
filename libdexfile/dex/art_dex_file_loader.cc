@@ -37,6 +37,38 @@
 
 namespace art {
 
+bool ArtDexFileLoader::GetMultiDexChecksums(const char* filename,
+                                            std::vector<uint32_t>* checksums,
+                                            std::vector<std::string>* dex_locations,
+                                            std::string* error_msg,
+                                            int zip_fd,
+                                            bool* zip_file_only_contains_uncompressed_dex) {
+  CHECK(checksums != nullptr);
+  CHECK(dex_locations != nullptr);
+  DexFileLoader loader(filename, zip_fd, filename);
+  std::vector<std::unique_ptr<const DexFile>> dex_files;
+  if (!loader.Open(/* verify= */ false,
+                   /* verify_checksum= */ false,
+                   /*allow_no_dex_files=*/true,
+                   error_msg,
+                   &dex_files)) {
+    return false;
+  }
+  if (zip_file_only_contains_uncompressed_dex != nullptr) {
+    // Start by assuming everything is uncompressed.
+    *zip_file_only_contains_uncompressed_dex = true;
+  }
+  for (auto& dex_file : dex_files) {
+    if (zip_file_only_contains_uncompressed_dex != nullptr) {
+      *zip_file_only_contains_uncompressed_dex &= dex_file->GetContainer()->IsFileMap();
+    }
+    checksums->push_back(dex_file->GetLocationChecksum());
+    dex_locations->push_back(dex_file->GetLocation());
+  }
+  return true;
+}
+
+#if 0
 using android::base::StringPrintf;
 
 bool ArtDexFileLoader::GetMultiDexChecksums(const char* filename,
@@ -117,6 +149,7 @@ bool ArtDexFileLoader::GetMultiDexChecksums(const char* filename,
   *error_msg = StringPrintf("Expected valid zip or dex file: '%s'", filename);
   return false;
 }
+#endif
 
 std::unique_ptr<const DexFile> ArtDexFileLoader::Open(
     const uint8_t* base,
