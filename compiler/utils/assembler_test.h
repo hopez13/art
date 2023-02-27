@@ -30,6 +30,7 @@
 #include "base/malloc_arena_pool.h"
 #include "assembler_test_base.h"
 #include "common_runtime_test.h"  // For ScratchFile
+#include "riscv64/assembler_riscv64.h"
 
 namespace art HIDDEN {
 
@@ -47,13 +48,15 @@ enum class RegisterView {  // private
 
 // For use in the template as the default type to get a nonvector registers version.
 struct NoVectorRegs {};
+struct NoRM {};  //  For use in the template as the default type to get a norounding mode version.
 
 template<typename Ass,
          typename Addr,
          typename Reg,
          typename FPReg,
          typename Imm,
-         typename VecReg = NoVectorRegs>
+         typename VecReg = NoVectorRegs,
+         typename RM = NoRM>  // Rounding mode
 class AssemblerTest : public AssemblerTestBase {
  public:
   Ass* GetAssembler() {
@@ -488,6 +491,74 @@ class AssemblerTest : public AssemblerTestBase {
                                                          fmt);
   }
 
+  std::string RepeatFFRoundingMode(void (Ass::*f)(FPReg, FPReg, RM), const std::string& fmt) {
+    return RepeatTemplatedRegistersRoundingMode<FPReg, FPReg, RM>(
+        f,
+        GetFPRegisters(),
+        GetFPRegisters(),
+        GetRoundingMode(),
+        &AssemblerTest::GetFPRegName,
+        &AssemblerTest::GetFPRegName,
+        &AssemblerTest::GetRoundingModeName,
+        fmt);
+  }
+
+  std::string RepeatRFRoundingMode(void (Ass::*f)(Reg, FPReg, RM), const std::string& fmt) {
+    return RepeatTemplatedRegistersRoundingMode<Reg, FPReg, RM>(
+        f,
+        GetRegisters(),
+        GetFPRegisters(),
+        GetRoundingMode(),
+        &AssemblerTest::GetRegName<RegisterView::kUsePrimaryName>,
+        &AssemblerTest::GetFPRegName,
+        &AssemblerTest::GetRoundingModeName,
+        fmt);
+  }
+
+  std::string RepeatFRRoundingMode(void (Ass::*f)(FPReg, Reg, RM), const std::string& fmt) {
+    return RepeatTemplatedRegistersRoundingMode<FPReg, Reg, RM>(
+        f,
+        GetFPRegisters(),
+        GetRegisters(),
+        GetRoundingMode(),
+        &AssemblerTest::GetFPRegName,
+        &AssemblerTest::GetRegName<RegisterView::kUsePrimaryName>,
+        &AssemblerTest::GetRoundingModeName,
+        fmt);
+  }
+
+  std::string RepeatFFFRoundingMode(void (Ass::*f)(FPReg, FPReg, FPReg, RM),
+                                    const std::string& fmt) {
+    return RepeatTemplatedRegistersRoundingMode<FPReg, FPReg, FPReg, RM>(
+        f,
+        GetFPRegisters(),
+        GetFPRegisters(),
+        GetFPRegisters(),
+        GetRoundingMode(),
+        &AssemblerTest::GetFPRegName,
+        &AssemblerTest::GetFPRegName,
+        &AssemblerTest::GetFPRegName,
+        &AssemblerTest::GetRoundingModeName,
+        fmt);
+  }
+
+  std::string RepeatFFFFRoundingMode(void (Ass::*f)(FPReg, FPReg, FPReg, FPReg, RM),
+                                     const std::string& fmt) {
+    return RepeatTemplatedRegistersRoundingMode<FPReg, FPReg, FPReg, FPReg, RM>(
+        f,
+        GetFPRegisters(),
+        GetFPRegisters(),
+        GetFPRegisters(),
+        GetFPRegisters(),
+        GetRoundingMode(),
+        &AssemblerTest::GetFPRegName,
+        &AssemblerTest::GetFPRegName,
+        &AssemblerTest::GetFPRegName,
+        &AssemblerTest::GetFPRegName,
+        &AssemblerTest::GetRoundingModeName,
+        fmt);
+  }
+
   std::string RepeatFFR(void (Ass::*f)(FPReg, FPReg, Reg), const std::string& fmt) {
     return RepeatTemplatedRegisters<FPReg, FPReg, Reg>(
         f,
@@ -544,6 +615,18 @@ class AssemblerTest : public AssemblerTestBase {
         GetRegisters(),
         &AssemblerTest::GetFPRegName,
         &AssemblerTest::GetRegName<RegisterView::kUsePrimaryName>,
+        fmt);
+  }
+
+  std::string RepeatRFF(void (Ass::*f)(Reg, FPReg, FPReg), const std::string& fmt) {
+    return RepeatTemplatedRegisters<Reg, FPReg, FPReg>(
+        f,
+        GetRegisters(),
+        GetFPRegisters(),
+        GetFPRegisters(),
+        &AssemblerTest::GetRegName<RegisterView::kUsePrimaryName>,
+        &AssemblerTest::GetFPRegName,
+        &AssemblerTest::GetFPRegName,
         fmt);
   }
 
@@ -741,6 +824,14 @@ class AssemblerTest : public AssemblerTestBase {
   // Quaternary register names are the quaternary view on registers, e.g., 8b on 64b systems.
   virtual std::string GetQuaternaryRegisterName(const Reg& reg ATTRIBUTE_UNUSED) {
     UNIMPLEMENTED(FATAL) << "Architecture does not support quaternary registers";
+    UNREACHABLE();
+  }
+
+  // Returns a vector of rounding mode used by any of the repeat methods
+  // involving an "RoundingMode" (e.g. RepeatFFFRoundingMode).
+
+  virtual std::vector<RM*> GetRoundingMode() {
+    UNIMPLEMENTED(FATAL) << "Architecture does not support rounding mode";
     UNREACHABLE();
   }
 
@@ -1369,6 +1460,290 @@ class AssemblerTest : public AssemblerTestBase {
     return str;
   }
 
+  template <typename Reg1, typename Reg2, typename Rm>
+  std::string RepeatTemplatedRegistersRoundingMode(
+      void (Ass::*f)(Reg1, Reg2, Rm),
+      const std::vector<Reg1*> reg1_registers,
+      const std::vector<Reg2*> reg2_registers,
+      const std::vector<Rm*> rms,
+      std::string (AssemblerTest::*GetName1)(const Reg1&),
+      std::string (AssemblerTest::*GetName2)(const Reg2&),
+      std::string (AssemblerTest::*GetName3)(const Rm&),
+      const std::string& fmt) {
+    std::string str;
+    for (auto reg1 : reg1_registers) {
+      for (auto reg2 : reg2_registers) {
+        for (auto rm : rms) {
+          // generate instruction like fadds x0, x0, x0
+          if (*rm == art::riscv64::RoundingMode::DYN) {
+            if (f != nullptr) {
+              (assembler_.get()->*f)(*reg1, *reg2, *rm);
+            }
+            std::string base = fmt;
+            std::string reg1_string = (this->*GetName1)(*reg1);
+            size_t reg1_index;
+            while ((reg1_index = base.find(REG1_TOKEN)) != std::string::npos) {
+              base.replace(reg1_index, ConstexprStrLen(REG1_TOKEN), reg1_string);
+            }
+            std::string reg2_string = (this->*GetName2)(*reg2);
+            size_t reg2_index;
+            while ((reg2_index = base.find(REG2_TOKEN)) != std::string::npos) {
+              base.replace(reg2_index, ConstexprStrLen(REG2_TOKEN), reg2_string);
+            }
+            std::string rm_string = (this->*GetName3)(*rm);
+            size_t rm_index;
+            while ((rm_index = base.find(RM_TOKEN)) != std::string::npos) {
+              base.replace(
+                  rm_index - 2,
+                  6,
+                  "");  // let instruction format fadds x0, x0, x0, dyn change to fadds x0, x0, x0
+            }
+            if (str.size() > 0) {
+              str += "\n";
+            }
+            str += base;
+          }
+          if (f != nullptr) {
+            (assembler_.get()->*f)(*reg1, *reg2, *rm);
+          }
+          std::string base = fmt;
+          std::string reg1_string = (this->*GetName1)(*reg1);
+          size_t reg1_index;
+          while ((reg1_index = base.find(REG1_TOKEN)) != std::string::npos) {
+            base.replace(reg1_index, ConstexprStrLen(REG1_TOKEN), reg1_string);
+          }
+          std::string reg2_string = (this->*GetName2)(*reg2);
+          size_t reg2_index;
+          while ((reg2_index = base.find(REG2_TOKEN)) != std::string::npos) {
+            base.replace(reg2_index, ConstexprStrLen(REG2_TOKEN), reg2_string);
+          }
+          std::string rm_string = (this->*GetName3)(*rm);
+          size_t rm_index;
+          while ((rm_index = base.find(RM_TOKEN)) != std::string::npos) {
+            base.replace(rm_index, ConstexprStrLen(RM_TOKEN), rm_string);
+          }
+          if (str.size() > 0) {
+            str += "\n";
+          }
+          str += base;
+        }
+      }
+    }
+    // Add a newline at the end.
+    str += "\n";
+    return str;
+  }
+
+  template <typename Reg1, typename Reg2, typename Reg3, typename Rm>
+  std::string RepeatTemplatedRegistersRoundingMode(
+      void (Ass::*f)(Reg1, Reg2, Reg3, Rm),
+      const std::vector<Reg1*> reg1_registers,
+      const std::vector<Reg2*> reg2_registers,
+      const std::vector<Reg3*> reg3_registers,
+      const std::vector<Rm*> rms,
+      std::string (AssemblerTest::*GetName1)(const Reg1&),
+      std::string (AssemblerTest::*GetName2)(const Reg2&),
+      std::string (AssemblerTest::*GetName3)(const Reg3&),
+      std::string (AssemblerTest::*GetName4)(const Rm&),
+      const std::string& fmt) {
+    std::string str;
+    for (auto reg1 : reg1_registers) {
+      for (auto reg2 : reg2_registers) {
+        for (auto reg3 : reg3_registers) {
+          for (auto rm : rms) {
+            // generate instruction like fadds x0, x0, x0
+            if (*rm == art::riscv64::RoundingMode::DYN) {
+              if (f != nullptr) {
+                (assembler_.get()->*f)(*reg1, *reg2, *reg3, *rm);
+              }
+              std::string base = fmt;
+
+              std::string reg1_string = (this->*GetName1)(*reg1);
+              size_t reg1_index;
+              while ((reg1_index = base.find(REG1_TOKEN)) != std::string::npos) {
+                base.replace(reg1_index, ConstexprStrLen(REG1_TOKEN), reg1_string);
+              }
+
+              std::string reg2_string = (this->*GetName2)(*reg2);
+              size_t reg2_index;
+              while ((reg2_index = base.find(REG2_TOKEN)) != std::string::npos) {
+                base.replace(reg2_index, ConstexprStrLen(REG2_TOKEN), reg2_string);
+              }
+
+              std::string reg3_string = (this->*GetName3)(*reg3);
+              size_t reg3_index;
+              while ((reg3_index = base.find(REG3_TOKEN)) != std::string::npos) {
+                base.replace(reg3_index, ConstexprStrLen(REG3_TOKEN), reg3_string);
+              }
+
+              std::string rm_string = (this->*GetName4)(*rm);
+              size_t rm_index;
+              while ((rm_index = base.find(RM_TOKEN)) != std::string::npos) {
+                base.replace(
+                    rm_index - 2,
+                    6,
+                    "");  // let instruction format fadds x0, x0, x0, dyn change to fadds x0, x0, x0
+              }
+              if (str.size() > 0) {
+                str += "\n";
+              }
+              str += base;
+            }
+
+            if (f != nullptr) {
+              (assembler_.get()->*f)(*reg1, *reg2, *reg3, *rm);
+            }
+            std::string base = fmt;
+
+            std::string reg1_string = (this->*GetName1)(*reg1);
+            size_t reg1_index;
+            while ((reg1_index = base.find(REG1_TOKEN)) != std::string::npos) {
+              base.replace(reg1_index, ConstexprStrLen(REG1_TOKEN), reg1_string);
+            }
+
+            std::string reg2_string = (this->*GetName2)(*reg2);
+            size_t reg2_index;
+            while ((reg2_index = base.find(REG2_TOKEN)) != std::string::npos) {
+              base.replace(reg2_index, ConstexprStrLen(REG2_TOKEN), reg2_string);
+            }
+
+            std::string reg3_string = (this->*GetName3)(*reg3);
+            size_t reg3_index;
+            while ((reg3_index = base.find(REG3_TOKEN)) != std::string::npos) {
+              base.replace(reg3_index, ConstexprStrLen(REG3_TOKEN), reg3_string);
+            }
+
+            std::string rm_string = (this->*GetName4)(*rm);
+            size_t rm_index;
+            while ((rm_index = base.find(RM_TOKEN)) != std::string::npos) {
+              base.replace(rm_index, ConstexprStrLen(RM_TOKEN), rm_string);
+            }
+
+            if (str.size() > 0) {
+              str += "\n";
+            }
+            str += base;
+          }
+        }
+      }
+    }
+    // Add a newline at the end.
+    str += "\n";
+    return str;
+  }
+
+  template <typename Reg1, typename Reg2, typename Reg3, typename Reg4, typename Rm>
+  std::string RepeatTemplatedRegistersRoundingMode(
+      void (Ass::*f)(Reg1, Reg2, Reg3, Reg4, Rm),
+      const std::vector<Reg1*> reg1_registers,
+      const std::vector<Reg2*> reg2_registers,
+      const std::vector<Reg3*> reg3_registers,
+      const std::vector<Reg4*> reg4_registers,
+      const std::vector<Rm*> rms,
+      std::string (AssemblerTest::*GetName1)(const Reg1&),
+      std::string (AssemblerTest::*GetName2)(const Reg2&),
+      std::string (AssemblerTest::*GetName3)(const Reg3&),
+      std::string (AssemblerTest::*GetName4)(const Reg4&),
+      std::string (AssemblerTest::*GetName5)(const Rm&),
+      const std::string& fmt) {
+    std::string str;
+    for (auto reg1 : reg1_registers) {
+      for (auto reg2 : reg2_registers) {
+        for (auto reg3 : reg3_registers) {
+          for (auto reg4 : reg4_registers) {
+            for (auto rm : rms) {
+              // generate instruction like fadds x0, x0, x0
+              if (*rm == art::riscv64::RoundingMode::DYN) {
+                if (f != nullptr) {
+                  (assembler_.get()->*f)(*reg1, *reg2, *reg3, *reg4, *rm);
+                }
+                std::string base = fmt;
+
+                std::string reg1_string = (this->*GetName1)(*reg1);
+                size_t reg1_index;
+                while ((reg1_index = base.find(REG1_TOKEN)) != std::string::npos) {
+                  base.replace(reg1_index, ConstexprStrLen(REG1_TOKEN), reg1_string);
+                }
+
+                std::string reg2_string = (this->*GetName2)(*reg2);
+                size_t reg2_index;
+                while ((reg2_index = base.find(REG2_TOKEN)) != std::string::npos) {
+                  base.replace(reg2_index, ConstexprStrLen(REG2_TOKEN), reg2_string);
+                }
+
+                std::string reg3_string = (this->*GetName3)(*reg3);
+                size_t reg3_index;
+                while ((reg3_index = base.find(REG3_TOKEN)) != std::string::npos) {
+                  base.replace(reg3_index, ConstexprStrLen(REG3_TOKEN), reg3_string);
+                }
+
+                std::string reg4_string = (this->*GetName4)(*reg4);
+                size_t reg4_index;
+                while ((reg4_index = base.find(REG4_TOKEN)) != std::string::npos) {
+                  base.replace(reg4_index, ConstexprStrLen(REG4_TOKEN), reg4_string);
+                }
+
+                std::string rm_string = (this->*GetName5)(*rm);
+                size_t rm_index;
+                while ((rm_index = base.find(RM_TOKEN)) != std::string::npos) {
+                  base.replace(rm_index - 2, 6, "");  // let instruction format fadds x0, x0, x0,
+                                                      // dyn change to fadds x0, x0, x0
+                }
+                if (str.size() > 0) {
+                  str += "\n";
+                }
+                str += base;
+              }
+
+              if (f != nullptr) {
+                (assembler_.get()->*f)(*reg1, *reg2, *reg3, *reg4, *rm);
+              }
+              std::string base = fmt;
+
+              std::string reg1_string = (this->*GetName1)(*reg1);
+              size_t reg1_index;
+              while ((reg1_index = base.find(REG1_TOKEN)) != std::string::npos) {
+                base.replace(reg1_index, ConstexprStrLen(REG1_TOKEN), reg1_string);
+              }
+
+              std::string reg2_string = (this->*GetName2)(*reg2);
+              size_t reg2_index;
+              while ((reg2_index = base.find(REG2_TOKEN)) != std::string::npos) {
+                base.replace(reg2_index, ConstexprStrLen(REG2_TOKEN), reg2_string);
+              }
+
+              std::string reg3_string = (this->*GetName3)(*reg3);
+              size_t reg3_index;
+              while ((reg3_index = base.find(REG3_TOKEN)) != std::string::npos) {
+                base.replace(reg3_index, ConstexprStrLen(REG3_TOKEN), reg3_string);
+              }
+
+              std::string reg4_string = (this->*GetName4)(*reg4);
+              size_t reg4_index;
+              while ((reg4_index = base.find(REG4_TOKEN)) != std::string::npos) {
+                base.replace(reg4_index, ConstexprStrLen(REG4_TOKEN), reg4_string);
+              }
+
+              std::string rm_string = (this->*GetName5)(*rm);
+              size_t rm_index;
+              while ((rm_index = base.find(RM_TOKEN)) != std::string::npos) {
+                base.replace(rm_index, ConstexprStrLen(RM_TOKEN), rm_string);
+              }
+
+              if (str.size() > 0) {
+                str += "\n";
+              }
+              str += base;
+            }
+          }
+        }
+      }
+    }
+    // Add a newline at the end.
+    str += "\n";
+    return str;
+  }
+
   template <typename Reg1, typename Reg2, typename Reg3>
   std::string RepeatTemplatedRegisters(void (Ass::*f)(Reg1, Reg2, Reg3),
                                        const std::vector<Reg1*> reg1_registers,
@@ -1511,6 +1886,12 @@ class AssemblerTest : public AssemblerTestBase {
     return sreg.str();
   }
 
+  // Rounding mode names are the secondary view on registers.
+  virtual std::string GetRoundingModeName(const RM& rm ATTRIBUTE_UNUSED) {
+    UNIMPLEMENTED(FATAL) << "Architecture does not support rounding mode";
+    UNREACHABLE();
+  }
+
   void WarnOnCombinations(size_t count) {
     if (count > kWarnManyCombinationsThreshold) {
       GTEST_LOG_(WARNING) << "Many combinations (" << count << "), test generation might be slow.";
@@ -1522,7 +1903,9 @@ class AssemblerTest : public AssemblerTestBase {
   static constexpr const char* REG1_TOKEN = "{reg1}";
   static constexpr const char* REG2_TOKEN = "{reg2}";
   static constexpr const char* REG3_TOKEN = "{reg3}";
+  static constexpr const char* REG4_TOKEN = "{reg4}";
   static constexpr const char* IMM_TOKEN = "{imm}";
+  static constexpr const char* RM_TOKEN = "{rm}";
 
  private:
   template <RegisterView kRegView>

@@ -233,12 +233,42 @@ inline uint16_t High16Bits(uint32_t value) {
   return static_cast<uint16_t>(value >> 16);
 }
 
+inline uint16_t Low12Bits(uint32_t value) { return static_cast<uint16_t>(value & 0xfff); }
+
+inline uint32_t High20Bits(uint32_t value) { return static_cast<uint32_t>(value >> 12); }
+
 inline uint32_t Low32Bits(uint64_t value) {
   return static_cast<uint32_t>(value);
 }
 
 inline uint32_t High32Bits(uint64_t value) {
   return static_cast<uint32_t>(value >> 32);
+}
+
+// Sign-extend the number in the bottom B bits of X to a 32-bit integer.
+// Requires 0 < B <= 32.
+template <unsigned B>
+constexpr inline int32_t SignExtend32(uint32_t X) {
+  static_assert(B > 0, "Bit width can't be 0.");
+  static_assert(B <= 32, "Bit width out of range.");
+  return int32_t(X << (32 - B)) >> (32 - B);
+}
+
+/// Sign-extend the number in the bottom B bits of X to a 64-bit integer.
+/// Requires 0 < B <= 64.
+template <unsigned B>
+constexpr inline int64_t SignExtend64(uint64_t x) {
+  static_assert(B > 0, "Bit width can't be 0.");
+  static_assert(B <= 64, "Bit width out of range.");
+  return int64_t(x << (64 - B)) >> (64 - B);
+}
+
+/// Sign-extend the number in the bottom B bits of X to a 64-bit integer.
+/// Requires 0 < B <= 64.
+inline int64_t SignExtend64(uint64_t X, unsigned B) {
+  assert(B > 0 && "Bit width can't be 0.");
+  assert(B <= 64 && "Bit width out of range.");
+  return int64_t(X << (64 - B)) >> (64 - B);
 }
 
 // Check whether an N-bit two's-complement representation can hold value.
