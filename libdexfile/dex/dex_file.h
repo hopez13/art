@@ -53,8 +53,17 @@ namespace hiddenapi {
 enum class Domain : char;
 }  // namespace hiddenapi
 
-// Some instances of DexFile own the storage referred to by DexFile.  Clients who create
-// such management do so by subclassing Container.
+// Owns the physical storage that backs one or more DexFiles (that is, it can be shared).
+// It frees the storage (e.g. closes file) when all DexFiles that use it are all closed.
+//
+// The Begin()-End() range represents either one DexFile (with the size from the header),
+// or several strictly consecutive DexFiles with no padding before, in between, or after.
+//
+// In particular, the End() does NOT include any shared data the DexFile(s) are using
+// (unless that shared data is covered by another DexFile, which is itself included).
+//
+// In other words, the first dex file shall start at Begin(), and the last dex file shall
+// finish at End(), which makes loading of all dex files from the container unambiguous.
 class DexFileContainer {
  public:
   DexFileContainer() { }
@@ -87,6 +96,7 @@ class DexFileContainer {
 class MemoryDexFileContainer : public DexFileContainer {
  public:
   MemoryDexFileContainer(const uint8_t* begin, const uint8_t* end) : begin_(begin), end_(end) {}
+  MemoryDexFileContainer(const uint8_t* begin, size_t size) : begin_(begin), end_(begin + size) {}
   bool IsReadOnly() const override { return true; }
   bool EnableWrite() override { return false; }
   bool DisableWrite() override { return false; }
@@ -148,6 +158,10 @@ class DexFile {
 
     // Decode the dex magic version
     uint32_t GetVersion() const;
+  };
+
+  struct HeaderV41 : public Header {
+    uint32_t multidex_offset = 0;
   };
 
   // Map item type codes.
@@ -848,6 +862,7 @@ class DexFile {
  protected:
   // First Dex format version supporting default methods.
   static constexpr uint32_t kDefaultMethodsVersion = 37;
+  static constexpr uint32_t kMultidexVersion = 41;
 
   DexFile(const uint8_t* base,
           size_t size,
@@ -857,6 +872,9 @@ class DexFile {
           // Shared since several dex files may be stored in the same logical container.
           std::shared_ptr<DexFileContainer> container,
           bool is_compact_dex);
+
+  template <typename T>
+  const T* GetSection(size_t offset);
 
   // Top-level initializer that calls other Init methods.
   bool Init(std::string* error_msg);
@@ -875,6 +893,7 @@ class DexFile {
 
   // Data memory range: Most dex offsets are relative to this memory range.
   // Standard dex: same as (begin_, size_).
+  // Multi-dex: all dex files (starting from the first header).
   // Compact: shared data which is located after all non-shared data.
   //
   // This is different to the "data section" in the standard dex header.

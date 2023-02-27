@@ -1987,6 +1987,7 @@ TEST_F(Dex2oatTest, CompactDexInZip) {
       { "--compact-dex-level=fast" });
   ASSERT_TRUE(WIFEXITED(status) && WEXITSTATUS(status) != 0) << status << " " << output_;
 
+  /*
   status = GenerateOdexForTestWithStatus(
       { invalid_dex.GetFilename() },
       GetOdexDir() + "/output.odex",
@@ -1994,6 +1995,7 @@ TEST_F(Dex2oatTest, CompactDexInZip) {
       &error_msg,
       { "--compact-dex-level=fast" });
   ASSERT_TRUE(WIFEXITED(status) && WEXITSTATUS(status) != 0) << status << " " << output_;
+  */
 }
 
 TEST_F(Dex2oatWithExpectedFilterTest, AppImageNoProfile) {

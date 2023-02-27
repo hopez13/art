@@ -20,6 +20,7 @@
 #include <cstdint>
 #include <functional>
 #include <memory>
+#include <optional>
 #include <string>
 #include <vector>
 
@@ -150,7 +151,7 @@ class DexFileLoader {
                 error_msg);
   }
 
-  // Opens all .dex files, guessing the container format based on file extension.
+  // Opens all dex files, guessing the container format based on file magic.
   bool Open(bool verify,
             bool verify_checksum,
             bool allow_no_dex_files,
@@ -201,8 +202,10 @@ class DexFileLoader {
   bool MapRootContainer(std::string* error_msg);
 
   static std::unique_ptr<DexFile> OpenCommon(const std::shared_ptr<DexFileContainer>& container,
+                                             const uint8_t* base,
+                                             size_t size,
                                              const std::string& location,
-                                             uint32_t location_checksum,
+                                             std::optional<uint32_t> location_checksum,
                                              const OatDexFile* oat_dex_file,
                                              bool verify,
                                              bool verify_checksum,
@@ -215,6 +218,7 @@ class DexFileLoader {
                         const std::string& location,
                         bool verify,
                         bool verify_checksum,
+                        size_t* multidex_count,
                         DexFileLoaderErrorCode* error_code,
                         std::string* error_msg,
                         std::vector<std::unique_ptr<const DexFile>>* dex_files) const;

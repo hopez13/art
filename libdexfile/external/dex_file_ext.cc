@@ -167,7 +167,10 @@ ADexFile_Error ADexFile_create(const void* _Nonnull address,
     if (computed_file_size > file_size) {
       file_size = computed_file_size;
     }
-  } else if (!art::StandardDexFile::IsMagicValid(header->magic_)) {
+  } else if (art::StandardDexFile::IsMagicValid(header->magic_)) {
+    /////////////////////////////////////
+    // TODO
+  } else {
     return ADEXFILE_ERROR_INVALID_HEADER;
   }
 
@@ -180,7 +183,7 @@ ADexFile_Error ADexFile_create(const void* _Nonnull address,
 
   std::string loc_str(location);
   std::string error_msg;
-  art::DexFileLoader loader(static_cast<const uint8_t*>(address), size, loc_str);
+  art::DexFileLoader loader(static_cast<const uint8_t*>(address), header->file_size_, loc_str);
   std::unique_ptr<const art::DexFile> dex_file = loader.Open(header->checksum_,
                                                              /*oat_dex_file=*/nullptr,
                                                              /*verify=*/false,

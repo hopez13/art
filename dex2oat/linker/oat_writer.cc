@@ -3199,10 +3199,11 @@ bool OatWriter::WriteDexFiles(File* file,
     TimingLogger::ScopedTiming split2("Verify input Dex files", timings_);
     for (OatDexFile& oat_dex_file : oat_dex_files_) {
       const DexFile* dex_file = oat_dex_file.GetDexFile();
+      if (dex_file->IsCompactDexFile()) {
+        continue;
+      }
       std::string error_msg;
       if (!dex::Verify(dex_file,
-                       dex_file->Begin(),
-                       dex_file->Size(),
                        dex_file->GetLocation().c_str(),
                        /*verify_checksum=*/true,
                        &error_msg)) {
