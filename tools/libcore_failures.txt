@@ -330,5 +330,22 @@
   bug: 228441328,
   names: ["tck.java.time",
           "test.java.time"]
+<<<<<<< HEAD   (f3bf98 [DO NOT MERGE] Support Go mainline modules for T+)
+=======
+},
+{
+  description: "Timing out after ojluni tests were enabled",
+  result: ERROR,
+  bug: 231439593,
+  names: ["org.apache.harmony.tests.java.math.BigIntegerConstructorsTest#testConstructorPrime"]
+},
+{
+  description: "libcore.android.system.OsConstantsTest CAP constants tests work on device only",
+  result: EXEC_FAILED,
+  modes: [host],
+  names: ["libcore.android.system.OsConstantsTest#test_CAP_TO_INDEX",
+          "libcore.android.system.OsConstantsTest#test_CAP_TO_MASK",
+          "libcore.android.system.OsConstantsTest#test_CAP_constants"]
+>>>>>>> CHANGE (4e0e1a Disable CAP tests on host libcore.android.system.OsConstants)
 }
 ]
