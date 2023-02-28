@@ -16,6 +16,75 @@
       "message": "Thanks Nicolas!",
       "revId": "7dce3d551c1b9b8342edd420f06dd3603e01fc73",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf930889_db8659e1",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1572468
+      },
+      "writtenOn": "2023-02-28T17:59:58Z",
+      "side": 1,
+      "message": "You can use the \u0027Q\u0027 and \u0027R\u0027 template modifiers here to have the asm write directly into the relevant halves of a uint64_t:\n\nhttps://llvm.org/docs/LangRef.html#asm-template-argument-modifiers",
+      "range": {
+        "startLine": 96,
+        "startChar": 0,
+        "endLine": 96,
+        "endChar": 64
+      },
+      "revId": "7dce3d551c1b9b8342edd420f06dd3603e01fc73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e636d02_60c54a1f",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1572468
+      },
+      "writtenOn": "2023-02-28T17:59:58Z",
+      "side": 1,
+      "message": "nit: but this is inconsistent with \u0027asm volatile\u0027 used elsewhere.",
+      "range": {
+        "startLine": 185,
+        "startChar": 2,
+        "endLine": 185,
+        "endChar": 9
+      },
+      "revId": "7dce3d551c1b9b8342edd420f06dd3603e01fc73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f3e17f63_5bb762c4",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1034,
+      "author": {
+        "id": 1572468
+      },
+      "writtenOn": "2023-02-28T17:59:58Z",
+      "side": 1,
+      "message": "I\u0027m curious about this -- why not just store 64-bit values in the trace buffer regardless of the architecture word size?",
+      "range": {
+        "startLine": 1034,
+        "startChar": 0,
+        "endLine": 1034,
+        "endChar": 78
+      },
+      "revId": "7dce3d551c1b9b8342edd420f06dd3603e01fc73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
