@@ -64,6 +64,10 @@
 #include <linux/unistd.h>
 #endif
 
+#ifdef ART_TARGET_ANDROID
+#include "android-modules-utils/sdk_level.h"
+#endif
+
 namespace art {
 
 using android::base::StringPrintf;
@@ -337,13 +341,10 @@ static std::string GetFirstMainlineFrameworkLibraryName(std::string* error_msg) 
   return std::string(library_name);
 }
 
-// Returns true when no error occurs, even if the extension doesn't exist.
-static bool MaybeAppendBootImageMainlineExtension(const std::string& android_root,
-                                                  /*inout*/ std::string* location,
-                                                  /*out*/ std::string* error_msg) {
-  if (!kIsTargetAndroid) {
-    return true;
-  }
+[[maybe_unused]] static bool MaybeAppendBootImageMainlineExtensionImpl(
+    const std::string& android_root,
+    /*inout*/ std::string* location,
+    /*out*/ std::string* error_msg) {
   // Due to how the runtime determines the mapping between boot images and bootclasspath jars, the
   // name of the boot image extension must be in the format of
   // `<primary-boot-image-stem>-<first-library-name>.art`.
@@ -362,6 +363,20 @@ static bool MaybeAppendBootImageMainlineExtension(const std::string& android_roo
   }
   *location += ":" + mainline_extension_location;
   return true;
+}
+
+// Returns true when no error occurs, even if the extension doesn't exist.
+static bool MaybeAppendBootImageMainlineExtension(const std::string& android_root [[maybe_unused]],
+                                                  /*inout*/ std::string* location [[maybe_unused]],
+                                                  /*out*/ std::string* error_msg [[maybe_unused]]) {
+#ifndef ART_TARGET_ANDROID
+  return true;
+#else
+  if (!android::modules::sdklevel::IsAtLeastS()) {
+    return true;
+  }
+  return MaybeAppendBootImageMainlineExtensionImpl(android_root, location, error_msg);
+#endif
 }
 
 std::string GetDefaultBootImageLocationSafe(const std::string& android_root,
