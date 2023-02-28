@@ -64,6 +64,10 @@
 #include <linux/unistd.h>
 #endif
 
+#ifdef ART_TARGET_ANDROID
+#include "android-modules-utils/sdk_level.h"
+#endif
+
 namespace art {
 
 using android::base::StringPrintf;
@@ -341,7 +345,10 @@ static std::string GetFirstMainlineFrameworkLibraryName(std::string* error_msg) 
 static bool MaybeAppendBootImageMainlineExtension(const std::string& android_root,
                                                   /*inout*/ std::string* location,
                                                   /*out*/ std::string* error_msg) {
-  if (!kIsTargetAndroid) {
+#ifndef ART_TARGET_ANDROID
+  return true;
+#else
+  if (!android::modules::sdklevel::IsAtLeastS()) {
     return true;
   }
   // Due to how the runtime determines the mapping between boot images and bootclasspath jars, the
@@ -362,6 +369,7 @@ static bool MaybeAppendBootImageMainlineExtension(const std::string& android_roo
   }
   *location += ":" + mainline_extension_location;
   return true;
+#endif
 }
 
 std::string GetDefaultBootImageLocationSafe(const std::string& android_root,
