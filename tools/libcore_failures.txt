@@ -330,5 +330,13 @@
   bug: 228441328,
   names: ["tck.java.time",
           "test.java.time"]
+},
+{
+  description: "libcore.android.system.OsConstantsTest CAP constants tests work on device only",
+  result: EXEC_FAILED,
+  modes: [host],
+  names: ["libcore.android.system.OsConstantsTest#test_CAP_TO_INDEX",
+          "libcore.android.system.OsConstantsTest#test_CAP_TO_MASK",
+          "libcore.android.system.OsConstantsTest#test_CAP_constants"]
 }
 ]
