@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "53c0d850_57793825",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-02-28T08:39:02Z",
+      "side": 1,
+      "message": "Calling a static method with shorty \"VIIIIII\" via `ArtMethod::Invoke()` in a loop is roughly 3% faster.",
+      "revId": "463b8ce268cc18b367a2651e0e2b931f9b4e0731",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
