@@ -16,6 +16,213 @@
       "message": "Calling a static method with shorty \"VIIIIII\" via `ArtMethod::Invoke()` in a loop is roughly 3% faster.",
       "revId": "463b8ce268cc18b367a2651e0e2b931f9b4e0731",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6cbf4c5b_8a10dc7c",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 425,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-03-01T15:59:40Z",
+      "side": 1,
+      "message": "Are we sure that there\u0027s always at least one argument? Or else why did you change it to a do-while loop?",
+      "range": {
+        "startLine": 421,
+        "startChar": 0,
+        "endLine": 425,
+        "endChar": 15
+      },
+      "revId": "463b8ce268cc18b367a2651e0e2b931f9b4e0731",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ef094c7_c778bac9",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 496,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-03-01T15:59:40Z",
+      "side": 1,
+      "message": "Maybe add \"to avoid duplicate labels in the callers of this macro\" or something like that? This wouldn\u0027t be apparent for me on the first look.",
+      "range": {
+        "startLine": 496,
+        "startChar": 13,
+        "endLine": 496,
+        "endChar": 40
+      },
+      "revId": "463b8ce268cc18b367a2651e0e2b931f9b4e0731",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "02e0d6c3_1f2c0c3d",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 499,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-03-01T15:59:40Z",
+      "side": 1,
+      "message": "Explain why x9 in the comment? (point to INVOKE_STUB_LOAD_ALL_ARGS that uses x9)",
+      "range": {
+        "startLine": 499,
+        "startChar": 15,
+        "endLine": 499,
+        "endChar": 17
+      },
+      "revId": "463b8ce268cc18b367a2651e0e2b931f9b4e0731",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b321ca2d_1f5fd662",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 509,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-03-01T15:59:40Z",
+      "side": 1,
+      "message": "Add \"to avoid duplicate labels in the callers of this macro\"?",
+      "range": {
+        "startLine": 509,
+        "startChar": 4,
+        "endLine": 509,
+        "endChar": 40
+      },
+      "revId": "463b8ce268cc18b367a2651e0e2b931f9b4e0731",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "28da0a24_1f4e374f",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 512,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-03-01T15:59:40Z",
+      "side": 1,
+      "message": "Explain why x9 in the comment?",
+      "range": {
+        "startLine": 512,
+        "startChar": 8,
+        "endLine": 512,
+        "endChar": 10
+      },
+      "revId": "463b8ce268cc18b367a2651e0e2b931f9b4e0731",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad5cefd4_5a2a8467",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 522,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-03-01T15:59:40Z",
+      "side": 1,
+      "message": "Do you know where I can find a good description of assembler syntax? I didn\u0027t know it is possible to do checks like this one.\n\nIt is very nice that we can accommodate both static and non-static methods without sacrificing the register.",
+      "range": {
+        "startLine": 522,
+        "startChar": 4,
+        "endLine": 522,
+        "endChar": 8
+      },
+      "revId": "463b8ce268cc18b367a2651e0e2b931f9b4e0731",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "740739c8_e50fd3cf",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 543,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-03-01T15:59:40Z",
+      "side": 1,
+      "message": "Are we expecting floats more frequently than doubles? Otherwise we could flip F and D blocks. so that doubles are processed slightly faster.",
+      "range": {
+        "startLine": 543,
+        "startChar": 0,
+        "endLine": 543,
+        "endChar": 55
+      },
+      "revId": "463b8ce268cc18b367a2651e0e2b931f9b4e0731",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b6a8214_29073dc7",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 560,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-03-01T15:59:40Z",
+      "side": 1,
+      "message": "I wonder if for ARM it would be possible (and better) to use IT to skip the next unconditional branch and follow to the next cmp. Something like this:\n```\n  cmp w17, #\u0027J\u0027\n  it.eq\n  br x12\n  \n  cmp  w17, #\u0027F\u0027\n  it.eq\n  br x13\n...\n```\nIt won\u0027t be possible on other architectures though.\n\n(I was looking at this doc: https://developer.arm.com/documentation/ddi0597/2020-12/Base-Instructions/IT--If-Then-.)",
+      "range": {
+        "startLine": 550,
+        "startChar": 0,
+        "endLine": 560,
+        "endChar": 0
+      },
+      "revId": "463b8ce268cc18b367a2651e0e2b931f9b4e0731",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "80a6425d_7ee78024",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 563,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-03-01T15:59:40Z",
+      "side": 1,
+      "message": "We are always passing the same `.Lfill_regs` and end up concatenating it with `\\suffix`, I think we can just inline `.Lfill_regs` in `INVOKE_STUB_LOAD_REG`.\n\nAlso a qustionable idea, we could define one-line wrappers `INVOKE_STUB_LOAD_REG_{I4,I8,F4,F8}` specialized with `4,x11,x12`, `8,x11,x12`, `4,x13,x14`, `8,x13,x14`, but I\u0027m not sure it would make it simpler.",
+      "range": {
+        "startLine": 563,
+        "startChar": 79,
+        "endLine": 563,
+        "endChar": 90
+      },
+      "revId": "463b8ce268cc18b367a2651e0e2b931f9b4e0731",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
