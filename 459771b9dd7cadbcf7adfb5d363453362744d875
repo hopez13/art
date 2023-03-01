@@ -16,6 +16,52 @@
       "message": "LGTM but please wait for Vladimir\u0027s review as he had some comments too.\n\nI\u0027m curious to know if we have some numbers showing how much this improves.",
       "revId": "459771b9dd7cadbcf7adfb5d363453362744d875",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6d53ec1_17f7d143",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2814,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-01T10:22:13Z",
+      "side": 1,
+      "message": "We\u0027re reducing unconditional branches, not conditional ones.",
+      "range": {
+        "startLine": 2814,
+        "startChar": 19,
+        "endLine": 2814,
+        "endChar": 30
+      },
+      "revId": "459771b9dd7cadbcf7adfb5d363453362744d875",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86872589_1283b475",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2822,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-01T10:22:13Z",
+      "side": 1,
+      "message": "Can you change all plain `int` types to `int32_t`? (I would use `uint32_t` for some but I\u0027m fine with using the signed type.)",
+      "range": {
+        "startLine": 2822,
+        "startChar": 12,
+        "endLine": 2822,
+        "endChar": 15
+      },
+      "revId": "459771b9dd7cadbcf7adfb5d363453362744d875",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

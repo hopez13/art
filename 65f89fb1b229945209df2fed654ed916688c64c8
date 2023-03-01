@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7ca7a080_52019423",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2842,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-01T10:22:13Z",
+      "side": 1,
+      "message": "Ack. Though I think removing the `PostIndex` from the LDR/STR above and adding an offset `(tail_length \u0026 ~1) * char_size` to LDRH/STRH would be even better.",
+      "parentUuid": "27028a72_32cb739d",
+      "revId": "65f89fb1b229945209df2fed654ed916688c64c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f3e1220b_33c893d3",
         "filename": "compiler/optimizing/intrinsics_arm64.cc",
         "patchSetId": 2
