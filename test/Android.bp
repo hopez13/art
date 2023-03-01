@@ -204,6 +204,7 @@ art_cc_defaults {
     gtest: false,
 
     shared_libs: [
+        "libarttools", // Contains "libc++fs".
         "libbase",
         "liblog",
         "libz",
