@@ -343,6 +343,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8dedf5cf_d4f44b69",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2821,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2023-03-01T10:06:26Z",
+      "side": 1,
+      "message": "Yeah, explaining this better in-source would be sensible. Done.",
+      "parentUuid": "d71806ef_a6c4b21d",
+      "range": {
+        "startLine": 2821,
+        "startChar": 17,
+        "endLine": 2821,
+        "endChar": 19
+      },
+      "revId": "0c123c40036c4ba66c9f72a4ce15fc84bd4f6fae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1a07f320_3406b076",
         "filename": "compiler/optimizing/intrinsics_arm64.cc",
         "patchSetId": 1

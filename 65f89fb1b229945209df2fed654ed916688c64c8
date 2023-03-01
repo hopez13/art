@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "27028a72_32cb739d",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2842,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2023-03-01T10:06:26Z",
+      "side": 1,
+      "message": "We had a similar debate on whether or not removing the final PostIndex would potentially cause surprises later when extending the code / reusing this lambda, but not realising the registers aren\u0027t updated on the last copy.\n\nHowever, I think that situation is rather unlikely, and it makes sense to reduce the amount of work as much as possible. So I\u0027ve made this change (and added a comment to highlight it just in case).",
+      "parentUuid": "7a51c1e4_5ba5fa91",
+      "revId": "65f89fb1b229945209df2fed654ed916688c64c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f3e1220b_33c893d3",
         "filename": "compiler/optimizing/intrinsics_arm64.cc",
         "patchSetId": 2
@@ -48,6 +66,30 @@
       "writtenOn": "2023-02-27T10:35:56Z",
       "side": 1,
       "message": "Remove.\n\n(We do not use the result of the ADD here, only the Z flag, and this comparison can be done at compile time anyway. And we do not need to jump over an empty `emitUnrolledTailLoop()`.)",
+      "range": {
+        "startLine": 2851,
+        "startChar": 6,
+        "endLine": 2852,
+        "endChar": 22
+      },
+      "revId": "65f89fb1b229945209df2fed654ed916688c64c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "69d61933_beb39499",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2852,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2023-03-01T10:06:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f3e1220b_33c893d3",
       "range": {
         "startLine": 2851,
         "startChar": 6,
@@ -71,6 +113,30 @@
       "writtenOn": "2023-02-27T10:35:56Z",
       "side": 1,
       "message": "Move this shared code after the `if` instead of having a copy in both then-block and else-block.",
+      "range": {
+        "startLine": 2854,
+        "startChar": 6,
+        "endLine": 2854,
+        "endChar": 62
+      },
+      "revId": "65f89fb1b229945209df2fed654ed916688c64c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc55b3d9_4293d3ed",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2854,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2023-03-01T10:06:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "42a6d476_7da272f2",
       "range": {
         "startLine": 2854,
         "startChar": 6,
