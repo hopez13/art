@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0cd3cde9_18a23865",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-03-01T13:28:03Z",
+      "side": 1,
+      "message": "Thanks! Done.",
+      "parentUuid": "cf930889_db8659e1",
+      "range": {
+        "startLine": 96,
+        "startChar": 0,
+        "endLine": 96,
+        "endChar": 64
+      },
+      "revId": "7dce3d551c1b9b8342edd420f06dd3603e01fc73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1e636d02_60c54a1f",
@@ -64,6 +88,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "58598504_efee1cb9",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-03-01T13:28:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1e636d02_60c54a1f",
+      "range": {
+        "startLine": 185,
+        "startChar": 2,
+        "endLine": 185,
+        "endChar": 9
+      },
+      "revId": "7dce3d551c1b9b8342edd420f06dd3603e01fc73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f3e17f63_5bb762c4",
@@ -77,6 +125,30 @@
       "writtenOn": "2023-02-28T17:59:58Z",
       "side": 1,
       "message": "I\u0027m curious about this -- why not just store 64-bit values in the trace buffer regardless of the architecture word size?",
+      "range": {
+        "startLine": 1034,
+        "startChar": 0,
+        "endLine": 1034,
+        "endChar": 78
+      },
+      "revId": "7dce3d551c1b9b8342edd420f06dd3603e01fc73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3cf825b_ef5f1a5d",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1034,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-03-01T13:28:03Z",
+      "side": 1,
+      "message": "The buffer is used to store method pointer, timestamp(s) and other info required for the trace action. We may have one or two timestamps depending on whether only wall clock is requested or if both wall or thread clocks are requested. In a follow up CL we also want to write to this buffer from JITed code. So I thought it\u0027s just easier if I have a simple structure so it\u0027s easy to manipulate from JITed code.",
+      "parentUuid": "f3e17f63_5bb762c4",
       "range": {
         "startLine": 1034,
         "startChar": 0,
