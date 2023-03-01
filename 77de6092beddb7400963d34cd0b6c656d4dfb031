@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "888c0568_c18855e2",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 731,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-03-01T10:19:51Z",
+      "side": 1,
+      "message": "Why? We should still be able to run dex2oat without a boot image.",
+      "range": {
+        "startLine": 731,
+        "startChar": 0,
+        "endLine": 731,
+        "endChar": 84
+      },
+      "revId": "77de6092beddb7400963d34cd0b6c656d4dfb031",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ceb149b_400ffabb",
+        "filename": "runtime/parsed_options.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 782,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-03-01T10:19:51Z",
+      "side": 1,
+      "message": "nit: one per line",
+      "range": {
+        "startLine": 781,
+        "startChar": 6,
+        "endLine": 782,
+        "endChar": 34
+      },
+      "revId": "77de6092beddb7400963d34cd0b6c656d4dfb031",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
