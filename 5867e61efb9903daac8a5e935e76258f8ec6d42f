@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "32039ae7_f94ac570",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-03-01T04:33:58Z",
+      "side": 1,
+      "message": "A few preliminary comments. I\u0027m still going through this.\n\nHow does this compare to just stealing one or two bits in the IRT entry and the LocalRef for a 1 or 2 bit always-on serial number? It seems like that would be a lot simpler, preserve maybe 80% of the error checking, and possibly not cost much performance. And the one-bit case doesn\u0027t steal any more bits than you already do.\n\nDo eng builds enable CheckJNI? I\u0027m still a little nervous about losing the error checking here in eng builds. I guess that could also be avoided by turning on full checking in libartd? You currently don\u0027t do that?\n\nAll of these schemes seem to have the future issue that we run out of bits if/when we \"compress\" references in a way that allows larger Java heaps. I don\u0027t know how far off that is.",
+      "revId": "5867e61efb9903daac8a5e935e76258f8ec6d42f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03037180_44693ff7",
+        "filename": "runtime/indirect_reference_table.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-03-01T04:33:58Z",
+      "side": 1,
+      "message": "I would add\n\nstatic_assert(kGlobal \u0026 kWeakGlobal \u003d\u003d kGlobal)\n\nand\n\nstatic_assert(kGlobal \u0026 kLocal \u003d\u003d 0)\n\nsomewhere around here. Otherwise much of this doesn\u0027t make much sense.",
+      "range": {
+        "startLine": 223,
+        "startChar": 4,
+        "endLine": 223,
+        "endChar": 38
+      },
+      "revId": "5867e61efb9903daac8a5e935e76258f8ec6d42f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9aacb1f6_71b8af68",
+        "filename": "runtime/indirect_reference_table.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-03-01T04:33:58Z",
+      "side": 1,
+      "message": "The naming here is a little weird, since this actually changes it to kJniTransition, right? Probably OK.",
+      "range": {
+        "startLine": 235,
+        "startChar": 0,
+        "endLine": 235,
+        "endChar": 59
+      },
+      "revId": "5867e61efb9903daac8a5e935e76258f8ec6d42f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b92cb915_e88ab37f",
+        "filename": "runtime/jni/local_reference_table.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-03-01T04:33:58Z",
+      "side": 1,
+      "message": "Each?\n\nCould we add a picture or description of what the actual data structure looks like? I.e along the lines of \"A local IRT consists of one or more arrays of slots. Each slot either holds an LrtEntry, or two slots are used ... An LrtEntry vasically consists of a compressed reference, together with flags indicating ...\"",
+      "range": {
+        "startLine": 118,
+        "startChar": 3,
+        "endLine": 118,
+        "endChar": 6
+      },
+      "revId": "5867e61efb9903daac8a5e935e76258f8ec6d42f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed235d50_0eaa2db7",
+        "filename": "runtime/jni/local_reference_table.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-03-01T04:33:58Z",
+      "side": 1,
+      "message": "Based on the name, it\u0027s not obvious to me what this represents.",
+      "range": {
+        "startLine": 172,
+        "startChar": 26,
+        "endLine": 172,
+        "endChar": 40
+      },
+      "revId": "5867e61efb9903daac8a5e935e76258f8ec6d42f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "095240b4_c4a38a7f",
+        "filename": "runtime/jni/local_reference_table.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-03-01T04:33:58Z",
+      "side": 1,
+      "message": "Seems like an odd name in this context.",
+      "range": {
+        "startLine": 183,
+        "startChar": 11,
+        "endLine": 183,
+        "endChar": 23
+      },
+      "revId": "5867e61efb9903daac8a5e935e76258f8ec6d42f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
