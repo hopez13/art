@@ -20,6 +20,7 @@
 #include <stdlib.h>
 #include <sys/stat.h>
 
+#include <algorithm>
 #include <forward_list>
 #include <fstream>
 #include <iostream>
@@ -724,6 +725,11 @@ class Dex2Oat final {
 
     if (!IsBootImage() && boot_image_filename_.empty()) {
       DCHECK(!IsBootImageExtension());
+      if (std::any_of(runtime_args_.begin(), runtime_args_.end(), [](const char* arg) {
+            return android::base::StartsWith(arg, "-Xbootclasspath:");
+          })) {
+        Usage("--boot-image should be specified when -Xbootclasspath is specified");
+      }
       boot_image_filename_ =
           GetDefaultBootImageLocation(android_root_, /*deny_art_apex_data_files=*/false);
     }
