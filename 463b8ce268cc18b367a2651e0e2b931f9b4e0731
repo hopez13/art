@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d78834df_49fd65fc",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 425,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-02T12:54:57Z",
+      "side": 1,
+      "message": "Conditional do-while loop has one fewer instruction in the loop than a while loop. (In this case, 4 instructions instead of 5.)\n\nSome think that this needs comments (see https://android-review.git.corp.google.com/c/platform/art/+/2423348/1/compiler/optimizing/intrinsics_arm64.cc#2821 ) but I consider that unnecessary. If you want faster loops, you just do this every time. And I do not want to clutter the code with too many duplicate comments.",
+      "parentUuid": "6cbf4c5b_8a10dc7c",
+      "range": {
+        "startLine": 421,
+        "startChar": 0,
+        "endLine": 425,
+        "endChar": 15
+      },
+      "revId": "463b8ce268cc18b367a2651e0e2b931f9b4e0731",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4ef094c7_c778bac9",
@@ -54,6 +78,30 @@
       "writtenOn": "2023-03-01T15:59:40Z",
       "side": 1,
       "message": "Maybe add \"to avoid duplicate labels in the callers of this macro\" or something like that? This wouldn\u0027t be apparent for me on the first look.",
+      "range": {
+        "startLine": 496,
+        "startChar": 13,
+        "endLine": 496,
+        "endChar": 40
+      },
+      "revId": "463b8ce268cc18b367a2651e0e2b931f9b4e0731",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9112550_1a4f08e3",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 496,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-02T12:54:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4ef094c7_c778bac9",
       "range": {
         "startLine": 496,
         "startChar": 13,
@@ -87,6 +135,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b715582b_f00acc15",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 499,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-02T12:54:57Z",
+      "side": 1,
+      "message": "Changed to explicit macro argument.",
+      "parentUuid": "02e0d6c3_1f2c0c3d",
+      "range": {
+        "startLine": 499,
+        "startChar": 15,
+        "endLine": 499,
+        "endChar": 17
+      },
+      "revId": "463b8ce268cc18b367a2651e0e2b931f9b4e0731",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b321ca2d_1f5fd662",
@@ -100,6 +172,30 @@
       "writtenOn": "2023-03-01T15:59:40Z",
       "side": 1,
       "message": "Add \"to avoid duplicate labels in the callers of this macro\"?",
+      "range": {
+        "startLine": 509,
+        "startChar": 4,
+        "endLine": 509,
+        "endChar": 40
+      },
+      "revId": "463b8ce268cc18b367a2651e0e2b931f9b4e0731",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d9923bd7_c0303762",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 509,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-02T12:54:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b321ca2d_1f5fd662",
       "range": {
         "startLine": 509,
         "startChar": 4,
@@ -135,6 +231,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "698d30f6_12fc72ee",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 512,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-02T12:54:57Z",
+      "side": 1,
+      "message": "Changed to explicit macro argument.",
+      "parentUuid": "28da0a24_1f4e374f",
+      "range": {
+        "startLine": 512,
+        "startChar": 8,
+        "endLine": 512,
+        "endChar": 10
+      },
+      "revId": "463b8ce268cc18b367a2651e0e2b931f9b4e0731",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "ad5cefd4_5a2a8467",
         "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
         "patchSetId": 2
@@ -146,6 +266,30 @@
       "writtenOn": "2023-03-01T15:59:40Z",
       "side": 1,
       "message": "Do you know where I can find a good description of assembler syntax? I didn\u0027t know it is possible to do checks like this one.\n\nIt is very nice that we can accommodate both static and non-static methods without sacrificing the register.",
+      "range": {
+        "startLine": 522,
+        "startChar": 4,
+        "endLine": 522,
+        "endChar": 8
+      },
+      "revId": "463b8ce268cc18b367a2651e0e2b931f9b4e0731",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ecc2a2c1_cf5eb814",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 522,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-02T12:54:57Z",
+      "side": 1,
+      "message": "We are already using these in other macros, otherwise I would not know about them. Just do a web search for \"ifnc assembler directive\" and you\u0027ll find some documentation.",
+      "parentUuid": "ad5cefd4_5a2a8467",
       "range": {
         "startLine": 522,
         "startChar": 4,
@@ -179,6 +323,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "82dcc4d7_3dbf3323",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 543,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-02T12:54:57Z",
+      "side": 1,
+      "message": "I really don\u0027t know whether float or double is used more. I\u0027ve just kept the old order for them (but I arbitrarily reordered long before them). I don\u0027t think this matters much.",
+      "parentUuid": "740739c8_e50fd3cf",
+      "range": {
+        "startLine": 543,
+        "startChar": 0,
+        "endLine": 543,
+        "endChar": 55
+      },
+      "revId": "463b8ce268cc18b367a2651e0e2b931f9b4e0731",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6b6a8214_29073dc7",
@@ -202,6 +370,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bac37ddc_c24cf991",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 560,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-02T12:54:57Z",
+      "side": 1,
+      "message": "ARM has complicated FP register assignments and we do them in C++ code. I\u0027m not planning to rewrite that.",
+      "parentUuid": "6b6a8214_29073dc7",
+      "range": {
+        "startLine": 550,
+        "startChar": 0,
+        "endLine": 560,
+        "endChar": 0
+      },
+      "revId": "463b8ce268cc18b367a2651e0e2b931f9b4e0731",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "80a6425d_7ee78024",
@@ -215,6 +407,30 @@
       "writtenOn": "2023-03-01T15:59:40Z",
       "side": 1,
       "message": "We are always passing the same `.Lfill_regs` and end up concatenating it with `\\suffix`, I think we can just inline `.Lfill_regs` in `INVOKE_STUB_LOAD_REG`.\n\nAlso a qustionable idea, we could define one-line wrappers `INVOKE_STUB_LOAD_REG_{I4,I8,F4,F8}` specialized with `4,x11,x12`, `8,x11,x12`, `4,x13,x14`, `8,x13,x14`, but I\u0027m not sure it would make it simpler.",
+      "range": {
+        "startLine": 563,
+        "startChar": 79,
+        "endLine": 563,
+        "endChar": 90
+      },
+      "revId": "463b8ce268cc18b367a2651e0e2b931f9b4e0731",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "20e8cba9_c1f0c76f",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 563,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-02T12:54:57Z",
+      "side": 1,
+      "message": "I prefer to keep the names local and not spread them across macros. So I decided to go in the opposite direction and pass even the `x9` as an explicit argument.",
+      "parentUuid": "80a6425d_7ee78024",
       "range": {
         "startLine": 563,
         "startChar": 79,
