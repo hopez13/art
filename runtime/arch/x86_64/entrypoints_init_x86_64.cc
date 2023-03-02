@@ -30,7 +30,12 @@
 namespace art {
 
 // Cast entrypoints.
+#ifdef ART_USE_SIMULATOR
+// There is no art_quick_instance_of in Arm64, use artInstanceOfFromCode instead.
+extern "C" size_t artInstanceOfFromCode(mirror::Object* obj, mirror::Class* ref_class);
+#else
 extern "C" size_t art_quick_instance_of(mirror::Object* obj, mirror::Class* ref_class);
+#endif
 
 // Read barrier entrypoints.
 // art_quick_read_barrier_mark_regX uses an non-standard calling
@@ -83,7 +88,12 @@ void InitEntryPoints(JniEntryPoints* jpoints,
   DefaultInitEntryPoints(jpoints, qpoints, monitor_jni_entry_exit);
 
   // Cast
+#ifdef ART_USE_SIMULATOR
+  // There is no art_quick_instance_of in Arm64, use artInstanceOfFromCode instead.
+  qpoints->SetInstanceofNonTrivial(artInstanceOfFromCode);
+#else
   qpoints->SetInstanceofNonTrivial(art_quick_instance_of);
+#endif
   qpoints->SetCheckInstanceOf(art_quick_check_instance_of);
 
   // More math.
@@ -107,6 +117,21 @@ void InitEntryPoints(JniEntryPoints* jpoints,
   qpoints->SetTanh(tanh);
 
   // Math
+#ifdef ART_USE_SIMULATOR
+  // Arm64 doesn't have these math or instrinsic entrypoints.
+  qpoints->SetD2l(nullptr);
+  qpoints->SetF2l(nullptr);
+  qpoints->SetLdiv(nullptr);
+  qpoints->SetLmod(nullptr);
+  qpoints->SetLmul(nullptr);
+  qpoints->SetShlLong(nullptr);
+  qpoints->SetShrLong(nullptr);
+  qpoints->SetUshrLong(nullptr);
+
+  // Intrinsics
+  qpoints->SetStringCompareTo(nullptr);
+  qpoints->SetMemcpy(nullptr);
+#else
   qpoints->SetD2l(art_d2l);
   qpoints->SetF2l(art_f2l);
   qpoints->SetLdiv(art_quick_ldiv);
@@ -119,6 +144,7 @@ void InitEntryPoints(JniEntryPoints* jpoints,
   // Intrinsics
   qpoints->SetStringCompareTo(art_quick_string_compareto);
   qpoints->SetMemcpy(art_quick_memcpy);
+#endif
 
   // Read barrier.
   UpdateReadBarrierEntrypoints(qpoints, /*is_active=*/ false);
@@ -138,8 +164,14 @@ void InitEntryPoints(JniEntryPoints* jpoints,
   qpoints->SetReadBarrierMarkReg27(nullptr);
   qpoints->SetReadBarrierMarkReg28(nullptr);
   qpoints->SetReadBarrierMarkReg29(nullptr);
+#ifdef ART_USE_SIMULATOR
+  // Arm64 doesn't have these read barrier entrypoints.
+  qpoints->SetReadBarrierSlow(nullptr);
+  qpoints->SetReadBarrierForRootSlow(nullptr);
+#else
   qpoints->SetReadBarrierSlow(art_quick_read_barrier_slow);
   qpoints->SetReadBarrierForRootSlow(art_quick_read_barrier_for_root_slow);
+#endif
 #endif  // __APPLE__
 }
 
