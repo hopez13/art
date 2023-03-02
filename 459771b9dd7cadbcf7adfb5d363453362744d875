@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d2b112a5_27edf37b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2023-03-02T13:21:14Z",
+      "side": 1,
+      "message": "Sure - I think before I picked this up there was a design document shared with some results for the performance improvements based on this work. I\u0027ll see if I can find it and send it over via email!",
+      "parentUuid": "1807c52b_b588bfe1",
+      "revId": "459771b9dd7cadbcf7adfb5d363453362744d875",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d6d53ec1_17f7d143",
         "filename": "compiler/optimizing/intrinsics_arm64.cc",
         "patchSetId": 3
@@ -31,6 +49,30 @@
       "writtenOn": "2023-03-01T10:22:13Z",
       "side": 1,
       "message": "We\u0027re reducing unconditional branches, not conditional ones.",
+      "range": {
+        "startLine": 2814,
+        "startChar": 19,
+        "endLine": 2814,
+        "endChar": 30
+      },
+      "revId": "459771b9dd7cadbcf7adfb5d363453362744d875",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b3900b8_effbd323",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2814,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2023-03-02T13:21:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d6d53ec1_17f7d143",
       "range": {
         "startLine": 2814,
         "startChar": 19,
@@ -54,6 +96,30 @@
       "writtenOn": "2023-03-01T10:22:13Z",
       "side": 1,
       "message": "Can you change all plain `int` types to `int32_t`? (I would use `uint32_t` for some but I\u0027m fine with using the signed type.)",
+      "range": {
+        "startLine": 2822,
+        "startChar": 12,
+        "endLine": 2822,
+        "endChar": 15
+      },
+      "revId": "459771b9dd7cadbcf7adfb5d363453362744d875",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c831d82a_96e9ae9b",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2822,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2023-03-02T13:21:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "86872589_1283b475",
       "range": {
         "startLine": 2822,
         "startChar": 12,
