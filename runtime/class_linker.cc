@@ -1396,13 +1396,22 @@ bool ClassLinker::InitFromBootImage(std::string* error_msg) {
   runtime->SetSentinel(boot_image_live_objects->Get(ImageHeader::kClearedJniWeakSentinel));
   DCHECK(runtime->GetSentinel().Read()->GetClass() == GetClassRoot<mirror::Object>(this));
 
+  std::vector<std::vector<std::unique_ptr<const DexFile>>> dex_files_by_space_index;
+  for (const gc::space::ImageSpace* space : spaces) {
+    std::vector<std::unique_ptr<const DexFile>> dex_files;
+    if (!OpenAndInitImageDexFiles(
+            space, ScopedNullHandle<mirror::ClassLoader>(), /*out*/ &dex_files, error_msg)) {
+      return false;
+    }
+    dex_files_by_space_index.push_back(std::move(dex_files));
+  }
   for (size_t i = 0u, size = spaces.size(); i != size; ++i) {
     // Boot class loader, use a null handle.
-    std::vector<std::unique_ptr<const DexFile>> dex_files;
+    std::vector<std::unique_ptr<const DexFile>>& dex_files = dex_files_by_space_index[i];
     if (!AddImageSpace(spaces[i],
                        ScopedNullHandle<mirror::ClassLoader>(),
                        /* class_loader_context= */ nullptr,
-                       /*out*/&dex_files,
+                       dex_files,
                        error_msg)) {
       return false;
     }
@@ -1839,6 +1848,50 @@ bool ClassLinker::OpenImageDexFiles(gc::space::ImageSpace* space,
   return true;
 }
 
+bool ClassLinker::OpenAndInitImageDexFiles(
+    const gc::space::ImageSpace* space,
+    Handle<mirror::ClassLoader> class_loader,
+    std::vector<std::unique_ptr<const DexFile>>* out_dex_files,
+    std::string* error_msg) {
+  DCHECK(out_dex_files != nullptr);
+  const bool app_image = class_loader != nullptr;
+  const ImageHeader& header = space->GetImageHeader();
+  ObjPtr<mirror::Object> dex_caches_object = header.GetImageRoot(ImageHeader::kDexCaches);
+  DCHECK(dex_caches_object != nullptr);
+  Thread* const self = Thread::Current();
+  StackHandleScope<3> hs(self);
+  Handle<mirror::ObjectArray<mirror::DexCache>> dex_caches(
+      hs.NewHandle(dex_caches_object->AsObjectArray<mirror::DexCache>()));
+  const OatFile* oat_file = space->GetOatFile();
+  if (oat_file->GetOatHeader().GetDexFileCount() !=
+      static_cast<uint32_t>(dex_caches->GetLength())) {
+    *error_msg =
+        "Dex cache count and dex file count mismatch while trying to initialize from image";
+    return false;
+  }
+
+  for (auto dex_cache : dex_caches.Iterate<mirror::DexCache>()) {
+    std::string dex_file_location = dex_cache->GetLocation()->ToModifiedUtf8();
+    std::unique_ptr<const DexFile> dex_file =
+        OpenOatDexFile(oat_file, dex_file_location.c_str(), error_msg);
+    if (dex_file == nullptr) {
+      return false;
+    }
+
+    {
+      // Native fields are all null.  Initialize them.
+      WriterMutexLock mu(self, *Locks::dex_lock_);
+      dex_cache->Initialize(dex_file.get(), class_loader.Get());
+    }
+    if (!app_image) {
+      // Register dex files, keep track of existing ones that are conflicts.
+      AppendToBootClassPath(dex_file.get(), dex_cache);
+    }
+    out_dex_files->push_back(std::move(dex_file));
+  }
+  return true;
+}
+
 // Helper class for ArtMethod checks when adding an image. Keeps all required functionality
 // together and caches some intermediate results.
 template <PointerSize kPointerSize>
@@ -1982,13 +2035,11 @@ static void VerifyAppImage(const ImageHeader& header,
   }
 }
 
-bool ClassLinker::AddImageSpace(
-    gc::space::ImageSpace* space,
-    Handle<mirror::ClassLoader> class_loader,
-    ClassLoaderContext* context,
-    std::vector<std::unique_ptr<const DexFile>>* out_dex_files,
-    std::string* error_msg) {
-  DCHECK(out_dex_files != nullptr);
+bool ClassLinker::AddImageSpace(gc::space::ImageSpace* space,
+                                Handle<mirror::ClassLoader> class_loader,
+                                ClassLoaderContext* context,
+                                const std::vector<std::unique_ptr<const DexFile>>& dex_files,
+                                std::string* error_msg) {
   DCHECK(error_msg != nullptr);
   const uint64_t start_time = NanoTime();
   const bool app_image = class_loader != nullptr;
@@ -2035,33 +2086,6 @@ bool ClassLinker::AddImageSpace(
     }
   }
   const OatFile* oat_file = space->GetOatFile();
-  if (oat_file->GetOatHeader().GetDexFileCount() !=
-      static_cast<uint32_t>(dex_caches->GetLength())) {
-    *error_msg = "Dex cache count and dex file count mismatch while trying to initialize from "
-                 "image";
-    return false;
-  }
-
-  for (auto dex_cache : dex_caches.Iterate<mirror::DexCache>()) {
-    std::string dex_file_location = dex_cache->GetLocation()->ToModifiedUtf8();
-    std::unique_ptr<const DexFile> dex_file = OpenOatDexFile(oat_file,
-                                                             dex_file_location.c_str(),
-                                                             error_msg);
-    if (dex_file == nullptr) {
-      return false;
-    }
-
-    {
-      // Native fields are all null.  Initialize them.
-      WriterMutexLock mu(self, *Locks::dex_lock_);
-      dex_cache->Initialize(dex_file.get(), class_loader.Get());
-    }
-    if (!app_image) {
-      // Register dex files, keep track of existing ones that are conflicts.
-      AppendToBootClassPath(dex_file.get(), dex_cache);
-    }
-    out_dex_files->push_back(std::move(dex_file));
-  }
 
   if (app_image) {
     ScopedAssertNoThreadSuspension sants("Checking app image");
@@ -2083,11 +2107,11 @@ bool ClassLinker::AddImageSpace(
       uint32_t* checksums = reinterpret_cast<uint32_t*>(
           reinterpret_cast<uint8_t*>(oat_header) + oat_header->GetHeaderSize());
       for (uint32_t i = 0; i  < oat_header->GetDexFileCount(); ++i) {
-        uint32_t dex_checksum = out_dex_files->at(i)->GetHeader().checksum_;
+        uint32_t dex_checksum = dex_files.at(i)->GetHeader().checksum_;
         if (checksums[i] != dex_checksum) {
           *error_msg = StringPrintf(
               "Image and dex file checksums did not match for %s: image has %d, dex file has %d",
-              out_dex_files->at(i)->GetLocation().c_str(),
+              dex_files.at(i)->GetLocation().c_str(),
               checksums[i],
               dex_checksum);
           return false;
@@ -2184,7 +2208,6 @@ bool ClassLinker::AddImageSpace(
         method.ClearMemorySharedMethod();
       }, space->Begin(), image_pointer_size_);
     }
-
     ScopedTrace trace("AppImage:UpdateCodeItemAndNterp");
     bool can_use_nterp = interpreter::CanRuntimeUseNterp();
     uint16_t hotness_threshold = runtime->GetJITOptions()->GetWarmupThreshold();

@@ -190,15 +190,20 @@ class ClassLinker {
   bool AddImageSpace(gc::space::ImageSpace* space,
                      Handle<mirror::ClassLoader> class_loader,
                      ClassLoaderContext* context,
-                     std::vector<std::unique_ptr<const DexFile>>* out_dex_files,
-                     std::string* error_msg)
-      REQUIRES(!Locks::dex_lock_)
+                     const std::vector<std::unique_ptr<const DexFile>>& dex_files,
+                     std::string* error_msg) REQUIRES(!Locks::dex_lock_)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   bool OpenImageDexFiles(gc::space::ImageSpace* space,
                          std::vector<std::unique_ptr<const DexFile>>* out_dex_files,
                          std::string* error_msg)
       REQUIRES(!Locks::dex_lock_)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
+  bool OpenAndInitImageDexFiles(const gc::space::ImageSpace* space,
+                                Handle<mirror::ClassLoader> class_loader,
+                                std::vector<std::unique_ptr<const DexFile>>* out_dex_files,
+                                std::string* error_msg) REQUIRES(!Locks::dex_lock_)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Finds a class by its descriptor, loading it if necessary.

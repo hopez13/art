@@ -302,11 +302,16 @@ std::vector<std::unique_ptr<const DexFile>> OatFileManager::OpenDexFilesFromOat(
           }
           {
             ScopedTrace image_space_timing("Adding image space");
-            added_image_space = runtime->GetClassLinker()->AddImageSpace(image_space.get(),
-                                                                         h_loader,
-                                                                         context.get(),
-                                                                         /*out*/&dex_files,
-                                                                         /*out*/&temp_error_msg);
+            if (runtime->GetClassLinker()->OpenAndInitImageDexFiles(image_space.get(),
+                                                                    h_loader,
+                                                                    /*out*/ &dex_files,
+                                                                    /*out*/ &temp_error_msg)) {
+              added_image_space = runtime->GetClassLinker()->AddImageSpace(image_space.get(),
+                                                                           h_loader,
+                                                                           context.get(),
+                                                                           dex_files,
+                                                                           /*out*/ &temp_error_msg);
+            }
           }
           if (added_image_space) {
             // Successfully added image space to heap, release the map so that it does not get
