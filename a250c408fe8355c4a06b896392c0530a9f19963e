@@ -22,6 +22,30 @@
       },
       "revId": "a250c408fe8355c4a06b896392c0530a9f19963e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d907a20_9e1b69ce",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2334,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-03-03T11:26:39Z",
+      "side": 1,
+      "message": "I can, but it doesn\u0027t make things simpler. `AddImageSpace` expects a list of dex files that are opened for the current image space. If all the dex files were already mixed in the same `dex_files` list before the `AddImageSpace` call, I would have to find out which dex files belong to which space.",
+      "parentUuid": "20a1c8cb_f2df029a",
+      "range": {
+        "startLine": 2334,
+        "startChar": 4,
+        "endLine": 2334,
+        "endChar": 94
+      },
+      "revId": "a250c408fe8355c4a06b896392c0530a9f19963e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
