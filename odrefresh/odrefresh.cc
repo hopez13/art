@@ -104,8 +104,6 @@ using ::android::base::ParseBoolResult;
 using ::android::base::Result;
 using ::android::modules::sdklevel::IsAtLeastU;
 
-using ::fmt::literals::operator""_format;  // NOLINT
-
 // Name of cache info file in the ART Apex artifact cache.
 constexpr const char* kCacheInfoFile = "cache-info.xml";
 
@@ -622,8 +620,7 @@ OnDeviceRefresh::OnDeviceRefresh(const OdrConfig& config,
 time_t OnDeviceRefresh::GetExecutionTimeUsed() const { return time(nullptr) - start_time_; }
 
 time_t OnDeviceRefresh::GetExecutionTimeRemaining() const {
-  return std::max(static_cast<time_t>(0),
-                  kMaximumExecutionSeconds - GetExecutionTimeUsed());
+  return std::max(static_cast<time_t>(0), kMaximumExecutionSeconds - GetExecutionTimeUsed());
 }
 
 time_t OnDeviceRefresh::GetSubprocessTimeout() const {
@@ -946,8 +943,10 @@ WARN_UNUSED bool OnDeviceRefresh::CheckBuildUserfaultFdGc() const {
   if (build_enable_uffd_gc != gUseUserfaultfd) {
     // Normally, this should not happen. If this happens, the system image was probably built with a
     // wrong PRODUCT_ENABLE_UFFD_GC flag.
-    LOG(WARNING) << "Userfaultfd GC check failed (build-time: {}, runtime: {})."_format(
-        build_enable_uffd_gc, gUseUserfaultfd);
+    LOG(WARNING) << fmt::format(
+        FMT_STRING("Userfaultfd GC check failed (build-time: {}, runtime: {})."),
+        build_enable_uffd_gc,
+        gUseUserfaultfd);
     return false;
   }
   return true;
