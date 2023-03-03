@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "320b5b3e_b25e29bd",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 479,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-03-03T16:27:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "289408bc_15cc55be",
+      "range": {
+        "startLine": 479,
+        "startChar": 8,
+        "endLine": 479,
+        "endChar": 13
+      },
+      "revId": "ef3984a9773f5b534c5c0fc8ac21281deaa41957",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "860a9af5_e536839b",
@@ -54,6 +78,30 @@
       "writtenOn": "2023-02-27T10:04:30Z",
       "side": 1,
       "message": "Should we add a DCHECK(class_def !\u003d nullptr) here?",
+      "range": {
+        "startLine": 480,
+        "startChar": 29,
+        "endLine": 480,
+        "endChar": 38
+      },
+      "revId": "ef3984a9773f5b534c5c0fc8ac21281deaa41957",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a1c1969f_9351d0a4",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 480,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-03-03T16:27:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "860a9af5_e536839b",
       "range": {
         "startLine": 480,
         "startChar": 29,
