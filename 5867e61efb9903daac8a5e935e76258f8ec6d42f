@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "767d785f_bd014fbe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-03T10:34:54Z",
+      "side": 1,
+      "message": "There are no bits in the `IndirectRef` available for encoding the serial number with CheckJNI disabled. Two bits are for the kind and the rest is for the pointer to the entry. The only way would be to make the entry bigger even for non-CheckJNI.\n\nI don\u0027t know if eng builds enable CheckJNI. Debug builds enable it from the start, see `JavaVMExt` constructor. (Zygote hooks have code to enable CheckJNI late but never disable it.)\n\nIf we want to use full 32 bits for compressed references allowing 32GB heap address space in the future, the `LrtEntry` shall either need to be bigger, or we shall need a side-table for the \"free\" and \"serial number\" flags (2 bits per entry would take less memory than changing `LrtEntry` to 64 bits).",
+      "parentUuid": "32039ae7_f94ac570",
+      "revId": "5867e61efb9903daac8a5e935e76258f8ec6d42f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "03037180_44693ff7",
@@ -31,6 +49,30 @@
       "writtenOn": "2023-03-01T04:33:58Z",
       "side": 1,
       "message": "I would add\n\nstatic_assert(kGlobal \u0026 kWeakGlobal \u003d\u003d kGlobal)\n\nand\n\nstatic_assert(kGlobal \u0026 kLocal \u003d\u003d 0)\n\nsomewhere around here. Otherwise much of this doesn\u0027t make much sense.",
+      "range": {
+        "startLine": 223,
+        "startChar": 4,
+        "endLine": 223,
+        "endChar": 38
+      },
+      "revId": "5867e61efb9903daac8a5e935e76258f8ec6d42f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f572964d_50d307f6",
+        "filename": "runtime/indirect_reference_table.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-03T10:34:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "03037180_44693ff7",
       "range": {
         "startLine": 223,
         "startChar": 4,
@@ -64,6 +106,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "08aa2766_ff59b066",
+        "filename": "runtime/indirect_reference_table.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-03T10:34:54Z",
+      "side": 1,
+      "message": "The kind bits are cleared so that the rest can be used as a pointer. The fact that 0 means `kJniTransition` is immaterial for this function.\n\nI changed this to a template function that would also perform a subsequent `reinterpret_cast\u003c\u003e` to a pointer type.",
+      "parentUuid": "9aacb1f6_71b8af68",
+      "range": {
+        "startLine": 235,
+        "startChar": 0,
+        "endLine": 235,
+        "endChar": 59
+      },
+      "revId": "5867e61efb9903daac8a5e935e76258f8ec6d42f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b92cb915_e88ab37f",
@@ -77,6 +143,30 @@
       "writtenOn": "2023-03-01T04:33:58Z",
       "side": 1,
       "message": "Each?\n\nCould we add a picture or description of what the actual data structure looks like? I.e along the lines of \"A local IRT consists of one or more arrays of slots. Each slot either holds an LrtEntry, or two slots are used ... An LrtEntry vasically consists of a compressed reference, together with flags indicating ...\"",
+      "range": {
+        "startLine": 118,
+        "startChar": 3,
+        "endLine": 118,
+        "endChar": 6
+      },
+      "revId": "5867e61efb9903daac8a5e935e76258f8ec6d42f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f16cc84e_e4a8ba87",
+        "filename": "runtime/jni/local_reference_table.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-03T10:34:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b92cb915_e88ab37f",
       "range": {
         "startLine": 118,
         "startChar": 3,
@@ -110,6 +200,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "86816ee2_9f902819",
+        "filename": "runtime/jni/local_reference_table.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-03T10:34:54Z",
+      "side": 1,
+      "message": "I renamed the \"Bits\" to \"Size\" to align with the most common naming in `nodes.h`. See also https://android-review.googlesource.com/2468881 .\n\nIf you have an idea for a better naming scheme, we can apply that in a standalone CL.",
+      "parentUuid": "ed235d50_0eaa2db7",
+      "range": {
+        "startLine": 172,
+        "startChar": 26,
+        "endLine": 172,
+        "endChar": 40
+      },
+      "revId": "5867e61efb9903daac8a5e935e76258f8ec6d42f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "095240b4_c4a38a7f",
@@ -123,6 +237,30 @@
       "writtenOn": "2023-03-01T04:33:58Z",
       "side": 1,
       "message": "Seems like an odd name in this context.",
+      "range": {
+        "startLine": 183,
+        "startChar": 11,
+        "endLine": 183,
+        "endChar": 23
+      },
+      "revId": "5867e61efb9903daac8a5e935e76258f8ec6d42f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d88659cd_ffe07ee8",
+        "filename": "runtime/jni/local_reference_table.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-03T10:34:54Z",
+      "side": 1,
+      "message": "Renamed to `GetRawValue()`.",
+      "parentUuid": "095240b4_c4a38a7f",
       "range": {
         "startLine": 183,
         "startChar": 11,
