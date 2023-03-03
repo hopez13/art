@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "56ab8bed_fe0c40f1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-03-03T16:30:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7153cf8b_cd32dcf1",
+      "range": {
+        "startLine": 9,
+        "startChar": 49,
+        "endLine": 9,
+        "endChar": 52
+      },
+      "revId": "54559dbc31fb08aa3a70ce8ab4ead9474a2234a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "340f9707_07cc2fe8",
@@ -37,6 +61,24 @@
       "writtenOn": "2023-03-03T16:13:18Z",
       "side": 1,
       "message": "static_assert(sizeof(GcRoot\u003cT\u003e) \u003d\u003d sizeof(Atomic\u003cGcRoot\u003cT\u003e\u003e));",
+      "revId": "54559dbc31fb08aa3a70ce8ab4ead9474a2234a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "624f39b4_cf4ca069",
+        "filename": "runtime/mirror/dex_cache.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-03-03T16:30:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "340f9707_07cc2fe8",
       "revId": "54559dbc31fb08aa3a70ce8ab4ead9474a2234a6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
