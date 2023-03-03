@@ -22,6 +22,30 @@
       },
       "revId": "8ea65bd0a1248533b3d7fe8d258d9cbe1a0d2a75",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "99514b86_b846c36c",
+        "filename": "runtime/jit/profile_saver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-03-03T13:42:55Z",
+      "side": 1,
+      "message": "Yes that\u0027s intended. The first save will be about classes loaded at startup, and we\u0027re waiting for that startup to happen.",
+      "parentUuid": "64e1d477_1015fe99",
+      "range": {
+        "startLine": 149,
+        "startChar": 6,
+        "endLine": 149,
+        "endChar": 76
+      },
+      "revId": "8ea65bd0a1248533b3d7fe8d258d9cbe1a0d2a75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
