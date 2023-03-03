@@ -16,6 +16,24 @@
       "message": "Add a rationale: this is to match pre-boot image extension work where we would load all boot image extension classes at startup.",
       "revId": "b67fd63c00e5f5bbee5ff42939a3f07afc88be36",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "73b68aba_745a75a7",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1448,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-03-03T10:45:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4b8e5d98_27027c7d",
+      "revId": "b67fd63c00e5f5bbee5ff42939a3f07afc88be36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
