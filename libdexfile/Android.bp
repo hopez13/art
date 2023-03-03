@@ -24,9 +24,7 @@ package {
 }
 
 cc_defaults {
-    name: "libdexfile_defaults",
-    defaults: ["art_defaults"],
-    host_supported: true,
+    name: "libdexfile_srcs",
     tidy_timeout_srcs: [
         "dex/dex_file_verifier.cc",
     ],
@@ -49,6 +47,29 @@ cc_defaults {
         "dex/type_lookup_table.cc",
         "dex/utf.cc",
     ],
+    target: {
+        android: {
+            srcs: [
+                "external/dex_file_ext.cc",
+            ],
+        },
+        not_windows: {
+            srcs: [
+                "external/dex_file_ext.cc",
+            ],
+        },
+    },
+    generated_sources: ["dexfile_operator_srcs"],
+}
+
+cc_defaults {
+    name: "libdexfile_defaults",
+    defaults: [
+        "art_defaults",
+        "libdexfile_srcs",
+    ],
+    host_supported: true,
+
     header_libs: [
         "jni_headers",
         "libdexfile_external_headers",
@@ -59,9 +80,6 @@ cc_defaults {
     ],
     target: {
         android: {
-            srcs: [
-                "external/dex_file_ext.cc",
-            ],
             static_libs: [
                 "libziparchive",
             ],
@@ -79,9 +97,6 @@ cc_defaults {
             ],
         },
         not_windows: {
-            srcs: [
-                "external/dex_file_ext.cc",
-            ],
             shared_libs: [
                 "libziparchive",
                 "libz",
@@ -114,7 +129,6 @@ cc_defaults {
             enabled: true,
         },
     },
-    generated_sources: ["dexfile_operator_srcs"],
     export_include_dirs: ["."],
 }
 
@@ -556,8 +570,18 @@ cc_library_static {
     // TODO(b/169885605): Avoid exposing symbols from those libs.
     defaults: [
         "art_defaults",
-        "libdexfile_support_static_defaults",
+        "libartbase_static_defaults",
+        "libdexfile_srcs",
     ],
+    srcs: [
+        "external/dex_file_supp.cc",
+    ],
+    cflags: ["-DSTATIC_LIB"],
+    header_libs: [
+        "jni_headers",
+        "libdexfile_external_headers",
+    ],
+    export_header_lib_headers: ["libdexfile_external_headers"],
 }
 
 art_cc_test {
@@ -567,11 +591,22 @@ art_cc_test {
     srcs: [
         "external/dex_file_supp_test.cc",
     ],
+    header_libs: [
+        "jni_headers",
+    ],
     static_libs: [
         "libdexfile_static",
     ],
     enabled: false,
     target: {
+        android: {
+            // Build static test binary on device, to make sure libdexfile_static can be used in
+            // static simpleperf binary in ndk.
+            static_executable: true,
+            static_libs: [
+                "libc",
+            ],
+        },
         linux: {
             enabled: true,
         },
