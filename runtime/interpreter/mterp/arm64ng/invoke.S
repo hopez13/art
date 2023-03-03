@@ -131,8 +131,16 @@
 %  fetch_from_thread_cache("x0", miss_label="1f")
    b $helper
 1:
-   mov x0, xSELF
    ldr x1, [sp]
+   ldr w2, [x1, #ART_METHOD_DECLARING_CLASS_OFFSET]
+   ldr w2, [x2, #MIRROR_CLASS_DEX_CACHE_OFFSET]
+   ldr x2, [x2, #MIRROR_DEX_CACHE_RESOLVED_METHODS_ARRAY_OFFSET]
+   cbz x2, 2f
+   FETCH wip, 1
+   ldr x0, [x2, wip, uxtw #3]
+   cbnz x0, $helper
+2:
+   mov x0, xSELF
    mov x2, xPC
    bl nterp_get_method
    b $helper
@@ -159,8 +167,18 @@
    ldr x0, [x0, w2, uxtw #3]
    b $helper
 2:
-   mov x0, xSELF
    ldr x1, [sp]
+   ldr w2, [x1, #ART_METHOD_DECLARING_CLASS_OFFSET]
+   ldr w2, [x2, #MIRROR_CLASS_DEX_CACHE_OFFSET]
+   ldr x2, [x2, #MIRROR_DEX_CACHE_RESOLVED_METHODS_ARRAY_OFFSET]
+   cbz x2, 3f
+   FETCH wip, 1
+   ldr x0, [x2, wip, uxtw #3]
+   cbz x0, 3f
+   ldrh w2, [x0, #ART_METHOD_METHOD_INDEX_OFFSET]
+   b 1b
+3:
+   mov x0, xSELF
    mov x2, xPC
    bl nterp_get_method
    mov x2, x0

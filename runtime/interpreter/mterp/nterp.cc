@@ -509,6 +509,8 @@ extern "C" mirror::Object* NterpGetClassOrAllocateObject(Thread* self,
     return nullptr;
   }
 
+  LOG(ERROR) << "NGEO IN" << caller->PrettyMethod() << " FOUND " << c->PrettyClass() << ((c == caller->GetDeclaringClass() ? " YES" : " NO"));
+
   if (inst->Opcode() == Instruction::NEW_INSTANCE) {
     gc::AllocatorType allocator_type = Runtime::Current()->GetHeap()->GetCurrentAllocator();
     if (UNLIKELY(c->IsStringClass())) {

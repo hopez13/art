@@ -14,23 +14,10 @@
  * limitations under the License.
  */
 
-#if !defined(ASM_DEFINE_INCLUDE_DEPENDENCIES)
-#define ASM_DEFINE_INCLUDE_DEPENDENCIES 1
+#if ASM_DEFINE_INCLUDE_DEPENDENCIES
+#include "mirror/dex_cache.h"
 #endif
 
-#include "globals.def"
-#include "art_field.def"
-#include "art_method.def"
-#include "code_item.def"
-#include "lockword.def"
-#include "mirror_array.def"
-#include "mirror_class.def"
-#include "mirror_dex_cache.def"
-#include "mirror_object.def"
-#include "mirror_string.def"
-#include "osr.def"
-#include "profiling_info.def"
-#include "rosalloc.def"
-#include "runtime.def"
-#include "shadow_frame.def"
-#include "thread.def"
+ASM_DEFINE(MIRROR_DEX_CACHE_RESOLVED_METHODS_ARRAY_OFFSET,
+           art::mirror::DexCache::ResolvedMethodsArrayOffset().Int32Value())
+
