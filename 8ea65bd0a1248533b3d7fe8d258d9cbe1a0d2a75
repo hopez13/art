@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "64e1d477_1015fe99",
+        "filename": "runtime/jit/profile_saver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1963346
+      },
+      "writtenOn": "2023-03-03T06:37:51Z",
+      "side": 1,
+      "message": "Hello Nicolas:\n\nI\u0027m puzzled by the logic here.\n\nIf the startup is completed, we will not continue to wait, and will make the waiting time less than GetMinFirstSaveMs() for force_early_first_save.\n\nwhat is the reason for doing this?",
+      "range": {
+        "startLine": 149,
+        "startChar": 6,
+        "endLine": 149,
+        "endChar": 76
+      },
+      "revId": "8ea65bd0a1248533b3d7fe8d258d9cbe1a0d2a75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
