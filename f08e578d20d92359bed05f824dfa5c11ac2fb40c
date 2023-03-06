@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3abbaf3b_4b7881d7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-03-06T09:56:59Z",
+      "side": 1,
+      "message": "Does `fmt::format` in the newer versions provide the same compile-time check as `_format` does? In our previous experiments, it doesn\u0027t, at least not in the current version. For example, if I add an extra `{}` to the format string, `_format` will make the compilation fail, but `fmt::format` won\u0027t.",
+      "revId": "f08e578d20d92359bed05f824dfa5c11ac2fb40c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
