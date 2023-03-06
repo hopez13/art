@@ -2181,11 +2181,10 @@ class InitializeClassVisitor : public CompilationVisitor {
 
         // If the class was not initialized, we can proceed to see if we can initialize static
         // fields. Limit the max number of encoded fields.
-        if (!klass->IsInitialized() &&
-            (is_app_image || is_boot_image || is_boot_image_extension) &&
-            try_initialize_with_superclasses &&
-            !too_many_encoded_fields &&
-            compiler_options.IsImageClass(descriptor)) {
+        if (!klass->IsInitialized() && (is_app_image || is_boot_image || is_boot_image_extension) &&
+            try_initialize_with_superclasses && !too_many_encoded_fields &&
+            compiler_options.IsImageClass(descriptor) &&
+            compiler_options.IsAotCompilationEnabled()) {
           bool can_init_static_fields = false;
           if (is_boot_image || is_boot_image_extension) {
             // We need to initialize static fields, we only do this for image classes that aren't
