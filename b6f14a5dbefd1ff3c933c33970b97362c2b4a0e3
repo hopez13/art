@@ -280,6 +280,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "750c4fac_ca3876c1",
+        "filename": "runtime/arch/riscv64/jni_entrypoints_riscv64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-06T17:08:03Z",
+      "side": 1,
+      "message": "Or `TAGGED_JNI_SP_MASK_TOGGLED64`?",
+      "parentUuid": "0497ee4f_f1b8c7fa",
+      "range": {
+        "startLine": 45,
+        "startChar": 4,
+        "endLine": 47,
+        "endChar": 19
+      },
+      "revId": "b6f14a5dbefd1ff3c933c33970b97362c2b4a0e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "880d66bc_96b76f92",
         "filename": "runtime/arch/riscv64/jni_entrypoints_riscv64.S",
         "patchSetId": 2
