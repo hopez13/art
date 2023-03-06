@@ -256,6 +256,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0497ee4f_f1b8c7fa",
+        "filename": "runtime/arch/riscv64/jni_entrypoints_riscv64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-06T17:05:14Z",
+      "side": 1,
+      "message": "But it should be sign-extended to 64-bits, right? Maybe `~0x3` is interpreted as 32-bit? Maybe `-4` would work?",
+      "parentUuid": "f5eb5cbc_55eb7d0e",
+      "range": {
+        "startLine": 45,
+        "startChar": 4,
+        "endLine": 47,
+        "endChar": 19
+      },
+      "revId": "b6f14a5dbefd1ff3c933c33970b97362c2b4a0e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "880d66bc_96b76f92",
         "filename": "runtime/arch/riscv64/jni_entrypoints_riscv64.S",
         "patchSetId": 2
