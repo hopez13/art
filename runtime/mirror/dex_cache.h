@@ -211,21 +211,14 @@ template <typename T> class GcRootArray {
 
   T* Get(uint32_t index) REQUIRES_SHARED(Locks::mutator_lock_);
 
-  Atomic<GcRoot<T>>* GetGcRoot(uint32_t index) REQUIRES_SHARED(Locks::mutator_lock_) {
-    return &entries_[index];
-  }
-
-  // Only to be used in locations that don't need the atomic or will later load
-  // and read atomically.
-  GcRoot<T>* GetGcRootAddress(uint32_t index) REQUIRES_SHARED(Locks::mutator_lock_) {
-    static_assert(sizeof(GcRoot<T>) == sizeof(Atomic<GcRoot<T>>));
-    return reinterpret_cast<GcRoot<T>*>(&entries_[index]);
+  GcRoot<T>& GetGcRoot(uint32_t index) REQUIRES_SHARED(Locks::mutator_lock_) {
+    return entries_[index];
   }
 
   void Set(uint32_t index, T* value) REQUIRES_SHARED(Locks::mutator_lock_);
 
  private:
-  Atomic<GcRoot<T>> entries_[0];
+  GcRoot<T> entries_[0];
 };
 
 template <typename T> class NativeArray {
@@ -233,7 +226,7 @@ template <typename T> class NativeArray {
   NativeArray() {}
 
   T* Get(uint32_t index) {
-    return entries_[index].load(std::memory_order_relaxed);
+    return entries_[index];
   }
 
   T** GetPtrEntryPtrSize(uint32_t index, PointerSize ptr_size) {
@@ -247,11 +240,11 @@ template <typename T> class NativeArray {
   }
 
   void Set(uint32_t index, T* value) {
-    entries_[index].store(value, std::memory_order_relaxed);
+    entries_[index] = value;
   }
 
  private:
-  Atomic<T*> entries_[0];
+  T* entries_[0];
 };
 
 // C++ mirror of java.lang.DexCache.
