@@ -350,6 +350,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "df28fb32_0f3fceec",
+        "filename": "runtime/arch/riscv64/jni_entrypoints_riscv64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-03-06T17:35:30Z",
+      "side": 1,
+      "message": "Apologies, it\u0027s my bad, I forgot the second operand to the instruction (t0 register). I was so expecting an error related to the immediate that I didn\u0027t think about this possibility. Just `~TAGGED_JNI_SP_MASK` works.",
+      "parentUuid": "1f8866b6_2d36bbad",
+      "range": {
+        "startLine": 45,
+        "startChar": 4,
+        "endLine": 47,
+        "endChar": 19
+      },
+      "revId": "b6f14a5dbefd1ff3c933c33970b97362c2b4a0e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "880d66bc_96b76f92",
