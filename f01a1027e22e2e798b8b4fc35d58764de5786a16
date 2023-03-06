@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b954b55_bd7a0fd6",
+        "filename": "runtime/entrypoints/entrypoint_asm_constants.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-06T17:00:06Z",
+      "side": 1,
+      "message": "Old typo: 4KiB is 4096 bytes, not 4196.",
+      "range": {
+        "startLine": 23,
+        "startChar": 10,
+        "endLine": 23,
+        "endChar": 20
+      },
+      "revId": "f01a1027e22e2e798b8b4fc35d58764de5786a16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
