@@ -328,6 +328,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1f8866b6_2d36bbad",
+        "filename": "runtime/arch/riscv64/jni_entrypoints_riscv64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-06T17:31:07Z",
+      "side": 1,
+      "message": "Toolchain bug? Can we hard-code the instruction with something like `.data` and check with `objdump`?",
+      "parentUuid": "2621a9fa_6ceb127e",
+      "range": {
+        "startLine": 45,
+        "startChar": 4,
+        "endLine": 47,
+        "endChar": 19
+      },
+      "revId": "b6f14a5dbefd1ff3c933c33970b97362c2b4a0e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "880d66bc_96b76f92",
         "filename": "runtime/arch/riscv64/jni_entrypoints_riscv64.S",
         "patchSetId": 2
