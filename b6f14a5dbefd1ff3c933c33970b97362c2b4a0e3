@@ -107,6 +107,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fcf05924_d3498dfe",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-03-06T15:40:17Z",
+      "side": 1,
+      "message": "Moved.",
+      "parentUuid": "0bd08f62_f574f4ce",
+      "revId": "b6f14a5dbefd1ff3c933c33970b97362c2b4a0e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "72948917_84b7e02e",
@@ -124,6 +142,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b886ed6e_838f18b8",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-03-06T15:40:17Z",
+      "side": 1,
+      "message": "Moved.",
+      "parentUuid": "72948917_84b7e02e",
+      "revId": "b6f14a5dbefd1ff3c933c33970b97362c2b4a0e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a276dc4e_f5cb52b5",
@@ -137,6 +173,30 @@
       "writtenOn": "2023-02-27T09:35:22Z",
       "side": 1,
       "message": "Move right after the store.",
+      "range": {
+        "startLine": 36,
+        "startChar": 4,
+        "endLine": 36,
+        "endChar": 43
+      },
+      "revId": "b6f14a5dbefd1ff3c933c33970b97362c2b4a0e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b1ef7afa_44dc5bd0",
+        "filename": "runtime/arch/riscv64/jni_entrypoints_riscv64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-03-06T15:40:17Z",
+      "side": 1,
+      "message": "I replaced these with `SAVE_GPR`.",
+      "parentUuid": "a276dc4e_f5cb52b5",
       "range": {
         "startLine": 36,
         "startChar": 4,
@@ -170,6 +230,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5eb5cbc_55eb7d0e",
+        "filename": "runtime/arch/riscv64/jni_entrypoints_riscv64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-03-06T15:40:17Z",
+      "side": 1,
+      "message": "With this I get:\n```\nerror: invalid operand for instruction\n    andi t0, ~0x3\n```\nas ANDI can only handle 12-bit immediate.",
+      "parentUuid": "32c82ba7_d35010a1",
+      "range": {
+        "startLine": 45,
+        "startChar": 4,
+        "endLine": 47,
+        "endChar": 19
+      },
+      "revId": "b6f14a5dbefd1ff3c933c33970b97362c2b4a0e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "880d66bc_96b76f92",
@@ -193,6 +277,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ef42225_0b20eb54",
+        "filename": "runtime/arch/riscv64/jni_entrypoints_riscv64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-03-06T15:40:17Z",
+      "side": 1,
+      "message": "Thanks, fixed.",
+      "parentUuid": "880d66bc_96b76f92",
+      "range": {
+        "startLine": 49,
+        "startChar": 4,
+        "endLine": 49,
+        "endChar": 6
+      },
+      "revId": "b6f14a5dbefd1ff3c933c33970b97362c2b4a0e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1cede960_2dc139b8",
@@ -206,6 +314,30 @@
       "writtenOn": "2023-02-27T09:35:22Z",
       "side": 1,
       "message": "Move right after the load.",
+      "range": {
+        "startLine": 63,
+        "startChar": 4,
+        "endLine": 63,
+        "endChar": 19
+      },
+      "revId": "b6f14a5dbefd1ff3c933c33970b97362c2b4a0e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6f90be9_f1a3e44f",
+        "filename": "runtime/arch/riscv64/jni_entrypoints_riscv64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-03-06T15:40:17Z",
+      "side": 1,
+      "message": "I replaced these with `RESTORE_GPR`.",
+      "parentUuid": "1cede960_2dc139b8",
       "range": {
         "startLine": 63,
         "startChar": 4,
