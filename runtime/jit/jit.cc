@@ -901,12 +901,12 @@ class JitZygoteDoneCompilingTask final : public SelfDeletingTask {
 };
 
 /**
- * A JIT task to run Java verification of boot classpath classes that were not
- * verified at compile-time.
+ * A JIT task to make sure boot classpath classes are verified, and tries to
+ * initialize native methods.
  */
-class ZygoteVerificationTask final : public Task {
+class ZygoteBcpOptimizationTask final : public Task {
  public:
-  ZygoteVerificationTask() {}
+  ZygoteBcpOptimizationTask() {}
 
   void Run(Thread* self) override {
     // We are going to load class and run verification, which may also need to load
@@ -923,41 +923,45 @@ class ZygoteVerificationTask final : public Task {
     StackHandleScope<1> hs(self);
     MutableHandle<mirror::Class> klass = hs.NewHandle<mirror::Class>(nullptr);
     uint64_t start_ns = ThreadCpuNanoTime();
-    uint64_t number_of_classes = 0;
+    uint64_t number_of_verified_classes = 0;
+    uint64_t number_of_resolved_native_methods = 0;
+    JavaVMExt* const vm = down_cast<JNIEnvExt*>(self->GetJniEnv())->GetVm();
     for (const DexFile* dex_file : boot_class_path) {
-      if (dex_file->GetOatDexFile() != nullptr &&
-          dex_file->GetOatDexFile()->GetOatFile() != nullptr) {
-        // If backed by an .oat file, we have already run verification at
-        // compile-time. Note that some classes may still have failed
-        // verification there if they reference updatable mainline module
-        // classes.
-        continue;
-      }
       for (uint32_t i = 0; i < dex_file->NumClassDefs(); ++i) {
         const dex::ClassDef& class_def = dex_file->GetClassDef(i);
         const char* descriptor = dex_file->GetClassDescriptor(class_def);
-        ScopedNullHandle<mirror::ClassLoader> null_loader;
-        klass.Assign(linker->FindClass(self, descriptor, null_loader));
+        klass.Assign(linker->LookupResolvedType(descriptor, nullptr));
         if (klass == nullptr) {
-          self->ClearException();
-          LOG(WARNING) << "Could not find " << descriptor;
+          // Class not loaded yet.
           continue;
         }
-        if (linker->VerifyClass(self, /* verifier_deps= */ nullptr, klass) ==
-                verifier::FailureKind::kHardFailure) {
-          CHECK(self->IsExceptionPending());
-          LOG(WARNING) << "Methods in the boot classpath failed to verify: "
-                       << self->GetException()->Dump();
-          self->ClearException();
-        } else {
-          ++number_of_classes;
+        if (!klass->IsVerified()) {
+          if (linker->VerifyClass(self, /* verifier_deps= */ nullptr, klass) ==
+                  verifier::FailureKind::kHardFailure) {
+            CHECK(self->IsExceptionPending());
+            LOG(WARNING) << "Methods in the boot classpath failed to verify: "
+                         << self->GetException()->Dump();
+            self->ClearException();
+            continue;
+          }
+          ++number_of_verified_classes;
+        }
+        bool is_initialized = klass->IsVisiblyInitialized();
+        for (ArtMethod& method : klass->GetDeclaredMethods(kRuntimePointerSize)) {
+          if (method.IsNative() &&
+              (is_initialized || !method.NeedsClinitCheckBeforeCall())) {
+            linker->ResolveNativeMethod(self, &method, vm);
+            ++number_of_resolved_native_methods;
+          }
         }
         CHECK(!self->IsExceptionPending());
       }
     }
     LOG(INFO) << "Verified "
-              << number_of_classes
-              << " classes from mainline modules in "
+              << number_of_verified_classes
+              << " class, and initialized "
+              << number_of_resolved_native_methods
+              << " native methods in "
               << PrettyDuration(ThreadCpuNanoTime() - start_ns);
   }
 };
@@ -1232,7 +1236,7 @@ void Jit::CreateThreadPool() {
 
     // Add a task that will verify boot classpath jars that were not
     // pre-compiled.
-    thread_pool_->AddTask(Thread::Current(), new ZygoteVerificationTask());
+    thread_pool_->AddTask(Thread::Current(), new ZygoteBcpOptimizationTask());
   }
 
   if (InZygoteUsingJit()) {

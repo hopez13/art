@@ -2185,7 +2185,8 @@ class InitializeClassVisitor : public CompilationVisitor {
             (is_app_image || is_boot_image || is_boot_image_extension) &&
             try_initialize_with_superclasses &&
             !too_many_encoded_fields &&
-            compiler_options.IsImageClass(descriptor)) {
+            compiler_options.IsImageClass(descriptor) &&
+            compiler_options.IsProfileGuidedCompilation()) {
           bool can_init_static_fields = false;
           if (is_boot_image || is_boot_image_extension) {
             // We need to initialize static fields, we only do this for image classes that aren't

@@ -10635,6 +10635,24 @@ void ClassLinker::RemoveDexFromCaches(const DexFile& dex_file) {
   }
 }
 
+bool ClassLinker::ResolveNativeMethod(Thread* self, ArtMethod* method, JavaVMExt* vm) {
+  DCHECK(method->IsNative());
+  DCHECK(method->GetDeclaringClass()->IsVisiblyInitialized() ||
+         !method->NeedsClinitCheckBeforeCall());
+  const void* existing = method->GetEntryPointFromJni();
+  if (method->IsCriticalNative()
+          ? IsJniDlsymLookupCriticalStub(existing)
+          : IsJniDlsymLookupStub(existing)) {
+    const void* native_code =
+        vm->FindCodeForNativeMethod(method, /*error_msg=*/ nullptr, /*can_suspend=*/ false);
+    if (native_code != nullptr) {
+      RegisterNative(self, method, native_code);
+      return true;
+    }
+  }
+  return false;
+}
+
 // Instantiate ClassLinker::AllocClass.
 template ObjPtr<mirror::Class> ClassLinker::AllocClass</* kMovable= */ true>(
     Thread* self,
