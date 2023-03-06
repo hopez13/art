@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "51c18eaa_db953205",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-03-06T14:35:57Z",
+      "side": 1,
+      "message": "\u003e Copy-pasted from arm64 without the macro being defined there?\n\nExactly. Removed for now.\n\n\u003e We should actually define and use this macro on arm/arm64/riscv as we do on x86/x86-64.\n\nI\u0027ll leave the comment unresolved as a reminder.",
+      "parentUuid": "5058eafb_1acbf5bd",
+      "range": {
+        "startLine": 57,
+        "startChar": 60,
+        "endLine": 57,
+        "endChar": 78
+      },
+      "revId": "512154f3044669e97223cbce657361b2ef021d4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9a8e1ef8_0c0734a1",
         "filename": "runtime/arch/riscv64/asm_support_riscv64.S",
         "patchSetId": 8
@@ -71,6 +95,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d332690_2f5372be",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-03-06T14:35:57Z",
+      "side": 1,
+      "message": "Made it a compile-time error for now.",
+      "parentUuid": "b19992d1_f1629a64",
+      "range": {
+        "startLine": 78,
+        "startChar": 13,
+        "endLine": 78,
+        "endChar": 25
+      },
+      "revId": "512154f3044669e97223cbce657361b2ef021d4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0051609d_a8e65e8c",
@@ -84,6 +132,30 @@
       "writtenOn": "2023-02-27T08:59:35Z",
       "side": 1,
       "message": "remove",
+      "range": {
+        "startLine": 86,
+        "startChar": 49,
+        "endLine": 86,
+        "endChar": 51
+      },
+      "revId": "512154f3044669e97223cbce657361b2ef021d4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0bb686b8_68f5432f",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-03-06T14:35:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0051609d_a8e65e8c",
       "range": {
         "startLine": 86,
         "startChar": 49,
@@ -111,6 +183,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8bfbee4c_e47f81de",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-03-06T14:35:57Z",
+      "side": 1,
+      "message": "I added macros `{SAVE,RESTORE}_{G,F}PR` and used them for all the resgiters in all frame save/restore functions. If needed, I can add `{SAVE,RESTORE}_{G,F}PR_CFI` that will be used only for registers that need CFI info, but dsrbecky@ was in favor of annotating all registers and thinks the overhead for unwinder is acceptable:\n\n“I would not worry about the overhead - there much fewer stubs then methods, and it will all be cached after first hit anyway. Ideally we should save CFI for all registers. It is rarely necessary, but it is the correct / conservative thing to do.”\n\nAnd mythria@ said regarding debuggabble that \"I was under the impression that we generate CFI for all registers and debuggable / non-debuggable doesn\u0027t impact it\".",
+      "parentUuid": "7658aa34_402e149d",
+      "revId": "512154f3044669e97223cbce657361b2ef021d4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5a7c7ee5_10c06768",
@@ -124,6 +214,30 @@
       "writtenOn": "2023-02-27T08:59:35Z",
       "side": 1,
       "message": "The parameter type is unused. (Used only in a comment.)\n\nNo commas between macro arguments? (I see that on arm64 we\u0027re sometimes using commas and sometimes just spaces. We should probably just choose which style we want and try to be consistent.)",
+      "range": {
+        "startLine": 178,
+        "startChar": 44,
+        "endLine": 178,
+        "endChar": 49
+      },
+      "revId": "512154f3044669e97223cbce657361b2ef021d4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb394e2b_8b0d9769",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-03-06T14:35:57Z",
+      "side": 1,
+      "message": "Removed parameter.\n\nAs for commas, I don\u0027t use them except for one copy-pasted macro, so I removed the comma in that one case and RISC-V style should be consistent. Let me know if you prefer having commas (I have only a slight preference to save space).\n\nLeaving this comment unresolved to remember about the cleanup for other architectures.",
+      "parentUuid": "5a7c7ee5_10c06768",
       "range": {
         "startLine": 178,
         "startChar": 44,
@@ -157,6 +271,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "737b5e44_230c4a28",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-03-06T14:35:57Z",
+      "side": 1,
+      "message": "Oh! Good catch.",
+      "parentUuid": "bc8e73ac_d03c2ca4",
+      "range": {
+        "startLine": 183,
+        "startChar": 25,
+        "endLine": 183,
+        "endChar": 27
+      },
+      "revId": "512154f3044669e97223cbce657361b2ef021d4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d30573d5_9e614b6a",
@@ -170,6 +308,30 @@
       "writtenOn": "2023-02-27T08:59:35Z",
       "side": 1,
       "message": "Style: Do we really want to have a space here? (Same below.)",
+      "range": {
+        "startLine": 273,
+        "startChar": 1,
+        "endLine": 273,
+        "endChar": 2
+      },
+      "revId": "512154f3044669e97223cbce657361b2ef021d4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "661b8646_69203501",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-03-06T14:35:57Z",
+      "side": 1,
+      "message": "No, that\u0027s accidental, removed.",
+      "parentUuid": "d30573d5_9e614b6a",
       "range": {
         "startLine": 273,
         "startChar": 1,
@@ -197,6 +359,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "054fbe67_ed3cf84a",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-03-06T14:35:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "648e2ab8_e0b7b286",
+      "revId": "512154f3044669e97223cbce657361b2ef021d4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0dcca446_c9c9caef",
@@ -220,6 +400,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9dfedf0c_6a4c2acf",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-03-06T14:35:57Z",
+      "side": 1,
+      "message": "Done for CF and for reordering.",
+      "parentUuid": "0dcca446_c9c9caef",
+      "range": {
+        "startLine": 27,
+        "startChar": 4,
+        "endLine": 28,
+        "endChar": 16
+      },
+      "revId": "512154f3044669e97223cbce657361b2ef021d4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3a1c7492_98c250c4",
@@ -233,6 +437,24 @@
       "writtenOn": "2023-02-27T08:59:35Z",
       "side": 1,
       "message": "Missing CFI directives and odd order of saved registers.",
+      "revId": "512154f3044669e97223cbce657361b2ef021d4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e6e232b_a206b58d",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-03-06T14:35:57Z",
+      "side": 1,
+      "message": "Fixed CFI, reordered registers byt their X numbers except for RA.",
+      "parentUuid": "3a1c7492_98c250c4",
       "revId": "512154f3044669e97223cbce657361b2ef021d4e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -274,6 +496,30 @@
       "side": 1,
       "message": "(yes, there\u0027s a full set of such _pseudo_ instructions, even though they\u0027re constructed from a smaller set of instructions with arguments flipped in many cases. https://github.com/riscv-non-isa/riscv-asm-manual/blob/master/riscv-asm.md#-a-listing-of-standard-risc-v-pseudoinstructions)",
       "parentUuid": "38154ba3_1ba4e021",
+      "range": {
+        "startLine": 76,
+        "startChar": 4,
+        "endLine": 76,
+        "endChar": 11
+      },
+      "revId": "512154f3044669e97223cbce657361b2ef021d4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e8ac22a7_9ef95f3c",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-03-06T14:35:57Z",
+      "side": 1,
+      "message": "I moved BEQZ out of the loop and changed J to BNEZ.",
+      "parentUuid": "c5894c10_0801eacc",
       "range": {
         "startLine": 76,
         "startChar": 4,
@@ -331,6 +577,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "239330b3_ed46f37d",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-03-06T14:35:57Z",
+      "side": 1,
+      "message": "Elliott has answered this from the practical standpoint, and here\u0027s a quote from the standard Volume I: RISC-V Unprivileged ISA V20191214-draft, chapter 2.6 (less useful as it just says that it depends on the execution environment, and that it\u0027s not OK for atomics):\n\nLoads and stores whose effective address is not naturally aligned to the referenced datatype (i.e., the effective address is not divisible by the size of the access in bytes) have behavior dependent on the EEI. An EEI may guarantee that misaligned loads and stores are fully supported, and so the software running inside the execution environment will never experience a contained or fatal address-misaligned trap. In this case, the misaligned loads and stores can be handled in hardware, or via an invisible trap into the execution environment implementation, or possibly a combination of hardware and invisible trap depending on address.\n\nAn EEI may not guarantee misaligned loads and stores are handled invisibly. In this case, loads and stores that are not naturally aligned may either complete execution successfully or raise an exception. The exception raised can be either an address-misaligned exception or an access-fault exception. For a memory access that would otherwise be able to complete except for the misalignment, an access-fault exception can be raised instead of an address-misaligned exception if the misaligned access should not be emulated, e.g., if accesses to the memory region have side effects. When an EEI does not guarantee misaligned loads and stores are handled invisibly, the EEI must define if exceptions caused by address misalignment result in a contained trap (allowing software running inside the execution environment to handle the trap) or a fatal trap (terminating execution).\n\nEven when misaligned loads and stores complete successfully, these accesses might run extremely slowly depending on the implementation (e.g., when implemented via an invisible trap). Furthermore, whereas naturally aligned loads and stores are guaranteed to execute atomically, misaligned loads and stores might not, and hence require additional synchronization to ensure atomicity.",
+      "parentUuid": "72ca8343_6211b424",
+      "range": {
+        "startLine": 152,
+        "startChar": 4,
+        "endLine": 152,
+        "endChar": 26
+      },
+      "revId": "512154f3044669e97223cbce657361b2ef021d4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "344e274e_c16c713f",
@@ -344,6 +614,30 @@
       "writtenOn": "2023-02-27T08:59:35Z",
       "side": 1,
       "message": "assembler?\n\nIf there are different encoding sizes, should it be possible to specify the encoding similar to the `.w` suffix for T32?",
+      "range": {
+        "startLine": 172,
+        "startChar": 75,
+        "endLine": 172,
+        "endChar": 92
+      },
+      "revId": "512154f3044669e97223cbce657361b2ef021d4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "210ebdc3_ffbb11c6",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-03-06T14:35:57Z",
+      "side": 1,
+      "message": "I found this thread https://groups.google.com/a/groups.riscv.org/g/isa-dev/c/XKkYacERM04 which suggests `.option norvc`. It is inconvenient to use as it needs to be at the macro call site rather than at the macro definition site, and surrounded by `.option push/pop`. Also it means that all the macros will be 16 bytes instead of 10, which may be not good for performance. Given that the need to know exact sequence length will go away after I rewrite this as you suggested for ARM64, I think we can leave it as is for now. Reopen if you think otherwise.",
+      "parentUuid": "344e274e_c16c713f",
       "range": {
         "startLine": 172,
         "startChar": 75,
@@ -377,6 +671,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "591d4a6f_7d92e6af",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-03-06T14:35:57Z",
+      "side": 1,
+      "message": "This is to measure the distance between labels 1 and 2. The addresses are taken on lines 176 and 177.",
+      "parentUuid": "4d3bb428_201b2853",
+      "range": {
+        "startLine": 183,
+        "startChar": 4,
+        "endLine": 183,
+        "endChar": 20
+      },
+      "revId": "512154f3044669e97223cbce657361b2ef021d4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f4c7c047_b7593e3f",
@@ -390,6 +708,30 @@
       "writtenOn": "2023-02-27T08:59:35Z",
       "side": 1,
       "message": "type",
+      "range": {
+        "startLine": 218,
+        "startChar": 74,
+        "endLine": 218,
+        "endChar": 79
+      },
+      "revId": "512154f3044669e97223cbce657361b2ef021d4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b5b76600_73e160bd",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-03-06T14:35:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f4c7c047_b7593e3f",
       "range": {
         "startLine": 218,
         "startChar": 74,
@@ -425,6 +767,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "49e584d7_6fe71a4c",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-03-06T14:35:57Z",
+      "side": 1,
+      "message": "Ack, leaving the comment unresolved as a reminder.",
+      "parentUuid": "1823bedb_5c6338dd",
+      "range": {
+        "startLine": 222,
+        "startChar": 0,
+        "endLine": 227,
+        "endChar": 11
+      },
+      "revId": "512154f3044669e97223cbce657361b2ef021d4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "19a8fdd4_4588f6fb",
         "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
         "patchSetId": 8
@@ -436,6 +802,30 @@
       "writtenOn": "2023-02-27T08:59:35Z",
       "side": 1,
       "message": "We could define the managed ABI to skip A1 for static methods. This would reduce argument shuffling for calls to static native methods. (It would reduce the number of argumentswe can pass in registers but methods with more than 6 arguments should be rare and probably not performance sensitive anyway.)",
+      "range": {
+        "startLine": 332,
+        "startChar": 4,
+        "endLine": 332,
+        "endChar": 37
+      },
+      "revId": "512154f3044669e97223cbce657361b2ef021d4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "371f5aef_92d57325",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-03-06T14:35:57Z",
+      "side": 1,
+      "message": "I think this is obsolete after aosp/2458431 that handles both instance and static cases with `.ifc`, reopen if not.",
+      "parentUuid": "19a8fdd4_4588f6fb",
       "range": {
         "startLine": 332,
         "startChar": 4,
@@ -459,6 +849,24 @@
       "writtenOn": "2023-02-27T08:59:35Z",
       "side": 1,
       "message": "Missing CFI directives.",
+      "revId": "512154f3044669e97223cbce657361b2ef021d4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5ff82f7_6c53bbe9",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-03-06T14:35:57Z",
+      "side": 1,
+      "message": "I used FP for CFI. This is not what we have on ARM64 which uses an extra register (http://cs/android/art/runtime/arch/arm64/quick_entrypoints_arm64.S?l\u003d1743):\n```\n    // Save SP , so we can have static CFI info.                                                                                                                                                                                              \n    mov x28, sp                                                                                                                                                                                                                               \n    .cfi_def_cfa_register x28                                                                                                                                                                                                                 \n                                                                                                                                                                                                                                              \n    // This looks the same, but is different: this will be updated to point to the bottom                                                                                                                                                     \n    // of the frame when the handle scope is inserted.                                                                                                                                                                                        \n    mov xFP, sp                                                                                                                                                                                                                               \n\n...\n\n    // Tear down the alloca.                                                                                                                                                                                                                  \n    mov sp, x28                                                                                                                                                                                                                               \n    .cfi_remember_state                                                                                                                                                                                                                       \n    .cfi_def_cfa_register sp                                                                                                                                                                                                                  \n```\nBut I don\u0027t see where FP is modified, so I used FP on RISC-V. Please reopen if this is incorrect and I need to use an extra register for CFI.",
+      "parentUuid": "d8dd3da5_e8865cb9",
       "revId": "512154f3044669e97223cbce657361b2ef021d4e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
