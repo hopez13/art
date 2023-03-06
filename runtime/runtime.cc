@@ -731,16 +731,7 @@ class UpdateMethodsPreFirstForkVisitor : public ClassVisitor {
     for (ArtMethod& method : klass->GetDeclaredMethods(kRuntimePointerSize)) {
       if (is_initialized || !method.NeedsClinitCheckBeforeCall()) {
         if (method.IsNative()) {
-          const void* existing = method.GetEntryPointFromJni();
-          if (method.IsCriticalNative()
-                  ? class_linker_->IsJniDlsymLookupCriticalStub(existing)
-                  : class_linker_->IsJniDlsymLookupStub(existing)) {
-            const void* native_code =
-                vm_->FindCodeForNativeMethod(&method, /*error_msg=*/ nullptr, /*can_suspend=*/ false);
-            if (native_code != nullptr) {
-              class_linker_->RegisterNative(self_, &method, native_code);
-            }
-          }
+          class_linker_->ResolveNativeMethod(self_, &method, vm_);
         }
       } else if (can_use_nterp_) {
         const void* existing = method.GetEntryPointFromQuickCompiledCode();

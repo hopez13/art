@@ -55,6 +55,7 @@ class ClassTable;
 class DexFile;
 template<class T> class Handle;
 class ImtConflictTable;
+class JavaVMExt;
 template<typename T> class LengthPrefixedArray;
 template<class T> class MutableHandle;
 class InternTable;
@@ -818,6 +819,9 @@ class ClassLinker {
   const void* GetRegisteredNative(Thread* self, ArtMethod* method)
       REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!critical_native_code_with_clinit_check_lock_);
+
+  bool ResolveNativeMethod(Thread* self, ArtMethod* method, JavaVMExt* vm)
+      REQUIRES_SHARED(Locks::mutator_lock_);
 
   struct DexCacheData {
     // Construct an invalid data object.
