@@ -71,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "68fb55ae_ce2da05f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1056364
+      },
+      "writtenOn": "2023-03-06T21:20:56Z",
+      "side": 1,
+      "message": "As a user, I feel it\u0027s easier to understand if libdexfile_static only depends on static libraries, and has fewer dependency layers to reason.\nBut I also feel art seems to has its own build rules, preferring whole_static_libs and using defaults to import and export things. I hope we can reach a comfort zone for both.",
+      "parentUuid": "3e71b75f_5f40148b",
+      "range": {
+        "startLine": 16,
+        "startChar": 36,
+        "endLine": 16,
+        "endChar": 56
+      },
+      "revId": "2252c66282192d79827eb8e8827e74a6a8e5b947",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b7a9cf76_e17990dc",
@@ -94,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "00111f23_bed78f26",
+        "filename": "libdexfile/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1056364
+      },
+      "writtenOn": "2023-03-06T21:20:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b7a9cf76_e17990dc",
+      "range": {
+        "startLine": 136,
+        "startChar": 11,
+        "endLine": 136,
+        "endChar": 42
+      },
+      "revId": "2252c66282192d79827eb8e8827e74a6a8e5b947",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d745c82b_8d34e509",
@@ -107,6 +155,30 @@
       "writtenOn": "2023-03-06T15:01:17Z",
       "side": 1,
       "message": "Let\u0027s put this at the top level so we test it this way on host as well.",
+      "range": {
+        "startLine": 603,
+        "startChar": 0,
+        "endLine": 605,
+        "endChar": 36
+      },
+      "revId": "2252c66282192d79827eb8e8827e74a6a8e5b947",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b1b425bf_f28eae76",
+        "filename": "libdexfile/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 605,
+      "author": {
+        "id": 1056364
+      },
+      "writtenOn": "2023-03-06T21:20:56Z",
+      "side": 1,
+      "message": "Simpleperf only builds static binary on device. And I am not sure the proper to build static executable on host:\n\nIf I link with libc, I got error:\nmodule \"art_libdexfile_static_tests\" variant \"linux_glibc_x86_64\": depends on disabled module \"libc\"\n\nIf I link without libc, I got error:\nld.lld: error: undefined symbol: __tls_get_addr\n\u003e\u003e\u003e referenced by sanitizer_linux_libcdep.cpp:392 (out/lib/compiler-rt-i386-host-linux/out/llvm-project/compiler-rt/lib/sanitizer_common/sanitizer_l\ninux_libcdep.cpp:392)\n\u003e\u003e\u003e               sanitizer_linux_libcdep.cpp.o:(__sanitizer::CollectStaticTlsBlocks(dl_phdr_info*, unsigned int, void*)) in archive /ssd/android/ao\nsp-master/prebuilts/clang/host/linux-x86/clang-r475365b/lib/clang/16.0.2/lib/linux/libclang_rt.ubsan_standalone-i386.a\n\nI saw an example building static binary under linux_bionic target, is that what you want?",
+      "parentUuid": "d745c82b_8d34e509",
       "range": {
         "startLine": 603,
         "startChar": 0,

@@ -22,6 +22,30 @@
       },
       "revId": "5dd14cf9abac978eb98f5518629402365a1920d3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de34ef1e_0bef7d88",
+        "filename": "libdexfile/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 559,
+      "author": {
+        "id": 1056364
+      },
+      "writtenOn": "2023-03-06T21:20:56Z",
+      "side": 0,
+      "message": "I feel keeping libdexfile_support layer makes the dependency chain harder to reason. Because libdexfile_support depends on libdexfile. But we already build libdexfile_srcs here. Then we will have two versions of libdexfile in libdexfile_static.",
+      "parentUuid": "c8cbad21_62a5269c",
+      "range": {
+        "startLine": 559,
+        "startChar": 9,
+        "endLine": 559,
+        "endChar": 43
+      },
+      "revId": "5dd14cf9abac978eb98f5518629402365a1920d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
