@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d69b48a_3ab19d07",
+        "filename": "runtime/entrypoints/entrypoint_asm_constants.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-03-06T15:55:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "06464762_8c5b0b50",
+      "range": {
+        "startLine": 23,
+        "startChar": 66,
+        "endLine": 24,
+        "endChar": 40
+      },
+      "revId": "6522c577fefe0df19f93ce02d91affeaa4f21764",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "007b9c4b_17cc89dd",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-02-27T09:09:30Z",
       "side": 1,
       "message": "This is architecture-dependent. Max 32 GPRs and max 32 FPRs on each supported architecture.",
+      "range": {
+        "startLine": 25,
+        "startChar": 6,
+        "endLine": 25,
+        "endChar": 46
+      },
+      "revId": "6522c577fefe0df19f93ce02d91affeaa4f21764",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "db23f12c_979122a3",
+        "filename": "runtime/entrypoints/entrypoint_asm_constants.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-03-06T15:55:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "007b9c4b_17cc89dd",
       "range": {
         "startLine": 25,
         "startChar": 6,
