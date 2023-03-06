@@ -16,6 +16,632 @@
       "message": "Ready to review again. Please look at PS1-\u003ePS6",
       "revId": "074e82f716087bd57546aa262f8088403cd5d3a5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8bbd2096_456423ab",
+        "filename": "runtime/cha.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-03-06T11:07:00Z",
+      "side": 1,
+      "message": "add a `REQUIRES_SHARED` here?",
+      "range": {
+        "startLine": 240,
+        "startChar": 36,
+        "endLine": 240,
+        "endChar": 37
+      },
+      "revId": "074e82f716087bd57546aa262f8088403cd5d3a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2be540ef_7a7358c1",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2722,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-03-06T11:07:00Z",
+      "side": 1,
+      "message": "`clear \u003d nullptr`;\n\nAnd add a DCHECK that `clear` isn\u0027t null after the block?",
+      "range": {
+        "startLine": 2722,
+        "startChar": 0,
+        "endLine": 2722,
+        "endChar": 26
+      },
+      "revId": "074e82f716087bd57546aa262f8088403cd5d3a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af3546f7_4dbdf619",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2746,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-03-06T11:07:00Z",
+      "side": 1,
+      "message": "Can this be moved line 2735?",
+      "range": {
+        "startLine": 2746,
+        "startChar": 6,
+        "endLine": 2746,
+        "endChar": 50
+      },
+      "revId": "074e82f716087bd57546aa262f8088403cd5d3a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4bfc0c6e_2abfe587",
+        "filename": "runtime/native/dalvik_system_VMStack.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-03-06T11:07:00Z",
+      "side": 1,
+      "message": "its",
+      "range": {
+        "startLine": 58,
+        "startChar": 55,
+        "endLine": 58,
+        "endChar": 59
+      },
+      "revId": "074e82f716087bd57546aa262f8088403cd5d3a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "536aaba5_c979243e",
+        "filename": "runtime/native/dalvik_system_VMStack.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-03-06T11:07:00Z",
+      "side": 1,
+      "message": "Mention why it\u0027s also ok if it\u0027s missing?",
+      "revId": "074e82f716087bd57546aa262f8088403cd5d3a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3827cb0a_e0c0787c",
+        "filename": "runtime/thread-inl.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 464,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-03-06T11:07:00Z",
+      "side": 1,
+      "message": "for_user_code",
+      "range": {
+        "startLine": 464,
+        "startChar": 61,
+        "endLine": 464,
+        "endChar": 72
+      },
+      "revId": "074e82f716087bd57546aa262f8088403cd5d3a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc032d47_64b461e7",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1496,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-03-06T11:07:00Z",
+      "side": 1,
+      "message": "Add a comment why there can only be one suspendall request?",
+      "range": {
+        "startLine": 1493,
+        "startChar": 0,
+        "endLine": 1496,
+        "endChar": 5
+      },
+      "revId": "074e82f716087bd57546aa262f8088403cd5d3a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f23893f_510712b7",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1647,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-03-06T11:07:00Z",
+      "side": 1,
+      "message": "Looks like this is unused now?",
+      "range": {
+        "startLine": 1633,
+        "startChar": 0,
+        "endLine": 1647,
+        "endChar": 0
+      },
+      "revId": "074e82f716087bd57546aa262f8088403cd5d3a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1b5017ba_4d59f406",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1694,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-03-06T11:07:00Z",
+      "side": 1,
+      "message": ",",
+      "range": {
+        "startLine": 1694,
+        "startChar": 41,
+        "endLine": 1694,
+        "endChar": 42
+      },
+      "revId": "074e82f716087bd57546aa262f8088403cd5d3a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b45ebce0_0d5459c2",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1744,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-03-06T11:07:00Z",
+      "side": 1,
+      "message": "I read CHECKs as replaceable with DCHECKs. Could you move this CHECK out and store the result in a local variable that you then CHECK?",
+      "range": {
+        "startLine": 1744,
+        "startChar": 6,
+        "endLine": 1744,
+        "endChar": 11
+      },
+      "revId": "074e82f716087bd57546aa262f8088403cd5d3a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77b7458b_8e50ec83",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1824,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-03-06T11:07:00Z",
+      "side": 1,
+      "message": "Interesting that clang isn\u0027t complaining of no return here. Maybe add a LOG(UNREACHABLE) with a comment?",
+      "revId": "074e82f716087bd57546aa262f8088403cd5d3a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f87d92e2_34819e99",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1836,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-03-06T11:07:00Z",
+      "side": 1,
+      "message": "So is that unexpected? Can you expand the comment?",
+      "range": {
+        "startLine": 1836,
+        "startChar": 52,
+        "endLine": 1836,
+        "endChar": 97
+      },
+      "revId": "074e82f716087bd57546aa262f8088403cd5d3a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c7db0d00_ed0b07e8",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1877,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-03-06T11:07:00Z",
+      "side": 1,
+      "message": "Maybe for better readability, we could have a helper such as `GetStateAndFlagsWhileRunning` or something, which would be implemented with the right memory order kind. You could then add a comment in that helper about that memory order.",
+      "range": {
+        "startLine": 1877,
+        "startChar": 40,
+        "endLine": 1877,
+        "endChar": 84
+      },
+      "revId": "074e82f716087bd57546aa262f8088403cd5d3a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "508a779c_26e6bef6",
+        "filename": "runtime/thread.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-03-06T11:07:00Z",
+      "side": 1,
+      "message": "Given you\u0027re changing this, add a comment why it needs to be this memory order kind?",
+      "range": {
+        "startLine": 341,
+        "startChar": 53,
+        "endLine": 341,
+        "endChar": 79
+      },
+      "revId": "074e82f716087bd57546aa262f8088403cd5d3a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "512579c4_d4e39c07",
+        "filename": "runtime/thread.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 2207,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-03-06T11:07:00Z",
+      "side": 1,
+      "message": "of an",
+      "range": {
+        "startLine": 2207,
+        "startChar": 33,
+        "endLine": 2207,
+        "endChar": 35
+      },
+      "revId": "074e82f716087bd57546aa262f8088403cd5d3a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "78c10e3b_8a66fbcf",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-03-06T11:07:00Z",
+      "side": 1,
+      "message": "allow_lock_checking",
+      "range": {
+        "startLine": 315,
+        "startChar": 38,
+        "endLine": 315,
+        "endChar": 55
+      },
+      "revId": "074e82f716087bd57546aa262f8088403cd5d3a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "05974692_4df087bd",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 561,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-03-06T11:07:00Z",
+      "side": 1,
+      "message": "This reads odd, assuming flip logic is not bound to GC logic, can you expand? Also, comment why this is OK that new threads only see to-space references.",
+      "range": {
+        "startLine": 561,
+        "startChar": 0,
+        "endLine": 561,
+        "endChar": 70
+      },
+      "revId": "074e82f716087bd57546aa262f8088403cd5d3a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c605cd45_ee9c0749",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 757,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-03-06T11:07:00Z",
+      "side": 1,
+      "message": "Can you add a comment here or line 702 how `self` can be null?",
+      "range": {
+        "startLine": 757,
+        "startChar": 15,
+        "endLine": 757,
+        "endChar": 30
+      },
+      "revId": "074e82f716087bd57546aa262f8088403cd5d3a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb3260fb_94b1964f",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 761,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-03-06T11:07:00Z",
+      "side": 1,
+      "message": "extra space",
+      "range": {
+        "startLine": 761,
+        "startChar": 55,
+        "endLine": 761,
+        "endChar": 57
+      },
+      "revId": "074e82f716087bd57546aa262f8088403cd5d3a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae9f4f2d_9231b485",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 766,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-03-06T11:07:00Z",
+      "side": 1,
+      "message": "As this can potentially hit, I find it easier to read when in non-CHECK statements, eg:\n\n```\nif (iter_count \u003e\u003d kMaxSuspendRetries)) {\n   LOG(FATAL) \u003c\u003c di;\n}\n```",
+      "range": {
+        "startLine": 766,
+        "startChar": 0,
+        "endLine": 766,
+        "endChar": 51
+      },
+      "revId": "074e82f716087bd57546aa262f8088403cd5d3a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6cd603c_d3c63551",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 771,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-03-06T11:07:00Z",
+      "side": 1,
+      "message": "otherwise",
+      "range": {
+        "startLine": 771,
+        "startChar": 73,
+        "endLine": 771,
+        "endChar": 77
+      },
+      "revId": "074e82f716087bd57546aa262f8088403cd5d3a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7954ccb6_40806a9b",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 870,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-03-06T11:07:00Z",
+      "side": 1,
+      "message": "Add a /* paraneter_name\u003d */.",
+      "range": {
+        "startLine": 870,
+        "startChar": 39,
+        "endLine": 870,
+        "endChar": 40
+      },
+      "revId": "074e82f716087bd57546aa262f8088403cd5d3a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1831cd7_db313554",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 947,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-03-06T11:07:00Z",
+      "side": 1,
+      "message": "ditto about moving this to an `if`.",
+      "revId": "074e82f716087bd57546aa262f8088403cd5d3a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4cb43cdd_71f19124",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 980,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-03-06T11:07:00Z",
+      "side": 1,
+      "message": "This is scarily very close to `SuspendThreadByPeer`. Have you looked into merging them?",
+      "range": {
+        "startLine": 980,
+        "startChar": 20,
+        "endLine": 980,
+        "endChar": 43
+      },
+      "revId": "074e82f716087bd57546aa262f8088403cd5d3a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16dc3483_64ffcc9d",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1024,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-03-06T11:07:00Z",
+      "side": 1,
+      "message": "ditto about using an `if`.",
+      "range": {
+        "startLine": 1024,
+        "startChar": 0,
+        "endLine": 1024,
+        "endChar": 45
+      },
+      "revId": "074e82f716087bd57546aa262f8088403cd5d3a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f46eaa3_08f79fba",
+        "filename": "runtime/thread_list.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-03-06T11:07:00Z",
+      "side": 1,
+      "message": "This is now reversed (debug has a shorter timeout compared to release). Is that expected? Maybe add a comment?",
+      "range": {
+        "startLine": 52,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 58
+      },
+      "revId": "074e82f716087bd57546aa262f8088403cd5d3a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a27acdf5_4a814790",
+        "filename": "runtime/thread_list.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-03-06T11:07:00Z",
+      "side": 1,
+      "message": "Ditto, why should debug have a shorter time?",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 71
+      },
+      "revId": "074e82f716087bd57546aa262f8088403cd5d3a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "096febf3_e8d7fde1",
+        "filename": "runtime/thread_list.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-03-06T11:07:00Z",
+      "side": 1,
+      "message": "allow_lock_checking",
+      "range": {
+        "startLine": 121,
+        "startChar": 28,
+        "endLine": 121,
+        "endChar": 45
+      },
+      "revId": "074e82f716087bd57546aa262f8088403cd5d3a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
