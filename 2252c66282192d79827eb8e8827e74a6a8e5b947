@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa4ca1ce_a5477299",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-03-06T15:01:17Z",
+      "side": 1,
+      "message": "Well, the static library is only used by dalvikvm and dex2oat on host I believe, iow host compilation and host tests. David, is this trace relevant for those?\n\nSo I reckon this isn\u0027t completely off the table. Granted, in general we should avoid differences between static and dynamic libs, but how much this complicates the build setup is also a factor.",
+      "range": {
+        "startLine": 12,
+        "startChar": 3,
+        "endLine": 13,
+        "endChar": 24
+      },
+      "revId": "2252c66282192d79827eb8e8827e74a6a8e5b947",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e71b75f_5f40148b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-03-06T15:01:17Z",
+      "side": 1,
+      "message": "This introduces a special case on top of an already complex setup, so I can\u0027t say I agree it\u0027s simplifying things.",
+      "range": {
+        "startLine": 16,
+        "startChar": 36,
+        "endLine": 16,
+        "endChar": 56
+      },
+      "revId": "2252c66282192d79827eb8e8827e74a6a8e5b947",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7a9cf76_e17990dc",
+        "filename": "libdexfile/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-03-06T15:01:17Z",
+      "side": 1,
+      "message": "Please use this in addition to libartbase_static_defaults.",
+      "range": {
+        "startLine": 136,
+        "startChar": 11,
+        "endLine": 136,
+        "endChar": 42
+      },
+      "revId": "2252c66282192d79827eb8e8827e74a6a8e5b947",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d745c82b_8d34e509",
+        "filename": "libdexfile/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 605,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-03-06T15:01:17Z",
+      "side": 1,
+      "message": "Let\u0027s put this at the top level so we test it this way on host as well.",
+      "range": {
+        "startLine": 603,
+        "startChar": 0,
+        "endLine": 605,
+        "endChar": 36
+      },
+      "revId": "2252c66282192d79827eb8e8827e74a6a8e5b947",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

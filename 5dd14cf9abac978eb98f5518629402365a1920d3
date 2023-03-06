@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c8cbad21_62a5269c",
+        "filename": "libdexfile/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 559,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-03-06T15:01:17Z",
+      "side": 0,
+      "message": "Why is the libdexfile_support layer removed? I\u0027d prefer to keep it, for the sake of consistency, even though simpleperf currently is the only user.",
+      "range": {
+        "startLine": 559,
+        "startChar": 9,
+        "endLine": 559,
+        "endChar": 43
+      },
+      "revId": "5dd14cf9abac978eb98f5518629402365a1920d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
