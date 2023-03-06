@@ -744,6 +744,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a74938fe_cc12de1c",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-03-06T16:59:31Z",
+      "side": 1,
+      "message": "(fwiw, the linker is actually relevant too because of linker relaxation of jumps.)",
+      "parentUuid": "8d9f488b_2db51d0e",
+      "range": {
+        "startLine": 172,
+        "startChar": 75,
+        "endLine": 172,
+        "endChar": 92
+      },
+      "revId": "512154f3044669e97223cbce657361b2ef021d4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4d3bb428_201b2853",
