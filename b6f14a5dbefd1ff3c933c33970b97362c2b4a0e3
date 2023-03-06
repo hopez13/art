@@ -304,6 +304,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2621a9fa_6ceb127e",
+        "filename": "runtime/arch/riscv64/jni_entrypoints_riscv64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-03-06T17:28:14Z",
+      "side": 1,
+      "message": "-4 does not work (fails in the same way) neither does TAGGED_JNI_SP_MASK_TOGGLED64, but the immediate is sign-extended, so I hoped that ~TAGGED_JNI_SP_MASK ANDed to just have 12 bits should work (and sign extend to all ones). I can\u0027t make it work yet.",
+      "parentUuid": "750c4fac_ca3876c1",
+      "range": {
+        "startLine": 45,
+        "startChar": 4,
+        "endLine": 47,
+        "endChar": 19
+      },
+      "revId": "b6f14a5dbefd1ff3c933c33970b97362c2b4a0e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "880d66bc_96b76f92",
         "filename": "runtime/arch/riscv64/jni_entrypoints_riscv64.S",
         "patchSetId": 2
