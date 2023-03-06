@@ -250,6 +250,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "196f268d_5034415f",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-06T16:57:39Z",
+      "side": 1,
+      "message": "I have a mild preference for commas. But I can see how saving a few characters can sometimes help us stick to the 100 characters per line limit.",
+      "parentUuid": "fb394e2b_8b0d9769",
+      "range": {
+        "startLine": 178,
+        "startChar": 44,
+        "endLine": 178,
+        "endChar": 49
+      },
+      "revId": "512154f3044669e97223cbce657361b2ef021d4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bc8e73ac_d03c2ca4",
         "filename": "runtime/arch/riscv64/asm_support_riscv64.S",
         "patchSetId": 8
@@ -686,6 +710,30 @@
       "side": 1,
       "message": "Thanks Elliott!",
       "parentUuid": "c2bb6fbc_40c1f84a",
+      "range": {
+        "startLine": 172,
+        "startChar": 75,
+        "endLine": 172,
+        "endChar": 92
+      },
+      "revId": "512154f3044669e97223cbce657361b2ef021d4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d9f488b_2db51d0e",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-06T16:57:39Z",
+      "side": 1,
+      "message": "I meant to replace the whole \"compiler / linker\" with just \"assembler\" but this comment shall also go away soon anyway.",
+      "parentUuid": "159d98de_2019c4dd",
       "range": {
         "startLine": 172,
         "startChar": 75,

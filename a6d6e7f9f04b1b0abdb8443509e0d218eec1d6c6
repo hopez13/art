@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "685a107e_349492c2",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.S",
+        "patchSetId": 10
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-06T16:57:39Z",
+      "side": 1,
+      "message": "This one should not have CFI. This register holds `Runtime::instance_-\u003ecallee_save_methods_[.]`, not a value from the caller.",
+      "range": {
+        "startLine": 194,
+        "startChar": 4,
+        "endLine": 194,
+        "endChar": 19
+      },
+      "revId": "a6d6e7f9f04b1b0abdb8443509e0d218eec1d6c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1da1033f_a9e83c32",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 10
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-06T16:57:39Z",
+      "side": 1,
+      "message": "Where did the `\\start` label go?",
+      "revId": "a6d6e7f9f04b1b0abdb8443509e0d218eec1d6c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db012cb1_8d814aac",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 10
+      },
+      "lineNbr": 444,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-06T16:57:39Z",
+      "side": 1,
+      "message": "Note: Luckily, this does not clobber the result register A0 and managed code does not have a 128-bit type, so A1 is never needed as a result. But we could restore just a subset of these registers if we wanted to. (Same for arm64. We do have special handling on arm, x86 and x86-64, though we could probably still improve the x86/x86-64 if we wanted to.)",
+      "range": {
+        "startLine": 444,
+        "startChar": 4,
+        "endLine": 444,
+        "endChar": 36
+      },
+      "revId": "a6d6e7f9f04b1b0abdb8443509e0d218eec1d6c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4dcd3334_73493a3e",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 10
+      },
+      "lineNbr": 446,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-06T16:57:39Z",
+      "side": 1,
+      "message": "Missing `CFI_RESTORE_STATE_AND_DEF_CFA`. It can be anywhere between this `ret` and the `fmv` below.\n\nNote: On other architectures, the `CFI_RESTORE_STATE_AND_DEF_CFA` needs be moved to a similar position to fix CFI for the `art_quick_method_exit_hook` call.",
+      "revId": "a6d6e7f9f04b1b0abdb8443509e0d218eec1d6c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
