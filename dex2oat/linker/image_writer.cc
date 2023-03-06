@@ -3308,7 +3308,8 @@ void ImageWriter::CopyAndFixupMethod(ArtMethod* orig,
   }
 
   if (!orig->IsRuntimeMethod() &&
-      (compiler_options_.IsBootImage() || compiler_options_.IsBootImageExtension())) {
+      (compiler_options_.IsBootImage() || compiler_options_.IsBootImageExtension()) &&
+      compiler_options_.IsAotCompilationEnabled()) {
     orig->SetMemorySharedMethod();
   }
 
