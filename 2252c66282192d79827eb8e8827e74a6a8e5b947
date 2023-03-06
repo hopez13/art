@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3bb75cc_46eea232",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-03-06T15:12:22Z",
+      "side": 1,
+      "message": "I get the impression that pallete call silently fails on host.\n\nEither way, we don\u0027t care about the trace calls on host.",
+      "parentUuid": "aa4ca1ce_a5477299",
+      "range": {
+        "startLine": 12,
+        "startChar": 3,
+        "endLine": 13,
+        "endChar": 24
+      },
+      "revId": "2252c66282192d79827eb8e8827e74a6a8e5b947",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "3e71b75f_5f40148b",
