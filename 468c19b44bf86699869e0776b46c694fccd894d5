@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8030c5df_a043eddc",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1596,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-07T09:20:03Z",
+      "side": 1,
+      "message": "Rename to `index`. Add a comment about decoding the index from a fake offset.",
+      "range": {
+        "startLine": 1596,
+        "startChar": 15,
+        "endLine": 1596,
+        "endChar": 21
+      },
+      "revId": "468c19b44bf86699869e0776b46c694fccd894d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a68f19d4_d12f2e99",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 976,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-07T09:20:03Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 976,
+        "startChar": 69,
+        "endLine": 976,
+        "endChar": 80
+      },
+      "revId": "468c19b44bf86699869e0776b46c694fccd894d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
