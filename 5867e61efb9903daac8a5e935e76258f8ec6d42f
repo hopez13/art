@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4430e341_28cb6dc9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-03-07T17:06:36Z",
+      "side": 1,
+      "message": "Thanks! I understand better now.\nI believe eng  build use labartd, so we should get it enabled by default in eng builds. Which is good.\nI wonder whether it would be simpler to get rid of the explicit serial number and instead just use one in N entries if CheckJNI is enabled, varying (maybe pseudo-randomly?) which of the N entries we use, and marking the others as free? Presumably N\u003d2 and N\u003d4 are the interesting options.",
+      "parentUuid": "767d785f_bd014fbe",
+      "revId": "5867e61efb9903daac8a5e935e76258f8ec6d42f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "03037180_44693ff7",
         "filename": "runtime/indirect_reference_table.h",
         "patchSetId": 9
@@ -167,6 +185,30 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "b92cb915_e88ab37f",
+      "range": {
+        "startLine": 118,
+        "startChar": 3,
+        "endLine": 118,
+        "endChar": 6
+      },
+      "revId": "5867e61efb9903daac8a5e935e76258f8ec6d42f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "05196067_50dc15b0",
+        "filename": "runtime/jni/local_reference_table.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-03-07T17:06:36Z",
+      "side": 1,
+      "message": "Thanks! This is much clearer.",
+      "parentUuid": "f16cc84e_e4a8ba87",
       "range": {
         "startLine": 118,
         "startChar": 3,
