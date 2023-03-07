@@ -61,6 +61,27 @@ cc_defaults {
 }
 
 art_cc_binary {
+    name: "read_proc_mem",
+    defaults: ["art_defaults"],
+    host_supported: true,
+    apex_available: [
+        "com.android.art",
+        "com.android.art.debug",
+    ],
+    compile_multilib: "both",
+    multilib: {
+        lib32: {
+            suffix: "32",
+        },
+        lib64: {
+            suffix: "64",
+        },
+    },
+    symlink_preferred_arch: true,
+    srcs: ["read_proc_mem.cc"],
+}
+
+art_cc_binary {
     name: "imgdiag",
     defaults: ["imgdiag-defaults"],
     shared_libs: [

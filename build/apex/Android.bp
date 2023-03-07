@@ -310,6 +310,9 @@ apex_defaults {
         first: {
             binaries: ["odrefresh"],
         },
+        both: {
+            binaries: ["read_proc_mem"],
+        },
     },
 }
 
