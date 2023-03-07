@@ -2111,15 +2111,15 @@ void InstructionCodeGeneratorX86_64::GenerateTestAndBranch(HInstruction* instruc
     // Nothing to do. The code always falls through.
     return;
   } else if (cond->IsIntConstant()) {
-    // Constant condition, statically compared against "true" (integer value 1).
-    if (cond->AsIntConstant()->IsTrue()) {
-      if (true_target != nullptr) {
-        __ jmp(true_target);
-      }
-    } else {
-      DCHECK(cond->AsIntConstant()->IsFalse()) << cond->AsIntConstant()->GetValue();
+    // Constant condition, statically compared against "false" (integer value 0).
+    if (cond->AsIntConstant()->IsFalse()) {
       if (false_target != nullptr) {
         __ jmp(false_target);
+      }
+    } else {
+      DCHECK(cond->AsIntConstant()->IsTrue()) << cond->AsIntConstant()->GetValue();
+      if (true_target != nullptr) {
+        __ jmp(true_target);
       }
     }
     return;
