@@ -34,6 +34,24 @@
       "parentUuid": "3abbaf3b_4b7881d7",
       "revId": "f08e578d20d92359bed05f824dfa5c11ac2fb40c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9c52ce76_82499a99",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-03-07T11:12:06Z",
+      "side": 1,
+      "message": "Thanks, the code has a compile-time check now, but it looks verbose. I think it makes sense to add a macro that wraps `fmt::format` and `FMT_STRING`. It will make the library easier to use. Since the library is part of libbase, it will be nice to have the macro in `system/libbase/include/android-base/macros.h` so that it can be used by everyone. If that\u0027s not possible, adding the macro to `art/libartbase/base/macros.h` is another option.",
+      "parentUuid": "b9baf484_bfcca0d3",
+      "revId": "f08e578d20d92359bed05f824dfa5c11ac2fb40c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
