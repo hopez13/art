@@ -145,12 +145,13 @@ public class Main {
         System.out.print("testThreadPriorities starting\n");
 
         PriorityStoringThread t1 = new PriorityStoringThread(false);
-        t1.setPriority(Thread.MAX_PRIORITY);
+        int oldPriority = t1.getPriority();
+        t1.setPriority(Thread.MAX_PRIORITY); //unstated set priority will failed
         t1.start();
         t1.join();
-        if (supportsThreadPriorities() && (t1.getNativePriority() != Thread.MAX_PRIORITY)) {
+        if (supportsThreadPriorities() && (t1.getNativePriority() == Thread.MAX_PRIORITY)) {
             System.out.print("thread priority for t1 was " + t1.getNativePriority() +
-                " [expected Thread.MAX_PRIORITY]\n");
+                " [expected " + oldPriority + "]\n");
         }
 
         PriorityStoringThread t2 = new PriorityStoringThread(true);
