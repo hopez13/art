@@ -2848,15 +2848,15 @@ void InstructionCodeGeneratorARMVIXL::GenerateTestAndBranch(HInstruction* instru
     // Nothing to do. The code always falls through.
     return;
   } else if (cond->IsIntConstant()) {
-    // Constant condition, statically compared against "true" (integer value 1).
-    if (cond->AsIntConstant()->IsTrue()) {
-      if (true_target != nullptr) {
-        __ B(true_target);
-      }
-    } else {
-      DCHECK(cond->AsIntConstant()->IsFalse()) << Int32ConstantFrom(cond);
+    // Constant condition, statically compared against "false" (integer value 0).
+    if (cond->AsIntConstant()->IsFalse()) {
       if (false_target != nullptr) {
         __ B(false_target);
+      }
+    } else {
+      DCHECK(cond->AsIntConstant()->IsTrue()) << Int32ConstantFrom(cond);
+      if (true_target != nullptr) {
+        __ B(true_target);
       }
     }
     return;
@@ -3034,6 +3034,7 @@ void InstructionCodeGeneratorARMVIXL::VisitSelect(HSelect* select) {
     if (condition->AsIntConstant()->IsFalse()) {
       src = first;
     } else {
+      DCHECK(condition->AsIntConstant()->IsTrue()) << Int32ConstantFrom(condition);
       src = second;
     }
 

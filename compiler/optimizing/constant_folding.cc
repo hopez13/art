@@ -253,11 +253,8 @@ void HConstantFoldingVisitor::VisitIf(HIf* inst) {
   PropagateValue(starting_block, variable, constant);
 
   // Special case for booleans since they have only two values so we know what to propagate in the
-  // other branch. However, sometimes our boolean values are not compared to 0 or 1. In those cases
-  // we cannot make an assumption for the `else` branch.
-  if (variable->GetType() == DataType::Type::kBool &&
-      constant->IsIntConstant() &&
-      (constant->AsIntConstant()->IsTrue() || constant->AsIntConstant()->IsFalse())) {
+  // other branch.
+  if (variable->GetType() == DataType::Type::kBool && constant->IsIntConstant()) {
     HBasicBlock* other_starting_block =
         condition->IsEqual() ? inst->IfFalseSuccessor() : inst->IfTrueSuccessor();
     DCHECK_NE(other_starting_block, starting_block);

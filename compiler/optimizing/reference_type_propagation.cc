@@ -395,10 +395,10 @@ static bool MatchIfInstanceOf(HIf* ifInstruction,
     if (rhs != nullptr) {
       HInstruction* lhs = input->AsEqual()->GetLeastConstantLeft();
       if (lhs->IsInstanceOf() && rhs->IsIntConstant()) {
-        if (rhs->AsIntConstant()->IsTrue()) {
+        if (rhs->AsIntConstant()->IsOne()) {
           // Case (1a)
           *trueBranch = ifInstruction->IfTrueSuccessor();
-        } else if (rhs->AsIntConstant()->IsFalse()) {
+        } else if (rhs->AsIntConstant()->IsZeroBitPattern()) {
           // Case (2a)
           *trueBranch = ifInstruction->IfFalseSuccessor();
         } else {
@@ -415,10 +415,10 @@ static bool MatchIfInstanceOf(HIf* ifInstruction,
     if (rhs != nullptr) {
       HInstruction* lhs = input->AsNotEqual()->GetLeastConstantLeft();
       if (lhs->IsInstanceOf() && rhs->IsIntConstant()) {
-        if (rhs->AsIntConstant()->IsFalse()) {
+        if (rhs->AsIntConstant()->IsZeroBitPattern()) {
           // Case (1b)
           *trueBranch = ifInstruction->IfTrueSuccessor();
-        } else if (rhs->AsIntConstant()->IsTrue()) {
+        } else if (rhs->AsIntConstant()->IsOne()) {
           // Case (2b)
           *trueBranch = ifInstruction->IfFalseSuccessor();
         } else {

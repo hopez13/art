@@ -3318,8 +3318,8 @@ class HIntConstant final : public HConstant {
 
   // Integer constants are used to encode Boolean values as well,
   // where 1 means true and 0 means false.
-  bool IsTrue() const { return GetValue() == 1; }
-  bool IsFalse() const { return GetValue() == 0; }
+  bool IsTrue() const { return !IsFalse(); }
+  bool IsFalse() const { return GetValue() % 256 == 0; }
 
   DECLARE_INSTRUCTION(IntConstant);
 

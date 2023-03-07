@@ -794,23 +794,17 @@ void InstructionSimplifierVisitor::VisitEqual(HEqual* equal) {
         equal->ReplaceWith(input_value);
         block->RemoveInstruction(equal);
         RecordSimplification();
+        return;
       } else if (input_const->AsIntConstant()->IsFalse()) {
         // Replace (bool_value == false) with !bool_value
         equal->ReplaceWith(GetGraph()->InsertOppositeCondition(input_value, equal));
         block->RemoveInstruction(equal);
         RecordSimplification();
-      } else {
-        // Replace (bool_value == integer_not_zero_nor_one_constant) with false
-        equal->ReplaceWith(GetGraph()->GetIntConstant(0));
-        block->RemoveInstruction(equal);
-        RecordSimplification();
+        return;
       }
-    } else {
-      VisitCondition(equal);
     }
-  } else {
-    VisitCondition(equal);
   }
+  VisitCondition(equal);
 }
 
 void InstructionSimplifierVisitor::VisitNotEqual(HNotEqual* not_equal) {
@@ -826,23 +820,17 @@ void InstructionSimplifierVisitor::VisitNotEqual(HNotEqual* not_equal) {
         not_equal->ReplaceWith(GetGraph()->InsertOppositeCondition(input_value, not_equal));
         block->RemoveInstruction(not_equal);
         RecordSimplification();
+        return;
       } else if (input_const->AsIntConstant()->IsFalse()) {
         // Replace (bool_value != false) with bool_value
         not_equal->ReplaceWith(input_value);
         block->RemoveInstruction(not_equal);
         RecordSimplification();
-      } else {
-        // Replace (bool_value != integer_not_zero_nor_one_constant) with true
-        not_equal->ReplaceWith(GetGraph()->GetIntConstant(1));
-        block->RemoveInstruction(not_equal);
-        RecordSimplification();
+        return;
       }
-    } else {
-      VisitCondition(not_equal);
     }
-  } else {
-    VisitCondition(not_equal);
   }
+  VisitCondition(not_equal);
 }
 
 void InstructionSimplifierVisitor::VisitBooleanNot(HBooleanNot* bool_not) {
@@ -851,11 +839,11 @@ void InstructionSimplifierVisitor::VisitBooleanNot(HBooleanNot* bool_not) {
 
   if (input->IsIntConstant()) {
     // Replace !(true/false) with false/true.
-    if (input->AsIntConstant()->IsTrue()) {
-      replace_with = GetGraph()->GetIntConstant(0);
-    } else {
-      DCHECK(input->AsIntConstant()->IsFalse()) << input->AsIntConstant()->GetValue();
+    if (input->AsIntConstant()->IsFalse()) {
       replace_with = GetGraph()->GetIntConstant(1);
+    } else {
+      DCHECK(input->AsIntConstant()->IsTrue()) << input->AsIntConstant()->GetValue();
+      replace_with = GetGraph()->GetIntConstant(0);
     }
   } else if (input->IsBooleanNot()) {
     // Replace (!(!bool_value)) with bool_value.
@@ -1028,19 +1016,19 @@ void InstructionSimplifierVisitor::VisitSelect(HSelect* select) {
     // Replace (cond ? x : x) with (x).
     replace_with = true_value;
   } else if (condition->IsIntConstant()) {
-    if (condition->AsIntConstant()->IsTrue()) {
-      // Replace (true ? x : y) with (x).
-      replace_with = true_value;
-    } else {
+    if (condition->AsIntConstant()->IsFalse()) {
       // Replace (false ? x : y) with (y).
-      DCHECK(condition->AsIntConstant()->IsFalse()) << condition->AsIntConstant()->GetValue();
       replace_with = false_value;
+    } else {
+      // Replace (true ? x : y) with (x).
+      DCHECK(condition->AsIntConstant()->IsTrue()) << condition->AsIntConstant()->GetValue();
+      replace_with = true_value;
     }
   } else if (true_value->IsIntConstant() && false_value->IsIntConstant()) {
-    if (true_value->AsIntConstant()->IsTrue() && false_value->AsIntConstant()->IsFalse()) {
+    if (true_value->AsIntConstant()->IsOne() && false_value->AsIntConstant()->IsZeroBitPattern()) {
       // Replace (cond ? true : false) with (cond).
       replace_with = condition;
-    } else if (true_value->AsIntConstant()->IsFalse() && false_value->AsIntConstant()->IsTrue()) {
+    } else if (true_value->AsIntConstant()->IsZeroBitPattern() && false_value->AsIntConstant()->IsOne()) {
       // Replace (cond ? false : true) with (!cond).
       replace_with = GetGraph()->InsertOppositeCondition(condition, select);
     }
@@ -3112,6 +3100,7 @@ void InstructionSimplifierVisitor::VisitDeoptimize(HDeoptimize* deoptimize) {
       deoptimize->GetBlock()->RemoveInstruction(deoptimize);
     } else {
       // Always deopt.
+      DCHECK(cond->AsIntConstant()->IsTrue()) << cond->AsIntConstant()->GetValue();
     }
   }
 }
