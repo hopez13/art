@@ -22,6 +22,30 @@
       },
       "revId": "30f12eef96fbc2f84e26f7e05aeca012e9c5599f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b5681d9_29733ffa",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 11
+      },
+      "lineNbr": 445,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-03-07T12:51:25Z",
+      "side": 1,
+      "message": "Thanks, I moved this trivial fix to aosp/2456068 which sill has to pass TH.",
+      "parentUuid": "14569acb_04feb894",
+      "range": {
+        "startLine": 445,
+        "startChar": 59,
+        "endLine": 445,
+        "endChar": 60
+      },
+      "revId": "30f12eef96fbc2f84e26f7e05aeca012e9c5599f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
