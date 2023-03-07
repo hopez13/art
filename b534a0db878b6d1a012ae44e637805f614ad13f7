@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7fc74e77_692753e2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-03-07T17:26:17Z",
+      "side": 1,
+      "message": "Bypass presubmit, as this CL is a trivial fix that only affects the build. Presubmit has passed for it before rebasing, and the current presubmit has failed with an unrelated test error.",
+      "revId": "b534a0db878b6d1a012ae44e637805f614ad13f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
