@@ -274,6 +274,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "01ffca4b_fb1da355",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-03-07T12:29:36Z",
+      "side": 1,
+      "message": "I can change for commas, but I\u0027d prefer to do it as a follow up and for all architectures to avoid massive cleanups and rebase conflicts in this CL stack. I\u0027ll leave the comment open as a reminder.",
+      "parentUuid": "196f268d_5034415f",
+      "range": {
+        "startLine": 178,
+        "startChar": 44,
+        "endLine": 178,
+        "endChar": 49
+      },
+      "revId": "512154f3044669e97223cbce657361b2ef021d4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bc8e73ac_d03c2ca4",
         "filename": "runtime/arch/riscv64/asm_support_riscv64.S",
         "patchSetId": 8

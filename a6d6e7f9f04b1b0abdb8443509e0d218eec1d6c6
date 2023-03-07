@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6585cbc7_ed492e0d",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.S",
+        "patchSetId": 10
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-03-07T12:29:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "685a107e_349492c2",
+      "range": {
+        "startLine": 194,
+        "startChar": 4,
+        "endLine": 194,
+        "endChar": 19
+      },
+      "revId": "a6d6e7f9f04b1b0abdb8443509e0d218eec1d6c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1da1033f_a9e83c32",
@@ -37,6 +61,24 @@
       "writtenOn": "2023-03-06T16:57:39Z",
       "side": 1,
       "message": "Where did the `\\start` label go?",
+      "revId": "a6d6e7f9f04b1b0abdb8443509e0d218eec1d6c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8de7869f_4bb88f6c",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 10
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-03-07T12:29:36Z",
+      "side": 1,
+      "message": "Good catch, rebase error.",
+      "parentUuid": "1da1033f_a9e83c32",
       "revId": "a6d6e7f9f04b1b0abdb8443509e0d218eec1d6c6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -64,6 +106,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7baa5a45_23ee704e",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 10
+      },
+      "lineNbr": 444,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-03-07T12:29:36Z",
+      "side": 1,
+      "message": "Added a comment.",
+      "parentUuid": "db012cb1_8d814aac",
+      "range": {
+        "startLine": 444,
+        "startChar": 4,
+        "endLine": 444,
+        "endChar": 36
+      },
+      "revId": "a6d6e7f9f04b1b0abdb8443509e0d218eec1d6c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4dcd3334_73493a3e",
@@ -77,6 +143,24 @@
       "writtenOn": "2023-03-06T16:57:39Z",
       "side": 1,
       "message": "Missing `CFI_RESTORE_STATE_AND_DEF_CFA`. It can be anywhere between this `ret` and the `fmv` below.\n\nNote: On other architectures, the `CFI_RESTORE_STATE_AND_DEF_CFA` needs be moved to a similar position to fix CFI for the `art_quick_method_exit_hook` call.",
+      "revId": "a6d6e7f9f04b1b0abdb8443509e0d218eec1d6c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d39e7e4_44888243",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 10
+      },
+      "lineNbr": 446,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-03-07T12:29:36Z",
+      "side": 1,
+      "message": "I added `CFI_RESTORE_STATE_AND_DEF_CFA sp FRAME_SIZE_SAVE_REFS_AND_ARGS` right after `ret` for riscv. Should the offset be `FRAME_SIZE_SAVE_REFS_AND_ARGS`?\n\nBut I don\u0027t understand the the general rule how we add `.cfi_remember_state`/`.cfi_restore_state` pair. E.g. on ARM64 why do we have `CFI_RESTORE_STATE_AND_DEF_CFA sp, FRAME_SIZE_SAVE_REFS_AND_ARGS` before `RESTORE_SAVE_REFS_AND_ARGS_FRAME` http://cs/aosp-master/art/runtime/arch/arm64/quick_entrypoints_arm64.S?l\u003d1624-1625, but `CFI_RESTORE_STATE_AND_DEF_CFA sp, FRAME_SIZE_SAVE_EVERYTHING` after `RESTORE_SAVE_EVERYTHING_FRAME` and even after the following `ret`: http://cs/aosp-master/art/runtime/arch/arm64/quick_entrypoints_arm64.S?l\u003d216-219?\n\nI look at https://sourceware.org/binutils/docs/as/CFI-directives.html for reference what these macros do.\n\nLeaving the comment open so I will remember to fix other arches in a follow up CL.",
+      "parentUuid": "4dcd3334_73493a3e",
       "revId": "a6d6e7f9f04b1b0abdb8443509e0d218eec1d6c6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
