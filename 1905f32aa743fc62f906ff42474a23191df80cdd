@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2ac321c_64800ac0",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1345,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-07T09:05:11Z",
+      "side": 1,
+      "message": "GetWithoutChecks",
+      "range": {
+        "startLine": 1345,
+        "startChar": 57,
+        "endLine": 1345,
+        "endChar": 60
+      },
+      "revId": "1905f32aa743fc62f906ff42474a23191df80cdd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4f5a014_83d3fde6",
+        "filename": "runtime/mirror/dex_cache.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-07T09:05:11Z",
+      "side": 1,
+      "message": "I\u0027d prefer `reinterpret_cast\u003cuint32_t*\u003e(entries_) + index`.\n\nThe current expression does not work for arrays outside low 4GiB for `kRuntimePointerSize \u003d\u003d PointerSize::k64 \u0026\u0026 ptr_size \u003d\u003d PointerSize::k32`.\n\n(Luckily, the runtime image always uses `ptr_size \u003d\u003d kRuntimePointerSize`. And the `ImageSpace` where this helper is used also always works with low 4GiB.)",
+      "range": {
+        "startLine": 238,
+        "startChar": 10,
+        "endLine": 238,
+        "endChar": 75
+      },
+      "revId": "1905f32aa743fc62f906ff42474a23191df80cdd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c78147f7_7b6e267e",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 671,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-07T09:05:11Z",
+      "side": 1,
+      "message": "This is not an iterator, it\u0027s an entry. You could just write\n\n    auto [kind, offset] \u003d native_relocations_[old_method_array];\n\nafter `DCHECK`ing that the map contains the key. Alternatively, you can do\n\n    auto it \u003d native_relocations_.find(old_method_array);\n    DCHECK(it !\u003d native_relocations_.end());\n\nand use an actual iterator.",
+      "range": {
+        "startLine": 671,
+        "startChar": 9,
+        "endLine": 671,
+        "endChar": 11
+      },
+      "revId": "1905f32aa743fc62f906ff42474a23191df80cdd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0707c3eb_30b03aed",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 712,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-07T09:05:11Z",
+      "side": 1,
+      "message": "entry",
+      "range": {
+        "startLine": 712,
+        "startChar": 14,
+        "endLine": 712,
+        "endChar": 16
+      },
+      "revId": "1905f32aa743fc62f906ff42474a23191df80cdd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "27de715b_4a097236",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1051,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-07T09:05:11Z",
+      "side": 1,
+      "message": "Atomicity of entries is not guaranteed by `memcpy()`.",
+      "range": {
+        "startLine": 1051,
+        "startChar": 4,
+        "endLine": 1051,
+        "endChar": 46
+      },
+      "revId": "1905f32aa743fc62f906ff42474a23191df80cdd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
