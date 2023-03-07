@@ -170,13 +170,14 @@ static void Thread_setNativeName(JNIEnv* env, jobject peer, jstring java_name) {
  * from Thread.MIN_PRIORITY to Thread.MAX_PRIORITY (1-10), with "normal"
  * threads at Thread.NORM_PRIORITY (5).
  */
-static void Thread_setPriority0(JNIEnv* env, jobject java_thread, jint new_priority) {
+static jint Thread_setPriority0(JNIEnv* env, jobject java_thread, jint new_priority) {
   ScopedObjectAccess soa(env);
   MutexLock mu(soa.Self(), *Locks::thread_list_lock_);
   Thread* thread = Thread::FromManagedThread(soa, java_thread);
   if (thread != nullptr) {
     thread->SetNativePriority(new_priority);
   }
+  return thread->GetNativePriority();
 }
 
 static void Thread_sleep(JNIEnv* env, jclass, jobject java_lock, jlong ms, jint ns) {
@@ -204,7 +205,7 @@ static JNINativeMethod gMethods[] = {
   NATIVE_METHOD(Thread, holdsLock, "(Ljava/lang/Object;)Z"),
   FAST_NATIVE_METHOD(Thread, interrupt0, "()V"),
   NATIVE_METHOD(Thread, setNativeName, "(Ljava/lang/String;)V"),
-  NATIVE_METHOD(Thread, setPriority0, "(I)V"),
+  NATIVE_METHOD(Thread, setPriority0, "(I)I"),
   FAST_NATIVE_METHOD(Thread, sleep, "(Ljava/lang/Object;JI)V"),
   NATIVE_METHOD(Thread, yield, "()V"),
 };
