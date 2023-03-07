@@ -22,6 +22,30 @@
       },
       "revId": "94b229561a50073db4c3591218721efde3c5e320",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "df973037_9336df38",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 562,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-07T15:54:16Z",
+      "side": 1,
+      "message": "This can be done in a follow-up CL.",
+      "parentUuid": "ae1b80d8_824d6621",
+      "range": {
+        "startLine": 562,
+        "startChar": 4,
+        "endLine": 562,
+        "endChar": 23
+      },
+      "revId": "94b229561a50073db4c3591218721efde3c5e320",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
