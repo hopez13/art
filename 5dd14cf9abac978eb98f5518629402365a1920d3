@@ -118,6 +118,30 @@
       },
       "revId": "5dd14cf9abac978eb98f5518629402365a1920d3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f913f2e9_735a4e91",
+        "filename": "libdexfile/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 559,
+      "author": {
+        "id": 1056364
+      },
+      "writtenOn": "2023-03-07T20:07:20Z",
+      "side": 0,
+      "message": "The change contains the clean up I wanted to try (as said in the email), which I shouldn\u0027t combine if I knew adding separate cflags for static build was allowed. Since it doesn\u0027t mesh very well with the rest of structure here, I am fine to just drop them.",
+      "parentUuid": "10c5f2e5_5e370426",
+      "range": {
+        "startLine": 559,
+        "startChar": 9,
+        "endLine": 559,
+        "endChar": 43
+      },
+      "revId": "5dd14cf9abac978eb98f5518629402365a1920d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
