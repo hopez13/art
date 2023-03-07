@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "820c530e_f65329e4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-03-07T16:23:30Z",
+      "side": 1,
+      "message": "Thanks Vladimir, comments addressed here:\nhttps://android-review.git.corp.google.com/c/platform/art/+/2474966",
+      "revId": "468c19b44bf86699869e0776b46c694fccd894d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8030c5df_a043eddc",
@@ -24,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b2e4bd6b_500875c7",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1596,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-03-07T16:23:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8030c5df_a043eddc",
+      "range": {
+        "startLine": 1596,
+        "startChar": 15,
+        "endLine": 1596,
+        "endChar": 21
+      },
+      "revId": "468c19b44bf86699869e0776b46c694fccd894d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a68f19d4_d12f2e99",
@@ -37,6 +78,30 @@
       "writtenOn": "2023-03-07T09:20:03Z",
       "side": 1,
       "message": "typo",
+      "range": {
+        "startLine": 976,
+        "startChar": 69,
+        "endLine": 976,
+        "endChar": 80
+      },
+      "revId": "468c19b44bf86699869e0776b46c694fccd894d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b138781c_9845a50c",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 976,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-03-07T16:23:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a68f19d4_d12f2e99",
       "range": {
         "startLine": 976,
         "startChar": 69,
