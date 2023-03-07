@@ -72,6 +72,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "1c3a64be_05d4fc60",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-03-07T19:02:01Z",
+      "side": 1,
+      "message": "\u003e So in effect it\u0027s fine to add `-DSTATIC_LIB` to cflags for the static variant of libdexfile.\n\nPlease solve it this way instead. It\u0027s preferable to the bp complications. I\u0027m sorry that I apparently hasn\u0027t been clear enough on that.",
+      "parentUuid": "4d617c68_070b1cae",
+      "range": {
+        "startLine": 12,
+        "startChar": 3,
+        "endLine": 13,
+        "endChar": 24
+      },
+      "revId": "2252c66282192d79827eb8e8827e74a6a8e5b947",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "3e71b75f_5f40148b",
