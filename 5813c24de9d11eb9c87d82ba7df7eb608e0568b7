@@ -1,0 +1,199 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ade5c9d9_0b39635c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 18
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-03-07T23:48:35Z",
+      "side": 1,
+      "message": "Just some minor nits and probably non-actionable observations.",
+      "revId": "5813c24de9d11eb9c87d82ba7df7eb608e0568b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f4bfa4c8_8ee655ff",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 2286,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-03-07T23:48:35Z",
+      "side": 1,
+      "message": "Just to confirm: This is called only as part of GC, so IsPerformingUffdCompaction() can\u0027t change asynchronously, right?",
+      "range": {
+        "startLine": 2286,
+        "startChar": 17,
+        "endLine": 2286,
+        "endChar": 44
+      },
+      "revId": "5813c24de9d11eb9c87d82ba7df7eb608e0568b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1569666d_80a64f0a",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 535,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-03-07T23:48:35Z",
+      "side": 1,
+      "message": "My CL will invalidate that. It may make sense to preemptively change this to thread \u003d\u003d self || thread-\u003eGetState() !\u003d ThreadState::kRunnable . Or we can do it in a later CL.",
+      "range": {
+        "startLine": 535,
+        "startChar": 27,
+        "endLine": 535,
+        "endChar": 50
+      },
+      "revId": "5813c24de9d11eb9c87d82ba7df7eb608e0568b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b507341b_1213766b",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 540,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-03-07T23:48:35Z",
+      "side": 1,
+      "message": "checkpoint \u003d\u003d\u003e flip? With my CL, flip functions don\u0027t run quite the same way as checkpoints. Checkpoints run either inthe thread or with the thread \"suspended\". Flip functions run either in the thread, or while the thread is waiting explicitly for the flip function to run before becoming runnable.",
+      "range": {
+        "startLine": 539,
+        "startChar": 65,
+        "endLine": 540,
+        "endChar": 18
+      },
+      "revId": "5813c24de9d11eb9c87d82ba7df7eb608e0568b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d705b9f8_f9640f77",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 544,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-03-07T23:48:35Z",
+      "side": 1,
+      "message": "We\u0027ll have to get rid of this when my CL merges. That can\u0027t be done now.",
+      "range": {
+        "startLine": 544,
+        "startChar": 4,
+        "endLine": 544,
+        "endChar": 40
+      },
+      "revId": "5813c24de9d11eb9c87d82ba7df7eb608e0568b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a81dbddd_8975204c",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 1271,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-03-07T23:48:35Z",
+      "side": 1,
+      "message": "\"Release locks, then wait\"\n\n\"to wait for, which implies\"",
+      "revId": "5813c24de9d11eb9c87d82ba7df7eb608e0568b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "12011c94_fe2c61ff",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 4455,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-03-07T23:48:35Z",
+      "side": 1,
+      "message": "It seems like this realy wants to be uintptr_t. But that\u0027s for a different CL.",
+      "range": {
+        "startLine": 4455,
+        "startChar": 28,
+        "endLine": 4455,
+        "endChar": 34
+      },
+      "revId": "5813c24de9d11eb9c87d82ba7df7eb608e0568b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69a0d9cf_80cc4cae",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 4469,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-03-07T23:48:35Z",
+      "side": 1,
+      "message": "It looks like this was at least partially done?",
+      "range": {
+        "startLine": 4468,
+        "startChar": 6,
+        "endLine": 4469,
+        "endChar": 63
+      },
+      "revId": "5813c24de9d11eb9c87d82ba7df7eb608e0568b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "44a31e59_5eb707ac",
+        "filename": "runtime/thread.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 2266,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-03-07T23:48:35Z",
+      "side": 1,
+      "message": "I suspect this should go away with my CL, though I currently keep it.",
+      "range": {
+        "startLine": 2266,
+        "startChar": 6,
+        "endLine": 2266,
+        "endChar": 35
+      },
+      "revId": "5813c24de9d11eb9c87d82ba7df7eb608e0568b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
