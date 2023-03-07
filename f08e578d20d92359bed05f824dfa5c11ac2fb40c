@@ -70,6 +70,24 @@
       "parentUuid": "9c52ce76_82499a99",
       "revId": "f08e578d20d92359bed05f824dfa5c11ac2fb40c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9733a717_ec4a6313",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-03-07T22:08:16Z",
+      "side": 1,
+      "message": "The immediate problem is not just about fixing these two usages. `_format` is [heavily used in our internal branch](https://source.corp.google.com/search?q\u003d%5C%22_format%5C(%20f:%5Eart\u0026sq\u003dpackage:%5Eandroid-internal$), and you\u0027ll have to change them all, so it\u0027s better to solve the problem in a cleaner way from the start instead of having this verbosity in all those places.",
+      "parentUuid": "8a9a1bad_2aff4e72",
+      "revId": "f08e578d20d92359bed05f824dfa5c11ac2fb40c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
