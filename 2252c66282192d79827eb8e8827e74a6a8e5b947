@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d617c68_070b1cae",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-03-07T17:47:31Z",
+      "side": 1,
+      "message": "\u003e I get the impression that pallete call silently fails on host.\n\nYes that\u0027s right.\n\nSo in effect it\u0027s fine to add `-DSTATIC_LIB` to cflags for the static variant of libdexfile. I prefer that, so we can dispense with the bp changes until they can be done more cleanly.",
+      "parentUuid": "d3bb75cc_46eea232",
+      "range": {
+        "startLine": 12,
+        "startChar": 3,
+        "endLine": 13,
+        "endChar": 24
+      },
+      "revId": "2252c66282192d79827eb8e8827e74a6a8e5b947",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "3e71b75f_5f40148b",
@@ -179,6 +203,30 @@
       "side": 1,
       "message": "Simpleperf only builds static binary on device. And I am not sure the proper to build static executable on host:\n\nIf I link with libc, I got error:\nmodule \"art_libdexfile_static_tests\" variant \"linux_glibc_x86_64\": depends on disabled module \"libc\"\n\nIf I link without libc, I got error:\nld.lld: error: undefined symbol: __tls_get_addr\n\u003e\u003e\u003e referenced by sanitizer_linux_libcdep.cpp:392 (out/lib/compiler-rt-i386-host-linux/out/llvm-project/compiler-rt/lib/sanitizer_common/sanitizer_l\ninux_libcdep.cpp:392)\n\u003e\u003e\u003e               sanitizer_linux_libcdep.cpp.o:(__sanitizer::CollectStaticTlsBlocks(dl_phdr_info*, unsigned int, void*)) in archive /ssd/android/ao\nsp-master/prebuilts/clang/host/linux-x86/clang-r475365b/lib/clang/16.0.2/lib/linux/libclang_rt.ubsan_standalone-i386.a\n\nI saw an example building static binary under linux_bionic target, is that what you want?",
       "parentUuid": "d745c82b_8d34e509",
+      "range": {
+        "startLine": 603,
+        "startChar": 0,
+        "endLine": 605,
+        "endChar": 36
+      },
+      "revId": "2252c66282192d79827eb8e8827e74a6a8e5b947",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb90836e_39c961eb",
+        "filename": "libdexfile/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 605,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-03-07T17:47:31Z",
+      "side": 1,
+      "message": "Well, we use it e.g. for [oatdumps](https://cs.android.com/android/platform/superproject/+/master:art/oatdump/Android.bp;l\u003d149;drc\u003d00ca1b514f69bec767d56259dea75711e6c939f9) on host. I\u0027m not sure what the difference is here, I thought it\u0027d be just a matter of moving it up to the top level. The errors hint at some sanitizer builds, but I can\u0027t find any difference in sanitizer flags.\n\nNever mind then, having it tested on device is good enough.",
+      "parentUuid": "b1b425bf_f28eae76",
       "range": {
         "startLine": 603,
         "startChar": 0,

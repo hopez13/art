@@ -46,6 +46,30 @@
       },
       "revId": "5dd14cf9abac978eb98f5518629402365a1920d3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c8d5851f_c3a5d9f3",
+        "filename": "libdexfile/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 559,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-03-07T17:47:31Z",
+      "side": 0,
+      "message": "Which means to be consistent there needs to be a `libdexfile_support_srcs` as well. That points to the problem with this approach - it doesn\u0027t mesh very well with the rest of structure here. Something more thorough would be necessary to actually simplify things.",
+      "parentUuid": "de34ef1e_0bef7d88",
+      "range": {
+        "startLine": 559,
+        "startChar": 9,
+        "endLine": 559,
+        "endChar": 43
+      },
+      "revId": "5dd14cf9abac978eb98f5518629402365a1920d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
