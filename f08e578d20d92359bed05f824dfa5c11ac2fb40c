@@ -52,6 +52,24 @@
       "parentUuid": "b9baf484_bfcca0d3",
       "revId": "f08e578d20d92359bed05f824dfa5c11ac2fb40c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8a9a1bad_2aff4e72",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1307979
+      },
+      "writtenOn": "2023-03-07T22:01:26Z",
+      "side": 1,
+      "message": "I think it would be better to submit a fix for the actual problem using the existing API and ART-specific macros to make it nicer can be added later.",
+      "parentUuid": "9c52ce76_82499a99",
+      "revId": "f08e578d20d92359bed05f824dfa5c11ac2fb40c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
