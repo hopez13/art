@@ -1736,13 +1736,9 @@ END art_quick_resolution_trampoline
 ENTRY art_quick_generic_jni_trampoline
     SETUP_SAVE_REFS_AND_ARGS_FRAME_WITH_METHOD_IN_X0
 
-    // Save SP , so we can have static CFI info.
+    // Save SP, so we can have static CFI info.
     mov x28, sp
     .cfi_def_cfa_register x28
-
-    // This looks the same, but is different: this will be updated to point to the bottom
-    // of the frame when the handle scope is inserted.
-    mov xFP, sp
 
     mov xIP0, #GENERIC_JNI_TRAMPOLINE_RESERVED_AREA
     sub sp, sp, xIP0
