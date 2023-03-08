@@ -401,6 +401,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "35157add_daefbdba",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1496,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-03-08T23:38:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f2ca80f5_6da50bae",
+      "range": {
+        "startLine": 1493,
+        "startChar": 0,
+        "endLine": 1496,
+        "endChar": 5
+      },
+      "revId": "074e82f716087bd57546aa262f8088403cd5d3a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7f23893f_510712b7",
@@ -614,6 +638,30 @@
       "side": 1,
       "message": "That was clear as mud. Hopefully the new version is better. We set the state to kTerminated before deallocating the thread structure. So if the thread is deallocated, but not overwritten, and we didn\u0027t already detect the problem via HWASAN, this should also fail.",
       "parentUuid": "f87d92e2_34819e99",
+      "range": {
+        "startLine": 1836,
+        "startChar": 52,
+        "endLine": 1836,
+        "endChar": 97
+      },
+      "revId": "074e82f716087bd57546aa262f8088403cd5d3a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d4897df_10aab9ec",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1836,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-03-08T23:38:48Z",
+      "side": 1,
+      "message": "Marking this asa resolved.",
+      "parentUuid": "14c19b35_ac0c2886",
       "range": {
         "startLine": 1836,
         "startChar": 52,
