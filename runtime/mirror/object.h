@@ -675,6 +675,13 @@ class MANAGED LOCKABLE Object {
   std::string PrettyTypeOf()
       REQUIRES_SHARED(Locks::mutator_lock_);
 
+  // A utility function that does a raw copy of `src` into the buffer `dst_bytes`.
+  static void RawCopyObject(uint8_t* dst_bytes,
+                            ObjPtr<mirror::Object> src,
+                            size_t num_bytes)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
+
  protected:
   // Accessors for non-Java type fields
   template<class T, VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags, bool kIsVolatile = false>
