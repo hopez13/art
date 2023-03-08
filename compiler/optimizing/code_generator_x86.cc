@@ -2950,8 +2950,9 @@ void LocationsBuilderX86::VisitTypeConversion(HTypeConversion* conversion) {
       new (GetGraph()->GetAllocator()) LocationSummary(conversion, call_kind);
 
   switch (result_type) {
-    case DataType::Type::kUint8:
-    case DataType::Type::kInt8:
+     case DataType::Type::kBool:
+     case DataType::Type::kUint8:
+     case DataType::Type::kInt8:
       switch (input_type) {
         case DataType::Type::kUint8:
         case DataType::Type::kInt8:
@@ -3113,8 +3114,13 @@ void InstructionCodeGeneratorX86::VisitTypeConversion(HTypeConversion* conversio
   DCHECK(!DataType::IsTypeConversionImplicit(input_type, result_type))
       << input_type << " -> " << result_type;
   switch (result_type) {
+    case DataType::Type::kBool:
     case DataType::Type::kUint8:
       switch (input_type) {
+        case DataType::Type::kUint8:
+          DCHECK_NE(result_type, DataType::Type::kUint8)
+              << "Unexpected Uint8 -> Uint8 type conversion";
+          FALLTHROUGH_INTENDED;
         case DataType::Type::kInt8:
         case DataType::Type::kUint16:
         case DataType::Type::kInt16:

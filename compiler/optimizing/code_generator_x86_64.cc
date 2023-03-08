@@ -3145,6 +3145,7 @@ void LocationsBuilderX86_64::VisitTypeConversion(HTypeConversion* conversion) {
       << input_type << " -> " << result_type;
 
   switch (result_type) {
+    case DataType::Type::kBool:
     case DataType::Type::kUint8:
     case DataType::Type::kInt8:
     case DataType::Type::kUint16:
@@ -3278,8 +3279,13 @@ void InstructionCodeGeneratorX86_64::VisitTypeConversion(HTypeConversion* conver
   DCHECK(!DataType::IsTypeConversionImplicit(input_type, result_type))
       << input_type << " -> " << result_type;
   switch (result_type) {
+    case DataType::Type::kBool:
     case DataType::Type::kUint8:
       switch (input_type) {
+        case DataType::Type::kUint8:
+          DCHECK_NE(result_type, DataType::Type::kUint8)
+              << "Unexpected Uint8 -> Uint8 type conversion";
+          FALLTHROUGH_INTENDED;
         case DataType::Type::kInt8:
         case DataType::Type::kUint16:
         case DataType::Type::kInt16:
