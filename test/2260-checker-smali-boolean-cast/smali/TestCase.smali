@@ -226,3 +226,62 @@
     sget-boolean v0, LMain;->field:Z
     return v0
 .end method
+
+# Implementation of `p0 ? 1 : 0`.
+.method public static ternaryOperator(Z)I
+    .registers 1
+    if-nez p0, :LNotZero
+    const/4 v0, 0x0
+    return v0
+:LNotZero
+    const/4 v0, 0x1
+    return v0
+.end method
+
+# Proxy method that redirects the int parameter as boolean in smali.
+.method public static ternaryOperatorProxy(I)I
+    .registers 1
+    invoke-static {p0}, LBooleanTest;->ternaryOperator(Z)I
+    move-result v0
+    return v0
+.end method
+
+# Returns 1 if `p0` is equal to itself after a store+load in a boolean.
+.method public static equalToItself(Z)Z
+    .registers 2
+    sput-boolean p0, LMain;->field:Z
+    sget-boolean v0, LMain;->field:Z
+    if-eq p0, v0, :LEqual
+    const/4 v0, 0x0
+    return v0
+:LEqual
+    const/4 v0, 0x1
+    return v0
+.end method
+
+# Proxy method that redirects the int parameter as boolean in smali.
+.method public static equalToItselfProxy(I)Z
+    .registers 1
+    invoke-static {p0}, LBooleanTest;->equalToItself(Z)Z
+    move-result v0
+    return v0
+.end method
+
+# Returns 1 if `p0` is equal to `p1`
+.method public static equalBooleans(ZZ)Z
+    .registers 2
+    if-eq p0, p1, :LEqual
+    const/4 v0, 0x0
+    return v0
+:LEqual
+    const/4 v0, 0x1
+    return v0
+.end method
+
+# Proxy method that redirects the int parameter as boolean in smali.
+.method public static equalBooleansProxy(II)Z
+    .registers 2
+    invoke-static {p0, p1}, LBooleanTest;->equalBooleans(ZZ)Z
+    move-result v0
+    return v0
+.end method
