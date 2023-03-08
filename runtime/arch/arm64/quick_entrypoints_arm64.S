@@ -1736,13 +1736,9 @@ END art_quick_resolution_trampoline
 ENTRY art_quick_generic_jni_trampoline
     SETUP_SAVE_REFS_AND_ARGS_FRAME_WITH_METHOD_IN_X0
 
-    // Save SP , so we can have static CFI info.
+    // Save SP, so we can have static CFI info.
     mov x28, sp
     .cfi_def_cfa_register x28
-
-    // This looks the same, but is different: this will be updated to point to the bottom
-    // of the frame when the handle scope is inserted.
-    mov xFP, sp
 
     mov xIP0, #GENERIC_JNI_TRAMPOLINE_RESERVED_AREA
     sub sp, sp, xIP0
@@ -1750,10 +1746,10 @@ ENTRY art_quick_generic_jni_trampoline
     // prepare for artQuickGenericJniTrampoline call
     // (Thread*, managed_sp, reserved_area)
     //    x0         x1            x2   <= C calling convention
-    //  xSELF       xFP            sp   <= where they are
+    //  xSELF       x28            sp   <= where they are
 
     mov x0, xSELF   // Thread*
-    mov x1, xFP     // SP for the managed frame.
+    mov x1, x28     // SP for the managed frame.
     mov x2, sp      // reserved area for arguments and other saved data (up to managed frame)
     bl artQuickGenericJniTrampoline  // (Thread*, sp)
 
