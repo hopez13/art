@@ -46,6 +46,30 @@
       },
       "revId": "94b229561a50073db4c3591218721efde3c5e320",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a87c288_41efb7db",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 562,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-03-08T10:38:26Z",
+      "side": 1,
+      "message": "Noted.",
+      "parentUuid": "df973037_9336df38",
+      "range": {
+        "startLine": 562,
+        "startChar": 4,
+        "endLine": 562,
+        "endChar": 23
+      },
+      "revId": "94b229561a50073db4c3591218721efde3c5e320",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
