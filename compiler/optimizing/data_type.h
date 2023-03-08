@@ -263,9 +263,6 @@ inline bool DataType::IsTypeConversionImplicit(Type input_type, Type result_type
   DCHECK_NE(DataType::Type::kVoid, result_type);
   DCHECK_NE(DataType::Type::kVoid, input_type);
 
-  // Invariant: We should never generate a conversion to a Boolean value.
-  DCHECK_NE(DataType::Type::kBool, result_type);
-
   // Besides conversion to the same type, integral conversions to non-Int64 types
   // are implicit if the result value range covers the input value range, i.e.
   // widening conversions that do not need to trim the sign bits.
