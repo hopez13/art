@@ -6126,8 +6126,6 @@ class HTypeConversion final : public HExpression<1> {
   HTypeConversion(DataType::Type result_type, HInstruction* input, uint32_t dex_pc = kNoDexPc)
       : HExpression(kTypeConversion, result_type, SideEffects::None(), dex_pc) {
     SetRawInputAt(0, input);
-    // Invariant: We should never generate a conversion to a Boolean value.
-    DCHECK_NE(DataType::Type::kBool, result_type);
   }
 
   HInstruction* GetInput() const { return InputAt(0); }

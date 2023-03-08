@@ -2950,8 +2950,9 @@ void LocationsBuilderX86::VisitTypeConversion(HTypeConversion* conversion) {
       new (GetGraph()->GetAllocator()) LocationSummary(conversion, call_kind);
 
   switch (result_type) {
-    case DataType::Type::kUint8:
-    case DataType::Type::kInt8:
+     case DataType::Type::kBool:
+     case DataType::Type::kUint8:
+     case DataType::Type::kInt8:
       switch (input_type) {
         case DataType::Type::kUint8:
         case DataType::Type::kInt8:
@@ -3113,6 +3114,36 @@ void InstructionCodeGeneratorX86::VisitTypeConversion(HTypeConversion* conversio
   DCHECK(!DataType::IsTypeConversionImplicit(input_type, result_type))
       << input_type << " -> " << result_type;
   switch (result_type) {
+    case DataType::Type::kBool:
+      switch (input_type) {
+        case DataType::Type::kUint8:
+        case DataType::Type::kInt8:
+        case DataType::Type::kUint16:
+        case DataType::Type::kInt16:
+        case DataType::Type::kInt32:
+          if (in.IsRegister()) {
+            __ movzxb(out.AsRegister<Register>(), in.AsRegister<ByteRegister>());
+          } else {
+            DCHECK(in.GetConstant()->IsIntConstant());
+            int32_t value = in.GetConstant()->AsIntConstant()->GetValue();
+            __ movl(out.AsRegister<Register>(), Immediate(static_cast<uint8_t>(value)));
+          }
+          break;
+        case DataType::Type::kInt64:
+          if (in.IsRegisterPair()) {
+            __ movzxb(out.AsRegister<Register>(), in.AsRegisterPairLow<ByteRegister>());
+          } else {
+            DCHECK(in.GetConstant()->IsLongConstant());
+            int64_t value = in.GetConstant()->AsLongConstant()->GetValue();
+            __ movl(out.AsRegister<Register>(), Immediate(static_cast<uint8_t>(value)));
+          }
+          break;
+
+        default:
+          LOG(FATAL) << "Unexpected type conversion from " << input_type << " to " << result_type;
+      }
+      break;
+
     case DataType::Type::kUint8:
       switch (input_type) {
         case DataType::Type::kInt8:
