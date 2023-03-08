@@ -710,12 +710,13 @@ class LSEVisitor final : private HGraphDelegateVisitor {
   HTypeConversion* FindOrAddTypeConversionIfNecessary(HInstruction* instruction,
                                                       HInstruction* value,
                                                       DataType::Type expected_type) {
-    // Should never add type conversion into boolean value.
-    if (expected_type == DataType::Type::kBool ||
-        DataType::IsTypeConversionImplicit(value->GetType(), expected_type) ||
+    if (DataType::IsTypeConversionImplicit(value->GetType(), expected_type) ||
         // TODO: This prevents type conversion of default values but we can still insert
         // type conversion of other constants and there is no constant folding pass after LSE.
-        IsZeroBitPattern(value)) {
+        IsZeroBitPattern(value) ||
+        // Special case where the IntConstant 1 doesn't need type conversion to bool.
+        (expected_type == DataType::Type::kBool && value->IsIntConstant() &&
+         value->AsIntConstant()->IsOne())) {
       return nullptr;
     }
 

@@ -17,14 +17,15 @@
 .super Ljava/lang/Object;
 
 ## CHECK-START: boolean TestCase.testCase() select_generator (after)
-## CHECK-DAG:     <<Select:i\d+>>          Select
-## CHECK-DAG:                              Return [<<Select>>]
+## CHECK-DAG:     <<Select:i\d+>>  Select
+## CHECK-DAG:                      Return [<<Select>>]
 
 ## CHECK-START: boolean TestCase.testCase() load_store_elimination (after)
-## CHECK-DAG:     <<Or:i\d+>>              Or
-## CHECK-DAG:     <<TypeConversion:b\d+>>  TypeConversion
-## CHECK-DAG:                              StaticFieldSet
-## CHECK-DAG:                              Return [<<TypeConversion>>]
+## CHECK-DAG:     <<Or:i\d+>>      Or
+## CHECK-DAG:     <<ToInt8:b\d+>>  TypeConversion GetInputType:Int32 GetResultType:Int8
+## CHECK-DAG:                      StaticFieldSet
+## CHECK-DAG:     <<ToBool:z\d+>>  TypeConversion GetInputType:Int8 GetResultType:Bool
+## CHECK-DAG:                      Return [<<ToBool>>]
 
 .method public static testCase()Z
     .registers 6

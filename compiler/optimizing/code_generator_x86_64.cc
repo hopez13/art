@@ -3145,6 +3145,7 @@ void LocationsBuilderX86_64::VisitTypeConversion(HTypeConversion* conversion) {
       << input_type << " -> " << result_type;
 
   switch (result_type) {
+    case DataType::Type::kBool:
     case DataType::Type::kUint8:
     case DataType::Type::kInt8:
     case DataType::Type::kUint16:
@@ -3278,6 +3279,29 @@ void InstructionCodeGeneratorX86_64::VisitTypeConversion(HTypeConversion* conver
   DCHECK(!DataType::IsTypeConversionImplicit(input_type, result_type))
       << input_type << " -> " << result_type;
   switch (result_type) {
+    case DataType::Type::kBool:
+      switch (input_type) {
+        case DataType::Type::kUint8:
+        case DataType::Type::kInt8:
+        case DataType::Type::kUint16:
+        case DataType::Type::kInt16:
+        case DataType::Type::kInt32:
+        case DataType::Type::kInt64:
+          if (in.IsRegister()) {
+            __ movzxb(out.AsRegister<CpuRegister>(), in.AsRegister<CpuRegister>());
+          } else if (in.IsStackSlot() || in.IsDoubleStackSlot()) {
+            __ movzxb(out.AsRegister<CpuRegister>(), Address(CpuRegister(RSP), in.GetStackIndex()));
+          } else {
+            __ movl(out.AsRegister<CpuRegister>(),
+                    Immediate(static_cast<uint8_t>(Int64FromConstant(in.GetConstant()))));
+          }
+          break;
+
+        default:
+          LOG(FATAL) << "Unexpected type conversion from " << input_type << " to " << result_type;
+      }
+      break;
+
     case DataType::Type::kUint8:
       switch (input_type) {
         case DataType::Type::kInt8:
