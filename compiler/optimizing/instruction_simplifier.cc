@@ -420,7 +420,6 @@ void InstructionSimplifierVisitor::VisitShift(HBinaryOperation* instruction) {
       return;
     }
   } else if (shift_amount->IsTypeConversion()) {
-    DCHECK_NE(shift_amount->GetType(), DataType::Type::kBool);  // We never convert to bool.
     DataType::Type source_type = shift_amount->InputAt(0)->GetType();
     // Non-integral and 64-bit source types require an explicit type conversion.
     if (DataType::IsIntegralType(source_type) && !DataType::Is64BitType(source_type)) {
