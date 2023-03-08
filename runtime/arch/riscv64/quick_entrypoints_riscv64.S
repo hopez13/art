@@ -31,8 +31,8 @@ ENTRY ExecuteSwitchImplAsm
     CFI_DEFINE_DEX_PC_WITH_OFFSET(0 /* a0 */, 9 /* s1, a.k.a. x9 */, 0)
     jalr a1     // Call the wrapped method.
 
-    RESTORE_GPR, s1 0
-    RESTORE_GPR, ra 8
+    RESTORE_GPR s1, 0
+    RESTORE_GPR ra, 8
     DECREASE_FRAME 16
     ret
 END ExecuteSwitchImplAsm
