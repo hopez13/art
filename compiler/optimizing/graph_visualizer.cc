@@ -470,6 +470,11 @@ class HGraphVisualizerPrinter : public HGraphDelegateVisitor {
         << bounds_check->IsStringCharAt() << std::noboolalpha;
   }
 
+  void VisitTypeConversion(HTypeConversion* type_conversion) override {
+    StartAttributeStream("GetInputType") << type_conversion->GetInputType();
+    StartAttributeStream("GetResultType") << type_conversion->GetResultType();
+  }
+
   void VisitArrayGet(HArrayGet* array_get) override {
     StartAttributeStream("is_string_char_at") << std::boolalpha
         << array_get->IsStringCharAt() << std::noboolalpha;
