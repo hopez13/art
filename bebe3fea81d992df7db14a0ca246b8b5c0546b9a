@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a68943ae_c95172b4",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1718,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-03-08T16:59:14Z",
+      "side": 1,
+      "message": "Vladimir: I\u0027m unsure whether this comment is correct as it talks about the removed handle scope.",
+      "range": {
+        "startLine": 1716,
+        "startChar": 0,
+        "endLine": 1718,
+        "endChar": 0
+      },
+      "revId": "bebe3fea81d992df7db14a0ca246b8b5c0546b9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
