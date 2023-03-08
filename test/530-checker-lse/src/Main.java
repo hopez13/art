@@ -675,7 +675,8 @@ public class Main {
   /// CHECK-DAG:     <<True:i\d+>>     IntConstant 1
   /// CHECK-DAG:     <<Float8:f\d+>>   FloatConstant 8
   /// CHECK-DAG:     <<Float42:f\d+>>  FloatConstant 42
-  /// CHECK-DAG:     <<Select:f\d+>>   Select [<<Float42>>,<<Float8>>,<<True>>]
+  /// CHECK-DAG:     <<Type:z\d+>>     TypeConversion [<<True>>] GetInputType:Int32 GetResultType:Bool
+  /// CHECK-DAG:     <<Select:f\d+>>   Select [<<Float42>>,<<Float8>>,<<Type>>]
   /// CHECK-DAG:                       Return [<<Select>>]
 
   /// CHECK-START: float Main.test24() load_store_elimination (after)

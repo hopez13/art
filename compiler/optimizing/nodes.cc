@@ -1822,6 +1822,9 @@ HConstant* HTypeConversion::TryStaticEvaluation() const {
     switch (GetResultType()) {
       case DataType::Type::kInt8:
         return graph->GetIntConstant(static_cast<int8_t>(value), GetDexPc());
+      // We only add TypeConversion instructions to kBool in LSE, where booleans are like uint8
+      // values.
+      case DataType::Type::kBool:
       case DataType::Type::kUint8:
         return graph->GetIntConstant(static_cast<uint8_t>(value), GetDexPc());
       case DataType::Type::kInt16:
@@ -1842,6 +1845,9 @@ HConstant* HTypeConversion::TryStaticEvaluation() const {
     switch (GetResultType()) {
       case DataType::Type::kInt8:
         return graph->GetIntConstant(static_cast<int8_t>(value), GetDexPc());
+      // We only add TypeConversion instructions to kBool in LSE, where booleans are like uint8
+      // values.
+      case DataType::Type::kBool:
       case DataType::Type::kUint8:
         return graph->GetIntConstant(static_cast<uint8_t>(value), GetDexPc());
       case DataType::Type::kInt16:
