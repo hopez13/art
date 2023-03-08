@@ -17,14 +17,17 @@
 .super Ljava/lang/Object;
 
 ## CHECK-START: boolean TestCase.testCase() select_generator (after)
-## CHECK-DAG:     <<Select:i\d+>>          Select
-## CHECK-DAG:                              Return [<<Select>>]
+## CHECK-DAG:     <<Select:i\d+>>  Select
+## CHECK-DAG:                      Return [<<Select>>]
 
 ## CHECK-START: boolean TestCase.testCase() load_store_elimination (after)
-## CHECK-DAG:     <<Or:i\d+>>              Or
-## CHECK-DAG:     <<TypeConversion:b\d+>>  TypeConversion
-## CHECK-DAG:                              StaticFieldSet
-## CHECK-DAG:                              Return [<<TypeConversion>>]
+## CHECK-DAG:     <<Or:i\d+>>      Or
+# Explicit int-to-byte instruction
+## CHECK-DAG:     <<ToInt8:b\d+>>  TypeConversion
+## CHECK-DAG:                      StaticFieldSet
+# LSE will add a TypeConversion when removing the sget-boolean instruction
+## CHECK-DAG:     <<ToBool:z\d+>>  TypeConversion
+## CHECK-DAG:                      Return [<<ToBool>>]
 
 .method public static testCase()Z
     .registers 6
