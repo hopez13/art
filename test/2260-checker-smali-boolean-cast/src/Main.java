@@ -18,6 +18,13 @@ import java.lang.reflect.Method;
 
 public class Main {
     public static void main(String[] args) throws Throwable {
+        $noinline$testSetGetValue();
+        $noinline$testTernaryOperator();
+        $noinline$testEqualToItself();
+        $noinline$testEqualToItselfPlus256();
+    }
+
+    private static void $noinline$testSetGetValue() throws Throwable {
         Class<?> c = Class.forName("BooleanTest");
 
         // A boolean value is false iff the lowest significant byte is 0 (i.e it is equal to 0
@@ -45,6 +52,40 @@ public class Main {
         }
     }
 
+    // Tests that we return only 1 or 0, and not other values e.g. 2.
+    private static void $noinline$testTernaryOperator() throws Throwable {
+        Class<?> c = Class.forName("BooleanTest");
+        Method m = c.getDeclaredMethod("ternaryOperatorProxy", int.class);
+        // TODO(solanes): Change 255 to 513 once we fix the comparison.
+        for (int i = 0; i <= 255; i++) {
+            if (i % 256 == 0) {
+                assertEquals(0, (Integer) m.invoke(null, i), i);
+            } else {
+                assertEquals(1, (Integer) m.invoke(null, i), i);
+            }
+        }
+    }
+
+    // Tests that booleans are equal to themselves after setting and reading a boolean value.
+    private static void $noinline$testEqualToItself() throws Throwable {
+        Class<?> c = Class.forName("BooleanTest");
+        Method m = c.getDeclaredMethod("equalToItselfProxy", int.class);
+        // TODO(solanes): Change 255 to 513 once we fix the comparison.
+        for (int i = 0; i <= 255; i++) {
+            assertTrue((Boolean) m.invoke(null, i), i);
+        }
+    }
+
+    // Tests that booleans are equal to themselves plus 256.
+    private static void $noinline$testEqualToItselfPlus256() throws Throwable {
+        Class<?> c = Class.forName("BooleanTest");
+        Method m = c.getDeclaredMethod("equalBooleansProxy", int.class, int.class);
+        // TODO(solanes): Change -1 to 513 once we fix the comparison.
+        for (int i = 0; i <= -1; i++) {
+            assertTrue((Boolean) m.invoke(null, i, i + 256), i);
+        }
+    }
+
     private static void assertTrue(boolean result) {
         if (!result) {
             throw new Error("Expected true");
@@ -54,6 +95,25 @@ public class Main {
     private static void assertFalse(boolean result) {
         if (result) {
             throw new Error("Expected false");
+        }
+    }
+
+    private static void assertTrue(boolean result, int iteration) {
+        if (!result) {
+            throw new Error("Expected true for iteration " + iteration);
+        }
+    }
+
+    private static void assertFalse(boolean result, int iteration) {
+        if (result) {
+            throw new Error("Expected false for iteration " + iteration);
+        }
+    }
+
+    private static void assertEquals(int expected, int actual, int iteration) {
+        if (expected != actual) {
+            throw new AssertionError(
+                    "Expected " + expected + " got " + actual + " for " + iteration);
         }
     }
 
