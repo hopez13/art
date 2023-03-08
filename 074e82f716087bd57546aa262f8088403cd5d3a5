@@ -112,6 +112,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "631e4a55_9eaaff90",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2722,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-03-08T10:21:57Z",
+      "side": 1,
+      "message": "Thanks for bringing that up in the meeting. No strong preference here.",
+      "parentUuid": "6ec5cbab_3e645c0b",
+      "range": {
+        "startLine": 2722,
+        "startChar": 0,
+        "endLine": 2722,
+        "endChar": 26
+      },
+      "revId": "074e82f716087bd57546aa262f8088403cd5d3a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "af3546f7_4dbdf619",
@@ -241,6 +265,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "da4cff19_42946f75",
+        "filename": "runtime/native/dalvik_system_VMStack.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-03-08T10:21:57Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "2b7ef342_a637eb6d",
+      "revId": "074e82f716087bd57546aa262f8088403cd5d3a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3827cb0a_e0c0787c",
@@ -325,6 +367,30 @@
       "side": 1,
       "message": "There\u0027s already a comment for the active_suspend_all_barrier field to that effect. Do you think we need another one here?",
       "parentUuid": "bc032d47_64b461e7",
+      "range": {
+        "startLine": 1493,
+        "startChar": 0,
+        "endLine": 1496,
+        "endChar": 5
+      },
+      "revId": "074e82f716087bd57546aa262f8088403cd5d3a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f2ca80f5_6da50bae",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1496,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-03-08T10:21:57Z",
+      "side": 1,
+      "message": "Maybe add a dummy comment like there can only be one suspendall request, see comment on `active_suspend_all_barrier` for more info ?",
+      "parentUuid": "62fb7dc2_a979fd08",
       "range": {
         "startLine": 1493,
         "startChar": 0,
