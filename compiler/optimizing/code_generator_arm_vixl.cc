@@ -3800,6 +3800,7 @@ void LocationsBuilderARMVIXL::VisitTypeConversion(HTypeConversion* conversion) {
       new (GetGraph()->GetAllocator()) LocationSummary(conversion, call_kind);
 
   switch (result_type) {
+    case DataType::Type::kBool:
     case DataType::Type::kUint8:
     case DataType::Type::kInt8:
     case DataType::Type::kUint16:
@@ -3943,6 +3944,24 @@ void InstructionCodeGeneratorARMVIXL::VisitTypeConversion(HTypeConversion* conve
   DCHECK(!DataType::IsTypeConversionImplicit(input_type, result_type))
       << input_type << " -> " << result_type;
   switch (result_type) {
+    case DataType::Type::kBool:
+      switch (input_type) {
+        case DataType::Type::kUint8:
+        case DataType::Type::kInt8:
+        case DataType::Type::kUint16:
+        case DataType::Type::kInt16:
+        case DataType::Type::kInt32:
+          __ Ubfx(OutputRegister(conversion), InputRegisterAt(conversion, 0), 0, 8);
+          break;
+        case DataType::Type::kInt64:
+          __ Ubfx(OutputRegister(conversion), LowRegisterFrom(in), 0, 8);
+          break;
+
+        default:
+          LOG(FATAL) << "Unexpected type conversion from " << input_type << " to " << result_type;
+      }
+      break;
+
     case DataType::Type::kUint8:
       switch (input_type) {
         case DataType::Type::kInt8:
