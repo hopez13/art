@@ -1305,21 +1305,6 @@ void GraphChecker::VisitBoundType(HBoundType* instruction) {
   }
 }
 
-void GraphChecker::VisitTypeConversion(HTypeConversion* instruction) {
-  VisitInstruction(instruction);
-  DataType::Type result_type = instruction->GetResultType();
-  DataType::Type input_type = instruction->GetInputType();
-  // Invariant: We should never generate a conversion to a Boolean value.
-  if (result_type == DataType::Type::kBool) {
-    AddError(StringPrintf(
-        "%s %d converts to a %s (from a %s).",
-        instruction->DebugName(),
-        instruction->GetId(),
-        DataType::PrettyDescriptor(result_type),
-        DataType::PrettyDescriptor(input_type)));
-  }
-}
-
 void GraphChecker::VisitVecOperation(HVecOperation* instruction) {
   VisitInstruction(instruction);
 
