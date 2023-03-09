@@ -35,6 +35,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "962fdb2c_94aa2639",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-03-09T09:36:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "68f734d3_6e4c737b",
+      "revId": "ed7cefe58516b25f26e06e52217969fb98c23ae3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8e515ccb_55d0ed60",
@@ -120,6 +138,30 @@
       "side": 1,
       "message": "Sorry, the second load and compare shouldn\u0027t have been there. I forgot to delete this. It\u0027s just one load, one compare and two branches now as compared to two loads, two compares and two branches earlier.",
       "parentUuid": "7e137196_c06c1914",
+      "range": {
+        "startLine": 2196,
+        "startChar": 0,
+        "endLine": 2202,
+        "endChar": 62
+      },
+      "revId": "ed7cefe58516b25f26e06e52217969fb98c23ae3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c961e258_e2440709",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2202,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-03-09T09:36:03Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "0dad46c9_a29b5b30",
       "range": {
         "startLine": 2196,
         "startChar": 0,
