@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b39fe2cd_3283c5d7",
+        "filename": "libelffile/elf/elf_debug_reader.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-03-09T22:18:36Z",
+      "side": 1,
+      "message": "PS: I was checking the disassembly, and I am pretty sure the compiler removes the memcpy anyway (as expected).",
+      "revId": "afd854133372c044434d3c7c57a824371da1cbb1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
