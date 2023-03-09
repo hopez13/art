@@ -46,6 +46,30 @@
       },
       "revId": "bebe3fea81d992df7db14a0ca246b8b5c0546b9a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec3234ad_eac583e6",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1718,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-03-09T12:15:58Z",
+      "side": 1,
+      "message": "Removed the comment (although I left line 1716 about the padding as args must be aligned still as far as I understand) and removed the class.\n\nClang-format also forced me to tweak formatting.",
+      "parentUuid": "b4167a18_bc91aa85",
+      "range": {
+        "startLine": 1716,
+        "startChar": 0,
+        "endLine": 1718,
+        "endChar": 0
+      },
+      "revId": "bebe3fea81d992df7db14a0ca246b8b5c0546b9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
