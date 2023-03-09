@@ -22,6 +22,30 @@
       },
       "revId": "bebe3fea81d992df7db14a0ca246b8b5c0546b9a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4167a18_bc91aa85",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1718,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-09T10:50:39Z",
+      "side": 1,
+      "message": "Obsolete since https://android-review.googlesource.com/1582970 .\n\nThere\u0027s also an obsolete \"handle-scope\" comment for the nested class `BuildGenericJniFrameVisitor::FillJniCall` in `quick_trampoline_entrypoints.cc`. In fact, the entire class looks unnecessary now, we could just use its superclass `FillNativeCall` instead.",
+      "parentUuid": "a68943ae_c95172b4",
+      "range": {
+        "startLine": 1716,
+        "startChar": 0,
+        "endLine": 1718,
+        "endChar": 0
+      },
+      "revId": "bebe3fea81d992df7db14a0ca246b8b5c0546b9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
