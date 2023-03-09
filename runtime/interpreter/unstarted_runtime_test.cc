@@ -261,7 +261,7 @@ TEST_F(UnstartedRuntimeTest, MemoryPeekShort) {
 
     using unaligned_short __attribute__((__aligned__(1))) = int16_t;
     const unaligned_short* short_ptr = reinterpret_cast<const unaligned_short*>(base_ptr + i);
-    EXPECT_EQ(result.GetS(), *short_ptr);
+    EXPECT_EQ(result.GetS(), int16_t(*short_ptr));
   }
 }
 
@@ -284,7 +284,7 @@ TEST_F(UnstartedRuntimeTest, MemoryPeekInt) {
 
     using unaligned_int __attribute__((__aligned__(1))) = int32_t;
     const unaligned_int* int_ptr = reinterpret_cast<const unaligned_int*>(base_ptr + i);
-    EXPECT_EQ(result.GetI(), *int_ptr);
+    EXPECT_EQ(result.GetI(), int32_t(*int_ptr));
   }
 }
 
@@ -307,7 +307,7 @@ TEST_F(UnstartedRuntimeTest, MemoryPeekLong) {
 
     using unaligned_long __attribute__((__aligned__(1))) = int64_t;
     const unaligned_long* long_ptr = reinterpret_cast<const unaligned_long*>(base_ptr + i);
-    EXPECT_EQ(result.GetJ(), *long_ptr);
+    EXPECT_EQ(result.GetJ(), int64_t(*long_ptr));
   }
 }
 

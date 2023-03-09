@@ -213,13 +213,12 @@ std::vector<uint8_t> MakeElfFileForJIT(
       DCHECK_EQ(sym.st_size, method_info.code_size);
       num_syms++;
     });
-    reader.VisitDebugFrame([&](const Reader::CIE* cie ATTRIBUTE_UNUSED) {
-      num_cies++;
-    }, [&](const Reader::FDE* fde, const Reader::CIE* cie ATTRIBUTE_UNUSED) {
-      DCHECK_EQ(fde->sym_addr, method_info.code_address);
-      DCHECK_EQ(fde->sym_size, method_info.code_size);
-      num_fdes++;
-    });
+    reader.VisitDebugFrame([&](const Reader::CIE* cie ATTRIBUTE_UNUSED) { num_cies++; },
+                           [&](const Reader::FDE* fde, const Reader::CIE* cie ATTRIBUTE_UNUSED) {
+                             DCHECK_EQ(uint64_t(fde->sym_addr), method_info.code_address);
+                             DCHECK_EQ(uint64_t(fde->sym_size), method_info.code_size);
+                             num_fdes++;
+                           });
     DCHECK_EQ(num_syms, 1u);
     DCHECK_LE(num_cies, 1u);
     DCHECK_LE(num_fdes, 1u);

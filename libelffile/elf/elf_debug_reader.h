@@ -126,7 +126,10 @@ class ElfDebugReader {
     if (symtab != nullptr && strtab != nullptr) {
       CHECK_EQ(symtab->sh_entsize, sizeof(Elf_Sym));
       size_t count = symtab->sh_size / sizeof(Elf_Sym);
-      for (const Elf_Sym& symbol : Read<Elf_Sym>(symtab->sh_offset, count)) {
+      for (const Elf_Sym& raw_symbol : Read<Elf_Sym>(symtab->sh_offset, count)) {
+        // Align the symbol (memcpy because copy-ctor can not be called with unaligned argument).
+        typename ElfTypes::Sym symbol;
+        memcpy(&symbol, &raw_symbol, sizeof(raw_symbol));
         if (ELF_ST_TYPE(symbol.st_info) == STT_FUNC && &sections_[symbol.st_shndx] == text) {
           visit_sym(symbol, Read<char>(strtab->sh_offset + symbol.st_name));
         }
