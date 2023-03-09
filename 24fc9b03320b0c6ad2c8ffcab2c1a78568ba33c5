@@ -22,6 +22,30 @@
       },
       "revId": "24fc9b03320b0c6ad2c8ffcab2c1a78568ba33c5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b229da6c_a9f721fe",
+        "filename": "libnativeloader/public_libraries.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 461,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-03-09T21:27:22Z",
+      "side": 1,
+      "message": "+2 from me --- i think this is our best option while we work on the renderscript removal (which won\u0027t happen for U regardless, so we\u0027ll need this or something very like it for the next few months).\n\ni\u0027d just reuse http://b/206676167 for the bug, fwiw.",
+      "parentUuid": "b935ceed_8767aeb3",
+      "range": {
+        "startLine": 461,
+        "startChar": 14,
+        "endLine": 461,
+        "endChar": 18
+      },
+      "revId": "24fc9b03320b0c6ad2c8ffcab2c1a78568ba33c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
