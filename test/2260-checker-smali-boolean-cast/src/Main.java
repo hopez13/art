@@ -20,6 +20,11 @@ public class Main {
     public static void main(String[] args) throws Throwable {
         System.loadLibrary(args[0]);
 
+        $noinline$testSetGetValue();
+        $noinline$testReturnItself();
+    }
+
+    private static void $noinline$testSetGetValue() throws Throwable {
         Class<?> c = Class.forName("BooleanTest");
 
         // The setGetBoolean methods store and load a byte. In that vein, a boolean value is false
@@ -44,6 +49,19 @@ public class Main {
             } else {
                 assertTrue((Boolean) m.invoke(null, i), i);
             }
+        }
+    }
+
+    private static void $noinline$testReturnItself() throws Throwable {
+        Class<?> c = Class.forName("BooleanTest");
+        Method m = c.getDeclaredMethod("returnItselfProxy", int.class);
+
+        // 0 is false.
+        assertFalse((Boolean) m.invoke(null, 0), 0);
+
+        // Rest are true.
+        for (int i = 1; i <= 513; i++) {
+            assertTrue((Boolean) m.invoke(null, i), i);
         }
     }
 

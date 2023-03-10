@@ -226,3 +226,16 @@
     sget-boolean v0, LMain;->field:Z
     return v0
 .end method
+
+.method public static returnItself(Z)Z
+    .registers 1
+    return p0
+.end method
+
+# Proxy method that redirects the int parameter as boolean in smali.
+.method public static returnItselfProxy(I)Z
+    .registers 1
+    invoke-static {p0}, LBooleanTest;->returnItself(Z)Z
+    move-result v0
+    return v0
+.end method
