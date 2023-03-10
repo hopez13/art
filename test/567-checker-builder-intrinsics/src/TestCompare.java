@@ -80,12 +80,10 @@ public class TestCompare {
   ///  CHECK-START: int TestCompare.compareBooleans2(boolean, boolean) instruction_simplifier$before_codegen (after)
   ///  CHECK:         <<ArgX:z\d+>>   ParameterValue
   ///  CHECK:         <<ArgY:z\d+>>   ParameterValue
-  ///  CHECK-DAG:     <<Result:i\d+>> Compare [<<ArgX>>,<<ArgY>>]
+  ///  CHECK:         <<SelX:i\d+>>   Select [<<Const0:i\d+>>,<<Const1:i\d+>>,<<ArgX>>]
+  ///  CHECK:         <<SelY:i\d+>>   Select [<<Const0>>,<<Const1>>,<<ArgY>>]
+  ///  CHECK-DAG:     <<Result:i\d+>> Compare [<<SelX>>,<<SelY>>]
   ///  CHECK-DAG:                     Return [<<Result>>]
-
-  ///  CHECK-START: int TestCompare.compareBooleans2(boolean, boolean) instruction_simplifier$before_codegen (after)
-  ///  CHECK-NOT:                     Select
-
   private static int compareBooleans2(boolean x, boolean y) {
     // Note: D8 would replace the ternary expression `x ? 1 : 0` with `x`
     // but explicit `if` is preserved.
