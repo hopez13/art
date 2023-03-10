@@ -1036,14 +1036,6 @@ void InstructionSimplifierVisitor::VisitSelect(HSelect* select) {
       DCHECK(condition->AsIntConstant()->IsFalse()) << condition->AsIntConstant()->GetValue();
       replace_with = false_value;
     }
-  } else if (true_value->IsIntConstant() && false_value->IsIntConstant()) {
-    if (true_value->AsIntConstant()->IsTrue() && false_value->AsIntConstant()->IsFalse()) {
-      // Replace (cond ? true : false) with (cond).
-      replace_with = condition;
-    } else if (true_value->AsIntConstant()->IsFalse() && false_value->AsIntConstant()->IsTrue()) {
-      // Replace (cond ? false : true) with (!cond).
-      replace_with = GetGraph()->InsertOppositeCondition(condition, select);
-    }
   } else if (condition->IsCondition()) {
     IfCondition cmp = condition->AsCondition()->GetCondition();
     HInstruction* a = condition->InputAt(0);

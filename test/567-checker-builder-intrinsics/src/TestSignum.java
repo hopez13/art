@@ -95,12 +95,9 @@ public class TestSignum {
   /// CHECK-START: int TestSignum.signBoolean(boolean) instruction_simplifier$before_codegen (after)
   /// CHECK-DAG:     <<Arg:z\d+>>    ParameterValue
   /// CHECK-DAG:     <<Zero:i\d+>>   IntConstant 0
-  /// CHECK-DAG:     <<Result:i\d+>> Compare [<<Arg>>,<<Zero>>]
+  /// CHECK-DAG:     <<Sel:i\d+>>    Select [<<Zero>>,<<Const1:i\d+>>,<<Arg>>]
+  /// CHECK-DAG:     <<Result:i\d+>> Compare [<<Sel>>,<<Zero>>]
   /// CHECK-DAG:                     Return [<<Result>>]
-
-  /// CHECK-START: int TestSignum.signBoolean(boolean) instruction_simplifier$before_codegen (after)
-  /// CHECK-NOT:                     Select
-
   private static int signBoolean(boolean x) {
     // Note: D8 would replace the ternary expression `x ? 1 : 0` with `x`
     // but explicit `if` is preserved.
