@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f6cfb4f_9df27f9b",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1234,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-03-10T18:14:14Z",
+      "side": 1,
+      "message": "Maybe a comment on why we can\u0027t with userfaultfd-GC.\n\nBTW, how much is this a performance hit to not emit these? There is a to-do item in my list, which once fixed it should work just like in case of CC.",
+      "range": {
+        "startLine": 1234,
+        "startChar": 14,
+        "endLine": 1234,
+        "endChar": 33
+      },
+      "revId": "a6adc38fb20ddc85fae4113a097eca153c1aa94d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
