@@ -209,12 +209,9 @@ public class TestRotate {
   /// CHECK:         <<ArgVal:z\d+>>  ParameterValue
   /// CHECK:         <<ArgDist:i\d+>> ParameterValue
   /// CHECK-DAG:     <<NegDist:i\d+>> Neg [<<ArgDist>>]
-  /// CHECK-DAG:     <<Result:i\d+>>  Ror [<<ArgVal>>,<<NegDist>>]
+  /// CHECK-DAG:     <<Sel:i\d+>>     Select [<<Const0:i\d+>>,<<Const1:i\d+>>,<<ArgVal>>]
+  /// CHECK-DAG:     <<Result:i\d+>>  Ror [<<Sel>>,<<NegDist>>]
   /// CHECK-DAG:                      Return [<<Result>>]
-
-  /// CHECK-START: int TestRotate.rotateLeftBoolean(boolean, int) instruction_simplifier$before_codegen (after)
-  /// CHECK-NOT:                      Select
-
   private static int rotateLeftBoolean(boolean value, int distance) {
     // Note: D8 would replace the ternary expression `value ? 1 : 0` with `value`
     // but explicit `if` is preserved.
@@ -353,12 +350,9 @@ public class TestRotate {
   /// CHECK-START: int TestRotate.rotateRightBoolean(boolean, int) instruction_simplifier$before_codegen (after)
   /// CHECK:         <<ArgVal:z\d+>>  ParameterValue
   /// CHECK:         <<ArgDist:i\d+>> ParameterValue
-  /// CHECK-DAG:     <<Result:i\d+>>  Ror [<<ArgVal>>,<<ArgDist>>]
+  /// CHECK-DAG:     <<Sel:i\d+>>     Select [<<Const0:i\d+>>,<<Const1:i\d+>>,<<ArgVal>>]
+  /// CHECK-DAG:     <<Result:i\d+>>  Ror [<<Sel>>,<<ArgDist>>]
   /// CHECK-DAG:                      Return [<<Result>>]
-
-  /// CHECK-START: int TestRotate.rotateRightBoolean(boolean, int) instruction_simplifier$before_codegen (after)
-  /// CHECK-NOT:                     Select
-
   private static int rotateRightBoolean(boolean value, int distance) {
     // Note: D8 would replace the ternary expression `value ? 1 : 0` with `value`
     // but explicit `if` is preserved.

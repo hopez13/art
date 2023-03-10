@@ -212,8 +212,9 @@ public class Main {
 
   /// CHECK-START: int Main.$noinline$IntMatCond_IntVarVar(int, int, int, int) register (after)
   /// CHECK:            <<Cond:z\d+>> LessThanOrEqual [{{i\d+}},{{i\d+}}]
-  /// CHECK-NEXT:       <<Sel:i\d+>>  Select [{{i\d+}},{{i\d+}},{{z\d+}}]
-  /// CHECK-NEXT:                     Add [<<Cond>>,<<Sel>>]
+  /// CHECK-NEXT:       <<Sel:i\d+>>  Select [{{i\d+}},{{i\d+}},<<Cond>>]
+  /// CHECK-NEXT:       <<Sel2:i\d+>> Select [{{i\d+}},{{i\d+}},<<Cond>>]
+  /// CHECK-NEXT:                     Add [<<Sel2>>,<<Sel>>]
 
   /// CHECK-START-ARM64: int Main.$noinline$IntMatCond_IntVarVar(int, int, int, int) disassembly (after)
   /// CHECK:               LessThanOrEqual
@@ -466,7 +467,8 @@ public class Main {
   /// CHECK-START: int Main.$noinline$FloatLtMatCond_IntVarVar(float, float, int, int) register (after)
   /// CHECK:            <<Cond:z\d+>> LessThanOrEqual [{{f\d+}},{{f\d+}}]
   /// CHECK-NEXT:       <<Sel:i\d+>>  Select [{{i\d+}},{{i\d+}},<<Cond>>]
-  /// CHECK-NEXT:                     Add [<<Cond>>,<<Sel>>]
+  /// CHECK-NEXT:       <<Sel2:i\d+>> Select [{{i\d+}},{{i\d+}},<<Cond>>]
+  /// CHECK-NEXT:                     Add [<<Sel2>>,<<Sel>>]
 
   /// CHECK-START-ARM64: int Main.$noinline$FloatLtMatCond_IntVarVar(float, float, int, int) disassembly (after)
   /// CHECK:               LessThanOrEqual
@@ -483,7 +485,8 @@ public class Main {
   /// CHECK-START: int Main.$noinline$FloatGtMatCond_IntVarVar(float, float, int, int) register (after)
   /// CHECK:            <<Cond:z\d+>> GreaterThanOrEqual [{{f\d+}},{{f\d+}}]
   /// CHECK-NEXT:       <<Sel:i\d+>>  Select [{{i\d+}},{{i\d+}},<<Cond>>]
-  /// CHECK-NEXT:                     Add [<<Cond>>,<<Sel>>]
+  /// CHECK-NEXT:       <<Sel2:i\d+>> Select [{{i\d+}},{{i\d+}},<<Cond>>]
+  /// CHECK-NEXT:                     Add [<<Sel2>>,<<Sel>>]
 
   /// CHECK-START-ARM64: int Main.$noinline$FloatGtMatCond_IntVarVar(float, float, int, int) disassembly (after)
   /// CHECK:               GreaterThanOrEqual
