@@ -50,7 +50,8 @@
 
 ##  CHECK-START: byte SmaliTests.booleanToByte(boolean) instruction_simplifier$before_codegen (after)
 ##  CHECK:         <<Arg:z\d+>>           ParameterValue
-##  CHECK-DAG:                            Return [<<Arg>>]
+##  CHECK:         <<Sel:i\d+>>           Select [<<Const0:i\d+>>,<<Const1:i\d+>>,<<Arg>>]
+##  CHECK-DAG:                            Return [<<Sel>>]
 .method static booleanToByte(Z)B
     .registers 2
     if-eqz p0, :cond_5
@@ -85,7 +86,8 @@
 
 ##  CHECK-START: short SmaliTests.booleanToShort(boolean) instruction_simplifier$before_codegen (after)
 ##  CHECK:         <<Arg:z\d+>>           ParameterValue
-##  CHECK-DAG:                            Return [<<Arg>>]
+##  CHECK:         <<Sel:i\d+>>           Select [<<Const0:i\d+>>,<<Const1:i\d+>>,<<Arg>>]
+##  CHECK-DAG:                            Return [<<Sel>>]
 .method static booleanToShort(Z)S
     .registers 2
     if-eqz p0, :cond_5
@@ -120,7 +122,8 @@
 
 ##  CHECK-START: char SmaliTests.booleanToChar(boolean) instruction_simplifier$before_codegen (after)
 ##  CHECK:         <<Arg:z\d+>>           ParameterValue
-##  CHECK-DAG:                            Return [<<Arg>>]
+##  CHECK:         <<Sel:i\d+>>           Select [<<Const0:i\d+>>,<<Const1:i\d+>>,<<Arg>>]
+##  CHECK-DAG:                            Return [<<Sel>>]
 .method static booleanToChar(Z)C
     .registers 2
     if-eqz p0, :cond_5
@@ -153,7 +156,8 @@
 
 ##  CHECK-START: int SmaliTests.booleanToInt(boolean) instruction_simplifier$before_codegen (after)
 ##  CHECK:         <<Arg:z\d+>>           ParameterValue
-##  CHECK-DAG:                            Return [<<Arg>>]
+##  CHECK:         <<Sel:i\d+>>           Select [<<Const0:i\d+>>,<<Const1:i\d+>>,<<Arg>>]
+##  CHECK-DAG:                            Return [<<Sel>>]
 .method static booleanToInt(Z)I
     .registers 2
     if-eqz p0, :cond_4
@@ -236,7 +240,8 @@
 
 ## CHECK-START: int SmaliTests.longToIntOfBoolean() instruction_simplifier$before_codegen (after)
 ## CHECK-DAG:     <<Sget:z\d+>>          StaticFieldGet
-## CHECK-DAG:                            Return [<<Sget>>]
+## CHECK-DAG:     <<Sel:i\d+>>           Select [<<Const0:i\d+>>,<<Const1:i\d+>>,<<Sget>>]
+## CHECK-DAG:                            Return [<<Sel>>]
 .method public static longToIntOfBoolean()I
     .registers 3
     .prologue

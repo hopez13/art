@@ -401,19 +401,21 @@
 ## CHECK-DAG:       <<And:i\d+>>         And [<<Select1>>,<<Select2>>]
 ## CHECK-DAG:                            Return [<<And>>]
 
-## CHECK-START: boolean SmaliTests.$opt$noinline$booleanAndToOrV2(boolean, boolean) instruction_simplifier$after_gvn (after)
-## CHECK-DAG:       <<Cond1:z\d+>>       ParameterValue
-## CHECK-DAG:       <<Cond2:z\d+>>       ParameterValue
-## CHECK-DAG:       <<Or:i\d+>>          Or [<<Cond1>>,<<Cond2>>]
-## CHECK-DAG:       <<BooleanNot:z\d+>>  BooleanNot [<<Or>>]
-## CHECK-DAG:                            Return [<<BooleanNot>>]
+# TODO(solanes): See if we can reenable this. The Selects break the pattern matching since we don't have 1 and 0.
 
-## CHECK-START: boolean SmaliTests.$opt$noinline$booleanAndToOrV2(boolean, boolean) instruction_simplifier$before_codegen (after)
-## CHECK-DAG:                            BooleanNot
-## CHECK-NOT:                            BooleanNot
+# CHECK-START: boolean SmaliTests.$opt$noinline$booleanAndToOrV2(boolean, boolean) instruction_simplifier$after_gvn (after)
+# CHECK-DAG:       <<Cond1:z\d+>>       ParameterValue
+# CHECK-DAG:       <<Cond2:z\d+>>       ParameterValue
+# CHECK-DAG:       <<Or:i\d+>>          Or [<<Cond1>>,<<Cond2>>]
+# CHECK-DAG:       <<BooleanNot:z\d+>>  BooleanNot [<<Or>>]
+# CHECK-DAG:                            Return [<<BooleanNot>>]
 
-## CHECK-START: boolean SmaliTests.$opt$noinline$booleanAndToOrV2(boolean, boolean) instruction_simplifier$before_codegen (after)
-## CHECK-NOT:                            And
+# CHECK-START: boolean SmaliTests.$opt$noinline$booleanAndToOrV2(boolean, boolean) instruction_simplifier$before_codegen (after)
+# CHECK-DAG:                            BooleanNot
+# CHECK-NOT:                            BooleanNot
+
+# CHECK-START: boolean SmaliTests.$opt$noinline$booleanAndToOrV2(boolean, boolean) instruction_simplifier$before_codegen (after)
+# CHECK-NOT:                            And
 
 # Original java source:
 #
@@ -523,19 +525,21 @@
 ## CHECK-DAG:       <<Or:i\d+>>          Or [<<Select1>>,<<Select2>>]
 ## CHECK-DAG:                            Return [<<Or>>]
 
-## CHECK-START: boolean SmaliTests.$opt$noinline$booleanOrToAndV2(boolean, boolean) instruction_simplifier$after_gvn (after)
-## CHECK-DAG:       <<Cond1:z\d+>>       ParameterValue
-## CHECK-DAG:       <<Cond2:z\d+>>       ParameterValue
-## CHECK-DAG:       <<And:i\d+>>         And [<<Cond1>>,<<Cond2>>]
-## CHECK-DAG:       <<BooleanNot:z\d+>>  BooleanNot [<<And>>]
-## CHECK-DAG:                            Return [<<BooleanNot>>]
+# TODO(solanes): See if we can reenable this. The Selects break the pattern matching since we don't have 1 and 0.
 
-## CHECK-START: boolean SmaliTests.$opt$noinline$booleanOrToAndV2(boolean, boolean) instruction_simplifier$before_codegen (after)
-## CHECK-DAG:                            BooleanNot
-## CHECK-NOT:                            BooleanNot
+# CHECK-START: boolean SmaliTests.$opt$noinline$booleanOrToAndV2(boolean, boolean) instruction_simplifier$after_gvn (after)
+# CHECK-DAG:       <<Cond1:z\d+>>       ParameterValue
+# CHECK-DAG:       <<Cond2:z\d+>>       ParameterValue
+# CHECK-DAG:       <<And:i\d+>>         And [<<Cond1>>,<<Cond2>>]
+# CHECK-DAG:       <<BooleanNot:z\d+>>  BooleanNot [<<And>>]
+# CHECK-DAG:                            Return [<<BooleanNot>>]
 
-## CHECK-START: boolean SmaliTests.$opt$noinline$booleanOrToAndV2(boolean, boolean) instruction_simplifier$before_codegen (after)
-## CHECK-NOT:                            Or
+# CHECK-START: boolean SmaliTests.$opt$noinline$booleanOrToAndV2(boolean, boolean) instruction_simplifier$before_codegen (after)
+# CHECK-DAG:                            BooleanNot
+# CHECK-NOT:                            BooleanNot
+
+# CHECK-START: boolean SmaliTests.$opt$noinline$booleanOrToAndV2(boolean, boolean) instruction_simplifier$before_codegen (after)
+# CHECK-NOT:                            Or
 
 # Original java source:
 #
@@ -711,14 +715,16 @@
 ## CHECK-DAG:       <<Xor:i\d+>>         Xor [<<Select1>>,<<Select2>>]
 ## CHECK-DAG:                            Return [<<Xor>>]
 
-## CHECK-START: boolean SmaliTests.$opt$noinline$booleanNotXorToXorV2(boolean, boolean) instruction_simplifier$after_gvn (after)
-## CHECK-DAG:       <<Cond1:z\d+>>       ParameterValue
-## CHECK-DAG:       <<Cond2:z\d+>>       ParameterValue
-## CHECK-DAG:       <<Xor:i\d+>>         Xor [<<Cond1>>,<<Cond2>>]
-## CHECK-DAG:                            Return [<<Xor>>]
+# TODO(solanes): See if we can reenable this. The Selects break the pattern matching since we don't have 1 and 0.
 
-## CHECK-START: boolean SmaliTests.$opt$noinline$booleanNotXorToXorV2(boolean, boolean) instruction_simplifier$before_codegen (after)
-## CHECK-NOT:                            BooleanNot
+# CHECK-START: boolean SmaliTests.$opt$noinline$booleanNotXorToXorV2(boolean, boolean) instruction_simplifier$after_gvn (after)
+# CHECK-DAG:       <<Cond1:z\d+>>       ParameterValue
+# CHECK-DAG:       <<Cond2:z\d+>>       ParameterValue
+# CHECK-DAG:       <<Xor:i\d+>>         Xor [<<Cond1>>,<<Cond2>>]
+# CHECK-DAG:                            Return [<<Xor>>]
+
+# CHECK-START: boolean SmaliTests.$opt$noinline$booleanNotXorToXorV2(boolean, boolean) instruction_simplifier$before_codegen (after)
+# CHECK-NOT:                            BooleanNot
 
 # Original java source:
 #

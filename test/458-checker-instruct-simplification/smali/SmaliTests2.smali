@@ -177,7 +177,8 @@
 
 ## CHECK-START: boolean SmaliTests2.$noinline$NotNotBool(boolean) instruction_simplifier$after_gvn (after)
 ## CHECK-DAG:     <<Arg:z\d+>>       ParameterValue
-## CHECK-DAG:                        Return [<<Arg>>]
+## CHECK-DAG:     <<Sel:i\d+>>       Select [<<Const0:i\d+>>,<<Const1:i\d+>>,<<Arg>>]
+## CHECK-DAG:                        Return [<<Sel>>]
 
 # Original java source:
 #
@@ -266,7 +267,8 @@
 
 ## CHECK-START: int SmaliTests2.$noinline$bug68142795Boolean(boolean) instruction_simplifier$after_gvn (after)
 ## CHECK-DAG:      <<Arg:z\d+>>      ParameterValue
-## CHECK-DAG:                        Return [<<Arg>>]
+## CHECK-DAG:      <<Sel:i\d+>>      Select [<<Const0:i\d+>>,<<Const1:i\d+>>,<<Arg>>]
+## CHECK-DAG:                        Return [<<Sel>>]
 
 # Original java source
 #
