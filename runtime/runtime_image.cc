@@ -55,8 +55,6 @@ namespace art {
 
 using android::base::StringPrintf;
 
-static constexpr bool kEmitDexCacheArrays = true;
-
 /**
  * The native data structures that we store in the image.
  */
@@ -87,7 +85,6 @@ class RuntimeImageHelper {
     object_section_size_(sizeof(ImageHeader)),
     intern_table_(InternStringHash(this), InternStringEquals(this)),
     class_table_(ClassDescriptorHash(this), ClassDescriptorEquals()) {}
-
 
   bool Generate(std::string* error_msg) {
     if (!WriteObjects(error_msg)) {
@@ -1079,6 +1076,8 @@ class RuntimeImageHelper {
                         runtime->GetBootClassPathChecksums());
     key_value_store.Put(OatHeader::kClassPathKey,
                         oat_dex_file->GetOatFile()->GetClassLoaderContext());
+    key_value_store.Put(OatHeader::kConcurrentCopying,
+                        gUseReadBarrier ? OatHeader::kTrueValue : OatHeader::kFalseValue);
 
     std::unique_ptr<const InstructionSetFeatures> isa_features =
         InstructionSetFeatures::FromCppDefines();
@@ -1232,6 +1231,9 @@ class RuntimeImageHelper {
 
     return reinterpret_cast<mirror::GcRootArray<T>*>(data.data() + offset);
   }
+  static bool EmitDexCacheArrays() {
+    return !gUseUserfaultfd;
+  }
 
   uint32_t CopyDexCache(ObjPtr<mirror::DexCache> cache) REQUIRES_SHARED(Locks::mutator_lock_) {
     auto it = dex_caches_.find(cache->GetDexFile());
@@ -1245,7 +1247,7 @@ class RuntimeImageHelper {
     reinterpret_cast<mirror::DexCache*>(copy)->ResetNativeArrays();
     reinterpret_cast<mirror::DexCache*>(copy)->SetDexFile(nullptr);
 
-    if (!kEmitDexCacheArrays) {
+    if (!EmitDexCacheArrays()) {
       return offset;
     }
 
