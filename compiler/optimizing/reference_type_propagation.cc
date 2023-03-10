@@ -395,16 +395,12 @@ static bool MatchIfInstanceOf(HIf* ifInstruction,
     if (rhs != nullptr) {
       HInstruction* lhs = input->AsEqual()->GetLeastConstantLeft();
       if (lhs->IsInstanceOf() && rhs->IsIntConstant()) {
-        if (rhs->AsIntConstant()->IsTrue()) {
+        if (rhs->AsIntConstant()->IsOne()) {
           // Case (1a)
           *trueBranch = ifInstruction->IfTrueSuccessor();
-        } else if (rhs->AsIntConstant()->IsFalse()) {
+        } else if (rhs->AsIntConstant()->IsArithmeticZero()) {
           // Case (2a)
           *trueBranch = ifInstruction->IfFalseSuccessor();
-        } else {
-          // Sometimes we see a comparison of instance-of with a constant which is neither 0 nor 1.
-          // In those cases, we cannot do the match if+instance-of.
-          return false;
         }
         *instanceOf = lhs->AsInstanceOf();
         return true;
@@ -415,16 +411,12 @@ static bool MatchIfInstanceOf(HIf* ifInstruction,
     if (rhs != nullptr) {
       HInstruction* lhs = input->AsNotEqual()->GetLeastConstantLeft();
       if (lhs->IsInstanceOf() && rhs->IsIntConstant()) {
-        if (rhs->AsIntConstant()->IsFalse()) {
+        if (rhs->AsIntConstant()->IsArithmeticZero()) {
           // Case (1b)
           *trueBranch = ifInstruction->IfTrueSuccessor();
-        } else if (rhs->AsIntConstant()->IsTrue()) {
+        } else if (rhs->AsIntConstant()->IsOne()) {
           // Case (2b)
           *trueBranch = ifInstruction->IfFalseSuccessor();
-        } else {
-          // Sometimes we see a comparison of instance-of with a constant which is neither 0 nor 1.
-          // In those cases, we cannot do the match if+instance-of.
-          return false;
         }
         *instanceOf = lhs->AsInstanceOf();
         return true;
