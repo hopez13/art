@@ -37,6 +37,13 @@ class HConstantFoldingVisitor final : public HGraphDelegateVisitor {
   void VisitUnaryOperation(HUnaryOperation* inst) override;
   void VisitBinaryOperation(HBinaryOperation* inst) override;
 
+  // Tries to replace binary operations like:
+  // * BinaryOp(Select(false_val, true_val, condition), constant), or
+  // * BinaryOp(constant, Select(false_val, true_val, condition))
+  // with constants. For example, Add(Select(10, 20, condition), 5) can be replaced with
+  // Select(15, 25, condition).
+  bool TryRemoveBinaryOperationViaSelect(HBinaryOperation* inst);
+
   void VisitArrayLength(HArrayLength* inst) override;
   void VisitDivZeroCheck(HDivZeroCheck* inst) override;
   void VisitIf(HIf* inst) override;
@@ -113,7 +120,55 @@ void HConstantFoldingVisitor::VisitUnaryOperation(HUnaryOperation* inst) {
   if (constant != nullptr) {
     inst->ReplaceWith(constant);
     inst->GetBlock()->RemoveInstruction(inst);
+  } else if (inst->InputAt(0)->IsSelect() && inst->InputAt(0)->GetUses().HasExactlyOneElement()) {
+    // Try to remove the type conversion in Select+UnaryOperation cases. We can do this if both
+    // inputs to the select are constants, and this is the only use of the select.
+    HSelect* select = inst->InputAt(0)->AsSelect();
+    HConstant* false_constant = inst->TryStaticEvaluation(select->GetFalseValue());
+    HConstant* true_constant = inst->TryStaticEvaluation(select->GetTrueValue());
+    if (false_constant != nullptr && true_constant != nullptr) {
+      HSelect* new_select = new (GetGraph()->GetAllocator())
+          HSelect(select->GetCondition(), true_constant, false_constant, select->GetDexPc());
+      select->GetBlock()->ReplaceAndRemoveInstructionWith(select, new_select);
+      inst->ReplaceWith(new_select);
+      inst->GetBlock()->RemoveInstruction(inst);
+    }
   }
+}
+
+bool HConstantFoldingVisitor::TryRemoveBinaryOperationViaSelect(HBinaryOperation* inst) {
+  if (inst->GetLeft()->IsSelect() == inst->GetRight()->IsSelect()) {
+    // If both of them are constants, VisitBinaryOperation already tried the static evaluation. If
+    // both of them are selects, then we can't simplify.
+    // TODO(solanes): Technically, if both of them are selects we could simplify iff both select's
+    // conditions are equal e.g. Add(Select(1, 2, cond), Select(3, 4, cond)) could be replaced with
+    // Select(4, 6, cond). This seems very unlikely to happen so we don't implement it.
+    return false;
+  }
+
+  const bool left_is_select = inst->GetLeft()->IsSelect();
+  HSelect* select = left_is_select ? inst->GetLeft()->AsSelect() : inst->GetRight()->AsSelect();
+  HInstruction* maybe_constant = left_is_select ? inst->GetRight() : inst->GetLeft();
+
+  if (select->GetUses().HasExactlyOneElement()) {
+    // Try to remove the type conversion in Select+UnaryOperation cases. We can do this if both
+    // inputs to the select are constants, and this is the only use of the select.
+    HConstant* false_constant =
+        inst->TryStaticEvaluation(left_is_select ? select->GetFalseValue() : maybe_constant,
+                                  left_is_select ? maybe_constant : select->GetFalseValue());
+    HConstant* true_constant =
+        inst->TryStaticEvaluation(left_is_select ? select->GetTrueValue() : maybe_constant,
+                                  left_is_select ? maybe_constant : select->GetTrueValue());
+    if (false_constant != nullptr && true_constant != nullptr) {
+      HSelect* new_select = new (GetGraph()->GetAllocator())
+          HSelect(select->GetCondition(), true_constant, false_constant, select->GetDexPc());
+      select->GetBlock()->ReplaceAndRemoveInstructionWith(select, new_select);
+      inst->ReplaceWith(new_select);
+      inst->GetBlock()->RemoveInstruction(inst);
+      return true;
+    }
+  }
+  return false;
 }
 
 void HConstantFoldingVisitor::VisitBinaryOperation(HBinaryOperation* inst) {
@@ -123,6 +178,8 @@ void HConstantFoldingVisitor::VisitBinaryOperation(HBinaryOperation* inst) {
   if (constant != nullptr) {
     inst->ReplaceWith(constant);
     inst->GetBlock()->RemoveInstruction(inst);
+  } else if (TryRemoveBinaryOperationViaSelect(inst)) {
+    // Already replaced inside TryRemoveBinaryOperationViaSelect.
   } else {
     InstructionWithAbsorbingInputSimplifier simplifier(GetGraph());
     inst->Accept(&simplifier);
@@ -299,6 +356,19 @@ void HConstantFoldingVisitor::VisitTypeConversion(HTypeConversion* inst) {
   if (constant != nullptr) {
     inst->ReplaceWith(constant);
     inst->GetBlock()->RemoveInstruction(inst);
+  } else if (inst->InputAt(0)->IsSelect() && inst->InputAt(0)->GetUses().HasExactlyOneElement()) {
+    // Try to remove the type conversion in Select+TypeConversion cases. We can do this if both
+    // inputs to the select are constants, and this is the only use of the select.
+    HSelect* select = inst->InputAt(0)->AsSelect();
+    HConstant* false_constant = inst->TryStaticEvaluation(select->GetFalseValue());
+    HConstant* true_constant = inst->TryStaticEvaluation(select->GetTrueValue());
+    if (false_constant != nullptr && true_constant != nullptr) {
+      HSelect* new_select = new (GetGraph()->GetAllocator())
+          HSelect(select->GetCondition(), true_constant, false_constant, select->GetDexPc());
+      select->GetBlock()->ReplaceAndRemoveInstructionWith(select, new_select);
+      inst->ReplaceWith(new_select);
+      inst->GetBlock()->RemoveInstruction(inst);
+    }
   }
 }
 
