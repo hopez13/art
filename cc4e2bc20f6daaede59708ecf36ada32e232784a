@@ -52,6 +52,24 @@
       "parentUuid": "d971f161_6a90631a",
       "revId": "cc4e2bc20f6daaede59708ecf36ada32e232784a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "de3413dd_ab92d899",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1793992
+      },
+      "writtenOn": "2023-03-10T16:24:43Z",
+      "side": 1,
+      "message": "I wonder why 030-bad-finalizer is not run in `art/target-run-tests` [1]. But test passes fine in `v2/android-runtime-team/art/host-tests`. I am checking what\u0027s different there.\n\n[1] https://screenshot.googleplex.com/5GeuuhVt9Kf7Gj9",
+      "parentUuid": "8543a39f_0c3a2018",
+      "revId": "cc4e2bc20f6daaede59708ecf36ada32e232784a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
