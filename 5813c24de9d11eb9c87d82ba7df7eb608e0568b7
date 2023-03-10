@@ -160,6 +160,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2ed96a4_4e6c8c0f",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 535,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-03-10T22:45:56Z",
+      "side": 1,
+      "message": "Got it.\n\nThe reason I asked was to know if I should adjust the check in checkpoint functions as well or just in the flip ones.",
+      "parentUuid": "d93603e4_dcef99f0",
+      "range": {
+        "startLine": 535,
+        "startChar": 27,
+        "endLine": 535,
+        "endChar": 50
+      },
+      "revId": "5813c24de9d11eb9c87d82ba7df7eb608e0568b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b507341b_1213766b",
