@@ -46,6 +46,30 @@
       },
       "revId": "e6dad507b9c5b6b56cd52c6b15b15af4183faac0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "27611718_fee3b5fa",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1067098
+      },
+      "writtenOn": "2023-03-10T20:31:06Z",
+      "side": 1,
+      "message": "I guess another alternative is use the `aosp_x86_64` target on master-art. Does it really not work on that branch? Looks like they\u0027re in `build/make` and https://android.googlesource.com/platform/manifest/+/refs/heads/master-art/default.xml has `build/make`.",
+      "parentUuid": "85f06c4a_41e8725a",
+      "range": {
+        "startLine": 10,
+        "startChar": 36,
+        "endLine": 10,
+        "endChar": 66
+      },
+      "revId": "e6dad507b9c5b6b56cd52c6b15b15af4183faac0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
