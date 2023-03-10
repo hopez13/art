@@ -96,9 +96,9 @@ implementation_libs=(
 )
 
 if [ -d frameworks/base ]; then
-  # In full manifest branches, build the implementation libraries from source
-  # instead of using prebuilts.
-  common_targets="$common_targets ${implementation_libs[*]}"
+  # In full manifest branches, build adb and the implementation libraries from
+  # source instead of using prebuilts.
+  common_targets="$common_targets adb ${implementation_libs[*]}"
 else
   # Allow to build successfully in master-art.
   extra_args="SOONG_ALLOW_MISSING_DEPENDENCIES=true BUILD_BROKEN_DISABLE_BAZEL=true"
