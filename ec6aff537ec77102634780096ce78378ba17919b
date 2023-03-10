@@ -55,6 +55,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "6c8529e0_6cefd35d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-03-10T19:29:50Z",
+      "side": 1,
+      "message": "It\u0027s common that both build and test errors only show up postsubmit in our LUCI tests at http://go/art-buildbot, hence the request to test that. However I\u0027m sympathetic to that it\u0027s rather tedious when one doesn\u0027t have the tree checked out.",
+      "parentUuid": "889f66da_3537ace2",
+      "revId": "ec6aff537ec77102634780096ce78378ba17919b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "3ab0da46_6a4d3cb3",
         "filename": "tools/buildbot-build.sh",
         "patchSetId": 1
