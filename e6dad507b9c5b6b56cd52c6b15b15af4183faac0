@@ -22,6 +22,30 @@
       },
       "revId": "e6dad507b9c5b6b56cd52c6b15b15af4183faac0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85f06c4a_41e8725a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1067098
+      },
+      "writtenOn": "2023-03-10T20:27:46Z",
+      "side": 1,
+      "message": "The `armv8` one works fine for me at least. Actually I never tried the `aosp_*` targets for ART development. I think the instructions I found before enabling the chroot were using the ART targets.\n\nMaybe we can change `silvermont` to also be a 64-bit target, similar to `arm_v7_v8`? It looks like Silvermont was also a 64-bit uarch, so this would be technically accurate.",
+      "parentUuid": "ccf4c5c1_c7823e56",
+      "range": {
+        "startLine": 10,
+        "startChar": 36,
+        "endLine": 10,
+        "endChar": 66
+      },
+      "revId": "e6dad507b9c5b6b56cd52c6b15b15af4183faac0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
