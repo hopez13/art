@@ -27,7 +27,8 @@
 ## CHECK-DAG:                      StaticFieldSet
 # LSE will add a TypeConversion when removing the sget-boolean instruction
 ## CHECK-DAG:     <<ToBool:z\d+>>  TypeConversion GetInputType:Int8 GetResultType:Bool
-## CHECK-DAG:                      Return [<<ToBool>>]
+## CHECK-DAG:     <<Sel:i\d+>>     Select [<<Const0:i\d+>>,<<Const1:i\d+>>,<<ToBool>>]
+## CHECK-DAG:                      Return [<<Sel>>]
 
 .method public static testCase()Z
     .registers 6
@@ -41,8 +42,7 @@
     # LSE will replace this sget with the type conversion above...
     sget-boolean v2, LMain;->field2:Z
 
-    # ... and select generation will replace this part with a select
-    # that simplifies into simply returning the stored boolean.
+    # ... and select generation will replace this part with a select.
     if-eqz v2, :else
     const v0, 0x1
     return v0
