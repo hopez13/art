@@ -16,6 +16,14 @@
 
 public class Main {
     public static void main(String[] args) {
+        $noinline$testSetGetValue();
+        $noinline$testReturnItself();
+    }
+
+    private static void $noinline$testSetGetValue() {
+        // The setGetBoolean methods store and load a byte. In that vein, a boolean value is false
+        // iff the lowest significant byte is 0 (i.e it is equal to 0 modulo 256).
+
         // clang-format off
         assertFalse(BooleanTest.$noinline$setGetBooleanConst0(),   0);
         assertTrue (BooleanTest.$noinline$setGetBooleanConst1(),   1);
@@ -35,6 +43,15 @@ public class Main {
             } else {
                 assertTrue(BooleanTest.$noinline$setGetBoolean(i), i);
             }
+        }
+    }
+
+    private static void $noinline$testReturnItself() {
+        // 0 is false.
+        assertFalse(BooleanTest.$noinline$returnItselfProxy(0), 0);
+        // Rest are true.
+        for (int i = 1; i <= 513; i++) {
+            assertTrue(BooleanTest.$noinline$returnItselfProxy(i), i);
         }
     }
 

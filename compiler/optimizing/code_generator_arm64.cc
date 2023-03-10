@@ -3690,7 +3690,7 @@ void InstructionCodeGeneratorARM64::GenerateTestAndBranch(HInstruction* instruct
     // Nothing to do. The code always falls through.
     return;
   } else if (cond->IsIntConstant()) {
-    // Constant condition, statically compared against "true" (integer value 1).
+    // Constant condition, statically compared against "true".
     if (cond->AsIntConstant()->IsTrue()) {
       if (true_target != nullptr) {
         __ B(true_target);
