@@ -16,6 +16,23 @@
       "message": "Hello, everyone, why the \"Treehugger Robot\" verify failed?please help me.",
       "revId": "51163613b9689b10621df325fa620bb520480e9c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "91ebe621_a6a15e85",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-03-10T16:56:14Z",
+      "side": 1,
+      "message": "Actually, looking at this again:\nCan you explain why the native thread priority setting fails?\nhttps://cs.android.com/android/platform/superproject/+/master:art/runtime/thread.cc;l\u003d4765\nhas a CHECK that it succeeds, by some definition. If failure is a real possibility here, I think we should be returning an error indication, and fixing things up at the Java code level. If it\u0027s hard to get an error indication out of the pallette stuff, we should at least have setPriority0 return a success indication, and use that to set this.priority at https://cs.android.com/android/platform/superproject/+/master:libcore/ojluni/src/main/java/java/lang/Thread.java;l\u003d1343",
+      "revId": "51163613b9689b10621df325fa620bb520480e9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
