@@ -65,6 +65,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e8c1f9c_4b06315a",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 2286,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-03-10T22:40:48Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "30a32bf8_53105d94",
+      "range": {
+        "startLine": 2286,
+        "startChar": 17,
+        "endLine": 2286,
+        "endChar": 44
+      },
+      "revId": "5813c24de9d11eb9c87d82ba7df7eb608e0568b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1569666d_80a64f0a",
@@ -102,6 +126,30 @@
       "side": 1,
       "message": "Is this the case only for flip functions or also for checkpoints?",
       "parentUuid": "1569666d_80a64f0a",
+      "range": {
+        "startLine": 535,
+        "startChar": 27,
+        "endLine": 535,
+        "endChar": 50
+      },
+      "revId": "5813c24de9d11eb9c87d82ba7df7eb608e0568b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d93603e4_dcef99f0",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 535,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-03-10T22:40:48Z",
+      "side": 1,
+      "message": "It\u0027s only for flip functions. We no longer force the target thread to be suspended when we run it elsewhere. We just rely on the fact that that either the initiator or the target will run the function before the thread becomes runnable, and it only gets run once. I think that actually fixes another important (?) issue that we don\u0027t currently report: If a thread would have become runnable just after we started the flip, we currently delay it until all flip functions are run by the GC thread.",
+      "parentUuid": "e95bc19d_ec8d50de",
       "range": {
         "startLine": 535,
         "startChar": 27,
@@ -287,6 +335,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b977cc52_e5d9bf25",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 4469,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-03-10T22:40:48Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "94552a8d_b75957fb",
+      "range": {
+        "startLine": 4468,
+        "startChar": 6,
+        "endLine": 4469,
+        "endChar": 63
+      },
+      "revId": "5813c24de9d11eb9c87d82ba7df7eb608e0568b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "44a31e59_5eb707ac",
@@ -324,6 +396,30 @@
       "side": 1,
       "message": "Yeah. I was working with the assumption that your CL will get rid of it. But in meantime (and for tm-mainline-prod) I made this change to make it applicable for userfaultfd GC as well.",
       "parentUuid": "44a31e59_5eb707ac",
+      "range": {
+        "startLine": 2266,
+        "startChar": 6,
+        "endLine": 2266,
+        "endChar": 35
+      },
+      "revId": "5813c24de9d11eb9c87d82ba7df7eb608e0568b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "13e628dc_54ac6cd9",
+        "filename": "runtime/thread.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 2266,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-03-10T22:40:48Z",
+      "side": 1,
+      "message": "Sounds good. It did in fact disappear in the latest version of my CL.",
+      "parentUuid": "16a3ff6b_96a05898",
       "range": {
         "startLine": 2266,
         "startChar": 6,
