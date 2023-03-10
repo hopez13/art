@@ -16,6 +16,23 @@
       "message": "Failing tests are unrelated as this is a cosmetic build-only change.",
       "revId": "b7b7dba702e3aaee2cf1560c14ce86cbc755e8ce",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1352e070_1886491a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-03-10T09:36:03Z",
+      "side": 1,
+      "message": "I was looking for macro args without commas, but found only long lines on ARM64.",
+      "revId": "b7b7dba702e3aaee2cf1560c14ce86cbc755e8ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
