@@ -34,7 +34,7 @@ Note that using this chroot-based approach requires root access to the device
 
 ## Quick User Guide
 
-0. Unset variables which are not used with the chroot-based approach (if they
+1. Unset variables which are not used with the chroot-based approach (if they
    were set previously):
    ```bash
    unset ART_TEST_ANDROID_ROOT
@@ -44,69 +44,40 @@ Note that using this chroot-based approach requires root access to the device
    unset ART_TEST_ANDROID_I18N_ROOT
    unset ART_TEST_ANDROID_TZDATA_ROOT
    ```
-1. Set the chroot directory in `ART_TEST_CHROOT`:
+2. Set the chroot directory in `ART_TEST_CHROOT`:
     ```bash
     export ART_TEST_CHROOT=/data/local/art-test-chroot
     ```
-2. Set lunch target and ADB:
-    * With a minimal `aosp/master-art` tree:
-        1. Initialize the environment:
-            ```bash
-            export SOONG_ALLOW_MISSING_DEPENDENCIES=true
-            export BUILD_BROKEN_DISABLE_BAZEL=true
-            . ./build/envsetup.sh
-            ```
-        2. Select a lunch target corresponding to the architecture you want to
-           build and test:
-            * For (32-bit) Arm:
-                ```bash
-                lunch arm_krait-eng
-                ```
-            * For (64-bit only) Arm64:
-                ```bash
-                lunch armv8-eng
-                ```
-            * For (32- and 64-bit) Arm64:
-                ```bash
-                lunch arm_v7_v8-eng
-                ```
-            * For (32-bit) Intel x86:
-                ```bash
-                lunch silvermont-eng
-                ```
-        3. Set up the environment to use a pre-built ADB:
-            ```bash
-            export PATH="$(pwd)/prebuilts/runtime:$PATH"
-            export ADB="$ANDROID_BUILD_TOP/prebuilts/runtime/adb"
-            ```
-    * With a full Android (AOSP) `aosp/master` tree:
-        1. Initialize the environment:
-            ```bash
-            . ./build/envsetup.sh
-            ```
-        2. Select a lunch target corresponding to the architecture you want to
-           build and test:
-            * For (32-bit) Arm:
-                ```bash
-                lunch aosp_arm-eng
-                ```
-            * For (32- and 64-bit) Arm64:
-                ```bash
-                lunch aosp_arm64-eng
-                ```
-            * For (32-bit) Intel x86:
-                ```bash
-                lunch aosp_x86-eng
-                ```
-            * For (32- and 64-bit) Intel x86-64:
-                ```bash
-                lunch aosp_x86_64-eng
-                ```
-        3. Build ADB:
-            ```bash
-            m adb
-            ```
-3. Build ART and required dependencies:
+3. If using a minimal `aosp/master-art` tree, set up the environment:
+    ```bash
+    export SOONG_ALLOW_MISSING_DEPENDENCIES=true
+    export BUILD_BROKEN_DISABLE_BAZEL=true
+    export PATH="$PWD/prebuilts/runtime:$PATH"
+    export ADB="$PWD/prebuilts/runtime/adb"
+    ```
+4. Initialize the environment:
+    ```bash
+    . ./build/envsetup.sh
+    ```
+5. Select a lunch target corresponding to the architecture you want to
+   build and test:
+    * For (32-bit) Arm:
+        ```bash
+        lunch arm_krait-eng
+        ```
+    * For (64-bit only) Arm64:
+        ```bash
+        lunch armv8-eng
+        ```
+    * For (32- and 64-bit) Arm64:
+        ```bash
+        lunch arm_v7_v8-eng
+        ```
+    * For (32-bit) Intel x86:
+        ```bash
+        lunch silvermont-eng
+        ```
+6. Build ART and required dependencies:
     ```bash
     art/tools/buildbot-build.sh --target
     ```
@@ -114,21 +85,21 @@ Note that using this chroot-based approach requires root access to the device
     ```
     linkerconfig E [...] variableloader.cc:83] Unable to access VNDK APEX at path: <path>: No such file or directory
     ```
-4. Clean up the device:
+7. Clean up the device:
     ```bash
     art/tools/buildbot-cleanup-device.sh
     ```
-5. Setup the device (including setting up mount points and files in the chroot
+8. Setup the device (including setting up mount points and files in the chroot
    directory):
     ```bash
     art/tools/buildbot-setup-device.sh
     ```
-6. Populate the chroot tree on the device (including "activating" APEX packages
+9. Populate the chroot tree on the device (including "activating" APEX packages
    in the chroot environment):
     ```bash
     art/tools/buildbot-sync.sh
     ```
-7. Run ART gtests:
+10. Run ART gtests:
     ```bash
     art/tools/run-gtests.sh -j4
     ```
@@ -171,7 +142,7 @@ Note that using this chroot-based approach requires root access to the device
         ```bash
         art/tools/run-gtests.sh -- -j4
         ```
-8. Run ART run-tests:
+11. Run ART run-tests:
     * On a 64-bit target:
         ```bash
         art/test/testrunner/testrunner.py --target --64
@@ -180,7 +151,7 @@ Note that using this chroot-based approach requires root access to the device
         ```bash
         art/test/testrunner/testrunner.py --target --32
         ```
-9. Run Libcore tests:
+12. Run Libcore tests:
     * On a 64-bit target:
         ```bash
         art/tools/run-libcore-tests.sh --mode=device --variant=X64
@@ -189,7 +160,7 @@ Note that using this chroot-based approach requires root access to the device
         ```bash
         art/tools/run-libcore-tests.sh --mode=device --variant=X32
         ```
-10. Run JDWP tests:
+13. Run JDWP tests:
     * On a 64-bit target:
         ```bash
         art/tools/run-libjdwp-tests.sh --mode=device --variant=X64
@@ -198,11 +169,11 @@ Note that using this chroot-based approach requires root access to the device
         ```bash
         art/tools/run-libjdwp-tests.sh --mode=device --variant=X32
         ```
-11. Tear down device setup:
+14. Tear down device setup:
     ```bash
     art/tools/buildbot-teardown-device.sh
     ```
-12. Clean up the device:
+15. Clean up the device:
     ```bash
     art/tools/buildbot-cleanup-device.sh
     ```
