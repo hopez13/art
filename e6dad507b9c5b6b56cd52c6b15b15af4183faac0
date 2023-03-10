@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ccf4c5c1_c7823e56",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-03-10T20:07:18Z",
+      "side": 1,
+      "message": "Thanks for the effort, but I\u0027m not sure about this. True they may build, but do the results work interchangeably? +rpl for input.\n\nOne thing is that there\u0027s no corresponding x86_64 lunch target for master-art. That\u0027s a deficiency which is somewhat annoying because it\u0027s the most common Cuttlefish target, at least for me, and actually a reason I frequently choose to not use master-art.\n\n(We also have a wish to get rid of the oddball ART targets in `device/generic/art` and instead make the ordinary ones work for master-art, but that\u0027s another subject.)",
+      "range": {
+        "startLine": 10,
+        "startChar": 36,
+        "endLine": 10,
+        "endChar": 66
+      },
+      "revId": "e6dad507b9c5b6b56cd52c6b15b15af4183faac0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
