@@ -16,27 +16,42 @@
 
 public class Main {
     public static void main(String[] args) throws Throwable {
-        BooleanTest bt = new BooleanTest();
+        $noinline$testSetGetValue();
+        $noinline$testReturnItself();
+    }
+
+    private static void $noinline$testSetGetValue() throws Throwable {
+        // The setGetBoolean methods store and load a byte. In that vein, a boolean value is false
+        // iff the lowest significant byte is 0 (i.e it is equal to 0 modulo 256).
 
         // clang-format off
-        assertFalse(bt.$noinline$setGetBooleanConst0(),   0);
-        assertTrue (bt.$noinline$setGetBooleanConst1(),   1);
-        assertTrue (bt.$noinline$setGetBooleanConst2(),   2);
-        assertTrue (bt.$noinline$setGetBooleanConst255(), 255);
-        assertFalse(bt.$noinline$setGetBooleanConst256(), 256);
-        assertTrue (bt.$noinline$setGetBooleanConst257(), 257);
-        assertTrue (bt.$noinline$setGetBooleanConst511(), 511);
-        assertFalse(bt.$noinline$setGetBooleanConst512(), 512);
-        assertTrue (bt.$noinline$setGetBooleanConst513(), 513);
+        assertFalse(BooleanTest.$noinline$setGetBooleanConst0(),   0);
+        assertTrue (BooleanTest.$noinline$setGetBooleanConst1(),   1);
+        assertTrue (BooleanTest.$noinline$setGetBooleanConst2(),   2);
+        assertTrue (BooleanTest.$noinline$setGetBooleanConst255(), 255);
+        assertFalse(BooleanTest.$noinline$setGetBooleanConst256(), 256);
+        assertTrue (BooleanTest.$noinline$setGetBooleanConst257(), 257);
+        assertTrue (BooleanTest.$noinline$setGetBooleanConst511(), 511);
+        assertFalse(BooleanTest.$noinline$setGetBooleanConst512(), 512);
+        assertTrue (BooleanTest.$noinline$setGetBooleanConst513(), 513);
         // clang-format on
 
         // Same thing but with a int parameter instead of constant value.
         for (int i = 0; i <= 513; i++) {
             if (i % 256 == 0) {
-                assertFalse(bt.$noinline$setGetBoolean(i), i);
+                assertFalse(BooleanTest.$noinline$setGetBoolean(i), i);
             } else {
-                assertTrue(bt.$noinline$setGetBoolean(i), i);
+                assertTrue(BooleanTest.$noinline$setGetBoolean(i), i);
             }
+        }
+    }
+
+    private static void $noinline$testReturnItself() {
+        // 0 is false.
+        assertFalse(BooleanTest.$noinline$returnItselfProxy(0), 0);
+        // Rest are true.
+        for (int i = 1; i <= 513; i++) {
+            assertTrue(BooleanTest.$noinline$returnItselfProxy(i), i);
         }
     }
 

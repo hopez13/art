@@ -15,14 +15,6 @@
 .class public BooleanTest
 .super java/lang/Object
 
-.method public <init>()V
-  .limit stack 1
-  .limit locals 1
-  aload_0
-  invokespecial java/lang/Object/<init>()V
-  return
-.end method
-
 ;; CHECK-START: boolean BooleanTest.$noinline$setGetBooleanConst0() load_store_elimination (before)
 ;; CHECK: StaticFieldSet field_name:Main.field field_type:Bool
 ;; CHECK: StaticFieldGet field_name:Main.field field_type:Bool
@@ -238,5 +230,19 @@
     iload_0
     putstatic Main/field Z
     getstatic Main/field Z
+    ireturn
+.end method
+
+.method public static $noinline$returnItself(Z)Z
+    .limit stack 1
+    iload_0
+    ireturn
+.end method
+
+; Proxy method that redirects the int parameter as boolean in smali.
+.method public static $noinline$returnItselfProxy(I)Z
+    .limit stack 1
+    iload_0
+    invokestatic BooleanTest/$noinline$returnItself(Z)Z
     ireturn
 .end method

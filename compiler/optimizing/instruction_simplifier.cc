@@ -790,27 +790,23 @@ void InstructionSimplifierVisitor::VisitEqual(HEqual* equal) {
       // We are comparing the boolean to a constant which is of type int and can
       // be any constant.
       if (input_const->AsIntConstant()->IsTrue()) {
+        // TODO(solanes): Can we do this? Try to compare 2 with 3 as booleans with and without this optimization.
         // Replace (bool_value == true) with bool_value
         equal->ReplaceWith(input_value);
         block->RemoveInstruction(equal);
         RecordSimplification();
-      } else if (input_const->AsIntConstant()->IsFalse()) {
+        return;
+      } else {
+        DCHECK(input_const->AsIntConstant()->IsFalse());
         // Replace (bool_value == false) with !bool_value
         equal->ReplaceWith(GetGraph()->InsertOppositeCondition(input_value, equal));
         block->RemoveInstruction(equal);
         RecordSimplification();
-      } else {
-        // Replace (bool_value == integer_not_zero_nor_one_constant) with false
-        equal->ReplaceWith(GetGraph()->GetIntConstant(0));
-        block->RemoveInstruction(equal);
-        RecordSimplification();
+        return;
       }
-    } else {
-      VisitCondition(equal);
     }
-  } else {
-    VisitCondition(equal);
   }
+  VisitCondition(equal);
 }
 
 void InstructionSimplifierVisitor::VisitNotEqual(HNotEqual* not_equal) {
@@ -826,23 +822,18 @@ void InstructionSimplifierVisitor::VisitNotEqual(HNotEqual* not_equal) {
         not_equal->ReplaceWith(GetGraph()->InsertOppositeCondition(input_value, not_equal));
         block->RemoveInstruction(not_equal);
         RecordSimplification();
-      } else if (input_const->AsIntConstant()->IsFalse()) {
+        return;
+      } else {
+        DCHECK(input_const->AsIntConstant()->IsFalse());
         // Replace (bool_value != false) with bool_value
         not_equal->ReplaceWith(input_value);
         block->RemoveInstruction(not_equal);
         RecordSimplification();
-      } else {
-        // Replace (bool_value != integer_not_zero_nor_one_constant) with true
-        not_equal->ReplaceWith(GetGraph()->GetIntConstant(1));
-        block->RemoveInstruction(not_equal);
-        RecordSimplification();
+        return;
       }
-    } else {
-      VisitCondition(not_equal);
     }
-  } else {
-    VisitCondition(not_equal);
   }
+  VisitCondition(not_equal);
 }
 
 void InstructionSimplifierVisitor::VisitBooleanNot(HBooleanNot* bool_not) {
@@ -3102,8 +3093,6 @@ void InstructionSimplifierVisitor::VisitDeoptimize(HDeoptimize* deoptimize) {
         deoptimize->ReplaceWith(deoptimize->GuardedInput());
       }
       deoptimize->GetBlock()->RemoveInstruction(deoptimize);
-    } else {
-      // Always deopt.
     }
   }
 }
