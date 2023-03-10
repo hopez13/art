@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "30a32bf8_53105d94",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 2286,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-03-10T19:51:55Z",
+      "side": 1,
+      "message": "Yes. The bool that it reads from is not modified asynchronously.",
+      "parentUuid": "f4bfa4c8_8ee655ff",
+      "range": {
+        "startLine": 2286,
+        "startChar": 17,
+        "endLine": 2286,
+        "endChar": 44
+      },
+      "revId": "5813c24de9d11eb9c87d82ba7df7eb608e0568b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1569666d_80a64f0a",
         "filename": "runtime/gc/collector/mark_compact.cc",
         "patchSetId": 18
@@ -66,6 +90,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e95bc19d_ec8d50de",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 535,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-03-10T19:51:55Z",
+      "side": 1,
+      "message": "Is this the case only for flip functions or also for checkpoints?",
+      "parentUuid": "1569666d_80a64f0a",
+      "range": {
+        "startLine": 535,
+        "startChar": 27,
+        "endLine": 535,
+        "endChar": 50
+      },
+      "revId": "5813c24de9d11eb9c87d82ba7df7eb608e0568b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b507341b_1213766b",
         "filename": "runtime/gc/collector/mark_compact.cc",
         "patchSetId": 18
@@ -77,6 +125,30 @@
       "writtenOn": "2023-03-07T23:48:35Z",
       "side": 1,
       "message": "checkpoint \u003d\u003d\u003e flip? With my CL, flip functions don\u0027t run quite the same way as checkpoints. Checkpoints run either inthe thread or with the thread \"suspended\". Flip functions run either in the thread, or while the thread is waiting explicitly for the flip function to run before becoming runnable.",
+      "range": {
+        "startLine": 539,
+        "startChar": 65,
+        "endLine": 540,
+        "endChar": 18
+      },
+      "revId": "5813c24de9d11eb9c87d82ba7df7eb608e0568b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c46e7f6c_2c2ff297",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 540,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-03-10T19:51:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b507341b_1213766b",
       "range": {
         "startLine": 539,
         "startChar": 65,
@@ -129,6 +201,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "4c10ab64_8dd76370",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 1271,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-03-10T19:51:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a81dbddd_8975204c",
+      "revId": "5813c24de9d11eb9c87d82ba7df7eb608e0568b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "12011c94_fe2c61ff",
         "filename": "runtime/thread.cc",
         "patchSetId": 18
@@ -175,6 +265,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "94552a8d_b75957fb",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 4469,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-03-10T19:51:55Z",
+      "side": 1,
+      "message": "Yeah, partially. The next CL completely does it and so the comment is removed in it. That CL won\u0027t be merged in tm-mainline-prod as it has some changes which are not behind the phenotype flag.",
+      "parentUuid": "69a0d9cf_80cc4cae",
+      "range": {
+        "startLine": 4468,
+        "startChar": 6,
+        "endLine": 4469,
+        "endChar": 63
+      },
+      "revId": "5813c24de9d11eb9c87d82ba7df7eb608e0568b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "44a31e59_5eb707ac",
         "filename": "runtime/thread.h",
         "patchSetId": 18
@@ -186,6 +300,30 @@
       "writtenOn": "2023-03-07T23:48:35Z",
       "side": 1,
       "message": "I suspect this should go away with my CL, though I currently keep it.",
+      "range": {
+        "startLine": 2266,
+        "startChar": 6,
+        "endLine": 2266,
+        "endChar": 35
+      },
+      "revId": "5813c24de9d11eb9c87d82ba7df7eb608e0568b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16a3ff6b_96a05898",
+        "filename": "runtime/thread.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 2266,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-03-10T19:51:55Z",
+      "side": 1,
+      "message": "Yeah. I was working with the assumption that your CL will get rid of it. But in meantime (and for tm-mainline-prod) I made this change to make it applicable for userfaultfd GC as well.",
+      "parentUuid": "44a31e59_5eb707ac",
       "range": {
         "startLine": 2266,
         "startChar": 6,
