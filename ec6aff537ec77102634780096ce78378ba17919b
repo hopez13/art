@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c40351f8_4f8a3e72",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-03-10T17:59:58Z",
+      "side": 1,
+      "message": "Indeed it seems broken to always copy in the prebuilts as we\u0027ve done below. I suppose we haven\u0027t noticed since there haven\u0027t been any ABI changes. Thanks for fixing this.",
+      "revId": "ec6aff537ec77102634780096ce78378ba17919b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d9d8295_cd026949",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-03-10T17:59:58Z",
+      "side": 1,
+      "message": "There\u0027s no `Test:` tag. How has this been tested?\n\nIt ought to be tested with our chroot test setup on master-art. Do you think you can do that? https://android.googlesource.com/platform/art/+/5106fdaf8b08de1c8719e03e6a5d81b3c5513687/test/README.chroot.md",
+      "revId": "ec6aff537ec77102634780096ce78378ba17919b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ab0da46_6a4d3cb3",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-03-10T17:59:58Z",
+      "side": 1,
+      "message": "I\u0027m not sure if Bazel needs this on a full manifest branch, but given that cparsons@ added it where we use SOONG_ALLOW_MISSING_DEPENDENCIES in https://r.android.com/2393698, it\u0027s probably correct this way.",
+      "range": {
+        "startLine": 104,
+        "startChar": 52,
+        "endLine": 104,
+        "endChar": 83
+      },
+      "revId": "ec6aff537ec77102634780096ce78378ba17919b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bfeaeb4f_b7ec69dc",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-03-10T17:59:58Z",
+      "side": 1,
+      "message": "`${so}` please, to make it more clear where the variable name stops.",
+      "range": {
+        "startLine": 220,
+        "startChar": 70,
+        "endLine": 220,
+        "endChar": 73
+      },
+      "revId": "ec6aff537ec77102634780096ce78378ba17919b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
