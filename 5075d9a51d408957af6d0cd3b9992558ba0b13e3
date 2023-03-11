@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e21aa7a4_0032d5aa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-03-11T13:44:44Z",
+      "side": 1,
+      "message": "@ngeoffray@google.com, kindly review the latest changes regarding CMS\u0027 IsMarked and not sweeping the caches for non-moving GCs.\n\nThis CL is not super-urgent as we don\u0027t intend to CP it to `tm-mainline-prod` as some changes are outside the GC phenotype flag.",
+      "revId": "5075d9a51d408957af6d0cd3b9992558ba0b13e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
