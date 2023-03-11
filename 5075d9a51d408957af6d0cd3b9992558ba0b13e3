@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "01241e20_148109eb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-03-11T14:26:25Z",
+      "side": 1,
+      "message": "Drop this?",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 30
+      },
+      "revId": "5075d9a51d408957af6d0cd3b9992558ba0b13e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "e21aa7a4_0032d5aa",
@@ -14,6 +37,29 @@
       "writtenOn": "2023-03-11T13:44:44Z",
       "side": 1,
       "message": "@ngeoffray@google.com, kindly review the latest changes regarding CMS\u0027 IsMarked and not sweeping the caches for non-moving GCs.\n\nThis CL is not super-urgent as we don\u0027t intend to CP it to `tm-mainline-prod` as some changes are outside the GC phenotype flag.",
+      "revId": "5075d9a51d408957af6d0cd3b9992558ba0b13e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "75ae75ad_9ccdd65c",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 840,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-03-11T14:26:25Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 840,
+        "startChar": 20,
+        "endLine": 840,
+        "endChar": 21
+      },
       "revId": "5075d9a51d408957af6d0cd3b9992558ba0b13e3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
