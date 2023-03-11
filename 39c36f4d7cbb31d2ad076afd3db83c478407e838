@@ -16,6 +16,24 @@
       "message": "I thought this was mostly in Nicolas\u0027 domain, but I\u0027m concerned about the mark_sweep change. Can we discuss?",
       "revId": "39c36f4d7cbb31d2ad076afd3db83c478407e838",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dcc44995_f6e3cf62",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-03-11T00:47:58Z",
+      "side": 1,
+      "message": "After offline discussion, it was decided to not sweep interpreter/JIT caches in the case of non-moving GCs as they don\u0027t update any entry. This allows us to keep the CMS\u0027 IsMarked() unchanged, which is good for performance evaluations.",
+      "parentUuid": "a4d7b7f0_e5c8fbf6",
+      "revId": "39c36f4d7cbb31d2ad076afd3db83c478407e838",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
