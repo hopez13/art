@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6120ecb6_a41007f2",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 3801,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-03-13T09:06:02Z",
+      "side": 1,
+      "message": "In this arch and others, I copied what kUint8 does. Note that for Arm64 we don\u0027t have to make changes.",
+      "revId": "5d18ed55d89a8f271cf6343e0a11be2bc4c680e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
