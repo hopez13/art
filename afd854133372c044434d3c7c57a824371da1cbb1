@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "489ad7de_4e1699ae",
+        "filename": "compiler/debug/elf_debug_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-13T08:57:11Z",
+      "side": 1,
+      "message": "Is this the style we want to use for converting l-values to r-values?",
+      "range": {
+        "startLine": 218,
+        "startChar": 39,
+        "endLine": 218,
+        "endChar": 48
+      },
+      "revId": "afd854133372c044434d3c7c57a824371da1cbb1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "b39fe2cd_3283c5d7",
@@ -14,6 +37,29 @@
       "writtenOn": "2023-03-09T22:18:36Z",
       "side": 1,
       "message": "PS: I was checking the disassembly, and I am pretty sure the compiler removes the memcpy anyway (as expected).",
+      "revId": "afd854133372c044434d3c7c57a824371da1cbb1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4056b697_487350ba",
+        "filename": "libelffile/elf/elf_debug_reader.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-13T08:57:11Z",
+      "side": 1,
+      "message": "If we expect unaligned data structures, we should add the attribute here.",
+      "range": {
+        "startLine": 179,
+        "startChar": 8,
+        "endLine": 179,
+        "endChar": 9
+      },
       "revId": "afd854133372c044434d3c7c57a824371da1cbb1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
