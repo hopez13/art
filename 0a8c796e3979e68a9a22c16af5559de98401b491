@@ -46,6 +46,30 @@
       },
       "revId": "0a8c796e3979e68a9a22c16af5559de98401b491",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a65f24b2_57ccab25",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1488,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-13T16:35:14Z",
+      "side": 1,
+      "message": "The template argument is called `kIsVolatile`, not `is_volalile` as in the PS3. (I would like clang-tidy to check the template parameter name the way it checks normal parameters.)",
+      "parentUuid": "2905c536_c1aa5410",
+      "range": {
+        "startLine": 1488,
+        "startChar": 30,
+        "endLine": 1488,
+        "endChar": 35
+      },
+      "revId": "0a8c796e3979e68a9a22c16af5559de98401b491",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
