@@ -94,6 +94,30 @@
       },
       "revId": "3b17ccb6deb7015fa3859319d3711c5ff11aecbb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ad8565c1_f7389e17",
+        "filename": "libdexfile/dex/descriptors_names.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-03-13T20:36:46Z",
+      "side": 0,
+      "message": "Ah I see. You can remove the comment then (so go back to the previous patch sets). Apologies for the churn!",
+      "parentUuid": "dc014729_8a251b71",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 23
+      },
+      "revId": "3b17ccb6deb7015fa3859319d3711c5ff11aecbb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
