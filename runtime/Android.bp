@@ -668,6 +668,7 @@ art_cc_library {
     apex_available: [
         "com.android.art",
         "com.android.art.debug",
+        "test_broken_com.android.art",
     ],
     afdo: true,
 }
@@ -680,6 +681,8 @@ art_cc_test_library {
     gtest: false,
     cflags: ["-DART_CRASH_RUNTIME_DELIBERATELY"],
     apex_available: [
+        "com.android.art",
+        "com.android.art.debug",
         "test_broken_com.android.art",
     ],
 }
@@ -710,6 +713,7 @@ art_cc_library {
         // apex_available lists need to be the same for internal libs to avoid
         // stubs, and this depends on libsigchain.
         "com.android.art",
+        "test_broken_com.android.art",
     ],
 }
 
