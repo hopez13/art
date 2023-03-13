@@ -70,6 +70,30 @@
       },
       "revId": "3b17ccb6deb7015fa3859319d3711c5ff11aecbb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc014729_8a251b71",
+        "filename": "libdexfile/dex/descriptors_names.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1757736
+      },
+      "writtenOn": "2023-03-13T16:55:24Z",
+      "side": 0,
+      "message": "Ah, I misunderstood your first comment. The reason I had removed the semicolon from the end of the primitive names was because for primitives, it was only being used as a marker to determine when the translating of the type name was complete (`while (*p !\u003d \u0027;\u0027)`). I figured that if the trailing semicolon was going to always be removed, it wouldn\u0027t be necessary to add it to the primitive names in the first place.\n\nSorry I wasn\u0027t clear the first time! I can update the comment to explain why `c` doesn\u0027t include the trailing \u0027;\u0027, or I could re-add the semicolon to the primitive names (and move the following `pop_back()` outside of the `!primitive` check)—do you have a preference for either?",
+      "parentUuid": "4b3dae58_84478a11",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 23
+      },
+      "revId": "3b17ccb6deb7015fa3859319d3711c5ff11aecbb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
