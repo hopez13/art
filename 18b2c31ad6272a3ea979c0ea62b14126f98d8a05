@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e2d1215_858625c0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-03-14T21:16:27Z",
+      "side": 1,
+      "message": "From the looks of it, it\u0027s all the internal libs in art_runtime_base_broken_native_shared_libs, not just libdexfile. E.g. libart-compiler isn\u0027t a dependency of it.",
+      "range": {
+        "startLine": 9,
+        "startChar": 50,
+        "endLine": 9,
+        "endChar": 63
+      },
+      "revId": "18b2c31ad6272a3ea979c0ea62b14126f98d8a05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0aa58500_c3bdc388",
+        "filename": "libdexfile/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-03-14T21:16:27Z",
+      "side": 1,
+      "message": "How come you need to add it to e.g. libprofiled and odrefreshd but not this (and several other) -d libraries?\n\n(In case it isn\u0027t clear, nearly all of ARTs internals have a -d and non-d variant of the same thing. The two sets of libs and binaries shouldn\u0027t depend on each other.)",
+      "revId": "18b2c31ad6272a3ea979c0ea62b14126f98d8a05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1fce8806_92d05aed",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 671,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-03-14T21:16:27Z",
+      "side": 1,
+      "message": "This library isn\u0027t included in test_broken_com.android.art. It doesn\u0027t work without this line?",
+      "range": {
+        "startLine": 671,
+        "startChar": 8,
+        "endLine": 671,
+        "endChar": 38
+      },
+      "revId": "18b2c31ad6272a3ea979c0ea62b14126f98d8a05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "879ee31c_f8834672",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 685,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-03-14T21:16:27Z",
+      "side": 1,
+      "message": "And the other way around here. If you by \"both modules have the same apex_available\nvalues\" mean that the complete lists need to be identical, regardless of the availability needs of the specific module, then please add a comment to this list and the one for libart above explaining why they include APEXes they aren\u0027t included in.",
+      "range": {
+        "startLine": 684,
+        "startChar": 0,
+        "endLine": 685,
+        "endChar": 32
+      },
+      "revId": "18b2c31ad6272a3ea979c0ea62b14126f98d8a05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
