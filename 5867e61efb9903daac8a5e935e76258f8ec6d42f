@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4ee52b5e_7629f5b0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-14T12:17:10Z",
+      "side": 1,
+      "message": "We would need to mark the other entries as \"blocked\", not simply \"free\" (which can be reused), and the check whether we\u0027re dealing with a CheckJNI entry would be more complicated. Whether the code would be simpler overall is something I cannot say without actually implementing that alternative.",
+      "parentUuid": "4430e341_28cb6dc9",
+      "revId": "5867e61efb9903daac8a5e935e76258f8ec6d42f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "03037180_44693ff7",
         "filename": "runtime/indirect_reference_table.h",
         "patchSetId": 9
