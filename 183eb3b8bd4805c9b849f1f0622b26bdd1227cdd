@@ -39,6 +39,30 @@
       },
       "revId": "183eb3b8bd4805c9b849f1f0622b26bdd1227cdd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3629ca46_67f49e9d",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 492,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-03-14T15:05:46Z",
+      "side": 1,
+      "message": "It could happen, for example the image contains most primitive types, but not all. Not something we expect, but fine to be relaxed about it.",
+      "parentUuid": "5b45985b_7759aea1",
+      "range": {
+        "startLine": 491,
+        "startChar": 60,
+        "endLine": 492,
+        "endChar": 34
+      },
+      "revId": "183eb3b8bd4805c9b849f1f0622b26bdd1227cdd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
