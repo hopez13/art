@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "81dafd50_83098258",
+        "filename": "dex2oat/driver/compiler_driver.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2187,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-03-14T18:37:18Z",
+      "side": 1,
+      "message": "No, the deny list is part of the build process. Note that some classes can always be initialized, for example the ones that don\u0027t have static fields / class initialziers. See line 2151.",
+      "parentUuid": "53474df3_2f814e58",
+      "range": {
+        "startLine": 2187,
+        "startChar": 12,
+        "endLine": 2187,
+        "endChar": 54
+      },
+      "revId": "4bc7e7c5c0325694b3f263eda9c9ad99960326a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "256ef4d8_02b50ded",
         "filename": "dex2oat/linker/image_writer.cc",
         "patchSetId": 5
@@ -37,6 +61,30 @@
       "writtenOn": "2023-03-14T17:15:56Z",
       "side": 1,
       "message": "If the compiler filter is \"speed-profile\", the class is in the profile, and the method is not in the profile, do we use shared memory method? I think the behavior for \"verify\" should be consistent with that.\n\nIf it\u0027s fine to keep this condition here just to keep the behavior unchanged, but please leave a TODO and do a separate change to resolve this inconsistency.\n\nOr, can we avoid this condition since we now found that the boot time regression is not due to shared memory method?",
+      "range": {
+        "startLine": 3312,
+        "startChar": 6,
+        "endLine": 3312,
+        "endChar": 49
+      },
+      "revId": "4bc7e7c5c0325694b3f263eda9c9ad99960326a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f40acd12_df110c72",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3312,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-03-14T18:37:18Z",
+      "side": 1,
+      "message": "Yeah, sounds good, I think it\u0027s a worth it optimization to keep the methods shared.",
+      "parentUuid": "256ef4d8_02b50ded",
       "range": {
         "startLine": 3312,
         "startChar": 6,
