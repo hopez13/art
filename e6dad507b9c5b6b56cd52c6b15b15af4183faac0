@@ -70,6 +70,30 @@
       },
       "revId": "e6dad507b9c5b6b56cd52c6b15b15af4183faac0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4aaca00f_34565a18",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-03-14T21:31:38Z",
+      "side": 1,
+      "message": "\u003e I guess another alternative is use the aosp_x86_64 target on master-art.\n\nWell, builds on master-art are in effect unbundled, so full platform targets like aosp_\u003carch\u003e aren\u0027t really supposed to work there. However, the module_\u003carch\u003e targets ought to, and so this file ought to instruct the user to use those regardless of manifest. Last I tried there was something that failed on master-art with them, and I have an old ticket about it (b/179900989). I don\u0027t remember what the problem was, and I haven\u0027t tried in a long while, so it\u0027s possible they actually work now.\n\nThat\u0027d be lovely, and you\u0027re more than welcome to see if it does and update these instructions accordingly, but I have a feeling that may be a bit more than you were bargaining for here. 😜",
+      "parentUuid": "27611718_fee3b5fa",
+      "range": {
+        "startLine": 10,
+        "startChar": 36,
+        "endLine": 10,
+        "endChar": 66
+      },
+      "revId": "e6dad507b9c5b6b56cd52c6b15b15af4183faac0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
