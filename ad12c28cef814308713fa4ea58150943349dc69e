@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9b6fd1d_31a36b33",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-14T16:55:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f93d0d01_43e0c3c7",
+      "range": {
+        "startLine": 10,
+        "startChar": 12,
+        "endLine": 10,
+        "endChar": 20
+      },
+      "revId": "ad12c28cef814308713fa4ea58150943349dc69e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d1203eb7_a1a41510",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-03-14T14:12:27Z",
       "side": 1,
       "message": "Why define a macro if it\u0027s not adding anything besides `.cfi_remember_state`, is it just for uniformity with other arches or do we expect to add something later?",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 69,
+        "endChar": 0
+      },
+      "revId": "ad12c28cef814308713fa4ea58150943349dc69e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b46876e_e4a3d539",
+        "filename": "runtime/arch/arm/asm_support_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-14T16:55:49Z",
+      "side": 1,
+      "message": "Yes, I prefer to have some macros shared across architectures. Sometimes it can avoid copy-pasted comments from referencing non-existent identifiers, such as the `CFI_REMEMBER_STATE` reference below.",
+      "parentUuid": "d1203eb7_a1a41510",
       "range": {
         "startLine": 66,
         "startChar": 0,
