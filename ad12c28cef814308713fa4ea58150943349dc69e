@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f93d0d01_43e0c3c7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-03-14T14:12:27Z",
+      "side": 1,
+      "message": "Nit: duplicated word.",
+      "range": {
+        "startLine": 10,
+        "startChar": 12,
+        "endLine": 10,
+        "endChar": 20
+      },
+      "revId": "ad12c28cef814308713fa4ea58150943349dc69e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d1203eb7_a1a41510",
+        "filename": "runtime/arch/arm/asm_support_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-03-14T14:12:27Z",
+      "side": 1,
+      "message": "Why define a macro if it\u0027s not adding anything besides `.cfi_remember_state`, is it just for uniformity with other arches or do we expect to add something later?",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 69,
+        "endChar": 0
+      },
+      "revId": "ad12c28cef814308713fa4ea58150943349dc69e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7417cd89_85505ab9",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1556,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-03-14T14:12:27Z",
+      "side": 1,
+      "message": "Finally I understand this (after a discussion with David). What confused me previously is that I didn\u0027t realize CFI directives have purely lexical scope, so they are applied no matter if there is a jump bypassing the directive and going to the slow path.",
+      "range": {
+        "startLine": 1552,
+        "startChar": 0,
+        "endLine": 1556,
+        "endChar": 0
+      },
+      "revId": "ad12c28cef814308713fa4ea58150943349dc69e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
