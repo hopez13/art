@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96677c68_4fd039fd",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 581,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-14T18:10:22Z",
+      "side": 1,
+      "message": "I think we could use `DELIVER_PENDING_EXCEPTION_FRAME_READY` here and on other architectures.",
+      "range": {
+        "startLine": 580,
+        "startChar": 4,
+        "endLine": 581,
+        "endChar": 29
+      },
+      "revId": "5f681d45f548fc98bb4876ca913b8da3cbe06423",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
