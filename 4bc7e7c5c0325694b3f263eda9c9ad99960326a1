@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c6c8695_8118de7f",
+        "filename": "dex2oat/driver/compiler_driver.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2187,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-03-14T20:52:05Z",
+      "side": 1,
+      "message": "As discussed, moved this to check IsProfileGuidedCompilation.",
+      "parentUuid": "81dafd50_83098258",
+      "range": {
+        "startLine": 2187,
+        "startChar": 12,
+        "endLine": 2187,
+        "endChar": 54
+      },
+      "revId": "4bc7e7c5c0325694b3f263eda9c9ad99960326a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "256ef4d8_02b50ded",
@@ -85,6 +109,30 @@
       "side": 1,
       "message": "Yeah, sounds good, I think it\u0027s a worth it optimization to keep the methods shared.",
       "parentUuid": "256ef4d8_02b50ded",
+      "range": {
+        "startLine": 3312,
+        "startChar": 6,
+        "endLine": 3312,
+        "endChar": 49
+      },
+      "revId": "4bc7e7c5c0325694b3f263eda9c9ad99960326a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "026a07df_be43dff4",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3312,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-03-14T20:52:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f40acd12_df110c72",
       "range": {
         "startLine": 3312,
         "startChar": 6,
