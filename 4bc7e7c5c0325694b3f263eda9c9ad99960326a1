@@ -72,6 +72,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed9ce45a_09f9fd51",
+        "filename": "dex2oat/driver/compiler_driver.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2187,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-03-15T17:02:33Z",
+      "side": 1,
+      "message": "Optional: `compiler_options.GetProfileCompilationInfo() !\u003d nullptr \u0026\u0026 !compiler_options.GetProfileCompilationInfo()-\u003eIsEmpty()` is more accurate because if we run dex2oat with --compile-filter\u003dspeed and a profile, the profile can still be used to determine which classes with static fields to initialize.",
+      "parentUuid": "3c6c8695_8118de7f",
+      "range": {
+        "startLine": 2187,
+        "startChar": 12,
+        "endLine": 2187,
+        "endChar": 54
+      },
+      "revId": "4bc7e7c5c0325694b3f263eda9c9ad99960326a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "256ef4d8_02b50ded",
