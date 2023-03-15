@@ -31,6 +31,9 @@ class AssemblerFixup;
 namespace arm64 {
 class Arm64Assembler;
 }  // namespace arm64
+namespace riscv64 {
+class Riscv64Assembler;
+}  // namespace riscv64
 namespace x86 {
 class X86Assembler;
 class NearLabel;
@@ -109,6 +112,7 @@ class Label {
   }
 
   friend class arm64::Arm64Assembler;
+  friend class riscv64::Riscv64Assembler;
   friend class x86::X86Assembler;
   friend class x86::NearLabel;
   friend class x86_64::X86_64Assembler;
