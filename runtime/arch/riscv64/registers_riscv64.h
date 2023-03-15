@@ -67,7 +67,10 @@ enum XRegister {
   kNoXRegister = -1,  // Signals an illegal X register.
 
   // Aliases.
-  TR = S1,  // ART Thread Register - managed runtime
+  TR = S1,    // ART Thread Register - managed runtime
+  AT = T3,    // TODO: Used in assembler, it should be optimized
+  TMP = T4,   // TODO: Used in assembler, it should be optimized
+  TMP2 = T5,  // TODO: Used in assembler, it should be optimized
 };
 
 std::ostream& operator<<(std::ostream& os, const XRegister& rhs);

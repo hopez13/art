@@ -64,6 +64,8 @@ class Riscv64InstructionSetFeatures final : public InstructionSetFeatures {
 
   std::string GetFeatureString() const override;
 
+  bool IsSupportedFeature(std::string feature);
+
   virtual ~Riscv64InstructionSetFeatures() {}
 
  protected:
