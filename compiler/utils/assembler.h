@@ -367,11 +367,10 @@ class Assembler : public DeletableArenaObject<kArenaAllocAssembler> {
   // (stack overflow checks and implicit null checks may trigger signals and the
   // signal handlers expect them right before the recorded positions).
   // On most architectures CodePosition() should be equivalent to CodeSize(), but
-  // the MIPS assembler needs to be aware of this recording, so it doesn't put
+  // the RISC-V assembler needs to be aware of this recording, so it doesn't put
   // the instructions that can trigger signals into branch delay slots. Handling
   // signals from instructions in delay slots is a bit problematic and should be
   // avoided.
-  // TODO: Re-evaluate whether we still need this now that MIPS support has been removed.
   virtual size_t CodePosition() { return CodeSize(); }
 
   // Copy instructions out of assembly buffer into the given region of memory
