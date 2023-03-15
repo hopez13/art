@@ -538,6 +538,32 @@ class AssemblerTest : public AssemblerTestBase {
                                                                   fmt);
   }
 
+  std::string RepeatRFF(void (Ass::*f)(Reg, FPReg, FPReg), const std::string& fmt) {
+    return RepeatTemplatedRegisters<Reg, FPReg, FPReg>(
+        f,
+        GetRegisters(),
+        GetFPRegisters(),
+        GetFPRegisters(),
+        &AssemblerTest::GetRegName<RegisterView::kUsePrimaryName>,
+        &AssemblerTest::GetFPRegName,
+        &AssemblerTest::GetFPRegName,
+        fmt);
+  }
+
+  template <typename ImmType>
+  std::string RepeatRFIb(void (Ass::*f)(Reg, FPReg, ImmType),
+                         int imm_bits,
+                         const std::string& fmt) {
+    return RepeatTemplatedRegistersImmBits<Reg, FPReg, ImmType>(
+        f,
+        imm_bits,
+        GetRegisters(),
+        GetFPRegisters(),
+        &AssemblerTest::GetRegName<RegisterView::kUsePrimaryName>,
+        &AssemblerTest::GetFPRegName,
+        fmt);
+  }
+
   std::string RepeatFR(void (Ass::*f)(FPReg, Reg), const std::string& fmt) {
     return RepeatTemplatedRegisters<FPReg, Reg>(f,
         GetFPRegisters(),
@@ -1522,6 +1548,7 @@ class AssemblerTest : public AssemblerTestBase {
   static constexpr const char* REG1_TOKEN = "{reg1}";
   static constexpr const char* REG2_TOKEN = "{reg2}";
   static constexpr const char* REG3_TOKEN = "{reg3}";
+  static constexpr const char* REG4_TOKEN = "{reg4}";
   static constexpr const char* IMM_TOKEN = "{imm}";
 
  private:

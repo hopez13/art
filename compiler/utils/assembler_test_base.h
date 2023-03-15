@@ -141,6 +141,9 @@ class AssemblerTestBase : public testing::Test {
   virtual std::vector<std::string> GetAssemblerCommand() {
     InstructionSet isa = GetIsa();
     switch (isa) {
+      case InstructionSet::kRiscv64:
+        return {
+            FindTool("clang"), "--compile", "-target", "riscv64-linux-gnu", "-march=rv64imafdc"};
       case InstructionSet::kX86:
         return {FindTool("clang"), "--compile", "-target", "i386-linux-gnu"};
       case InstructionSet::kX86_64:
