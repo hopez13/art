@@ -27,6 +27,9 @@
 #include "base/enums.h"
 #include "base/globals.h"
 #include "base/macros.h"
+#include "base/stl_util_identity.h"
+#include "constants_riscv64.h"
+#include "heap_poisoning.h"
 #include "managed_register_riscv64.h"
 #include "utils/assembler.h"
 #include "utils/label.h"
@@ -48,9 +51,48 @@ enum class FPRoundingMode : uint32_t {
   kIgnored = 0
 };
 
+enum LoadConst64Path {
+  kLoadConst64PathZero = 0x0,
+  kLoadConst64PathOri = 0x1,
+  kLoadConst64PathDaddiu = 0x2,
+  kLoadConst64PathLui = 0x4,
+  kLoadConst64PathLuiOri = 0x8,
+  kLoadConst64PathOriDahi = 0x10,
+  kLoadConst64PathOriDati = 0x20,
+  kLoadConst64PathLuiDahi = 0x40,
+  kLoadConst64PathLuiDati = 0x80,
+  kLoadConst64PathDaddiuDsrlX = 0x100,
+  kLoadConst64PathOriDsllX = 0x200,
+  kLoadConst64PathDaddiuDsllX = 0x400,
+  kLoadConst64PathLuiOriDsllX = 0x800,
+  kLoadConst64PathOriDsllXOri = 0x1000,
+  kLoadConst64PathDaddiuDsllXOri = 0x2000,
+  kLoadConst64PathDaddiuDahi = 0x4000,
+  kLoadConst64PathDaddiuDati = 0x8000,
+  kLoadConst64PathDinsu1 = 0x10000,
+  kLoadConst64PathDinsu2 = 0x20000,
+  kLoadConst64PathCatchAll = 0x40000,
+  kLoadConst64PathAllPaths = 0x7ffff,
+};
+
+inline uint16_t Low12Bits(uint32_t value) { return static_cast<uint16_t>(value & 0xFFF); }
+
+inline uint32_t High20Bits(uint32_t value) { return static_cast<uint32_t>(value >> 12); }
+
 static constexpr size_t kRiscv64HalfwordSize = 2;
 static constexpr size_t kRiscv64WordSize = 4;
 static constexpr size_t kRiscv64DoublewordSize = 8;
+
+enum LoadOperandType {
+  kLoadSignedByte,
+  kLoadUnsignedByte,
+  kLoadSignedHalfword,
+  kLoadUnsignedHalfword,
+  kLoadWord,
+  kLoadUnsignedWord,
+  kLoadDoubleword,
+  kLoadQuadword
+};
 
 // the type for fence
 enum FenceType {
@@ -60,6 +102,22 @@ enum FenceType {
   kFenceOutput = 4,
   kFenceInput = 8,
   kFenceDefault = 0xf,
+};
+
+enum StoreOperandType { kStoreByte, kStoreHalfword, kStoreWord, kStoreDoubleword, kStoreQuadword };
+
+// Used to test the values returned by ClassS/ClassD.
+enum FPClassMaskType {
+  kNegativeInfinity = 0x001,
+  kNegativeNormal = 0x002,
+  kNegativeSubnormal = 0x004,
+  kNegativeZero = 0x008,
+  kPositiveZero = 0x010,
+  kPositiveSubnormal = 0x020,
+  kPositiveNormal = 0x040,
+  kPositiveInfinity = 0x080,
+  kSignalingNaN = 0x100,
+  kQuietNaN = 0x200,
 };
 
 class Riscv64Label : public Label {
@@ -130,6 +188,36 @@ class JumpTable {
   DISALLOW_COPY_AND_ASSIGN(JumpTable);
 };
 
+class Riscv64Subset {
+ private:
+  // The subsets should be "I", "M", "A", "F", "D", "C", "V", "B", ...
+  // which following the <The RISC-V Instruction Set Manual>.
+  // document: https://github.com/riscv/riscv-isa-manual
+  std::vector<std::string> subsets_;
+
+ public:
+  Riscv64Subset(std::vector<std::string> subsets) : subsets_(subsets) {
+    // TODO: Check instruction set feature is legal or not.
+    // RV64, I, M, A, F, D, C, V, B, ...
+  }
+  Riscv64Subset(const Riscv64InstructionSetFeatures* instruction_set_feature) {
+    // TODO: Check instruction set feature is legal or not.
+    // RV64, I, M, A, F, D, C, V, B, ...
+    UNUSED(instruction_set_feature);
+  }
+
+  bool Riscv64SubsetIsSupported(std::string subset) {
+    UNUSED(subset);
+    return true;
+  }
+
+  // For Androind, rv64imafdcvb is expected.
+  bool Riscv64SubsetCheck() {
+    // Does subsets have imafafdcvb or not?
+    return true;
+  }
+};
+
 class Riscv64Assembler final : public Assembler {
  public:
   explicit Riscv64Assembler(ArenaAllocator* allocator,
@@ -143,8 +231,11 @@ class Riscv64Assembler final : public Assembler {
         jump_tables_(allocator->Adapter(kArenaAllocAssembler)),
         last_position_adjustment_(0),
         last_old_position_(0),
-        last_branch_id_(0) {
-    UNUSED(instruction_set_features);
+        last_branch_id_(0),
+        subsets_(instruction_set_features) {
+    // Check instruction set feature is suitable for android or not.
+    if (!subsets_.Riscv64SubsetCheck())
+      LOG(WARNING) << "unexpected Riscv64 subsets";
     cfi().DelayEmittingAdvancePCs();
   }
 
@@ -215,6 +306,11 @@ class Riscv64Assembler final : public Assembler {
   void Srl(XRegister rd, XRegister rs1, XRegister rs2);
   void Sra(XRegister rd, XRegister rs1, XRegister rs2);
 
+  // opcode - 0xf and 0x73
+  void FenceTso();
+  void Ecall();
+  void Ebreak();
+
   // 32bit Imm ALU instructions (RV64I): opcode = 0x1b, funct3 from 0x0, 0x1, 0x5
   void Addiw(XRegister rd, XRegister rs1, int32_t imm12);
   void Slliw(XRegister rd, XRegister rs1, int32_t shamt);
@@ -233,6 +329,14 @@ class Riscv64Assembler final : public Assembler {
 
   // "Zifencei" Standard Extension, opcode = 0xf, funct3 = 1
   void FenceI();
+
+  // Zicsr Standard Extension
+  void Csrrw(XRegister rd, XRegister rs1, uint16_t csr);
+  void Csrrs(XRegister rd, XRegister rs1, uint16_t csr);
+  void Csrrc(XRegister rd, XRegister rs1, uint16_t csr);
+  void Csrrwi(XRegister rd, uint16_t csr, uint8_t zimm /*imm5*/);
+  void Csrrsi(XRegister rd, uint16_t csr, uint8_t zimm /*imm5*/);
+  void Csrrci(XRegister rd, uint16_t csr, uint8_t zimm /*imm5*/);
 
   // RV32M Standard Extension: opcode = 0x33, funct3 from 0x0 ~ 0x7
   void Mul(XRegister rd, XRegister rs1, XRegister rs2);
@@ -437,6 +541,7 @@ class Riscv64Assembler final : public Assembler {
   // These pseudo instructions are from "RISC-V Assembly Programmer's Manual".
 
   void Nop();
+  void Li(XRegister rd, int32_t imm);
   void Mv(XRegister rd, XRegister rs);
   void Not(XRegister rd, XRegister rs);
   void Neg(XRegister rd, XRegister rs);
@@ -477,6 +582,22 @@ class Riscv64Assembler final : public Assembler {
   void Jalr(XRegister rs);
   void Jalr(XRegister rd, XRegister rs);
   void Ret();
+  void Call(int32_t offset);
+
+  // Pseudo instructions for accessing control and status registers
+  void RdInstret(XRegister rd);
+  void RdCycle(XRegister rd);
+  void RdTime(XRegister rd);
+  void CsrR(XRegister rd, int32_t csr);
+  void CsrW(int32_t csr, XRegister rd);
+  void CsrS(int32_t csr, XRegister rd);
+  void CsrWi(int32_t csr, int32_t imm);
+  void CsrSi(int32_t csr, int32_t imm);
+  void CsrCi(int32_t csr, int32_t imm);
+
+  // Large const load
+  void LoadConst32(XRegister rd, int32_t value);
+  void LoadConst64(XRegister rd, int64_t value);
 
   // Jumps and branches to a label.
   void Beqz(XRegister rs, Riscv64Label* label, bool is_bare = false);
@@ -498,6 +619,8 @@ class Riscv64Assembler final : public Assembler {
   void Jal(XRegister rd, Riscv64Label* label, bool is_bare = false);
   void J(Riscv64Label* label, bool is_bare = false);
   void Jal(Riscv64Label* label, bool is_bare = false);
+  void Call(Riscv64Label* label, bool is_bare = false);
+  void Tail(Riscv64Label* label, bool is_bare = false);
 
   // Literal load.
   void Lw(XRegister rd, Literal* literal);
@@ -506,8 +629,41 @@ class Riscv64Assembler final : public Assembler {
 
   /////////////////////////////// RV64 MACRO Instructions END ///////////////////////////////
 
-  void Bind(Label* label) override { Bind(down_cast<Riscv64Label*>(label)); }
+  //
+  // Heap poisoning.
+  //
 
+  // Poison a heap reference contained in `src` and store it in `dst`.
+  void PoisonHeapReference(XRegister dst, XRegister src) {
+    // dst = -src.
+    // Negate the 32-bit ref.
+    NegW(dst, src);
+  }
+  // Poison a heap reference contained in `reg`.
+  void PoisonHeapReference(XRegister reg) {
+    // reg = -reg.
+    NegW(reg, reg);
+  }
+  // Unpoison a heap reference contained in `reg`.
+  void UnpoisonHeapReference(XRegister reg) {
+    // reg = -reg.
+    // Negate the 32-bit ref.
+    NegW(reg, reg);
+  }
+  // Poison a heap reference contained in `reg` if heap poisoning is enabled.
+  void MaybePoisonHeapReference(XRegister reg) {
+    if (kPoisonHeapReferences) {
+      PoisonHeapReference(reg);
+    }
+  }
+  // Unpoison a heap reference contained in `reg` if heap poisoning is enabled.
+  void MaybeUnpoisonHeapReference(XRegister reg) {
+    if (kPoisonHeapReferences) {
+      UnpoisonHeapReference(reg);
+    }
+  }
+
+  void Bind(Label* label) override { Bind(down_cast<Riscv64Label*>(label)); }
   void Jump([[maybe_unused]] Label* label) override {
     UNIMPLEMENTED(FATAL) << "Do not use Jump for RISCV64";
   }
@@ -528,13 +684,237 @@ class Riscv64Assembler final : public Assembler {
   // Create a new literal with the given data.
   Literal* NewLiteral(size_t size, const uint8_t* data);
 
+  // Load literal using PC-relative loads.
+  void LoadLiteral(XRegister dest_reg, LoadOperandType load_type, Literal* literal);
+
   // Create a jump table for the given labels that will be emitted when finalizing.
   // When the table is emitted, offsets will be relative to the location of the table.
   // The table location is determined by the location of its label (the label precedes
   // the table data) and should be loaded using LoadLabelAddress().
   JumpTable* CreateJumpTable(ArenaVector<Riscv64Label*>&& labels);
 
+  void EmitLoad(ManagedRegister m_dst, XRegister src_register, int32_t src_offset, size_t size);
+  void AdjustBaseAndOffset(XRegister& base, int32_t& offset, bool is_doubleword);
+
+ private:
+  // This will be used as an argument for loads/stores
+  // when there is no need for implicit null checks.
+  struct NoImplicitNullChecker {
+    void operator()() const {}
+  };
+
  public:
+  template <typename ImplicitNullChecker = NoImplicitNullChecker>
+  void StoreConstToOffset(StoreOperandType type,
+                          int64_t value,
+                          XRegister base,
+                          int32_t offset,
+                          XRegister temp,
+                          ImplicitNullChecker null_checker = NoImplicitNullChecker()) {
+    // We permit `base` and `temp` to coincide (however, we check that neither is AT),
+    // in which case the `base` register may be overwritten in the process.
+    CHECK_NE(temp, AT);  // Must not use AT as temp, so as not to overwrite the adjusted base.
+    AdjustBaseAndOffset(base, offset, /* is_doubleword= */ (type == kStoreDoubleword));
+    XRegister reg;
+    // If the adjustment left `base` unchanged and equal to `temp`, we can't use `temp`
+    // to load and hold the value but we can use AT instead as AT hasn't been used yet.
+    // Otherwise, `temp` can be used for the value. And if `temp` is the same as the
+    // original `base` (that is, `base` prior to the adjustment), the original `base`
+    // register will be overwritten.
+    if (base == temp) {
+      temp = AT;
+    }
+
+    if (type == kStoreDoubleword && IsAligned<kRiscv64DoublewordSize>(offset)) {
+      if (value == 0) {
+        reg = Zero;
+      } else {
+        reg = temp;
+        LoadConst64(reg, value);
+      }
+      Sd(reg, base, offset);
+      null_checker();
+    } else {
+      uint32_t low = Low32Bits(value);
+      uint32_t high = High32Bits(value);
+      if (low == 0) {
+        reg = Zero;
+      } else {
+        reg = temp;
+        LoadConst32(reg, low);
+      }
+      switch (type) {
+        case kStoreByte:
+          Sb(reg, base, offset);
+          break;
+        case kStoreHalfword:
+          Sh(reg, base, offset);
+          break;
+        case kStoreWord:
+          Sw(reg, base, offset);
+          break;
+        case kStoreDoubleword:
+          // not aligned to kRiscv64DoublewordSize
+          CHECK_ALIGNED(offset, kRiscv64WordSize);
+          Sw(reg, base, offset);
+          null_checker();
+          if (high == 0) {
+            reg = Zero;
+          } else {
+            reg = temp;
+            if (high != low) {
+              LoadConst32(reg, high);
+            }
+          }
+          Sw(reg, base, offset + kRiscv64WordSize);
+          break;
+        default:
+          LOG(FATAL) << "UNREACHABLE";
+      }
+      if (type != kStoreDoubleword) {
+        null_checker();
+      }
+    }
+  }
+
+  template <typename ImplicitNullChecker = NoImplicitNullChecker>
+  void LoadFromOffset(LoadOperandType type,
+                      XRegister reg,
+                      XRegister base,
+                      int32_t offset,
+                      ImplicitNullChecker null_checker = NoImplicitNullChecker()) {
+    AdjustBaseAndOffset(base, offset, /* is_doubleword= */ (type == kLoadDoubleword));
+
+    switch (type) {
+      case kLoadSignedByte:
+        Lb(reg, base, offset);
+        break;
+      case kLoadUnsignedByte:
+        Lbu(reg, base, offset);
+        break;
+      case kLoadSignedHalfword:
+        Lh(reg, base, offset);
+        break;
+      case kLoadUnsignedHalfword:
+        Lhu(reg, base, offset);
+        break;
+      case kLoadWord:
+        CHECK_ALIGNED(offset, kRiscv64WordSize);
+        Lw(reg, base, offset);
+        break;
+      case kLoadUnsignedWord:
+        CHECK_ALIGNED(offset, kRiscv64WordSize);
+        Lwu(reg, base, offset);
+        break;
+      case kLoadDoubleword:
+        Ld(reg, base, offset);
+        null_checker();
+        break;
+      default:
+        LOG(FATAL) << "UNREACHABLE";
+    }
+    if (type != kLoadDoubleword) {
+      null_checker();
+    }
+  }
+
+  template <typename ImplicitNullChecker = NoImplicitNullChecker>
+  void LoadFpuFromOffset(LoadOperandType type,
+                         FRegister reg,
+                         XRegister base,
+                         int32_t offset,
+                         ImplicitNullChecker null_checker = NoImplicitNullChecker()) {
+    // int element_size_shift = -1;
+    if (type != kLoadQuadword) {
+      AdjustBaseAndOffset(base, offset, /* is_doubleword= */ (type == kLoadDoubleword));
+    }
+    switch (type) {
+      case kLoadWord:
+        CHECK_ALIGNED(offset, kRiscv64WordSize);
+        FLw(reg, base, offset);
+        null_checker();
+        break;
+      case kLoadDoubleword:
+        FLd(reg, base, offset);
+        null_checker();
+        break;
+      case kLoadQuadword:
+        UNIMPLEMENTED(FATAL) << "store kStoreQuadword not implemented";
+        break;
+      default:
+        LOG(FATAL) << "UNREACHABLE";
+    }
+  }
+
+  template <typename ImplicitNullChecker = NoImplicitNullChecker>
+  void StoreToOffset(StoreOperandType type,
+                     XRegister reg,
+                     XRegister base,
+                     int32_t offset,
+                     ImplicitNullChecker null_checker = NoImplicitNullChecker()) {
+    // Must not use AT as `reg`, so as not to overwrite the value being stored
+    // with the adjusted `base`.
+    CHECK_NE(reg, AT);
+    AdjustBaseAndOffset(base, offset, /* is_doubleword= */ (type == kStoreDoubleword));
+
+    switch (type) {
+      case kStoreByte:
+        Sb(reg, base, offset);
+        break;
+      case kStoreHalfword:
+        Sh(reg, base, offset);
+        break;
+      case kStoreWord:
+        CHECK_ALIGNED(offset, kRiscv64WordSize);
+        Sw(reg, base, offset);
+        break;
+      case kStoreDoubleword:
+        Sd(reg, base, offset);
+        null_checker();
+        break;
+      default:
+        LOG(FATAL) << "UNREACHABLE";
+    }
+    if (type != kStoreDoubleword) {
+      null_checker();
+    }
+  }
+
+  template <typename ImplicitNullChecker = NoImplicitNullChecker>
+  void StoreFpuToOffset(StoreOperandType type,
+                        FRegister reg,
+                        XRegister base,
+                        int32_t offset,
+                        ImplicitNullChecker null_checker = NoImplicitNullChecker()) {
+    // int element_size_shift = -1;
+    if (type != kStoreQuadword) {
+      AdjustBaseAndOffset(base, offset, /* is_doubleword= */ (type == kStoreDoubleword));
+    }
+
+    switch (type) {
+      case kStoreWord:
+        CHECK_ALIGNED(offset, kRiscv64WordSize);
+        FSw(reg, base, offset);
+        null_checker();
+        break;
+      case kStoreDoubleword:
+        FSd(reg, base, offset);
+        null_checker();
+        break;
+      case kStoreQuadword:
+        UNIMPLEMENTED(FATAL) << "store kStoreQuadword not implemented";
+        null_checker();
+        break;
+      default:
+        LOG(FATAL) << "UNREACHABLE";
+    }
+  }
+
+  void LoadFromOffset(LoadOperandType type, XRegister reg, XRegister base, int32_t offset);
+  void LoadFpuFromOffset(LoadOperandType type, FRegister reg, XRegister base, int32_t offset);
+  void StoreToOffset(StoreOperandType type, XRegister reg, XRegister base, int32_t offset);
+  void StoreFpuToOffset(StoreOperandType type, FRegister reg, XRegister base, int32_t offset);
+
   // Emit data (e.g. encoded instruction or immediate) to the instruction stream.
   void Emit(uint32_t value);
 
@@ -863,6 +1243,8 @@ class Riscv64Assembler final : public Assembler {
   uint32_t last_position_adjustment_;
   uint32_t last_old_position_;
   uint32_t last_branch_id_;
+
+  Riscv64Subset subsets_;
 
   static constexpr uint32_t kXlen = 64;
 
