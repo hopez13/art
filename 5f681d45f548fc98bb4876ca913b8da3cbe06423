@@ -22,6 +22,30 @@
       },
       "revId": "5f681d45f548fc98bb4876ca913b8da3cbe06423",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "09a461ff_690fcceb",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 581,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-03-15T10:01:40Z",
+      "side": 1,
+      "message": "A quick question, I thought delivering exceptions needs a callee save frame. Here we have refs and args frame, can we just do DELIVER_PENDING_EXCEPTION_FRAME_READY here?",
+      "parentUuid": "96677c68_4fd039fd",
+      "range": {
+        "startLine": 580,
+        "startChar": 4,
+        "endLine": 581,
+        "endChar": 29
+      },
+      "revId": "5f681d45f548fc98bb4876ca913b8da3cbe06423",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
