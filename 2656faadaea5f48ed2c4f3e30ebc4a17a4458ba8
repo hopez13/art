@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fba60d11_b2999f80",
+        "filename": "compiler/optimizing/data_type.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-15T10:32:17Z",
+      "side": 1,
+      "message": "Should we redefine `MaxValueOfIntegralType(DataType::Type::kBool)` to 255? Otherwise conversion from `kBool` to `kInt8` (Java `byte`) shall be considered implicit.",
+      "range": {
+        "startLine": 274,
+        "startChar": 10,
+        "endLine": 274,
+        "endChar": 32
+      },
+      "revId": "2656faadaea5f48ed2c4f3e30ebc4a17a4458ba8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fed00194_d49b2c59",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 475,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-15T10:32:17Z",
+      "side": 1,
+      "message": "Unnecessary, the type is implicit in the input and result names (such as `z21 TypeConversion [i13]`).",
+      "range": {
+        "startLine": 474,
+        "startChar": 4,
+        "endLine": 475,
+        "endChar": 78
+      },
+      "revId": "2656faadaea5f48ed2c4f3e30ebc4a17a4458ba8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9fc26811_bfa02b3a",
+        "filename": "test/2260-checker-smali-boolean-cast/smali/BooleanTest.smali",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-15T10:32:17Z",
+      "side": 1,
+      "message": "I\u0027d be interested to know what RI does with this. Can you try jasmin instead of smali?\n\n(Please consider using jasmin by default. With jasmin you can also call test methods directly without reflection.)",
+      "revId": "2656faadaea5f48ed2c4f3e30ebc4a17a4458ba8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b59527f8_62dfeb04",
+        "filename": "test/2260-checker-smali-boolean-cast/smali/BooleanTest.smali",
+        "patchSetId": 10
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-15T10:32:17Z",
+      "side": 1,
+      "message": "We could also\n\n    ## CHECK: \u003c\u003cConst0:i\\d\u003e\u003e IntConstant 0\n    ## CHECK:                Return [\u003c\u003cConst0\u003e\u003e]\n\nin `constant_folding$before_codegen (after)`.",
+      "range": {
+        "startLine": 122,
+        "startChar": 4,
+        "endLine": 122,
+        "endChar": 13
+      },
+      "revId": "2656faadaea5f48ed2c4f3e30ebc4a17a4458ba8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb6a19d4_09c993d4",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 678,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-15T10:32:17Z",
+      "side": 1,
+      "message": "I\u0027d call this \"Conv\".",
+      "range": {
+        "startLine": 678,
+        "startChar": 23,
+        "endLine": 678,
+        "endChar": 27
+      },
+      "revId": "2656faadaea5f48ed2c4f3e30ebc4a17a4458ba8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
