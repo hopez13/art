@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d96409ca_44b867a3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1863710
+      },
+      "writtenOn": "2023-03-15T20:50:10Z",
+      "side": 1,
+      "message": "There are presubmit failures on:\n- CtsLibcoreTestCases:libcore.java.lang.ThreadTest#setPriority_starting\n- CtsLibcoreTestCases:libcore.java.lang.ThreadTest#setPriority_unstarted\n- CtsLibcoreTestCases:org.apache.harmony.tests.java.lang.ThreadTest#test_getPriority\n- CtsLibcoreTestCases:org.apache.harmony.tests.java.lang.ThreadTest#test_setPriorityI",
+      "revId": "37bde1737e592e84c0d04615ff15f41a3a5a4379",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
