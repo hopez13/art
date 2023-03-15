@@ -1,0 +1,349 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "50bf0f44_24a6cc42",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 781,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-03-15T17:54:09Z",
+      "side": 1,
+      "message": "Similar change will be required in mark_compact.cc also now.",
+      "range": {
+        "startLine": 779,
+        "startChar": 1,
+        "endLine": 781,
+        "endChar": 0
+      },
+      "revId": "e725e64a2b4d644b5483adda88573f2511b86485",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b5f0a81_5f6c4a17",
+        "filename": "runtime/mutator_gc_coord.md",
+        "patchSetId": 8
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-03-15T17:54:09Z",
+      "side": 1,
+      "message": "Can you please rephrase this paragraph. A bit hard to understand.",
+      "range": {
+        "startLine": 225,
+        "startChar": 0,
+        "endLine": 232,
+        "endChar": 58
+      },
+      "revId": "e725e64a2b4d644b5483adda88573f2511b86485",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "247d6df4_75b22abf",
+        "filename": "runtime/mutator_gc_coord.md",
+        "patchSetId": 8
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-03-15T17:54:09Z",
+      "side": 1,
+      "message": "Why do we need to do set `kActiveSuspendBarrier` in the first place in this case? Can\u0027t we atomically change the state from `suspended` to `suspended and kSuspendRequest`? This way the the barrier would be required only for runnable threads, I assume?",
+      "range": {
+        "startLine": 248,
+        "startChar": 0,
+        "endLine": 251,
+        "endChar": 60
+      },
+      "revId": "e725e64a2b4d644b5483adda88573f2511b86485",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48e03834_dbda4f35",
+        "filename": "runtime/thread-inl.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 491,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-03-15T17:54:09Z",
+      "side": 1,
+      "message": "nit: move it before DecrementSuspendCount() above?",
+      "range": {
+        "startLine": 491,
+        "startChar": 20,
+        "endLine": 491,
+        "endChar": 41
+      },
+      "revId": "e725e64a2b4d644b5483adda88573f2511b86485",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2e0f3ebc_c5b67b6e",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1456,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-03-15T17:54:09Z",
+      "side": 1,
+      "message": "I believe this is only required at function declaration. No?",
+      "range": {
+        "startLine": 1456,
+        "startChar": 73,
+        "endLine": 1456,
+        "endChar": 98
+      },
+      "revId": "e725e64a2b4d644b5483adda88573f2511b86485",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dac22967_cad5a180",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1581,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-03-15T17:54:09Z",
+      "side": 1,
+      "message": "What happens if the target thread tries to run checkpoint when the caller is scheduled out at this point? Wouldn\u0027t it find an checkpoint-funtion? I guess it\u0027s avoided by using `thread_suspend_count_lock_` in RunCheckpointFunction()?\n\nIt seems like we are piggy-backing quite a lot on this lock. Wouldn\u0027t it make sense to introduce a mutex for every thread so that while manipulating fields of some mutator thread, its lock is acquire, thereby not hurting other threads. Not suggesting for this CL, but maybe next improvement.",
+      "range": {
+        "startLine": 1581,
+        "startChar": 4,
+        "endLine": 1581,
+        "endChar": 20
+      },
+      "revId": "e725e64a2b4d644b5483adda88573f2511b86485",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "64070fb0_9d0693b0",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1637,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-03-15T17:54:09Z",
+      "side": 1,
+      "message": "replace it with `self`",
+      "range": {
+        "startLine": 1637,
+        "startChar": 14,
+        "endLine": 1637,
+        "endChar": 31
+      },
+      "revId": "e725e64a2b4d644b5483adda88573f2511b86485",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e540581d_eb6fd1c3",
+        "filename": "runtime/thread.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 373,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-03-15T17:54:09Z",
+      "side": 1,
+      "message": "Please explain the purpose of the flag.",
+      "range": {
+        "startLine": 373,
+        "startChar": 62,
+        "endLine": 373,
+        "endChar": 75
+      },
+      "revId": "e725e64a2b4d644b5483adda88573f2511b86485",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b3dc8ecb_56cd81f8",
+        "filename": "runtime/thread.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 697,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-03-15T17:54:09Z",
+      "side": 1,
+      "message": "delete",
+      "range": {
+        "startLine": 697,
+        "startChar": 74,
+        "endLine": 697,
+        "endChar": 80
+      },
+      "revId": "e725e64a2b4d644b5483adda88573f2511b86485",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cdf8fd0e_ba513554",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 554,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-03-15T17:54:09Z",
+      "side": 1,
+      "message": "I wonder why exiting threads isn\u0027t a problem in the current code?",
+      "range": {
+        "startLine": 554,
+        "startChar": 27,
+        "endLine": 554,
+        "endChar": 45
+      },
+      "revId": "e725e64a2b4d644b5483adda88573f2511b86485",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd96e0f4_fb362258",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 555,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-03-15T17:54:09Z",
+      "side": 1,
+      "message": "Given that this code runs in a pause, wouldn\u0027t it be better to loop only once? 100s of threads is normal these days.\n\n`list_-\u003esize()` can be used to get thread count.",
+      "range": {
+        "startLine": 553,
+        "startChar": 0,
+        "endLine": 555,
+        "endChar": 5
+      },
+      "revId": "e725e64a2b4d644b5483adda88573f2511b86485",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c56b61d4_82c74049",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 564,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-03-15T17:54:09Z",
+      "side": 1,
+      "message": "I don\u0027t think this will solve the problem (that we discussed few weeks ago) wherein another thread waiting in `SuspendAll` from accessing the heap (as it manages to acquire mutator-lock exclusively) prior to running its flip function. Aren\u0027t we leaving a window between here and line 576 below where such a thread could succeed in accessing the heap?\n\nHere\u0027s the link to the code that brought this issue forward:\nhttps://cs.android.com/android/platform/superproject/+/master:art/openjdkjvmti/ti_object.cc;drc\u003dddf4fd3c37af160b5a1f7e83212b837f50e13e81;l\u003d93",
+      "range": {
+        "startLine": 564,
+        "startChar": 2,
+        "endLine": 564,
+        "endChar": 11
+      },
+      "revId": "e725e64a2b4d644b5483adda88573f2511b86485",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7245ade0_44885686",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 575,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-03-15T17:54:09Z",
+      "side": 1,
+      "message": "Wouldn\u0027t it be better to run this thread\u0027s flip function first, thereby giving  sufficient time to all the `ready to be runnable` threads to run their own flip functions, even if they happen to be at the front of the list?\n\nThis could also be useful in case the GC doesn\u0027t care about waiting for flip functions to be finished on all mutators. Now that the logic of gc_barrier is removed, having the gc-thread run its flip function will ensure that if it wants, its flip function could do other work.\n\nFor instance, what if the whole compaction can be done without waiting for mutators to flip? In that case compaction can be part of gc-thread\u0027s flip function.",
+      "range": {
+        "startLine": 575,
+        "startChar": 39,
+        "endLine": 575,
+        "endChar": 58
+      },
+      "revId": "e725e64a2b4d644b5483adda88573f2511b86485",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bfaab7f8_2e56321e",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 901,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-03-15T17:54:09Z",
+      "side": 1,
+      "message": "The code in this function and in SuspendThreadByThreadId() is so similar. Isn\u0027t it possible to define a common function and use it at both location for de-duplication?",
+      "range": {
+        "startLine": 901,
+        "startChar": 20,
+        "endLine": 901,
+        "endChar": 39
+      },
+      "revId": "e725e64a2b4d644b5483adda88573f2511b86485",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08ae3f1e_a6637dd1",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 999,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-03-15T17:54:09Z",
+      "side": 1,
+      "message": "Why should finding of thread need to be done in the loop? Isn\u0027t it duplicate work in case of retries?",
+      "range": {
+        "startLine": 999,
+        "startChar": 15,
+        "endLine": 999,
+        "endChar": 35
+      },
+      "revId": "e725e64a2b4d644b5483adda88573f2511b86485",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
