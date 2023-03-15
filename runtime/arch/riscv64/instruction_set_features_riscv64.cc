@@ -18,6 +18,7 @@
 
 #include <fstream>
 #include <sstream>
+#include <string>
 
 #include "android-base/strings.h"
 #include "base/logging.h"
@@ -75,10 +76,7 @@ bool Riscv64InstructionSetFeatures::Equals(const InstructionSetFeatures* other) 
 uint32_t Riscv64InstructionSetFeatures::AsBitmap() const { return bits_; }
 
 std::string Riscv64InstructionSetFeatures::GetFeatureString() const {
-  std::string result = "rv64";
-  if (bits_ & kExtGeneric) {
-    result += "g";
-  }
+  std::string result = "rv64imafd";
   if (bits_ & kExtCompressed) {
     result += "c";
   }
