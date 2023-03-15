@@ -46,6 +46,30 @@
       },
       "revId": "5f681d45f548fc98bb4876ca913b8da3cbe06423",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "15c1d964_7c5b9b74",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 581,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-15T10:34:48Z",
+      "side": 1,
+      "message": "You\u0027re right, the `kSaveArgsAndRefs` frame does not contain all the necessary registers.",
+      "parentUuid": "09a461ff_690fcceb",
+      "range": {
+        "startLine": 580,
+        "startChar": 4,
+        "endLine": 581,
+        "endChar": 29
+      },
+      "revId": "5f681d45f548fc98bb4876ca913b8da3cbe06423",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
