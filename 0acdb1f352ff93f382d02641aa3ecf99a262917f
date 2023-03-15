@@ -16,6 +16,23 @@
       "message": "ngeoffray: AFAIK, we don\u0027t use this thread ID anywhere, but if that\u0027s wrong I could add the tid somewhere else.",
       "revId": "0acdb1f352ff93f382d02641aa3ecf99a262917f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "49bd0329_ec785ccf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-03-15T09:25:21Z",
+      "side": 1,
+      "message": "Makes sense to me. Adding in Hans in case we were using that thread ID printing for some other ART debugging.",
+      "revId": "0acdb1f352ff93f382d02641aa3ecf99a262917f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
