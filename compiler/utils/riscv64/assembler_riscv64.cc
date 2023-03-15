@@ -1132,6 +1132,65 @@ void Riscv64Assembler::FLoadd(FRegister rd, Literal* literal) {
   LoadLiteral(literal, rd, Branch::kLiteralDouble);
 }
 
+void Riscv64Assembler::Call(int32_t offset) {
+  if (IsInt<12>(offset)) {
+    Jal(RA, offset);
+  } else {
+    // Round `offset` to nearest 4KiB offset for as the JALR has range [-0x800, 0x800).
+    int32_t near_offset = (offset + 0x800) & ~0xfff;
+    Auipc(RA, static_cast<uint32_t>(near_offset) >> 12);
+    Jalr(RA, RA, offset - near_offset);
+  }
+}
+
+void Riscv64Assembler::Call(Riscv64Label* label, bool is_bare) {
+  uint32_t target = label->IsBound() ? GetLabelLocation(label) : Branch::kUnresolved;
+  branches_.emplace_back(buffer_.Size(), target, RA, is_bare);
+  FinalizeLabeledBranch(label);
+}
+
+void Riscv64Assembler::LoadLiteral(XRegister dest_reg,
+                                   LoadOperandType load_type,
+                                   Literal* literal) {
+  // Literal loads are treated as pseudo branches since they require very similar handling.
+  Branch::Type literal_type;
+  switch (load_type) {
+    case kLoadWord:
+    DCHECK_EQ(literal->GetSize(), 4u);
+    literal_type = Branch::kLiteral;
+    break;
+    case kLoadUnsignedWord:
+    DCHECK_EQ(literal->GetSize(), 4u);
+    literal_type = Branch::kLiteralUnsigned;
+    break;
+    case kLoadDoubleword:
+    DCHECK_EQ(literal->GetSize(), 8u);
+    literal_type = Branch::kLiteralLong;
+    break;
+    default:
+    LOG(FATAL) << "Unexpected literal load type " << load_type;
+    UNREACHABLE();
+  }
+  Riscv64Label* label = literal->GetLabel();
+  DCHECK(!label->IsBound());
+  branches_.emplace_back(buffer_.Size(), Branch::kUnresolved, dest_reg, literal_type);
+  FinalizeLabeledBranch(label);
+}
+
+void Riscv64Assembler::LoadFromOffset(LoadOperandType type,
+                                      XRegister reg,
+                                      XRegister base,
+                                      int32_t offset) {
+  LoadFromOffset<>(type, reg, base, offset);
+}
+
+void Riscv64Assembler::LoadFpuFromOffset(LoadOperandType type,
+                                         FRegister reg,
+                                         XRegister base,
+                                         int32_t offset) {
+  LoadFpuFromOffset<>(type, reg, base, offset);
+}
+
 /////////////////////////////// RV64 MACRO Instructions END ///////////////////////////////
 
 const Riscv64Assembler::Branch::BranchInfo Riscv64Assembler::Branch::branch_info_[] = {
@@ -2186,6 +2245,49 @@ void Riscv64Assembler::LoadImmediate(XRegister rd, int64_t imm, bool can_use_tmp
   if (trailing_slli_shamt != 0u) {
     Slli(rd, rd, trailing_slli_shamt);
   }
+}
+
+void Riscv64Assembler::EmitLoad(ManagedRegister m_dst,
+                                XRegister src_register,
+                                int32_t src_offset,
+                                size_t size) {
+  Riscv64ManagedRegister dst = m_dst.AsRiscv64();
+  if (dst.IsNoRegister()) {
+    CHECK_EQ(0u, size) << dst;
+  } else if (dst.IsXRegister()) {
+    if (size == 4) {
+      LoadFromOffset(kLoadWord, dst.AsXRegister(), src_register, src_offset);
+    } else if (size == 8) {
+      CHECK_EQ(8u, size) << dst;
+      LoadFromOffset(kLoadDoubleword, dst.AsXRegister(), src_register, src_offset);
+    } else {
+      UNIMPLEMENTED(FATAL) << "We only support Load() of size 4 and 8";
+    }
+  } else if (dst.IsFRegister()) {
+    if (size == 4) {
+      CHECK_EQ(4u, size) << dst;
+      LoadFpuFromOffset(kLoadWord, dst.AsFRegister(), src_register, src_offset);
+    } else if (size == 8) {
+      CHECK_EQ(8u, size) << dst;
+      LoadFpuFromOffset(kLoadDoubleword, dst.AsFRegister(), src_register, src_offset);
+    } else {
+      UNIMPLEMENTED(FATAL) << "We only support Load() of size 4 and 8";
+    }
+  }
+}
+
+void Riscv64Assembler::StoreToOffset(StoreOperandType type,
+                                     XRegister reg,
+                                     XRegister base,
+                                     int32_t offset) {
+  StoreToOffset<>(type, reg, base, offset);
+}
+
+void Riscv64Assembler::StoreFpuToOffset(StoreOperandType type,
+                                        FRegister reg,
+                                        XRegister base,
+                                        int32_t offset) {
+  StoreFpuToOffset<>(type, reg, base, offset);
 }
 
 /////////////////////////////// RV64 VARIANTS extension end ////////////
