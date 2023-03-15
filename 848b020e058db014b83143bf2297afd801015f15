@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d62197a_0471deb1",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 494,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-15T09:00:41Z",
+      "side": 1,
+      "message": "Unnecessary. Primitive classes should pass the `cls-\u003eIsBootStrapClassLoaded()` test, so this can be simply replaced with a DCHECK() after that.",
+      "range": {
+        "startLine": 490,
+        "startChar": 6,
+        "endLine": 494,
+        "endChar": 7
+      },
+      "revId": "848b020e058db014b83143bf2297afd801015f15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
