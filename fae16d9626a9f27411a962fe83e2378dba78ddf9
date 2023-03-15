@@ -51,6 +51,24 @@
       "parentUuid": "752bd028_c7a37d3c",
       "revId": "fae16d9626a9f27411a962fe83e2378dba78ddf9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "12853095_63747a42",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1863710
+      },
+      "writtenOn": "2023-03-15T18:06:34Z",
+      "side": 1,
+      "message": "Not sure, just its tests were blocking my submit, I didn\u0027t even know about it before that. It seems to do the same as dexdump, even has the same options. And its test just checks that it has the same output.\n\nThanks for the CR+2.",
+      "parentUuid": "2342a971_daff1043",
+      "revId": "fae16d9626a9f27411a962fe83e2378dba78ddf9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
