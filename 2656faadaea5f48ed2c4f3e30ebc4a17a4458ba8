@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4e55fdc7_2b0f42af",
+        "filename": "compiler/optimizing/data_type.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-03-15T16:49:27Z",
+      "side": 1,
+      "message": "Hm, nice question.\n\nI think it is fine to leave booleans in [0,1]. They should be [0,1] in the normal case and in that case it is fine to be implicit.\n\nWhat I am thinking we might need to do is change sget-boolean to have type Uint8. That would solve the problem you are mentioning, and it will reflect what\u0027s actually going on. Not sure if it adds more trouble though...",
+      "parentUuid": "fba60d11_b2999f80",
+      "range": {
+        "startLine": 274,
+        "startChar": 10,
+        "endLine": 274,
+        "endChar": 32
+      },
+      "revId": "2656faadaea5f48ed2c4f3e30ebc4a17a4458ba8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fed00194_d49b2c59",
         "filename": "compiler/optimizing/graph_visualizer.cc",
         "patchSetId": 10
@@ -37,6 +61,30 @@
       "writtenOn": "2023-03-15T10:32:17Z",
       "side": 1,
       "message": "Unnecessary, the type is implicit in the input and result names (such as `z21 TypeConversion [i13]`).",
+      "range": {
+        "startLine": 474,
+        "startChar": 4,
+        "endLine": 475,
+        "endChar": 78
+      },
+      "revId": "2656faadaea5f48ed2c4f3e30ebc4a17a4458ba8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "42c76f17_7706fc98",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 475,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-03-15T16:49:27Z",
+      "side": 1,
+      "message": "Ack, removed.",
+      "parentUuid": "fed00194_d49b2c59",
       "range": {
         "startLine": 474,
         "startChar": 4,
@@ -64,6 +112,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0736dbce_74757e38",
+        "filename": "test/2260-checker-smali-boolean-cast/smali/BooleanTest.smali",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-03-15T16:49:27Z",
+      "side": 1,
+      "message": "Done.\n\nI think that the java part gets simpler, but the jasmin itself is more complicated than smali. For small cases it might be fine, but having to have a mental model of the stack is annoying.",
+      "parentUuid": "9fc26811_bfa02b3a",
+      "revId": "2656faadaea5f48ed2c4f3e30ebc4a17a4458ba8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b59527f8_62dfeb04",
@@ -87,6 +153,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b53a084_20a159b3",
+        "filename": "test/2260-checker-smali-boolean-cast/smali/BooleanTest.smali",
+        "patchSetId": 10
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-03-15T16:49:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b59527f8_62dfeb04",
+      "range": {
+        "startLine": 122,
+        "startChar": 4,
+        "endLine": 122,
+        "endChar": 13
+      },
+      "revId": "2656faadaea5f48ed2c4f3e30ebc4a17a4458ba8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "eb6a19d4_09c993d4",
@@ -100,6 +190,30 @@
       "writtenOn": "2023-03-15T10:32:17Z",
       "side": 1,
       "message": "I\u0027d call this \"Conv\".",
+      "range": {
+        "startLine": 678,
+        "startChar": 23,
+        "endLine": 678,
+        "endChar": 27
+      },
+      "revId": "2656faadaea5f48ed2c4f3e30ebc4a17a4458ba8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ab718a6_87049e06",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 678,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-03-15T16:49:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eb6a19d4_09c993d4",
       "range": {
         "startLine": 678,
         "startChar": 23,
