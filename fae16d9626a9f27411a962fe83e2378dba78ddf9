@@ -33,6 +33,24 @@
       "message": "This change is needed for aosp/2108033. The art-test run with the fix was made with that change present to validate that the MH and CallSite bytecode is output correctly.",
       "revId": "fae16d9626a9f27411a962fe83e2378dba78ddf9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2342a971_daff1043",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-03-15T17:30:27Z",
+      "side": 1,
+      "message": "So what/who uses `dexlayout`?\n\nI am concerned because I would like to delete `dexlayout`.  With uncompressed dex files in apks, it is becoming obsolete / unused.",
+      "parentUuid": "752bd028_c7a37d3c",
+      "revId": "fae16d9626a9f27411a962fe83e2378dba78ddf9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
