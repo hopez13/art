@@ -21,6 +21,7 @@
 #include <map>
 
 #include "base/bit_utils.h"
+#include "base/stl_util.h"
 #include "utils/assembler_test.h"
 
 #define __ GetAssembler()->
@@ -1320,6 +1321,16 @@ TEST_F(AssemblerRISCV64Test, FClassD) {
 TEST_F(AssemblerRISCV64Test, Nop) {
   __ Nop();
   DriverStr("addi zero,zero,0", "Nop");
+}
+
+TEST_F(AssemblerRISCV64Test, Li) {
+  DriverStr(RepeatRIb(&riscv64::Riscv64Assembler::Li, -11, "addi {reg}, zero, {imm}"), "Li");
+
+  // TODO: Add Li rd, imm -> lui rd, (imm>>12)
+  // DriverStr(RepeatRIb(&riscv64::Riscv64Assembler::Li, -11, "addi {reg}, zero, {imm}"), "Li");
+
+  // TODO: Add Li rd, imm -> lui rd, (imm>>12); addi rd, rd, imm & 0xfff
+  // DriverStr(RepeatRIb(&riscv64::Riscv64Assembler::Li, -11, "addi {reg}, zero, {imm}"), "Li");
 }
 
 TEST_F(AssemblerRISCV64Test, Mv) {
