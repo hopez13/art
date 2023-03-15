@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "089f796e_0cf9d350",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2023-03-15T18:10:16Z",
+      "side": 1,
+      "message": "Actually, for the second `Test:` stanza, I meant:\n\n```\nTest: m mts \u0026\u0026 mts-tradefed run commandAndExit mts-art-shard-03\n```",
+      "parentUuid": "47c96ce7_b1499534",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 44
+      },
+      "revId": "73f13d24b0772f9f49b6a4e44d36970f8823c08a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "7ab01b42_96fdbb27",
