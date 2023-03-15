@@ -1415,6 +1415,11 @@ OnDeviceRefresh::CheckArtifactsAreUpToDate(OdrMetrics& metrics,
                                           &checked_artifacts);
   }
 
+  if (!data_result.IsAllOk()) {
+    // Set trigger for generating the cache info.
+    metrics.SetTrigger(data_result.GetTrigger());
+  }
+
   // Return kCompilationRequired to generate the cache info even if there's nothing to compile.
   bool compilation_required = !compilation_options->compile_boot_classpath_for_isas.empty() ||
                               !compilation_options->system_server_jars_to_compile.empty() ||
