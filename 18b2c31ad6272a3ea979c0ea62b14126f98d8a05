@@ -85,6 +85,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ed8a2699_74a800b8",
+        "filename": "libdexfile/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-03-15T21:07:07Z",
+      "side": 1,
+      "message": "\u003e and it passed without changing these modules.\n\nSure, I was actually more concerned that the changes in the -d modules aren\u0027t actually needed, and that they got changed here by mistake. So in other words, do you need to change libprofiled, odrefreshd, and libartd? If not, let\u0027s avoid that since it may be confusing later.",
+      "parentUuid": "ea05280a_83ca6495",
+      "revId": "18b2c31ad6272a3ea979c0ea62b14126f98d8a05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1fce8806_92d05aed",
         "filename": "runtime/Android.bp",
         "patchSetId": 1
