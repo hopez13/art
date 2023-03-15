@@ -21,6 +21,7 @@
 #include <map>
 
 #include "base/bit_utils.h"
+#include "base/stl_util.h"
 #include "utils/assembler_test.h"
 
 #define __ GetAssembler()->
@@ -814,6 +815,130 @@ TEST_F(AssemblerRISCV64Test, Remuw) {
   DriverStr(RepeatRRR(&riscv64::Riscv64Assembler::Remuw, "remuw {reg1}, {reg2}, {reg3}"), "Remuw");
 }
 
+TEST_F(AssemblerRISCV64Test, AmoAddD) {
+  DriverStr(
+      RepeatRRRIb(&riscv64::Riscv64Assembler::AmoAddD, 1, "amoadd.d {reg1}, {reg2}, ({reg3})"),
+      "AmoAddD");
+}
+
+TEST_F(AssemblerRISCV64Test, AmoAddW) {
+  DriverStr(
+      RepeatRRRIb(&riscv64::Riscv64Assembler::AmoAddW, 1, "amoadd.w {reg1}, {reg2}, ({reg3})"),
+      "AmoAddW");
+}
+
+TEST_F(AssemblerRISCV64Test, AmoAndD) {
+  DriverStr(
+      RepeatRRRIb(&riscv64::Riscv64Assembler::AmoAndD, 1, "amoand.d {reg1}, {reg2}, ({reg3})"),
+      "AmoAndD");
+}
+
+TEST_F(AssemblerRISCV64Test, AmoAndW) {
+  DriverStr(
+      RepeatRRRIb(&riscv64::Riscv64Assembler::AmoAndW, 1, "amoand.w {reg1}, {reg2}, ({reg3})"),
+      "AmoAndW");
+}
+
+TEST_F(AssemblerRISCV64Test, AmoMaxD) {
+  DriverStr(
+      RepeatRRRIb(&riscv64::Riscv64Assembler::AmoMaxD, 1, "amomax.d {reg1}, {reg2}, ({reg3})"),
+      "AmoMaxD");
+}
+
+TEST_F(AssemblerRISCV64Test, AmoMaxW) {
+  DriverStr(
+      RepeatRRRIb(&riscv64::Riscv64Assembler::AmoMaxW, 1, "amomax.w {reg1}, {reg2}, ({reg3})"),
+      "AmoMaxW");
+}
+
+TEST_F(AssemblerRISCV64Test, AmoMaxuD) {
+  DriverStr(
+      RepeatRRRIb(&riscv64::Riscv64Assembler::AmoMaxuD, 1, "amomaxu.d {reg1}, {reg2}, ({reg3})"),
+      "AmoMaxuD");
+}
+
+TEST_F(AssemblerRISCV64Test, AmoMaxuW) {
+  DriverStr(
+      RepeatRRRIb(&riscv64::Riscv64Assembler::AmoMaxuW, 1, "amomaxu.w {reg1}, {reg2}, ({reg3})"),
+      "AmoMaxuW");
+}
+
+TEST_F(AssemblerRISCV64Test, AmoMinD) {
+  DriverStr(
+      RepeatRRRIb(&riscv64::Riscv64Assembler::AmoMinD, 1, "amomin.d {reg1}, {reg2}, ({reg3})"),
+      "AmoMinD");
+}
+
+TEST_F(AssemblerRISCV64Test, AmoMinW) {
+  DriverStr(
+      RepeatRRRIb(&riscv64::Riscv64Assembler::AmoMinW, 1, "amomin.w {reg1}, {reg2}, ({reg3})"),
+      "AmoMinW");
+}
+
+TEST_F(AssemblerRISCV64Test, AmoMinuD) {
+  DriverStr(
+      RepeatRRRIb(&riscv64::Riscv64Assembler::AmoMinuD, 1, "amominu.d {reg1}, {reg2}, ({reg3})"),
+      "AmoMinuD");
+}
+
+TEST_F(AssemblerRISCV64Test, AmoMinuW) {
+  DriverStr(
+      RepeatRRRIb(&riscv64::Riscv64Assembler::AmoMinuW, 1, "amominu.w {reg1}, {reg2}, ({reg3})"),
+      "AmoMinuW");
+}
+
+TEST_F(AssemblerRISCV64Test, AmoOrD) {
+  DriverStr(RepeatRRRIb(&riscv64::Riscv64Assembler::AmoOrD, 1, "amoor.d {reg1}, {reg2}, ({reg3})"),
+            "AmoOrD");
+}
+
+TEST_F(AssemblerRISCV64Test, AmoOrW) {
+  DriverStr(RepeatRRRIb(&riscv64::Riscv64Assembler::AmoOrW, 1, "amoor.w {reg1}, {reg2}, ({reg3})"),
+            "AmoOrW");
+}
+
+TEST_F(AssemblerRISCV64Test, AmoSwapD) {
+  DriverStr(
+      RepeatRRRIb(&riscv64::Riscv64Assembler::AmoSwapD, 1, "amoswap.d {reg1}, {reg2}, ({reg3})"),
+      "AmoSwapD");
+}
+
+TEST_F(AssemblerRISCV64Test, AmoSwapW) {
+  DriverStr(
+      RepeatRRRIb(&riscv64::Riscv64Assembler::AmoSwapW, 1, "amoswap.w {reg1}, {reg2}, ({reg3})"),
+      "AmoSwapW");
+}
+
+TEST_F(AssemblerRISCV64Test, AmoXorD) {
+  DriverStr(
+      RepeatRRRIb(&riscv64::Riscv64Assembler::AmoXorD, 1, "amoxor.d {reg1}, {reg2}, ({reg3})"),
+      "AmoXorD");
+}
+
+TEST_F(AssemblerRISCV64Test, AmoXorW) {
+  DriverStr(
+      RepeatRRRIb(&riscv64::Riscv64Assembler::AmoXorW, 1, "amoxor.w {reg1}, {reg2}, ({reg3})"),
+      "AmoXorW");
+}
+
+TEST_F(AssemblerRISCV64Test, LrD) {
+  DriverStr(RepeatRRIb(&riscv64::Riscv64Assembler::LrD, 1, "lr.d {reg1}, ({reg2})"), "LrD");
+}
+
+TEST_F(AssemblerRISCV64Test, LrW) {
+  DriverStr(RepeatRRIb(&riscv64::Riscv64Assembler::LrW, 1, "lr.w {reg1}, ({reg2})"), "LrW");
+}
+
+TEST_F(AssemblerRISCV64Test, ScD) {
+  DriverStr(RepeatRRRIb(&riscv64::Riscv64Assembler::ScD, 1, "sc.d {reg1}, {reg2}, ({reg3})"),
+            "ScD");
+}
+
+TEST_F(AssemblerRISCV64Test, ScW) {
+  DriverStr(RepeatRRRIb(&riscv64::Riscv64Assembler::ScW, 1, "sc.w {reg1}, {reg2}, ({reg3})"),
+            "ScW");
+}
+
 TEST_F(AssemblerRISCV64Test, FLw) {
   DriverStr(RepeatFRIb(&riscv64::Riscv64Assembler::FLw, -12, "flw {reg1}, {imm}({reg2})"), "FLw");
 }
@@ -1080,6 +1205,16 @@ TEST_F(AssemblerRISCV64Test, FClassD) {
 TEST_F(AssemblerRISCV64Test, Nop) {
   __ Nop();
   DriverStr("addi zero,zero,0", "Nop");
+}
+
+TEST_F(AssemblerRISCV64Test, Li) {
+  DriverStr(RepeatRIb(&riscv64::Riscv64Assembler::Li, -11, "addi {reg}, zero, {imm}"), "Li");
+
+  // TODO: Add Li rd, imm -> lui rd, (imm>>12)
+  // DriverStr(RepeatRIb(&riscv64::Riscv64Assembler::Li, -11, "addi {reg}, zero, {imm}"), "Li");
+
+  // TODO: Add Li rd, imm -> lui rd, (imm>>12); addi rd, rd, imm & 0xfff
+  // DriverStr(RepeatRIb(&riscv64::Riscv64Assembler::Li, -11, "addi {reg}, zero, {imm}"), "Li");
 }
 
 TEST_F(AssemblerRISCV64Test, Mv) {
