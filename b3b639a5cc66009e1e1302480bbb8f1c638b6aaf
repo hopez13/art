@@ -35,6 +35,46 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c138d932_db7646bc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1896186
+      },
+      "writtenOn": "2023-03-16T15:10:30Z",
+      "side": 1,
+      "message": "Thanks a lot for this!",
+      "revId": "b3b639a5cc66009e1e1302480bbb8f1c638b6aaf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "90ec349f_90cf05ae",
+        "filename": "libdexfile/dex/descriptors_names.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1896186
+      },
+      "writtenOn": "2023-03-16T15:10:30Z",
+      "side": 1,
+      "message": "How about adding some unit tests for this in descriptors_names_test.cc?",
+      "range": {
+        "startLine": 38,
+        "startChar": 12,
+        "endLine": 38,
+        "endChar": 35
+      },
+      "revId": "b3b639a5cc66009e1e1302480bbb8f1c638b6aaf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "05d83c00_853e9874",
@@ -101,6 +141,53 @@
         "startChar": 24,
         "endLine": 214,
         "endChar": 37
+      },
+      "revId": "b3b639a5cc66009e1e1302480bbb8f1c638b6aaf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "52b2a441_98f45705",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1896186
+      },
+      "writtenOn": "2023-03-16T15:10:30Z",
+      "side": 1,
+      "message": "\u003e `cfg-\u003eignored_types()` is the user input from their JavaHprofConfig source\u0027s `ignored_types` field [1]. I think it would be easier for users to allow them to continue using the \"some.type.Name\" format instead of requiring them to update their configs to use \"Lsome/type/Name;\".\n\n+1. Changing ignored_types to use unprettified types would be a breaking change.",
+      "parentUuid": "ff0657f7_aa9a070a",
+      "range": {
+        "startLine": 214,
+        "startChar": 24,
+        "endLine": 214,
+        "endChar": 37
+      },
+      "revId": "b3b639a5cc66009e1e1302480bbb8f1c638b6aaf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa392d20_52614350",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 892,
+      "author": {
+        "id": 1896186
+      },
+      "writtenOn": "2023-03-16T15:10:30Z",
+      "side": 1,
+      "message": "Using std::string_view here should avoid a copy/potential allocation.\n\nThe memory pointed to by the const char* returned by GetDescriptor is owned by `klass` or by `temp`.\n\nIf this is such a hot path, it could make an impact.",
+      "range": {
+        "startLine": 892,
+        "startChar": 4,
+        "endLine": 892,
+        "endChar": 15
       },
       "revId": "b3b639a5cc66009e1e1302480bbb8f1c638b6aaf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
