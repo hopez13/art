@@ -98,6 +98,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "738f2ff8_d312f594",
+        "filename": "compiler/optimizing/data_type.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-16T15:34:02Z",
+      "side": 1,
+      "message": "With LSE, it would indeed become `assertEqual(b, b)`. But in interpreter if we try to store 1000 to the `byte byteField` and then load it as `Int8` we shall get `-24`.",
+      "parentUuid": "5eea0337_dc30be91",
+      "range": {
+        "startLine": 274,
+        "startChar": 10,
+        "endLine": 274,
+        "endChar": 32
+      },
+      "revId": "2656faadaea5f48ed2c4f3e30ebc4a17a4458ba8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fed00194_d49b2c59",
         "filename": "compiler/optimizing/graph_visualizer.cc",
         "patchSetId": 10
