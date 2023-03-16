@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "28a25b09_d54738f7",
+        "filename": "compiler/optimizing/data_type.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-16T08:54:15Z",
+      "side": 1,
+      "message": "I\u0027m starting to think that the only implicit conversions from `boolean` are conversions to `boolean` and `int`. You can pass any `int` value as `boolean` to an invoke.\n\nBut that opens a new question: Is there any checking of small integral invoke argument types? Can you pass 1000 as a `byte` argument?\n\n    void test(byte b) {\n      byteField \u003d b;\n      short b2 \u003d byteField;\n      assertEqual(b2, b);  // Fails in interpreter if `b` is outside [-128, 128[ ?\n    }",
+      "parentUuid": "4e55fdc7_2b0f42af",
+      "range": {
+        "startLine": 274,
+        "startChar": 10,
+        "endLine": 274,
+        "endChar": 32
+      },
+      "revId": "2656faadaea5f48ed2c4f3e30ebc4a17a4458ba8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fed00194_d49b2c59",
         "filename": "compiler/optimizing/graph_visualizer.cc",
         "patchSetId": 10
