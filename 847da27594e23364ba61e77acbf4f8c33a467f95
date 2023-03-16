@@ -142,6 +142,30 @@
       },
       "revId": "847da27594e23364ba61e77acbf4f8c33a467f95",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "822aad6d_41b3bf85",
+        "filename": "test/generate-boot-image/generate-boot-image.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-03-16T14:09:57Z",
+      "side": 1,
+      "message": "I see what you are saying. We don\u0027t pass a profile for image_test, but the test expects the classes to be initialized, even if they have static fields? That sounds like a wrong expectation to me. As you said before, we don\u0027t know if the static fields are safe to initialize or not without a profile.\n\nHowever, that sounds like a long existing problem, not something we should fix in this CL. I\u0027m okay with submitting this CL as is, to minimize the changes. Please file a bug that we should eventually fix image_test and put the right condition in compiler_driver.cc.",
+      "parentUuid": "0decb10c_43c57d09",
+      "range": {
+        "startLine": 114,
+        "startChar": 33,
+        "endLine": 114,
+        "endChar": 46
+      },
+      "revId": "847da27594e23364ba61e77acbf4f8c33a467f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
