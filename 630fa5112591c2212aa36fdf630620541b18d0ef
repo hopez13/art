@@ -87,6 +87,24 @@
       "parentUuid": "f14f6eeb_eece1a1d",
       "revId": "630fa5112591c2212aa36fdf630620541b18d0ef",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8dc33592_823bbe1b",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1556,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-03-16T12:16:26Z",
+      "side": 1,
+      "message": "I intend to add CFI_REMEMBER_STATE for RISC-V.",
+      "parentUuid": "f0de9022_a9d7cc85",
+      "revId": "630fa5112591c2212aa36fdf630620541b18d0ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
