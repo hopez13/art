@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "40a01705_aa6d7602",
+        "filename": "runtime/arch/arm/asm_support_arm.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-03-16T11:17:17Z",
+      "side": 0,
+      "message": "I have mixed feelings.\n\nThose directives are correct.  The value of that given register, as it was when the call was made, is stored at that location at stack.\n\nI guess you mean that we should only add directives for callee-save registers only.\n\nI would lean towards adding directives for all registers that are pushed.\n\nThat is, I would prefer if CFI trivially mapped to assembly, regardless of calling convention.\n\n(i.e. it is easier for me to check that each push/pop has CFI, then to remember all ABIs)",
+      "revId": "c069a1ecc85f90bab5969ead6a1ff5d8dacf371a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "627a6fd4_098fb0b2",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1540,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-03-16T11:17:17Z",
+      "side": 0,
+      "message": "Why did you replace the `RESTORE_SAVE_REFS_ONLY_FRAME` with explicit code?\n\nThe new version pops different about of data from stack, right?\n\n(it does not affect just CFI)",
+      "revId": "c069a1ecc85f90bab5969ead6a1ff5d8dacf371a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
