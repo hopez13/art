@@ -75,6 +75,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b788b09_c2a0065e",
+        "filename": "libdexfile/dex/descriptors_names.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1757736
+      },
+      "writtenOn": "2023-03-16T17:49:26Z",
+      "side": 1,
+      "message": "Done, thanks!",
+      "parentUuid": "90ec349f_90cf05ae",
+      "range": {
+        "startLine": 38,
+        "startChar": 12,
+        "endLine": 38,
+        "endChar": 35
+      },
+      "revId": "b3b639a5cc66009e1e1302480bbb8f1c638b6aaf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "05d83c00_853e9874",
@@ -183,6 +207,30 @@
       "writtenOn": "2023-03-16T15:10:30Z",
       "side": 1,
       "message": "Using std::string_view here should avoid a copy/potential allocation.\n\nThe memory pointed to by the const char* returned by GetDescriptor is owned by `klass` or by `temp`.\n\nIf this is such a hot path, it could make an impact.",
+      "range": {
+        "startLine": 892,
+        "startChar": 4,
+        "endLine": 892,
+        "endChar": 15
+      },
+      "revId": "b3b639a5cc66009e1e1302480bbb8f1c638b6aaf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "80b95955_eb79f9d3",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 892,
+      "author": {
+        "id": 1757736
+      },
+      "writtenOn": "2023-03-16T17:49:26Z",
+      "side": 1,
+      "message": "Done, sorry for the delay!",
+      "parentUuid": "aa392d20_52614350",
       "range": {
         "startLine": 892,
         "startChar": 4,
