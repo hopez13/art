@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f5b2ca7f_b20ce49d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2023-03-16T17:34:15Z",
+      "side": 1,
+      "message": "Does this change increase the run time of ART standalone gtests? If so, do we have a rough estimation of the increase (per gtest and/or for all gtests)?",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 41
+      },
+      "revId": "73f13d24b0772f9f49b6a4e44d36970f8823c08a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "47c96ce7_b1499534",
         "filename": "/COMMIT_MSG",
         "patchSetId": 6
@@ -61,6 +84,52 @@
       "writtenOn": "2023-03-15T18:08:15Z",
       "side": 1,
       "message": "I started to review this CL (sorry for the delay!); will post comments ASAP.",
+      "revId": "73f13d24b0772f9f49b6a4e44d36970f8823c08a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c311b945_4003c9e6",
+        "filename": "compiler/art_standalone_compiler_tests.xml",
+        "patchSetId": 6
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2023-03-16T17:34:15Z",
+      "side": 1,
+      "message": "Out of curiosity, is this a new Trade Federation feature?",
+      "range": {
+        "startLine": 21,
+        "startChar": 13,
+        "endLine": 21,
+        "endChar": 91
+      },
+      "revId": "73f13d24b0772f9f49b6a4e44d36970f8823c08a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5a84ccb_6a507b40",
+        "filename": "compiler/art_standalone_compiler_tests.xml",
+        "patchSetId": 6
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2023-03-16T17:34:15Z",
+      "side": 1,
+      "message": "Nit: Long line (here and in other files in this CL); I suggest wrapping the line as you did for the `run-command` option.",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 130
+      },
       "revId": "73f13d24b0772f9f49b6a4e44d36970f8823c08a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
