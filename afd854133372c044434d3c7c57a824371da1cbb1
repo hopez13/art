@@ -343,6 +343,30 @@
       },
       "revId": "afd854133372c044434d3c7c57a824371da1cbb1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ee45aff_22aff3a8",
+        "filename": "libelffile/elf/elf_debug_reader.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-03-16T16:42:53Z",
+      "side": 1,
+      "message": "\u003e I would say that any warning that can catch bugs is worth it.\n\n\u003e It is sad if it is full of holes and can not be relied on though.\n\nthis is always the trade-off --- a lot of these clang warnings _sound_ useful, but the actual implementation is either (a) too superficial to really catch anything or (b) has too many false positives to actually be useful. we suffer both from too little signal _and_ too much noise. so any time you see us come along like this with a new warning, assume it is basically an \"is this useful?\" experiment. (because in my experience, most aren\u0027t.)",
+      "parentUuid": "9adb2d67_2552d3d2",
+      "range": {
+        "startLine": 179,
+        "startChar": 8,
+        "endLine": 179,
+        "endChar": 9
+      },
+      "revId": "afd854133372c044434d3c7c57a824371da1cbb1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
