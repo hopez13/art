@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "c9dc11a0_e47a9c76",
+        "filename": "compiler/debug/elf_debug_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-16T09:05:26Z",
+      "side": 1,
+      "message": "We could use `static_cast\u003c\u003e` but that\u0027s actually a lot longer. Or we could define a helper template to read from an unaligned memory location and return by value.",
+      "parentUuid": "36fff8eb_1f0cec33",
+      "range": {
+        "startLine": 218,
+        "startChar": 39,
+        "endLine": 218,
+        "endChar": 48
+      },
+      "revId": "afd854133372c044434d3c7c57a824371da1cbb1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "b39fe2cd_3283c5d7",
