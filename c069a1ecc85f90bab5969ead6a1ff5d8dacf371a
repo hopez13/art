@@ -69,6 +69,24 @@
       "parentUuid": "627a6fd4_098fb0b2",
       "revId": "c069a1ecc85f90bab5969ead6a1ff5d8dacf371a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d96fe70_707e4d98",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1540,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-03-16T12:05:41Z",
+      "side": 0,
+      "message": "Ah! That SP adjustment was not removed, but it was merged.",
+      "parentUuid": "9a9ab25e_aa57b16b",
+      "revId": "c069a1ecc85f90bab5969ead6a1ff5d8dacf371a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
