@@ -70,6 +70,30 @@
       },
       "revId": "847da27594e23364ba61e77acbf4f8c33a467f95",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "059f8e06_774aeecb",
+        "filename": "test/generate-boot-image/generate-boot-image.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-03-16T13:08:56Z",
+      "side": 1,
+      "message": "So we want \"verify\" to not initialize classes anymore for the mainline extension. However, some tests do expect that. I could add a boot image extension check to special case it for the mainline extension if you prefer?",
+      "parentUuid": "5bafc443_1bbe0377",
+      "range": {
+        "startLine": 114,
+        "startChar": 33,
+        "endLine": 114,
+        "endChar": 46
+      },
+      "revId": "847da27594e23364ba61e77acbf4f8c33a467f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
