@@ -158,6 +158,30 @@
       },
       "revId": "afd854133372c044434d3c7c57a824371da1cbb1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "75b195ec_5caee236",
+        "filename": "libelffile/elf/elf_debug_reader.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-03-16T09:43:02Z",
+      "side": 1,
+      "message": "Also, the reader usually operates on std::vector\u003cuint8_t\u003e so I made the types unaligned.  But then, I am not convinced they can ever by unaligned in practice.",
+      "parentUuid": "ae1892e9_9994bda4",
+      "range": {
+        "startLine": 179,
+        "startChar": 8,
+        "endLine": 179,
+        "endChar": 9
+      },
+      "revId": "afd854133372c044434d3c7c57a824371da1cbb1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
