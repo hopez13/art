@@ -123,6 +123,24 @@
       "parentUuid": "8dc33592_823bbe1b",
       "revId": "630fa5112591c2212aa36fdf630620541b18d0ef",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "94c9fb67_2f8c5162",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1556,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-16T14:06:11Z",
+      "side": 1,
+      "message": "Now that we have agreed to the arm changes, we can follow-up with other architectures in one or more separate CLs.",
+      "parentUuid": "05d40ace_478361b0",
+      "revId": "630fa5112591c2212aa36fdf630620541b18d0ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
