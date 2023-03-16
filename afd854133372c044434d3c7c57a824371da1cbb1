@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "21064a9b_eddb47ca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-03-16T10:52:21Z",
+      "side": 1,
+      "message": "So.... both reasonable suggestions, but neither works because `-Walign-mismatch` is buggy.\n\nStill, those couple of cases are the only offenders in the whole Android code base as far as I can tell.\n\nI would be mildly tempted to commit this CL as-is just so that we not the blockers.\n\nBut then yes, the warning/feature is of very questionable usefulness.",
+      "revId": "afd854133372c044434d3c7c57a824371da1cbb1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "489ad7de_4e1699ae",
