@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "784f48e7_c6a43b2d",
+        "filename": "test/generate-boot-image/generate-boot-image.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-03-16T10:56:40Z",
+      "side": 1,
+      "message": "If the condition in compiler_driver.cc is `compiler_options.GetProfileCompilationInfo() !\u003d nullptr \u0026\u0026 !compiler_options.GetProfileCompilationInfo()-\u003eIsEmpty()`, using \"verify\" here will still be good because we always pass a profile, right?",
+      "range": {
+        "startLine": 114,
+        "startChar": 33,
+        "endLine": 114,
+        "endChar": 46
+      },
+      "revId": "847da27594e23364ba61e77acbf4f8c33a467f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
