@@ -94,6 +94,30 @@
       },
       "revId": "847da27594e23364ba61e77acbf4f8c33a467f95",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3bf6ed97_c3134cda",
+        "filename": "test/generate-boot-image/generate-boot-image.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-03-16T13:54:44Z",
+      "side": 1,
+      "message": "We want \"verify\" to not initialize classes anymore for the mainline extension, but we still want \"verify\" to initialize classes if a profile is passed.\n\n`generate-boot-image` passes a profile even if the compiler filter is \"verify\", so the classes are supposed to be initilaized. If classes are not initialized, that sounds like a real problem to me.\n\nI think the issue can be fixed by changing the condition in compiler_driver.cc from `compiler_options.IsAotCompilationEnabled()` to `compiler_options.GetProfileCompilationInfo() !\u003d nullptr \u0026\u0026 !compiler_options.GetProfileCompilationInfo()-\u003eIsEmpty()`. That will keep the status quo, if I\u0027m not wrong.",
+      "parentUuid": "059f8e06_774aeecb",
+      "range": {
+        "startLine": 114,
+        "startChar": 33,
+        "endLine": 114,
+        "endChar": 46
+      },
+      "revId": "847da27594e23364ba61e77acbf4f8c33a467f95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
