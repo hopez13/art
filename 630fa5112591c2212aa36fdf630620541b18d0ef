@@ -33,6 +33,24 @@
       "message": "We could also move the `.cfi_def_cfa_register sp` coupe lines down so that the CFI is \"technically\" correct, right?\n\nI assume this change also need to be applied to other architectures?",
       "revId": "630fa5112591c2212aa36fdf630620541b18d0ef",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0f39b73_28f8d0eb",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1556,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-16T11:55:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4077fe6a_b3c4b3b7",
+      "revId": "630fa5112591c2212aa36fdf630620541b18d0ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

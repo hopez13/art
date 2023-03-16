@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "870786d2_971d1cb4",
+        "filename": "runtime/arch/arm/asm_support_arm.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-16T11:55:46Z",
+      "side": 0,
+      "message": "This does not provide any useful information for the debugger. These registers do not hold live values for the caller. And we do not even have any information about the signature of the method we want to call, so we cannot use these values to display call arguments either.",
+      "parentUuid": "40a01705_aa6d7602",
+      "revId": "c069a1ecc85f90bab5969ead6a1ff5d8dacf371a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "627a6fd4_098fb0b2",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-03-16T11:17:17Z",
       "side": 0,
       "message": "Why did you replace the `RESTORE_SAVE_REFS_ONLY_FRAME` with explicit code?\n\nThe new version pops different about of data from stack, right?\n\n(it does not affect just CFI)",
+      "revId": "c069a1ecc85f90bab5969ead6a1ff5d8dacf371a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a9ab25e_aa57b16b",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1540,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-16T11:55:46Z",
+      "side": 0,
+      "message": "The `kSaveRefsAndArgs` and `kSaveRefsOnly` frames are sort of unrelated, so I\u0027d prefer not to rely on the fact that they happen to save the same core registers at the top of the stack.\n\nThe old code is error prone. For example, it failed to undo the `.cfi_rel_offset` for args that I\u0027m removing.\n\n(Note that the explicit code merges two SP adjustments into one but that\u0027s largely irrelevant as this is not performance critical.)",
+      "parentUuid": "627a6fd4_098fb0b2",
       "revId": "c069a1ecc85f90bab5969ead6a1ff5d8dacf371a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
