@@ -39,6 +39,30 @@
       },
       "revId": "b3b639a5cc66009e1e1302480bbb8f1c638b6aaf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9926c13c_81bcee92",
+        "filename": "perfetto_hprof/perfetto_hprof.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1757736
+      },
+      "writtenOn": "2023-03-16T13:36:48Z",
+      "side": 1,
+      "message": "`cfg-\u003eignored_types()` is the user input from their JavaHprofConfig source\u0027s `ignored_types` field [1]. I think it would be easier for users to allow them to continue using the \"some.type.Name\" format instead of requiring them to update their configs to use \"Lsome/type/Name;\".\n\n[1] https://cs.android.com/android/platform/superproject/+/master:external/perfetto/protos/perfetto/trace/perfetto_trace.proto;l\u003d1125",
+      "parentUuid": "05d83c00_853e9874",
+      "range": {
+        "startLine": 214,
+        "startChar": 24,
+        "endLine": 214,
+        "endChar": 37
+      },
+      "revId": "b3b639a5cc66009e1e1302480bbb8f1c638b6aaf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
