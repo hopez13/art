@@ -209,6 +209,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "05706f44_c1880bff",
+        "filename": "compiler/debug/elf_debug_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-03-16T20:29:25Z",
+      "side": 1,
+      "message": "I\u0027m not completely clear on what this is doing",
+      "parentUuid": "489ad7de_4e1699ae",
+      "range": {
+        "startLine": 218,
+        "startChar": 39,
+        "endLine": 218,
+        "endChar": 48
+      },
+      "revId": "afd854133372c044434d3c7c57a824371da1cbb1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "b39fe2cd_3283c5d7",
@@ -359,6 +383,30 @@
       "side": 1,
       "message": "\u003e I would say that any warning that can catch bugs is worth it.\n\n\u003e It is sad if it is full of holes and can not be relied on though.\n\nthis is always the trade-off --- a lot of these clang warnings _sound_ useful, but the actual implementation is either (a) too superficial to really catch anything or (b) has too many false positives to actually be useful. we suffer both from too little signal _and_ too much noise. so any time you see us come along like this with a new warning, assume it is basically an \"is this useful?\" experiment. (because in my experience, most aren\u0027t.)",
       "parentUuid": "9adb2d67_2552d3d2",
+      "range": {
+        "startLine": 179,
+        "startChar": 8,
+        "endLine": 179,
+        "endChar": 9
+      },
+      "revId": "afd854133372c044434d3c7c57a824371da1cbb1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b320222c_c3412f77",
+        "filename": "libelffile/elf/elf_debug_reader.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-03-16T20:29:25Z",
+      "side": 1,
+      "message": "Which \"attribute\" are we talking about here? I think the standard facilities can only increase alignment.\n\nSo do we think this warning would be issued if I cast a random char* to int* and then accessed the integer?\n\nI expect we still have the issue that people usually do this only in situations in which it actually works on our hardware. And we probably don\u0027t care about hardware that traps on misaligned accesses? So the benefit appears marginal.",
+      "parentUuid": "5ee45aff_22aff3a8",
       "range": {
         "startLine": 179,
         "startChar": 8,
