@@ -72,6 +72,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "2cc57ce4_32cc7c80",
+        "filename": "compiler/debug/elf_debug_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-03-16T09:22:50Z",
+      "side": 1,
+      "message": "Longer and a bit more obscure.  Making a copy of the value is the specific intent, so I like that this shows that you are constructing a new value.  I think cast would do the same anyway, but part of my brain associates cast with just type-checking, and just erasing the alignment from type is what I specifically do not want.\n\nIt seems like an overkill to have a template just to copy an integer.  However, at least it would be descriptive of why it is happening.  I am not sure what that helper would be called.  `AlignValue`?",
+      "parentUuid": "c9dc11a0_e47a9c76",
+      "range": {
+        "startLine": 218,
+        "startChar": 39,
+        "endLine": 218,
+        "endChar": 48
+      },
+      "revId": "afd854133372c044434d3c7c57a824371da1cbb1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "b39fe2cd_3283c5d7",
@@ -102,6 +126,30 @@
       "writtenOn": "2023-03-13T08:57:11Z",
       "side": 1,
       "message": "If we expect unaligned data structures, we should add the attribute here.",
+      "range": {
+        "startLine": 179,
+        "startChar": 8,
+        "endLine": 179,
+        "endChar": 9
+      },
+      "revId": "afd854133372c044434d3c7c57a824371da1cbb1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae1892e9_9994bda4",
+        "filename": "libelffile/elf/elf_debug_reader.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-03-16T09:22:50Z",
+      "side": 1,
+      "message": "I tried and I can not seem to get it to work.  I think the align attribute mostly affects storage, but it is not really part of the type.  At least I get the impression that align attribute here gets ignored.",
+      "parentUuid": "4056b697_487350ba",
       "range": {
         "startLine": 179,
         "startChar": 8,
