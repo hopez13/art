@@ -105,6 +105,24 @@
       "parentUuid": "f0de9022_a9d7cc85",
       "revId": "630fa5112591c2212aa36fdf630620541b18d0ef",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "05d40ace_478361b0",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1556,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-03-16T12:26:19Z",
+      "side": 1,
+      "message": "I meant the other changes as well / not just the macro.",
+      "parentUuid": "8dc33592_823bbe1b",
+      "revId": "630fa5112591c2212aa36fdf630620541b18d0ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
