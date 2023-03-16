@@ -146,6 +146,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1f19989a_fd8f6692",
+        "filename": "compiler/optimizing/data_type.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-16T16:29:59Z",
+      "side": 1,
+      "message": "That\u0027s LSE in D8!\n\nWhen running with the RI and keeping artifacts, the disassembly with `javap -c` is\n\n    public static void $noinline$test(byte);\n      Code:\n         0: iload_0\n         1: putstatic     #12                 // Field byteField:B\n         4: getstatic     #12                 // Field byteField:B\n         7: i2s\n         [...]\n\nWhen running with ART, the disassembly with `dexdump -d` is\n\n    0001fc:                                        |[0001fc] Main.$noinline$test:(B)V\n    00020c: 6b03 0000                              |0000: sput-byte v3, LMain;.byteField:B // field@0000\n    000210: 8f30                                   |0002: int-to-short v0, v3\n    [...]\n\nI don\u0027t like D8 doing these optimizations. When it does, you\u0027re really forced to use smali and you lose the ability to compare with the RI (which really throws the exception in this case).",
+      "parentUuid": "105a46c2_62cc216c",
+      "range": {
+        "startLine": 274,
+        "startChar": 10,
+        "endLine": 274,
+        "endChar": 32
+      },
+      "revId": "2656faadaea5f48ed2c4f3e30ebc4a17a4458ba8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fed00194_d49b2c59",
         "filename": "compiler/optimizing/graph_visualizer.cc",
         "patchSetId": 10
