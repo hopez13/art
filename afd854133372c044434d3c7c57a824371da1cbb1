@@ -168,6 +168,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "fbd206a9_91da5cfb",
+        "filename": "compiler/debug/elf_debug_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-03-16T10:13:16Z",
+      "side": 1,
+      "message": "```\ntemplate\u003ctypename T\u003e\ninline T UnalignedRead(ALIGNED(1) const ALIGNED(1) T ALIGNED(1)* ALIGNED(1) value ALIGNED(1)) {\n  T copy;\n  memcpy(copy, value, sizeof(T));\n  return copy;\n}\n```",
+      "parentUuid": "52d26005_b5166821",
+      "range": {
+        "startLine": 218,
+        "startChar": 39,
+        "endLine": 218,
+        "endChar": 48
+      },
+      "revId": "afd854133372c044434d3c7c57a824371da1cbb1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "b39fe2cd_3283c5d7",
