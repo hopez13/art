@@ -120,6 +120,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a2fb31b_c3e7d3f4",
+        "filename": "compiler/debug/elf_debug_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-03-16T09:47:52Z",
+      "side": 1,
+      "message": "`UnalignedRead` or `UnalignedCopy` ?",
+      "parentUuid": "5a615adf_1dcb82f1",
+      "range": {
+        "startLine": 218,
+        "startChar": 39,
+        "endLine": 218,
+        "endChar": 48
+      },
+      "revId": "afd854133372c044434d3c7c57a824371da1cbb1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "b39fe2cd_3283c5d7",
@@ -222,6 +246,30 @@
       "side": 1,
       "message": "I was afraid that this may not work. But that just shows that the `-Walign-mismatch` analysis is rather arbitrary. In my opinion, it\u0027s just not worth it.",
       "parentUuid": "ae1892e9_9994bda4",
+      "range": {
+        "startLine": 179,
+        "startChar": 8,
+        "endLine": 179,
+        "endChar": 9
+      },
+      "revId": "afd854133372c044434d3c7c57a824371da1cbb1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9adb2d67_2552d3d2",
+        "filename": "libelffile/elf/elf_debug_reader.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-03-16T09:47:52Z",
+      "side": 1,
+      "message": "I would say that any warning that can catch bugs is worth it.\n\nIt is sad if it is full of holes and can not be relied on though.",
+      "parentUuid": "56a11eb6_8759d92a",
       "range": {
         "startLine": 179,
         "startChar": 8,
