@@ -96,6 +96,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a615adf_1dcb82f1",
+        "filename": "compiler/debug/elf_debug_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-16T09:44:47Z",
+      "side": 1,
+      "message": "I\u0027d call it `UnalignedRead()`. And it\u0027s a lot better than explicit construction as you don\u0027t need to specify the actual type explicitly, so it cannot get out of sync with future code changes.",
+      "parentUuid": "2cc57ce4_32cc7c80",
+      "range": {
+        "startLine": 218,
+        "startChar": 39,
+        "endLine": 218,
+        "endChar": 48
+      },
+      "revId": "afd854133372c044434d3c7c57a824371da1cbb1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "b39fe2cd_3283c5d7",
@@ -173,6 +197,30 @@
       "writtenOn": "2023-03-16T09:43:02Z",
       "side": 1,
       "message": "Also, the reader usually operates on std::vector\u003cuint8_t\u003e so I made the types unaligned.  But then, I am not convinced they can ever by unaligned in practice.",
+      "parentUuid": "ae1892e9_9994bda4",
+      "range": {
+        "startLine": 179,
+        "startChar": 8,
+        "endLine": 179,
+        "endChar": 9
+      },
+      "revId": "afd854133372c044434d3c7c57a824371da1cbb1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "56a11eb6_8759d92a",
+        "filename": "libelffile/elf/elf_debug_reader.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-16T09:44:47Z",
+      "side": 1,
+      "message": "I was afraid that this may not work. But that just shows that the `-Walign-mismatch` analysis is rather arbitrary. In my opinion, it\u0027s just not worth it.",
       "parentUuid": "ae1892e9_9994bda4",
       "range": {
         "startLine": 179,
