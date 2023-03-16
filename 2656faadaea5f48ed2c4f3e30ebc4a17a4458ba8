@@ -122,6 +122,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "105a46c2_62cc216c",
+        "filename": "compiler/optimizing/data_type.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-03-16T16:06:13Z",
+      "side": 1,
+      "message": "In your example, `b` and `b2` will be `1000`. `byteField` will be `-24`. This is tip of tree for both interpreter and optimized compiler. Uploaded repro case: aosp/2493699",
+      "parentUuid": "738f2ff8_d312f594",
+      "range": {
+        "startLine": 274,
+        "startChar": 10,
+        "endLine": 274,
+        "endChar": 32
+      },
+      "revId": "2656faadaea5f48ed2c4f3e30ebc4a17a4458ba8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fed00194_d49b2c59",
         "filename": "compiler/optimizing/graph_visualizer.cc",
         "patchSetId": 10
