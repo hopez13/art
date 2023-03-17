@@ -655,6 +655,8 @@ class MarkCompact final : public GarbageCollector {
   size_t vector_length_;
   size_t live_stack_freeze_size_;
 
+  uint64_t bytes_scanned_;
+
   // For every page in the to-space (post-compact heap) we need to know the
   // first object from which we must compact and/or update references. This is
   // for both non-moving and moving space. Additionally, for the moving-space,

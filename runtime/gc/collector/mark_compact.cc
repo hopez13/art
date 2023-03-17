@@ -587,6 +587,7 @@ void MarkCompact::InitializePhase() {
   moving_first_objs_count_ = 0;
   non_moving_first_objs_count_ = 0;
   black_page_count_ = 0;
+  bytes_scanned_ = 0;
   freed_objects_ = 0;
   // The first buffer is used by gc-thread.
   compaction_buffer_counter_ = 1;
@@ -1313,6 +1314,7 @@ void MarkCompact::ReclaimPhase() {
     // Unbind the live and mark bitmaps.
     GetHeap()->UnBindBitmaps();
   }
+  GetCurrentIteration()->SetScannedBytes(bytes_scanned_);
 }
 
 // We want to avoid checking for every reference if it's within the page or
@@ -3920,6 +3922,9 @@ void MarkCompact::UpdateLivenessInfo(mirror::Object* obj) {
 
 template <bool kUpdateLiveWords>
 void MarkCompact::ScanObject(mirror::Object* obj) {
+  size_t obj_size = obj->SizeOf<kDefaultVerifyFlags>();
+  bytes_scanned_ += obj_size;
+
   RefFieldsVisitor visitor(this);
   DCHECK(IsMarked(obj)) << "Scanning marked object " << obj << "\n" << heap_->DumpSpaces();
   if (kUpdateLiveWords && moving_space_bitmap_->HasAddress(obj)) {
