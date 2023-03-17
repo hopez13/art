@@ -22,7 +22,11 @@ namespace art {
 void InterpreterCache::Clear(Thread* owning_thread) {
   DCHECK(owning_thread->GetInterpreterCache() == this);
   DCHECK(owning_thread == Thread::Current() || owning_thread->IsSuspended());
-  data_.fill(Entry{});
+  // Avoid using std::fill (or its variant) as there could be a concurrent sweep
+  // happening by the GC thread and these functions may clear partially.
+  for (auto& entry : data_) {
+    entry.first = nullptr;
+  }
 }
 
 }  // namespace art
