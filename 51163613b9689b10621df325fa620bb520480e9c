@@ -33,6 +33,42 @@
       "message": "Actually, looking at this again:\nCan you explain why the native thread priority setting fails?\nhttps://cs.android.com/android/platform/superproject/+/master:art/runtime/thread.cc;l\u003d4765\nhas a CHECK that it succeeds, by some definition. If failure is a real possibility here, I think we should be returning an error indication, and fixing things up at the Java code level. If it\u0027s hard to get an error indication out of the pallette stuff, we should at least have setPriority0 return a success indication, and use that to set this.priority at https://cs.android.com/android/platform/superproject/+/master:libcore/ojluni/src/main/java/java/lang/Thread.java;l\u003d1343",
       "revId": "51163613b9689b10621df325fa620bb520480e9c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "40727994_1f0b85df",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1995360
+      },
+      "writtenOn": "2023-03-17T07:17:25Z",
+      "side": 1,
+      "message": "\u003e Hello, everyone, why the \"Treehugger Robot\" verify failed?please help me.",
+      "parentUuid": "7862ef2b_df96f4de",
+      "revId": "51163613b9689b10621df325fa620bb520480e9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a84c1fec_b6c31299",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1995360
+      },
+      "writtenOn": "2023-03-17T07:17:25Z",
+      "side": 1,
+      "message": "Hi, Hans:\nIn our emulator environment, this line of code will return -1, and errno is EACCES.This means that the user does not have permission to increase the priority of the native thread.\nhttps://cs.android.com/android/platform/superproject/+/master:system/libartpalette/palette_android.cc;l\u003d73\nIn this case, the native thread priority setting failed, but the CHECK will succeed, and the Java thread priority is not set correctly.I think it needs to Fix possible native thread priority setting failures.\n\nAccording to your suggestion, I modified the code, please review again. The patch has two parts, one part outside the other:\nhttps://android-review.googlesource.com/c/platform/libcore/+/2473565",
+      "parentUuid": "91ebe621_a6a15e85",
+      "revId": "51163613b9689b10621df325fa620bb520480e9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

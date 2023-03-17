@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f619514_a37a5c0e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1995360
+      },
+      "writtenOn": "2023-03-17T07:17:25Z",
+      "side": 1,
+      "message": "Hi Sorin Basca, Thanks for your help. The reason for the failure of these test cases is that the thread priority is only allowed to be set while the thread is alive.\nI updated the test case, please reivew again.",
+      "revId": "8a1cba7438d370682636e05e26811f5150dfff23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

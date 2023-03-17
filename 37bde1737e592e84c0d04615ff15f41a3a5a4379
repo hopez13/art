@@ -16,6 +16,24 @@
       "message": "There are presubmit failures on:\n- CtsLibcoreTestCases:libcore.java.lang.ThreadTest#setPriority_starting\n- CtsLibcoreTestCases:libcore.java.lang.ThreadTest#setPriority_unstarted\n- CtsLibcoreTestCases:org.apache.harmony.tests.java.lang.ThreadTest#test_getPriority\n- CtsLibcoreTestCases:org.apache.harmony.tests.java.lang.ThreadTest#test_setPriorityI",
       "revId": "37bde1737e592e84c0d04615ff15f41a3a5a4379",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b32cc250_9d13e33f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1995360
+      },
+      "writtenOn": "2023-03-17T07:17:25Z",
+      "side": 1,
+      "message": "Thanks for your help. The reason for the failure of these test cases is that the thread priority is only allowed to be set while the thread is alive. \nI updated the test case, please reivew again.",
+      "parentUuid": "d96409ca_44b867a3",
+      "revId": "37bde1737e592e84c0d04615ff15f41a3a5a4379",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
