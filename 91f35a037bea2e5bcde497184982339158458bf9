@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "508b8936_81f2324b",
+        "filename": "dex2oat/driver/compiler_driver.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2191,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-03-17T14:15:55Z",
+      "side": 1,
+      "message": "Yeah, I hope we can remove this eventually. It\u0027s tracked by b/274077782.",
+      "parentUuid": "86444d33_ead76822",
+      "range": {
+        "startLine": 2191,
+        "startChar": 12,
+        "endLine": 2191,
+        "endChar": 54
+      },
+      "revId": "91f35a037bea2e5bcde497184982339158458bf9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9b987062_bd304738",
