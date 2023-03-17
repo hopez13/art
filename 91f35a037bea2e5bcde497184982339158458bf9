@@ -22,6 +22,30 @@
       },
       "revId": "91f35a037bea2e5bcde497184982339158458bf9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee749c23_7e266819",
+        "filename": "test/generate-boot-image/generate-boot-image.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-03-17T13:15:57Z",
+      "side": 1,
+      "message": "This is reverting the workaround in aosp/2470962 because it\u0027s no longer needed after this change.",
+      "parentUuid": "9b987062_bd304738",
+      "range": {
+        "startLine": 114,
+        "startChar": 33,
+        "endLine": 114,
+        "endChar": 39
+      },
+      "revId": "91f35a037bea2e5bcde497184982339158458bf9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
