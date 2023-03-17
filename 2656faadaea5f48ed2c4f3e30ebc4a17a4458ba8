@@ -170,6 +170,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8d5952dc_8da6e563",
+        "filename": "compiler/optimizing/data_type.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-03-17T09:53:26Z",
+      "side": 1,
+      "message": "To answer the original question (Should we redefine MaxValueOfIntegralType(DataType::Type::kBool) to 255? Otherwise conversion from kBool to kInt8 (Java byte) shall be considered implicit.) I think keeping them as [0,1] for this CL makes sense for consistency. Booleans will be 0 or 1 in the normal cases anyway.\n\nWe might get other weirdness like byte-\u003eshort considered implicit but the actual value being 1000, and booleans are just another case of that.",
+      "parentUuid": "1f19989a_fd8f6692",
+      "range": {
+        "startLine": 274,
+        "startChar": 10,
+        "endLine": 274,
+        "endChar": 32
+      },
+      "revId": "2656faadaea5f48ed2c4f3e30ebc4a17a4458ba8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fed00194_d49b2c59",
         "filename": "compiler/optimizing/graph_visualizer.cc",
         "patchSetId": 10
