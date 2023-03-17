@@ -16,6 +16,24 @@
       "message": "I think Hans had std::atomic in mind.\n\nIdeally change the field type, or at least reinterpret_cast to it here.",
       "revId": "28fd6fd3d55acfb460edd0f57d266948ff9273fb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1393e78a_5fc298ea",
+        "filename": "runtime/interpreter/interpreter_cache.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-03-17T00:58:54Z",
+      "side": 1,
+      "message": "I doubt std::atomic is required. The main concern was partial clearing, which should be alleviated with this change.\n\nReplaced `auto` with `Entry` in PS2. Did you mean that or something else by \u0027field type\u0027?",
+      "parentUuid": "6fa50ff3_187e18ca",
+      "revId": "28fd6fd3d55acfb460edd0f57d266948ff9273fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
