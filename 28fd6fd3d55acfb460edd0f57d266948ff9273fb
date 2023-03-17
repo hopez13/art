@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6fa50ff3_187e18ca",
+        "filename": "runtime/interpreter/interpreter_cache.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-03-17T00:46:23Z",
+      "side": 1,
+      "message": "I think Hans had std::atomic in mind.\n\nIdeally change the field type, or at least reinterpret_cast to it here.",
+      "revId": "28fd6fd3d55acfb460edd0f57d266948ff9273fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
