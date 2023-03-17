@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7839f1b0_0fa4419d",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 952,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-03-17T12:19:41Z",
+      "side": 1,
+      "message": "I suggest saying \"Asynchronously verified ...\", to address partners\u0027 concerns.",
+      "range": {
+        "startLine": 952,
+        "startChar": 18,
+        "endLine": 952,
+        "endChar": 26
+      },
+      "revId": "860c43a0b5aef331ae2517e04bf6936ef0ba0476",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f86e888_198c596e",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 953,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-03-17T12:19:41Z",
+      "side": 1,
+      "message": "How many classes are there? Is there a boot time impact?",
+      "range": {
+        "startLine": 953,
+        "startChar": 17,
+        "endLine": 953,
+        "endChar": 34
+      },
+      "revId": "860c43a0b5aef331ae2517e04bf6936ef0ba0476",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
