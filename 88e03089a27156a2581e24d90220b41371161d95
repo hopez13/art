@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e2a4c33_f95eb899",
+        "filename": "dex2oat/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2182,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-03-17T10:37:35Z",
+      "side": 1,
+      "message": "I suggest adding `!compiler_options.GetProfileCompilationInfo()-\u003eIsEmpty()` to align with the condition [here](https://cs.android.com/android/platform/superproject/+/master:art/dex2oat/dex2oat.cc;l\u003d2361;drc\u003d1fa1af38b8355020a98dd06cf2ad764597380eb0).",
+      "range": {
+        "startLine": 2182,
+        "startChar": 29,
+        "endLine": 2182,
+        "endChar": 84
+      },
+      "revId": "88e03089a27156a2581e24d90220b41371161d95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2fd9a1e_cb87d460",
+        "filename": "dex2oat/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2189,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-03-17T10:37:35Z",
+      "side": 1,
+      "message": "Looks like both `660-clinit` and `596-app-images` have profiles, so the only reason for this condition is image_test? Please don\u0027t forget to create a ticket for it, and it\u0027ll be nice to put a TODO here.",
+      "range": {
+        "startLine": 2189,
+        "startChar": 28,
+        "endLine": 2189,
+        "endChar": 53
+      },
+      "revId": "88e03089a27156a2581e24d90220b41371161d95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
