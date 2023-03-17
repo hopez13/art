@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab41fb0b_74f3286c",
+        "filename": "dex2oat/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2182,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-03-17T11:25:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5e2a4c33_f95eb899",
+      "range": {
+        "startLine": 2182,
+        "startChar": 29,
+        "endLine": 2182,
+        "endChar": 84
+      },
+      "revId": "88e03089a27156a2581e24d90220b41371161d95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e2fd9a1e_cb87d460",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-03-17T10:37:35Z",
       "side": 1,
       "message": "Looks like both `660-clinit` and `596-app-images` have profiles, so the only reason for this condition is image_test? Please don\u0027t forget to create a ticket for it, and it\u0027ll be nice to put a TODO here.",
+      "range": {
+        "startLine": 2189,
+        "startChar": 28,
+        "endLine": 2189,
+        "endChar": 53
+      },
+      "revId": "88e03089a27156a2581e24d90220b41371161d95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cf8d76e9_450b9785",
+        "filename": "dex2oat/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2189,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-03-17T11:25:11Z",
+      "side": 1,
+      "message": "Ticket here: b/274077782.",
+      "parentUuid": "e2fd9a1e_cb87d460",
       "range": {
         "startLine": 2189,
         "startChar": 28,
