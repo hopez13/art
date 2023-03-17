@@ -22,6 +22,30 @@
       },
       "revId": "fe06d6767bab1d60bd57804582b82b0762d46d76",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5285bb95_052a1e08",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-03-17T15:41:48Z",
+      "side": 1,
+      "message": "That\u0027s because in CC the GC-roots in LinearAlloc (like ArtMethods/ArtFields/DexCacheArray etc) are visited via class/dex-cache. So only reachable roots are accessed and therefore the corresponding Arena is bound to be available.\n\nIn uffd-GC, we go through all arenas independently.",
+      "parentUuid": "bc580fb4_8cc151d2",
+      "range": {
+        "startLine": 9,
+        "startChar": 58,
+        "endLine": 11,
+        "endChar": 23
+      },
+      "revId": "fe06d6767bab1d60bd57804582b82b0762d46d76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
