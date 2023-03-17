@@ -18,6 +18,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "395eb535_d06de6c3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-03-17T18:37:02Z",
+      "side": 1,
+      "message": "There is another problem. This doesn\u0027t take into account objects allocated after marking phase is over. I\u0027ll have to think about how to compute it more accurately.\n\nBTW, this is required for calculating gc-throughput right?",
+      "revId": "3aebc0869a3e70c9a2cf681ed72d6a630ba3c671",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "212f35cf_3de6ded2",
@@ -31,6 +48,30 @@
       "writtenOn": "2023-03-17T18:27:41Z",
       "side": 1,
       "message": "I have seen that usually fetching object size is quite expensive. Luckily, I already do that in UpdateLivenessInfo(), which gets called for majority of cases. So please add to `bytes_scanned_` in that function. And add an else block below for the remaining cases.",
+      "range": {
+        "startLine": 3925,
+        "startChar": 20,
+        "endLine": 3925,
+        "endChar": 55
+      },
+      "revId": "3aebc0869a3e70c9a2cf681ed72d6a630ba3c671",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5019d28_6c3c8dd6",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3925,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-03-17T18:37:02Z",
+      "side": 1,
+      "message": "There is another problem. This doesn\u0027t take into account objects allocated after marking phase is over.",
+      "parentUuid": "212f35cf_3de6ded2",
       "range": {
         "startLine": 3925,
         "startChar": 20,
