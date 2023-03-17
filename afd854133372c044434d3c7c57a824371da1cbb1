@@ -233,6 +233,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "f907afd9_4e86817a",
+        "filename": "compiler/debug/elf_debug_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-03-17T00:29:53Z",
+      "side": 1,
+      "message": "`fde` is unalgined, thus the field is unlined, but the `DCHECK` consumes it via ref, so via pointer, so we are passing unaligned pointer into function that expected aligned pointer and thus might trap.\n\nthe extra `uint64_t(...)` makes temporary r-value that is aligned, and copy data into it.",
+      "parentUuid": "05706f44_c1880bff",
+      "range": {
+        "startLine": 218,
+        "startChar": 39,
+        "endLine": 218,
+        "endChar": 48
+      },
+      "revId": "afd854133372c044434d3c7c57a824371da1cbb1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "b39fe2cd_3283c5d7",
@@ -407,6 +431,30 @@
       "side": 1,
       "message": "Which \"attribute\" are we talking about here? I think the standard facilities can only increase alignment.\n\nSo do we think this warning would be issued if I cast a random char* to int* and then accessed the integer?\n\nI expect we still have the issue that people usually do this only in situations in which it actually works on our hardware. And we probably don\u0027t care about hardware that traps on misaligned accesses? So the benefit appears marginal.",
       "parentUuid": "5ee45aff_22aff3a8",
+      "range": {
+        "startLine": 179,
+        "startChar": 8,
+        "endLine": 179,
+        "endChar": 9
+      },
+      "revId": "afd854133372c044434d3c7c57a824371da1cbb1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4bdbfdcd_747a11e7",
+        "filename": "libelffile/elf/elf_debug_reader.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-03-17T00:29:53Z",
+      "side": 1,
+      "message": "`__attribute__((aligned(1)))` can be used to under-align as well (`ALIGNED(1)` in ART)\n\nIn general the idea is to ensure that you don\u0027t pass unaligned pointer into method that expects aligned one (and thus might trap). (but it only works for trivial cases)\n\nWell - my main question is - is there hardware that can trap that we care about?  It is configurable for ARM, right?  Does anyone enable that?",
+      "parentUuid": "b320222c_c3412f77",
       "range": {
         "startLine": 179,
         "startChar": 8,
