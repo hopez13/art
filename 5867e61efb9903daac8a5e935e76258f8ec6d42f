@@ -74,6 +74,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "88678df0_a023c8aa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-03-17T04:48:16Z",
+      "side": 1,
+      "message": "I would probably just look for an empty block of 2 or 4 entries when checkJNI is enabled. So the allocation algorithm would have to operate on blocks of 2 or 4, but otherwise things could presumably be the same?",
+      "parentUuid": "4ee52b5e_7629f5b0",
+      "revId": "5867e61efb9903daac8a5e935e76258f8ec6d42f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "03037180_44693ff7",
         "filename": "runtime/indirect_reference_table.h",
         "patchSetId": 9

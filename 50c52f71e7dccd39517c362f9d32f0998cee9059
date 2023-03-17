@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0993eb4_1b3df830",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-03-17T04:48:16Z",
+      "side": 1,
+      "message": "Not done yet ...",
+      "revId": "50c52f71e7dccd39517c362f9d32f0998cee9059",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c3a6ad2_ae516c76",
+        "filename": "runtime/jni/local_reference_table.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 356,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-03-17T04:48:16Z",
+      "side": 1,
+      "message": "A comment describing how these flags are used would be helpful.",
+      "range": {
+        "startLine": 352,
+        "startChar": 2,
+        "endLine": 356,
+        "endChar": 88
+      },
+      "revId": "50c52f71e7dccd39517c362f9d32f0998cee9059",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
