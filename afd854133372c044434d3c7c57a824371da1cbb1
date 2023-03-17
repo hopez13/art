@@ -463,6 +463,30 @@
       },
       "revId": "afd854133372c044434d3c7c57a824371da1cbb1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef5e5409_5630d736",
+        "filename": "libelffile/elf/elf_debug_reader.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-03-17T00:50:40Z",
+      "side": 1,
+      "message": "\u003e Well - my main question is - is there hardware that can trap that we care about? It is configurable for ARM, right? Does anyone enable that?\n\nthey\u0027d be in for a world of other pain if they did...",
+      "parentUuid": "4bdbfdcd_747a11e7",
+      "range": {
+        "startLine": 179,
+        "startChar": 8,
+        "endLine": 179,
+        "endChar": 9
+      },
+      "revId": "afd854133372c044434d3c7c57a824371da1cbb1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
