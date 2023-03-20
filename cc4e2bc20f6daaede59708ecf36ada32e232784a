@@ -108,6 +108,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "abcea691_80837ad8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1793992
+      },
+      "writtenOn": "2023-03-20T09:18:37Z",
+      "side": 1,
+      "message": "I\u0027ve asked it in `ART team`. Basically I run `regen-test-files` before I created `run.py` and `test_config_template` was wrong. After re-run it was updated.\n\nRoland there said following:\n\n```\nAlso, ART run-test are designed to be considered as failing if they exit with anything other than exit status 0.\n```",
+      "parentUuid": "c27fd219_c8e3ade6",
+      "revId": "cc4e2bc20f6daaede59708ecf36ada32e232784a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0bb6afa3_8e2dd85a",
