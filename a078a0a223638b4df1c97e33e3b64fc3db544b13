@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9941717e_db968b7b",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1378,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-03-20T10:13:12Z",
+      "side": 1,
+      "message": "This check is making sure we\u0027re not accidentally seeing j.l.Object. I\u0027ve added a comment.",
+      "parentUuid": "a80af98b_7ad27d03",
+      "range": {
+        "startLine": 1378,
+        "startChar": 4,
+        "endLine": 1378,
+        "endChar": 28
+      },
+      "revId": "a078a0a223638b4df1c97e33e3b64fc3db544b13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0e2a8688_ae98bcb6",
@@ -64,6 +88,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "142f8671_f5171db5",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1393,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-03-20T10:13:12Z",
+      "side": 1,
+      "message": "If it doesn\u0027t have defaults, then we should already have marked it as initialized, because the logic here makes sure the direct interfaces and super class are always visited before entering here.",
+      "parentUuid": "0e2a8688_ae98bcb6",
+      "range": {
+        "startLine": 1393,
+        "startChar": 12,
+        "endLine": 1393,
+        "endChar": 33
+      },
+      "revId": "a078a0a223638b4df1c97e33e3b64fc3db544b13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bff917ac_4fe8c74d",
@@ -77,6 +125,24 @@
       "writtenOn": "2023-03-20T09:14:20Z",
       "side": 1,
       "message": "Should we also `SetObjectSizeAllocFastPath()` and set the `kAccRecursivelyInitialized` flag here?\n\nWe do not seem to check if the source class object is visibly initialized before trying to initialize the copy.",
+      "revId": "a078a0a223638b4df1c97e33e3b64fc3db544b13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe70f057_a5feb54a",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1591,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-03-20T10:13:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bff917ac_4fe8c74d",
       "revId": "a078a0a223638b4df1c97e33e3b64fc3db544b13",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
