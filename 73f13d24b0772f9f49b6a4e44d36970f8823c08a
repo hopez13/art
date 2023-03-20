@@ -71,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "dd9b6e21_b7fca31a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-03-20T14:25:48Z",
+      "side": 1,
+      "message": "Turns out the feature I was relying on doesn\u0027t work when the test is run through `mts-tradefed run`. Thanks for catching this!\nSomething to do with `BuildInfo` not being `IDeviceBuildInfo`: https://cs.android.com/android/platform/superproject/+/master:tools/tradefederation/core/test_framework/com/android/tradefed/targetprep/PushFilePreparer.java;l\u003d229\n\nI\u0027m going to look for an alternative approach.",
+      "parentUuid": "089f796e_0cf9d350",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 44
+      },
+      "revId": "73f13d24b0772f9f49b6a4e44d36970f8823c08a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "7ab01b42_96fdbb27",
@@ -101,6 +125,30 @@
       "writtenOn": "2023-03-16T17:34:15Z",
       "side": 1,
       "message": "Out of curiosity, is this a new Trade Federation feature?",
+      "range": {
+        "startLine": 21,
+        "startChar": 13,
+        "endLine": 21,
+        "endChar": 91
+      },
+      "revId": "73f13d24b0772f9f49b6a4e44d36970f8823c08a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b5fd472d_d89ec3cb",
+        "filename": "compiler/art_standalone_compiler_tests.xml",
+        "patchSetId": 6
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-03-20T14:25:48Z",
+      "side": 1,
+      "message": "I don\u0027t think so. The code for it had not changes since 2019:\nhttps://cs.android.com/android/platform/superproject/+/master:tools/tradefederation/core/test_framework/com/android/tradefed/targetprep/PushFilePreparer.java;l\u003d251",
+      "parentUuid": "c311b945_4003c9e6",
       "range": {
         "startLine": 21,
         "startChar": 13,
