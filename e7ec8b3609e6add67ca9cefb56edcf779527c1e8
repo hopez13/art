@@ -16,6 +16,75 @@
       "message": "Thanks Vladimir.",
       "revId": "e7ec8b3609e6add67ca9cefb56edcf779527c1e8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "62a61d3f_c1fdfc3a",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-20T10:38:43Z",
+      "side": 1,
+      "message": "Can we do that? Doesn\u0027t `result-\u003eGetClass()` point to the target image address which is not a valid memory location when writing the image?",
+      "range": {
+        "startLine": 243,
+        "startChar": 11,
+        "endLine": 243,
+        "endChar": 40
+      },
+      "revId": "e7ec8b3609e6add67ca9cefb56edcf779527c1e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bafea52e_947af1cc",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1382,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-20T10:38:43Z",
+      "side": 1,
+      "message": "If `super` is in the boot image, we would want to check the status in the boot image oat file.\n\nIf `super` is in the app image we\u0027re building, we should actually use `IsVisiblyInitialized\u003ckVerifyNone\u003e()`. (Though we have the object verification disabled by default and it has not been tested for a long time.)",
+      "range": {
+        "startLine": 1382,
+        "startChar": 16,
+        "endLine": 1382,
+        "endChar": 31
+      },
+      "revId": "e7ec8b3609e6add67ca9cefb56edcf779527c1e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ceb8a3c6_524f1545",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1396,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-20T10:38:43Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 1396,
+        "startChar": 18,
+        "endLine": 1396,
+        "endChar": 33
+      },
+      "revId": "e7ec8b3609e6add67ca9cefb56edcf779527c1e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
