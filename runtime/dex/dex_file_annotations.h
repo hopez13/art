@@ -150,6 +150,9 @@ ObjPtr<mirror::Class> GetNestHost(Handle<mirror::Class> klass)
     REQUIRES_SHARED(Locks::mutator_lock_);
 ObjPtr<mirror::ObjectArray<mirror::Class>> GetNestMembers(Handle<mirror::Class> klass)
     REQUIRES_SHARED(Locks::mutator_lock_);
+ObjPtr<mirror::Object> getRecordComponentAnnotations(Handle<mirror::Class> klass,
+                                                     Handle<mirror::Class> array_class)
+    REQUIRES_SHARED(Locks::mutator_lock_);
 ObjPtr<mirror::ObjectArray<mirror::Class>> GetPermittedSubclasses(Handle<mirror::Class> klass)
     REQUIRES_SHARED(Locks::mutator_lock_);
 bool IsClassAnnotationPresent(Handle<mirror::Class> klass,
