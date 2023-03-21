@@ -344,6 +344,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cf79a932_20041230",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 564,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-03-21T17:01:17Z",
+      "side": 1,
+      "message": "\u003e I think it can run in here. But I\u0027m trying to remind myself of the problematic access. The other thread can indeed run after the ResumeAll. I guess the problem is that it\u0027s already suspended, and then issues a SuspendAll(), without ever becoming \"runnable\" in the usual sense before accessing the Java heap, on the assumption that everything else is stopped, and we hold the mutator lock. But that\u0027s not really good enough to be runnable, since we also need to handle a pending flip function, and we don\u0027t. So I think the fix is just to make sure that we run any pending flip function before we acquire the mutator lock in exclusive mode, thus giving us the full rights of a runnable thread?\n\nYou are right that exclusive mutator lock shouldn\u0027t suffice for heap access. The order in `GetObjectMonitorUsage` shouldn\u0027t be allowed in the first place. When the heap access gotten by `ScopedObjectAccess` is relinquished by subsequent call to `ScopedThreadSuspension` then the developer has suspended and shouldn\u0027t be allowed to access the heap.\n\n\u003e \n\u003e This code also calls GetPeerFromOtherThread, which explicitly invokes a read barrier with CC, because the other thread may not have been flipped yet. Don\u0027t we have a similar issue with CMC?\n\nWe do have this problem with CMC. Thanks for reminding this. To fix this I had to make sure that I release exclusive-lock on mutator-lock after all flip functions were ensured to be started.\n\nAt least in the case of CMC can we make the caller of `GetPeerFromOtherThread` call any pending flip function on the target thread before fetching the peer?",
+      "parentUuid": "3afedbf9_258d0f6a",
+      "range": {
+        "startLine": 564,
+        "startChar": 2,
+        "endLine": 564,
+        "endChar": 11
+      },
+      "revId": "e725e64a2b4d644b5483adda88573f2511b86485",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7245ade0_44885686",
         "filename": "runtime/thread_list.cc",
         "patchSetId": 8
