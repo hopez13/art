@@ -1783,6 +1783,43 @@ ObjPtr<mirror::ObjectArray<mirror::Class>> GetPermittedSubclasses(Handle<mirror:
                                                 "Ldalvik/annotation/PermittedSubclasses;",
                                                 "value");
 }
+ObjPtr<mirror::Object> getRecordComponentAnnotations(Handle<mirror::Class> klass,
+                                                     Handle<mirror::Class> array_class) {
+  ClassData data(klass);
+  const DexFile& dex_file = klass->GetDexFile();
+  const AnnotationSetItem* annotation_set = FindAnnotationSetForClass(data);
+  if (annotation_set == nullptr) {
+    LOG(ERROR) << "sb2: no annotation set";
+    return nullptr;
+  }
+  const AnnotationItem* annotation_item = SearchAnnotationSet(
+      dex_file, annotation_set, "Ldalvik/annotation/Record;", DexFile::kDexVisibilitySystem);
+  if (annotation_item == nullptr) {
+    LOG(ERROR) << "sb2: no Record annotation";
+    return nullptr;
+  }
+  const uint8_t* annotation =
+      SearchEncodedAnnotation(dex_file, annotation_item->annotation_, "componentAnnotations");
+  if (annotation == nullptr) {
+    return nullptr;
+  }
+  DexFile::AnnotationValue annotation_value;
+  bool result = Runtime::Current()->IsActiveTransaction()
+      ? ProcessAnnotationValue<true>(data,
+                                     &annotation,
+                                     &annotation_value,
+                                     array_class,
+                                     DexFile::kAllObjects)
+      : ProcessAnnotationValue<false>(data,
+                                      &annotation,
+                                      &annotation_value,
+                                      array_class,
+                                      DexFile::kAllObjects);
+  if (!result) {
+    return nullptr;
+  }
+  return annotation_value.value_.GetL();
+}
 
 bool IsClassAnnotationPresent(Handle<mirror::Class> klass, Handle<mirror::Class> annotation_class) {
   ClassData data(klass);

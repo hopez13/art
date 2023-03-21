@@ -809,6 +809,22 @@ static jobjectArray Class_getNestMembersFromAnnotation(JNIEnv* env, jobject java
   return soa.AddLocalReference<jobjectArray>(classes);
 }
 
+static jobjectArray Class_getRecordComponentAnnotations(JNIEnv* env, jobject javaThis, jclass arrayClass) {
+  ScopedFastNativeObjectAccess soa(env);
+  StackHandleScope<2> hs(soa.Self());
+  Handle<mirror::Class> klass(hs.NewHandle(DecodeClass(soa, javaThis)));
+  if (!(klass->IsRecordClass())) {
+    return nullptr;
+  }
+
+  Handle<mirror::Class> array_class(hs.NewHandle(DecodeClass(soa, arrayClass)));
+  ObjPtr<mirror::Object> classes = annotations::getRecordComponentAnnotations(klass, array_class);
+  if (classes == nullptr) {
+    return nullptr;
+  }
+  return soa.AddLocalReference<jobjectArray>(classes);
+}
+
 static jobjectArray Class_getPermittedSubclassesFromAnnotation(JNIEnv* env, jobject javaThis) {
   ScopedFastNativeObjectAccess soa(env);
   StackHandleScope<1> hs(soa.Self());
@@ -958,6 +974,7 @@ static JNINativeMethod gMethods[] = {
   FAST_NATIVE_METHOD(Class, getNestMembersFromAnnotation, "()[Ljava/lang/Class;"),
   FAST_NATIVE_METHOD(Class, getPermittedSubclassesFromAnnotation, "()[Ljava/lang/Class;"),
   FAST_NATIVE_METHOD(Class, getPublicDeclaredFields, "()[Ljava/lang/reflect/Field;"),
+  FAST_NATIVE_METHOD(Class, getRecordComponentAnnotations, "(Ljava/lang/Class;)[[Ljava/lang/annotation/Annotation;"),
   FAST_NATIVE_METHOD(Class, getSignatureAnnotation, "()[Ljava/lang/String;"),
   FAST_NATIVE_METHOD(Class, isAnonymousClass, "()Z"),
   FAST_NATIVE_METHOD(Class, isDeclaredAnnotationPresent, "(Ljava/lang/Class;)Z"),
