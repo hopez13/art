@@ -1186,6 +1186,8 @@ class ClassLinker {
       REQUIRES_SHARED(Locks::mutator_lock_);
   bool LinkInstanceFields(Thread* self, Handle<mirror::Class> klass)
       REQUIRES_SHARED(Locks::mutator_lock_);
+  void SetRecordClassFlagIfNeeded(Handle<mirror::Class> klass)
+      REQUIRES_SHARED(Locks::mutator_lock_);
   void CreateReferenceInstanceOffsets(Handle<mirror::Class> klass)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
