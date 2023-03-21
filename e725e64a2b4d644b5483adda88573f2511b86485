@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "af611097_0a424876",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-03-21T00:27:38Z",
+      "side": 1,
+      "message": "Still going through other comments, but replying to the main discussion.",
+      "revId": "e725e64a2b4d644b5483adda88573f2511b86485",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "50bf0f44_24a6cc42",
@@ -231,6 +248,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "32bd447c_ec667dd8",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 554,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-03-21T00:27:38Z",
+      "side": 1,
+      "message": "I think it\u0027s OK. The thread won\u0027t exit while suspended, and we keep it suspended while we need to access it.",
+      "parentUuid": "cdf8fd0e_ba513554",
+      "range": {
+        "startLine": 554,
+        "startChar": 27,
+        "endLine": 554,
+        "endChar": 45
+      },
+      "revId": "e725e64a2b4d644b5483adda88573f2511b86485",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cd96e0f4_fb362258",
@@ -267,6 +308,30 @@
       "writtenOn": "2023-03-15T17:54:09Z",
       "side": 1,
       "message": "I don\u0027t think this will solve the problem (that we discussed few weeks ago) wherein another thread waiting in `SuspendAll` from accessing the heap (as it manages to acquire mutator-lock exclusively) prior to running its flip function. Aren\u0027t we leaving a window between here and line 576 below where such a thread could succeed in accessing the heap?\n\nHere\u0027s the link to the code that brought this issue forward:\nhttps://cs.android.com/android/platform/superproject/+/master:art/openjdkjvmti/ti_object.cc;drc\u003dddf4fd3c37af160b5a1f7e83212b837f50e13e81;l\u003d93",
+      "range": {
+        "startLine": 564,
+        "startChar": 2,
+        "endLine": 564,
+        "endChar": 11
+      },
+      "revId": "e725e64a2b4d644b5483adda88573f2511b86485",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3afedbf9_258d0f6a",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 564,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-03-21T00:27:38Z",
+      "side": 1,
+      "message": "I think it can run in here. But I\u0027m trying to remind myself of the problematic access. The other thread can indeed run after the ResumeAll. I guess the problem is that it\u0027s already suspended, and then issues a SuspendAll(), without ever becoming \"runnable\" in the usual sense before accessing the Java heap, on the assumption that everything else is stopped, and we hold the mutator lock. But that\u0027s not really good enough to be runnable, since we also need to handle a pending flip function, and we don\u0027t. So I think the fix is just to make sure that we run any pending flip function before we acquire the mutator lock in exclusive mode, thus giving us the full rights of a runnable thread?\n\nThis code also calls GetPeerFromOtherThread, which explicitly invokes a read barrier with CC, because the other thread may not have been flipped yet. Don\u0027t we have a similar issue with CMC?",
+      "parentUuid": "c56b61d4_82c74049",
       "range": {
         "startLine": 564,
         "startChar": 2,
