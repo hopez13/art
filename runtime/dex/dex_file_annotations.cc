@@ -16,7 +16,9 @@
 
 #include "dex_file_annotations.h"
 
+#include "base/logging.h"
 #include <stdlib.h>
+#include <cstddef>
 
 #include "android-base/stringprintf.h"
 
@@ -268,11 +270,13 @@ const uint8_t* SearchEncodedAnnotation(const DexFile& dex_file,
     REQUIRES_SHARED(Locks::mutator_lock_) {
   DecodeUnsignedLeb128(&annotation);  // unused type_index
   uint32_t size = DecodeUnsignedLeb128(&annotation);
+  LOG(INFO) << "sb2: size: " << size;
 
   while (size != 0) {
     uint32_t element_name_index = DecodeUnsignedLeb128(&annotation);
     const char* element_name =
         dex_file.GetStringData(dex_file.GetStringId(dex::StringIndex(element_name_index)));
+    LOG(INFO) << "sb2: element name: " << element_name;
     if (strcmp(name, element_name) == 0) {
       return annotation;
     }
@@ -1771,6 +1775,80 @@ ObjPtr<mirror::ObjectArray<mirror::Class>> GetPermittedSubclasses(Handle<mirror:
   return GetAnnotationArrayValue<mirror::Class>(klass,
                                                 "Ldalvik/annotation/PermittedSubclasses;",
                                                 "value");
+}
+
+// @Target(ElementType.FIELD)
+// @Retention(RetentionPolicy.RUNTIME)
+// public @interface Anno1{};
+
+// @Target(ElementType.FIELD)
+// @Retention(RetentionPolicy.RUNTIME)
+// public @interface Anno2{
+//       String x();
+//       String y();
+// }
+
+// public record RecordWithAnnotation(@Anno1 int x, @Anno2(x = "x", y = "y") int y) {};
+bool CheckCorrectComponentAnnotations(Handle<mirror::Class> klass) {
+  LOG(INFO) << "sb2: CheckCorrectComponentAnnotations";
+  ObjPtr<mirror::ObjectArray<mirror::String>> names = GetAnnotationArrayValue<mirror::String>(klass,
+                                                "Ldalvik/annotation/Record;",
+                                                "componentNames");
+  if (names == nullptr) {
+    LOG(ERROR) << "sb2: No componentNames";
+    return false;
+  }
+  ObjPtr<mirror::String> componentName = names->Get(0);
+  if (componentName == nullptr) {
+    LOG(ERROR) << "sb2: No componentNames[0]";
+    return false;
+  }
+  if (!componentName->Equals("x")) {
+    LOG(ERROR) << "sb2: componentNames[0] != x";
+    return false;
+  }
+
+  // ObjPtr<mirror::ObjectArray<mirror::Object>> annotations = GetAnnotationArrayValue<mirror::Object>(klass,
+  //                                               "Ldalvik/annotation/Record;",
+  //                                               "componentAnnotations");
+  // if (annotations == nullptr) {
+  //   LOG(ERROR) << "sb2: No componentAnnotations";
+  //   return false;
+  // }
+  // if (annotations->GetLength() != names->GetLength()) {
+  //   LOG(ERROR) << "sb2: componentAnnotations.length != names.length (" << annotations->GetLength()
+  //              << " != " << names->GetLength() << ")";
+  //   return false;
+  // }
+  // LOG(INFO) << "sb2: First object: " << annotations->Get(0)->PrettyTypeOf();
+
+  ClassData data(klass);
+  const DexFile& dex_file = data.GetDexFile();
+  const AnnotationSetItem* annotation_set = FindAnnotationSetForClass(data);
+  if (annotation_set == nullptr) {
+    LOG(ERROR) << "sb2: no annotation set";
+    return false;
+  }
+  const AnnotationItem* annotation_item = SearchAnnotationSet(
+      dex_file, annotation_set, "Ldalvik/annotation/Record;", DexFile::kDexVisibilitySystem);
+  if (annotation_item == nullptr) {
+    LOG(ERROR) << "sb2: no Record annotation";
+    return false;
+  }
+
+  const uint8_t* annotation =
+      SearchEncodedAnnotation(dex_file, annotation_item->annotation_, "componentAnnotations");
+  if (annotation == nullptr) {
+    LOG(ERROR) << "sb2: null componentAnnotations";
+    annotation = SearchEncodedAnnotation(dex_file, annotation_item->annotation_, "componentNames");
+    if (annotation != nullptr) {
+      LOG(INFO) << "sb2: componentNames works";
+    }
+    return false;
+  }
+
+  LOG(INFO) << "sb2: All fine!";
+  return true;
 }
 
 bool IsClassAnnotationPresent(Handle<mirror::Class> klass, Handle<mirror::Class> annotation_class) {

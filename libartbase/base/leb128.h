@@ -33,6 +33,7 @@ namespace art {
 static inline uint32_t DecodeUnsignedLeb128(const uint8_t** data) {
   const uint8_t* ptr = *data;
   int result = *(ptr++);
+  // LOG(INFO) << "sb2: decoded result: " << result;
   if (UNLIKELY(result > 0x7f)) {
     int cur = *(ptr++);
     result = (result & 0x7f) | ((cur & 0x7f) << 7);

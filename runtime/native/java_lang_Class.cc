@@ -784,6 +784,17 @@ static jclass Class_getNestHostFromAnnotation(JNIEnv* env, jobject javaThis) {
   return soa.AddLocalReference<jclass>(hostClass);
 }
 
+static jboolean Class_hasCorrectComponentAnnotation0(JNIEnv* env, jobject javaThis) {
+  ScopedFastNativeObjectAccess soa(env);
+  StackHandleScope<1> hs(soa.Self());
+  Handle<mirror::Class> klass(hs.NewHandle(DecodeClass(soa, javaThis)));
+  if (klass->IsObsoleteObject()) {
+    ThrowRuntimeException("Obsolete Object!");
+    return false;
+  }
+  return annotations::CheckCorrectComponentAnnotations(klass);
+}
+
 static jobjectArray Class_getNestMembersFromAnnotation(JNIEnv* env, jobject javaThis) {
   ScopedFastNativeObjectAccess soa(env);
   StackHandleScope<1> hs(soa.Self());
@@ -947,6 +958,7 @@ static JNINativeMethod gMethods[] = {
   FAST_NATIVE_METHOD(Class, getInterfacesInternal, "()[Ljava/lang/Class;"),
   FAST_NATIVE_METHOD(Class, getPrimitiveClass, "(Ljava/lang/String;)Ljava/lang/Class;"),
   FAST_NATIVE_METHOD(Class, getNameNative, "()Ljava/lang/String;"),
+  FAST_NATIVE_METHOD(Class, hasCorrectComponentAnnotation0, "()Z"),
   FAST_NATIVE_METHOD(Class, getNestHostFromAnnotation, "()Ljava/lang/Class;"),
   FAST_NATIVE_METHOD(Class, getNestMembersFromAnnotation, "()[Ljava/lang/Class;"),
   FAST_NATIVE_METHOD(Class, getPermittedSubclassesFromAnnotation, "()[Ljava/lang/Class;"),
