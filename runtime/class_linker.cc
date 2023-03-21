@@ -70,6 +70,7 @@
 #include "dex/class_accessor-inl.h"
 #include "dex/descriptors_names.h"
 #include "dex/dex_file-inl.h"
+#include "dex/dex_file_annotations.h"
 #include "dex/dex_file_exception_helpers.h"
 #include "dex/dex_file_loader.h"
 #include "dex/signature-inl.h"
@@ -6121,6 +6122,7 @@ bool ClassLinker::LinkClass(Thread* self,
   if (!LinkStaticFields(self, klass, &class_size)) {
     return false;
   }
+  SetRecordClassFlagIfNeeded(klass);
   CreateReferenceInstanceOffsets(klass);
   CHECK_EQ(ClassStatus::kLoaded, klass->GetStatus());
 
@@ -9348,6 +9350,50 @@ bool ClassLinker::LinkInstanceFields(Thread* self, Handle<mirror::Class> klass) 
 bool ClassLinker::LinkStaticFields(Thread* self, Handle<mirror::Class> klass, size_t* class_size) {
   CHECK(klass != nullptr);
   return LinkFieldsHelper::LinkFields(this, self, klass, true, class_size);
+}
+
+// Set kClassFlagRecord if all conditions are fulfilled.
+void ClassLinker::SetRecordClassFlagIfNeeded(Handle<mirror::Class> klass) {
+  CHECK(klass != nullptr);
+  // First, we check the conditions specified in java.lang.Class#isRecord().
+  // If any of the following check fails, ART will treat it as a normal class,
+  // but still inherited from java.lang.Record.
+  if (!klass->IsFinal()) {
+    return;
+  }
+  ObjPtr<mirror::Class> super = klass->GetSuperClass();
+  if (super == nullptr || !super->DescriptorEquals("Ljava/lang/Record;")) {
+    return;
+  }
+
+  // Record class should have record attributes specifying various things,
+  // including the order of record components. As this was written, a equivalent
+  // instance field is added for every record component. We will verify that every
+  // record component in the attributes can be mapped into a field.
+
+  // Before the dexer emitting @dalvik.annotation.Record annotation correctly b/272698028,
+  // we work around by taking @MethodParameters information as a temporary replacement.
+  uint32_t num_of_fields = klass->NumInstanceFields();
+  for (ArtMethod& method : klass->GetDirectMethods(image_pointer_size_)) {
+    // JLS 8.10.2 Record body can't declare instance fields.
+    // JLS 8.10.4 Record class has only one canonical constructor.
+    // Dexer should emit @MethodParameters method annotation along with
+    // the canonical constructor.
+    if (method.IsConstructor() && method.GetNumberOfParameters() == num_of_fields) {
+      if (num_of_fields == 0 ||
+          annotations::IsMethodAnnotationPresent(
+              &method, "Ldalvik/annotation/MethodParameters;", DexFile::kDexVisibilitySystem)) {
+        // JLS 8.10.4 / 8.10.4.1 We should check if the constructor
+        // doesn't invoke other constructor in this class or invoke the super
+        // class constructor to confirm that it's the canonical constructor.
+
+        // But it's good enough until @dalvik.annotation.Record is emitted
+        // from the dexer.
+        klass->SetRecordClass();
+        return;
+      }
+    }
+  }
 }
 
 //  Set the bitmap of reference instance field offsets.
