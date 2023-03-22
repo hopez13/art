@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "df2493f5_61fdd9a5",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 781,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-03-22T03:29:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "50bf0f44_24a6cc42",
+      "range": {
+        "startLine": 779,
+        "startChar": 1,
+        "endLine": 781,
+        "endChar": 0
+      },
+      "revId": "e725e64a2b4d644b5483adda88573f2511b86485",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4b5f0a81_5f6c4a17",
@@ -64,6 +88,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4afac23e_873c262e",
+        "filename": "runtime/mutator_gc_coord.md",
+        "patchSetId": 8
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-03-22T03:29:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4b5f0a81_5f6c4a17",
+      "range": {
+        "startLine": 225,
+        "startChar": 0,
+        "endLine": 232,
+        "endChar": 58
+      },
+      "revId": "e725e64a2b4d644b5483adda88573f2511b86485",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "247d6df4_75b22abf",
@@ -77,6 +125,30 @@
       "writtenOn": "2023-03-15T17:54:09Z",
       "side": 1,
       "message": "Why do we need to do set `kActiveSuspendBarrier` in the first place in this case? Can\u0027t we atomically change the state from `suspended` to `suspended and kSuspendRequest`? This way the the barrier would be required only for runnable threads, I assume?",
+      "range": {
+        "startLine": 248,
+        "startChar": 0,
+        "endLine": 251,
+        "endChar": 60
+      },
+      "revId": "e725e64a2b4d644b5483adda88573f2511b86485",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f2188b1_4f5b6c4e",
+        "filename": "runtime/mutator_gc_coord.md",
+        "patchSetId": 8
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-03-22T03:29:18Z",
+      "side": 1,
+      "message": "You\u0027re saying we would do a CAS that sets kSuspendRequest without kActiveSuspendBarrier if the thread was already suspended? That may be possible. But we would have to worry about the case in which the thread was just about to enter a suspended state when we set kActiveSuspendBarrier. I don\u0027t think we currently handle kActiveSuspendBarrier there in all cases.",
+      "parentUuid": "247d6df4_75b22abf",
       "range": {
         "startLine": 248,
         "startChar": 0,
@@ -133,6 +205,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "31921bf2_ab9dccf3",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1456,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-03-22T03:29:18Z",
+      "side": 1,
+      "message": "No. It disables analysis in the body:\n\n\"Unlike the other attributes, NO_THREAD_SAFETY_ANALYSIS is not part of the interface of a function, and should thus be placed on the function definition (in the .cc or .cpp file) rather than on the function declaration (in the header).\"",
+      "parentUuid": "2e0f3ebc_c5b67b6e",
+      "range": {
+        "startLine": 1456,
+        "startChar": 73,
+        "endLine": 1456,
+        "endChar": 98
+      },
+      "revId": "e725e64a2b4d644b5483adda88573f2511b86485",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dac22967_cad5a180",
@@ -146,6 +242,30 @@
       "writtenOn": "2023-03-15T17:54:09Z",
       "side": 1,
       "message": "What happens if the target thread tries to run checkpoint when the caller is scheduled out at this point? Wouldn\u0027t it find an checkpoint-funtion? I guess it\u0027s avoided by using `thread_suspend_count_lock_` in RunCheckpointFunction()?\n\nIt seems like we are piggy-backing quite a lot on this lock. Wouldn\u0027t it make sense to introduce a mutex for every thread so that while manipulating fields of some mutator thread, its lock is acquire, thereby not hurting other threads. Not suggesting for this CL, but maybe next improvement.",
+      "range": {
+        "startLine": 1581,
+        "startChar": 4,
+        "endLine": 1581,
+        "endChar": 20
+      },
+      "revId": "e725e64a2b4d644b5483adda88573f2511b86485",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "910a5592_de7c6aa3",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1581,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-03-22T03:29:18Z",
+      "side": 1,
+      "message": "Yes.\n\nI suspect the mutex for every thread is complicated since we sometimes check our own suspend request flag while mucking with another thread\u0027s flag. Probably not impossible, but I would hold off unless we actually see an issue there. I think we never hold the mutex for very long, and we do spin if it\u0027s busy.",
+      "parentUuid": "dac22967_cad5a180",
       "range": {
         "startLine": 1581,
         "startChar": 4,
@@ -179,6 +299,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f13e320_910da0d6",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1637,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-03-22T03:29:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "64070fb0_9d0693b0",
+      "range": {
+        "startLine": 1637,
+        "startChar": 14,
+        "endLine": 1637,
+        "endChar": 31
+      },
+      "revId": "e725e64a2b4d644b5483adda88573f2511b86485",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e540581d_eb6fd1c3",
@@ -202,6 +346,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b98ca141_5c14c51d",
+        "filename": "runtime/thread.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 373,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-03-22T03:29:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e540581d_eb6fd1c3",
+      "range": {
+        "startLine": 373,
+        "startChar": 62,
+        "endLine": 373,
+        "endChar": 75
+      },
+      "revId": "e725e64a2b4d644b5483adda88573f2511b86485",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b3dc8ecb_56cd81f8",
@@ -215,6 +383,30 @@
       "writtenOn": "2023-03-15T17:54:09Z",
       "side": 1,
       "message": "delete",
+      "range": {
+        "startLine": 697,
+        "startChar": 74,
+        "endLine": 697,
+        "endChar": 80
+      },
+      "revId": "e725e64a2b4d644b5483adda88573f2511b86485",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4963b9bf_82285468",
+        "filename": "runtime/thread.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 697,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-03-22T03:29:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b3dc8ecb_56cd81f8",
       "range": {
         "startLine": 697,
         "startChar": 74,
@@ -295,6 +487,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ffe935d_9304255b",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 555,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-03-22T03:29:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cd96e0f4_fb362258",
+      "range": {
+        "startLine": 553,
+        "startChar": 0,
+        "endLine": 555,
+        "endChar": 5
+      },
+      "revId": "e725e64a2b4d644b5483adda88573f2511b86485",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c56b61d4_82c74049",
@@ -356,6 +572,30 @@
       "side": 1,
       "message": "\u003e I think it can run in here. But I\u0027m trying to remind myself of the problematic access. The other thread can indeed run after the ResumeAll. I guess the problem is that it\u0027s already suspended, and then issues a SuspendAll(), without ever becoming \"runnable\" in the usual sense before accessing the Java heap, on the assumption that everything else is stopped, and we hold the mutator lock. But that\u0027s not really good enough to be runnable, since we also need to handle a pending flip function, and we don\u0027t. So I think the fix is just to make sure that we run any pending flip function before we acquire the mutator lock in exclusive mode, thus giving us the full rights of a runnable thread?\n\nYou are right that exclusive mutator lock shouldn\u0027t suffice for heap access. The order in `GetObjectMonitorUsage` shouldn\u0027t be allowed in the first place. When the heap access gotten by `ScopedObjectAccess` is relinquished by subsequent call to `ScopedThreadSuspension` then the developer has suspended and shouldn\u0027t be allowed to access the heap.\n\n\u003e \n\u003e This code also calls GetPeerFromOtherThread, which explicitly invokes a read barrier with CC, because the other thread may not have been flipped yet. Don\u0027t we have a similar issue with CMC?\n\nWe do have this problem with CMC. Thanks for reminding this. To fix this I had to make sure that I release exclusive-lock on mutator-lock after all flip functions were ensured to be started.\n\nAt least in the case of CMC can we make the caller of `GetPeerFromOtherThread` call any pending flip function on the target thread before fetching the peer?",
       "parentUuid": "3afedbf9_258d0f6a",
+      "range": {
+        "startLine": 564,
+        "startChar": 2,
+        "endLine": 564,
+        "endChar": 11
+      },
+      "revId": "e725e64a2b4d644b5483adda88573f2511b86485",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ab6b4054_616858e1",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 564,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-03-22T03:29:18Z",
+      "side": 1,
+      "message": "There\u0027s some argument that when you call SuspendAll, you have the exclusive mutator lock, and you should be able to access anything. I still think we should make sure the flip function is run in this case.\n\nAbout CMC: Sounds plausible, let me try to implement.",
+      "parentUuid": "cf79a932_20041230",
       "range": {
         "startLine": 564,
         "startChar": 2,
