@@ -16,6 +16,24 @@
       "message": "Any way we can annotate this `unused_but_still_keep` or something, like to avoid making use of it in ART?",
       "revId": "3c8c0aac3eed191660b5fcc0c6461b73ef329e6a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "62863d2e_7cebbf22",
+        "filename": "libdexfile/dex/dex_file_loader.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-03-23T16:35:43Z",
+      "side": 1,
+      "message": "I was thinking the same thing, but nothing comes to mind...",
+      "parentUuid": "d5e23e5b_bd6fe843",
+      "revId": "3c8c0aac3eed191660b5fcc0c6461b73ef329e6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
