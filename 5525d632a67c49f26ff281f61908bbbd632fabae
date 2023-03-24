@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "661f5021_88c145f1",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1349,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-03-24T15:31:58Z",
+      "side": 1,
+      "message": "That\u0027s clang_format style, I don\u0027t think I can change it without breaking the pre-upload hook",
+      "parentUuid": "6c9cbc64_ddb420b7",
+      "range": {
+        "startLine": 1347,
+        "startChar": 24,
+        "endLine": 1349,
+        "endChar": 46
+      },
+      "revId": "5525d632a67c49f26ff281f61908bbbd632fabae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "835b68af_421a8aa6",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-03-24T13:30:18Z",
       "side": 1,
       "message": "This doesn\u0027t seem to match the loop below. Can you expand the comment?",
+      "range": {
+        "startLine": 1990,
+        "startChar": 1,
+        "endLine": 1990,
+        "endChar": 39
+      },
+      "revId": "5525d632a67c49f26ff281f61908bbbd632fabae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6cb89024_94405a20",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1990,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-03-24T15:31:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "835b68af_421a8aa6",
       "range": {
         "startLine": 1990,
         "startChar": 1,
