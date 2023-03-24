@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ac0f78b_e806888d",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1992,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-03-24T15:37:30Z",
+      "side": 1,
+      "message": "Maybe it will be clearer if you define what `saved_hashcode_map` is? Also, maybe just do one `.end() comparison`, and put all the logic in if/else? eg:\n\n```\nif (it !\u003d saved_hashcode_map.end()) {\n   // This means that....\n} else {\n   // Not in the map, then we know the object is....\n}\n```",
+      "range": {
+        "startLine": 1990,
+        "startChar": 0,
+        "endLine": 1992,
+        "endChar": 50
+      },
+      "revId": "3b957852be68f76297fec11f5994ed96f09e4578",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
