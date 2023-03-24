@@ -35,6 +35,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cdc5cbf1_ced2d11d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-03-24T04:06:46Z",
+      "side": 1,
+      "message": "Still not quite done.",
+      "revId": "50c52f71e7dccd39517c362f9d32f0998cee9059",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0c53e81a_d741f22b",
@@ -76,6 +93,121 @@
         "startChar": 51,
         "endLine": 80,
         "endChar": 53
+      },
+      "revId": "50c52f71e7dccd39517c362f9d32f0998cee9059",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0932c30b_d65de6d0",
+        "filename": "runtime/jni/local_reference_table.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-03-24T04:06:46Z",
+      "side": 1,
+      "message": "This is just a heuristic to avoid repeated mapping and unmapping? If so, please mention that in the comment. And I think \"allocated\" should then be \"free, but mapped\".\n\nI\u0027m unsure whether this is a worthwhile improvement over the much simpler scheme in which we neither coalesce nor unmap small tables. Worst-case asymptotic complexity is the same or better for the simple algorithm, though this probably saves some small ampunt of space, possibly at the expense of repeated mapping and unmapping and other overhead. The simpler scheme would also make it much easier to avoid redundant clearing.\n\nIt seems hard to reason about the complexity of the merge algorithm here, due to the linear scan required to find \"other\". It\u0027s probably not actually bad, but for the same reasons that I wouldn\u0027t really expect merging to be important: It seems unlikely for the required size distribution to change dramatically over time.",
+      "range": {
+        "startLine": 110,
+        "startChar": 6,
+        "endLine": 110,
+        "endChar": 98
+      },
+      "revId": "50c52f71e7dccd39517c362f9d32f0998cee9059",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f236d600_e7b292f1",
+        "filename": "runtime/jni/local_reference_table.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-03-24T04:06:46Z",
+      "side": 1,
+      "message": "Maybe add a comment like /* Remove other from list. */\n\nThe lack of real type information here makes this confusing to me.",
+      "range": {
+        "startLine": 121,
+        "startChar": 4,
+        "endLine": 121,
+        "endChar": 47
+      },
+      "revId": "50c52f71e7dccd39517c362f9d32f0998cee9059",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "37e5f4ec_bc767f22",
+        "filename": "runtime/jni/local_reference_table.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-03-24T04:06:46Z",
+      "side": 1,
+      "message": "Why not just\nuint32_t new_serial_number \u003d\n   (serial_number_entry-\u003eGetSerialNumberUnchecked() + 1) % kCheckJniEntriesPerReference;\n\n?",
+      "range": {
+        "startLine": 254,
+        "startChar": 2,
+        "endLine": 257,
+        "endChar": 93
+      },
+      "revId": "50c52f71e7dccd39517c362f9d32f0998cee9059",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "39a5833b_f989a72d",
+        "filename": "runtime/jni/local_reference_table.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 466,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-03-24T04:06:46Z",
+      "side": 1,
+      "message": "The spec seems to suggest that this is valid? I guess ignoring it and warning should be OK.",
+      "range": {
+        "startLine": 466,
+        "startChar": 6,
+        "endLine": 466,
+        "endChar": 32
+      },
+      "revId": "50c52f71e7dccd39517c362f9d32f0998cee9059",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a223ad0c_c51f1f01",
+        "filename": "runtime/jni/local_reference_table.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 472,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-03-24T04:06:46Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be fatal, at least with CheckJni? Granted, this is not a change.",
+      "range": {
+        "startLine": 472,
+        "startChar": 2,
+        "endLine": 472,
+        "endChar": 33
       },
       "revId": "50c52f71e7dccd39517c362f9d32f0998cee9059",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
