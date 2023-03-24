@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "040443e9_31a69529",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 9365,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-03-24T12:28:12Z",
+      "side": 1,
+      "message": "Given all classes are going to check against that, add this to `WellKnownClasses`.",
+      "range": {
+        "startLine": 9365,
+        "startChar": 52,
+        "endLine": 9365,
+        "endChar": 70
+      },
+      "revId": "9005a3127b1e9a622598faf75bef0e76c67d4af5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "95ef9b95_91668d68",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 9370,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-03-24T12:28:12Z",
+      "side": 1,
+      "message": "an",
+      "range": {
+        "startLine": 9370,
+        "startChar": 68,
+        "endLine": 9370,
+        "endChar": 69
+      },
+      "revId": "9005a3127b1e9a622598faf75bef0e76c67d4af5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "daa580a5_2cbcdc92",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 9370,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-03-24T12:28:12Z",
+      "side": 1,
+      "message": "`At the time of writing?` But I don\u0027t really understand what this sentence means. Isn\u0027t that a contract with the dexer?",
+      "range": {
+        "startLine": 9370,
+        "startChar": 47,
+        "endLine": 9370,
+        "endChar": 66
+      },
+      "revId": "9005a3127b1e9a622598faf75bef0e76c67d4af5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b065a4a_6d2c1e49",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 9375,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-03-24T12:28:12Z",
+      "side": 1,
+      "message": "I don\u0027t understand this sentence.\n\nHowever, given we\u0027re only shipping records today, why do we need to support an old implementation?",
+      "range": {
+        "startLine": 9374,
+        "startChar": 0,
+        "endLine": 9375,
+        "endChar": 87
+      },
+      "revId": "9005a3127b1e9a622598faf75bef0e76c67d4af5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
