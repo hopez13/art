@@ -22,6 +22,7 @@
 #include <unistd.h>
 
 #include <filesystem>
+#include <fstream>
 
 #ifdef ART_TARGET_ANDROID
 #include "android-modules-utils/sdk_level.h"
@@ -148,9 +149,22 @@ TEST_F(PaletteClientTest, SetTaskProfilesCpp) {
 #ifndef ART_TARGET_ANDROID
   GTEST_SKIP() << "SetTaskProfiles is only supported on Android";
 #else
-  if (!std::filesystem::exists("/sys/fs/cgroup/cgroup.controllers")) {
+  std::string controller;
+  std::ifstream is("/sys/fs/cgroup/cgroup.controllers", std::ios::in);
+  if (!is) {
     // This is intended to detect ART chroot setups, where SetTaskProfiles won't work.
     GTEST_SKIP() << "Kernel cgroup support missing";
+  }
+  bool io_found = false;
+  while (is >> controller) {
+    if (controller == "io") {
+      io_found = true;
+      break;
+    }
+  }
+  if (!io_found) {
+    GTEST_SKIP() << "The io controller is either not available or has not been activated in the v2 "
+                    "cgroup hierarchy";
   }
 
   std::vector<std::string> profiles = {"NormalIoPriority", "TimerSlackNormal"};
