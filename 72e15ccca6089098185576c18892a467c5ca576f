@@ -80,6 +80,30 @@
       },
       "revId": "72e15ccca6089098185576c18892a467c5ca576f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d661e4bb_51dc0fa1",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3932,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-03-24T21:46:19Z",
+      "side": 1,
+      "message": "Sounds good. but we also do multiple case splits on the kind of object, right?",
+      "parentUuid": "76bd7eed_c19cb2cb",
+      "range": {
+        "startLine": 3930,
+        "startChar": 2,
+        "endLine": 3932,
+        "endChar": 0
+      },
+      "revId": "72e15ccca6089098185576c18892a467c5ca576f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
