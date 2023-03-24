@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ff69a4a_1be4dd73",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-03-24T00:37:41Z",
+      "side": 1,
+      "message": "AFAICT, the failures I was seeing were actually due to an inconsistent snapshot. They went away after another sync. Very odd, given that they seemed to be in a place touched by this CL.",
+      "revId": "15782856575419daf93f108c6d604c34baae8896",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
