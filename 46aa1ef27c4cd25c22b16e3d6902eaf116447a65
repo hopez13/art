@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ab26203_64f99968",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 9356,
+      "author": {
+        "id": 1047684
+      },
+      "writtenOn": "2023-03-24T11:39:39Z",
+      "side": 1,
+      "message": "yeah. This function will fail and not set the flag, but still treats it as a normal class. See the following few lines.",
+      "parentUuid": "f3b06ff1_6c24a5da",
+      "revId": "46aa1ef27c4cd25c22b16e3d6902eaf116447a65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "493ff190_aed764bc",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-03-23T15:16:14Z",
       "side": 1,
       "message": "Hopefully this won\u0027t be here for long, but good to reference a bug so we can find and update easily.",
+      "revId": "46aa1ef27c4cd25c22b16e3d6902eaf116447a65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "440fe38b_b0eb7492",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 9374,
+      "author": {
+        "id": 1047684
+      },
+      "writtenOn": "2023-03-24T11:39:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "493ff190_aed764bc",
       "revId": "46aa1ef27c4cd25c22b16e3d6902eaf116447a65",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
