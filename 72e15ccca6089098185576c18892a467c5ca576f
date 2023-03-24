@@ -56,6 +56,30 @@
       },
       "revId": "72e15ccca6089098185576c18892a467c5ca576f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "76bd7eed_c19cb2cb",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3932,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-03-24T20:37:19Z",
+      "side": 1,
+      "message": "They both fetch class pointer. But so does UpdateClassAfterObjectMap.\n\nI think the following order is ideal:\n1) `SizeOf()`\n2) `UpdateClassAfterObjectMap()` (which also fetches reference-bitmap, which is used by VisitReferences)\n3) `VisitReferences()`\n4) The remaining stuff in `UpdateLivenessInfo()`\n\nI\u0027ll try to optimize this in one of the subsequent CLs of mine.",
+      "parentUuid": "b90e2d2d_2e2e957e",
+      "range": {
+        "startLine": 3930,
+        "startChar": 2,
+        "endLine": 3932,
+        "endChar": 0
+      },
+      "revId": "72e15ccca6089098185576c18892a467c5ca576f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
