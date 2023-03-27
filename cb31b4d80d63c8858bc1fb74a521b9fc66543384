@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e632d04d_4ced6057",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-03-27T18:22:03Z",
+      "side": 1,
+      "message": "A couple of questions around this. Apologies for my ignorance in cgroup matters.\n\n1. If the \"io\" check had failed I assume it means v1 is used. Is it WAI that SetTaskProfiles is successful for non-root?\n\n2. When I test on my devices (Cheetah and Cuttlefish), `adb shell cat /sys/fs/cgroup/cgroup.controllers` returns nothing. Shouldn\u0027t I get \"io\"?",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 57
+      },
+      "revId": "cb31b4d80d63c8858bc1fb74a521b9fc66543384",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71dc66b3_a42552e3",
+        "filename": "libartpalette/apex/palette_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-03-27T18:22:03Z",
+      "side": 1,
+      "message": "Same check needs to go here too, so it could use a function of its own.",
+      "revId": "cb31b4d80d63c8858bc1fb74a521b9fc66543384",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c918b055_eda7181d",
+        "filename": "libartpalette/apex/palette_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-03-27T18:22:03Z",
+      "side": 1,
+      "message": "Nit: Can this be a `read` call instead? It\u0027s easier to find the docs for.",
+      "range": {
+        "startLine": 159,
+        "startChar": 12,
+        "endLine": 159,
+        "endChar": 14
+      },
+      "revId": "cb31b4d80d63c8858bc1fb74a521b9fc66543384",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
