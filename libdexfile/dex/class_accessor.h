@@ -177,11 +177,13 @@ class ClassAccessor {
   };
 
   template <typename DataType>
-  class DataIterator : public std::iterator<std::forward_iterator_tag, DataType> {
+  class DataIterator {
    public:
-    using value_type = typename std::iterator<std::forward_iterator_tag, DataType>::value_type;
-    using difference_type =
-        typename std::iterator<std::forward_iterator_tag, value_type>::difference_type;
+    using iterator_category = std::forward_iterator_tag;
+    using value_type = DataType;
+    using difference_type = std::ptrdiff_t;
+    using pointer = DataType*;
+    using reference = DataType&;
 
     DataIterator(const DexFile& dex_file,
                  uint32_t position,
