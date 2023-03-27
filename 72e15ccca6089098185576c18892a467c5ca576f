@@ -37,6 +37,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "9cdaea7e_1fe41528",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2023-03-27T10:18:50Z",
+      "side": 1,
+      "message": "Thanks Lokesh and Hans; I\u0027ll submit the CL now in order to fix the \"scanned bytes\" GC metrics; optimising in a follow-up CL SGTM.",
+      "revId": "72e15ccca6089098185576c18892a467c5ca576f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "b90e2d2d_2e2e957e",
         "filename": "runtime/gc/collector/mark_compact.cc",
         "patchSetId": 3
