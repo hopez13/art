@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "431370e4_62dd8c4d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1869780
+      },
+      "writtenOn": "2023-03-27T18:47:13Z",
+      "side": 1,
+      "message": "(1) It is not clear to me whether these tests run as root or non-root. On Android processes in the system group should be able to change cgroup settings because libprocessgroup sets the owner and group ID to system:system in the v2 hierarchy. An example: \n\n$ adb -s 0.0.0.0:6520 shell ls -l /sys/fs/cgroup/uid_2000\ntotal 0\n-rwxrwxr-x 1 system system 0 2023-03-27 11:37 cgroup.controllers\n-rwxrwxr-x 1 system system 0 2023-03-27 11:37 cgroup.events\n-rwxrwxr-x 1 system system 0 2023-03-27 11:37 cgroup.freeze\n-rwxrwxr-x 1 system system 0 2023-03-27 11:37 cgroup.kill\n-rwxrwxr-x 1 system system 0 2023-03-27 11:37 cgroup.max.depth\n-rwxrwxr-x 1 system system 0 2023-03-27 11:37 cgroup.max.descendants\n-rwxrwxr-x 1 system system 0 2023-03-27 11:37 cgroup.procs\n-rwxrwxr-x 1 system system 0 2023-03-27 11:37 cgroup.stat\n-rwxrwxr-x 1 system system 0 2023-03-27 11:37 cgroup.subtree_control\n-rwxrwxr-x 1 system system 0 2023-03-27 11:37 cgroup.threads\n-rwxrwxr-x 1 system system 0 2023-03-27 11:37 cgroup.type\n-rwxrwxr-x 1 system system 0 2023-03-27 11:37 cpu.stat\n-rwxrwxr-x 1 system system 0 2023-03-27 11:37 io.bfq.weight\n-rwxrwxr-x 1 system system 0 2023-03-27 11:37 io.stat\n-rwxrwxr-x 1 system system 0 2023-03-27 11:37 io.weight\ndrwxrwxr-x 2 system system 0 2023-03-27 11:37 pid_253\ndrwxrwxr-x 2 system system 0 2023-03-27 11:37 pid_2947\n\n(2) This is what I see in Cuttlefish (AOSP master branch):\n\n$ adb -s 0.0.0.0:6520 shell cat /sys/fs/cgroup/cgroup.controllers\nio",
+      "parentUuid": "e632d04d_4ced6057",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 57
+      },
+      "revId": "cb31b4d80d63c8858bc1fb74a521b9fc66543384",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "71dc66b3_a42552e3",
@@ -41,6 +65,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3bbca71_ea2b957b",
+        "filename": "libartpalette/apex/palette_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1869780
+      },
+      "writtenOn": "2023-03-27T18:47:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "71dc66b3_a42552e3",
+      "revId": "cb31b4d80d63c8858bc1fb74a521b9fc66543384",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c918b055_eda7181d",
@@ -54,6 +96,30 @@
       "writtenOn": "2023-03-27T18:22:03Z",
       "side": 1,
       "message": "Nit: Can this be a `read` call instead? It\u0027s easier to find the docs for.",
+      "range": {
+        "startLine": 159,
+        "startChar": 12,
+        "endLine": 159,
+        "endChar": 14
+      },
+      "revId": "cb31b4d80d63c8858bc1fb74a521b9fc66543384",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2476aa10_8631a4c9",
+        "filename": "libartpalette/apex/palette_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1869780
+      },
+      "writtenOn": "2023-03-27T18:47:13Z",
+      "side": 1,
+      "message": "Not without making the code a lot more complicated. std::basic_istream\u003cCharT,Traits\u003e::read() reads a fixed number of bytes. operator\u003e\u003e reads a whitespace-separated word. In this context the latter functionality is required.",
+      "parentUuid": "c918b055_eda7181d",
       "range": {
         "startLine": 159,
         "startChar": 12,
