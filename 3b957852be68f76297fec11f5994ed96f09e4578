@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "321e862c_287b7584",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1985,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-27T07:46:04Z",
+      "side": 1,
+      "message": "Boot image _can_ be compiled as `--multi-image`.",
+      "range": {
+        "startLine": 1982,
+        "startChar": 2,
+        "endLine": 1985,
+        "endChar": 29
+      },
+      "revId": "3b957852be68f76297fec11f5994ed96f09e4578",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5ac0f78b_e806888d",
         "filename": "dex2oat/linker/image_writer.cc",
         "patchSetId": 2
@@ -19,6 +42,69 @@
         "startChar": 0,
         "endLine": 1992,
         "endChar": 50
+      },
+      "revId": "3b957852be68f76297fec11f5994ed96f09e4578",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b088877_ca13d3c0",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2007,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-27T07:46:04Z",
+      "side": 1,
+      "message": "This is a lot of unnecessary work undoing all the offset assignments just to allow `AssignImageBinSlot()` to redo the same work. We should simply replace bin slots directly in the objects\u0027 lock words.",
+      "revId": "3b957852be68f76297fec11f5994ed96f09e4578",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a625fa3_c1443da3",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2010,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-27T07:46:04Z",
+      "side": 1,
+      "message": "Should this be `stable_sort`? The keys do not seem to be unique.",
+      "range": {
+        "startLine": 2010,
+        "startChar": 7,
+        "endLine": 2010,
+        "endChar": 11
+      },
+      "revId": "3b957852be68f76297fec11f5994ed96f09e4578",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "418626ce_d62e763a",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2014,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-27T07:46:04Z",
+      "side": 1,
+      "message": "Doing two lookups for each comparison is inefficient. It would be better to just allocate one chunk of memory for a `dchecked_vector\u003c\u003e` of `std::pair\u003cuint32_t, mirror::Object*\u003e` and pull the data into that, doing only one lookup per object.\n\nOne could also use a `std::tuple\u003cuint32_t, uint32_t, mirror::Object*\u003e`, adding the original offset as a secondary key to avoid `stable_sort`.",
+      "range": {
+        "startLine": 2013,
+        "startChar": 14,
+        "endLine": 2014,
+        "endChar": 52
       },
       "revId": "3b957852be68f76297fec11f5994ed96f09e4578",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
