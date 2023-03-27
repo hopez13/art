@@ -92,6 +92,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb475b44_24521095",
+        "filename": "runtime/jni/local_reference_table.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-27T15:05:48Z",
+      "side": 1,
+      "message": "This is necessary for the current design. If we want a large LRT to have tables of sizes 512B, 512B, 1KiB, 2KiB, 4KiB, etc, we need to have _some_ mechanism to allocate the tables between 512B and page size.\n\nI think that, when you last looked at this, the main thread always had a larger size (due to libcore initialization) while all the other threads probably had just the small table. I\u0027ve made some changes to keep the main thread\u0027s table size small and this CL adds a comment about that in `runtime.cc`.",
+      "parentUuid": "0c53e81a_d741f22b",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 76
+      },
+      "revId": "50c52f71e7dccd39517c362f9d32f0998cee9059",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0efba035_b577ba48",
@@ -105,6 +129,30 @@
       "writtenOn": "2023-03-18T00:26:35Z",
       "side": 1,
       "message": "Nit: into",
+      "range": {
+        "startLine": 80,
+        "startChar": 51,
+        "endLine": 80,
+        "endChar": 53
+      },
+      "revId": "50c52f71e7dccd39517c362f9d32f0998cee9059",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "10bcad3a_0bb17808",
+        "filename": "runtime/jni/local_reference_table.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-27T15:05:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0efba035_b577ba48",
       "range": {
         "startLine": 80,
         "startChar": 51,
@@ -138,6 +186,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc579a5b_c41a811e",
+        "filename": "runtime/jni/local_reference_table.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-27T15:05:48Z",
+      "side": 1,
+      "message": "Edited the comment.\n\nI\u0027m not too fond to leak memory, even if it\u0027s limited to some misbehaving app that creates a thousand threads at once and then destroys them. (Literally creating 1000 threads requires 500KiB of small tables.)",
+      "parentUuid": "0932c30b_d65de6d0",
+      "range": {
+        "startLine": 110,
+        "startChar": 6,
+        "endLine": 110,
+        "endChar": 98
+      },
+      "revId": "50c52f71e7dccd39517c362f9d32f0998cee9059",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f236d600_e7b292f1",
@@ -151,6 +223,30 @@
       "writtenOn": "2023-03-24T04:06:46Z",
       "side": 1,
       "message": "Maybe add a comment like /* Remove other from list. */\n\nThe lack of real type information here makes this confusing to me.",
+      "range": {
+        "startLine": 121,
+        "startChar": 4,
+        "endLine": 121,
+        "endChar": 47
+      },
+      "revId": "50c52f71e7dccd39517c362f9d32f0998cee9059",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd288f78_f8f08d4e",
+        "filename": "runtime/jni/local_reference_table.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-27T15:05:48Z",
+      "side": 1,
+      "message": "Edited the comment two lines above.",
+      "parentUuid": "f236d600_e7b292f1",
       "range": {
         "startLine": 121,
         "startChar": 4,
@@ -186,6 +282,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "8b6eb12d_3d2c3ea1",
+        "filename": "runtime/jni/local_reference_table.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-27T15:05:48Z",
+      "side": 1,
+      "message": "We want to skip 0.",
+      "parentUuid": "37e5f4ec_bc767f22",
+      "range": {
+        "startLine": 254,
+        "startChar": 2,
+        "endLine": 257,
+        "endChar": 93
+      },
+      "revId": "50c52f71e7dccd39517c362f9d32f0998cee9059",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "39a5833b_f989a72d",
         "filename": "runtime/jni/local_reference_table.cc",
         "patchSetId": 12
@@ -197,6 +317,30 @@
       "writtenOn": "2023-03-24T04:06:46Z",
       "side": 1,
       "message": "The spec seems to suggest that this is valid? I guess ignoring it and warning should be OK.",
+      "range": {
+        "startLine": 466,
+        "startChar": 6,
+        "endLine": 466,
+        "endChar": 32
+      },
+      "revId": "50c52f71e7dccd39517c362f9d32f0998cee9059",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "feeef195_33ddfd1a",
+        "filename": "runtime/jni/local_reference_table.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 466,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-27T15:05:48Z",
+      "side": 1,
+      "message": "If this wasn\u0027t considered valid, I would simply abort for CheckJNI.",
+      "parentUuid": "39a5833b_f989a72d",
       "range": {
         "startLine": 466,
         "startChar": 6,
@@ -230,6 +374,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d295d3bc_5d8eaaeb",
+        "filename": "runtime/jni/local_reference_table.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 472,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-27T15:05:48Z",
+      "side": 1,
+      "message": "It is indeed fatal with CheckJNI.\n\nI\u0027ve changed this to a `DCHECK()` after the CheckJNI carve-out below.",
+      "parentUuid": "a223ad0c_c51f1f01",
+      "range": {
+        "startLine": 472,
+        "startChar": 2,
+        "endLine": 472,
+        "endChar": 33
+      },
+      "revId": "50c52f71e7dccd39517c362f9d32f0998cee9059",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8c9d9d79_a6db2ffe",
@@ -243,6 +411,30 @@
       "writtenOn": "2023-03-24T21:44:23Z",
       "side": 1,
       "message": "That would be my preference. I would expect it also simplifies the code. I agree that it won\u0027t matter for reasonable code. I suspect this rarely gets called anyway? But the fact that it\u0027s possible to make it really slow is a bit disconcerting.",
+      "range": {
+        "startLine": 505,
+        "startChar": 4,
+        "endLine": 507,
+        "endChar": 47
+      },
+      "revId": "50c52f71e7dccd39517c362f9d32f0998cee9059",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6569cb65_6d34edf5",
+        "filename": "runtime/jni/local_reference_table.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 507,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-27T15:05:48Z",
+      "side": 1,
+      "message": "I\u0027m preserving the behavior in this CL.\n\nI\u0027d prefer to address this TODO (and the related TODO in `FreeCapacity()`) in a separate CL.",
+      "parentUuid": "8c9d9d79_a6db2ffe",
       "range": {
         "startLine": 505,
         "startChar": 4,
@@ -276,6 +468,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cf22c4d4_4ceafff9",
+        "filename": "runtime/jni/local_reference_table.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 356,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-27T15:05:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0c3a6ad2_ae516c76",
+      "range": {
+        "startLine": 352,
+        "startChar": 2,
+        "endLine": 356,
+        "endChar": 88
+      },
+      "revId": "50c52f71e7dccd39517c362f9d32f0998cee9059",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "afb3ee3f_232c2372",
@@ -289,6 +505,30 @@
       "writtenOn": "2023-03-24T21:44:23Z",
       "side": 1,
       "message": "What\u0027s the advantage of small_table_ over tables_[0]? Is it just to aoid the dynamic allocation for the vector? Probably std::vector should do that optimization internally, but it doesn\u0027t look like it does, possibly for ABI reasons.",
+      "range": {
+        "startLine": 472,
+        "startChar": 2,
+        "endLine": 473,
+        "endChar": 67
+      },
+      "revId": "50c52f71e7dccd39517c362f9d32f0998cee9059",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c91ce770_01aac289",
+        "filename": "runtime/jni/local_reference_table.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 473,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-27T15:05:48Z",
+      "side": 1,
+      "message": "There is also a performance hit for an extra load from a distant memory location for `tables_[0]`. (If `std::vector\u003c\u003e` held it by value, there would be extra compare-and-branch instead.)\n\nAdded a comment.",
+      "parentUuid": "afb3ee3f_232c2372",
       "range": {
         "startLine": 472,
         "startChar": 2,

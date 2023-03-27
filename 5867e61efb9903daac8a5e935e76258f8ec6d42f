@@ -92,6 +92,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9df44a0f_0b006210",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-27T15:05:48Z",
+      "side": 1,
+      "message": "I guess we could check for blocked CheckJNI entries by looking at the entry at address `iref ^ sizeof(LrtEntry)` instead of `RoundDown(iref, 4 * sizeof(LrtEntry))` (omitting `reinterpret_cast\u003c\u003e`s for simplicity), so it may not be that complicated. And it would have the advantage of using the full range of \"implicit serial numbers\" including the 0 that the current scheme avoids.\n\nI\u0027ll try and see if this change is easy to implement. (For PS14+.)",
+      "parentUuid": "88678df0_a023c8aa",
+      "revId": "5867e61efb9903daac8a5e935e76258f8ec6d42f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "03037180_44693ff7",
         "filename": "runtime/indirect_reference_table.h",
         "patchSetId": 9
