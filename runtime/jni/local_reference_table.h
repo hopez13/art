@@ -99,8 +99,8 @@ namespace jni {
 // (in release build) and stale references can be erroneously used, especially after the same slot
 // has been reused for another reference which we cannot easily detect (even in debug build).
 //
-// With CheckJNI, we rotate the slots that we use based on a "serial number".
-// This increases the memory use but it allows for decent error detection.
+// With CheckJNI, we rotate the slots that we use within an aligned chunk. This increases the
+// memory use but it allows for decent error detection.
 //
 // We allow switching between CheckJNI enabled and disabled but entries created with CheckJNI
 // disabled shall have weaker checking even after enabling CheckJNI and the switch can also
@@ -116,19 +116,18 @@ static constexpr LRTSegmentState kLRTFirstSegment = { 0 };
 
 // Each entry in the `LocalReferenceTable` can contain a null (initially or after a `Trim()`)
 // or reference, or it can be marked as free and hold the index of the next free entry.
-// If CheckJNI is (or was) enabled, some entries can contain serial numbers instead and
-// only one other entry in a CheckJNI chunk starting with a serial number is active.
+// If CheckJNI is (or was) enabled, some entries can be marked as blocked instead and
+// only one other entry in a CheckJNI chunk is active.
 //
 // Valid bit patterns:
-//                   33222222222211111111110000000000
-//                   10987654321098765432109876543210
-//   null:           00000000000000000000000000000000  // Only above the top index.
-//   reference:      <----- reference value ----->000  // See also `kObjectAlignment`.
-//   free:           <-------- next free --------->01
-//   serial number:  <------ serial number ------->10  // CheckJNI entry.
-// Note that serial number entries can appear only as the first entry of a 16-byte aligned
-// chunk of four entries and the serial number in the range [1, 3] specifies which of the
-// other three entries in the chunk is currently used.
+//              33222222222211111111110000000000
+//              10987654321098765432109876543210
+//   null:      00000000000000000000000000000000  // Only above the top index.
+//   reference: <----- reference value ----->000  // See also `kObjectAlignment`.
+//   free:      <-------- next free --------->01
+//   blocked:   00000000000000000000000000000010  // Blocked CheckJNI entry.
+// Note that blocked entries must fill all non-active entries in an aligned chunk of entries
+// (`kCheckJniEntriesPerReference`) while the active entry is either a reference or free.
 class LrtEntry {
  public:
   void SetReference(ObjPtr<mirror::Object> ref) REQUIRES_SHARED(Locks::mutator_lock_);
@@ -143,7 +142,7 @@ class LrtEntry {
 
   uint32_t GetNextFree() {
     DCHECK(IsFree());
-    DCHECK(!IsSerialNumber());
+    DCHECK(!IsBlocked());
     return NextFreeField::Decode(GetRawValue());
   }
 
@@ -151,20 +150,10 @@ class LrtEntry {
     return (GetRawValue() & (1u << kFlagFree)) != 0u;
   }
 
-  void SetSerialNumber(uint32_t serial_number) REQUIRES_SHARED(Locks::mutator_lock_);
+  void SetBlocked() REQUIRES_SHARED(Locks::mutator_lock_);
 
-  uint32_t GetSerialNumber() {
-    DCHECK(IsSerialNumber());
-    DCHECK(!IsFree());
-    return GetSerialNumberUnchecked();
-  }
-
-  uint32_t GetSerialNumberUnchecked() {
-    return SerialNumberField::Decode(GetRawValue());
-  }
-
-  bool IsSerialNumber() {
-    return (GetRawValue() & (1u << kFlagSerialNumber)) != 0u;
+  bool IsBlocked() {
+    return (GetRawValue() & (1u << kFlagBlocked)) != 0u;
   }
 
   GcRoot<mirror::Object>* GetRootAddress() {
@@ -178,15 +167,14 @@ class LrtEntry {
  private:
   // Definitions of bit fields and flags.
   static constexpr size_t kFlagFree = 0u;
-  static constexpr size_t kFlagSerialNumber = kFlagFree + 1u;
-  static constexpr size_t kFieldNextFree = kFlagSerialNumber + 1u;
+  static constexpr size_t kFlagBlocked = kFlagFree + 1u;
+  static constexpr size_t kFieldNextFree = kFlagBlocked + 1u;
   static constexpr size_t kFieldNextFreeBits = BitSizeOf<uint32_t>() - kFieldNextFree;
 
   using NextFreeField = BitField<uint32_t, kFieldNextFree, kFieldNextFreeBits>;
-  using SerialNumberField = NextFreeField;
 
   static_assert(kObjectAlignment > (1u << kFlagFree));
-  static_assert(kObjectAlignment > (1u << kFlagSerialNumber));
+  static_assert(kObjectAlignment > (1u << kFlagBlocked));
 
   void SetVRegValue(uint32_t value) REQUIRES_SHARED(Locks::mutator_lock_);
 
@@ -195,8 +183,8 @@ class LrtEntry {
   }
 
   // We record the contents as a `GcRoot<>` but it is an actual `GcRoot<>` only if it's below
-  // the current segment's top index, it's not a "serial number" or inactive entry in a CheckJNI
-  // chunk, and it's not marked as "free". Such entries are never null.
+  // the current segment's top index, it's not a blocked entry in a CheckJNI chunk,
+  // and it's not marked as "free". Such entries are never null.
   GcRoot<mirror::Object> root_;
 };
 static_assert(sizeof(LrtEntry) == sizeof(mirror::CompressedReference<mirror::Object>));
@@ -366,8 +354,8 @@ class LocalReferenceTable {
       FirstFreeField::Update(kFreeListEnd, 0u);  // kFlagCheckJni not set.
 
   // The number of entries per reference to detect obsolete reference uses with CheckJNI enabled.
-  // The first entry serves as a serial number, one of the remaining entries can hold the actual
-  // reference or the next free index.
+  // Only one entry is active and holds the actual reference or the next free index, all other
+  // entries in the chunk are blocked.
   static constexpr size_t kCheckJniEntriesPerReference = 4u;
   static_assert(IsPowerOfTwo(kCheckJniEntriesPerReference));
 
@@ -424,16 +412,11 @@ class LocalReferenceTable {
   // point to one of the internal tables.
   uint32_t GetReferenceEntryIndex(IndirectRef iref) const;
 
-  static LrtEntry* GetCheckJniSerialNumberEntry(LrtEntry* entry) {
+  static LrtEntry* GetCheckJniChunkStart(LrtEntry* entry) {
     return AlignDown(entry, kCheckJniEntriesPerReference * sizeof(LrtEntry));
   }
 
-  static uint32_t IncrementSerialNumber(LrtEntry* serial_number_entry)
-      REQUIRES_SHARED(Locks::mutator_lock_);
-
-  static bool IsValidSerialNumber(uint32_t serial_number) {
-    return serial_number != 0u && serial_number < kCheckJniEntriesPerReference;
-  }
+  LrtEntry* GetCheckJniSiblingEntry(LrtEntry* entry) const;
 
   // Debug mode check that the reference is valid.
   void DCheckValidReference(IndirectRef iref) const REQUIRES_SHARED(Locks::mutator_lock_);

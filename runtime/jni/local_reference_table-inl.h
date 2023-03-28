@@ -34,12 +34,12 @@ inline void LrtEntry::SetReference(ObjPtr<mirror::Object> ref) {
   root_ = GcRoot<mirror::Object>(
       mirror::CompressedReference<mirror::Object>::FromMirrorPtr(ref.Ptr()));
   DCHECK(!IsFree());
-  DCHECK(!IsSerialNumber());
+  DCHECK(!IsBlocked());
 }
 
 inline ObjPtr<mirror::Object> LrtEntry::GetReference() {
   DCHECK(!IsFree());
-  DCHECK(!IsSerialNumber());
+  DCHECK(!IsBlocked());
   DCHECK(!IsNull());
   // Local references do not need read barriers. They are marked during the thread root flip.
   return root_.Read<kWithoutReadBarrier>();
@@ -48,13 +48,13 @@ inline ObjPtr<mirror::Object> LrtEntry::GetReference() {
 inline void LrtEntry::SetNextFree(uint32_t next_free) {
   SetVRegValue(NextFreeField::Update(next_free, 1u << kFlagFree));
   DCHECK(IsFree());
-  DCHECK(!IsSerialNumber());
+  DCHECK(!IsBlocked());
 }
 
-inline void LrtEntry::SetSerialNumber(uint32_t serial_number) {
-  SetVRegValue(SerialNumberField::Update(serial_number, 1u << kFlagSerialNumber));
+inline void LrtEntry::SetBlocked() {
+  SetVRegValue(1u << kFlagBlocked);
   DCHECK(!IsFree());
-  DCHECK(IsSerialNumber());
+  DCHECK(IsBlocked());
 }
 
 inline void LrtEntry::SetVRegValue(uint32_t value) {
@@ -86,6 +86,20 @@ inline uint32_t LocalReferenceTable::GetReferenceEntryIndex(IndirectRef iref) co
   return std::numeric_limits<uint32_t>::max();
 }
 
+inline LrtEntry* LocalReferenceTable::GetCheckJniSiblingEntry(LrtEntry* entry) const {
+  uint32_t debug_entry_index = 0u;
+  if (kIsDebugBuild) {
+    debug_entry_index = GetReferenceEntryIndex(ToIndirectRef(entry));
+    CHECK_LT(debug_entry_index, segment_state_.top_index);
+    uint32_t check_jni_start_index = RoundDown(debug_entry_index, kCheckJniEntriesPerReference);
+    CHECK_LE(check_jni_start_index + kCheckJniEntriesPerReference, segment_state_.top_index);
+  }
+  LrtEntry* sibling_entry =
+      reinterpret_cast<LrtEntry*>(reinterpret_cast<uintptr_t>(entry) ^ sizeof(LrtEntry));
+  DCHECK_EQ(sibling_entry, GetEntry(debug_entry_index ^ 1u));
+  return sibling_entry;
+}
+
 inline bool LocalReferenceTable::IsValidReference(IndirectRef iref,
                                                   /*out*/std::string* error_msg) const {
   uint32_t entry_index = GetReferenceEntryIndex(iref);
@@ -100,21 +114,52 @@ inline bool LocalReferenceTable::IsValidReference(IndirectRef iref,
     return false;
   }
   LrtEntry* entry = ToLrtEntry(iref);
-  LrtEntry* serial_number_entry = GetCheckJniSerialNumberEntry(entry);
-  if (serial_number_entry->IsSerialNumber()) {
-    // This reference was created with CheckJNI enabled.
-    uint32_t expected_serial_number = serial_number_entry->GetSerialNumber();
-    uint32_t serial_number = entry - serial_number_entry;
-    DCHECK_LT(serial_number, kCheckJniEntriesPerReference);
-    if (serial_number != expected_serial_number || serial_number == 0u) {
-      *error_msg = android::base::StringPrintf(
-          "reference at index %u with bad serial number %u v. %u (valid 1 - %u)",
-          entry_index,
-          serial_number,
-          expected_serial_number,
-          dchecked_integral_cast<uint32_t>(kCheckJniEntriesPerReference - 1u));
-      return false;
+  uint32_t check_jni_start_index = RoundDown(entry_index, kCheckJniEntriesPerReference);
+  if (segment_state_.top_index >= check_jni_start_index + kCheckJniEntriesPerReference) {
+    if (entry->IsBlocked() || GetCheckJniSiblingEntry(entry)->IsBlocked()) {
+      // Verify the CheckJNI chunk. There should be exactly one active entry.
+      LrtEntry* start_entry = GetCheckJniChunkStart(entry);
+      LrtEntry* active_entry = nullptr;
+      for (size_t i = 0; i != kCheckJniEntriesPerReference; ++i) {
+        LrtEntry* current_entry = &start_entry[i];
+        DCHECK_EQ(current_entry, GetEntry(check_jni_start_index + i));
+        if (!current_entry->IsBlocked()) {
+          if (active_entry == nullptr) {
+            active_entry = current_entry;
+          } else {
+            // Multiple active entries imply corrupted CheckJNI chunk.
+            active_entry = nullptr;
+            break;
+          }
+        }
+      }
+      if (active_entry == nullptr) {
+        *error_msg = android::base::StringPrintf(
+            "reference at index %u in a corrupted CheckJNI chunk in a table of size %u",
+            entry_index,
+            segment_state_.top_index);
+        return false;
+      }
+      if (entry->IsBlocked()) {
+        // This is akin to serial number mismatch.
+        // Note: Unsigned arithmetic is OK even if the `active_entry` is before the `entry`.
+        uint32_t active_index = entry_index + static_cast<uint32_t>(active_entry - entry);
+        DCHECK_EQ(active_entry, GetEntry(active_index));
+        DCHECK_NE(active_index, entry_index);
+        *error_msg = android::base::StringPrintf(
+            "blocked reference at index %u in a table of size %u, active entry is %u",
+            entry_index,
+            segment_state_.top_index,
+            active_index);
+        return false;
+      }
     }
+  } else if (entry->IsBlocked()) {
+    *error_msg = android::base::StringPrintf(
+        "blocked (corrupted) reference at index %u in a table of size %u",
+        entry_index,
+        segment_state_.top_index);
+    return false;
   }
   if (UNLIKELY(entry->IsFree())) {
     *error_msg = android::base::StringPrintf("deleted reference at index %u", entry_index);

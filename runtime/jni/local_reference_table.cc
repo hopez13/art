@@ -248,20 +248,6 @@ inline void LocalReferenceTable::PrunePoppedFreeEntries(EntryGetter&& get_entry)
   free_entries_list_ = FirstFreeField::Update(free_entry_index, free_entries_list);
 }
 
-inline uint32_t LocalReferenceTable::IncrementSerialNumber(LrtEntry* serial_number_entry) {
-  DCHECK_EQ(serial_number_entry, GetCheckJniSerialNumberEntry(serial_number_entry));
-  // The old serial number can be 0 if it was not used before. It can also be bits from the
-  // representation of an object reference, or a link to the next free entry written in this
-  // slot before enabling the CheckJNI. (Some gtests repeatedly enable and disable CheckJNI.)
-  uint32_t old_serial_number =
-      serial_number_entry->GetSerialNumberUnchecked() % kCheckJniEntriesPerReference;
-  uint32_t new_serial_number =
-      (old_serial_number + 1u) != kCheckJniEntriesPerReference ? old_serial_number + 1u : 1u;
-  DCHECK(IsValidSerialNumber(new_serial_number));
-  serial_number_entry->SetSerialNumber(new_serial_number);
-  return new_serial_number;
-}
-
 IndirectRef LocalReferenceTable::Add(LRTSegmentState previous_state,
                                      ObjPtr<mirror::Object> obj,
                                      std::string* error_msg) {
@@ -314,8 +300,11 @@ IndirectRef LocalReferenceTable::Add(LRTSegmentState previous_state,
         DCHECK_LT(first_free_index, segment_state_.top_index);  // Popped entries pruned above.
         LrtEntry* free_entry = get_entry(first_free_index);
         // Use the `free_entry` only if it was created with CheckJNI disabled.
-        LrtEntry* serial_number_entry = GetCheckJniSerialNumberEntry(free_entry);
-        if (!serial_number_entry->IsSerialNumber()) {
+        uint32_t check_jni_start_index = RoundDown(first_free_index, kCheckJniEntriesPerReference);
+        bool is_check_jni_entry =
+            (top_index >= check_jni_start_index + kCheckJniEntriesPerReference) &&
+            GetCheckJniSiblingEntry(free_entry)->IsBlocked();
+        if (!is_check_jni_entry) {
           free_entries_list_ = FirstFreeField::Update(free_entry->GetNextFree(), 0u);
           return store_obj(free_entry, "small_table/reuse-empty-slot");
         }
@@ -339,16 +328,18 @@ IndirectRef LocalReferenceTable::Add(LRTSegmentState previous_state,
     // Reuse the free entry if it was created with the same CheckJNI setting.
     DCHECK_LT(first_free_index, top_index);  // Popped entries have been pruned above.
     LrtEntry* free_entry = GetEntry(first_free_index);
-    LrtEntry* serial_number_entry = GetCheckJniSerialNumberEntry(free_entry);
-    if (serial_number_entry->IsSerialNumber() == IsCheckJniEnabled()) {
+    uint32_t check_jni_start_index = RoundDown(first_free_index, kCheckJniEntriesPerReference);
+    bool is_check_jni_entry =
+        (top_index >= check_jni_start_index + kCheckJniEntriesPerReference) &&
+        GetCheckJniSiblingEntry(free_entry)->IsBlocked();
+    if (is_check_jni_entry == IsCheckJniEnabled()) {
       free_entries_list_ = FirstFreeField::Update(free_entry->GetNextFree(), free_entries_list_);
       if (UNLIKELY(IsCheckJniEnabled())) {
-        DCHECK_NE(free_entry, serial_number_entry);
-        uint32_t serial_number = IncrementSerialNumber(serial_number_entry);
-        free_entry = serial_number_entry + serial_number;
-        DCHECK_EQ(
-            free_entry,
-            GetEntry(RoundDown(first_free_index, kCheckJniEntriesPerReference) + serial_number));
+        free_entry->SetBlocked();
+        uint32_t serial_number =
+            (first_free_index - check_jni_start_index + 1u) % kCheckJniEntriesPerReference;
+        free_entry = GetCheckJniChunkStart(free_entry) + serial_number;
+        DCHECK_EQ(free_entry, GetEntry(check_jni_start_index + serial_number));
       }
       return store_obj(free_entry, "reuse-empty-slot");
     }
@@ -395,9 +386,18 @@ IndirectRef LocalReferenceTable::Add(LRTSegmentState previous_state,
     DCHECK_ALIGNED(top_index, kCheckJniEntriesPerReference);
     DCHECK_ALIGNED(previous_state.top_index, kCheckJniEntriesPerReference);
     DCHECK_ALIGNED(max_entries_, kCheckJniEntriesPerReference);
-    LrtEntry* serial_number_entry = GetEntry(top_index);
-    uint32_t serial_number = IncrementSerialNumber(serial_number_entry);
-    LrtEntry* free_entry = serial_number_entry + serial_number;
+    LrtEntry* chunk_start = GetEntry(top_index);
+    size_t serial_number = kCheckJniEntriesPerReference;
+    for (size_t i = 0u; i != kCheckJniEntriesPerReference; ++i) {
+      LrtEntry* current_entry = &chunk_start[i];
+      DCHECK_EQ(current_entry, GetEntry(top_index + i));
+      if (!current_entry->IsBlocked()) {
+        serial_number = i;
+      }
+      current_entry->SetBlocked();
+    }
+    serial_number = (serial_number + 1u) % kCheckJniEntriesPerReference;
+    LrtEntry* free_entry = chunk_start + serial_number;
     DCHECK_EQ(free_entry, GetEntry(top_index + serial_number));
     segment_state_.top_index = top_index + kCheckJniEntriesPerReference;
     return store_obj(free_entry, "slow-path/check-jni");
@@ -486,11 +486,12 @@ bool LocalReferenceTable::Remove(LRTSegmentState previous_state, IndirectRef ire
   // Check if we're removing the top entry (created with any CheckJNI setting).
   bool is_top_entry = false;
   uint32_t prune_end = entry_index;
-  if (GetCheckJniSerialNumberEntry(entry)->IsSerialNumber()) {
-    LrtEntry* serial_number_entry = GetCheckJniSerialNumberEntry(entry);
-    uint32_t serial_number = dchecked_integral_cast<uint32_t>(entry - serial_number_entry);
-    DCHECK_EQ(serial_number, serial_number_entry->GetSerialNumber());
-    prune_end = entry_index - serial_number;
+  uint32_t check_jni_start_index = RoundDown(entry_index, kCheckJniEntriesPerReference);
+  bool is_check_jni_entry =
+      (top_index >= check_jni_start_index + kCheckJniEntriesPerReference) &&
+      GetCheckJniSiblingEntry(entry)->IsBlocked();
+  if (is_check_jni_entry) {
+    prune_end = check_jni_start_index;
     is_top_entry = (prune_end == top_index - kCheckJniEntriesPerReference);
   } else {
     is_top_entry = (entry_index == top_index - 1u);
@@ -515,22 +516,32 @@ bool LocalReferenceTable::Remove(LRTSegmentState previous_state, IndirectRef ire
     if (UNLIKELY(IsCheckJniEnabled())) {
       auto is_prev_entry_free = [&](size_t index) {
         DCHECK_ALIGNED(index, kCheckJniEntriesPerReference);
-        LrtEntry* serial_number_entry = GetEntry(index - kCheckJniEntriesPerReference);
-        DCHECK_ALIGNED(serial_number_entry, kCheckJniEntriesPerReference * sizeof(LrtEntry));
-        if (!serial_number_entry->IsSerialNumber()) {
+        LrtEntry* chunk_start = GetEntry(index - kCheckJniEntriesPerReference);
+        DCHECK_ALIGNED(chunk_start, kCheckJniEntriesPerReference * sizeof(LrtEntry));
+        if (chunk_start->IsFree()) {
+          DCHECK_EQ(&chunk_start[1], GetEntry(index - kCheckJniEntriesPerReference + 1u));
+          return chunk_start[1].IsBlocked();  // Check if this is a CheckJNI chunk.
+        }
+        if (!chunk_start->IsBlocked()) {  // Check if this is a CheckJNI chunk.
           return false;
         }
-        uint32_t serial_number = serial_number_entry->GetSerialNumber();
-        DCHECK(IsValidSerialNumber(serial_number));
-        LrtEntry* entry = serial_number_entry + serial_number;
-        DCHECK_EQ(entry, GetEntry(prune_start - kCheckJniEntriesPerReference + serial_number));
-        return entry->IsFree();
+        for (size_t i = 1u; i != kCheckJniEntriesPerReference; ++i) {
+          DCHECK_EQ(&chunk_start[i], GetEntry(index - kCheckJniEntriesPerReference + i));
+          if (!chunk_start[i].IsBlocked()) {
+            return chunk_start[i].IsFree();
+          }
+        }
+        LOG(FATAL) << "Corrupted CheckJNI chunk, all entries blocked!";
+        UNREACHABLE();
       };
       find_prune_range(kCheckJniEntriesPerReference, is_prev_entry_free);
     } else {
       auto is_prev_entry_free = [&](size_t index) {
         LrtEntry* entry = GetEntry(index - 1u);
-        return entry->IsFree() && !GetCheckJniSerialNumberEntry(entry)->IsSerialNumber();
+        DCHECK_IMPLIES((index % kCheckJniEntriesPerReference) == 0u,
+                       GetCheckJniSiblingEntry(entry) == entry - 1);
+        return entry->IsFree() &&
+               ((index % kCheckJniEntriesPerReference) != 0u || !entry[-1].IsBlocked());
       };
       find_prune_range(1u, is_prev_entry_free);
     }
@@ -626,18 +637,9 @@ void LocalReferenceTable::Trim() {
 template <typename Visitor>
 void LocalReferenceTable::VisitRootsInternal(Visitor&& visitor) const {
   auto visit_table = [&](LrtEntry* table, size_t count) REQUIRES_SHARED(Locks::mutator_lock_) {
-    for (size_t i = 0; i != count; ) {
-      LrtEntry* entry;
-      if (i % kCheckJniEntriesPerReference == 0u && table[i].IsSerialNumber()) {
-        entry = &table[i + table[i].GetSerialNumber()];
-        i += kCheckJniEntriesPerReference;
-        DCHECK_LE(i, count);
-      } else {
-        entry = &table[i];
-        i += 1u;
-      }
-      DCHECK(!entry->IsSerialNumber());
-      if (!entry->IsFree()) {
+    for (size_t i = 0; i != count; ++i) {
+      LrtEntry* entry = &table[i];
+      if (!entry->IsFree() && !entry->IsBlocked()) {
         GcRoot<mirror::Object>* root = entry->GetRootAddress();
         DCHECK(!root->IsNull());
         visitor(root);
