@@ -2261,10 +2261,11 @@ size_t OatWriter::InitOatCode(size_t offset) {
   size_executable_offset_alignment_ = offset - old_offset;
   if (GetCompilerOptions().IsBootImage() && primary_oat_file_) {
     InstructionSet instruction_set = compiler_options_.GetInstructionSet();
-    const bool generate_debug_info = GetCompilerOptions().GenerateAnyDebugInfo();
-    size_t adjusted_offset = offset;
+    if (instruction_set != InstructionSet::kRiscv64) {
+      const bool generate_debug_info = GetCompilerOptions().GenerateAnyDebugInfo();
+      size_t adjusted_offset = offset;
 
-    #define DO_TRAMPOLINE(field, fn_name)                                                 \
+#define DO_TRAMPOLINE(field, fn_name)                                                     \
       /* Pad with at least four 0xFFs so we can do DCHECKs in OatQuickMethodHeader */     \
       offset = CompiledCode::AlignCode(offset + 4, instruction_set);                      \
       adjusted_offset = offset + GetInstructionSetEntryPointAdjustment(instruction_set);  \
@@ -2282,15 +2283,15 @@ size_t OatWriter::InitOatCode(size_t offset) {
       }                                                                                   \
       offset += (field)->size();
 
-    DO_TRAMPOLINE(jni_dlsym_lookup_trampoline_, JniDlsymLookupTrampoline);
-    DO_TRAMPOLINE(jni_dlsym_lookup_critical_trampoline_, JniDlsymLookupCriticalTrampoline);
-    DO_TRAMPOLINE(quick_generic_jni_trampoline_, QuickGenericJniTrampoline);
-    DO_TRAMPOLINE(quick_imt_conflict_trampoline_, QuickImtConflictTrampoline);
-    DO_TRAMPOLINE(quick_resolution_trampoline_, QuickResolutionTrampoline);
-    DO_TRAMPOLINE(quick_to_interpreter_bridge_, QuickToInterpreterBridge);
-    DO_TRAMPOLINE(nterp_trampoline_, NterpTrampoline);
-
-    #undef DO_TRAMPOLINE
+      DO_TRAMPOLINE(jni_dlsym_lookup_trampoline_, JniDlsymLookupTrampoline);
+      DO_TRAMPOLINE(jni_dlsym_lookup_critical_trampoline_, JniDlsymLookupCriticalTrampoline);
+      DO_TRAMPOLINE(quick_generic_jni_trampoline_, QuickGenericJniTrampoline);
+      DO_TRAMPOLINE(quick_imt_conflict_trampoline_, QuickImtConflictTrampoline);
+      DO_TRAMPOLINE(quick_resolution_trampoline_, QuickResolutionTrampoline);
+      DO_TRAMPOLINE(quick_to_interpreter_bridge_, QuickToInterpreterBridge);
+      DO_TRAMPOLINE(nterp_trampoline_, NterpTrampoline);
+#undef DO_TRAMPOLINE
+    }
   } else {
     oat_header_->SetJniDlsymLookupTrampolineOffset(0);
     oat_header_->SetJniDlsymLookupCriticalTrampolineOffset(0);
@@ -3065,27 +3066,27 @@ size_t OatWriter::WriteBcpBssInfo(OutputStream* out, size_t file_offset, size_t 
 }
 
 size_t OatWriter::WriteCode(OutputStream* out, size_t file_offset, size_t relative_offset) {
-  if (GetCompilerOptions().IsBootImage() && primary_oat_file_) {
-    InstructionSet instruction_set = compiler_options_.GetInstructionSet();
-
-    #define DO_TRAMPOLINE(field) \
-      do { \
-        /* Pad with at least four 0xFFs so we can do DCHECKs in OatQuickMethodHeader */ \
-        uint32_t aligned_offset = CompiledCode::AlignCode(relative_offset + 4, instruction_set); \
-        uint32_t alignment_padding = aligned_offset - relative_offset; \
-        for (size_t i = 0; i < alignment_padding; i++) { \
-          uint8_t padding = 0xFF; \
-          out->WriteFully(&padding, 1); \
-        } \
-        size_trampoline_alignment_ += alignment_padding; \
-        if (!out->WriteFully((field)->data(), (field)->size())) { \
-          PLOG(ERROR) << "Failed to write " # field " to " << out->GetLocation(); \
-          return false; \
-        } \
-        size_ ## field += (field)->size(); \
-        relative_offset += alignment_padding + (field)->size(); \
-        DCHECK_OFFSET(); \
-      } while (false)
+  InstructionSet instruction_set = compiler_options_.GetInstructionSet();
+  if (instruction_set != InstructionSet::kRiscv64 &&
+      GetCompilerOptions().IsBootImage() && primary_oat_file_) {
+#define DO_TRAMPOLINE(field) \
+    do { \
+      /* Pad with at least four 0xFFs so we can do DCHECKs in OatQuickMethodHeader */ \
+      uint32_t aligned_offset = CompiledCode::AlignCode(relative_offset + 4, instruction_set); \
+      uint32_t alignment_padding = aligned_offset - relative_offset; \
+      for (size_t i = 0; i < alignment_padding; i++) { \
+        uint8_t padding = 0xFF; \
+        out->WriteFully(&padding, 1); \
+      } \
+      size_trampoline_alignment_ += alignment_padding; \
+      if (!out->WriteFully((field)->data(), (field)->size())) { \
+        PLOG(ERROR) << "Failed to write " # field " to " << out->GetLocation(); \
+        return false; \
+      } \
+      size_ ## field += (field)->size(); \
+      relative_offset += alignment_padding + (field)->size(); \
+      DCHECK_OFFSET(); \
+    } while (false)
 
     DO_TRAMPOLINE(jni_dlsym_lookup_trampoline_);
     DO_TRAMPOLINE(jni_dlsym_lookup_critical_trampoline_);
@@ -3094,7 +3095,7 @@ size_t OatWriter::WriteCode(OutputStream* out, size_t file_offset, size_t relati
     DO_TRAMPOLINE(quick_resolution_trampoline_);
     DO_TRAMPOLINE(quick_to_interpreter_bridge_);
     DO_TRAMPOLINE(nterp_trampoline_);
-    #undef DO_TRAMPOLINE
+#undef DO_TRAMPOLINE
   }
   return relative_offset;
 }
