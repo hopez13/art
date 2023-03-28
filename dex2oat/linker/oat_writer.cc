@@ -2261,36 +2261,37 @@ size_t OatWriter::InitOatCode(size_t offset) {
   size_executable_offset_alignment_ = offset - old_offset;
   if (GetCompilerOptions().IsBootImage() && primary_oat_file_) {
     InstructionSet instruction_set = compiler_options_.GetInstructionSet();
-    const bool generate_debug_info = GetCompilerOptions().GenerateAnyDebugInfo();
-    size_t adjusted_offset = offset;
+    if (instruction_set != InstructionSet::kRiscv64) {
+      const bool generate_debug_info = GetCompilerOptions().GenerateAnyDebugInfo();
+      size_t adjusted_offset = offset;
 
-    #define DO_TRAMPOLINE(field, fn_name)                                                 \
-      /* Pad with at least four 0xFFs so we can do DCHECKs in OatQuickMethodHeader */     \
-      offset = CompiledCode::AlignCode(offset + 4, instruction_set);                      \
-      adjusted_offset = offset + GetInstructionSetEntryPointAdjustment(instruction_set);  \
-      oat_header_->Set ## fn_name ## Offset(adjusted_offset);                             \
-      (field) = compiler_driver_->Create ## fn_name();                                    \
-      if (generate_debug_info) {                                                          \
-        debug::MethodDebugInfo info = {};                                                 \
-        info.custom_name = #fn_name;                                                      \
-        info.isa = instruction_set;                                                       \
-        info.is_code_address_text_relative = true;                                        \
-        /* Use the code offset rather than the `adjusted_offset`. */                      \
-        info.code_address = offset - oat_header_->GetExecutableOffset();                  \
-        info.code_size = (field)->size();                                                 \
-        method_info_.push_back(std::move(info));                                          \
-      }                                                                                   \
-      offset += (field)->size();
+      #define DO_TRAMPOLINE(field, fn_name)                                                 \
+        /* Pad with at least four 0xFFs so we can do DCHECKs in OatQuickMethodHeader */     \
+        offset = CompiledCode::AlignCode(offset + 4, instruction_set);                      \
+        adjusted_offset = offset + GetInstructionSetEntryPointAdjustment(instruction_set);  \
+        oat_header_->Set ## fn_name ## Offset(adjusted_offset);                             \
+        (field) = compiler_driver_->Create ## fn_name();                                    \
+        if (generate_debug_info) {                                                          \
+          debug::MethodDebugInfo info = {};                                                 \
+          info.custom_name = #fn_name;                                                      \
+          info.isa = instruction_set;                                                       \
+          info.is_code_address_text_relative = true;                                        \
+          /* Use the code offset rather than the `adjusted_offset`. */                      \
+          info.code_address = offset - oat_header_->GetExecutableOffset();                  \
+          info.code_size = (field)->size();                                                 \
+          method_info_.push_back(std::move(info));                                          \
+        }                                                                                   \
+        offset += (field)->size();
 
-    DO_TRAMPOLINE(jni_dlsym_lookup_trampoline_, JniDlsymLookupTrampoline);
-    DO_TRAMPOLINE(jni_dlsym_lookup_critical_trampoline_, JniDlsymLookupCriticalTrampoline);
-    DO_TRAMPOLINE(quick_generic_jni_trampoline_, QuickGenericJniTrampoline);
-    DO_TRAMPOLINE(quick_imt_conflict_trampoline_, QuickImtConflictTrampoline);
-    DO_TRAMPOLINE(quick_resolution_trampoline_, QuickResolutionTrampoline);
-    DO_TRAMPOLINE(quick_to_interpreter_bridge_, QuickToInterpreterBridge);
-    DO_TRAMPOLINE(nterp_trampoline_, NterpTrampoline);
-
-    #undef DO_TRAMPOLINE
+      DO_TRAMPOLINE(jni_dlsym_lookup_trampoline_, JniDlsymLookupTrampoline);
+      DO_TRAMPOLINE(jni_dlsym_lookup_critical_trampoline_, JniDlsymLookupCriticalTrampoline);
+      DO_TRAMPOLINE(quick_generic_jni_trampoline_, QuickGenericJniTrampoline);
+      DO_TRAMPOLINE(quick_imt_conflict_trampoline_, QuickImtConflictTrampoline);
+      DO_TRAMPOLINE(quick_resolution_trampoline_, QuickResolutionTrampoline);
+      DO_TRAMPOLINE(quick_to_interpreter_bridge_, QuickToInterpreterBridge);
+      DO_TRAMPOLINE(nterp_trampoline_, NterpTrampoline);
+      #undef DO_TRAMPOLINE
+    }
   } else {
     oat_header_->SetJniDlsymLookupTrampolineOffset(0);
     oat_header_->SetJniDlsymLookupCriticalTrampolineOffset(0);
@@ -3065,9 +3066,9 @@ size_t OatWriter::WriteBcpBssInfo(OutputStream* out, size_t file_offset, size_t 
 }
 
 size_t OatWriter::WriteCode(OutputStream* out, size_t file_offset, size_t relative_offset) {
-  if (GetCompilerOptions().IsBootImage() && primary_oat_file_) {
-    InstructionSet instruction_set = compiler_options_.GetInstructionSet();
-
+  InstructionSet instruction_set = compiler_options_.GetInstructionSet();
+  if (instruction_set != InstructionSet::kRiscv64 &&
+      GetCompilerOptions().IsBootImage() && primary_oat_file_) {
     #define DO_TRAMPOLINE(field) \
       do { \
         /* Pad with at least four 0xFFs so we can do DCHECKs in OatQuickMethodHeader */ \
@@ -3086,7 +3087,7 @@ size_t OatWriter::WriteCode(OutputStream* out, size_t file_offset, size_t relati
         relative_offset += alignment_padding + (field)->size(); \
         DCHECK_OFFSET(); \
       } while (false)
-
+  
     DO_TRAMPOLINE(jni_dlsym_lookup_trampoline_);
     DO_TRAMPOLINE(jni_dlsym_lookup_critical_trampoline_);
     DO_TRAMPOLINE(quick_generic_jni_trampoline_);
