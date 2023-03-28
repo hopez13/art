@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7756fe0a_a7b79f4b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-03-28T18:47:10Z",
+      "side": 1,
+      "message": "Just few minor typos. Otherwise looks good.",
+      "revId": "983bf5f2426983282309a2fe1fee2a3dbf3cdae2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77e58c06_3552f686",
+        "filename": "runtime/mutator_gc_coord.md",
+        "patchSetId": 11
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-03-28T18:47:10Z",
+      "side": 1,
+      "message": "remove extra space?",
+      "range": {
+        "startLine": 233,
+        "startChar": 49,
+        "endLine": 233,
+        "endChar": 53
+      },
+      "revId": "983bf5f2426983282309a2fe1fee2a3dbf3cdae2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f66d25d8_cdd4f7da",
+        "filename": "runtime/mutator_gc_coord.md",
+        "patchSetId": 11
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-03-28T18:47:10Z",
+      "side": 1,
+      "message": "blocked?",
+      "range": {
+        "startLine": 233,
+        "startChar": 10,
+        "endLine": 233,
+        "endChar": 15
+      },
+      "revId": "983bf5f2426983282309a2fe1fee2a3dbf3cdae2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa8652d2_deadccb8",
+        "filename": "runtime/mutator_gc_coord.md",
+        "patchSetId": 11
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-03-28T18:47:10Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 234,
+        "startChar": 17,
+        "endLine": 234,
+        "endChar": 19
+      },
+      "revId": "983bf5f2426983282309a2fe1fee2a3dbf3cdae2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "430bce3e_e53891d5",
+        "filename": "runtime/thread.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 582,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-03-28T18:47:10Z",
+      "side": 1,
+      "message": "\u0027shared\u0027",
+      "range": {
+        "startLine": 582,
+        "startChar": 21,
+        "endLine": 582,
+        "endChar": 26
+      },
+      "revId": "983bf5f2426983282309a2fe1fee2a3dbf3cdae2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
