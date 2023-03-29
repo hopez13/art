@@ -179,6 +179,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "020ca5f6_dbacb5b7",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2010,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-29T15:25:19Z",
+      "side": 1,
+      "message": "But we do care about deterministic output. Even when upgrading libcxx (which can change `std::sort` behavior), the output should remain unchanged.",
+      "parentUuid": "f1874501_2599346d",
+      "range": {
+        "startLine": 2010,
+        "startChar": 7,
+        "endLine": 2010,
+        "endChar": 11
+      },
+      "revId": "3b957852be68f76297fec11f5994ed96f09e4578",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "418626ce_d62e763a",
         "filename": "dex2oat/linker/image_writer.cc",
         "patchSetId": 2
