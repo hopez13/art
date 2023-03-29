@@ -22,6 +22,23 @@
       },
       "revId": "b10a2375fa09bfc7fdc8dd01975bcf1029c31617",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3c85562_2745fddb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1882770
+      },
+      "writtenOn": "2023-03-29T12:22:46Z",
+      "side": 1,
+      "message": "I\u0027m not sure if this CL is still needed. It is created last Dec for build breakage. It is end of March now, we should have addressed the build breakage without this revert submitted.\n\nIf this is not needed, can we delete this revert. If it is still needed, I\u0027m also wondering why?",
+      "revId": "b10a2375fa09bfc7fdc8dd01975bcf1029c31617",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
