@@ -201,6 +201,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "486de8cc_1cae1073",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2010,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-03-29T18:04:36Z",
+      "side": 1,
+      "message": "Oh, right. Thanks a lot, fixed by using the original offset in comparator.",
+      "parentUuid": "020ca5f6_dbacb5b7",
+      "range": {
+        "startLine": 2010,
+        "startChar": 7,
+        "endLine": 2010,
+        "endChar": 11
+      },
+      "revId": "3b957852be68f76297fec11f5994ed96f09e4578",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "418626ce_d62e763a",

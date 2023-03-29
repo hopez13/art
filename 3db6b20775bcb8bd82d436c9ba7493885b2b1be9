@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5621e2e7_17e91154",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1979,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-03-29T18:04:36Z",
+      "side": 1,
+      "message": "I haven\u0027t used `imgdiag` multi-image data in such a way yet. But I guess that\u0027s a problem for a different CL.\nRemoved single-image requirement.",
+      "parentUuid": "c18be9ac_b568d697",
+      "range": {
+        "startLine": 1979,
+        "startChar": 2,
+        "endLine": 1979,
+        "endChar": 89
+      },
+      "revId": "3db6b20775bcb8bd82d436c9ba7493885b2b1be9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7fbe1718_55c9e97d",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-03-29T15:25:19Z",
       "side": 1,
       "message": "`DCHECK_LE`? Or move the `DCHECK_LT` before the `UpdateImageBinSlotOffset`? Check for equality after the loop?",
+      "range": {
+        "startLine": 2013,
+        "startChar": 4,
+        "endLine": 2013,
+        "endChar": 13
+      },
+      "revId": "3db6b20775bcb8bd82d436c9ba7493885b2b1be9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "89625664_e4784ec2",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2013,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-03-29T18:04:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7fbe1718_55c9e97d",
       "range": {
         "startLine": 2013,
         "startChar": 4,
