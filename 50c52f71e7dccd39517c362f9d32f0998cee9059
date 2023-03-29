@@ -210,6 +210,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c129700a_fcf97b03",
+        "filename": "runtime/jni/local_reference_table.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-03-29T03:39:36Z",
+      "side": 1,
+      "message": "I wouldn\u0027t call that leaking, though we would be less aggressive about avoiding fragmentation, would would effectively trade some space for a simper algorithm. I don\u0027t feel strongly either way.",
+      "parentUuid": "fc579a5b_c41a811e",
+      "range": {
+        "startLine": 110,
+        "startChar": 6,
+        "endLine": 110,
+        "endChar": 98
+      },
+      "revId": "50c52f71e7dccd39517c362f9d32f0998cee9059",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f236d600_e7b292f1",
@@ -294,6 +318,30 @@
       "side": 1,
       "message": "We want to skip 0.",
       "parentUuid": "37e5f4ec_bc767f22",
+      "range": {
+        "startLine": 254,
+        "startChar": 2,
+        "endLine": 257,
+        "endChar": 93
+      },
+      "revId": "50c52f71e7dccd39517c362f9d32f0998cee9059",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e57bb5e4_f841f823",
+        "filename": "runtime/jni/local_reference_table.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-03-29T03:39:36Z",
+      "side": 1,
+      "message": "Ack.",
+      "parentUuid": "8b6eb12d_3d2c3ea1",
       "range": {
         "startLine": 254,
         "startChar": 2,
@@ -529,6 +577,30 @@
       "side": 1,
       "message": "There is also a performance hit for an extra load from a distant memory location for `tables_[0]`. (If `std::vector\u003c\u003e` held it by value, there would be extra compare-and-branch instead.)\n\nAdded a comment.",
       "parentUuid": "afb3ee3f_232c2372",
+      "range": {
+        "startLine": 472,
+        "startChar": 2,
+        "endLine": 473,
+        "endChar": 67
+      },
+      "revId": "50c52f71e7dccd39517c362f9d32f0998cee9059",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d9741115_85b6b4ec",
+        "filename": "runtime/jni/local_reference_table.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 473,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-03-29T03:39:36Z",
+      "side": 1,
+      "message": "The semi-standard optimization inside vector would be to allocate a small table inside the vector object, and use that first as the initial array. That wouldn\u0027t avoid the indirection, but the two loads would probably be in the same cache line. But this is theoretical.",
+      "parentUuid": "c91ce770_01aac289",
       "range": {
         "startLine": 472,
         "startChar": 2,
