@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb06518a_9dd4798c",
+        "filename": "compiler/driver/compiler_options.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-29T11:44:42Z",
+      "side": 1,
+      "message": "Should we mark these workarounds with `TODO(riscv64)`?",
+      "range": {
+        "startLine": 119,
+        "startChar": 11,
+        "endLine": 119,
+        "endChar": 58
+      },
+      "revId": "eaf8002c1fd6932f4370c3ddda38e86b4d92579a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b0142d15_41e0e31d",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2264,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-29T11:44:42Z",
+      "side": 1,
+      "message": "I\u0027d prefer to explicitly set offsets to 0 for riscv64 but rather than adding an `else` block, just restructure the code using the same pattern as in `OatWriter::WriteCode()`.",
+      "range": {
+        "startLine": 2264,
+        "startChar": 4,
+        "endLine": 2264,
+        "endChar": 52
+      },
+      "revId": "eaf8002c1fd6932f4370c3ddda38e86b4d92579a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
