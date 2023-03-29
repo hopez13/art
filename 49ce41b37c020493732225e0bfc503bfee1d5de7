@@ -16,6 +16,230 @@
       "message": "LGTM for original code from Lifang (PS2).\nMy minor changes are diff PS2 PS4.\nUlya, please review.",
       "revId": "49ce41b37c020493732225e0bfc503bfee1d5de7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e433ffe7_8562110e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-03-29T11:15:51Z",
+      "side": 1,
+      "message": "Some nitpicking, no serious issues.",
+      "revId": "49ce41b37c020493732225e0bfc503bfee1d5de7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "87d85cff_fa33f33e",
+        "filename": "compiler/utils/riscv64/managed_register_riscv64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-03-29T11:15:51Z",
+      "side": 1,
+      "message": "I marked all TODOs for riscv64 as `TODO(riscv64)`. We may want to use this convention consistently so that it is easier to grep for all remaining TODOs.",
+      "range": {
+        "startLine": 36,
+        "startChar": 3,
+        "endLine": 36,
+        "endChar": 7
+      },
+      "revId": "49ce41b37c020493732225e0bfc503bfee1d5de7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7517bdaf_f3482d32",
+        "filename": "compiler/utils/riscv64/managed_register_riscv64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-03-29T11:15:51Z",
+      "side": 1,
+      "message": "Isn\u0027t MSA \"MIPS SIMD Architecture\"? Why is it here?",
+      "range": {
+        "startLine": 44,
+        "startChar": 17,
+        "endLine": 44,
+        "endChar": 20
+      },
+      "revId": "49ce41b37c020493732225e0bfc503bfee1d5de7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a3ebb1d_533aef60",
+        "filename": "compiler/utils/riscv64/managed_register_riscv64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-03-29T11:15:51Z",
+      "side": 1,
+      "message": "This should probably be `kNumberOfVRegIds`. I\u0027m not sure we should have comments for the V extension at all.",
+      "range": {
+        "startLine": 48,
+        "startChar": 17,
+        "endLine": 48,
+        "endChar": 35
+      },
+      "revId": "49ce41b37c020493732225e0bfc503bfee1d5de7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77da95da_70036ab1",
+        "filename": "compiler/utils/riscv64/managed_register_riscv64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-03-29T11:15:51Z",
+      "side": 1,
+      "message": "Same question about MSA",
+      "range": {
+        "startLine": 54,
+        "startChar": 12,
+        "endLine": 54,
+        "endChar": 15
+      },
+      "revId": "49ce41b37c020493732225e0bfc503bfee1d5de7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "badc04e8_224b6c0b",
+        "filename": "compiler/utils/riscv64/managed_register_riscv64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-03-29T11:15:51Z",
+      "side": 1,
+      "message": "`IsVRegister`, but I\u0027d prefer to remove the V comments at all until we add the V extension.",
+      "range": {
+        "startLine": 83,
+        "startChar": 11,
+        "endLine": 83,
+        "endChar": 27
+      },
+      "revId": "49ce41b37c020493732225e0bfc503bfee1d5de7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6868d534_a03c43e2",
+        "filename": "compiler/utils/riscv64/managed_register_riscv64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-03-29T11:15:51Z",
+      "side": 1,
+      "message": "`FromVRegister` (or remove).",
+      "range": {
+        "startLine": 102,
+        "startChar": 11,
+        "endLine": 102,
+        "endChar": 29
+      },
+      "revId": "49ce41b37c020493732225e0bfc503bfee1d5de7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ddf40b30_eb5fe309",
+        "filename": "compiler/utils/riscv64/managed_register_riscv64_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-03-29T11:15:51Z",
+      "side": 1,
+      "message": "Reorder blocks in this test by the X-order of registers?",
+      "range": {
+        "startLine": 85,
+        "startChar": 2,
+        "endLine": 85,
+        "endChar": 50
+      },
+      "revId": "49ce41b37c020493732225e0bfc503bfee1d5de7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b0f70001_bc2125cc",
+        "filename": "compiler/utils/riscv64/managed_register_riscv64_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-03-29T11:15:51Z",
+      "side": 1,
+      "message": "It is not entirely clear why three temporaries are tested (FT0, FT1 and FT11) but no callee-saves or argument registers.",
+      "range": {
+        "startLine": 92,
+        "startChar": 0,
+        "endLine": 92,
+        "endChar": 4
+      },
+      "revId": "49ce41b37c020493732225e0bfc503bfee1d5de7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f13f9c83_ad0b039a",
+        "filename": "compiler/utils/riscv64/managed_register_riscv64_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-03-29T11:15:51Z",
+      "side": 1,
+      "message": "Add FT11 case to the tests above for symmetry? It is unclear why permutations with FT11 are missing there.",
+      "range": {
+        "startLine": 160,
+        "startChar": 0,
+        "endLine": 160,
+        "endChar": 75
+      },
+      "revId": "49ce41b37c020493732225e0bfc503bfee1d5de7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
