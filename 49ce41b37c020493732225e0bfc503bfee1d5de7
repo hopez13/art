@@ -58,6 +58,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8b421d7_839fa224",
+        "filename": "compiler/utils/riscv64/managed_register_riscv64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-29T12:14:04Z",
+      "side": 1,
+      "message": "Removed.",
+      "parentUuid": "87d85cff_fa33f33e",
+      "range": {
+        "startLine": 36,
+        "startChar": 3,
+        "endLine": 36,
+        "endChar": 7
+      },
+      "revId": "49ce41b37c020493732225e0bfc503bfee1d5de7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7517bdaf_f3482d32",
@@ -71,6 +95,30 @@
       "writtenOn": "2023-03-29T11:15:51Z",
       "side": 1,
       "message": "Isn\u0027t MSA \"MIPS SIMD Architecture\"? Why is it here?",
+      "range": {
+        "startLine": 44,
+        "startChar": 17,
+        "endLine": 44,
+        "endChar": 20
+      },
+      "revId": "49ce41b37c020493732225e0bfc503bfee1d5de7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7181edf0_7c17d8c0",
+        "filename": "compiler/utils/riscv64/managed_register_riscv64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-29T12:14:04Z",
+      "side": 1,
+      "message": "Removed.",
+      "parentUuid": "7517bdaf_f3482d32",
       "range": {
         "startLine": 44,
         "startChar": 17,
@@ -104,6 +152,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7c84716_bbd3fba2",
+        "filename": "compiler/utils/riscv64/managed_register_riscv64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-29T12:14:04Z",
+      "side": 1,
+      "message": "Removed.",
+      "parentUuid": "5a3ebb1d_533aef60",
+      "range": {
+        "startLine": 48,
+        "startChar": 17,
+        "endLine": 48,
+        "endChar": 35
+      },
+      "revId": "49ce41b37c020493732225e0bfc503bfee1d5de7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "77da95da_70036ab1",
@@ -117,6 +189,30 @@
       "writtenOn": "2023-03-29T11:15:51Z",
       "side": 1,
       "message": "Same question about MSA",
+      "range": {
+        "startLine": 54,
+        "startChar": 12,
+        "endLine": 54,
+        "endChar": 15
+      },
+      "revId": "49ce41b37c020493732225e0bfc503bfee1d5de7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f86550f_8d140f62",
+        "filename": "compiler/utils/riscv64/managed_register_riscv64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-29T12:14:04Z",
+      "side": 1,
+      "message": "Removed.",
+      "parentUuid": "77da95da_70036ab1",
       "range": {
         "startLine": 54,
         "startChar": 12,
@@ -150,6 +246,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f7300e4_2dda0fc3",
+        "filename": "compiler/utils/riscv64/managed_register_riscv64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-29T12:14:04Z",
+      "side": 1,
+      "message": "Removed.",
+      "parentUuid": "badc04e8_224b6c0b",
+      "range": {
+        "startLine": 83,
+        "startChar": 11,
+        "endLine": 83,
+        "endChar": 27
+      },
+      "revId": "49ce41b37c020493732225e0bfc503bfee1d5de7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6868d534_a03c43e2",
@@ -163,6 +283,30 @@
       "writtenOn": "2023-03-29T11:15:51Z",
       "side": 1,
       "message": "`FromVRegister` (or remove).",
+      "range": {
+        "startLine": 102,
+        "startChar": 11,
+        "endLine": 102,
+        "endChar": 29
+      },
+      "revId": "49ce41b37c020493732225e0bfc503bfee1d5de7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f27dca8_435bc440",
+        "filename": "compiler/utils/riscv64/managed_register_riscv64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-29T12:14:04Z",
+      "side": 1,
+      "message": "Removed.",
+      "parentUuid": "6868d534_a03c43e2",
       "range": {
         "startLine": 102,
         "startChar": 11,
@@ -196,6 +340,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "809b23ff_6a344f0d",
+        "filename": "compiler/utils/riscv64/managed_register_riscv64_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-29T12:14:04Z",
+      "side": 1,
+      "message": "Rordered and added S2.",
+      "parentUuid": "ddf40b30_eb5fe309",
+      "range": {
+        "startLine": 85,
+        "startChar": 2,
+        "endLine": 85,
+        "endChar": 50
+      },
+      "revId": "49ce41b37c020493732225e0bfc503bfee1d5de7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b0f70001_bc2125cc",
@@ -219,6 +387,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b0acb287_80de0c92",
+        "filename": "compiler/utils/riscv64/managed_register_riscv64_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-29T12:14:04Z",
+      "side": 1,
+      "message": "Added a few registers.",
+      "parentUuid": "b0f70001_bc2125cc",
+      "range": {
+        "startLine": 92,
+        "startChar": 0,
+        "endLine": 92,
+        "endChar": 4
+      },
+      "revId": "49ce41b37c020493732225e0bfc503bfee1d5de7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f13f9c83_ad0b039a",
@@ -232,6 +424,30 @@
       "writtenOn": "2023-03-29T11:15:51Z",
       "side": 1,
       "message": "Add FT11 case to the tests above for symmetry? It is unclear why permutations with FT11 are missing there.",
+      "range": {
+        "startLine": 160,
+        "startChar": 0,
+        "endLine": 160,
+        "endChar": 75
+      },
+      "revId": "49ce41b37c020493732225e0bfc503bfee1d5de7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7414e82d_e56d2a7b",
+        "filename": "compiler/utils/riscv64/managed_register_riscv64_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-29T12:14:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f13f9c83_ad0b039a",
       "range": {
         "startLine": 160,
         "startChar": 0,
