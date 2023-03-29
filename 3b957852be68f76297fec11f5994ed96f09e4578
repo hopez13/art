@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f51c4383_efff0d1e",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1985,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-03-29T15:09:17Z",
+      "side": 1,
+      "message": "Thanks! Fixed if condition and comment",
+      "parentUuid": "321e862c_287b7584",
+      "range": {
+        "startLine": 1982,
+        "startChar": 2,
+        "endLine": 1985,
+        "endChar": 29
+      },
+      "revId": "3b957852be68f76297fec11f5994ed96f09e4578",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5ac0f78b_e806888d",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-03-24T15:37:30Z",
       "side": 1,
       "message": "Maybe it will be clearer if you define what `saved_hashcode_map` is? Also, maybe just do one `.end() comparison`, and put all the logic in if/else? eg:\n\n```\nif (it !\u003d saved_hashcode_map.end()) {\n   // This means that....\n} else {\n   // Not in the map, then we know the object is....\n}\n```",
+      "range": {
+        "startLine": 1990,
+        "startChar": 0,
+        "endLine": 1992,
+        "endChar": 50
+      },
+      "revId": "3b957852be68f76297fec11f5994ed96f09e4578",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b138cd57_9b2e103d",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1992,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-03-29T15:09:17Z",
+      "side": 1,
+      "message": "Rewrote the function",
+      "parentUuid": "5ac0f78b_e806888d",
       "range": {
         "startLine": 1990,
         "startChar": 0,
@@ -64,6 +112,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "732244cc_15b9a100",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2007,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-03-29T15:09:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8b088877_ca13d3c0",
+      "revId": "3b957852be68f76297fec11f5994ed96f09e4578",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8a625fa3_c1443da3",
@@ -87,6 +153,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f1874501_2599346d",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2010,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-03-29T15:09:17Z",
+      "side": 1,
+      "message": "The keys can have duplicates, but I don\u0027t think it\u0027s necessary to use `stable_sort`, because we don\u0027t care about the original object order.",
+      "parentUuid": "8a625fa3_c1443da3",
+      "range": {
+        "startLine": 2010,
+        "startChar": 7,
+        "endLine": 2010,
+        "endChar": 11
+      },
+      "revId": "3b957852be68f76297fec11f5994ed96f09e4578",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "418626ce_d62e763a",
@@ -100,6 +190,30 @@
       "writtenOn": "2023-03-27T07:46:04Z",
       "side": 1,
       "message": "Doing two lookups for each comparison is inefficient. It would be better to just allocate one chunk of memory for a `dchecked_vector\u003c\u003e` of `std::pair\u003cuint32_t, mirror::Object*\u003e` and pull the data into that, doing only one lookup per object.\n\nOne could also use a `std::tuple\u003cuint32_t, uint32_t, mirror::Object*\u003e`, adding the original offset as a secondary key to avoid `stable_sort`.",
+      "range": {
+        "startLine": 2013,
+        "startChar": 14,
+        "endLine": 2014,
+        "endChar": 52
+      },
+      "revId": "3b957852be68f76297fec11f5994ed96f09e4578",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dfc0c5c8_466ebdd1",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2014,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-03-29T15:09:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "418626ce_d62e763a",
       "range": {
         "startLine": 2013,
         "startChar": 14,
