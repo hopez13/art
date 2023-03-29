@@ -39,6 +39,30 @@
       },
       "revId": "8a477993d6e8da538dd29045afe18fecdc707dc1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bab92361_fbf13759",
+        "filename": "runtime/jni/local_reference_table.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-03-29T09:45:34Z",
+      "side": 1,
+      "message": "That would indeed simplify the code. But it would require adjusting the tests, so I\u0027d prefer to do that together with addressing the TODO about pruning in `Remove()`.\n\nI\u0027ll keep this CL open and I hope I\u0027ll get to it in not too distant future.",
+      "parentUuid": "baf53afb_340eae64",
+      "range": {
+        "startLine": 331,
+        "startChar": 4,
+        "endLine": 335,
+        "endChar": 52
+      },
+      "revId": "8a477993d6e8da538dd29045afe18fecdc707dc1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
