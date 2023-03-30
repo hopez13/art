@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4fcccbde_650a72ca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1010334
+      },
+      "writtenOn": "2023-03-30T17:19:52Z",
+      "side": 1,
+      "message": "How long do these trace sections last at runtime? There\u0027s an overhead of around 10us per trace sections, so as long as it\u0027s much longer than that, that\u0027s fine",
+      "revId": "d621284e79469832e017160aac3a2cd84bb4b80e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
