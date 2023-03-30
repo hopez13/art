@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6f24f090_9d59d581",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4499,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-03-30T17:59:45Z",
+      "side": 1,
+      "message": "@ngeoffray@google.com can you please review the diff between PS2 and PS1. I have added a log message for other GCs. And made some other fine-tuning changes to the log message in case of CC.",
+      "range": {
+        "startLine": 4498,
+        "startChar": 8,
+        "endLine": 4499,
+        "endChar": 94
+      },
+      "revId": "b236d2ed9ded8f832b0e56a931284d3db76ac34c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
