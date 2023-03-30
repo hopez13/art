@@ -77,6 +77,7 @@
 #include "handle_scope-inl.h"
 #include "indirect_reference_table-inl.h"
 #include "instrumentation.h"
+#include "intern_table.h"
 #include "interpreter/interpreter.h"
 #include "interpreter/shadow_frame-inl.h"
 #include "java_frame_root_info.h"
@@ -4476,8 +4477,17 @@ static void SweepCacheEntry(IsMarkedVisitor* visitor, const Instruction* inst, s
       mirror::Object* new_object = visitor->IsMarked(object);
       // We know the string is marked because it's a strongly-interned string that
       // is always alive (see b/117621117 for trying to make those strings weak).
-      CHECK_NE(new_object, nullptr) << "old-string:" << object;
-      if (new_object != object) {
+      if (new_object == nullptr) {
+        static constexpr size_t kSampleRate = 5;
+        if (gUseReadBarrier && MilliTime() % kSampleRate == 0) {
+          Runtime* runtime = Runtime::Current();
+          gc::collector::ConcurrentCopying* cc = runtime->GetHeap()->ConcurrentCopyingCollector();
+          LOG(FATAL) << cc->DumpHeapReference(object, MemberOffset(0), /*ref=*/nullptr)
+                     << " string interned:"
+                     << runtime->GetInternTable()->LookupStrong(Thread::Current(),
+                                                                down_cast<mirror::String*>(object));
+        }
+      } else if (new_object != object) {
         *value = reinterpret_cast<size_t>(new_object);
       }
       return;
