@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "29174627_9483bb5e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-04-03T09:35:39Z",
+      "side": 1,
+      "message": "Yes, it should be larger than that.",
+      "parentUuid": "4fcccbde_650a72ca",
+      "revId": "d621284e79469832e017160aac3a2cd84bb4b80e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fe22ff06_66ab4b2c",
@@ -31,6 +49,30 @@
       "writtenOn": "2023-03-31T07:41:36Z",
       "side": 1,
       "message": "I don\u0027t know about the overhead of `ScopedTrace` itself but the `StringPrintf()` can be quite expensive if it needs to allocate memory (for descriptors that push it beyond the short string optimization).\n\nHave you measured the performance impact of this change on app startup, for example?",
+      "range": {
+        "startLine": 3354,
+        "startChar": 2,
+        "endLine": 3354,
+        "endChar": 76
+      },
+      "revId": "d621284e79469832e017160aac3a2cd84bb4b80e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6713cd1c_ea4fb8a0",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3354,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-04-03T09:35:39Z",
+      "side": 1,
+      "message": "Yeah, I\u0027ve moved this to a lazy evaluator.",
+      "parentUuid": "fe22ff06_66ab4b2c",
       "range": {
         "startLine": 3354,
         "startChar": 2,
