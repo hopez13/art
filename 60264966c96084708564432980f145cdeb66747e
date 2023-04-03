@@ -16,6 +16,52 @@
       "message": "PTAL. Thanks!",
       "revId": "60264966c96084708564432980f145cdeb66747e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66bbe04b_3fdfa1aa",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 628,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-04-03T15:29:19Z",
+      "side": 1,
+      "message": "Comment why this is overwrite? What is the previous value and why is not ok to keep it?",
+      "range": {
+        "startLine": 628,
+        "startChar": 33,
+        "endLine": 628,
+        "endChar": 42
+      },
+      "revId": "60264966c96084708564432980f145cdeb66747e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c670062c_f45b11d2",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1270,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-04-03T15:29:19Z",
+      "side": 1,
+      "message": "Is this still needed if you\u0027re doing it line 628? Add a comment.",
+      "range": {
+        "startLine": 1270,
+        "startChar": 0,
+        "endLine": 1270,
+        "endChar": 64
+      },
+      "revId": "60264966c96084708564432980f145cdeb66747e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
