@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2dafb82b_ad65d63a",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 628,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-04-03T16:43:54Z",
+      "side": 1,
+      "message": "I think we no longer need it. I thought we were using overwrite because of the possibility of reuse of system thread ids. Looking at the history it looks like it was because of the race. I think this should not be a case anymore. So I used Put here and below.\n\nLet me know if you think we should handle the case of reusing thread ids. If we just Overwrite we attribute the events to a different thread, so that isn\u0027t correct. This shouldn\u0027t be an issue with streaming because this information isn\u0027t dumped at the end but dumped as we encounter new threads.",
+      "parentUuid": "66bbe04b_3fdfa1aa",
+      "range": {
+        "startLine": 628,
+        "startChar": 33,
+        "endLine": 628,
+        "endChar": 42
+      },
+      "revId": "60264966c96084708564432980f145cdeb66747e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c670062c_f45b11d2",
         "filename": "runtime/trace.cc",
         "patchSetId": 2
@@ -54,6 +78,30 @@
       "writtenOn": "2023-04-03T15:29:19Z",
       "side": 1,
       "message": "Is this still needed if you\u0027re doing it line 628? Add a comment.",
+      "range": {
+        "startLine": 1270,
+        "startChar": 0,
+        "endLine": 1270,
+        "endChar": 64
+      },
+      "revId": "60264966c96084708564432980f145cdeb66747e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "69dabb21_f16ffb59",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1270,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-04-03T16:43:54Z",
+      "side": 1,
+      "message": "Replaced with Put. Explained above why.",
+      "parentUuid": "c670062c_f45b11d2",
       "range": {
         "startLine": 1270,
         "startChar": 0,
