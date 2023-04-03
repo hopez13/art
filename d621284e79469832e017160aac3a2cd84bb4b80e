@@ -105,6 +105,30 @@
       },
       "revId": "d621284e79469832e017160aac3a2cd84bb4b80e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7758b957_be749717",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3354,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-04-03T12:44:41Z",
+      "side": 1,
+      "message": "Ugh, yeah, sorry about that. Done.",
+      "parentUuid": "1fe11787_6c9b6051",
+      "range": {
+        "startLine": 3354,
+        "startChar": 2,
+        "endLine": 3354,
+        "endChar": 76
+      },
+      "revId": "d621284e79469832e017160aac3a2cd84bb4b80e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
