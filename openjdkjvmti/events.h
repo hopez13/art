@@ -17,14 +17,13 @@
 #ifndef ART_OPENJDKJVMTI_EVENTS_H_
 #define ART_OPENJDKJVMTI_EVENTS_H_
 
+#include <android-base/logging.h>
+#include <android-base/thread_annotations.h>
+
 #include <bitset>
 #include <unordered_map>
 #include <vector>
 
-#include <android-base/logging.h>
-#include <android-base/thread_annotations.h>
-
-#include "android-base/thread_annotations.h"
 #include "base/macros.h"
 #include "base/mutex.h"
 #include "jvmti.h"
