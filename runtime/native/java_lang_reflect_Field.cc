@@ -340,12 +340,35 @@ ALWAYS_INLINE inline static void SetFieldValue(ObjPtr<mirror::Object> o,
   }
 }
 
+ALWAYS_INLINE inline static bool isRecordInstanceField(ObjPtr<mirror::Field> field)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  if (field->IsStatic() || !(field->IsFinal())) {
+    return false;
+  }
+  ObjPtr<mirror::Class> declaring_class = field->GetDeclaringClass();
+  if (declaring_class == nullptr || !(declaring_class->IsRecordClass())) {
+    return false;
+  }
+
+  ThrowIllegalAccessException(
+          StringPrintf("Cannot set %s field %s of record class %s",
+              PrettyJavaAccessFlags(field->GetAccessFlags()).c_str(),
+              ArtField::PrettyField(field->GetArtField()).c_str(),
+              declaring_class->PrettyClass().c_str()).c_str());
+
+  return true;
+}
+
 static void Field_set(JNIEnv* env, jobject javaField, jobject javaObj, jobject javaValue) {
   ScopedFastNativeObjectAccess soa(env);
   ObjPtr<mirror::Field> f = soa.Decode<mirror::Field>(javaField);
   // Check that the receiver is non-null and an instance of the field's declaring class.
   ObjPtr<mirror::Object> o;
   if (!CheckReceiver(soa, javaObj, &f, &o)) {
+    DCHECK(soa.Self()->IsExceptionPending());
+    return;
+  }
+  if (isRecordInstanceField(f)) {
     DCHECK(soa.Self()->IsExceptionPending());
     return;
   }
@@ -387,6 +410,10 @@ static void SetPrimitiveField(JNIEnv* env,
   ObjPtr<mirror::Field> f = soa.Decode<mirror::Field>(javaField);
   ObjPtr<mirror::Object> o;
   if (!CheckReceiver(soa, javaObj, &f, &o)) {
+    return;
+  }
+  if (isRecordInstanceField(f)) {
+    DCHECK(soa.Self()->IsExceptionPending());
     return;
   }
   Primitive::Type field_type = f->GetTypeAsPrimitiveType();
