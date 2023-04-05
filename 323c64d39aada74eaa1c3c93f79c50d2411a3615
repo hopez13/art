@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e7fd9ed5_379dccfe",
+        "filename": "runtime/native/java_lang_reflect_Field.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1047684
+      },
+      "writtenOn": "2023-04-05T10:04:37Z",
+      "side": 1,
+      "message": "Remove IsStatic() check because `static final` field is immutable as well.",
+      "range": {
+        "startLine": 345,
+        "startChar": 6,
+        "endLine": 345,
+        "endChar": 26
+      },
+      "revId": "323c64d39aada74eaa1c3c93f79c50d2411a3615",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1e8fb6a3_9b7e1f18",
@@ -24,6 +47,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4cebce70_5af43705",
+        "filename": "runtime/native/java_lang_reflect_Field.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1047684
+      },
+      "writtenOn": "2023-04-05T10:04:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1e8fb6a3_9b7e1f18",
+      "range": {
+        "startLine": 349,
+        "startChar": 6,
+        "endLine": 349,
+        "endChar": 32
+      },
+      "revId": "323c64d39aada74eaa1c3c93f79c50d2411a3615",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "45330dba_b68b0fc5",
@@ -37,6 +84,30 @@
       "writtenOn": "2023-04-05T08:25:33Z",
       "side": 1,
       "message": "I would not expect a function called `isRecordInstanceField` to throw. Maybe it should be renamed to `checkNotRecordInstanceField` or `throwIAEIfRecordInstanceField`.",
+      "range": {
+        "startLine": 353,
+        "startChar": 2,
+        "endLine": 353,
+        "endChar": 29
+      },
+      "revId": "323c64d39aada74eaa1c3c93f79c50d2411a3615",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "30796521_9e11c829",
+        "filename": "runtime/native/java_lang_reflect_Field.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1047684
+      },
+      "writtenOn": "2023-04-05T10:04:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "45330dba_b68b0fc5",
       "range": {
         "startLine": 353,
         "startChar": 2,
