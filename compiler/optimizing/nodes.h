@@ -2553,7 +2553,9 @@ class HInstruction : public ArenaObject<kArenaAllocInstruction> {
 
 #define INSTRUCTION_TYPE_CAST(type, super)                                     \
   const H##type* As##type() const;                                             \
-  H##type* As##type();
+  H##type* As##type();                                                         \
+  const H##type* As##type##OrNull() const;                                     \
+  H##type* As##type##OrNull();
 
   FOR_EACH_INSTRUCTION(INSTRUCTION_TYPE_CAST)
 #undef INSTRUCTION_TYPE_CAST
@@ -8741,9 +8743,17 @@ inline bool IsZeroBitPattern(HInstruction* instruction) {
 
 #define INSTRUCTION_TYPE_CAST(type, super)                                     \
   inline const H##type* HInstruction::As##type() const {                       \
-    return Is##type() ? down_cast<const H##type*>(this) : nullptr;             \
+    DCHECK(Is##type());                                                        \
+    return down_cast<const H##type*>(this);                                    \
   }                                                                            \
   inline H##type* HInstruction::As##type() {                                   \
+    DCHECK(Is##type());                                                        \
+    return down_cast<H##type*>(this);                                          \
+  }                                                                            \
+  inline const H##type* HInstruction::As##type##OrNull() const {               \
+    return Is##type() ? down_cast<const H##type*>(this) : nullptr;             \
+  }                                                                            \
+  inline H##type* HInstruction::As##type##OrNull() {                           \
     return Is##type() ? down_cast<H##type*>(this) : nullptr;                   \
   }
 

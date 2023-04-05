@@ -1456,7 +1456,7 @@ void InstructionSimplifierVisitor::VisitAdd(HAdd* instruction) {
     }
   }
 
-  HNeg* neg = left_is_neg ? left->AsNeg() : right->AsNeg();
+  HNeg* neg = left_is_neg ? left->AsNeg() : right->AsNegOrNull();
   if (left_is_neg != right_is_neg && neg->HasOnlyOneNonEnvironmentUse()) {
     // Replace code looking like
     //    NEG tmp, b
@@ -1676,7 +1676,7 @@ static bool RecognizeAndSimplifyClassCheck(HCondition* condition) {
   HInstruction* input_two = condition->InputAt(1);
   HLoadClass* load_class = input_one->IsLoadClass()
       ? input_one->AsLoadClass()
-      : input_two->AsLoadClass();
+      : input_two->AsLoadClassOrNull();
   if (load_class == nullptr) {
     return false;
   }
@@ -1688,8 +1688,8 @@ static bool RecognizeAndSimplifyClassCheck(HCondition* condition) {
   }
 
   HInstanceFieldGet* field_get = (load_class == input_one)
-      ? input_two->AsInstanceFieldGet()
-      : input_one->AsInstanceFieldGet();
+      ? input_two->AsInstanceFieldGetOrNull()
+      : input_one->AsInstanceFieldGetOrNull();
   if (field_get == nullptr) {
     return false;
   }
@@ -3215,7 +3215,7 @@ bool InstructionSimplifierVisitor::TrySubtractionChainSimplification(
   HInstruction* left = instruction->GetLeft();
   HInstruction* right = instruction->GetRight();
   // Variable names as described above.
-  HConstant* const2 = right->IsConstant() ? right->AsConstant() : left->AsConstant();
+  HConstant* const2 = right->IsConstant() ? right->AsConstant() : left->AsConstantOrNull();
   if (const2 == nullptr) {
     return false;
   }
@@ -3231,7 +3231,7 @@ bool InstructionSimplifierVisitor::TrySubtractionChainSimplification(
   }
 
   left = y->GetLeft();
-  HConstant* const1 = left->IsConstant() ? left->AsConstant() : y->GetRight()->AsConstant();
+  HConstant* const1 = left->IsConstant() ? left->AsConstant() : y->GetRight()->AsConstantOrNull();
   if (const1 == nullptr) {
     return false;
   }
