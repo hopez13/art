@@ -18,6 +18,7 @@
 #define ART_COMPILER_OPTIMIZING_WRITE_BARRIER_ELIMINATION_H_
 
 #include "base/macros.h"
+#include "base/scoped_arena_containers.h"
 #include "optimization.h"
 
 namespace art HIDDEN {

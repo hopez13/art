@@ -22,7 +22,12 @@ class MultipleObject {
 }
 
 public class Main {
-    public static void main(String[] args) throws Error {
+    public static void main(String[] args) {
+        $noinline$testSameBlock();
+        $noinline$testAcrossBlocks();
+    }
+
+    private static void $noinline$testSameBlock() throws Error {
         // Several sets, same receiver.
         $noinline$testInstanceFieldSets(new Main(), new Object(), new Object(), new Object());
         $noinline$testStaticFieldSets(new Object(), new Object(), new Object());
@@ -319,9 +324,80 @@ public class Main {
         return arr;
     }
 
+    private static void $noinline$testAcrossBlocks() {
+        $noinline$testBeforeIf(new Main(), new Object(), new Object(), new Object());
+        $noinline$testAfterIf(new Main(), new Object(), new Object(), new Object());
+        $noinline$testAfterIfNested(
+                new Main(), new Object(), new Object(), new Object(), new Object());
+    }
+
+    /// CHECK-START: Main Main.$noinline$testBeforeIf(Main, java.lang.Object, java.lang.Object, java.lang.Object) disassembly (after)
+    /// CHECK: InstanceFieldSet field_name:Main.inner field_type:Reference write_barrier_kind:EmitNoNullCheck
+    /// CHECK: InstanceFieldSet field_name:Main.inner2 field_type:Reference write_barrier_kind:DontEmit
+    /// CHECK: InstanceFieldSet field_name:Main.inner3 field_type:Reference write_barrier_kind:DontEmit
+
+    /// CHECK-START: Main Main.$noinline$testBeforeIf(Main, java.lang.Object, java.lang.Object, java.lang.Object) disassembly (after)
+    /// CHECK: ; card_table
+    /// CHECK-NOT: ; card_table
+    private static Main $noinline$testBeforeIf(Main m, Object o, Object o2, Object o3) {
+        m.inner = o;
+        if (o2 != null) {
+            m.inner2 = o2;
+        } else {
+            m.inner3 = o3;
+        }
+        return m;
+    }
+
+    /// CHECK-START: Main Main.$noinline$testAfterIf(Main, java.lang.Object, java.lang.Object, java.lang.Object) disassembly (after)
+    /// CHECK: InstanceFieldSet field_name:Main.inner field_type:Reference write_barrier_kind:EmitNoNullCheck
+    /// CHECK: InstanceFieldSet field_name:Main.inner2 field_type:Reference write_barrier_kind:EmitNoNullCheck
+    /// CHECK: InstanceFieldSet field_name:Main.inner3 field_type:Reference write_barrier_kind:DontEmit
+
+    /// CHECK-START: Main Main.$noinline$testAfterIf(Main, java.lang.Object, java.lang.Object, java.lang.Object) disassembly (after)
+    /// CHECK: ; card_table
+    /// CHECK: ; card_table
+    /// CHECK-NOT: ; card_table
+    private static Main $noinline$testAfterIf(Main m, Object o, Object o2, Object o3) {
+        if (o != null) {
+            m.inner = o;
+        } else {
+            m.inner2 = o2;
+        }
+        m.inner3 = o3;
+        return m;
+    }
+
+    /// CHECK-START: Main Main.$noinline$testAfterIfNested(Main, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object) disassembly (after)
+    /// CHECK: InstanceFieldSet field_name:Main.inner field_type:Reference write_barrier_kind:EmitNoNullCheck
+    /// CHECK: InstanceFieldSet field_name:Main.inner2 field_type:Reference write_barrier_kind:EmitNoNullCheck
+    /// CHECK: InstanceFieldSet field_name:Main.inner3 field_type:Reference write_barrier_kind:EmitNoNullCheck
+    /// CHECK: InstanceFieldSet field_name:Main.inner4 field_type:Reference write_barrier_kind:DontEmit
+
+    /// CHECK-START: Main Main.$noinline$testAfterIfNested(Main, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object) disassembly (after)
+    /// CHECK: ; card_table
+    /// CHECK: ; card_table
+    /// CHECK: ; card_table
+    /// CHECK-NOT: ; card_table
+    private static Main $noinline$testAfterIfNested(
+            Main m, Object o, Object o2, Object o3, Object o4) {
+        if (o != null) {
+            m.inner = o;
+        } else {
+            if (o2 != null) {
+                m.inner2 = o2;
+            } else {
+                m.inner3 = o3;
+            }
+        }
+        m.inner4 = o4;
+        return m;
+    }
+
     Object inner;
     Object inner2;
     Object inner3;
+    Object inner4;
 
     MultipleObject mo;
     MultipleObject mo2;
