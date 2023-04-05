@@ -108,6 +108,15 @@ class Location : public ValueObject {
     return Location(kConstant | reinterpret_cast<uintptr_t>(constant));
   }
 
+  static Location ConstantLocation(HInstruction* constant) {
+    DCHECK(constant != nullptr);
+    if (kIsDebugBuild) {
+      // Call out-of-line helper to avoid including `nodes.h`.
+      DCheckInstructionIsConstant(constant);
+    }
+    return Location(kConstant | reinterpret_cast<uintptr_t>(constant));
+  }
+
   HConstant* GetConstant() const {
     DCHECK(IsConstant());
     return reinterpret_cast<HConstant*>(value_ & ~kLocationConstantMask);
@@ -425,6 +434,8 @@ class Location : public ValueObject {
   uintptr_t GetPayload() const {
     return PayloadField::Decode(value_);
   }
+
+  static void DCheckInstructionIsConstant(HInstruction* instruction);
 
   using KindField = BitField<Kind, 0, kBitsForKind>;
   using PayloadField = BitField<uintptr_t, kBitsForKind, kBitsForPayload>;
