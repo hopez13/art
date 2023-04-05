@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e8fb6a3_9b7e1f18",
+        "filename": "runtime/native/java_lang_reflect_Field.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-04-05T08:25:33Z",
+      "side": 1,
+      "message": "Declaring class should never be null. Feel free to `DCHECK()` that but an explicit check should not be needed.",
+      "range": {
+        "startLine": 349,
+        "startChar": 6,
+        "endLine": 349,
+        "endChar": 32
+      },
+      "revId": "323c64d39aada74eaa1c3c93f79c50d2411a3615",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45330dba_b68b0fc5",
+        "filename": "runtime/native/java_lang_reflect_Field.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-04-05T08:25:33Z",
+      "side": 1,
+      "message": "I would not expect a function called `isRecordInstanceField` to throw. Maybe it should be renamed to `checkNotRecordInstanceField` or `throwIAEIfRecordInstanceField`.",
+      "range": {
+        "startLine": 353,
+        "startChar": 2,
+        "endLine": 353,
+        "endChar": 29
+      },
+      "revId": "323c64d39aada74eaa1c3c93f79c50d2411a3615",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
