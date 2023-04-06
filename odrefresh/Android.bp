@@ -226,6 +226,9 @@ art_cc_test {
     shared_libs: [
         "libdexfile",
     ],
+    lto: {
+        thin: false,
+    },
 }
 
 genrule {

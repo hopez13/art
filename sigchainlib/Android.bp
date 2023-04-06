@@ -109,4 +109,7 @@ art_cc_test {
         "art_standalone_gtest_defaults",
         "art_sigchain_tests_defaults",
     ],
+    lto: {
+        thin: false,
+    },
 }

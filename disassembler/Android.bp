@@ -165,4 +165,7 @@ art_cc_test {
     static_libs: [
         "libvixl",
     ],
+    lto: {
+        thin: false,
+    },
 }

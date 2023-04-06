@@ -440,9 +440,6 @@ art_cc_library_static {
         "common_compiler_driver_test.cc",
     ],
     shared_libs: [
-        "libart-compiler-gtest",
-        "libart-runtime-gtest",
-        "libart-compiler",
         "libart-disassembler",
         "libbase",
         "liblz4", // libart-dex2oat dependency; must be repeated here since it's a static lib.
@@ -450,6 +447,8 @@ art_cc_library_static {
     ],
     static_libs: [
         "libart-dex2oat",
+        "libart-compiler-gtest",
+        "libart-runtime-gtest",
     ],
 }
 
@@ -460,9 +459,6 @@ art_cc_library_static {
         "common_compiler_driver_test.cc",
     ],
     shared_libs: [
-        "libartd-compiler-gtest",
-        "libartd-runtime-gtest",
-        "libartd-compiler",
         "libartd-disassembler",
         "libbase",
         "liblz4", // libartd-dex2oat dependency; must be repeated here since it's a static lib.
@@ -470,6 +466,8 @@ art_cc_library_static {
     ],
     static_libs: [
         "libartd-dex2oat",
+        "libartd-compiler-gtest",
+        "libartd-runtime-gtest",
     ],
 }
 
@@ -614,6 +612,9 @@ art_cc_test {
         "libvixl",
     ],
     test_config: "art_standalone_dex2oat_tests.xml",
+    lto: {
+        thin: false,
+    },
 }
 
 // Counterpart to art_standalone_dex2oat_tests for tests that go into CTS.
@@ -638,4 +639,7 @@ art_cc_test {
     ],
     test_config: "art_standalone_dex2oat_cts_tests.xml",
     test_suites: ["cts"],
+    lto: {
+        thin: false,
+    },
 }

@@ -220,4 +220,7 @@ art_cc_test {
         "libdexfile",
     ],
     test_config: "art_standalone_libprofile_tests.xml",
+    lto: {
+        thin: false,
+    },
 }
