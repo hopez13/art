@@ -72,6 +72,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "897ac9f6_2fbb4211",
+        "filename": "compiler/optimizing/locations.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-04-06T11:14:20Z",
+      "side": 1,
+      "message": "This is similar to the `DCHECK()` in `LocalReferenceTable::ToIndirectRef()`, https://android-review.googlesource.com/c/platform/art/+/2513559/4/runtime/jni/local_reference_table.h#382 , where I\u0027m checking that a pointer to member is the same as pointer to the enclosing object.\n\nI prefer to be extra careful when I\u0027m deliberately mixing different types.",
+      "parentUuid": "8c993fac_1a326874",
+      "range": {
+        "startLine": 101,
+        "startChar": 2,
+        "endLine": 102,
+        "endChar": 68
+      },
+      "revId": "30b9a86fab0b24abf2e058554fc514b4cb4170c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0151d2f3_3c46e3c6",
