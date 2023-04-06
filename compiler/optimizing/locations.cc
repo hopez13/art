@@ -57,7 +57,7 @@ LocationSummary::LocationSummary(HInstruction* instruction,
 
 Location Location::RegisterOrConstant(HInstruction* instruction) {
   return instruction->IsConstant()
-      ? Location::ConstantLocation(instruction)
+      ? Location::ConstantLocation(instruction->AsConstant())
       : Location::RequiresRegister();
 }
 
@@ -85,21 +85,14 @@ Location Location::FpuRegisterOrInt32Constant(HInstruction* instruction) {
 
 Location Location::ByteRegisterOrConstant(int reg, HInstruction* instruction) {
   return instruction->IsConstant()
-      ? Location::ConstantLocation(instruction)
+      ? Location::ConstantLocation(instruction->AsConstant())
       : Location::RegisterLocation(reg);
 }
 
 Location Location::FpuRegisterOrConstant(HInstruction* instruction) {
   return instruction->IsConstant()
-      ? Location::ConstantLocation(instruction)
+      ? Location::ConstantLocation(instruction->AsConstant())
       : Location::RequiresFpuRegister();
-}
-
-void Location::DCheckInstructionIsConstant(HInstruction* instruction) {
-  DCHECK(instruction != nullptr);
-  DCHECK(instruction->IsConstant());
-  DCHECK_EQ(reinterpret_cast<uintptr_t>(instruction),
-            reinterpret_cast<uintptr_t>(instruction->AsConstant()));
 }
 
 std::ostream& operator<<(std::ostream& os, const Location& location) {
