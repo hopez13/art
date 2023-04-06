@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c46861df_f6ce1025",
+        "filename": "compiler/optimizing/locations.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-04-06T10:20:31Z",
+      "side": 1,
+      "message": "This is checking that the `static_cast` to a subclass (see also `down_cast`) does not change the representation that we store in the location. This would fail if we added a non-empty base class to `HConstant`:\n\n    class HInstruction { ... };\n    // Omitting `HExpression\u003c\u003e` for simplicity.\n    class HConstant : public NonEmptyClass, public HInstruction { ... };",
+      "parentUuid": "b0db99d3_18f7ff61",
+      "range": {
+        "startLine": 101,
+        "startChar": 2,
+        "endLine": 102,
+        "endChar": 68
+      },
+      "revId": "30b9a86fab0b24abf2e058554fc514b4cb4170c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0151d2f3_3c46e3c6",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-04-06T09:55:24Z",
       "side": 1,
       "message": "Is this such a drawback? We are re-implementing the `AsConstant()` just for this.",
+      "range": {
+        "startLine": 109,
+        "startChar": 36,
+        "endLine": 109,
+        "endChar": 62
+      },
+      "revId": "30b9a86fab0b24abf2e058554fc514b4cb4170c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "548f0dc5_2411199b",
+        "filename": "compiler/optimizing/locations.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-04-06T10:20:31Z",
+      "side": 1,
+      "message": "This would be a circular dependency and we would not be able to compile.\n\nIf by \"re-implementing\" you mean that we emit another copy of `AsConstant()`, then I\u0027d think that the function should be inlined and the boolean array it contains should be deduplicated by linker (that\u0027s for debug build; the `DCheckInstructionIsConstant()` is completely empty for release build).",
+      "parentUuid": "0151d2f3_3c46e3c6",
       "range": {
         "startLine": 109,
         "startChar": 36,
