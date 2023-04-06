@@ -51,9 +51,9 @@ static bool CanBinaryOpAndIndexAlias(const HBinaryOperation* idx1,
 
   // Since 'i' are the same in [i+CONST] and [i],
   // further compare [CONST] and [0].
-  int64_t l1 = idx1->IsAdd() ?
-               idx1->GetConstantRight()->AsIntConstant()->GetValue() :
-               -idx1->GetConstantRight()->AsIntConstant()->GetValue();
+  int64_t l1 = idx1->IsAdd()
+      ? idx1->GetConstantRight()->AsIntConstant()->GetValue()
+      : -idx1->GetConstantRight()->AsIntConstant()->GetValue();
   int64_t l2 = 0;
   int64_t h1 = l1 + (vector_length1 - 1);
   int64_t h2 = l2 + (vector_length2 - 1);
@@ -80,12 +80,12 @@ static bool CanBinaryOpsAlias(const HBinaryOperation* idx1,
 
   // Since 'i' are the same in [i+CONST1] and [i+CONST2],
   // further compare [CONST1] and [CONST2].
-  int64_t l1 = idx1->IsAdd() ?
-               idx1->GetConstantRight()->AsIntConstant()->GetValue() :
-               -idx1->GetConstantRight()->AsIntConstant()->GetValue();
-  int64_t l2 = idx2->IsAdd() ?
-               idx2->GetConstantRight()->AsIntConstant()->GetValue() :
-               -idx2->GetConstantRight()->AsIntConstant()->GetValue();
+  int64_t l1 = idx1->IsAdd()
+      ? idx1->GetConstantRight()->AsIntConstant()->GetValue()
+      : -idx1->GetConstantRight()->AsIntConstant()->GetValue();
+  int64_t l2 = idx2->IsAdd()
+      ? idx2->GetConstantRight()->AsIntConstant()->GetValue()
+      : -idx2->GetConstantRight()->AsIntConstant()->GetValue();
   int64_t h1 = l1 + (vector_length1 - 1);
   int64_t h2 = l2 + (vector_length2 - 1);
   return CanIntegerRangesOverlap(l1, h1, l2, h2);
