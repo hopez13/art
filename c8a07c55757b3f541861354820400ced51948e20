@@ -16,6 +16,57 @@
       "message": "Please align the \u0027\u003d\u0027.",
       "revId": "c8a07c55757b3f541861354820400ced51948e20",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08e36cf5_e8ab9976",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1995385
+      },
+      "writtenOn": "2023-04-06T09:16:05Z",
+      "side": 1,
+      "message": "Please align the \u0027\u003d\u0027.",
+      "revId": "c8a07c55757b3f541861354820400ced51948e20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dfe41f52_dd9bf42a",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1995385
+      },
+      "writtenOn": "2023-04-06T09:16:05Z",
+      "side": 1,
+      "message": "Please align the \u0027\u003d\u0027.",
+      "revId": "c8a07c55757b3f541861354820400ced51948e20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e33fdfaa_9152cc67",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1995385
+      },
+      "writtenOn": "2023-04-06T09:16:05Z",
+      "side": 1,
+      "message": "\"UNUSED(instruction_set_features)\" will be better.",
+      "revId": "c8a07c55757b3f541861354820400ced51948e20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
