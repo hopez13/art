@@ -122,6 +122,9 @@ class HDeadCodeElimination : public HOptimization {
   // Following this, SimplifyIfs is able to connect B1->B3 and B2->B4 effectively skipping an if.
   void MaybeAddPhi(HBasicBlock* block);
 
+
+  void OptimizeReturn();
+
   DISALLOW_COPY_AND_ASSIGN(HDeadCodeElimination);
 };
 

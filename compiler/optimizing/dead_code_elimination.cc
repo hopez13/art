@@ -867,6 +867,89 @@ void HDeadCodeElimination::UpdateGraphFlags() {
   graph_->SetHasAlwaysThrowingInvokes(has_always_throwing_invokes);
 }
 
+void HDeadCodeElimination::OptimizeReturn() {
+  HBasicBlock* exit = graph_->GetExitBlock();
+  if (exit == nullptr) {
+    return;
+  }
+
+  // TODO(solanes): Early break for !HasEmptyFrame()? If so, we will need to pass codegen.
+  int number_of_returns = 0;
+  bool saw_return = false;
+  for (HBasicBlock* pred : exit->GetPredecessors()) {
+    if (pred->GetInstructions().CountSize() == 0) {
+      continue;
+    }
+
+    if (pred->GetLastInstruction()->IsReturn() || pred->GetLastInstruction()->IsReturnVoid()) {
+      ++number_of_returns;
+      if (pred->GetLastInstruction()->IsReturn()) {
+        saw_return = true;
+      } else {
+        DCHECK(!saw_return);
+      }
+    }
+  }
+
+  if (number_of_returns < 2) {
+    return;
+  }
+
+  // Create a block of Phi+Return or just Return
+  HBasicBlock* new_block = new (graph_->GetAllocator()) HBasicBlock(graph_, exit->GetDexPc());
+  new_block->AddSuccessor(exit);
+  graph_->AddBlock(new_block);
+  if (saw_return) {
+    HPhi* new_phi = nullptr;
+    for (size_t i = 0; i < exit->GetPredecessors().size(); /*++i in loop*/) {
+      HBasicBlock* pred = exit->GetPredecessors()[i];
+      if (pred->GetInstructions().CountSize() == 0) {
+        ++i;
+        continue;
+      }
+
+      if (pred->GetLastInstruction()->IsReturn()) {
+        HReturn* ret = pred->GetLastInstruction()->AsReturn();
+        if (new_phi == nullptr) {
+          new_phi = new (graph_->GetAllocator())
+              HPhi(graph_->GetAllocator(), kNoRegNumber, 0, ret->InputAt(0)->GetType());
+          new_block->AddPhi(new_phi);
+        }
+        new_phi->AddInput(ret->InputAt(0));
+        pred->ReplaceAndRemoveInstructionWith(ret,
+                                              new (graph_->GetAllocator()) HGoto(ret->GetDexPc()));
+        pred->ReplaceSuccessor(exit, new_block);
+      } else {
+        ++i;
+      }
+    }
+    new_block->AddInstruction(new (graph_->GetAllocator()) HReturn(new_phi, exit->GetDexPc()));
+  } else {
+    for (size_t i = 0; i < exit->GetPredecessors().size(); /*++i in loop*/) {
+      HBasicBlock* pred = exit->GetPredecessors()[i];
+      if (pred->GetInstructions().CountSize() == 0) {
+        ++i;
+        continue;
+      }
+
+      if (pred->GetLastInstruction()->IsReturnVoid()) {
+        HReturnVoid* ret = pred->GetLastInstruction()->AsReturnVoid();
+        pred->ReplaceAndRemoveInstructionWith(ret,
+                                              new (graph_->GetAllocator()) HGoto(ret->GetDexPc()));
+        pred->ReplaceSuccessor(exit, new_block);
+      } else {
+        ++i;
+      }
+    }
+    new_block->AddInstruction(new (graph_->GetAllocator()) HReturnVoid(exit->GetDexPc()));
+  }
+
+  // TODO(solanes): be more intelligent to re-run this?
+  graph_->ClearLoopInformation();
+  graph_->ClearDominanceInformation();
+  graph_->BuildDominatorTree();
+}
+
 bool HDeadCodeElimination::Run() {
   // Do not eliminate dead blocks if the graph has irreducible loops. We could
   // support it, but that would require changes in our loop representation to handle
@@ -887,6 +970,7 @@ bool HDeadCodeElimination::Run() {
       // Connect successive blocks created by dead branches.
       ConnectSuccessiveBlocks();
     }
+    OptimizeReturn();
   }
   SsaRedundantPhiElimination(graph_).Run();
   RemoveDeadInstructions();
