@@ -3,6 +3,40 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "39f76b1c_3787df49",
+        "filename": "compiler/utils/label.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1995385
+      },
+      "writtenOn": "2023-04-06T09:29:15Z",
+      "side": 1,
+      "message": "It is need to add the declare of Riscv64Label, like: \nclass Riscv64Label;",
+      "revId": "c8a07c55757b3f541861354820400ced51948e20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e7f59ec_87288ae9",
+        "filename": "compiler/utils/label.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1995385
+      },
+      "writtenOn": "2023-04-06T09:29:15Z",
+      "side": 1,
+      "message": "It is need to add the friend class Riscv64Label, like: \nfriend class riscv64:Riscv64Label;",
+      "revId": "c8a07c55757b3f541861354820400ced51948e20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b3e97078_0c03fb1e",
         "filename": "compiler/utils/riscv64/assembler_riscv64.h",
         "patchSetId": 3
