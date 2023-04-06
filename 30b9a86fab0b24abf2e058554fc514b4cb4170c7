@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b0db99d3_18f7ff61",
+        "filename": "compiler/optimizing/locations.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-04-06T09:55:24Z",
+      "side": 1,
+      "message": "What\u0027s the point of this dcheck? Wouldn\u0027t `DCHECK(instruction-\u003eIsConstant());` be enough?",
+      "range": {
+        "startLine": 101,
+        "startChar": 2,
+        "endLine": 102,
+        "endChar": 68
+      },
+      "revId": "30b9a86fab0b24abf2e058554fc514b4cb4170c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0151d2f3_3c46e3c6",
+        "filename": "compiler/optimizing/locations.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-04-06T09:55:24Z",
+      "side": 1,
+      "message": "Is this such a drawback? We are re-implementing the `AsConstant()` just for this.",
+      "range": {
+        "startLine": 109,
+        "startChar": 36,
+        "endLine": 109,
+        "endChar": 62
+      },
+      "revId": "30b9a86fab0b24abf2e058554fc514b4cb4170c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
