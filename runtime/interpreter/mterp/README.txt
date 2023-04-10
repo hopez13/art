@@ -51,24 +51,11 @@ If a constant in the file becomes out of sync, the VM will log an error
 message and abort during startup.
 
 
-==== Rebuilding ====
-
-If you change any of the source file fragments, you need to rebuild the
-combined source files in the "out" directory.  Make sure the files in
-"out" are editable, then:
-
-    $ cd mterp
-    $ ./gen_mterp.py
-
-The ultimate goal is to have the build system generate the necessary
-output files without requiring this separate step, but we're not yet
-ready to require Python in the build.
-
 ==== Interpreter Control ====
 
-The mterp fast interpreter achieves much of its performance advantage
-over the C++ interpreter through its efficient mechanism of
-transitioning from one Dalvik bytecode to the next.  Mterp for ARM targets
+The nterp fast interpreter achieves much of its performance advantage
+over the C++ "switch" interpreter through its efficient mechanism of
+transitioning from one Dalvik bytecode to the next.  Nterp for ARM targets
 uses a computed-goto mechanism, in which the handler entrypoints are
 located at the base of the handler table + (opcode * 128).
 
