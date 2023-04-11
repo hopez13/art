@@ -622,9 +622,10 @@ class Runtime {
   void EnterTransactionMode(bool strict, mirror::Class* root) REQUIRES_SHARED(Locks::mutator_lock_);
   void ExitTransactionMode();
   void RollbackAllTransactions() REQUIRES_SHARED(Locks::mutator_lock_);
+  // TODO(b/260881207): introduce visibility attributes for all libart code.
   // Transaction rollback and exit transaction are always done together, it's convenience to
   // do them in one function.
-  void RollbackAndExitTransactionMode() REQUIRES_SHARED(Locks::mutator_lock_);
+  HIDDEN void RollbackAndExitTransactionMode() REQUIRES_SHARED(Locks::mutator_lock_);
   bool IsTransactionAborted() const;
   const Transaction* GetTransaction() const;
   Transaction* GetTransaction();

@@ -65,6 +65,10 @@ art_module_cc_defaults {
             ],
         },
     },
+    // Reduce test executable size by disabling automatic export of static lib symbols.
+    ldflags: [
+        "-Wl,--exclude-libs=ALL",
+    ],
 }
 
 art_module_cc_defaults {
@@ -244,6 +248,9 @@ art_cc_defaults {
         "art_test_defaults",
         "art_gtest_common_defaults",
         "art_debug_defaults",
+        // Transitive libartd and libartd-compiler dependencies
+        "libart_dependencies",
+        "libartd-compiler_dependencies",
     ],
 
     test_suites: ["art-host-tests"],
@@ -252,9 +259,7 @@ art_cc_defaults {
     },
 
     shared_libs: [
-        "libartd",
         "libartd-disassembler",
-        "libartd-gtest",
         "libdexfiled",
         "libprofiled",
         "libartbased",
@@ -273,6 +278,12 @@ art_cc_defaults {
         // - JavaVmExtTest#AttachCurrentThread_SmallStack
         "libnativehelper",
     ],
+    static_libs: [
+        "libartd",
+        "libartd-compiler",
+        "libartd-gtest",
+        "libvixld", // TODO: codegen?
+    ],
 }
 
 art_cc_defaults {
@@ -284,6 +295,10 @@ art_cc_defaults {
         // (including the Release ART APEX).
         "art_standalone_test_defaults",
         "art_gtest_common_defaults",
+
+        // Transitive libart and libart-compiler dependencies
+        "libart_dependencies",
+        "libart-compiler_dependencies",
     ],
 
     test_suites: [
@@ -307,8 +322,6 @@ art_cc_defaults {
     // We use the "non-d" variants of libraries, as the Release ART APEX does
     // not contain the "d" (debug) variants.
     shared_libs: [
-        "libart",
-        "libart-compiler",
         "libart-disassembler",
         "libdexfile",
         "libprofile",
@@ -335,6 +348,11 @@ art_cc_defaults {
         // TODO(b/192070541): Consider linking `libart-gtest` dynamically.
         "libart-gtest",
         "libartbase-testing",
+
+        "libart-for-test",
+        "libart-compiler-for-test",
+
+        "libvixl", // TODO: codegen?
     ],
 
     test_for: [
@@ -395,10 +413,10 @@ art_cc_defaults {
     name: "libart-gtest-defaults",
     defaults: [
         "libart-gtest-common-defaults",
+        "libart-compiler_dependencies",
+        "libart_dependencies",
     ],
     shared_libs: [
-        "libart",
-        "libart-compiler",
         "libdexfile",
         "libprofile",
         "libartbase",
@@ -410,13 +428,17 @@ art_cc_defaults {
     defaults: [
         "art_debug_defaults",
         "libart-gtest-common-defaults",
+        "libart_dependencies",
+        "libartd-compiler_dependencies",
     ],
     shared_libs: [
-        "libartd",
-        "libartd-compiler",
         "libdexfiled",
         "libprofiled",
         "libartbased",
+    ],
+    static_libs: [
+        "libartd",
+        "libartd-compiler",
     ],
 }
 
@@ -458,10 +480,11 @@ art_cc_defaults {
     ],
 }
 
-art_cc_library {
+art_cc_library_static {
     name: "libart-gtest",
     defaults: [
         "libart-gtest-common",
+        "libart_dependencies",
     ],
     whole_static_libs: [
         "libart-compiler-gtest",
@@ -469,8 +492,6 @@ art_cc_library {
         "libartbase-art-gtest",
     ],
     shared_libs: [
-        "libart",
-        "libart-compiler",
         "libdexfile",
         "libprofile",
         "libartbase",
@@ -478,11 +499,12 @@ art_cc_library {
     ],
 }
 
-art_cc_library {
+art_cc_library_static {
     name: "libartd-gtest",
     defaults: [
         "art_debug_defaults",
         "libart-gtest-common",
+        "libart_dependencies",
     ],
     whole_static_libs: [
         "libartd-compiler-gtest",
@@ -490,8 +512,6 @@ art_cc_library {
         "libartbased-art-gtest",
     ],
     shared_libs: [
-        "libartd",
-        "libartd-compiler",
         "libdexfiled",
         "libprofiled",
         "libartbased",
@@ -752,7 +772,7 @@ art_cc_defaults {
         "2005-pause-all-redefine-multithreaded/pause-all.cc",
         "2009-structural-local-ref/local-ref.cc",
         "2035-structural-native-method/structural-native.cc",
-	"2243-single-step-default/single_step_helper.cc"
+        "2243-single-step-default/single_step_helper.cc",
     ],
     // Use NDK-compatible headers for ctstiagent.
     header_libs: [
@@ -991,7 +1011,7 @@ cc_defaults {
         "2040-huge-native-alloc/huge_native_buf.cc",
         "2048-bad-native-registry/native_finalizer.cc",
         "2235-JdkUnsafeTest/unsafe_test.cc",
-	"2262-miranda-methods/jni_invoke.cc",
+        "2262-miranda-methods/jni_invoke.cc",
         "common/runtime_state.cc",
         "common/stack_inspect.cc",
     ],
