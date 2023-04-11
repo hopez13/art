@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9068d9a4_9f831cdb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-04-11T15:36:26Z",
+      "side": 1,
+      "message": "See aosp/2527181 where we re-enabled these for our presubmits; they\u0027ve been fine since.\n\nI haven\u0027t regenerated the TEST_MAPPING; I assume that will happen at some point?",
+      "revId": "ea76be9c4f6e4a95f5e37ffccfea4334a46f1d1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
