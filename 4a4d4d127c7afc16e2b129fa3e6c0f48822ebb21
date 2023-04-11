@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c904f1b4_4dbfc854",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-04-11T12:46:49Z",
+      "side": 1,
+      "message": "Thanks!",
+      "revId": "4a4d4d127c7afc16e2b129fa3e6c0f48822ebb21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5cc86421_64421e7f",
+        "filename": "openjdkjvmti/events.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-04-11T12:46:49Z",
+      "side": 1,
+      "message": "It should be quoted.",
+      "range": {
+        "startLine": 34,
+        "startChar": 9,
+        "endLine": 34,
+        "endChar": 44
+      },
+      "revId": "4a4d4d127c7afc16e2b129fa3e6c0f48822ebb21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "92b01156_367e1619",
+        "filename": "openjdkjvmti/events.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-04-11T12:46:49Z",
+      "side": 1,
+      "message": "They should be quoted.",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 44
+      },
+      "revId": "4a4d4d127c7afc16e2b129fa3e6c0f48822ebb21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
