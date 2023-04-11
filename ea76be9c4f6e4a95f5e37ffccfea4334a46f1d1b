@@ -16,6 +16,23 @@
       "message": "See aosp/2527181 where we re-enabled these for our presubmits; they\u0027ve been fine since.\n\nI haven\u0027t regenerated the TEST_MAPPING; I assume that will happen at some point?",
       "revId": "ea76be9c4f6e4a95f5e37ffccfea4334a46f1d1b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f39b9cef_1ad407e6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2023-04-11T15:51:47Z",
+      "side": 1,
+      "message": "Alan, could you also add the regenerated `TEST_MAPPING` file, either as part of this CL or in a follow-up CL?",
+      "revId": "ea76be9c4f6e4a95f5e37ffccfea4334a46f1d1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
