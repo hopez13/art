@@ -37,6 +37,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b30c516f_43e920d6",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2435,
+      "author": {
+        "id": 1995385
+      },
+      "writtenOn": "2023-04-11T03:06:20Z",
+      "side": 1,
+      "message": "The offset should be int12_t, not int16_t.",
+      "revId": "c8a07c55757b3f541861354820400ced51948e20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b3e97078_0c03fb1e",
         "filename": "compiler/utils/riscv64/assembler_riscv64.h",
         "patchSetId": 3
