@@ -43,10 +43,10 @@ art_cc_binary {
     ],
     srcs: ["generate-boot-image.cc"],
     shared_libs: [
-        "libbase",
         "liblog",
     ],
     static_libs: [
+        "libbase",
         "libartbase",
         "libartbase-testing",
     ],
