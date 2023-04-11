@@ -28,6 +28,56 @@ package {
     default_applicable_licenses: ["art_license"],
 }
 
+// Common dependencies for libart(d)-compiler_dependencies.
+cc_defaults {
+    name: "libart-compiler_common_dependencies",
+    shared_libs: [
+        "libbase",
+        "liblzma", // libelffile(d) dependency; must be repeated here since it's a static lib.
+    ],
+    header_libs: [
+        "libart_generated_headers",
+    ],
+}
+
+// Dependencies of libart-compiler, used to propagate libart-compiler deps when static linking.
+cc_defaults {
+    name: "libart-compiler_dependencies",
+    defaults: ["libart-compiler_common_dependencies"],
+    shared_libs: [
+        "libartbase",
+        "libartpalette",
+        "libprofile",
+        "libdexfile",
+    ],
+    static_libs: ["libelffile"],
+    runtime_libs: [
+        // `art::HGraphVisualizerDisassembler::HGraphVisualizerDisassembler` may dynamically load
+        // `libart-disassembler.so`.
+        "libart-disassembler",
+    ],
+
+}
+
+// Dependencies of libartd-compiler, used to propagate libartd-compiler deps when static linking.
+cc_defaults {
+    name: "libartd-compiler_dependencies",
+    defaults: ["libart-compiler_common_dependencies"],
+    shared_libs: [
+        "libartbased",
+        "libartpalette",
+        "libprofiled",
+        "libdexfiled",
+    ],
+    static_libs: ["libelffiled"],
+    runtime_libs: [
+        // `art::HGraphVisualizerDisassembler::HGraphVisualizerDisassembler` may dynamically load
+        // `libartd-disassembler.so`.
+        "libartd-disassembler",
+    ],
+
+}
+
 art_cc_defaults {
     name: "libart-compiler-defaults",
     defaults: ["art_defaults"],
@@ -211,7 +261,18 @@ art_cc_library {
         "libart-compiler-defaults",
         "dex2oat-pgo-defaults",
         "art_hugepage_defaults",
+        "libart-compiler_dependencies",
     ],
+    shared_libs: [
+        "libart",
+    ],
+    target: {
+        android: {
+            lto: {
+                thin: true,
+            },
+        },
+    },
     codegen: {
         arm: {
             // VIXL assembly support for ARM targets.
@@ -226,25 +287,37 @@ art_cc_library {
             ],
         },
     },
+    apex_available: [
+        "com.android.art",
+        "com.android.art.debug",
+        "test_broken_com.android.art",
+    ],
+}
+
+// Same as `libart-compiler`, but without LTO.
+art_cc_library_static {
+    name: "libart-compiler-for-test",
+    defaults: [
+        "libart-compiler-defaults",
+        "dex2oat-pgo-defaults",
+        "art_hugepage_defaults",
+        "libart-compiler_dependencies",
+    ],
     shared_libs: [
         "libart",
-        "libartbase",
-        "libartpalette",
-        "libprofile",
-        "libdexfile",
     ],
-    static_libs: ["libelffile"],
-    runtime_libs: [
-        // `art::HGraphVisualizerDisassembler::HGraphVisualizerDisassembler` may dynamically load
-        // `libart-disassembler.so`.
-        "libart-disassembler",
-    ],
-
-    target: {
-        android: {
-            lto: {
-                thin: true,
-            },
+    codegen: {
+        arm: {
+            // VIXL assembly support for ARM targets.
+            static_libs: [
+                "libvixl",
+            ],
+        },
+        arm64: {
+            // VIXL assembly support for ARM64 targets.
+            static_libs: [
+                "libvixl",
+            ],
         },
     },
     apex_available: [
@@ -272,6 +345,10 @@ art_cc_library {
     defaults: [
         "art_debug_defaults",
         "libart-compiler-defaults",
+        "libartd-compiler_dependencies",
+    ],
+    shared_libs: [
+        "libartd",
     ],
     codegen: {
         arm: {
@@ -295,20 +372,6 @@ art_cc_library {
             ],
         },
     },
-    shared_libs: [
-        "libartbased",
-        "libartd",
-        "libartpalette",
-        "libprofiled",
-        "libdexfiled",
-    ],
-    static_libs: ["libelffiled"],
-    runtime_libs: [
-        // `art::HGraphVisualizerDisassembler::HGraphVisualizerDisassembler` may dynamically load
-        // `libartd-disassembler.so`.
-        "libartd-disassembler",
-    ],
-
     apex_available: [
         "com.android.art.debug",
         // TODO(b/183882457): This lib doesn't go into com.android.art, but
@@ -342,29 +405,36 @@ art_cc_defaults {
     ],
 }
 
-art_cc_library {
+art_cc_library_static {
     name: "libart-compiler-gtest",
     defaults: [
         "libart-gtest-defaults",
         "libart-compiler-gtest-common",
     ],
     shared_libs: [
-        "libart-compiler",
         "libart-disassembler",
+    ],
+    static_libs: [
+        "libart-compiler-for-test",
         "libartbase-art-gtest",
         "libart-runtime-gtest",
     ],
+    export_static_lib_headers: [
+        "libart-compiler-for-test",
+    ],
 }
 
-art_cc_library {
+art_cc_library_static {
     name: "libartd-compiler-gtest",
     defaults: [
         "libartd-gtest-defaults",
         "libart-compiler-gtest-common",
     ],
     shared_libs: [
-        "libartd-compiler",
         "libartd-disassembler",
+    ],
+    static_libs: [
+        "libartd-compiler",
         "libartbased-art-gtest",
         "libartd-runtime-gtest",
     ],
@@ -552,7 +622,7 @@ art_cc_test {
                 "utils/assembler_thumb_test.cc",
             ],
         },
-        riscv64 : {
+        riscv64: {
             srcs: [
                 "utils/riscv64/assembler_riscv64_test.cc",
             ],

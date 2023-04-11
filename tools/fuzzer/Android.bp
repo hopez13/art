@@ -28,7 +28,11 @@ cc_fuzz {
     srcs: ["libart_verify_dex_fuzzer.cc"],
 
     // Run in release mode since debug is too slow.
-    defaults: ["libart_static_defaults"],
+    defaults: [
+        "libart_static_defaults",
+        // TODO: remove once libar-compiler is merged into libart b/186902856
+        "libart-compiler_static_defaults",
+    ],
 
     // Build and run on x86 too.
     host_supported: true,
@@ -46,7 +50,10 @@ cc_fuzz {
     dictionary: "dex.dict",
     fuzz_config: {
         triage_assignee: "art-performance-team@google.com",
-        cc: ["solanes@google.com", "art-bugs@google.com"],
+        cc: [
+            "solanes@google.com",
+            "art-bugs@google.com",
+        ],
         componentid: 86431,
         acknowledgement: [
             "Santiago Aboy Solanes of Google",
