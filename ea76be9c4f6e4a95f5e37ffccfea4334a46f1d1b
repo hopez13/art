@@ -51,6 +51,24 @@
       "parentUuid": "9068d9a4_9f831cdb",
       "revId": "ea76be9c4f6e4a95f5e37ffccfea4334a46f1d1b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cdf652b8_f900d37b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-04-11T16:36:45Z",
+      "side": 1,
+      "message": "I wasn\u0027t sure which you preferred.\nBut a single CL is easier for me, so I\u0027ve done that.\n\nNotice that it also brings in some unrelated changes, as my previous CL did.",
+      "parentUuid": "f39b9cef_1ad407e6",
+      "revId": "ea76be9c4f6e4a95f5e37ffccfea4334a46f1d1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
