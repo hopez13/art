@@ -143,6 +143,19 @@ cc_defaults {
     export_include_dirs: ["."],
 }
 
+cc_library_headers {
+    name: "libartbase_headers",
+    defaults: ["art_defaults"],
+    host_supported: true,
+
+    export_include_dirs: ["."],
+
+    apex_available: [
+        "com.android.art",
+        "com.android.art.debug",
+    ],
+}
+
 cc_defaults {
     name: "libartbase_static_base_defaults",
     whole_static_libs: [
@@ -254,12 +267,9 @@ art_cc_defaults {
     srcs: [
         "base/common_art_test.cc",
     ],
-    shared_libs: [
-        "libbase",
-        "libunwindstack",
-    ],
     header_libs: [
         "libnativehelper_header_only",
+        "libart_headers",
     ],
     static: {
         whole_static_libs: [
@@ -275,29 +285,23 @@ art_cc_defaults {
     },
 }
 
-art_cc_library {
+art_cc_library_static {
     name: "libartbase-art-gtest",
     defaults: [
         "libart-gtest-defaults",
         "libartbase-art-gtest-defaults",
-    ],
-    shared_libs: [
-        "libartbase",
-        "libartbase-testing",
-        "libdexfile",
+        "libartbase_static_defaults",
+        "libdexfile_static_defaults",
     ],
 }
 
-art_cc_library {
+art_cc_library_static {
     name: "libartbased-art-gtest",
     defaults: [
         "libartd-gtest-defaults",
         "libartbase-art-gtest-defaults",
-    ],
-    shared_libs: [
-        "libartbased",
-        "libartbased-testing",
-        "libdexfiled",
+        "libartbased_static_defaults",
+        "libdexfiled_static_defaults",
     ],
 }
 
@@ -310,8 +314,8 @@ art_cc_defaults {
     srcs: [
         "base/testing.cc",
     ],
-    shared_libs: [
-        "libbase",
+    header_libs: [
+        "libbase_headers",
     ],
     apex_available: [
         "com.android.art.debug",
@@ -322,23 +326,13 @@ art_cc_defaults {
     ],
 }
 
-art_cc_library {
+art_cc_library_static {
     name: "libartbase-testing",
     defaults: [
         "libartbase-testing-defaults",
     ],
-    shared_libs: [
-        "libartbase",
-    ],
-}
-
-art_cc_library {
-    name: "libartbased-testing",
-    defaults: [
-        "libartbase-testing-defaults",
-    ],
-    shared_libs: [
-        "libartbased",
+    header_libs: [
+        "libartbase_headers",
     ],
 }
 
