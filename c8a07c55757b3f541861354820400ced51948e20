@@ -101,6 +101,52 @@
       "message": "\"UNUSED(instruction_set_features)\" will be better.",
       "revId": "c8a07c55757b3f541861354820400ced51948e20",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "587449d3_4a35e250",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1138,
+      "author": {
+        "id": 1995385
+      },
+      "writtenOn": "2023-04-11T02:59:26Z",
+      "side": 1,
+      "message": "Please update the ‘MIPS’ to \u0027RISCV64\u0027.",
+      "range": {
+        "startLine": 1138,
+        "startChar": 24,
+        "endLine": 1138,
+        "endChar": 37
+      },
+      "revId": "c8a07c55757b3f541861354820400ced51948e20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "97283f8c_4593627d",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1145,
+      "author": {
+        "id": 1995385
+      },
+      "writtenOn": "2023-04-11T02:59:26Z",
+      "side": 1,
+      "message": "Please update the ‘MIPS’ to \u0027RISCV64\u0027.",
+      "range": {
+        "startLine": 1145,
+        "startChar": 0,
+        "endLine": 1145,
+        "endChar": 96
+      },
+      "revId": "c8a07c55757b3f541861354820400ced51948e20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
