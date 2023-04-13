@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c208ce4_f32325c2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-04-13T13:37:36Z",
+      "side": 1,
+      "message": "nit typo: allows",
+      "range": {
+        "startLine": 14,
+        "startChar": 13,
+        "endLine": 14,
+        "endChar": 20
+      },
+      "revId": "01231d6acd899c6fc8058e393ce8befdd1a2e02c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ba620e1_4661ea0e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-04-13T13:37:36Z",
+      "side": 1,
+      "message": "Thanks Ulya, a few minor nits.",
+      "revId": "01231d6acd899c6fc8058e393ce8befdd1a2e02c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c05bea5_5705c18b",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-04-13T13:37:36Z",
+      "side": 1,
+      "message": "I think tp is x4 and gp is x3 right?",
+      "range": {
+        "startLine": 320,
+        "startChar": 52,
+        "endLine": 320,
+        "endChar": 64
+      },
+      "revId": "01231d6acd899c6fc8058e393ce8befdd1a2e02c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "47178ce1_af71cd70",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-04-13T13:37:36Z",
+      "side": 1,
+      "message": "8*44",
+      "range": {
+        "startLine": 333,
+        "startChar": 18,
+        "endLine": 333,
+        "endChar": 22
+      },
+      "revId": "01231d6acd899c6fc8058e393ce8befdd1a2e02c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af58ae3f_be302466",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-04-13T13:37:36Z",
+      "side": 1,
+      "message": "X18",
+      "range": {
+        "startLine": 334,
+        "startChar": 27,
+        "endLine": 334,
+        "endChar": 30
+      },
+      "revId": "01231d6acd899c6fc8058e393ce8befdd1a2e02c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
