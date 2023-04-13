@@ -82,6 +82,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b9d8931d_647d41bd",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-04-13T18:40:52Z",
+      "side": 1,
+      "message": "I added comments, thanks!\n\nThis is kind of \"ART sacred knowledge\" but I\u0027m sure not everyone even in the ART team knows or would remember about it.",
+      "parentUuid": "0e2eb0bc_2fc4dd5a",
+      "revId": "01231d6acd899c6fc8058e393ce8befdd1a2e02c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7c05bea5_5705c18b",
@@ -143,6 +161,30 @@
       "side": 1,
       "message": "heh, i was about to say that when i saw the red version of the line :-)\n\ni also think that it\u0027s obvious why zero, sp, gp, and tp aren\u0027t saved --- but why is s1 ignored in all the code in this file? (especially here, where we\u0027re even saving the call*er*-saved temporary registers...)",
       "parentUuid": "7c05bea5_5705c18b",
+      "range": {
+        "startLine": 320,
+        "startChar": 52,
+        "endLine": 320,
+        "endChar": 64
+      },
+      "revId": "01231d6acd899c6fc8058e393ce8befdd1a2e02c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "75ac1a76_2adc9ce0",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-04-13T18:40:52Z",
+      "side": 1,
+      "message": "Good point, I expanded the comment to mention ART thread register.",
+      "parentUuid": "97e837bc_74cb03b4",
       "range": {
         "startLine": 320,
         "startChar": 52,
@@ -266,6 +308,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "b0d02fac_24a75b3d",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 395,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-04-13T18:40:52Z",
+      "side": 1,
+      "message": "RA is actually on the list, but it goes last (offset 8*59). It must go last because ART assumes it in a few places.\n\nSP is saved/restored by the code of the stubs, not in the frames.\n\nSome of the frame layout it is explained in https://source.corp.google.com/aosp-master/art/runtime/arch/riscv64/callee_save_frame_riscv64.h;l\u003d31-56, but not everything.",
+      "parentUuid": "d0a54fb1_ad71a907",
+      "revId": "01231d6acd899c6fc8058e393ce8befdd1a2e02c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "ff3efd13_571b3ca9",
         "filename": "runtime/arch/riscv64/callee_save_frame_riscv64.h",
         "patchSetId": 2
@@ -277,6 +337,30 @@
       "writtenOn": "2023-04-13T15:41:04Z",
       "side": 1,
       "message": "(ah, i see. that makes sense!)",
+      "range": {
+        "startLine": 34,
+        "startChar": 39,
+        "endLine": 34,
+        "endChar": 88
+      },
+      "revId": "01231d6acd899c6fc8058e393ce8befdd1a2e02c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "95f52bcd_1bb910ef",
+        "filename": "runtime/arch/riscv64/callee_save_frame_riscv64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-04-13T18:40:52Z",
+      "side": 1,
+      "message": "Right, I read your comments in the same order as you wrote them. :D",
+      "parentUuid": "ff3efd13_571b3ca9",
       "range": {
         "startLine": 34,
         "startChar": 39,
@@ -310,6 +394,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b416542_32505734",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 471,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-04-13T18:40:52Z",
+      "side": 1,
+      "message": "Yep, fixed already.",
+      "parentUuid": "48698940_2f82b919",
+      "range": {
+        "startLine": 470,
+        "startChar": 47,
+        "endLine": 471,
+        "endChar": 67
+      },
+      "revId": "01231d6acd899c6fc8058e393ce8befdd1a2e02c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5d22837e_841c6a62",
@@ -323,6 +431,24 @@
       "writtenOn": "2023-04-13T15:41:04Z",
       "side": 1,
       "message": "maybe add the \"art thread pointer\" bit here? (this is where i looked earlier, to try to understand if there was a reason that s1 was being ignored.)",
+      "revId": "01231d6acd899c6fc8058e393ce8befdd1a2e02c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c704671_c288e62a",
+        "filename": "runtime/arch/riscv64/registers_riscv64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-04-13T18:40:52Z",
+      "side": 1,
+      "message": "Good point, done. (There is a comment below where the TR alias is defined, but it\u0027s too far away).",
+      "parentUuid": "5d22837e_841c6a62",
       "revId": "01231d6acd899c6fc8058e393ce8befdd1a2e02c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
