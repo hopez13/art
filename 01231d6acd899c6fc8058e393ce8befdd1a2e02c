@@ -67,6 +67,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0e2eb0bc_2fc4dd5a",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-04-13T15:41:04Z",
+      "side": 1,
+      "message": "i see you save s0 above (as fp), but why not s1?\n\n(i worked it out later, from a different comment. up to you whether you think it\u0027s worth giving \"art thread register\" an explicit mention or not --- mythria wasn\u0027t troubled by it, so maybe this is just obvious to anyone working on art?)",
+      "revId": "01231d6acd899c6fc8058e393ce8befdd1a2e02c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7c05bea5_5705c18b",
         "filename": "runtime/arch/riscv64/asm_support_riscv64.S",
         "patchSetId": 2
@@ -101,6 +118,30 @@
       "writtenOn": "2023-04-13T15:29:19Z",
       "side": 1,
       "message": "Right, thanks! Fixed here and in a few more places.",
+      "parentUuid": "7c05bea5_5705c18b",
+      "range": {
+        "startLine": 320,
+        "startChar": 52,
+        "endLine": 320,
+        "endChar": 64
+      },
+      "revId": "01231d6acd899c6fc8058e393ce8befdd1a2e02c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "97e837bc_74cb03b4",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-04-13T15:41:04Z",
+      "side": 1,
+      "message": "heh, i was about to say that when i saw the red version of the line :-)\n\ni also think that it\u0027s obvious why zero, sp, gp, and tp aren\u0027t saved --- but why is s1 ignored in all the code in this file? (especially here, where we\u0027re even saving the call*er*-saved temporary registers...)",
       "parentUuid": "7c05bea5_5705c18b",
       "range": {
         "startLine": 320,
@@ -202,6 +243,86 @@
         "endLine": 334,
         "endChar": 30
       },
+      "revId": "01231d6acd899c6fc8058e393ce8befdd1a2e02c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0a54fb1_ad71a907",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 395,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-04-13T15:41:04Z",
+      "side": 1,
+      "message": "(same comment here, though i\u0027ve also noticed that the return address isn\u0027t on this list, which now makes me think it isn\u0027t obvious why the stack pointer is ... is something else saving/restoring the stack pointer to match the program counter?)",
+      "revId": "01231d6acd899c6fc8058e393ce8befdd1a2e02c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff3efd13_571b3ca9",
+        "filename": "runtime/arch/riscv64/callee_save_frame_riscv64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-04-13T15:41:04Z",
+      "side": 1,
+      "message": "(ah, i see. that makes sense!)",
+      "range": {
+        "startLine": 34,
+        "startChar": 39,
+        "endLine": 34,
+        "endChar": 88
+      },
+      "revId": "01231d6acd899c6fc8058e393ce8befdd1a2e02c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48698940_2f82b919",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 471,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-04-13T15:41:04Z",
+      "side": 1,
+      "message": "(these are the wrong way round too. probably worth a grep for this, and fix them all in a separate change?)",
+      "range": {
+        "startLine": 470,
+        "startChar": 47,
+        "endLine": 471,
+        "endChar": 67
+      },
+      "revId": "01231d6acd899c6fc8058e393ce8befdd1a2e02c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d22837e_841c6a62",
+        "filename": "runtime/arch/riscv64/registers_riscv64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-04-13T15:41:04Z",
+      "side": 1,
+      "message": "maybe add the \"art thread pointer\" bit here? (this is where i looked earlier, to try to understand if there was a reason that s1 was being ignored.)",
       "revId": "01231d6acd899c6fc8058e393ce8befdd1a2e02c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
