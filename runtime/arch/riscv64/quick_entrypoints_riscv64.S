@@ -482,7 +482,7 @@ ENTRY art_quick_do_long_jump
     ld  a5,   8*15(a0)  // x15
     ld  a6,   8*16(a0)  // x16
     ld  a7,   8*17(a0)  // x17
-    // Skip slot 8*18(a0) for shadow stack s2/x18.
+    ld  s2,   8*18(a0)  // x18
     ld  s3,   8*19(a0)  // x19
     ld  s4,   8*20(a0)  // x20
     ld  s5,   8*21(a0)  // x21
