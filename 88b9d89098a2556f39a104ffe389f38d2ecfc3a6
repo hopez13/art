@@ -34,6 +34,24 @@
       "parentUuid": "f72d4207_6c6c4f85",
       "revId": "88b9d89098a2556f39a104ffe389f38d2ecfc3a6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e5e5e358_11b5a49c",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3354,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-04-14T08:01:13Z",
+      "side": 0,
+      "message": "I\u0027ll try to reland but without the StringPrintf and see if that helps.",
+      "parentUuid": "83ef602b_7b22513f",
+      "revId": "88b9d89098a2556f39a104ffe389f38d2ecfc3a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
