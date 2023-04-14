@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b083c897_3b1443ec",
+        "filename": "runtime/startup_completed_task.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-04-14T22:06:29Z",
+      "side": 1,
+      "message": "Isn\u0027t this inherently deadlock-prone, as documented in https://android-review.git.corp.google.com/c/platform/art/+/2530206/2/runtime/mutator_gc_coord.md , around line 225?\n\nIf we suspend this from another thread, while we\u0027re locking out GC, and then the thread that suspended us allocates and needs a GC, we lose. Can we somehow preclude that case?\n\nAlso since ScopedInterruptibleGCCriticalSection basically impersonates a GC, I don\u0027t see why that wouldn\u0027t give us license to call RunEmptyCheckpoint, as claimed around line 103.\n\nMaybe with your change, we don\u0027t need ScopedInterruptibleGCCriticalSection anymore?",
+      "range": {
+        "startLine": 109,
+        "startChar": 6,
+        "endLine": 109,
+        "endChar": 52
+      },
+      "revId": "4a6ce0d7cbe6f9ec9467d5b96b7db2724dd9ee90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
