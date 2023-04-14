@@ -122,7 +122,9 @@ class ThreadList {
   // suspended. This is used to ensure that the threads finish or aren't in the middle of an
   // in-flight mutator heap access (eg. a read barrier.) Runnable threads will respond by
   // decrementing the empty checkpoint barrier count. This works even when the weak ref access is
-  // disabled. Only one concurrent use is currently supported.
+  // disabled.
+  // NOTE: Only one concurrent use is currently supported, and currently only
+  // the GC logic should use this helper.
   void RunEmptyCheckpoint()
       REQUIRES(!Locks::thread_list_lock_, !Locks::thread_suspend_count_lock_);
 

@@ -115,7 +115,14 @@ void StartupCompletedTask::Run(Thread* self) {
       UnlinkVisitor visitor;
       handles.VisitRoots(visitor);
 
-      runtime->GetThreadList()->RunEmptyCheckpoint();
+      // Run an empty checkpoint to make sure threads reach a barrier. We cannot
+      // use `ThreadList::RunEmptyCheckpoint` as this should only be used by the
+      // GC.
+      static struct EmptyClosure : Closure {
+        void Run(Thread* thread ATTRIBUTE_UNUSED) override {}
+      } closure;
+
+      runtime->GetThreadList()->RunCheckpoint(&closure);
     }
 
     for (gc::space::ContinuousSpace* space : runtime->GetHeap()->GetContinuousSpaces()) {
