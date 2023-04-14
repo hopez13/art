@@ -16,6 +16,98 @@
       "message": "Great to see this! Some relevant bugs you could add to the CL description:\n\nb/203237752\nb/188926997\nb/194133637",
       "revId": "1786a6fa93cf29a1e17690a8a79c1ae30364444b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5739bcaf_4cf3865f",
+        "filename": "compiler/optimizing/code_sinking.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 547,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-04-14T08:12:21Z",
+      "side": 1,
+      "message": "merge this to is_return_void? You can only have one kind of return.",
+      "range": {
+        "startLine": 546,
+        "startChar": 0,
+        "endLine": 547,
+        "endChar": 31
+      },
+      "revId": "1786a6fa93cf29a1e17690a8a79c1ae30364444b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2fdc928_3a825402",
+        "filename": "compiler/optimizing/code_sinking.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 588,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-04-14T08:12:21Z",
+      "side": 1,
+      "message": "Add a /* foo\u003d */",
+      "range": {
+        "startLine": 588,
+        "startChar": 54,
+        "endLine": 588,
+        "endChar": 55
+      },
+      "revId": "1786a6fa93cf29a1e17690a8a79c1ae30364444b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a705452_41ae3301",
+        "filename": "compiler/optimizing/code_sinking.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 623,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-04-14T08:12:21Z",
+      "side": 1,
+      "message": "It does look a bit overkill here. Can we manually do it instead?",
+      "range": {
+        "startLine": 619,
+        "startChar": 0,
+        "endLine": 623,
+        "endChar": 40
+      },
+      "revId": "1786a6fa93cf29a1e17690a8a79c1ae30364444b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1457089e_aa63dc74",
+        "filename": "compiler/optimizing/code_sinking.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-04-14T08:12:21Z",
+      "side": 1,
+      "message": "Consistency with your new comments: `Tries`.",
+      "range": {
+        "startLine": 44,
+        "startChar": 5,
+        "endLine": 44,
+        "endChar": 8
+      },
+      "revId": "1786a6fa93cf29a1e17690a8a79c1ae30364444b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
