@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "da912b5d_c5affcd8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-04-14T10:04:42Z",
+      "side": 1,
+      "message": "Thanks! Added relevant bugs",
+      "parentUuid": "5ed21ac7_0f041851",
+      "revId": "1786a6fa93cf29a1e17690a8a79c1ae30364444b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5739bcaf_4cf3865f",
@@ -31,6 +49,30 @@
       "writtenOn": "2023-04-14T08:12:21Z",
       "side": 1,
       "message": "merge this to is_return_void? You can only have one kind of return.",
+      "range": {
+        "startLine": 546,
+        "startChar": 0,
+        "endLine": 547,
+        "endChar": 31
+      },
+      "revId": "1786a6fa93cf29a1e17690a8a79c1ae30364444b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b3eec1e0_66ee6ca8",
+        "filename": "compiler/optimizing/code_sinking.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 547,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-04-14T10:04:42Z",
+      "side": 1,
+      "message": "Yeah, I wasn\u0027t too sure whether I should add a kIsDebug check or not. Keeping only one of them",
+      "parentUuid": "5739bcaf_4cf3865f",
       "range": {
         "startLine": 546,
         "startChar": 0,
@@ -64,6 +106,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c9c2f93_8a53bf44",
+        "filename": "compiler/optimizing/code_sinking.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 588,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-04-14T10:04:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c2fdc928_3a825402",
+      "range": {
+        "startLine": 588,
+        "startChar": 54,
+        "endLine": 588,
+        "endChar": 55
+      },
+      "revId": "1786a6fa93cf29a1e17690a8a79c1ae30364444b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0a705452_41ae3301",
@@ -87,6 +153,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a6ddebfe_8d9bbb07",
+        "filename": "compiler/optimizing/code_sinking.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 623,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-04-14T10:04:42Z",
+      "side": 1,
+      "message": "Modifying the RPO is easy. We just have to insert the block before the exit block.\n\nDominance is where it becomes trickier: we would need to update the new block and exit and find suitable dominators, and then update dominance for all relevant blocks. It is certainly doable, but we are risking bugs.\n\nRemoved the TODO because it could be the source of bugs, and the compile time doesn\u0027t increase a lot for this. Note we are not calling `BuildDominatorTree` which does other things like updating loop information since those would be the same after this.",
+      "parentUuid": "0a705452_41ae3301",
+      "range": {
+        "startLine": 619,
+        "startChar": 0,
+        "endLine": 623,
+        "endChar": 40
+      },
+      "revId": "1786a6fa93cf29a1e17690a8a79c1ae30364444b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1457089e_aa63dc74",
@@ -100,6 +190,30 @@
       "writtenOn": "2023-04-14T08:12:21Z",
       "side": 1,
       "message": "Consistency with your new comments: `Tries`.",
+      "range": {
+        "startLine": 44,
+        "startChar": 5,
+        "endLine": 44,
+        "endChar": 8
+      },
+      "revId": "1786a6fa93cf29a1e17690a8a79c1ae30364444b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f316e031_80b03407",
+        "filename": "compiler/optimizing/code_sinking.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-04-14T10:04:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1457089e_aa63dc74",
       "range": {
         "startLine": 44,
         "startChar": 5,
