@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5cb9f8de_98de9587",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-04-17T15:51:41Z",
+      "side": 1,
+      "message": "Can you merge nterp.cc and nterp_impl.cc now? (In a separate follow-up change to avoid making this more complex.)",
+      "range": {
+        "startLine": 385,
+        "startChar": 16,
+        "endLine": 385,
+        "endChar": 50
+      },
+      "revId": "2a9e1334564ef13efe2215f1a5648ff8158c05aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12c4ffeb_14a0fb76",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-04-17T15:51:41Z",
+      "side": 1,
+      "message": "Do you need macro definitions in this file? Are they all used? If not, I suggest dropping those that are not needed (in case you won\u0027t ever need them, they will be dead code and hard to weed out afterwards).",
+      "range": {
+        "startLine": 31,
+        "startChar": 7,
+        "endLine": 31,
+        "endChar": 19
+      },
+      "revId": "2a9e1334564ef13efe2215f1a5648ff8158c05aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
