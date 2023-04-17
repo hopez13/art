@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e18be74d_959626aa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-04-17T09:42:40Z",
+      "side": 1,
+      "message": "Thanks!",
+      "revId": "d46c2921984644f9938318071b2632c5ab0e85e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99360114_055cda59",
+        "filename": "runtime/startup_completed_task.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-04-17T09:42:40Z",
+      "side": 1,
+      "message": "In debuggable runtimes, we don\u0027t use AOT code at all. So, even if we didn\u0027t support redefinition, runtime app images won\u0027t be useful right?",
+      "range": {
+        "startLine": 69,
+        "startChar": 71,
+        "endLine": 70,
+        "endChar": 49
+      },
+      "revId": "d46c2921984644f9938318071b2632c5ab0e85e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
