@@ -22,6 +22,30 @@
       },
       "revId": "4a6ce0d7cbe6f9ec9467d5b96b7db2724dd9ee90",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "facff9ce_92216275",
+        "filename": "runtime/startup_completed_task.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-04-17T11:08:51Z",
+      "side": 1,
+      "message": "Ah thanks for pointing out `ScopedInterruptibleGCCriticalSection` impersonates a GC - I didn\u0027t realize it was. So you\u0027re right, the call to `RunEmptyCheckpoint` should be fine here (all that code precludes my changes).\n\nCan you elaborate on:\n\u003e If we suspend this from another thread, while we\u0027re locking out GC, and then the thread that suspended us allocates and needs a GC, we lose. Can we somehow preclude that case?\n\nWhat is `this` in `if we suspend this`? Is it this thread? If that\u0027s the case, shouldn\u0027t we fully remove`ScopedInterruptibleGCCriticalSection`.\n\n\u003e Maybe with your change, we don\u0027t need ScopedInterruptibleGCCriticalSection anymore?\n\nUnfortunately, we still need to prevent the GC to run while lines 115-116 are executed. Is there another way to do that?",
+      "parentUuid": "b083c897_3b1443ec",
+      "range": {
+        "startLine": 109,
+        "startChar": 6,
+        "endLine": 109,
+        "endChar": 52
+      },
+      "revId": "4a6ce0d7cbe6f9ec9467d5b96b7db2724dd9ee90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
