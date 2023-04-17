@@ -104,6 +104,12 @@ void HDeadCodeElimination::MaybeRecordSimplifyIf() {
   }
 }
 
+void HDeadCodeElimination::MaybeRecordSimplifySwitch() {
+  if (stats_ != nullptr) {
+    stats_->RecordStat(MethodCompilationStat::kSimplifySwitch);
+  }
+}
+
 static bool HasInput(HCondition* instruction, HInstruction* input) {
   return (instruction->InputAt(0) == input) ||
          (instruction->InputAt(1) == input);
@@ -451,6 +457,144 @@ bool HDeadCodeElimination::SimplifyIfs() {
   }
 
   return simplified_one_or_more_ifs;
+}
+
+// TODO(solanes): 1) merge this and SimplifyIfs, and 2) move them to a new pass (in a previous CL)
+bool HDeadCodeElimination::SimplifySwitchs() {
+  bool simplified_one_or_more_switchs = false;
+  bool rerun_dominance_and_loop_analysis = false;
+
+  // Iterating in PostOrder it's better for MaybeAddPhi as it can add a Phi for multiple If
+  // instructions in a chain without updating the dominator chain. The branch redirection itself can
+  // work in PostOrder or ReversePostOrder without issues.
+  for (HBasicBlock* block : graph_->GetPostOrder()) {
+    if (block->IsCatchBlock()) {
+      // This simplification cannot be applied to catch blocks, because exception handler edges do
+      // not represent normal control flow. Though in theory this could still apply to normal
+      // control flow going directly to a catch block, we cannot support it at the moment because
+      // the catch Phi's inputs do not correspond to the catch block's predecessors, so we cannot
+      // identify which predecessor corresponds to a given statically evaluated input.
+      continue;
+    }
+
+    HInstruction* last = block->GetLastInstruction();
+    if (!last->IsPackedSwitch()) {
+      continue;
+    }
+    HPackedSwitch* packed_switch = last->AsPackedSwitch();
+
+    if (block->IsLoopHeader()) {
+      // We do not apply this optimization to loop headers as this could create irreducible loops.
+      continue;
+    }
+
+    // We will add a Phi which allows the simplification to take place in cases where it wouldn't.
+    // MaybeAddPhi(block);
+
+    // TODO(solanes): Investigate support for multiple phis in `block`. We can potentially "push
+    // downwards" existing Phis into the true/false branches. For example, let's say we have another
+    // Phi: Phi(x1,x2,x3,x4,x5,x6). This could turn into Phi(x1,x2) in the true branch, Phi(x3,x4)
+    // in the false branch, and remain as Phi(x5,x6) in `block` (for edges that we couldn't
+    // redirect). We might even be able to remove some phis altogether as they will have only one
+    // value.
+    if (block->HasSinglePhi() && block->GetFirstPhi()->HasOnlyOneNonEnvironmentUse()) {
+      HInstruction* first = block->GetFirstInstruction();
+      bool has_only_phi_and_switch = (last == first) && (last->InputAt(0) == block->GetFirstPhi());
+      bool has_only_phi_condition_and_switch =
+          !has_only_phi_and_switch && first->IsCondition() &&
+          HasInput(first->AsCondition(), block->GetFirstPhi()) && (first->GetNext() == last) &&
+          (last->InputAt(0) == first) && first->HasOnlyOneNonEnvironmentUse();
+
+      if (has_only_phi_and_switch || has_only_phi_condition_and_switch) {
+        HPhi* phi = block->GetFirstPhi()->AsPhi();
+        bool phi_input_is_left = (first->InputAt(0) == phi);
+
+        // Walk over all inputs of the phis and update the control flow of
+        // predecessors feeding constants to the phi.
+        // Note that phi->InputCount() may change inside the loop.
+        for (size_t i = 0; i < phi->InputCount();) {
+          HInstruction* input = phi->InputAt(i);
+          HInstruction* value_to_check = nullptr;
+          if (has_only_phi_and_switch) {
+            if (input->IsIntConstant()) {
+              value_to_check = input;
+            }
+          } else {
+            DCHECK(has_only_phi_condition_and_switch);
+            if (phi_input_is_left) {
+              value_to_check = Evaluate(first->AsCondition(), input, first->InputAt(1));
+            } else {
+              value_to_check = Evaluate(first->AsCondition(), first->InputAt(0), input);
+            }
+          }
+          if (value_to_check == nullptr) {
+            // Could not evaluate to a constant, continue iterating over the inputs.
+            ++i;
+          } else {
+            HBasicBlock* predecessor_to_update = block->GetPredecessors()[i];
+            HBasicBlock* successor_to_update = nullptr;
+
+            int32_t switch_value = value_to_check->AsIntConstant()->GetValue();
+            int32_t start_value = packed_switch->GetStartValue();
+            // Note: Though the spec forbids packed-switch values to wrap around, we leave
+            // that task to the verifier and use unsigned arithmetic with it's "modulo 2^32"
+            // semantics to check if the value is in range, wrapped or not.
+            uint32_t switch_index =
+                static_cast<uint32_t>(switch_value) - static_cast<uint32_t>(start_value);
+            if (switch_index < packed_switch->GetNumEntries()) {
+              successor_to_update = block->GetSuccessors()[switch_index];
+            } else {
+              successor_to_update = packed_switch->GetDefaultBlock();
+            }
+
+            predecessor_to_update->ReplaceSuccessor(block, successor_to_update);
+            phi->RemoveInputAt(i);
+            simplified_one_or_more_switchs = true;
+            if (block->IsInLoop()) {
+              rerun_dominance_and_loop_analysis = true;
+            }
+            // For simplicity, don't create a dead block, let the dead code elimination
+            // pass deal with it.
+            if (phi->InputCount() == 1) {
+              break;
+            }
+          }
+        }
+        if (block->GetPredecessors().size() == 1) {
+          phi->ReplaceWith(phi->InputAt(0));
+          block->RemovePhi(phi);
+          if (has_only_phi_condition_and_switch) {
+            // Evaluate here (and not wait for a constant folding pass) to open
+            // more opportunities for DCE.
+            HInstruction* result = first->AsCondition()->TryStaticEvaluation();
+            if (result != nullptr) {
+              first->ReplaceWith(result);
+              block->RemoveInstruction(first);
+            }
+          }
+        }
+        if (simplified_one_or_more_switchs) {
+          MaybeRecordSimplifySwitch();
+        }
+      }
+    }
+  }
+  // We need to re-analyze the graph in order to run DCE afterwards.
+  if (simplified_one_or_more_switchs) {
+    if (rerun_dominance_and_loop_analysis) {
+      graph_->ClearLoopInformation();
+      graph_->ClearDominanceInformation();
+      graph_->BuildDominatorTree();
+    } else {
+      graph_->ClearDominanceInformation();
+      // We have introduced critical edges, remove them.
+      graph_->SimplifyCFG();
+      graph_->ComputeDominanceInformation();
+      graph_->ComputeTryBlockInformation();
+    }
+  }
+
+  return simplified_one_or_more_switchs;
 }
 
 void HDeadCodeElimination::MaybeAddPhi(HBasicBlock* block) {
@@ -885,6 +1029,7 @@ bool HDeadCodeElimination::Run() {
     bool did_any_simplification = false;
     did_any_simplification |= SimplifyAlwaysThrows();
     did_any_simplification |= SimplifyIfs();
+    did_any_simplification |= SimplifySwitchs();
     did_any_simplification |= RemoveDeadBlocks();
     // We call RemoveDeadBlocks before RemoveUnneededTries to remove the dead blocks from the
     // previous optimizations. Otherwise, we might detect that a try has throwing instructions but

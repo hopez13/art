@@ -82,6 +82,7 @@ enum class MethodCompilationStat {
   kImplicitNullCheckGenerated,
   kExplicitNullCheckGenerated,
   kSimplifyIf,
+  kSimplifySwitch,
   kSimplifyIfAddedPhi,
   kSimplifyThrowingInvoke,
   kInstructionSunk,

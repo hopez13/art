@@ -29,6 +29,8 @@ public class Main {
     System.out.println(staticField);
     testSwitch(args);
     System.out.println(staticField);
+    testPackedSwitch(args);
+    System.out.println(staticField);
     testFP(args);
     System.out.println(staticField);
   }
@@ -246,6 +248,47 @@ public class Main {
       staticField = 2;
     }
     // Redirect default here.
+  }
+
+  /// CHECK-START: void Main.testPackedSwitch(java.lang.String[]) dead_code_elimination$initial (before)
+  /// CHECK:      If
+  /// CHECK:      Phi
+  /// CHECK:      PackedSwitch
+
+  /// CHECK-START: void Main.testPackedSwitch(java.lang.String[]) dead_code_elimination$initial (after)
+  /// CHECK-NOT:  PackedSwitch
+
+  /// CHECK-START: void Main.testPackedSwitch(java.lang.String[]) dead_code_elimination$initial (after)
+  /// CHECK-NOT:  Phi
+
+  /// CHECK-START: void Main.testPackedSwitch(java.lang.String[]) dead_code_elimination$initial (after)
+  /// CHECK:      If
+  public static void testPackedSwitch(String[] args) {
+    int myVar;
+    if (args.length == 42) {
+      staticField = 32;
+      myVar = 2;
+    } else {
+      staticField = 10;
+      myVar = 4;
+    }
+
+    switch (myVar) {
+      case 1:
+        staticField = 11;
+        break;
+      case 2:
+        staticField = 33;
+        break;
+      case 3:
+        staticField = 55;
+        break;
+      case 4:
+        staticField = 77;
+        break;
+      default:
+        break;
+    }
   }
 
   /// CHECK-START: void Main.testFP(java.lang.String[]) dead_code_elimination$initial (before)
