@@ -39,6 +39,30 @@
       },
       "revId": "d46c2921984644f9938318071b2632c5ab0e85e1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "06202c9b_1d28b3b2",
+        "filename": "runtime/startup_completed_task.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-04-17T09:51:52Z",
+      "side": 1,
+      "message": "It could be useful for app startup (that\u0027s the only think runtime app image is useful for), but it may be incorrect if it\u0027s looking at a redefined boot classpath class.",
+      "parentUuid": "99360114_055cda59",
+      "range": {
+        "startLine": 69,
+        "startChar": 71,
+        "endLine": 70,
+        "endChar": 49
+      },
+      "revId": "d46c2921984644f9938318071b2632c5ab0e85e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
