@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc57eae7_3444eae7",
+        "filename": "compiler/optimizing/constant_folding_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-04-18T17:23:15Z",
+      "side": 1,
+      "message": "Odd indentation. Maybe create a temp variable for `HConstantFolding`.",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 15
+      },
+      "revId": "bb25b1f4e0c60a08a1109fbee3fe9523a1e7f3f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "3827f8ef_2389d11c",
