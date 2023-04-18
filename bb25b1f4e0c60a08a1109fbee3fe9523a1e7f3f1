@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3827f8ef_2389d11c",
+        "filename": "test/485-checker-dce-loop-update/smali/TestCase.smali",
+        "patchSetId": 3
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-04-18T17:02:04Z",
+      "side": 1,
+      "message": "tests 485- and 543- are basically reverts of the changes from aosp/2183357 since we now don\u0027t apply this optimization in the early stages.",
+      "range": {
+        "startLine": 227,
+        "startChar": 0,
+        "endLine": 227,
+        "endChar": 97
+      },
+      "revId": "bb25b1f4e0c60a08a1109fbee3fe9523a1e7f3f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
