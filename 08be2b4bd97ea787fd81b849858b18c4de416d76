@@ -16,6 +16,52 @@
       "message": "PTAL",
       "revId": "08be2b4bd97ea787fd81b849858b18c4de416d76",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ba4a1be_e447d74d",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-04-18T10:15:17Z",
+      "side": 1,
+      "message": "Tabs? I believe we should stick to spaces for uniformity.",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 2
+      },
+      "revId": "08be2b4bd97ea787fd81b849858b18c4de416d76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4155227c_8af81ddb",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-04-18T10:15:17Z",
+      "side": 1,
+      "message": "I see there are more tabs in the file already. Perhaps you can convert them all to spaces as a cosmetic follow-up change?",
+      "range": {
+        "startLine": 114,
+        "startChar": 0,
+        "endLine": 114,
+        "endChar": 2
+      },
+      "revId": "08be2b4bd97ea787fd81b849858b18c4de416d76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
