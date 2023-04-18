@@ -117,6 +117,30 @@
       },
       "revId": "2a9e1334564ef13efe2215f1a5648ff8158c05aa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7a93130b_3340503b",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-04-18T10:18:05Z",
+      "side": 1,
+      "message": "BTW if you notice anything that can be implemented better for other arches while you\u0027re working on riscv64 (particulartly for arm64), it may be worth taking a note and iterating over all such places in the future. We already reworked art_quick_invoke(_static)_stub this way and it has become much cleaner.",
+      "parentUuid": "22723eaf_50c0e36e",
+      "range": {
+        "startLine": 31,
+        "startChar": 7,
+        "endLine": 31,
+        "endChar": 19
+      },
+      "revId": "2a9e1334564ef13efe2215f1a5648ff8158c05aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
