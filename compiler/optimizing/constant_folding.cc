@@ -28,8 +28,8 @@ namespace art HIDDEN {
 // as constants.
 class HConstantFoldingVisitor final : public HGraphDelegateVisitor {
  public:
-  explicit HConstantFoldingVisitor(HGraph* graph, OptimizingCompilerStats* stats)
-      : HGraphDelegateVisitor(graph, stats) {}
+  HConstantFoldingVisitor(HGraph* graph, OptimizingCompilerStats* stats, bool use_all_optimizations)
+      : HGraphDelegateVisitor(graph, stats), use_all_optimizations_(use_all_optimizations) {}
 
  private:
   void VisitBasicBlock(HBasicBlock* block) override;
@@ -43,6 +43,9 @@ class HConstantFoldingVisitor final : public HGraphDelegateVisitor {
   void VisitTypeConversion(HTypeConversion* inst) override;
 
   void PropagateValue(HBasicBlock* starting_block, HInstruction* variable, HConstant* constant);
+
+  // Use all optimizations without restrictions.
+  bool use_all_optimizations_;
 
   DISALLOW_COPY_AND_ASSIGN(HConstantFoldingVisitor);
 };
@@ -84,7 +87,7 @@ class InstructionWithAbsorbingInputSimplifier : public HGraphVisitor {
 
 
 bool HConstantFolding::Run() {
-  HConstantFoldingVisitor visitor(graph_, stats_);
+  HConstantFoldingVisitor visitor(graph_, stats_, use_all_optimizations_);
   // Process basic blocks in reverse post-order in the dominator tree,
   // so that an instruction turned into a constant, used as input of
   // another instruction, may possibly be used to turn that second
@@ -143,13 +146,25 @@ void HConstantFoldingVisitor::PropagateValue(HBasicBlock* starting_block,
   size_t uses_after = 0;
   if (recording_stats) {
     uses_before = variable->GetUses().SizeSlow();
+    // LOG(ERROR) << "Before ReplaceUsesDominatedBy for " << *variable << ". It has " << uses_before << " uses";
+    // if (uses_before == 1) {
+    //   MaybeRecordStat(stats_, MethodCompilationStat::kCalledPropagatedIfValueOnlyOneUse, uses_before - uses_after);
+    // }
   }
+
+  if (variable->GetUses().HasExactlyOneElement()) {
+    // Nothing to do, since we only have the `if (variable)` use or the `condition` use.
+    return;
+  }
+
+  // MaybeRecordStat(stats_, MethodCompilationStat::kCalledPropagatedIfValue, uses_before - uses_after);
 
   variable->ReplaceUsesDominatedBy(
       starting_block->GetFirstInstruction(), constant, /* strictly_dominated= */ false);
 
   if (recording_stats) {
     uses_after = variable->GetUses().SizeSlow();
+    // LOG(ERROR) << "After ReplaceUsesDominatedBy for " << *variable << ". It has " << uses_after << " uses";
     DCHECK_GE(uses_after, 1u) << "we must at least have the use in the if clause.";
     DCHECK_GE(uses_before, uses_after);
     MaybeRecordStat(stats_, MethodCompilationStat::kPropagatedIfValue, uses_before - uses_after);
@@ -157,6 +172,11 @@ void HConstantFoldingVisitor::PropagateValue(HBasicBlock* starting_block,
 }
 
 void HConstantFoldingVisitor::VisitIf(HIf* inst) {
+  // This optimization can take a lot of compile time since we have a lot of If instructions in graphs.
+  if (!use_all_optimizations_) {
+    return;
+  }
+
   // Consistency check: the true and false successors do not dominate each other.
   DCHECK(!inst->IfTrueSuccessor()->Dominates(inst->IfFalseSuccessor()) &&
          !inst->IfFalseSuccessor()->Dominates(inst->IfTrueSuccessor()));
