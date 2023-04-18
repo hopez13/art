@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "54bcfd1e_89f3b72b",
+        "filename": "runtime/jni/jni_internal.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-04-18T14:53:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5f3bbbe6_1ac0e8d1",
+      "range": {
+        "startLine": 131,
+        "startChar": 34,
+        "endLine": 131,
+        "endChar": 35
+      },
+      "revId": "d017a357a036a6fd8432cb2ca4c211580ac41848",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "16ba5589_35d8f1af",
@@ -85,6 +109,30 @@
       "side": 1,
       "message": "I don\u0027t know. The JNI spec is not exactly detailed. We could check the RI behavior if we try to find and call a conflict method via JNI.",
       "parentUuid": "4833875d_3c3a2e2a",
+      "range": {
+        "startLine": 134,
+        "startChar": 51,
+        "endLine": 134,
+        "endChar": 69
+      },
+      "revId": "d017a357a036a6fd8432cb2ca4c211580ac41848",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c3715996_a46f1780",
+        "filename": "runtime/jni/jni_internal.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-04-18T14:53:59Z",
+      "side": 1,
+      "message": "I looked at the RI implementation and RI does throw ICCE in such cases. So I fixed opaque JNI IDs and this to not canonicalize for default conlicting methods. For miranda methods it works as expected. I added tests for both cases.",
+      "parentUuid": "f5978cc0_138b7f82",
       "range": {
         "startLine": 134,
         "startChar": 51,
