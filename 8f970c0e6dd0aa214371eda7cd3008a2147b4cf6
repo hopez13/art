@@ -39,6 +39,30 @@
       },
       "revId": "8f970c0e6dd0aa214371eda7cd3008a2147b4cf6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9f6e3f1_ed60fc39",
+        "filename": "runtime/jni/jni_id_manager.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-04-18T19:47:50Z",
+      "side": 1,
+      "message": "You are right, I can\u0027t use pointer. I need to still assign an entry in the map. I will update the CL with that.",
+      "parentUuid": "ccf64223_70e8a294",
+      "range": {
+        "startLine": 214,
+        "startChar": 10,
+        "endLine": 214,
+        "endChar": 11
+      },
+      "revId": "8f970c0e6dd0aa214371eda7cd3008a2147b4cf6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
