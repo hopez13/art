@@ -2,11 +2,21 @@
     ebreak
 %def op_const():
     unimp
-
 %def op_const_16():
     unimp
+
+// const/4 vA, #+B
+// Format id: 11n, B|A|op
+// Clobbers: t0, t1, t2, t3, t4
 %def op_const_4():
-    unimp
+    slliw t2, xINST, 16   // B as MSB of word
+    sraiw t2, t2, 28      // lower down into LSB, with sext
+    slliw t3, xINST, 20   // A as MSB of word
+    srliw t3, t3, 28      // lower down into LSB, no sext
+    FETCH_ADVANCE_INST 1  // advance xPC, load xINST
+    GET_INST_OPCODE t4    // t0 holds next opcode
+    SET_VREG t3, t2       // fp[A] := +B
+    GOTO_OPCODE t4        // continue to next
 %def op_const_high16():
     unimp
 %def op_const_object(jumbo="0", helper="nterp_load_object"):
@@ -61,7 +71,9 @@
     unimp
 
 %def op_nop():
-    unimp
+    FETCH_ADVANCE_INST 1
+    GET_INST_OPCODE t0
+    GOTO_OPCODE t0
 
 %def op_unused_3e():
 %  unused()

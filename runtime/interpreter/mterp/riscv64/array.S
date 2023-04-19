@@ -52,6 +52,19 @@
 %def op_filled_new_array_range():
 %  op_filled_new_array(helper="nterp_filled_new_array_range")
 
+// new-array vA, vB, class@CCCC
+// Format id: 22c: B|A|op, CCCC
+// Clobbers: 
 %def op_new_array():
-    unimp
-
+    EXPORT_PC
+    FETCH_FROM_THREAD_CACHE t2, /*miss*/ 2f
+    j 2f  // Slow path for now.
+1:
+    // XXX
+    GOTO_OPCODE t0
+2:
+    mv a0, xSELF
+    ld a1, 0(sp)
+    mv a2, xPC
+    jal nterp_get_class
+    j 1b
