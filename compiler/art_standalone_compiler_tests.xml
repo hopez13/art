@@ -28,6 +28,12 @@
         <option name="push" value="art-gtest-jars-Interfaces.jar->/data/local/tmp/art_standalone_compiler_tests/art-gtest-jars-Interfaces.jar" />
         <option name="push" value="art-gtest-jars-Main.jar->/data/local/tmp/art_standalone_compiler_tests/art-gtest-jars-Main.jar" />
         <option name="push" value="art-gtest-jars-MyClassNatives.jar->/data/local/tmp/art_standalone_compiler_tests/art-gtest-jars-MyClassNatives.jar" />
+        <option name="push" value="art-test-libs->/data/local/tmp/art_standalone_compiler_tests/art-test-libs" />
+    </target_preparer>
+
+    <target_preparer class="com.android.compatibility.common.tradefed.targetprep.FilePusher">
+        <option name="cleanup" value="true" />
+        <option name="push" value="art-test-libs->/data/local/tmp/art_standalone_compiler_tests/art-test-libs" />
     </target_preparer>
 
     <target_preparer class="com.android.compatibility.common.tradefed.targetprep.FilePusher">

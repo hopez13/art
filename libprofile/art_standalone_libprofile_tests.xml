@@ -28,6 +28,10 @@
         <option name="push" value="art-gtest-jars-MultiDex.jar->/data/local/tmp/art_standalone_libprofile_tests/art-gtest-jars-MultiDex.jar" />
         <option name="push" value="art-gtest-jars-ProfileTestMultiDex.jar->/data/local/tmp/art_standalone_libprofile_tests/art-gtest-jars-ProfileTestMultiDex.jar" />
     </target_preparer>
+    <target_preparer class="com.android.compatibility.common.tradefed.targetprep.FilePusher">
+        <option name="cleanup" value="true" />
+        <option name="push" value="art-test-libs->/data/local/tmp/art_standalone_libprofile_tests/art-test-libs" />
+    </target_preparer>
 
     <test class="com.android.tradefed.testtype.GTest" >
         <option name="native-test-device-path" value="/data/local/tmp/art_standalone_libprofile_tests" />
