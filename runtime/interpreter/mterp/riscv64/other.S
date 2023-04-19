@@ -61,7 +61,9 @@
     unimp
 
 %def op_nop():
-    unimp
+    FETCH_ADVANCE_INST 1
+    GET_INST_OPCODE t0
+    GOTO_OPCODE t0
 
 %def op_unused_3e():
 %  unused()
