@@ -22,6 +22,30 @@
       },
       "revId": "a9054c763b0d05d187ed1457ec5a947b7fd4c041",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "29d9490b_fcf5f8b8",
+        "filename": "odrefresh/odr_config.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-04-19T14:42:28Z",
+      "side": 1,
+      "message": "I\u0027ll do this in a follow-up CL, ok? This fixes an already bad situation (boot crash) so it is strictly better than before, and I need to submit this and the next CL in chain ASAP.",
+      "parentUuid": "628a8ff5_6369915d",
+      "range": {
+        "startLine": 279,
+        "startChar": 30,
+        "endLine": 279,
+        "endChar": 57
+      },
+      "revId": "a9054c763b0d05d187ed1457ec5a947b7fd4c041",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
