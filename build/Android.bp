@@ -294,6 +294,14 @@ cc_defaults {
     },
 }
 
+soong_config_module_type {
+    name: "art_debug_defaults",
+    module_type: "cc_defaults",
+    config_namespace: "art_module",
+    value_variables: ["art_debug_opt_flag"],
+    properties: ["cflags"],
+}
+
 art_debug_defaults {
     name: "art_debug_defaults",
     defaults: ["art_defaults"],
@@ -315,6 +323,14 @@ art_debug_defaults {
         },
         host: {
             cflags: ["-Wno-frame-larger-than="],
+        },
+    },
+    soong_config_variables: {
+        art_debug_opt_flag: {
+            cflags: ["%s"],
+            conditions_default: {
+                cflags: ["-O2"],
+            },
         },
     },
 }
