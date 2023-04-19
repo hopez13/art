@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "628a8ff5_6369915d",
+        "filename": "odrefresh/odr_config.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-04-19T14:10:14Z",
+      "side": 1,
+      "message": "It\u0027s better to add CHECKs to `GetBootClasspathIsas` and `GetSystemServerIsa`, to make sure that this `kNone` doesn\u0027t reach public function callers.",
+      "range": {
+        "startLine": 279,
+        "startChar": 30,
+        "endLine": 279,
+        "endChar": 57
+      },
+      "revId": "a9054c763b0d05d187ed1457ec5a947b7fd4c041",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
