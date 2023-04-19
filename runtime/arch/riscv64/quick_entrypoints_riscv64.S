@@ -582,6 +582,16 @@ ENTRY art_quick_resolution_trampoline
 END art_quick_resolution_trampoline
 
 
+ENTRY art_quick_test_suspend
+    SETUP_SAVE_EVERYTHING_FRAME RUNTIME_SAVE_EVERYTHING_FOR_SUSPEND_CHECK_METHOD_OFFSET
+    mv   a0, xSELF
+		la   t0, artTestSuspendFromCode
+    jalr t0   // (Thread*)
+    RESTORE_SAVE_EVERYTHING_FRAME
+    ret
+END
+
+
 UNDEFINED art_quick_imt_conflict_trampoline
 UNDEFINED art_quick_deoptimize_from_compiled_code
 UNDEFINED art_quick_string_builder_append
@@ -776,7 +786,6 @@ UNDEFINED art_quick_invoke_super_trampoline_with_access_check
 UNDEFINED art_quick_invoke_virtual_trampoline_with_access_check
 UNDEFINED art_quick_invoke_polymorphic
 UNDEFINED art_quick_invoke_custom
-UNDEFINED art_quick_test_suspend
 UNDEFINED art_quick_deliver_exception
 UNDEFINED art_quick_throw_array_bounds
 UNDEFINED art_quick_throw_div_zero
