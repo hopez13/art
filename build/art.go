@@ -121,15 +121,6 @@ func globalFlags(ctx android.LoadHookContext) ([]string, []string) {
 	return cflags, asflags
 }
 
-func debugFlags(ctx android.LoadHookContext) []string {
-	var cflags []string
-
-	opt := ctx.Config().GetenvWithDefault("ART_DEBUG_OPT_FLAG", "-O2")
-	cflags = append(cflags, opt)
-
-	return cflags
-}
-
 func deviceFlags(ctx android.LoadHookContext) []string {
 	var cflags []string
 	deviceFrameSizeLimit := 1736
@@ -233,16 +224,6 @@ func addImplicitFlags(ctx android.LoadHookContext) {
 		p.Target.Android.Cflags = []string{"-DART_TARGET", "-DART_TARGET_ANDROID"}
 	}
 
-	ctx.AppendProperties(p)
-}
-
-func debugDefaults(ctx android.LoadHookContext) {
-	type props struct {
-		Cflags []string
-	}
-
-	p := &props{}
-	p.Cflags = debugFlags(ctx)
 	ctx.AppendProperties(p)
 }
 
@@ -368,7 +349,6 @@ func init() {
 	android.RegisterModuleType("libart_cc_defaults", libartDefaultsFactory)
 	android.RegisterModuleType("libart_static_cc_defaults", libartStaticDefaultsFactory)
 	android.RegisterModuleType("art_global_defaults", artGlobalDefaultsFactory)
-	android.RegisterModuleType("art_debug_defaults", artDebugDefaultsFactory)
 
 	// TODO: This makes the module disable itself for host if HOST_PREFER_32_BIT is
 	// set. We need this because the multilib types of binaries listed in the apex
@@ -405,13 +385,6 @@ func artGlobalDefaultsFactory() android.Module {
 	module := artDefaultsFactory()
 	android.AddLoadHook(module, addImplicitFlags)
 	android.AddLoadHook(module, globalDefaults)
-
-	return module
-}
-
-func artDebugDefaultsFactory() android.Module {
-	module := artDefaultsFactory()
-	android.AddLoadHook(module, debugDefaults)
 
 	return module
 }
