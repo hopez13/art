@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "59b5b1b1_54a455ed",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-04-19T13:45:34Z",
+      "side": 1,
+      "message": "We have to temporarily disable Nterp, later it may be possible to revert this patch and add dalvikvm property (to be set for zygote) but now I need to fix SIGILLs at boot on cuttlefish.",
+      "revId": "2ff7fcccdeb2100cb5a3cc5314411fd23dd5f7c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
