@@ -27,6 +27,11 @@
         <option name="push-file" key="generate-boot-image" value="/data/local/tmp/{MODULE}/generate-boot-image" />
     </target_preparer>
 
+    <target_preparer class="com.android.compatibility.common.tradefed.targetprep.FilePusher">
+        <option name="cleanup" value="true" />
+        <option name="push" value="art-test-libs->/data/local/tmp/{MODULE}/art-test-libs" />
+    </target_preparer>
+
     <target_preparer class="com.android.tradefed.targetprep.RunCommandTargetPreparer">
         <option name="throw-if-cmd-fail" value="true" />
         <option name="run-command" value="mkdir -p /data/local/tmp/{MODULE}/art_boot_images" />

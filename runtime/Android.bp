@@ -636,7 +636,7 @@ gensrcs {
 // We always build dex2oat and dependencies, even if the host build is otherwise disabled, since
 // they are used to cross compile for the target.
 
-// Properties common to `libart` and `libart-broken`.
+// Properties common to `libart`, `libart-for-test` and `libart-broken`.
 art_cc_defaults {
     name: "libart_common_defaults",
     defaults: [
@@ -683,6 +683,35 @@ art_cc_library {
     afdo: true,
 }
 
+// Release version of the ART runtime library with all symbols public
+//art_cc_test_library {
+art_cc_library {
+    name: "libart-for-test",
+    //host_supported: true,
+    defaults: [
+        "libart_common_defaults",
+        "libartbase_disable_symbol_hiding",
+    ],
+    //gtest: false,
+    apex_available: [
+        "com.android.art",
+        "com.android.art.debug",
+
+        "test_broken_com.android.art",
+    ],
+    // Configure multilib the same way as `art_standalone_test_defaults`
+    compile_multilib: "both",
+    multilib: {
+        lib32: {
+            suffix: "32",
+        },
+        lib64: {
+            suffix: "64",
+        },
+    },
+    relative_install_path: "art-test-libs",
+}
+
 // "Broken" version of the ART runtime library, used only for testing.
 art_cc_test_library {
     name: "libart-broken",
@@ -700,14 +729,12 @@ art_cc_test_library {
     ],
 }
 
-// Debug version of the ART runtime library.
-art_cc_library {
-    name: "libartd",
+// Properties common to `libartd` and `libartd-for-test`
+art_cc_defaults {
+    name: "libartd_common_defaults",
     defaults: [
         "art_debug_defaults",
         "libart_defaults",
-    ],
-    whole_static_libs: [
     ],
     static_libs: [
         "libelffiled",
@@ -719,6 +746,28 @@ art_cc_library {
     ],
     export_shared_lib_headers: [
         "libdexfiled",
+    ],
+}
+
+// Debug version of the ART runtime library.
+art_cc_library {
+    name: "libartd",
+    defaults: ["libartd_common_defaults"],
+    apex_available: [
+        "com.android.art.debug",
+        // TODO(b/183882457): This lib doesn't go into com.android.art, but
+        // apex_available lists need to be the same for internal libs to avoid
+        // stubs, and this depends on libsigchain.
+        "com.android.art",
+    ],
+}
+
+// Debug version of the ART runtime library with all symbols public
+art_cc_library {
+    name: "libartd-for-test",
+    defaults: [
+        "libartd_common_defaults",
+        "libartbase_disable_symbol_hiding",
     ],
     apex_available: [
         "com.android.art.debug",
@@ -767,7 +816,7 @@ art_cc_library {
         "libart-gtest-defaults",
     ],
     shared_libs: [
-        "libart",
+        "libart-for-test",
         "libartbase-art-gtest",
     ],
 }
@@ -779,7 +828,7 @@ art_cc_library {
         "libartd-gtest-defaults",
     ],
     shared_libs: [
-        "libartd",
+        "libartd-for-test",
         "libartbased-art-gtest",
     ],
 }
@@ -833,6 +882,7 @@ art_cc_defaults {
         ":art-gtest-jars-VerifierDeps",
         ":art-gtest-jars-VerifierDepsMulti",
         ":art-gtest-jars-XandY",
+
     ],
     tidy_timeout_srcs: [
         "arch/stub_test.cc",
