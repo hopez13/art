@@ -63,6 +63,30 @@
       },
       "revId": "8f970c0e6dd0aa214371eda7cd3008a2147b4cf6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b59e5098_a23409e5",
+        "filename": "runtime/jni/jni_id_manager.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-04-20T12:01:36Z",
+      "side": 1,
+      "message": "Done. I use IDs for default conflicting case as well and just avoid canonicalizing.",
+      "parentUuid": "e9f6e3f1_ed60fc39",
+      "range": {
+        "startLine": 214,
+        "startChar": 10,
+        "endLine": 214,
+        "endChar": 11
+      },
+      "revId": "8f970c0e6dd0aa214371eda7cd3008a2147b4cf6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
