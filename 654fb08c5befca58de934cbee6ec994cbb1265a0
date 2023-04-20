@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e492a27_d716cf7a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1514900
+      },
+      "writtenOn": "2023-04-20T07:45:26Z",
+      "side": 1,
+      "message": "Did you also verify that all transitive reverse dependencies of these defaults don\u0027t use the `codegen` prop, given that defaults do apply transitively?\n\nIf not, consider separating this change from the art_debug_opt_flag change.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 27
+      },
+      "revId": "654fb08c5befca58de934cbee6ec994cbb1265a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
