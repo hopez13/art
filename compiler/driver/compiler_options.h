@@ -60,13 +60,13 @@ enum class ProfileMethodsCheck : uint8_t {
 class CompilerOptions final {
  public:
   // Guide heuristics to determine whether to compile method if profile data not available.
-  static const size_t kDefaultHugeMethodThreshold = 10000;
-  static const size_t kDefaultLargeMethodThreshold = 600;
-  static const size_t kDefaultNumDexMethodsThreshold = 900;
+  static const size_t kDefaultHugeMethodThreshold = 5000;
+  static const size_t kDefaultLargeMethodThreshold = 300;
+  static const size_t kDefaultNumDexMethodsThreshold = 450;
   static constexpr double kDefaultTopKProfileThreshold = 90.0;
   static const bool kDefaultGenerateDebugInfo = false;
   static const bool kDefaultGenerateMiniDebugInfo = true;
-  static const size_t kDefaultInlineMaxCodeUnits = 32;
+  static const size_t kDefaultInlineMaxCodeUnits = 16;
   static constexpr size_t kUnsetInlineMaxCodeUnits = -1;
 
   enum class CompilerType : uint8_t {

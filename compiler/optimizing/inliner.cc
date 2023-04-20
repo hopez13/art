@@ -49,7 +49,7 @@
 namespace art HIDDEN {
 
 // Instruction limit to control memory.
-static constexpr size_t kMaximumNumberOfTotalInstructions = 1024;
+static constexpr size_t kMaximumNumberOfTotalInstructions = 512;
 
 // Maximum number of instructions for considering a method small,
 // which we will always try to inline if the other non-instruction limits
@@ -58,11 +58,11 @@ static constexpr size_t kMaximumNumberOfInstructionsForSmallMethod = 3;
 
 // Limit the number of dex registers that we accumulate while inlining
 // to avoid creating large amount of nested environments.
-static constexpr size_t kMaximumNumberOfCumulatedDexRegisters = 32;
+static constexpr size_t kMaximumNumberOfCumulatedDexRegisters = 16;
 
 // Limit recursive call inlining, which do not benefit from too
 // much inlining compared to code locality.
-static constexpr size_t kMaximumNumberOfRecursiveCalls = 4;
+static constexpr size_t kMaximumNumberOfRecursiveCalls = 2;
 
 // Limit recursive polymorphic call inlining to prevent code bloat, since it can quickly get out of
 // hand in the presence of multiple Wrapper classes. We set this to 0 to disallow polymorphic
