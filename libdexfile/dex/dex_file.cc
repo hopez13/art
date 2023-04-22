@@ -23,12 +23,12 @@
 #include <zlib.h>
 
 #include <memory>
+#include <optional>
 #include <ostream>
 #include <sstream>
 #include <type_traits>
 
 #include "android-base/stringprintf.h"
-
 #include "base/enums.h"
 #include "base/hiddenapi_domain.h"
 #include "base/leb128.h"
@@ -72,6 +72,22 @@ uint32_t DexFile::CalculateChecksum(const uint8_t* begin, size_t size) {
 
 uint32_t DexFile::ChecksumMemoryRange(const uint8_t* begin, size_t size) {
   return adler32(adler32(0L, Z_NULL, 0), begin, size);
+}
+
+void DexFile::CombineAdler(uint32_t sum, size_t len, std::optional<uint32_t>* result) {
+#ifdef Z_LARGE64
+  result->emplace(adler32_combine64(result->value_or(1), sum, len));
+#else
+  result->emplace(adler32_combine(result->value_or(1), sum, len));
+#endif
+}
+
+void DexFile::CombineCrc32(uint32_t sum, size_t len, std::optional<uint32_t>* result) {
+#ifdef Z_LARGE64
+  result->emplace(crc32_combine64(result->value_or(0), sum, len));
+#else
+  result->emplace(crc32_combine(result->value_or(0), sum, len));
+#endif
 }
 
 bool DexFile::IsReadOnly() const {
