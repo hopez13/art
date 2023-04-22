@@ -184,41 +184,68 @@ class ClassLoaderContextTest : public CommonRuntimeTest {
                 ClassLoaderContext::ContextDexFilesState::kDexFilesOpened);
     }
     ClassLoaderContext::ClassLoaderInfo& info = *context->GetParent(index);
-    ASSERT_EQ(all_dex_files->size(), info.classpath.size());
-    ASSERT_EQ(all_dex_files->size(), info.checksums.size());
-    if (only_read_checksums) {
-      ASSERT_EQ(0u, info.opened_dex_files.size());
-    } else {
-      ASSERT_EQ(all_dex_files->size(), info.opened_dex_files.size());
+
+    std::vector<const DexFile*> primary_dex_files;
+    for (auto& it : *all_dex_files) {
+      if (!DexFileLoader::IsMultiDexLocation(it->GetLocation().c_str())) {
+        primary_dex_files.push_back(it.get());
+      }
     }
 
-    for (size_t k = 0, cur_open_dex_index = 0;
-         k < all_dex_files->size();
-         k++, cur_open_dex_index++) {
-      const std::string& opened_location = only_read_checksums
-          ? info.classpath[cur_open_dex_index]
-          : info.opened_dex_files[cur_open_dex_index]->GetLocation();
-      uint32_t opened_checksum = only_read_checksums
-          ? info.checksums[cur_open_dex_index]
-          : info.opened_dex_files[cur_open_dex_index]->GetLocationChecksum();
+    ASSERT_EQ(primary_dex_files.size(), info.classpath.size());
+    ASSERT_EQ(primary_dex_files.size(), info.checksums.size());
+    if (only_read_checksums) {
+      ASSERT_EQ(0u, info.opened_dex_files.size());
 
-      std::unique_ptr<const DexFile>& expected_dex_file = (*all_dex_files)[k];
-      std::string expected_location = expected_dex_file->GetLocation();
+      for (size_t k = 0; k < primary_dex_files.size(); k++) {
+        const std::string& opened_location = info.classpath[k];
+        uint32_t opened_checksum = info.checksums[k];
 
-      if (!IsAbsoluteLocation(opened_location)) {
-        // If the opened location is relative (it was open from a relative path without a
-        // classpath_dir) it might not match the expected location which is absolute in tests).
-        // So we compare the endings (the checksum will validate it's actually the same file).
-        ASSERT_EQ(0, expected_location.compare(
-            expected_location.length() - opened_location.length(),
-            opened_location.length(),
-            opened_location));
-      } else {
-        ASSERT_EQ(expected_location, opened_location);
+        const DexFile* expected_dex_file = primary_dex_files[k];
+        std::string expected_location = expected_dex_file->GetLocation();
+
+        if (!IsAbsoluteLocation(opened_location)) {
+          // If the opened location is relative (it was open from a relative path without a
+          // classpath_dir) it might not match the expected location which is absolute in tests).
+          // So we compare the endings (the checksum will validate it's actually the same file).
+          ASSERT_EQ(0,
+                    expected_location.compare(expected_location.length() - opened_location.length(),
+                                              opened_location.length(),
+                                              opened_location));
+        } else {
+          ASSERT_EQ(expected_location, opened_location);
+        }
+        ASSERT_EQ(expected_dex_file->GetLocationChecksum(), opened_checksum);
+        if (classpath_matches_dex_location) {
+          ASSERT_EQ(info.classpath[k], opened_location);
+        }
       }
-      ASSERT_EQ(expected_dex_file->GetLocationChecksum(), opened_checksum);
-      if (classpath_matches_dex_location) {
-        ASSERT_EQ(info.classpath[k], opened_location);
+
+    } else {
+      ASSERT_EQ(all_dex_files->size(), info.opened_dex_files.size());
+
+      for (size_t k = 0; k < all_dex_files->size(); k++) {
+        const std::string& opened_location = info.opened_dex_files[k]->GetLocation();
+        uint32_t opened_checksum = info.opened_dex_files[k]->GetLocationChecksum();
+
+        std::unique_ptr<const DexFile>& expected_dex_file = (*all_dex_files)[k];
+        std::string expected_location = expected_dex_file->GetLocation();
+
+        if (!IsAbsoluteLocation(opened_location)) {
+          // If the opened location is relative (it was open from a relative path without a
+          // classpath_dir) it might not match the expected location which is absolute in tests).
+          // So we compare the endings (the checksum will validate it's actually the same file).
+          ASSERT_EQ(0,
+                    expected_location.compare(expected_location.length() - opened_location.length(),
+                                              opened_location.length(),
+                                              opened_location));
+        } else {
+          ASSERT_EQ(expected_location, opened_location);
+        }
+        ASSERT_EQ(expected_dex_file->GetLocationChecksum(), opened_checksum);
+        if (classpath_matches_dex_location) {
+          ASSERT_EQ(info.classpath[k], opened_location);
+        }
       }
     }
   }

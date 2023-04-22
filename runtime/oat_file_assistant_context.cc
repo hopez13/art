@@ -17,6 +17,7 @@
 #include "oat_file_assistant_context.h"
 
 #include <memory>
+#include <optional>
 #include <string>
 #include <vector>
 
@@ -156,23 +157,19 @@ const std::vector<std::string>* OatFileAssistantContext::GetBcpChecksums(size_t 
     return &it->second;
   }
 
-  std::vector<uint32_t> checksums;
-  std::vector<std::string> dex_locations;
-  if (!ArtDexFileLoader::GetMultiDexChecksums(
-          runtime_options_->boot_class_path[bcp_index].c_str(),
-          &checksums,
-          &dex_locations,
-          error_msg,
-          runtime_options_->boot_class_path_fds != nullptr ?
-              (*runtime_options_->boot_class_path_fds)[bcp_index] :
-              -1)) {
+  std::optional<uint32_t> checksum;
+  ArtDexFileLoader dex_loader(runtime_options_->boot_class_path_fds != nullptr ?
+                                  (*runtime_options_->boot_class_path_fds)[bcp_index] :
+                                  -1,
+                              runtime_options_->boot_class_path[bcp_index]);
+  if (!dex_loader.GetMultiDexChecksum(&checksum, error_msg)) {
     return nullptr;
   }
 
-  DCHECK(!checksums.empty());
+  DCHECK(checksum.has_value());
   std::vector<std::string>& bcp_checksums = bcp_checksums_by_index_[bcp_index];
-  for (uint32_t checksum : checksums) {
-    bcp_checksums.push_back(StringPrintf("/%08x", checksum));
+  if (checksum.has_value()) {
+    bcp_checksums.push_back(StringPrintf("/%08x", checksum.value()));
   }
   return &bcp_checksums;
 }

@@ -2215,21 +2215,8 @@ TEST_F(Dex2oatClassLoaderContextTest, StoredClassLoaderContext) {
   const std::string odex_location = out_dir + "/base.odex";
   const std::string valid_context = "PCL[" + dex_files[0]->GetLocation() + "]";
   const std::string stored_context = "PCL[/system/not_real_lib.jar]";
-  std::string expected_stored_context = "PCL[";
-  size_t index = 1;
-  for (const std::unique_ptr<const DexFile>& dex_file : dex_files) {
-    const bool is_first = index == 1u;
-    if (!is_first) {
-      expected_stored_context += ":";
-    }
-    expected_stored_context += "/system/not_real_lib.jar";
-    if (!is_first) {
-      expected_stored_context += "!classes" + std::to_string(index) + ".dex";
-    }
-    expected_stored_context += "*" + std::to_string(dex_file->GetLocationChecksum());
-    ++index;
-  }
-  expected_stored_context += "]";
+  std::string expected_stored_context =
+      "PCL[/system/not_real_lib.jar*" + std::to_string(dex_files[0]->GetLocationChecksum()) + "]";
   // The class path should not be valid and should fail being stored.
   EXPECT_TRUE(GenerateOdexForTest(GetTestDexFileName("ManyMethods"),
                                   odex_location,
