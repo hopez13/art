@@ -585,8 +585,8 @@ std::string CommonArtTestImpl::CreateClassPathWithChecksums(
   std::string classpath = dex_files[0]->GetLocation() + "*" +
       std::to_string(dex_files[0]->GetLocationChecksum());
   for (size_t i = 1; i < dex_files.size(); i++) {
-    classpath += ":" + dex_files[i]->GetLocation() + "*" +
-        std::to_string(dex_files[i]->GetLocationChecksum());
+    // Exclude multidex checksums since they are already included in primary checksum.
+    DCHECK(DexFileLoader::IsMultiDexLocation(dex_files[i]->GetLocation().c_str()));
   }
   return classpath;
 }

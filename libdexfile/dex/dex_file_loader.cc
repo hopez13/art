@@ -148,9 +148,66 @@ std::string DexFileLoader::GetMultiDexClassesDexName(size_t index) {
 }
 
 std::string DexFileLoader::GetMultiDexLocation(size_t index, const char* dex_location) {
-  return (index == 0)
-      ? dex_location
-      : StringPrintf("%s%cclasses%zu.dex", dex_location, kMultiDexSeparator, index + 1);
+  if (index == 0) {
+    return dex_location;
+  }
+  DCHECK(!IsMultiDexLocation(dex_location));
+  return StringPrintf("%s%cclasses%zu.dex", dex_location, kMultiDexSeparator, index + 1);
+}
+
+bool DexFileLoader::GetMultiDexChecksum(std::optional<uint32_t>* checksum,
+                                        std::string* error_msg,
+                                        bool* only_contains_uncompressed_dex) {
+  CHECK(checksum != nullptr);
+
+  uint32_t magic;
+  if (!InitAndReadMagic(&magic, error_msg)) {
+    return false;
+  }
+
+  if (IsZipMagic(magic)) {
+    std::unique_ptr<ZipArchive> zip_archive(
+        file_.has_value() ?
+            ZipArchive::OpenFromOwnedFd(file_->Fd(), location_.c_str(), error_msg) :
+            ZipArchive::OpenFromMemory(
+                root_container_->Begin(), root_container_->Size(), location_.c_str(), error_msg));
+    if (zip_archive.get() == nullptr) {
+      DCHECK(!error_msg->empty());
+      return false;
+    }
+    if (only_contains_uncompressed_dex != nullptr) {
+      *only_contains_uncompressed_dex = true;
+    }
+    for (size_t i = 0;; i++) {
+      std::string name = GetMultiDexClassesDexName(i);
+      std::unique_ptr<ZipEntry> zip_entry(zip_archive->Find(name.c_str(), error_msg));
+      if (zip_entry == nullptr) {
+        break;
+      }
+      if (only_contains_uncompressed_dex != nullptr) {
+        if (!(zip_entry->IsUncompressed() && zip_entry->IsAlignedTo(alignof(DexFile::Header)))) {
+          *only_contains_uncompressed_dex = false;
+        }
+      }
+      checksum->emplace(checksum->value_or(0) ^ zip_entry->GetCrc32());
+    }
+    return true;
+  }
+  if (IsMagicValid(magic)) {
+    std::vector<std::unique_ptr<const DexFile>> dex_files;
+    if (!Open(/* verify= */ false,
+              /* verify_checksum= */ false,
+              error_msg,
+              &dex_files)) {
+      return false;
+    }
+    for (auto& dex_file : dex_files) {
+      checksum->emplace(checksum->value_or(0) ^ dex_file->GetHeader().checksum_);
+    }
+    return true;
+  }
+  *error_msg = StringPrintf("Expected valid zip or dex file: '%s'", filename_.c_str());
+  return false;
 }
 
 std::string DexFileLoader::GetDexCanonicalLocation(const char* dex_location) {
@@ -286,6 +343,13 @@ bool DexFileLoader::Open(bool verify,
   }
 
   if (IsZipMagic(magic)) {
+    // Get a checksum representing all dex files in the archive.
+    std::optional<uint32_t> location_checksum;
+    if (!GetMultiDexChecksum(&location_checksum, error_msg)) {
+      DCHECK(!error_msg->empty());
+      return false;
+    }
+
     std::unique_ptr<ZipArchive> zip_archive(
         file_.has_value() ?
             ZipArchive::OpenFromOwnedFd(file_->Fd(), location_.c_str(), error_msg) :
@@ -301,6 +365,7 @@ bool DexFileLoader::Open(bool verify,
       bool ok = OpenFromZipEntry(*zip_archive,
                                  name.c_str(),
                                  multidex_location,
+                                 location_checksum,
                                  verify,
                                  verify_checksum,
                                  error_code,
@@ -319,6 +384,10 @@ bool DexFileLoader::Open(bool verify,
                      << " dex files. Please consider coalescing and shrinking the number to "
                         " avoid runtime overhead.";
       }
+
+      // Future multidex files will get consecutively increasing checksums to make it unique.
+      CHECK(location_checksum.has_value());
+      location_checksum = location_checksum.value() + 1;
     }
   }
   if (IsMagicValid(magic)) {
@@ -404,12 +473,14 @@ std::unique_ptr<DexFile> DexFileLoader::OpenCommon(std::shared_ptr<DexFileContai
 bool DexFileLoader::OpenFromZipEntry(const ZipArchive& zip_archive,
                                      const char* entry_name,
                                      const std::string& location,
+                                     std::optional<uint32_t> location_checksum,
                                      bool verify,
                                      bool verify_checksum,
                                      DexFileLoaderErrorCode* error_code,
                                      std::string* error_msg,
                                      std::vector<std::unique_ptr<const DexFile>>* dex_files) const {
   CHECK(!location.empty());
+
   std::unique_ptr<ZipEntry> zip_entry(zip_archive.Find(entry_name, error_msg));
   if (zip_entry == nullptr) {
     *error_code = DexFileLoaderErrorCode::kEntryNotFound;
@@ -467,7 +538,7 @@ bool DexFileLoader::OpenFromZipEntry(const ZipArchive& zip_archive,
                                                        container->Begin(),
                                                        container->Size(),
                                                        location,
-                                                       zip_entry->GetCrc32(),
+                                                       location_checksum,
                                                        /*oat_dex_file=*/nullptr,
                                                        verify,
                                                        verify_checksum,
