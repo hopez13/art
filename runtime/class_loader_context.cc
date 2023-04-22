@@ -17,6 +17,7 @@
 #include "class_loader_context.h"
 
 #include <algorithm>
+#include <optional>
 
 #include "android-base/file.h"
 #include "android-base/parseint.h"
@@ -473,16 +474,18 @@ bool ClassLoaderContext::OpenDexFiles(const std::string& classpath_dir,
       }
 
       std::string error_msg;
+      ArtDexFileLoader dex_file_loader(fd, location);
       if (only_read_checksums) {
+        std::optional<uint32_t> dex_checksum;
         bool zip_file_only_contains_uncompress_dex;
-        if (!ArtDexFileLoader::GetMultiDexChecksums(location.c_str(),
-                                                    &dex_checksums,
-                                                    &dex_locations,
-                                                    &error_msg,
-                                                    fd,
-                                                    &zip_file_only_contains_uncompress_dex)) {
+        if (!dex_file_loader.GetMultiDexChecksum(&dex_checksum,
+                                                 &error_msg,
+                                                 &zip_file_only_contains_uncompress_dex)) {
           LOG(WARNING) << "Could not get dex checksums for location " << location << ", fd=" << fd;
           dex_files_state_ = kDexFilesOpenFailed;
+        } else if (dex_checksum.has_value()) {
+          dex_locations.push_back(location);
+          dex_checksums.push_back(dex_checksum.value());
         }
       } else {
         // When opening the dex files from the context we expect their checksum to match their
@@ -490,19 +493,16 @@ bool ClassLoaderContext::OpenDexFiles(const std::string& classpath_dir,
         // We don't need to do structural dex file verification, we only need to
         // check the checksum, so pass false to verify.
         size_t opened_dex_files_index = info->opened_dex_files.size();
-        ArtDexFileLoader dex_file_loader(location.c_str(), fd, location);
         if (!dex_file_loader.Open(/*verify=*/false,
                                   /*verify_checksum=*/true,
                                   &error_msg,
                                   &info->opened_dex_files)) {
           LOG(WARNING) << "Could not open dex files for location " << location << ", fd=" << fd;
           dex_files_state_ = kDexFilesOpenFailed;
-        } else {
-          for (size_t k = opened_dex_files_index; k < info->opened_dex_files.size(); k++) {
-            std::unique_ptr<const DexFile>& dex = info->opened_dex_files[k];
-            dex_locations.push_back(dex->GetLocation());
-            dex_checksums.push_back(dex->GetLocationChecksum());
-          }
+        } else if (opened_dex_files_index < info->opened_dex_files.size()) {
+          std::unique_ptr<const DexFile>& dex = info->opened_dex_files[opened_dex_files_index];
+          dex_locations.push_back(dex->GetLocation());
+          dex_checksums.push_back(dex->GetLocationChecksum());
         }
       }
     }
@@ -518,8 +518,8 @@ bool ClassLoaderContext::OpenDexFiles(const std::string& classpath_dir,
     // Note that this will also remove the paths that could not be opened.
     info->original_classpath = std::move(info->classpath);
     DCHECK(dex_locations.size() == dex_checksums.size());
-    info->classpath = dex_locations;
-    info->checksums = dex_checksums;
+    info->classpath = std::move(dex_locations);
+    info->checksums = std::move(dex_checksums);
     AddToWorkList(info, work_list);
   }
 
@@ -1156,12 +1156,14 @@ bool ClassLoaderContext::CreateInfoFromClassLoader(
 
   // Now that `info` is in the chain, populate dex files.
   for (const DexFile* dex_file : dex_files_loaded) {
-    // Dex location of dex files loaded with InMemoryDexClassLoader is always bogus.
-    // Use a magic value for the classpath instead.
-    info->classpath.push_back((type == kInMemoryDexClassLoader) ?
-                                  kInMemoryDexClassLoaderDexLocationMagic :
-                                  dex_file->GetLocation());
-    info->checksums.push_back(dex_file->GetLocationChecksum());
+    if (!DexFileLoader::IsMultiDexLocation(dex_file->GetLocation().c_str())) {
+      // Dex location of dex files loaded with InMemoryDexClassLoader is always bogus.
+      // Use a magic value for the classpath instead.
+      info->classpath.push_back((type == kInMemoryDexClassLoader) ?
+                                    kInMemoryDexClassLoaderDexLocationMagic :
+                                    dex_file->GetLocation());
+      info->checksums.push_back(dex_file->GetLocationChecksum());
+    }
     info->opened_dex_files.emplace_back(dex_file);
   }
 
