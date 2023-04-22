@@ -21,6 +21,7 @@
 #include <unistd.h>
 
 #include <memory>
+#include <optional>
 #include <random>
 #include <string>
 #include <vector>
@@ -3450,8 +3451,7 @@ bool ImageSpace::ValidateOatFile(const OatFile& oat_file,
 
   size_t dex_file_index = 0;
   for (const OatDexFile* oat_dex_file : oat_file.GetOatDexFiles()) {
-    // Skip multidex locations - These will be checked when we visit their
-    // corresponding primary non-multidex location.
+    // Skip multidex locations - their checksum is included in the primary location.
     if (DexFileLoader::IsMultiDexLocation(oat_dex_file->GetDexFileLocation().c_str())) {
       continue;
     }
@@ -3462,52 +3462,27 @@ bool ImageSpace::ValidateOatFile(const OatFile& oat_file,
     int dex_fd = dex_file_index < dex_fds.size() ? dex_fds[dex_file_index] : -1;
     dex_file_index++;
 
-    std::vector<uint32_t> checksums;
-    std::vector<std::string> dex_locations_ignored;
-    if (!ArtDexFileLoader::GetMultiDexChecksums(
-            dex_file_location.c_str(), &checksums, &dex_locations_ignored, error_msg, dex_fd)) {
-      *error_msg = StringPrintf("ValidateOatFile failed to get checksums of dex file '%s' "
-                                "referenced by oat file %s: %s",
-                                dex_file_location.c_str(),
-                                oat_file.GetLocation().c_str(),
-                                error_msg->c_str());
+    std::optional<uint32_t> checksum;
+    ArtDexFileLoader dex_loader(dex_fd, dex_file_location);
+    if (!dex_loader.GetMultiDexChecksum(&checksum, error_msg)) {
+      *error_msg = StringPrintf(
+          "ValidateOatFile failed to get checksum of dex file '%s' "
+          "referenced by oat file %s: %s",
+          dex_file_location.c_str(),
+          oat_file.GetLocation().c_str(),
+          error_msg->c_str());
       return false;
     }
-    CHECK(!checksums.empty());
-    if (checksums[0] != oat_dex_file->GetDexFileLocationChecksum()) {
-      *error_msg = StringPrintf("ValidateOatFile found checksum mismatch between oat file "
-                                "'%s' and dex file '%s' (0x%x != 0x%x)",
-                                oat_file.GetLocation().c_str(),
-                                dex_file_location.c_str(),
-                                oat_dex_file->GetDexFileLocationChecksum(),
-                                checksums[0]);
+    CHECK(checksum.has_value());
+    if (checksum.value() != oat_dex_file->GetDexFileLocationChecksum()) {
+      *error_msg = StringPrintf(
+          "ValidateOatFile found checksum mismatch between oat file "
+          "'%s' and dex file '%s' (0x%x != 0x%x)",
+          oat_file.GetLocation().c_str(),
+          dex_file_location.c_str(),
+          oat_dex_file->GetDexFileLocationChecksum(),
+          checksum.value());
       return false;
-    }
-
-    // Verify checksums for any related multidex entries.
-    for (size_t i = 1; i < checksums.size(); i++) {
-      std::string multi_dex_location = DexFileLoader::GetMultiDexLocation(
-          i,
-          dex_file_location.c_str());
-      const OatDexFile* multi_dex = oat_file.GetOatDexFile(multi_dex_location.c_str(),
-                                                           nullptr,
-                                                           error_msg);
-      if (multi_dex == nullptr) {
-        *error_msg = StringPrintf("ValidateOatFile oat file '%s' is missing entry '%s'",
-                                  oat_file.GetLocation().c_str(),
-                                  multi_dex_location.c_str());
-        return false;
-      }
-
-      if (checksums[i] != multi_dex->GetDexFileLocationChecksum()) {
-        *error_msg = StringPrintf("ValidateOatFile found checksum mismatch between oat file "
-                                  "'%s' and dex file '%s' (0x%x != 0x%x)",
-                                  oat_file.GetLocation().c_str(),
-                                  multi_dex_location.c_str(),
-                                  multi_dex->GetDexFileLocationChecksum(),
-                                  checksums[i]);
-        return false;
-      }
     }
   }
   return true;

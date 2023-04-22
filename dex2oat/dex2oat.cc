@@ -1787,6 +1787,7 @@ class Dex2Oat final {
       return false;
     }
 
+    bool ok = true;
     for (size_t i = 0; i < compiler_options_->dex_files_for_oat_file_.size(); i++) {
       uint32_t dex_source_checksum =
           compiler_options_->dex_files_for_oat_file_[i]->GetLocationChecksum();
@@ -1797,10 +1798,23 @@ class Dex2Oat final {
           << " vdex_checksum=0x" << vdex_checksum
           << " dex_source_checksum=0x" << dex_source_checksum
           << std::dec;
-        return false;
+        ok = false;
       }
     }
-    return true;
+
+    if (!ok) {
+      // Backwards compatibility: Check old version of the checksum.
+      // Calculate the combined checksum of vdex from all its entries.
+      std::optional<uint32_t> checksum;
+      for (size_t i = 0; i < input_vdex_file_->GetNumberOfDexFiles(); i++) {
+        size_t size = compiler_options_->dex_files_for_oat_file_[i]->GetHeader().file_size_;
+        DexFile::CombineCrc32(input_vdex_file_->GetLocationChecksum(i), size, &checksum);
+      }
+      const DexFile* primary_dex = compiler_options_->dex_files_for_oat_file_[0];
+      ok = checksum.has_value() && (checksum == primary_dex->GetLocationChecksum());
+    }
+
+    return ok;
   }
 
   // If we need to keep the oat file open for the image writer.

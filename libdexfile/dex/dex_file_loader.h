@@ -32,7 +32,6 @@ namespace art {
 
 class MemMap;
 class OatDexFile;
-class ScopedTrace;
 class ZipArchive;
 
 enum class DexFileLoaderErrorCode {
@@ -71,6 +70,13 @@ class DexFileLoader {
   // Return the (possibly synthetic) dex location for a multidex entry. This is dex_location for
   // index == 0, and dex_location + multi-dex-separator + GetMultiDexClassesDexName(index) else.
   static std::string GetMultiDexLocation(size_t index, const char* dex_location);
+
+  // Returns combined checksum of one or more dex files (one checksum for the whole multidex set).
+  //
+  // Returns false on error.  Returns checksum "nullopt" for an empty set.
+  bool GetMultiDexChecksum(std::optional<uint32_t>* checksum,
+                           std::string* error_msg,
+                           bool* only_contains_uncompressed_dex = nullptr);
 
   // Returns the canonical form of the given dex location.
   //
@@ -242,6 +248,7 @@ class DexFileLoader {
   bool OpenFromZipEntry(const ZipArchive& zip_archive,
                         const char* entry_name,
                         const std::string& location,
+                        std::optional<uint32_t> location_checksum,
                         bool verify,
                         bool verify_checksum,
                         DexFileLoaderErrorCode* error_code,
