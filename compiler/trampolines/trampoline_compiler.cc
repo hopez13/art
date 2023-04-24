@@ -127,6 +127,67 @@ static std::unique_ptr<const std::vector<uint8_t>> CreateTrampoline(
 }  // namespace arm64
 #endif  // ART_ENABLE_CODEGEN_arm64
 
+#ifdef ART_ENABLE_CODEGEN_riscv64
+namespace riscv64 {
+static std::unique_ptr<const std::vector<uint8_t>> CreateTrampoline(
+    ArenaAllocator* /*allocator*/, EntryPointCallingConvention abi, ThreadOffset64 offset) {
+  if (abi == kJniAbi) {
+    // TODO(riscv64): implement this properly once we have macro-assembler for RISC-V.
+    std::unique_ptr<std::vector<uint8_t>> entry_stub(new std::vector<uint8_t>(2));
+    uint8_t* bytes = entry_stub->data();
+
+    // 0000    unimp
+    bytes[0] = 0x00;
+    bytes[1] = 0x00;
+
+    return std::move(entry_stub);
+  } else {
+    CHECK_LE(offset.Int32Value(), 0x7ff);
+    uint8_t offset_hi = (offset.Int32Value() & 0x7ff) >> 4;
+    uint8_t offset_lo = (offset.Int32Value() & 0xf) << 4;
+
+    std::unique_ptr<std::vector<uint8_t>> entry_stub(new std::vector<uint8_t>(16));
+    uint8_t* bytes = entry_stub->data();
+
+    // 00000293    li t0,0
+    bytes[0] = 0x93;
+    bytes[1] = 0x02;
+    bytes[2] = 0x00;
+    bytes[3] = 0x00;
+
+    // xxx28293    add t0, t0, xxx
+    bytes[4] = 0x93;
+    bytes[5] = 0x82;
+    bytes[6] = offset_lo | 0x02;
+    bytes[7] = offset_hi;
+
+    if (abi == kInterpreterAbi) {
+      // Thread* is first argument (A0) in interpreter ABI.
+      // 92aa      add t0, t0, s1
+      bytes[8] = 0xaa;
+    } else {
+      // abi == kQuickAbi: TR holds Thread*.
+      // 92a6      add t0, t0, s1
+      bytes[8] = 0xa6;
+    }
+    bytes[9] = 0x92;
+
+    // 0002b283    ld t0, 0(t0)
+    bytes[10] = 0x83;
+    bytes[11] = 0xb2;
+    bytes[12] = 0x02;
+    bytes[13] = 0x00;
+
+    // 8282        jr t0
+    bytes[14] = 0x82;
+    bytes[15] = 0x82;
+
+    return std::move(entry_stub);
+  }
+}
+}  // namespace riscv64
+#endif  // ART_ENABLE_CODEGEN_riscv64
+
 #ifdef ART_ENABLE_CODEGEN_x86
 namespace x86 {
 static std::unique_ptr<const std::vector<uint8_t>> CreateTrampoline(ArenaAllocator* allocator,
@@ -178,6 +239,10 @@ std::unique_ptr<const std::vector<uint8_t>> CreateTrampoline64(InstructionSet is
 #ifdef ART_ENABLE_CODEGEN_arm64
     case InstructionSet::kArm64:
       return arm64::CreateTrampoline(&allocator, abi, offset);
+#endif
+#ifdef ART_ENABLE_CODEGEN_riscv64
+    case InstructionSet::kRiscv64:
+      return riscv64::CreateTrampoline(&allocator, abi, offset);
 #endif
 #ifdef ART_ENABLE_CODEGEN_x86_64
     case InstructionSet::kX86_64:
