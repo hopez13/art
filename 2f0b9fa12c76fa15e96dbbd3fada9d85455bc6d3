@@ -188,6 +188,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "17b91be4_3fa101f2",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 9426,
+      "author": {
+        "id": 1047684
+      },
+      "writtenOn": "2023-04-24T16:25:51Z",
+      "side": 1,
+      "message": "The error message is set at the line 9384, and a ClassFormatError will be thrown for double @Record annotation.",
+      "parentUuid": "5e681f73_c501a5ac",
+      "revId": "2f0b9fa12c76fa15e96dbbd3fada9d85455bc6d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e4dfda20_1dea1858",
