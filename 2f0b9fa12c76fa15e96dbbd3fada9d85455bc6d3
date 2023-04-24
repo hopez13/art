@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "8e7c4252_8888fec6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1047684
+      },
+      "writtenOn": "2023-04-24T15:44:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f3784ca8_65da3bc0",
+      "range": {
+        "startLine": 9,
+        "startChar": 54,
+        "endLine": 9,
+        "endChar": 61
+      },
+      "revId": "2f0b9fa12c76fa15e96dbbd3fada9d85455bc6d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "a1649cb3_40fa6904",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
@@ -76,6 +100,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd6302be_09800b8e",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 9380,
+      "author": {
+        "id": 1047684
+      },
+      "writtenOn": "2023-04-24T15:44:14Z",
+      "side": 1,
+      "message": "I renamed the function to `ValidateCountsAndGetErrorMsg`. PTAL.",
+      "parentUuid": "37223e5f_7e98623f",
+      "revId": "2f0b9fa12c76fa15e96dbbd3fada9d85455bc6d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "993e9761_46fef772",
@@ -89,6 +131,24 @@
       "writtenOn": "2023-04-24T13:11:51Z",
       "side": 1,
       "message": "Instead of checking error in all the calls, I\u0027d add `VisitorStatus::kError` and handle this in the dex reader.",
+      "revId": "2f0b9fa12c76fa15e96dbbd3fada9d85455bc6d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "383c4536_8bea14ed",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 9412,
+      "author": {
+        "id": 1047684
+      },
+      "writtenOn": "2023-04-24T15:44:14Z",
+      "side": 1,
+      "message": "I don\u0027t think that `VisitClassAnnotations` should know about kError, because different visitors could have different definitions of error. For example, a Visitor could parse this annotation, i.e. `return kVisitNext`, when encountering unexpected annotation, instead of breaking from the iterations.\n\nThe logic of `VisitClassAnnotations` is simpler if it handles 3 status instead of 4 status.",
+      "parentUuid": "993e9761_46fef772",
       "revId": "2f0b9fa12c76fa15e96dbbd3fada9d85455bc6d3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -110,6 +170,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e681f73_c501a5ac",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 9426,
+      "author": {
+        "id": 1047684
+      },
+      "writtenOn": "2023-04-24T15:44:14Z",
+      "side": 1,
+      "message": "yes. Only 1 record annotation is allowed.",
+      "parentUuid": "b1bd8445_83873635",
+      "revId": "2f0b9fa12c76fa15e96dbbd3fada9d85455bc6d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e4dfda20_1dea1858",
@@ -123,6 +201,24 @@
       "writtenOn": "2023-04-24T13:11:51Z",
       "side": 1,
       "message": "Maybe to have a function `RecordElementType ElementNameToType(const char*)` that does this conversion. Also add `RecordElementType::kTypeUnkown \u003d 0xFF` and have a single counts_ array (`counts_[] \u003d {UINT32_MAX, UINT32_MAX, UINT32_MAX, UINT32_MAX, UINT32_MAX};`). Then just have something like:\n\n```\nRecordElementType visiting_type \u003d ElementNameToType(element_name);\nif (visiting_type \u003d\u003d RecordElementType::kTypeUnkown) {\n  return annotations::VisitorStatus::kVisitNext;\n}\nif (counts_[visiting_type] !\u003d UINT32_MAX) {\n  // treat as duplicate\n}\ncounts_[visiting_type] \u003d 0;\nvisiting_type_ \u003d visiting_type;\nreturn annotations::VisitorStatus::kVisitInner;\n```",
+      "revId": "2f0b9fa12c76fa15e96dbbd3fada9d85455bc6d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "266a1a87_09e5a53b",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 9441,
+      "author": {
+        "id": 1047684
+      },
+      "writtenOn": "2023-04-24T15:44:14Z",
+      "side": 1,
+      "message": "I thought about it, but using `counts_[static_cast\u003cuint8_t\u003e(visiting_type)]` to read the count seems to make the code less readable. I simplified the code in another way. PTAL.",
+      "parentUuid": "e4dfda20_1dea1858",
       "revId": "2f0b9fa12c76fa15e96dbbd3fada9d85455bc6d3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -144,6 +240,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3dc0b1f8_4f4f685f",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 9481,
+      "author": {
+        "id": 1047684
+      },
+      "writtenOn": "2023-04-24T15:44:14Z",
+      "side": 1,
+      "message": "It\u0027s because line 4972. For other element names introduced in the future, we don\u0027t verify the type.\n\nI don\u0027t have preference if it\u0027s put before the duplicated check.",
+      "parentUuid": "520db642_6c443ecc",
+      "revId": "2f0b9fa12c76fa15e96dbbd3fada9d85455bc6d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d8578c10_959d0f66",
@@ -161,6 +275,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b79fcb1b_d3404452",
+        "filename": "runtime/dex/dex_file_annotations.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1913,
+      "author": {
+        "id": 1047684
+      },
+      "writtenOn": "2023-04-24T15:44:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d8578c10_959d0f66",
+      "revId": "2f0b9fa12c76fa15e96dbbd3fada9d85455bc6d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c92cec20_8fc38632",
@@ -174,6 +306,24 @@
       "writtenOn": "2023-04-24T13:11:51Z",
       "side": 1,
       "message": "Would it be possible that we want to visit the elements of the inner annotation? Or they cannot be annotations?",
+      "revId": "2f0b9fa12c76fa15e96dbbd3fada9d85455bc6d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0ef2fce_0d28b990",
+        "filename": "runtime/dex/dex_file_annotations.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1940,
+      "author": {
+        "id": 1047684
+      },
+      "writtenOn": "2023-04-24T15:44:14Z",
+      "side": 1,
+      "message": "yeah. It\u0027s possible to visit the elements of the inner annotation. But we don\u0027t verify them here.",
+      "parentUuid": "c92cec20_8fc38632",
       "revId": "2f0b9fa12c76fa15e96dbbd3fada9d85455bc6d3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
