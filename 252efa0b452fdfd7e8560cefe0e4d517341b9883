@@ -53,6 +53,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d75db3fe_1da129ac",
+        "filename": "odrefresh/odr_statslog_android.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2023-04-25T15:45:45Z",
+      "side": 1,
+      "message": "Discussed in person - we are dropping all the translation functions in favour of keeping the Odrefresh enum and the proto enum manually in sync.",
+      "parentUuid": "a9511d00_6ca45ef5",
+      "revId": "252efa0b452fdfd7e8560cefe0e4d517341b9883",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d320881a_3086b469",
@@ -90,6 +108,30 @@
       "side": 1,
       "message": "In theory we should, yes, and if we had done that, we would have found out earlier about the duplication mentioned in the other comment (as it is occurring also for this enum).\n\nOn the other hand, the metrics currently being produced should not be invalid, as we have maintained the same order between the StatsD enumeration and the ART-internal enumeration, so that the numeric values are effectively the same.",
       "parentUuid": "d320881a_3086b469",
+      "range": {
+        "startLine": 212,
+        "startChar": 40,
+        "endLine": 212,
+        "endChar": 81
+      },
+      "revId": "252efa0b452fdfd7e8560cefe0e4d517341b9883",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "37532ca1_3e20ca31",
+        "filename": "odrefresh/odr_statslog_android.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2023-04-25T15:45:45Z",
+      "side": 1,
+      "message": "Discussed in person - we are not going to implement the translation functions for Dex2OatResult, as this will bring a lot of duplication; in fact, we are going to remove the already existing translation functions for the other enums as mentioned in the comment above.",
+      "parentUuid": "d9d290d5_e6bcb9a7",
       "range": {
         "startLine": 212,
         "startChar": 40,
