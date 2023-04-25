@@ -22,6 +22,46 @@
       },
       "revId": "3e939b1db686e1c4d9ea4d9c59f61233480d978d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51c510f1_2de5d9d0",
+        "filename": "tools/fuzzer/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 2004911
+      },
+      "writtenOn": "2023-04-25T23:50:30Z",
+      "side": 1,
+      "message": "Consider adding a corpus and/or a dictionary file.\n\nSee an example here: https://cs.android.com/android/platform/superproject/+/master:tools/security/fuzzing/example_fuzzer/Android.bp;l\u003d19-20;drc\u003de3803eb2eaf983be3f57d67039157a810403ce6f",
+      "revId": "3e939b1db686e1c4d9ea4d9c59f61233480d978d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e086952_c7aae588",
+        "filename": "tools/fuzzer/art_fuzzer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 2004911
+      },
+      "writtenOn": "2023-04-25T23:50:30Z",
+      "side": 1,
+      "message": "Can you call `art::MemMap::Init()` multiple times? if not, consider adding something like:\n\n```\nextern \"C\" int LLVMFuzzerInitialize(int *argc, char ***argv) {\n art::MemMap::Init();\n return 0;\n}\n```\n\nSee: https://llvm.org/docs/LibFuzzer.html#startup-initialization",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 22
+      },
+      "revId": "3e939b1db686e1c4d9ea4d9c59f61233480d978d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
