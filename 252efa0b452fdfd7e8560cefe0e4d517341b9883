@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "970e8dc7_4bbc55d0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-04-25T13:30:12Z",
+      "side": 1,
+      "message": "Thanks, Stefano! This is really quick!",
+      "revId": "252efa0b452fdfd7e8560cefe0e4d517341b9883",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3542ce8e_4c7781c1",
+        "filename": "odrefresh/odr_statslog_android.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-04-25T13:30:12Z",
+      "side": 1,
+      "message": "Statsd creates different sets of values for the same enum? Sigh. Does statsd provides a way to avoid this duplication?",
+      "revId": "252efa0b452fdfd7e8560cefe0e4d517341b9883",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d320881a_3086b469",
+        "filename": "odrefresh/odr_statslog_android.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-04-25T13:30:12Z",
+      "side": 1,
+      "message": "I just discovered that we are not translating these. Shouldn\u0027t we translate them? This is out of the scope of this CL though, so feel free to address it later.",
+      "range": {
+        "startLine": 212,
+        "startChar": 40,
+        "endLine": 212,
+        "endChar": 81
+      },
+      "revId": "252efa0b452fdfd7e8560cefe0e4d517341b9883",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
