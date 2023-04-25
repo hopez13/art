@@ -1277,7 +1277,12 @@ void Trace::StoreExitingThreadInfo(Thread* thread) {
   if (the_trace_ != nullptr) {
     std::string name;
     thread->GetThreadName(name);
-    the_trace_->threads_list_.Put(thread->GetTid(), name);
+    // In tests, we destroy VM after already detaching the current thread. When a thread is
+    // detached we record the information about the threads_list_. Re-attaching thread can fail
+    // sometimes which unregisters the thread again. So ignore upadtes from shutdown thread.
+    if (name.compare("Shutdown thread") != 0) {
+      the_trace_->threads_list_.Put(thread->GetTid(), name);
+    }
   }
 }
 
