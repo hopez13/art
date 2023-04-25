@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a9511d00_6ca45ef5",
+        "filename": "odrefresh/odr_statslog_android.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2023-04-25T13:59:22Z",
+      "side": 1,
+      "message": "I wasn\u0027t expecting this, either - I have checked both the docs page and the command line arguments parsing code, but unfortunately it seems there\u0027s no option for avoiding the duplication.",
+      "parentUuid": "3542ce8e_4c7781c1",
+      "revId": "252efa0b452fdfd7e8560cefe0e4d517341b9883",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d320881a_3086b469",
         "filename": "odrefresh/odr_statslog_android.cc",
         "patchSetId": 5
@@ -48,6 +66,30 @@
       "writtenOn": "2023-04-25T13:30:12Z",
       "side": 1,
       "message": "I just discovered that we are not translating these. Shouldn\u0027t we translate them? This is out of the scope of this CL though, so feel free to address it later.",
+      "range": {
+        "startLine": 212,
+        "startChar": 40,
+        "endLine": 212,
+        "endChar": 81
+      },
+      "revId": "252efa0b452fdfd7e8560cefe0e4d517341b9883",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d9d290d5_e6bcb9a7",
+        "filename": "odrefresh/odr_statslog_android.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2023-04-25T13:59:22Z",
+      "side": 1,
+      "message": "In theory we should, yes, and if we had done that, we would have found out earlier about the duplication mentioned in the other comment (as it is occurring also for this enum).\n\nOn the other hand, the metrics currently being produced should not be invalid, as we have maintained the same order between the StatsD enumeration and the ART-internal enumeration, so that the numeric values are effectively the same.",
+      "parentUuid": "d320881a_3086b469",
       "range": {
         "startLine": 212,
         "startChar": 40,
