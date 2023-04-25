@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "68ab5dff_ddbff14e",
+        "filename": "tools/fuzzer/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1958854
+      },
+      "writtenOn": "2023-04-25T17:38:37Z",
+      "side": 1,
+      "message": "nit: if this is the first, or base fuzzer, of multiple future fuzzers, it may be a good idea to provide a more specific name for future clarity.\n\nmaybe:\n\n```\nart_fuzzer_base\nart_fuzzer_main\nlibart_dex_fuzzer\nlibart_verify_dex_fuzzer\n```",
+      "range": {
+        "startLine": 27,
+        "startChar": 11,
+        "endLine": 27,
+        "endChar": 21
+      },
+      "revId": "3e939b1db686e1c4d9ea4d9c59f61233480d978d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
