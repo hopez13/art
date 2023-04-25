@@ -22,6 +22,30 @@
       },
       "revId": "bf78bd64fe494539045f13c08319cbba3f0ddccf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0fe98e05_96449443",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 703,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-04-25T17:02:39Z",
+      "side": 1,
+      "message": "Yes, we could clean up these helper functions but I\u0027m not planning to work on that in the near future.",
+      "parentUuid": "bd910d2c_8f3bc1b0",
+      "range": {
+        "startLine": 703,
+        "startChar": 24,
+        "endLine": 703,
+        "endChar": 34
+      },
+      "revId": "bf78bd64fe494539045f13c08319cbba3f0ddccf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
