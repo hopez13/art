@@ -35,7 +35,8 @@ using android::base::StringPrintf;
 
 namespace {
 
-// Convert bare value from art::metrics::Stage to value defined in atoms.proto.
+// Convert bare value from art::metrics::Stage to value defined in
+// stats/atoms/art/odrefresh_extension_atoms.proto.
 int32_t TranslateStage(int32_t art_metrics_stage) {
   switch (static_cast<OdrMetrics::Stage>(art_metrics_stage)) {
     case OdrMetrics::Stage::kUnknown:
@@ -58,7 +59,8 @@ int32_t TranslateStage(int32_t art_metrics_stage) {
   return -1;
 }
 
-// Convert bare value from art::metrics::Status to value defined in atoms.proto.
+// Convert bare value from art::metrics::Status to value defined in
+// stats/atoms/art/odrefresh_extension_atoms.proto.
 int32_t TranslateStatus(int32_t art_metrics_status) {
   switch (static_cast<OdrMetrics::Status>(art_metrics_status)) {
     case OdrMetrics::Status::kUnknown:
@@ -83,7 +85,8 @@ int32_t TranslateStatus(int32_t art_metrics_status) {
   return -1;
 }
 
-// Convert bare value from art::metrics::Trigger to value defined in atoms.proto.
+// Convert bare value from art::metrics::Trigger to value defined in
+// stats/atoms/art/odrefresh_extension_atoms.proto.
 int32_t TranslateTrigger(int32_t art_metrics_trigger) {
   switch (static_cast<OdrMetrics::Trigger>(art_metrics_trigger)) {
     case OdrMetrics::Trigger::kUnknown:
@@ -98,6 +101,22 @@ int32_t TranslateTrigger(int32_t art_metrics_trigger) {
 
   LOG(ERROR) << "Unknown trigger value: " << art_metrics_trigger;
   return -1;
+}
+
+// Convert bare value from art::metrics::BcpCompilationType to value defined in
+// stats/atoms/art/odrefresh_extension_atoms.proto.
+int32_t TranslateCompilationType(int32_t art_metrics_compilation_type) {
+  switch (static_cast<OdrMetrics::BcpCompilationType>(art_metrics_compilation_type)) {
+    case OdrMetrics::BcpCompilationType::kUnknown:
+      return metrics::statsd::
+          ODREFRESH_REPORTED__BCP_COMPILATION_TYPE__BCP_COMPILATION_TYPE_UNKNOWN;
+    case OdrMetrics::BcpCompilationType::kPrimaryAndMainline:
+      return metrics::statsd::
+          ODREFRESH_REPORTED__BCP_COMPILATION_TYPE__BCP_COMPILATION_TYPE_PRIMARY_AND_MAINLINE;
+    case OdrMetrics::BcpCompilationType::kMainline:
+      return metrics::statsd::
+          ODREFRESH_REPORTED__BCP_COMPILATION_TYPE__BCP_COMPILATION_TYPE_MAINLINE;
+  }
 }
 
 bool ReadValues(const char* metrics_file,
@@ -133,7 +152,19 @@ bool ReadValues(const char* metrics_file,
     return false;
   }
 
-  // TODO(b/279004055): Translate BCP compilation types.
+  record->primary_bcp_compilation_type =
+      TranslateCompilationType(record->primary_bcp_compilation_type);
+  if (record->primary_bcp_compilation_type < 0) {
+    *error_msg = "failed to parse primary bcp compilation type.";
+    return false;
+  }
+
+  record->secondary_bcp_compilation_type =
+      TranslateCompilationType(record->secondary_bcp_compilation_type);
+  if (record->secondary_bcp_compilation_type < 0) {
+    *error_msg = "failed to parse secondary bcp compilation type.";
+    return false;
+  }
 
   return true;
 }
@@ -149,29 +180,31 @@ bool UploadStatsIfAvailable(/*out*/std::string* error_msg) {
   // Write values to statsd. The order of values passed is the same as the order of the
   // fields in OdrMetricsRecord.
   // TODO(b/279004055): Write BCP compilation types.
-  int bytes_written = art::metrics::statsd::stats_write(
-      metrics::statsd::ODREFRESH_REPORTED,
-      record.art_apex_version,
-      record.trigger,
-      record.stage_reached,
-      record.status,
-      record.primary_bcp_compilation_millis / 1000,
-      record.secondary_bcp_compilation_millis / 1000,
-      record.system_server_compilation_millis / 1000,
-      record.cache_space_free_start_mib,
-      record.cache_space_free_end_mib,
-      record.primary_bcp_compilation_millis,
-      record.secondary_bcp_compilation_millis,
-      record.system_server_compilation_millis,
-      record.primary_bcp_dex2oat_result.status,
-      record.primary_bcp_dex2oat_result.exit_code,
-      record.primary_bcp_dex2oat_result.signal,
-      record.secondary_bcp_dex2oat_result.status,
-      record.secondary_bcp_dex2oat_result.exit_code,
-      record.secondary_bcp_dex2oat_result.signal,
-      record.system_server_dex2oat_result.status,
-      record.system_server_dex2oat_result.exit_code,
-      record.system_server_dex2oat_result.signal);
+  int bytes_written =
+      art::metrics::statsd::stats_write(metrics::statsd::ODREFRESH_REPORTED,
+                                        record.art_apex_version,
+                                        record.trigger,
+                                        record.stage_reached,
+                                        record.status,
+                                        record.primary_bcp_compilation_millis / 1000,
+                                        record.secondary_bcp_compilation_millis / 1000,
+                                        record.system_server_compilation_millis / 1000,
+                                        record.cache_space_free_start_mib,
+                                        record.cache_space_free_end_mib,
+                                        record.primary_bcp_compilation_millis,
+                                        record.secondary_bcp_compilation_millis,
+                                        record.system_server_compilation_millis,
+                                        record.primary_bcp_dex2oat_result.status,
+                                        record.primary_bcp_dex2oat_result.exit_code,
+                                        record.primary_bcp_dex2oat_result.signal,
+                                        record.secondary_bcp_dex2oat_result.status,
+                                        record.secondary_bcp_dex2oat_result.exit_code,
+                                        record.secondary_bcp_dex2oat_result.signal,
+                                        record.system_server_dex2oat_result.status,
+                                        record.system_server_dex2oat_result.exit_code,
+                                        record.system_server_dex2oat_result.signal,
+                                        record.primary_bcp_compilation_type,
+                                        record.secondary_bcp_compilation_type);
   if (bytes_written <= 0) {
     *error_msg = android::base::StringPrintf("stats_write returned %d", bytes_written);
     return false;
