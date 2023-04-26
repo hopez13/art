@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d86fac2_9c77daf5",
+        "filename": "compiler/trampolines/trampoline_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-04-26T10:27:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "476c8a7c_bca3b97b",
+      "range": {
+        "startLine": 170,
+        "startChar": 19,
+        "endLine": 170,
+        "endChar": 33
+      },
+      "revId": "835c10ef5168d731c62a9cedceb36be8da0b39b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fae68c8e_ce7bf79c",
@@ -54,6 +78,24 @@
       "writtenOn": "2023-04-26T09:30:27Z",
       "side": 1,
       "message": "Why 4 instructions instead of a single load?",
+      "revId": "835c10ef5168d731c62a9cedceb36be8da0b39b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a302938_a4408cc3",
+        "filename": "compiler/trampolines/trampoline_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-04-26T10:27:13Z",
+      "side": 1,
+      "message": "I started assuming I\u0027ll need a full 64-bit offset, and then when I found it fits into 12 bits I forgot to simplify. Fixed.",
+      "parentUuid": "fae68c8e_ce7bf79c",
       "revId": "835c10ef5168d731c62a9cedceb36be8da0b39b2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
