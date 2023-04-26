@@ -19,11 +19,13 @@ package com.android.tests.odsign;
 import static com.google.common.truth.Truth.assertWithMessage;
 
 import static org.junit.Assert.fail;
+import static org.junit.Assume.assumeFalse;
 import static org.junit.Assume.assumeTrue;
 
 import com.android.tradefed.device.DeviceNotAvailableException;
 import com.android.tradefed.device.ITestDevice;
 import com.android.tradefed.device.TestDevice;
+import com.android.tradefed.device.TestDeviceOptions.InstanceType;
 import com.android.tradefed.util.CommandResult;
 
 import java.util.concurrent.TimeUnit;
@@ -123,6 +125,11 @@ public class CompOsTestUtils {
 
         // And the CompOS APEX must be present.
         assumeTrue(mDevice.doesFileExist("/apex/com.android.compos/"));
+    }
+
+    public void assumeNotOnCuttlefish() throws Exception {
+        InstanceType type = mDevice.getOptions().getInstanceType();
+        assumeFalse(InstanceType.CUTTLEFISH.equals(type));
     }
 
     private String assertCommandSucceeds(String command) throws DeviceNotAvailableException {
