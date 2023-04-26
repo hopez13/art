@@ -16,6 +16,23 @@
       "message": "Mark PTAL from the Haiku point of view e.g. if we are missing something in the build.\nDavid PTAL from the ART point of view i.e. if we are fuzzing the right thing.\n\nMarco FYI",
       "revId": "8b968242e8b777a00062e71f25a2a96f7f6f54d8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "55239dcf_1a4a40d6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-04-26T17:04:16Z",
+      "side": 1,
+      "message": "I think it is unnecessary to include the multi-megabyte files.\n\nI would keep just the one small dex file (maybe try to find even smaller one - for example some dex from run-tests).",
+      "revId": "8b968242e8b777a00062e71f25a2a96f7f6f54d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
