@@ -50,6 +50,24 @@
       "message": "I think that contra-intuitively - small input dex should make the fuzzer more efficient and find more cases - it allows to do many more iterations per second.  So the smaller, the better.\n\nOne \"HelloWorld\" dex should keep you entertained with fuzzer bugs for quite a while.\n\nThen once the fuzzer passes, we can see if we can find another small examples from run-tests to make it find further corner cases.\n\nAnd only then I would start looking at real-world huge dex file (and even then I would try to use to identify how to create further minimal dex smaples rather than committing them)",
       "revId": "8b968242e8b777a00062e71f25a2a96f7f6f54d8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "41b44c3f_73e03af0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 2004911
+      },
+      "writtenOn": "2023-04-26T17:11:01Z",
+      "side": 1,
+      "message": "It\u0027s important to have a set of varied files (if they have different structure).\nlibfuzzer allows you to minimize a large corpus, see: https://llvm.org/docs/LibFuzzer.html#corpus",
+      "parentUuid": "55239dcf_1a4a40d6",
+      "revId": "8b968242e8b777a00062e71f25a2a96f7f6f54d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
