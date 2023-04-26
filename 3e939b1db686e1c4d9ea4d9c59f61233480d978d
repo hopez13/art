@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d2d3d6c_f327179b",
+        "filename": "tools/fuzzer/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-04-26T14:11:42Z",
+      "side": 1,
+      "message": "Renamed to `libart_verify_dex_fuzzer`",
+      "parentUuid": "68ab5dff_ddbff14e",
+      "range": {
+        "startLine": 27,
+        "startChar": 11,
+        "endLine": 27,
+        "endChar": 21
+      },
+      "revId": "3e939b1db686e1c4d9ea4d9c59f61233480d978d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "51c510f1_2de5d9d0",
@@ -41,6 +65,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "93e80bc6_728cd512",
+        "filename": "tools/fuzzer/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-04-26T14:11:42Z",
+      "side": 1,
+      "message": "Added corpus and dictionary. Since almost all bytecodes are valid (00..FF), I don\u0027t think there\u0027s a need to add them one by one to the dictionary.",
+      "parentUuid": "51c510f1_2de5d9d0",
+      "revId": "3e939b1db686e1c4d9ea4d9c59f61233480d978d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1e086952_c7aae588",
@@ -54,6 +96,30 @@
       "writtenOn": "2023-04-25T23:50:30Z",
       "side": 1,
       "message": "Can you call `art::MemMap::Init()` multiple times? if not, consider adding something like:\n\n```\nextern \"C\" int LLVMFuzzerInitialize(int *argc, char ***argv) {\n art::MemMap::Init();\n return 0;\n}\n```\n\nSee: https://llvm.org/docs/LibFuzzer.html#startup-initialization",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 22
+      },
+      "revId": "3e939b1db686e1c4d9ea4d9c59f61233480d978d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e7c66fb7_55801bc0",
+        "filename": "tools/fuzzer/art_fuzzer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-04-26T14:11:42Z",
+      "side": 1,
+      "message": "It\u0027s not an issue to call it multiple times since it will [just return](https://cs.android.com/android/platform/superproject/+/master:art/libartbase/base/mem_map.cc;l\u003d1011;drc\u003d052f5fb6d28717b7ff236c508f5fb36a7705f662).\n\nThe documentation says `Do this only if you really need to access argv/argc` and we don\u0027t so I think I will keep it in `LLVMFuzzerTestOneInput`.",
+      "parentUuid": "1e086952_c7aae588",
       "range": {
         "startLine": 22,
         "startChar": 0,
