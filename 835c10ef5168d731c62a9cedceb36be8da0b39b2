@@ -16,6 +16,46 @@
       "message": "Nicolas: FYI, this should fix dexpreopt on RISC-V. Not the cleanest solution to hardcode the instructions, but it\u0027s only temporary until we have the macro-assembler patches merged.",
       "revId": "835c10ef5168d731c62a9cedceb36be8da0b39b2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "476c8a7c_bca3b97b",
+        "filename": "compiler/trampolines/trampoline_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-04-26T09:30:27Z",
+      "side": 1,
+      "message": "Same comment as above but a different instruction is emitted.",
+      "range": {
+        "startLine": 170,
+        "startChar": 19,
+        "endLine": 170,
+        "endChar": 33
+      },
+      "revId": "835c10ef5168d731c62a9cedceb36be8da0b39b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fae68c8e_ce7bf79c",
+        "filename": "compiler/trampolines/trampoline_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-04-26T09:30:27Z",
+      "side": 1,
+      "message": "Why 4 instructions instead of a single load?",
+      "revId": "835c10ef5168d731c62a9cedceb36be8da0b39b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
