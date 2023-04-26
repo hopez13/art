@@ -45,12 +45,18 @@ if [[ -n "$ART_TEST_ON_VM" ]]; then
     mkdir $ART_TEST_CHROOT/sys
     mkdir $ART_TEST_CHROOT/system
     mkdir $ART_TEST_CHROOT/tmp
+    mkdir $ART_TEST_CHROOT/usr
+    mkdir $ART_TEST_CHROOT/usr/lib
+    mkdir $ART_TEST_CHROOT/usr/share
+    mkdir $ART_TEST_CHROOT/usr/share/gdb
 
     sudo mount -t proc /proc art-test-chroot/proc
     sudo mount -t sysfs /sys art-test-chroot/sys
     sudo mount --bind /dev art-test-chroot/dev
     sudo mount --bind /bin art-test-chroot/bin
     sudo mount --bind /lib art-test-chroot/lib
+    sudo mount --bind /lib art-test-chroot/usr/lib
+    sudo mount --bind /usr/share/gdb art-test-chroot/usr/share/gdb
     $ART_CHROOT_CMD echo \"Hello from chroot! I am \$(uname -a).\"
   "
   exit 0
