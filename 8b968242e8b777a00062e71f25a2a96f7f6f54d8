@@ -68,6 +68,24 @@
       "parentUuid": "55239dcf_1a4a40d6",
       "revId": "8b968242e8b777a00062e71f25a2a96f7f6f54d8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8fcb91e7_201b3d77",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-04-26T17:23:35Z",
+      "side": 1,
+      "message": "I question whether that is the case here.\n\nIf you had XML parser, I guess \"\u003cfoo/\u003e\" is valuable, but \"\u003cfoo/\u003e\u003cfoo/\u003e...\" (repeat 10^6 times) brings little extra value, makes the fuzzer slower, and creates a large repo checkout.\n\nTherefor I argue that dex file for \"HelloWorld\" is great start - that covers the main structure of the dex file, which is the only structure really.\n\nHowever, we might need more small dex files later to cover more opcodes, and language features that get represented in dex.  If say \"ADD\" opcode causes a crash, we should probably only add the smallest dex that we can find that does \"ADD\".  No need to add 10MB dex files, right?",
+      "parentUuid": "41b44c3f_73e03af0",
+      "revId": "8b968242e8b777a00062e71f25a2a96f7f6f54d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
