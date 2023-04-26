@@ -24,6 +24,7 @@ import static com.google.common.truth.Truth.assertThat;
 import com.android.tests.odsign.annotation.CtsTestCase;
 import com.android.tradefed.device.ITestDevice;
 import com.android.tradefed.invoker.TestInformation;
+import com.android.tradefed.log.LogUtil.CLog;
 import com.android.tradefed.testtype.DeviceJUnit4ClassRunner;
 import com.android.tradefed.testtype.junit4.AfterClassWithInfo;
 import com.android.tradefed.testtype.junit4.BeforeClassWithInfo;
@@ -60,26 +61,38 @@ public class CompOsSigningHostTest extends ActivationTest {
                 compOsTestUtils.checksumDirectoryContentPartial(
                         OdsignTestUtils.ART_APEX_DALVIK_CACHE_DIRNAME));
 
-        testUtils.installTestApex();
+        boolean errorOccurred = false;
+        try {
+            testUtils.installTestApex();
 
-        testInfo.properties().put(TIMESTAMP_VM_START_KEY,
-                        String.valueOf(testUtils.getCurrentTimeMs()));
+            testInfo.properties().put(TIMESTAMP_VM_START_KEY,
+                    String.valueOf(testUtils.getCurrentTimeMs()));
 
-        compOsTestUtils.runCompilationJobEarlyAndWait();
+            compOsTestUtils.runCompilationJobEarlyAndWait();
 
-        testInfo.properties().put(PENDING_CHECKSUMS_KEY,
-                compOsTestUtils.checksumDirectoryContentPartial(PENDING_ARTIFACTS_DIR));
+            testInfo.properties().put(PENDING_CHECKSUMS_KEY,
+                    compOsTestUtils.checksumDirectoryContentPartial(PENDING_ARTIFACTS_DIR));
 
-        testInfo.properties().put(TIMESTAMP_REBOOT_KEY,
-                        String.valueOf(testUtils.getCurrentTimeMs()));
-        testUtils.reboot();
+            testInfo.properties().put(TIMESTAMP_REBOOT_KEY,
+                    String.valueOf(testUtils.getCurrentTimeMs()));
+        } catch (Exception e) {
+            errorOccurred = true;
+            CLog.e("Unexpected error during the setup", e);
+        } finally {
+            // Make sure to reboot after installTestApex.
+            testUtils.reboot();
+            assertThat(errorOccurred).isFalse();
+        }
     }
 
     @AfterClassWithInfo
     public static void afterClassWithDevice(TestInformation testInfo) throws Exception {
         OdsignTestUtils testUtils = new OdsignTestUtils(testInfo);
-        testUtils.uninstallTestApex();
-        testUtils.reboot();
+        try {
+            testUtils.uninstallTestApex();
+        } finally {
+            testUtils.reboot();  // must happen
+        }
     }
 
     @Test
