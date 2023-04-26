@@ -33,6 +33,23 @@
       "message": "I think it is unnecessary to include the multi-megabyte files.\n\nI would keep just the one small dex file (maybe try to find even smaller one - for example some dex from run-tests).",
       "revId": "8b968242e8b777a00062e71f25a2a96f7f6f54d8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb208f74_b408b84d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-04-26T17:09:15Z",
+      "side": 1,
+      "message": "I think that contra-intuitively - small input dex should make the fuzzer more efficient and find more cases - it allows to do many more iterations per second.  So the smaller, the better.\n\nOne \"HelloWorld\" dex should keep you entertained with fuzzer bugs for quite a while.\n\nThen once the fuzzer passes, we can see if we can find another small examples from run-tests to make it find further corner cases.\n\nAnd only then I would start looking at real-world huge dex file (and even then I would try to use to identify how to create further minimal dex smaples rather than committing them)",
+      "revId": "8b968242e8b777a00062e71f25a2a96f7f6f54d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
