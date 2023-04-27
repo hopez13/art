@@ -33,6 +33,24 @@
       "message": "Suggestion: We could do\n```\nif (left_is_neg !\u003d right_is_neg) {\n  HNeg* neg \u003d left_is_neg ? left-\u003eAsNeg() : right-\u003eAsNeg();\n  if (neg-\u003eHasOnlyOneNonEnvironmentUse()) {\n    ...\n  }\n}\n```\nto get rid of the \"OrNull\".\n \nIt also scopes `neg` better, as it is not used after that block.",
       "revId": "cde6497d286337de2ed21c71c85157e2745b742b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "03e14138_0a189745",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1459,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-04-27T12:16:03Z",
+      "side": 1,
+      "message": "I agree but I really don\u0027t want to do that restructuring in this CL.\n\nNew CL: https://android-review.googlesource.com/2568031",
+      "parentUuid": "daa53db0_d1ec750a",
+      "revId": "cde6497d286337de2ed21c71c85157e2745b742b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
