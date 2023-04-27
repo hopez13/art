@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f062c0bf_1988de19",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-04-27T09:39:26Z",
+      "side": 1,
+      "message": "Done (attributing to an existing bug)",
+      "parentUuid": "5da78675_f9885e16",
+      "revId": "2f919812b712e78a26b92f33804be0ef2ee36789",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bbf4e45a_87ec8166",
@@ -31,6 +49,30 @@
       "writtenOn": "2023-04-26T14:52:02Z",
       "side": 1,
       "message": "We should remove this DCHECK too when we remove the OrNull",
+      "range": {
+        "startLine": 401,
+        "startChar": 0,
+        "endLine": 401,
+        "endChar": 38
+      },
+      "revId": "2f919812b712e78a26b92f33804be0ef2ee36789",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "820baa38_a89bcda2",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-04-27T09:39:26Z",
+      "side": 1,
+      "message": "Good catch. Added to https://android-review.googlesource.com/2565351 , PS2.",
+      "parentUuid": "bbf4e45a_87ec8166",
       "range": {
         "startLine": 401,
         "startChar": 0,
