@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d4631f9_76f58956",
+        "filename": "test/odsign/test-src/com/android/tests/odsign/CompOsSigningHostTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-04-27T10:48:02Z",
+      "side": 1,
+      "message": "You don\u0027t need this either. Any exception that happens in the try block will be thrown, so the test will fail anyway.",
+      "range": {
+        "startLine": 81,
+        "startChar": 12,
+        "endLine": 81,
+        "endChar": 48
+      },
+      "revId": "0a7c19d5c3de4e9aa07b2430da5dc4803fd30b99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
