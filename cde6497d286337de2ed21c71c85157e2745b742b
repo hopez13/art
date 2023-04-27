@@ -16,6 +16,23 @@
       "message": "You can look at the PS3 if you want to see the changes squashed with the previous CL.",
       "revId": "cde6497d286337de2ed21c71c85157e2745b742b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "daa53db0_d1ec750a",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1459,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-04-27T11:23:21Z",
+      "side": 1,
+      "message": "Suggestion: We could do\n```\nif (left_is_neg !\u003d right_is_neg) {\n  HNeg* neg \u003d left_is_neg ? left-\u003eAsNeg() : right-\u003eAsNeg();\n  if (neg-\u003eHasOnlyOneNonEnvironmentUse()) {\n    ...\n  }\n}\n```\nto get rid of the \"OrNull\".\n \nIt also scopes `neg` better, as it is not used after that block.",
+      "revId": "cde6497d286337de2ed21c71c85157e2745b742b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
