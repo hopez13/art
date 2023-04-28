@@ -1689,6 +1689,12 @@ void AppImageLoadingHelper::Update(
       {
         WriterMutexLock mu2(self, *Locks::dex_lock_);
         CHECK(class_linker->FindDexCacheDataLocked(*dex_file) == nullptr);
+        if (runtime->GetStartupCompleted()) {
+          // Free up dex cache arrays that we would only allocate at startup.
+          // We do this here before registering and within the lock to be
+          // consistent with `StartupCompletedTask`.
+          dex_cache->UnlinkStartupCaches();
+        }
         class_linker->RegisterDexFileLocked(*dex_file, dex_cache, class_loader.Get());
       }
     }
@@ -1709,14 +1715,6 @@ void AppImageLoadingHelper::Update(
         CHECK(live_bitmap->Test(klass.Ptr())) << "Image method has unmarked declaring class";
       }
     }, space->Begin(), kRuntimePointerSize);
-  }
-
-  if (runtime->GetStartupCompleted()) {
-    // Free up dex cache arrays that we would only allocate at startup.
-    for (auto dex_cache : dex_caches.Iterate<mirror::DexCache>()) {
-      dex_cache->UnlinkStartupCaches();
-    }
-    space->ReleaseMetadata();
   }
 }
 
