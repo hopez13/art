@@ -471,7 +471,13 @@ static void CompileMethodQuick(
       const DexFile& dex_file,
       Handle<mirror::DexCache> dex_cache) {
     DCHECK(driver != nullptr);
+    const VerificationResults* results = driver->GetVerificationResults();
+    DCHECK(results != nullptr);
+    MethodReference method_ref(&dex_file, method_idx);
     CompiledMethod* compiled_method = nullptr;
+    if (results->IsUncompilableMethod(method_ref)) {
+      return compiled_method;
+    }
 
     if ((access_flags & kAccNative) != 0) {
       // Are we extracting only and have support for generic JNI down calls?
@@ -496,14 +502,9 @@ static void CompileMethodQuick(
       // Method is annotated with @NeverCompile and should not be compiled.
     } else {
       const CompilerOptions& compiler_options = driver->GetCompilerOptions();
-      const VerificationResults* results = driver->GetVerificationResults();
-      DCHECK(results != nullptr);
-      MethodReference method_ref(&dex_file, method_idx);
       // Don't compile class initializers unless kEverything.
       bool compile = (compiler_options.GetCompilerFilter() == CompilerFilter::kEverything) ||
          ((access_flags & kAccConstructor) == 0) || ((access_flags & kAccStatic) == 0);
-      // Check if it's an uncompilable method found by the verifier.
-      compile = compile && !results->IsUncompilableMethod(method_ref);
       // Check if we should compile based on the profile.
       compile = compile && ShouldCompileBasedOnProfile(compiler_options, profile_index, method_ref);
 
@@ -1711,6 +1712,7 @@ static void LoadAndUpdateStatus(const ClassAccessor& accessor,
     // a boot image class, or a class in a different dex file for multidex, and
     // we should not update the status in that case.
     if (&cls->GetDexFile() == &accessor.GetDexFile()) {
+      VLOG(compiler) << "Updating class status of " << std::string(descriptor) << " to " << status;
       ObjectLock<mirror::Class> lock(self, cls);
       mirror::Class::SetStatus(cls, status, self);
     }
@@ -1783,7 +1785,7 @@ bool CompilerDriver::FastVerify(jobject jclass_loader,
 
       // Vdex marks class as unverified for two reasons only:
       // 1. It has a hard failure, or
-      // 2. Once of its method needs lock counting.
+      // 2. One of its method needs lock counting.
       //
       // The optimizing compiler expects a method to not have a hard failure before
       // compiling it, so for simplicity just disable any compilation of methods
@@ -2142,6 +2144,23 @@ class InitializeClassVisitor : public CompilationVisitor {
     if ((!is_boot_image && !is_boot_image_extension) && klass->IsBootStrapClassLoaded()) {
       // Also return early and don't store the class status in the recorded class status.
       return;
+    }
+
+    if ((is_app_image || is_boot_image || is_boot_image_extension) &&
+        klass->IsVerifiedNeedsAccessChecks() &&
+        compiler_options.IsImageClass(descriptor)) {
+      VLOG(compiler) << "Promoting "
+                     << klass->PrettyClass()
+                     << " from needs access checks to verified given it is an image class";
+      ObjectLock<mirror::Class> lock(self, klass);
+      mirror::Class::SetStatus(klass, ClassStatus::kVerified, self);
+      if (kIsDebugBuild) {
+        for (auto& m : klass->GetMethods(manager_->GetClassLinker()->GetImagePointerSize())) {
+          if (m.IsManagedAndInvokable()) {
+            CHECK(!m.SkipAccessChecks());
+          }
+        }
+      }
     }
     ClassStatus old_status = klass->GetStatus();
     // Only try to initialize classes that were successfully verified.
