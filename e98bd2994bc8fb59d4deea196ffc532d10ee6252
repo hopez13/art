@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9d9013b_83617b0a",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-04-29T00:24:21Z",
+      "side": 1,
+      "message": "done in 2573612",
+      "parentUuid": "bb8a9561_b48f19a1",
+      "range": {
+        "startLine": 47,
+        "startChar": 7,
+        "endLine": 47,
+        "endChar": 10
+      },
+      "revId": "e98bd2994bc8fb59d4deea196ffc532d10ee6252",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5f9728a8_e45d6991",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-04-27T09:15:10Z",
       "side": 1,
       "message": "This and other instructions below should have been replaced with `unimp`.",
+      "range": {
+        "startLine": 14,
+        "startChar": 17,
+        "endLine": 14,
+        "endChar": 21
+      },
+      "revId": "e98bd2994bc8fb59d4deea196ffc532d10ee6252",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "97372b78_04e5613e",
+        "filename": "runtime/interpreter/mterp/riscv64/object.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-04-29T00:24:21Z",
+      "side": 1,
+      "message": "done in 2573710",
+      "parentUuid": "5f9728a8_e45d6991",
       "range": {
         "startLine": 14,
         "startChar": 17,
