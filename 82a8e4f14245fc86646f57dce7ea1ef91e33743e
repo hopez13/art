@@ -33,6 +33,24 @@
       "message": "Hi Lev,\n\nWe observed this change (patch set1) is causing systemui memory regression\n\nhttps://screenshot.googleplex.com/zJ4TehsAUQ8c8Hh\n\nhttps://crystalball-presubmit.corp.google.com/dashboard/I14100010155356921?change_number\u003d2573032\u0026host\u003dandroid-review.googlesource.com\u0026patchset\u003d1\n\nPlease fix this regression before merging this change.",
       "revId": "82a8e4f14245fc86646f57dce7ea1ef91e33743e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "681d660f_27033f11",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1069898
+      },
+      "writtenOn": "2023-04-29T18:40:05Z",
+      "side": 1,
+      "message": "First, you posted it on the wrong CL. The dashboard you linked refers to already submitted r.android.com/2570070 on master branch (this is android13-tests-dev)\n\nSecond, this change only touches a test and cannot impact systemui performance in any way.\n\nThird, according to the dashboard you linked, the regression has happened a few revisions before r.android.com/2570070 - around build id 10034028. So I\u0027m confused how are you linking it to r.android.com/2570070.\n\nIf you want to discuss it further, pls file a bug to avoid creating extra noise in this cherry-pick CL.",
+      "parentUuid": "3228a019_44e4fe7a",
+      "revId": "82a8e4f14245fc86646f57dce7ea1ef91e33743e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
