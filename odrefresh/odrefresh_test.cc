@@ -432,17 +432,17 @@ TEST_F(OdRefreshTest, AllSystemServerJars) {
       .WillOnce(Return(0));
   EXPECT_CALL(
       *mock_exec_utils_,
-      DoExecAndReturnCode(
-          AllOf(Contains(Flag("--dex-file=", services_jar_)),
-                Contains(Flag("--class-loader-context=", "PCL[{}]"_format(location_provider_jar_))),
-                Contains(Flag("--class-loader-context-fds=", FdOf(location_provider_jar_))))))
+      DoExecAndReturnCode(AllOf(
+          Contains(Flag("--dex-file=", services_jar_)),
+          Contains(Flag("--class-loader-context=", ART_FORMAT("PCL[{}]", location_provider_jar_))),
+          Contains(Flag("--class-loader-context-fds=", FdOf(location_provider_jar_))))))
       .WillOnce(Return(0));
   EXPECT_CALL(
       *mock_exec_utils_,
       DoExecAndReturnCode(AllOf(
           Contains(Flag("--dex-file=", services_foo_jar_)),
           Contains(Flag("--class-loader-context=",
-                        "PCL[];PCL[{}:{}]"_format(location_provider_jar_, services_jar_))),
+                        ART_FORMAT("PCL[];PCL[{}:{}]", location_provider_jar_, services_jar_))),
           Contains(ListFlag("--class-loader-context-fds=",
                             ElementsAre(FdOf(location_provider_jar_), FdOf(services_jar_)))))))
       .WillOnce(Return(0));
@@ -451,7 +451,7 @@ TEST_F(OdRefreshTest, AllSystemServerJars) {
       DoExecAndReturnCode(AllOf(
           Contains(Flag("--dex-file=", services_bar_jar_)),
           Contains(Flag("--class-loader-context=",
-                        "PCL[];PCL[{}:{}]"_format(location_provider_jar_, services_jar_))),
+                        ART_FORMAT("PCL[];PCL[{}:{}]", location_provider_jar_, services_jar_))),
           Contains(ListFlag("--class-loader-context-fds=",
                             ElementsAre(FdOf(location_provider_jar_), FdOf(services_jar_)))))))
       .WillOnce(Return(0));
@@ -467,17 +467,17 @@ TEST_F(OdRefreshTest, AllSystemServerJars) {
 TEST_F(OdRefreshTest, PartialSystemServerJars) {
   EXPECT_CALL(
       *mock_exec_utils_,
-      DoExecAndReturnCode(
-          AllOf(Contains(Flag("--dex-file=", services_jar_)),
-                Contains(Flag("--class-loader-context=", "PCL[{}]"_format(location_provider_jar_))),
-                Contains(Flag("--class-loader-context-fds=", FdOf(location_provider_jar_))))))
+      DoExecAndReturnCode(AllOf(
+          Contains(Flag("--dex-file=", services_jar_)),
+          Contains(Flag("--class-loader-context=", ART_FORMAT("PCL[{}]", location_provider_jar_))),
+          Contains(Flag("--class-loader-context-fds=", FdOf(location_provider_jar_))))))
       .WillOnce(Return(0));
   EXPECT_CALL(
       *mock_exec_utils_,
       DoExecAndReturnCode(AllOf(
           Contains(Flag("--dex-file=", services_bar_jar_)),
           Contains(Flag("--class-loader-context=",
-                        "PCL[];PCL[{}:{}]"_format(location_provider_jar_, services_jar_))),
+                        ART_FORMAT("PCL[];PCL[{}:{}]", location_provider_jar_, services_jar_))),
           Contains(ListFlag("--class-loader-context-fds=",
                             ElementsAre(FdOf(location_provider_jar_), FdOf(services_jar_)))))))
       .WillOnce(Return(0));

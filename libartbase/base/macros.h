@@ -32,6 +32,9 @@ friend class test_set_name##_##individual_test##_Test
 #define ART_FRIEND_TYPED_TEST(test_set_name, individual_test)\
 template<typename T> ART_FRIEND_TEST(test_set_name, individual_test)
 
+// Shorthand for formatting with compile time checking of the format string
+#define ART_FORMAT(str, ...) ::fmt::format(FMT_STRING(str), __VA_ARGS__)
+
 // A macro to disallow new and delete operators for a class. It goes in the private: declarations.
 // NOTE: Providing placement new (and matching delete) for constructing container elements.
 #define DISALLOW_ALLOCATION() \

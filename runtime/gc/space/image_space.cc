@@ -3446,8 +3446,9 @@ bool ImageSpace::ValidateOatFile(const OatFile& oat_file,
   if (oat_file.GetOatHeader().GetKeyValueStoreSize() != 0 &&
       oat_file.GetOatHeader().IsConcurrentCopying() != gUseReadBarrier) {
     *error_msg =
-        "ValidateOatFile found read barrier state mismatch (oat file: {}, runtime: {})"_format(
-            oat_file.GetOatHeader().IsConcurrentCopying(), gUseReadBarrier);
+        ART_FORMAT("ValidateOatFile found read barrier state mismatch (oat file: {}, runtime: {})",
+                   oat_file.GetOatHeader().IsConcurrentCopying(),
+                   gUseReadBarrier);
     return false;
   }
 
