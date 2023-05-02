@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4fa8cc63_c41a4d1e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-05-02T10:42:17Z",
+      "side": 1,
+      "message": "Thanks!",
+      "revId": "d2cf000a4b3cdb4f48c1f2d1fa848c72cf5a29a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6767794a_b27e9ce9",
+        "filename": "tools/buildbot-setup-device.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-05-02T10:42:17Z",
+      "side": 1,
+      "message": "Note that you could use `-p` to and replace this with two commands (and lines 38-39 as well):\n```\n    mkdir -p $ART_TEST_CHROOT/usr/lib\n    mkdir -p $ART_TEST_CHROOT/usr/share/gdb\n```",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 40
+      },
+      "revId": "d2cf000a4b3cdb4f48c1f2d1fa848c72cf5a29a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
