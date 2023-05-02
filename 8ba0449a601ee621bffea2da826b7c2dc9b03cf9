@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf51a797_8fb2c7fe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-05-02T14:59:09Z",
+      "side": 1,
+      "message": "I am not that familiar with this code, so apologies if the questions are naive",
+      "revId": "8ba0449a601ee621bffea2da826b7c2dc9b03cf9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "19cbfa61_60ffe5cc",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 569,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-05-02T14:59:09Z",
+      "side": 1,
+      "message": "Could we be clearing another exception by mistake?",
+      "range": {
+        "startLine": 568,
+        "startChar": 0,
+        "endLine": 569,
+        "endChar": 90
+      },
+      "revId": "8ba0449a601ee621bffea2da826b7c2dc9b03cf9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "29c54bc7_eeeeeaac",
+        "filename": "test/660-clinit/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-05-02T14:59:09Z",
+      "side": 1,
+      "message": "I might be missing something but why is this in image when `Add` and `Mul` were not?",
+      "range": {
+        "startLine": 205,
+        "startChar": 0,
+        "endLine": 205,
+        "endChar": 15
+      },
+      "revId": "8ba0449a601ee621bffea2da826b7c2dc9b03cf9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
