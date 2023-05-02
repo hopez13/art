@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "009c3f34_e511e5d9",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 569,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-05-02T18:24:10Z",
+      "side": 1,
+      "message": "No, we shouldn\u0027t run this code while holding an exception. I can add a DCHECK line 564, but we usually don\u0027t do this check elsewhere in the compiler",
+      "parentUuid": "19cbfa61_60ffe5cc",
+      "range": {
+        "startLine": 568,
+        "startChar": 0,
+        "endLine": 569,
+        "endChar": 90
+      },
+      "revId": "8ba0449a601ee621bffea2da826b7c2dc9b03cf9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "29c54bc7_eeeeeaac",
         "filename": "test/660-clinit/src/Main.java",
         "patchSetId": 2
@@ -54,6 +78,30 @@
       "writtenOn": "2023-05-02T14:59:09Z",
       "side": 1,
       "message": "I might be missing something but why is this in image when `Add` and `Mul` were not?",
+      "range": {
+        "startLine": 205,
+        "startChar": 0,
+        "endLine": 205,
+        "endChar": 15
+      },
+      "revId": "8ba0449a601ee621bffea2da826b7c2dc9b03cf9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb84c3af_821c3de2",
+        "filename": "test/660-clinit/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-05-02T18:24:10Z",
+      "side": 1,
+      "message": "See other file `test/660-clinit/profile`. I\u0027ve added `InImage` while `Add` is not in the image on purpose.",
+      "parentUuid": "29c54bc7_eeeeeaac",
       "range": {
         "startLine": 205,
         "startChar": 0,
