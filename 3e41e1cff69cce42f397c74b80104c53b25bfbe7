@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7e14edf_4d46e218",
+        "filename": "compiler/utils/assembler_test_base.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-05-02T14:50:47Z",
+      "side": 1,
+      "message": "We don\u0027t implement compression for now, but I think we should support it in the future (RV64IMAFDC is the bare minimum of what we expect of the toolchain). Maybe add a TODO?",
+      "range": {
+        "startLine": 145,
+        "startChar": 81,
+        "endLine": 145,
+        "endChar": 97
+      },
+      "revId": "3e41e1cff69cce42f397c74b80104c53b25bfbe7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c4f561d_72f1af41",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-05-02T14:50:47Z",
+      "side": 1,
+      "message": "Nit: when a comment is related to a group of functions and not one particular function, should it be separated with a newline (here and below)?",
+      "range": {
+        "startLine": 175,
+        "startChar": 0,
+        "endLine": 175,
+        "endChar": 79
+      },
+      "revId": "3e41e1cff69cce42f397c74b80104c53b25bfbe7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b08540c_cad35444",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-05-02T14:50:47Z",
+      "side": 1,
+      "message": "Why 7 after 4 (why not 5)?",
+      "range": {
+        "startLine": 43,
+        "startChar": 11,
+        "endLine": 43,
+        "endChar": 14
+      },
+      "revId": "3e41e1cff69cce42f397c74b80104c53b25bfbe7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
