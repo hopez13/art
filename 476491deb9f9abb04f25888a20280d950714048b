@@ -16,6 +16,29 @@
       "message": "PTAL",
       "revId": "476491deb9f9abb04f25888a20280d950714048b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "07758076_e40702f5",
+        "filename": "libartpalette/apex/palette_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-02T14:44:31Z",
+      "side": 1,
+      "message": "It seems `libartpalette` does not use the `art` namespace. We should remove it once we do not need it for the `TEST_DISABLED_FOR_RISCV64` macro.",
+      "range": {
+        "startLine": 57,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 13
+      },
+      "revId": "476491deb9f9abb04f25888a20280d950714048b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
