@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "16d705c3_ed6b6f6e",
+        "filename": "runtime/base/mem_map_arena_pool.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1386891
+      },
+      "writtenOn": "2023-05-02T00:03:52Z",
+      "side": 1,
+      "message": "yeah, it is redundant, removed.",
+      "parentUuid": "7e569c8c_d23ab6c9",
+      "range": {
+        "startLine": 69,
+        "startChar": 6,
+        "endLine": 69,
+        "endChar": 40
+      },
+      "revId": "c5748f48874b4c672f33e123c220a10f4d21d260",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "950ce929_9b7be1be",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-05-01T23:58:54Z",
       "side": 1,
       "message": "The increment should be done outside the LOG. My reading of logging.h is that this is not guaranteed to get evaluated in this position. Even if I\u0027m wrong, it\u0027s too hard to figure that out.",
+      "range": {
+        "startLine": 76,
+        "startChar": 52,
+        "endLine": 76,
+        "endChar": 63
+      },
+      "revId": "c5748f48874b4c672f33e123c220a10f4d21d260",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c268f1b_770b5c4d",
+        "filename": "runtime/base/mem_map_arena_pool.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1386891
+      },
+      "writtenOn": "2023-05-02T00:03:52Z",
+      "side": 1,
+      "message": "thanks for catching that, moved the increment out of the LOG.",
+      "parentUuid": "950ce929_9b7be1be",
       "range": {
         "startLine": 76,
         "startChar": 52,
