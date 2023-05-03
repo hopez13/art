@@ -1,0 +1,642 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c29a71b_fcf35c51",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-05-03T12:35:40Z",
+      "side": 1,
+      "message": "Not very descriptive for a big change like this, please extend.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 37
+      },
+      "revId": "8d280b38a623fec1afb809df8a5c2aa8cb51fda2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5181633d_29d8c684",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-05-03T12:35:40Z",
+      "side": 1,
+      "message": "typo (s/arrray/array/)",
+      "range": {
+        "startLine": 9,
+        "startChar": 20,
+        "endLine": 9,
+        "endChar": 39
+      },
+      "revId": "8d280b38a623fec1afb809df8a5c2aa8cb51fda2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "01a591fc_7df0622b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-05-03T12:35:40Z",
+      "side": 1,
+      "message": "Did you forget it, or is the CL not ready for review yet?\n\nNote that you\u0027ll need to run the interpreter tests as well, since they also use the modified code.",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 23
+      },
+      "revId": "8d280b38a623fec1afb809df8a5c2aa8cb51fda2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ffb9d3b5_ce7b83b8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-05-03T12:35:40Z",
+      "side": 1,
+      "message": "Let\u0027s also wait for vmarko@ review, he\u0027s OOO for the rest of the week.",
+      "revId": "8d280b38a623fec1afb809df8a5c2aa8cb51fda2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a74ec7c_470c9ba8",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-05-03T12:35:40Z",
+      "side": 1,
+      "message": "I think you could group this and lines 70-76 together in one if/elseif/elseif/else statement.",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 66,
+        "endChar": 10
+      },
+      "revId": "8d280b38a623fec1afb809df8a5c2aa8cb51fda2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "603e90d6_6112c1e0",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-05-03T12:35:40Z",
+      "side": 1,
+      "message": "Is it perhaps better to have an explicit parameter to avoid confusion?",
+      "range": {
+        "startLine": 297,
+        "startChar": 41,
+        "endLine": 297,
+        "endChar": 81
+      },
+      "revId": "8d280b38a623fec1afb809df8a5c2aa8cb51fda2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6710e0b8_f0eac2a9",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 451,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-05-03T12:35:40Z",
+      "side": 1,
+      "message": "Nit: the rest of the file uses two blank lines between macros.",
+      "range": {
+        "startLine": 451,
+        "startChar": 0,
+        "endLine": 451,
+        "endChar": 73
+      },
+      "revId": "8d280b38a623fec1afb809df8a5c2aa8cb51fda2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ad4d5fdc_5bc65574",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 475,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-05-03T12:35:40Z",
+      "side": 1,
+      "message": "Nit: you have parentheses here but not in SETUP_SAVE_REFS_ONLY_FRAME, can you unify? )I know I may be guilty of some inconsistency myself but let\u0027s not worsen it).",
+      "range": {
+        "startLine": 475,
+        "startChar": 21,
+        "endLine": 475,
+        "endChar": 26
+      },
+      "revId": "8d280b38a623fec1afb809df8a5c2aa8cb51fda2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cbebbeb2_6f5dd1d3",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 488,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-05-03T12:35:40Z",
+      "side": 1,
+      "message": "Please fix this WARNING reported by Check Contents: Please remove the trailing whitespace.\n\nAnalyzer Description: Validates that changes do not have prohibited expressions in them.\nOwner: ayeaye-team@google.com\n\nPlease remove the trailing whitespace.",
+      "range": {
+        "startLine": 488,
+        "startChar": 5,
+        "endLine": 488,
+        "endChar": 6
+      },
+      "revId": "8d280b38a623fec1afb809df8a5c2aa8cb51fda2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d18fcd0e_0ab35187",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 589,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-05-03T12:35:40Z",
+      "side": 1,
+      "message": "`call artTestSuspendFromCode`? See https://github.com/riscv-non-isa/riscv-asm-manual/blob/master/riscv-asm.md#function-calls; `call offset` is `auipc x1, offset[31 : 12] + offset[11]; jalr x1, offset[11:0](x1)` according to chapter 25 of the RISC-V manual.\n\nWhat does the comment `// (Thread*)` mean?",
+      "range": {
+        "startLine": 588,
+        "startChar": 0,
+        "endLine": 589,
+        "endChar": 26
+      },
+      "revId": "8d280b38a623fec1afb809df8a5c2aa8cb51fda2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "868e40ca_9d073199",
+        "filename": "runtime/interpreter/mterp/riscv64/array.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-05-03T12:35:40Z",
+      "side": 1,
+      "message": "Please fix this WARNING reported by Check Contents: Please remove the trailing whitespace.\n\nAnalyzer Description: Validates that changes do not have prohibited expressions in them.\nOwner: ayeaye-team@google.com\n\nPlease remove the trailing whitespace.",
+      "range": {
+        "startLine": 57,
+        "startChar": 12,
+        "endLine": 57,
+        "endChar": 13
+      },
+      "revId": "8d280b38a623fec1afb809df8a5c2aa8cb51fda2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "53b3ee23_e49163dc",
+        "filename": "runtime/interpreter/mterp/riscv64/array.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-05-03T12:35:40Z",
+      "side": 1,
+      "message": "Forgot to patch the comment?",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 63,
+        "endChar": 10
+      },
+      "revId": "8d280b38a623fec1afb809df8a5c2aa8cb51fda2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "33617720_12527311",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-05-03T12:35:40Z",
+      "side": 1,
+      "message": "Why did you make this change, is it because X18 is now up for grabs after moving shadow stack? Please mention in commit message.",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 72
+      },
+      "revId": "8d280b38a623fec1afb809df8a5c2aa8cb51fda2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a53df92a_c21fa4c8",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-05-03T12:35:40Z",
+      "side": 1,
+      "message": "Nit: is it usually \"on stack\"?",
+      "range": {
+        "startLine": 67,
+        "startChar": 33,
+        "endLine": 67,
+        "endChar": 35
+      },
+      "revId": "8d280b38a623fec1afb809df8a5c2aa8cb51fda2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec4955a0_34ac8db1",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-05-03T12:35:40Z",
+      "side": 1,
+      "message": "Uber nit: line limit is 100, you could reformat line breaks.",
+      "range": {
+        "startLine": 100,
+        "startChar": 0,
+        "endLine": 102,
+        "endChar": 74
+      },
+      "revId": "8d280b38a623fec1afb809df8a5c2aa8cb51fda2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "87289771_e2406970",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-05-03T12:35:40Z",
+      "side": 1,
+      "message": "What do the vertical bars mean here and on line above? It is not absolute value, not the length of a vector as in math notation.",
+      "range": {
+        "startLine": 157,
+        "startChar": 26,
+        "endLine": 157,
+        "endChar": 30
+      },
+      "revId": "8d280b38a623fec1afb809df8a5c2aa8cb51fda2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a53e664_984bab5a",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-05-03T12:35:40Z",
+      "side": 1,
+      "message": "I\u0027m not sure I follow how alignment is achieved (you subtract 16, but it doesn\u0027t make much sense to me: if t0 was aligned it would remain aligned, but if it wasn\u0027t it would remain unaligned).\n\nYou could do something like:\n```\n    add t0, t0, 0xf\n    and t0, t0, ~0xf\n    sub t0, sp, t0\n```\n(The logic is, if t0 was divisible by 16, last 4 bits were zero and adding 15 \u003d 0xf \u003d 0b1111 followed by masking the last 4 bits would leave it as is. Otherwise, if t0 was not divisible by 16, last 4 bits were not all zero and adding 15 would overflow into the 5th bit, then the last 4 bits would be zeroed.)\n\nThen you would probably want to merge `add t0, t0, 0xf` and the previous `add t0, t0, 24` with some explanation in the comments.",
+      "range": {
+        "startLine": 165,
+        "startChar": 0,
+        "endLine": 168,
+        "endChar": 22
+      },
+      "revId": "8d280b38a623fec1afb809df8a5c2aa8cb51fda2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0573ec1_b65c1602",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-05-03T12:35:40Z",
+      "side": 1,
+      "message": "Nit: I\u0027d drop this, t1 is a temporary and it is expected to be used for intermediate computations. I would assume it is free by now if I see it used on the line above and reused later.",
+      "range": {
+        "startLine": 176,
+        "startChar": 0,
+        "endLine": 176,
+        "endChar": 18
+      },
+      "revId": "8d280b38a623fec1afb809df8a5c2aa8cb51fda2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2aae55d5_956793d3",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-05-03T12:35:40Z",
+      "side": 1,
+      "message": "Same here.",
+      "range": {
+        "startLine": 186,
+        "startChar": 0,
+        "endLine": 186,
+        "endChar": 18
+      },
+      "revId": "8d280b38a623fec1afb809df8a5c2aa8cb51fda2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1cd5530a_65242768",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-05-03T12:35:40Z",
+      "side": 1,
+      "message": "There is no label named STORE_B (instead there is 3f with a comment), which is slightly confusing. In cases like these when you have a macro with more than a few labels that have special meaning, you can give them names by passing a label suffix as a macro parameter and concatenating it with label names. See e.g. https://source.corp.google.com/aosp-master/art/runtime/arch/riscv64/quick_entrypoints_riscv64.S;l\u003d168-266\n\n(Here and in other nontrivial macros with labels.)\n\n(but before changing please read below about general thought on this macro)",
+      "range": {
+        "startLine": 272,
+        "startChar": 53,
+        "endLine": 272,
+        "endChar": 60
+      },
+      "revId": "8d280b38a623fec1afb809df8a5c2aa8cb51fda2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee53f2af_46eaa15b",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-05-03T12:35:40Z",
+      "side": 1,
+      "message": "I find this slightly more readable:\n```\n  li t5, \u0027J\u0027  // next arg type is long\n  beq t4, t5, 3f\n```\ninstead of lines 272, 273 (and likewise further down).",
+      "range": {
+        "startLine": 272,
+        "startChar": 4,
+        "endLine": 272,
+        "endChar": 20
+      },
+      "revId": "8d280b38a623fec1afb809df8a5c2aa8cb51fda2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1df92c6_7d5f6574",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-05-03T12:35:40Z",
+      "side": 1,
+      "message": "It looks very similar to LOOP_OVER_SHORTY_STORING_GPRS. Can you factor out the common part?",
+      "range": {
+        "startLine": 306,
+        "startChar": 0,
+        "endLine": 308,
+        "endChar": 0
+      },
+      "revId": "8d280b38a623fec1afb809df8a5c2aa8cb51fda2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b653676_d146cc65",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-05-03T12:35:40Z",
+      "side": 1,
+      "message": "Forgot to patch?",
+      "range": {
+        "startLine": 440,
+        "startChar": 0,
+        "endLine": 440,
+        "endChar": 18
+      },
+      "revId": "8d280b38a623fec1afb809df8a5c2aa8cb51fda2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "56fe16c1_9274b392",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 589,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-05-03T12:35:40Z",
+      "side": 1,
+      "message": "and reference, looking at line 593?",
+      "range": {
+        "startLine": 589,
+        "startChar": 44,
+        "endLine": 589,
+        "endChar": 52
+      },
+      "revId": "8d280b38a623fec1afb809df8a5c2aa8cb51fda2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "087a470f_81b68fcd",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 626,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-05-03T12:35:40Z",
+      "side": 1,
+      "message": "Please mark all TODOs as `TODO(riscv64)` so that we can find them easily later on.",
+      "range": {
+        "startLine": 626,
+        "startChar": 4,
+        "endLine": 626,
+        "endChar": 11
+      },
+      "revId": "8d280b38a623fec1afb809df8a5c2aa8cb51fda2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "68ae344b_6837cdcc",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 644,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-05-03T12:35:40Z",
+      "side": 1,
+      "message": "I find it hard to do school-level multiplication and division, can you use 8*\u003cindex\u003e instead so it\u0027s easier to follow? On lines 629-663.",
+      "range": {
+        "startLine": 644,
+        "startChar": 13,
+        "endLine": 644,
+        "endChar": 16
+      },
+      "revId": "8d280b38a623fec1afb809df8a5c2aa8cb51fda2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "242fbded_87293112",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 664,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-05-03T12:35:40Z",
+      "side": 1,
+      "message": "It\u0027s always a good idea to explain what is skipped, like S1 here (and maybe do that in-between ld/fld lines where one would be looking).\n\nBesides, I don\u0027t see callee-saved registers here at all.",
+      "range": {
+        "startLine": 664,
+        "startChar": 37,
+        "endLine": 664,
+        "endChar": 47
+      },
+      "revId": "8d280b38a623fec1afb809df8a5c2aa8cb51fda2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f463488_07751054",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 702,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-05-03T12:35:40Z",
+      "side": 1,
+      "message": "Maybe I don\u0027t understand what\u0027s going on, but it seems like we are looping over short 7 + 8 \u003d 15 times for each arg, incrementing argument offset in `t3`. This looks inefficient, it should be enough to loop just one time in a similar way as it is done in INVOKE_STUB_LOAD_ALL_ARGS (https://source.corp.google.com/aosp-master/art/runtime/arch/riscv64/quick_entrypoints_riscv64.S;l\u003d168-266)",
+      "range": {
+        "startLine": 681,
+        "startChar": 0,
+        "endLine": 702,
+        "endChar": 102
+      },
+      "revId": "8d280b38a623fec1afb809df8a5c2aa8cb51fda2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
