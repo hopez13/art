@@ -42,7 +42,8 @@ static bool IsLowOfUnalignedPairInterval(LiveInterval* low) {
 
 RegisterAllocatorLinearScan::RegisterAllocatorLinearScan(ScopedArenaAllocator* allocator,
                                                          CodeGenerator* codegen,
-                                                         const SsaLivenessAnalysis& liveness)
+                                                         const SsaLivenessAnalysis& liveness,
+                                                         OptimizingCompilerStats* stats)
       : RegisterAllocator(allocator, codegen, liveness),
         unhandled_core_intervals_(allocator->Adapter(kArenaAllocRegisterAllocator)),
         unhandled_fp_intervals_(allocator->Adapter(kArenaAllocRegisterAllocator)),
@@ -64,7 +65,8 @@ RegisterAllocatorLinearScan::RegisterAllocatorLinearScan(ScopedArenaAllocator* a
         registers_array_(nullptr),
         blocked_core_registers_(codegen->GetBlockedCoreRegisters()),
         blocked_fp_registers_(codegen->GetBlockedFloatingPointRegisters()),
-        reserved_out_slots_(0) {
+        reserved_out_slots_(0),
+        stats_(stats) {
   temp_intervals_.reserve(4);
   int_spill_slots_.reserve(kDefaultNumberOfSpillSlots);
   long_spill_slots_.reserve(kDefaultNumberOfSpillSlots);
@@ -81,7 +83,14 @@ RegisterAllocatorLinearScan::RegisterAllocatorLinearScan(ScopedArenaAllocator* a
   reserved_out_slots_ = ptr_size / kVRegSize + codegen->GetGraph()->GetMaximumNumberOfOutVRegs();
 }
 
-RegisterAllocatorLinearScan::~RegisterAllocatorLinearScan() {}
+RegisterAllocatorLinearScan::~RegisterAllocatorLinearScan() {
+  MaybeRecordStat(stats_, MethodCompilationStat::kIntSpillSlots, int_spill_slots_.size());
+  MaybeRecordStat(stats_, MethodCompilationStat::kLongSpillSlots, long_spill_slots_.size());
+  MaybeRecordStat(stats_, MethodCompilationStat::kFloatSpillSlots, float_spill_slots_.size());
+  MaybeRecordStat(stats_, MethodCompilationStat::kDoubleSpillSlots, double_spill_slots_.size());
+  MaybeRecordStat(stats_, MethodCompilationStat::kCatchPhiSpillSlots, catch_phi_spill_slots_);
+  MaybeRecordStat(stats_, MethodCompilationStat::kTotalSpillSlots, GetNumberOfSpillSlots());
+}
 
 static bool ShouldProcess(bool processing_core_registers, LiveInterval* interval) {
   if (interval == nullptr) return false;
