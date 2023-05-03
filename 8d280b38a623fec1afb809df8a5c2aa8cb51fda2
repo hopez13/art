@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "567343c8_2923202e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-05-03T23:32:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c29a71b_fcf35c51",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 37
+      },
+      "revId": "8d280b38a623fec1afb809df8a5c2aa8cb51fda2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5181633d_29d8c684",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e75be90e_eff1da2b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-05-03T23:32:17Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "5181633d_29d8c684",
+      "range": {
+        "startLine": 9,
+        "startChar": 20,
+        "endLine": 9,
+        "endChar": 39
+      },
+      "revId": "8d280b38a623fec1afb809df8a5c2aa8cb51fda2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "01a591fc_7df0622b",
@@ -60,6 +108,30 @@
       "writtenOn": "2023-05-03T12:35:40Z",
       "side": 1,
       "message": "Did you forget it, or is the CL not ready for review yet?\n\nNote that you\u0027ll need to run the interpreter tests as well, since they also use the modified code.",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 23
+      },
+      "revId": "8d280b38a623fec1afb809df8a5c2aa8cb51fda2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "badd9d7f_7984052b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-05-03T23:32:17Z",
+      "side": 1,
+      "message": "Tested against switch-interp too.",
+      "parentUuid": "01a591fc_7df0622b",
       "range": {
         "startLine": 11,
         "startChar": 0,
@@ -110,6 +182,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "78ce8874_2549c72e",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-05-03T23:32:17Z",
+      "side": 1,
+      "message": "Sure!",
+      "parentUuid": "2a74ec7c_470c9ba8",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 66,
+        "endChar": 10
+      },
+      "revId": "8d280b38a623fec1afb809df8a5c2aa8cb51fda2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "603e90d6_6112c1e0",
@@ -123,6 +219,30 @@
       "writtenOn": "2023-05-03T12:35:40Z",
       "side": 1,
       "message": "Is it perhaps better to have an explicit parameter to avoid confusion?",
+      "range": {
+        "startLine": 297,
+        "startChar": 41,
+        "endLine": 297,
+        "endChar": 81
+      },
+      "revId": "8d280b38a623fec1afb809df8a5c2aa8cb51fda2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3cfd4c09_2aa1968b",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-05-03T23:32:17Z",
+      "side": 1,
+      "message": "Yes.",
+      "parentUuid": "603e90d6_6112c1e0",
       "range": {
         "startLine": 297,
         "startChar": 41,
@@ -156,6 +276,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce9d9514_14b480bc",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 451,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-05-03T23:32:17Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "6710e0b8_f0eac2a9",
+      "range": {
+        "startLine": 451,
+        "startChar": 0,
+        "endLine": 451,
+        "endChar": 73
+      },
+      "revId": "8d280b38a623fec1afb809df8a5c2aa8cb51fda2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ad4d5fdc_5bc65574",
@@ -169,6 +313,30 @@
       "writtenOn": "2023-05-03T12:35:40Z",
       "side": 1,
       "message": "Nit: you have parentheses here but not in SETUP_SAVE_REFS_ONLY_FRAME, can you unify? )I know I may be guilty of some inconsistency myself but let\u0027s not worsen it).",
+      "range": {
+        "startLine": 475,
+        "startChar": 21,
+        "endLine": 475,
+        "endChar": 26
+      },
+      "revId": "8d280b38a623fec1afb809df8a5c2aa8cb51fda2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c0384876_7e7d8697",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 475,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-05-03T23:32:17Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "ad4d5fdc_5bc65574",
       "range": {
         "startLine": 475,
         "startChar": 21,
@@ -202,6 +370,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fae3a8d6_a42f1c83",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 488,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-05-03T23:32:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cbebbeb2_6f5dd1d3",
+      "range": {
+        "startLine": 488,
+        "startChar": 5,
+        "endLine": 488,
+        "endChar": 6
+      },
+      "revId": "8d280b38a623fec1afb809df8a5c2aa8cb51fda2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d18fcd0e_0ab35187",
@@ -215,6 +407,30 @@
       "writtenOn": "2023-05-03T12:35:40Z",
       "side": 1,
       "message": "`call artTestSuspendFromCode`? See https://github.com/riscv-non-isa/riscv-asm-manual/blob/master/riscv-asm.md#function-calls; `call offset` is `auipc x1, offset[31 : 12] + offset[11]; jalr x1, offset[11:0](x1)` according to chapter 25 of the RISC-V manual.\n\nWhat does the comment `// (Thread*)` mean?",
+      "range": {
+        "startLine": 588,
+        "startChar": 0,
+        "endLine": 589,
+        "endChar": 26
+      },
+      "revId": "8d280b38a623fec1afb809df8a5c2aa8cb51fda2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "245b2da9_b353e9f2",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 589,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-05-03T23:32:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d18fcd0e_0ab35187",
       "range": {
         "startLine": 588,
         "startChar": 0,
@@ -248,6 +464,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e3a9bd0_4f13c3b3",
+        "filename": "runtime/interpreter/mterp/riscv64/array.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-05-03T23:32:17Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "868e40ca_9d073199",
+      "range": {
+        "startLine": 57,
+        "startChar": 12,
+        "endLine": 57,
+        "endChar": 13
+      },
+      "revId": "8d280b38a623fec1afb809df8a5c2aa8cb51fda2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "53b3ee23_e49163dc",
@@ -261,6 +501,30 @@
       "writtenOn": "2023-05-03T12:35:40Z",
       "side": 1,
       "message": "Forgot to patch the comment?",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 63,
+        "endChar": 10
+      },
+      "revId": "8d280b38a623fec1afb809df8a5c2aa8cb51fda2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "87836bc1_e4a53572",
+        "filename": "runtime/interpreter/mterp/riscv64/array.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-05-03T23:32:17Z",
+      "side": 1,
+      "message": "Where i had left off. Next time!",
+      "parentUuid": "53b3ee23_e49163dc",
       "range": {
         "startLine": 63,
         "startChar": 0,
@@ -294,6 +558,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "676c3dd9_fed86138",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-05-03T23:32:17Z",
+      "side": 1,
+      "message": "Ahh yes. Good to mention.",
+      "parentUuid": "33617720_12527311",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 72
+      },
+      "revId": "8d280b38a623fec1afb809df8a5c2aa8cb51fda2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a53df92a_c21fa4c8",
@@ -307,6 +595,30 @@
       "writtenOn": "2023-05-03T12:35:40Z",
       "side": 1,
       "message": "Nit: is it usually \"on stack\"?",
+      "range": {
+        "startLine": 67,
+        "startChar": 33,
+        "endLine": 67,
+        "endChar": 35
+      },
+      "revId": "8d280b38a623fec1afb809df8a5c2aa8cb51fda2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "41985f2c_39c37580",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-05-03T23:32:17Z",
+      "side": 1,
+      "message": "Skipping for now, not needed for HelloWorld.",
+      "parentUuid": "a53df92a_c21fa4c8",
       "range": {
         "startLine": 67,
         "startChar": 33,
@@ -340,6 +652,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c5354b28_3e2464ce",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-05-03T23:32:17Z",
+      "side": 1,
+      "message": "100, good to know.",
+      "parentUuid": "ec4955a0_34ac8db1",
+      "range": {
+        "startLine": 100,
+        "startChar": 0,
+        "endLine": 102,
+        "endChar": 74
+      },
+      "revId": "8d280b38a623fec1afb809df8a5c2aa8cb51fda2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "87289771_e2406970",
@@ -353,6 +689,30 @@
       "writtenOn": "2023-05-03T12:35:40Z",
       "side": 1,
       "message": "What do the vertical bars mean here and on line above? It is not absolute value, not the length of a vector as in math notation.",
+      "range": {
+        "startLine": 157,
+        "startChar": 26,
+        "endLine": 157,
+        "endChar": 30
+      },
+      "revId": "8d280b38a623fec1afb809df8a5c2aa8cb51fda2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2029efa_30858731",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-05-03T23:32:17Z",
+      "side": 1,
+      "message": "Different kind of naming convention from Fuchsia, it\u0027s become habit. Removing!",
+      "parentUuid": "87289771_e2406970",
       "range": {
         "startLine": 157,
         "startChar": 26,
@@ -386,6 +746,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "76aef058_db80c11a",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-05-03T23:32:17Z",
+      "side": 1,
+      "message": "Some python to help us:\n$ python\n\u003e\u003e\u003e hex(-16 \u0026 0xFFFFFFFF)\n\u00270xfffffff0\u0027\n\u003e\u003e\u003e hex(~0xF \u0026 0xFFFFFFFF)\n\u00270xfffffff0\u0027\n\nBut ~0xF is less mysterious! Thank you.",
+      "parentUuid": "1a53e664_984bab5a",
+      "range": {
+        "startLine": 165,
+        "startChar": 0,
+        "endLine": 168,
+        "endChar": 22
+      },
+      "revId": "8d280b38a623fec1afb809df8a5c2aa8cb51fda2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f0573ec1_b65c1602",
@@ -409,6 +793,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0862fcef_9e47fc0e",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-05-03T23:32:17Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "f0573ec1_b65c1602",
+      "range": {
+        "startLine": 176,
+        "startChar": 0,
+        "endLine": 176,
+        "endChar": 18
+      },
+      "revId": "8d280b38a623fec1afb809df8a5c2aa8cb51fda2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2aae55d5_956793d3",
@@ -422,6 +830,30 @@
       "writtenOn": "2023-05-03T12:35:40Z",
       "side": 1,
       "message": "Same here.",
+      "range": {
+        "startLine": 186,
+        "startChar": 0,
+        "endLine": 186,
+        "endChar": 18
+      },
+      "revId": "8d280b38a623fec1afb809df8a5c2aa8cb51fda2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "049e1f7a_efaaf851",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-05-03T23:32:17Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "2aae55d5_956793d3",
       "range": {
         "startLine": 186,
         "startChar": 0,
@@ -478,6 +910,54 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0529a257_19833b07",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-05-03T23:32:17Z",
+      "side": 1,
+      "message": "Nice!",
+      "parentUuid": "ee53f2af_46eaa15b",
+      "range": {
+        "startLine": 272,
+        "startChar": 4,
+        "endLine": 272,
+        "endChar": 20
+      },
+      "revId": "8d280b38a623fec1afb809df8a5c2aa8cb51fda2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9ab7d7b_571ab1b1",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-05-03T23:32:17Z",
+      "side": 1,
+      "message": "We can skip these for now, will address your comments next time I put them up in Gerrit.",
+      "parentUuid": "1cd5530a_65242768",
+      "range": {
+        "startLine": 272,
+        "startChar": 53,
+        "endLine": 272,
+        "endChar": 60
+      },
+      "revId": "8d280b38a623fec1afb809df8a5c2aa8cb51fda2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e1df92c6_7d5f6574",
@@ -491,6 +971,30 @@
       "writtenOn": "2023-05-03T12:35:40Z",
       "side": 1,
       "message": "It looks very similar to LOOP_OVER_SHORTY_STORING_GPRS. Can you factor out the common part?",
+      "range": {
+        "startLine": 306,
+        "startChar": 0,
+        "endLine": 308,
+        "endChar": 0
+      },
+      "revId": "8d280b38a623fec1afb809df8a5c2aa8cb51fda2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7abd7e05_75e226eb",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-05-03T23:32:17Z",
+      "side": 1,
+      "message": "Let\u0027s tackle this next time, after a rename and cleanup.",
+      "parentUuid": "e1df92c6_7d5f6574",
       "range": {
         "startLine": 306,
         "startChar": 0,
@@ -524,6 +1028,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "249bdf08_58a1aa39",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-05-03T23:32:17Z",
+      "side": 1,
+      "message": "Next time! Needed in op_const_4, next CL.",
+      "parentUuid": "6b653676_d146cc65",
+      "range": {
+        "startLine": 440,
+        "startChar": 0,
+        "endLine": 440,
+        "endChar": 18
+      },
+      "revId": "8d280b38a623fec1afb809df8a5c2aa8cb51fda2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "56fe16c1_9274b392",
@@ -537,6 +1065,30 @@
       "writtenOn": "2023-05-03T12:35:40Z",
       "side": 1,
       "message": "and reference, looking at line 593?",
+      "range": {
+        "startLine": 589,
+        "startChar": 44,
+        "endLine": 589,
+        "endChar": 52
+      },
+      "revId": "8d280b38a623fec1afb809df8a5c2aa8cb51fda2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e185ac82_c49e0363",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 589,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-05-03T23:32:17Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "56fe16c1_9274b392",
       "range": {
         "startLine": 589,
         "startChar": 44,
@@ -570,6 +1122,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "93d0c272_6f1986e3",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 626,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-05-03T23:32:17Z",
+      "side": 1,
+      "message": "This isn\u0027t specific to riscv64, all the architectures have this note.",
+      "parentUuid": "087a470f_81b68fcd",
+      "range": {
+        "startLine": 626,
+        "startChar": 4,
+        "endLine": 626,
+        "endChar": 11
+      },
+      "revId": "8d280b38a623fec1afb809df8a5c2aa8cb51fda2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "68ae344b_6837cdcc",
@@ -583,6 +1159,30 @@
       "writtenOn": "2023-05-03T12:35:40Z",
       "side": 1,
       "message": "I find it hard to do school-level multiplication and division, can you use 8*\u003cindex\u003e instead so it\u0027s easier to follow? On lines 629-663.",
+      "range": {
+        "startLine": 644,
+        "startChar": 13,
+        "endLine": 644,
+        "endChar": 16
+      },
+      "revId": "8d280b38a623fec1afb809df8a5c2aa8cb51fda2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "651ce1b5_c1ed8367",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 644,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-05-03T23:32:17Z",
+      "side": 1,
+      "message": "Yes.",
+      "parentUuid": "68ae344b_6837cdcc",
       "range": {
         "startLine": 644,
         "startChar": 13,
@@ -616,6 +1216,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "389a0a34_1973c4dd",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 664,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-05-03T23:32:17Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "242fbded_87293112",
+      "range": {
+        "startLine": 664,
+        "startChar": 37,
+        "endLine": 664,
+        "endChar": 47
+      },
+      "revId": "8d280b38a623fec1afb809df8a5c2aa8cb51fda2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7f463488_07751054",
@@ -629,6 +1253,30 @@
       "writtenOn": "2023-05-03T12:35:40Z",
       "side": 1,
       "message": "Maybe I don\u0027t understand what\u0027s going on, but it seems like we are looping over short 7 + 8 \u003d 15 times for each arg, incrementing argument offset in `t3`. This looks inefficient, it should be enough to loop just one time in a similar way as it is done in INVOKE_STUB_LOAD_ALL_ARGS (https://source.corp.google.com/aosp-master/art/runtime/arch/riscv64/quick_entrypoints_riscv64.S;l\u003d168-266)",
+      "range": {
+        "startLine": 681,
+        "startChar": 0,
+        "endLine": 702,
+        "endChar": 102
+      },
+      "revId": "8d280b38a623fec1afb809df8a5c2aa8cb51fda2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e7cfeda3_4ae95ae4",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 702,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-05-03T23:32:17Z",
+      "side": 1,
+      "message": "Next time!",
+      "parentUuid": "7f463488_07751054",
       "range": {
         "startLine": 681,
         "startChar": 0,
