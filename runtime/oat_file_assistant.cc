@@ -1186,8 +1186,7 @@ bool OatFileAssistant::OatFileInfo::ShouldRecompileForFilter(CompilerFilter::Fil
     }
   }
 
-  if (dexopt_trigger.needExtraction && !file->ContainsDexCode() &&
-      !oat_file_assistant_->ZipFileOnlyContainsUncompressedDex()) {
+  if ((true)) {
     VLOG(oat) << "Should recompile: needExtraction";
     return true;
   }
