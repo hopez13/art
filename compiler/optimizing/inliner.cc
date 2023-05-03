@@ -73,7 +73,7 @@ static constexpr size_t kMaximumNumberOfPolymorphicRecursiveCalls = 0;
 static constexpr bool kUseAOTInlineCaches = true;
 
 // Controls the use of inlining try catches.
-static constexpr bool kInlineTryCatches = true;
+static constexpr bool kInlineTryCatches = false;
 
 // We check for line numbers to make sure the DepthString implementation
 // aligns the output nicely.
