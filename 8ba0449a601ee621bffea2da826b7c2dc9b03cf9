@@ -65,6 +65,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1324135_d68587c7",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 569,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-05-03T09:22:17Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "009c3f34_e511e5d9",
+      "range": {
+        "startLine": 568,
+        "startChar": 0,
+        "endLine": 569,
+        "endChar": 90
+      },
+      "revId": "8ba0449a601ee621bffea2da826b7c2dc9b03cf9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "29c54bc7_eeeeeaac",
@@ -102,6 +126,30 @@
       "side": 1,
       "message": "See other file `test/660-clinit/profile`. I\u0027ve added `InImage` while `Add` is not in the image on purpose.",
       "parentUuid": "29c54bc7_eeeeeaac",
+      "range": {
+        "startLine": 205,
+        "startChar": 0,
+        "endLine": 205,
+        "endChar": 15
+      },
+      "revId": "8ba0449a601ee621bffea2da826b7c2dc9b03cf9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2336bbb4_151a840c",
+        "filename": "test/660-clinit/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-05-03T09:22:17Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "bb84c3af_821c3de2",
       "range": {
         "startLine": 205,
         "startChar": 0,
