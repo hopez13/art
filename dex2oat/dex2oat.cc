@@ -2622,7 +2622,13 @@ class Dex2Oat final {
          // All are the same so it's enough to check the first one.
          StandardDexFile::IsMagicValid(input_vdex_file_->GetNextDexFileData(nullptr, 0)))) {
       DCHECK_EQ(oat_writers_.size(), 1u);
-      const std::string& name = zip_location_.empty() ? dex_locations_[0] : zip_location_;
+      const std::string& name = input_vdex_file_->GetName() != "vdex" ?
+                                    input_vdex_file_->GetName() :
+                                    // We don't strictly know the input vdex
+                                    // location. Use the input dex instead -
+                                    // it's better than nothing.
+                                    zip_location_.empty() ? dex_locations_[0] :
+                                                            zip_location_;
       DCHECK(!name.empty());
       if (!oat_writers_[0]->AddVdexDexFilesSource(*input_vdex_file_.get(), name.c_str())) {
         return false;
