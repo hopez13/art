@@ -177,6 +177,12 @@ cc_test {
     static_libs: [
         "libdl_android",
         "libnativebridge",
+<<<<<<< HEAD   (4297f2 Revert "Support FastVerify with speed-profile.")
+=======
+    ],
+    shared_libs: [
+        "liblog",
+>>>>>>> BRANCH (4eaa14 libnativebridge_test: link non-public libs statically)
     ],
     shared_libs: [
         "liblog",
