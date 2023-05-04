@@ -24,6 +24,7 @@ public class Main {
     private static final String TEMP_FILE_NAME_PREFIX = "test";
     private static final String TEMP_FILE_NAME_SUFFIX = ".trace";
     private static final int WALL_CLOCK_FLAG = 0x010;
+    private static final int DUAL_CLOCK_FLAG = 0x110;
     private static File file;
 
     public static void main(String[] args) throws Exception {
@@ -39,7 +40,7 @@ public class Main {
         System.out.println("***** streaming test - dual clock *******");
         StreamTraceParser stream_parser = new StreamTraceParser();
         testTracing(
-                /* streaming=*/true, /* flags= */ 0, stream_parser,
+                /* streaming=*/true, /* flags= */ DUAL_CLOCK_FLAG, stream_parser,
                 BaseTraceParser.STREAMING_DUAL_CLOCK_VERSION);
 
         System.out.println("***** streaming test - wall clock *******");
@@ -50,7 +51,7 @@ public class Main {
 
         System.out.println("***** non streaming test - dual clock *******");
         NonStreamTraceParser non_stream_parser = new NonStreamTraceParser();
-        testTracing(/* streaming=*/false, /* flags= */ 0, non_stream_parser,
+        testTracing(/* streaming=*/false, /* flags= */ DUAL_CLOCK_FLAG, non_stream_parser,
                 BaseTraceParser.DUAL_CLOCK_VERSION);
 
         System.out.println("***** non streaming test - wall clock *******");
