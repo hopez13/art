@@ -190,6 +190,7 @@ inline INT_TYPE art_float_to_integral(FLOAT_TYPE f);
 
 ArtMethod* GetCalleeSaveMethodCaller(ArtMethod** sp,
                                      CalleeSaveType type,
+                                     uint32_t* dex_pc,
                                      bool do_caller_check = false)
     REQUIRES_SHARED(Locks::mutator_lock_);
 
