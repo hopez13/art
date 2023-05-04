@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9f64673_3913dd68",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-05-04T15:20:27Z",
+      "side": 1,
+      "message": "Interpreter tests not needed for this CL as it doesn\u0027t touch interpreter code paths.",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 8
+      },
+      "revId": "336f4dea3dad79635b8268a1444ab5419d2c2a0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "712b9113_244424ed",
+        "filename": "runtime/interpreter/mterp/riscv64/other.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-05-04T15:20:27Z",
+      "side": 1,
+      "message": "Where does it clobber t0, t1?",
+      "range": {
+        "startLine": 11,
+        "startChar": 12,
+        "endLine": 11,
+        "endChar": 20
+      },
+      "revId": "336f4dea3dad79635b8268a1444ab5419d2c2a0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
