@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "733eadfe_38719a3b",
+        "filename": "runtime/entrypoints/entrypoint_utils.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-05-04T13:58:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "efcc5294_1cf390a9",
+      "range": {
+        "startLine": 211,
+        "startChar": 25,
+        "endLine": 211,
+        "endChar": 52
+      },
+      "revId": "1e034f19921353630a2ba1f636033d95a8489b17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b8eea3ea_277a23d4",
@@ -58,6 +82,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4ec5f9e_4ce4bc17",
+        "filename": "runtime/entrypoints/entrypoint_utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-05-04T13:58:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b8eea3ea_277a23d4",
+      "revId": "1e034f19921353630a2ba1f636033d95a8489b17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "59295323_d801a17b",
@@ -71,6 +113,30 @@
       "writtenOn": "2023-05-04T13:43:58Z",
       "side": 1,
       "message": "Have you considered returning a `pair\u003cArtMethod*, uint32_t*\u003e`? Same as the other comment",
+      "range": {
+        "startLine": 282,
+        "startChar": 2,
+        "endLine": 282,
+        "endChar": 44
+      },
+      "revId": "1e034f19921353630a2ba1f636033d95a8489b17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "24859914_4abf6747",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-05-04T13:58:44Z",
+      "side": 1,
+      "message": "Yeah, but no strong preference. Just find std::pair more verbose than needed.",
+      "parentUuid": "59295323_d801a17b",
       "range": {
         "startLine": 282,
         "startChar": 2,
