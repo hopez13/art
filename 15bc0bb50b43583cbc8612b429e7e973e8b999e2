@@ -16,6 +16,69 @@
       "message": "This is cleaned up and ready for review! Comments have been addressed where still applicable. Comments on deleted code will be addressed next time it comes up on Gerrit.",
       "revId": "15bc0bb50b43583cbc8612b429e7e973e8b999e2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed318f08_4036cc1b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-05-04T14:38:00Z",
+      "side": 1,
+      "message": "Thanks!",
+      "revId": "15bc0bb50b43583cbc8612b429e7e973e8b999e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "226bf0c7_cb229720",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-05-04T14:38:00Z",
+      "side": 1,
+      "message": "No need for line break, limit is 100 characters.",
+      "range": {
+        "startLine": 414,
+        "startChar": 0,
+        "endLine": 415,
+        "endChar": 43
+      },
+      "revId": "15bc0bb50b43583cbc8612b429e7e973e8b999e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "96b27883_18e61910",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-05-04T14:38:00Z",
+      "side": 1,
+      "message": "I wasn\u0027t aware that you can use parameter names in macro calls like this (we have comments like `/* continue */ 2f` elsewhere).",
+      "range": {
+        "startLine": 276,
+        "startChar": 21,
+        "endLine": 276,
+        "endChar": 32
+      },
+      "revId": "15bc0bb50b43583cbc8612b429e7e973e8b999e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
