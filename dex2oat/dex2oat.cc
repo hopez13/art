@@ -2621,7 +2621,13 @@ class Dex2Oat final {
         (compact_dex_level_ == CompactDexLevel::kCompactDexLevelFast ||
          input_vdex_file_->HasOnlyStandardDexFiles())) {
       DCHECK_EQ(oat_writers_.size(), 1u);
-      const std::string& name = zip_location_.empty() ? dex_locations_[0] : zip_location_;
+      const std::string& name = input_vdex_file_->GetName() != "vdex" ?
+                                    input_vdex_file_->GetName() :
+                                    // We don't strictly know the input vdex
+                                    // location. Use the input dex instead -
+                                    // it's better than nothing.
+                                    zip_location_.empty() ? dex_locations_[0] :
+                                                            zip_location_;
       DCHECK(!name.empty());
       if (!oat_writers_[0]->AddVdexDexFilesSource(*input_vdex_file_.get(), name.c_str())) {
         return false;
