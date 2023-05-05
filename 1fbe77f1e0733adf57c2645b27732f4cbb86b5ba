@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "19b7395a_a119aede",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 506,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-05-05T09:59:33Z",
+      "side": 1,
+      "message": "isn\u0027t that guarded by your new code in dex2oat.cc?",
+      "range": {
+        "startLine": 502,
+        "startChar": 0,
+        "endLine": 506,
+        "endChar": 7
+      },
+      "revId": "1fbe77f1e0733adf57c2645b27732f4cbb86b5ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ddf19568_6b76d990",
+        "filename": "runtime/vdex_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 395,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-05-05T09:59:33Z",
+      "side": 1,
+      "message": "I think you can limit that to the first dex file is a standard dex file. We don\u0027t mix them.",
+      "range": {
+        "startLine": 388,
+        "startChar": 0,
+        "endLine": 395,
+        "endChar": 14
+      },
+      "revId": "1fbe77f1e0733adf57c2645b27732f4cbb86b5ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
