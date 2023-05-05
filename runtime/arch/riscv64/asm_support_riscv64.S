@@ -466,6 +466,7 @@
     SAVE_GPR s9,  (8*9)   // x25
     SAVE_GPR s10, (8*10)  // x26
     SAVE_GPR s11, (8*11)  // x27
+    SAVE_GPR ra,  (8*12)  // x1
 
     SETUP_CALLEE_SAVE_FRAME_COMMON t0, RUNTIME_SAVE_REFS_ONLY_METHOD_OFFSET
 .endm
@@ -484,6 +485,7 @@
     RESTORE_GPR s9,  (8*9)   // x25
     RESTORE_GPR s10, (8*10)  // x26
     RESTORE_GPR s11, (8*11)  // x27
+    RESTORE_GPR ra,  (8*12)  // x1
 
     DECREASE_FRAME FRAME_SIZE_SAVE_REFS_ONLY
 .endm
