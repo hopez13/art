@@ -61,6 +61,21 @@
 #define CFI_DEX  19  // DWARF register number for xPC  /s3/x19
 #define CFI_REFS 22  // DWARF register number for xREFS/s6/x22
 
+// Synchronization
+// The synchronization spec for RISC-V is undergoing active evolution, but this code will follow the
+// proposal laid out in hboehm's pull request [1].
+//
+// Object publication.
+// new-instance and new-array operations must first perform a `fence w,w` "constructor fence" to
+// ensure their new object references are correctly published with a subsequent SET_VREG_OBJECT.
+//
+// Volatile load/store.
+// A volatile load is implemented as: fence rw,rw ; load ; fence r,rw.
+// A 32-bit or 64-bit volatile store is implemented as: amoswap.rl{w,d}
+// A shorter volatile store is implemented as: fence rw,w ; store ; fence rw,rw
+//
+// [1] https://github.com/riscv-non-isa/riscv-elf-psabi-doc/pull/378
+
 // An assembly entry that has a OatQuickMethodHeader prefix.
 .macro OAT_ENTRY name, end
     .type \name, @function
@@ -197,6 +212,11 @@ END \name
     sd xPC, -16(xREFS)
 .endm
 
+.macro TEST_IF_MARKING reg, label
+    lb \reg, THREAD_IS_GC_MARKING_OFFSET(xSELF)
+    bnez \reg, \label
+.endm
+
 .macro DO_SUSPEND_CHECK continue
     lw t0, THREAD_FLAGS_OFFSET(xSELF)
     andi t0, t0, THREAD_SUSPEND_OR_CHECKPOINT_REQUEST
@@ -232,6 +252,24 @@ END \name
     slliw \reg, \reg, ${handler_size_bits}
     add \reg, xIBASE, \reg
     jr \reg
+.endm
+
+// Clobbers: t0, t1
+.macro FETCH_FROM_THREAD_CACHE reg, miss_label
+    li t0, THREAD_INTERPRETER_CACHE_OFFSET  // imm > 12 bit signed
+    add t0, t0, xSELF  // cache address
+    // See art::InterpreterCache::IndexOf() for computing index of key within cache array.
+    // The roundabout computation accounts for different cache sizes.
+    // Step 1. Move index (LOG2 bits), starting from LSB #2, to MSB.
+    slliw t1, xPC, 32 - 2 - THREAD_INTERPRETER_CACHE_SIZE_LOG2
+    // Step 2. Move index to LSB, then multiply by 16: entry's byte offset within cache.
+    srliw t1, t1, 32 - 4 - THREAD_INTERPRETER_CACHE_SIZE_LOG2
+    // Step 3. Remove stray bits below the byte offset.
+    andi t1, t1, ~0xF
+    add t0, t0, t1  // t0: entry's address
+    ld t1, (t0)     // key: dex PC
+    ld \reg, 8(t0)  // value: depends on context; see call site
+    bne xPC, t1, \miss_label
 .endm
 
 // Inputs:
@@ -279,6 +317,13 @@ END \name
     j 2b
 .endm
 
+// Clobbers: \vreg
+.macro GET_VREG reg, vreg
+    slliw \vreg, \vreg, 2  // vreg id to byte offset
+    add \vreg, xFP, \vreg  // vreg address inside register array
+    lw \reg, (\vreg)  // load value from vreg into \reg
+.endm
+
 // Clobbers: t0, \vreg
 .macro SET_VREG reg, vreg
     slliw \vreg, \vreg, 2  // vreg id to byte offset
@@ -286,6 +331,15 @@ END \name
     sw \reg, (t0)  // store value in vreg
     add t0, xREFS, \vreg  // vreg address inside reference array
     sw zero, (t0)  // not an object, null out reference
+.endm
+
+// Clobbers: t0, \vreg
+.macro SET_VREG_OBJECT reg, vreg
+    slliw \vreg, \vreg, 2  // vreg id to byte offset
+    add t0, xFP, \vreg  // vreg address inside register array
+    sw \reg, (t0)
+    add t0, xREFS, \vreg
+    sw \reg, (t0)  // also in reference array
 .endm
 
 %def entry():
@@ -356,6 +410,7 @@ EndExecuteNterpImpl:
 
 // Entrypoints into runtime.
 NTERP_TRAMPOLINE nterp_hot_method, NterpHotMethod
+NTERP_TRAMPOLINE nterp_get_class, NterpGetClass
 
 ENTRY nterp_deliver_pending_exception
     DELIVER_PENDING_EXCEPTION
@@ -385,7 +440,6 @@ artNterpAsmInstructionEnd:
     NAME_START nterp_${opcode}
 %def opcode_end():
     NAME_END nterp_${opcode}
-    unimp
 %def opcode_slow_path_start(name):
     NAME_START ${name}
 %def opcode_slow_path_end(name):
