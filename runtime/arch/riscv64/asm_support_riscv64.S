@@ -457,39 +457,37 @@
 
 // For compatibility with Runtime::CreateCalleeSaveMethod(kSaveRefsOnly).
 .macro SETUP_SAVE_REFS_ONLY_FRAME
-    // 11 callee-save regs, plus ArtMethod*
+    // 11 callee-save regs, RA
     INCREASE_FRAME FRAME_SIZE_SAVE_REFS_ONLY
 
-    // stack slot (8*0)(sp) is for ArtMethod*
-    SAVE_GPR s0,  (8*1)   // x8
-    SAVE_GPR s2,  (8*2)   // x18
-    SAVE_GPR s3,  (8*3)   // x19
-    SAVE_GPR s4,  (8*4)   // x20
-    SAVE_GPR s5,  (8*5)   // x21
-    SAVE_GPR s6,  (8*6)   // x22
-    SAVE_GPR s7,  (8*7)   // x23
-    SAVE_GPR s8,  (8*8)   // x24
-    SAVE_GPR s9,  (8*9)   // x25
-    SAVE_GPR s10, (8*10)  // x26
-    SAVE_GPR s11, (8*11)  // x27
-
-    SETUP_CALLEE_SAVE_FRAME_COMMON t0, RUNTIME_SAVE_REFS_ONLY_METHOD_OFFSET
+    SAVE_GPR s0,  (8*0)   // x8
+    SAVE_GPR s2,  (8*1)   // x18
+    SAVE_GPR s3,  (8*2)   // x19
+    SAVE_GPR s4,  (8*3)   // x20
+    SAVE_GPR s5,  (8*4)   // x21
+    SAVE_GPR s6,  (8*5)   // x22
+    SAVE_GPR s7,  (8*6)   // x23
+    SAVE_GPR s8,  (8*7)   // x24
+    SAVE_GPR s9,  (8*8)  // x25
+    SAVE_GPR s10, (8*9)  // x26
+    SAVE_GPR s11, (8*10)  // x27
+    SAVE_GPR ra,  (8*11)  // x1
 .endm
 
 
 .macro RESTORE_SAVE_REFS_ONLY_FRAME
-    // stack slot (8*0)(sp) is for ArtMethod*
-    RESTORE_GPR s0,  (8*1)   // x8
-    RESTORE_GPR s2,  (8*2)   // x18
-    RESTORE_GPR s3,  (8*3)   // x19
-    RESTORE_GPR s4,  (8*4)   // x20
-    RESTORE_GPR s5,  (8*5)   // x21
-    RESTORE_GPR s6,  (8*6)   // x22
-    RESTORE_GPR s7,  (8*7)   // x23
-    RESTORE_GPR s8,  (8*8)   // x24
-    RESTORE_GPR s9,  (8*9)   // x25
-    RESTORE_GPR s10, (8*10)  // x26
-    RESTORE_GPR s11, (8*11)  // x27
+    RESTORE_GPR s0,  (8*0)   // x8
+    RESTORE_GPR s2,  (8*1)   // x18
+    RESTORE_GPR s3,  (8*2)   // x19
+    RESTORE_GPR s4,  (8*3)   // x20
+    RESTORE_GPR s5,  (8*4)   // x21
+    RESTORE_GPR s6,  (8*5)   // x22
+    RESTORE_GPR s7,  (8*6)   // x23
+    RESTORE_GPR s8,  (8*7)   // x24
+    RESTORE_GPR s9,  (8*8)  // x25
+    RESTORE_GPR s10, (8*9)  // x26
+    RESTORE_GPR s11, (8*10)  // x27
+    RESTORE_GPR ra,  (8*11)  // x1
 
     DECREASE_FRAME FRAME_SIZE_SAVE_REFS_ONLY
 .endm

@@ -592,6 +592,266 @@ ENTRY art_quick_test_suspend
 END
 
 
+// Create a function `name` calling the art::ReadBarrier::Mark routine, getting its argument and
+// returning its result through \reg, saving and restoring all caller-save registers.
+//
+// The generated function follows a non-standard calling convention:
+// - register `reg` is used to pass the singleton argument,
+// - register `reg` is used to return the result,
+// - all other registers are callee-save (the values they hold are preserved).
+.macro READ_BARRIER_MARK_REG name, reg
+ENTRY \name
+    beqz \reg, .Lret_rb_\name  // early return if null
+
+    // Save t5 and t6 onto stack to honor caller-save calling convention.
+    INCREASE_FRAME 16
+    SAVE_GPR t5, (8*0)
+    SAVE_GPR t6, (8*1)
+
+    lw t5, MIRROR_OBJECT_LOCK_WORD_OFFSET(\reg)  // t5 := lock word
+    slliw t6, t5, 31-LOCK_WORD_MARK_BIT_SHIFT  // mark bit into MSB
+    bgez t6, .Lnot_marked_rb_\name
+.Lret_rb_\name:
+    ret
+.Lnot_marked_rb_\name:
+    // Check if the top two bits are set. If so, it is a forwarding address.
+    slli t6, t5, 1
+    and t6, t6, t5
+    bltz t6, .Lret_forwarding_address_\name
+.Lslow_rb_\name:
+    // Save remaining caller-save registers on stack. t5 and t6 already saved.
+    // fa0-fa7, ft0-ft11, ra, a0-a7, t0-t4: 8 * (8 + 12 + 1 + 8 + 5) = 8 * 34 = 272 bytes
+    INCREASE_FRAME 272
+    SAVE_FPR fa0,  (8*0)
+    SAVE_FPR fa1,  (8*1)
+    SAVE_FPR fa2,  (8*2)
+    SAVE_FPR fa3,  (8*3)
+    SAVE_FPR fa4,  (8*4)
+    SAVE_FPR fa5,  (8*5)
+    SAVE_FPR fa6,  (8*6)
+    SAVE_FPR fa7,  (8*7)
+    SAVE_FPR ft0,  (8*8)
+    SAVE_FPR ft1,  (8*9)
+    SAVE_FPR ft2,  (8*10)
+    SAVE_FPR ft3,  (8*11)
+    SAVE_FPR ft4,  (8*12)
+    SAVE_FPR ft5,  (8*13)
+    SAVE_FPR ft6,  (8*14)
+    SAVE_FPR ft7,  (8*15)
+    SAVE_FPR ft8,  (8*16)
+    SAVE_FPR ft9,  (8*17)
+    SAVE_FPR ft10, (8*18)
+    SAVE_FPR ft11, (8*19)
+    SAVE_GPR ra,   (8*20)
+    SAVE_GPR a0,   (8*21)
+    SAVE_GPR a1,   (8*22)
+    SAVE_GPR a2,   (8*23)
+    SAVE_GPR a3,   (8*24)
+    SAVE_GPR a4,   (8*25)
+    SAVE_GPR a5,   (8*26)
+    SAVE_GPR a6,   (8*27)
+    SAVE_GPR a7,   (8*28)
+    SAVE_GPR t0,   (8*29)
+    SAVE_GPR t1,   (8*30)
+    SAVE_GPR t2,   (8*31)
+    SAVE_GPR t3,   (8*32)
+    SAVE_GPR t4,   (8*33)
+
+    .ifnc \reg, a0
+    mv a0, \reg
+    .endif
+    call artReadBarrierMark
+    .ifnc \reg, a0
+    mv \reg, a0
+    .endif
+
+    // Restore all caller-save registers from stack, including t5 and t6.
+    // fa0-fa7, ft0-ft11, ra, a0-a7, t0-t6: 8 * (8 + 12 + 1 + 8 + 7) = 8 * 36 = 288 bytes
+    RESTORE_FPR fa0,  (8*0)
+    RESTORE_FPR fa1,  (8*1)
+    RESTORE_FPR fa2,  (8*2)
+    RESTORE_FPR fa3,  (8*3)
+    RESTORE_FPR fa4,  (8*4)
+    RESTORE_FPR fa5,  (8*5)
+    RESTORE_FPR fa6,  (8*6)
+    RESTORE_FPR fa7,  (8*7)
+    RESTORE_FPR ft0,  (8*8)
+    RESTORE_FPR ft1,  (8*9)
+    RESTORE_FPR ft2,  (8*10)
+    RESTORE_FPR ft3,  (8*11)
+    RESTORE_FPR ft4,  (8*12)
+    RESTORE_FPR ft5,  (8*13)
+    RESTORE_FPR ft6,  (8*14)
+    RESTORE_FPR ft7,  (8*15)
+    RESTORE_FPR ft8,  (8*16)
+    RESTORE_FPR ft9,  (8*17)
+    RESTORE_FPR ft10, (8*18)
+    RESTORE_FPR ft11, (8*19)
+    RESTORE_GPR ra,   (8*20)
+    RESTORE_GPR a0,   (8*21)
+    RESTORE_GPR a1,   (8*22)
+    RESTORE_GPR a2,   (8*23)
+    RESTORE_GPR a3,   (8*24)
+    RESTORE_GPR a4,   (8*25)
+    RESTORE_GPR a5,   (8*26)
+    RESTORE_GPR a6,   (8*27)
+    RESTORE_GPR a7,   (8*28)
+    RESTORE_GPR t0,   (8*29)
+    RESTORE_GPR t1,   (8*30)
+    RESTORE_GPR t2,   (8*31)
+    RESTORE_GPR t3,   (8*32)
+    RESTORE_GPR t4,   (8*33)
+    RESTORE_GPR t5,   (8*34)
+    RESTORE_GPR t6,   (8*35)
+    DECREASE_FRAME 288
+    ret
+.Lret_forwarding_address_\name:
+    slliw \reg, t5, LOCK_WORD_STATE_FORWARDING_ADDRESS_SHIFT
+
+    // Restore t5 and t6 from stack.
+    RESTORE_GPR t5, (8*0)
+    RESTORE_GPR t6, (8*1)
+    DECREASE_FRAME 16
+    ret
+END \name
+.endm
+
+
+READ_BARRIER_MARK_REG art_quick_read_barrier_mark_reg10, a0
+
+
+// Return to calling context, or deopt then return.
+// Input
+//   - a0: value
+//   - is_ref: whether value is a reference
+// Clobbers: t0
+.macro MAYBE_DEOPT_THEN_RETURN is_ref
+    ld   t0, THREAD_DEOPT_CHECK_REQUIRED_OFFSET(xSELF)
+    bnez t0, 1f  // yes, check required
+    ret
+1:
+    SETUP_SAVE_EVERYTHING_FRAME
+    li   a2, \is_ref  // bool is_ref: if result is a reference
+    mv   a1, a0  // uintptr_t result
+    mv   a0, xSELF  // Thread* self
+    call artDeoptimizeIfNeeded
+    .cfi_remember_state
+    RESTORE_SAVE_EVERYTHING_FRAME
+    ret
+    CFI_RESTORE_STATE_AND_DEF_CFA sp, FRAME_SIZE_SAVE_EVERYTHING
+.endm
+
+
+// Caller must publish the array object with a store-store fence.
+// Clobbers: t0, t1, t2, t3
+.macro GENERATE_ALLOC_ARRAY_TLAB name, entrypoint, compute_size
+ENTRY \name
+    // Fast path array allocation for region TLAB allocation.
+    // a0: mirror::Class* klass
+    // a1: int32_t component_count
+    \compute_size a0, a1, /*size*/t2
+    mv t3, a0  // Fast path uses a0 for return, clobbers t0 and t1. Slow path preserves a0.
+    ALLOC_ARRAY_TLAB_FAST_PATH_RESOLVED_WITH_SIZE \
+        /*class*/t3, /*count*/a1, /*size*/t2, .Lslow_path\name
+
+.Lslow_path\name:
+    SETUP_SAVE_REFS_ONLY_FRAME  // save callee saves in case of GC
+    // a0: mirror::Class* klass
+    // a1: int32_t component_count
+    // a2: Thread* self
+    mv     a2, xSELF
+    call   \entrypoint  // art::AllocArrayFromCodeResolved
+    RESTORE_SAVE_REFS_ONLY_FRAME
+    beqz   a0, .Lalloc_failed\name
+    MAYBE_DEOPT_THEN_RETURN /*is_ref*/1
+
+.Lalloc_failed\name:
+    DELIVER_PENDING_EXCEPTION
+END \name
+.endm
+
+
+// Input
+//   - class: mirror::Class* klass
+//   - count: int32_t component_count
+// Output
+//   - out_size: computed size result, zero-extended 35 bits (word<<3)
+// Clobbers: t0, t1
+.macro COMPUTE_ARRAY_SIZE_UNKNOWN class, count, out_size
+    // Array classes are never finalizable or uninitialized, no need to check.
+    ld   t0, MIRROR_CLASS_COMPONENT_TYPE_OFFSET(\class)
+    // TODO(riscv64): UNPOISON_HEAP_REF t0
+    lwu  t0, MIRROR_CLASS_OBJECT_PRIMITIVE_TYPE_OFFSET(t0)
+    // See field comment for art::mirror::Class::kPrimitiveTypeSizeShiftShift.
+    srli t0, t0, PRIMITIVE_TYPE_SIZE_SHIFT_SHIFT
+    // The maximum component shift size is 3 (see art::ComponentSizeShift()).
+    // Since \count is a 32-bit value, shifting left by 0-3 bits will not overflow t1.
+    sll  t1, \count, t0
+
+    // Add array data offset and alignment.
+    addi t1, t1, MIRROR_INT_ARRAY_DATA_OFFSET + OBJECT_ALIGNMENT_MASK
+#if MIRROR_LONG_ARRAY_DATA_OFFSET != MIRROR_INT_ARRAY_DATA_OFFSET + 4
+#error Long array data offset must be 4 greater than int array data offset.
+#endif
+    add \out_size, t0, t1
+.endm
+
+
+// Input
+//   - class: mirror::Class* klass
+//   - count: int32_t component_count
+//   - size: bytes needed, zero-extended 35 bits
+//   - slow_label: jump label
+// Output
+//   - a0: (fast path only) return new-array address in TLAB
+// Clobbers: t0, t1, \size
+.macro ALLOC_ARRAY_TLAB_FAST_PATH_RESOLVED_WITH_SIZE class, count, size, slow_label
+    andi \size, \size, OBJECT_ALIGNMENT_MASK_TOGGLED64  // Enforce 8-byte alignment.
+    li   t0, MIN_LARGE_OBJECT_THRESHOLD
+    // This check also shunts negative-size arrays to the slow path. \size is a signed 32 bit
+    // value shifted left at most 3 bits; it cannot overflow a 64-bit register. When that signed
+    // 32-bit value inside \size is negative, and \size itself is interpreted as an unsigned 64-bit
+    // value, \size will be larger than any 32-bit value.
+    bgeu \size, t0, \slow_label  // Slow path if too large (or negative).
+
+    ld   t0, THREAD_LOCAL_POS_OFFSET(xSELF)
+    ld   t1, THREAD_LOCAL_END_OFFSET(xSELF)
+    // Check TLAB for sufficient space. Slow path if size > (end-pos).
+    sub  t1, t1, t0
+    bgtu \size, t1, \slow_label
+
+    // Point of no slow path; okay to write to a0.
+    mv   a0, t0
+    add  t0, t0, \size
+
+    // Bump to next free space.
+    sd   t0, THREAD_LOCAL_POS_OFFSET(xSELF)
+
+    // Increment TLAB object count.
+    ld   t0, THREAD_LOCAL_OBJECTS_OFFSET(xSELF)
+    addi t0, t0, 1
+    sd   t0, THREAD_LOCAL_OBJECTS_OFFSET(xSELF)
+
+    // Store class pointer and array length for new array.
+    // TODO(riscv64): POISON_HEAP_REF \class
+    sd   \class, MIRROR_OBJECT_CLASS_OFFSET(a0)
+    sd   \count, MIRROR_ARRAY_LENGTH_OFFSET(a0)
+
+    // new-array is special. The class is loaded and immediately goes to the Initialized state
+    // before it is published. Therefore the only fence needed is for the publication of the object.
+    // See ClassLinker::CreateArrayClass() for more details.
+    //
+    // Publication of the new array object, with a store-store fence, actually happens in this
+    // macro's calling context (compiler or nterp).
+    ret
+.endm
+
+
+GENERATE_ALLOC_ARRAY_TLAB art_quick_alloc_array_resolved_region_tlab, \
+                          artAllocArrayFromCodeResolvedRegionTLAB, \
+                          COMPUTE_ARRAY_SIZE_UNKNOWN
+
+
 UNDEFINED art_quick_imt_conflict_trampoline
 UNDEFINED art_quick_deoptimize_from_compiled_code
 UNDEFINED art_quick_string_builder_append
@@ -720,7 +980,6 @@ UNDEFINED art_quick_alloc_string_from_chars_region
 UNDEFINED art_quick_alloc_string_from_chars_region_instrumented
 UNDEFINED art_quick_alloc_string_from_string_region
 UNDEFINED art_quick_alloc_string_from_string_region_instrumented
-UNDEFINED art_quick_alloc_array_resolved_region_tlab
 UNDEFINED art_quick_alloc_array_resolved_region_tlab_instrumented
 UNDEFINED art_quick_alloc_array_resolved8_region_tlab
 UNDEFINED art_quick_alloc_array_resolved8_region_tlab_instrumented
