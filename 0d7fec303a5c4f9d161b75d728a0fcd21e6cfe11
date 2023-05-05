@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a04d81e_0e17bd0a",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2623,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-05-05T12:59:07Z",
+      "side": 1,
+      "message": "I suggest keeping the helper you\u0027ve added - but in there only checking the first dex file and add a comment why.",
+      "range": {
+        "startLine": 2622,
+        "startChar": 0,
+        "endLine": 2623,
+        "endChar": 92
+      },
+      "revId": "0d7fec303a5c4f9d161b75d728a0fcd21e6cfe11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
