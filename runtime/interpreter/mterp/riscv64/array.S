@@ -52,6 +52,39 @@
 %def op_filled_new_array_range():
 %  op_filled_new_array(helper="nterp_filled_new_array_range")
 
+// new-array vA, vB, class@CCCC
+// Format 22c: B|A|op, CCCC
+// Clobbers: t0, t1
 %def op_new_array():
-    unimp
+%   slow_get_class = add_slow_path(op_new_array_slow_get_class)
+    EXPORT_PC
+    FETCH_FROM_THREAD_CACHE a0, /*miss*/ .L${opcode}_trampoline_get_class
+    TEST_IF_MARKING t0, .L${opcode}_slow_read_barrier
+
+.L${opcode}_resume:
+    srliw t0, xINST, 12  // B into LSB
+    GET_VREG a1, t0  // a1 holds vB (array length) for alloc-array
+    ld t0, THREAD_ALLOC_ARRAY_ENTRYPOINT_OFFSET(xSELF)  // args a0, a1
+    jalr t0  // on return, a0 holds array object ref
+    fence w, w  // publish array object
+    slliw t0, xINST, 20  // A as MSB of word
+    srliw t1, t0, 28  // lower A down into LSB, zext
+    SET_VREG_OBJECT a0, t1
+    FETCH_ADVANCE_INST 2  // advance xPC, load xINST
+    GET_INST_OPCODE /*out*/t0
+    GOTO_OPCODE /*in*/t0
+
+.L${opcode}_trampoline_get_class:
+    tail $slow_get_class
+
+.L${opcode}_slow_read_barrier:
+    call art_quick_read_barrier_mark_reg10
+    tail .L${opcode}_resume
+
+%def op_new_array_slow_get_class():
+    mv a0, xSELF
+    ld a1, 0(sp)
+    mv a2, xPC
+    call nterp_get_class
+    tail .L${opcode}_resume
 
