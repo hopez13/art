@@ -69,6 +69,24 @@
       "parentUuid": "fd3e203f_27374b52",
       "revId": "52868af665cfd2c2ba1cfcaf1eef3cf9cd261ece",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "caa60994_22cdb9d7",
+        "filename": "tools/fuzzer/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-05-09T16:13:24Z",
+      "side": 1,
+      "message": "I thought it had other things enabled too e.g. kIsDebugBuild checks",
+      "parentUuid": "260834d5_37daff0c",
+      "revId": "52868af665cfd2c2ba1cfcaf1eef3cf9cd261ece",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
