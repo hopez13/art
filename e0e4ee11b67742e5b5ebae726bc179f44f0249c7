@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d2dfbcfa_b749d8d1",
+        "filename": "test/2048-bad-native-registry/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1793992
+      },
+      "writtenOn": "2023-05-09T08:49:57Z",
+      "side": 1,
+      "message": "nit: on Android we update system time if it is 2 seconds off compared to a NTP server. Unlikely to affect this test though.",
+      "range": {
+        "startLine": 67,
+        "startChar": 31,
+        "endLine": 67,
+        "endChar": 58
+      },
+      "revId": "e0e4ee11b67742e5b5ebae726bc179f44f0249c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
