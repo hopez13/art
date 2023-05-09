@@ -82,6 +82,76 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "40b2b433_ae46aab2",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-09T16:11:08Z",
+      "side": 1,
+      "message": "In that case, indent by 4 spaces.",
+      "parentUuid": "0344d807_2db36bc0",
+      "range": {
+        "startLine": 414,
+        "startChar": 0,
+        "endLine": 415,
+        "endChar": 43
+      },
+      "revId": "15bc0bb50b43583cbc8612b429e7e973e8b999e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57948524_d91f7019",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 588,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-09T16:11:08Z",
+      "side": 1,
+      "message": "Two more spaces.",
+      "range": {
+        "startLine": 588,
+        "startChar": 5,
+        "endLine": 588,
+        "endChar": 6
+      },
+      "revId": "15bc0bb50b43583cbc8612b429e7e973e8b999e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cba4d605_3890b956",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-09T16:11:08Z",
+      "side": 1,
+      "message": "What\u0027s this load? Did you just mean to move xPC to t1? You can just use xPC as an input register for `slliw`.",
+      "range": {
+        "startLine": 233,
+        "startChar": 4,
+        "endLine": 233,
+        "endChar": 15
+      },
+      "revId": "15bc0bb50b43583cbc8612b429e7e973e8b999e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "96b27883_18e61910",
@@ -100,6 +170,29 @@
         "startChar": 21,
         "endLine": 276,
         "endChar": 32
+      },
+      "revId": "15bc0bb50b43583cbc8612b429e7e973e8b999e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca997ff6_23685e3b",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-09T16:11:08Z",
+      "side": 1,
+      "message": "Why did you remove the code that was here in PS4?",
+      "range": {
+        "startLine": 317,
+        "startChar": 4,
+        "endLine": 317,
+        "endChar": 9
       },
       "revId": "15bc0bb50b43583cbc8612b429e7e973e8b999e2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
