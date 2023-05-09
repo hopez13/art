@@ -51,6 +51,24 @@
       "parentUuid": "74407424_f68e7fe5",
       "revId": "52868af665cfd2c2ba1cfcaf1eef3cf9cd261ece",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "260834d5_37daff0c",
+        "filename": "tools/fuzzer/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-05-09T16:02:36Z",
+      "side": 1,
+      "message": "I don\u0027t follow.  Debug build is a \"build with DCHECKs on\", right?\n\nThat is, I believe our debug builds have optimizations turned on, \n\nwhich is usually annoying in cases we want to debug thing.",
+      "parentUuid": "fd3e203f_27374b52",
+      "revId": "52868af665cfd2c2ba1cfcaf1eef3cf9cd261ece",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
