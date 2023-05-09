@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "971cd37a_2f39b27d",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2624,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-05-09T09:34:08Z",
+      "side": 1,
+      "message": "Define a constant for this and share it with line 1339?",
+      "range": {
+        "startLine": 2624,
+        "startChar": 63,
+        "endLine": 2624,
+        "endChar": 69
+      },
+      "revId": "f9323e8eee6ea75cea63c8237957da03e6aa9a66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb46c817_2bae189c",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2628,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-05-09T09:34:08Z",
+      "side": 1,
+      "message": "I think there are two options to improve this:\n\n1. Get the real vdex location from `input_vdex_fd_`, like [this](http://cs/android-internal/art/artd/artd_test.cc;l\u003d207-212;rcl\u003d35dbc0a9b844fd10af0bc0688c24013a4afa5dce).\n2. Prefix the dex location with something like \"vdex of\".",
+      "range": {
+        "startLine": 2626,
+        "startChar": 36,
+        "endLine": 2628,
+        "endChar": 64
+      },
+      "revId": "f9323e8eee6ea75cea63c8237957da03e6aa9a66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
