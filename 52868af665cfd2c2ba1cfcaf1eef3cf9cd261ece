@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "02783a9f_2b0ad0a6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-05-09T13:21:16Z",
+      "side": 1,
+      "message": "Thanks!",
+      "revId": "52868af665cfd2c2ba1cfcaf1eef3cf9cd261ece",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "74407424_f68e7fe5",
+        "filename": "tools/fuzzer/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-05-09T13:21:16Z",
+      "side": 1,
+      "message": "Maybe in future, we can have a build with DCHECKs on, so we catch more issues.",
+      "revId": "52868af665cfd2c2ba1cfcaf1eef3cf9cd261ece",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
