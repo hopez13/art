@@ -1,0 +1,389 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "269704f1_25e2dc78",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 589,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-09T15:50:29Z",
+      "side": 1,
+      "message": "Why not just `jal`?",
+      "range": {
+        "startLine": 588,
+        "startChar": 4,
+        "endLine": 589,
+        "endChar": 26
+      },
+      "revId": "03de86801854010bc0f086399c29d7e4835d16a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d22f8e1a_8ea2d562",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-09T15:50:29Z",
+      "side": 1,
+      "message": "BLTU",
+      "range": {
+        "startLine": 193,
+        "startChar": 4,
+        "endLine": 193,
+        "endChar": 7
+      },
+      "revId": "03de86801854010bc0f086399c29d7e4835d16a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c1288503_9401437f",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-09T15:50:29Z",
+      "side": 1,
+      "message": "I think this should be FPRS. (Typo copy-pasted from arm/arm64; x86-64 has similar typo and odd capitalization with \"FPs\".)\n\nGPRS \u003d General Purpose Registers\nFPRS \u003d Floating Point Registers",
+      "range": {
+        "startLine": 344,
+        "startChar": 32,
+        "endLine": 344,
+        "endChar": 35
+      },
+      "revId": "03de86801854010bc0f086399c29d7e4835d16a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c371a2e_8ed57b0c",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-09T15:50:29Z",
+      "side": 1,
+      "message": "Merge: `lw t0, THREAD_FLAGS_OFFSET(xSELF)`",
+      "range": {
+        "startLine": 416,
+        "startChar": 4,
+        "endLine": 417,
+        "endChar": 15
+      },
+      "revId": "03de86801854010bc0f086399c29d7e4835d16a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "057e761e_bb7c07f5",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 418,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-09T15:50:29Z",
+      "side": 1,
+      "message": "This should be `andi` (and drop the `-`).",
+      "range": {
+        "startLine": 418,
+        "startChar": 4,
+        "endLine": 418,
+        "endChar": 8
+      },
+      "revId": "03de86801854010bc0f086399c29d7e4835d16a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f76388ed_6637f24d",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 436,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-09T15:50:29Z",
+      "side": 1,
+      "message": "Yes; this is used to load the next opcode and advance the PC to the next opcode. If we throw an exception for the current opcode after advancing the PC, we would export the wrong PC.",
+      "range": {
+        "startLine": 436,
+        "startChar": 7,
+        "endLine": 436,
+        "endChar": 18
+      },
+      "revId": "03de86801854010bc0f086399c29d7e4835d16a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f11ff691_5a905136",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 452,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-09T15:50:29Z",
+      "side": 1,
+      "message": "SLL",
+      "range": {
+        "startLine": 452,
+        "startChar": 4,
+        "endLine": 452,
+        "endChar": 7
+      },
+      "revId": "03de86801854010bc0f086399c29d7e4835d16a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "153f0733_5c6aa667",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-09T15:50:29Z",
+      "side": 1,
+      "message": "Checking a bit can be done in two instructions by shifting it to the bit 63 and `blt reg, x0, label`. (I do not see 32-bit compare instructions in RV64I, so we cannot test bit 31 by comparing to the zero-register x0.)",
+      "range": {
+        "startLine": 463,
+        "startChar": 4,
+        "endLine": 465,
+        "endChar": 20
+      },
+      "revId": "03de86801854010bc0f086399c29d7e4835d16a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ead7d4dc_be2c0d78",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 480,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-09T15:50:29Z",
+      "side": 1,
+      "message": "Merge.",
+      "range": {
+        "startLine": 479,
+        "startChar": 4,
+        "endLine": 480,
+        "endChar": 15
+      },
+      "revId": "03de86801854010bc0f086399c29d7e4835d16a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8817bef9_15c84c9f",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 499,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-09T15:50:29Z",
+      "side": 1,
+      "message": "Missing branch back to `2b`.",
+      "revId": "03de86801854010bc0f086399c29d7e4835d16a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ecae6c6b_4552f4ce",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 507,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-09T15:50:29Z",
+      "side": 1,
+      "message": "Fix alignment.",
+      "range": {
+        "startLine": 507,
+        "startChar": 9,
+        "endLine": 507,
+        "endChar": 10
+      },
+      "revId": "03de86801854010bc0f086399c29d7e4835d16a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "43b2b810_d25f4c49",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 542,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-09T15:50:29Z",
+      "side": 1,
+      "message": "Move after the fast path check below.",
+      "range": {
+        "startLine": 541,
+        "startChar": 4,
+        "endLine": 542,
+        "endChar": 76
+      },
+      "revId": "03de86801854010bc0f086399c29d7e4835d16a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf82d32e_af98fa07",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 546,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-09T15:50:29Z",
+      "side": 1,
+      "message": "Test bit in two instructions, sll+bge.",
+      "range": {
+        "startLine": 544,
+        "startChar": 4,
+        "endLine": 546,
+        "endChar": 30
+      },
+      "revId": "03de86801854010bc0f086399c29d7e4835d16a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "13b2a229_109caa4d",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 565,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-09T15:50:29Z",
+      "side": 1,
+      "message": "Test bit in two instructions, sll+blt.",
+      "range": {
+        "startLine": 563,
+        "startChar": 4,
+        "endLine": 565,
+        "endChar": 32
+      },
+      "revId": "03de86801854010bc0f086399c29d7e4835d16a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d9e971cb_a5bb4bbe",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 613,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-09T15:50:29Z",
+      "side": 1,
+      "message": "These are not restored here (but they are preserved by the callee).",
+      "range": {
+        "startLine": 613,
+        "startChar": 37,
+        "endLine": 613,
+        "endChar": 57
+      },
+      "revId": "03de86801854010bc0f086399c29d7e4835d16a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "17a2b885_37007dca",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 623,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-09T15:50:29Z",
+      "side": 1,
+      "message": "Test bit in two instructions, sll+blt.",
+      "range": {
+        "startLine": 621,
+        "startChar": 4,
+        "endLine": 623,
+        "endChar": 34
+      },
+      "revId": "03de86801854010bc0f086399c29d7e4835d16a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a98595f7_4ac0f28f",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 697,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-09T15:50:29Z",
+      "side": 1,
+      "message": "Please keep `[` here (half-open range).",
+      "range": {
+        "startLine": 697,
+        "startChar": 10,
+        "endLine": 697,
+        "endChar": 11
+      },
+      "revId": "03de86801854010bc0f086399c29d7e4835d16a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
