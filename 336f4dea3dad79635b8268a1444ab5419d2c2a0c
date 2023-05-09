@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "56f2122e_ccb129db",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-05-09T06:31:08Z",
+      "side": 1,
+      "message": "Mmm i\u0027m starting to get the hang of it. Thanks.",
+      "parentUuid": "b9f64673_3913dd68",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 8
+      },
+      "revId": "336f4dea3dad79635b8268a1444ab5419d2c2a0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "712b9113_244424ed",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-05-04T15:20:27Z",
       "side": 1,
       "message": "Where does it clobber t0, t1?",
+      "range": {
+        "startLine": 11,
+        "startChar": 12,
+        "endLine": 11,
+        "endChar": 20
+      },
+      "revId": "336f4dea3dad79635b8268a1444ab5419d2c2a0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a1f425c_def9bb95",
+        "filename": "runtime/interpreter/mterp/riscv64/other.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-05-09T06:31:08Z",
+      "side": 1,
+      "message": "One of the macros clobbers t0. I must have used t0 and t1 in an old version, but now it needs fewer. Reduced the total clobber set.",
+      "parentUuid": "712b9113_244424ed",
       "range": {
         "startLine": 11,
         "startChar": 12,
