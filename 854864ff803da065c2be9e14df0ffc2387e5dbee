@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "a6ff3089_b763cd09",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-05-09T09:15:31Z",
+      "side": 1,
+      "message": "One thing I\u0027ve thought about several times is that this would be really nice to surface in the top level status from ArtManagerLocal, so we can show it in results from the CLI commands etc. The current [status output](http://cs/android-internal/art/libartservice/service/java/com/android/server/art/model/DexoptResult.java;l\u003d256;rcl\u003de54f871f24f2f3278a20a7ace9a9f6491e233352) is remarkably hard to read and not very helpful - only the compiler filter and the status give any useful hints, and they don\u0027t go far.\n\nIt could be done by passing around a bit field struct to record the important conditions with low overhead, and then format it to a useful message at the top level. However that\u0027s another story.",
+      "revId": "854864ff803da065c2be9e14df0ffc2387e5dbee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "46e9a4e0_2884843f",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 3
