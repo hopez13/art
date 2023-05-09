@@ -60,6 +60,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "0344d807_2db36bc0",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-05-09T04:58:38Z",
+      "side": 1,
+      "message": "Yes in 100, but I had a hard time reading the two words when concatenated on one line. The line break helped me read it better.",
+      "parentUuid": "226bf0c7_cb229720",
+      "range": {
+        "startLine": 414,
+        "startChar": 0,
+        "endLine": 415,
+        "endChar": 43
+      },
+      "revId": "15bc0bb50b43583cbc8612b429e7e973e8b999e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "96b27883_18e61910",
         "filename": "runtime/interpreter/mterp/riscv64/main.S",
         "patchSetId": 8
