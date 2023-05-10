@@ -81,11 +81,6 @@ inline bool ReadCompilerOptions(Base& map, CompilerOptions* options, std::string
   if (map.Exists(Base::DumpCFGAppend)) {
     options->dump_cfg_append_ = true;
   }
-  if (map.Exists(Base::RegisterAllocationStrategy)) {
-    if (!options->ParseRegisterAllocationStrategy(*map.Get(Base::DumpInitFailures), error_msg)) {
-      return false;
-    }
-  }
   map.AssignIfExists(Base::VerboseMethods, &options->verbose_methods_);
   options->deduplicate_code_ = map.GetOrDefault(Base::DeduplicateCode);
   if (map.Exists(Base::CountHotnessInCompiledCode)) {
@@ -232,6 +227,7 @@ inline void AddCompilerOptionsArgumentParserOptions(Builder& b) {
           .IntoKey(Map::DumpCFGAppend)
 
       .Define("--register-allocation-strategy=_")
+          .WithHelp("Deprecated option")
           .template WithType<std::string>()
           .IntoKey(Map::RegisterAllocationStrategy)
 

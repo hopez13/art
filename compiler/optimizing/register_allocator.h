@@ -38,18 +38,9 @@ class SsaLivenessAnalysis;
  */
 class RegisterAllocator : public DeletableArenaObject<kArenaAllocRegisterAllocator> {
  public:
-  enum Strategy {
-    kRegisterAllocatorLinearScan,
-    kRegisterAllocatorGraphColor
-  };
-
-  static constexpr Strategy kRegisterAllocatorDefault = kRegisterAllocatorLinearScan;
-
   static std::unique_ptr<RegisterAllocator> Create(ScopedArenaAllocator* allocator,
                                                    CodeGenerator* codegen,
-                                                   const SsaLivenessAnalysis& analysis,
-                                                   Strategy strategy = kRegisterAllocatorDefault);
-
+                                                   const SsaLivenessAnalysis& analysis);
   virtual ~RegisterAllocator();
 
   // Main entry point for the register allocator. Given the liveness analysis,
