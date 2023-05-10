@@ -22,6 +22,30 @@
       },
       "revId": "e0e4ee11b67742e5b5ebae726bc179f44f0249c7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a487ef3a_ed5da7db",
+        "filename": "test/2048-bad-native-registry/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-05-10T21:47:43Z",
+      "side": 1,
+      "message": "I agree. That might be an issue for some other test with shorter timeouts, and we\u0027ve moved some to nanoTime().",
+      "parentUuid": "d2dfbcfa_b749d8d1",
+      "range": {
+        "startLine": 67,
+        "startChar": 31,
+        "endLine": 67,
+        "endChar": 58
+      },
+      "revId": "e0e4ee11b67742e5b5ebae726bc179f44f0249c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
