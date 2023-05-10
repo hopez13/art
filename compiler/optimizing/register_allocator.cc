@@ -19,11 +19,10 @@
 #include <iostream>
 #include <sstream>
 
+#include "base/bit_vector-inl.h"
 #include "base/scoped_arena_allocator.h"
 #include "base/scoped_arena_containers.h"
-#include "base/bit_vector-inl.h"
 #include "code_generator.h"
-#include "register_allocator_graph_color.h"
 #include "register_allocator_linear_scan.h"
 #include "ssa_liveness_analysis.h"
 
@@ -38,19 +37,9 @@ RegisterAllocator::RegisterAllocator(ScopedArenaAllocator* allocator,
 
 std::unique_ptr<RegisterAllocator> RegisterAllocator::Create(ScopedArenaAllocator* allocator,
                                                              CodeGenerator* codegen,
-                                                             const SsaLivenessAnalysis& analysis,
-                                                             Strategy strategy) {
-  switch (strategy) {
-    case kRegisterAllocatorLinearScan:
-      return std::unique_ptr<RegisterAllocator>(
-          new (allocator) RegisterAllocatorLinearScan(allocator, codegen, analysis));
-    case kRegisterAllocatorGraphColor:
-      return std::unique_ptr<RegisterAllocator>(
-          new (allocator) RegisterAllocatorGraphColor(allocator, codegen, analysis));
-    default:
-      LOG(FATAL) << "Invalid register allocation strategy: " << strategy;
-      UNREACHABLE();
-  }
+                                                             const SsaLivenessAnalysis& analysis) {
+  return std::unique_ptr<RegisterAllocator>(
+      new (allocator) RegisterAllocatorLinearScan(allocator, codegen, analysis));
 }
 
 RegisterAllocator::~RegisterAllocator() {
