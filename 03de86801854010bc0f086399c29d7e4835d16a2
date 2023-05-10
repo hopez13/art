@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd24e7d0_77466a8c",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 589,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-05-10T01:10:09Z",
+      "side": 1,
+      "message": "Yes",
+      "parentUuid": "68f8628d_659544b2",
+      "range": {
+        "startLine": 588,
+        "startChar": 4,
+        "endLine": 589,
+        "endChar": 26
+      },
+      "revId": "03de86801854010bc0f086399c29d7e4835d16a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d22f8e1a_8ea2d562",
@@ -61,6 +85,30 @@
       "writtenOn": "2023-05-09T15:50:29Z",
       "side": 1,
       "message": "BLTU",
+      "range": {
+        "startLine": 193,
+        "startChar": 4,
+        "endLine": 193,
+        "endChar": 7
+      },
+      "revId": "03de86801854010bc0f086399c29d7e4835d16a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "16ff85a6_88635ab6",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-05-10T01:10:09Z",
+      "side": 1,
+      "message": "Good one, thank you",
+      "parentUuid": "d22f8e1a_8ea2d562",
       "range": {
         "startLine": 193,
         "startChar": 4,
@@ -96,6 +144,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "77dba0d8_0b8c987f",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-05-10T01:10:09Z",
+      "side": 1,
+      "message": "Got it. Will fix up when uploading next time.",
+      "parentUuid": "c1288503_9401437f",
+      "range": {
+        "startLine": 344,
+        "startChar": 32,
+        "endLine": 344,
+        "endChar": 35
+      },
+      "revId": "03de86801854010bc0f086399c29d7e4835d16a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3c371a2e_8ed57b0c",
         "filename": "runtime/interpreter/mterp/riscv64/main.S",
         "patchSetId": 4
@@ -107,6 +179,30 @@
       "writtenOn": "2023-05-09T15:50:29Z",
       "side": 1,
       "message": "Merge: `lw t0, THREAD_FLAGS_OFFSET(xSELF)`",
+      "range": {
+        "startLine": 416,
+        "startChar": 4,
+        "endLine": 417,
+        "endChar": 15
+      },
+      "revId": "03de86801854010bc0f086399c29d7e4835d16a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c842af8_bcbe9e84",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-05-10T01:10:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c371a2e_8ed57b0c",
       "range": {
         "startLine": 416,
         "startChar": 4,
@@ -140,6 +236,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a7d2e0f_f120d40a",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 418,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-05-10T01:10:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "057e761e_bb7c07f5",
+      "range": {
+        "startLine": 418,
+        "startChar": 4,
+        "endLine": 418,
+        "endChar": 8
+      },
+      "revId": "03de86801854010bc0f086399c29d7e4835d16a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f76388ed_6637f24d",
@@ -153,6 +273,30 @@
       "writtenOn": "2023-05-09T15:50:29Z",
       "side": 1,
       "message": "Yes; this is used to load the next opcode and advance the PC to the next opcode. If we throw an exception for the current opcode after advancing the PC, we would export the wrong PC.",
+      "range": {
+        "startLine": 436,
+        "startChar": 7,
+        "endLine": 436,
+        "endChar": 18
+      },
+      "revId": "03de86801854010bc0f086399c29d7e4835d16a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "faf79d85_06e36ad5",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 436,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-05-10T01:10:09Z",
+      "side": 1,
+      "message": "Thank you.",
+      "parentUuid": "f76388ed_6637f24d",
       "range": {
         "startLine": 436,
         "startChar": 7,
@@ -235,6 +379,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d2932d97_378e00bf",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-05-10T01:10:09Z",
+      "side": 1,
+      "message": "Clever!!\n\nWe branch if bit is zero, right? So ...\nBGEZ t0, \\if_hot\n?",
+      "parentUuid": "153f0733_5c6aa667",
+      "range": {
+        "startLine": 463,
+        "startChar": 4,
+        "endLine": 465,
+        "endChar": 20
+      },
+      "revId": "03de86801854010bc0f086399c29d7e4835d16a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ead7d4dc_be2c0d78",
         "filename": "runtime/interpreter/mterp/riscv64/main.S",
         "patchSetId": 4
@@ -246,6 +414,30 @@
       "writtenOn": "2023-05-09T15:50:29Z",
       "side": 1,
       "message": "Merge.",
+      "range": {
+        "startLine": 479,
+        "startChar": 4,
+        "endLine": 480,
+        "endChar": 15
+      },
+      "revId": "03de86801854010bc0f086399c29d7e4835d16a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "decb7cd4_9df80935",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 480,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-05-10T01:10:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ead7d4dc_be2c0d78",
       "range": {
         "startLine": 479,
         "startChar": 4,
@@ -273,6 +465,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "add4c536_ca38260b",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 499,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-05-10T01:10:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8817bef9_15c84c9f",
+      "revId": "03de86801854010bc0f086399c29d7e4835d16a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ecae6c6b_4552f4ce",
@@ -286,6 +496,30 @@
       "writtenOn": "2023-05-09T15:50:29Z",
       "side": 1,
       "message": "Fix alignment.",
+      "range": {
+        "startLine": 507,
+        "startChar": 9,
+        "endLine": 507,
+        "endChar": 10
+      },
+      "revId": "03de86801854010bc0f086399c29d7e4835d16a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "73611298_5e1dafb0",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 507,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-05-10T01:10:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ecae6c6b_4552f4ce",
       "range": {
         "startLine": 507,
         "startChar": 9,

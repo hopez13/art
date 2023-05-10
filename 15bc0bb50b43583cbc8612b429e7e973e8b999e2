@@ -106,6 +106,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1b1339ae_a400d523",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-05-10T01:10:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "40b2b433_ae46aab2",
+      "range": {
+        "startLine": 414,
+        "startChar": 0,
+        "endLine": 415,
+        "endChar": 43
+      },
+      "revId": "15bc0bb50b43583cbc8612b429e7e973e8b999e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "57948524_d91f7019",
@@ -129,6 +153,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "25a53622_67fc3184",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 588,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-05-10T01:10:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "57948524_d91f7019",
+      "range": {
+        "startLine": 588,
+        "startChar": 5,
+        "endLine": 588,
+        "endChar": 6
+      },
+      "revId": "15bc0bb50b43583cbc8612b429e7e973e8b999e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cba4d605_3890b956",
@@ -142,6 +190,30 @@
       "writtenOn": "2023-05-09T16:11:08Z",
       "side": 1,
       "message": "What\u0027s this load? Did you just mean to move xPC to t1? You can just use xPC as an input register for `slliw`.",
+      "range": {
+        "startLine": 233,
+        "startChar": 4,
+        "endLine": 233,
+        "endChar": 15
+      },
+      "revId": "15bc0bb50b43583cbc8612b429e7e973e8b999e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "48bd7c42_b860a733",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-05-10T01:10:09Z",
+      "side": 1,
+      "message": "Sorry, this macro snuck in from a future CL for op_new_array. I removed the LHU there.",
+      "parentUuid": "cba4d605_3890b956",
       "range": {
         "startLine": 233,
         "startChar": 4,
@@ -188,6 +260,30 @@
       "writtenOn": "2023-05-09T16:11:08Z",
       "side": 1,
       "message": "Why did you remove the code that was here in PS4?",
+      "range": {
+        "startLine": 317,
+        "startChar": 4,
+        "endLine": 317,
+        "endChar": 9
+      },
+      "revId": "15bc0bb50b43583cbc8612b429e7e973e8b999e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb96696f_6f292f17",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-05-10T01:10:09Z",
+      "side": 1,
+      "message": "We agreed to simplify review by removing code not actually run in the procedure stated in the commit log. Since it\u0027s 001-HelloWorld, we don\u0027t yet exercise these arg processing bits, so I will bring them back in a future CL, with comments integrated.",
+      "parentUuid": "ca997ff6_23685e3b",
       "range": {
         "startLine": 317,
         "startChar": 4,
