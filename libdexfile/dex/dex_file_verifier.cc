@@ -362,6 +362,8 @@ class DexFileVerifier {
   // Check validity of given method if it's a constructor or class initializer.
   bool CheckConstructorProperties(uint32_t method_index, uint32_t constructor_flags);
 
+  // Checks that the string offsets and data are within the DexFile.
+  bool VerifyStringIds();
   void FindStringRangesForMethodNames();
 
   template <typename ExtraCheckFn>
@@ -2295,6 +2297,10 @@ bool DexFileVerifier::CheckIntraSection() {
   uint32_t count = map->size_;
   ptr_ = begin_;
 
+  if (UNLIKELY(!VerifyStringIds())) {
+    return false;
+  }
+
   // Preallocate offset map to avoid some allocations. We can only guess from the list items,
   // not derived things.
   offset_to_type_map_.reserve(
@@ -3396,6 +3402,29 @@ bool DexFileVerifier::CheckFieldAccessFlags(uint32_t idx,
     return false;
   }
 
+  return true;
+}
+
+bool DexFileVerifier::VerifyStringIds() {
+  const dex::StringId* it =
+      reinterpret_cast<const dex::StringId*>(begin_ + header_->string_ids_off_);
+  const dex::StringId* last = it + header_->string_ids_size_;
+
+  while (it < last) {
+    // Check that we can decode its length, while checking its validity.
+    const uint8_t* str_data_ptr = begin_ + it->string_data_off_;
+    uint32_t length;
+    const uint8_t* data_end = begin_ + header_->file_size_;
+    if (!DecodeUnsignedLeb128Checked(&str_data_ptr, data_end, &length)) {
+      return false;
+    }
+
+    // Check that the string data is within bounds, and that the length is correct.
+    const char* data_end_as_char = reinterpret_cast<const char*>(data_end);
+    const char* utf8_data = reinterpret_cast<const char*>(str_data_ptr);
+    CompareModifiedUtf8ToExpectedLengthAndWithinBounds(utf8_data, length, data_end_as_char);
+    it++;
+  }
   return true;
 }
 

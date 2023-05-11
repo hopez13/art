@@ -61,6 +61,14 @@ int CompareModifiedUtf8ToUtf16AsCodePointValues(const char* utf8, const uint16_t
                                                 size_t utf16_length);
 
 /*
+ * Compare a null-terminated modified UTF-8 string with a decoded length of the string (UTF-16
+ * length). While doing that, check that the string never goes past the `data_end`.
+ */
+bool CompareModifiedUtf8ToExpectedLengthAndWithinBounds(const char* utf8,
+                                                        size_t utf16_length,
+                                                        const char* data_end);
+
+/*
  * Helper template for converting UTF-16 to UTF-8 and similar encodings.
  *
  * Template arguments:

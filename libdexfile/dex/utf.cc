@@ -206,6 +206,32 @@ int CompareModifiedUtf8ToUtf16AsCodePointValues(const char* utf8, const uint16_t
   }
 }
 
+bool CompareModifiedUtf8ToExpectedLengthAndWithinBounds(const char* utf8,
+                                                        size_t utf16_length,
+                                                        const char* data_end) {
+  uint32_t c = 0;
+  while (utf16_length != 0u) {
+    if (utf8 >= data_end) {
+      return false;
+    }
+
+    --utf16_length;
+    c = GetUtf16FromUtf8(&utf8);
+    if (c == 0) {
+      // Terminating character. Check that the length is what we expected.
+      return utf16_length == 0;
+    }
+    const uint16_t trailing = GetTrailingUtf16Char(c);
+    if (trailing != 0) {
+      if (utf16_length == 0u) {
+        return false;
+      }
+      --utf16_length;
+    }
+  }
+  return c == 0;
+}
+
 size_t CountModifiedUtf8BytesInUtf16(const uint16_t* chars, size_t char_count) {
   // FIXME: We should not emit 4-byte sequences. Bug: 192935764
   size_t result = 0;
