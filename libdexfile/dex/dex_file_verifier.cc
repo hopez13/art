@@ -362,6 +362,8 @@ class DexFileVerifier {
   // Check validity of given method if it's a constructor or class initializer.
   bool CheckConstructorProperties(uint32_t method_index, uint32_t constructor_flags);
 
+  // Checks that the string offsets and data are within the DexFile.
+  bool VerifyStringIds();
   void FindStringRangesForMethodNames();
 
   template <typename ExtraCheckFn>
@@ -2318,6 +2320,10 @@ bool DexFileVerifier::CheckIntraSection() {
     }
 
     if (type == DexFile::kDexTypeClassDataItem) {
+      if (UNLIKELY(!VerifyStringIds())) {
+        return false;
+      }
+
       FindStringRangesForMethodNames();
     }
 
@@ -3396,6 +3402,28 @@ bool DexFileVerifier::CheckFieldAccessFlags(uint32_t idx,
     return false;
   }
 
+  return true;
+}
+
+bool DexFileVerifier::VerifyStringIds() {
+  const dex::StringId* it =
+      reinterpret_cast<const dex::StringId*>(begin_ + header_->string_ids_off_);
+  const dex::StringId* last = it + header_->string_ids_size_;
+
+  while (it < last) {
+    if (it->string_data_off_ >= header_->file_size_) {
+      return false;
+    }
+
+    const uint8_t* str_data_ptr = begin_ + it->string_data_off_;
+    uint32_t length;
+    const uint8_t* data_end = begin_ + header_->file_size_;
+    DecodeUnsignedLeb128Checked(&str_data_ptr, data_end, &length);
+    if (it->string_data_off_ + length >= header_->file_size_) {
+      return false;
+    }
+    it++;
+  }
   return true;
 }
 
