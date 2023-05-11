@@ -764,6 +764,10 @@ void Thread::InstallImplicitProtection() {
     return;
   }
 
+  // We should at most get here for the main stack.
+#if defined(__linux__)
+  DCHECK(GetTid() == getpid());
+#endif
   // There is a little complexity here that deserves a special mention.  On some
   // architectures, the stack is created using a VM_GROWSDOWN flag
   // to prevent memory being allocated when it's not needed.  This flag makes the
