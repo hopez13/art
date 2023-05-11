@@ -281,7 +281,7 @@ void Locks::Init() {
 
     UPDATE_CURRENT_LOCK_LEVEL(kReferenceQueueWeakReferencesLock);
     DCHECK(reference_queue_weak_references_lock_ == nullptr);
-    reference_queue_weak_references_lock_ = new Mutex("ReferenceQueue cleared references lock", current_lock_level);
+    reference_queue_weak_references_lock_ = new Mutex("ReferenceQueue weak references lock", current_lock_level);
 
     UPDATE_CURRENT_LOCK_LEVEL(kReferenceQueueFinalizerReferencesLock);
     DCHECK(reference_queue_finalizer_references_lock_ == nullptr);
