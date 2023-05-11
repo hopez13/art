@@ -529,8 +529,8 @@ ENTRY art_quick_proxy_invoke_handler
     call  artQuickProxyInvokeHandler  // (Method* proxy method, receiver, Thread*, sp)
 
     ld    a2, THREAD_EXCEPTION_OFFSET(xSELF)
+    CFI_REMEMBER_STATE
     bnez  a2, .Lexception_in_proxy    // success if no exception is pending
-    .cfi_remember_state
     RESTORE_SAVE_REFS_AND_ARGS_FRAME  // Restore frame
     fmv.d.x  fa0, a0                  // Store result in fa0 in case it was float or double
     ret                               // return on success
@@ -568,8 +568,8 @@ ENTRY art_quick_resolution_trampoline
     mv   a3, sp
     call artQuickResolutionTrampoline
 
+    CFI_REMEMBER_STATE
     beqz a0, 1f
-    .cfi_remember_state
     mv   t0, a0    // Remember returned code pointer in t0.
     ld   a0, (sp)  // artQuickResolutionTrampoline puts called method in *sp.
 
