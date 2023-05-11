@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cdf3b8f2_031c95df",
+        "filename": "compiler/utils/assembler_test.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 439,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-11T15:42:57Z",
+      "side": 1,
+      "message": "Done in https://android-review.googlesource.com/2583333 .",
+      "parentUuid": "f6b1e055_2371f016",
+      "range": {
+        "startLine": 434,
+        "startChar": 0,
+        "endLine": 439,
+        "endChar": 0
+      },
+      "revId": "feadb32c7691ce2d88686d7b11e30bac821c3d3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "14157ec6_89023938",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-05-11T12:53:08Z",
       "side": 1,
       "message": "Add a helper function `ReplaceImm`? It is repeated here and on lines 475-481, 530-536.",
+      "range": {
+        "startLine": 440,
+        "startChar": 0,
+        "endLine": 448,
+        "endChar": 0
+      },
+      "revId": "feadb32c7691ce2d88686d7b11e30bac821c3d3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dbb8ce6e_bae3b0b9",
+        "filename": "compiler/utils/assembler_test.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 448,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-11T15:42:57Z",
+      "side": 1,
+      "message": "Done in https://android-review.googlesource.com/2583333 .",
+      "parentUuid": "14157ec6_89023938",
       "range": {
         "startLine": 440,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6bcd0fd7_f345eea3",
+        "filename": "compiler/utils/assembler_test.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 1035,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-11T15:42:57Z",
+      "side": 1,
+      "message": "This is simply extracted from https://android-review.googlesource.com/2489339 .\n\n(The actual value range for shifts is so small that I actually don\u0027t care what type is used and it seems most people just use `int` by default.)",
+      "parentUuid": "600d57bc_937378e0",
+      "range": {
+        "startLine": 1035,
+        "startChar": 57,
+        "endLine": 1035,
+        "endChar": 60
+      },
+      "revId": "feadb32c7691ce2d88686d7b11e30bac821c3d3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d7e0c00d_bed37419",
@@ -93,6 +165,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "309d20ad_a87301dd",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-11T15:42:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d7e0c00d_bed37419",
+      "range": {
+        "startLine": 315,
+        "startChar": 2,
+        "endLine": 315,
+        "endChar": 60
+      },
+      "revId": "feadb32c7691ce2d88686d7b11e30bac821c3d3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0340cf70_4d16c33a",
@@ -106,6 +202,30 @@
       "writtenOn": "2023-05-11T12:53:08Z",
       "side": 1,
       "message": "No CALL / TAIL?",
+      "range": {
+        "startLine": 351,
+        "startChar": 0,
+        "endLine": 351,
+        "endChar": 29
+      },
+      "revId": "feadb32c7691ce2d88686d7b11e30bac821c3d3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d18ed41f_801b7e58",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-11T15:42:57Z",
+      "side": 1,
+      "message": "Not yet. These may come in a later CL.",
+      "parentUuid": "0340cf70_4d16c33a",
       "range": {
         "startLine": 351,
         "startChar": 0,
@@ -162,6 +282,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "121b0210_7ba59eb7",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 461,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-11T15:42:57Z",
+      "side": 1,
+      "message": "I think it\u0027s easier to understand if we pass an actual `int32_t offset` in bytes rather than the `uint32_t imm12` we encode in the instruction.\n\n(I\u0027ve made an exception in `EmitU()` for LUI/AUIPC where even the clang disassembler prints \"1\" instead of \"4096\".)",
+      "parentUuid": "7091f549_d4716e55",
+      "range": {
+        "startLine": 461,
+        "startChar": 17,
+        "endLine": 461,
+        "endChar": 19
+      },
+      "revId": "feadb32c7691ce2d88686d7b11e30bac821c3d3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d1b1c657_e1a2f5b6",
@@ -175,6 +319,30 @@
       "writtenOn": "2023-05-11T12:53:08Z",
       "side": 1,
       "message": "Make all TODOs `// TODO(riscv64):` to make it easier to grep later?",
+      "range": {
+        "startLine": 201,
+        "startChar": 2,
+        "endLine": 201,
+        "endChar": 10
+      },
+      "revId": "feadb32c7691ce2d88686d7b11e30bac821c3d3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d51469cd_ab247d3d",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-11T15:42:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d1b1c657_e1a2f5b6",
       "range": {
         "startLine": 201,
         "startChar": 2,
@@ -208,6 +376,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "50b9c8d4_5536e4e9",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-11T15:42:57Z",
+      "side": 1,
+      "message": "To test the full supported range from -2048 to 2047.",
+      "parentUuid": "c7ac3ebf_d11bb883",
+      "range": {
+        "startLine": 249,
+        "startChar": 55,
+        "endLine": 249,
+        "endChar": 58
+      },
+      "revId": "feadb32c7691ce2d88686d7b11e30bac821c3d3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c48d6342_1e501228",
@@ -221,6 +413,30 @@
       "writtenOn": "2023-05-11T12:53:08Z",
       "side": 1,
       "message": "Make all TODOs `// TODO(riscv64):` to make it easier to grep later?",
+      "range": {
+        "startLine": 829,
+        "startChar": 2,
+        "endLine": 829,
+        "endChar": 10
+      },
+      "revId": "feadb32c7691ce2d88686d7b11e30bac821c3d3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b63efac2_7c888603",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 829,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-11T15:42:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c48d6342_1e501228",
       "range": {
         "startLine": 829,
         "startChar": 2,
