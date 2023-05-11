@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "75ee7c96_61cde461",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-05-11T23:19:39Z",
+      "side": 1,
+      "message": "sgtm... the linker will relax call to jal (or even c.jal) where possible anyway, so there\u0027s really nothing to lose.",
+      "revId": "4119a4cfb93d7fcfad10c569b1cf0e0425fdf942",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
