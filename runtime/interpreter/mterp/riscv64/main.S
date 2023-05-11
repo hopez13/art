@@ -35,7 +35,6 @@
  *     s1/tr: ART thread register - do not clobber!
  * - temporaries: t0-t6
  * - arguments: a0-a7
- * - return: a0, a1
  * - callee saved: ra, s0/fp, s2-s11
  *     s0 is flexible, available to use as a frame pointer if needed.
  *
