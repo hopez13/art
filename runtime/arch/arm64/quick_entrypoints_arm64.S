@@ -206,6 +206,7 @@
 .macro DEOPT_OR_RETURN temp, is_ref = 0
   ldr \temp, [xSELF, #THREAD_DEOPT_CHECK_REQUIRED_OFFSET]
   cbnz \temp, 2f
+  CFI_REMEMBER_STATE
   ret
 2:
   SETUP_SAVE_EVERYTHING_FRAME
@@ -213,11 +214,10 @@
   mov x1, x0                        // pass the result
   mov x0, xSELF                     // Thread::Current
   bl artDeoptimizeIfNeeded
-  CFI_REMEMBER_STATE
   RESTORE_SAVE_EVERYTHING_FRAME
   REFRESH_MARKING_REGISTER
   ret
-  CFI_RESTORE_STATE_AND_DEF_CFA sp, FRAME_SIZE_SAVE_EVERYTHING
+  CFI_RESTORE_STATE_AND_DEF_CFA sp, 0
 .endm
 
 .macro DEOPT_OR_RESTORE_SAVE_EVERYTHING_FRAME_AND_RETURN_X0 temp, is_ref

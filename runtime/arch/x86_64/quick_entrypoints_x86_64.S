@@ -762,6 +762,7 @@ MACRO0(RETURN_OR_DEOPT_OR_DELIVER_PENDING_EXCEPTION)
 END_MACRO
 
 MACRO1(DEOPT_OR_RETURN, is_ref = 0)
+  CFI_REMEMBER_STATE
   cmpl LITERAL(0), %gs:THREAD_DEOPT_CHECK_REQUIRED_OFFSET
   jne 2f
   ret
@@ -771,10 +772,9 @@ MACRO1(DEOPT_OR_RETURN, is_ref = 0)
   movq %rax, %rsi                      // pass the result
   movq %gs:THREAD_SELF_OFFSET, %rdi    // pass Thread::Current
   call SYMBOL(artDeoptimizeIfNeeded)
-  CFI_REMEMBER_STATE
   RESTORE_SAVE_EVERYTHING_FRAME
   ret
-  CFI_RESTORE_STATE_AND_DEF_CFA rsp, FRAME_SIZE_SAVE_EVERYTHING
+  CFI_RESTORE_STATE_AND_DEF_CFA rsp, 8
 END_MACRO
 
 MACRO1(DEOPT_OR_RESTORE_SAVE_EVERYTHING_FRAME_AND_RETURN_RAX, is_ref = 0)
@@ -1268,7 +1268,7 @@ DEFINE_FUNCTION art_quick_aput_obj
     UNREACHABLE
 
 #ifdef USE_READ_BARRIER
-    CFI_RESTORE_STATE_AND_DEF_CFA rsp, 4
+    CFI_RESTORE_STATE_AND_DEF_CFA rsp, 8
 .Laput_obj_gc_marking:
     // We need to align stack for `art_quick_read_barrier_mark_regNN`.
     INCREASE_FRAME 8                        // Stack alignment.
@@ -1781,6 +1781,7 @@ MACRO2(READ_BARRIER_MARK_REG, name, reg)
     // forwarding address one.
     // Taken ~25% of the time.
     jnae .Lret_forwarding_address\name
+    CFI_REMEMBER_STATE
 
     // Save all potentially live caller-save core registers.
     movq 0(%rsp), %rax
@@ -1849,6 +1850,7 @@ MACRO2(READ_BARRIER_MARK_REG, name, reg)
 .Lret_rb_\name:
     ret
 .Lret_forwarding_address\name:
+    CFI_RESTORE_STATE_AND_DEF_CFA rsp, 16
     // The overflow cleared the top bits.
     sall LITERAL(LOCK_WORD_STATE_FORWARDING_ADDRESS_SHIFT), %eax
     movq %rax, REG_VAR(reg)

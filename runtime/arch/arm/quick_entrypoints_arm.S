@@ -145,6 +145,7 @@
 .macro DEOPT_OR_RETURN temp, is_ref = 0
   ldr \temp, [rSELF, #THREAD_DEOPT_CHECK_REQUIRED_OFFSET]
   cbnz \temp, 2f
+  CFI_REMEMBER_STATE
   bx     lr
 2:
   SETUP_SAVE_EVERYTHING_FRAME \temp
@@ -152,11 +153,10 @@
   mov r1, r0                           // pass the result
   mov r0, rSELF                        // Thread::Current
   bl artDeoptimizeIfNeeded
-  CFI_REMEMBER_STATE
   RESTORE_SAVE_EVERYTHING_FRAME
   REFRESH_MARKING_REGISTER
   bx     lr
-  CFI_RESTORE_STATE_AND_DEF_CFA sp, FRAME_SIZE_SAVE_EVERYTHING
+  CFI_RESTORE_STATE_AND_DEF_CFA sp, 0
 .endm
 
 .macro DEOPT_OR_RESTORE_SAVE_EVERYTHING_FRAME_AND_RETURN_R0 temp, is_ref
@@ -2512,7 +2512,9 @@ ENTRY art_quick_method_exit_hook
     SETUP_SAVE_EVERYTHING_FRAME r5
 
     sub sp, #4                                @ align stack
+    .cfi_adjust_cfa_offset 4
     push {r2}                                 @ pass frame_size stack
+    .cfi_adjust_cfa_offset 4
     add r3, sp, #(8 + 8)                      @ store fpr_res pointer, in kSaveEverything frame
     add r2, sp, #(136 + 8)                    @ store gpr_res pointer, in kSaveEverything frame
     add r1, sp, #(FRAME_SIZE_SAVE_EVERYTHING + 8)   @ pass ArtMethod**
@@ -2521,6 +2523,7 @@ ENTRY art_quick_method_exit_hook
                                               @ frame_size)
 
     add sp, #8                                @ pop arguments on stack
+    .cfi_adjust_cfa_offset -8
     RESTORE_SAVE_EVERYTHING_FRAME
     REFRESH_MARKING_REGISTER
     blx lr

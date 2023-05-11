@@ -772,7 +772,7 @@ MACRO3(THREE_ARG_REF_DOWNCALL, c_name, cxx_name, return_macro)
     PUSH eax                                          // pass arg1
     call CALLVAR(cxx_name)                            // cxx_name(arg1, arg2, arg3, Thread*)
     addl LITERAL(16), %esp                            // pop arguments
-    CFI_ADJUST_CFA_OFFSET(-32)
+    CFI_ADJUST_CFA_OFFSET(-16)
     RESTORE_SAVE_REFS_ONLY_FRAME                      // restore frame up to return address
     CALL_MACRO(return_macro)                          // return or deliver exception
     END_FUNCTION VAR(c_name)
@@ -823,6 +823,7 @@ MACRO0(RETURN_OR_DEOPT_OR_DELIVER_PENDING_EXCEPTION)
 END_MACRO
 
 MACRO2(DEOPT_OR_RETURN, temp, is_ref = 0)
+  CFI_REMEMBER_STATE
   cmpl LITERAL(0), %fs:THREAD_DEOPT_CHECK_REQUIRED_OFFSET
   jne 2f
   ret
@@ -837,10 +838,10 @@ MACRO2(DEOPT_OR_RETURN, temp, is_ref = 0)
   CFI_ADJUST_CFA_OFFSET(4)
   call SYMBOL(artDeoptimizeIfNeeded)
   addl LITERAL(16), %esp             // pop arguments
-  CFI_REMEMBER_STATE
+  CFI_ADJUST_CFA_OFFSET(-16)
   RESTORE_SAVE_EVERYTHING_FRAME
   ret
-  CFI_RESTORE_STATE_AND_DEF_CFA esp, FRAME_SIZE_SAVE_EVERYTHING
+  CFI_RESTORE_STATE_AND_DEF_CFA esp, 4
 END_MACRO
 
 MACRO2(DEOPT_OR_RESTORE_SAVE_EVERYTHING_FRAME_AND_RETURN_EAX, temp, is_ref = 0)
@@ -861,6 +862,7 @@ MACRO2(DEOPT_OR_RESTORE_SAVE_EVERYTHING_FRAME_AND_RETURN_EAX, temp, is_ref = 0)
   CFI_ADJUST_CFA_OFFSET(4)
   call SYMBOL(artDeoptimizeIfNeeded)
   addl LITERAL(16), %esp                            // pop arguments
+  CFI_ADJUST_CFA_OFFSET(-16)
   CFI_REMEMBER_STATE
   RESTORE_SAVE_EVERYTHING_FRAME
   ret
@@ -971,6 +973,7 @@ MACRO2(ART_QUICK_ALLOC_OBJECT_ROSALLOC, c_name, cxx_name)
     SETUP_SAVE_REFS_ONLY_FRAME ebx              // save ref containing registers for GC
     // Outgoing argument set up
     subl LITERAL(8), %esp                       // alignment padding
+    CFI_ADJUST_CFA_OFFSET(8)
     pushl %fs:THREAD_SELF_OFFSET  // pass Thread::Current()
     CFI_ADJUST_CFA_OFFSET(4)
     PUSH eax
@@ -1034,8 +1037,10 @@ MACRO2(ART_QUICK_ALLOC_OBJECT_TLAB, c_name, cxx_name)
     // EAX: type
     // EBX, ECX, EDX: free.
     PUSH edi
+    CFI_REMEMBER_STATE
     ALLOC_OBJECT_RESOLVED_TLAB_FAST_PATH .Lslow_path\c_name
 .Lslow_path\c_name:
+    CFI_RESTORE_STATE_AND_DEF_CFA esp, 8
     ALLOC_OBJECT_RESOLVED_TLAB_SLOW_PATH RAW_VAR(cxx_name)
     END_FUNCTION VAR(c_name)
 END_MACRO
@@ -1144,7 +1149,9 @@ MACRO3(GENERATE_ALLOC_ARRAY_TLAB, c_entrypoint, cxx_name, size_setup)
     // EAX: mirror::Class* klass, ECX: int32_t component_count
     PUSH edi
     CALL_MACRO(size_setup) .Lslow_path\c_entrypoint
+    CFI_REMEMBER_STATE
     ALLOC_ARRAY_TLAB_FAST_PATH_RESOLVED_WITH_SIZE .Lslow_path\c_entrypoint
+    CFI_RESTORE_STATE_AND_DEF_CFA esp, 8
 .Lslow_path\c_entrypoint:
     POP edi
     SETUP_SAVE_REFS_ONLY_FRAME ebx                      // save ref containing registers for GC
@@ -1388,12 +1395,14 @@ DEFINE_FUNCTION art_quick_aput_obj
     call SYMBOL(art_quick_read_barrier_mark_reg00)  // Mark EAX.
     cmpl %eax, %ebx
     jne .Laput_obj_check_assignability_gc_marking
+    CFI_REMEMBER_STATE
     POP_ARG edx                   // Restore `art_quick_aput_obj()` arguments.
     POP_ARG ecx
     POP_ARG eax
     jmp .Laput_obj_store
 
 .Laput_obj_check_assignability_gc_marking:
+    CFI_RESTORE_STATE_AND_DEF_CFA esp, 16
     // Prepare arguments in line with `.Laput_obj_check_assignability_call` and jump there.
     // (EAX, ECX and EDX were already saved in the right stack slots.)
     INCREASE_FRAME 8              // Alignment padding.
@@ -1645,8 +1654,10 @@ DEFINE_FUNCTION art_quick_resolution_trampoline
     CFI_ADJUST_CFA_OFFSET(-16)
     test %eax, %eax               // if code pointer is null goto deliver the OOME.
     jz 1f
+    CFI_REMEMBER_STATE
     RESTORE_SAVE_REFS_AND_ARGS_FRAME_AND_JUMP
 1:
+    CFI_RESTORE_STATE_AND_DEF_CFA esp, 64
     RESTORE_SAVE_REFS_AND_ARGS_FRAME
     DELIVER_PENDING_EXCEPTION
 END_FUNCTION art_quick_resolution_trampoline
@@ -1939,6 +1950,7 @@ MACRO2(READ_BARRIER_MARK_REG, name, reg)
     // Jump if overflow, the only case where it overflows should be the forwarding address one.
     // Taken ~25% of the time.
     jnae .Lret_forwarding_address\name
+    CFI_REMEMBER_STATE
 
     // Save all potentially live caller-save core registers.
     mov 0(%esp), %eax
@@ -1990,6 +2002,7 @@ MACRO2(READ_BARRIER_MARK_REG, name, reg)
 .Lret_rb_\name:
     ret
 .Lret_forwarding_address\name:
+    CFI_RESTORE_STATE_AND_DEF_CFA esp, 8
     // The overflow cleared the top bits.
     sall LITERAL(LOCK_WORD_STATE_FORWARDING_ADDRESS_SHIFT), %eax
     mov %eax, REG_VAR(reg)
