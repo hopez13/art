@@ -215,6 +215,20 @@ static const char kRawDexBadMapOffsets[] =
     "AAAAcwEAAAAgAAABAAAAfgEAAAAQAAABAAAAjAEAAAgAAAABAAAA//8AAAcAAAABAAAA//8AAADw"
     "AAABAAAA//8AAA==";
 
+static const char kRawDexStringDataOOB[] =
+    "ZGV4CjAzNQCeYAY06q0ySzKz8hklA3wUmxR8x10yt8X0AgAAcAAAAHhWNBIAAAAAAAAAAFQCAAAQAAAAcAAAAAcAAACw"
+    "AAAAAwAAAMwAAAABAAAA8AAAAAQAAAD4AAAAAQAAABgBAAC8AQAAOAEAAH4BAACGAQABAAEAlQAAnQC0AQAAyAEAANwB"
+    "AADwAQAA+"
+    "wEAAP4BAAACAgAAFwIAAB0CAAAjAgAAKAIAADECAAACAAAAAwAAAAQAAAAFAAAABgAAAAgAAAAKAAAACAAAAAUAAAAAA"
+    "AAACQAAAAUAAABwAQAACQAAAAUAAAB4AQAABAABAA0AAAAAAAAAAAAAAAAAAgAMAAAAAQABAA4AAAACAAAAAAAAAAAAA"
+    "AABAAAAAgAAAAAAAAAHAAAAAAAAAEMCAAAAAAAAAQABAAEAAAA3AgAABAAAAHAQAwAAAA4AAwABAAIAAAA8AgAACAAAA"
+    "GIAAAAaAQEAbiACABAADgABAAAAAwAAAAEAAAAGAAY8aW5pdD4ADUhlbGxvLCB3b3JsZCEABkxNYWluOwAVTGphdmEva"
+    "W8vUHJpbnRTdHJlYW07ABJMamF2YS9sYW5nL09iamVjdDsAEkxqYXZhL2xhbmcvU3RyaW5nOwASTGphdmEvbGFuZy9Te"
+    "XN0ZW07AAlNYWluLmphdmEAAVYAAlZMABNbTGphK2EvbGFuZy9TdHJpbmc7AARhcmdzAARtYWluAANvdXQAB3ByaW50b"
+    "G4ABHRoaXMAEQAHDgATAQwHDngAAAACAACBgAS4AgEJ0AIAAAANAAAAAAAAAAEAAAAAAAAAAQAAABAAAABwAAAAAgAAA"
+    "AcAAACwAAAAAwAAAAMAAADMAAAABAAAAAEAAADwAAAABQAAAAQAAAD4AAAABgAAAAEAAAAYAQAAASAAAAIAAAA4AQAAA"
+    "RAAAAIAAABwAQAAAiAAABAAAAB+AQAAAyAAAAIAAAA3AgAAACAAAAEAAABDAgAAABAAAAEAAABUAgAA";
+
 static void DecodeDexFile(const char* base64, std::vector<uint8_t>* dex_bytes) {
   // decode base64
   CHECK(base64 != nullptr);
@@ -479,21 +493,25 @@ TEST_F(DexFileLoaderTest, OpenDexDebugInfoLocalNullType) {
   ASSERT_TRUE(accessor.DecodeDebugLocalInfo(true, 1, VoidFunctor()));
 }
 
-TEST_F(DexFileLoaderTest, BadMapOffsets) {
-  // Bad offset for `kDexTypeHiddenapiClassData` previously triggered a `DCHECK()`
-  // before verifying the dex file. We want to reject dex files with bad offsets
-  // without crashing, even in debug builds. b/281960267
-  std::vector<uint8_t> dex_bytes;
-  std::vector<std::unique_ptr<const DexFile>> dex_files;
-  DexFileLoaderErrorCode error_code;
-  std::string error_msg;
-  bool success = OpenDexFilesBase64(kRawDexBadMapOffsets,
-                                    kLocationString,
-                                    &dex_bytes,
-                                    &dex_files,
-                                    &error_code,
-                                    &error_msg);
-  ASSERT_FALSE(success);
-}
+// Macro for tests that open and verify raw dex files to avoid boilerplate.
+#define TEST_OPEN_AND_VERIFY(test_name, dex_file_name, expected_success)                  \
+  TEST_F(DexFileLoaderTest, test_name) {                                                  \
+    std::vector<uint8_t> dex_bytes;                                                       \
+    std::vector<std::unique_ptr<const DexFile>> dex_files;                                \
+    DexFileLoaderErrorCode error_code;                                                    \
+    std::string error_msg;                                                                \
+    bool success = OpenDexFilesBase64(                                                    \
+        dex_file_name, kLocationString, &dex_bytes, &dex_files, &error_code, &error_msg); \
+    ASSERT_EQ(success, expected_success);                                                 \
+  }
 
+// Bad offset for `kDexTypeHiddenapiClassData` previously triggered a `DCHECK()`
+// before verifying the dex file. We want to reject dex files with bad offsets
+// without crashing, even in debug builds. b/281960267
+TEST_OPEN_AND_VERIFY(BadMapOffsets, kRawDexBadMapOffsets, false)
+// Generated dex file with a string data offset out of bounds. It should fail verification without
+// crashing. b/280066537
+TEST_OPEN_AND_VERIFY(StringDataOffsetOutOfBounds, kRawDexStringDataOOB, false)
+
+#undef TEST_OPEN_AND_VERIFY
 }  // namespace art
