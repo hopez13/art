@@ -16,6 +16,29 @@
       "message": "quick one",
       "revId": "f64c24957692d4c53438d64540736b7452c31f6b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3fa4301b_249f1322",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-11T08:52:30Z",
+      "side": 1,
+      "message": "Remove this as well?\n\nNote that due to lack of typing in `return` and `return-wide`, nterp just puts the result in both `a0` and `fa0`. (Checking the return type would be expensive.)",
+      "range": {
+        "startLine": 44,
+        "startChar": 5,
+        "endLine": 44,
+        "endChar": 21
+      },
+      "revId": "f64c24957692d4c53438d64540736b7452c31f6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
