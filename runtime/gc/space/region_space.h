@@ -313,7 +313,8 @@ class RegionSpace final : public ContinuousMemMapAllocSpace {
   size_t ToSpaceSize() REQUIRES(!region_lock_);
   void ClearFromSpace(/* out */ uint64_t* cleared_bytes,
                       /* out */ uint64_t* cleared_objects,
-                      const bool clear_bitmap)
+                      const bool clear_bitmap,
+                      const bool release_memory)
       REQUIRES(!region_lock_);
 
   void AddLiveBytes(mirror::Object* ref, size_t alloc_size) {
