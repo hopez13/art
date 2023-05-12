@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4efc32dc_1480123c",
+        "filename": "test/051-thread/run.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-05-12T16:24:00Z",
+      "side": 1,
+      "message": "can you just do the `ctx.run(fr\"sed ...` after the default_run?  (under if)",
+      "revId": "b51785aa235721c0b91100719e293a1e86a9ece2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
