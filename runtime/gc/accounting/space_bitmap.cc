@@ -148,9 +148,9 @@ std::string SpaceBitmap<kAlignment>::DumpMemAround(mirror::Object* obj) const {
 }
 
 template<size_t kAlignment>
-void SpaceBitmap<kAlignment>::Clear() {
+void SpaceBitmap<kAlignment>::Clear(bool release_memory) {
   if (bitmap_begin_ != nullptr) {
-    mem_map_.MadviseDontNeedAndZero();
+    mem_map_.FillWithZero((true) || release_memory);
   }
 }
 
