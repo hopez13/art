@@ -57,7 +57,7 @@
 // Clobbers: t0, t1
 %def op_new_array():
     EXPORT_PC
-    FETCH_FROM_THREAD_CACHE a0, /*miss*/ 2f
+    FETCH_FROM_THREAD_CACHE a0, /*miss*/ 2f, near=1
 1:
     srliw t0, xINST, 12  // B into LSB
     andi t0, t0, 0xF  // Zero out higher bits

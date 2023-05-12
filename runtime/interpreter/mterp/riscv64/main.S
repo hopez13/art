@@ -235,7 +235,7 @@ END \name
 .endm
 
 // Clobbers: t0, t1
-.macro FETCH_FROM_THREAD_CACHE reg, miss_label
+.macro FETCH_FROM_THREAD_CACHE reg, miss_label, near
     li t0, THREAD_INTERPRETER_CACHE_OFFSET  // imm > 12 bit
     add t0, t0, xSELF  // cache address
     // See art::InterpreterCache::IndexOf() for computing index of key within cache array.
@@ -249,7 +249,14 @@ END \name
     add t0, t0, t1  // t0: entry's address
     ld t1, (t0)     // key: dex PC
     ld \reg, 8(t0)  // value: offset
+
+    .if \near
     bne xPC, t1, \miss_label
+    .else
+    beq xPC, t1, 1f
+    j \miss_label
+1:
+    .endif
 .endm
 
 // Inputs:
@@ -298,6 +305,7 @@ END \name
 .endm
 
 // Clobbers: \vreg
+// Safe if \reg == \vreg.
 .macro GET_VREG reg, vreg
     slliw \vreg, \vreg, 2  // vreg id to byte offset
     add \vreg, xFP, \vreg  // vreg address inside register array
@@ -361,8 +369,6 @@ OAT_ENTRY ExecuteNterpImpl, EndExecuteNterpImpl
     // cfi info continues, and covers the whole nterp implementation.
     SIZE ExecuteNterpImpl
 
-%def fetch_from_thread_cache(dest_reg, miss_label):
-
 %def footer():
 /*
  * ===========================================================================
@@ -391,6 +397,7 @@ EndExecuteNterpImpl:
 // Entrypoints into runtime.
 NTERP_TRAMPOLINE nterp_hot_method, NterpHotMethod
 NTERP_TRAMPOLINE nterp_get_class, NterpGetClass
+NTERP_TRAMPOLINE nterp_get_static_field, NterpGetStaticField
 
 ENTRY nterp_deliver_pending_exception
     DELIVER_PENDING_EXCEPTION
