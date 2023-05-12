@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "515416bb_bc6f4acb",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-05-12T14:21:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "32dbddde_5966bfdf",
+      "range": {
+        "startLine": 148,
+        "startChar": 2,
+        "endLine": 148,
+        "endChar": 20
+      },
+      "revId": "4ee253535fe3eec4207cf322c72151c6ac882216",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cb3b78e5_f2e3d811",
@@ -54,6 +78,30 @@
       "writtenOn": "2023-05-12T07:57:02Z",
       "side": 1,
       "message": "INCREASE_FRAME 4",
+      "range": {
+        "startLine": 2514,
+        "startChar": 4,
+        "endLine": 2515,
+        "endChar": 28
+      },
+      "revId": "4ee253535fe3eec4207cf322c72151c6ac882216",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b121fd90_6cab144d",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 2515,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-05-12T14:21:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb3b78e5_f2e3d811",
       "range": {
         "startLine": 2514,
         "startChar": 4,
@@ -87,6 +135,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0bd5b58_c26a9606",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 2526,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-05-12T14:21:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ce2091ed_27594677",
+      "range": {
+        "startLine": 2525,
+        "startChar": 4,
+        "endLine": 2526,
+        "endChar": 29
+      },
+      "revId": "4ee253535fe3eec4207cf322c72151c6ac882216",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9a2465b4_7d83a800",
@@ -100,6 +172,30 @@
       "writtenOn": "2023-05-12T07:57:02Z",
       "side": 1,
       "message": "Remove remember/restore?",
+      "range": {
+        "startLine": 209,
+        "startChar": 2,
+        "endLine": 209,
+        "endChar": 20
+      },
+      "revId": "4ee253535fe3eec4207cf322c72151c6ac882216",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "29b54032_e5255a8f",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-05-12T14:21:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9a2465b4_7d83a800",
       "range": {
         "startLine": 209,
         "startChar": 2,
@@ -133,6 +229,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "49794e89_de31c923",
+        "filename": "runtime/arch/x86/memcmp16_x86.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 849,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-05-12T14:21:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7a0b6d6d_ecab498f",
+      "range": {
+        "startLine": 849,
+        "startChar": 31,
+        "endLine": 849,
+        "endChar": 37
+      },
+      "revId": "4ee253535fe3eec4207cf322c72151c6ac882216",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9313cd7e_76566088",
@@ -146,6 +266,30 @@
       "writtenOn": "2023-05-12T07:57:02Z",
       "side": 1,
       "message": "DECREASE_FRAME 16\n\nA cleanup CL to use INCREASE_FRAME/DECREASE_FRAME for frame manipulation would have caught this error.",
+      "range": {
+        "startLine": 774,
+        "startChar": 4,
+        "endLine": 775,
+        "endChar": 30
+      },
+      "revId": "4ee253535fe3eec4207cf322c72151c6ac882216",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ed63760_8f43b4d6",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 775,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-05-12T14:21:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9313cd7e_76566088",
       "range": {
         "startLine": 774,
         "startChar": 4,
@@ -179,6 +323,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "609a9590_2b20d1d9",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 826,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-05-12T14:21:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3ff9fee9_78aad0dc",
+      "range": {
+        "startLine": 826,
+        "startChar": 2,
+        "endLine": 826,
+        "endChar": 20
+      },
+      "revId": "4ee253535fe3eec4207cf322c72151c6ac882216",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6123ba19_11f19fc8",
@@ -192,6 +360,30 @@
       "writtenOn": "2023-05-12T07:57:02Z",
       "side": 1,
       "message": "DECREASE_FRAME 16",
+      "range": {
+        "startLine": 840,
+        "startChar": 2,
+        "endLine": 841,
+        "endChar": 28
+      },
+      "revId": "4ee253535fe3eec4207cf322c72151c6ac882216",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5635713_6b3825bd",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 841,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-05-12T14:21:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6123ba19_11f19fc8",
       "range": {
         "startLine": 840,
         "startChar": 2,
@@ -225,6 +417,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a4124582_59e1d8e1",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 865,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-05-12T14:21:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "de36416c_10aa3518",
+      "range": {
+        "startLine": 864,
+        "startChar": 2,
+        "endLine": 865,
+        "endChar": 28
+      },
+      "revId": "4ee253535fe3eec4207cf322c72151c6ac882216",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c2f35b34_6807f136",
@@ -238,6 +454,30 @@
       "writtenOn": "2023-05-12T07:57:02Z",
       "side": 1,
       "message": "INCREASE_FRAME 8",
+      "range": {
+        "startLine": 975,
+        "startChar": 4,
+        "endLine": 976,
+        "endChar": 28
+      },
+      "revId": "4ee253535fe3eec4207cf322c72151c6ac882216",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d8c7b77a_7e249763",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 976,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-05-12T14:21:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c2f35b34_6807f136",
       "range": {
         "startLine": 975,
         "startChar": 4,
@@ -271,6 +511,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "514ec29c_49012867",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1043,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-05-12T14:21:36Z",
+      "side": 1,
+      "message": "Sounds good.  I like that with that style the CFI directives are \"part of the executed institutions\" and not \"jumped over\".  (even if makes no semantic difference)",
+      "parentUuid": "1c39067d_cd58adf2",
+      "range": {
+        "startLine": 1043,
+        "startChar": 4,
+        "endLine": 1043,
+        "endChar": 40
+      },
+      "revId": "4ee253535fe3eec4207cf322c72151c6ac882216",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "408e37c5_862691d5",
@@ -284,6 +548,30 @@
       "writtenOn": "2023-05-12T07:57:02Z",
       "side": 1,
       "message": "Move before the label (and before the blank line)?",
+      "range": {
+        "startLine": 1405,
+        "startChar": 4,
+        "endLine": 1405,
+        "endChar": 41
+      },
+      "revId": "4ee253535fe3eec4207cf322c72151c6ac882216",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f2190ae_4ebe4e65",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1405,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-05-12T14:21:36Z",
+      "side": 1,
+      "message": "Keeping the \"jump style\".",
+      "parentUuid": "408e37c5_862691d5",
       "range": {
         "startLine": 1405,
         "startChar": 4,
@@ -317,6 +605,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8fadb339_5789cff0",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1660,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-05-12T14:21:36Z",
+      "side": 1,
+      "message": "Ditto.",
+      "parentUuid": "b6838f11_b4af6cb1",
+      "range": {
+        "startLine": 1660,
+        "startChar": 4,
+        "endLine": 1660,
+        "endChar": 41
+      },
+      "revId": "4ee253535fe3eec4207cf322c72151c6ac882216",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f5a9a02c_a8b1c27c",
@@ -330,6 +642,30 @@
       "writtenOn": "2023-05-12T07:57:02Z",
       "side": 1,
       "message": "Useless.",
+      "range": {
+        "startLine": 1956,
+        "startChar": 4,
+        "endLine": 1956,
+        "endChar": 21
+      },
+      "revId": "4ee253535fe3eec4207cf322c72151c6ac882216",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a11ec316_c3a55833",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1956,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-05-12T14:21:36Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "f5a9a02c_a8b1c27c",
       "range": {
         "startLine": 1956,
         "startChar": 4,
@@ -363,6 +699,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "82c8546a_6994bb11",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 2005,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-05-12T14:21:36Z",
+      "side": 1,
+      "message": "Ditto.",
+      "parentUuid": "11b9dc0c_7dcf5624",
+      "range": {
+        "startLine": 2005,
+        "startChar": 4,
+        "endLine": 2005,
+        "endChar": 40
+      },
+      "revId": "4ee253535fe3eec4207cf322c72151c6ac882216",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "641039af_8f8eb7bd",
@@ -376,6 +736,30 @@
       "writtenOn": "2023-05-12T07:57:02Z",
       "side": 1,
       "message": "Remove remember/restore?",
+      "range": {
+        "startLine": 765,
+        "startChar": 2,
+        "endLine": 765,
+        "endChar": 20
+      },
+      "revId": "4ee253535fe3eec4207cf322c72151c6ac882216",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "16f00b50_4e700312",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 765,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-05-12T14:21:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "641039af_8f8eb7bd",
       "range": {
         "startLine": 765,
         "startChar": 2,
@@ -432,6 +816,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a47595ac_da7dd308",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1787,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-05-12T14:21:36Z",
+      "side": 1,
+      "message": "Fair enough, not sure I want to include that in CFI CL though.  Do you want to create separate one-line CL?",
+      "parentUuid": "bbe95245_00e6fa1f",
+      "range": {
+        "startLine": 1787,
+        "startChar": 4,
+        "endLine": 1787,
+        "endChar": 22
+      },
+      "revId": "4ee253535fe3eec4207cf322c72151c6ac882216",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4bde0096_21eacd56",
@@ -445,6 +853,30 @@
       "writtenOn": "2023-05-12T07:57:02Z",
       "side": 1,
       "message": "We have a `POP_ARG` for this but maybe the name would be misleading here.",
+      "range": {
+        "startLine": 211,
+        "startChar": 4,
+        "endLine": 212,
+        "endChar": 29
+      },
+      "revId": "4ee253535fe3eec4207cf322c72151c6ac882216",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "30e507ad_ce152fce",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-05-12T14:21:36Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "4bde0096_21eacd56",
       "range": {
         "startLine": 211,
         "startChar": 4,
@@ -478,6 +910,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "14531122_eabf699e",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-05-12T14:21:36Z",
+      "side": 1,
+      "message": "DECREASE_FRAME",
+      "parentUuid": "2431ffec_fd08cd6e",
+      "range": {
+        "startLine": 282,
+        "startChar": 2,
+        "endLine": 283,
+        "endChar": 28
+      },
+      "revId": "4ee253535fe3eec4207cf322c72151c6ac882216",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e46a8469_c5dd120e",
@@ -491,6 +947,30 @@
       "writtenOn": "2023-05-12T07:57:02Z",
       "side": 1,
       "message": "PUSH_ARG esi",
+      "range": {
+        "startLine": 1773,
+        "startChar": 4,
+        "endLine": 1774,
+        "endChar": 28
+      },
+      "revId": "4ee253535fe3eec4207cf322c72151c6ac882216",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f6976260_8df558e3",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1774,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-05-12T14:21:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e46a8469_c5dd120e",
       "range": {
         "startLine": 1773,
         "startChar": 4,
@@ -524,6 +1004,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "33c7e7c3_92fb53d2",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1787,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-05-12T14:21:36Z",
+      "side": 1,
+      "message": "Both do pop and jump, so I think the order does not matter.",
+      "parentUuid": "9b8f28d9_6c69119e",
+      "range": {
+        "startLine": 1787,
+        "startChar": 0,
+        "endLine": 1787,
+        "endChar": 20
+      },
+      "revId": "4ee253535fe3eec4207cf322c72151c6ac882216",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0f5785a6_c629c0b1",
@@ -537,6 +1041,30 @@
       "writtenOn": "2023-05-12T07:57:02Z",
       "side": 1,
       "message": "POP_ARG esi",
+      "range": {
+        "startLine": 1788,
+        "startChar": 4,
+        "endLine": 1789,
+        "endChar": 29
+      },
+      "revId": "4ee253535fe3eec4207cf322c72151c6ac882216",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "607942b9_57c79dba",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1789,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-05-12T14:21:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0f5785a6_c629c0b1",
       "range": {
         "startLine": 1788,
         "startChar": 4,
@@ -570,6 +1098,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd195550_e069a420",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1793,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-05-12T14:21:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "76417a8c_9276a00a",
+      "range": {
+        "startLine": 1792,
+        "startChar": 4,
+        "endLine": 1793,
+        "endChar": 23
+      },
+      "revId": "4ee253535fe3eec4207cf322c72151c6ac882216",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "664fb620_1b83a654",
@@ -583,6 +1135,30 @@
       "writtenOn": "2023-05-12T07:57:02Z",
       "side": 1,
       "message": "POP_ARG esi",
+      "range": {
+        "startLine": 1794,
+        "startChar": 4,
+        "endLine": 1795,
+        "endChar": 29
+      },
+      "revId": "4ee253535fe3eec4207cf322c72151c6ac882216",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5bbee4ff_7a6300ea",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1795,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-05-12T14:21:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "664fb620_1b83a654",
       "range": {
         "startLine": 1794,
         "startChar": 4,
