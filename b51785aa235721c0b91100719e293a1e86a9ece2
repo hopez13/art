@@ -16,6 +16,24 @@
       "message": "can you just do the `ctx.run(fr\"sed ...` after the default_run?  (under if)",
       "revId": "b51785aa235721c0b91100719e293a1e86a9ece2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d2c6a02a_e148ec4a",
+        "filename": "test/051-thread/run.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-05-12T16:35:48Z",
+      "side": 1,
+      "message": "Right, that\u0027s much simpler. 😊\n\nAt some point I thought this functionality might be useful for other tests, but it\u0027s unlikely.",
+      "parentUuid": "4efc32dc_1480123c",
+      "revId": "b51785aa235721c0b91100719e293a1e86a9ece2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
