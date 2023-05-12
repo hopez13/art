@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ae069001_8e0d45a0",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 383,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-05-12T14:02:48Z",
+      "side": 1,
+      "message": "linker relaxation will turn this into a jal where possible anyway. unless you have a _requirement_ that something is always a single instruction, call/tail are a great default. (appujee\u0027s specific use case is LTO, which reorders code a lot.)",
+      "parentUuid": "dc63d801_27718c27",
+      "range": {
+        "startLine": 383,
+        "startChar": 10,
+        "endLine": 383,
+        "endChar": 36
+      },
+      "revId": "4119a4cfb93d7fcfad10c569b1cf0e0425fdf942",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e60b0017_a62ee549",
         "filename": "runtime/interpreter/mterp/riscv64/main.S",
         "patchSetId": 2
