@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "47ffd455_0b1c66ad",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-05-12T13:44:39Z",
+      "side": 1,
+      "message": "I rebased the old CL to read timestamp counters directly from JITed code. I didn\u0027t land this back then so I could add mrrc instruction to ARM vixl. I would like to land this and add the mrrc instruction to vixl in a follow up CL. That way, we won\u0027t be blocked on this CL for doing some performance measurements and few more optimizations that are on pipeline. I opened a bug and add a TODO so I won\u0027t miss it. I plan to work on mrrc in a couple of weeks.\n\nThere are some minor changes (adding a TODO and some changes to test since that has changed a lot since the initial revision). The changes are in PS11-\u003ePS13. PTAL. Thanks!",
+      "revId": "ce42d9b66808118e0b26411bb9d5d3a23f542950",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
