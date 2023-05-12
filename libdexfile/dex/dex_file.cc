@@ -212,9 +212,10 @@ void DexFile::InitializeSectionsFromMapList() {
   const MapList* map_list = reinterpret_cast<const MapList*>(DataBegin() + header_->map_off_);
   const size_t count = map_list->size_;
 
-  size_t map_limit = header_->map_off_ + count * sizeof(MapItem);
-  if (header_->map_off_ >= map_limit || map_limit > DataSize()) {
-    // Overflow or out out of bounds. The dex file verifier runs after
+  size_t map_limit =
+      (DataSize() - OFFSETOF_MEMBER(MapList, list_) - header_->map_off_) / sizeof(MapItem);
+  if (count > map_limit) {
+    // Too many items. The dex file verifier runs after
     // this method and will reject the file as it is malformed.
     return;
   }
@@ -228,7 +229,8 @@ void DexFile::InitializeSectionsFromMapList() {
       call_site_ids_ = reinterpret_cast<const CallSiteIdItem*>(Begin() + map_item.offset_);
       num_call_site_ids_ = map_item.size_;
     } else if (map_item.type_ == kDexTypeHiddenapiClassData) {
-      hiddenapi_class_data_ = GetHiddenapiClassDataAtOffset(map_item.offset_);
+      hiddenapi_class_data_ =
+          reinterpret_cast<const dex::HiddenapiClassData*>(DataBegin() + map_item.offset_);
     } else {
       // Pointers to other sections are not necessary to retain in the DexFile struct.
       // Other items have pointers directly into their data.
