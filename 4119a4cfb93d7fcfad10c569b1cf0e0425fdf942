@@ -65,6 +65,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5be7a00_b5224525",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 383,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-12T14:04:45Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "ae069001_8e0d45a0",
+      "range": {
+        "startLine": 383,
+        "startChar": 10,
+        "endLine": 383,
+        "endChar": 36
+      },
+      "revId": "4119a4cfb93d7fcfad10c569b1cf0e0425fdf942",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e60b0017_a62ee549",
@@ -78,6 +102,30 @@
       "writtenOn": "2023-05-12T10:49:35Z",
       "side": 1,
       "message": "This should be in range for JAL.",
+      "range": {
+        "startLine": 280,
+        "startChar": 4,
+        "endLine": 280,
+        "endChar": 8
+      },
+      "revId": "4119a4cfb93d7fcfad10c569b1cf0e0425fdf942",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "16d68448_045d33f0",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-12T14:04:45Z",
+      "side": 1,
+      "message": "Closing based on Elliot\u0027s comment on an identical comment.",
+      "parentUuid": "e60b0017_a62ee549",
       "range": {
         "startLine": 280,
         "startChar": 4,
