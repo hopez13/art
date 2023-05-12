@@ -393,8 +393,12 @@ void RegionSpace::SetFromSpace(accounting::ReadBarrierTable* rb_table,
   evac_region_ = &full_region_;
 }
 
-static void ZeroAndProtectRegion(uint8_t* begin, uint8_t* end) {
-  ZeroAndReleasePages(begin, end - begin);
+static void ZeroAndProtectRegion(uint8_t* begin, uint8_t* end, bool can_be_lazy = false) {
+  if (can_be_lazy && Runtime::Current()->InJankPerceptibleProcessState()) {
+    ZeroAndReleasePages(begin, end - begin, /* lazy= */ true);
+  } else {
+    ZeroAndReleasePages(begin, end - begin);
+  }
   if (kProtectClearedRegions) {
     CheckedCall(mprotect, __FUNCTION__, begin, end - begin, PROT_NONE);
   }
@@ -483,7 +487,7 @@ void RegionSpace::ClearFromSpace(/* out */ uint64_t* cleared_bytes,
   // Madvise the memory ranges.
   uint64_t start_time = NanoTime();
   for (const auto &iter : madvise_list) {
-    ZeroAndProtectRegion(iter.first, iter.second);
+    ZeroAndProtectRegion(iter.first, iter.second, /* can_be_lazy= */ true);
   }
   madvise_time_ += NanoTime() - start_time;
 

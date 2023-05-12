@@ -1246,7 +1246,7 @@ void MemMap::TryReadable() {
   }
 }
 
-void ZeroAndReleasePages(void* address, size_t length) {
+void ZeroAndReleasePages(void* address, size_t length, bool lazy) {
   if (length == 0) {
     return;
   }
@@ -1262,11 +1262,19 @@ void ZeroAndReleasePages(void* address, size_t length) {
     DCHECK_LE(mem_begin, page_begin);
     DCHECK_LE(page_begin, page_end);
     DCHECK_LE(page_end, mem_end);
-    std::fill(mem_begin, page_begin, 0);
+    if (lazy) {
+      std::fill(mem_begin, mem_end, 0);
+    } else {
+      std::fill(mem_begin, page_begin, 0);
+    }
 #ifdef _WIN32
     LOG(WARNING) << "ZeroAndReleasePages does not madvise on Windows.";
 #else
+#ifdef MADV_FREE
+    CHECK_NE(madvise(page_begin, page_end - page_begin, lazy ? MADV_FREE : MADV_DONTNEED), -1) << "madvise failed";
+#else
     CHECK_NE(madvise(page_begin, page_end - page_begin, MADV_DONTNEED), -1) << "madvise failed";
+#endif
 #endif
     std::fill(page_end, mem_end, 0);
   }

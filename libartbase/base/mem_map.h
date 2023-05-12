@@ -438,7 +438,7 @@ inline void swap(MemMap& lhs, MemMap& rhs) {
 std::ostream& operator<<(std::ostream& os, const MemMap& mem_map);
 
 // Zero and release pages if possible, no requirements on alignments.
-void ZeroAndReleasePages(void* address, size_t length);
+void ZeroAndReleasePages(void* address, size_t length, bool lazy = false);
 
 }  // namespace art
 
