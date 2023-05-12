@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b51a879_6a411024",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-05-12T14:18:30Z",
+      "side": 1,
+      "message": "FYI, this CL broke bp2build-incremental. I created b/282160575 and I\u0027m working on the fix. Please don\u0027t revert the CL. The change needs to be in U.",
+      "revId": "1b8a7838e95d0a57be2b920183ba9b7b2188ccb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
