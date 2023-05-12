@@ -206,6 +206,10 @@ def default_run(ctx, args, **kwargs):
   # Overwrite args based on the named parameters.
   # E.g. the caller can do `default_run(args, jvmti=True)` to modify args.jvmti.
   for name, new_value in kwargs.items():
+    # Add special arguments that are not part of the command-line interface.
+    if name is "stdout_filter":
+      # By default, stdout filter does nothing and preserves the output as-is.
+      setattr(args, name, lambda ctx, f : None)
     old_value = getattr(args, name)
     assert isinstance(new_value, old_value.__class__), name + " should have type " + str(old_value.__class__)
     if isinstance(old_value, list):
@@ -1034,6 +1038,7 @@ def default_run(ctx, args, **kwargs):
         "Failed to write stack traces to tombstoned",
         "Failed to setpriority to :0"])
       ctx.run(fr"sed -i -E '/({messages})/d' '{args.stderr_file}'")
+    args.stdout_filter(ctx, args.stdout_file)
 
   if not HOST:
     # Populate LD_LIBRARY_PATH.
