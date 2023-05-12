@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e68a4cde_a1c8d438",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-05-12T15:48:25Z",
+      "side": 1,
+      "message": "Fixed in aosp/2584448",
+      "parentUuid": "51c18eaa_db953205",
+      "range": {
+        "startLine": 57,
+        "startChar": 60,
+        "endLine": 57,
+        "endChar": 78
+      },
+      "revId": "512154f3044669e97223cbce657361b2ef021d4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9a8e1ef8_0c0734a1",
@@ -286,6 +310,30 @@
       "side": 1,
       "message": "I can change for commas, but I\u0027d prefer to do it as a follow up and for all architectures to avoid massive cleanups and rebase conflicts in this CL stack. I\u0027ll leave the comment open as a reminder.",
       "parentUuid": "196f268d_5034415f",
+      "range": {
+        "startLine": 178,
+        "startChar": 44,
+        "endLine": 178,
+        "endChar": 49
+      },
+      "revId": "512154f3044669e97223cbce657361b2ef021d4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "daccee37_ff8d1b97",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-05-12T15:48:25Z",
+      "side": 1,
+      "message": "Addressed in aosp/2477576.",
+      "parentUuid": "01ffca4b_fb1da355",
       "range": {
         "startLine": 178,
         "startChar": 44,
@@ -923,6 +971,30 @@
       "side": 1,
       "message": "Ack, leaving the comment unresolved as a reminder.",
       "parentUuid": "1823bedb_5c6338dd",
+      "range": {
+        "startLine": 222,
+        "startChar": 0,
+        "endLine": 227,
+        "endChar": 11
+      },
+      "revId": "512154f3044669e97223cbce657361b2ef021d4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f30b8828_ea42c2d3",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-05-12T15:48:25Z",
+      "side": 1,
+      "message": "Addressed in aosp/2449537.",
+      "parentUuid": "49e584d7_6fe71a4c",
       "range": {
         "startLine": 222,
         "startChar": 0,
