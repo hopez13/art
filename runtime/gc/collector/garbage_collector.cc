@@ -315,6 +315,11 @@ const Iteration* GarbageCollector::GetCurrentIteration() const {
   return heap_->GetCurrentGcIteration();
 }
 
+bool GarbageCollector::ShouldReleaseMemoryToOS() const {
+  return !Runtime::Current()->InJankPerceptibleProcessState() ||
+      GetCurrentIteration()->GetGcCause() == kGcCauseExplicit;
+}
+
 void GarbageCollector::RecordFree(const ObjectBytePair& freed) {
   GetCurrentIteration()->freed_.Add(freed);
   heap_->RecordFree(freed.objects, freed.bytes);
