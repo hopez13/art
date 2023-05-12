@@ -393,8 +393,8 @@ void RegionSpace::SetFromSpace(accounting::ReadBarrierTable* rb_table,
   evac_region_ = &full_region_;
 }
 
-static void ZeroAndProtectRegion(uint8_t* begin, uint8_t* end) {
-  ZeroAndReleasePages(begin, end - begin);
+static void ZeroAndProtectRegion(uint8_t* begin, uint8_t* end, bool release_memory) {
+  ZeroPages(begin, end - begin, release_memory);
   if (kProtectClearedRegions) {
     CheckedCall(mprotect, __FUNCTION__, begin, end - begin, PROT_NONE);
   }
@@ -402,7 +402,8 @@ static void ZeroAndProtectRegion(uint8_t* begin, uint8_t* end) {
 
 void RegionSpace::ClearFromSpace(/* out */ uint64_t* cleared_bytes,
                                  /* out */ uint64_t* cleared_objects,
-                                 const bool clear_bitmap) {
+                                 const bool clear_bitmap,
+                                 const bool release_memory) {
   DCHECK(cleared_bytes != nullptr);
   DCHECK(cleared_objects != nullptr);
   *cleared_bytes = 0;
@@ -483,7 +484,7 @@ void RegionSpace::ClearFromSpace(/* out */ uint64_t* cleared_bytes,
   // Madvise the memory ranges.
   uint64_t start_time = NanoTime();
   for (const auto &iter : madvise_list) {
-    ZeroAndProtectRegion(iter.first, iter.second);
+    ZeroAndProtectRegion(iter.first, iter.second, release_memory);
   }
   madvise_time_ += NanoTime() - start_time;
 
@@ -1012,7 +1013,7 @@ void RegionSpace::Region::Clear(bool zero_and_release_pages) {
   alloc_time_ = 0;
   live_bytes_ = static_cast<size_t>(-1);
   if (zero_and_release_pages) {
-    ZeroAndProtectRegion(begin_, end_);
+    ZeroAndProtectRegion(begin_, end_, /* release_memory= */ true);
   }
   is_newly_allocated_ = false;
   is_a_tlab_ = false;
