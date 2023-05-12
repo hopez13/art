@@ -840,6 +840,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b41b044_1f3ea415",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1787,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-12T15:31:41Z",
+      "side": 1,
+      "message": "A separate cleanup CL would be good.",
+      "parentUuid": "a47595ac_da7dd308",
+      "range": {
+        "startLine": 1787,
+        "startChar": 4,
+        "endLine": 1787,
+        "endChar": 22
+      },
+      "revId": "4ee253535fe3eec4207cf322c72151c6ac882216",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4bde0096_21eacd56",
