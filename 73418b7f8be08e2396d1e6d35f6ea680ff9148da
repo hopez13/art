@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "562209b0_85ef6bee",
+        "filename": "libdexfile/dex/dex_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-05-12T15:28:37Z",
+      "side": 1,
+      "message": "Can we add a small test case that tries to verify a dex file and doesn\u0027t crash? Something like:\n\n```\nTEST_F(DexFileLoaderTest, TestName) {\n  static const char kDexBase64[] \u003d // ... dex in base64 ...\n  std::vector\u003cuint8_t\u003e dex_bytes;\n  DexFileLoaderErrorCode error_code;\n  std::string error_msg;\n  std::vector\u003cstd::unique_ptr\u003cconst DexFile\u003e\u003e dex_files;\n  bool success \u003d OpenDexFilesBase64(kDexBase64, kLocationString, \u0026dex_bytes, \u0026dex_files, \u0026error_code,\n                                    \u0026error_msg);\n  CHECK(!success); // or `CHECK(success);` if it was supposed to be verified.\n}\n```\n\nin dex_file_loader_test.cc should do the trick.",
+      "revId": "73418b7f8be08e2396d1e6d35f6ea680ff9148da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c536caac_7f3b0421",
+        "filename": "libdexfile/dex/dex_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-05-12T15:28:37Z",
+      "side": 1,
+      "message": "Wouldn\u0027t we need to check that `map_item.offset_` is less than `DataSize()`?\n\nIf I understood correctly, the checks in lines 215-221 are for `list_` itself but we didn\u0027t check each individual item\u0027s `offset_`",
+      "range": {
+        "startLine": 233,
+        "startChar": 59,
+        "endLine": 233,
+        "endChar": 89
+      },
+      "revId": "73418b7f8be08e2396d1e6d35f6ea680ff9148da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
