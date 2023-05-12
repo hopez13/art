@@ -647,7 +647,9 @@ void VerifierDeps::Dump(VariableIndentationOutputStream* vios) const {
   });
   for (const auto& dep : dex_deps) {
     const DexFile& dex_file = *dep.first;
-    vios->Stream() << "Dependencies of " << dex_file.GetLocation() << ":\n";
+    vios->Stream() << "DexFile " << dex_file.GetLocation() << " ("
+                   << (dex_file.IsCompactDexFile() ? "compact dex" : "standard dex")
+                   << "):\n";
 
     ScopedIndentation indent(vios);
 
