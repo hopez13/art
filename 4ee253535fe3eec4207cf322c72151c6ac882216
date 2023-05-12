@@ -1,0 +1,596 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c904a8c0_a208a82e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-12T07:57:02Z",
+      "side": 1,
+      "message": "Note: I did not review the `check_cfi.py` changes.",
+      "revId": "4ee253535fe3eec4207cf322c72151c6ac882216",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32dbddde_5966bfdf",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-12T07:57:02Z",
+      "side": 1,
+      "message": "Is the remember/restore actually needed in this macro?",
+      "range": {
+        "startLine": 148,
+        "startChar": 2,
+        "endLine": 148,
+        "endChar": 20
+      },
+      "revId": "4ee253535fe3eec4207cf322c72151c6ac882216",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb3b78e5_f2e3d811",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 2515,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-12T07:57:02Z",
+      "side": 1,
+      "message": "INCREASE_FRAME 4",
+      "range": {
+        "startLine": 2514,
+        "startChar": 4,
+        "endLine": 2515,
+        "endChar": 28
+      },
+      "revId": "4ee253535fe3eec4207cf322c72151c6ac882216",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce2091ed_27594677",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 2526,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-12T07:57:02Z",
+      "side": 1,
+      "message": "DECREASE_FRAME 8",
+      "range": {
+        "startLine": 2525,
+        "startChar": 4,
+        "endLine": 2526,
+        "endChar": 29
+      },
+      "revId": "4ee253535fe3eec4207cf322c72151c6ac882216",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a2465b4_7d83a800",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-12T07:57:02Z",
+      "side": 1,
+      "message": "Remove remember/restore?",
+      "range": {
+        "startLine": 209,
+        "startChar": 2,
+        "endLine": 209,
+        "endChar": 20
+      },
+      "revId": "4ee253535fe3eec4207cf322c72151c6ac882216",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a0b6d6d_ecab498f",
+        "filename": "runtime/arch/x86/memcmp16_x86.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 849,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-12T07:57:02Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 849,
+        "startChar": 31,
+        "endLine": 849,
+        "endChar": 37
+      },
+      "revId": "4ee253535fe3eec4207cf322c72151c6ac882216",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9313cd7e_76566088",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 775,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-12T07:57:02Z",
+      "side": 1,
+      "message": "DECREASE_FRAME 16\n\nA cleanup CL to use INCREASE_FRAME/DECREASE_FRAME for frame manipulation would have caught this error.",
+      "range": {
+        "startLine": 774,
+        "startChar": 4,
+        "endLine": 775,
+        "endChar": 30
+      },
+      "revId": "4ee253535fe3eec4207cf322c72151c6ac882216",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ff9fee9_78aad0dc",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 826,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-12T07:57:02Z",
+      "side": 1,
+      "message": "Remove remember/restore?",
+      "range": {
+        "startLine": 826,
+        "startChar": 2,
+        "endLine": 826,
+        "endChar": 20
+      },
+      "revId": "4ee253535fe3eec4207cf322c72151c6ac882216",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6123ba19_11f19fc8",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 841,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-12T07:57:02Z",
+      "side": 1,
+      "message": "DECREASE_FRAME 16",
+      "range": {
+        "startLine": 840,
+        "startChar": 2,
+        "endLine": 841,
+        "endChar": 28
+      },
+      "revId": "4ee253535fe3eec4207cf322c72151c6ac882216",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de36416c_10aa3518",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 865,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-12T07:57:02Z",
+      "side": 1,
+      "message": "DECREASE_FRAME 16",
+      "range": {
+        "startLine": 864,
+        "startChar": 2,
+        "endLine": 865,
+        "endChar": 28
+      },
+      "revId": "4ee253535fe3eec4207cf322c72151c6ac882216",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2f35b34_6807f136",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 976,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-12T07:57:02Z",
+      "side": 1,
+      "message": "INCREASE_FRAME 8",
+      "range": {
+        "startLine": 975,
+        "startChar": 4,
+        "endLine": 976,
+        "endChar": 28
+      },
+      "revId": "4ee253535fe3eec4207cf322c72151c6ac882216",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1c39067d_cd58adf2",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1043,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-12T07:57:02Z",
+      "side": 1,
+      "message": "Move before the label?\n\nWe should try to keep a consistent style. Maybe\n\n    // Plain code:\n    \u003cremember\u003e\n    \u003ccode without branches or labels\u003e\n    \u003crestore\u003e\n\n    // Around then-block:\n    \u003cremember\u003e\n    j/cond label\n    \u003ccode without branches or labels\u003e\n    label:\n    \u003crestore\u003e",
+      "range": {
+        "startLine": 1043,
+        "startChar": 4,
+        "endLine": 1043,
+        "endChar": 40
+      },
+      "revId": "4ee253535fe3eec4207cf322c72151c6ac882216",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "408e37c5_862691d5",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1405,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-12T07:57:02Z",
+      "side": 1,
+      "message": "Move before the label (and before the blank line)?",
+      "range": {
+        "startLine": 1405,
+        "startChar": 4,
+        "endLine": 1405,
+        "endChar": 41
+      },
+      "revId": "4ee253535fe3eec4207cf322c72151c6ac882216",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b6838f11_b4af6cb1",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1660,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-12T07:57:02Z",
+      "side": 1,
+      "message": "Move before the label?",
+      "range": {
+        "startLine": 1660,
+        "startChar": 4,
+        "endLine": 1660,
+        "endChar": 41
+      },
+      "revId": "4ee253535fe3eec4207cf322c72151c6ac882216",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5a9a02c_a8b1c27c",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1956,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-12T07:57:02Z",
+      "side": 1,
+      "message": "Useless.",
+      "range": {
+        "startLine": 1956,
+        "startChar": 4,
+        "endLine": 1956,
+        "endChar": 21
+      },
+      "revId": "4ee253535fe3eec4207cf322c72151c6ac882216",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "11b9dc0c_7dcf5624",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 2005,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-12T07:57:02Z",
+      "side": 1,
+      "message": "Move before the label?",
+      "range": {
+        "startLine": 2005,
+        "startChar": 4,
+        "endLine": 2005,
+        "endChar": 40
+      },
+      "revId": "4ee253535fe3eec4207cf322c72151c6ac882216",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "641039af_8f8eb7bd",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 765,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-12T07:57:02Z",
+      "side": 1,
+      "message": "Remove remember/restore?",
+      "range": {
+        "startLine": 765,
+        "startChar": 2,
+        "endLine": 765,
+        "endChar": 20
+      },
+      "revId": "4ee253535fe3eec4207cf322c72151c6ac882216",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d067e11_eb7881f3",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1777,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-12T07:57:02Z",
+      "side": 1,
+      "message": "Note: I\u0027d prefer PUSH_ARG but than the `POP_REG_NE rax, ...` below would emit an unmatched `.cfi_restore`.",
+      "range": {
+        "startLine": 1777,
+        "startChar": 4,
+        "endLine": 1777,
+        "endChar": 8
+      },
+      "revId": "4ee253535fe3eec4207cf322c72151c6ac882216",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bbe95245_00e6fa1f",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1787,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-12T07:57:02Z",
+      "side": 1,
+      "message": "This is a useless instruction. RAX has already been saved and there is no need to bring the value back to the register which shall be clobbered.",
+      "range": {
+        "startLine": 1787,
+        "startChar": 4,
+        "endLine": 1787,
+        "endChar": 22
+      },
+      "revId": "4ee253535fe3eec4207cf322c72151c6ac882216",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4bde0096_21eacd56",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-12T07:57:02Z",
+      "side": 1,
+      "message": "We have a `POP_ARG` for this but maybe the name would be misleading here.",
+      "range": {
+        "startLine": 211,
+        "startChar": 4,
+        "endLine": 212,
+        "endChar": 29
+      },
+      "revId": "4ee253535fe3eec4207cf322c72151c6ac882216",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2431ffec_fd08cd6e",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-12T07:57:02Z",
+      "side": 1,
+      "message": "INCREASE_FRAME 16 (Or maybe not. You\u0027re not actually touching these lines, so maybe leave it for another cleanup CL.)",
+      "range": {
+        "startLine": 282,
+        "startChar": 2,
+        "endLine": 283,
+        "endChar": 28
+      },
+      "revId": "4ee253535fe3eec4207cf322c72151c6ac882216",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e46a8469_c5dd120e",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1774,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-12T07:57:02Z",
+      "side": 1,
+      "message": "PUSH_ARG esi",
+      "range": {
+        "startLine": 1773,
+        "startChar": 4,
+        "endLine": 1774,
+        "endChar": 28
+      },
+      "revId": "4ee253535fe3eec4207cf322c72151c6ac882216",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b8f28d9_6c69119e",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1787,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-12T07:57:02Z",
+      "side": 1,
+      "message": "Would it simplify CFI if we moved the `.Linvoke_trampoline` after the `.Lcontinue_execute_nterp`?",
+      "range": {
+        "startLine": 1787,
+        "startChar": 0,
+        "endLine": 1787,
+        "endChar": 20
+      },
+      "revId": "4ee253535fe3eec4207cf322c72151c6ac882216",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f5785a6_c629c0b1",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1789,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-12T07:57:02Z",
+      "side": 1,
+      "message": "POP_ARG esi",
+      "range": {
+        "startLine": 1788,
+        "startChar": 4,
+        "endLine": 1789,
+        "endChar": 29
+      },
+      "revId": "4ee253535fe3eec4207cf322c72151c6ac882216",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "76417a8c_9276a00a",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1793,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-12T07:57:02Z",
+      "side": 1,
+      "message": "CFI_RESTORE_STATE_AND_DEF_CFA",
+      "range": {
+        "startLine": 1792,
+        "startChar": 4,
+        "endLine": 1793,
+        "endChar": 23
+      },
+      "revId": "4ee253535fe3eec4207cf322c72151c6ac882216",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "664fb620_1b83a654",
+        "filename": "runtime/interpreter/mterp/x86ng/main.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1795,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-12T07:57:02Z",
+      "side": 1,
+      "message": "POP_ARG esi",
+      "range": {
+        "startLine": 1794,
+        "startChar": 4,
+        "endLine": 1795,
+        "endChar": 29
+      },
+      "revId": "4ee253535fe3eec4207cf322c72151c6ac882216",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
