@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "64ff1791_5b19c3c2",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-05-12T10:42:25Z",
+      "side": 1,
+      "message": "I think you forgot `; then`, all the bots are red with `art/tools/buildbot-build.sh: line 108: syntax error near unexpected token `else\u0027`.",
+      "range": {
+        "startLine": 106,
+        "startChar": 36,
+        "endLine": 106,
+        "endChar": 38
+      },
+      "revId": "9cd8a308eea7930a9a3aed23b43aafe8976cba1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
