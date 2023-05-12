@@ -394,7 +394,11 @@ void RegionSpace::SetFromSpace(accounting::ReadBarrierTable* rb_table,
 }
 
 static void ZeroAndProtectRegion(uint8_t* begin, uint8_t* end) {
-  ZeroAndReleasePages(begin, end - begin);
+  if (Runtime::Current()->InJankPerceptibleProcessState()) {
+    std::fill(begin, end, 0);
+  } else {
+    ZeroAndReleasePages(begin, end - begin);
+  }
   if (kProtectClearedRegions) {
     CheckedCall(mprotect, __FUNCTION__, begin, end - begin, PROT_NONE);
   }
