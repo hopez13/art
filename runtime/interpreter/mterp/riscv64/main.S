@@ -395,9 +395,10 @@ NAME_END nterp_helper
 EndExecuteNterpImpl:
 
 // Entrypoints into runtime.
-NTERP_TRAMPOLINE nterp_hot_method, NterpHotMethod
+NTERP_TRAMPOLINE nterp_allocate_object, NterpAllocateObject
 NTERP_TRAMPOLINE nterp_get_class, NterpGetClass
 NTERP_TRAMPOLINE nterp_get_static_field, NterpGetStaticField
+NTERP_TRAMPOLINE nterp_hot_method, NterpHotMethod
 
 ENTRY nterp_deliver_pending_exception
     DELIVER_PENDING_EXCEPTION
