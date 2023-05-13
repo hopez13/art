@@ -10,8 +10,34 @@
 %def op_instance_of_slow_path():
     unimp
 
+// new-instance vAA, type@BBBB
+// Format 21c: AA|op BBBB
 %def op_new_instance():
-    unimp
+    EXPORT_PC
+    FETCH_FROM_THREAD_CACHE /*klass object*/a0, /*slow path*/3f, near=1
+    TEST_IF_MARKING t0, 4f
+1:
+    ld t0, THREAD_ALLOC_OBJECT_ENTRYPOINT_OFFSET(xSELF)
+    jalr t0
+    fence w, w  // Publish klass object
+2:
+    srliw t1, xINST, 8  // t1 := AA
+    SET_VREG_OBJECT a0, t1
+
+    FETCH_ADVANCE_INST 2
+    GET_INST_OPCODE t0
+    GOTO_OPCODE t0
+3:
+    // Slow path: create klass object with NterpAllocateObject
+    mv a0, xSELF
+    ld a1, (sp)
+    mv a2, xPC
+    call nterp_allocate_object
+    j 2b  // slow path performs its own publication fence
+4:
+    // Mark path
+    call art_quick_read_barrier_mark_reg10
+    j 1b
 
 // *** iget ***
 
