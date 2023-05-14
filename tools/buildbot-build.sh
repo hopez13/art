@@ -136,7 +136,7 @@ if [[ $build_target == "yes" ]]; then
   fi
   make_command+=" build-art-target-gtests"
   test $skip_run_tests_build == "yes" || make_command+=" build-art-target-run-tests"
-  make_command+=" debuggerd sh su toybox"
+  make_command+=" debuggerd sh su toybox simpleperf"
   # Indirect dependencies in the platform, e.g. through heapprofd_client_api.
   # These are built to go into system/lib(64) to be part of the system linker
   # namespace.

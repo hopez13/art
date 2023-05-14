@@ -204,6 +204,9 @@ if [[ -n "$ART_TEST_CHROOT" ]]; then
   # Provide /sys/kernel/debug in chroot.
   adb shell mount | grep -q "^debugfs on $ART_TEST_CHROOT/sys/kernel/debug type debugfs " \
     || adb shell mount -t debugfs debugfs "$ART_TEST_CHROOT/sys/kernel/debug"
+  # Provide /sys/kernel/tracing in chroot.
+  adb shell mount | grep -q "^tracefs on $ART_TEST_CHROOT/sys/kernel/tracing type tracefs " \
+    || adb shell mount -t tracefs tracefs "$ART_TEST_CHROOT/sys/kernel/tracing"
 
   # Provide /dev in chroot.
   adb shell mkdir -p "$ART_TEST_CHROOT/dev"
