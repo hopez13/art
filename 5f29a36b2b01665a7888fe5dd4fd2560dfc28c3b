@@ -51,6 +51,24 @@
       "parentUuid": "142ca000_5103c58f",
       "revId": "5f29a36b2b01665a7888fe5dd4fd2560dfc28c3b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "36001a1b_34282d3d",
+        "filename": "test/115-native-bridge/nativebridge.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 574,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-05-15T14:35:23Z",
+      "side": 1,
+      "message": "Finally addressed this in aosp/2589065.\n\nI didn\u0027t add the check as we got rid of it by rewriting the jump table in a way that avoids the need to know instruction sequence length. I could factor out the common part of the two tests (this and the one you mentioned in https://android-review.git.corp.google.com/c/platform/art/+/2516056/1/test/004-SignalTest/signaltest.cc#94) but it\u0027s probably not worth it.",
+      "parentUuid": "bac27fc3_f358f61b",
+      "revId": "5f29a36b2b01665a7888fe5dd4fd2560dfc28c3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
