@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d273f329_ae1813e8",
+        "filename": "libartbase/base/membarrier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-05-15T21:08:09Z",
+      "side": 1,
+      "message": "I should have pointed this out earlier. But I think this is really only true for your use case, right? Consider\n\nThread 1: x \u003d true; membarrier(kPrivateExpedited); r1 \u003d y;\nThread 2: y \u003d true; compiler-barrier; r2 \u003d x;\n\nWe can still get r1 \u003d r2 \u003d false, since the hardware can reorder Thread 2.\n\nSince this doesn\u0027t match the system call semantics, probably we should have a kPrivateExpeditedAcqRel instead, with exactly this implementation, that allows store-\u003eload reordering. I think that suffices for our uses, but not in general.",
+      "range": {
+        "startLine": 78,
+        "startChar": 1,
+        "endLine": 79,
+        "endChar": 89
+      },
+      "revId": "b79d5792f00b83022be9820058655805f959e6ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c85f98f1_baa9275c",
+        "filename": "libartbase/base/membarrier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-05-15T21:08:09Z",
+      "side": 1,
+      "message": "static?",
+      "range": {
+        "startLine": 83,
+        "startChar": 3,
+        "endLine": 83,
+        "endChar": 40
+      },
+      "revId": "b79d5792f00b83022be9820058655805f959e6ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "412b4a1a_e0ddae52",
+        "filename": "libartbase/base/membarrier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-05-15T21:08:09Z",
+      "side": 1,
+      "message": "First argument is missing.\n\nMy convention would be to leave off the memory ordering in cases like this, where I epect seq_cst is not really necessary, but it\u0027s not really worth thinking about either.\n\nThe fact that this passed presubmit suggests a testing issue?",
+      "range": {
+        "startLine": 93,
+        "startChar": 23,
+        "endLine": 93,
+        "endChar": 48
+      },
+      "revId": "b79d5792f00b83022be9820058655805f959e6ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
