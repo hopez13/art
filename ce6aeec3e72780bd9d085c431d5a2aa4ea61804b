@@ -22,6 +22,30 @@
       },
       "revId": "ce6aeec3e72780bd9d085c431d5a2aa4ea61804b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c39b7932_718439d3",
+        "filename": "runtime/mirror/dex_cache.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-05-15T18:50:18Z",
+      "side": 1,
+      "message": "That page is wrong. The crucial mistake he made is that the data load is not atomic. It needs to be atomic and acquire-ordered, as is the case in this CL. For larger amounts of data, the conventional solution is to make the data loads relaxed atomics, and to put an acquire fence before the version 2 load. Or see wg21.link/p1478, though that won\u0027t make it into a real standard before C++26.\n\nWith the example as written on the page you point to, I think gcc\u0027s transformation as described is legal, though the justification for it seems complicated, and it surprises me that gcc did it. But just moving the data load down to the end of the loop is clearly legal, and would also break things.",
+      "parentUuid": "5d0b4a31_b7741ebd",
+      "range": {
+        "startLine": 301,
+        "startChar": 0,
+        "endLine": 304,
+        "endChar": 58
+      },
+      "revId": "ce6aeec3e72780bd9d085c431d5a2aa4ea61804b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
