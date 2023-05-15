@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "95adc77c_63568447",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 37
+      },
+      "lineNbr": 898,
+      "author": {
+        "id": 1942415
+      },
+      "writtenOn": "2023-05-15T02:48:03Z",
+      "side": 1,
+      "message": "It appears that this memcpy operation is predicated on the assumption that all objects within the black page are already marked, or \"blacked\". Could you elaborate on how the Concurrent Mark and Compact (CMC) garbage collector ensures this precondition is met? Without this assumption, it seems that memcpy could potentially copy unnecessary objects.",
+      "range": {
+        "startLine": 896,
+        "startChar": 0,
+        "endLine": 898,
+        "endChar": 49
+      },
+      "revId": "384c7861b27f6b5ded42a32ab7d14a48c987f515",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
