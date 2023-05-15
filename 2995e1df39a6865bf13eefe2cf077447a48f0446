@@ -16,6 +16,24 @@
       "message": "Did you try to run it on LUCI? Has it changed the error on riscv64 build?\n\nAlso, if it helps and we want to go ahead with this CL, TARGET_BUILD_UNBUNDLED should ideally be conditioned on the architecture (only for riscv64), not the ART_TEST_ON_VM variable. It\u0027s ok to have it as is for now.",
       "revId": "2995e1df39a6865bf13eefe2cf077447a48f0446",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b8b0f27f_149030a2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 2005380
+      },
+      "writtenOn": "2023-05-15T18:15:48Z",
+      "side": 1,
+      "message": "Yep, I did try to run it on LUCI but it didn\u0027t pull the changes in from the art repository even when I patched the revision into the led command. It looks to me that the recipe might only build the master branch and not take into account the buildbucket commit inputs:\nhttps://chromium.googlesource.com/chromium/tools/build/+/refs/heads/main/recipes/recipes/art.py#64\n\nIf so, I\u0027ll need to make a patch to the recipe to build based on the buildbucket input refs and then I can properly test my changes.",
+      "parentUuid": "65aeb2e2_d0ac2771",
+      "revId": "2995e1df39a6865bf13eefe2cf077447a48f0446",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
