@@ -1914,7 +1914,6 @@ MACRO2(READ_BARRIER_MARK_REG, name, reg)
     jnae .Lret_forwarding_address\name
 
     // Save all potentially live caller-save core registers.
-    mov 0(%esp), %eax
     PUSH ecx
     PUSH edx
     PUSH ebx
