@@ -34,6 +34,29 @@
       "parentUuid": "090552a4_d0577fcc",
       "revId": "a57bd864a8d6adee179bf9c03785b5fe9193d191",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a08be61_467c01f9",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-05-15T16:34:12Z",
+      "side": 1,
+      "message": "I\u0027d add a comment here why it must be a function, in case someone is tempted to refactor it back to a variable (or just wonders why this is a function).",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 66,
+        "endChar": 1
+      },
+      "revId": "a57bd864a8d6adee179bf9c03785b5fe9193d191",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
