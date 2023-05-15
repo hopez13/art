@@ -33,6 +33,24 @@
       "message": "this can move %rax, right?",
       "revId": "66ecf5ded5fcca9d1a7e833e6a42e5931f489d10",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b371dc89_bb3d3641",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1803,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-15T11:41:57Z",
+      "side": 1,
+      "message": "Right. So that instruction is not useless after all.",
+      "parentUuid": "1799f264_6d7b62f9",
+      "revId": "66ecf5ded5fcca9d1a7e833e6a42e5931f489d10",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
