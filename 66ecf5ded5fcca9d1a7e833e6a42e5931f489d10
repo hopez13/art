@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b0775fd8_ab8e1fe0",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1935,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-05-15T10:26:03Z",
+      "side": 1,
+      "message": "this can push %eax, right?",
+      "revId": "66ecf5ded5fcca9d1a7e833e6a42e5931f489d10",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1799f264_6d7b62f9",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1803,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-05-15T10:26:03Z",
+      "side": 1,
+      "message": "this can move %rax, right?",
+      "revId": "66ecf5ded5fcca9d1a7e833e6a42e5931f489d10",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
