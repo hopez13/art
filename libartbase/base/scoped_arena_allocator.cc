@@ -123,8 +123,7 @@ ScopedArenaAllocator::ScopedArenaAllocator(ScopedArenaAllocator&& other) noexcep
       mark_arena_(other.mark_arena_),
       mark_ptr_(other.mark_ptr_),
       mark_end_(other.mark_end_) {
-  other.DebugStackRefCounter::CheckNoRefs();
-  other.arena_stack_ = nullptr;
+  other.arena_stack_ = nullptr;  // NOLINT
 }
 
 ScopedArenaAllocator::ScopedArenaAllocator(ArenaStack* arena_stack)
