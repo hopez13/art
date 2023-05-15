@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5946ab96_7ff9aa53",
+        "filename": "libdexfile/dex/dex_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-15T09:41:36Z",
+      "side": 1,
+      "message": "Done (but creating a custom dex file for these tests is always a lot of work)",
+      "parentUuid": "562209b0_85ef6bee",
+      "revId": "73418b7f8be08e2396d1e6d35f6ea680ff9148da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c536caac_7f3b0421",
@@ -31,6 +49,30 @@
       "writtenOn": "2023-05-12T15:28:37Z",
       "side": 1,
       "message": "Wouldn\u0027t we need to check that `map_item.offset_` is less than `DataSize()`?\n\nIf I understood correctly, the checks in lines 215-221 are for `list_` itself but we didn\u0027t check each individual item\u0027s `offset_`",
+      "range": {
+        "startLine": 233,
+        "startChar": 59,
+        "endLine": 233,
+        "endChar": 89
+      },
+      "revId": "73418b7f8be08e2396d1e6d35f6ea680ff9148da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3f6ce68_22ee1e02",
+        "filename": "libdexfile/dex/dex_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-15T09:41:36Z",
+      "side": 1,
+      "message": "Added a comment.",
+      "parentUuid": "c536caac_7f3b0421",
       "range": {
         "startLine": 233,
         "startChar": 59,
