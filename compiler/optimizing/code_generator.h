@@ -59,8 +59,11 @@ static int32_t constexpr kPrimIntMax = 0x7fffffff;
 // Maximum value for a primitive long.
 static int64_t constexpr kPrimLongMax = INT64_C(0x7fffffffffffffff);
 
-static const ReadBarrierOption gCompilerReadBarrierOption =
-    gUseReadBarrier ? kWithReadBarrier : kWithoutReadBarrier;
+inline ReadBarrierOption GetCompilerReadBarrierOption() {
+  static const ReadBarrierOption compiler_read_barrier_option =
+      gUseReadBarrier ? kWithReadBarrier : kWithoutReadBarrier;
+  return compiler_read_barrier_option;
+}
 
 constexpr size_t status_lsb_position = SubtypeCheckBits::BitStructSizeOf();
 constexpr size_t status_byte_offset =
