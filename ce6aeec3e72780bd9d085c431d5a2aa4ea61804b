@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d0b4a31_b7741ebd",
+        "filename": "runtime/mirror/dex_cache.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-05-15T16:50:58Z",
+      "side": 1,
+      "message": "Can the compiler reorder these loads?\n\nI\u0027ve been reading https://github.com/rigtorp/Seqlock#implementation which suggests the compiler can reorder them.",
+      "range": {
+        "startLine": 301,
+        "startChar": 0,
+        "endLine": 304,
+        "endChar": 58
+      },
+      "revId": "ce6aeec3e72780bd9d085c431d5a2aa4ea61804b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
