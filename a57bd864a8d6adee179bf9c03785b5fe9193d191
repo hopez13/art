@@ -16,6 +16,24 @@
       "message": "Wow, what a bug! It must have been a nightmare to debug. :)",
       "revId": "a57bd864a8d6adee179bf9c03785b5fe9193d191",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "adf7506d_50e2856e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-05-15T16:20:48Z",
+      "side": 1,
+      "message": "Yes, that was a rather long gdb session. Thankfully, the mismatch was caught by a DCHECK deep inside the compiler code.",
+      "parentUuid": "090552a4_d0577fcc",
+      "revId": "a57bd864a8d6adee179bf9c03785b5fe9193d191",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
