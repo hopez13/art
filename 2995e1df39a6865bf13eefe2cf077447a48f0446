@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "65aeb2e2_d0ac2771",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-05-15T10:43:37Z",
+      "side": 1,
+      "message": "Did you try to run it on LUCI? Has it changed the error on riscv64 build?\n\nAlso, if it helps and we want to go ahead with this CL, TARGET_BUILD_UNBUNDLED should ideally be conditioned on the architecture (only for riscv64), not the ART_TEST_ON_VM variable. It\u0027s ok to have it as is for now.",
+      "revId": "2995e1df39a6865bf13eefe2cf077447a48f0446",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
