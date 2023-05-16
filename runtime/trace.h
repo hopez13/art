@@ -100,17 +100,17 @@ enum TraceAction {
 
 // We need 4 entries to store 64-bit timestamp counter as two 32-bit values on 32-bit architectures.
 static constexpr uint32_t kNumEntriesForWallClock =
-    (kRuntimePointerSize == PointerSize::k64) ? 3 : 4;
+    (kRuntimePointerSize == PointerSize::k64) ? 2 : 3;
 
 // These define offsets in bytes for the individual fields of a trace entry. These are used by the
 // JITed code when storing a trace entry.
 static constexpr int32_t kMethodOffsetInBytes = 0;
-static constexpr int32_t kTraceActionOffsetInBytes =
-    -1 * static_cast<uint32_t>(kRuntimePointerSize);
-static constexpr int32_t kTimestampOffsetInBytes = -2 * static_cast<uint32_t>(kRuntimePointerSize);
+static constexpr int32_t kTimestampOffsetInBytes = -1 * static_cast<uint32_t>(kRuntimePointerSize);
 // This is valid only for 32-bit architectures.
 static constexpr int32_t kLowTimestampOffsetInBytes =
-    -3 * static_cast<uint32_t>(kRuntimePointerSize);
+    -2 * static_cast<uint32_t>(kRuntimePointerSize);
+
+static constexpr uintptr_t kMaskTraceAction = ~0b11;
 
 // Class for recording event traces. Trace data is either collected
 // synchronously during execution (TracingMode::kMethodTracingActive),
