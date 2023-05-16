@@ -1,0 +1,14 @@
+#!/usr/local/bin/expect -f
+set OUT_FILE [lindex $argv 0]
+set timeout 600
+spawn tail -f $OUT_FILE
+expect {
+    -re "Cloud-init .* finished" {
+	    close
+	    exit
+    }
+    eof {
+        exit
+    }
+}
+
