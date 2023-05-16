@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c2adf6ef_7d58a774",
+        "filename": "libartbase/base/membarrier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-16T08:13:32Z",
+      "side": 1,
+      "message": "I thought the x86 memory model prevented that. But if we cannot rely on the x86 memory model for the `kPrivateExpedited`, then the only way to prevent the log spam during host tests is to push the suppression to the caller. And that\u0027s exactly what you didn\u0027t want based on https://android-review.googlesource.com/c/platform/art/+/2388230/1/runtime/fault_handler.cc#b305 . (Note that a new `kPrivateExpeditedAcqRel` would also need changes in the caller.)",
+      "parentUuid": "d273f329_ae1813e8",
+      "range": {
+        "startLine": 78,
+        "startChar": 1,
+        "endLine": 79,
+        "endChar": 89
+      },
+      "revId": "b79d5792f00b83022be9820058655805f959e6ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c85f98f1_baa9275c",
         "filename": "libartbase/base/membarrier.cc",
         "patchSetId": 4
@@ -37,6 +61,30 @@
       "writtenOn": "2023-05-15T21:08:09Z",
       "side": 1,
       "message": "static?",
+      "range": {
+        "startLine": 83,
+        "startChar": 3,
+        "endLine": 83,
+        "endChar": 40
+      },
+      "revId": "b79d5792f00b83022be9820058655805f959e6ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d4b34c4_5a44e9e8",
+        "filename": "libartbase/base/membarrier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-16T08:13:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c85f98f1_baa9275c",
       "range": {
         "startLine": 83,
         "startChar": 3,
@@ -60,6 +108,30 @@
       "writtenOn": "2023-05-15T21:08:09Z",
       "side": 1,
       "message": "First argument is missing.\n\nMy convention would be to leave off the memory ordering in cases like this, where I epect seq_cst is not really necessary, but it\u0027s not really worth thinking about either.\n\nThe fact that this passed presubmit suggests a testing issue?",
+      "range": {
+        "startLine": 93,
+        "startChar": 23,
+        "endLine": 93,
+        "endChar": 48
+      },
+      "revId": "b79d5792f00b83022be9820058655805f959e6ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d12cb78d_08e29570",
+        "filename": "libartbase/base/membarrier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-16T08:13:32Z",
+      "side": 1,
+      "message": "Done (added \"true\"; kept the order).\n\nI guess `std::memory_order_seq_cst` was implicitly converted to `true`. So there was no issue here.\n\nBut passing presubmit with the missing `static` above did expose lack of testing. So, I implemented `kQuery` to tell the tests that we support the `kPrivateExpedited`.",
+      "parentUuid": "412b4a1a_e0ddae52",
       "range": {
         "startLine": 93,
         "startChar": 23,
