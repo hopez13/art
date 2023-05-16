@@ -425,11 +425,6 @@ EOF
   msginfo "Generating linkerconfig" "in $linkerconfig_out"
   rm -rf $linkerconfig_out
   mkdir -p $linkerconfig_out
-  if [[ $TARGET_ARCH = "riscv64" ]]; then
-    # TODO(b/300291157): One command line for all arches (VNDK flag was dropped as a workaround).
-    $ANDROID_HOST_OUT/bin/linkerconfig --target $linkerconfig_out --root $linkerconfig_root
-  else
-    $ANDROID_HOST_OUT/bin/linkerconfig --target $linkerconfig_out --root $linkerconfig_root --vndk $platform_version
-  fi
+  $ANDROID_HOST_OUT/bin/linkerconfig --target $linkerconfig_out --root $linkerconfig_root --vndk $platform_version
   msgnote "Don't be scared by \"Unable to access VNDK APEX\" message, it's not fatal"
 fi

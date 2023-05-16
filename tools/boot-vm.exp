@@ -1,0 +1,15 @@
+#!/usr/local/bin/expect -f
+set VMSCRIPT [lindex $argv 0]
+set timeout 600
+spawn touch boot.out boot.err
+spawn -ignore HUP $VMSCRIPT boot
+spawn tail -f boot.out
+expect {
+    -re "Cloud-init .* finished" {
+	    close
+	    exit
+    }
+    eof {
+        exit
+    }
+}
