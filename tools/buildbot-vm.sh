@@ -80,7 +80,7 @@ chpasswd:
   list:
     - $ART_TEST_SSH_USER:ubuntu
 EOF
-    cloud-localds user-data.img user-data
+    genisoimage -output user-data.img -V cidata -J -input-charset utf-8 -r user-data
 )
 elif [[ $action = boot ]]; then
 (
