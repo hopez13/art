@@ -625,7 +625,7 @@ class MarkCompact::FlipCallback : public Closure {
  public:
   explicit FlipCallback(MarkCompact* collector) : collector_(collector) {}
 
-  void Run(Thread* thread ATTRIBUTE_UNUSED) override REQUIRES(Locks::mutator_lock_) {
+  void Run([[maybe_unused]] Thread* thread) override REQUIRES(Locks::mutator_lock_) {
     collector_->CompactionPause();
   }
 
@@ -851,7 +851,7 @@ class MarkCompact::ConcurrentCompactionGcTask : public SelfDeletingTask {
   explicit ConcurrentCompactionGcTask(MarkCompact* collector, size_t idx)
       : collector_(collector), index_(idx) {}
 
-  void Run(Thread* self ATTRIBUTE_UNUSED) override REQUIRES_SHARED(Locks::mutator_lock_) {
+  void Run([[maybe_unused]] Thread* self) override REQUIRES_SHARED(Locks::mutator_lock_) {
     if (collector_->CanCompactMovingSpaceWithMinorFault()) {
       collector_->ConcurrentCompaction<MarkCompact::kMinorFaultMode>(/*buf=*/nullptr);
     } else {
@@ -1331,8 +1331,9 @@ class MarkCompact::RefsUpdateVisitor {
     DCHECK(!kCheckEnd || end != nullptr);
   }
 
-  void operator()(mirror::Object* old ATTRIBUTE_UNUSED, MemberOffset offset, bool /* is_static */)
-      const ALWAYS_INLINE REQUIRES_SHARED(Locks::mutator_lock_)
+  void operator()([[maybe_unused]] mirror::Object* old,
+                  MemberOffset offset,
+                  bool /* is_static */) const ALWAYS_INLINE REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES_SHARED(Locks::heap_bitmap_lock_) {
     bool update = true;
     if (kCheckBegin || kCheckEnd) {
@@ -1348,11 +1349,10 @@ class MarkCompact::RefsUpdateVisitor {
   // VisitReferenes().
   // TODO: Optimize reference updating using SIMD instructions. Object arrays
   // are perfect as all references are tightly packed.
-  void operator()(mirror::Object* old ATTRIBUTE_UNUSED,
+  void operator()([[maybe_unused]] mirror::Object* old,
                   MemberOffset offset,
                   bool /*is_static*/,
-                  bool /*is_obj_array*/)
-      const ALWAYS_INLINE REQUIRES_SHARED(Locks::mutator_lock_)
+                  bool /*is_obj_array*/) const ALWAYS_INLINE REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES_SHARED(Locks::heap_bitmap_lock_) {
     collector_->UpdateRef(obj_, offset);
   }
@@ -3580,9 +3580,10 @@ class MarkCompact::ThreadRootsVisitor : public RootVisitor {
     Flush();
   }
 
-  void VisitRoots(mirror::Object*** roots, size_t count, const RootInfo& info ATTRIBUTE_UNUSED)
-      override REQUIRES_SHARED(Locks::mutator_lock_)
-      REQUIRES(Locks::heap_bitmap_lock_) {
+  void VisitRoots(mirror::Object*** roots,
+                  size_t count,
+                  [[maybe_unused]] const RootInfo& info) override
+      REQUIRES_SHARED(Locks::mutator_lock_) REQUIRES(Locks::heap_bitmap_lock_) {
     for (size_t i = 0; i < count; i++) {
       mirror::Object* obj = *roots[i];
       if (mark_compact_->MarkObjectNonNullNoPush</*kParallel*/true>(obj)) {
@@ -3593,9 +3594,8 @@ class MarkCompact::ThreadRootsVisitor : public RootVisitor {
 
   void VisitRoots(mirror::CompressedReference<mirror::Object>** roots,
                   size_t count,
-                  const RootInfo& info ATTRIBUTE_UNUSED)
-      override REQUIRES_SHARED(Locks::mutator_lock_)
-      REQUIRES(Locks::heap_bitmap_lock_) {
+                  [[maybe_unused]] const RootInfo& info) override
+      REQUIRES_SHARED(Locks::mutator_lock_) REQUIRES(Locks::heap_bitmap_lock_) {
     for (size_t i = 0; i < count; i++) {
       mirror::Object* obj = roots[i]->AsMirrorPtr();
       if (mark_compact_->MarkObjectNonNullNoPush</*kParallel*/true>(obj)) {
@@ -3762,9 +3762,7 @@ class MarkCompact::CardModifiedVisitor {
                                accounting::CardTable* const card_table)
       : visitor_(mark_compact), bitmap_(bitmap), card_table_(card_table) {}
 
-  void operator()(uint8_t* card,
-                  uint8_t expected_value,
-                  uint8_t new_value ATTRIBUTE_UNUSED) const {
+  void operator()(uint8_t* card, uint8_t expected_value, [[maybe_unused]] uint8_t new_value) const {
     if (expected_value == accounting::CardTable::kCardDirty) {
       uintptr_t start = reinterpret_cast<uintptr_t>(card_table_->AddrFromCard(card));
       bitmap_->VisitMarkedRange(start, start + accounting::CardTable::kCardSize, visitor_);
@@ -3917,9 +3915,8 @@ class MarkCompact::RefFieldsVisitor {
 
   ALWAYS_INLINE void operator()(mirror::Object* obj,
                                 MemberOffset offset,
-                                bool is_static ATTRIBUTE_UNUSED) const
-      REQUIRES(Locks::heap_bitmap_lock_)
-      REQUIRES_SHARED(Locks::mutator_lock_) {
+                                [[maybe_unused]] bool is_static) const
+      REQUIRES(Locks::heap_bitmap_lock_) REQUIRES_SHARED(Locks::mutator_lock_) {
     if (kCheckLocks) {
       Locks::mutator_lock_->AssertSharedHeld(Thread::Current());
       Locks::heap_bitmap_lock_->AssertExclusiveHeld(Thread::Current());
@@ -4096,7 +4093,7 @@ mirror::Object* MarkCompact::MarkObject(mirror::Object* obj) {
 }
 
 void MarkCompact::MarkHeapReference(mirror::HeapReference<mirror::Object>* obj,
-                                    bool do_atomic_update ATTRIBUTE_UNUSED) {
+                                    [[maybe_unused]] bool do_atomic_update) {
   MarkObject(obj->AsMirrorPtr(), nullptr, MemberOffset(0));
 }
 
@@ -4166,7 +4163,7 @@ mirror::Object* MarkCompact::IsMarked(mirror::Object* obj) {
 }
 
 bool MarkCompact::IsNullOrMarkedHeapReference(mirror::HeapReference<mirror::Object>* obj,
-                                              bool do_atomic_update ATTRIBUTE_UNUSED) {
+                                              [[maybe_unused]] bool do_atomic_update) {
   mirror::Object* ref = obj->AsMirrorPtr();
   if (ref == nullptr) {
     return true;
