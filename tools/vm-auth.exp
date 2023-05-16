@@ -1,0 +1,19 @@
+#!/usr/local/bin/expect -f
+set CMD [lindex $argv 0]
+set OPTION [lindex $argv 1]
+set timeout 3600
+spawn $CMD $OPTION
+expect {
+    -re "(p|P)assword:" {
+        send -- "ubuntu\r"
+        exp_continue
+    }
+    "Are you sure you want to continue connecting" {
+        send -- "yes\r"
+        exp_continue
+    }
+    eof {
+        exit
+    }
+}
+

@@ -18,7 +18,7 @@ set -e
 
 ART_TEST_ON_VM=true . "$(dirname $0)/buildbot-utils.sh"
 
-known_actions="create|boot|setup-ssh|connect|quit"
+known_actions="create|boot|geniso|setup-ssh|connect|quit"
 
 if [[ -z $ANDROID_BUILD_TOP ]]; then
     msgfatal "ANDROID_BUILD_TOP is not set"
@@ -70,20 +70,30 @@ if [[ $action = create ]]; then
     fi
 
     qemu-img resize "$ART_TEST_VM_IMG" +128G
-
-    # https://help.ubuntu.com/community/CloudInit
+)
+elif [[ $action = geniso ]]; then
+(
+    #https://help.ubuntu.com/community/CloudInit
     cat >user-data <<EOF
 #cloud-config
 ssh_pwauth: true
 chpasswd:
   expire: false
-  list:
-    - $ART_TEST_SSH_USER:ubuntu
+  users:
+    - name: $ART_TEST_SSH_USER
+      password: ubuntu
+      type: text
 EOF
-    cloud-localds user-data.img user-data
+    # meta-data is necessary, even if empty.
+    cat >meta-data <<EOF
+EOF
+    genisoimage -output user-data.img -volid cidata -joliet -rock user-data meta-data
+    mv user-data.img "$(dirname $0)/user-data.img"
+    rm user-data meta-data
 )
 elif [[ $action = boot ]]; then
 (
+    cp "$(dirname $0)/user-data.img" "$ART_TEST_VM_DIR/user-data.img"
     cd "$ART_TEST_VM_DIR"
     if [[ "$TARGET_ARCH" = "riscv64" ]]; then
         qemu-system-riscv64 \
@@ -96,7 +106,17 @@ elif [[ $action = boot ]]; then
             -drive file="$ART_TEST_VM_IMG",if=virtio \
             -drive file=user-data.img,format=raw,if=virtio \
             -device virtio-net-device,netdev=usernet \
-            -netdev user,id=usernet,hostfwd=tcp::$ART_TEST_SSH_PORT-:22
+            -netdev user,id=usernet,hostfwd=tcp::$ART_TEST_SSH_PORT-:22 > boot.out &
+        while IFS= read -d $'\0' -n 1 a ; do
+            line+="${a}"
+            if [[ "${line}" = "Cloud-init .* finished" ]] ; then
+                echo "VM Successfully booted!"
+                break
+            elif [[ $a = $'\n']] ; then
+                unset line
+            fi
+        done < <(tail -f boot.out)
+
     elif [[ "$TARGET_ARCH" = "arm64" ]]; then
         qemu-system-aarch64 \
             -m 16G \
@@ -110,7 +130,16 @@ elif [[ $action = boot ]]; then
             -drive file=user-data.img,format=raw,id=cloud \
             -device virtio-blk-device,drive=hd0 \
             -device virtio-net-device,netdev=usernet \
-            -netdev user,id=usernet,hostfwd=tcp::$ART_TEST_SSH_PORT-:22
+            -netdev user,id=usernet,hostfwd=tcp::$ART_TEST_SSH_PORT-:22 > boot.out &
+        while IFS= read -d $'\0' -n 1 a ; do
+            line+="${a}"
+            if [[ "${line}" = "Cloud-init .* finished" ]] ; then
+                echo "VM Successfully booted!"
+                break
+            elif [[ $a = $'\n']] ; then
+                unset line
+            fi
+        done < <(tail -f boot.out)
     fi
 
 )
