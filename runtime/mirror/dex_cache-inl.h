@@ -110,7 +110,7 @@ inline void NativeDexCachePair<T>::Initialize(std::atomic<NativeDexCachePair<T>>
   first_elem.object = nullptr;
   first_elem.index = InvalidIndexForSlot(0);
 
-  auto* array = reinterpret_cast<std::atomic<AtomicPair<uintptr_t>>*>(dex_cache);
+  auto* array = reinterpret_cast<AtomicPair<uintptr_t>*>(dex_cache);
   AtomicPair<uintptr_t> v(reinterpret_cast<size_t>(first_elem.object), first_elem.index);
   AtomicPairStoreRelease(&array[0], v);
 }

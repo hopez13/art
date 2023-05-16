@@ -17,11 +17,29 @@
 #ifndef ART_RUNTIME_BASE_ATOMIC_PAIR_H_
 #define ART_RUNTIME_BASE_ATOMIC_PAIR_H_
 
-#include "base/macros.h"
+#include <android-base/logging.h>
 
 #include <type_traits>
 
+#include "base/macros.h"
+
 namespace art {
+
+// Implement 16-byte atomic pair using the seq-lock synchronization algorithm.
+//
+// This uses top 2-bytes of the key as version counter / lock bit,
+// which means the stored pair key can not use those bytes.
+//
+// The advantage of this is that the readers don't need exclusive cache line access,
+// and can use lither barriers.
+//
+// This does not affect 8-byte atomic pair implementation.
+
+#define ATOMIC_PAIR_USE_SEQLOCK 1
+
+static constexpr uint64_t kSeqMask = (0xFFFFull << 48);
+static constexpr uint64_t kSeqLock = (0x0001ull << 48);
+static constexpr uint64_t kSeqIncr = (0x0002ull << 48);
 
 // std::pair<> is not trivially copyable and as such it is unsuitable for atomic operations.
 template <typename IntType>
@@ -38,21 +56,51 @@ struct PACKED(2 * sizeof(IntType)) AtomicPair {
 };
 
 template <typename IntType>
-ALWAYS_INLINE static inline AtomicPair<IntType> AtomicPairLoadAcquire(
-    std::atomic<AtomicPair<IntType>>* target) {
+ALWAYS_INLINE static inline AtomicPair<IntType> AtomicPairLoadAcquire(AtomicPair<IntType>* pair) {
+  auto* target = reinterpret_cast<std::atomic<AtomicPair<IntType>>*>(pair);
   return target->load(std::memory_order_acquire);
 }
 
 template <typename IntType>
-ALWAYS_INLINE static inline void AtomicPairStoreRelease(std::atomic<AtomicPair<IntType>>* target,
+ALWAYS_INLINE static inline void AtomicPairStoreRelease(AtomicPair<IntType>* pair,
                                                         AtomicPair<IntType> value) {
+  auto* target = reinterpret_cast<std::atomic<AtomicPair<IntType>>*>(pair);
   target->store(value, std::memory_order_release);
 }
 
+#if ATOMIC_PAIR_USE_SEQLOCK
+
+ALWAYS_INLINE static inline AtomicPair<uint64_t> AtomicPairLoadAcquire(AtomicPair<uint64_t>* pair) {
+  auto* first = reinterpret_cast<std::atomic_uint64_t*>(&pair->first);
+  auto* second = reinterpret_cast<std::atomic_uint64_t*>(&pair->second);
+  while (true) {
+    uint64_t key0 = first->load(std::memory_order_acquire);
+    uint64_t val = second->load(std::memory_order_acquire);
+    uint64_t key1 = first->load(std::memory_order_acquire);
+    if (LIKELY(key0 == key1 && (key0 & kSeqLock) == 0)) {
+      return {key0 & ~kSeqMask, val};
+    }
+  }
+}
+
+ALWAYS_INLINE static inline void AtomicPairStoreRelease(AtomicPair<uint64_t>* pair,
+                                                        AtomicPair<uint64_t> value) {
+  auto* first = reinterpret_cast<std::atomic_uint64_t*>(&pair->first);
+  auto* second = reinterpret_cast<std::atomic_uint64_t*>(&pair->second);
+  DCHECK_EQ(value.first & kSeqMask, 0ull);
+  uint64_t key;
+  do {
+    key = first->load(std::memory_order_relaxed);
+  } while ((key & kSeqLock) != 0 || !first->compare_exchange_weak(key, key | kSeqLock));
+  key = (value.first & ~kSeqMask) | ((key & kSeqMask) + kSeqIncr);
+  second->store(value.second, std::memory_order_release);
+  first->store(key, std::memory_order_release);
+}
+
 // LLVM uses generic lock-based implementation for x86_64, we can do better with CMPXCHG16B.
-#if defined(__x86_64__)
-ALWAYS_INLINE static inline AtomicPair<uint64_t> AtomicPairLoadAcquire(
-    std::atomic<AtomicPair<uint64_t>>* target) {
+#elif defined(__x86_64__)
+ALWAYS_INLINE static inline AtomicPair<uint64_t> AtomicPairLoadAcquire(AtomicPair<IntType>* pair) {
+  auto* target = reinterpret_cast<std::atomic<AtomicPair<IntType>>*>(pair);
   uint64_t first, second;
   __asm__ __volatile__(
       "lock cmpxchg16b (%2)"
@@ -62,8 +110,9 @@ ALWAYS_INLINE static inline AtomicPair<uint64_t> AtomicPairLoadAcquire(
   return {first, second};
 }
 
-ALWAYS_INLINE static inline void AtomicPairStoreRelease(
-    std::atomic<AtomicPair<uint64_t>>* target, AtomicPair<uint64_t> value) {
+ALWAYS_INLINE static inline void AtomicPairStoreRelease(AtomicPair<IntType>* pair,
+                                                        AtomicPair<IntType> value) {
+  auto* target = reinterpret_cast<std::atomic<AtomicPair<IntType>>*>(pair);
   uint64_t first, second;
   __asm__ __volatile__ (
       "movq (%2), %%rax\n\t"
