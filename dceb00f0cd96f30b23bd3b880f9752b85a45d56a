@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "099e5aab_da006a2d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-05-16T16:18:56Z",
+      "side": 1,
+      "message": "The repro in b/282168138 ought to be tested to verify that this really fixes the problem. It may work to just try a build with\n\n```\n$ m ART_MODULE_BUILD_FROM_SOURCE\u003dfalse nothing\n```\n\non AOSP.",
+      "revId": "dceb00f0cd96f30b23bd3b880f9752b85a45d56a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
