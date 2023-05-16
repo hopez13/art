@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d13eb201_1894b708",
+        "filename": "libartbase/base/membarrier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-05-16T21:31:25Z",
+      "side": 1,
+      "message": "I clearly overlooked this issue the first time around. But since I believe there are no other (non-test) callers, it still appears to me that we can change the caller to\n\nart::membarrier(MembarrierCommand::kPrivateExpeditedAcqRel)\n\nand only implement kPrivateExpeditedAcqRel here for now, either doing nothing major on x86, or calling kPrivateExpedited elsewhere.\n\nI think this would be basically a renaming, to make it clear that we implement weaker semantics that happen to suffice for us. x86 doesn\u0027t preserve store-\u003eload order. We don\u0027t care here. But a future kPrivateExpedited client reasonably might want that to enforce store-\u003eload order, I think.",
+      "parentUuid": "c2adf6ef_7d58a774",
+      "range": {
+        "startLine": 78,
+        "startChar": 1,
+        "endLine": 79,
+        "endChar": 89
+      },
+      "revId": "b79d5792f00b83022be9820058655805f959e6ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c85f98f1_baa9275c",
         "filename": "libartbase/base/membarrier.cc",
         "patchSetId": 4
@@ -132,6 +156,30 @@
       "side": 1,
       "message": "Done (added \"true\"; kept the order).\n\nI guess `std::memory_order_seq_cst` was implicitly converted to `true`. So there was no issue here.\n\nBut passing presubmit with the missing `static` above did expose lack of testing. So, I implemented `kQuery` to tell the tests that we support the `kPrivateExpedited`.",
       "parentUuid": "412b4a1a_e0ddae52",
+      "range": {
+        "startLine": 93,
+        "startChar": 23,
+        "endLine": 93,
+        "endChar": 48
+      },
+      "revId": "b79d5792f00b83022be9820058655805f959e6ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1dd7a77f_72f91e9e",
+        "filename": "libartbase/base/membarrier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-05-16T21:31:25Z",
+      "side": 1,
+      "message": "You\u0027re right. This was fixed in C++20, when memory_order became an \"enum class\", which would hopefully have killed the silly implicit conversion. But we presumably still get the old semantics.",
+      "parentUuid": "d12cb78d_08e29570",
       "range": {
         "startLine": 93,
         "startChar": 23,
