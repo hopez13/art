@@ -70,6 +70,24 @@
       "parentUuid": "727b9dbd_f93165e9",
       "revId": "2995e1df39a6865bf13eefe2cf077447a48f0446",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd6f53b8_c0cc76c2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-05-16T15:10:23Z",
+      "side": 1,
+      "message": "Can we speculatively accept this CL, turn on riscv64 build on LUCI and see if it works? It is high priority to get some CI testing on riscv64, and if the build fails no other LUCI targets will be affected. At worst we can live with one broken LUCI target.",
+      "parentUuid": "7051ec07_1ebf6879",
+      "revId": "2995e1df39a6865bf13eefe2cf077447a48f0446",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
