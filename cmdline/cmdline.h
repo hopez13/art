@@ -321,15 +321,13 @@ struct CmdlineArgs {
   }
 
  protected:
-  virtual ParseStatus ParseCustom(const char* raw_option ATTRIBUTE_UNUSED,
-                                  size_t raw_option_length ATTRIBUTE_UNUSED,
-                                  std::string* error_msg ATTRIBUTE_UNUSED) {
+  virtual ParseStatus ParseCustom(const char* raw_option [[maybe_unused]],
+                                  size_t raw_option_length [[maybe_unused]],
+                                  std::string* error_msg [[maybe_unused]]) {
     return kParseUnknownArgument;
   }
 
-  virtual ParseStatus ParseChecks(std::string* error_msg ATTRIBUTE_UNUSED) {
-    return kParseOk;
-  }
+  virtual ParseStatus ParseChecks(std::string* error_msg [[maybe_unused]]) { return kParseOk; }
 };
 
 template <typename Args = CmdlineArgs>

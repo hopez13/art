@@ -68,7 +68,7 @@ int memfd_create(const char* name, unsigned int flags) {
 
 #else  // __NR_memfd_create
 
-int memfd_create(const char* name ATTRIBUTE_UNUSED, unsigned int flags ATTRIBUTE_UNUSED) {
+int memfd_create(const char* name [[maybe_unused]], unsigned int flags [[maybe_unused]]) {
   errno = ENOSYS;
   return -1;
 }

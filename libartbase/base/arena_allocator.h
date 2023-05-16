@@ -120,13 +120,13 @@ class ArenaAllocatorStatsImpl<false> {
   ArenaAllocatorStatsImpl(const ArenaAllocatorStatsImpl& other) = default;
   ArenaAllocatorStatsImpl& operator = (const ArenaAllocatorStatsImpl& other) = delete;
 
-  void Copy(const ArenaAllocatorStatsImpl& other ATTRIBUTE_UNUSED) {}
-  void RecordAlloc(size_t bytes ATTRIBUTE_UNUSED, ArenaAllocKind kind ATTRIBUTE_UNUSED) {}
+  void Copy(const ArenaAllocatorStatsImpl& other [[maybe_unused]]) {}
+  void RecordAlloc(size_t bytes [[maybe_unused]], ArenaAllocKind kind [[maybe_unused]]) {}
   size_t NumAllocations() const { return 0u; }
   size_t BytesAllocated() const { return 0u; }
-  void Dump(std::ostream& os ATTRIBUTE_UNUSED,
-            const Arena* first ATTRIBUTE_UNUSED,
-            ssize_t lost_bytes_adjustment ATTRIBUTE_UNUSED) const {}
+  void Dump(std::ostream& os [[maybe_unused]],
+            const Arena* first [[maybe_unused]],
+            ssize_t lost_bytes_adjustment [[maybe_unused]]) const {}
 };
 
 template <bool kCount>

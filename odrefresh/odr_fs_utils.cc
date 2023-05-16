@@ -43,7 +43,7 @@ namespace odrefresh {
 // Callback for use with nftw(3) to assist with clearing files and sub-directories.
 // This method removes files and directories below the top-level directory passed to nftw().
 static int NftwCleanUpCallback(const char* fpath,
-                               const struct stat* sb ATTRIBUTE_UNUSED,
+                               const struct stat* sb [[maybe_unused]],
                                int typeflag,
                                struct FTW* ftwbuf) {
   switch (typeflag) {

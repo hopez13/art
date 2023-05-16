@@ -30,7 +30,7 @@ namespace art {
 namespace Test922Properties {
 
 extern "C" JNIEXPORT jobjectArray JNICALL Java_art_Test922_getSystemProperties(
-    JNIEnv* env, jclass Main_klass ATTRIBUTE_UNUSED) {
+    JNIEnv* env, jclass Main_klass [[maybe_unused]]) {
   jint count;
   char** properties;
   jvmtiError result = jvmti_env->GetSystemProperties(&count, &properties);
@@ -55,7 +55,7 @@ extern "C" JNIEXPORT jobjectArray JNICALL Java_art_Test922_getSystemProperties(
 }
 
 extern "C" JNIEXPORT jstring JNICALL Java_art_Test922_getSystemProperty(
-    JNIEnv* env, jclass Main_klass ATTRIBUTE_UNUSED, jstring key) {
+    JNIEnv* env, jclass Main_klass [[maybe_unused]], jstring key) {
   ScopedUtfChars string(env, key);
   if (string.c_str() == nullptr) {
     return nullptr;
@@ -75,7 +75,7 @@ extern "C" JNIEXPORT jstring JNICALL Java_art_Test922_getSystemProperty(
 }
 
 extern "C" JNIEXPORT void JNICALL Java_art_Test922_setSystemProperty(
-    JNIEnv* env, jclass Main_klass ATTRIBUTE_UNUSED, jstring key, jstring value) {
+    JNIEnv* env, jclass Main_klass [[maybe_unused]], jstring key, jstring value) {
   ScopedUtfChars key_string(env, key);
   if (key_string.c_str() == nullptr) {
     return;

@@ -38,8 +38,8 @@ void cbMethodEntry(jvmtiEnv* jvmti,
                    JNIEnv* env,
                    jthread thread,
                    jmethodID method,
-                   jboolean was_exception ATTRIBUTE_UNUSED,
-                   jvalue val ATTRIBUTE_UNUSED) {
+                   jboolean was_exception [[maybe_unused]],
+                   jvalue val [[maybe_unused]]) {
   BreakpointData* data = nullptr;
   if (JvmtiErrorToException(
           env, jvmti, jvmti->GetThreadLocalStorage(thread, reinterpret_cast<void**>(&data)))) {
@@ -56,7 +56,7 @@ void cbMethodEntry(jvmtiEnv* jvmti,
 }
 
 extern "C" JNIEXPORT void JNICALL Java_art_Test1962_setupTest(JNIEnv* env,
-                                                              jclass klass ATTRIBUTE_UNUSED) {
+                                                              jclass klass [[maybe_unused]]) {
   jvmtiCapabilities caps{
     .can_generate_method_exit_events = 1,
   };
@@ -70,7 +70,7 @@ extern "C" JNIEXPORT void JNICALL Java_art_Test1962_setupTest(JNIEnv* env,
 }
 
 extern "C" JNIEXPORT void JNICALL Java_art_Test1962_setupThread(
-    JNIEnv* env, jclass klass ATTRIBUTE_UNUSED, jthread thr, jobject events, jobject target) {
+    JNIEnv* env, jclass klass [[maybe_unused]], jthread thr, jobject events, jobject target) {
   BreakpointData* data = nullptr;
   if (JvmtiErrorToException(
           env, jvmti_env, jvmti_env->Allocate(sizeof(*data), reinterpret_cast<uint8_t**>(&data)))) {

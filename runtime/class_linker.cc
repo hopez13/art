@@ -1496,16 +1496,14 @@ class CountInternedStringReferencesVisitor {
   // Visit Class Fields
   void operator()(ObjPtr<mirror::Object> obj,
                   MemberOffset offset,
-                  bool is_static ATTRIBUTE_UNUSED) const
-      REQUIRES_SHARED(Locks::mutator_lock_) {
+                  bool is_static [[maybe_unused]]) const REQUIRES_SHARED(Locks::mutator_lock_) {
     // References within image or across images don't need a read barrier.
     ObjPtr<mirror::Object> referred_obj =
         obj->GetFieldObject<mirror::Object, kVerifyNone, kWithoutReadBarrier>(offset);
     TestObject(referred_obj);
   }
 
-  void operator()(ObjPtr<mirror::Class> klass ATTRIBUTE_UNUSED,
-                  ObjPtr<mirror::Reference> ref) const
+  void operator()(ObjPtr<mirror::Class> klass [[maybe_unused]], ObjPtr<mirror::Reference> ref) const
       REQUIRES_SHARED(Locks::mutator_lock_) REQUIRES(Locks::heap_bitmap_lock_) {
     operator()(ref, mirror::Reference::ReferentOffset(), /*is_static=*/ false);
   }
@@ -3340,7 +3338,7 @@ struct ScopedDefiningClass {
     return Finish(h_klass);
   }
 
-  ObjPtr<mirror::Class> Finish(nullptr_t np ATTRIBUTE_UNUSED)
+  ObjPtr<mirror::Class> Finish(nullptr_t np [[maybe_unused]])
       REQUIRES_SHARED(Locks::mutator_lock_) {
     ScopedNullHandle<mirror::Class> snh;
     return Finish(snh);
@@ -7361,8 +7359,8 @@ class ClassLinker::LinkMethodsHelper {
 
   class VTableIndexCheckerRelease {
    protected:
-    explicit VTableIndexCheckerRelease(size_t vtable_length ATTRIBUTE_UNUSED) {}
-    void CheckIndex(uint32_t index ATTRIBUTE_UNUSED) const {}
+    explicit VTableIndexCheckerRelease(size_t vtable_length [[maybe_unused]]) {}
+    void CheckIndex(uint32_t index [[maybe_unused]]) const {}
   };
 
   using VTableIndexChecker =
@@ -10927,27 +10925,27 @@ ObjPtr<mirror::ClassLoader> ClassLinker::GetHoldingClassLoaderOfCopiedMethod(Thr
       Runtime::Current()->GetJavaVM()->DecodeWeakGlobalAsStrong(result));
 }
 
-bool ClassLinker::DenyAccessBasedOnPublicSdk(ArtMethod* art_method ATTRIBUTE_UNUSED) const
+bool ClassLinker::DenyAccessBasedOnPublicSdk(ArtMethod* art_method [[maybe_unused]]) const
     REQUIRES_SHARED(Locks::mutator_lock_) {
   // Should not be called on ClassLinker, only on AotClassLinker that overrides this.
   LOG(FATAL) << "UNREACHABLE";
   UNREACHABLE();
 }
 
-bool ClassLinker::DenyAccessBasedOnPublicSdk(ArtField* art_field ATTRIBUTE_UNUSED) const
+bool ClassLinker::DenyAccessBasedOnPublicSdk(ArtField* art_field [[maybe_unused]]) const
     REQUIRES_SHARED(Locks::mutator_lock_) {
   // Should not be called on ClassLinker, only on AotClassLinker that overrides this.
   LOG(FATAL) << "UNREACHABLE";
   UNREACHABLE();
 }
 
-bool ClassLinker::DenyAccessBasedOnPublicSdk(const char* type_descriptor ATTRIBUTE_UNUSED) const {
+bool ClassLinker::DenyAccessBasedOnPublicSdk(const char* type_descriptor [[maybe_unused]]) const {
   // Should not be called on ClassLinker, only on AotClassLinker that overrides this.
   LOG(FATAL) << "UNREACHABLE";
   UNREACHABLE();
 }
 
-void ClassLinker::SetEnablePublicSdkChecks(bool enabled ATTRIBUTE_UNUSED) {
+void ClassLinker::SetEnablePublicSdkChecks(bool enabled [[maybe_unused]]) {
   // Should not be called on ClassLinker, only on AotClassLinker that overrides this.
   LOG(FATAL) << "UNREACHABLE";
   UNREACHABLE();

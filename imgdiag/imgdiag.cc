@@ -728,7 +728,7 @@ class RegionSpecializedBase<ArtMethod> : public RegionCommon<ArtMethod> {
                         ArrayRef<uint8_t> zygote_contents,
                         const android::procinfo::MapInfo& boot_map,
                         const ImageHeader& image_header,
-                        bool dump_dirty_objects ATTRIBUTE_UNUSED)
+                        bool dump_dirty_objects [[maybe_unused]])
       : RegionCommon<ArtMethod>(os, remote_contents, zygote_contents, boot_map, image_header),
         os_(*os) {
     // Prepare the table for offset to member lookups.
@@ -749,12 +749,9 @@ class RegionSpecializedBase<ArtMethod> : public RegionCommon<ArtMethod> {
     RegionCommon<ArtMethod>::image_header_.VisitPackedArtMethods(*visitor, base, pointer_size);
   }
 
-  void VisitEntry(ArtMethod* method ATTRIBUTE_UNUSED)
-      REQUIRES_SHARED(Locks::mutator_lock_) {
-  }
+  void VisitEntry(ArtMethod* method [[maybe_unused]]) REQUIRES_SHARED(Locks::mutator_lock_) {}
 
-  void AddCleanEntry(ArtMethod* method ATTRIBUTE_UNUSED) {
-  }
+  void AddCleanEntry(ArtMethod* method [[maybe_unused]]) {}
 
   void AddFalseDirtyEntry(ArtMethod* method)
       REQUIRES_SHARED(Locks::mutator_lock_) {
@@ -781,8 +778,8 @@ class RegionSpecializedBase<ArtMethod> : public RegionCommon<ArtMethod> {
   void DiffEntryContents(ArtMethod* method,
                          uint8_t* remote_bytes,
                          const uint8_t* base_ptr,
-                         bool log_dirty_objects ATTRIBUTE_UNUSED,
-                         size_t entry_offset ATTRIBUTE_UNUSED)
+                         bool log_dirty_objects [[maybe_unused]],
+                         size_t entry_offset [[maybe_unused]])
       REQUIRES_SHARED(Locks::mutator_lock_) {
     const char* tabs = "    ";
     os_ << tabs << "ArtMethod " << ArtMethod::PrettyMethod(method) << "\n";

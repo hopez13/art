@@ -35,9 +35,9 @@ struct IntrusiveForwardListHook {
   explicit IntrusiveForwardListHook(const IntrusiveForwardListHook* hook) : next_hook(hook) { }
 
   // Allow copyable values but do not copy the hook, it is not part of the value.
-  IntrusiveForwardListHook(const IntrusiveForwardListHook& other ATTRIBUTE_UNUSED)
-      : next_hook(nullptr) { }
-  IntrusiveForwardListHook& operator=(const IntrusiveForwardListHook& src ATTRIBUTE_UNUSED) {
+  IntrusiveForwardListHook(const IntrusiveForwardListHook& other [[maybe_unused]])
+      : next_hook(nullptr) {}
+  IntrusiveForwardListHook& operator=(const IntrusiveForwardListHook& src [[maybe_unused]]) {
     return *this;
   }
 

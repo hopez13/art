@@ -226,9 +226,9 @@ jvmtiError PropertiesUtil::GetSystemProperty(jvmtiEnv* env,
   return ERR(NOT_AVAILABLE);
 }
 
-jvmtiError PropertiesUtil::SetSystemProperty(jvmtiEnv* env ATTRIBUTE_UNUSED,
-                                             const char* property ATTRIBUTE_UNUSED,
-                                             const char* value ATTRIBUTE_UNUSED) {
+jvmtiError PropertiesUtil::SetSystemProperty(jvmtiEnv* env [[maybe_unused]],
+                                             const char* property [[maybe_unused]],
+                                             const char* value [[maybe_unused]]) {
   // We do not allow manipulation of any property here.
   return ERR(NOT_AVAILABLE);
 }

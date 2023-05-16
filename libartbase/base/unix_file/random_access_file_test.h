@@ -171,8 +171,7 @@ class RandomAccessFileTest : public testing::Test {
     CleanUp(file.get());
   }
 
-  virtual void CleanUp(RandomAccessFile* file ATTRIBUTE_UNUSED) {
-  }
+  virtual void CleanUp(RandomAccessFile* file [[maybe_unused]]) {}
 
  protected:
   std::string android_data_;

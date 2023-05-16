@@ -162,7 +162,7 @@ jvmtiError MethodUtil::GetBytecodes(jvmtiEnv* env,
   return OK;
 }
 
-jvmtiError MethodUtil::GetArgumentsSize(jvmtiEnv* env ATTRIBUTE_UNUSED,
+jvmtiError MethodUtil::GetArgumentsSize(jvmtiEnv* env [[maybe_unused]],
                                         jmethodID method,
                                         jint* size_ptr) {
   if (method == nullptr) {
@@ -284,7 +284,7 @@ jvmtiError MethodUtil::GetLocalVariableTable(jvmtiEnv* env,
   return release(entry_count_ptr, table_ptr);
 }
 
-jvmtiError MethodUtil::GetMaxLocals(jvmtiEnv* env ATTRIBUTE_UNUSED,
+jvmtiError MethodUtil::GetMaxLocals(jvmtiEnv* env [[maybe_unused]],
                                     jmethodID method,
                                     jint* max_ptr) {
   if (method == nullptr) {
@@ -380,7 +380,7 @@ jvmtiError MethodUtil::GetMethodName(jvmtiEnv* env,
   return ERR(NONE);
 }
 
-jvmtiError MethodUtil::GetMethodDeclaringClass(jvmtiEnv* env ATTRIBUTE_UNUSED,
+jvmtiError MethodUtil::GetMethodDeclaringClass(jvmtiEnv* env [[maybe_unused]],
                                                jmethodID method,
                                                jclass* declaring_class_ptr) {
   if (declaring_class_ptr == nullptr) {
@@ -397,7 +397,7 @@ jvmtiError MethodUtil::GetMethodDeclaringClass(jvmtiEnv* env ATTRIBUTE_UNUSED,
   return ERR(NONE);
 }
 
-jvmtiError MethodUtil::GetMethodLocation(jvmtiEnv* env ATTRIBUTE_UNUSED,
+jvmtiError MethodUtil::GetMethodLocation(jvmtiEnv* env [[maybe_unused]],
                                          jmethodID method,
                                          jlocation* start_location_ptr,
                                          jlocation* end_location_ptr) {
@@ -430,7 +430,7 @@ jvmtiError MethodUtil::GetMethodLocation(jvmtiEnv* env ATTRIBUTE_UNUSED,
   return ERR(NONE);
 }
 
-jvmtiError MethodUtil::GetMethodModifiers(jvmtiEnv* env ATTRIBUTE_UNUSED,
+jvmtiError MethodUtil::GetMethodModifiers(jvmtiEnv* env [[maybe_unused]],
                                           jmethodID method,
                                           jint* modifiers_ptr) {
   if (modifiers_ptr == nullptr) {
@@ -507,7 +507,7 @@ jvmtiError MethodUtil::GetLineNumberTable(jvmtiEnv* env,
 }
 
 template <typename T>
-static jvmtiError IsMethodT(jvmtiEnv* env ATTRIBUTE_UNUSED,
+static jvmtiError IsMethodT(jvmtiEnv* env [[maybe_unused]],
                             jmethodID method,
                             T test,
                             jboolean* is_t_ptr) {
@@ -833,9 +833,9 @@ class GetLocalVariableClosure : public CommonLocalVariableClosure {
     return res;
   }
 
-  jvmtiError GetTypeErrorInner(art::ArtMethod* method ATTRIBUTE_UNUSED,
+  jvmtiError GetTypeErrorInner(art::ArtMethod* method [[maybe_unused]],
                                SlotType slot_type,
-                               const std::string& descriptor ATTRIBUTE_UNUSED)
+                               const std::string& descriptor [[maybe_unused]])
       REQUIRES_SHARED(art::Locks::mutator_lock_) {
     switch (type_) {
       case art::Primitive::kPrimFloat:
@@ -1177,7 +1177,7 @@ class GetLocalInstanceClosure : public art::Closure {
   art::GcRoot<art::mirror::Object> val_;
 };
 
-jvmtiError MethodUtil::GetLocalInstance(jvmtiEnv* env ATTRIBUTE_UNUSED,
+jvmtiError MethodUtil::GetLocalInstance(jvmtiEnv* env [[maybe_unused]],
                                         jthread thread,
                                         jint depth,
                                         jobject* data) {

@@ -52,8 +52,8 @@ extern "C" JNIEXPORT jobject JNICALL Java_art_Test989_returnValueNative(JNIEnv* 
   return env->CallStaticObjectMethod(klass, targetMethod);
 }
 
-extern "C" JNIEXPORT void JNICALL Java_art_Test989_doNothingNative(JNIEnv* env ATTRIBUTE_UNUSED,
-                                                                   jclass klass ATTRIBUTE_UNUSED) {
+extern "C" JNIEXPORT void JNICALL Java_art_Test989_doNothingNative(JNIEnv* env [[maybe_unused]],
+                                                                   jclass klass [[maybe_unused]]) {
   return;
 }
 

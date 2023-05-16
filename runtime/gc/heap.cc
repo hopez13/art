@@ -132,7 +132,7 @@ void EnableHeapSamplerCallback(void* enable_ptr,
 
 // Disable the heap sampler Callback function used by Perfetto.
 void DisableHeapSamplerCallback(void* disable_ptr,
-                                const AHeapProfileDisableCallbackInfo* info_ptr ATTRIBUTE_UNUSED) {
+                                const AHeapProfileDisableCallbackInfo* info_ptr [[maybe_unused]]) {
   HeapSampler* sampler_self = reinterpret_cast<HeapSampler*>(disable_ptr);
   sampler_self->DisableHeapSampler();
 }
@@ -2342,7 +2342,7 @@ class ZygoteCompactingCollector final : public collector::SemiSpace {
     }
   }
 
-  bool ShouldSweepSpace(space::ContinuousSpace* space ATTRIBUTE_UNUSED) const override {
+  bool ShouldSweepSpace(space::ContinuousSpace* space [[maybe_unused]]) const override {
     // Don't sweep any spaces since we probably blasted the internal accounting of the free list
     // allocator.
     return false;
@@ -2986,7 +2986,7 @@ class VerifyReferenceVisitor : public SingleRootVisitor {
     CHECK_EQ(self_, Thread::Current());
   }
 
-  void operator()(ObjPtr<mirror::Class> klass ATTRIBUTE_UNUSED, ObjPtr<mirror::Reference> ref) const
+  void operator()(ObjPtr<mirror::Class> klass [[maybe_unused]], ObjPtr<mirror::Reference> ref) const
       REQUIRES_SHARED(Locks::mutator_lock_) {
     if (verify_referent_) {
       VerifyReference(ref.Ptr(), ref->GetReferent(), mirror::Reference::ReferentOffset());
@@ -2995,8 +2995,7 @@ class VerifyReferenceVisitor : public SingleRootVisitor {
 
   void operator()(ObjPtr<mirror::Object> obj,
                   MemberOffset offset,
-                  bool is_static ATTRIBUTE_UNUSED) const
-      REQUIRES_SHARED(Locks::mutator_lock_) {
+                  bool is_static [[maybe_unused]]) const REQUIRES_SHARED(Locks::mutator_lock_) {
     VerifyReference(obj.Ptr(), obj->GetFieldObject<mirror::Object>(offset), offset);
   }
 
@@ -3251,9 +3250,9 @@ class VerifyReferenceCardVisitor {
   }
 
   // There is no card marks for native roots on a class.
-  void VisitRootIfNonNull(mirror::CompressedReference<mirror::Object>* root ATTRIBUTE_UNUSED)
-      const {}
-  void VisitRoot(mirror::CompressedReference<mirror::Object>* root ATTRIBUTE_UNUSED) const {}
+  void VisitRootIfNonNull(mirror::CompressedReference<mirror::Object>* root
+                          [[maybe_unused]]) const {}
+  void VisitRoot(mirror::CompressedReference<mirror::Object>* root [[maybe_unused]]) const {}
 
   // TODO: Fix lock analysis to not use NO_THREAD_SAFETY_ANALYSIS, requires support for
   // annotalysis on visitors.
@@ -3502,7 +3501,7 @@ void Heap::PreGcVerification(collector::GarbageCollector* gc) {
   }
 }
 
-void Heap::PrePauseRosAllocVerification(collector::GarbageCollector* gc ATTRIBUTE_UNUSED) {
+void Heap::PrePauseRosAllocVerification(collector::GarbageCollector* gc [[maybe_unused]]) {
   // TODO: Add a new runtime option for this?
   if (verify_pre_gc_rosalloc_) {
     RosAllocVerification(current_gc_iteration_.GetTimings(), "PreGcRosAllocVerification");

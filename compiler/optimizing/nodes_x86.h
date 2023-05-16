@@ -149,13 +149,13 @@ class HX86AndNot final : public HBinaryOperation {
     return GetBlock()->GetGraph()->GetLongConstant(
         Compute(x->GetValue(), y->GetValue()), GetDexPc());
   }
-  HConstant* Evaluate(HFloatConstant* x ATTRIBUTE_UNUSED,
-                      HFloatConstant* y ATTRIBUTE_UNUSED) const override {
+  HConstant* Evaluate(HFloatConstant* x [[maybe_unused]],
+                      HFloatConstant* y [[maybe_unused]]) const override {
     LOG(FATAL) << DebugName() << " is not defined for float values";
     UNREACHABLE();
   }
-  HConstant* Evaluate(HDoubleConstant* x ATTRIBUTE_UNUSED,
-                      HDoubleConstant* y ATTRIBUTE_UNUSED) const override {
+  HConstant* Evaluate(HDoubleConstant* x [[maybe_unused]],
+                      HDoubleConstant* y [[maybe_unused]]) const override {
     LOG(FATAL) << DebugName() << " is not defined for double values";
     UNREACHABLE();
   }
@@ -196,11 +196,11 @@ class HX86MaskOrResetLeastSetBit final : public HUnaryOperation {
   HConstant* Evaluate(HLongConstant* x) const override {
     return GetBlock()->GetGraph()->GetLongConstant(Compute(x->GetValue()), GetDexPc());
   }
-  HConstant* Evaluate(HFloatConstant* x ATTRIBUTE_UNUSED) const override {
+  HConstant* Evaluate(HFloatConstant* x [[maybe_unused]]) const override {
     LOG(FATAL) << DebugName() << "is not defined for float values";
     UNREACHABLE();
   }
-  HConstant* Evaluate(HDoubleConstant* x ATTRIBUTE_UNUSED) const override {
+  HConstant* Evaluate(HDoubleConstant* x [[maybe_unused]]) const override {
     LOG(FATAL) << DebugName() << "is not defined for double values";
     UNREACHABLE();
   }

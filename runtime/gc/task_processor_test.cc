@@ -105,7 +105,7 @@ class TestOrderTask : public HeapTask {
   TestOrderTask(uint64_t expected_time, size_t expected_counter, size_t* counter)
      : HeapTask(expected_time), expected_counter_(expected_counter), counter_(counter) {
   }
-  void Run(Thread* thread ATTRIBUTE_UNUSED) override {
+  void Run(Thread* thread [[maybe_unused]]) override {
     ASSERT_EQ(*counter_, expected_counter_);
     ++*counter_;
   }

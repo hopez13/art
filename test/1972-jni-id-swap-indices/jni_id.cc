@@ -27,7 +27,7 @@
 namespace art {
 
 extern "C" JNIEXPORT jlong JNICALL Java_Main_GetMethodId(JNIEnv* env,
-                                                         jclass k ATTRIBUTE_UNUSED,
+                                                         jclass k [[maybe_unused]],
                                                          bool is_static,
                                                          jclass target,
                                                          jstring name,
@@ -42,18 +42,18 @@ extern "C" JNIEXPORT jlong JNICALL Java_Main_GetMethodId(JNIEnv* env,
   return res;
 }
 
-extern "C" JNIEXPORT jobject JNICALL Java_Main_GetJniType(JNIEnv* env, jclass k ATTRIBUTE_UNUSED) {
+extern "C" JNIEXPORT jobject JNICALL Java_Main_GetJniType(JNIEnv* env, jclass k [[maybe_unused]]) {
   std::ostringstream oss;
   oss << Runtime::Current()->GetJniIdType();
   return env->NewStringUTF(oss.str().c_str());
 }
 
-extern "C" JNIEXPORT void JNICALL Java_Main_SetToPointerIds(JNIEnv* env ATTRIBUTE_UNUSED,
-                                                            jclass k ATTRIBUTE_UNUSED) {
+extern "C" JNIEXPORT void JNICALL Java_Main_SetToPointerIds(JNIEnv* env [[maybe_unused]],
+                                                            jclass k [[maybe_unused]]) {
   Runtime::Current()->SetJniIdType(JniIdType::kPointer);
 }
-extern "C" JNIEXPORT void JNICALL Java_Main_SetToIndexIds(JNIEnv* env ATTRIBUTE_UNUSED,
-                                                          jclass k ATTRIBUTE_UNUSED) {
+extern "C" JNIEXPORT void JNICALL Java_Main_SetToIndexIds(JNIEnv* env [[maybe_unused]],
+                                                          jclass k [[maybe_unused]]) {
   Runtime::Current()->SetJniIdType(JniIdType::kIndices);
 }
 

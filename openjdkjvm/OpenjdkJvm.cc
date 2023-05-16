@@ -204,8 +204,7 @@ JNIEXPORT void* JVM_FindLibraryEntry(void* handle, const char* name) {
     return dlsym(handle, name);
 }
 
-JNIEXPORT jlong JVM_CurrentTimeMillis(JNIEnv* env ATTRIBUTE_UNUSED,
-                                      jclass clazz ATTRIBUTE_UNUSED) {
+JNIEXPORT jlong JVM_CurrentTimeMillis(JNIEnv* env [[maybe_unused]], jclass clazz [[maybe_unused]]) {
     struct timeval tv;
     gettimeofday(&tv, (struct timezone *) nullptr);
     jlong when = tv.tv_sec * 1000LL + tv.tv_usec / 1000;
@@ -216,9 +215,9 @@ JNIEXPORT jlong JVM_CurrentTimeMillis(JNIEnv* env ATTRIBUTE_UNUSED,
  * See the spec of this function in jdk.internal.misc.VM.
  * @return -1 if the system time isn't within  +/- 2^32 seconds from offset_secs
  */
-JNIEXPORT jlong JVM_GetNanoTimeAdjustment(JNIEnv *ATTRIBUTE_UNUSED,
-                                         jclass ATTRIBUTE_UNUSED,
-                                         jlong offset_secs) {
+JNIEXPORT jlong JVM_GetNanoTimeAdjustment([[maybe_unused]] JNIEnv*,
+                                          [[maybe_unused]] jclass,
+                                          jlong offset_secs) {
     struct timeval tv;
     // Note that we don't want the elapsed time here, but the system clock.
     // gettimeofday() doesn't provide nanosecond-level precision.
@@ -388,19 +387,21 @@ JNIEXPORT void JVM_SetThreadPriority(JNIEnv* env, jobject jthread, jint prio) {
   }
 }
 
-JNIEXPORT void JVM_Yield(JNIEnv* env ATTRIBUTE_UNUSED, jclass threadClass ATTRIBUTE_UNUSED) {
+JNIEXPORT void JVM_Yield(JNIEnv* env [[maybe_unused]], jclass threadClass [[maybe_unused]]) {
   sched_yield();
 }
 
-JNIEXPORT void JVM_Sleep(JNIEnv* env, jclass threadClass ATTRIBUTE_UNUSED,
-                         jobject java_lock, jlong millis) {
+JNIEXPORT void JVM_Sleep(JNIEnv* env,
+                         jclass threadClass [[maybe_unused]],
+                         jobject java_lock,
+                         jlong millis) {
   art::ScopedFastNativeObjectAccess soa(env);
   art::ObjPtr<art::mirror::Object> lock = soa.Decode<art::mirror::Object>(java_lock);
   art::Monitor::Wait(
       art::Thread::Current(), lock.Ptr(), millis, 0, true, art::ThreadState::kSleeping);
 }
 
-JNIEXPORT jobject JVM_CurrentThread(JNIEnv* env, jclass unused ATTRIBUTE_UNUSED) {
+JNIEXPORT jobject JVM_CurrentThread(JNIEnv* env, jclass unused [[maybe_unused]]) {
   art::ScopedFastNativeObjectAccess soa(env);
   return soa.AddLocalReference<jobject>(soa.Self()->GetPeer());
 }
@@ -425,7 +426,7 @@ JNIEXPORT jboolean JVM_IsInterrupted(JNIEnv* env, jobject jthread, jboolean clea
   }
 }
 
-JNIEXPORT jboolean JVM_HoldsLock(JNIEnv* env, jclass unused ATTRIBUTE_UNUSED, jobject jobj) {
+JNIEXPORT jboolean JVM_HoldsLock(JNIEnv* env, jclass unused [[maybe_unused]], jobject jobj) {
   art::ScopedObjectAccess soa(env);
   art::ObjPtr<art::mirror::Object> object = soa.Decode<art::mirror::Object>(jobj);
   if (object == nullptr) {
@@ -435,21 +436,22 @@ JNIEXPORT jboolean JVM_HoldsLock(JNIEnv* env, jclass unused ATTRIBUTE_UNUSED, jo
   return soa.Self()->HoldsLock(object);
 }
 
-JNIEXPORT __attribute__((noreturn)) void JVM_SetNativeThreadName(
-    JNIEnv* env ATTRIBUTE_UNUSED,
-    jobject jthread ATTRIBUTE_UNUSED,
-    jstring java_name ATTRIBUTE_UNUSED) {
+JNIEXPORT __attribute__((noreturn)) void JVM_SetNativeThreadName(JNIEnv* env [[maybe_unused]],
+                                                                 jobject jthread [[maybe_unused]],
+                                                                 jstring java_name
+                                                                 [[maybe_unused]]) {
   UNIMPLEMENTED(FATAL) << "JVM_SetNativeThreadName is not implemented";
   UNREACHABLE();
 }
 
-JNIEXPORT __attribute__((noreturn)) jint JVM_IHashCode(JNIEnv* env ATTRIBUTE_UNUSED,
-                             jobject javaObject ATTRIBUTE_UNUSED) {
+JNIEXPORT __attribute__((noreturn)) jint JVM_IHashCode(JNIEnv* env [[maybe_unused]],
+                                                       jobject javaObject [[maybe_unused]]) {
   UNIMPLEMENTED(FATAL) << "JVM_IHashCode is not implemented";
   UNREACHABLE();
 }
 
-JNIEXPORT __attribute__((noreturn)) jlong JVM_NanoTime(JNIEnv* env ATTRIBUTE_UNUSED, jclass unused ATTRIBUTE_UNUSED) {
+JNIEXPORT __attribute__((noreturn)) jlong JVM_NanoTime(JNIEnv* env [[maybe_unused]],
+                                                       jclass unused [[maybe_unused]]) {
   UNIMPLEMENTED(FATAL) << "JVM_NanoTime is not implemented";
   UNREACHABLE();
 }
@@ -461,17 +463,18 @@ JNIEXPORT __attribute__((noreturn)) void JVM_ArrayCopy(JNIEnv* /* env */, jclass
   UNREACHABLE();
 }
 
-JNIEXPORT __attribute__((noreturn)) jint JVM_FindSignal(const char* name ATTRIBUTE_UNUSED) {
+JNIEXPORT __attribute__((noreturn)) jint JVM_FindSignal(const char* name [[maybe_unused]]) {
   LOG(FATAL) << "JVM_FindSignal is not implemented";
   UNREACHABLE();
 }
 
-JNIEXPORT __attribute__((noreturn)) void* JVM_RegisterSignal(jint signum ATTRIBUTE_UNUSED, void* handler ATTRIBUTE_UNUSED) {
+JNIEXPORT __attribute__((noreturn)) void* JVM_RegisterSignal(jint signum [[maybe_unused]],
+                                                             void* handler [[maybe_unused]]) {
   LOG(FATAL) << "JVM_RegisterSignal is not implemented";
   UNREACHABLE();
 }
 
-JNIEXPORT __attribute__((noreturn)) jboolean JVM_RaiseSignal(jint signum ATTRIBUTE_UNUSED) {
+JNIEXPORT __attribute__((noreturn)) jboolean JVM_RaiseSignal(jint signum [[maybe_unused]]) {
   LOG(FATAL) << "JVM_RaiseSignal is not implemented";
   UNREACHABLE();
 }
