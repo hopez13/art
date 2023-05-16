@@ -100,7 +100,7 @@ class CollectVisitedVisitor : public MarkObjectVisitor {
  public:
   explicit CollectVisitedVisitor(std::set<mirror::Object*>* out) : out_(out) {}
   void MarkHeapReference(mirror::HeapReference<mirror::Object>* ref,
-                         bool do_atomic_update ATTRIBUTE_UNUSED) override
+                         bool do_atomic_update [[maybe_unused]]) override
       REQUIRES_SHARED(Locks::mutator_lock_) {
     DCHECK(ref != nullptr);
     MarkObject(ref->AsMirrorPtr());

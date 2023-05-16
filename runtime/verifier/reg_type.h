@@ -312,7 +312,7 @@ class RegType {
         cache_id_(cache_id) {}
 
   template <typename Class>
-  void CheckConstructorInvariants(Class* this_ ATTRIBUTE_UNUSED) const
+  void CheckConstructorInvariants(Class* this_ [[maybe_unused]]) const
       REQUIRES_SHARED(Locks::mutator_lock_) {
     static_assert(std::is_final<Class>::value, "Class must be final.");
     if (kIsDebugBuild) {

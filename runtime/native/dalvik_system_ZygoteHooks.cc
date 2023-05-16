@@ -266,8 +266,8 @@ static void ZygoteHooks_nativePostZygoteFork(JNIEnv*, jclass) {
   Runtime::Current()->PostZygoteFork();
 }
 
-static void ZygoteHooks_nativePostForkSystemServer(JNIEnv* env ATTRIBUTE_UNUSED,
-                                                   jclass klass ATTRIBUTE_UNUSED,
+static void ZygoteHooks_nativePostForkSystemServer(JNIEnv* env [[maybe_unused]],
+                                                   jclass klass [[maybe_unused]],
                                                    jint runtime_flags) {
   // Reload the current flags first. In case we need to take actions based on them.
   Runtime::Current()->ReloadAllFlags(__FUNCTION__);
@@ -441,18 +441,18 @@ static void ZygoteHooks_nativePostForkChild(JNIEnv* env,
   }
 }
 
-static void ZygoteHooks_startZygoteNoThreadCreation(JNIEnv* env ATTRIBUTE_UNUSED,
-                                                    jclass klass ATTRIBUTE_UNUSED) {
+static void ZygoteHooks_startZygoteNoThreadCreation(JNIEnv* env [[maybe_unused]],
+                                                    jclass klass [[maybe_unused]]) {
   Runtime::Current()->SetZygoteNoThreadSection(true);
 }
 
-static void ZygoteHooks_stopZygoteNoThreadCreation(JNIEnv* env ATTRIBUTE_UNUSED,
-                                                   jclass klass ATTRIBUTE_UNUSED) {
+static void ZygoteHooks_stopZygoteNoThreadCreation(JNIEnv* env [[maybe_unused]],
+                                                   jclass klass [[maybe_unused]]) {
   Runtime::Current()->SetZygoteNoThreadSection(false);
 }
 
-static jboolean ZygoteHooks_nativeZygoteLongSuspendOk(JNIEnv* env ATTRIBUTE_UNUSED,
-                                                    jclass klass ATTRIBUTE_UNUSED) {
+static jboolean ZygoteHooks_nativeZygoteLongSuspendOk(JNIEnv* env [[maybe_unused]],
+                                                      jclass klass [[maybe_unused]]) {
   // Indefinite thread suspensions are not OK if we're supposed to be JIT-compiling for other
   // processes.  We only care about JIT compilation that affects other processes.  The zygote
   // itself doesn't run appreciable amounts of Java code when running single-threaded, so
@@ -463,7 +463,6 @@ static jboolean ZygoteHooks_nativeZygoteLongSuspendOk(JNIEnv* env ATTRIBUTE_UNUS
   static bool explicitlyDisabled = Runtime::Current()->IsJavaZygoteForkLoopRequired();
   return (isJitZygote || explicitlyDisabled) ? JNI_FALSE : JNI_TRUE;
 }
-
 
 static JNINativeMethod gMethods[] = {
   NATIVE_METHOD(ZygoteHooks, nativePreFork, "()J"),

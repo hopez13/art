@@ -357,13 +357,14 @@ inline void EventHandler::ExecuteCallback(impl::EventHandlerFunc<kEvent> handler
 // Need to give custom specializations for Breakpoint since it needs to filter out which particular
 // methods/dex_pcs agents get notified on.
 template <>
-inline bool EventHandler::ShouldDispatch<ArtJvmtiEvent::kBreakpoint>(
-    ArtJvmTiEnv* env,
-    art::Thread* thread,
-    JNIEnv* jnienv ATTRIBUTE_UNUSED,
-    jthread jni_thread ATTRIBUTE_UNUSED,
-    jmethodID jmethod,
-    jlocation location) const {
+inline bool EventHandler::ShouldDispatch<ArtJvmtiEvent::kBreakpoint>(ArtJvmTiEnv* env,
+                                                                     art::Thread* thread,
+                                                                     JNIEnv* jnienv
+                                                                     [[maybe_unused]],
+                                                                     jthread jni_thread
+                                                                     [[maybe_unused]],
+                                                                     jmethodID jmethod,
+                                                                     jlocation location) const {
   art::ReaderMutexLock lk(art::Thread::Current(), env->event_info_mutex_);
   art::ArtMethod* method = art::jni::DecodeArtMethod(jmethod);
   return ShouldDispatchOnThread<ArtJvmtiEvent::kBreakpoint>(env, thread) &&
@@ -374,10 +375,10 @@ template <>
 inline bool EventHandler::ShouldDispatch<ArtJvmtiEvent::kFramePop>(
     ArtJvmTiEnv* env,
     art::Thread* thread,
-    JNIEnv* jnienv ATTRIBUTE_UNUSED,
-    jthread jni_thread ATTRIBUTE_UNUSED,
-    jmethodID jmethod ATTRIBUTE_UNUSED,
-    jboolean is_exception ATTRIBUTE_UNUSED,
+    JNIEnv* jnienv [[maybe_unused]],
+    jthread jni_thread [[maybe_unused]],
+    jmethodID jmethod [[maybe_unused]],
+    jboolean is_exception [[maybe_unused]],
     const art::ShadowFrame* frame) const {
   // Search for the frame. Do this before checking if we need to send the event so that we don't
   // have to deal with use-after-free or the frames being reallocated later.
@@ -395,15 +396,15 @@ template <>
 inline bool EventHandler::ShouldDispatch<ArtJvmtiEvent::kFieldModification>(
     ArtJvmTiEnv* env,
     art::Thread* thread,
-    JNIEnv* jnienv ATTRIBUTE_UNUSED,
-    jthread jni_thread ATTRIBUTE_UNUSED,
-    jmethodID method ATTRIBUTE_UNUSED,
-    jlocation location ATTRIBUTE_UNUSED,
-    jclass field_klass ATTRIBUTE_UNUSED,
-    jobject object ATTRIBUTE_UNUSED,
+    JNIEnv* jnienv [[maybe_unused]],
+    jthread jni_thread [[maybe_unused]],
+    jmethodID method [[maybe_unused]],
+    jlocation location [[maybe_unused]],
+    jclass field_klass [[maybe_unused]],
+    jobject object [[maybe_unused]],
     jfieldID field,
-    char type_char ATTRIBUTE_UNUSED,
-    jvalue val ATTRIBUTE_UNUSED) const {
+    char type_char [[maybe_unused]],
+    jvalue val [[maybe_unused]]) const {
   art::ReaderMutexLock lk(art::Thread::Current(), env->event_info_mutex_);
   return ShouldDispatchOnThread<ArtJvmtiEvent::kFieldModification>(env, thread) &&
       env->modify_watched_fields.find(
@@ -414,12 +415,12 @@ template <>
 inline bool EventHandler::ShouldDispatch<ArtJvmtiEvent::kFieldAccess>(
     ArtJvmTiEnv* env,
     art::Thread* thread,
-    JNIEnv* jnienv ATTRIBUTE_UNUSED,
-    jthread jni_thread ATTRIBUTE_UNUSED,
-    jmethodID method ATTRIBUTE_UNUSED,
-    jlocation location ATTRIBUTE_UNUSED,
-    jclass field_klass ATTRIBUTE_UNUSED,
-    jobject object ATTRIBUTE_UNUSED,
+    JNIEnv* jnienv [[maybe_unused]],
+    jthread jni_thread [[maybe_unused]],
+    jmethodID method [[maybe_unused]],
+    jlocation location [[maybe_unused]],
+    jclass field_klass [[maybe_unused]],
+    jobject object [[maybe_unused]],
     jfieldID field) const {
   art::ReaderMutexLock lk(art::Thread::Current(), env->event_info_mutex_);
   return ShouldDispatchOnThread<ArtJvmtiEvent::kFieldAccess>(env, thread) &&
@@ -439,7 +440,7 @@ inline void EventHandler::ExecuteCallback<ArtJvmtiEvent::kFramePop>(
     jthread jni_thread,
     jmethodID jmethod,
     jboolean is_exception,
-    const art::ShadowFrame* frame ATTRIBUTE_UNUSED) {
+    const art::ShadowFrame* frame [[maybe_unused]]) {
   ExecuteCallback<ArtJvmtiEvent::kFramePop>(event, jnienv, jni_thread, jmethod, is_exception);
 }
 
@@ -628,10 +629,10 @@ inline bool EventHandler::ShouldDispatchOnThread(ArtJvmTiEnv* env, art::Thread* 
   return dispatch;
 }
 
-template <ArtJvmtiEvent kEvent, typename ...Args>
+template <ArtJvmtiEvent kEvent, typename... Args>
 inline bool EventHandler::ShouldDispatch(ArtJvmTiEnv* env,
                                          art::Thread* thread,
-                                         Args... args ATTRIBUTE_UNUSED) const {
+                                         Args... args [[maybe_unused]]) const {
   static_assert(std::is_same<typename impl::EventFnType<kEvent>::type,
                              void(*)(jvmtiEnv*, Args...)>::value,
                 "Unexpected different type of shouldDispatch");

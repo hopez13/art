@@ -344,13 +344,13 @@ void ArmVIXLJNIMacroAssembler::StoreStackPointerToThread(ThreadOffset32 thr_offs
   }
 }
 
-void ArmVIXLJNIMacroAssembler::SignExtend(ManagedRegister mreg ATTRIBUTE_UNUSED,
-                                          size_t size ATTRIBUTE_UNUSED) {
+void ArmVIXLJNIMacroAssembler::SignExtend(ManagedRegister mreg [[maybe_unused]],
+                                          size_t size [[maybe_unused]]) {
   UNIMPLEMENTED(FATAL) << "no sign extension necessary for arm";
 }
 
-void ArmVIXLJNIMacroAssembler::ZeroExtend(ManagedRegister mreg ATTRIBUTE_UNUSED,
-                                          size_t size ATTRIBUTE_UNUSED) {
+void ArmVIXLJNIMacroAssembler::ZeroExtend(ManagedRegister mreg [[maybe_unused]],
+                                          size_t size [[maybe_unused]]) {
   UNIMPLEMENTED(FATAL) << "no zero extension necessary for arm";
 }
 
@@ -720,7 +720,7 @@ void ArmVIXLJNIMacroAssembler::MoveArguments(ArrayRef<ArgumentLocation> dests,
 
 void ArmVIXLJNIMacroAssembler::Move(ManagedRegister mdst,
                                     ManagedRegister msrc,
-                                    size_t size  ATTRIBUTE_UNUSED) {
+                                    size_t size [[maybe_unused]]) {
   ArmManagedRegister dst = mdst.AsArm();
   if (kIsDebugBuild) {
     // Check that the destination is not a scratch register.
@@ -861,13 +861,13 @@ void ArmVIXLJNIMacroAssembler::DecodeJNITransitionOrLocalJObject(ManagedRegister
   ___ Ldr(reg, MemOperand(reg));
 }
 
-void ArmVIXLJNIMacroAssembler::VerifyObject(ManagedRegister src ATTRIBUTE_UNUSED,
-                                            bool could_be_null ATTRIBUTE_UNUSED) {
+void ArmVIXLJNIMacroAssembler::VerifyObject(ManagedRegister src [[maybe_unused]],
+                                            bool could_be_null [[maybe_unused]]) {
   // TODO: not validating references.
 }
 
-void ArmVIXLJNIMacroAssembler::VerifyObject(FrameOffset src ATTRIBUTE_UNUSED,
-                                            bool could_be_null ATTRIBUTE_UNUSED) {
+void ArmVIXLJNIMacroAssembler::VerifyObject(FrameOffset src [[maybe_unused]],
+                                            bool could_be_null [[maybe_unused]]) {
   // TODO: not validating references.
 }
 

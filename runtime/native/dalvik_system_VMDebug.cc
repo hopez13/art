@@ -90,7 +90,7 @@ static void VMDebug_startMethodTracingDdmsImpl(JNIEnv*, jclass, jint bufferSize,
 
 static void VMDebug_startMethodTracingFd(JNIEnv* env,
                                          jclass,
-                                         jstring javaTraceFilename ATTRIBUTE_UNUSED,
+                                         jstring javaTraceFilename [[maybe_unused]],
                                          jint javaFd,
                                          jint bufferSize,
                                          jint flags,

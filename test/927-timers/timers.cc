@@ -32,7 +32,7 @@ namespace art {
 namespace Test926Timers {
 
 extern "C" JNIEXPORT jint JNICALL Java_art_Test927_getAvailableProcessors(
-    JNIEnv* env, jclass Main_klass ATTRIBUTE_UNUSED) {
+    JNIEnv* env, jclass Main_klass [[maybe_unused]]) {
   jint count;
   jvmtiError result = jvmti_env->GetAvailableProcessors(&count);
   if (JvmtiErrorToException(env, jvmti_env, result)) {
@@ -42,7 +42,7 @@ extern "C" JNIEXPORT jint JNICALL Java_art_Test927_getAvailableProcessors(
 }
 
 extern "C" JNIEXPORT jlong JNICALL Java_art_Test927_getTime(
-    JNIEnv* env, jclass Main_klass ATTRIBUTE_UNUSED) {
+    JNIEnv* env, jclass Main_klass [[maybe_unused]]) {
   jlong time;
   jvmtiError result = jvmti_env->GetTime(&time);
   if (JvmtiErrorToException(env, jvmti_env, result)) {
@@ -52,7 +52,7 @@ extern "C" JNIEXPORT jlong JNICALL Java_art_Test927_getTime(
 }
 
 extern "C" JNIEXPORT jobjectArray JNICALL Java_art_Test927_getTimerInfo(
-    JNIEnv* env, jclass Main_klass ATTRIBUTE_UNUSED) {
+    JNIEnv* env, jclass Main_klass [[maybe_unused]]) {
   jvmtiTimerInfo info;
   jvmtiError result = jvmti_env->GetTimerInfo(&info);
   if (JvmtiErrorToException(env, jvmti_env, result)) {

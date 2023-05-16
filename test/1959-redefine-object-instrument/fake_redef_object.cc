@@ -39,10 +39,10 @@ namespace Test1959RedefineObjectInstrument {
 // Just pull it out of the dex file but don't bother changing anything.
 static void JNICALL RedefineObjectHook(jvmtiEnv *jvmti_env,
                                        JNIEnv* env,
-                                       jclass class_being_redefined ATTRIBUTE_UNUSED,
-                                       jobject loader ATTRIBUTE_UNUSED,
+                                       jclass class_being_redefined [[maybe_unused]],
+                                       jobject loader [[maybe_unused]],
                                        const char* name,
-                                       jobject protection_domain ATTRIBUTE_UNUSED,
+                                       jobject protection_domain [[maybe_unused]],
                                        jint class_data_len,
                                        const unsigned char* class_data,
                                        jint* new_class_data_len,
@@ -93,7 +93,7 @@ static void JNICALL RedefineObjectHook(jvmtiEnv *jvmti_env,
 }
 
 extern "C" JNIEXPORT void JNICALL Java_Main_forceRedefine(JNIEnv* env,
-                                                          jclass klass ATTRIBUTE_UNUSED,
+                                                          jclass klass [[maybe_unused]],
                                                           jclass obj_class,
                                                           jthread thr) {
   if (IsJVM()) {

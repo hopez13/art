@@ -237,8 +237,8 @@ static jboolean VMRuntime_isCheckJniEnabled(JNIEnv* env, jobject) {
   return down_cast<JNIEnvExt*>(env)->GetVm()->IsCheckJniEnabled() ? JNI_TRUE : JNI_FALSE;
 }
 
-static jint VMRuntime_getSdkVersionNative(JNIEnv* env ATTRIBUTE_UNUSED,
-                                          jclass klass ATTRIBUTE_UNUSED,
+static jint VMRuntime_getSdkVersionNative(JNIEnv* env [[maybe_unused]],
+                                          jclass klass [[maybe_unused]],
                                           jint default_sdk_version) {
   return android::base::GetIntProperty("ro.build.version.sdk",
                                        default_sdk_version);
@@ -355,8 +355,7 @@ static void VMRuntime_runHeapTasks(JNIEnv* env, jobject) {
   Runtime::Current()->GetHeap()->GetTaskProcessor()->RunAllTasks(Thread::ForEnv(env));
 }
 
-static void VMRuntime_preloadDexCaches(JNIEnv* env ATTRIBUTE_UNUSED, jobject) {
-}
+static void VMRuntime_preloadDexCaches(JNIEnv* env [[maybe_unused]], jobject) {}
 
 /*
  * This is called by the framework after it loads a code path on behalf of the app.
@@ -364,7 +363,7 @@ static void VMRuntime_preloadDexCaches(JNIEnv* env ATTRIBUTE_UNUSED, jobject) {
  * for more precise telemetry (e.g. is the split apk odex up to date?) and debugging.
  */
 static void VMRuntime_registerAppInfo(JNIEnv* env,
-                                      jclass clazz ATTRIBUTE_UNUSED,
+                                      jclass clazz [[maybe_unused]],
                                       jstring package_name,
                                       jstring cur_profile_file,
                                       jstring ref_profile_file,
@@ -418,8 +417,8 @@ static jstring VMRuntime_getCurrentInstructionSet(JNIEnv* env, jclass) {
   return env->NewStringUTF(GetInstructionSetString(kRuntimeISA));
 }
 
-static void VMRuntime_setSystemDaemonThreadPriority(JNIEnv* env ATTRIBUTE_UNUSED,
-                                                    jclass klass ATTRIBUTE_UNUSED) {
+static void VMRuntime_setSystemDaemonThreadPriority(JNIEnv* env [[maybe_unused]],
+                                                    jclass klass [[maybe_unused]]) {
 #ifdef ART_TARGET_ANDROID
   Thread* self = Thread::Current();
   DCHECK(self != nullptr);
@@ -435,14 +434,14 @@ static void VMRuntime_setSystemDaemonThreadPriority(JNIEnv* env ATTRIBUTE_UNUSED
 #endif
 }
 
-static void VMRuntime_setDedupeHiddenApiWarnings(JNIEnv* env ATTRIBUTE_UNUSED,
-                                                 jclass klass ATTRIBUTE_UNUSED,
+static void VMRuntime_setDedupeHiddenApiWarnings(JNIEnv* env [[maybe_unused]],
+                                                 jclass klass [[maybe_unused]],
                                                  jboolean dedupe) {
   Runtime::Current()->SetDedupeHiddenApiWarnings(dedupe);
 }
 
 static void VMRuntime_setProcessPackageName(JNIEnv* env,
-                                            jclass klass ATTRIBUTE_UNUSED,
+                                            jclass klass [[maybe_unused]],
                                             jstring java_package_name) {
   ScopedUtfChars package_name(env, java_package_name);
   Runtime::Current()->SetProcessPackageName(package_name.c_str());
@@ -453,8 +452,7 @@ static void VMRuntime_setProcessDataDirectory(JNIEnv* env, jclass, jstring java_
   Runtime::Current()->SetProcessDataDirectory(data_dir.c_str());
 }
 
-static void VMRuntime_bootCompleted(JNIEnv* env ATTRIBUTE_UNUSED,
-                                    jclass klass ATTRIBUTE_UNUSED) {
+static void VMRuntime_bootCompleted(JNIEnv* env [[maybe_unused]], jclass klass [[maybe_unused]]) {
   jit::Jit* jit = Runtime::Current()->GetJit();
   if (jit != nullptr) {
     jit->BootCompleted();
@@ -482,14 +480,14 @@ class ClearJitCountersVisitor : public ClassVisitor {
   }
 };
 
-static void VMRuntime_resetJitCounters(JNIEnv* env, jclass klass ATTRIBUTE_UNUSED) {
+static void VMRuntime_resetJitCounters(JNIEnv* env, jclass klass [[maybe_unused]]) {
   ScopedObjectAccess soa(env);
   ClearJitCountersVisitor visitor;
   Runtime::Current()->GetClassLinker()->VisitClasses(&visitor);
 }
 
 static jboolean VMRuntime_isValidClassLoaderContext(JNIEnv* env,
-                                                    jclass klass ATTRIBUTE_UNUSED,
+                                                    jclass klass [[maybe_unused]],
                                                     jstring jencoded_class_loader_context) {
   if (UNLIKELY(jencoded_class_loader_context == nullptr)) {
     ScopedFastNativeObjectAccess soa(env);
@@ -500,7 +498,7 @@ static jboolean VMRuntime_isValidClassLoaderContext(JNIEnv* env,
   return ClassLoaderContext::IsValidEncoding(encoded_class_loader_context.c_str());
 }
 
-static jobject VMRuntime_getBaseApkOptimizationInfo(JNIEnv* env, jclass klass ATTRIBUTE_UNUSED) {
+static jobject VMRuntime_getBaseApkOptimizationInfo(JNIEnv* env, jclass klass [[maybe_unused]]) {
   AppInfo* app_info = Runtime::Current()->GetAppInfo();
   DCHECK(app_info != nullptr);
 

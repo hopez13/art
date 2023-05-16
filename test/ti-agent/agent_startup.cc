@@ -26,13 +26,13 @@ namespace art {
 
 // Utility functions for binding jni methods.
 extern "C" JNIEXPORT void JNICALL Java_art_Main_bindAgentJNI(
-    JNIEnv* env, jclass klass ATTRIBUTE_UNUSED, jstring className, jobject classLoader) {
+    JNIEnv* env, jclass klass [[maybe_unused]], jstring className, jobject classLoader) {
   ScopedUtfChars name(env, className);
   BindFunctions(jvmti_env, env, name.c_str(), classLoader);
 }
 
 extern "C" JNIEXPORT void JNICALL Java_art_Main_bindAgentJNIForClass(
-    JNIEnv* env, jclass klass ATTRIBUTE_UNUSED, jclass bindClass) {
+    JNIEnv* env, jclass klass [[maybe_unused]], jclass bindClass) {
   BindFunctionsOnClass(jvmti_env, env, bindClass);
 }
 

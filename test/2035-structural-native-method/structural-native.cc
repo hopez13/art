@@ -31,12 +31,12 @@
 namespace art {
 namespace Test2035StructuralNativeMethod {
 
-jlong JNICALL TransformNativeMethod(JNIEnv* env ATTRIBUTE_UNUSED, jclass klass ATTRIBUTE_UNUSED) {
+jlong JNICALL TransformNativeMethod(JNIEnv* env [[maybe_unused]], jclass klass [[maybe_unused]]) {
   return 42;
 }
 
 extern "C" JNIEXPORT void JNICALL Java_art_Test2035_LinkClassMethods(
-    JNIEnv* env, jclass klass ATTRIBUTE_UNUSED, jclass target) {
+    JNIEnv* env, jclass klass [[maybe_unused]], jclass target) {
   JNINativeMethod meth{"getValue", "()J", reinterpret_cast<void*>(TransformNativeMethod)};
   env->RegisterNatives(target, &meth, 1);
 }

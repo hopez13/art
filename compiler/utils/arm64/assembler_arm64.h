@@ -145,10 +145,10 @@ class Arm64Assembler final : public Assembler {
   // MaybeGenerateMarkingRegisterCheck and is passed to the BRK instruction.
   void GenerateMarkingRegisterCheck(vixl::aarch64::Register temp, int code = 0);
 
-  void Bind(Label* label ATTRIBUTE_UNUSED) override {
+  void Bind(Label* label [[maybe_unused]]) override {
     UNIMPLEMENTED(FATAL) << "Do not use Bind(Label*) for ARM64";
   }
-  void Jump(Label* label ATTRIBUTE_UNUSED) override {
+  void Jump(Label* label [[maybe_unused]]) override {
     UNIMPLEMENTED(FATAL) << "Do not use Jump(Label*) for ARM64";
   }
 

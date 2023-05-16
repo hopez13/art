@@ -105,13 +105,13 @@ class HBitwiseNegatedRight final : public HBinaryOperation {
     return GetBlock()->GetGraph()->GetLongConstant(
         Compute(x->GetValue(), y->GetValue()), GetDexPc());
   }
-  HConstant* Evaluate(HFloatConstant* x ATTRIBUTE_UNUSED,
-                      HFloatConstant* y ATTRIBUTE_UNUSED) const override {
+  HConstant* Evaluate(HFloatConstant* x [[maybe_unused]],
+                      HFloatConstant* y [[maybe_unused]]) const override {
     LOG(FATAL) << DebugName() << " is not defined for float values";
     UNREACHABLE();
   }
-  HConstant* Evaluate(HDoubleConstant* x ATTRIBUTE_UNUSED,
-                      HDoubleConstant* y ATTRIBUTE_UNUSED) const override {
+  HConstant* Evaluate(HDoubleConstant* x [[maybe_unused]],
+                      HDoubleConstant* y [[maybe_unused]]) const override {
     LOG(FATAL) << DebugName() << " is not defined for double values";
     UNREACHABLE();
   }
@@ -160,7 +160,7 @@ class HIntermediateAddressIndex final : public HExpression<3> {
 
   bool IsClonable() const override { return true; }
   bool CanBeMoved() const override { return true; }
-  bool InstructionDataEquals(const HInstruction* other ATTRIBUTE_UNUSED) const override {
+  bool InstructionDataEquals(const HInstruction* other [[maybe_unused]]) const override {
     return true;
   }
   bool IsActualObject() const override { return false; }

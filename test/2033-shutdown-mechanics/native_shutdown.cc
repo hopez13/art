@@ -34,7 +34,7 @@ static void MaybePrintTime() {
 
 
 extern "C" [[noreturn]] JNIEXPORT void JNICALL Java_Main_monitorShutdown(
-    JNIEnv* env, jclass klass ATTRIBUTE_UNUSED) {
+    JNIEnv* env, jclass klass [[maybe_unused]]) {
   bool found_shutdown = false;
   bool found_runtime_deleted = false;
   JNIEnvExt* const extEnv = down_cast<JNIEnvExt*>(env);
