@@ -16,6 +16,92 @@
       "message": "Do you plan to test this on golem before submitting? Shall we wait for performance numbers to be added to the commit message?",
       "revId": "9933be7373e0c8e9c83220598cc3f0b7da69bb99",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a3f775f_cdb15838",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-05-16T18:43:46Z",
+      "side": 1,
+      "message": "My main concern here is whether 16-bit sequence numbers are enough, or whether this will lead to another source of very rare crashes. How frequent are updates? Is it plausible that we will cycle through 32K updates within 10 seconds or so? If not, this is OK. Otherwise I\u0027m concerned, and we may want a separate sequence number.",
+      "revId": "9933be7373e0c8e9c83220598cc3f0b7da69bb99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2cce5c5b_f3ad6d6c",
+        "filename": "runtime/base/atomic_pair.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-05-16T18:43:46Z",
+      "side": 1,
+      "message": "Not very clear. kSeqParity?",
+      "range": {
+        "startLine": 41,
+        "startChar": 27,
+        "endLine": 41,
+        "endChar": 28
+      },
+      "revId": "9933be7373e0c8e9c83220598cc3f0b7da69bb99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea450c1c_a4c479b5",
+        "filename": "runtime/base/atomic_pair.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-05-16T18:43:46Z",
+      "side": 1,
+      "message": "This can be changed to relaxed. Given the current acquire-load situation on RISC-V, we should do so. If I read the first field of a concurrent store in the first read, then the write of the second field happens-before that read, so I must see it, too, so I have a consistent value. If I see the second field of a write in the middle load, and I don\u0027t see the final store of first, then I must still see the results of the compare_exchange, and thus see a bad parity bit.",
+      "range": {
+        "startLine": 79,
+        "startChar": 32,
+        "endLine": 79,
+        "endChar": 58
+      },
+      "revId": "9933be7373e0c8e9c83220598cc3f0b7da69bb99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4ef59f8_5ab9f61b",
+        "filename": "runtime/base/atomic_pair.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-05-16T18:43:46Z",
+      "side": 1,
+      "message": "This is currently dead code, right? And that may be correct; I would guess the above load implementation is as fast as the one below. Remove the x86-specific code?\n\nThe x86-specific one has the annoying property that loads conflict in the cache.",
+      "range": {
+        "startLine": 101,
+        "startChar": 1,
+        "endLine": 101,
+        "endChar": 25
+      },
+      "revId": "9933be7373e0c8e9c83220598cc3f0b7da69bb99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
