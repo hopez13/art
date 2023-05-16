@@ -72,15 +72,15 @@ if [[ $action = create ]]; then
     qemu-img resize "$ART_TEST_VM_IMG" +128G
 
     # https://help.ubuntu.com/community/CloudInit
-    cat >user-data <<EOF
+#    cat >user-data <<EOF
 #cloud-config
-ssh_pwauth: true
-chpasswd:
-  expire: false
-  list:
-    - $ART_TEST_SSH_USER:ubuntu
-EOF
-    cloud-localds user-data.img user-data
+#ssh_pwauth: true
+#chpasswd:
+#  expire: false
+#  list:
+#    - $ART_TEST_SSH_USER:ubuntu
+#EOF
+#    genisoimage -output user-data.img -V cidata -J -input-charset utf-8 -r user-data
 )
 elif [[ $action = boot ]]; then
 (
@@ -94,7 +94,7 @@ elif [[ $action = boot ]]; then
             -bios fw_jump.elf \
             -kernel uboot.elf \
             -drive file="$ART_TEST_VM_IMG",if=virtio \
-            -drive file=user-data.img,format=raw,if=virtio \
+#            -drive file=user-data.img,format=raw,if=virtio \
             -device virtio-net-device,netdev=usernet \
             -netdev user,id=usernet,hostfwd=tcp::$ART_TEST_SSH_PORT-:22
     elif [[ "$TARGET_ARCH" = "arm64" ]]; then
@@ -107,7 +107,7 @@ elif [[ $action = boot ]]; then
             -drive if=none,file="$ART_TEST_VM_IMG",id=hd0 \
             -pflash flash0.img \
             -pflash flash1.img \
-            -drive file=user-data.img,format=raw,id=cloud \
+#           -drive file=user-data.img,format=raw,id=cloud \
             -device virtio-blk-device,drive=hd0 \
             -device virtio-net-device,netdev=usernet \
             -netdev user,id=usernet,hostfwd=tcp::$ART_TEST_SSH_PORT-:22
