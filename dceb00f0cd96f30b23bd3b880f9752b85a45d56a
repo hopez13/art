@@ -70,6 +70,24 @@
       "parentUuid": "340e7117_3106feec",
       "revId": "dceb00f0cd96f30b23bd3b880f9752b85a45d56a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c7c81b1b_87d138ed",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-05-16T17:07:08Z",
+      "side": 1,
+      "message": "\u003e \u003e I did test the repro steps in the bug.\n\u003e \n\u003e Ok. I believe they require the internal master tree, so you patched your CL into that, then?\n\nYes.\n\n\u003e \u003e That\u0027s what I meant with Test: Build the ART module locally.\n\u003e \n\u003e That sounds like the opposite; the kind of build that the repro does is to build everything _except_ the ART module (in the last step, that is).\n\nAck, updated the `Test:` in the CL comment.\n\n\u003e \u003e Ah, hang on: should m ART_MODULE_BUILD_FROM_SOURCE\u003dfalse nothing pass on master or master-art? Do I need any special environment?\n\u003e \n\u003e It needs to pass on master. I don\u0027t know if `ART_MODULE_BUILD_FROM_SOURCE\u003dfalse` works on master-art at all, but it\u0027s pointless there because master-art can only build ART itself, and that flag tells the build system that it should use a prebuilt instead for the whole thing.\n\u003e \n\u003e So please test `m ART_MODULE_BUILD_FROM_SOURCE\u003dfalse nothing` on master. If that works, please mention that here. (And then you don\u0027t need to test on internal master, if you haven\u0027t done that already.)\n\n`m ART_MODULE_BUILD_FROM_SOURCE\u003dfalse nothing` works for internal master, fails on AOSP with:\n```\nFAILED: out/soong/build.ninja\ncd \"$(dirname \"out/host/linux-x86/bin/soong_build\")\" \u0026\u0026 BUILDER\u003d\"$PWD/$(basename \"out/host/linux-x86/bin/soong_build\")\" \u0026\u0026 cd / \u0026\u0026 env -i  \"$BUILDER\"     --top \"$TOP\"     --soong_out \"out/soong\"     --out \"out\"     -o out/soong/build.ninja --bazel-mode --use-bazel-proxy --globListDir build --globFile out/soong/globs-build.ninja -t -l out/.module_paths/Android.bp.list --available_env out/soong/soong.environment.available --used_env out/soong/soong.environment.used.build Android.bp\nerror: frameworks/base/api/StubLibraries.bp:381:1: module \"android_stubs_private_jar\" variant \"android_common\": depends on //prebuilts/module_sdk/art/current/sdk:prebuilt_core-lambda-stubs-for-system-modules which is not visible to this module\nYou may need to add \"//frameworks/base/api\" to its visibility\nerror: frameworks/base/api/StubLibraries.bp:381:1: module \"android_stubs_private_jar\" variant \"android_common\": depends on //prebuilts/module_sdk/art/current/sdk:prebuilt_core-generated-annotation-stubs which is not visible to this module\nYou may need to add \"//frameworks/base/api\" to its visibility\n17:22:53 soong bootstrap failed with: exit status 1\n```\nwhich looks like an unrelated failure",
+      "parentUuid": "7f8d0a88_4149a31c",
+      "revId": "dceb00f0cd96f30b23bd3b880f9752b85a45d56a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
