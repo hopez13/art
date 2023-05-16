@@ -46,6 +46,30 @@
       },
       "revId": "ce6aeec3e72780bd9d085c431d5a2aa4ea61804b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6bf1c40d_3ca6d522",
+        "filename": "runtime/mirror/dex_cache.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-05-16T10:11:38Z",
+      "side": 1,
+      "message": "Thanks for clarifying Hans!",
+      "parentUuid": "c39b7932_718439d3",
+      "range": {
+        "startLine": 301,
+        "startChar": 0,
+        "endLine": 304,
+        "endChar": 58
+      },
+      "revId": "ce6aeec3e72780bd9d085c431d5a2aa4ea61804b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
