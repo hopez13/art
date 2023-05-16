@@ -332,7 +332,7 @@ class ImageSpace::PatchObjectVisitor final {
   }
 
   template <typename T>
-  T* operator()(T* ptr, void** dest_addr ATTRIBUTE_UNUSED) const {
+  T* operator()(T* ptr, void** dest_addr [[maybe_unused]]) const {
     return (ptr != nullptr) ? native_visitor_(ptr) : nullptr;
   }
 
@@ -373,9 +373,9 @@ class ImageSpace::PatchObjectVisitor final {
     this->operator()(ref, mirror::Reference::ReferentOffset(), /*is_static=*/ false);
   }
   // Ignore class native roots; not called from VisitReferences() for kVisitNativeRoots == false.
-  void VisitRootIfNonNull(mirror::CompressedReference<mirror::Object>* root ATTRIBUTE_UNUSED)
-      const {}
-  void VisitRoot(mirror::CompressedReference<mirror::Object>* root ATTRIBUTE_UNUSED) const {}
+  void VisitRootIfNonNull(mirror::CompressedReference<mirror::Object>* root
+                          [[maybe_unused]]) const {}
+  void VisitRoot(mirror::CompressedReference<mirror::Object>* root [[maybe_unused]]) const {}
 
   template <typename T> void VisitNativeDexCacheArray(mirror::NativeArray<T>* array)
       REQUIRES_SHARED(Locks::mutator_lock_) {
@@ -516,8 +516,8 @@ class ImageSpace::RemapInternedStringsVisitor {
   // Visitor for VisitReferences().
   ALWAYS_INLINE void operator()(ObjPtr<mirror::Object> object,
                                 MemberOffset field_offset,
-                                bool is_static ATTRIBUTE_UNUSED)
-      const REQUIRES_SHARED(Locks::mutator_lock_) {
+                                bool is_static [[maybe_unused]]) const
+      REQUIRES_SHARED(Locks::mutator_lock_) {
     ObjPtr<mirror::Object> old_value =
         object->GetFieldObject<mirror::Object, kVerifyNone, kWithoutReadBarrier>(field_offset);
     if (old_value != nullptr &&
@@ -538,9 +538,9 @@ class ImageSpace::RemapInternedStringsVisitor {
     this->operator()(ref, mirror::Reference::ReferentOffset(), /*is_static=*/ false);
   }
   // Ignore class native roots; not called from VisitReferences() for kVisitNativeRoots == false.
-  void VisitRootIfNonNull(mirror::CompressedReference<mirror::Object>* root ATTRIBUTE_UNUSED)
-      const {}
-  void VisitRoot(mirror::CompressedReference<mirror::Object>* root ATTRIBUTE_UNUSED) const {}
+  void VisitRootIfNonNull(mirror::CompressedReference<mirror::Object>* root
+                          [[maybe_unused]]) const {}
+  void VisitRoot(mirror::CompressedReference<mirror::Object>* root [[maybe_unused]]) const {}
 
  private:
   mirror::Class* GetStringClass() REQUIRES_SHARED(Locks::mutator_lock_) {
@@ -1178,16 +1178,15 @@ class ImageSpace::Loader {
         : visited_(visited), forward_(forward) {}
 
     // Fix up separately since we also need to fix up method entrypoints.
-    ALWAYS_INLINE void VisitRootIfNonNull(
-        mirror::CompressedReference<mirror::Object>* root ATTRIBUTE_UNUSED) const {}
+    ALWAYS_INLINE void VisitRootIfNonNull(mirror::CompressedReference<mirror::Object>* root
+                                          [[maybe_unused]]) const {}
 
-    ALWAYS_INLINE void VisitRoot(mirror::CompressedReference<mirror::Object>* root ATTRIBUTE_UNUSED)
-        const {}
+    ALWAYS_INLINE void VisitRoot(mirror::CompressedReference<mirror::Object>* root
+                                 [[maybe_unused]]) const {}
 
     ALWAYS_INLINE void operator()(ObjPtr<mirror::Object> obj,
                                   MemberOffset offset,
-                                  bool is_static ATTRIBUTE_UNUSED) const
-        NO_THREAD_SAFETY_ANALYSIS {
+                                  bool is_static [[maybe_unused]]) const NO_THREAD_SAFETY_ANALYSIS {
       // Space is not yet added to the heap, don't do a read barrier.
       mirror::Object* ref = obj->GetFieldObject<mirror::Object, kVerifyNone, kWithoutReadBarrier>(
           offset);
@@ -1898,7 +1897,7 @@ bool ImageSpace::BootImageLayout::CompileBootclasspathElements(
     // TODO: Rewrite ProfileCompilationInfo to provide a better interface and
     // to store the dex locations in uncompressed section of the file.
     auto collect_fn = [&dex_locations](const std::string& dex_location,
-                                       uint32_t checksum ATTRIBUTE_UNUSED) {
+                                       uint32_t checksum [[maybe_unused]]) {
       dex_locations.insert(dex_location);  // Just collect locations.
       return false;                        // Do not read the profile data.
     };
@@ -2188,8 +2187,8 @@ bool ImageSpace::BootImageLayout::LoadFromSystem(InstructionSet image_isa,
                                                  bool allow_in_memory_compilation,
                                                  /*out*/ std::string* error_msg) {
   auto filename_fn = [image_isa](const std::string& location,
-                                 /*out*/std::string* filename,
-                                 /*out*/std::string* err_msg ATTRIBUTE_UNUSED) {
+                                 /*out*/ std::string* filename,
+                                 /*out*/ std::string* err_msg [[maybe_unused]]) {
     *filename = GetSystemImageFilename(location.c_str(), image_isa);
     return true;
   };

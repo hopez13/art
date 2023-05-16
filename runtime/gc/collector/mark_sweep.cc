@@ -416,7 +416,7 @@ inline void MarkSweep::MarkObjectNonNullParallel(mirror::Object* obj) {
 }
 
 bool MarkSweep::IsNullOrMarkedHeapReference(mirror::HeapReference<mirror::Object>* ref,
-                                            bool do_atomic_update ATTRIBUTE_UNUSED) {
+                                            bool do_atomic_update [[maybe_unused]]) {
   mirror::Object* obj = ref->AsMirrorPtr();
   if (obj == nullptr) {
     return true;
@@ -558,7 +558,7 @@ inline bool MarkSweep::MarkObjectParallel(mirror::Object* obj) {
 }
 
 void MarkSweep::MarkHeapReference(mirror::HeapReference<mirror::Object>* ref,
-                                  bool do_atomic_update ATTRIBUTE_UNUSED) {
+                                  bool do_atomic_update [[maybe_unused]]) {
   MarkObject(ref->AsMirrorPtr(), nullptr, MemberOffset(0));
 }
 
@@ -588,7 +588,7 @@ class MarkSweep::VerifyRootMarkedVisitor : public SingleRootVisitor {
 
 void MarkSweep::VisitRoots(mirror::Object*** roots,
                            size_t count,
-                           const RootInfo& info ATTRIBUTE_UNUSED) {
+                           const RootInfo& info [[maybe_unused]]) {
   for (size_t i = 0; i < count; ++i) {
     MarkObjectNonNull(*roots[i]);
   }
@@ -596,7 +596,7 @@ void MarkSweep::VisitRoots(mirror::Object*** roots,
 
 void MarkSweep::VisitRoots(mirror::CompressedReference<mirror::Object>** roots,
                            size_t count,
-                           const RootInfo& info ATTRIBUTE_UNUSED) {
+                           const RootInfo& info [[maybe_unused]]) {
   for (size_t i = 0; i < count; ++i) {
     MarkObjectNonNull(roots[i]->AsMirrorPtr());
   }
@@ -698,8 +698,8 @@ class MarkSweep::MarkStackTask : public Task {
         : chunk_task_(chunk_task), mark_sweep_(mark_sweep) {}
 
     ALWAYS_INLINE void operator()(mirror::Object* obj,
-                    MemberOffset offset,
-                    bool is_static ATTRIBUTE_UNUSED) const
+                                  MemberOffset offset,
+                                  bool is_static [[maybe_unused]]) const
         REQUIRES_SHARED(Locks::mutator_lock_) {
       Mark(obj->GetFieldObject<mirror::Object>(offset));
     }
@@ -793,8 +793,7 @@ class MarkSweep::MarkStackTask : public Task {
   }
 
   // Scans all of the objects
-  void Run(Thread* self ATTRIBUTE_UNUSED) override
-      REQUIRES(Locks::heap_bitmap_lock_)
+  void Run(Thread* self [[maybe_unused]]) override REQUIRES(Locks::heap_bitmap_lock_)
       REQUIRES_SHARED(Locks::mutator_lock_) {
     ScanObjectParallelVisitor visitor(this);
     // TODO: Tune this.
@@ -1142,9 +1141,10 @@ class MarkSweep::CheckpointMarkThreadRoots : public Closure, public RootVisitor 
             revoke_ros_alloc_thread_local_buffers_at_checkpoint) {
   }
 
-  void VisitRoots(mirror::Object*** roots, size_t count, const RootInfo& info ATTRIBUTE_UNUSED)
-      override REQUIRES_SHARED(Locks::mutator_lock_)
-      REQUIRES(Locks::heap_bitmap_lock_) {
+  void VisitRoots(mirror::Object*** roots,
+                  size_t count,
+                  const RootInfo& info [[maybe_unused]]) override
+      REQUIRES_SHARED(Locks::mutator_lock_) REQUIRES(Locks::heap_bitmap_lock_) {
     for (size_t i = 0; i < count; ++i) {
       mark_sweep_->MarkObjectNonNullParallel(*roots[i]);
     }
@@ -1152,9 +1152,8 @@ class MarkSweep::CheckpointMarkThreadRoots : public Closure, public RootVisitor 
 
   void VisitRoots(mirror::CompressedReference<mirror::Object>** roots,
                   size_t count,
-                  const RootInfo& info ATTRIBUTE_UNUSED)
-      override REQUIRES_SHARED(Locks::mutator_lock_)
-      REQUIRES(Locks::heap_bitmap_lock_) {
+                  const RootInfo& info [[maybe_unused]]) override
+      REQUIRES_SHARED(Locks::mutator_lock_) REQUIRES(Locks::heap_bitmap_lock_) {
     for (size_t i = 0; i < count; ++i) {
       mark_sweep_->MarkObjectNonNullParallel(roots[i]->AsMirrorPtr());
     }
@@ -1352,9 +1351,8 @@ class MarkVisitor {
 
   ALWAYS_INLINE void operator()(mirror::Object* obj,
                                 MemberOffset offset,
-                                bool is_static ATTRIBUTE_UNUSED) const
-      REQUIRES(Locks::heap_bitmap_lock_)
-      REQUIRES_SHARED(Locks::mutator_lock_) {
+                                bool is_static [[maybe_unused]]) const
+      REQUIRES(Locks::heap_bitmap_lock_) REQUIRES_SHARED(Locks::mutator_lock_) {
     if (kCheckLocks) {
       Locks::mutator_lock_->AssertSharedHeld(Thread::Current());
       Locks::heap_bitmap_lock_->AssertExclusiveHeld(Thread::Current());

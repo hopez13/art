@@ -17,8 +17,7 @@
 #include <android-base/macros.h>
 #include <odrefresh/odrefresh.h>
 
-
-int main(int argc ATTRIBUTE_UNUSED, char** argv ATTRIBUTE_UNUSED) {
+int main(int argc [[maybe_unused]], char** argv [[maybe_unused]]) {
   // Return a value that will make odsign just cleanup all potential existing /data
   // artifacts.
   return art::odrefresh::ExitCode::kCleanupFailed;

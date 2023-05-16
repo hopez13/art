@@ -21,13 +21,13 @@
 namespace art {
 
 extern "C" JNIEXPORT jint JNICALL Java_Main_getNativePriority(JNIEnv* env,
-                                                              jclass clazz ATTRIBUTE_UNUSED) {
+                                                              jclass clazz [[maybe_unused]]) {
   return Thread::ForEnv(env)->GetNativePriority();
 }
 
 extern "C" JNIEXPORT jboolean JNICALL Java_Main_supportsThreadPriorities(
-    JNIEnv* env ATTRIBUTE_UNUSED,
-    jclass clazz ATTRIBUTE_UNUSED) {
+    JNIEnv* env [[maybe_unused]],
+    jclass clazz [[maybe_unused]]) {
 #if defined(ART_TARGET_ANDROID)
   return JNI_TRUE;
 #else

@@ -45,7 +45,7 @@
 
 namespace openjdkjvmti {
 
-jvmtiError TimerUtil::GetAvailableProcessors(jvmtiEnv* env ATTRIBUTE_UNUSED,
+jvmtiError TimerUtil::GetAvailableProcessors(jvmtiEnv* env [[maybe_unused]],
                                              jint* processor_count_ptr) {
   if (processor_count_ptr == nullptr) {
     return ERR(NULL_POINTER);
@@ -56,7 +56,7 @@ jvmtiError TimerUtil::GetAvailableProcessors(jvmtiEnv* env ATTRIBUTE_UNUSED,
   return ERR(NONE);
 }
 
-jvmtiError TimerUtil::GetTimerInfo(jvmtiEnv* env ATTRIBUTE_UNUSED, jvmtiTimerInfo* info_ptr) {
+jvmtiError TimerUtil::GetTimerInfo(jvmtiEnv* env [[maybe_unused]], jvmtiTimerInfo* info_ptr) {
   if (info_ptr == nullptr) {
     return ERR(NULL_POINTER);
   }
@@ -69,7 +69,7 @@ jvmtiError TimerUtil::GetTimerInfo(jvmtiEnv* env ATTRIBUTE_UNUSED, jvmtiTimerInf
   return ERR(NONE);
 }
 
-jvmtiError TimerUtil::GetTime(jvmtiEnv* env ATTRIBUTE_UNUSED, jlong* nanos_ptr) {
+jvmtiError TimerUtil::GetTime(jvmtiEnv* env [[maybe_unused]], jlong* nanos_ptr) {
   if (nanos_ptr == nullptr) {
     return ERR(NULL_POINTER);
   }

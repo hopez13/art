@@ -147,14 +147,16 @@ class ArchNoOptsLoopHelper : public ArenaObject<kArenaAllocOptimization> {
   // will not bring any noticeable performance improvement however will increase the code size.
   //
   // Returns 'true' by default, should be overridden by particular target loop helper.
-  virtual bool IsLoopNonBeneficialForScalarOpts(
-      LoopAnalysisInfo* loop_analysis_info ATTRIBUTE_UNUSED) const { return true; }
+  virtual bool IsLoopNonBeneficialForScalarOpts(LoopAnalysisInfo* loop_analysis_info
+                                                [[maybe_unused]]) const {
+    return true;
+  }
 
   // Returns optimal scalar unrolling factor for the loop.
   //
   // Returns kNoUnrollingFactor by default, should be overridden by particular target loop helper.
-  virtual uint32_t GetScalarUnrollingFactor(
-      const LoopAnalysisInfo* analysis_info ATTRIBUTE_UNUSED) const {
+  virtual uint32_t GetScalarUnrollingFactor(const LoopAnalysisInfo* analysis_info
+                                            [[maybe_unused]]) const {
     return LoopAnalysisInfo::kNoUnrollingFactor;
   }
 
@@ -166,17 +168,17 @@ class ArchNoOptsLoopHelper : public ArenaObject<kArenaAllocOptimization> {
   // Returns whether it is beneficial to fully unroll the loop.
   //
   // Returns 'false' by default, should be overridden by particular target loop helper.
-  virtual bool IsFullUnrollingBeneficial(LoopAnalysisInfo* analysis_info ATTRIBUTE_UNUSED) const {
+  virtual bool IsFullUnrollingBeneficial(LoopAnalysisInfo* analysis_info [[maybe_unused]]) const {
     return false;
   }
 
   // Returns optimal SIMD unrolling factor for the loop.
   //
   // Returns kNoUnrollingFactor by default, should be overridden by particular target loop helper.
-  virtual uint32_t GetSIMDUnrollingFactor(HBasicBlock* block ATTRIBUTE_UNUSED,
-                                          int64_t trip_count ATTRIBUTE_UNUSED,
-                                          uint32_t max_peel ATTRIBUTE_UNUSED,
-                                          uint32_t vector_length ATTRIBUTE_UNUSED) const {
+  virtual uint32_t GetSIMDUnrollingFactor(HBasicBlock* block [[maybe_unused]],
+                                          int64_t trip_count [[maybe_unused]],
+                                          uint32_t max_peel [[maybe_unused]],
+                                          uint32_t vector_length [[maybe_unused]]) const {
     return LoopAnalysisInfo::kNoUnrollingFactor;
   }
 

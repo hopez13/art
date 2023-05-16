@@ -2135,7 +2135,7 @@ TEST_F(AssemblerX86_64Test, Psrldq) {
             "psrldq $2, %xmm15\n", "psrldqi");
 }
 
-std::string x87_fn(AssemblerX86_64Test::Base* assembler_test ATTRIBUTE_UNUSED,
+std::string x87_fn(AssemblerX86_64Test::Base* assembler_test [[maybe_unused]],
                    x86_64::X86_64Assembler* assembler) {
   std::ostringstream str;
 
@@ -2202,7 +2202,7 @@ TEST_F(AssemblerX86_64Test, RetImm) {
                     "ret ${imm}", /*non-negative*/ true), "ret");
 }
 
-std::string ret_and_leave_fn(AssemblerX86_64Test::Base* assembler_test ATTRIBUTE_UNUSED,
+std::string ret_and_leave_fn(AssemblerX86_64Test::Base* assembler_test [[maybe_unused]],
                              x86_64::X86_64Assembler* assembler) {
   std::ostringstream str;
 
@@ -2513,7 +2513,7 @@ static x86_64::X86_64ManagedRegister ManagedFromFpu(x86_64::FloatRegister r) {
   return x86_64::X86_64ManagedRegister::FromXmmRegister(r);
 }
 
-std::string buildframe_test_fn(JNIMacroAssemblerX86_64Test::Base* assembler_test ATTRIBUTE_UNUSED,
+std::string buildframe_test_fn(JNIMacroAssemblerX86_64Test::Base* assembler_test [[maybe_unused]],
                                x86_64::X86_64JNIMacroAssembler* assembler) {
   // TODO: more interesting spill registers / entry spills.
 
@@ -2556,7 +2556,7 @@ TEST_F(JNIMacroAssemblerX86_64Test, BuildFrame) {
   DriverFn(&buildframe_test_fn, "BuildFrame");
 }
 
-std::string removeframe_test_fn(JNIMacroAssemblerX86_64Test::Base* assembler_test ATTRIBUTE_UNUSED,
+std::string removeframe_test_fn(JNIMacroAssemblerX86_64Test::Base* assembler_test [[maybe_unused]],
                                 x86_64::X86_64JNIMacroAssembler* assembler) {
   // TODO: more interesting spill registers / entry spills.
 
@@ -2587,9 +2587,9 @@ TEST_F(JNIMacroAssemblerX86_64Test, RemoveFrame) {
   DriverFn(&removeframe_test_fn, "RemoveFrame");
 }
 
-std::string increaseframe_test_fn(
-    JNIMacroAssemblerX86_64Test::Base* assembler_test ATTRIBUTE_UNUSED,
-    x86_64::X86_64JNIMacroAssembler* assembler) {
+std::string increaseframe_test_fn(JNIMacroAssemblerX86_64Test::Base* assembler_test
+                                  [[maybe_unused]],
+                                  x86_64::X86_64JNIMacroAssembler* assembler) {
   assembler->IncreaseFrameSize(0U);
   assembler->IncreaseFrameSize(kStackAlignment);
   assembler->IncreaseFrameSize(10 * kStackAlignment);
@@ -2607,9 +2607,9 @@ TEST_F(JNIMacroAssemblerX86_64Test, IncreaseFrame) {
   DriverFn(&increaseframe_test_fn, "IncreaseFrame");
 }
 
-std::string decreaseframe_test_fn(
-    JNIMacroAssemblerX86_64Test::Base* assembler_test ATTRIBUTE_UNUSED,
-    x86_64::X86_64JNIMacroAssembler* assembler) {
+std::string decreaseframe_test_fn(JNIMacroAssemblerX86_64Test::Base* assembler_test
+                                  [[maybe_unused]],
+                                  x86_64::X86_64JNIMacroAssembler* assembler) {
   assembler->DecreaseFrameSize(0U);
   assembler->DecreaseFrameSize(kStackAlignment);
   assembler->DecreaseFrameSize(10 * kStackAlignment);

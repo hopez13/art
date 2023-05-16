@@ -220,10 +220,10 @@ class ArmVIXLAssembler final : public Assembler {
   // Copy instructions out of assembly buffer into the given region of memory.
   void FinalizeInstructions(const MemoryRegion& region) override;
 
-  void Bind(Label* label ATTRIBUTE_UNUSED) override {
+  void Bind(Label* label [[maybe_unused]]) override {
     UNIMPLEMENTED(FATAL) << "Do not use Bind(Label*) for ARM";
   }
-  void Jump(Label* label ATTRIBUTE_UNUSED) override {
+  void Jump(Label* label [[maybe_unused]]) override {
     UNIMPLEMENTED(FATAL) << "Do not use Jump(Label*) for ARM";
   }
 

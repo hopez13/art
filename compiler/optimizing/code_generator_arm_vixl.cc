@@ -1103,27 +1103,27 @@ static uint32_t ComputeSRegisterListMask(const SRegisterList& regs) {
 }
 
 // Saves the register in the stack. Returns the size taken on stack.
-size_t CodeGeneratorARMVIXL::SaveCoreRegister(size_t stack_index ATTRIBUTE_UNUSED,
-                                              uint32_t reg_id ATTRIBUTE_UNUSED) {
+size_t CodeGeneratorARMVIXL::SaveCoreRegister(size_t stack_index [[maybe_unused]],
+                                              uint32_t reg_id [[maybe_unused]]) {
   TODO_VIXL32(FATAL);
   UNREACHABLE();
 }
 
 // Restores the register from the stack. Returns the size taken on stack.
-size_t CodeGeneratorARMVIXL::RestoreCoreRegister(size_t stack_index ATTRIBUTE_UNUSED,
-                                                 uint32_t reg_id ATTRIBUTE_UNUSED) {
+size_t CodeGeneratorARMVIXL::RestoreCoreRegister(size_t stack_index [[maybe_unused]],
+                                                 uint32_t reg_id [[maybe_unused]]) {
   TODO_VIXL32(FATAL);
   UNREACHABLE();
 }
 
-size_t CodeGeneratorARMVIXL::SaveFloatingPointRegister(size_t stack_index ATTRIBUTE_UNUSED,
-                                                       uint32_t reg_id ATTRIBUTE_UNUSED) {
+size_t CodeGeneratorARMVIXL::SaveFloatingPointRegister(size_t stack_index [[maybe_unused]],
+                                                       uint32_t reg_id [[maybe_unused]]) {
   TODO_VIXL32(FATAL);
   UNREACHABLE();
 }
 
-size_t CodeGeneratorARMVIXL::RestoreFloatingPointRegister(size_t stack_index ATTRIBUTE_UNUSED,
-                                                          uint32_t reg_id ATTRIBUTE_UNUSED) {
+size_t CodeGeneratorARMVIXL::RestoreFloatingPointRegister(size_t stack_index [[maybe_unused]],
+                                                          uint32_t reg_id [[maybe_unused]]) {
   TODO_VIXL32(FATAL);
   UNREACHABLE();
 }
@@ -2869,8 +2869,7 @@ void LocationsBuilderARMVIXL::VisitExit(HExit* exit) {
   exit->SetLocations(nullptr);
 }
 
-void InstructionCodeGeneratorARMVIXL::VisitExit(HExit* exit ATTRIBUTE_UNUSED) {
-}
+void InstructionCodeGeneratorARMVIXL::VisitExit(HExit* exit [[maybe_unused]]) {}
 
 void InstructionCodeGeneratorARMVIXL::GenerateCompareTestAndBranch(HCondition* condition,
                                                                    vixl32::Label* true_target,
@@ -3467,7 +3466,7 @@ void LocationsBuilderARMVIXL::VisitIntConstant(HIntConstant* constant) {
   locations->SetOut(Location::ConstantLocation(constant));
 }
 
-void InstructionCodeGeneratorARMVIXL::VisitIntConstant(HIntConstant* constant ATTRIBUTE_UNUSED) {
+void InstructionCodeGeneratorARMVIXL::VisitIntConstant(HIntConstant* constant [[maybe_unused]]) {
   // Will be generated at use site.
 }
 
@@ -3477,7 +3476,7 @@ void LocationsBuilderARMVIXL::VisitNullConstant(HNullConstant* constant) {
   locations->SetOut(Location::ConstantLocation(constant));
 }
 
-void InstructionCodeGeneratorARMVIXL::VisitNullConstant(HNullConstant* constant ATTRIBUTE_UNUSED) {
+void InstructionCodeGeneratorARMVIXL::VisitNullConstant(HNullConstant* constant [[maybe_unused]]) {
   // Will be generated at use site.
 }
 
@@ -3487,7 +3486,7 @@ void LocationsBuilderARMVIXL::VisitLongConstant(HLongConstant* constant) {
   locations->SetOut(Location::ConstantLocation(constant));
 }
 
-void InstructionCodeGeneratorARMVIXL::VisitLongConstant(HLongConstant* constant ATTRIBUTE_UNUSED) {
+void InstructionCodeGeneratorARMVIXL::VisitLongConstant(HLongConstant* constant [[maybe_unused]]) {
   // Will be generated at use site.
 }
 
@@ -3497,8 +3496,8 @@ void LocationsBuilderARMVIXL::VisitFloatConstant(HFloatConstant* constant) {
   locations->SetOut(Location::ConstantLocation(constant));
 }
 
-void InstructionCodeGeneratorARMVIXL::VisitFloatConstant(
-    HFloatConstant* constant ATTRIBUTE_UNUSED) {
+void InstructionCodeGeneratorARMVIXL::VisitFloatConstant(HFloatConstant* constant
+                                                         [[maybe_unused]]) {
   // Will be generated at use site.
 }
 
@@ -3508,8 +3507,8 @@ void LocationsBuilderARMVIXL::VisitDoubleConstant(HDoubleConstant* constant) {
   locations->SetOut(Location::ConstantLocation(constant));
 }
 
-void InstructionCodeGeneratorARMVIXL::VisitDoubleConstant(
-    HDoubleConstant* constant ATTRIBUTE_UNUSED) {
+void InstructionCodeGeneratorARMVIXL::VisitDoubleConstant(HDoubleConstant* constant
+                                                          [[maybe_unused]]) {
   // Will be generated at use site.
 }
 
@@ -3517,8 +3516,8 @@ void LocationsBuilderARMVIXL::VisitConstructorFence(HConstructorFence* construct
   constructor_fence->SetLocations(nullptr);
 }
 
-void InstructionCodeGeneratorARMVIXL::VisitConstructorFence(
-    HConstructorFence* constructor_fence ATTRIBUTE_UNUSED) {
+void InstructionCodeGeneratorARMVIXL::VisitConstructorFence(HConstructorFence* constructor_fence
+                                                            [[maybe_unused]]) {
   codegen_->GenerateMemoryBarrier(MemBarrierKind::kStoreStore);
 }
 
@@ -3534,7 +3533,7 @@ void LocationsBuilderARMVIXL::VisitReturnVoid(HReturnVoid* ret) {
   ret->SetLocations(nullptr);
 }
 
-void InstructionCodeGeneratorARMVIXL::VisitReturnVoid(HReturnVoid* ret ATTRIBUTE_UNUSED) {
+void InstructionCodeGeneratorARMVIXL::VisitReturnVoid(HReturnVoid* ret [[maybe_unused]]) {
   codegen_->GenerateFrameExit();
 }
 
@@ -5661,8 +5660,8 @@ void LocationsBuilderARMVIXL::VisitParameterValue(HParameterValue* instruction) 
   locations->SetOut(location);
 }
 
-void InstructionCodeGeneratorARMVIXL::VisitParameterValue(
-    HParameterValue* instruction ATTRIBUTE_UNUSED) {
+void InstructionCodeGeneratorARMVIXL::VisitParameterValue(HParameterValue* instruction
+                                                          [[maybe_unused]]) {
   // Nothing to do, the parameter is already at its location.
 }
 
@@ -5672,8 +5671,8 @@ void LocationsBuilderARMVIXL::VisitCurrentMethod(HCurrentMethod* instruction) {
   locations->SetOut(LocationFrom(kMethodRegister));
 }
 
-void InstructionCodeGeneratorARMVIXL::VisitCurrentMethod(
-    HCurrentMethod* instruction ATTRIBUTE_UNUSED) {
+void InstructionCodeGeneratorARMVIXL::VisitCurrentMethod(HCurrentMethod* instruction
+                                                         [[maybe_unused]]) {
   // Nothing to do, the method is already at its location.
 }
 
@@ -5814,7 +5813,7 @@ void LocationsBuilderARMVIXL::VisitPhi(HPhi* instruction) {
   locations->SetOut(Location::Any());
 }
 
-void InstructionCodeGeneratorARMVIXL::VisitPhi(HPhi* instruction ATTRIBUTE_UNUSED) {
+void InstructionCodeGeneratorARMVIXL::VisitPhi(HPhi* instruction [[maybe_unused]]) {
   LOG(FATAL) << "Unreachable";
 }
 
@@ -7278,7 +7277,7 @@ void CodeGeneratorARMVIXL::MarkGCCard(vixl32::Register temp,
   }
 }
 
-void LocationsBuilderARMVIXL::VisitParallelMove(HParallelMove* instruction ATTRIBUTE_UNUSED) {
+void LocationsBuilderARMVIXL::VisitParallelMove(HParallelMove* instruction [[maybe_unused]]) {
   LOG(FATAL) << "Unreachable";
 }
 
@@ -7988,7 +7987,7 @@ void LocationsBuilderARMVIXL::VisitClearException(HClearException* clear) {
   new (GetGraph()->GetAllocator()) LocationSummary(clear, LocationSummary::kNoCall);
 }
 
-void InstructionCodeGeneratorARMVIXL::VisitClearException(HClearException* clear ATTRIBUTE_UNUSED) {
+void InstructionCodeGeneratorARMVIXL::VisitClearException(HClearException* clear [[maybe_unused]]) {
   UseScratchRegisterScope temps(GetVIXLAssembler());
   vixl32::Register temp = temps.Acquire();
   __ Mov(temp, 0);
@@ -9911,12 +9910,12 @@ void InstructionCodeGeneratorARMVIXL::VisitMultiplyAccumulate(HMultiplyAccumulat
   }
 }
 
-void LocationsBuilderARMVIXL::VisitBoundType(HBoundType* instruction ATTRIBUTE_UNUSED) {
+void LocationsBuilderARMVIXL::VisitBoundType(HBoundType* instruction [[maybe_unused]]) {
   // Nothing to do, this should be removed during prepare for register allocator.
   LOG(FATAL) << "Unreachable";
 }
 
-void InstructionCodeGeneratorARMVIXL::VisitBoundType(HBoundType* instruction ATTRIBUTE_UNUSED) {
+void InstructionCodeGeneratorARMVIXL::VisitBoundType(HBoundType* instruction [[maybe_unused]]) {
   // Nothing to do, this should be removed during prepare for register allocator.
   LOG(FATAL) << "Unreachable";
 }

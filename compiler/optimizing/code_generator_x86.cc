@@ -1915,8 +1915,7 @@ void LocationsBuilderX86::VisitExit(HExit* exit) {
   exit->SetLocations(nullptr);
 }
 
-void InstructionCodeGeneratorX86::VisitExit(HExit* exit ATTRIBUTE_UNUSED) {
-}
+void InstructionCodeGeneratorX86::VisitExit(HExit* exit [[maybe_unused]]) {}
 
 template<class LabelType>
 void InstructionCodeGeneratorX86::GenerateFPJumps(HCondition* cond,
@@ -2556,7 +2555,7 @@ void LocationsBuilderX86::VisitIntConstant(HIntConstant* constant) {
   locations->SetOut(Location::ConstantLocation(constant));
 }
 
-void InstructionCodeGeneratorX86::VisitIntConstant(HIntConstant* constant ATTRIBUTE_UNUSED) {
+void InstructionCodeGeneratorX86::VisitIntConstant(HIntConstant* constant [[maybe_unused]]) {
   // Will be generated at use site.
 }
 
@@ -2566,7 +2565,7 @@ void LocationsBuilderX86::VisitNullConstant(HNullConstant* constant) {
   locations->SetOut(Location::ConstantLocation(constant));
 }
 
-void InstructionCodeGeneratorX86::VisitNullConstant(HNullConstant* constant ATTRIBUTE_UNUSED) {
+void InstructionCodeGeneratorX86::VisitNullConstant(HNullConstant* constant [[maybe_unused]]) {
   // Will be generated at use site.
 }
 
@@ -2576,7 +2575,7 @@ void LocationsBuilderX86::VisitLongConstant(HLongConstant* constant) {
   locations->SetOut(Location::ConstantLocation(constant));
 }
 
-void InstructionCodeGeneratorX86::VisitLongConstant(HLongConstant* constant ATTRIBUTE_UNUSED) {
+void InstructionCodeGeneratorX86::VisitLongConstant(HLongConstant* constant [[maybe_unused]]) {
   // Will be generated at use site.
 }
 
@@ -2586,7 +2585,7 @@ void LocationsBuilderX86::VisitFloatConstant(HFloatConstant* constant) {
   locations->SetOut(Location::ConstantLocation(constant));
 }
 
-void InstructionCodeGeneratorX86::VisitFloatConstant(HFloatConstant* constant ATTRIBUTE_UNUSED) {
+void InstructionCodeGeneratorX86::VisitFloatConstant(HFloatConstant* constant [[maybe_unused]]) {
   // Will be generated at use site.
 }
 
@@ -2596,7 +2595,7 @@ void LocationsBuilderX86::VisitDoubleConstant(HDoubleConstant* constant) {
   locations->SetOut(Location::ConstantLocation(constant));
 }
 
-void InstructionCodeGeneratorX86::VisitDoubleConstant(HDoubleConstant* constant ATTRIBUTE_UNUSED) {
+void InstructionCodeGeneratorX86::VisitDoubleConstant(HDoubleConstant* constant [[maybe_unused]]) {
   // Will be generated at use site.
 }
 
@@ -2604,8 +2603,8 @@ void LocationsBuilderX86::VisitConstructorFence(HConstructorFence* constructor_f
   constructor_fence->SetLocations(nullptr);
 }
 
-void InstructionCodeGeneratorX86::VisitConstructorFence(
-    HConstructorFence* constructor_fence ATTRIBUTE_UNUSED) {
+void InstructionCodeGeneratorX86::VisitConstructorFence(HConstructorFence* constructor_fence
+                                                        [[maybe_unused]]) {
   codegen_->GenerateMemoryBarrier(MemBarrierKind::kStoreStore);
 }
 
@@ -2621,7 +2620,7 @@ void LocationsBuilderX86::VisitReturnVoid(HReturnVoid* ret) {
   ret->SetLocations(nullptr);
 }
 
-void InstructionCodeGeneratorX86::VisitReturnVoid(HReturnVoid* ret ATTRIBUTE_UNUSED) {
+void InstructionCodeGeneratorX86::VisitReturnVoid(HReturnVoid* ret [[maybe_unused]]) {
   codegen_->GenerateFrameExit();
 }
 
@@ -5135,9 +5134,8 @@ void LocationsBuilderX86::VisitParameterValue(HParameterValue* instruction) {
   locations->SetOut(location);
 }
 
-void InstructionCodeGeneratorX86::VisitParameterValue(
-    HParameterValue* instruction ATTRIBUTE_UNUSED) {
-}
+void InstructionCodeGeneratorX86::VisitParameterValue(HParameterValue* instruction
+                                                      [[maybe_unused]]) {}
 
 void LocationsBuilderX86::VisitCurrentMethod(HCurrentMethod* instruction) {
   LocationSummary* locations =
@@ -5145,7 +5143,7 @@ void LocationsBuilderX86::VisitCurrentMethod(HCurrentMethod* instruction) {
   locations->SetOut(Location::RegisterLocation(kMethodRegisterArgument));
 }
 
-void InstructionCodeGeneratorX86::VisitCurrentMethod(HCurrentMethod* instruction ATTRIBUTE_UNUSED) {
+void InstructionCodeGeneratorX86::VisitCurrentMethod(HCurrentMethod* instruction [[maybe_unused]]) {
 }
 
 void LocationsBuilderX86::VisitClassTableGet(HClassTableGet* instruction) {
@@ -5344,7 +5342,7 @@ void LocationsBuilderX86::VisitPhi(HPhi* instruction) {
   locations->SetOut(Location::Any());
 }
 
-void InstructionCodeGeneratorX86::VisitPhi(HPhi* instruction ATTRIBUTE_UNUSED) {
+void InstructionCodeGeneratorX86::VisitPhi(HPhi* instruction [[maybe_unused]]) {
   LOG(FATAL) << "Unreachable";
 }
 
@@ -5373,8 +5371,8 @@ void CodeGeneratorX86::GenerateMemoryBarrier(MemBarrierKind kind) {
 }
 
 HInvokeStaticOrDirect::DispatchInfo CodeGeneratorX86::GetSupportedInvokeStaticOrDirectDispatch(
-      const HInvokeStaticOrDirect::DispatchInfo& desired_dispatch_info,
-      ArtMethod* method ATTRIBUTE_UNUSED) {
+    const HInvokeStaticOrDirect::DispatchInfo& desired_dispatch_info,
+    ArtMethod* method [[maybe_unused]]) {
   return desired_dispatch_info;
 }
 
@@ -6799,7 +6797,7 @@ void InstructionCodeGeneratorX86::VisitBoundsCheck(HBoundsCheck* instruction) {
   }
 }
 
-void LocationsBuilderX86::VisitParallelMove(HParallelMove* instruction ATTRIBUTE_UNUSED) {
+void LocationsBuilderX86::VisitParallelMove(HParallelMove* instruction [[maybe_unused]]) {
   LOG(FATAL) << "Unreachable";
 }
 
@@ -7548,7 +7546,7 @@ void LocationsBuilderX86::VisitClearException(HClearException* clear) {
   new (GetGraph()->GetAllocator()) LocationSummary(clear, LocationSummary::kNoCall);
 }
 
-void InstructionCodeGeneratorX86::VisitClearException(HClearException* clear ATTRIBUTE_UNUSED) {
+void InstructionCodeGeneratorX86::VisitClearException(HClearException* clear [[maybe_unused]]) {
   __ fs()->movl(GetExceptionTlsAddress(), Immediate(0));
 }
 
@@ -8634,12 +8632,12 @@ void CodeGeneratorX86::GenerateReadBarrierForRootSlow(HInstruction* instruction,
   __ Bind(slow_path->GetExitLabel());
 }
 
-void LocationsBuilderX86::VisitBoundType(HBoundType* instruction ATTRIBUTE_UNUSED) {
+void LocationsBuilderX86::VisitBoundType(HBoundType* instruction [[maybe_unused]]) {
   // Nothing to do, this should be removed during prepare for register allocator.
   LOG(FATAL) << "Unreachable";
 }
 
-void InstructionCodeGeneratorX86::VisitBoundType(HBoundType* instruction ATTRIBUTE_UNUSED) {
+void InstructionCodeGeneratorX86::VisitBoundType(HBoundType* instruction [[maybe_unused]]) {
   // Nothing to do, this should be removed during prepare for register allocator.
   LOG(FATAL) << "Unreachable";
 }
@@ -9095,12 +9093,12 @@ void CodeGeneratorX86::EmitJitRootPatches(uint8_t* code, const uint8_t* roots_da
 }
 
 void LocationsBuilderX86::VisitIntermediateAddress(HIntermediateAddress* instruction
-                                                   ATTRIBUTE_UNUSED) {
+                                                   [[maybe_unused]]) {
   LOG(FATAL) << "Unreachable";
 }
 
 void InstructionCodeGeneratorX86::VisitIntermediateAddress(HIntermediateAddress* instruction
-                                                           ATTRIBUTE_UNUSED) {
+                                                           [[maybe_unused]]) {
   LOG(FATAL) << "Unreachable";
 }
 

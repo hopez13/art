@@ -207,7 +207,7 @@ class Dex2oatTest : public Dex2oatEnvironmentTest {
 // to what's already huge test methods).
 class Dex2oatWithExpectedFilterTest : public Dex2oatTest {
  protected:
-  void CheckFilter(CompilerFilter::Filter expected ATTRIBUTE_UNUSED,
+  void CheckFilter(CompilerFilter::Filter expected [[maybe_unused]],
                    CompilerFilter::Filter actual) override {
     EXPECT_EQ(expected_filter_, actual);
   }
@@ -251,7 +251,7 @@ class Dex2oatSwapTest : public Dex2oatTest {
     }
   }
 
-  virtual void CheckTargetResult(bool expect_use ATTRIBUTE_UNUSED) {
+  virtual void CheckTargetResult(bool expect_use [[maybe_unused]]) {
     // TODO: Ignore for now, as we won't capture any output (it goes to the logcat). We may do
     //       something for variants with file descriptor where we can control the lifetime of
     //       the swap file and thus take a look at it.
@@ -441,8 +441,8 @@ TEST_F(Dex2oatSwapUseTest, CheckSwapUsage) {
 
 class Dex2oatVeryLargeTest : public Dex2oatTest {
  protected:
-  void CheckFilter(CompilerFilter::Filter input ATTRIBUTE_UNUSED,
-                   CompilerFilter::Filter result ATTRIBUTE_UNUSED) override {
+  void CheckFilter(CompilerFilter::Filter input [[maybe_unused]],
+                   CompilerFilter::Filter result [[maybe_unused]]) override {
     // Ignore, we'll do our own checks.
   }
 
@@ -537,7 +537,7 @@ class Dex2oatVeryLargeTest : public Dex2oatTest {
     }
   }
 
-  void CheckTargetResult(bool expect_downgrade ATTRIBUTE_UNUSED) {
+  void CheckTargetResult(bool expect_downgrade [[maybe_unused]]) {
     // TODO: Ignore for now. May do something for fd things.
   }
 
@@ -591,8 +591,8 @@ TEST_F(Dex2oatVeryLargeTest, SpeedProfileNoProfile) {
 
 class Dex2oatLayoutTest : public Dex2oatTest {
  protected:
-  void CheckFilter(CompilerFilter::Filter input ATTRIBUTE_UNUSED,
-                   CompilerFilter::Filter result ATTRIBUTE_UNUSED) override {
+  void CheckFilter(CompilerFilter::Filter input [[maybe_unused]],
+                   CompilerFilter::Filter result [[maybe_unused]]) override {
     // Ignore, we'll do our own checks.
   }
 

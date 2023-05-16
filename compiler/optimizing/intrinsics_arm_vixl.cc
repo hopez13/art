@@ -2653,7 +2653,7 @@ void IntrinsicLocationsBuilderARMVIXL::VisitReachabilityFence(HInvoke* invoke) {
   locations->SetInAt(0, Location::Any());
 }
 
-void IntrinsicCodeGeneratorARMVIXL::VisitReachabilityFence(HInvoke* invoke ATTRIBUTE_UNUSED) { }
+void IntrinsicCodeGeneratorARMVIXL::VisitReachabilityFence(HInvoke* invoke [[maybe_unused]]) {}
 
 void IntrinsicLocationsBuilderARMVIXL::VisitIntegerDivideUnsigned(HInvoke* invoke) {
   CreateIntIntToIntSlowPathCallLocations(allocator_, invoke);

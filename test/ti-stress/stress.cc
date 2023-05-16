@@ -611,11 +611,11 @@ void JNICALL SingleStepHook(jvmtiEnv* jvmtienv,
 
 // The hook we are using.
 void JNICALL ClassFileLoadHookSecretNoOp(jvmtiEnv* jvmti,
-                                         JNIEnv* jni_env ATTRIBUTE_UNUSED,
-                                         jclass class_being_redefined ATTRIBUTE_UNUSED,
-                                         jobject loader ATTRIBUTE_UNUSED,
+                                         JNIEnv* jni_env [[maybe_unused]],
+                                         jclass class_being_redefined [[maybe_unused]],
+                                         jobject loader [[maybe_unused]],
                                          const char* name,
-                                         jobject protection_domain ATTRIBUTE_UNUSED,
+                                         jobject protection_domain [[maybe_unused]],
                                          jint class_data_len,
                                          const unsigned char* class_data,
                                          jint* new_class_data_len,
@@ -679,7 +679,7 @@ static void ReadOptions(StressData* data, char* options) {
 // Do final setup during the VMInit callback. By this time most things are all setup.
 static void JNICALL PerformFinalSetupVMInit(jvmtiEnv *jvmti_env,
                                             JNIEnv* jni_env,
-                                            jthread thread ATTRIBUTE_UNUSED) {
+                                            jthread thread [[maybe_unused]]) {
   // Load the VMClassLoader class. We will get a ClassNotFound exception because we don't have
   // visibility but the class will be loaded behind the scenes.
   LOG(INFO) << "manual load & initialization of class java/lang/VMClassLoader!";
@@ -754,7 +754,7 @@ static bool WatchAllFields(JavaVM* vm, jvmtiEnv* jvmti) {
 
 extern "C" JNIEXPORT jint JNICALL Agent_OnLoad(JavaVM* vm,
                                                char* options,
-                                               void* reserved ATTRIBUTE_UNUSED) {
+                                               void* reserved [[maybe_unused]]) {
   jvmtiEnv* jvmti = nullptr;
   if (vm->GetEnv(reinterpret_cast<void**>(&jvmti), JVMTI_VERSION_1_0)) {
     LOG(ERROR) << "Unable to get jvmti env.";

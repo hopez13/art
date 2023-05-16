@@ -439,9 +439,9 @@ class ReferredObjectsFinder {
   }
 
   void VisitRootIfNonNull(art::mirror::CompressedReference<art::mirror::Object>* root
-                              ATTRIBUTE_UNUSED) const {}
+                          [[maybe_unused]]) const {}
   void VisitRoot(art::mirror::CompressedReference<art::mirror::Object>* root
-                     ATTRIBUTE_UNUSED) const {}
+                 [[maybe_unused]]) const {}
 
  private:
   // We can use a raw Object* pointer here, because there are no concurrent GC threads after the

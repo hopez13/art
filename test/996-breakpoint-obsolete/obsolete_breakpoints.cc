@@ -65,7 +65,7 @@ static jmethodID GetFirstObsoleteMethod(JNIEnv* env, jvmtiEnv* jvmti_env) {
 }
 
 extern "C" JNIEXPORT void JNICALL Java_art_Test996_setBreakpointOnObsoleteMethod(
-    JNIEnv* env, jclass k ATTRIBUTE_UNUSED, jlong loc) {
+    JNIEnv* env, jclass k [[maybe_unused]], jlong loc) {
   jmethodID method = GetFirstObsoleteMethod(env, jvmti_env);
   if (method == nullptr) {
     return;

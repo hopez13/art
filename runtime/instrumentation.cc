@@ -1073,7 +1073,7 @@ void Instrumentation::UpdateStubs() {
   }
 }
 
-static void ResetQuickAllocEntryPointsForThread(Thread* thread, void* arg ATTRIBUTE_UNUSED) {
+static void ResetQuickAllocEntryPointsForThread(Thread* thread, void* arg [[maybe_unused]]) {
   thread->ResetQuickAllocEntryPointsForThread();
 }
 

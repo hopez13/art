@@ -472,29 +472,31 @@ class JvmtiFunctions {
 
   static jvmtiError IterateOverObjectsReachableFromObject(
       jvmtiEnv* env,
-      jobject object ATTRIBUTE_UNUSED,
-      jvmtiObjectReferenceCallback object_reference_callback ATTRIBUTE_UNUSED,
-      const void* user_data ATTRIBUTE_UNUSED) {
+      jobject object [[maybe_unused]],
+      jvmtiObjectReferenceCallback object_reference_callback [[maybe_unused]],
+      const void* user_data [[maybe_unused]]) {
     ENSURE_VALID_ENV(env);
     ENSURE_HAS_CAP(env, can_tag_objects);
     return ERR(NOT_IMPLEMENTED);
   }
 
-  static jvmtiError IterateOverReachableObjects(
-      jvmtiEnv* env,
-      jvmtiHeapRootCallback heap_root_callback ATTRIBUTE_UNUSED,
-      jvmtiStackReferenceCallback stack_ref_callback ATTRIBUTE_UNUSED,
-      jvmtiObjectReferenceCallback object_ref_callback ATTRIBUTE_UNUSED,
-      const void* user_data ATTRIBUTE_UNUSED) {
+  static jvmtiError IterateOverReachableObjects(jvmtiEnv* env,
+                                                jvmtiHeapRootCallback heap_root_callback
+                                                [[maybe_unused]],
+                                                jvmtiStackReferenceCallback stack_ref_callback
+                                                [[maybe_unused]],
+                                                jvmtiObjectReferenceCallback object_ref_callback
+                                                [[maybe_unused]],
+                                                const void* user_data [[maybe_unused]]) {
     ENSURE_VALID_ENV(env);
     ENSURE_HAS_CAP(env, can_tag_objects);
     return ERR(NOT_IMPLEMENTED);
   }
 
   static jvmtiError IterateOverHeap(jvmtiEnv* env,
-                                    jvmtiHeapObjectFilter object_filter ATTRIBUTE_UNUSED,
-                                    jvmtiHeapObjectCallback heap_object_callback ATTRIBUTE_UNUSED,
-                                    const void* user_data ATTRIBUTE_UNUSED) {
+                                    jvmtiHeapObjectFilter object_filter [[maybe_unused]],
+                                    jvmtiHeapObjectCallback heap_object_callback [[maybe_unused]],
+                                    const void* user_data [[maybe_unused]]) {
     ENSURE_VALID_ENV(env);
     ENSURE_HAS_CAP(env, can_tag_objects);
     return ERR(NOT_IMPLEMENTED);
@@ -730,10 +732,10 @@ class JvmtiFunctions {
   }
 
   static jvmtiError GetConstantPool(jvmtiEnv* env,
-                                    jclass klass ATTRIBUTE_UNUSED,
-                                    jint* constant_pool_count_ptr ATTRIBUTE_UNUSED,
-                                    jint* constant_pool_byte_count_ptr ATTRIBUTE_UNUSED,
-                                    unsigned char** constant_pool_bytes_ptr ATTRIBUTE_UNUSED) {
+                                    jclass klass [[maybe_unused]],
+                                    jint* constant_pool_count_ptr [[maybe_unused]],
+                                    jint* constant_pool_byte_count_ptr [[maybe_unused]],
+                                    unsigned char** constant_pool_bytes_ptr [[maybe_unused]]) {
     ENSURE_VALID_ENV(env);
     ENSURE_HAS_CAP(env, can_get_constant_pool);
     return ERR(NOT_IMPLEMENTED);
@@ -926,15 +928,15 @@ class JvmtiFunctions {
     return MethodUtil::IsMethodObsolete(env, method, is_obsolete_ptr);
   }
 
-  static jvmtiError SetNativeMethodPrefix(jvmtiEnv* env, const char* prefix ATTRIBUTE_UNUSED) {
+  static jvmtiError SetNativeMethodPrefix(jvmtiEnv* env, const char* prefix [[maybe_unused]]) {
     ENSURE_VALID_ENV(env);
     ENSURE_HAS_CAP(env, can_set_native_method_prefix);
     return ERR(NOT_IMPLEMENTED);
   }
 
   static jvmtiError SetNativeMethodPrefixes(jvmtiEnv* env,
-                                            jint prefix_count ATTRIBUTE_UNUSED,
-                                            char** prefixes ATTRIBUTE_UNUSED) {
+                                            jint prefix_count [[maybe_unused]],
+                                            char** prefixes [[maybe_unused]]) {
     ENSURE_VALID_ENV(env);
     ENSURE_HAS_CAP(env, can_set_native_method_prefix);
     return ERR(NOT_IMPLEMENTED);
@@ -1032,8 +1034,7 @@ class JvmtiFunctions {
                                    mode);
   }
 
-  static jvmtiError GenerateEvents(jvmtiEnv* env,
-                                   jvmtiEvent event_type ATTRIBUTE_UNUSED) {
+  static jvmtiError GenerateEvents(jvmtiEnv* env, jvmtiEvent event_type [[maybe_unused]]) {
     ENSURE_VALID_ENV(env);
     return OK;
   }
@@ -1195,28 +1196,28 @@ class JvmtiFunctions {
   }
 
   static jvmtiError GetCurrentThreadCpuTimerInfo(jvmtiEnv* env,
-                                                 jvmtiTimerInfo* info_ptr ATTRIBUTE_UNUSED) {
+                                                 jvmtiTimerInfo* info_ptr [[maybe_unused]]) {
     ENSURE_VALID_ENV(env);
     ENSURE_HAS_CAP(env, can_get_current_thread_cpu_time);
     return ERR(NOT_IMPLEMENTED);
   }
 
-  static jvmtiError GetCurrentThreadCpuTime(jvmtiEnv* env, jlong* nanos_ptr ATTRIBUTE_UNUSED) {
+  static jvmtiError GetCurrentThreadCpuTime(jvmtiEnv* env, jlong* nanos_ptr [[maybe_unused]]) {
     ENSURE_VALID_ENV(env);
     ENSURE_HAS_CAP(env, can_get_current_thread_cpu_time);
     return ERR(NOT_IMPLEMENTED);
   }
 
   static jvmtiError GetThreadCpuTimerInfo(jvmtiEnv* env,
-                                          jvmtiTimerInfo* info_ptr ATTRIBUTE_UNUSED) {
+                                          jvmtiTimerInfo* info_ptr [[maybe_unused]]) {
     ENSURE_VALID_ENV(env);
     ENSURE_HAS_CAP(env, can_get_thread_cpu_time);
     return ERR(NOT_IMPLEMENTED);
   }
 
   static jvmtiError GetThreadCpuTime(jvmtiEnv* env,
-                                     jthread thread ATTRIBUTE_UNUSED,
-                                     jlong* nanos_ptr ATTRIBUTE_UNUSED) {
+                                     jthread thread [[maybe_unused]],
+                                     jlong* nanos_ptr [[maybe_unused]]) {
     ENSURE_VALID_ENV(env);
     ENSURE_HAS_CAP(env, can_get_thread_cpu_time);
     return ERR(NOT_IMPLEMENTED);

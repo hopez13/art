@@ -2500,9 +2500,9 @@ bool ProfileCompilationInfo::UpdateProfileKeys(
   return true;
 }
 
-bool ProfileCompilationInfo::ProfileFilterFnAcceptAll(
-    const std::string& dex_location ATTRIBUTE_UNUSED,
-    uint32_t checksum ATTRIBUTE_UNUSED) {
+bool ProfileCompilationInfo::ProfileFilterFnAcceptAll(const std::string& dex_location
+                                                      [[maybe_unused]],
+                                                      uint32_t checksum [[maybe_unused]]) {
   return true;
 }
 

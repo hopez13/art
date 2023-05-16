@@ -185,9 +185,9 @@ static jchar trampoline_Java_Main_charMethod(JNIEnv* env, jclass klass, jchar c1
 // This code is adapted from 004-SignalTest and causes a segfault.
 char *go_away_compiler = nullptr;
 
-[[ noreturn ]] static void test_sigaction_handler(int sig ATTRIBUTE_UNUSED,
-                                                  siginfo_t* info ATTRIBUTE_UNUSED,
-                                                  void* context ATTRIBUTE_UNUSED) {
+[[ noreturn ]] static void test_sigaction_handler(int sig [[maybe_unused]],
+                                                  siginfo_t* info [[maybe_unused]],
+                                                  void* context [[maybe_unused]]) {
   printf("Should not reach the test sigaction handler.");
   abort();
 }
@@ -419,7 +419,7 @@ static NativeBridgeMethod* find_native_bridge_method(const char *name) {
 // NativeBridgeCallbacks implementations
 extern "C" bool native_bridge_initialize(const android::NativeBridgeRuntimeCallbacks* art_cbs,
                                          const char* app_code_cache_dir,
-                                         const char* isa ATTRIBUTE_UNUSED) {
+                                         const char* isa [[maybe_unused]]) {
   struct stat st;
   if (app_code_cache_dir != nullptr) {
     if (stat(app_code_cache_dir, &st) == 0) {
@@ -467,7 +467,7 @@ extern "C" void* native_bridge_loadLibrary(const char* libpath, int flag) {
 }
 
 extern "C" void* native_bridge_getTrampoline(void* handle, const char* name, const char* shorty,
-                                             uint32_t len ATTRIBUTE_UNUSED) {
+                                             uint32_t len [[maybe_unused]]) {
   printf("Getting trampoline for %s with shorty %s.\n", name, shorty);
 
   // The name here is actually the JNI name, so we can directly do the lookup.
@@ -528,7 +528,7 @@ extern "C" const struct android::NativeBridgeRuntimeValues* native_bridge_getApp
 
 // v2 parts.
 
-extern "C" bool native_bridge_isCompatibleWith(uint32_t bridge_version ATTRIBUTE_UNUSED) {
+extern "C" bool native_bridge_isCompatibleWith(uint32_t bridge_version [[maybe_unused]]) {
   return true;
 }
 
@@ -553,7 +553,7 @@ extern "C" bool native_bridge_isCompatibleWith(uint32_t bridge_version ATTRIBUTE
 #endif
 #endif
 
-static bool StandardSignalHandler(int sig, siginfo_t* info ATTRIBUTE_UNUSED,
+static bool StandardSignalHandler(int sig, siginfo_t* info [[maybe_unused]],
                                      void* context) {
   if (sig == SIGSEGV) {
 #if defined(__arm__)
@@ -602,7 +602,7 @@ static ::android::NativeBridgeSignalHandlerFn native_bridge_getSignalHandler(int
   return nullptr;
 }
 
-extern "C" int native_bridge_unloadLibrary(void* handle ATTRIBUTE_UNUSED) {
+extern "C" int native_bridge_unloadLibrary(void* handle [[maybe_unused]]) {
   printf("dlclose() in native bridge.\n");
   return 0;
 }
@@ -612,38 +612,38 @@ extern "C" const char* native_bridge_getError() {
   return "";
 }
 
-extern "C" bool native_bridge_isPathSupported(const char* library_path ATTRIBUTE_UNUSED) {
+extern "C" bool native_bridge_isPathSupported(const char* library_path [[maybe_unused]]) {
   printf("Checking for path support in native bridge.\n");
   return false;
 }
 
-extern "C" bool native_bridge_initAnonymousNamespace(const char* public_ns_sonames ATTRIBUTE_UNUSED,
-                                                     const char* anon_ns_library_path ATTRIBUTE_UNUSED) {
+extern "C" bool native_bridge_initAnonymousNamespace(const char* public_ns_sonames [[maybe_unused]],
+                                                     const char* anon_ns_library_path [[maybe_unused]]) {
   printf("Initializing anonymous namespace in native bridge.\n");
   return false;
 }
 
 extern "C" android::native_bridge_namespace_t*
-native_bridge_createNamespace(const char* name ATTRIBUTE_UNUSED,
-                              const char* ld_library_path ATTRIBUTE_UNUSED,
-                              const char* default_library_path ATTRIBUTE_UNUSED,
-                              uint64_t type ATTRIBUTE_UNUSED,
-                              const char* permitted_when_isolated_path ATTRIBUTE_UNUSED,
-                              android::native_bridge_namespace_t* parent_ns ATTRIBUTE_UNUSED) {
+native_bridge_createNamespace(const char* name [[maybe_unused]],
+                              const char* ld_library_path [[maybe_unused]],
+                              const char* default_library_path [[maybe_unused]],
+                              uint64_t type [[maybe_unused]],
+                              const char* permitted_when_isolated_path [[maybe_unused]],
+                              android::native_bridge_namespace_t* parent_ns [[maybe_unused]]) {
   printf("Creating namespace in native bridge.\n");
   return nullptr;
 }
 
-extern "C" bool native_bridge_linkNamespaces(android::native_bridge_namespace_t* from ATTRIBUTE_UNUSED,
-                                             android::native_bridge_namespace_t* to ATTRIBUTE_UNUSED,
-                                             const char* shared_libs_sonames ATTRIBUTE_UNUSED) {
+extern "C" bool native_bridge_linkNamespaces(android::native_bridge_namespace_t* from [[maybe_unused]],
+                                             android::native_bridge_namespace_t* to [[maybe_unused]],
+                                             const char* shared_libs_sonames [[maybe_unused]]) {
   printf("Linking namespaces in native bridge.\n");
   return false;
 }
 
-extern "C" void* native_bridge_loadLibraryExt(const char* libpath ATTRIBUTE_UNUSED,
-                                               int flag ATTRIBUTE_UNUSED,
-                                               android::native_bridge_namespace_t* ns ATTRIBUTE_UNUSED) {
+extern "C" void* native_bridge_loadLibraryExt(const char* libpath [[maybe_unused]],
+                                               int flag [[maybe_unused]],
+                                               android::native_bridge_namespace_t* ns [[maybe_unused]]) {
     printf("Loading library with Extension in native bridge.\n");
     return nullptr;
 }

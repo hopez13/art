@@ -28,7 +28,7 @@ template <>
 class ArenaBitVectorAllocatorKindImpl<false> {
  public:
   // Not tracking allocations, ignore the supplied kind and arbitrarily provide kArenaAllocSTL.
-  explicit ArenaBitVectorAllocatorKindImpl(ArenaAllocKind kind ATTRIBUTE_UNUSED) {}
+  explicit ArenaBitVectorAllocatorKindImpl(ArenaAllocKind kind [[maybe_unused]]) {}
   ArenaBitVectorAllocatorKindImpl(const ArenaBitVectorAllocatorKindImpl&) = default;
   ArenaBitVectorAllocatorKindImpl& operator=(const ArenaBitVectorAllocatorKindImpl&) = default;
   ArenaAllocKind Kind() { return kArenaAllocGrowableBitMap; }
