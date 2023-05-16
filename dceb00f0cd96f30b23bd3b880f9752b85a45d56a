@@ -88,6 +88,24 @@
       "parentUuid": "7f8d0a88_4149a31c",
       "revId": "dceb00f0cd96f30b23bd3b880f9752b85a45d56a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf78a684_6c8ffbc9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-05-16T17:19:21Z",
+      "side": 1,
+      "message": "Yes, I would expect `ART_MODULE_BUILD_FROM_SOURCE\u003dfalse` to fail on AOSP. Thanks for checking.",
+      "parentUuid": "c7c81b1b_87d138ed",
+      "revId": "dceb00f0cd96f30b23bd3b880f9752b85a45d56a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
