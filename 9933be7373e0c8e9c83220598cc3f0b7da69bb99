@@ -35,6 +35,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "56d75a78_f7180851",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-05-16T18:56:04Z",
+      "side": 1,
+      "message": "64k should be enough for anyone.\n\nDexCache indices only use 4-bytes.  The full 4-bytes are still free.  I will enlarge the seqlock.",
+      "revId": "9933be7373e0c8e9c83220598cc3f0b7da69bb99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2cce5c5b_f3ad6d6c",
@@ -94,6 +111,30 @@
       "writtenOn": "2023-05-16T18:43:46Z",
       "side": 1,
       "message": "This is currently dead code, right? And that may be correct; I would guess the above load implementation is as fast as the one below. Remove the x86-specific code?\n\nThe x86-specific one has the annoying property that loads conflict in the cache.",
+      "range": {
+        "startLine": 101,
+        "startChar": 1,
+        "endLine": 101,
+        "endChar": 25
+      },
+      "revId": "9933be7373e0c8e9c83220598cc3f0b7da69bb99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d446e9ae_30ff31bc",
+        "filename": "runtime/base/atomic_pair.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-05-16T18:56:04Z",
+      "side": 1,
+      "message": "I didn\u0027t want to be too keen on deleting it before proving it.  We can still tweak when we use which path.\n\nI think that ARM has the same annoying property (loads fighting for the cache line).\n\nBut I think my original motivation for this CL was that x86 lock heavily showed in profiles.",
+      "parentUuid": "e4ef59f8_5ab9f61b",
       "range": {
         "startLine": 101,
         "startChar": 1,
