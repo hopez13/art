@@ -100,6 +100,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "24050753_63c12273",
+        "filename": "runtime/base/atomic_pair.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-05-16T20:20:12Z",
+      "side": 1,
+      "message": "Note that this is a bit ugly, since it\u0027s redundant if the CAS fails, but not if you see an odd sequence number. But I\u0027m not sure there\u0027s a much better way to write it.",
+      "range": {
+        "startLine": 93,
+        "startChar": 4,
+        "endLine": 93,
+        "endChar": 49
+      },
+      "revId": "9933be7373e0c8e9c83220598cc3f0b7da69bb99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e4ef59f8_5ab9f61b",
         "filename": "runtime/base/atomic_pair.h",
         "patchSetId": 1
@@ -135,6 +158,30 @@
       "side": 1,
       "message": "I didn\u0027t want to be too keen on deleting it before proving it.  We can still tweak when we use which path.\n\nI think that ARM has the same annoying property (loads fighting for the cache line).\n\nBut I think my original motivation for this CL was that x86 lock heavily showed in profiles.",
       "parentUuid": "e4ef59f8_5ab9f61b",
+      "range": {
+        "startLine": 101,
+        "startChar": 1,
+        "endLine": 101,
+        "endChar": 25
+      },
+      "revId": "9933be7373e0c8e9c83220598cc3f0b7da69bb99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ab20b8d_c474c0e7",
+        "filename": "runtime/base/atomic_pair.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-05-16T20:20:12Z",
+      "side": 1,
+      "message": "I would delete it and resurrect it if something doesn\u0027t work out. Especially since it\u0027s ugly assembly code.\n\nARM has the same issues. I think there are 16-byte load/store exclusive instructions, but no 16 byte plain loads. I\u0027m not sure what code we were generating.",
+      "parentUuid": "d446e9ae_30ff31bc",
       "range": {
         "startLine": 101,
         "startChar": 1,
