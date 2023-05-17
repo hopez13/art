@@ -1,6 +1,52 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "535ea715_32ab22f3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-05-17T12:53:42Z",
+      "side": 1,
+      "message": "You can drop this now, we have an image.",
+      "range": {
+        "startLine": 33,
+        "startChar": 49,
+        "endLine": 33,
+        "endChar": 59
+      },
+      "revId": "cb5922eac8b765e11588c79268432449c59319fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72dffac9_d51af9ef",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-05-17T12:53:42Z",
+      "side": 1,
+      "message": "same (no need to change for this CL, the tests are still good, but for the future CLs).",
+      "range": {
+        "startLine": 38,
+        "startChar": 49,
+        "endLine": 38,
+        "endChar": 59
+      },
+      "revId": "cb5922eac8b765e11588c79268432449c59319fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "4a85e3ee_1b60323f",
@@ -14,6 +60,29 @@
       "writtenOn": "2023-05-17T08:18:47Z",
       "side": 1,
       "message": "Hans, please comment on the `fence w, w`.",
+      "revId": "cb5922eac8b765e11588c79268432449c59319fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d78de44_405adc93",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-05-17T12:53:42Z",
+      "side": 1,
+      "message": "Shouldn\u0027t stack frames be aligned by 16 bytes, meaning that you need also to add 8 byte alignment?",
+      "range": {
+        "startLine": 24,
+        "startChar": 41,
+        "endLine": 24,
+        "endChar": 44
+      },
       "revId": "cb5922eac8b765e11588c79268432449c59319fc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -43,6 +112,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8f49d740_c0997fdd",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 618,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-05-17T12:53:42Z",
+      "side": 1,
+      "message": "Nit: clobbers",
+      "range": {
+        "startLine": 618,
+        "startChar": 3,
+        "endLine": 618,
+        "endChar": 10
+      },
+      "revId": "cb5922eac8b765e11588c79268432449c59319fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "dbb03dff_1a8db96d",
         "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
         "patchSetId": 5
@@ -54,6 +146,29 @@
       "writtenOn": "2023-05-17T08:18:47Z",
       "side": 1,
       "message": "Line too long, split before args.",
+      "revId": "cb5922eac8b765e11588c79268432449c59319fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de513e72_4f59fc2e",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 649,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-05-17T12:53:42Z",
+      "side": 1,
+      "message": "What is \u0027w\u0027?",
+      "range": {
+        "startLine": 649,
+        "startChar": 62,
+        "endLine": 649,
+        "endChar": 63
+      },
       "revId": "cb5922eac8b765e11588c79268432449c59319fc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -265,6 +380,29 @@
         "startChar": 4,
         "endLine": 67,
         "endChar": 14
+      },
+      "revId": "cb5922eac8b765e11588c79268432449c59319fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3e52a40_f1f6f406",
+        "filename": "runtime/interpreter/mterp/riscv64/array.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-05-17T12:53:42Z",
+      "side": 1,
+      "message": "Didn\u0027t we agree on using CALL all the time since it will be assembled to JAL if within range anyway?",
+      "range": {
+        "startLine": 78,
+        "startChar": 4,
+        "endLine": 78,
+        "endChar": 7
       },
       "revId": "cb5922eac8b765e11588c79268432449c59319fc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
