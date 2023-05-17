@@ -75,6 +75,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "59227fb2_0298e7d0",
+        "filename": "runtime/base/atomic_pair.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-05-17T12:13:12Z",
+      "side": 1,
+      "message": "Hmmm.... I understand it as the bit that determines whether the object is locked or not.\n\nAlso, maybe I can make it the top bit, just in case the compiler can branch on it faster (i.e. negative value)",
+      "parentUuid": "2cce5c5b_f3ad6d6c",
+      "range": {
+        "startLine": 41,
+        "startChar": 27,
+        "endLine": 41,
+        "endChar": 28
+      },
+      "revId": "9933be7373e0c8e9c83220598cc3f0b7da69bb99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ea450c1c_a4c479b5",
@@ -98,6 +122,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ed58036_06652a04",
+        "filename": "runtime/base/atomic_pair.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-05-17T12:13:12Z",
+      "side": 1,
+      "message": "I was going with better-safe-then-sorry, but I agree.  My quick argument is that val\u0027s acquire prevents \u0027key1\u0027 to be reordered before it, so it must be equivalent.",
+      "parentUuid": "ea450c1c_a4c479b5",
+      "range": {
+        "startLine": 79,
+        "startChar": 32,
+        "endLine": 79,
+        "endChar": 58
+      },
+      "revId": "9933be7373e0c8e9c83220598cc3f0b7da69bb99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "24050753_63c12273",
@@ -111,6 +159,30 @@
       "writtenOn": "2023-05-16T20:20:12Z",
       "side": 1,
       "message": "Note that this is a bit ugly, since it\u0027s redundant if the CAS fails, but not if you see an odd sequence number. But I\u0027m not sure there\u0027s a much better way to write it.",
+      "range": {
+        "startLine": 93,
+        "startChar": 4,
+        "endLine": 93,
+        "endChar": 49
+      },
+      "revId": "9933be7373e0c8e9c83220598cc3f0b7da69bb99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "035da9d5_49d04c24",
+        "filename": "runtime/base/atomic_pair.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-05-17T12:13:12Z",
+      "side": 1,
+      "message": "Yes, and on the fast-path where the lock isn\u0027t taken it is still just one load.",
+      "parentUuid": "24050753_63c12273",
       "range": {
         "startLine": 93,
         "startChar": 4,
@@ -182,6 +254,30 @@
       "side": 1,
       "message": "I would delete it and resurrect it if something doesn\u0027t work out. Especially since it\u0027s ugly assembly code.\n\nARM has the same issues. I think there are 16-byte load/store exclusive instructions, but no 16 byte plain loads. I\u0027m not sure what code we were generating.",
       "parentUuid": "d446e9ae_30ff31bc",
+      "range": {
+        "startLine": 101,
+        "startChar": 1,
+        "endLine": 101,
+        "endChar": 25
+      },
+      "revId": "9933be7373e0c8e9c83220598cc3f0b7da69bb99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "102ac028_d901fc65",
+        "filename": "runtime/base/atomic_pair.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-05-17T12:13:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8ab20b8d_c474c0e7",
       "range": {
         "startLine": 101,
         "startChar": 1,
