@@ -26,6 +26,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "72a60f8f_b5c1a284",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-05-17T13:29:09Z",
+      "side": 1,
+      "message": "Not needed as mentioned on an earlier CL.",
+      "range": {
+        "startLine": 33,
+        "startChar": 49,
+        "endLine": 33,
+        "endChar": 59
+      },
+      "revId": "03ba66dc5eb6aadf443d386665d373b7802877a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3a289d9e_cb4f3ffb",
         "filename": "runtime/interpreter/mterp/riscv64/main.S",
         "patchSetId": 1
@@ -42,6 +65,29 @@
         "startChar": 4,
         "endLine": 256,
         "endChar": 19
+      },
+      "revId": "03ba66dc5eb6aadf443d386665d373b7802877a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0a2f2b6_74559908",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-05-17T13:29:09Z",
+      "side": 1,
+      "message": "What does the comment mean? This macro is used with `\\reg !\u003d \\vreg`.",
+      "range": {
+        "startLine": 308,
+        "startChar": 0,
+        "endLine": 308,
+        "endChar": 25
       },
       "revId": "03ba66dc5eb6aadf443d386665d373b7802877a7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
