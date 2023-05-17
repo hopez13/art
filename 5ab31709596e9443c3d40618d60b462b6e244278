@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "def87870_d07f03f8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2023-05-17T15:54:37Z",
+      "side": 1,
+      "message": "This is too generic IMO; one goal of the `Test:` stanza is to help someone to test a given change locally.\n\nHere, building ART should be enough, so you could use this instead:\n\n```\nTest: mmm art\n```",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 16
+      },
+      "revId": "5ab31709596e9443c3d40618d60b462b6e244278",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b1de0914_eaf467a2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2023-05-17T15:54:37Z",
+      "side": 1,
+      "message": "Looking at existing uses of `[[maybe_unused]]` in the Android code base (https://cs.android.com/search?q\u003dmaybe_unused%20case:y\u0026ss\u003dandroid%2Fplatform%2Fsuperproject), the predominant style seems to use this attribute _before_ the qualified entity rather than _after_. Would you mind making that change to ensure the style stays (mostly) uniform accross the code base?",
+      "revId": "5ab31709596e9443c3d40618d60b462b6e244278",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
