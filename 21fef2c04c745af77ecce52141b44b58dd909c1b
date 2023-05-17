@@ -86,6 +86,24 @@
       "parentUuid": "67f8b0d5_a2993936",
       "revId": "21fef2c04c745af77ecce52141b44b58dd909c1b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "856916b9_d6a12578",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3429,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-05-17T17:09:22Z",
+      "side": 1,
+      "message": "Or right, sorry, I confused the string offset section and string data section.\n\nI guess as a minimum you should check the both the ULEB and the zero-terminated data is within the file, or else you get fuzzer complaints.\n\nPresumably you should also check that the code unit size matches the ULEB size, although that will not upset the fuzzer either way.  I guess the fuzzer might have hard time generating data that matches this constraint.  I wonder how clever it is.",
+      "parentUuid": "edb058d1_b0476851",
+      "revId": "21fef2c04c745af77ecce52141b44b58dd909c1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
