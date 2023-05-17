@@ -1,0 +1,193 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d1c88d84_a660b8ed",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-17T10:19:33Z",
+      "side": 1,
+      "message": "This implements both `nterp_op_sput{,-object}`.",
+      "range": {
+        "startLine": 7,
+        "startChar": 9,
+        "endLine": 7,
+        "endChar": 29
+      },
+      "revId": "03ba66dc5eb6aadf443d386665d373b7802877a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a289d9e_cb4f3ffb",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-17T10:19:33Z",
+      "side": 1,
+      "message": "We should avoid taken branches in the fast-path. The initial miss label needs to be inside the instruction handler but it can be a simple jump to the a slow path outside the handler.",
+      "range": {
+        "startLine": 256,
+        "startChar": 4,
+        "endLine": 256,
+        "endChar": 19
+      },
+      "revId": "03ba66dc5eb6aadf443d386665d373b7802877a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72e5bea5_04b6ac08",
+        "filename": "runtime/interpreter/mterp/riscv64/object.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-17T10:19:33Z",
+      "side": 1,
+      "message": "Missing `sb t0, (t1)`.",
+      "revId": "03ba66dc5eb6aadf443d386665d373b7802877a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3a853e2_7ff6451a",
+        "filename": "runtime/interpreter/mterp/riscv64/object.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-17T10:19:33Z",
+      "side": 1,
+      "message": "Do we have any available callee-save registers that we can use for handler variables that we need to preserve?",
+      "range": {
+        "startLine": 122,
+        "startChar": 18,
+        "endLine": 122,
+        "endChar": 53
+      },
+      "revId": "03ba66dc5eb6aadf443d386665d373b7802877a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "edcb1e18_12627886",
+        "filename": "runtime/interpreter/mterp/riscv64/object.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-17T10:19:33Z",
+      "side": 1,
+      "message": "Add read barrier. If we use `a0` instead of `t2`, we can use the same entrypoint as needed by the parent CL.",
+      "revId": "03ba66dc5eb6aadf443d386665d373b7802877a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ccd473f4_bd31e182",
+        "filename": "runtime/interpreter/mterp/riscv64/object.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-17T10:19:33Z",
+      "side": 1,
+      "message": "BLTZ",
+      "range": {
+        "startLine": 165,
+        "startChar": 4,
+        "endLine": 165,
+        "endChar": 8
+      },
+      "revId": "03ba66dc5eb6aadf443d386665d373b7802877a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35ab442e_f6375dce",
+        "filename": "runtime/interpreter/mterp/riscv64/object.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-17T10:19:33Z",
+      "side": 1,
+      "message": "Read barrier.",
+      "revId": "03ba66dc5eb6aadf443d386665d373b7802877a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7fa8cac2_921a4433",
+        "filename": "runtime/interpreter/mterp/riscv64/object.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-17T10:19:33Z",
+      "side": 1,
+      "message": "Hans, please check the fence. Note that ARM has `dmb ish` before and after the store.",
+      "range": {
+        "startLine": 175,
+        "startChar": 4,
+        "endLine": 175,
+        "endChar": 15
+      },
+      "revId": "03ba66dc5eb6aadf443d386665d373b7802877a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af869534_646d73ef",
+        "filename": "runtime/interpreter/mterp/riscv64/object.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-17T10:19:33Z",
+      "side": 1,
+      "message": "I\u0027d prefer to move this outside the `.else` block.",
+      "range": {
+        "startLine": 180,
+        "startChar": 4,
+        "endLine": 180,
+        "endChar": 27
+      },
+      "revId": "03ba66dc5eb6aadf443d386665d373b7802877a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
