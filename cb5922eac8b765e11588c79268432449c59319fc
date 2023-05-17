@@ -1,0 +1,319 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a85e3ee_1b60323f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-17T08:18:47Z",
+      "side": 1,
+      "message": "Hans, please comment on the `fence w, w`.",
+      "revId": "cb5922eac8b765e11588c79268432449c59319fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bcf5abe3_2a14b676",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 606,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-17T08:18:47Z",
+      "side": 1,
+      "message": "if",
+      "range": {
+        "startLine": 606,
+        "startChar": 38,
+        "endLine": 606,
+        "endChar": 40
+      },
+      "revId": "cb5922eac8b765e11588c79268432449c59319fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dbb03dff_1a8db96d",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 626,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-17T08:18:47Z",
+      "side": 1,
+      "message": "Line too long, split before args.",
+      "revId": "cb5922eac8b765e11588c79268432449c59319fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "29f5c08a_02f94200",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 653,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-17T08:18:47Z",
+      "side": 1,
+      "message": "// TODO(riscv64): UNPOISON_HEAP_REF t0",
+      "revId": "cb5922eac8b765e11588c79268432449c59319fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46f256cb_512f0af3",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 654,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-17T08:18:47Z",
+      "side": 1,
+      "message": "I\u0027d prefer `lwu` but the top bit should be clear anyway.",
+      "range": {
+        "startLine": 654,
+        "startChar": 4,
+        "endLine": 654,
+        "endChar": 6
+      },
+      "revId": "cb5922eac8b765e11588c79268432449c59319fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3bf7d91_71613728",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 680,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-17T08:18:47Z",
+      "side": 1,
+      "message": "The `OBJECT_ALIGNMENT_MASK` is added in `COMPUTE_ARRAY_SIZE_*` together with the `MIRROR_INT_ARRAY_DATA_OFFSET` to save one instruction.",
+      "range": {
+        "startLine": 680,
+        "startChar": 6,
+        "endLine": 680,
+        "endChar": 27
+      },
+      "revId": "cb5922eac8b765e11588c79268432449c59319fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba7af75c_c5b08020",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 685,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-17T08:18:47Z",
+      "side": 1,
+      "message": "unsigned",
+      "range": {
+        "startLine": 685,
+        "startChar": 81,
+        "endLine": 685,
+        "endChar": 95
+      },
+      "revId": "cb5922eac8b765e11588c79268432449c59319fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ded3d584_34c10164",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 687,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-17T08:18:47Z",
+      "side": 1,
+      "message": "BGEU",
+      "range": {
+        "startLine": 687,
+        "startChar": 4,
+        "endLine": 687,
+        "endChar": 7
+      },
+      "revId": "cb5922eac8b765e11588c79268432449c59319fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a207d8b6_9ac54c87",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 693,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-17T08:18:47Z",
+      "side": 1,
+      "message": "I\u0027d prefer BGTU even though it should not really matter here.",
+      "range": {
+        "startLine": 693,
+        "startChar": 4,
+        "endLine": 693,
+        "endChar": 7
+      },
+      "revId": "cb5922eac8b765e11588c79268432449c59319fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d7e5db81_17ac88aa",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 707,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-17T08:18:47Z",
+      "side": 1,
+      "message": "// TODO(riscv64): POISON_HEAP_REF \\class",
+      "revId": "cb5922eac8b765e11588c79268432449c59319fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4bf75437_3bcebd61",
+        "filename": "runtime/interpreter/mterp/riscv64/array.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-17T08:18:47Z",
+      "side": 1,
+      "message": "Add read barrier. (We need to support CC GC at this time.)\n\nTest if `THREAD_IS_GC_MARKING_OFFSET(xSELF)` is set and, if yes, call `art_quick_read_barrier_mark_reg10` (a0). (You need to implement that entrypoint.)",
+      "revId": "cb5922eac8b765e11588c79268432449c59319fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "75502829_ffda1909",
+        "filename": "runtime/interpreter/mterp/riscv64/array.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-17T08:18:47Z",
+      "side": 1,
+      "message": "Unnecessary. xINST was unsigned 16-bit, so the high bits are zero after SRLI/SRLIW (whichever you choose to use above).",
+      "range": {
+        "startLine": 63,
+        "startChar": 4,
+        "endLine": 63,
+        "endChar": 45
+      },
+      "revId": "cb5922eac8b765e11588c79268432449c59319fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d139861b_1c5a1efb",
+        "filename": "runtime/interpreter/mterp/riscv64/array.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-17T08:18:47Z",
+      "side": 1,
+      "message": "I have no idea if this is the right fence. Hans, can you comment on this?",
+      "range": {
+        "startLine": 67,
+        "startChar": 4,
+        "endLine": 67,
+        "endChar": 14
+      },
+      "revId": "cb5922eac8b765e11588c79268432449c59319fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61bfbcf7_3c7de840",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-17T08:18:47Z",
+      "side": 1,
+      "message": "signed (it would fit into 12-bit unsigned)",
+      "range": {
+        "startLine": 239,
+        "startChar": 53,
+        "endLine": 239,
+        "endChar": 59
+      },
+      "revId": "cb5922eac8b765e11588c79268432449c59319fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d824db2c_37063df8",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-17T08:18:47Z",
+      "side": 1,
+      "message": "The meaning of the value varies.",
+      "range": {
+        "startLine": 251,
+        "startChar": 30,
+        "endLine": 251,
+        "endChar": 36
+      },
+      "revId": "cb5922eac8b765e11588c79268432449c59319fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
