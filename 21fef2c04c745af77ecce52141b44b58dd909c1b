@@ -35,6 +35,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bad0087c_9d36b932",
+        "filename": "libdexfile/dex/dex_file_loader_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 497,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-05-17T16:43:17Z",
+      "side": 1,
+      "message": "Sure, done",
+      "parentUuid": "efda30cf_2caa1136",
+      "revId": "21fef2c04c745af77ecce52141b44b58dd909c1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "67f8b0d5_a2993936",
@@ -48,6 +66,24 @@
       "writtenOn": "2023-05-17T15:50:13Z",
       "side": 1,
       "message": "Does the dex format guarantee that strings are consequtive and thightly packed.\n\nI think it is ok to have garbage in the section as long as it is not referenced.\n\n(e.g. strings could be aligned)",
+      "revId": "21fef2c04c745af77ecce52141b44b58dd909c1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "edb058d1_b0476851",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3429,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-05-17T16:43:17Z",
+      "side": 1,
+      "message": "Are you talking about the offsets? Or the data itself?\n\nWe verify that we have valid [offset, size, and alignment](https://cs.android.com/android/platform/superproject/+/master:art/libdexfile/dex/dex_file_verifier.cc;l\u003d614;drc\u003d14dc1bc6a3480f9dbb78b02cae49e457b8e270a5) for the offsets.\n\nI don\u0027t think we should tolerate garbage over there, as we wouldn\u0027t know which one would be a valid string or random garbage.\n\nTo build the loop, I emulated [FindStringRangesForMethodNames](https://cs.android.com/android/platform/superproject/+/master:art/libdexfile/dex/dex_file_verifier.cc;l\u003d3404;drc\u003d14dc1bc6a3480f9dbb78b02cae49e457b8e270a5)\n\n\u003e (e.g. strings could be aligned)\n\nIn terms of the string data themselves, there\u0027s no [alignment](https://source.android.com/docs/core/runtime/dex-format#string-data-item) i.e. byte-aligned according to the spec.\n\n---\n\nHaving said that, when looking [at the spec](https://source.android.com/docs/core/runtime/dex-format#string-data-item) it says that the length is `size of this string, in UTF-16 code units` but the data is `\ta series of MUTF-8 code units`. Then, the `str_data_ptr + length \u003e\u003d data_end` is not checking what I thought it was checking as there\u0027s not a 1:1 ration between `UTF-16 code unit` and `MUTF-8 code unit`. Not sure if we could check that the MUTF-8 string is within the DEX file without decoding the actual string.",
+      "parentUuid": "67f8b0d5_a2993936",
       "revId": "21fef2c04c745af77ecce52141b44b58dd909c1b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
