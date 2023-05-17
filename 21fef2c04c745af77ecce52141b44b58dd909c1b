@@ -16,6 +16,40 @@
       "message": "FYI The failing presubmit is unrelated and happening tip of tree",
       "revId": "21fef2c04c745af77ecce52141b44b58dd909c1b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "efda30cf_2caa1136",
+        "filename": "libdexfile/dex/dex_file_loader_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 497,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-05-17T15:50:13Z",
+      "side": 1,
+      "message": "I am not fan of huge macros if it can be avoid.\n\nYou can make this into a helper method, right?",
+      "revId": "21fef2c04c745af77ecce52141b44b58dd909c1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67f8b0d5_a2993936",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3429,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-05-17T15:50:13Z",
+      "side": 1,
+      "message": "Does the dex format guarantee that strings are consequtive and thightly packed.\n\nI think it is ok to have garbage in the section as long as it is not referenced.\n\n(e.g. strings could be aligned)",
+      "revId": "21fef2c04c745af77ecce52141b44b58dd909c1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
