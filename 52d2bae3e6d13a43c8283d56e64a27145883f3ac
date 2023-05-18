@@ -16,6 +16,24 @@
       "message": "That feels like an odd place to check the string section.",
       "revId": "52d2bae3e6d13a43c8283d56e64a27145883f3ac",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c38e685d_a5a790d7",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2322,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-05-18T11:19:47Z",
+      "side": 1,
+      "message": "Moved up and out of the loop.",
+      "parentUuid": "94bd1897_742c80e8",
+      "revId": "52d2bae3e6d13a43c8283d56e64a27145883f3ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

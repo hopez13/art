@@ -104,6 +104,24 @@
       "parentUuid": "edb058d1_b0476851",
       "revId": "21fef2c04c745af77ecce52141b44b58dd909c1b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec53307c_612c3700",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3429,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-05-18T11:19:47Z",
+      "side": 1,
+      "message": "Let\u0027s do both: Check that the string is within range, and that the length matches.",
+      "parentUuid": "856916b9_d6a12578",
+      "revId": "21fef2c04c745af77ecce52141b44b58dd909c1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
