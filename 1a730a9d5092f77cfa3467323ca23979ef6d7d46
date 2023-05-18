@@ -39,6 +39,30 @@
       },
       "revId": "1a730a9d5092f77cfa3467323ca23979ef6d7d46",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "db9becb0_fa5f37d4",
+        "filename": "runtime/base/atomic_pair.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-05-18T11:59:45Z",
+      "side": 1,
+      "message": "It is per entry, so it should be low indeed.  This is also secondary cache after the thread-local cache.\n\nOn the other hand, the inverse of the argument is that if the probability is very low, we might as well do unconditional `sched_yield` if we see the bit set.\n\nYou are asking if we should have two loops, right?  I don\u0027t think I would bother.\n\nPS: I could bright the new `key` calculation in the loop so that the amount of time the entry is locked is really minimal.\n\nPPS: I think if I change the line above to `key \u003d key_ptr-\u003eload(std::memory_order_relaxed) \u0026 ~kSeqLock;` then it still works with just the CAS check, right? (removing the `(key \u0026 kSeqLock) !\u003d 0`)",
+      "parentUuid": "57361062_58a04e5f",
+      "range": {
+        "startLine": 89,
+        "startChar": 11,
+        "endLine": 89,
+        "endChar": 32
+      },
+      "revId": "1a730a9d5092f77cfa3467323ca23979ef6d7d46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
