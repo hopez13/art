@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e2056bc_c86c8658",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 3413,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-05-18T13:11:39Z",
+      "side": 1,
+      "message": "`for (;it \u003c last; it++)`",
+      "revId": "4bdd04efa781121cabb4481a7725b1d28fbf2396",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0daf5844_fa9b55e4",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 3430,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-05-18T13:11:39Z",
+      "side": 1,
+      "message": "You are not checking that the string is actually terminated.\n\nI think something like this should work:\n```\nsize_t max_len \u003d data_end_as_char - std::min(data_end_as_char, utf8_data);\nsize_t str_len \u003d strnlen(...);\nif (str_len \u003d\u003d max_len) { return false; } // no null-terminator\n```",
+      "revId": "4bdd04efa781121cabb4481a7725b1d28fbf2396",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
