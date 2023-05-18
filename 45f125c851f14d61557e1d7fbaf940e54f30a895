@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d6f285b_9cbb315b",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 3425,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-05-18T13:04:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eec30590_73bde13f",
+      "revId": "45f125c851f14d61557e1d7fbaf940e54f30a895",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fbc82233_56f5e399",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-05-18T12:41:35Z",
       "side": 1,
       "message": "Buffer overflow.\n\nThis method isn\u0027t needed anyway.",
+      "revId": "45f125c851f14d61557e1d7fbaf940e54f30a895",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "65981f28_c7b5257f",
+        "filename": "libdexfile/dex/utf.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-05-18T13:04:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fbc82233_56f5e399",
       "revId": "45f125c851f14d61557e1d7fbaf940e54f30a895",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
