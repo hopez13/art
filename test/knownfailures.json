@@ -1372,7 +1372,7 @@
     },
     {
         "tests": ["2029-contended-monitors", "2043-reference-pauses"],
-        "variant": "interpreter | interp-ac | gcstress | trace | stream",
+        "variant": "interpreter | interp-ac | gcstress | trace | stream | speed-profile",
         "description": ["Slow tests. Prone to timeouts."]
     },
     {
