@@ -16,6 +16,29 @@
       "message": "I made the version 31 bits wide.",
       "revId": "1a730a9d5092f77cfa3467323ca23979ef6d7d46",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57361062_58a04e5f",
+        "filename": "runtime/base/atomic_pair.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-05-18T00:19:38Z",
+      "side": 1,
+      "message": "I assume the probability of contention here is really low? This clearly performs quite badly if another thread was suspended while holding the \"lock\". But it is correct.",
+      "range": {
+        "startLine": 89,
+        "startChar": 11,
+        "endLine": 89,
+        "endChar": 32
+      },
+      "revId": "1a730a9d5092f77cfa3467323ca23979ef6d7d46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

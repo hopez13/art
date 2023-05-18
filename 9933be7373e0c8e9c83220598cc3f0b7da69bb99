@@ -99,6 +99,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb49f2f8_ab0726dd",
+        "filename": "runtime/base/atomic_pair.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-05-18T00:19:38Z",
+      "side": 1,
+      "message": "I think of it mostly as the low bit of the sequence number, which is incremented before and after each update, and thus also happens to work as a writer lock. But I can\u0027t really argue that either view is wrong. I\u0027m OK leaving it,",
+      "parentUuid": "59227fb2_0298e7d0",
+      "range": {
+        "startLine": 41,
+        "startChar": 27,
+        "endLine": 41,
+        "endChar": 28
+      },
+      "revId": "9933be7373e0c8e9c83220598cc3f0b7da69bb99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ea450c1c_a4c479b5",
@@ -136,6 +160,30 @@
       "side": 1,
       "message": "I was going with better-safe-then-sorry, but I agree.  My quick argument is that val\u0027s acquire prevents \u0027key1\u0027 to be reordered before it, so it must be equivalent.",
       "parentUuid": "ea450c1c_a4c479b5",
+      "range": {
+        "startLine": 79,
+        "startChar": 32,
+        "endLine": 79,
+        "endChar": 58
+      },
+      "revId": "9933be7373e0c8e9c83220598cc3f0b7da69bb99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "162371b0_aa5c1640",
+        "filename": "runtime/base/atomic_pair.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-05-18T00:19:38Z",
+      "side": 1,
+      "message": "Agreed, though these informal arguments aren\u0027t bullet-proof. See the example in wg21.link/p0387.",
+      "parentUuid": "3ed58036_06652a04",
       "range": {
         "startLine": 79,
         "startChar": 32,
