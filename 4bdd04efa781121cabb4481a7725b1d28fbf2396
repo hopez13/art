@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "038bf96e_63d0b0aa",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 3413,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-05-18T13:41:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6e2056bc_c86c8658",
+      "revId": "4bdd04efa781121cabb4481a7725b1d28fbf2396",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0daf5844_fa9b55e4",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-05-18T13:11:39Z",
       "side": 1,
       "message": "You are not checking that the string is actually terminated.\n\nI think something like this should work:\n```\nsize_t max_len \u003d data_end_as_char - std::min(data_end_as_char, utf8_data);\nsize_t str_len \u003d strnlen(...);\nif (str_len \u003d\u003d max_len) { return false; } // no null-terminator\n```",
+      "revId": "4bdd04efa781121cabb4481a7725b1d28fbf2396",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "60c5676c_d125c5bd",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 3430,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-05-18T13:41:00Z",
+      "side": 1,
+      "message": "Ack, but I think we can forgo the `std::min` as utf8_data will be less than data_end_as_char due to the check in line 3425.",
+      "parentUuid": "0daf5844_fa9b55e4",
       "revId": "4bdd04efa781121cabb4481a7725b1d28fbf2396",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
