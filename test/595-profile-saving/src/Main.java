@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+import dalvik.system.PathClassLoader;
+
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Method;
@@ -25,6 +27,7 @@ public class Main {
 
     File file = null;
     File file2 = null;
+    File file3 = null;
     try {
       // Register `file2` with an empty jar. Even though `file2` is registered before `file`, the
       // runtime should not write bootclasspath methods to `file2`, and it should not even create
@@ -46,17 +49,32 @@ public class Main {
                                 new String[] {codePath},
                                 VMRuntime.CODE_PATH_TYPE_PRIMARY_APK);
 
-      // Test that the profile saves an app method with a profiling info.
+      file3 = createTempFile();
+      String dexPath = System.getenv("DEX_LOCATION") + "/res/art-gtest-jars-Main.dex";
+      VMRuntime.registerAppInfo("test.app",
+                                file3.getPath(),
+                                file3.getPath(),
+                                new String[] {dexPath},
+                                VMRuntime.CODE_PATH_TYPE_SPLIT_APK);
+
+      // Delete the files so that we can check if the runtime creates them. The runtime should
+      // create `file` and `file3` but not `file2`.
+      file.delete();
+      file2.delete();
+      file3.delete();
+
+      // Test that the runtime saves the profiling info of an app method in a .jar file.
       Method appMethod = Main.class.getDeclaredMethod("testAddMethodToProfile",
           File.class, Method.class);
       testAddMethodToProfile(file, appMethod);
 
-      // Delete the files so that we can check if the runtime creates them. The runtime should
-      // create `file` but not `file2`.
-      file.delete();
-      file2.delete();
+      // Test that the runtime saves the profiling info of an app method in a .dex file.
+      PathClassLoader dexClassLoader = new PathClassLoader(dexPath, null /* parent */);
+      Class<?> c = Class.forName("Main", true /* initialize */, dexClassLoader);
+      Method methodInDex = c.getMethod("main", (new String[0]).getClass());
+      testAddMethodToProfile(file3, methodInDex);
 
-      // Test that the profile saves a boot class path method with a profiling info.
+      // Test that the runtime saves the profiling info of a bootclasspath method.
       Method bootMethod = File.class.getDeclaredMethod("exists");
       if (bootMethod.getDeclaringClass().getClassLoader() != Object.class.getClassLoader()) {
         System.out.println("Class loader does not match boot class");
