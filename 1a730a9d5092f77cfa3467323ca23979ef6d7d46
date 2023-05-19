@@ -63,6 +63,30 @@
       },
       "revId": "1a730a9d5092f77cfa3467323ca23979ef6d7d46",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d237ea9a_07c2d9fe",
+        "filename": "runtime/base/atomic_pair.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-05-19T01:10:40Z",
+      "side": 1,
+      "message": "Re: PPS\n\nI think that works. You can take the load out of the loop, and just do\n\nkey \u0026\u003d ~kSeqLock, or possibly\n\nin the loop, right? I like that version, though it borders on excessive cleverness.",
+      "parentUuid": "db9becb0_fa5f37d4",
+      "range": {
+        "startLine": 89,
+        "startChar": 11,
+        "endLine": 89,
+        "endChar": 32
+      },
+      "revId": "1a730a9d5092f77cfa3467323ca23979ef6d7d46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
