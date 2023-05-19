@@ -28,6 +28,7 @@ class StartupCompletedTask : public gc::HeapTask {
   explicit StartupCompletedTask(uint64_t target_run_time) : gc::HeapTask(target_run_time) {}
 
   void Run(Thread* self) override;
+  void Run(Thread* self, bool generate_image) REQUIRES_SHARED(Locks::mutator_lock_);
 };
 
 }  // namespace art
