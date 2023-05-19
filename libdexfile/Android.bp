@@ -331,8 +331,6 @@ cc_library_headers {
     defaults: ["art_defaults"],
     visibility: ["//visibility:public"],
     host_supported: true,
-    header_libs: ["libbase_headers"],
-    export_header_lib_headers: ["libbase_headers"],
     export_include_dirs: ["external/include"],
 
     target: {
@@ -434,12 +432,16 @@ art_cc_library_static {
         "external/dex_file_supp.cc",
     ],
     runtime_libs: ["libdexfile"],
-    shared_libs: [
-        "liblog",
-        "libbase",
+    // Note: Only NDK libs may be dynamic, because this becomes a prebuilt that must work on S+.
+    shared_libs: ["liblog"],
+    header_libs: [
+        "libbase_headers",
+        "libdexfile_external_headers",
     ],
-    header_libs: ["libdexfile_external_headers"],
-    export_header_lib_headers: ["libdexfile_external_headers"],
+    export_header_lib_headers: [
+        "libbase_headers",
+        "libdexfile_external_headers",
+    ],
 
     apex_available: [
         "//apex_available:platform",
