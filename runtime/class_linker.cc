@@ -145,6 +145,7 @@
 #include "runtime.h"
 #include "runtime_callbacks.h"
 #include "scoped_thread_state_change-inl.h"
+#include "startup_completed_task.h"
 #include "thread-inl.h"
 #include "thread.h"
 #include "thread_list.h"
@@ -10791,9 +10792,12 @@ void ClassLinker::CleanupClassLoaders() {
       }
     }
   }
+  if (to_delete.empty()) {
+    return;
+  }
   std::set<const OatFile*> unregistered_oat_files;
-  if (!to_delete.empty()) {
-    JavaVMExt* vm = self->GetJniEnv()->GetVm();
+  JavaVMExt* vm = self->GetJniEnv()->GetVm();
+  {
     WriterMutexLock mu(self, *Locks::dex_lock_);
     for (auto it = dex_caches_.begin(), end = dex_caches_.end(); it != end; ) {
       const DexFile* dex_file = it->first;
@@ -10833,6 +10837,13 @@ void ClassLinker::CleanupClassLoaders() {
         Runtime::Current()->RemoveGeneratedCodeRange(oat_file->Begin() + exec_offset, exec_size);
       }
     }
+  }
+
+  if (Runtime::Current()->NotifyStartupCompleted()) {
+    // Because the startup linear alloc can contain dex cache arrays associated
+    // to class loaders that got unloaded, we need to delete these
+    // arrays.
+    StartupCompletedTask::DeleteStartupDexCaches(self, /* called_by_gc= */ true);
   }
 }
 
