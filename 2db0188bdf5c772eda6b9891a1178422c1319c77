@@ -154,6 +154,30 @@
       },
       "revId": "2db0188bdf5c772eda6b9891a1178422c1319c77",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d28cec5e_c124b8b4",
+        "filename": "runtime/startup_completed_task.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-05-19T22:36:16Z",
+      "side": 1,
+      "message": "I guess the argument here is that once we WaitForGCComplete(), no new GC started later will see released caches, right?\n\nLooks correct to me.",
+      "parentUuid": "b1d1ae80_129dccf2",
+      "range": {
+        "startLine": 98,
+        "startChar": 27,
+        "endLine": 98,
+        "endChar": 75
+      },
+      "revId": "2db0188bdf5c772eda6b9891a1178422c1319c77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
