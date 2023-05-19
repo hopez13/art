@@ -1,0 +1,159 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8d8beea_f716f312",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-05-19T17:51:13Z",
+      "side": 1,
+      "message": "Adding Hans to confirm my suggestion about using `WaitForGcToComplete`.",
+      "revId": "2db0188bdf5c772eda6b9891a1178422c1319c77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "31548001_779a742b",
+        "filename": "runtime/startup_completed_task.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-05-19T17:51:13Z",
+      "side": 1,
+      "message": "Since this function\u0027s name is also `run`, maybe say `run (below)`?",
+      "range": {
+        "startLine": 54,
+        "startChar": 33,
+        "endLine": 54,
+        "endChar": 36
+      },
+      "revId": "2db0188bdf5c772eda6b9891a1178422c1319c77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63654a8d_9e192bb8",
+        "filename": "runtime/startup_completed_task.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-05-19T17:51:13Z",
+      "side": 1,
+      "message": "nit: can be moved to the line above.",
+      "range": {
+        "startLine": 55,
+        "startChar": 5,
+        "endLine": 55,
+        "endChar": 18
+      },
+      "revId": "2db0188bdf5c772eda6b9891a1178422c1319c77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "351c282e_ca968e38",
+        "filename": "runtime/startup_completed_task.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-05-19T17:51:13Z",
+      "side": 1,
+      "message": "Wouldn\u0027t this be false for art-tests?",
+      "range": {
+        "startLine": 63,
+        "startChar": 16,
+        "endLine": 63,
+        "endChar": 38
+      },
+      "revId": "2db0188bdf5c772eda6b9891a1178422c1319c77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d39baba_12417766",
+        "filename": "runtime/startup_completed_task.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-05-19T17:51:13Z",
+      "side": 1,
+      "message": "Is this code agnostic to `mutator_lock_`? Earlier it was run outside `soa`",
+      "range": {
+        "startLine": 70,
+        "startChar": 2,
+        "endLine": 82,
+        "endChar": 3
+      },
+      "revId": "2db0188bdf5c772eda6b9891a1178422c1319c77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f1757962_f3278035",
+        "filename": "runtime/startup_completed_task.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-05-19T17:51:13Z",
+      "side": 1,
+      "message": "replace with `is`?",
+      "range": {
+        "startLine": 92,
+        "startChar": 18,
+        "endLine": 92,
+        "endChar": 26
+      },
+      "revId": "2db0188bdf5c772eda6b9891a1178422c1319c77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b1d1ae80_129dccf2",
+        "filename": "runtime/startup_completed_task.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-05-19T17:51:13Z",
+      "side": 1,
+      "message": "I agree that this checkpoint is required for the correctness as you describe here. \n\nBut I still think we need some kind of synchronization with the GC to ensure that GC isn\u0027t touching the released arenas. Actually even concurrent unlinking is fine. We just need to ensure that there isn\u0027t any GC going on which spans across unlinking as well as releasing startup-linear-alloc. Because then we may get a SIGSEGV(MAP_ERROR).\n\nI believe calling `heap-\u003eWaitForGcToComplete()` after line 112 below would suffice. Also, this shouldn\u0027t be done in case we are called from CleanupClassLoader() do avoid recursive locking. It\u0027s not required too in that case.",
+      "range": {
+        "startLine": 98,
+        "startChar": 27,
+        "endLine": 98,
+        "endChar": 75
+      },
+      "revId": "2db0188bdf5c772eda6b9891a1178422c1319c77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
