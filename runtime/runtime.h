@@ -824,7 +824,7 @@ class Runtime {
   }
 
   LinearAlloc* GetStartupLinearAlloc() {
-    return startup_linear_alloc_.get();
+    return startup_linear_alloc_.load();
   }
 
   jit::JitOptions* GetJITOptions() {
@@ -1063,7 +1063,7 @@ class Runtime {
   };
 
   LinearAlloc* ReleaseStartupLinearAlloc() {
-    return startup_linear_alloc_.release();
+    return startup_linear_alloc_.exchange(nullptr);
   }
 
   bool LoadAppImageStartupCache() const {
@@ -1304,7 +1304,7 @@ class Runtime {
 
   // Linear alloc used for allocations during startup. Will be deleted after
   // startup.
-  std::unique_ptr<LinearAlloc> startup_linear_alloc_;
+  std::atomic<LinearAlloc*> startup_linear_alloc_;
 
   // The number of spins that are done before thread suspension is used to forcibly inflate.
   size_t max_spins_before_thin_lock_inflation_;
