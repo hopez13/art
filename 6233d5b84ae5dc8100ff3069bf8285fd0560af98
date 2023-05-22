@@ -122,6 +122,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b2d8cd15_cbe17cf9",
+        "filename": "runtime/startup_completed_task.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-05-22T17:47:26Z",
+      "side": 1,
+      "message": "This second checkpoint is to make sure no thread is accessing the startup arrays (eg when trying to resolve fields/methods). The first one was the for allocator (used when allocating the arrays).",
+      "parentUuid": "96d7e307_faff0dd1",
+      "range": {
+        "startLine": 108,
+        "startChar": 28,
+        "endLine": 108,
+        "endChar": 41
+      },
+      "revId": "6233d5b84ae5dc8100ff3069bf8285fd0560af98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "572b9df3_e6e0bb55",
@@ -135,6 +159,30 @@
       "writtenOn": "2023-05-22T17:30:51Z",
       "side": 1,
       "message": "Why is it needed to be after ensuring that the currently running GC, if any, is done?\n\nOTOH, unlike dex-caches, which have been unlinked before `wait-for-gc-complete`, wouldn\u0027t it be a problem if the next GC immediately starts? Is there some sort of unlinking in app-image meta-deta as well?",
+      "range": {
+        "startLine": 123,
+        "startChar": 21,
+        "endLine": 123,
+        "endChar": 36
+      },
+      "revId": "6233d5b84ae5dc8100ff3069bf8285fd0560af98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ae00562_1fb0b734",
+        "filename": "runtime/startup_completed_task.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-05-22T17:47:26Z",
+      "side": 1,
+      "message": "The metadata in app images contains dex cache arrays 😊 The `UnlinkStartupDexCacheVisitor` will make sure no DexCache object points to either a linear alloc dex cache array or a metadata array in the app image.",
+      "parentUuid": "572b9df3_e6e0bb55",
       "range": {
         "startLine": 123,
         "startChar": 21,
