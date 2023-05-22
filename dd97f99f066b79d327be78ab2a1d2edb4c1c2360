@@ -56,6 +56,30 @@
       },
       "revId": "dd97f99f066b79d327be78ab2a1d2edb4c1c2360",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "80809bba_3236e628",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2255,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-05-22T14:38:35Z",
+      "side": 1,
+      "message": "Thanks Nicolas! On X86_64 it is loading the 64-bit constant but on ARM 64 it generates three move instructions to load the constant in 16-bit immediates. So, I am not sure it is better than the earlier implementation. The earlier one also works for AOT code. This could work if we were to assign a 16-bit method ID for each JITed code. \n\nI won\u0027t land this for now. I am trying to see if I can generate more compact code here and I will revisit this after I do those optimisations.",
+      "parentUuid": "a62d4d11_6367f8e0",
+      "range": {
+        "startLine": 2255,
+        "startChar": 0,
+        "endLine": 2255,
+        "endChar": 36
+      },
+      "revId": "dd97f99f066b79d327be78ab2a1d2edb4c1c2360",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
