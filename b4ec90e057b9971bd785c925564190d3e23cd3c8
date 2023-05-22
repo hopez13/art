@@ -1,5 +1,29 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd8369c1_baa82e1d",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 831,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2023-05-22T16:56:14Z",
+      "side": 1,
+      "message": "Would it make sense to have a similar change for other range-based `for`-loops? After all, they all iterate on instances of `ArenaSafeMap`.",
+      "range": {
+        "startLine": 812,
+        "startChar": 0,
+        "endLine": 831,
+        "endChar": 5
+      },
+      "revId": "b4ec90e057b9971bd785c925564190d3e23cd3c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
