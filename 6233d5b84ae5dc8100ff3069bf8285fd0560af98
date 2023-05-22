@@ -118,6 +118,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "11ba8082_96b4c95e",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 10842,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-05-22T22:38:40Z",
+      "side": 1,
+      "message": "Do we know whather that\u0027s always true? Do we care if it occasionally isn\u0027t? Is it possible that a ClassLoader could be reclaimed by e.g. the zygote GC after preloading classes? I don\u0027t understand ClassLoader use sufficiently to be sure about this.\n\nThe claims about us not collecting during startup are also \u003c100% true. We just increase the GC thresholds, so that an extreme memory hog can still GC.",
+      "parentUuid": "1afbfd0c_6fb2742a",
+      "range": {
+        "startLine": 10842,
+        "startChar": 26,
+        "endLine": 10842,
+        "endChar": 50
+      },
+      "revId": "6233d5b84ae5dc8100ff3069bf8285fd0560af98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "96d7e307_faff0dd1",
         "filename": "runtime/startup_completed_task.cc",
         "patchSetId": 2
