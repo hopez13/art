@@ -16,6 +16,46 @@
       "message": "PTAL. Thanks!",
       "revId": "dd97f99f066b79d327be78ab2a1d2edb4c1c2360",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "21391d23_5fb2b7fb",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2247,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-05-22T09:36:20Z",
+      "side": 1,
+      "message": "Add a DCHECK that this is the JIT copiler.",
+      "revId": "dd97f99f066b79d327be78ab2a1d2edb4c1c2360",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a62d4d11_6367f8e0",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2255,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-05-22T09:36:20Z",
+      "side": 1,
+      "message": "Have you checked what gets generated here? It may in the end be generated as a load from a constant pool.",
+      "range": {
+        "startLine": 2255,
+        "startChar": 0,
+        "endLine": 2255,
+        "endChar": 36
+      },
+      "revId": "dd97f99f066b79d327be78ab2a1d2edb4c1c2360",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
