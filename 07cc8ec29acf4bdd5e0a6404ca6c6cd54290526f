@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc1657a5_1d66eb1f",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1336,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2023-05-22T08:33:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a7041124_3d1efca7",
+      "range": {
+        "startLine": 1336,
+        "startChar": 18,
+        "endLine": 1336,
+        "endChar": 38
+      },
+      "revId": "07cc8ec29acf4bdd5e0a6404ca6c6cd54290526f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f33c08f5_fcf63700",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-05-21T19:19:54Z",
       "side": 1,
       "message": "Could you replace this with `[[maybe_unused]] bool is_static` (maybe in a follow-up CL)?",
+      "range": {
+        "startLine": 1354,
+        "startChar": 18,
+        "endLine": 1354,
+        "endChar": 36
+      },
+      "revId": "07cc8ec29acf4bdd5e0a6404ca6c6cd54290526f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "71aadf32_62be06d8",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1354,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2023-05-22T08:33:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f33c08f5_fcf63700",
       "range": {
         "startLine": 1354,
         "startChar": 18,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "362c9a54_a7e30171",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1355,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2023-05-22T08:33:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3a606905_0d5f2a1f",
+      "range": {
+        "startLine": 1355,
+        "startChar": 18,
+        "endLine": 1355,
+        "endChar": 39
+      },
+      "revId": "07cc8ec29acf4bdd5e0a6404ca6c6cd54290526f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f26ddb35_99229459",
@@ -83,6 +155,30 @@
       "writtenOn": "2023-05-21T19:19:54Z",
       "side": 1,
       "message": "Could you replace this with `[[maybe_unused]] bool is_last` (maybe in a follow-up CL)?",
+      "range": {
+        "startLine": 1468,
+        "startChar": 47,
+        "endLine": 1468,
+        "endChar": 63
+      },
+      "revId": "07cc8ec29acf4bdd5e0a6404ca6c6cd54290526f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1fa266af_de00fbcf",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1468,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2023-05-22T08:33:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f26ddb35_99229459",
       "range": {
         "startLine": 1468,
         "startChar": 47,
@@ -116,6 +212,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ebd7dd0_d07fb5ea",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 813,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2023-05-22T08:33:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fe3a7114_6d0234aa",
+      "range": {
+        "startLine": 813,
+        "startChar": 49,
+        "endLine": 813,
+        "endChar": 58
+      },
+      "revId": "07cc8ec29acf4bdd5e0a6404ca6c6cd54290526f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "336ba346_b965e131",
@@ -129,6 +249,30 @@
       "writtenOn": "2023-05-21T19:19:54Z",
       "side": 1,
       "message": "Nit: Long line.",
+      "range": {
+        "startLine": 629,
+        "startChar": 0,
+        "endLine": 629,
+        "endChar": 105
+      },
+      "revId": "07cc8ec29acf4bdd5e0a6404ca6c6cd54290526f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0fd2c541_636e9aa4",
+        "filename": "test/115-native-bridge/nativebridge.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 629,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2023-05-22T08:33:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "336ba346_b965e131",
       "range": {
         "startLine": 629,
         "startChar": 0,
@@ -162,6 +306,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3969b205_0e45412f",
+        "filename": "test/115-native-bridge/nativebridge.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 645,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2023-05-22T08:33:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3cbc5717_69d5de99",
+      "range": {
+        "startLine": 645,
+        "startChar": 0,
+        "endLine": 645,
+        "endChar": 103
+      },
+      "revId": "07cc8ec29acf4bdd5e0a6404ca6c6cd54290526f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bc91c8e1_3ce24cfc",
@@ -185,6 +353,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ff96bfc_48e6a196",
+        "filename": "test/115-native-bridge/nativebridge.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 646,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2023-05-22T08:33:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bc91c8e1_3ce24cfc",
+      "range": {
+        "startLine": 646,
+        "startChar": 0,
+        "endLine": 646,
+        "endChar": 101
+      },
+      "revId": "07cc8ec29acf4bdd5e0a6404ca6c6cd54290526f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a54ba094_7bc4ea5b",
@@ -198,6 +390,30 @@
       "writtenOn": "2023-05-21T19:19:54Z",
       "side": 1,
       "message": "Ditto.",
+      "range": {
+        "startLine": 654,
+        "startChar": 0,
+        "endLine": 654,
+        "endChar": 104
+      },
+      "revId": "07cc8ec29acf4bdd5e0a6404ca6c6cd54290526f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "530ec807_d7d44e5e",
+        "filename": "test/115-native-bridge/nativebridge.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 654,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2023-05-22T08:33:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a54ba094_7bc4ea5b",
       "range": {
         "startLine": 654,
         "startChar": 0,
