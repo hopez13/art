@@ -1278,16 +1278,15 @@ void InstructionCodeGeneratorX86::GenerateMethodEntryExitHook(HInstruction* inst
   __ fs()->movl(Address::Absolute(trace_buffer_index_addr), index);
 
   // Record method pointer and trace action.
-  Register method = index;
-  __ movl(method, Address(ESP, kCurrentMethodStackOffset));
+  uintptr_t method_addr = reinterpret_cast<uintptr_t>(codegen_->GetGraph()->GetArtMethod());
   // Use last two bits to encode trace method action. For MethodEntry it is 0
   // so no need to set the bits since they are 0 already.
   if (instruction->IsMethodExitHook()) {
     DCHECK_GE(ArtMethod::Alignment(kRuntimePointerSize), static_cast<size_t>(4));
     uint32_t trace_action = 1;
-    __ orl(method, Immediate(trace_action));
+    method_addr = method_addr | trace_action;
   }
-  __ movl(Address(entry_addr, kMethodOffsetInBytes), method);
+  __ movl(Address(entry_addr, kMethodOffsetInBytes), Immediate(method_addr));
   // Get the timestamp. rdtsc returns timestamp in EAX + EDX.
   __ rdtsc();
   __ movl(Address(entry_addr, kTimestampOffsetInBytes), EDX);

@@ -2244,14 +2244,15 @@ void InstructionCodeGeneratorARMVIXL::GenerateMethodEntryExitHook(HInstruction* 
   __ Str(index, MemOperand(tr, trace_buffer_index_addr));
 
   // Record method pointer and trace action.
-  __ Ldr(tmp, MemOperand(sp, 0));
+  uint32_t method_addr = reinterpret_cast32<uint32_t>(codegen_->GetGraph()->GetArtMethod());
   // Use last two bits to encode trace method action. For MethodEntry it is 0
   // so no need to set the bits since they are 0 already.
   if (instruction->IsMethodExitHook()) {
     DCHECK_GE(ArtMethod::Alignment(kRuntimePointerSize), static_cast<size_t>(4));
     uint32_t trace_action = 1;
-    __ Orr(tmp, tmp, Operand(trace_action));
+    method_addr = method_addr | trace_action;
   }
+  __ Mov(tmp, Operand(method_addr));
   __ Str(tmp, MemOperand(addr, kMethodOffsetInBytes));
 
   vixl32::Register tmp1 = index;
