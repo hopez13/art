@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e73ce24_c65ea72b",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 424,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-22T08:12:50Z",
+      "side": 1,
+      "message": "This is called `funct2` below. But since the field is indeed called `fmt` in the spec, can you rename the argument below, please?",
+      "range": {
+        "startLine": 424,
+        "startChar": 18,
+        "endLine": 424,
+        "endChar": 21
+      },
+      "revId": "5dc00f1156ae4f973ec883f7f2859996c561379c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c12e73b_c1319a18",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 474,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-22T08:12:50Z",
+      "side": 1,
+      "message": "I don\u0027t see a specific name for the higher bits in the spec but the lower bits are called `shamt` (though this is 6 bits for 64-bit shifts and 5 bits for 32-bit shifts - S*W).",
+      "range": {
+        "startLine": 474,
+        "startChar": 11,
+        "endLine": 474,
+        "endChar": 29
+      },
+      "revId": "5dc00f1156ae4f973ec883f7f2859996c561379c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
