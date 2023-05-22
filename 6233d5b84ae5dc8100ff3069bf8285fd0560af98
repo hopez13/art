@@ -35,6 +35,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d6e1106a_31fd2274",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-05-22T17:30:51Z",
+      "side": 1,
+      "message": "LGTM other than two clarifications. Sorry that I missed them in the first round of reviews.",
+      "revId": "6233d5b84ae5dc8100ff3069bf8285fd0560af98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f7ec372c_f487d29f",
@@ -77,6 +94,52 @@
         "startChar": 26,
         "endLine": 10842,
         "endChar": 50
+      },
+      "revId": "6233d5b84ae5dc8100ff3069bf8285fd0560af98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96d7e307_faff0dd1",
+        "filename": "runtime/startup_completed_task.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-05-22T17:30:51Z",
+      "side": 1,
+      "message": "Why is this checkpoint required? Wouldn\u0027t the first one suffice?",
+      "range": {
+        "startLine": 108,
+        "startChar": 28,
+        "endLine": 108,
+        "endChar": 41
+      },
+      "revId": "6233d5b84ae5dc8100ff3069bf8285fd0560af98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "572b9df3_e6e0bb55",
+        "filename": "runtime/startup_completed_task.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-05-22T17:30:51Z",
+      "side": 1,
+      "message": "Why is it needed to be after ensuring that the currently running GC, if any, is done?\n\nOTOH, unlike dex-caches, which have been unlinked before `wait-for-gc-complete`, wouldn\u0027t it be a problem if the next GC immediately starts? Is there some sort of unlinking in app-image meta-deta as well?",
+      "range": {
+        "startLine": 123,
+        "startChar": 21,
+        "endLine": 123,
+        "endChar": 36
       },
       "revId": "6233d5b84ae5dc8100ff3069bf8285fd0560af98",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
