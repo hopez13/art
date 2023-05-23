@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ff1a8c6f_1addd089",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 817,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-23T07:10:42Z",
+      "side": 1,
+      "message": "I don\u0027t like the name `it` in these loops. These are not iterators, they are actual entries in the map, so `auto\u0026 entry` would be great. (Or even `auto\u0026\u0026 entry` which has fewer requirements - the actual iterator dereference does not need to return a reference.)",
+      "range": {
+        "startLine": 817,
+        "startChar": 15,
+        "endLine": 817,
+        "endChar": 17
+      },
+      "revId": "b4ec90e057b9971bd785c925564190d3e23cd3c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cd8369c1_baa82e1d",
         "filename": "runtime/runtime_image.cc",
         "patchSetId": 1
