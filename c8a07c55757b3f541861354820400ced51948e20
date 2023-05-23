@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b5a58187_e1444acb",
+        "filename": "compiler/utils/label.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-23T07:17:10Z",
+      "side": 1,
+      "message": "Ack. This has been split out to https://android-review.googlesource.com/2596790 .",
+      "parentUuid": "39f76b1c_3787df49",
+      "revId": "c8a07c55757b3f541861354820400ced51948e20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0e7f59ec_87288ae9",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-04-06T09:29:15Z",
       "side": 1,
       "message": "It is need to add the friend class Riscv64Label, like: \nfriend class riscv64:Riscv64Label;",
+      "revId": "c8a07c55757b3f541861354820400ced51948e20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b62e88cd_cf214cc3",
+        "filename": "compiler/utils/label.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-23T07:17:10Z",
+      "side": 1,
+      "message": "Ack. This has been split out to https://android-review.googlesource.com/2596790 .",
+      "parentUuid": "0e7f59ec_87288ae9",
       "revId": "c8a07c55757b3f541861354820400ced51948e20",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -143,6 +179,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c5da8d1d_3d4ce4d5",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1138,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-23T07:17:10Z",
+      "side": 1,
+      "message": "This code has been cleaned up and split out to https://android-review.googlesource.com/2596790 .",
+      "parentUuid": "587449d3_4a35e250",
+      "range": {
+        "startLine": 1138,
+        "startChar": 24,
+        "endLine": 1138,
+        "endChar": 37
+      },
+      "revId": "c8a07c55757b3f541861354820400ced51948e20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "97283f8c_4593627d",
@@ -156,6 +216,30 @@
       "writtenOn": "2023-04-11T02:59:26Z",
       "side": 1,
       "message": "Please update the ‘MIPS’ to \u0027RISCV64\u0027.",
+      "range": {
+        "startLine": 1145,
+        "startChar": 0,
+        "endLine": 1145,
+        "endChar": 96
+      },
+      "revId": "c8a07c55757b3f541861354820400ced51948e20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6dd4ce52_6bf9080a",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1145,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-23T07:17:10Z",
+      "side": 1,
+      "message": "This code has been cleaned up and split out to https://android-review.googlesource.com/2596790 .",
+      "parentUuid": "97283f8c_4593627d",
       "range": {
         "startLine": 1145,
         "startChar": 0,
