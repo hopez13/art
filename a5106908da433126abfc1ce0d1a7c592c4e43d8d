@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eeebde9f_cd329929",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-05-23T16:25:45Z",
+      "side": 1,
+      "message": "LGTM. But adding only +1 so that Hans takes a look too.",
+      "revId": "a5106908da433126abfc1ce0d1a7c592c4e43d8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26c9face_e7ed45ea",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 827,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-05-23T16:25:45Z",
+      "side": 1,
+      "message": "Since this called everytime in AllocArray of DexCache, using `std::memory_order_relaxed` would be preferable, right?",
+      "range": {
+        "startLine": 827,
+        "startChar": 33,
+        "endLine": 827,
+        "endChar": 37
+      },
+      "revId": "a5106908da433126abfc1ce0d1a7c592c4e43d8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2790f9cb_08ed0e21",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 1066,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-05-23T16:25:45Z",
+      "side": 1,
+      "message": "If you decide to change the memory order above then might as well use the same here. Though it\u0027s not performance critical.",
+      "range": {
+        "startLine": 1066,
+        "startChar": 33,
+        "endLine": 1066,
+        "endChar": 41
+      },
+      "revId": "a5106908da433126abfc1ce0d1a7c592c4e43d8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6fe28d6b_a98ea764",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 1307,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-05-23T16:25:45Z",
+      "side": 1,
+      "message": "Maybe add a brief comment as to why it needs to be atomic.",
+      "range": {
+        "startLine": 1307,
+        "startChar": 0,
+        "endLine": 1307,
+        "endChar": 50
+      },
+      "revId": "a5106908da433126abfc1ce0d1a7c592c4e43d8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
