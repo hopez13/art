@@ -140,6 +140,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2badffd2_eb7e358b",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 10842,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-05-23T12:16:41Z",
+      "side": 1,
+      "message": "You\u0027re right, and I forgot about the zygote case. I\u0027ve changed the logic to now operate on the (now atomic) startup_linear_alloc_ pointer. PTAL.",
+      "parentUuid": "11ba8082_96b4c95e",
+      "range": {
+        "startLine": 10842,
+        "startChar": 26,
+        "endLine": 10842,
+        "endChar": 50
+      },
+      "revId": "6233d5b84ae5dc8100ff3069bf8285fd0560af98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "96d7e307_faff0dd1",
