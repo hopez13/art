@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "226af377_56b826f1",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 817,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2023-05-23T09:23:16Z",
+      "side": 1,
+      "message": "Done in aosp/2598606.",
+      "parentUuid": "ff1a8c6f_1addd089",
+      "range": {
+        "startLine": 817,
+        "startChar": 15,
+        "endLine": 817,
+        "endChar": 17
+      },
+      "revId": "b4ec90e057b9971bd785c925564190d3e23cd3c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cd8369c1_baa82e1d",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-05-22T16:56:14Z",
       "side": 1,
       "message": "Would it make sense to have a similar change for other range-based `for`-loops? After all, they all iterate on instances of `ArenaSafeMap`.",
+      "range": {
+        "startLine": 812,
+        "startChar": 0,
+        "endLine": 831,
+        "endChar": 5
+      },
+      "revId": "b4ec90e057b9971bd785c925564190d3e23cd3c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1311a007_5152dda9",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 831,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2023-05-23T09:23:16Z",
+      "side": 1,
+      "message": "I\u0027m not sure why clang-tidy is only complaining about one occurrence but you\u0027re right, we can (and should) change all of these for-loops - I have created aosp/2598606 for addressing this.",
+      "parentUuid": "cd8369c1_baa82e1d",
       "range": {
         "startLine": 812,
         "startChar": 0,
