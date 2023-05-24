@@ -1004,6 +1004,14 @@ bool Thread::Init(ThreadList* thread_list, JavaVMExt* java_vm, JNIEnvExt* jni_en
 
   ScopedTrace trace3("ThreadList::Register");
   thread_list->Register(this);
+
+
+  if (kAlwaysOnProfile) {
+    uintptr_t* method_trace_buffer = new uintptr_t[std::max(kMinBufSize, kPerThreadBufSize)]();
+    SetMethodTraceBuffer(method_trace_buffer);
+    uintptr_t** current_offset = GetMethodTraceIndexPtr();
+    *current_offset = method_trace_buffer + (kPerThreadBufSize - 1);
+  }
   return true;
 }
 
