@@ -30,16 +30,45 @@
 
 %def op_const_high16():
     unimp
+
 %def op_const_object(jumbo="0", helper="nterp_load_object"):
+    FETCH_FROM_THREAD_CACHE /*object ref*/ a0, /*slow path*/2f
+    TEST_IF_MARKING t0, 3f
+1:
+    srliw t1, xINST, 8  // t1 := AA
+    SET_VREG_OBJECT a0, t1
+
+    .if $jumbo
     unimp
+    .else
+    FETCH_ADVANCE_INST 2
+    .endif
+    GET_INST_OPCODE t0
+    GOTO_OPCODE t0
+2:
+    EXPORT_PC
+    mv a0, xSELF  // a0 := Thread*
+    ld a1, 0(sp)  // a1 := ArtMethod*
+    mv a2, xPC    // a2 := ptr to dex pc
+    call $helper
+    j 1b
+3:
+    call art_quick_read_barrier_mark_reg10  // a0/x10
+    j 1b
+
 %def op_const_class():
     unimp
 %def op_const_method_handle():
     unimp
 %def op_const_method_type():
     unimp
+
+// const-string vAA, string@BBBB
+// Format 21c: AA|op BBBB
+// Clobbers: t0, a0, a1, a2
 %def op_const_string():
-    unimp
+%   op_const_object()
+
 %def op_const_string_jumbo():
     unimp
 %def op_const_wide():
