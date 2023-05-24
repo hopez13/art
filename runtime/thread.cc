@@ -979,6 +979,8 @@ bool Thread::Init(ThreadList* thread_list, JavaVMExt* java_vm, JNIEnvExt* jni_en
   InitCardTable();
   InitTid();
 
+
+
 #ifdef __BIONIC__
   __get_tls()[TLS_SLOT_ART_THREAD_SELF] = this;
 #else
@@ -1000,6 +1002,12 @@ bool Thread::Init(ThreadList* thread_list, JavaVMExt* java_vm, JNIEnvExt* jni_en
       LOG(ERROR) << "Failed to create JNIEnvExt: " << error_msg;
       return false;
     }
+  }
+
+  if (kAlwaysOnProfile && (tls32_.thin_lock_thread_id == ThreadList::kMainThreadId )) {
+    uintptr_t* method_trace_buffer = new uintptr_t[std::max(kMinBufSize, kPerThreadBufSize)]();
+    tlsPtr_.method_trace_buffer = method_trace_buffer + 2;
+    tlsPtr_.method_trace_buffer_index = method_trace_buffer + (kPerThreadBufSize - 1);
   }
 
   ScopedTrace trace3("ThreadList::Register");
@@ -2573,7 +2581,7 @@ void Thread::Destroy(bool should_run_callbacks) {
     ScopedObjectAccess soa(self);
     if (UNLIKELY(self->GetMethodTraceBuffer() != nullptr)) {
       Trace::FlushThreadBuffer(self);
-      self->ResetMethodTraceBuffer();
+      // self->ResetMethodTraceBuffer();
     }
     // We may need to call user-supplied managed code, do this before final clean-up.
     HandleUncaughtExceptions();
@@ -2651,7 +2659,8 @@ Thread::~Thread() {
   delete tlsPtr_.deps_or_stack_trace_sample.stack_trace_sample;
 
   if (tlsPtr_.method_trace_buffer != nullptr) {
-    delete[] tlsPtr_.method_trace_buffer;
+    uintptr_t* ptr = tlsPtr_.method_trace_buffer - 2;
+    delete[] ptr;
   }
 
   Runtime::Current()->GetHeap()->AssertThreadLocalBuffersAreRevoked(this);
