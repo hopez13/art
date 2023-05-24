@@ -1902,45 +1902,79 @@ static void dumpCallSite(const DexFile* pDexFile, u4 idx) {
 }
 
 /*
- * Dumps the requested sections of the file.
+ * Used to decide if we want to print or skip a string from string_ids
  */
-static void processDexFile(const char* fileName,
-                           const DexFile* pDexFile, size_t i, size_t n) {
-  if (gOptions.verbose) {
-    fputs("Opened '", gOutFile);
-    fputs(fileName, gOutFile);
-    if (n > 1) {
-      fprintf(gOutFile, ":%s", DexFileLoader::GetMultiDexClassesDexName(i).c_str());
+static int isPrintable(const char* s) {
+  for (size_t i = 0; i < strlen(s); i++) {
+    if (!isprint((s[i]))) {
+      return false;
     }
-    fprintf(gOutFile, "', DEX version '%.3s'\n", pDexFile->GetHeader().magic_ + 4);
+  }
+  return true;
+}
+
+/*
+ * Show all printable string in the string_ids section
+ */
+static void dumpStrings(const DexFile* dexFile) {
+  const DexFile::Header& pHeader = dexFile->GetHeader();
+  fprintf(gOutFile, "\nDisplaying %u strings from string_ids:\n", pHeader.string_ids_size_);
+
+  for (uint32_t i = 0; i < pHeader.string_ids_size_; i++) {
+    dex::StringIndex idx = static_cast<dex::StringIndex>(i);
+    const char* string = dexFile->StringDataByIdx(idx);
+    if (!isPrintable(string)) {
+      string = "skipped (not printable)";
+    }
+    fprintf(gOutFile, "  string[%06u] - '%s'\n", i, string);
   }
 
-  // Headers.
-  if (gOptions.showFileHeaders) {
-    dumpFileHeader(pDexFile);
-  }
+  fprintf(gOutFile, "\n");
 
-  // Iterate over all classes.
-  char* package = nullptr;
-  const u4 classDefsSize = pDexFile->GetHeader().class_defs_size_;
-  for (u4 j = 0; j < classDefsSize; j++) {
-    dumpClass(pDexFile, j, &package);
-  }  // for
+  /*
+   * Dumps the requested sections of the file.
+   */
+  static void processDexFile(const char* fileName, const DexFile* pDexFile, size_t i, size_t n) {
+    if (gOptions.verbose) {
+      fputs("Opened '", gOutFile);
+      fputs(fileName, gOutFile);
+      if (n > 1) {
+        fprintf(gOutFile, ":%s", DexFileLoader::GetMultiDexClassesDexName(i).c_str());
+      }
+      fprintf(gOutFile, "', DEX version '%.3s'\n", pDexFile->GetHeader().magic_ + 4);
+    }
 
-  // Iterate over all method handles.
-  for (u4 j = 0; j < pDexFile->NumMethodHandles(); ++j) {
-    dumpMethodHandle(pDexFile, j);
-  }  // for
+    // Headers.
+    if (gOptions.showFileHeaders) {
+      dumpFileHeader(pDexFile);
+    }
 
-  // Iterate over all call site ids.
-  for (u4 j = 0; j < pDexFile->NumCallSiteIds(); ++j) {
-    dumpCallSite(pDexFile, j);
-  }  // for
+    if (gOptions.showAllStrings) {
+      dumpStrings(pDexFile);
+    }
 
-  // Free the last package allocated.
-  if (package != nullptr) {
-    fprintf(gOutFile, "</package>\n");
-    free(package);
+    // Iterate over all classes.
+    char* package = nullptr;
+    const u4 classDefsSize = pDexFile->GetHeader().class_defs_size_;
+    for (u4 j = 0; j < classDefsSize; j++) {
+      dumpClass(pDexFile, j, &package);
+    }  // for
+
+    // Iterate over all method handles.
+    for (u4 j = 0; j < pDexFile->NumMethodHandles(); ++j) {
+      dumpMethodHandle(pDexFile, j);
+    }  // for
+
+    // Iterate over all call site ids.
+    for (u4 j = 0; j < pDexFile->NumCallSiteIds(); ++j) {
+      dumpCallSite(pDexFile, j);
+    }  // for
+
+    // Free the last package allocated.
+    if (package != nullptr) {
+      fprintf(gOutFile, "</package>\n");
+      free(package);
+    }
   }
 }
 
