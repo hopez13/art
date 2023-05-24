@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c7d21f9_f9f94590",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 606,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-24T08:16:09Z",
+      "side": 1,
+      "message": "Note: For better fast-path in compiled code, we shall also want to save A\u003cn\u003e and T\u003cn\u003e registers.",
+      "range": {
+        "startLine": 606,
+        "startChar": 4,
+        "endLine": 606,
+        "endChar": 71
+      },
+      "revId": "c9c04169145b37fca4f5eedf13956d664ee0cd4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c1573ea1_04f77001",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 607,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-24T08:16:09Z",
+      "side": 1,
+      "message": "Note: The assembler is currently using T.6 (X31) for long unconditional branches (see also the macro `tail` in the RISC-V spec), so maybe we should use the same reserved temporary register here.",
+      "range": {
+        "startLine": 607,
+        "startChar": 7,
+        "endLine": 607,
+        "endChar": 9
+      },
+      "revId": "c9c04169145b37fca4f5eedf13956d664ee0cd4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2eb39a97_77480fe5",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 608,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-24T08:16:09Z",
+      "side": 1,
+      "message": "Testing bit 63 from a sign-extended bit 31? SGTM.",
+      "range": {
+        "startLine": 608,
+        "startChar": 50,
+        "endLine": 608,
+        "endChar": 67
+      },
+      "revId": "c9c04169145b37fca4f5eedf13956d664ee0cd4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
