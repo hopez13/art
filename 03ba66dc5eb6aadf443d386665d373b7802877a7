@@ -271,6 +271,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4878eae_fc1d6c53",
+        "filename": "runtime/interpreter/mterp/riscv64/object.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-24T09:19:59Z",
+      "side": 1,
+      "message": "Note: This was actually a bug for non-object sput as T3 could have been clobbered and would not be restored. Fixed by using S7 in PS2.",
+      "parentUuid": "79d646db_d6b545cb",
+      "range": {
+        "startLine": 122,
+        "startChar": 18,
+        "endLine": 122,
+        "endChar": 53
+      },
+      "revId": "03ba66dc5eb6aadf443d386665d373b7802877a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "edcb1e18_12627886",
@@ -448,6 +472,30 @@
       "side": 1,
       "message": "Ah, it applies to both branches, yes?",
       "parentUuid": "af869534_646d73ef",
+      "range": {
+        "startLine": 180,
+        "startChar": 4,
+        "endLine": 180,
+        "endChar": 27
+      },
+      "revId": "03ba66dc5eb6aadf443d386665d373b7802877a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d7c18505_06f8f690",
+        "filename": "runtime/interpreter/mterp/riscv64/object.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-24T09:19:59Z",
+      "side": 1,
+      "message": "It actually applies only to object which is just one of the cases that use the else-block. But given that you have the fence outside the `.if`, and my comment that ARM as an extra fence, such additional fence (if needed) would fit nicely between the `.endif` and `WRITE_BARRIER_IF_OBJECT` in PS2 instead of being repeated in both then-block and else-block as we do on ARM.",
+      "parentUuid": "9e39f2a9_dc03b5a1",
       "range": {
         "startLine": 180,
         "startChar": 4,

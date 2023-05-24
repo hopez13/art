@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "239a8d0c_034c5ef4",
+        "filename": "runtime/interpreter/mterp/riscv64/object.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-24T09:19:59Z",
+      "side": 1,
+      "message": "updates s7 if `is_object` as the GC may have moved the object",
+      "range": {
+        "startLine": 123,
+        "startChar": 18,
+        "endLine": 123,
+        "endChar": 53
+      },
+      "revId": "e3dafe1550d36046e385db8d04cda719e912f3b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42c59520_90134dba",
+        "filename": "runtime/interpreter/mterp/riscv64/object.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-24T09:19:59Z",
+      "side": 1,
+      "message": "This needs to be just after the `lw a0, ...` above as we\u0027re immediately using A0 in the following ADD.",
+      "range": {
+        "startLine": 134,
+        "startChar": 4,
+        "endLine": 135,
+        "endChar": 24
+      },
+      "revId": "e3dafe1550d36046e385db8d04cda719e912f3b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a47d4583_a37b6960",
+        "filename": "runtime/interpreter/mterp/riscv64/object.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-24T09:19:59Z",
+      "side": 1,
+      "message": "Use `tail`.\n\nCan you check if this ends up as a single instruction (assuming it\u0027s within range +-1MiB)?",
+      "range": {
+        "startLine": 141,
+        "startChar": 4,
+        "endLine": 141,
+        "endChar": 8
+      },
+      "revId": "e3dafe1550d36046e385db8d04cda719e912f3b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1475a18c_2f4611d5",
+        "filename": "runtime/interpreter/mterp/riscv64/object.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-24T09:19:59Z",
+      "side": 1,
+      "message": "`tail`",
+      "range": {
+        "startLine": 175,
+        "startChar": 4,
+        "endLine": 175,
+        "endChar": 8
+      },
+      "revId": "e3dafe1550d36046e385db8d04cda719e912f3b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3d4359fd_c8718685",
+        "filename": "runtime/interpreter/mterp/riscv64/object.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-24T09:19:59Z",
+      "side": 1,
+      "message": "Should we use `amoswap.rl zero, (t0)`?",
+      "range": {
+        "startLine": 184,
+        "startChar": 46,
+        "endLine": 184,
+        "endChar": 77
+      },
+      "revId": "e3dafe1550d36046e385db8d04cda719e912f3b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
