@@ -1901,6 +1901,7 @@ static void dumpCallSite(const DexFile* pDexFile, u4 idx) {
   }
 }
 
+static void dumpStrings(const DexFile* p_file);
 /*
  * Dumps the requested sections of the file.
  */
@@ -1918,6 +1919,10 @@ static void processDexFile(const char* fileName,
   // Headers.
   if (gOptions.showFileHeaders) {
     dumpFileHeader(pDexFile);
+  }
+
+  if (gOptions.showAllStrings) {
+    dumpStrings(pDexFile);
   }
 
   // Iterate over all classes.
@@ -1942,6 +1947,34 @@ static void processDexFile(const char* fileName,
     fprintf(gOutFile, "</package>\n");
     free(package);
   }
+}
+
+static int isPrintable(const char* s) {
+  for (size_t i = 0; i < strlen(s); i++) {
+    if (!isprint((s[i]))) {
+      return false;
+    }
+  }
+  return true;
+}
+
+/*
+ * Show all printable string in the string_ids section
+ */
+static void dumpStrings(const DexFile* dexFile) {
+  const DexFile::Header& pHeader = dexFile->GetHeader();
+  fprintf(gOutFile, "\nDisplaying %u strings from string_ids:\n", pHeader.string_ids_size_);
+
+  for (uint32_t i = 0; i < pHeader.string_ids_size_; i++) {
+    dex::StringIndex idx = static_cast<dex::StringIndex>(i);
+    const char* string = dexFile->StringDataByIdx(idx);
+    if (!isPrintable(string)) {
+      string = "skipped (not printable)";
+    }
+    fprintf(gOutFile, "  string[%06u] - '%s'\n", i, string);
+  }
+
+  fprintf(gOutFile, "\n");
 }
 
 /*
