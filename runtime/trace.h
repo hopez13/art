@@ -98,6 +98,8 @@ enum TraceAction {
     kTraceMethodActionMask = 0x03,  // two bits
 };
 
+static constexpr bool kAlwaysOnProfile = false;
+
 // We need 3 entries to store 64-bit timestamp counter as two 32-bit values on 32-bit architectures.
 static constexpr uint32_t kNumEntriesForWallClock =
     (kRuntimePointerSize == PointerSize::k64) ? 2 : 3;
@@ -110,6 +112,12 @@ static constexpr int32_t kTimestampOffsetInBytes = -1 * static_cast<uint32_t>(kR
 // This is valid only for 32-bit architectures.
 static constexpr int32_t kLowTimestampOffsetInBytes =
     -2 * static_cast<uint32_t>(kRuntimePointerSize);
+
+static constexpr size_t kMinBufSize = 18U;  // Trace header is up to 18B.
+// Size of per-thread buffer size. The value is chosen arbitrarily. This value
+// should be greater than kMinBufSize.
+static constexpr size_t kPerThreadBufSize = 512 * 1024;
+static_assert(kPerThreadBufSize > kMinBufSize);
 
 static constexpr uintptr_t kMaskTraceAction = ~0b11;
 
