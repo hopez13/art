@@ -22,6 +22,30 @@
       },
       "revId": "e3c04e8adcd5cc9911d146b28c6e478b41dba449",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef31c204_2ecfea09",
+        "filename": "runtime/interpreter/mterp/riscv64/object.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-05-24T17:20:16Z",
+      "side": 1,
+      "message": "LGTM. ARM dmb ishst is basically the same thing. This is not to be confused with the behavior of ARM dmb ishld, which translates to fence r,rw.",
+      "parentUuid": "229a4d8d_2544dd35",
+      "range": {
+        "startLine": 22,
+        "startChar": 4,
+        "endLine": 22,
+        "endChar": 14
+      },
+      "revId": "e3c04e8adcd5cc9911d146b28c6e478b41dba449",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
