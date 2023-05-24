@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "54366226_f1be8d99",
+        "filename": "runtime/interpreter/mterp/riscv64/object.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-05-24T07:43:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6a094779_0dcd6235",
+      "revId": "a85fcd55b02fcf2be8100c550892a5158d75390c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "136d782f_ed802664",
@@ -31,6 +49,30 @@
       "writtenOn": "2023-05-17T10:33:39Z",
       "side": 1,
       "message": "The `NterpAllocateObject()` uses allocation slow-path that emits the fence. (Unlike the fast path in the TLB allocation entrypoint which relies on the barrier in the caller.)",
+      "range": {
+        "startLine": 34,
+        "startChar": 10,
+        "endLine": 34,
+        "endChar": 50
+      },
+      "revId": "a85fcd55b02fcf2be8100c550892a5158d75390c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7eeedf86_9acd68fd",
+        "filename": "runtime/interpreter/mterp/riscv64/object.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-05-24T07:43:17Z",
+      "side": 1,
+      "message": "Nice, thank you!",
+      "parentUuid": "136d782f_ed802664",
       "range": {
         "startLine": 34,
         "startChar": 10,
