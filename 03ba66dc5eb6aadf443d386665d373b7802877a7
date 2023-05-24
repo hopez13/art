@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "317eea27_8d44adff",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-05-24T07:43:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d1c88d84_a660b8ed",
+      "range": {
+        "startLine": 7,
+        "startChar": 9,
+        "endLine": 7,
+        "endChar": 29
+      },
+      "revId": "03ba66dc5eb6aadf443d386665d373b7802877a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "72a60f8f_b5c1a284",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-05-17T13:29:09Z",
       "side": 1,
       "message": "Not needed as mentioned on an earlier CL.",
+      "range": {
+        "startLine": 33,
+        "startChar": 49,
+        "endLine": 33,
+        "endChar": 59
+      },
+      "revId": "03ba66dc5eb6aadf443d386665d373b7802877a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "76349eb2_34a8c36d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-05-24T07:43:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "72a60f8f_b5c1a284",
       "range": {
         "startLine": 33,
         "startChar": 49,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bacbb6fd_ddb366a3",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-05-24T07:43:10Z",
+      "side": 1,
+      "message": "Nice, thank you.",
+      "parentUuid": "3a289d9e_cb4f3ffb",
+      "range": {
+        "startLine": 256,
+        "startChar": 4,
+        "endLine": 256,
+        "endChar": 19
+      },
+      "revId": "03ba66dc5eb6aadf443d386665d373b7802877a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f0a2f2b6_74559908",
@@ -83,6 +155,30 @@
       "writtenOn": "2023-05-17T13:29:09Z",
       "side": 1,
       "message": "What does the comment mean? This macro is used with `\\reg !\u003d \\vreg`.",
+      "range": {
+        "startLine": 308,
+        "startChar": 0,
+        "endLine": 308,
+        "endChar": 25
+      },
+      "revId": "03ba66dc5eb6aadf443d386665d373b7802877a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e955d8e_eaa11f8d",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-05-24T07:43:10Z",
+      "side": 1,
+      "message": "I found it occasionally useful to just use one temporary, and this macro has that property.",
+      "parentUuid": "f0a2f2b6_74559908",
       "range": {
         "startLine": 308,
         "startChar": 0,
@@ -110,6 +206,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c1a2580_bdfa9053",
+        "filename": "runtime/interpreter/mterp/riscv64/object.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-05-24T07:43:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "72e5bea5_04b6ac08",
+      "revId": "03ba66dc5eb6aadf443d386665d373b7802877a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d3a853e2_7ff6451a",
@@ -123,6 +237,30 @@
       "writtenOn": "2023-05-17T10:19:33Z",
       "side": 1,
       "message": "Do we have any available callee-save registers that we can use for handler variables that we need to preserve?",
+      "range": {
+        "startLine": 122,
+        "startChar": 18,
+        "endLine": 122,
+        "endChar": 53
+      },
+      "revId": "03ba66dc5eb6aadf443d386665d373b7802877a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "79d646db_d6b545cb",
+        "filename": "runtime/interpreter/mterp/riscv64/object.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-05-24T07:43:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d3a853e2_7ff6451a",
       "range": {
         "startLine": 122,
         "startChar": 18,
@@ -150,6 +288,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "700d25bf_2594c4c5",
+        "filename": "runtime/interpreter/mterp/riscv64/object.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-05-24T07:43:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "edcb1e18_12627886",
+      "revId": "03ba66dc5eb6aadf443d386665d373b7802877a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ccd473f4_bd31e182",
@@ -173,6 +329,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a4dbd97d_d5fa9cf0",
+        "filename": "runtime/interpreter/mterp/riscv64/object.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-05-24T07:43:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ccd473f4_bd31e182",
+      "range": {
+        "startLine": 165,
+        "startChar": 4,
+        "endLine": 165,
+        "endChar": 8
+      },
+      "revId": "03ba66dc5eb6aadf443d386665d373b7802877a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "35ab442e_f6375dce",
@@ -186,6 +366,24 @@
       "writtenOn": "2023-05-17T10:19:33Z",
       "side": 1,
       "message": "Read barrier.",
+      "revId": "03ba66dc5eb6aadf443d386665d373b7802877a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "262078bf_4b01ad41",
+        "filename": "runtime/interpreter/mterp/riscv64/object.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-05-24T07:43:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "35ab442e_f6375dce",
       "revId": "03ba66dc5eb6aadf443d386665d373b7802877a7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -226,6 +424,30 @@
       "writtenOn": "2023-05-17T10:19:33Z",
       "side": 1,
       "message": "I\u0027d prefer to move this outside the `.else` block.",
+      "range": {
+        "startLine": 180,
+        "startChar": 4,
+        "endLine": 180,
+        "endChar": 27
+      },
+      "revId": "03ba66dc5eb6aadf443d386665d373b7802877a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e39f2a9_dc03b5a1",
+        "filename": "runtime/interpreter/mterp/riscv64/object.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-05-24T07:43:10Z",
+      "side": 1,
+      "message": "Ah, it applies to both branches, yes?",
+      "parentUuid": "af869534_646d73ef",
       "range": {
         "startLine": 180,
         "startChar": 4,
