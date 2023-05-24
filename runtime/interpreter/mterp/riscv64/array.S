@@ -43,8 +43,28 @@
 %def op_array_length():
     unimp
 
+// fill-array-data vAA, +BBBBBBBB
+// Format 31t: AA|op bbbb(lo) BBBB(hi)
 %def op_fill_array_data():
-    unimp
+    EXPORT_PC
+    FETCH a0, 1               // a0 := 0000.0000.0000.bbbb
+    FETCH a1, 2, /*signed*/1  // a1 := ssss.ssss.ssss.BBBB
+    slli  a1, a1, 16          // a1 := ssss.ssss.BBBB.0000
+    or    a1, a1, a0          // a1 := ssss.ssss.BBBB.bbbb
+    slli  a1, a1, 1           // a1 := +BBBBbbbb * 2
+    add   a1, a1, xPC         // a1 := dex PC + (+BBBBbbbb) * 2
+    srliw a0, xINST, 8        // a0 := AA
+    GET_VREG a0, a0           // a0 := fp[AA]
+    // artHandleFillArrayDataFromCode
+    // a0: data array base address
+    // a1: array reference
+    // a2: xSELF (set up by trampoline)
+    call art_quick_handle_fill_data
+
+    // On return, continue to next opcode.
+    FETCH_ADVANCE_INST 3
+    GET_INST_OPCODE t0
+    GOTO_OPCODE t0
 
 %def op_filled_new_array(helper="nterp_filled_new_array"):
     unimp

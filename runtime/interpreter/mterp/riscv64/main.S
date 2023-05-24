@@ -344,11 +344,18 @@ END \name
     addi xPC, xPC, (\count*2)
 .endm
 
-// Fetch a half-word unit from an offset past the current PC.
-// The offset is specified in \count units, each 2 bytes.
+// Fetch a dex code unit from an offset past the current PC.
+// The offset is specified in \count code units, each 2 bytes.
+//
+// Default behavior loads code unit as unsigned zext. The \signed flag is for signed sext.
+//
 // Does not advance xPC.
-.macro FETCH reg, count
+.macro FETCH reg, count, signed=0
+    .if \signed
+    lh  \reg, (\count*2)(xPC)
+    .else
     lhu \reg, (\count*2)(xPC)
+    .endif
 .endm
 
 // Uses: \reg
