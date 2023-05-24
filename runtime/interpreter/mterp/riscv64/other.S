@@ -1,13 +1,22 @@
 %def unused():
     ebreak
+
 %def op_const():
     unimp
+
+// const/16 vAA, #+BBBB
+// Format 21s: AA|op BBBB
+// Clobbers: t0, t1, t2, t3
 %def op_const_16():
-    unimp
-%def op_const_4():
+    FETCH t1, /*count*/1, /*signed*/1  // t1 := +BBBB
+    srliw t2, xINST, 8   // t2 := AA
+    FETCH_ADVANCE_INST 2 // advance xPC, load xINST
+    GET_INST_OPCODE t3   // t3 := next opcode
+    SET_VREG t2, t1      // fp[AA] := +BBBB
+    GOTO_OPCODE t3       // continue to next
 
 // const/4 vA, #+B
-// Format id: 11n, B|A|op
+// Format 11n: B|A|op
 // Clobbers: t0, t1, t2, t3
 %def op_const_4():
     slliw t1, xINST, 16   // B as MSB of word
