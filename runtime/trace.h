@@ -111,6 +111,12 @@ static constexpr int32_t kTimestampOffsetInBytes = -1 * static_cast<uint32_t>(kR
 static constexpr int32_t kLowTimestampOffsetInBytes =
     -2 * static_cast<uint32_t>(kRuntimePointerSize);
 
+static constexpr size_t kMinBufSize = 18U;  // Trace header is up to 18B.
+// Size of per-thread buffer size. The value is chosen arbitrarily. This value
+// should be greater than kMinBufSize.
+static constexpr size_t kPerThreadBufSize = 512 * 1024;
+static_assert(kPerThreadBufSize > kMinBufSize);
+
 static constexpr uintptr_t kMaskTraceAction = ~0b11;
 
 // Class for recording event traces. Trace data is either collected
