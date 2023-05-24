@@ -114,6 +114,30 @@
       },
       "revId": "e3dafe1550d36046e385db8d04cda719e912f3b9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "625df80d_a2bbc3ba",
+        "filename": "runtime/interpreter/mterp/riscv64/object.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-05-24T15:52:54Z",
+      "side": 1,
+      "message": "Yes, please! Otherwise this needs a second fence after the store.\n\nThis needs to use the memory_order_seq_cst store ABI conventions, which are still a bit of a moving target. My proposal is at https://github.com/riscv-non-isa/riscv-elf-psabi-doc/pull/378. It is what gcc ToT uses, and it currently seems reasonably likely to be adopted.",
+      "parentUuid": "3d4359fd_c8718685",
+      "range": {
+        "startLine": 184,
+        "startChar": 46,
+        "endLine": 184,
+        "endChar": 77
+      },
+      "revId": "e3dafe1550d36046e385db8d04cda719e912f3b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
