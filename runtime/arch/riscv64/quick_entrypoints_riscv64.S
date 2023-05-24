@@ -720,9 +720,24 @@ END \name
 READ_BARRIER_MARK_REG art_quick_read_barrier_mark_reg10, a0
 
 
+// Input
+//   - a0, a1: arguments to \entrypoint
+//   - a2: xSELF, supplied by this macro
+.macro TWO_ARG_REF_DOWNCALL name, entrypoint, return
+    .extern \entrypoint
+ENTRY \name
+    SETUP_SAVE_REFS_ONLY_FRAME  // save callee saves in case of GC
+    mv a2, xSELF
+    call \entrypoint
+    RESTORE_SAVE_REFS_ONLY_FRAME
+    \return
+END \name
+.endm
+
+
 // Return to calling context, or deopt then return.
 // Input
-//   - a0: value
+//   - a0: returned value
 //   - is_ref: whether value is a reference
 // Clobbers: t0
 .macro MAYBE_DEOPT_THEN_RETURN is_ref
@@ -740,6 +755,19 @@ READ_BARRIER_MARK_REG art_quick_read_barrier_mark_reg10, a0
     ret
     CFI_RESTORE_STATE_AND_DEF_CFA sp, FRAME_SIZE_SAVE_EVERYTHING
 .endm
+
+
+.macro RETURN_ZERO_OR_THROW
+    bnez a0, 1f
+    MAYBE_DEOPT_THEN_RETURN /*is_ref*/0
+1:
+    DELIVER_PENDING_EXCEPTION
+.endm
+
+
+// Entry from managed code. Calls artHandleFillArrayDataFromCode, delivers exception on failure.
+TWO_ARG_REF_DOWNCALL \
+    art_quick_handle_fill_data, artHandleFillArrayDataFromCode, RETURN_ZERO_OR_THROW
 
 
 // Caller must publish the array object with a store-store fence.
