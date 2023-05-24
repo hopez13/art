@@ -1313,6 +1313,56 @@ void CodeGeneratorARM64::MaybeIncrementHotness(bool is_frame_entry) {
   }
 }
 
+void CodeGeneratorARM64::RecordTraceEvent(bool method_entry) {
+  if (!kAlwaysOnProfile) {
+    return;
+  }
+  if (!method_entry) {
+    return;
+  }
+  MacroAssembler* masm = GetVIXLAssembler();
+  UseScratchRegisterScope temps(masm);
+  Register index = temps.AcquireX();
+  Register ts = temps.AcquireX();
+  size_t trace_buffer_index_addr =
+      Thread::TraceBufferIndexOffset<kArm64PointerSize>().SizeValue();
+  __ Ldr(index, MemOperand(tr, trace_buffer_index_addr));
+  if (method_entry) {
+    __ Mrs(ts, (SystemRegister)SYS_CNTVCT_EL0);
+    __ Str(ts, MemOperand(index, -8, PostIndex));
+  } else {
+    // __ Mrs(ts, (SystemRegister)SYS_CNTVCT_EL0);
+    // __ Str(ts, MemOperand(index, -8, PreIndex));
+  }
+#if 0
+  MacroAssembler* masm = GetVIXLAssembler();
+  UseScratchRegisterScope temps(masm);
+  Register index = temps.AcquireX();
+  Register addr = temps.AcquireX();
+  size_t trace_buffer_index_addr =
+      Thread::TraceBufferIndexOffset<kArm64PointerSize>().SizeValue();
+  vixl::aarch64::Label update_entry, done;
+  __ Ldr(index, MemOperand(tr, trace_buffer_index_addr));
+  __ Ldr(addr, MemOperand(tr, Thread::TraceBufferPtrOffset<kArm64PointerSize>().SizeValue()));
+  // __ Ldp(addr, index, MemOperand(tr, Thread::TraceBufferPtrOffset<kArm64PointerSize>().SizeValue()));
+  __ Cbz(index, &done);
+  __ Cmp(addr, index);
+  __ B(gt, &update_entry);
+  __ ComputeAddress(index, MemOperand(addr, (kPerThreadBufSize - 1) << TIMES_8));
+  __ Bind(&update_entry);
+  if (method_entry) {
+    __ Str(kArtMethodRegister, MemOperand(index, -8, PostIndex));
+  } else {
+    Register ts = addr;
+    // __ Mrs(ts, (SystemRegister)SYS_CNTVCT_EL0);
+    __ Str(ts, MemOperand(index, -8, PreIndex));
+    __ Add(index, index, -8);
+  }
+  __ Str(index, MemOperand(tr, trace_buffer_index_addr));
+  __ Bind(&done);
+#endif
+}
+
 void CodeGeneratorARM64::GenerateFrameEntry() {
   MacroAssembler* masm = GetVIXLAssembler();
 
@@ -1427,11 +1477,13 @@ void CodeGeneratorARM64::GenerateFrameEntry() {
     }
   }
   MaybeIncrementHotness(/* is_frame_entry= */ true);
+  RecordTraceEvent(true);
   MaybeGenerateMarkingRegisterCheck(/* code= */ __LINE__);
 }
 
 void CodeGeneratorARM64::GenerateFrameExit() {
   GetAssembler()->cfi().RememberState();
+  RecordTraceEvent(false);
   if (!HasEmptyFrame()) {
     int32_t frame_size = dchecked_integral_cast<int32_t>(GetFrameSize());
     uint32_t core_spills_offset = frame_size - GetCoreSpillSize();
