@@ -16,6 +16,29 @@
       "message": "Could this be moved to its own binary? imgdiag is for looking at contents of the boot image, while this new utility is for looking at all memory maps.",
       "revId": "491c378fa709f593dfdd8ce9ebf0de4459654a3a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "50ff72c0_87d8db03",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1905,
+      "author": {
+        "id": 1010465
+      },
+      "writtenOn": "2023-05-25T22:20:04Z",
+      "side": 1,
+      "message": "nit: page_count \u003d\u003d 0 { non_present; continue; } may be easier to read.",
+      "range": {
+        "startLine": 1905,
+        "startChar": 6,
+        "endLine": 1905,
+        "endChar": 28
+      },
+      "revId": "491c378fa709f593dfdd8ce9ebf0de4459654a3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
