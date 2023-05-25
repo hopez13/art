@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e15abea_2e605309",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-05-25T16:46:30Z",
+      "side": 1,
+      "message": "# Test performance\nhost-gtest:\nhttps://android-build.corp.google.com/test_investigate/?invocationId\u003dI76400010161261512\u0026testResultId\u003dTR17928668801053140\u0026tab\u003dperformance\nhttps://android-build.corp.google.com/test_investigate/?invocationId\u003dI52900010161210135\u0026testResultId\u003dTR01728668659719924\u0026tab\u003dperformance\nhttps://android-build.corp.google.com/test_investigate/?invocationId\u003dI65800010161196687\u0026testResultId\u003dTR97428668350844847\u0026tab\u003dperformance\nFrom looking at the \"Invocation performance summary\" graphs, static linked gtests(new) vs shared(current): 15-16m vs 12-14m\nNot sure how to read the graph, but some of the difference comes from the pause before fetching.\n\ntarget-gtest (cf_x86_64):\nhttps://android-build.corp.google.com/test_investigate/?invocationId\u003dI10900010161211160\u0026testResultId\u003dTR83728668779768336\u0026tab\u003dperformance\nhttps://android-build.corp.google.com/test_investigate/?invocationId\u003dI11100010161236065\u0026testResultId\u003dTR07328668635641967\u0026tab\u003dperformance\nhttps://android-build.corp.google.com/test_investigate/?invocationId\u003dI52700010161178788\u0026testResultId\u003dTR30228668365099373\u0026tab\u003dperformance\nStatic linking vs shared: 22-23m vs ~22m (no significant difference)\n\ntarget-gtest (oriole):\nhttps://android-build.corp.google.com/test_investigate/?invocationId\u003dI50500010161207022\u0026testResultId\u003dTR25428668795460453\u0026tab\u003dperformance\nhttps://android-build.corp.google.com/test_investigate/?invocationId\u003dI31100010161205088\u0026testResultId\u003dTR05428668663518153\u0026tab\u003dperformance\nhttps://android-build.corp.google.com/test_investigate/?invocationId\u003dI77900010161130189\u0026testResultId\u003dTR07228668338019584\u0026tab\u003dperformance\nStatic linking vs shared: 33-34m vs 33-40m\n\n# Build performance\nI couldn\u0027t figure out how to measure build times with ABTD, because it looks like there is no way to perform a clean build. So I used my cloudtop instead (RBE disabled).\nBuild command: https://paste.googleplex.com/5692380165439488?raw\nStatic link gtests: 9:54, 9:56, 9:49\nCurrent aosp/master: 9:06, 9:03, 9:06\n\nWith RBE enabled I have approximately the same results: 6:20-6:30.",
+      "revId": "bb46eed3afd1a1ded927fd05de00407ad46cb8b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
