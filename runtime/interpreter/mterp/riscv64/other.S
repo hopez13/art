@@ -47,9 +47,9 @@
     GOTO_OPCODE t0
 2:
     EXPORT_PC
-    mv a0, xSELF  // a0 := Thread*
-    ld a1, 0(sp)  // a1 := ArtMethod*
-    mv a2, xPC    // a2 := ptr to dex pc
+    mv a0, xSELF // a0 := Thread*
+    ld a1, (sp)  // a1 := ArtMethod*
+    mv a2, xPC   // a2 := ptr to dex pc
     call $helper
     j 1b
 3:

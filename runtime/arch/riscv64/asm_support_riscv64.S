@@ -125,7 +125,7 @@
 #else
     la \reg, _ZN3art7Runtime9instance_E
 #endif
-    ld \reg, 0(\reg)
+    ld \reg, (\reg)
 .endm
 
 

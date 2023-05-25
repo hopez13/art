@@ -47,6 +47,12 @@
 %def op_iget_slow_path(load, wide, is_object):
     unimp
 
+%def op_iget_wide():
+    unimp
+
+%def op_iget_object():
+    unimp
+
 %def op_iget_boolean():
     unimp
 
@@ -59,19 +65,89 @@
 %def op_iget_short():
     unimp
 
-%def op_iget_wide():
-    unimp
-
-%def op_iget_object():
-    unimp
-
 // *** iput ***
 
-%def op_iput(wide="", is_object=""):
+.macro CLEAR_INSTANCE_VOLATILE_MARKER reg
+    andi \reg, \reg, ~0x8000  // reset bit #31
+.endm
+
+.macro VOLATILE_STORE_SEQCST width value addr
+  .if \width == 8
+    fence rw, w
+    sb \value, (\addr)
+    fence rw, rw
+  .elseif \width == 16
+    fence rw, w
+    sw \value, (\addr)
+    fence rw, rw
+  .elseif \width == 32
+    amoswap.w.rl \value, \value, (\addr)
+  .else  // width == 64
+    amoswap.d.rl \value, \value, (\addr)
+  .endif  // width
+.endm
+
+// iput vA, vB, field@CCCC
+// Format 22c: B|A|op CCCC
+// Clobbers: t0
+%def op_iput(width="32", is_object="0"):
     unimp
 
-%def op_iput_slow_path(wide, is_object):
+// Input
+//   - width: bit width of value. One of 8, 16, 32, 64.
+//   - is_object: 0 or 1, value or reference
+//   - value_reg: holds value to store. Avoid clobber set.
+// Output
+//   - a0: holds resolved_field.
+// Clobbers: t0
+%def op_iput_slow_path(width, is_object, value_reg):
+    // Args for nterp_get_instance_field_offset
+    mv a0, xSELF
+    ld a1, (sp)
+    mv a2, xPC
+    .if $is_object
+    mv a3, $value_reg
+    .else
+    mv a3, zero
+    .endif  // is_object
+    EXPORT_PC
+    call nterp_get_instance_field_offset  // returned a0 := resolved field offset
+
+    .if $is_object
+    // Reload object reference; it could have moved.
+    srliw $value_reg, xINST, 8        // $value_reg := B|A
+    andi $value_reg, $value_reg, 0xF  // $value_reg := A
+    GET_VREG \value_reg, t0           // $value_reg := v[A]
+    .endif  // is_object
+
+    // Test for volatile bit
+    slli t0, a0, 32
+    bltz t0, 1f
+    tail .L${opcode}_regular_resume  // resume offset can exceed regular branch imm
+1:
+    // Volatile instance store; free to use $value_reg and a0
+    CLEAR_INSTANCE_VOLATILE_MARKER a0
+    srliw t0, xINST, 12  // t0 := B
+    GET_VREG t0, t0      // t0 := v[B]; object reference; destination
+    bnez 2f
+    tail common_errNullObject
+2:
+    add t0, a0, t0
+    // Ensure the volatile store is released.
+    VOLATILE_STORE_SEQCST $width, $value_reg, t0
+    WRITE_BARRIER_IF_OBJECT $is_object, $value_reg, /*holder*/a0, /*nonce*/slow_${opcode}
+
+    FETCH_ADVANCE_INST 2
+    GET_INST_OPCODE t0
+    GOTO_OPCODE t0
+
+%def op_iput_wide():
     unimp
+
+// iput-object vA, vB, field@CCCC
+// Format 22c: B|A|op CCCC
+%def op_iput_object():
+%  op_iput(is_object="1")
 
 %def op_iput_boolean():
     unimp
@@ -85,18 +161,18 @@
 %def op_iput_short():
     unimp
 
-%def op_iput_wide():
-    unimp
-
-%def op_iput_object():
-    unimp
-
 // *** sget ***
 
 %def op_sget(load="", wide="", is_object=""):
     unimp
 
 %def op_sget_slow_path(load, wide, is_object):
+    unimp
+
+%def op_sget_wide():
+    unimp
+
+%def op_sget_object():
     unimp
 
 %def op_sget_boolean():
@@ -109,12 +185,6 @@
     unimp
 
 %def op_sget_short():
-    unimp
-
-%def op_sget_wide():
-    unimp
-
-%def op_sget_object():
     unimp
 
 // *** sput ***
@@ -196,9 +266,10 @@
     .endif  // is_object
     EXPORT_PC
     call nterp_get_static_field  // returned a0 := resolved_field
+
     .if $is_object
-    // Reload value, it may have moved.
-    srliw $value_reg, xINST, 8  // $value_reg := AA
+    // Reload object reference; it could have moved.
+    srliw $value_reg, xINST, 8       // $value_reg := AA
     GET_VREG $value_reg, $value_reg  // $value_reg := v[AA]
     .endif  // is_object
 
@@ -215,19 +286,7 @@
 2:
     add t0, a0, t0
     // Ensure the volatile store is released.
-    .if $width == 8
-      fence rw, w
-      sb $value_reg, (t0)
-      fence rw, rw
-    .elseif $width == 16
-      fence rw, w
-      sh $value_reg, (t0)
-      fence rw, rw
-    .elseif $width == 32
-      amoswap.w.rl $value_reg, $value_reg, (t0)
-    .else  // width == 64
-      amoswap.d.rl $value_reg, $value_reg, (t0)
-    .endif  // width
+    VOLATILE_STORE_SEQCST $width, $value_reg, t0
     WRITE_BARRIER_IF_OBJECT $is_object, $value_reg, /*holder*/a0, /*nonce*/slow_${opcode}
 
     FETCH_ADVANCE_INST 2
@@ -236,6 +295,14 @@
 3:
     call art_quick_read_barrier_mark_reg10  // a0
     j 2b
+
+%def op_sput_wide():
+    unimp
+
+// sput-object vAA, field@BBBB
+// Format 21c: AA|op BBBB
+%def op_sput_object():
+%   op_sput(width="32", is_object="1")
 
 %def op_sput_boolean():
     unimp
@@ -248,12 +315,4 @@
 
 %def op_sput_short():
     unimp
-
-%def op_sput_wide():
-    unimp
-
-// sput-object vAA, field@BBBB
-// Format 21c: AA|op BBBB
-%def op_sput_object():
-%   op_sput(width="32", is_object="1")
 
