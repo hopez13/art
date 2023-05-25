@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c11fc1cf_1588f737",
+        "filename": "dexdump/dexdump.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1926,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-05-25T17:28:00Z",
+      "side": 1,
+      "message": "`dumpEncodedValue` relies on `type_idx` prefix being there but string entries do not follow this patter. They use `string_data_item` (https://source.android.com/docs/core/runtime/dex-format#string-data-item).",
+      "parentUuid": "de7d345c_9d18adbd",
+      "range": {
+        "startLine": 1926,
+        "startChar": 4,
+        "endLine": 1926,
+        "endChar": 31
+      },
+      "revId": "573a93233154a9008561e247c1f79ff492dc0d89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2966cb6e_e9f8dd05",
@@ -54,6 +78,30 @@
       "writtenOn": "2023-05-25T16:46:10Z",
       "side": 1,
       "message": "-l plain is one option, -s should go before or after. I think that should fix the failures on the bots.",
+      "range": {
+        "startLine": 71,
+        "startChar": 31,
+        "endLine": 71,
+        "endChar": 49
+      },
+      "revId": "573a93233154a9008561e247c1f79ff492dc0d89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f60982bd_7eb08b6e",
+        "filename": "dexdump/dexdump_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2023-05-25T17:28:00Z",
+      "side": 1,
+      "message": "Done. Good catch!",
+      "parentUuid": "2966cb6e_e9f8dd05",
       "range": {
         "startLine": 71,
         "startChar": 31,
