@@ -47,9 +47,9 @@
     GOTO_OPCODE t0
 2:
     EXPORT_PC
-    mv a0, xSELF  // a0 := Thread*
-    ld a1, 0(sp)  // a1 := ArtMethod*
-    mv a2, xPC    // a2 := ptr to dex pc
+    mv a0, xSELF // a0 := Thread*
+    ld a1, (sp)  // a1 := ArtMethod*
+    mv a2, xPC   // a2 := ptr to dex pc
     call $helper
     j 1b
 3:
@@ -67,7 +67,7 @@
 // Format 21c: AA|op BBBB
 // Clobbers: t0, a0, a1, a2
 %def op_const_string():
-%   op_const_object()    
+%   op_const_object()
 
 %def op_const_string_jumbo():
     unimp

@@ -103,7 +103,7 @@
 
 %def op_new_array_slow_get_class():
     mv a0, xSELF
-    ld a1, 0(sp)
+    ld a1, (sp)
     mv a2, xPC
     call nterp_get_class
     tail .L${opcode}_resume
