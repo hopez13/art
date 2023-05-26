@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "b39faa03_3c419e00",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-05-26T14:26:07Z",
+      "side": 1,
+      "message": "Spello: \"too\"",
+      "range": {
+        "startLine": 10,
+        "startChar": 38,
+        "endLine": 10,
+        "endChar": 40
+      },
+      "revId": "bb46eed3afd1a1ded927fd05de00407ad46cb8b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "1e15abea_2e605309",
@@ -14,6 +37,150 @@
       "writtenOn": "2023-05-25T16:46:30Z",
       "side": 1,
       "message": "# Test performance\nhost-gtest:\nhttps://android-build.corp.google.com/test_investigate/?invocationId\u003dI76400010161261512\u0026testResultId\u003dTR17928668801053140\u0026tab\u003dperformance\nhttps://android-build.corp.google.com/test_investigate/?invocationId\u003dI52900010161210135\u0026testResultId\u003dTR01728668659719924\u0026tab\u003dperformance\nhttps://android-build.corp.google.com/test_investigate/?invocationId\u003dI65800010161196687\u0026testResultId\u003dTR97428668350844847\u0026tab\u003dperformance\nFrom looking at the \"Invocation performance summary\" graphs, static linked gtests(new) vs shared(current): 15-16m vs 12-14m\nNot sure how to read the graph, but some of the difference comes from the pause before fetching.\n\ntarget-gtest (cf_x86_64):\nhttps://android-build.corp.google.com/test_investigate/?invocationId\u003dI10900010161211160\u0026testResultId\u003dTR83728668779768336\u0026tab\u003dperformance\nhttps://android-build.corp.google.com/test_investigate/?invocationId\u003dI11100010161236065\u0026testResultId\u003dTR07328668635641967\u0026tab\u003dperformance\nhttps://android-build.corp.google.com/test_investigate/?invocationId\u003dI52700010161178788\u0026testResultId\u003dTR30228668365099373\u0026tab\u003dperformance\nStatic linking vs shared: 22-23m vs ~22m (no significant difference)\n\ntarget-gtest (oriole):\nhttps://android-build.corp.google.com/test_investigate/?invocationId\u003dI50500010161207022\u0026testResultId\u003dTR25428668795460453\u0026tab\u003dperformance\nhttps://android-build.corp.google.com/test_investigate/?invocationId\u003dI31100010161205088\u0026testResultId\u003dTR05428668663518153\u0026tab\u003dperformance\nhttps://android-build.corp.google.com/test_investigate/?invocationId\u003dI77900010161130189\u0026testResultId\u003dTR07228668338019584\u0026tab\u003dperformance\nStatic linking vs shared: 33-34m vs 33-40m\n\n# Build performance\nI couldn\u0027t figure out how to measure build times with ABTD, because it looks like there is no way to perform a clean build. So I used my cloudtop instead (RBE disabled).\nBuild command: https://paste.googleplex.com/5692380165439488?raw\nStatic link gtests: 9:54, 9:56, 9:49\nCurrent aosp/master: 9:06, 9:03, 9:06\n\nWith RBE enabled I have approximately the same results: 6:20-6:30.",
+      "revId": "bb46eed3afd1a1ded927fd05de00407ad46cb8b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae2b3661_5fcdabe7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-05-26T14:26:07Z",
+      "side": 1,
+      "message": "Note that the tests aren\u0027t linked completely statically in these measurements - they still depend on libbase, libartbase, and many other libs with internal or unstable interfaces. So to address b/247108425 we need more static linking.",
+      "parentUuid": "1e15abea_2e605309",
+      "revId": "bb46eed3afd1a1ded927fd05de00407ad46cb8b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8826eb9_b34447eb",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 11
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-05-26T14:26:07Z",
+      "side": 1,
+      "message": "I think these can be shortened to \"deps\" without any loss of clarity, and it\u0027d help shorten these already long identifiers. Optional though.",
+      "range": {
+        "startLine": 33,
+        "startChar": 34,
+        "endLine": 33,
+        "endChar": 46
+      },
+      "revId": "bb46eed3afd1a1ded927fd05de00407ad46cb8b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce079896_b6c09644",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 11
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-05-26T14:26:07Z",
+      "side": 1,
+      "message": "Meta comment that may preempt most of the other comments:\n\nThere\u0027s a lot left that isn\u0027t getting linked statically in this CL, both ART internal libraries like libartbase, libartpalette, etc, and external libs without stable ABIs, like libbase.\n\nIf we are to solve b/247108425 through static linking (and I don\u0027t see any other way), we\u0027ll need to change that, and then we can no longer use these `*_dependencies` defaults to share dependencies with the real libs. That means we\u0027ll need to essentially revert this CL, if I\u0027m not mistaken.\n\nIs it possible to use the `*_static_defaults` modules for the gtests instead?\n\nMaybe it\u0027s best to set up a meeting next week to discuss the way forward here.",
+      "range": {
+        "startLine": 34,
+        "startChar": 4,
+        "endLine": 34,
+        "endChar": 15
+      },
+      "revId": "bb46eed3afd1a1ded927fd05de00407ad46cb8b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d09b8807_a4ab35ab",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 11
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-05-26T14:26:07Z",
+      "side": 1,
+      "message": "There\u0027s a whole lot of duplication with libvixl(d) dependencies below. Can\u0027t they go in here with `whole_static_libs`? Isn\u0027t the plan is to limit the exported symbols in libart(d)-compiler with version script anyway?",
+      "revId": "bb46eed3afd1a1ded927fd05de00407ad46cb8b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a91cdc5_4884be4a",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 11
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-05-26T14:26:07Z",
+      "side": 1,
+      "message": "This is only used in libart-compiler-gtest. Another variant, in particular if you can move the libvixl(d) dependencies as mentioned earlier, is to use the set of defaults directly in libart-compiler-gtest.",
+      "revId": "bb46eed3afd1a1ded927fd05de00407ad46cb8b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "84b0bae5_a0a7cd19",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 11
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-05-26T14:26:07Z",
+      "side": 1,
+      "message": "I\u0027ve discussed remaining shared libs earlier, but this one looks a bit odd since you\u0027re working to statically link libart elsewhere. Should it be a libart_headers dependency instead?",
+      "range": {
+        "startLine": 320,
+        "startChar": 8,
+        "endLine": 320,
+        "endChar": 16
+      },
+      "revId": "bb46eed3afd1a1ded927fd05de00407ad46cb8b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "02607921_3eb65224",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 11
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-05-26T14:26:07Z",
+      "side": 1,
+      "message": "Are all these necessary?",
+      "range": {
+        "startLine": 322,
+        "startChar": 0,
+        "endLine": 326,
+        "endChar": 6
+      },
       "revId": "bb46eed3afd1a1ded927fd05de00407ad46cb8b7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
