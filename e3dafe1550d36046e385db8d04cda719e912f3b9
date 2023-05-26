@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bbb6908e_5b71e011",
+        "filename": "runtime/interpreter/mterp/riscv64/object.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-05-26T02:07:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "239a8d0c_034c5ef4",
+      "range": {
+        "startLine": 123,
+        "startChar": 18,
+        "endLine": 123,
+        "endChar": 53
+      },
+      "revId": "e3dafe1550d36046e385db8d04cda719e912f3b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "42c59520_90134dba",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-05-24T09:19:59Z",
       "side": 1,
       "message": "This needs to be just after the `lw a0, ...` above as we\u0027re immediately using A0 in the following ADD.",
+      "range": {
+        "startLine": 134,
+        "startChar": 4,
+        "endLine": 135,
+        "endChar": 24
+      },
+      "revId": "e3dafe1550d36046e385db8d04cda719e912f3b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1041dff6_fb6be8d4",
+        "filename": "runtime/interpreter/mterp/riscv64/object.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-05-26T02:07:45Z",
+      "side": 1,
+      "message": "Eek. seems like an editor mishap.",
+      "parentUuid": "42c59520_90134dba",
       "range": {
         "startLine": 134,
         "startChar": 4,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a0a5df9_fca5a81b",
+        "filename": "runtime/interpreter/mterp/riscv64/object.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-05-26T02:07:45Z",
+      "side": 1,
+      "message": "Yes:\n```\n000000000032ed80 \u003cnterp_op_sput\u003e:\n  32ed80:       008a539b                srlw    t2,s4,0x8\n  32ed84:       0023939b                sllw    t2,t2,0x2\n  32ed88:       93ca                    add     t2,t2,s2\n  32ed8a:       0003ab83                lw      s7,0(t2)\n  32ed8e:       6285                    lui     t0,0x1\n  32ed90:       a502829b                addw    t0,t0,-1456 # a50 \u003cabitag+0x7a8\u003e\n  32ed94:       92a6                    add     t0,t0,s1\n  32ed96:       0169931b                sllw    t1,s3,0x16\n  32ed9a:       0143531b                srlw    t1,t1,0x14\n  32ed9e:       ff037313                and     t1,t1,-16\n  32eda2:       929a                    add     t0,t0,t1\n  32eda4:       0002b303                ld      t1,0(t0)\n  32eda8:       0082b503                ld      a0,8(t0)\n  32edac:       02699563                bne     s3,t1,32edd6 \u003cnterp_op_sput+0x56\u003e\n  32edb0:       00c52283                lw      t0,12(a0)\n  32edb4:       4108                    lw      a0,0(a0)\n  32edb6:       02448303                lb      t1,36(s1)\n  32edba:       02031063                bnez    t1,32edda \u003cnterp_op_sput+0x5a\u003e\n  32edbe:       92aa                    add     t0,t0,a0\n  32edc0:       0172a023                sw      s7,0(t0)\n  32edc4:       0049da03                lhu     s4,4(s3)\n  32edc8:       0991                    add     s3,s3,4\n  32edca:       0ffa7293                zext.b  t0,s4\n  32edce:       0072929b                sllw    t0,t0,0x7\n  32edd2:       92d6                    add     t0,t0,s5\n  32edd4:       8282                    jr      t0\n  32edd6:       4bb0406f                j       333a90 \u003cnterp_op_sput_slow_path\u003e\n  32edda:       74f050ef                jal     334d28 \u003cart_quick_read_barrier_mark_reg10\u003e\n  32edde:       b7c5                    j       32edbe \u003cnterp_op_sput+0x3e\u003e\n```",
+      "parentUuid": "a47d4583_a37b6960",
+      "range": {
+        "startLine": 141,
+        "startChar": 4,
+        "endLine": 141,
+        "endChar": 8
+      },
+      "revId": "e3dafe1550d36046e385db8d04cda719e912f3b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1475a18c_2f4611d5",
@@ -83,6 +155,30 @@
       "writtenOn": "2023-05-24T09:19:59Z",
       "side": 1,
       "message": "`tail`",
+      "range": {
+        "startLine": 175,
+        "startChar": 4,
+        "endLine": 175,
+        "endChar": 8
+      },
+      "revId": "e3dafe1550d36046e385db8d04cda719e912f3b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "021ab023_c8dc7e18",
+        "filename": "runtime/interpreter/mterp/riscv64/object.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-05-26T02:07:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1475a18c_2f4611d5",
       "range": {
         "startLine": 175,
         "startChar": 4,
@@ -130,6 +226,30 @@
       "side": 1,
       "message": "Yes, please! Otherwise this needs a second fence after the store.\n\nThis needs to use the memory_order_seq_cst store ABI conventions, which are still a bit of a moving target. My proposal is at https://github.com/riscv-non-isa/riscv-elf-psabi-doc/pull/378. It is what gcc ToT uses, and it currently seems reasonably likely to be adopted.",
       "parentUuid": "3d4359fd_c8718685",
+      "range": {
+        "startLine": 184,
+        "startChar": 46,
+        "endLine": 184,
+        "endChar": 77
+      },
+      "revId": "e3dafe1550d36046e385db8d04cda719e912f3b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "209e5dbb_c89af120",
+        "filename": "runtime/interpreter/mterp/riscv64/object.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-05-26T02:07:45Z",
+      "side": 1,
+      "message": "I\u0027ve added bitwidth-appropriate volatile store variants.",
+      "parentUuid": "625df80d_a2bbc3ba",
       "range": {
         "startLine": 184,
         "startChar": 46,
