@@ -542,8 +542,7 @@
 // Thread::Current()->exception_ when the runtime method frame is ready.
 .macro DELIVER_PENDING_EXCEPTION_FRAME_READY
     mv a0, xSELF
-    call artDeliverPendingExceptionFromCode  // Point of no return.
-    unimp                                    // Unreachable.
+    tail artDeliverPendingExceptionFromCode  // Point of no return.
 .endm
 
 
