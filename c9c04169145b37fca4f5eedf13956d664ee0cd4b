@@ -47,6 +47,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "04909ee7_11e8ed76",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 607,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-05-26T02:07:33Z",
+      "side": 1,
+      "message": "The `tail` pseudo instruction appears to use t1\u003dx6?\n\nHappy to change it to t.6 or t1, but I had a little trouble describing why we picked it. Is it to free up t0 for common uses elsewhere?",
+      "parentUuid": "c1573ea1_04f77001",
+      "range": {
+        "startLine": 607,
+        "startChar": 7,
+        "endLine": 607,
+        "endChar": 9
+      },
+      "revId": "c9c04169145b37fca4f5eedf13956d664ee0cd4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "2eb39a97_77480fe5",

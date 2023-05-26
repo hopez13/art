@@ -722,6 +722,42 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e1a96fa5_aafc1b20",
+        "filename": "runtime/interpreter/mterp/riscv64/array.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-05-26T02:07:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1f6676fe_b68f721d",
+      "revId": "cb5922eac8b765e11588c79268432449c59319fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "08d5e592_63fb7268",
+        "filename": "runtime/interpreter/mterp/riscv64/array.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-05-26T02:07:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1f6676fe_b68f721d",
+      "revId": "cb5922eac8b765e11588c79268432449c59319fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "75502829_ffda1909",
@@ -782,6 +818,30 @@
       "writtenOn": "2023-05-17T08:18:47Z",
       "side": 1,
       "message": "I have no idea if this is the right fence. Hans, can you comment on this?",
+      "range": {
+        "startLine": 67,
+        "startChar": 4,
+        "endLine": 67,
+        "endChar": 14
+      },
+      "revId": "cb5922eac8b765e11588c79268432449c59319fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "11b1445f_817653b5",
+        "filename": "runtime/interpreter/mterp/riscv64/array.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-05-26T02:07:33Z",
+      "side": 1,
+      "message": "resolved offline",
+      "parentUuid": "d139861b_1c5a1efb",
       "range": {
         "startLine": 67,
         "startChar": 4,
