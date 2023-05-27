@@ -16,6 +16,29 @@
       "message": "This is now ready to review, Lokesh, Hans, PTAL.",
       "revId": "827c226e94b617a6c49b2ea788cc1338789505f5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba01aa5b_92086bc8",
+        "filename": "libartbase/base/mem_map.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1265,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-05-27T00:31:55Z",
+      "side": 1,
+      "message": "Lokesh and I discussed the trade-offs here some more. I would expect this to improve response, since we\u0027re now clearing in the GC thread. OTOH, we\u0027re clearing at worse time for cache performance purposes. We may not have touched the page in a while, and we\u0027re probably not going to use ut anytime soon. So this is probably a bettery regression? But this may be a smaller effect than I had thought. See https://developer.arm.com/documentation/100403/0200/lto1473834732563.",
+      "range": {
+        "startLine": 1265,
+        "startChar": 6,
+        "endLine": 1265,
+        "endChar": 39
+      },
+      "revId": "827c226e94b617a6c49b2ea788cc1338789505f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
