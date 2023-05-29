@@ -71,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ddc565c_79ff2deb",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 607,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-29T09:23:14Z",
+      "side": 1,
+      "message": "This function promises to preserve even temporary registers, so the usage of T0 (and T1 below) is not in line with the calling convention comment above.\n\nWe can reserve some temps which do not need to be preserved, for example T5-6 (just like we reserve IP0-1 on ARM64), or we can actually save these temps on the stack before using them (as we do on x86).",
+      "parentUuid": "04909ee7_11e8ed76",
+      "range": {
+        "startLine": 607,
+        "startChar": 7,
+        "endLine": 607,
+        "endChar": 9
+      },
+      "revId": "c9c04169145b37fca4f5eedf13956d664ee0cd4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "2eb39a97_77480fe5",
