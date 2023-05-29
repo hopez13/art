@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c8eb5bb_1032f67e",
+        "filename": "runtime/interpreter/mterp/riscv64/object.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-29T09:29:52Z",
+      "side": 1,
+      "message": "Use `$witdh !\u003d 32` here for now, the `sw` is a 32-bit store.\n\nAlternatively, you can implement this for the other widths, given that you already did that for the volatile path.\n\n(But maybe the regular store instruction should be passed as an argument, instead of having different cases for 8-bit and 16-bit stores.)",
+      "range": {
+        "startLine": 133,
+        "startChar": 8,
+        "endLine": 133,
+        "endChar": 20
+      },
+      "revId": "08e8dec9df7dfbdf6180d0c8f0b0ec3939c63e3d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
