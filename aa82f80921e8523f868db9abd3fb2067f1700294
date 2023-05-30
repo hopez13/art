@@ -16,6 +16,93 @@
       "message": "Hi Google engineers! I can see that this CL gets Open-Source-Licensing -1 but obviously I don\u0027t have access to check what exactly is wrong; could you assist with that please?",
       "revId": "aa82f80921e8523f868db9abd3fb2067f1700294",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "630277cf_1f085215",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-05-30T11:04:47Z",
+      "side": 1,
+      "message": "Looking at the error, I also can\u0027t figure out what\u0027s wrong. I filed a bug internally because it looks to me that the open source licensing bot might be wrong.",
+      "parentUuid": "4491af60_75ece0b8",
+      "revId": "aa82f80921e8523f868db9abd3fb2067f1700294",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67cf12ed_0005956b",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1304,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-05-30T11:04:47Z",
+      "side": 1,
+      "message": "No need. The `AsVecOperation()` will do this DCHECK https://cs.android.com/android/platform/superproject/+/master:art/compiler/optimizing/nodes.h;l\u003d8767;drc\u003d78f3c72e8948087352788997a70854dee613352c",
+      "range": {
+        "startLine": 1304,
+        "startChar": 0,
+        "endLine": 1304,
+        "endChar": 35
+      },
+      "revId": "aa82f80921e8523f868db9abd3fb2067f1700294",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "271b9866_a07dc7b1",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2048,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-05-30T11:04:47Z",
+      "side": 1,
+      "message": "Since we are now inserting both reduce and instruction in this set, would it mean that we will have two `HVecPredSetAll` (one for each instruction) ?\n\nIs it an issue that they are not sharing the same predicate? I can see this increasing (slightly) code size, but does it affect correctness in some way?\n\nThis difference appears on the test 661 I think.\n\nIt looks like you are aware of this (based on `TODO: Adjust GVN to support VecPredSetAll sharing`). Are there plans to make them share these `HVecPredSetAll` instructions?",
+      "range": {
+        "startLine": 2043,
+        "startChar": 0,
+        "endLine": 2048,
+        "endChar": 48
+      },
+      "revId": "aa82f80921e8523f868db9abd3fb2067f1700294",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2558c787_97488a6e",
+        "filename": "test/661-checker-simd-reduc/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-05-30T11:04:47Z",
+      "side": 1,
+      "message": "Is this not `PostLoopP` because of the comment in compiler/optimizing/loop_optimization.cc lines 2043-2048?",
+      "range": {
+        "startLine": 87,
+        "startChar": 66,
+        "endLine": 87,
+        "endChar": 74
+      },
+      "revId": "aa82f80921e8523f868db9abd3fb2067f1700294",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
