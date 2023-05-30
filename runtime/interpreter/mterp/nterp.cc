@@ -42,8 +42,7 @@ bool IsNterpSupported() {
     case InstructionSet::kArm64:
       return !kPoisonHeapReferences && kReserveMarkingRegister;
     case InstructionSet::kRiscv64:
-      // TODO(riscv64): Support nterp.
-      return false;
+      return true;
     case InstructionSet::kX86:
     case InstructionSet::kX86_64:
       return true;
