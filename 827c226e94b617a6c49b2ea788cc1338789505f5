@@ -39,6 +39,53 @@
       },
       "revId": "827c226e94b617a6c49b2ea788cc1338789505f5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bee887e9_c9f17d90",
+        "filename": "libartbase/base/mem_map.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1265,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-05-30T19:16:03Z",
+      "side": 1,
+      "message": "Thanks for sharing the link. Good to know that the cache isn\u0027t polluted unnecessarily. There are few other performance implications, which are probably non significant:\n\n1) The `garbage-only` pages are likely to be swapped-out. Zeroing before MADV_FREE unnecessarily brings them in memory, further increasing memory use.\n2) The `MADV_FREE\u0027ed` pages if and when are eventually freed by `kswapd`, they will be zeroed again during page-fault. The MADV_FREE\u0027ed pages are freed first by kswapd.\n3) The overhead (without zeroing) of `MADV_FREE+kswapd` vs. `MADV_DONTNEED`. The former is definitely higher, not sure about the quantum though. Maybe someone in kernel team would know.",
+      "parentUuid": "ba01aa5b_92086bc8",
+      "range": {
+        "startLine": 1265,
+        "startChar": 6,
+        "endLine": 1265,
+        "endChar": 39
+      },
+      "revId": "827c226e94b617a6c49b2ea788cc1338789505f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1466ee71_71bb7b86",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 2820,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-05-30T19:16:03Z",
+      "side": 1,
+      "message": "Since these regions were at least `MADV_FREE\u0027ed` in some previous GC cycle, in case kernel had memory pressure, it would have already taken away those pages. If there has been no pressure, it can do free now as well without this call. IOW, the only real effect of this is immediate reduction in RSS.\n\nGiven that we have invested in zeroing these pages, I think it would make more sense to not disturb them.",
+      "range": {
+        "startLine": 2820,
+        "startChar": 21,
+        "endLine": 2820,
+        "endChar": 39
+      },
+      "revId": "827c226e94b617a6c49b2ea788cc1338789505f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
