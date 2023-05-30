@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "33cec50f_7d0e746b",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 460,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-30T07:29:53Z",
+      "side": 1,
+      "message": "Actually, neither the method nor the padding is needed for nterp. The method shall be at the bottom of the frame, below the vregs and out vregs areas.",
+      "range": {
+        "startLine": 460,
+        "startChar": 32,
+        "endLine": 460,
+        "endChar": 77
+      },
+      "revId": "a8f5a9a42cea657f9018122c3082d77898ef48cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "19212b86_21076b91",
         "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
         "patchSetId": 8
