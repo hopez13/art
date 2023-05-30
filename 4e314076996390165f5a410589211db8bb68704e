@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eda9f05c_67282cfb",
+        "filename": "test/656-checker-simd-opt/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-05-30T08:44:43Z",
+      "side": 1,
+      "message": "Is this related to `$noinline$stencilConstSize`? Or to `testStencilConstSize`?",
+      "range": {
+        "startLine": 148,
+        "startChar": 0,
+        "endLine": 148,
+        "endChar": 65
+      },
+      "revId": "4e314076996390165f5a410589211db8bb68704e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c8c5795f_474dea6e",
+        "filename": "test/656-checker-simd-opt/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-05-30T08:44:43Z",
+      "side": 1,
+      "message": "Move this next to `ARRAY_SIZE` definition",
+      "range": {
+        "startLine": 150,
+        "startChar": 0,
+        "endLine": 152,
+        "endChar": 21
+      },
+      "revId": "4e314076996390165f5a410589211db8bb68704e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a7c71eb_30eae49d",
+        "filename": "test/656-checker-simd-opt/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 430,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-05-30T08:44:43Z",
+      "side": 1,
+      "message": "Can you provide a comment on why this is the expected number? e.g. `(i - 1) + i + (i + 1) \u003d 3 * i`.",
+      "range": {
+        "startLine": 430,
+        "startChar": 6,
+        "endLine": 430,
+        "endChar": 24
+      },
+      "revId": "4e314076996390165f5a410589211db8bb68704e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08ba3f58_ebf17e4c",
+        "filename": "test/656-checker-simd-opt/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 439,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-05-30T08:44:43Z",
+      "side": 1,
+      "message": "Same here. A comment would be appreciated",
+      "range": {
+        "startLine": 439,
+        "startChar": 0,
+        "endLine": 439,
+        "endChar": 26
+      },
+      "revId": "4e314076996390165f5a410589211db8bb68704e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
