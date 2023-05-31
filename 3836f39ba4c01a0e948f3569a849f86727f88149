@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1198c790_5ca8e763",
+        "filename": "libdexfile/dex/class_accessor.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-05-31T06:54:33Z",
+      "side": 1,
+      "message": "drive-by cleanup: We were using differently named constants for the default value and in the implementation (https://cs.android.com/android/platform/superproject/+/master:art/libdexfile/dex/class_accessor-inl.h;l\u003d58;drc\u003d90faceb71e25748172ba6369209f8a2a66735394). This wasn\u0027t an issue now, but it could be in the future.",
+      "range": {
+        "startLine": 283,
+        "startChar": 43,
+        "endLine": 283,
+        "endChar": 65
+      },
+      "revId": "3836f39ba4c01a0e948f3569a849f86727f88149",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
