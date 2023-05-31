@@ -1,0 +1,245 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b17b3dc_7e2379e6",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 862,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-05-31T14:38:25Z",
+      "side": 1,
+      "message": "This could be merged with the `if` above as we had before. \n\nSince you are removing `IsVectorizationProfitable` from the old `ShouldVectorize` (now named `CanVectorizeDataFlow`), what do you think about having something like:\n\n```\nbool ShouldVectorizeDataFlow(LoopNode* node, HBasicBlock* block, int64_t trip_count, bool enable_peeling) {\n  return CanVectorizeDataFlow(node, body) \u0026\u0026 IsVectorizationProfitable(trip_count, enable_peeling);\n}\n```\n\nAlternatively we can achieve a similar thing with comments rather than auxiliary methods:\n```\nbool ShouldVectorizeDataFlow(...) {\n// Can we vectorize?\n// ...CanVectorizeDataFlow code here...\n\n// Should we vectorize?\n// ...IsVectorizationProfitable code here...\n}\n```\n\nThese functions seem to be only used here so I don\u0027t think it is worth it to decouple them, as we wouldn\u0027t be able to benefit from them individually.",
+      "range": {
+        "startLine": 858,
+        "startChar": 0,
+        "endLine": 862,
+        "endChar": 3
+      },
+      "revId": "13518f506ec6612caddef08971cd38524cb64319",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb49fc76_6afed3aa",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1125,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-05-31T14:38:25Z",
+      "side": 1,
+      "message": "Does the predicated vectorization mode use this information?",
+      "range": {
+        "startLine": 1123,
+        "startChar": 0,
+        "endLine": 1125,
+        "endChar": 0
+      },
+      "revId": "13518f506ec6612caddef08971cd38524cb64319",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c61d333_cda138f0",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1132,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-05-31T14:38:25Z",
+      "side": 1,
+      "message": "Can we add `DCHECK(IsInPredicatedVectorizationMode())` at the beginning? And the opposite DCHECK in `VectorizeTraditional`",
+      "revId": "13518f506ec6612caddef08971cd38524cb64319",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dde75071_e5491716",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1321,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-05-31T14:38:25Z",
+      "side": 1,
+      "message": "Why the new variable? It doesn\u0027t seem to be used in a different manner than before.",
+      "range": {
+        "startLine": 1321,
+        "startChar": 2,
+        "endLine": 1321,
+        "endChar": 39
+      },
+      "revId": "13518f506ec6612caddef08971cd38524cb64319",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03107ca6_fe089120",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1447,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-05-31T14:38:25Z",
+      "side": 1,
+      "message": "DCHECK(IsInPredicatedVectorizationMode());",
+      "revId": "13518f506ec6612caddef08971cd38524cb64319",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f2f6696_d0a1a4ad",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1480,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-05-31T14:38:25Z",
+      "side": 1,
+      "message": "Aren\u0027t these ones sharing the `loop_main_pred_` predicate already?",
+      "range": {
+        "startLine": 1480,
+        "startChar": 0,
+        "endLine": 1480,
+        "endChar": 55
+      },
+      "revId": "13518f506ec6612caddef08971cd38524cb64319",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e6cda37f_7df1e783",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1486,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-05-31T14:38:25Z",
+      "side": 1,
+      "message": "Would it be possible to get a block that\u0027s not `vector_body_`?",
+      "range": {
+        "startLine": 1486,
+        "startChar": 0,
+        "endLine": 1486,
+        "endChar": 46
+      },
+      "revId": "13518f506ec6612caddef08971cd38524cb64319",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1b8828df_a3c41445",
+        "filename": "compiler/optimizing/loop_optimization.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-05-31T14:38:25Z",
+      "side": 1,
+      "message": "Why the move to the .h?",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 1
+      },
+      "revId": "13518f506ec6612caddef08971cd38524cb64319",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22c9424d_fa0d20f5",
+        "filename": "compiler/optimizing/loop_optimization.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-05-31T14:38:25Z",
+      "side": 1,
+      "message": "```suggestion\n  HPhi* InitializeFor(HBasicBlock* new_preheader, HInstruction* lo);\n```",
+      "range": {
+        "startLine": 266,
+        "startChar": 8,
+        "endLine": 266,
+        "endChar": 28
+      },
+      "revId": "13518f506ec6612caddef08971cd38524cb64319",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "44550b2c_8195c39d",
+        "filename": "compiler/optimizing/loop_optimization.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-05-31T14:38:25Z",
+      "side": 1,
+      "message": "```suggestion\n  void FinalizePhis(HPhi* phi, HInstruction* lo);\n```",
+      "range": {
+        "startLine": 269,
+        "startChar": 7,
+        "endLine": 269,
+        "endChar": 29
+      },
+      "revId": "13518f506ec6612caddef08971cd38524cb64319",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "06f9b66e_919c1387",
+        "filename": "compiler/optimizing/loop_optimization.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-05-31T14:38:25Z",
+      "side": 1,
+      "message": "```suggestion\n  void GenerateLoopBody(LoopNode* node,\n```",
+      "range": {
+        "startLine": 272,
+        "startChar": 7,
+        "endLine": 272,
+        "endChar": 30
+      },
+      "revId": "13518f506ec6612caddef08971cd38524cb64319",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
