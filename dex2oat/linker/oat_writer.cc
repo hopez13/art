@@ -3199,6 +3199,9 @@ bool OatWriter::WriteDexFiles(File* file,
     for (OatDexFile& oat_dex_file : oat_dex_files_) {
       const DexFile* dex_file = oat_dex_file.GetDexFile();
       std::string error_msg;
+      if (dex_file->IsCompactDexFile()) {
+        continue;  // Compact dex files can not be verified.
+      }
       if (!dex::Verify(dex_file,
                        dex_file->GetLocation().c_str(),
                        /*verify_checksum=*/true,
@@ -3433,7 +3436,7 @@ bool OatWriter::LayoutDexFile(OatDexFile* oat_dex_file) {
 
 bool OatWriter::OpenDexFiles(
     File* file,
-    bool verify,
+    bool verify ATTRIBUTE_UNUSED,
     /*inout*/ std::vector<MemMap>* opened_dex_files_map,
     /*out*/ std::vector<std::unique_ptr<const DexFile>>* opened_dex_files) {
   TimingLogger::ScopedTiming split("OpenDexFiles", timings_);
@@ -3484,10 +3487,11 @@ bool OatWriter::OpenDexFiles(
     std::string error_msg;
     ArtDexFileLoader dex_file_loader(
         raw_dex_file, oat_dex_file.dex_file_size_, oat_dex_file.GetLocation());
+    // All dex files have been already verified in WriteDexFiles before we copied them.
     dex_files.emplace_back(dex_file_loader.Open(oat_dex_file.dex_file_location_checksum_,
-                                                /* oat_dex_file */ nullptr,
-                                                verify,
-                                                verify,
+                                                /*oat_dex_file=*/nullptr,
+                                                /*verify=*/false,
+                                                /*verify_checksum=*/false,
                                                 &error_msg));
     if (dex_files.back() == nullptr) {
       LOG(ERROR) << "Failed to open dex file from oat file. File: " << oat_dex_file.GetLocation()
