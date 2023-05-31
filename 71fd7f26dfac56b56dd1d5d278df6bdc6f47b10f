@@ -22,6 +22,30 @@
       },
       "revId": "71fd7f26dfac56b56dd1d5d278df6bdc6f47b10f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5063c122_53f0a833",
+        "filename": "runtime/interpreter/mterp/riscv64/other.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-05-31T05:23:31Z",
+      "side": 1,
+      "message": "Argh. Yeah, this is frustrating. :-(\n\nIn the next CL, I had extended FETCH to accept a `/*signed*/1` arg for LHU. Pulled it forward to this CL. Could we express it like that? (The number of FETCH macros was getting a bit much for me.)",
+      "parentUuid": "e7fffca9_3716e44c",
+      "range": {
+        "startLine": 11,
+        "startChar": 4,
+        "endLine": 11,
+        "endChar": 9
+      },
+      "revId": "71fd7f26dfac56b56dd1d5d278df6bdc6f47b10f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
