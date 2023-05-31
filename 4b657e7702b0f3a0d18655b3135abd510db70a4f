@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08900951_bc6061de",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 9
+      },
+      "lineNbr": 645,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-31T07:35:47Z",
+      "side": 1,
+      "message": "I\u0027d prefer to save RA at the top of the frame.",
+      "range": {
+        "startLine": 645,
+        "startChar": 4,
+        "endLine": 645,
+        "endChar": 25
+      },
+      "revId": "4b657e7702b0f3a0d18655b3135abd510db70a4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b46f430_665ed621",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 9
+      },
+      "lineNbr": 661,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-31T07:35:47Z",
+      "side": 1,
+      "message": "We need special handling if we want to support t5-6 here. (The easiest way would be to just reload them before this move even if that is just dead code for all other `\\reg`s.)",
+      "range": {
+        "startLine": 661,
+        "startChar": 4,
+        "endLine": 661,
+        "endChar": 15
+      },
+      "revId": "4b657e7702b0f3a0d18655b3135abd510db70a4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4228e39e_2a3c3b5f",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 9
+      },
+      "lineNbr": 705,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-31T07:35:47Z",
+      "side": 1,
+      "message": "These need to be conditional to avoid clobbering the result. See `POP_REG_NE` on arm64. (Though I would prefer `RESTORE_GPR_NE` as \"pop\" would imply SP adjustment.)",
+      "range": {
+        "startLine": 691,
+        "startChar": 4,
+        "endLine": 705,
+        "endChar": 28
+      },
+      "revId": "4b657e7702b0f3a0d18655b3135abd510db70a4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa10ff5b_e2c2ca72",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 9
+      },
+      "lineNbr": 713,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-31T07:35:47Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 712,
+        "startChar": 4,
+        "endLine": 713,
+        "endChar": 25
+      },
+      "revId": "4b657e7702b0f3a0d18655b3135abd510db70a4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

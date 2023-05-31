@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8b55fb02_83647388",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 460,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-31T07:35:47Z",
+      "side": 1,
+      "message": "I\u0027m sorry, I got confused by thinking too much about nterp.\n\nThe entrypoint is called by the nterp but it\u0027s not considered a part of nterp. It does need to save the method and therefore it also needs the padding. Please revert this to PS8.",
+      "parentUuid": "7e97e9d1_2724161c",
+      "range": {
+        "startLine": 460,
+        "startChar": 32,
+        "endLine": 460,
+        "endChar": 77
+      },
+      "revId": "a8f5a9a42cea657f9018122c3082d77898ef48cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "19212b86_21076b91",
         "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
         "patchSetId": 8
