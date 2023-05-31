@@ -22,6 +22,30 @@
       },
       "revId": "08e8dec9df7dfbdf6180d0c8f0b0ec3939c63e3d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "affbe02b_6f2b0ce4",
+        "filename": "runtime/interpreter/mterp/riscv64/object.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-05-31T05:22:23Z",
+      "side": 1,
+      "message": "Done. The volatile path benefited from co-locating the differences in one place, but after doing that, it seems nicer to do the same for the regular path as well.",
+      "parentUuid": "7c8eb5bb_1032f67e",
+      "range": {
+        "startLine": 133,
+        "startChar": 8,
+        "endLine": 133,
+        "endChar": 20
+      },
+      "revId": "08e8dec9df7dfbdf6180d0c8f0b0ec3939c63e3d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
