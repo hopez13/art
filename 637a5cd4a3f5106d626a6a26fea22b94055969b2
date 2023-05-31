@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "95e7a55d_ea30a489",
+        "filename": "runtime/interpreter/mterp/riscv64/other.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-05-31T07:47:04Z",
+      "side": 1,
+      "message": "Indicate the sign extension in the comment. On arm64, we have \"ssssBBBB (sign-extended)\" but maybe \"ssssBBBB\" shall suffice, given the explicit \"/\\*signed\\*/1\" already present here. (And update he comment for SET_VREG below.)",
+      "range": {
+        "startLine": 11,
+        "startChar": 48,
+        "endLine": 11,
+        "endChar": 53
+      },
+      "revId": "637a5cd4a3f5106d626a6a26fea22b94055969b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
