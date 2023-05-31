@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7e97e9d1_2724161c",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 460,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-05-31T05:22:00Z",
+      "side": 1,
+      "message": "Simplified it by removing the SETUP_CALLEE_SAVE_FRAME_COMMON usage below. Wanted to double-check - we no longer store ArtMethod* at 0(sp), but that macro also stores $sp at THREAD_TOP_QUICK_FRAME_OFFSEt(xSELF) which we also no longer do. Is it required?\n\nDoes that mean we can simplify this macro similarly on other architectures too?",
+      "parentUuid": "33cec50f_7d0e746b",
+      "range": {
+        "startLine": 460,
+        "startChar": 32,
+        "endLine": 460,
+        "endChar": 77
+      },
+      "revId": "a8f5a9a42cea657f9018122c3082d77898ef48cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "19212b86_21076b91",
         "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
         "patchSetId": 8
@@ -37,6 +61,30 @@
       "writtenOn": "2023-05-29T09:23:14Z",
       "side": 1,
       "message": "Please implement this to call `artReadBarrierMark`.",
+      "range": {
+        "startLine": 618,
+        "startChar": 4,
+        "endLine": 618,
+        "endChar": 9
+      },
+      "revId": "a8f5a9a42cea657f9018122c3082d77898ef48cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f51bd067_1191e7cb",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 618,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-05-31T05:22:00Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "19212b86_21076b91",
       "range": {
         "startLine": 618,
         "startChar": 4,
