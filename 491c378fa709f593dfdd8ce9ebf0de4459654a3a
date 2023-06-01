@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "54c4c81d_8bc46ade",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-06-01T14:08:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "991ca328_0afb378b",
+      "revId": "491c378fa709f593dfdd8ce9ebf0de4459654a3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "50ff72c0_87d8db03",
@@ -31,6 +49,30 @@
       "writtenOn": "2023-05-25T22:20:04Z",
       "side": 1,
       "message": "nit: page_count \u003d\u003d 0 { non_present; continue; } may be easier to read.",
+      "range": {
+        "startLine": 1905,
+        "startChar": 6,
+        "endLine": 1905,
+        "endChar": 28
+      },
+      "revId": "491c378fa709f593dfdd8ce9ebf0de4459654a3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "80890a95_9d8c21db",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1905,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-06-01T14:08:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "50ff72c0_87d8db03",
       "range": {
         "startLine": 1905,
         "startChar": 6,
