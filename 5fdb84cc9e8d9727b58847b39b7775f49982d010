@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "263b585a_1c383c05",
+        "filename": "runtime/nterp_helpers.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-06-01T16:03:38Z",
+      "side": 1,
+      "message": "I assume this is a runtime thing (as opposed to kRuntimeISA) so there will be a small but acceptable overhead to all arches.",
+      "range": {
+        "startLine": 237,
+        "startChar": 6,
+        "endLine": 237,
+        "endChar": 9
+      },
+      "revId": "5fdb84cc9e8d9727b58847b39b7775f49982d010",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
