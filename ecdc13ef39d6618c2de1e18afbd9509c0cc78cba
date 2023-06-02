@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "74956d4c_07a43ce9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-06-02T13:52:53Z",
+      "side": 1,
+      "message": "It\u0027s good to have an extended description in the commit message.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 34
+      },
+      "revId": "ecdc13ef39d6618c2de1e18afbd9509c0cc78cba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe81f1a5_8b4ac71c",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-06-02T13:52:53Z",
+      "side": 1,
+      "message": "Is it? I thought it\u0027s UB to shift by negative or exceed type width, but signed right shift I assumed to so arithmetic shift (with sign-extension): http://eel.is/c++draft/expr.shift (linked from here: )https://stackoverflow.com/a/54482863.\n\n\u003e[Note 2: E1 is right-shifted E2 bit positions. Right-shift on signed integral types is an arithmetic right shift, which performs sign-extension. — end note]",
+      "range": {
+        "startLine": 55,
+        "startChar": 2,
+        "endLine": 55,
+        "endChar": 69
+      },
+      "revId": "ecdc13ef39d6618c2de1e18afbd9509c0cc78cba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5d1fd6b_737b4edd",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1959,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-06-02T13:52:53Z",
+      "side": 1,
+      "message": "Otherwise (typo)",
+      "range": {
+        "startLine": 1959,
+        "startChar": 33,
+        "endLine": 1959,
+        "endChar": 41
+      },
+      "revId": "ecdc13ef39d6618c2de1e18afbd9509c0cc78cba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ebf2c1cb_765712d0",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-06-02T13:52:53Z",
+      "side": 1,
+      "message": "Is it worth reporting to clang bugtracker?",
+      "range": {
+        "startLine": 229,
+        "startChar": 35,
+        "endLine": 230,
+        "endChar": 57
+      },
+      "revId": "ecdc13ef39d6618c2de1e18afbd9509c0cc78cba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
