@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc82bad9_a18e6345",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-06-02T14:09:02Z",
+      "side": 1,
+      "message": "So the second reason why Nterp was not supported was kReserveMarkingRegister. Now this is not checked at all on X86(_64). Is this intentional? If so, it is not obvious from the change description.",
+      "range": {
+        "startLine": 49,
+        "startChar": 6,
+        "endLine": 49,
+        "endChar": 18
+      },
+      "revId": "a887bc94ef7d2caa96fb8c4ec53fd3cdfd57109c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
