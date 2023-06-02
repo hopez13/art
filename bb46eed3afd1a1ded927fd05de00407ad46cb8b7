@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "92d61117_e8e83aff",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-06-02T21:17:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b39faa03_3c419e00",
+      "range": {
+        "startLine": 10,
+        "startChar": 38,
+        "endLine": 10,
+        "endChar": 40
+      },
+      "revId": "bb46eed3afd1a1ded927fd05de00407ad46cb8b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "1e15abea_2e605309",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 11
@@ -107,6 +131,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "14ab59b4_dd066153",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 11
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-06-02T21:17:38Z",
+      "side": 1,
+      "message": "Using `*_static_defaults` seems to work. \nChecking with `ldd $(realpath art_standalone_runtime_tests)` on x86_64 cf device:\n```\nlinux-gate.so.1 \u003d\u003e [vdso] (0xf781b000)\nlibunwindstack.so \u003d\u003e /system/lib/libunwindstack.so (0xf6000000)\nlibz.so \u003d\u003e /system/lib/libz.so (0xf60d4000)\nlibdl_android.so \u003d\u003e /apex/com.android.runtime/lib/bionic/libdl_android.so (0xf5fc3000)\nheapprofd_client_api.so \u003d\u003e /system/lib/heapprofd_client_api.so (0xf5f05000)\nlibc++.so \u003d\u003e /system/lib/libc++.so (0xf6184000)\nlibc.so \u003d\u003e /apex/com.android.runtime/lib/bionic/libc.so (0xf5956000)\nlibm.so \u003d\u003e /apex/com.android.runtime/lib/bionic/libm.so (0xf58d1000)\nlibdl.so \u003d\u003e /apex/com.android.runtime/lib/bionic/libdl.so (0xf6270000)\nlibbase.so \u003d\u003e /system/lib/libbase.so (0xf5f74000)\nliblog.so \u003d\u003e /system/lib/liblog.so (0xf5787000)\nliblzma.so \u003d\u003e /system/lib/liblzma.so (0xf5889000)\nlibprocinfo.so \u003d\u003e /system/lib/libprocinfo.so (0xf611b000)\nlibsigchain.so \u003d\u003e /apex/com.android.art/lib/libsigchain.so (0xf5ed0000)\nlibc++.so \u003d\u003e /apex/com.android.art/lib/libc++.so (0xf57c7000)\nlibnativehelper.so \u003d\u003e /apex/com.android.art/lib/libnativehelper.so (0xf6170000)\nlibstatssocket.so \u003d\u003e /apex/com.android.os.statsd/lib/libstatssocket.so (0xf5913000)\n```\n`libsigchain` has to be shared, otherwise `art_standalone_sigchain_tests` fail. I think it would be easier to just package it with the test.\n\n\nGetting rid of `libbase` is a bit difficult, but I guess it can be done in a follow-up CL.",
+      "parentUuid": "ce079896_b6c09644",
+      "range": {
+        "startLine": 34,
+        "startChar": 4,
+        "endLine": 34,
+        "endChar": 15
+      },
+      "revId": "bb46eed3afd1a1ded927fd05de00407ad46cb8b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d09b8807_a4ab35ab",
         "filename": "compiler/Android.bp",
         "patchSetId": 11
@@ -124,6 +172,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ef4b6df4_4dee8746",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 11
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-06-02T21:17:38Z",
+      "side": 1,
+      "message": "libvixl(d) is specified in `codegen` section, which is supported only in `art_cc_*` module types.\nThere is ongoing work to remove `art_cc_defaults` (http://b/247785938), but some of it was reverted recently, so I don\u0027t know what\u0027s the correct way to replace `codegen`",
+      "parentUuid": "d09b8807_a4ab35ab",
+      "revId": "bb46eed3afd1a1ded927fd05de00407ad46cb8b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5a91cdc5_4884be4a",
         "filename": "compiler/Android.bp",
         "patchSetId": 11
@@ -135,6 +201,24 @@
       "writtenOn": "2023-05-26T14:26:07Z",
       "side": 1,
       "message": "This is only used in libart-compiler-gtest. Another variant, in particular if you can move the libvixl(d) dependencies as mentioned earlier, is to use the set of defaults directly in libart-compiler-gtest.",
+      "revId": "bb46eed3afd1a1ded927fd05de00407ad46cb8b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c8e30838_0739f011",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 11
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-06-02T21:17:38Z",
+      "side": 1,
+      "message": "I wanted to keep libart-compiler-gtest and libart**d**-compiler-gtest the same and the latter uses already existing libartd-compiler (it doesn\u0027t have LTO, so no issues there).\nIf I move all of libart(d)-compiler defaults into libart(d)-compiler-gtest, wouldn\u0027t it result in libart-compiler source being compiled twice? (for libart**d**-compiler for libart**d**-compiler-gtest)",
+      "parentUuid": "5a91cdc5_4884be4a",
       "revId": "bb46eed3afd1a1ded927fd05de00407ad46cb8b7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -162,6 +246,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f71fe375_f18bb557",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 11
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-06-02T21:17:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "84b0bae5_a0a7cd19",
+      "range": {
+        "startLine": 320,
+        "startChar": 8,
+        "endLine": 320,
+        "endChar": 16
+      },
+      "revId": "bb46eed3afd1a1ded927fd05de00407ad46cb8b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "02607921_3eb65224",
@@ -175,6 +283,30 @@
       "writtenOn": "2023-05-26T14:26:07Z",
       "side": 1,
       "message": "Are all these necessary?",
+      "range": {
+        "startLine": 322,
+        "startChar": 0,
+        "endLine": 326,
+        "endChar": 6
+      },
+      "revId": "bb46eed3afd1a1ded927fd05de00407ad46cb8b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "edb64333_1ac6d332",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 11
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-06-02T21:17:38Z",
+      "side": 1,
+      "message": "I\u0027ve had some obscure error from soong when I was trying the shared libart-compiler-for-test lib approach, but now it\u0027s redundant",
+      "parentUuid": "02607921_3eb65224",
       "range": {
         "startLine": 322,
         "startChar": 0,
