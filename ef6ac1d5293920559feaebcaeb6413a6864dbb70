@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "001d070a_032eb002",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1909,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-06-02T08:34:56Z",
+      "side": 0,
+      "message": "Why did you remove the code in lines 1880-1909? Do we do these checks somewhere else?",
+      "revId": "ef6ac1d5293920559feaebcaeb6413a6864dbb70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
