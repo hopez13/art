@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ceda59f6_cb50046b",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 830,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-06-05T07:15:49Z",
+      "side": 1,
+      "message": "The function splits this as 6+6 bits, so imm11:6 and imm5:0. Also change the boundary above to 26 25 and maybe move the `|` a bit to the left.",
+      "range": {
+        "startLine": 830,
+        "startChar": 11,
+        "endLine": 830,
+        "endChar": 33
+      },
+      "revId": "0ab93cdec221c20c74f5c0d6c1715ce5ab07e225",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
