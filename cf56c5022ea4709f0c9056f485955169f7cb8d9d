@@ -21,6 +21,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e2ba1770_077afabe",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3205,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-06-05T10:29:03Z",
+      "side": 1,
+      "message": "Reorder after the cdex check.",
+      "range": {
+        "startLine": 3205,
+        "startChar": 6,
+        "endLine": 3205,
+        "endChar": 28
+      },
+      "revId": "cf56c5022ea4709f0c9056f485955169f7cb8d9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5ac8924f_12c62bd8",
         "filename": "dex2oat/linker/oat_writer.cc",
         "patchSetId": 2
@@ -32,6 +55,30 @@
       "writtenOn": "2023-06-01T16:11:06Z",
       "side": 1,
       "message": "drive-by comment: I think we are now using `[[maybe_unused]]`",
+      "range": {
+        "startLine": 3443,
+        "startChar": 16,
+        "endLine": 3443,
+        "endChar": 32
+      },
+      "revId": "cf56c5022ea4709f0c9056f485955169f7cb8d9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ffc8ac7f_5f8cba74",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3443,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-06-05T10:29:03Z",
+      "side": 1,
+      "message": "Remove the argument as part of this CL.",
+      "parentUuid": "5ac8924f_12c62bd8",
       "range": {
         "startLine": 3443,
         "startChar": 16,
