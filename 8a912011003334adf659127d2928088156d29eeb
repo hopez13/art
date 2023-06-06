@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "55291f8a_c15a9003",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1745,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-06-06T10:59:52Z",
+      "side": 1,
+      "message": "This is the way we check e.g. in [DecodeUnsignedLeb128Checked](https://cs.android.com/android/platform/superproject/+/master:art/libartbase/base/leb128.h;l\u003d62-69;drc\u003d495311c865d1f4e08d71a2dd2a319b14c5f0409a). Shouldn\u0027t we also have to check that after increase ptr we are still within range before the `*` deref?",
+      "range": {
+        "startLine": 1741,
+        "startChar": 0,
+        "endLine": 1745,
+        "endChar": 31
+      },
+      "revId": "8a912011003334adf659127d2928088156d29eeb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
