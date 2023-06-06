@@ -77,6 +77,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "169d5a5d_ebf20e1a",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1304,
+      "author": {
+        "id": 1975361
+      },
+      "writtenOn": "2023-06-06T16:26:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "67cf12ed_0005956b",
+      "range": {
+        "startLine": 1304,
+        "startChar": 0,
+        "endLine": 1304,
+        "endChar": 35
+      },
+      "revId": "aa82f80921e8523f868db9abd3fb2067f1700294",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "271b9866_a07dc7b1",
@@ -102,6 +126,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f602039b_9844a937",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2048,
+      "author": {
+        "id": 1975361
+      },
+      "writtenOn": "2023-06-06T16:26:19Z",
+      "side": 1,
+      "message": "Indeed, this change makes the compiler to create 2 VecPredSetAll instructions now; actually it would be a step to follow more consistently the requirement of not sharing vector predicates or vector values outside the SIMD loops (preheader, post-loop) across instructions.\n\nThe reason for that is that the register allocator and runtime entrypoints are not fully aware of vector types; so only the SuspendCheck slow path will save/restore full vector values. More details could be found near HVecOperation::CanBeMoved() overrides.\n\nPlease note that only the predicated vectorization mode is affected (e.g. with Arm64 SVE) and it is not currently turned on by default, so no production devices run it. The work on Predicated mode is currently in progress; we have planned efforts to have more optimization afterwards. I\u0027ve created an internal task to track this specific situation.",
+      "parentUuid": "271b9866_a07dc7b1",
+      "range": {
+        "startLine": 2043,
+        "startChar": 0,
+        "endLine": 2048,
+        "endChar": 48
+      },
+      "revId": "aa82f80921e8523f868db9abd3fb2067f1700294",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2558c787_97488a6e",
         "filename": "test/661-checker-simd-reduc/src/Main.java",
         "patchSetId": 1
@@ -113,6 +161,30 @@
       "writtenOn": "2023-05-30T11:04:47Z",
       "side": 1,
       "message": "Is this not `PostLoopP` because of the comment in compiler/optimizing/loop_optimization.cc lines 2043-2048?",
+      "range": {
+        "startLine": 87,
+        "startChar": 66,
+        "endLine": 87,
+        "endChar": 74
+      },
+      "revId": "aa82f80921e8523f868db9abd3fb2067f1700294",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca36fe73_c2559c90",
+        "filename": "test/661-checker-simd-reduc/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1975361
+      },
+      "writtenOn": "2023-06-06T16:26:19Z",
+      "side": 1,
+      "message": "This should have a separate VecPredSetAll, as I replied in the other file.",
+      "parentUuid": "2558c787_97488a6e",
       "range": {
         "startLine": 87,
         "startChar": 66,
