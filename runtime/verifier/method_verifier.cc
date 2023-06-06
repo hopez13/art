@@ -4127,6 +4127,41 @@ ArtMethod* MethodVerifier<kVerifierDebug>::VerifyInvocationArgs(
   // we're making.
   const uint32_t method_idx = GetMethodIdxOfInvoke(inst);
   ArtMethod* res_method = ResolveMethodAndCheckAccess(method_idx, method_type);
+    static int null_methods = 0;
+    static int bcp_methods = 0;
+    static int same_dex_methods = 0;
+    static int other_dex_methods = 0;
+    static int object_methods = 0;
+    static int string_methods = 0;
+    static int same_class_methods = 0;
+    if (!Runtime::Current()->IsCompilingBootImage()) {
+      //LOG(ERROR) << dex_file_->PrettyMethod(method_idx);
+    if (res_method == nullptr) {
+      null_methods++;
+    } else if (res_method->GetDeclaringClass()->GetClassLoader() == nullptr) {
+      if (res_method->GetDeclaringClass()->GetSuperClass() == nullptr) {
+        object_methods++;
+      } else if (res_method->GetDeclaringClass()->IsStringClass()) {
+        string_methods++;
+      } else {
+        bcp_methods++;
+      }
+    } else if (res_method->GetDexFile() == dex_file_) {
+      if (GetDeclaringClass().HasClass() && res_method->GetDeclaringClass() == GetDeclaringClass().GetClass()) {
+        same_class_methods++;
+      }
+      same_dex_methods++;
+    } else {
+      other_dex_methods++;
+    }
+    LOG(ERROR) << "NULL: " << null_methods;
+    LOG(ERROR) << "BCP: " << bcp_methods;
+    LOG(ERROR) << "OBJECT: " << object_methods;
+    LOG(ERROR) << "STRING: " << string_methods;
+    LOG(ERROR) << "SAME: " << same_dex_methods;
+    LOG(ERROR) << "OTHER: " << other_dex_methods;
+    LOG(ERROR) << "SAME CLASS: " << same_class_methods;
+    }
   if (res_method == nullptr) {  // error or class is unresolved
     // Check what we can statically.
     if (!flags_.have_pending_hard_failure_) {
@@ -4191,7 +4226,8 @@ ArtMethod* MethodVerifier<kVerifierDebug>::VerifyInvocationArgs(
   } else {
     // Process the target method's signature.
     MethodParamListDescriptorIterator it(res_method);
-    return VerifyInvocationArgsFromIterator(&it, inst, method_type, is_range, res_method);
+    ArtMethod* method = VerifyInvocationArgsFromIterator(&it, inst, method_type, is_range, res_method);
+    return method;
   }
 }
 
@@ -4698,6 +4734,43 @@ void MethodVerifier<kVerifierDebug>::VerifyISFieldAccess(const Instruction* inst
                                           << dex_file_->PrettyMethod(dex_method_idx_);
         return;
       }
+    }
+  }
+  {
+    static int null_fields = 0;
+    static int bcp_fields = 0;
+    static int same_dex_fields = 0;
+    static int other_dex_fields = 0;
+    static int object_fields = 0;
+    static int string_fields = 0;
+    static int same_class_fields = 0;
+    if (!Runtime::Current()->IsCompilingBootImage()) {
+      //LOG(ERROR) << dex_file_->PrettyMethod(method_idx);
+    if (field == nullptr) {
+      null_fields++;
+    } else if (field->GetDeclaringClass()->GetClassLoader() == nullptr) {
+      if (field->GetDeclaringClass()->GetSuperClass() == nullptr) {
+        object_fields++;
+      } else if (field->GetDeclaringClass()->IsStringClass()) {
+        string_fields++;
+      } else {
+        bcp_fields++;
+      }
+    } else if (field->GetDexFile() == dex_file_) {
+      if (GetDeclaringClass().HasClass() && field->GetDeclaringClass() == GetDeclaringClass().GetClass()) {
+        same_class_fields++;
+      }
+      same_dex_fields++;
+    } else {
+      other_dex_fields++;
+    }
+    LOG(ERROR) << "NULL F: " << null_fields;
+    LOG(ERROR) << "BCP F: " << bcp_fields;
+    LOG(ERROR) << "OBJECT F: " << object_fields;
+    LOG(ERROR) << "STRING F: " << string_fields;
+    LOG(ERROR) << "SAME F: " << same_dex_fields;
+    LOG(ERROR) << "OTHER F: " << other_dex_fields;
+    LOG(ERROR) << "SAME CLASS F: " << same_class_fields;
     }
   }
   const RegType* field_type = nullptr;

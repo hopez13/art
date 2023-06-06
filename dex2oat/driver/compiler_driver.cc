@@ -1841,6 +1841,7 @@ void CompilerDriver::Verify(jobject jclass_loader,
       force_determinism ? single_thread_pool_.get() : parallel_thread_pool_.get();
   size_t verify_thread_count = force_determinism ? 1U : parallel_thread_count_;
   for (const DexFile* dex_file : dex_files) {
+    LOG(ERROR) << "METHOD IDS= " << dex_file->NumMethodIds();
     CHECK(dex_file != nullptr);
     VerifyDexFile(jclass_loader,
                   *dex_file,
