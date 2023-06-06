@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b1a5558a_5484d89c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-06-06T16:16:09Z",
+      "side": 1,
+      "message": "CL looks good to me. Feel free to update the code, or just resolve the comment.",
+      "revId": "61b337abe7f0a774a254f7abe65aee3a93cbfa69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "47caf008_b309a948",
+        "filename": "test/656-checker-simd-opt/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-06-06T16:16:09Z",
+      "side": 1,
+      "message": "FYI you can omit `loop:none` for `IntConstant` and `ParameterValue`. They are always defined in B0, which is out of a loop. I see that other tests in this file are doing it so feel free to keep it.",
+      "range": {
+        "startLine": 109,
+        "startChar": 69,
+        "endLine": 109,
+        "endChar": 78
+      },
+      "revId": "61b337abe7f0a774a254f7abe65aee3a93cbfa69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
