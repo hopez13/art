@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f9ec860_af328c66",
+        "filename": "test/656-checker-simd-opt/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1975361
+      },
+      "writtenOn": "2023-06-06T09:58:00Z",
+      "side": 1,
+      "message": "Both in some sense, in this function we test the IR, that the disambiguation test is emitted; in testStencilConstSize we test it in runtime. I\u0027ve added another comment",
+      "parentUuid": "eda9f05c_67282cfb",
+      "range": {
+        "startLine": 148,
+        "startChar": 0,
+        "endLine": 148,
+        "endChar": 65
+      },
+      "revId": "4e314076996390165f5a410589211db8bb68704e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c8c5795f_474dea6e",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-05-30T08:44:43Z",
       "side": 1,
       "message": "Move this next to `ARRAY_SIZE` definition",
+      "range": {
+        "startLine": 150,
+        "startChar": 0,
+        "endLine": 152,
+        "endChar": 21
+      },
+      "revId": "4e314076996390165f5a410589211db8bb68704e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9d0eee4_fac64e50",
+        "filename": "test/656-checker-simd-opt/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1975361
+      },
+      "writtenOn": "2023-06-06T09:58:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c8c5795f_474dea6e",
       "range": {
         "startLine": 150,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4acf72f2_f2a16508",
+        "filename": "test/656-checker-simd-opt/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 430,
+      "author": {
+        "id": 1975361
+      },
+      "writtenOn": "2023-06-06T09:58:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7a7c71eb_30eae49d",
+      "range": {
+        "startLine": 430,
+        "startChar": 6,
+        "endLine": 430,
+        "endChar": 24
+      },
+      "revId": "4e314076996390165f5a410589211db8bb68704e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "08ba3f58_ebf17e4c",
@@ -83,6 +155,30 @@
       "writtenOn": "2023-05-30T08:44:43Z",
       "side": 1,
       "message": "Same here. A comment would be appreciated",
+      "range": {
+        "startLine": 439,
+        "startChar": 0,
+        "endLine": 439,
+        "endChar": 26
+      },
+      "revId": "4e314076996390165f5a410589211db8bb68704e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "229418de_5c299808",
+        "filename": "test/656-checker-simd-opt/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 439,
+      "author": {
+        "id": 1975361
+      },
+      "writtenOn": "2023-06-06T09:58:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "08ba3f58_ebf17e4c",
       "range": {
         "startLine": 439,
         "startChar": 0,
