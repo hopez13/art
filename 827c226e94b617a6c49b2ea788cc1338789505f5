@@ -86,6 +86,30 @@
       },
       "revId": "827c226e94b617a6c49b2ea788cc1338789505f5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5dded7dd_07bbe020",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 2820,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-06-06T14:44:57Z",
+      "side": 1,
+      "message": "You mean not release them?\n\nI agree it makes sense locally. However, holistically, as long as RSS is the marker for memory pressure, ensuring they are released will make us not regress any existing systems.",
+      "parentUuid": "1466ee71_71bb7b86",
+      "range": {
+        "startLine": 2820,
+        "startChar": 21,
+        "endLine": 2820,
+        "endChar": 39
+      },
+      "revId": "827c226e94b617a6c49b2ea788cc1338789505f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
