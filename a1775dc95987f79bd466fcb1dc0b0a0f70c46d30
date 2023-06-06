@@ -1,0 +1,349 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4c47a31_b6fef938",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 13
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-06-06T18:07:42Z",
+      "side": 1,
+      "message": "Nit: Insert \"See\" or something - this looks like a non sequitur.",
+      "range": {
+        "startLine": 11,
+        "startChar": 43,
+        "endLine": 11,
+        "endChar": 54
+      },
+      "revId": "a1775dc95987f79bd466fcb1dc0b0a0f70c46d30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc677594_e8baddf0",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 13
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-06-06T18:07:42Z",
+      "side": 1,
+      "message": "Please comment why this isn\u0027t in the deps defaults.",
+      "range": {
+        "startLine": 278,
+        "startChar": 8,
+        "endLine": 278,
+        "endChar": 17
+      },
+      "revId": "a1775dc95987f79bd466fcb1dc0b0a0f70c46d30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9e34146_e9a03c60",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 13
+      },
+      "lineNbr": 588,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-06-06T18:07:42Z",
+      "side": 1,
+      "message": "Same as comment in test/Android.bp.",
+      "range": {
+        "startLine": 584,
+        "startChar": 0,
+        "endLine": 588,
+        "endChar": 23
+      },
+      "revId": "a1775dc95987f79bd466fcb1dc0b0a0f70c46d30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0bfb4da9_6081aa4c",
+        "filename": "dex2oat/Android.bp",
+        "patchSetId": 13
+      },
+      "lineNbr": 564,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-06-06T18:07:42Z",
+      "side": 1,
+      "message": "Does this have to stay dynamically linked in this test too?",
+      "range": {
+        "startLine": 564,
+        "startChar": 9,
+        "endLine": 564,
+        "endChar": 20
+      },
+      "revId": "a1775dc95987f79bd466fcb1dc0b0a0f70c46d30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b0c0795_7fc339f7",
+        "filename": "dex2oat/Android.bp",
+        "patchSetId": 13
+      },
+      "lineNbr": 580,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-06-06T18:07:42Z",
+      "side": 1,
+      "message": "Isn\u0027t this in the static lib?",
+      "range": {
+        "startLine": 580,
+        "startChar": 8,
+        "endLine": 580,
+        "endChar": 22
+      },
+      "revId": "a1775dc95987f79bd466fcb1dc0b0a0f70c46d30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "569e8857_205c983c",
+        "filename": "dex2oat/Android.bp",
+        "patchSetId": 13
+      },
+      "lineNbr": 586,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-06-06T18:07:42Z",
+      "side": 1,
+      "message": "Same for this (and in art_standalone_dex2oat_tests below).",
+      "range": {
+        "startLine": 586,
+        "startChar": 8,
+        "endLine": 586,
+        "endChar": 22
+      },
+      "revId": "a1775dc95987f79bd466fcb1dc0b0a0f70c46d30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7438c77b_bb47e4bf",
+        "filename": "libartbase/Android.bp",
+        "patchSetId": 13
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-06-06T18:07:42Z",
+      "side": 1,
+      "message": "Why is this added?",
+      "range": {
+        "startLine": 272,
+        "startChar": 9,
+        "endLine": 272,
+        "endChar": 23
+      },
+      "revId": "a1775dc95987f79bd466fcb1dc0b0a0f70c46d30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d15cf16_cb7c1905",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 628,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-06-06T18:07:42Z",
+      "side": 1,
+      "message": "Why is this changing here?",
+      "range": {
+        "startLine": 628,
+        "startChar": 2,
+        "endLine": 628,
+        "endChar": 8
+      },
+      "revId": "a1775dc95987f79bd466fcb1dc0b0a0f70c46d30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b685a654_b8366c1a",
+        "filename": "test/Android.bp",
+        "patchSetId": 13
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-06-06T18:07:42Z",
+      "side": 1,
+      "message": "What gives?",
+      "range": {
+        "startLine": 213,
+        "startChar": 67,
+        "endLine": 213,
+        "endChar": 91
+      },
+      "revId": "a1775dc95987f79bd466fcb1dc0b0a0f70c46d30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "49b837e3_14a34f50",
+        "filename": "test/Android.bp",
+        "patchSetId": 13
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-06-06T18:07:42Z",
+      "side": 1,
+      "message": "What happens with this now? Do the tests below still work?\n\nAt least this comment needs an update to still make sense.",
+      "range": {
+        "startLine": 265,
+        "startChar": 11,
+        "endLine": 265,
+        "endChar": 74
+      },
+      "revId": "a1775dc95987f79bd466fcb1dc0b0a0f70c46d30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "28dcf466_7dbcd945",
+        "filename": "test/Android.bp",
+        "patchSetId": 13
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-06-06T18:07:42Z",
+      "side": 1,
+      "message": "Lots of stuff here can move into `art_gtest_common_defaults`?",
+      "range": {
+        "startLine": 254,
+        "startChar": 0,
+        "endLine": 281,
+        "endChar": 6
+      },
+      "revId": "a1775dc95987f79bd466fcb1dc0b0a0f70c46d30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e541c630_24322ba5",
+        "filename": "test/Android.bp",
+        "patchSetId": 13
+      },
+      "lineNbr": 343,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-06-06T18:07:42Z",
+      "side": 1,
+      "message": "Isn\u0027t this idea moot now when we\u0027re moving in this direction? Is it time to remove this and close the ticket as obsolete?\n\n+rpl",
+      "range": {
+        "startLine": 339,
+        "startChar": 0,
+        "endLine": 343,
+        "endChar": 74
+      },
+      "revId": "a1775dc95987f79bd466fcb1dc0b0a0f70c46d30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1eaf8db0_4edcd5ac",
+        "filename": "test/Android.bp",
+        "patchSetId": 13
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-06-06T18:07:42Z",
+      "side": 1,
+      "message": "These have kinda lost their raison d\u0027etre. I\u0027d be inclined to get rid of them completely.\n\nOr else, maybe add suitable `static_libs` lists here instead? Do the modules that use these need to have their own lists of test library dependencies?",
+      "range": {
+        "startLine": 401,
+        "startChar": 0,
+        "endLine": 414,
+        "endChar": 1
+      },
+      "revId": "a1775dc95987f79bd466fcb1dc0b0a0f70c46d30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8e797f7a_81f03138",
+        "filename": "test/generate-boot-image/Android.bp",
+        "patchSetId": 13
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-06-06T18:07:42Z",
+      "side": 1,
+      "message": "Given that you punted `libbase` to a later CL, does this need to happen here?",
+      "range": {
+        "startLine": 49,
+        "startChar": 8,
+        "endLine": 49,
+        "endChar": 18
+      },
+      "revId": "a1775dc95987f79bd466fcb1dc0b0a0f70c46d30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ea74062_f24df586",
+        "filename": "tools/art_verifier/Android.bp",
+        "patchSetId": 13
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-06-06T18:07:42Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this have the same TODO as in tools/fuzzer/Android.bp?",
+      "range": {
+        "startLine": 62,
+        "startChar": 8,
+        "endLine": 62,
+        "endChar": 42
+      },
+      "revId": "a1775dc95987f79bd466fcb1dc0b0a0f70c46d30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

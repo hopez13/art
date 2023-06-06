@@ -85,6 +85,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "eec2d4e7_9b2b0383",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-06-06T18:07:42Z",
+      "side": 1,
+      "message": "I suspect these measurements are stale now with the switch to use `*_static_defaults`, but provided it\u0027s not _radically_ slower I don\u0027t think you need to redo them, because we don\u0027t have any good alternatives anyway.",
+      "parentUuid": "ae2b3661_5fcdabe7",
+      "revId": "bb46eed3afd1a1ded927fd05de00407ad46cb8b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "c8826eb9_b34447eb",
         "filename": "compiler/Android.bp",
         "patchSetId": 11
@@ -153,6 +171,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2fd6e10f_37513da9",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 11
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-06-06T18:07:42Z",
+      "side": 1,
+      "message": "There are several other libraries in that list which aren\u0027t stable and should be linked statically instead, but yes, let\u0027s tackle them separately.",
+      "parentUuid": "14ab59b4_dd066153",
+      "range": {
+        "startLine": 34,
+        "startChar": 4,
+        "endLine": 34,
+        "endChar": 15
+      },
+      "revId": "bb46eed3afd1a1ded927fd05de00407ad46cb8b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d09b8807_a4ab35ab",
@@ -190,6 +232,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a2898713_b29c6f23",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 11
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-06-06T18:07:42Z",
+      "side": 1,
+      "message": "`art_cc_defaults` is still in use, so we don\u0027t need to replace `codegen` sections here, and moving them around makes no difference wrt that work.",
+      "parentUuid": "ef4b6df4_4dee8746",
+      "revId": "bb46eed3afd1a1ded927fd05de00407ad46cb8b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5a91cdc5_4884be4a",
         "filename": "compiler/Android.bp",
         "patchSetId": 11
@@ -219,6 +279,24 @@
       "side": 1,
       "message": "I wanted to keep libart-compiler-gtest and libart**d**-compiler-gtest the same and the latter uses already existing libartd-compiler (it doesn\u0027t have LTO, so no issues there).\nIf I move all of libart(d)-compiler defaults into libart(d)-compiler-gtest, wouldn\u0027t it result in libart-compiler source being compiled twice? (for libart**d**-compiler for libart**d**-compiler-gtest)",
       "parentUuid": "5a91cdc5_4884be4a",
+      "revId": "bb46eed3afd1a1ded927fd05de00407ad46cb8b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "86543782_ef01c918",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 11
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-06-06T18:07:42Z",
+      "side": 1,
+      "message": "It\u0027d get linked twice (or more), but the compiled .o files ought be reused. Is the linking that expensive when LTO is off?\n\nStill, this has the benefit that it keeps consistency between d and non-d modules better, so I think it\u0027s fine after all, especially since you had to split the libart modules as well.",
+      "parentUuid": "c8e30838_0739f011",
       "revId": "bb46eed3afd1a1ded927fd05de00407ad46cb8b7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },

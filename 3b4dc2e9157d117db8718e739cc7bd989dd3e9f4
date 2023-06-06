@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "24c23460_0cc35b7e",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 12
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-06-06T18:07:42Z",
+      "side": 1,
+      "message": "This doesn\u0027t have a d variant, so it should go into the common deps.",
+      "range": {
+        "startLine": 49,
+        "startChar": 9,
+        "endLine": 49,
+        "endChar": 22
+      },
+      "revId": "3b4dc2e9157d117db8718e739cc7bd989dd3e9f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e94e3e91_7f6b5d8f",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 12
+      },
+      "lineNbr": 759,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-06-06T18:07:42Z",
+      "side": 1,
+      "message": "Is this necessary? It\u0027s not clear to me that the comment in there applies here, but if that\u0027s the case then it ought to be adapted for this module.",
+      "range": {
+        "startLine": 750,
+        "startChar": 0,
+        "endLine": 759,
+        "endChar": 6
+      },
+      "revId": "3b4dc2e9157d117db8718e739cc7bd989dd3e9f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "44e83cb6_f9ddb07b",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 12
+      },
+      "lineNbr": 760,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-06-06T18:07:42Z",
+      "side": 1,
+      "message": "We shouldn\u0027t need this for tests.",
+      "range": {
+        "startLine": 760,
+        "startChar": 4,
+        "endLine": 760,
+        "endChar": 15
+      },
+      "revId": "3b4dc2e9157d117db8718e739cc7bd989dd3e9f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c8ef2a4f_574db8aa",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 12
+      },
+      "lineNbr": 771,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-06-06T18:07:42Z",
+      "side": 1,
+      "message": "Slight preference for keeping this next to `libart` since it\u0027s an even more coupled special case than `libart-for-test`.",
+      "range": {
+        "startLine": 771,
+        "startChar": 0,
+        "endLine": 771,
+        "endChar": 26
+      },
+      "revId": "3b4dc2e9157d117db8718e739cc7bd989dd3e9f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99026421_7ca3c37a",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 12
+      },
+      "lineNbr": 790,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-06-06T18:07:42Z",
+      "side": 1,
+      "message": "I don\u0027t think we need LTO here.",
+      "range": {
+        "startLine": 784,
+        "startChar": 0,
+        "endLine": 790,
+        "endChar": 6
+      },
+      "revId": "3b4dc2e9157d117db8718e739cc7bd989dd3e9f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c671e71_9eeb7431",
+        "filename": "test/Android.bp",
+        "patchSetId": 12
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-06-06T18:07:42Z",
+      "side": 1,
+      "message": "I assume these are transitive dependencies of various static libraries. Please comment for each one why it gets pulled in.",
+      "range": {
+        "startLine": 255,
+        "startChar": 0,
+        "endLine": 257,
+        "endChar": 39
+      },
+      "revId": "3b4dc2e9157d117db8718e739cc7bd989dd3e9f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
