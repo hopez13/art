@@ -22,6 +22,30 @@
       },
       "revId": "4af5233166fcedde4d62287425b615113fd48b95",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "188d0f29_85bbbe42",
+        "filename": "imgdiag/page_info.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-06-06T14:57:27Z",
+      "side": 1,
+      "message": "That\u0027s a stale comment, I was wondering if it\u0027s possible to pass ProcFiles by const\u0026. File::Read is const, but File::PreadFully is not",
+      "parentUuid": "3c24c601_f729da5e",
+      "range": {
+        "startLine": 85,
+        "startChar": 0,
+        "endLine": 85,
+        "endChar": 24
+      },
+      "revId": "4af5233166fcedde4d62287425b615113fd48b95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
