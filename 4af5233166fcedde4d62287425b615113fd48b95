@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "57bf7005_46f1663f",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1594,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-06-06T23:30:23Z",
+      "side": 1,
+      "message": "That seems to be a leftover check since the time when zygote was memmaping boot.art without address relocations.\nI\u0027ve checked, now `flags_dirty` is false for both zygote and child pfn.",
+      "parentUuid": "c8a7e6f9_e79ac125",
+      "range": {
+        "startLine": 1592,
+        "startChar": 4,
+        "endLine": 1594,
+        "endChar": 57
+      },
+      "revId": "4af5233166fcedde4d62287425b615113fd48b95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3c24c601_f729da5e",
         "filename": "imgdiag/page_info.cc",
         "patchSetId": 3
