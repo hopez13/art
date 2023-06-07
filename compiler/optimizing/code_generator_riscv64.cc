@@ -71,7 +71,9 @@ CodeGeneratorRISCV64::CodeGeneratorRISCV64(HGraph* graph,
                                         arraysize(kFpuCalleeSaves)),
                     compiler_options,
                     stats,
-                    ArrayRef<const bool>(detail::kIsIntrinsicUnimplemented)) {
+                    ArrayRef<const bool>(detail::kIsIntrinsicUnimplemented)),
+      assembler_(graph->GetAllocator(),
+                 compiler_options.GetInstructionSetFeatures()->AsRiscv64InstructionSetFeatures()) {
   LOG(FATAL) << "Unimplemented";
 }
 
