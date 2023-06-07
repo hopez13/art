@@ -16,6 +16,24 @@
       "message": "This line need to remove. The allocator is used in arm and x86, and the default tag already have a UNUSED(allocator).",
       "revId": "31965d8139915e0f3f8957ba87d8279ab2001507",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc46068e_8813a04b",
+        "filename": "compiler/utils/jni_macro_assembler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-06-07T12:01:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3fbc9a12_dd951c5d",
+      "revId": "31965d8139915e0f3f8957ba87d8279ab2001507",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
