@@ -42,6 +42,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a815769_8eacd775",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3205,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-06-07T10:55:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e2ba1770_077afabe",
+      "range": {
+        "startLine": 3205,
+        "startChar": 6,
+        "endLine": 3205,
+        "endChar": 28
+      },
+      "revId": "cf56c5022ea4709f0c9056f485955169f7cb8d9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5ac8924f_12c62bd8",
@@ -79,6 +103,30 @@
       "side": 1,
       "message": "Remove the argument as part of this CL.",
       "parentUuid": "5ac8924f_12c62bd8",
+      "range": {
+        "startLine": 3443,
+        "startChar": 16,
+        "endLine": 3443,
+        "endChar": 32
+      },
+      "revId": "cf56c5022ea4709f0c9056f485955169f7cb8d9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd54025c_aa18257c",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3443,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-06-07T10:55:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ffc8ac7f_5f8cba74",
       "range": {
         "startLine": 3443,
         "startChar": 16,
