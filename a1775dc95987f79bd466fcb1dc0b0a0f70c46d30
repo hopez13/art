@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea6ed693_5d025597",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 13
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-06-07T19:31:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a4c47a31_b6fef938",
+      "range": {
+        "startLine": 11,
+        "startChar": 43,
+        "endLine": 11,
+        "endChar": 54
+      },
+      "revId": "a1775dc95987f79bd466fcb1dc0b0a0f70c46d30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fc677594_e8baddf0",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "077aeeac_4f3f015b",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 13
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-06-07T19:31:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fc677594_e8baddf0",
+      "range": {
+        "startLine": 278,
+        "startChar": 8,
+        "endLine": 278,
+        "endChar": 17
+      },
+      "revId": "a1775dc95987f79bd466fcb1dc0b0a0f70c46d30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e9e34146_e9a03c60",
@@ -60,6 +108,30 @@
       "writtenOn": "2023-06-06T18:07:42Z",
       "side": 1,
       "message": "Same as comment in test/Android.bp.",
+      "range": {
+        "startLine": 584,
+        "startChar": 0,
+        "endLine": 588,
+        "endChar": 23
+      },
+      "revId": "a1775dc95987f79bd466fcb1dc0b0a0f70c46d30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "72703362_836afde5",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 13
+      },
+      "lineNbr": 588,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-06-07T19:31:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e9e34146_e9a03c60",
       "range": {
         "startLine": 584,
         "startChar": 0,
@@ -95,6 +167,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4d468727_d409a6d9",
+        "filename": "dex2oat/Android.bp",
+        "patchSetId": 13
+      },
+      "lineNbr": 564,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-06-07T19:31:05Z",
+      "side": 1,
+      "message": "It is dynamically linked in `art_gtest_common_defaults`, so in all gtests.\nI think it can be statically linked everywhere except for `art_standalone_libsigchain_tests`, but it\u0027s better to discuss if such special casing is ok.",
+      "parentUuid": "0bfb4da9_6081aa4c",
+      "range": {
+        "startLine": 564,
+        "startChar": 9,
+        "endLine": 564,
+        "endChar": 20
+      },
+      "revId": "a1775dc95987f79bd466fcb1dc0b0a0f70c46d30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5b0c0795_7fc339f7",
         "filename": "dex2oat/Android.bp",
         "patchSetId": 13
@@ -106,6 +202,30 @@
       "writtenOn": "2023-06-06T18:07:42Z",
       "side": 1,
       "message": "Isn\u0027t this in the static lib?",
+      "range": {
+        "startLine": 580,
+        "startChar": 8,
+        "endLine": 580,
+        "endChar": 22
+      },
+      "revId": "a1775dc95987f79bd466fcb1dc0b0a0f70c46d30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a52527c0_a97f99fc",
+        "filename": "dex2oat/Android.bp",
+        "patchSetId": 13
+      },
+      "lineNbr": 580,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-06-07T19:31:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5b0c0795_7fc339f7",
       "range": {
         "startLine": 580,
         "startChar": 8,
@@ -129,6 +249,30 @@
       "writtenOn": "2023-06-06T18:07:42Z",
       "side": 1,
       "message": "Same for this (and in art_standalone_dex2oat_tests below).",
+      "range": {
+        "startLine": 586,
+        "startChar": 8,
+        "endLine": 586,
+        "endChar": 22
+      },
+      "revId": "a1775dc95987f79bd466fcb1dc0b0a0f70c46d30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e512c873_6136f646",
+        "filename": "dex2oat/Android.bp",
+        "patchSetId": 13
+      },
+      "lineNbr": 586,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-06-07T19:31:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "569e8857_205c983c",
       "range": {
         "startLine": 586,
         "startChar": 8,
@@ -164,6 +308,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3b0f31c9_5410b986",
+        "filename": "libartbase/Android.bp",
+        "patchSetId": 13
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-06-07T19:31:05Z",
+      "side": 1,
+      "message": "`common_art_test.cc` includes \"base/mutex.h\" from `runtime/`.\n\nPreviously `libartbase-art-gtest` would get `libart` from `libart-gtest-defaults`, so the dependency is not new.",
+      "parentUuid": "7438c77b_bb47e4bf",
+      "range": {
+        "startLine": 272,
+        "startChar": 9,
+        "endLine": 272,
+        "endChar": 23
+      },
+      "revId": "a1775dc95987f79bd466fcb1dc0b0a0f70c46d30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6d15cf16_cb7c1905",
         "filename": "runtime/runtime.h",
         "patchSetId": 13
@@ -175,6 +343,30 @@
       "writtenOn": "2023-06-06T18:07:42Z",
       "side": 1,
       "message": "Why is this changing here?",
+      "range": {
+        "startLine": 628,
+        "startChar": 2,
+        "endLine": 628,
+        "endChar": 8
+      },
+      "revId": "a1775dc95987f79bd466fcb1dc0b0a0f70c46d30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a8b5116_825567d7",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 628,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-06-07T19:31:05Z",
+      "side": 1,
+      "message": "To check that a hidden symbol is indeed available in gtests now. Removed",
+      "parentUuid": "6d15cf16_cb7c1905",
       "range": {
         "startLine": 628,
         "startChar": 2,
@@ -210,6 +402,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e56aafbf_b529a0a0",
+        "filename": "test/Android.bp",
+        "patchSetId": 13
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-06-07T19:31:05Z",
+      "side": 1,
+      "message": "Presubmit host-gtests are collected in `art-host-tests.zip`, which has the following layout:\n`./host/testcases/art_compiler_tests/x86_64/art_compiler_tests`\n`./host/testcases/lib64/libnativeloader.so`\n`./host/testcases/art_common/out/host/linux-x86/lib64/libicu_jni.so`\n\nOpenNativeLibrary from libnativeloader uses dlopen under the hood, which uses RPATH/RUNPATH of the current object (executable or shared lib) to find libraries.\n\nart_compiler_tests RUNPATH:\n`$ORIGIN/:$ORIGIN/lib64:$ORIGIN/../lib64:$ORIGIN/../../lib64:$ORIGIN/../../../lib64`\n\nlibnativeloader.so RUNPATH (note the art_common/...): `$ORIGIN/:$ORIGIN/lib64:$ORIGIN/../lib64:$ORIGIN/../../lib64:$ORIGIN/../../../lib64:$ORIGIN/../art_common/out/host/linux-x86/lib64`\n\nSo when libnativeloader is linked dynamically, art_compiler_tests calls into libnativeloader.so:OpenNativeLibrary, which then calls dlopen. This way dlopen uses RUNPAH with `$ORIGIN/../art_common/out/host/linux-x86/lib64` and successfully finds libicu_jni.so\n\nWhen libnativeloader is linked statically, it uses RUNPATH without `art_common/out/...`, which leads to some tests failing.",
+      "parentUuid": "b685a654_b8366c1a",
+      "range": {
+        "startLine": 213,
+        "startChar": 67,
+        "endLine": 213,
+        "endChar": 91
+      },
+      "revId": "a1775dc95987f79bd466fcb1dc0b0a0f70c46d30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "49b837e3_14a34f50",
         "filename": "test/Android.bp",
         "patchSetId": 13
@@ -233,6 +449,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "293f770f_1c3d2797",
+        "filename": "test/Android.bp",
+        "patchSetId": 13
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-06-07T19:31:05Z",
+      "side": 1,
+      "message": "It is no longer relevant. The tests work.\n\nDo you think it\u0027s worth leaving a comment in case gtests start linking libart dynamically again?",
+      "parentUuid": "49b837e3_14a34f50",
+      "range": {
+        "startLine": 265,
+        "startChar": 11,
+        "endLine": 265,
+        "endChar": 74
+      },
+      "revId": "a1775dc95987f79bd466fcb1dc0b0a0f70c46d30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "28dcf466_7dbcd945",
         "filename": "test/Android.bp",
         "patchSetId": 13
@@ -244,6 +484,30 @@
       "writtenOn": "2023-06-06T18:07:42Z",
       "side": 1,
       "message": "Lots of stuff here can move into `art_gtest_common_defaults`?",
+      "range": {
+        "startLine": 254,
+        "startChar": 0,
+        "endLine": 281,
+        "endChar": 6
+      },
+      "revId": "a1775dc95987f79bd466fcb1dc0b0a0f70c46d30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f06497ef_c4c1e69a",
+        "filename": "test/Android.bp",
+        "patchSetId": 13
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-06-07T19:31:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "28dcf466_7dbcd945",
       "range": {
         "startLine": 254,
         "startChar": 0,
@@ -323,6 +587,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "572955a5_c513bc69",
+        "filename": "test/generate-boot-image/Android.bp",
+        "patchSetId": 13
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-06-07T19:31:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8e797f7a_81f03138",
+      "range": {
+        "startLine": 49,
+        "startChar": 8,
+        "endLine": 49,
+        "endChar": 18
+      },
+      "revId": "a1775dc95987f79bd466fcb1dc0b0a0f70c46d30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0ea74062_f24df586",
@@ -336,6 +624,30 @@
       "writtenOn": "2023-06-06T18:07:42Z",
       "side": 1,
       "message": "Shouldn\u0027t this have the same TODO as in tools/fuzzer/Android.bp?",
+      "range": {
+        "startLine": 62,
+        "startChar": 8,
+        "endLine": 62,
+        "endChar": 42
+      },
+      "revId": "a1775dc95987f79bd466fcb1dc0b0a0f70c46d30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e3d5045_a0eb334a",
+        "filename": "tools/art_verifier/Android.bp",
+        "patchSetId": 13
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-06-07T19:31:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ea74062_f24df586",
       "range": {
         "startLine": 62,
         "startChar": 8,

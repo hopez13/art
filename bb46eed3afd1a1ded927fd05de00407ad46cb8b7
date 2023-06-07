@@ -103,6 +103,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "edb1becc_480e6927",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-06-07T19:31:05Z",
+      "side": 1,
+      "message": "### Test performance\nhost-gtest:\nhttps://android-build.corp.google.com/test_investigate/?invocationId\u003dI89200010167534198\u0026testResultId\u003dTR18228713018287490\u0026tab\u003dperformance\nhttps://android-build.corp.google.com/test_investigate/?invocationId\u003dI28700010167548531\u0026testResultId\u003dTR23128712993383683\u0026tab\u003dperformance\nhttps://android-build.corp.google.com/test_investigate/?invocationId\u003dI00700010167766728\u0026testResultId\u003dTR79028714770820656\u0026tab\u003dperformance\nStatic linking vs shared: 18-21m vs 12-16m\n\n\ntarget-gtest (cf_x86_64):\nhttps://android-build.corp.google.com/test_investigate/?invocationId\u003dI23900010167735144\u0026testResultId\u003dTR56928714381223780\u0026tab\u003dperformance\nhttps://android-build.corp.google.com/test_investigate/?invocationId\u003dI32000010167550167\u0026testResultId\u003dTR75728713007471917\u0026tab\u003dperformance\nhttps://android-build.corp.google.com/test_investigate/?invocationId\u003dI30600010167540770\u0026testResultId\u003dTR21028713029865183tab\u003dperformance\nStatic linking vs shared: 22-23m vs 21-22m\n\n\ntarget-gtest (oriole):\nhttps://android-build.corp.google.com/test_investigate/?invocationId\u003dI00000010167533344\u0026testResultId\u003dTR47128712983981776\u0026tab\u003dperformance\nhttps://android-build.corp.google.com/test_investigate/?invocationId\u003dI29200010167559938\u0026testResultId\u003dTR10928713002330543\u0026tab\u003dperformance\nhttps://android-build.corp.google.com/test_investigate/?invocationId\u003dI87800010167758349\u0026testResultId\u003dTR27128714514266231\u0026tab\u003dperformance\nStatic linking vs shared: 18-22m vs 17-20m\n\n### Build performance\n\nRBE disabled:\nStatic link: ~09:20\nDynamic link: ~08:53\n\nRBE enabled:\nStatic link: ~06:30\nDynamic link: ~06:04",
+      "parentUuid": "eec2d4e7_9b2b0383",
+      "revId": "bb46eed3afd1a1ded927fd05de00407ad46cb8b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "c8826eb9_b34447eb",
         "filename": "compiler/Android.bp",
         "patchSetId": 11
@@ -244,6 +262,24 @@
       "side": 1,
       "message": "`art_cc_defaults` is still in use, so we don\u0027t need to replace `codegen` sections here, and moving them around makes no difference wrt that work.",
       "parentUuid": "ef4b6df4_4dee8746",
+      "revId": "bb46eed3afd1a1ded927fd05de00407ad46cb8b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3602f0e_5aec915b",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 11
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-06-07T19:31:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a2898713_b29c6f23",
       "revId": "bb46eed3afd1a1ded927fd05de00407ad46cb8b7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },

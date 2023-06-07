@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d8ccb216_0c057bc8",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 12
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-06-07T19:31:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "24c23460_0cc35b7e",
+      "range": {
+        "startLine": 49,
+        "startChar": 9,
+        "endLine": 49,
+        "endChar": 22
+      },
+      "revId": "3b4dc2e9157d117db8718e739cc7bd989dd3e9f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e94e3e91_7f6b5d8f",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-06-06T18:07:42Z",
       "side": 1,
       "message": "Is this necessary? It\u0027s not clear to me that the comment in there applies here, but if that\u0027s the case then it ought to be adapted for this module.",
+      "range": {
+        "startLine": 750,
+        "startChar": 0,
+        "endLine": 759,
+        "endChar": 6
+      },
+      "revId": "3b4dc2e9157d117db8718e739cc7bd989dd3e9f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b64bcab_6d4569bd",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 12
+      },
+      "lineNbr": 759,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-06-07T19:31:05Z",
+      "side": 1,
+      "message": "Removed `apex_available` settings from static gtest libs",
+      "parentUuid": "e94e3e91_7f6b5d8f",
       "range": {
         "startLine": 750,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a548aeb7_2bc9f538",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 12
+      },
+      "lineNbr": 760,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-06-07T19:31:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "44e83cb6_f9ddb07b",
+      "range": {
+        "startLine": 760,
+        "startChar": 4,
+        "endLine": 760,
+        "endChar": 15
+      },
+      "revId": "3b4dc2e9157d117db8718e739cc7bd989dd3e9f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c8ef2a4f_574db8aa",
@@ -83,6 +155,30 @@
       "writtenOn": "2023-06-06T18:07:42Z",
       "side": 1,
       "message": "Slight preference for keeping this next to `libart` since it\u0027s an even more coupled special case than `libart-for-test`.",
+      "range": {
+        "startLine": 771,
+        "startChar": 0,
+        "endLine": 771,
+        "endChar": 26
+      },
+      "revId": "3b4dc2e9157d117db8718e739cc7bd989dd3e9f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "04ae7eca_f474ce56",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 12
+      },
+      "lineNbr": 771,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-06-07T19:31:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c8ef2a4f_574db8aa",
       "range": {
         "startLine": 771,
         "startChar": 0,
@@ -116,6 +212,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce2e2425_10abb8cb",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 12
+      },
+      "lineNbr": 790,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-06-07T19:31:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "99026421_7ca3c37a",
+      "range": {
+        "startLine": 784,
+        "startChar": 0,
+        "endLine": 790,
+        "endChar": 6
+      },
+      "revId": "3b4dc2e9157d117db8718e739cc7bd989dd3e9f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6c671e71_9eeb7431",
@@ -129,6 +249,30 @@
       "writtenOn": "2023-06-06T18:07:42Z",
       "side": 1,
       "message": "I assume these are transitive dependencies of various static libraries. Please comment for each one why it gets pulled in.",
+      "range": {
+        "startLine": 255,
+        "startChar": 0,
+        "endLine": 257,
+        "endChar": 39
+      },
+      "revId": "3b4dc2e9157d117db8718e739cc7bd989dd3e9f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b3ec32d_f83caaa2",
+        "filename": "test/Android.bp",
+        "patchSetId": 12
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-06-07T19:31:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6c671e71_9eeb7431",
       "range": {
         "startLine": 255,
         "startChar": 0,
