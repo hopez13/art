@@ -564,6 +564,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4bd755e8_f52ae777",
+        "filename": "test/Android.bp",
+        "patchSetId": 13
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-06-07T21:48:25Z",
+      "side": 1,
+      "message": "Modules that use `libart-gtest-defaults` get most of their dependencies from *static_defaults. It is possible to extract a common subset, but I think it will look more complicated.\nRemoved debug variant.",
+      "parentUuid": "1eaf8db0_4edcd5ac",
+      "range": {
+        "startLine": 401,
+        "startChar": 0,
+        "endLine": 414,
+        "endChar": 1
+      },
+      "revId": "a1775dc95987f79bd466fcb1dc0b0a0f70c46d30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8e797f7a_81f03138",
