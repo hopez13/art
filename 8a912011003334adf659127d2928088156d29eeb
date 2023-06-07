@@ -22,6 +22,30 @@
       },
       "revId": "8a912011003334adf659127d2928088156d29eeb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a5bd08d_60fdb6ab",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1745,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-06-07T08:22:23Z",
+      "side": 1,
+      "message": "This is correct. We check before reading each byte and `ptr_` is allowed to reach the past-the-end value `begin_ + size_` after the read.\n\n(Let\u0027s hope Linux won\u0027t let us map the last page of the address space where `begin_ + size_` would overflow and yield zero.)",
+      "parentUuid": "55291f8a_c15a9003",
+      "range": {
+        "startLine": 1741,
+        "startChar": 0,
+        "endLine": 1745,
+        "endChar": 31
+      },
+      "revId": "8a912011003334adf659127d2928088156d29eeb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
