@@ -87,6 +87,9 @@ class AppInfo {
   // Whether we've received a call to RegisterAppInfo.
   bool HasRegisteredAppInfo();
 
+  // Return the package name if it is set or empty string if it is not
+  std::string PackageName();
+
   // The registered code type for a given code path. Note that this will
   // be kUnknown until an explicit registration for that path has been made.
   CodeType GetRegisteredCodeType(const std::string& code_path);

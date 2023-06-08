@@ -99,6 +99,16 @@ bool AppInfo::HasRegisteredAppInfo() {
   return package_name_.has_value();
 }
 
+std::string AppInfo::PackageName() {
+  MutexLock mu(Thread::Current(), update_mutex_);
+
+  if (package_name_.has_value()) {
+    return package_name_.value();
+  } else {
+    return "";
+  }
+}
+
 void AppInfo::GetPrimaryApkOptimizationStatus(
     std::string* out_compiler_filter,
     std::string* out_compilation_reason) {
