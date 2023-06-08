@@ -116,7 +116,7 @@ size_t ArenaStack::ApproximatePeakBytes() {
 }
 
 ScopedArenaAllocator::ScopedArenaAllocator(ScopedArenaAllocator&& other) noexcept
-    : DebugStackReference(std::move(other)),
+    : DebugStackReference(static_cast<DebugStackReference&&>(other)),
       DebugStackRefCounter(),
       ArenaAllocatorStats(other),
       arena_stack_(other.arena_stack_),
