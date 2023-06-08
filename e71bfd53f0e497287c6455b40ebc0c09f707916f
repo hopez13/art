@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f9d061d_b7b81cbe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-06-08T09:26:25Z",
+      "side": 1,
+      "message": "I verified locally that this is the CL that is causing the problem:\nI tested with:\nart/test/testrunner/testrunner.py --64 --host -b -t 2235. \n\nI am not sure why luci isn\u0027t hitting this. Luci is all green.",
+      "revId": "e71bfd53f0e497287c6455b40ebc0c09f707916f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
