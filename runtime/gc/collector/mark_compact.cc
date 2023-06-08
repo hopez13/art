@@ -29,10 +29,12 @@
 
 #include <fstream>
 #include <numeric>
+#include <vector>
 
 #include "android-base/file.h"
 #include "android-base/parsebool.h"
 #include "android-base/properties.h"
+#include "android-base/strings.h"
 #include "base/file_utils.h"
 #include "base/memfd.h"
 #include "base/quasi_atomic.h"
@@ -89,6 +91,24 @@ using ::android::base::ParseBoolResult;
 #endif
 
 namespace art {
+
+static void MaybeOverrideDalvikCacheDir() {
+  std::string args_str;
+  if (!android::base::ReadFileToString("/proc/self/cmdline", &args_str)) {
+    LOG(WARNING) << "Failed to load /proc/self/cmdline";
+  }
+  std::vector<std::string_view> args;
+  Split(args_str.c_str(), /*separator=*/' ', &args);
+  for (std::string_view arg : args) {
+    if (android::base::ConsumePrefix(&arg, "-Xdalvikcachedir:")) {
+      OverrideDalvikCacheSubDirectory(std::string(arg));
+      break;
+    }
+  }
+}
+
+// This must be done very early because other global variables are initialized based on this.
+static int gIgnored = (MaybeOverrideDalvikCacheDir(), 0);
 
 static bool HaveMremapDontunmap() {
   void* old = mmap(nullptr, kPageSize, PROT_READ | PROT_WRITE, MAP_ANONYMOUS | MAP_SHARED, -1, 0);
