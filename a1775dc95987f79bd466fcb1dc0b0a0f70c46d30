@@ -189,6 +189,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ebac5b0f_b566a747",
+        "filename": "dex2oat/Android.bp",
+        "patchSetId": 13
+      },
+      "lineNbr": 564,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-06-08T18:34:48Z",
+      "side": 1,
+      "message": "In the long run it can be a problem with _any_ dynamic linking in the tests, when the libraries keep the same names as in the production code. But we can discuss that more later, this is fine for now.",
+      "parentUuid": "4d468727_d409a6d9",
+      "range": {
+        "startLine": 564,
+        "startChar": 9,
+        "endLine": 564,
+        "endChar": 20
+      },
+      "revId": "a1775dc95987f79bd466fcb1dc0b0a0f70c46d30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5b0c0795_7fc339f7",
@@ -330,6 +354,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2759fc4_77c540b2",
+        "filename": "libartbase/Android.bp",
+        "patchSetId": 13
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-06-08T18:34:48Z",
+      "side": 1,
+      "message": "Ok. Maybe mutex.h ought to move to libartbase instead, but that\u0027s a different matter.",
+      "parentUuid": "3b0f31c9_5410b986",
+      "range": {
+        "startLine": 272,
+        "startChar": 9,
+        "endLine": 272,
+        "endChar": 23
+      },
+      "revId": "a1775dc95987f79bd466fcb1dc0b0a0f70c46d30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6d15cf16_cb7c1905",
@@ -426,6 +474,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c81394d5_e150d0f6",
+        "filename": "test/Android.bp",
+        "patchSetId": 13
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-06-08T18:34:48Z",
+      "side": 1,
+      "message": "Iiuc we\u0027d fix that by moving https://cs.android.com/android/platform/superproject/+/master:art/libnativeloader/Android.bp;l\u003d45-57;drc\u003db2b067192ac047b99c0d03104c5d7dbf79192ef1 to one of these defaults so that it\u0027s added to the test binaries instead. Is that right?\n\nIt\u0027s not necessary to fix here, but can you please add a TODO on b/247108425 for it?",
+      "parentUuid": "e56aafbf_b529a0a0",
+      "range": {
+        "startLine": 213,
+        "startChar": 67,
+        "endLine": 213,
+        "endChar": 91
+      },
+      "revId": "a1775dc95987f79bd466fcb1dc0b0a0f70c46d30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "49b837e3_14a34f50",
         "filename": "test/Android.bp",
         "patchSetId": 13
@@ -461,6 +533,30 @@
       "side": 1,
       "message": "It is no longer relevant. The tests work.\n\nDo you think it\u0027s worth leaving a comment in case gtests start linking libart dynamically again?",
       "parentUuid": "49b837e3_14a34f50",
+      "range": {
+        "startLine": 265,
+        "startChar": 11,
+        "endLine": 265,
+        "endChar": 74
+      },
+      "revId": "a1775dc95987f79bd466fcb1dc0b0a0f70c46d30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35af726c_a4ce36a1",
+        "filename": "test/Android.bp",
+        "patchSetId": 13
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-06-08T18:34:48Z",
+      "side": 1,
+      "message": "The rules for how symbol overriding works in static linking aren\u0027t clear to me, but I assume there\u0027s still a de facto ordering that makes this work in a similar fashion to how this list used to do it for dynamic libs. Where is it? It\u0027s worth making it as explicit as possible and add this comment in the appropriate place, since relying on such behaviour to override symbols is ugly and needs to be highlighted.",
+      "parentUuid": "293f770f_1c3d2797",
       "range": {
         "startLine": 265,
         "startChar": 11,
