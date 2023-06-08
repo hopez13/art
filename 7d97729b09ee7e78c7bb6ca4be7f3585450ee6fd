@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8f436c02_cc3c3126",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-06-08T20:57:34Z",
+      "side": 1,
+      "message": "I\u0027m OK submitting this to fix the build break. But I\u0027m not sure it\u0027s the right long-term fix.",
+      "revId": "7d97729b09ee7e78c7bb6ca4be7f3585450ee6fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f010acc_4b6a14cd",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1558,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-06-08T20:57:34Z",
+      "side": 1,
+      "message": "This doesn\u0027t seem that convincing to me. If there was a reason for the original CHECK, we should presumably fix the test instead? If not, should the comment argue that instead?",
+      "range": {
+        "startLine": 1555,
+        "startChar": 4,
+        "endLine": 1558,
+        "endChar": 50
+      },
+      "revId": "7d97729b09ee7e78c7bb6ca4be7f3585450ee6fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
