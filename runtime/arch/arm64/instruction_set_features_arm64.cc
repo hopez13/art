@@ -18,7 +18,9 @@
 
 #if defined(ART_TARGET_ANDROID) && defined(__aarch64__)
 #include <asm/hwcap.h>
+#include <asm/sigcontext.h>
 #include <sys/auxv.h>
+#include <sys/prctl.h>
 #endif
 
 #include <fstream>
@@ -29,6 +31,7 @@
 #include <android-base/strings.h>
 
 #include "base/array_ref.h"
+#include "base/globals.h"
 #include "base/stl_util.h"
 
 #include <cpu_features_macros.h>
@@ -67,15 +70,20 @@ Arm64FeaturesUniquePtr Arm64InstructionSetFeatures::FromVariant(
       "default",
       "generic",
       "cortex-a35",
+      "cortex-a510",
       "cortex-a53",
       "cortex-a53.a57",
       "cortex-a53.a72",
+      "cortex-a55",
       "cortex-a57",
+      "cortex-a710",
+      "cortex-a715",
       "cortex-a72",
       "cortex-a73",
-      "cortex-a55",
       "cortex-a75",
       "cortex-a76",
+      "cortex-x2",
+      "cortex-x3",
       "exynos-m1",
       "exynos-m2",
       "exynos-m3",
@@ -85,25 +93,48 @@ Arm64FeaturesUniquePtr Arm64InstructionSetFeatures::FromVariant(
   };
 
   static const char* arm64_variants_with_lse[] = {
+      "cortex-a510",
       "cortex-a55",
+      "cortex-a710",
+      "cortex-a715",
       "cortex-a75",
       "cortex-a76",
+      "cortex-x2",
+      "cortex-x3",
       "kryo385",
       "kryo785",
   };
 
   static const char* arm64_variants_with_fp16[] = {
+      "cortex-a510",
       "cortex-a55",
+      "cortex-a710",
+      "cortex-a715",
       "cortex-a75",
       "cortex-a76",
+      "cortex-x2",
+      "cortex-x3",
       "kryo385",
       "kryo785",
   };
 
   static const char* arm64_variants_with_dotprod[] = {
+      "cortex-a510",
       "cortex-a55",
+      "cortex-a710",
+      "cortex-a715",
       "cortex-a75",
       "cortex-a76",
+      "cortex-x2",
+      "cortex-x3",
+  };
+
+  static const char* arm64_variants_with_sve[] = {
+      "cortex-a510",
+      "cortex-a710",
+      "cortex-a715",
+      "cortex-x2",
+      "cortex-x3",
   };
 
   bool needs_a53_835769_fix = FindVariantInArray(arm64_variants_with_a53_835769_bug,
@@ -128,17 +159,23 @@ Arm64FeaturesUniquePtr Arm64InstructionSetFeatures::FromVariant(
                                         arraysize(arm64_variants_with_dotprod),
                                         variant);
 
-  // Currently there are no cpu variants which support SVE.
-  bool has_sve = false;
+  bool has_sve = FindVariantInArray(arm64_variants_with_sve,
+                                    arraysize(arm64_variants_with_sve),
+                                    variant);
 
   if (!needs_a53_835769_fix) {
     // Check to see if this is an expected variant. `other_arm64_known_variants` contains the
     // variants which do *not* need a fix for a53 erratum 835769.
     static const char* other_arm64_known_variants[] = {
         "cortex-a35",
+        "cortex-a510",
         "cortex-a55",
+        "cortex-a710",
+        "cortex-a715",
         "cortex-a75",
         "cortex-a76",
+        "cortex-x2",
+        "cortex-x3",
         "exynos-m1",
         "exynos-m2",
         "exynos-m3",
@@ -246,6 +283,22 @@ Arm64FeaturesUniquePtr Arm64InstructionSetFeatures::FromCpuInfo() {
   return FromCppDefines();
 }
 
+#if defined(ART_TARGET_ANDROID) && defined(__aarch64__)
+// Set SVE VL to the maximum supported value and returns it.
+// NOTE: Maximum SVE VL depends on a target and can differ from SVE_VL_MAX
+// that is an upper bound.
+static size_t SetToMaximumSVEVectorLength() {
+  // Try to set VL to SVE_VL_MAX. This value is interpreted as an upper bound and
+  // kernel will select the greatest available VL that does not exceed it. So we
+  // request the maximum supported VL here.
+  int info = prctl(PR_SVE_SET_VL, SVE_VL_MAX | PR_SVE_SET_VL_ONEXEC);
+  CHECK_GE(info, 0) << "Cannot set SVE VL: " << strerror(errno);
+  size_t vl_bytes = info & PR_SVE_VL_LEN_MASK;
+  DCHECK(sve_vl_valid(vl_bytes)) << "Invalid SVE VL: " << vl_bytes;
+  return vl_bytes * kBitsPerByte;
+}
+#endif
+
 Arm64FeaturesUniquePtr Arm64InstructionSetFeatures::FromHwcap() {
   bool needs_a53_835769_fix = false;  // No HWCAP for this.
   bool needs_a53_843419_fix = false;  // No HWCAP for this.
@@ -262,6 +315,11 @@ Arm64FeaturesUniquePtr Arm64InstructionSetFeatures::FromHwcap() {
   has_fp16 = hwcaps & HWCAP_FPHP ? true : false;
   has_dotprod = hwcaps & HWCAP_ASIMDDP ? true : false;
   has_sve = hwcaps & HWCAP_SVE ? true : false;
+  if (has_sve) {
+    // Check device only supports a constant SVE vector length equal to kArm64SVEVectorLength.
+    CHECK_EQ(SVE_VL_MIN * kBitsPerByte, kArm64SVEVectorLength) << "Unexpected minimal SVE VL";
+    CHECK_EQ(SetToMaximumSVEVectorLength(), kArm64SVEVectorLength) << "Unexpected maximum SVE VL";
+  }
 #endif
 
   return Arm64FeaturesUniquePtr(new Arm64InstructionSetFeatures(needs_a53_835769_fix,
@@ -329,7 +387,7 @@ uint32_t Arm64InstructionSetFeatures::AsBitmap() const {
       | (has_lse_ ? kLSEBitField: 0)
       | (has_fp16_ ? kFP16BitField: 0)
       | (has_dotprod_ ? kDotProdBitField : 0)
-      | (has_sve_ ? kSVEBitField : 0);
+      | (has_sve_ && kArm64AllowSVE ? kSVEBitField : 0);
 }
 
 std::string Arm64InstructionSetFeatures::GetFeatureString() const {
@@ -359,7 +417,10 @@ std::string Arm64InstructionSetFeatures::GetFeatureString() const {
   } else {
     result += ",-dotprod";
   }
-  if (has_sve_) {
+  // Report not just that the SVE feature is present, but that it is both
+  // present and enabled in ART. It is important because other components
+  // like tools/checker rely on this information.
+  if (has_sve_ && kArm64AllowSVE) {
     result += ",sve";
   } else {
     result += ",-sve";
