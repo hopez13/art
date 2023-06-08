@@ -116,6 +116,7 @@ size_t ArenaStack::ApproximatePeakBytes() {
 }
 
 ScopedArenaAllocator::ScopedArenaAllocator(ScopedArenaAllocator&& other) noexcept
+    // NOLINTBEGIN - the accessed fields in other are still valid after the move
     : DebugStackReference(std::move(other)),
       DebugStackRefCounter(),
       ArenaAllocatorStats(other),
@@ -125,6 +126,7 @@ ScopedArenaAllocator::ScopedArenaAllocator(ScopedArenaAllocator&& other) noexcep
       mark_end_(other.mark_end_) {
   other.DebugStackRefCounter::CheckNoRefs();
   other.arena_stack_ = nullptr;
+  // NOLINTEND
 }
 
 ScopedArenaAllocator::ScopedArenaAllocator(ArenaStack* arena_stack)
