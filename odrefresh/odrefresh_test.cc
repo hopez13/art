@@ -290,7 +290,8 @@ TEST_F(OdRefreshTest, PrimaryBootImage) {
                                     ElementsAre(FdOf(core_oj_jar_), FdOf(framework_jar_)))),
                   Contains(Flag("--oat-location=", dalvik_cache_dir_ + "/x86_64/boot.oat")),
                   Contains(Flag("--base=", _)),
-                  Not(Contains(Flag("--boot-image=", _))))))
+                  Not(Contains(Flag("--boot-image=", _))),
+                  Contains(Flag("-Xdalvikcachedir:", dalvik_cache_dir_)))))
       .WillOnce(Return(0));
 
   // Ignore the invocation for the mainline extension.
@@ -329,7 +330,8 @@ TEST_F(OdRefreshTest, BootImageMainlineExtension) {
                                         FdOf(framework_wifi_jar_)))),
           Contains(Flag("--oat-location=", dalvik_cache_dir_ + "/x86_64/boot-conscrypt.oat")),
           Not(Contains(Flag("--base=", _))),
-          Contains(Flag("--boot-image=", _)))))
+          Contains(Flag("--boot-image=", _)),
+          Contains(Flag("-Xdalvikcachedir:", dalvik_cache_dir_)))))
       .WillOnce(Return(0));
 
   EXPECT_EQ(odrefresh_->Compile(
@@ -428,14 +430,16 @@ TEST_F(OdRefreshTest, AllSystemServerJars) {
   EXPECT_CALL(*mock_exec_utils_,
               DoExecAndReturnCode(AllOf(Contains(Flag("--dex-file=", location_provider_jar_)),
                                         Contains("--class-loader-context=PCL[]"),
-                                        Not(Contains(Flag("--class-loader-context-fds=", _))))))
+                                        Not(Contains(Flag("--class-loader-context-fds=", _))),
+                                        Contains(Flag("-Xdalvikcachedir:", dalvik_cache_dir_)))))
       .WillOnce(Return(0));
   EXPECT_CALL(
       *mock_exec_utils_,
       DoExecAndReturnCode(AllOf(
           Contains(Flag("--dex-file=", services_jar_)),
           Contains(Flag("--class-loader-context=", ART_FORMAT("PCL[{}]", location_provider_jar_))),
-          Contains(Flag("--class-loader-context-fds=", FdOf(location_provider_jar_))))))
+          Contains(Flag("--class-loader-context-fds=", FdOf(location_provider_jar_))),
+          Contains(Flag("-Xdalvikcachedir:", dalvik_cache_dir_)))))
       .WillOnce(Return(0));
   EXPECT_CALL(
       *mock_exec_utils_,
@@ -444,7 +448,8 @@ TEST_F(OdRefreshTest, AllSystemServerJars) {
           Contains(Flag("--class-loader-context=",
                         ART_FORMAT("PCL[];PCL[{}:{}]", location_provider_jar_, services_jar_))),
           Contains(ListFlag("--class-loader-context-fds=",
-                            ElementsAre(FdOf(location_provider_jar_), FdOf(services_jar_)))))))
+                            ElementsAre(FdOf(location_provider_jar_), FdOf(services_jar_)))),
+          Contains(Flag("-Xdalvikcachedir:", dalvik_cache_dir_)))))
       .WillOnce(Return(0));
   EXPECT_CALL(
       *mock_exec_utils_,
@@ -453,7 +458,8 @@ TEST_F(OdRefreshTest, AllSystemServerJars) {
           Contains(Flag("--class-loader-context=",
                         ART_FORMAT("PCL[];PCL[{}:{}]", location_provider_jar_, services_jar_))),
           Contains(ListFlag("--class-loader-context-fds=",
-                            ElementsAre(FdOf(location_provider_jar_), FdOf(services_jar_)))))))
+                            ElementsAre(FdOf(location_provider_jar_), FdOf(services_jar_)))),
+          Contains(Flag("-Xdalvikcachedir:", dalvik_cache_dir_)))))
       .WillOnce(Return(0));
 
   EXPECT_EQ(
