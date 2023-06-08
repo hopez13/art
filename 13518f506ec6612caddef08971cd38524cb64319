@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bf052b6e_78f57c20",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 862,
+      "author": {
+        "id": 1975361
+      },
+      "writtenOn": "2023-06-08T15:46:35Z",
+      "side": 1,
+      "message": "This code will be heavily modified by the next patches in the existing series, e.g.:\n\nhttps://android-review.googlesource.com/c/platform/art/+/2600333/1/compiler/optimizing/loop_optimization.cc#924\nhttps://android-review.googlesource.com/c/platform/art/+/2600336/1/compiler/optimizing/loop_optimization.cc#937\n\nDo you think we could account more the future changes when considering function merging here?",
+      "parentUuid": "7b17b3dc_7e2379e6",
+      "range": {
+        "startLine": 858,
+        "startChar": 0,
+        "endLine": 862,
+        "endChar": 3
+      },
+      "revId": "13518f506ec6612caddef08971cd38524cb64319",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bb49fc76_6afed3aa",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 1
@@ -49,6 +73,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b48b3c2d_37b883cd",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1125,
+      "author": {
+        "id": 1975361
+      },
+      "writtenOn": "2023-06-08T15:46:35Z",
+      "side": 1,
+      "message": "Originally I intended to collect the info anyway for the predicated mode and just ignore it; but in a new PS I\u0027ve refactored it a bit, I hope it looks a bit better now.",
+      "parentUuid": "bb49fc76_6afed3aa",
+      "range": {
+        "startLine": 1123,
+        "startChar": 0,
+        "endLine": 1125,
+        "endChar": 0
+      },
+      "revId": "13518f506ec6612caddef08971cd38524cb64319",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8c61d333_cda138f0",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 1
@@ -60,6 +108,24 @@
       "writtenOn": "2023-05-31T14:38:25Z",
       "side": 1,
       "message": "Can we add `DCHECK(IsInPredicatedVectorizationMode())` at the beginning? And the opposite DCHECK in `VectorizeTraditional`",
+      "revId": "13518f506ec6612caddef08971cd38524cb64319",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca681475_21c90539",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1132,
+      "author": {
+        "id": 1975361
+      },
+      "writtenOn": "2023-06-08T15:46:35Z",
+      "side": 1,
+      "message": "Done.\n\nAlso VectorizerTradional was used in predicated mode to generate a scalar back version of the loop; I\u0027ve updated the function name and added a comment.",
+      "parentUuid": "8c61d333_cda138f0",
       "revId": "13518f506ec6612caddef08971cd38524cb64319",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -89,6 +155,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "74360e5b_e61ba6e6",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1321,
+      "author": {
+        "id": 1975361
+      },
+      "writtenOn": "2023-06-08T15:46:35Z",
+      "side": 1,
+      "message": "\"graph_-\u003eTransformLoopForVectorization(vector_header_, vector_body_, exit)\" has quite huge side effects of rearranging the loop body, creating a vector loop, etc; before the patch it was somewhat hidden in the argument list for GenerateLoopTraditional.\n\nI thought that having it explicitly called on the main indentation level and extracting its return value into a named variable would improve the readability of the code.",
+      "parentUuid": "dde75071_e5491716",
+      "range": {
+        "startLine": 1321,
+        "startChar": 2,
+        "endLine": 1321,
+        "endChar": 39
+      },
+      "revId": "13518f506ec6612caddef08971cd38524cb64319",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "03107ca6_fe089120",
         "filename": "compiler/optimizing/loop_optimization.cc",
         "patchSetId": 1
@@ -100,6 +190,24 @@
       "writtenOn": "2023-05-31T14:38:25Z",
       "side": 1,
       "message": "DCHECK(IsInPredicatedVectorizationMode());",
+      "revId": "13518f506ec6612caddef08971cd38524cb64319",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "68112999_02668ee7",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1447,
+      "author": {
+        "id": 1975361
+      },
+      "writtenOn": "2023-06-08T15:46:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "03107ca6_fe089120",
       "revId": "13518f506ec6612caddef08971cd38524cb64319",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -117,6 +225,30 @@
       "writtenOn": "2023-05-31T14:38:25Z",
       "side": 1,
       "message": "Aren\u0027t these ones sharing the `loop_main_pred_` predicate already?",
+      "range": {
+        "startLine": 1480,
+        "startChar": 0,
+        "endLine": 1480,
+        "endChar": 55
+      },
+      "revId": "13518f506ec6612caddef08971cd38524cb64319",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bbebcbee_ee7e2a56",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1480,
+      "author": {
+        "id": 1975361
+      },
+      "writtenOn": "2023-06-08T15:46:35Z",
+      "side": 1,
+      "message": "Indeed, some stale comment, removed now.",
+      "parentUuid": "9f2f6696_d0a1a4ad",
       "range": {
         "startLine": 1480,
         "startChar": 0,
@@ -150,6 +282,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cbadd15c_f6bf3dca",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1486,
+      "author": {
+        "id": 1975361
+      },
+      "writtenOn": "2023-06-08T15:46:35Z",
+      "side": 1,
+      "message": "It looks like it is a missed old code, replaced with a DCHECK.",
+      "parentUuid": "e6cda37f_7df1e783",
+      "range": {
+        "startLine": 1486,
+        "startChar": 0,
+        "endLine": 1486,
+        "endChar": 46
+      },
+      "revId": "13518f506ec6612caddef08971cd38524cb64319",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1b8828df_a3c41445",
@@ -173,6 +329,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "61500be7_804d49e4",
+        "filename": "compiler/optimizing/loop_optimization.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1975361
+      },
+      "writtenOn": "2023-06-08T15:46:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1b8828df_a3c41445",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 1
+      },
+      "revId": "13518f506ec6612caddef08971cd38524cb64319",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "22c9424d_fa0d20f5",
@@ -186,6 +366,30 @@
       "writtenOn": "2023-05-31T14:38:25Z",
       "side": 1,
       "message": "```suggestion\n  HPhi* InitializeFor(HBasicBlock* new_preheader, HInstruction* lo);\n```",
+      "range": {
+        "startLine": 266,
+        "startChar": 8,
+        "endLine": 266,
+        "endChar": 28
+      },
+      "revId": "13518f506ec6612caddef08971cd38524cb64319",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7962368_8127d9bb",
+        "filename": "compiler/optimizing/loop_optimization.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1975361
+      },
+      "writtenOn": "2023-06-08T15:46:35Z",
+      "side": 1,
+      "message": "Could you share a bit more on motivation of this? I think if we did this, the method name would be too generic, I think mentioning NewLoop in the name helps to link it to vectorization, and more specifically to the stage when we create a new loop.",
+      "parentUuid": "22c9424d_fa0d20f5",
       "range": {
         "startLine": 266,
         "startChar": 8,
