@@ -774,6 +774,9 @@ bool ImageWriter::PruneImageClassInternal(
   DCHECK(visited != nullptr);
   DCHECK(compiler_options_.IsAppImage() || compiler_options_.IsBootImageExtension());
   if (klass == nullptr || IsInBootImage(klass.Ptr())) {
+    if (compiler_options_.IsAppImage() && IsInBootImage(klass.Ptr()) && !klass->IsObjectClass() && !klass->IsStringClass() && !klass->IsClassClass()) {
+      return true;
+    }
     return false;
   }
   auto found = prune_class_memo_.find(klass.Ptr());
