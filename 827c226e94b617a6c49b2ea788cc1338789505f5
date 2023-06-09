@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "70a80281_939a2365",
+        "filename": "libartbase/base/mem_map.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1257,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-06-09T10:41:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e6fe62cf_ca8d5bf3",
+      "range": {
+        "startLine": 1257,
+        "startChar": 4,
+        "endLine": 1257,
+        "endChar": 13
+      },
+      "revId": "827c226e94b617a6c49b2ea788cc1338789505f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ba01aa5b_92086bc8",
@@ -114,6 +138,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "95a856db_065abde8",
+        "filename": "libartbase/base/mem_map.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1265,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-06-09T10:41:26Z",
+      "side": 1,
+      "message": "Good idea, let me add a TODO for this optimization and I\u0027ll follow-up with another CL.",
+      "parentUuid": "16180c17_4404fc05",
+      "range": {
+        "startLine": 1265,
+        "startChar": 6,
+        "endLine": 1265,
+        "endChar": 39
+      },
+      "revId": "827c226e94b617a6c49b2ea788cc1338789505f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0d082454_0005ae52",
         "filename": "libartbase/base/mem_map.h",
         "patchSetId": 11
@@ -125,6 +173,30 @@
       "writtenOn": "2023-06-09T02:59:27Z",
       "side": 1,
       "message": "The semantics weren\u0027t very clear to me. You\u0027re making the memory available to other processes in either case. Maybe \"release_eagerly\"?",
+      "range": {
+        "startLine": 245,
+        "startChar": 25,
+        "endLine": 245,
+        "endChar": 39
+      },
+      "revId": "827c226e94b617a6c49b2ea788cc1338789505f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "faaa7004_377a6c8f",
+        "filename": "libartbase/base/mem_map.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-06-09T10:41:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0d082454_0005ae52",
       "range": {
         "startLine": 245,
         "startChar": 25,
@@ -158,6 +230,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b86c08d8_95bfbe42",
+        "filename": "libartbase/base/mem_map.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 444,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-06-09T10:41:26Z",
+      "side": 1,
+      "message": "I\u0027ve renamed to `ZeroMemory`.",
+      "parentUuid": "fec80af2_a6aa6118",
+      "range": {
+        "startLine": 444,
+        "startChar": 5,
+        "endLine": 444,
+        "endChar": 14
+      },
+      "revId": "827c226e94b617a6c49b2ea788cc1338789505f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8dca5fb9_3ccdd8a4",
@@ -171,6 +267,30 @@
       "writtenOn": "2023-06-09T02:59:27Z",
       "side": 1,
       "message": "Again, we\u0027re kind of potentially giving it back in either case. \"eager_release\" seems like a better name.",
+      "range": {
+        "startLine": 105,
+        "startChar": 5,
+        "endLine": 105,
+        "endChar": 76
+      },
+      "revId": "827c226e94b617a6c49b2ea788cc1338789505f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "97fdc083_d52e2d29",
+        "filename": "runtime/gc/accounting/space_bitmap.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-06-09T10:41:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8dca5fb9_3ccdd8a4",
       "range": {
         "startLine": 105,
         "startChar": 5,
@@ -254,6 +374,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8246665b_db2b750e",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 2820,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-06-09T10:41:26Z",
+      "side": 1,
+      "message": "It releases the memory after the last non-free regions. All the other pages that are free before that will be releases earlier on during this GC.\n\nNote that there\u0027s no clearing at this point. We\u0027re just sending the madvise to the kernel that we don\u0027t need the pages. The clearing happens when a page is given back to the app.",
+      "parentUuid": "12bd5164_f10daccd",
+      "range": {
+        "startLine": 2820,
+        "startChar": 21,
+        "endLine": 2820,
+        "endChar": 39
+      },
+      "revId": "827c226e94b617a6c49b2ea788cc1338789505f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1b11c9df_0650dd49",
         "filename": "runtime/gc/space/region_space.cc",
         "patchSetId": 11
@@ -265,6 +409,30 @@
       "writtenOn": "2023-06-09T02:59:27Z",
       "side": 1,
       "message": "As stated elsewhere, I don\u0027t see how this releases all free regions.",
+      "range": {
+        "startLine": 405,
+        "startChar": 1,
+        "endLine": 406,
+        "endChar": 65
+      },
+      "revId": "827c226e94b617a6c49b2ea788cc1338789505f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ee712b3_6eb78966",
+        "filename": "runtime/gc/space/region_space.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-06-09T10:41:26Z",
+      "side": 1,
+      "message": "(moving the conversation to the other comment).",
+      "parentUuid": "1b11c9df_0650dd49",
       "range": {
         "startLine": 405,
         "startChar": 1,
