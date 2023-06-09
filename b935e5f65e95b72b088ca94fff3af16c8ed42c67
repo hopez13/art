@@ -93,6 +93,30 @@
       },
       "revId": "b935e5f65e95b72b088ca94fff3af16c8ed42c67",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "83e3f4ae_a9695f73",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 15
+      },
+      "lineNbr": 766,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-06-09T17:38:08Z",
+      "side": 1,
+      "message": "Well, `static_libs` would be different, wouldn\u0027t it? Then all the deps would be included in the ar archive.",
+      "parentUuid": "41333ae5_6ae418e6",
+      "range": {
+        "startLine": 762,
+        "startChar": 0,
+        "endLine": 766,
+        "endChar": 6
+      },
+      "revId": "b935e5f65e95b72b088ca94fff3af16c8ed42c67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

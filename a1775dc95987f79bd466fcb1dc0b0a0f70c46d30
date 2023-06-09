@@ -615,6 +615,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "95965d50_f65c95d1",
+        "filename": "test/Android.bp",
+        "patchSetId": 13
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-06-09T17:38:08Z",
+      "side": 1,
+      "message": "\u003e but most likely it is UB to do so.\n\nHmm, that may complicate matters if it\u0027s true. Still, a problem for later.",
+      "parentUuid": "4874528c_b94446f2",
+      "range": {
+        "startLine": 265,
+        "startChar": 11,
+        "endLine": 265,
+        "endChar": 74
+      },
+      "revId": "a1775dc95987f79bd466fcb1dc0b0a0f70c46d30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "28dcf466_7dbcd945",
@@ -675,6 +699,30 @@
       "writtenOn": "2023-06-06T18:07:42Z",
       "side": 1,
       "message": "Isn\u0027t this idea moot now when we\u0027re moving in this direction? Is it time to remove this and close the ticket as obsolete?\n\n+rpl",
+      "range": {
+        "startLine": 339,
+        "startChar": 0,
+        "endLine": 343,
+        "endChar": 74
+      },
+      "revId": "a1775dc95987f79bd466fcb1dc0b0a0f70c46d30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8789d742_b5703488",
+        "filename": "test/Android.bp",
+        "patchSetId": 13
+      },
+      "lineNbr": 343,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-06-09T17:38:08Z",
+      "side": 1,
+      "message": "Chatted quickly with Roland about this yesterday, and I think we agree that b/192070541 is moot. Feel free to close it as obsolete after this is submitted.",
+      "parentUuid": "e541c630_24322ba5",
       "range": {
         "startLine": 339,
         "startChar": 0,
