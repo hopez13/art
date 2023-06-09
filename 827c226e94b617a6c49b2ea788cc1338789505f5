@@ -162,6 +162,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cb97bdaf_b56437a9",
+        "filename": "libartbase/base/mem_map.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1265,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-06-09T13:43:42Z",
+      "side": 1,
+      "message": "I checked in the kernel code that MADV_FREE immediately releases the swapped out pages. So what we can do is use mincore to find swapped-out pages and only memset the other pages before calling MADV_FREE.",
+      "parentUuid": "95a856db_065abde8",
+      "range": {
+        "startLine": 1265,
+        "startChar": 6,
+        "endLine": 1265,
+        "endChar": 39
+      },
+      "revId": "827c226e94b617a6c49b2ea788cc1338789505f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0d082454_0005ae52",
         "filename": "libartbase/base/mem_map.h",
         "patchSetId": 11
@@ -386,6 +410,30 @@
       "side": 1,
       "message": "It releases the memory after the last non-free regions. All the other pages that are free before that will be releases earlier on during this GC.\n\nNote that there\u0027s no clearing at this point. We\u0027re just sending the madvise to the kernel that we don\u0027t need the pages. The clearing happens when a page is given back to the app.",
       "parentUuid": "12bd5164_f10daccd",
+      "range": {
+        "startLine": 2820,
+        "startChar": 21,
+        "endLine": 2820,
+        "endChar": 39
+      },
+      "revId": "827c226e94b617a6c49b2ea788cc1338789505f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ec4c356_c39ecf48",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 2820,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-06-09T13:43:42Z",
+      "side": 1,
+      "message": "I just realized that in the `pre-last-non-free-region` regions, it would not be sufficient to `MADV_DONTNEED` the regions which are evacuated in this GC cycle. We\u0027ll have to do the same for free regions as well. These regions are `MADV_FREE\u0027ed` in prior GC cycles and could be still holding onto some pages.",
+      "parentUuid": "8246665b_db2b750e",
       "range": {
         "startLine": 2820,
         "startChar": 21,
