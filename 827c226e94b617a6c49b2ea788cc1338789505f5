@@ -494,6 +494,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7cb58186_99a12a10",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 2820,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-06-09T14:41:46Z",
+      "side": 1,
+      "message": "Ah I see - yeah, I agree that those holes are unlikely to be big.",
+      "parentUuid": "b7b236b5_d8f58fd7",
+      "range": {
+        "startLine": 2820,
+        "startChar": 21,
+        "endLine": 2820,
+        "endChar": 39
+      },
+      "revId": "827c226e94b617a6c49b2ea788cc1338789505f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1b11c9df_0650dd49",
         "filename": "runtime/gc/space/region_space.cc",
         "patchSetId": 11
