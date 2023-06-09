@@ -3489,9 +3489,7 @@ bool ImageSpace::ValidateOatFile(const OatFile& oat_file,
       std::string multi_dex_location = DexFileLoader::GetMultiDexLocation(
           i,
           dex_file_location.c_str());
-      const OatDexFile* multi_dex = oat_file.GetOatDexFile(multi_dex_location.c_str(),
-                                                           nullptr,
-                                                           error_msg);
+      const OatDexFile* multi_dex = oat_file.GetOatDexFile(multi_dex_location.c_str(), error_msg);
       if (multi_dex == nullptr) {
         *error_msg = StringPrintf("ValidateOatFile oat file '%s' is missing entry '%s'",
                                   oat_file.GetLocation().c_str(),
