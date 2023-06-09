@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "c89c71eb_ab3998a9",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 15
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-06-09T13:45:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ed622f95_e5376403",
+      "range": {
+        "startLine": 300,
+        "startChar": 27,
+        "endLine": 300,
+        "endChar": 39
+      },
+      "revId": "b935e5f65e95b72b088ca94fff3af16c8ed42c67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "05309ed1_078d3cf9",
         "filename": "runtime/Android.bp",
         "patchSetId": 15
@@ -37,6 +61,30 @@
       "writtenOn": "2023-06-08T18:34:48Z",
       "side": 1,
       "message": "I\u0027m getting confused repeatedly by these shared lib deps in static libs, but iiuc they amount to nothing more than depending on their headers, right?",
+      "range": {
+        "startLine": 762,
+        "startChar": 0,
+        "endLine": 766,
+        "endChar": 6
+      },
+      "revId": "b935e5f65e95b72b088ca94fff3af16c8ed42c67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "41333ae5_6ae418e6",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 15
+      },
+      "lineNbr": 766,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-06-09T13:45:33Z",
+      "side": 1,
+      "message": "My understanding is the same. The resulting static library should be the same regardless of the static/dynamic type of its dependencies. The difference appears during linking of the test executable. In our case, it will fulfill the symbols from static versions of these libraries.",
+      "parentUuid": "05309ed1_078d3cf9",
       "range": {
         "startLine": 762,
         "startChar": 0,
