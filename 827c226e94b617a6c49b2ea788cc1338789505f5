@@ -470,6 +470,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b7b236b5_d8f58fd7",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 2820,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-06-09T14:29:40Z",
+      "side": 1,
+      "message": "This CL is using `MADV_DONTNEED` on the regions past last non-free regions as well as regions which are freed in this GC cycle before last non-free regions. I\u0027m talking about the regions which are freed by previous GC cycles and are before last non-free regions.\n\nOn another thought, this may not be required given the likelihood of such pages surviving through  GCs is very low.",
+      "parentUuid": "1fbed8c5_1eb28fe4",
+      "range": {
+        "startLine": 2820,
+        "startChar": 21,
+        "endLine": 2820,
+        "endChar": 39
+      },
+      "revId": "827c226e94b617a6c49b2ea788cc1338789505f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1b11c9df_0650dd49",
         "filename": "runtime/gc/space/region_space.cc",
         "patchSetId": 11
