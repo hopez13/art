@@ -52,6 +52,75 @@
       "parentUuid": "9a5776b4_4963be8c",
       "revId": "a5673460bcfc19490ab6fe865b18a97da70ad52b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1b41b4d0_8483390d",
+        "filename": "libartbase/base/mem_map.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1238,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-06-09T18:12:55Z",
+      "side": 1,
+      "message": "Should probably eventually add \"inline\". But it would be very interesting to see what this compiles to. Does it turn into a memset call that uses DC ZVA instructions on ARM? Some other interesting instruction sequence?",
+      "range": {
+        "startLine": 1238,
+        "startChar": 0,
+        "endLine": 1238,
+        "endChar": 11
+      },
+      "revId": "a5673460bcfc19490ab6fe865b18a97da70ad52b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0613f0b_6d67f32a",
+        "filename": "libartbase/base/mem_map.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1251,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-06-09T18:12:55Z",
+      "side": 1,
+      "message": "I\u0027m not sure what typical values of length here are. We may eventually want to pass in dirty page information to allow fewer mincore() calls? But that can wait.",
+      "range": {
+        "startLine": 1250,
+        "startChar": 2,
+        "endLine": 1251,
+        "endChar": 46
+      },
+      "revId": "a5673460bcfc19490ab6fe865b18a97da70ad52b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72e35ca8_e4f37447",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-06-09T18:12:55Z",
+      "side": 1,
+      "message": "Should presumably also be release_eagerly? Also in .cc file.",
+      "range": {
+        "startLine": 392,
+        "startChar": 31,
+        "endLine": 392,
+        "endChar": 45
+      },
+      "revId": "a5673460bcfc19490ab6fe865b18a97da70ad52b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
