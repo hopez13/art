@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a35f6909_77fb8ac6",
+        "filename": "compiler/utils/riscv64/jni_macro_assembler_riscv64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-06-09T14:55:54Z",
+      "side": 1,
+      "message": "No, this is a deliberate \"TODO\" without \"riscv64\". We do not actually implement this for any architecture.",
+      "parentUuid": "fb5da18a_6116dd2b",
+      "range": {
+        "startLine": 159,
+        "startChar": 5,
+        "endLine": 159,
+        "endChar": 9
+      },
+      "revId": "e55b0af73a833052b0a092b9bb2979c3bd81ace0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9e87a178_3efddf72",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-06-09T14:52:02Z",
       "side": 1,
       "message": "Same",
+      "range": {
+        "startLine": 164,
+        "startChar": 5,
+        "endLine": 164,
+        "endChar": 9
+      },
+      "revId": "e55b0af73a833052b0a092b9bb2979c3bd81ace0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "adda7be2_33391b4c",
+        "filename": "compiler/utils/riscv64/jni_macro_assembler_riscv64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-06-09T14:55:54Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "9e87a178_3efddf72",
       "range": {
         "startLine": 164,
         "startChar": 5,
