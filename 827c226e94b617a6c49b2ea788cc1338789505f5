@@ -20,6 +20,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e6fe62cf_ca8d5bf3",
+        "filename": "libartbase/base/mem_map.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1257,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-06-09T02:59:27Z",
+      "side": 1,
+      "message": "I\u0027m not sure whether std::fill or memset or ... generates the best code, or whether they all generate identical code. Perhaps introduce a \"clear memory for reuse in distant future\" function, so that we can easily experiment?",
+      "range": {
+        "startLine": 1257,
+        "startChar": 4,
+        "endLine": 1257,
+        "endChar": 13
+      },
+      "revId": "827c226e94b617a6c49b2ea788cc1338789505f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ba01aa5b_92086bc8",
         "filename": "libartbase/base/mem_map.cc",
         "patchSetId": 11
@@ -67,6 +90,99 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "16180c17_4404fc05",
+        "filename": "libartbase/base/mem_map.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1265,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-06-09T02:59:27Z",
+      "side": 1,
+      "message": "As discussed, it probably makes sense to try this for the latency advantage, and to see whether there is a significant battery regression.\n\nCan we use mincore or the like to detect swapper-out pages? If so, I think we probably want to use DONT_NEED on those to avoid decompressing.",
+      "parentUuid": "bee887e9_c9f17d90",
+      "range": {
+        "startLine": 1265,
+        "startChar": 6,
+        "endLine": 1265,
+        "endChar": 39
+      },
+      "revId": "827c226e94b617a6c49b2ea788cc1338789505f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d082454_0005ae52",
+        "filename": "libartbase/base/mem_map.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-06-09T02:59:27Z",
+      "side": 1,
+      "message": "The semantics weren\u0027t very clear to me. You\u0027re making the memory available to other processes in either case. Maybe \"release_eagerly\"?",
+      "range": {
+        "startLine": 245,
+        "startChar": 25,
+        "endLine": 245,
+        "endChar": 39
+      },
+      "revId": "827c226e94b617a6c49b2ea788cc1338789505f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fec80af2_a6aa6118",
+        "filename": "libartbase/base/mem_map.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 444,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-06-09T02:59:27Z",
+      "side": 1,
+      "message": "\"ZeroPages\" and \"no requirements on alignment\" seems contradictory. Rename?\n\nOr maybe even introduce two variants, one of which does assume page alignment; I\u0027m not sure. If we call it on a single 4K page, it may matter enough to be barely worth it.",
+      "range": {
+        "startLine": 444,
+        "startChar": 5,
+        "endLine": 444,
+        "endChar": 14
+      },
+      "revId": "827c226e94b617a6c49b2ea788cc1338789505f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8dca5fb9_3ccdd8a4",
+        "filename": "runtime/gc/accounting/space_bitmap.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-06-09T02:59:27Z",
+      "side": 1,
+      "message": "Again, we\u0027re kind of potentially giving it back in either case. \"eager_release\" seems like a better name.",
+      "range": {
+        "startLine": 105,
+        "startChar": 5,
+        "endLine": 105,
+        "endChar": 76
+      },
+      "revId": "827c226e94b617a6c49b2ea788cc1338789505f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1466ee71_71bb7b86",
         "filename": "runtime/gc/collector/concurrent_copying.cc",
         "patchSetId": 11
@@ -107,6 +223,53 @@
         "startChar": 21,
         "endLine": 2820,
         "endChar": 39
+      },
+      "revId": "827c226e94b617a6c49b2ea788cc1338789505f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12bd5164_f10daccd",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 2820,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-06-09T02:59:27Z",
+      "side": 1,
+      "message": "I\u0027m also concerned about the double clearing here. I do understand concern about what happens if the app becomes jank imperceptible. But doing a lot of extra clearing in the transition GC also seens suboptimal. I would just leave them alone. Though that does mean that jank imperceptible apps are impacted.\n\nI also don\u0027t think the ReleaseFreeRegions implementation does what\u0027s claimed here. Doesn\u0027t it only release memory above the largest in-use address? Which is kind of strange.",
+      "parentUuid": "5dded7dd_07bbe020",
+      "range": {
+        "startLine": 2820,
+        "startChar": 21,
+        "endLine": 2820,
+        "endChar": 39
+      },
+      "revId": "827c226e94b617a6c49b2ea788cc1338789505f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1b11c9df_0650dd49",
+        "filename": "runtime/gc/space/region_space.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-06-09T02:59:27Z",
+      "side": 1,
+      "message": "As stated elsewhere, I don\u0027t see how this releases all free regions.",
+      "range": {
+        "startLine": 405,
+        "startChar": 1,
+        "endLine": 406,
+        "endChar": 65
       },
       "revId": "827c226e94b617a6c49b2ea788cc1338789505f5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
