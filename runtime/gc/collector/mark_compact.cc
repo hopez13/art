@@ -2653,6 +2653,7 @@ void MarkCompact::CompactionPause() {
     ReaderMutexLock rmu(thread_running_gc_, *Locks::classlinker_classes_lock_);
     {
       ClassLoaderRootsUpdater updater(this);
+      updater.Visit(runtime->GetBootClassLoaderInstance());
       runtime->GetClassLinker()->VisitClassLoaders(&updater);
     }
   }
