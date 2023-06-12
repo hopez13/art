@@ -237,6 +237,7 @@ class InstructionCodeGeneratorRISCV64 : public InstructionCodeGenerator {
                                        bool is64bit,
                                        LocationSummary* locations,
                                        Riscv64Label* label);
+  void CheckNanAndGotoLabel(XRegister tmp, FRegister fr, Riscv64Label* label, bool is_double);
   void GenerateFpCompare(IfCondition cond,
                          bool gt_bias,
                          DataType::Type type,
