@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a000592_d599e309",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 862,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-06-12T15:06:21Z",
+      "side": 1,
+      "message": "Ack, wasn\u0027t aware of those future changes.",
+      "parentUuid": "bf052b6e_78f57c20",
+      "range": {
+        "startLine": 858,
+        "startChar": 0,
+        "endLine": 862,
+        "endChar": 3
+      },
+      "revId": "13518f506ec6612caddef08971cd38524cb64319",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bb49fc76_6afed3aa",
@@ -85,6 +109,30 @@
       "side": 1,
       "message": "Originally I intended to collect the info anyway for the predicated mode and just ignore it; but in a new PS I\u0027ve refactored it a bit, I hope it looks a bit better now.",
       "parentUuid": "bb49fc76_6afed3aa",
+      "range": {
+        "startLine": 1123,
+        "startChar": 0,
+        "endLine": 1125,
+        "endChar": 0
+      },
+      "revId": "13518f506ec6612caddef08971cd38524cb64319",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2eff98c1_636fdf4c",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1125,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-06-12T15:06:21Z",
+      "side": 1,
+      "message": "Thanks!",
+      "parentUuid": "b48b3c2d_37b883cd",
       "range": {
         "startLine": 1123,
         "startChar": 0,
@@ -167,6 +215,30 @@
       "side": 1,
       "message": "\"graph_-\u003eTransformLoopForVectorization(vector_header_, vector_body_, exit)\" has quite huge side effects of rearranging the loop body, creating a vector loop, etc; before the patch it was somewhat hidden in the argument list for GenerateLoopTraditional.\n\nI thought that having it explicitly called on the main indentation level and extracting its return value into a named variable would improve the readability of the code.",
       "parentUuid": "dde75071_e5491716",
+      "range": {
+        "startLine": 1321,
+        "startChar": 2,
+        "endLine": 1321,
+        "endChar": 39
+      },
+      "revId": "13518f506ec6612caddef08971cd38524cb64319",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f7d97fab_e5515617",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1321,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-06-12T15:06:21Z",
+      "side": 1,
+      "message": "WDYT about keeping the new variable but scoping it to the ifs? i.e. having a new variable in lines 1340, 1355, 1370.",
+      "parentUuid": "74360e5b_e61ba6e6",
       "range": {
         "startLine": 1321,
         "startChar": 2,
@@ -400,6 +472,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d3fafdd_d30ae009",
+        "filename": "compiler/optimizing/loop_optimization.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-06-12T15:06:21Z",
+      "side": 1,
+      "message": "I thought the name was more fitting, but I am okay with keeping the current one too.",
+      "parentUuid": "e7962368_8127d9bb",
+      "range": {
+        "startLine": 266,
+        "startChar": 8,
+        "endLine": 266,
+        "endChar": 28
+      },
+      "revId": "13518f506ec6612caddef08971cd38524cb64319",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "44550b2c_8195c39d",
@@ -423,6 +519,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dbbb64b7_4115e485",
+        "filename": "compiler/optimizing/loop_optimization.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-06-12T15:06:21Z",
+      "side": 1,
+      "message": "Obsolete comment.",
+      "parentUuid": "44550b2c_8195c39d",
+      "range": {
+        "startLine": 269,
+        "startChar": 7,
+        "endLine": 269,
+        "endChar": 29
+      },
+      "revId": "13518f506ec6612caddef08971cd38524cb64319",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "06f9b66e_919c1387",
@@ -436,6 +556,30 @@
       "writtenOn": "2023-05-31T14:38:25Z",
       "side": 1,
       "message": "```suggestion\n  void GenerateLoopBody(LoopNode* node,\n```",
+      "range": {
+        "startLine": 272,
+        "startChar": 7,
+        "endLine": 272,
+        "endChar": 30
+      },
+      "revId": "13518f506ec6612caddef08971cd38524cb64319",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d0e435e7_46677705",
+        "filename": "compiler/optimizing/loop_optimization.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-06-12T15:06:21Z",
+      "side": 1,
+      "message": "Obsolete comment.",
+      "parentUuid": "06f9b66e_919c1387",
       "range": {
         "startLine": 272,
         "startChar": 7,
