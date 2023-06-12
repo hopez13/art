@@ -746,13 +746,120 @@ void InstructionCodeGeneratorRISCV64::HandleCondition(HCondition* instruction) {
 }
 
 void LocationsBuilderRISCV64::HandleShift(HBinaryOperation* instruction) {
-  UNUSED(instruction);
-  LOG(FATAL) << "Unimplemented";
+  DCHECK(instruction->IsShl() || instruction->IsShr() || instruction->IsUShr() ||
+         instruction->IsRor());
+
+  LocationSummary* locations = new (GetGraph()->GetAllocator()) LocationSummary(instruction);
+  DataType::Type type = instruction->GetResultType();
+  switch (type) {
+    case DataType::Type::kInt32:
+    case DataType::Type::kInt64: {
+      locations->SetInAt(0, Location::RequiresRegister());
+      locations->SetInAt(1, Location::RegisterOrConstant(instruction->InputAt(1)));
+      locations->SetOut(Location::RequiresRegister(), Location::kNoOutputOverlap);
+      break;
+    }
+    default:
+      LOG(FATAL) << "Unexpected shift type " << type;
+  }
 }
 
 void InstructionCodeGeneratorRISCV64::HandleShift(HBinaryOperation* instruction) {
-  UNUSED(instruction);
-  LOG(FATAL) << "Unimplemented";
+  DCHECK(instruction->IsShl() || instruction->IsShr() || instruction->IsUShr() ||
+         instruction->IsRor());
+  LocationSummary* locations = instruction->GetLocations();
+  DataType::Type type = instruction->GetType();
+
+  switch (type) {
+    case DataType::Type::kInt32:
+    case DataType::Type::kInt64: {
+      XRegister rd = locations->Out().AsRegister<XRegister>();
+      XRegister rs1 = locations->InAt(0).AsRegister<XRegister>();
+      Location rs2_location = locations->InAt(1);
+
+      XRegister rs2 = Zero;
+      int64_t imm = 0;
+      bool use_imm = rs2_location.IsConstant();
+      if (use_imm) {
+        imm = CodeGenerator::GetInt64ValueOf(rs2_location.GetConstant());
+      } else {
+        rs2 = rs2_location.AsRegister<XRegister>();
+      }
+
+      if (use_imm) {
+        uint32_t shamt =
+            imm & (type == DataType::Type::kInt32 ? kMaxIntShiftDistance : kMaxLongShiftDistance);
+
+        if (shamt == 0) {
+          if (rd != rs1) {
+            __ Mv(rd, rs1);
+          }
+        } else if (type == DataType::Type::kInt32) {
+          if (instruction->IsShl()) {
+            __ Slliw(rd, rs1, shamt);
+          } else if (instruction->IsShr()) {
+            __ Sraiw(rd, rs1, shamt);
+          } else if (instruction->IsUShr()) {
+            __ Srliw(rd, rs1, shamt);
+          } else {
+            // Riscv64 codegen don't use the blocked registers for rd, rt, rs till now.
+            __ Srliw(TMP, rs1, shamt);
+            __ Slliw(rd, rs1, 32 - shamt);  // logical shift left (32 -shamt)
+            __ Or(rd, rd, TMP);
+          }
+        } else {
+          if (instruction->IsShl()) {
+            __ Slli(rd, rs1, shamt);
+          } else if (instruction->IsShr()) {
+            __ Srai(rd, rs1, shamt);
+          } else if (instruction->IsUShr()) {
+            __ Srli(rd, rs1, shamt);
+          } else {
+            // Riscv64 codegen don't use the blocked registers for rd, rt, rs till now.
+            // It's safe to use scratch registers here.
+            __ Srli(TMP, rs1, shamt);
+            __ Slli(rd, rs1, (64 - shamt));
+            __ Or(rd, rd, TMP);
+          }
+        }
+      } else {
+        if (type == DataType::Type::kInt32) {
+          if (instruction->IsShl()) {
+            __ Sllw(rd, rs1, rs2);
+          } else if (instruction->IsShr()) {
+            __ Sraw(rd, rs1, rs2);
+          } else if (instruction->IsUShr()) {
+            __ Srlw(rd, rs1, rs2);
+          } else {
+            // Riscv64 codegen don't use the blocked registers for rd, rt, rs till now.
+            __ Srl(TMP, rs1, rs2);
+            __ Sub(rd, Zero, rs2);  // rd = -rs
+            __ Addi(rd, rd, 64);    // rd = 64 -rs
+            __ Sll(rd, rs1, rd);
+            __ Or(rd, rd, TMP);
+          }
+        } else {
+          if (instruction->IsShl()) {
+            __ Sll(rd, rs1, rs2);
+          } else if (instruction->IsShr()) {
+            __ Sra(rd, rs1, rs2);
+          } else if (instruction->IsUShr()) {
+            __ Srl(rd, rs1, rs2);
+          } else {
+            // Riscv64 codegen don't use the blocked registers for rd, rt, rs till now.
+            __ Srl(TMP, rs1, rs2);
+            __ Sub(rd, Zero, rs2);  // rd = -rs
+            __ Addi(rd, rd, 64);    // rd = 64 -rs
+            __ Sll(rd, rs1, rd);
+            __ Or(rd, rd, TMP);
+          }
+        }
+      }
+      break;
+    }
+    default:
+      LOG(FATAL) << "Unexpected shift operation type " << type;
+  }
 }
 
 void LocationsBuilderRISCV64::HandleFieldSet(HInstruction* instruction,
@@ -1379,30 +1486,16 @@ void InstructionCodeGeneratorRISCV64::VisitReturnVoid(HReturnVoid* instruction) 
   UNUSED(instruction);
   LOG(FATAL) << "Unimplemented";
 }
-void LocationsBuilderRISCV64::VisitRor(HRor* instruction) {
-  UNUSED(instruction);
-  LOG(FATAL) << "Unimplemented";
-}
-void InstructionCodeGeneratorRISCV64::VisitRor(HRor* instruction) {
-  UNUSED(instruction);
-  LOG(FATAL) << "Unimplemented";
-}
-void LocationsBuilderRISCV64::VisitShl(HShl* instruction) {
-  UNUSED(instruction);
-  LOG(FATAL) << "Unimplemented";
-}
-void InstructionCodeGeneratorRISCV64::VisitShl(HShl* instruction) {
-  UNUSED(instruction);
-  LOG(FATAL) << "Unimplemented";
-}
-void LocationsBuilderRISCV64::VisitShr(HShr* instruction) {
-  UNUSED(instruction);
-  LOG(FATAL) << "Unimplemented";
-}
-void InstructionCodeGeneratorRISCV64::VisitShr(HShr* instruction) {
-  UNUSED(instruction);
-  LOG(FATAL) << "Unimplemented";
-}
+
+void LocationsBuilderRISCV64::VisitRor(HRor* instruction) { HandleShift(instruction); }
+void InstructionCodeGeneratorRISCV64::VisitRor(HRor* instruction) { HandleShift(instruction); }
+
+void LocationsBuilderRISCV64::VisitShl(HShl* instruction) { HandleShift(instruction); }
+void InstructionCodeGeneratorRISCV64::VisitShl(HShl* instruction) { HandleShift(instruction); }
+
+void LocationsBuilderRISCV64::VisitShr(HShr* instruction) { HandleShift(instruction); }
+void InstructionCodeGeneratorRISCV64::VisitShr(HShr* instruction) { HandleShift(instruction); }
+
 void LocationsBuilderRISCV64::VisitStaticFieldGet(HStaticFieldGet* instruction) {
   UNUSED(instruction);
   LOG(FATAL) << "Unimplemented";
@@ -1515,14 +1608,10 @@ void InstructionCodeGeneratorRISCV64::VisitTypeConversion(HTypeConversion* instr
   UNUSED(instruction);
   LOG(FATAL) << "Unimplemented";
 }
-void LocationsBuilderRISCV64::VisitUShr(HUShr* instruction) {
-  UNUSED(instruction);
-  LOG(FATAL) << "Unimplemented";
-}
-void InstructionCodeGeneratorRISCV64::VisitUShr(HUShr* instruction) {
-  UNUSED(instruction);
-  LOG(FATAL) << "Unimplemented";
-}
+
+void LocationsBuilderRISCV64::VisitUShr(HUShr* instruction) { HandleShift(instruction); }
+void InstructionCodeGeneratorRISCV64::VisitUShr(HUShr* instruction) { HandleShift(instruction); }
+
 void LocationsBuilderRISCV64::VisitXor(HXor* instruction) {
   UNUSED(instruction);
   LOG(FATAL) << "Unimplemented";
