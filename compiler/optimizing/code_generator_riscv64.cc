@@ -21,6 +21,7 @@
 #include "arch/riscv64/registers_riscv64.h"
 #include "base/macros.h"
 #include "optimizing/nodes.h"
+#include "utils/label.h"
 
 namespace art {
 namespace riscv64 {
@@ -259,10 +260,162 @@ void InstructionCodeGeneratorRISCV64::GenerateDivRemIntegral(HBinaryOperation* i
 void InstructionCodeGeneratorRISCV64::GenerateIntLongCompare(IfCondition cond,
                                                              bool is_64bit,
                                                              LocationSummary* locations) {
-  UNUSED(cond);
-  UNUSED(is_64bit);
-  UNUSED(locations);
-  LOG(FATAL) << "Unimplemented";
+  XRegister rd = locations->Out().AsRegister<XRegister>();
+  XRegister rs1 = locations->InAt(0).AsRegister<XRegister>();
+  Location rs2_location = locations->InAt(1);
+  XRegister rs2 = Zero;
+  int64_t imm = 0;
+  bool use_imm = rs2_location.IsConstant();
+  if (use_imm) {
+    if (is_64bit) {
+      imm = CodeGenerator::GetInt64ValueOf(rs2_location.GetConstant());
+    } else {
+      imm = CodeGenerator::GetInt32ValueOf(rs2_location.GetConstant());
+    }
+  } else {
+    rs2 = rs2_location.AsRegister<XRegister>();
+  }
+  switch (cond) {
+    case kCondEQ:
+    case kCondNE:
+      //////////////
+      if (use_imm) {
+        if (imm == 0) {
+          if (cond == kCondEQ) {
+            __ Seqz(rd, rs1);
+          } else {
+            __ Snez(rd, rs1);
+          }
+        } else {
+          if (is_64bit) {
+            if (IsInt<11>(abs(imm)) || (imm == 2048)) {
+              __ Addi(rd, rs1, (-imm) & 0xfff);
+            } else {
+              __ Li(rd, -imm);
+              __ Add(rd, rs1, rd);
+            }
+          } else {
+            if (IsInt<12>(abs(imm)) || (imm == 2048)) {
+              __ Addiw(rd, rs1, (-imm) & 0xfff);
+            } else {
+              __ Li(rd, imm);
+              __ Addw(rd, TMP, rs1);
+            }
+          }
+          if (cond == kCondEQ) {
+            __ Seqz(rd, rd);
+          } else {
+            __ Snez(rd, rd);
+          }
+        }
+      } else {
+        // register.
+        __ Sub(rd, rs1, rs2);
+        if (cond == kCondEQ) {
+          __ Sltiu(rd, rd, 1);
+        } else {
+          __ Sltu(rd, Zero, rd);
+        }
+      }
+      break;
+
+    case kCondLT:
+    case kCondGE:
+      // Use 11-bit here for avoiding sign-extension.
+      if (use_imm) {
+        if (IsInt<11>(abs(imm)) || (imm == -2048)) {
+          __ Slti(rd, rs1, imm & 0xfff);
+        } else {
+          __ Li(rd, imm);
+          __ Slt(rd, rs1, rd);
+        }
+      } else {
+        __ Slt(rd, rs1, rs2);
+      }
+      if (cond == kCondGE) {
+        // Simulate rs1 >= rs2 via !(rs1 < rs2) since there's
+        // only the slt instruction but no sge.
+        __ Xori(rd, rd, 1);
+      }
+      break;
+
+    case kCondLE:
+    case kCondGT:
+      if (use_imm) {
+        imm += 1;
+        if (IsInt<11>(abs(imm)) || (imm == -2048)) {
+          __ Slti(rd, rs1, imm & 0xfff);
+        } else {
+          __ Li(rd, imm);
+          __ Slt(rd, rd, rs1);
+        }
+      } else {
+        __ Slt(rd, rs2, rs1);
+        __ Xori(rd, rd, 1);
+      }
+      if (cond == kCondGT) {
+        // Simulate rs1 > rs2 via !(rs1 <= rs2) since there's
+        // only the slti instruction but no sgti.
+        __ Xori(rd, rd, 1);
+      }
+      break;
+
+    case kCondB:
+    case kCondAE:
+      if (use_imm) {
+        if (IsInt<11>(abs(imm)) || imm == -2048) {
+          // Sltiu sign-extends its 16-bit immediate operand before
+          // the comparison and thus lets us compare directly with
+          // unsigned values in the ranges [0, 0x7fff] and
+          // [0x[ffffffff]ffff8000, 0x[ffffffff]ffffffff].
+          __ Sltiu(rd, rs1, imm & 0xfff);
+        } else {
+          __ Li(rd, imm);
+          __ Sltu(rd, rs1, rs2);
+        }
+      } else {
+        __ Sltu(rd, rs1, rs2);
+      }
+      if (cond == kCondAE) {
+        // Simulate rs1 >= rs2 via !(rs1 < rs2) since there's
+        // only the sltu instruction but no sgeu.
+        __ Xori(rd, rd, 1);
+      }
+      break;
+
+    case kCondBE:
+    case kCondA:
+      // Use 11-bit here for avoiding sign-extension.
+      if (use_imm) {
+        imm += 1;
+        if (IsInt<11>(abs(imm)) || imm == -2048) {
+          // Simulate rs1 <= rs2 via rs1 < rs2 + 1.
+          // Note that this only works if rs2 + 1 does not overflow
+          // to 0, hence the check above.
+          // Sltiu sign-extends its 12-bit immediate operand before
+          // the comparison and thus lets us compare directly with
+          // unsigned values in the ranges [0, 0x7fff] and
+          // [0x[ffffffff]fffff800, 0x[ffffffff]ffffffff].
+          __ Sltiu(rd, rs1, imm & 0xfff);
+        } else {
+          __ Li(rd, imm - 1);
+          __ Sltu(rd, rd, rs1);
+        }
+        if (cond == kCondA) {
+          // Simulate rs1 > rs2 via !(rs1 <= rs2) since there's
+          // only the sltiu instruction but no sgtiu.
+          __ Xori(rd, rd, 1);
+        }
+      } else {
+        __ Sltu(rd, rs2, rs1);
+        if (cond == kCondBE) {
+          // Simulate rs1 <= rs2 via !(rs2 < rs1) since there's
+          // only the sltu instruction but no sleu.
+          __ Xori(rd, rd, 1);
+        }
+      }
+      break;
+  }
 }
 
 // When the function returns `false` it means that the condition holds if `rd` is non-Zero
@@ -291,15 +444,175 @@ void InstructionCodeGeneratorRISCV64::GenerateIntLongCompareAndBranch(IfConditio
   LOG(FATAL) << "UniMplemented";
 }
 
+void InstructionCodeGeneratorRISCV64::CheckNanAndGotoLabel(XRegister tmp,
+                                                           FRegister fr,
+                                                           Riscv64Label* label,
+                                                           bool is_double) {
+  // if rs1 or rs2 is NaN, set rd to 1.
+  // fclass.s/d examines the value in floating-point register rs1 and writes to integer
+  // register rd a 10-bit mask that indicates the class of the floating-point number.
+  // rd[8]: Singaling NaN
+  // rd[9]: Quiet NaN
+
+  if (!is_double) {
+    __ FClassS(tmp, fr);
+  } else {
+    __ FClassD(tmp, fr);
+  }
+  __ Srli(tmp, tmp, 8);
+  __ Bnez(tmp, label);  // goto label.
+}
+
 void InstructionCodeGeneratorRISCV64::GenerateFpCompare(IfCondition cond,
                                                         bool gt_bias,
                                                         DataType::Type type,
                                                         LocationSummary* locations) {
-  UNUSED(cond);
-  UNUSED(gt_bias);
-  UNUSED(type);
-  UNUSED(locations);
-  LOG(FATAL) << "Unimplemented";
+  XRegister rd = locations->Out().AsRegister<XRegister>();
+  FRegister rs1 = locations->InAt(0).AsFpuRegister<FRegister>();
+  FRegister rs2 = locations->InAt(1).AsFpuRegister<FRegister>();
+  if (type == DataType::Type::kFloat32) {
+    switch (cond) {
+      case kCondEQ:
+        __ FEqS(rd, rs1, rs2);
+        break;
+      case kCondNE:
+        __ FEqS(rd, rs1, rs2);
+        __ Xori(rd, rd, 1);
+        break;
+      case kCondLT:
+        if (gt_bias) {
+          Riscv64Label label;
+          // Do compare.
+          CheckNanAndGotoLabel(rd, rs1, &label, false);
+          CheckNanAndGotoLabel(rd, rs2, &label, false);
+          __ FLtS(rd, rs1, rs2);
+          __ Jal(Zero, 8);  // Skip "li rd, 1"
+
+          __ Bind(&label);
+          __ Li(rd, 1);
+          break;
+        } else {
+          __ FLtS(rd, rs1, rs2);
+        }
+        break;
+      case kCondLE:
+        if (gt_bias) {
+          Riscv64Label label;
+          CheckNanAndGotoLabel(rd, rs1, &label, false);
+          CheckNanAndGotoLabel(rd, rs2, &label, false);
+          __ FLeS(rd, rs1, rs2);
+          __ Jal(Zero, 8);  // Skip "li rd, 1"
+
+          __ Bind(&label);
+          __ Li(rd, 1);
+        } else {
+          __ FLeS(rd, rs1, rs2);
+        }
+        break;
+      case kCondGT:
+        if (gt_bias) {
+          Riscv64Label label;
+          CheckNanAndGotoLabel(rd, rs1, &label, false);
+          CheckNanAndGotoLabel(rd, rs2, &label, false);
+          __ FLtS(rd, rs2, rs1);
+          __ Jal(Zero, 8);  // Skip "li rd, 1"
+
+          __ Bind(&label);
+          __ Li(rd, 1);
+        } else {
+          __ FLtS(rd, rs2, rs1);
+        }
+        break;
+      case kCondGE:
+        if (gt_bias) {
+          Riscv64Label label;
+          CheckNanAndGotoLabel(rd, rs1, &label, false);
+          CheckNanAndGotoLabel(rd, rs2, &label, false);
+          __ FLeS(rd, rs2, rs1);
+          __ Jal(Zero, 8);  // Skip "li rd, 1"
+
+          __ Bind(&label);
+          __ Li(rd, 1);
+        } else {
+          __ FLeS(rd, rs2, rs1);
+        }
+        break;
+      default:
+        LOG(FATAL) << "Unexpected non-floating-point condition " << cond;
+        UNREACHABLE();
+    }
+  } else {
+    DCHECK_EQ(type, DataType::Type::kFloat64);
+    switch (cond) {
+      case kCondEQ:
+        __ FEqD(rd, rs1, rs2);
+        break;
+      case kCondNE:
+        __ FEqD(rd, rs1, rs2);
+        __ Xori(rd, rd, 1);
+        break;
+      case kCondLT:
+        if (gt_bias) {
+          Riscv64Label label;
+          // Do compare.
+          CheckNanAndGotoLabel(rd, rs1, &label, false);
+          CheckNanAndGotoLabel(rd, rs2, &label, false);
+          __ FLtD(rd, rs1, rs2);
+          __ Jal(Zero, 8);  // Skip "li rd, 1"
+
+          __ Bind(&label);
+          __ Li(rd, 1);
+        } else {
+          __ FLtD(rd, rs1, rs2);
+        }
+        break;
+      case kCondLE:
+        if (gt_bias) {
+          Riscv64Label label;
+          CheckNanAndGotoLabel(rd, rs1, &label, false);
+          CheckNanAndGotoLabel(rd, rs2, &label, false);
+          __ FLeD(rd, rs1, rs2);
+          __ Jal(Zero, 8);  // Skip "li rd, 1"
+
+          __ Bind(&label);
+          __ Li(rd, 1);
+        } else {
+          __ FLeD(rd, rs1, rs2);
+        }
+        break;
+      case kCondGT:
+        if (gt_bias) {
+          Riscv64Label label;
+          CheckNanAndGotoLabel(rd, rs1, &label, false);
+          CheckNanAndGotoLabel(rd, rs2, &label, false);
+          __ FLtD(rd, rs2, rs1);
+          __ Jal(Zero, 8);  // Skip "li rd, 1"
+
+          __ Bind(&label);
+          __ Li(rd, 1);
+        } else {
+          __ FLtD(rd, rs2, rs1);
+        }
+        break;
+      case kCondGE:
+        if (gt_bias) {
+          Riscv64Label label;
+          CheckNanAndGotoLabel(rd, rs1, &label, false);
+          CheckNanAndGotoLabel(rd, rs2, &label, false);
+          __ FLeS(rd, rs2, rs1);
+          __ Jal(Zero, 8);  // Skip "li rd, 1"
+
+          __ Bind(&label);
+          __ Li(rd, 1);
+        } else {
+          __ FLeD(rd, rs2, rs1);
+        }
+        break;
+      default:
+        LOG(FATAL) << "Unexpected non-floating-point condition " << cond;
+        UNREACHABLE();
+    }
+  }
 }
 
 // When the function returns `false` it means that the condition holds if `rd` is non-Zero
@@ -391,13 +704,45 @@ void InstructionCodeGeneratorRISCV64::HandleBinaryOp(HBinaryOperation* instructi
 }
 
 void LocationsBuilderRISCV64::HandleCondition(HCondition* instruction) {
-  UNUSED(instruction);
-  LOG(FATAL) << "Unimplemented";
+  LocationSummary* locations = new (GetGraph()->GetAllocator()) LocationSummary(instruction);
+  switch (instruction->InputAt(0)->GetType()) {
+    default:
+    case DataType::Type::kInt64:
+      locations->SetInAt(0, Location::RequiresRegister());
+      locations->SetInAt(1, Location::RegisterOrConstant(instruction->InputAt(1)));
+      break;
+
+    case DataType::Type::kFloat32:
+    case DataType::Type::kFloat64:
+      locations->SetInAt(0, Location::RequiresFpuRegister());
+      locations->SetInAt(1, Location::RequiresFpuRegister());
+      break;
+  }
+  if (!instruction->IsEmittedAtUseSite()) {
+    locations->SetOut(Location::RequiresRegister(), Location::kNoOutputOverlap);
+  }
 }
 
 void InstructionCodeGeneratorRISCV64::HandleCondition(HCondition* instruction) {
-  UNUSED(instruction);
-  LOG(FATAL) << "Unimplemented";
+  if (instruction->IsEmittedAtUseSite()) {
+    return;
+  }
+
+  DataType::Type type = instruction->InputAt(0)->GetType();
+  LocationSummary* locations = instruction->GetLocations();
+  switch (type) {
+    default:
+      // Integer case.
+      GenerateIntLongCompare(instruction->GetCondition(), /* is_64bit= */ false, locations);
+      return;
+    case DataType::Type::kInt64:
+      GenerateIntLongCompare(instruction->GetCondition(), /* is_64bit= */ true, locations);
+      return;
+    case DataType::Type::kFloat32:
+    case DataType::Type::kFloat64:
+      GenerateFpCompare(instruction->GetCondition(), instruction->IsGtBias(), type, locations);
+      return;
+  }
 }
 
 void LocationsBuilderRISCV64::HandleShift(HBinaryOperation* instruction) {
@@ -440,22 +785,16 @@ void InstructionCodeGeneratorRISCV64::HandleFieldGet(HInstruction* instruction,
   LOG(FATAL) << "Unimplemented";
 }
 
-void LocationsBuilderRISCV64::VisitAbove(HAbove* instruction) {
-  UNUSED(instruction);
-  LOG(FATAL) << "Unimplemented";
-}
+void LocationsBuilderRISCV64::VisitAbove(HAbove* instruction) { HandleCondition(instruction); }
 void InstructionCodeGeneratorRISCV64::VisitAbove(HAbove* instruction) {
-  UNUSED(instruction);
-  LOG(FATAL) << "Unimplemented";
+  HandleCondition(instruction);
 }
 
 void LocationsBuilderRISCV64::VisitAboveOrEqual(HAboveOrEqual* instruction) {
-  UNUSED(instruction);
-  LOG(FATAL) << "Unimplemented";
+  HandleCondition(instruction);
 }
 void InstructionCodeGeneratorRISCV64::VisitAboveOrEqual(HAboveOrEqual* instruction) {
-  UNUSED(instruction);
-  LOG(FATAL) << "Unimplemented";
+  HandleCondition(instruction);
 }
 
 void LocationsBuilderRISCV64::VisitAbs(HAbs* instruction) {
@@ -507,22 +846,19 @@ void InstructionCodeGeneratorRISCV64::VisitArraySet(HArraySet* instruction) {
   UNUSED(instruction);
   LOG(FATAL) << "Unimplemented";
 }
-void LocationsBuilderRISCV64::VisitBelow(HBelow* instruction) {
-  UNUSED(instruction);
-  LOG(FATAL) << "Unimplemented";
-}
+
+void LocationsBuilderRISCV64::VisitBelow(HBelow* instruction) { HandleCondition(instruction); }
 void InstructionCodeGeneratorRISCV64::VisitBelow(HBelow* instruction) {
-  UNUSED(instruction);
-  LOG(FATAL) << "Unimplemented";
+  HandleCondition(instruction);
 }
+
 void LocationsBuilderRISCV64::VisitBelowOrEqual(HBelowOrEqual* instruction) {
-  UNUSED(instruction);
-  LOG(FATAL) << "Unimplemented";
+  HandleCondition(instruction);
 }
 void InstructionCodeGeneratorRISCV64::VisitBelowOrEqual(HBelowOrEqual* instruction) {
-  UNUSED(instruction);
-  LOG(FATAL) << "Unimplemented";
+  HandleCondition(instruction);
 }
+
 void LocationsBuilderRISCV64::VisitBooleanNot(HBooleanNot* instruction) {
   UNUSED(instruction);
   LOG(FATAL) << "Unimplemented";
@@ -644,14 +980,12 @@ void InstructionCodeGeneratorRISCV64::VisitDoubleConstant(HDoubleConstant* instr
   UNUSED(instruction);
   LOG(FATAL) << "Unimplemented";
 }
-void LocationsBuilderRISCV64::VisitEqual(HEqual* instruction) {
-  UNUSED(instruction);
-  LOG(FATAL) << "Unimplemented";
-}
+
+void LocationsBuilderRISCV64::VisitEqual(HEqual* instruction) { HandleCondition(instruction); }
 void InstructionCodeGeneratorRISCV64::VisitEqual(HEqual* instruction) {
-  UNUSED(instruction);
-  LOG(FATAL) << "Unimplemented";
+  HandleCondition(instruction);
 }
+
 void LocationsBuilderRISCV64::VisitExit(HExit* instruction) {
   UNUSED(instruction);
   LOG(FATAL) << "Unimplemented";
@@ -676,22 +1010,21 @@ void InstructionCodeGeneratorRISCV64::VisitGoto(HGoto* instruction) {
   UNUSED(instruction);
   LOG(FATAL) << "Unimplemented";
 }
+
 void LocationsBuilderRISCV64::VisitGreaterThan(HGreaterThan* instruction) {
-  UNUSED(instruction);
-  LOG(FATAL) << "Unimplemented";
+  HandleCondition(instruction);
 }
 void InstructionCodeGeneratorRISCV64::VisitGreaterThan(HGreaterThan* instruction) {
-  UNUSED(instruction);
-  LOG(FATAL) << "Unimplemented";
+  HandleCondition(instruction);
 }
+
 void LocationsBuilderRISCV64::VisitGreaterThanOrEqual(HGreaterThanOrEqual* instruction) {
-  UNUSED(instruction);
-  LOG(FATAL) << "Unimplemented";
+  HandleCondition(instruction);
 }
 void InstructionCodeGeneratorRISCV64::VisitGreaterThanOrEqual(HGreaterThanOrEqual* instruction) {
-  UNUSED(instruction);
-  LOG(FATAL) << "Unimplemented";
+  HandleCondition(instruction);
 }
+
 void LocationsBuilderRISCV64::VisitIf(HIf* instruction) {
   UNUSED(instruction);
   LOG(FATAL) << "Unimplemented";
@@ -799,22 +1132,21 @@ void InstructionCodeGeneratorRISCV64::VisitInvokeCustom(HInvokeCustom* instructi
   UNUSED(instruction);
   LOG(FATAL) << "Unimplemented";
 }
+
 void LocationsBuilderRISCV64::VisitLessThan(HLessThan* instruction) {
-  UNUSED(instruction);
-  LOG(FATAL) << "Unimplemented";
+  HandleCondition(instruction);
 }
 void InstructionCodeGeneratorRISCV64::VisitLessThan(HLessThan* instruction) {
-  UNUSED(instruction);
-  LOG(FATAL) << "Unimplemented";
+  HandleCondition(instruction);
 }
+
 void LocationsBuilderRISCV64::VisitLessThanOrEqual(HLessThanOrEqual* instruction) {
-  UNUSED(instruction);
-  LOG(FATAL) << "Unimplemented";
+  HandleCondition(instruction);
 }
 void InstructionCodeGeneratorRISCV64::VisitLessThanOrEqual(HLessThanOrEqual* instruction) {
-  UNUSED(instruction);
-  LOG(FATAL) << "Unimplemented";
+  HandleCondition(instruction);
 }
+
 void LocationsBuilderRISCV64::VisitLoadClass(HLoadClass* instruction) {
   UNUSED(instruction);
   LOG(FATAL) << "Unimplemented";
@@ -959,14 +1291,14 @@ void InstructionCodeGeneratorRISCV64::VisitNot(HNot* instruction) {
   UNUSED(instruction);
   LOG(FATAL) << "Unimplemented";
 }
+
 void LocationsBuilderRISCV64::VisitNotEqual(HNotEqual* instruction) {
-  UNUSED(instruction);
-  LOG(FATAL) << "Unimplemented";
+  HandleCondition(instruction);
 }
 void InstructionCodeGeneratorRISCV64::VisitNotEqual(HNotEqual* instruction) {
-  UNUSED(instruction);
-  LOG(FATAL) << "Unimplemented";
+  HandleCondition(instruction);
 }
+
 void LocationsBuilderRISCV64::VisitNullConstant(HNullConstant* instruction) {
   UNUSED(instruction);
   LOG(FATAL) << "Unimplemented";
