@@ -95,6 +95,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6715a737_7afac415",
+        "filename": "compiler/jni/quick/riscv64/calling_convention_riscv64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-06-12T14:06:13Z",
+      "side": 1,
+      "message": "I added a note about that in https://source.corp.google.com/h/android/platform/superproject/+/master:art/runtime/arch/riscv64/callee_save_frame_riscv64.h;l\u003d40-41\n\nMaybe it\u0027s so obvious that it doesn\u0027t need a note. But ART internal convention can be anything (e.g. we can use another register instead of SP in entrypoints and stubs, and use SP for something else), therefore I thought it requires explanation that SP is callee-saved by the code logic. Feel free to leave as is.",
+      "parentUuid": "5f243c2e_b6e887bb",
+      "range": {
+        "startLine": 102,
+        "startChar": 33,
+        "endLine": 102,
+        "endChar": 59
+      },
+      "revId": "46d62dbff35528e0c203dd9e676cfe56bc3dff0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5d610326_08362c9c",

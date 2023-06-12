@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cbb0051c_2caaff3f",
+        "filename": "runtime/arch/riscv64/jni_entrypoints_riscv64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-06-12T14:06:13Z",
+      "side": 1,
+      "message": "Nit: `t``6` is lowercase but `T0` is uppercase. (I use uppercase in comments for register names and instruction mnemonics).\n\nIt may be easier to change art_quick_generic_jni_trampoline and art_jni_dlsym_lookup_critical_stub (the only two places that use T0).",
+      "range": {
+        "startLine": 126,
+        "startChar": 4,
+        "endLine": 126,
+        "endChar": 71
+      },
+      "revId": "4b9dc336e48ee6ed5e834558030b273dfb6b3b54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2e418ad1_c46d15ff",
+        "filename": "runtime/arch/riscv64/jni_frame_riscv64.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-06-12T14:06:13Z",
+      "side": 1,
+      "message": "Nit: explain that this is for simplicity of the managed ABI and not for some fundamental reason?",
+      "range": {
+        "startLine": 42,
+        "startChar": 61,
+        "endLine": 42,
+        "endChar": 97
+      },
+      "revId": "4b9dc336e48ee6ed5e834558030b273dfb6b3b54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b6f06de7_a2fd01a6",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 343,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-06-12T14:06:13Z",
+      "side": 1,
+      "message": "Same (it may be easier to change art_quick_generic_jni_trampoline and art_jni_dlsym_lookup_critical_stub (the only two places that use T0)).",
+      "range": {
+        "startLine": 343,
+        "startChar": 4,
+        "endLine": 343,
+        "endChar": 71
+      },
+      "revId": "4b9dc336e48ee6ed5e834558030b273dfb6b3b54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
