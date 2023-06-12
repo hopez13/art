@@ -16,6 +16,24 @@
       "message": "There is a similar change in aosp/2589466, is that not enough?",
       "revId": "d4f619cdf41936f66448e78fc5366a96823f744f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "83873c07_bccc0574",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2023-06-12T09:06:22Z",
+      "side": 1,
+      "message": "Self reply: it\u0027s not, as clang-tidy is complaining in the constructor initialization list rather than in the body of the move constructor.\n\nHow come the changes from aosp/2589466 are not reflected in the base commit for this CL?",
+      "parentUuid": "34c09670_587c7c9a",
+      "revId": "d4f619cdf41936f66448e78fc5366a96823f744f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
