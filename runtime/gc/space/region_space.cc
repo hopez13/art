@@ -67,6 +67,7 @@ MemMap RegionSpace::CreateMemMap(const std::string& name,
     if (mem_map.IsValid() || requested_begin == nullptr) {
       break;
     }
+    LOG(ERROR) << "MapAnonymous failed: " << name << " " << error_msg;
     // Retry with no specified request begin.
     requested_begin = nullptr;
   }
