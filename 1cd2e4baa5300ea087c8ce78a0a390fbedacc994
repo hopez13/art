@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca688bdc_4e799241",
+        "filename": "test/odsign/test-src/com/android/tests/odsign/DeviceState.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2023-06-13T14:30:36Z",
+      "side": 0,
+      "message": "BTW, the target preparer does not seem to provide an option to set `set_sync_disabled_for_tests` to its original value after the tests have been executed, so I think it\u0027s fine to keep the `restore` logic from lines 83–86.",
+      "range": {
+        "startLine": 195,
+        "startChar": 36,
+        "endLine": 195,
+        "endChar": 95
+      },
+      "revId": "1cd2e4baa5300ea087c8ce78a0a390fbedacc994",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
