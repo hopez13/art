@@ -27,6 +27,7 @@
 #include "base/enums.h"
 #include "base/globals.h"
 #include "base/macros.h"
+#include "heap_poisoning.h"
 #include "managed_register_riscv64.h"
 #include "utils/assembler.h"
 #include "utils/label.h"
@@ -612,6 +613,44 @@ class Riscv64Assembler final : public Assembler {
   // Get the final position of a label after local fixup based on the old position
   // recorded before FinalizeCode().
   uint32_t GetAdjustedPosition(uint32_t old_position);
+
+  //
+  // Heap poisoning.
+  //
+
+  // Poison a heap reference contained in `src` and store it in `dst`.
+  void PoisonHeapReference(XRegister dst, XRegister src) {
+    // dst = -src.
+    // Negate the 32-bit ref.
+    Sub(dst, Zero, src);
+    // And constrain it to 32 bits (zero-extend into bits 32 through 63) as on Arm64 and x86/64.
+    Addiw(dst, dst, 0);
+  }
+  // Poison a heap reference contained in `reg`.
+  void PoisonHeapReference(XRegister reg) {
+    // reg = -reg.
+    PoisonHeapReference(reg, reg);
+  }
+  // Unpoison a heap reference contained in `reg`.
+  void UnpoisonHeapReference(XRegister reg) {
+    // reg = -reg.
+    // Negate the 32-bit ref.
+    Sub(reg, Zero, reg);
+    // And constrain it to 32 bits (zero-extend into bits 32 through 63) as on Arm64 and x86/64.
+    Addiw(reg, reg, 0);
+  }
+  // Poison a heap reference contained in `reg` if heap poisoning is enabled.
+  void MaybePoisonHeapReference(XRegister reg) {
+    if (kPoisonHeapReferences) {
+      PoisonHeapReference(reg);
+    }
+  }
+  // Unpoison a heap reference contained in `reg` if heap poisoning is enabled.
+  void MaybeUnpoisonHeapReference(XRegister reg) {
+    if (kPoisonHeapReferences) {
+      UnpoisonHeapReference(reg);
+    }
+  }
 
  private:
   enum BranchCondition : uint8_t {

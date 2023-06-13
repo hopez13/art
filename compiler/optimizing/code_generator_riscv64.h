@@ -360,6 +360,8 @@ class CodeGeneratorRISCV64 : public CodeGenerator {
 
   HGraphVisitor* GetLocationBuilder() override { return &location_builder_; }
 
+  void MaybeGenerateInlineCacheCheck(HInstruction* instruction, XRegister klass);
+
   void SetupBlockedRegisters() const override;
 
   size_t SaveCoreRegister(size_t stack_index, uint32_t reg_id) override;
