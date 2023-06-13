@@ -2439,15 +2439,41 @@ void CodeGeneratorRISCV64::MoveLocation(Location destination,
 }
 
 void CodeGeneratorRISCV64::AddLocationAsTemp(Location location, LocationSummary* locations) {
-  UNUSED(location);
-  UNUSED(locations);
-  LOG(FATAL) << "Unimplemented";
-  UNREACHABLE();
+  if (location.IsRegister()) {
+    locations->AddTemp(location);
+  } else {
+    UNIMPLEMENTED(FATAL) << "AddLocationAsTemp not implemented for location " << location;
+  }
 }
 
 void CodeGeneratorRISCV64::SetupBlockedRegisters() const {
-  LOG(FATAL) << "Unimplemented";
-  UNREACHABLE();
+  // ZERO, GP, SP, RA TP are always reserved and can't be allocated.
+  blocked_core_registers_[Zero] = true;
+  blocked_core_registers_[GP] = true;
+  blocked_core_registers_[SP] = true;
+  blocked_core_registers_[RA] = true;
+  blocked_core_registers_[TP] = true;
+
+  // TMP(T6), T5, T4, FT11, FT10 are used as temporary/scratch
+  // registers.
+  blocked_core_registers_[TMP] = true;
+  blocked_core_registers_[T5] = true;
+  blocked_core_registers_[T4] = true;
+  blocked_fpu_registers_[FT10] = true;
+  blocked_fpu_registers_[FT11] = true;
+
+  // Reserve suspend and self registers.
+  blocked_core_registers_[S11] = true;
+  blocked_core_registers_[S1] = true;
+
+  if (GetGraph()->IsDebuggable()) {
+    // Stubs do not save callee-save floating point registers. If the graph
+    // is debuggable, we need to deal with these registers differently. For
+    // now, just block them.
+    for (size_t i = 0; i < arraysize(kFpuCalleeSaves); ++i) {
+      blocked_fpu_registers_[kFpuCalleeSaves[i]] = true;
+    }
+  }
 }
 
 size_t CodeGeneratorRISCV64::SaveCoreRegister(size_t stack_index, uint32_t reg_id) {
