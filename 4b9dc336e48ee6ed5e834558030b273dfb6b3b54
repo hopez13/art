@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f88a098f_009c4ea4",
+        "filename": "runtime/arch/riscv64/jni_entrypoints_riscv64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-06-13T07:05:58Z",
+      "side": 1,
+      "message": "I prefer uppercase register names in comments even if that does not correspond to the code below. (I could use lowercase in back-ticks but this is a FIXME comment that should go away soon anyway.)\n\nI did not want to change `art/runtime/` in this CL beyond adding some comments. (Or I would feel compelled to perform more testing than stated in `Test:`.)",
+      "parentUuid": "cbb0051c_2caaff3f",
+      "range": {
+        "startLine": 126,
+        "startChar": 4,
+        "endLine": 126,
+        "endChar": 71
+      },
+      "revId": "4b9dc336e48ee6ed5e834558030b273dfb6b3b54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2e418ad1_c46d15ff",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "24a09c3e_784dc211",
+        "filename": "runtime/arch/riscv64/jni_frame_riscv64.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-06-13T07:05:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2e418ad1_c46d15ff",
+      "range": {
+        "startLine": 42,
+        "startChar": 61,
+        "endLine": 42,
+        "endChar": 97
+      },
+      "revId": "4b9dc336e48ee6ed5e834558030b273dfb6b3b54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b6f06de7_a2fd01a6",
@@ -60,6 +108,30 @@
       "writtenOn": "2023-06-12T14:06:13Z",
       "side": 1,
       "message": "Same (it may be easier to change art_quick_generic_jni_trampoline and art_jni_dlsym_lookup_critical_stub (the only two places that use T0)).",
+      "range": {
+        "startLine": 343,
+        "startChar": 4,
+        "endLine": 343,
+        "endChar": 71
+      },
+      "revId": "4b9dc336e48ee6ed5e834558030b273dfb6b3b54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "89dbacd8_50e13036",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 343,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-06-13T07:05:58Z",
+      "side": 1,
+      "message": "Same.",
+      "parentUuid": "b6f06de7_a2fd01a6",
       "range": {
         "startLine": 343,
         "startChar": 4,
