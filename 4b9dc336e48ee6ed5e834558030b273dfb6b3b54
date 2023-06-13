@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "63c293ff_523816e9",
+        "filename": "runtime/arch/riscv64/jni_entrypoints_riscv64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-06-13T09:03:49Z",
+      "side": 1,
+      "message": "\u003e I prefer uppercase register names in comments even if that does not correspond to the code below. \n\nI meant `t_6` in the comment on line 125 (linter does not allow me to write it because it\u0027s a banned keyword so I have to insert an underscore).\n\n\u003e I did not want to change art/runtime/ in this CL beyond adding some comments.\n\nSure, I\u0027m just suggesting that it may be easier to change T0 to T_6, as my choice of T0 was arbitrary.",
+      "parentUuid": "f88a098f_009c4ea4",
+      "range": {
+        "startLine": 126,
+        "startChar": 4,
+        "endLine": 126,
+        "endChar": 71
+      },
+      "revId": "4b9dc336e48ee6ed5e834558030b273dfb6b3b54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2e418ad1_c46d15ff",
