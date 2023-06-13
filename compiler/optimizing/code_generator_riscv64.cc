@@ -142,6 +142,30 @@ class CompileOptimizedSlowPathRISCV64 : public SlowPathCodeRISCV64 {
   DISALLOW_COPY_AND_ASSIGN(CompileOptimizedSlowPathRISCV64);
 };
 
+class NullCheckSlowPathRISCV64 : public SlowPathCodeRISCV64 {
+ public:
+  explicit NullCheckSlowPathRISCV64(HNullCheck* instr) : SlowPathCodeRISCV64(instr) {}
+
+  void EmitNativeCode(CodeGenerator* codegen) override {
+    CodeGeneratorRISCV64* riscv64_codegen = down_cast<CodeGeneratorRISCV64*>(codegen);
+    __ Bind(GetEntryLabel());
+    if (instruction_->CanThrowIntoCatchBlock()) {
+      // Live registers will be restored in the catch block if caught.
+      SaveLiveRegisters(codegen, instruction_->GetLocations());
+    }
+    riscv64_codegen->InvokeRuntime(
+        kQuickThrowNullPointer, instruction_, instruction_->GetDexPc(), this);
+    CheckEntrypointTypes<kQuickThrowNullPointer, void, void>();
+  }
+
+  bool IsFatal() const override { return true; }
+
+  const char* GetDescription() const override { return "NullCheckSlowPathRISCV64"; }
+
+ private:
+  DISALLOW_COPY_AND_ASSIGN(NullCheckSlowPathRISCV64);
+};
+
 #undef __
 #define __ down_cast<Riscv64Assembler*>(GetAssembler())->  // NOLINT
 
@@ -2559,15 +2583,25 @@ void CodeGeneratorRISCV64::DecreaseFrame(size_t adjustment) {
   }
 }
 
-void CodeGeneratorRISCV64::GenerateNop() { LOG(FATAL) << "Unimplemented"; }
+void CodeGeneratorRISCV64::GenerateNop() { __ Nop(); }
 
 void CodeGeneratorRISCV64::GenerateImplicitNullCheck(HNullCheck* instruction) {
-  UNUSED(instruction);
-  LOG(FATAL) << "Unimplemented";
+  if (CanMoveNullCheckToUser(instruction)) {
+    return;
+  }
+  Location obj = instruction->GetLocations()->InAt(0);
+
+  __ Lw(Zero, obj.AsRegister<XRegister>(), 0);
+  RecordPcInfo(instruction, instruction->GetDexPc());
 }
+
 void CodeGeneratorRISCV64::GenerateExplicitNullCheck(HNullCheck* instruction) {
-  UNUSED(instruction);
-  LOG(FATAL) << "Unimplemented";
+  SlowPathCodeRISCV64* slow_path = new (GetScopedAllocator()) NullCheckSlowPathRISCV64(instruction);
+  AddSlowPath(slow_path);
+
+  Location obj = instruction->GetLocations()->InAt(0);
+
+  __ Beqz(obj.AsRegister<XRegister>(), slow_path->GetEntryLabel());
 }
 
 // Check if the desired_string_load_kind is supported. If it is, return it,
