@@ -18,6 +18,7 @@
 
 #include "android-base/logging.h"
 #include "android-base/macros.h"
+#include "arch/riscv64/jni_frame_riscv64.h"
 #include "arch/riscv64/registers_riscv64.h"
 #include "base/macros.h"
 #include "dwarf/register.h"
@@ -101,6 +102,51 @@ Location InvokeDexCallingConventionVisitorRISCV64::GetNextLocation(DataType::Typ
   stack_index_ += DataType::Is64BitType(type) ? 2 : 1;
 
   return next_location;
+}
+
+Location CriticalNativeCallingConventionVisitorRiscv64::GetNextLocation(DataType::Type type) {
+  DCHECK_NE(type, DataType::Type::kReference);
+
+  Location location = Location::NoLocation();
+  if (DataType::IsFloatingPointType(type)) {
+    if (fpr_index_ < kParameterFpuRegistersLength) {
+      location = Location::FpuRegisterLocation(kParameterFpuRegisters[fpr_index_]);
+      ++fpr_index_;
+    }
+  } else {
+    // Native ABI uses the same registers as managed, except that the method register A0
+    // is a normal argument.
+    if (gpr_index_ < 1u + kParameterCoreRegistersLength) {
+      location = Location::RegisterLocation(
+          gpr_index_ == 0u ? A0 : kParameterCoreRegisters[gpr_index_ - 1u]);
+      ++gpr_index_;
+    }
+  }
+  if (location.IsInvalid()) {
+    if (DataType::Is64BitType(type)) {
+      location = Location::DoubleStackSlot(stack_offset_);
+    } else {
+      location = Location::StackSlot(stack_offset_);
+    }
+    stack_offset_ += kFramePointerSize;
+
+    if (for_register_allocation_) {
+      location = Location::Any();
+    }
+  }
+  return location;
+}
+
+Location CriticalNativeCallingConventionVisitorRiscv64::GetReturnLocation(
+    DataType::Type type) const {
+  // We perform conversion to the managed ABI return register after the call if needed.
+  InvokeDexCallingConventionVisitorRISCV64 dex_calling_convention;
+  return dex_calling_convention.GetReturnLocation(type);
+}
+
+Location CriticalNativeCallingConventionVisitorRiscv64::GetMethodLocation() const {
+  // Pass the method in the hidden argument T0.
+  return Location::RegisterLocation(T0);
 }
 
 #define __ down_cast<CodeGeneratorRISCV64*>(codegen)->GetAssembler()->  // NOLINT
@@ -2834,10 +2880,107 @@ void CodeGeneratorRISCV64::LoadMethod(MethodLoadKind load_kind, Location temp, H
 void CodeGeneratorRISCV64::GenerateStaticOrDirectCall(HInvokeStaticOrDirect* invoke,
                                                       Location temp,
                                                       SlowPathCode* slow_path) {
-  UNUSED(temp);
-  UNUSED(invoke);
-  UNUSED(slow_path);
-  LOG(FATAL) << "Unimplemented";
+  // All registers are assumed to be correctly set up per the calling convention.
+  Location callee_method = temp;  // For all kinds except kRecursive, callee will be in temp.
+
+  switch (invoke->GetMethodLoadKind()) {
+    case MethodLoadKind::kStringInit: {
+      // temp = thread->string_init_entrypoint
+      uint32_t offset =
+          GetThreadOffset<kRiscv64PointerSize>(invoke->GetStringInitEntryPoint()).Int32Value();
+      __ Loadd(temp.AsRegister<XRegister>(), TR, offset);
+      break;
+    }
+    case MethodLoadKind::kRecursive:
+      callee_method = invoke->GetLocations()->InAt(invoke->GetCurrentMethodIndex());
+      break;
+    case MethodLoadKind::kRuntimeCall: {
+      GenerateInvokeStaticOrDirectRuntimeCall(invoke, temp, slow_path);
+      return;  // No code pointer retrieval; the runtime performs the call directly.
+    }
+    case MethodLoadKind::kBootImageLinkTimePcRelative:
+      DCHECK(GetCompilerOptions().IsBootImage() || GetCompilerOptions().IsBootImageExtension());
+      if (invoke->GetCodePtrLocation() == CodePtrLocation::kCallCriticalNative) {
+        // Do not materialize the method pointer, load directly the entrypoint.
+        CodeGeneratorRISCV64::PcRelativePatchInfo* info_high =
+            NewBootImageJniEntrypointPatch(invoke->GetResolvedMethodReference());
+        CodeGeneratorRISCV64::PcRelativePatchInfo* info_low =
+            NewBootImageJniEntrypointPatch(invoke->GetResolvedMethodReference(), info_high);
+        EmitPcRelativeAddressPlaceholderHigh(info_high, T6, info_low);
+        __ Addi(TMP, TMP, /* imm12= */ 0x678);
+        __ Ld(TMP, TMP, 0);
+        break;
+      }
+      FALLTHROUGH_INTENDED;
+    default: {
+      LoadMethod(invoke->GetMethodLoadKind(), temp, invoke);
+      break;
+    }
+  }
+
+  switch (invoke->GetCodePtrLocation()) {
+    case CodePtrLocation::kCallSelf:
+      __ Jal(&frame_entry_label_);
+      RecordPcInfo(invoke, invoke->GetDexPc(), slow_path);
+      break;
+    case CodePtrLocation::kCallArtMethod:
+      // TMP2 = callee_method->entry_point_from_quick_compiled_code_;
+      __ Loadd(TMP2,
+               callee_method.AsRegister<XRegister>(),
+               ArtMethod::EntryPointFromQuickCompiledCodeOffset(kRiscv64PointerSize).Int32Value());
+      // TMP2()
+      __ Jalr(TMP2);
+      RecordPcInfo(invoke, invoke->GetDexPc(), slow_path);
+      break;
+    case CodePtrLocation::kCallCriticalNative: {
+      size_t out_frame_size =
+          PrepareCriticalNativeCall<CriticalNativeCallingConventionVisitorRiscv64,
+                                    kNativeStackAlignment,
+                                    GetCriticalNativeDirectCallFrameSize>(invoke);
+      if (invoke->GetMethodLoadKind() == MethodLoadKind::kBootImageLinkTimePcRelative) {
+        __ Jalr(TMP);
+      } else {
+        // TMP2 = callee_method->ptr_sized_fields_.data_;  // EntryPointFromJni
+        MemberOffset offset = ArtMethod::EntryPointFromJniOffset(kRiscv64PointerSize);
+        __ Loadd(TMP2, callee_method.AsRegister<XRegister>(), offset.Int32Value());
+        __ Jalr(TMP2);
+      }
+      RecordPcInfo(invoke, invoke->GetDexPc(), slow_path);
+      // Zero-/sign-extend the result when needed due to native and managed ABI mismatch.
+      switch (invoke->GetType()) {
+        case DataType::Type::kBool:
+          __ Andi(A0, A0, 0xff);
+          break;
+        case DataType::Type::kInt8:
+          __ Slli(A0, A0, 24);
+          __ Srai(A0, A0, 24);
+          break;
+        case DataType::Type::kUint16:
+          __ Slli(A0, A0, 16);
+          __ Srli(A0, A0, 16);
+          break;
+        case DataType::Type::kInt16:
+          __ Slli(A0, A0, 16);
+          __ Srai(A0, A0, 16);
+          break;
+        case DataType::Type::kInt32:
+        case DataType::Type::kInt64:
+        case DataType::Type::kFloat32:
+        case DataType::Type::kFloat64:
+        case DataType::Type::kVoid:
+          break;
+        default:
+          DCHECK(false) << invoke->GetType();
+          break;
+      }
+      if (out_frame_size != 0u) {
+        DecreaseFrame(out_frame_size);
+      }
+      break;
+    }
+  }
+
+  DCHECK(!IsLeafMethod());
 }
 
 void CodeGeneratorRISCV64::GenerateVirtualCall(HInvokeVirtual* invoke,
