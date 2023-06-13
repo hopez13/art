@@ -2259,24 +2259,185 @@ void CodeGeneratorRISCV64::GenerateFrameExit() {
 
 void CodeGeneratorRISCV64::Bind(HBasicBlock* block) { __ Bind(GetLabelOf(block)); }
 
-size_t CodeGeneratorRISCV64::GetSIMDRegisterWidth() const {
-  LOG(FATAL) << "Unimplemented";
-  UNREACHABLE();
+void CodeGeneratorRISCV64::MoveConstant(Location location, int32_t value) {
+  DCHECK(location.IsRegister());
+  __ LoadConst32(location.AsRegister<XRegister>(), value);
 }
 
-void CodeGeneratorRISCV64::MoveConstant(Location destination, int32_t value) {
-  UNUSED(destination);
-  UNUSED(value);
-  LOG(FATAL) << "Unimplemented";
-  UNREACHABLE();
+void CodeGeneratorRISCV64::MoveLocation(Location destination,
+                                        Location source,
+                                        DataType::Type dst_type) {
+  if (source.Equals(destination)) {
+    return;
+  }
+
+  // A valid move can always be inferred from the destination and source
+  // locations. When moving from and to a register, the argument type can be
+  // used to generate 32bit instead of 64bit moves.
+  bool unspecified_type = (dst_type == DataType::Type::kVoid);
+  DCHECK_EQ(unspecified_type, false);
+
+  if (destination.IsRegister() || destination.IsFpuRegister()) {
+    if (unspecified_type) {
+      HConstant* src_cst = source.IsConstant() ? source.GetConstant() : nullptr;
+      if (source.IsStackSlot() ||
+          (src_cst != nullptr &&
+           (src_cst->IsIntConstant() || src_cst->IsFloatConstant() || src_cst->IsNullConstant()))) {
+        // For stack slots and 32bit constants, a 64bit type is appropriate.
+        dst_type = destination.IsRegister() ? DataType::Type::kInt32 : DataType::Type::kFloat32;
+      } else {
+        // If the source is a double stack slot or a 64bit constant, a 64bit
+        // type is appropriate. Else the source is a register, and since the
+        // type has not been specified, we chose a 64bit type to force a 64bit
+        // move.
+        dst_type = destination.IsRegister() ? DataType::Type::kInt64 : DataType::Type::kFloat64;
+      }
+    }
+    DCHECK((destination.IsFpuRegister() && DataType::IsFloatingPointType(dst_type)) ||
+           (destination.IsRegister() && !DataType::IsFloatingPointType(dst_type)));
+
+    if (source.IsStackSlot() || source.IsDoubleStackSlot()) {
+      // Move to GPR/FPR from stack
+      if (DataType::IsFloatingPointType(dst_type)) {
+        if (DataType::Is64BitType(dst_type)) __
+          FLoadd(destination.AsFpuRegister<FRegister>(), SP, source.GetStackIndex());
+        else __
+          FLoadw(destination.AsFpuRegister<FRegister>(), SP, source.GetStackIndex());
+      } else {
+        if (DataType::Is64BitType(dst_type)) __
+          Loadd(destination.AsRegister<XRegister>(), SP, source.GetStackIndex());
+        else __
+          Loadwu(destination.AsRegister<XRegister>(), SP, source.GetStackIndex());
+      }
+    } else if (source.IsConstant()) {
+      // Move to GPR/FPR from constant
+      XRegister gpr = TMP;
+      if (!DataType::IsFloatingPointType(dst_type)) {
+        gpr = destination.AsRegister<XRegister>();
+      }
+      if (dst_type == DataType::Type::kInt32 || dst_type == DataType::Type::kFloat32) {
+        int32_t value = GetInt32ValueOf(source.GetConstant()->AsConstant());
+        if (DataType::IsFloatingPointType(dst_type) && value == 0) {
+          gpr = Zero;
+        } else {
+          __ LoadConst32(gpr, value);
+        }
+      } else {
+        int64_t value = GetInt64ValueOf(source.GetConstant()->AsConstant());
+        if (DataType::IsFloatingPointType(dst_type) && value == 0) {
+          gpr = Zero;
+        } else {
+          __ LoadConst64(gpr, value);
+        }
+      }
+      if (dst_type == DataType::Type::kFloat32) {
+        __ FMvWX(destination.AsFpuRegister<FRegister>(), gpr);
+      } else if (dst_type == DataType::Type::kFloat64) {
+        __ FMvDX(destination.AsFpuRegister<FRegister>(), gpr);
+      }
+    } else if (source.IsRegister()) {
+      if (destination.IsRegister()) {
+        // Move to GPR from GPR
+        __ Mv(destination.AsRegister<XRegister>(), source.AsRegister<XRegister>());
+      } else {
+        DCHECK(destination.IsFpuRegister());
+        if (DataType::Is64BitType(dst_type)) {
+          __ FMvDX(destination.AsFpuRegister<FRegister>(), source.AsRegister<XRegister>());
+        } else {
+          __ FMvWX(destination.AsFpuRegister<FRegister>(), source.AsRegister<XRegister>());
+        }
+      }
+    } else if (source.IsFpuRegister()) {
+      if (destination.IsFpuRegister()) {
+        if (GetGraph()->HasSIMD()) {
+          LOG(FATAL) << "SIMD is unsupported";
+        } else {
+          // Move to FPR from FPR
+          if (dst_type == DataType::Type::kFloat32) {
+            __ FMvS(destination.AsFpuRegister<FRegister>(), source.AsFpuRegister<FRegister>());
+          } else {
+            DCHECK_EQ(dst_type, DataType::Type::kFloat64);
+            __ FMvD(destination.AsFpuRegister<FRegister>(), source.AsFpuRegister<FRegister>());
+          }
+        }
+      } else {
+        DCHECK(destination.IsRegister());
+        if (DataType::Is64BitType(dst_type)) {
+          __ FMvXD(destination.AsRegister<XRegister>(), source.AsFpuRegister<FRegister>());
+        } else {
+          __ FMvXW(destination.AsRegister<XRegister>(), source.AsFpuRegister<FRegister>());
+        }
+      }
+    }
+  } else if (destination.IsSIMDStackSlot()) {
+    if (source.IsFpuRegister()) {
+      __ FStored(source.AsFpuRegister<FRegister>(), SP, destination.GetStackIndex());
+    } else {
+      DCHECK(source.IsSIMDStackSlot());
+      LOG(FATAL) << "SIMD is unsupported";
+    }
+  } else {  // The destination is not a register. It must be a stack slot.
+    DCHECK(destination.IsStackSlot() || destination.IsDoubleStackSlot());
+    if (source.IsRegister() || source.IsFpuRegister()) {
+      if (unspecified_type) {
+        if (source.IsRegister()) {
+          dst_type = destination.IsStackSlot() ? DataType::Type::kInt32 : DataType::Type::kInt64;
+        } else {
+          dst_type =
+              destination.IsStackSlot() ? DataType::Type::kFloat32 : DataType::Type::kFloat64;
+        }
+      }
+      DCHECK((destination.IsDoubleStackSlot() == DataType::Is64BitType(dst_type)) &&
+             (source.IsFpuRegister() == DataType::IsFloatingPointType(dst_type)));
+      // Move to stack from GPR/FPR
+      if (DataType::Is64BitType(dst_type)) {
+        if (source.IsRegister()) {
+          __ Stored(source.AsRegister<XRegister>(), SP, destination.GetStackIndex());
+        } else {
+          __ FStored(source.AsFpuRegister<FRegister>(), SP, destination.GetStackIndex());
+        }
+      } else {
+        if (source.IsRegister()) {
+          __ Storew(source.AsRegister<XRegister>(), SP, destination.GetStackIndex());
+        } else {
+          __ FStorew(source.AsFpuRegister<FRegister>(), SP, destination.GetStackIndex());
+        }
+      }
+    } else if (source.IsConstant()) {
+      // Move to stack from constant
+      HConstant* src_cst = source.GetConstant();
+      XRegister gpr = Zero;
+      if (destination.IsStackSlot()) {
+        int32_t value = GetInt32ValueOf(src_cst->AsConstant());
+        if (value != 0) {
+          gpr = TMP;
+          __ LoadConst32(gpr, value);
+        }
+        __ Storew(gpr, SP, destination.GetStackIndex());
+      } else {
+        DCHECK(destination.IsDoubleStackSlot());
+        int64_t value = GetInt64ValueOf(src_cst->AsConstant());
+        if (value != 0) {
+          gpr = TMP;
+          __ LoadConst64(gpr, value);
+        }
+        __ Stored(gpr, SP, destination.GetStackIndex());
+      }
+    } else {
+      DCHECK(source.IsStackSlot() || source.IsDoubleStackSlot());
+      DCHECK_EQ(source.IsDoubleStackSlot(), destination.IsDoubleStackSlot());
+      // Move to stack from stack
+      if (destination.IsStackSlot()) {
+        __ Loadw(TMP, SP, source.GetStackIndex());
+        __ Storew(TMP, SP, destination.GetStackIndex());
+      } else {
+        __ Loadd(TMP, SP, source.GetStackIndex());
+        __ Stored(TMP, SP, destination.GetStackIndex());
+      }
+    }
+  }
 }
-void CodeGeneratorRISCV64::MoveLocation(Location rd, Location src, DataType::Type rd_type) {
-  UNUSED(rd);
-  UNUSED(src);
-  UNUSED(rd_type);
-  LOG(FATAL) << "Unimplemented";
-  UNREACHABLE();
-}
+
 void CodeGeneratorRISCV64::AddLocationAsTemp(Location location, LocationSummary* locations) {
   UNUSED(location);
   UNUSED(locations);
