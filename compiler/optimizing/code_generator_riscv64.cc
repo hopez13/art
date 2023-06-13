@@ -24,6 +24,7 @@
 #include "jit/profiling_info.h"
 #include "optimizing/nodes.h"
 #include "utils/label.h"
+#include "utils/riscv64/assembler_riscv64.h"
 #include "utils/stack_checks.h"
 
 namespace art {
@@ -2477,17 +2478,13 @@ void CodeGeneratorRISCV64::SetupBlockedRegisters() const {
 }
 
 size_t CodeGeneratorRISCV64::SaveCoreRegister(size_t stack_index, uint32_t reg_id) {
-  UNUSED(stack_index);
-  UNUSED(reg_id);
-  LOG(FATAL) << "Unimplemented";
-  UNREACHABLE();
+  __ Stored(XRegister(reg_id), SP, stack_index);
+  return kRiscv64DoublewordSize;
 }
 
 size_t CodeGeneratorRISCV64::RestoreCoreRegister(size_t stack_index, uint32_t reg_id) {
-  UNUSED(stack_index);
-  UNUSED(reg_id);
-  LOG(FATAL) << "Unimplemented";
-  UNREACHABLE();
+  __ Loadd(XRegister(reg_id), SP, stack_index);
+  return kRiscv64DoublewordSize;
 }
 
 size_t CodeGeneratorRISCV64::SaveFloatingPointRegister(size_t stack_index, uint32_t reg_id) {
@@ -2498,10 +2495,12 @@ size_t CodeGeneratorRISCV64::SaveFloatingPointRegister(size_t stack_index, uint3
 }
 
 size_t CodeGeneratorRISCV64::RestoreFloatingPointRegister(size_t stack_index, uint32_t reg_id) {
-  UNUSED(stack_index);
-  UNUSED(reg_id);
-  LOG(FATAL) << "Unimplemented";
-  UNREACHABLE();
+  if (GetGraph()->HasSIMD()) {
+    // TODO: RISCV vector extension.
+    UNIMPLEMENTED(FATAL) << "SIMD is unsupported";
+  }
+  __ FStored(FRegister(reg_id), SP, stack_index);
+  return kRiscv64FloatRegSizeInBytes;
 }
 
 void CodeGeneratorRISCV64::DumpCoreRegister(std::ostream& stream, int reg) const {
