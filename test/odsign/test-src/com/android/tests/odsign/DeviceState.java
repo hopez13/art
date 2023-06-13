@@ -190,11 +190,6 @@ public class DeviceState {
             mMutatedPhenotypeFlags.add(key);
         }
 
-        // Disable phenotype flag syncing. Potentially, we can set `set_sync_disabled_for_tests` to
-        // `until_reboot`, but setting it to `persistent` prevents unrelated system crashes/restarts
-        // from affecting the test. `set_sync_disabled_for_tests` is reset in `restore` anyway.
-        mTestUtils.assertCommandSucceeds("device_config set_sync_disabled_for_tests persistent");
-
         if (value != null) {
             mTestUtils.assertCommandSucceeds(String.format(
                     "device_config put '%s' '%s' '%s'", PHENOTYPE_FLAG_NAMESPACE, key, value));
