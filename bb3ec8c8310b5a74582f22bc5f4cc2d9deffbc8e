@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0d49af0_8105b812",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-06-14T14:31:50Z",
+      "side": 1,
+      "message": "Nice cleanup.",
+      "revId": "bb3ec8c8310b5a74582f22bc5f4cc2d9deffbc8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e726bf3_f61bbc6a",
+        "filename": "runtime/verifier/reg_type.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 464,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-06-14T14:31:50Z",
+      "side": 1,
+      "message": "One arg per line.",
+      "range": {
+        "startLine": 464,
+        "startChar": 12,
+        "endLine": 464,
+        "endChar": 76
+      },
+      "revId": "bb3ec8c8310b5a74582f22bc5f4cc2d9deffbc8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "875aaaa2_4451eae9",
+        "filename": "runtime/verifier/reg_type_cache-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-06-14T14:31:50Z",
+      "side": 1,
+      "message": "`down_cast` here and below.",
+      "range": {
+        "startLine": 45,
+        "startChar": 12,
+        "endLine": 45,
+        "endChar": 28
+      },
+      "revId": "bb3ec8c8310b5a74582f22bc5f4cc2d9deffbc8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
