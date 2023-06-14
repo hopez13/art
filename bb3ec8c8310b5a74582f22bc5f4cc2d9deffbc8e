@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "710e38bd_8470d1a5",
+        "filename": "runtime/verifier/reg_type.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 464,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-06-14T14:38:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7e726bf3_f61bbc6a",
+      "range": {
+        "startLine": 464,
+        "startChar": 12,
+        "endLine": 464,
+        "endChar": 76
+      },
+      "revId": "bb3ec8c8310b5a74582f22bc5f4cc2d9deffbc8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "875aaaa2_4451eae9",
@@ -54,6 +78,30 @@
       "writtenOn": "2023-06-14T14:31:50Z",
       "side": 1,
       "message": "`down_cast` here and below.",
+      "range": {
+        "startLine": 45,
+        "startChar": 12,
+        "endLine": 45,
+        "endChar": 28
+      },
+      "revId": "bb3ec8c8310b5a74582f22bc5f4cc2d9deffbc8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b3dc6d00_3d78328a",
+        "filename": "runtime/verifier/reg_type_cache-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-06-14T14:38:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "875aaaa2_4451eae9",
       "range": {
         "startLine": 45,
         "startChar": 12,
