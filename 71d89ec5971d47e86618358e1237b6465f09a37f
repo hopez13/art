@@ -1,0 +1,211 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eda2e779_bce9ec99",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-06-14T15:35:02Z",
+      "side": 1,
+      "message": "Is this on device (on VM)?",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 19
+      },
+      "revId": "71d89ec5971d47e86618358e1237b6465f09a37f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d6bfc07_3eee3113",
+        "filename": "compiler/utils/riscv64/jni_macro_assembler_riscv64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-06-14T15:35:02Z",
+      "side": 1,
+      "message": "Can\u0027t this be DCHECK_EQ for some reason?",
+      "range": {
+        "startLine": 89,
+        "startChar": 4,
+        "endLine": 89,
+        "endChar": 10
+      },
+      "revId": "71d89ec5971d47e86618358e1237b6465f09a37f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "362f3614_88dd49eb",
+        "filename": "compiler/utils/riscv64/jni_macro_assembler_riscv64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-06-14T15:35:02Z",
+      "side": 1,
+      "message": "So there are only two variants for ArgumentLocation, a register or a stack location, but not a constant, right? (Otherwise I don\u0027t see constants handled here.)",
+      "range": {
+        "startLine": 285,
+        "startChar": 12,
+        "endLine": 285,
+        "endChar": 33
+      },
+      "revId": "71d89ec5971d47e86618358e1237b6465f09a37f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eaa590ea_00d4b62d",
+        "filename": "compiler/utils/riscv64/jni_macro_assembler_riscv64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-06-14T15:35:02Z",
+      "side": 1,
+      "message": "Do you mean `Store` on line 293?",
+      "range": {
+        "startLine": 287,
+        "startChar": 64,
+        "endLine": 287,
+        "endChar": 70
+      },
+      "revId": "71d89ec5971d47e86618358e1237b6465f09a37f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f1ddbc0e_7398ad7c",
+        "filename": "compiler/utils/riscv64/jni_macro_assembler_riscv64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-06-14T15:35:02Z",
+      "side": 1,
+      "message": "Why? What guarantees it?\n\nAn alternative algorithm that would terminate for sure is:\n- initialize an all-zero `indegree` array\n- iterate over `srcs` once, incrementing `indegree[srcs[i]]`\n- loop over `dests` while you can find `j` such that `indegree[dests[j]] \u003d\u003d 0` (then it is safe to clobber `dests[j]`), moving `src[j] -\u003e dests[j]` and decrementing `indegree[src[j]]`.\n- When the loop breaks (you can\u0027t find such `j`) CHECK that all regs have been copied (e.g. empty mask or all-zero `indegree`).",
+      "range": {
+        "startLine": 298,
+        "startChar": 5,
+        "endLine": 298,
+        "endChar": 30
+      },
+      "revId": "71d89ec5971d47e86618358e1237b6465f09a37f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a23f2851_91d7bde6",
+        "filename": "compiler/utils/riscv64/jni_macro_assembler_riscv64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-06-14T15:35:02Z",
+      "side": 1,
+      "message": "Cannot NaN-boxing be done earlier, when we still have that information and load the float argument into a register?",
+      "range": {
+        "startLine": 318,
+        "startChar": 9,
+        "endLine": 318,
+        "endChar": 88
+      },
+      "revId": "71d89ec5971d47e86618358e1237b6465f09a37f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e2cfb4f_e6118175",
+        "filename": "compiler/utils/riscv64/jni_macro_assembler_riscv64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-06-14T15:35:02Z",
+      "side": 1,
+      "message": "Why do you need a local variable here (why not use `TMP` in both cases)?",
+      "range": {
+        "startLine": 432,
+        "startChar": 12,
+        "endLine": 432,
+        "endChar": 19
+      },
+      "revId": "71d89ec5971d47e86618358e1237b6465f09a37f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "658a29f7_07905741",
+        "filename": "compiler/utils/riscv64/jni_macro_assembler_riscv64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 445,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-06-14T15:35:02Z",
+      "side": 1,
+      "message": "Is EBREAK better than UNIMP for the purpose of marking unreachable code?",
+      "range": {
+        "startLine": 445,
+        "startChar": 2,
+        "endLine": 445,
+        "endChar": 14
+      },
+      "revId": "71d89ec5971d47e86618358e1237b6465f09a37f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f90abc6_e77ddc74",
+        "filename": "compiler/utils/riscv64/jni_macro_assembler_riscv64_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-06-14T15:35:02Z",
+      "side": 1,
+      "message": "It would be best to add it as disabled and ensure that it fails as expected (to do Nan-boxing). But ok to leave as is for now.",
+      "range": {
+        "startLine": 265,
+        "startChar": 2,
+        "endLine": 265,
+        "endChar": 89
+      },
+      "revId": "71d89ec5971d47e86618358e1237b6465f09a37f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
