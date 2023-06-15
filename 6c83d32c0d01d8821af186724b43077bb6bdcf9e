@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "579989d7_fb0757db",
+        "filename": "runtime/oat_quick_method_header.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1268571
+      },
+      "writtenOn": "2023-06-15T18:09:02Z",
+      "side": 1,
+      "message": "Yes, dlopened code gets file-backed memory mapped. File backed memory doesn\u0027t support MTE. We also don\u0027t instrument it with HWASan.",
+      "parentUuid": "1e50fe4f_111f77d3",
+      "range": {
+        "startLine": 122,
+        "startChar": 7,
+        "endLine": 122,
+        "endChar": 22
+      },
+      "revId": "6c83d32c0d01d8821af186724b43077bb6bdcf9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8a7fdd1e_edc81b22",
@@ -85,6 +109,30 @@
       "side": 1,
       "message": "Oh, I have not seen that before.  I assume Florian just copy-pasted my old code.",
       "parentUuid": "8a7fdd1e_edc81b22",
+      "range": {
+        "startLine": 123,
+        "startChar": 70,
+        "endLine": 123,
+        "endChar": 74
+      },
+      "revId": "6c83d32c0d01d8821af186724b43077bb6bdcf9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "99960294_49223ba8",
+        "filename": "runtime/oat_quick_method_header.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1268571
+      },
+      "writtenOn": "2023-06-15T18:09:02Z",
+      "side": 1,
+      "message": "Done. And yes, this is indeed copy-pasted from the old memory_tool.h.",
+      "parentUuid": "771e3f92_077b1241",
       "range": {
         "startLine": 123,
         "startChar": 70,
