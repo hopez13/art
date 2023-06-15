@@ -32,7 +32,6 @@ namespace art {
 
 class MemMap;
 class OatDexFile;
-class ScopedTrace;
 class ZipArchive;
 
 enum class DexFileLoaderErrorCode {
@@ -71,6 +70,38 @@ class DexFileLoader {
   // Return the (possibly synthetic) dex location for a multidex entry. This is dex_location for
   // index == 0, and dex_location + multi-dex-separator + GetMultiDexClassesDexName(index) else.
   static std::string GetMultiDexLocation(size_t index, const char* dex_location);
+
+  // Returns combined checksum of one or more dex files (one checksum for the whole multidex set).
+  //
+  // This uses the source path provided to DexFileLoader.
+  //
+  // Returns false on error.  Returns checksum "nullopt" for an empty set.
+  bool GetMultiDexChecksum(/*out*/ std::optional<uint32_t>* checksum,
+                           /*out*/ std::string* error_msg,
+                           /*out*/ bool* only_contains_uncompressed_dex = nullptr);
+
+  // Accumulate checksum of one or more dex files (one checksum for the whole multidex set).
+  //
+  // This calculates the same value as GetMultiDexChecksum based on already open DexFiles.
+  //
+  // It must be called several times with all dex files belonging to the multidex set.
+  //
+  // The first call must have primary location and the following calls must have multidex location.
+  // Returns false if this is not the case.
+  WARN_UNUSED
+  static bool AccMultiDexChecksum(const std::string& dex_location,
+                                  uint32_t dex_location_checksum,
+                                  /*out*/ std::optional<uint32_t>* combined_checksum);
+
+  WARN_UNUSED
+  static bool AccMultiDexChecksum(const DexFile* dex_file,
+                                  /*out*/ std::optional<uint32_t>* checksum) {
+    return AccMultiDexChecksum(dex_file->GetLocation(), dex_file->GetLocationChecksum(), checksum);
+  }
+
+  // Non-zero initial value for multi-dex to catch bugs if multi-dex checksum is compared
+  // directly to DexFile::GetLocationChecksum without going through AccMulitDexChecksum.
+  static constexpr uint32_t kEmptyMultiDexChecksum = 1;
 
   // Returns the canonical form of the given dex location.
   //
