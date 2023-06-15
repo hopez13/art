@@ -582,13 +582,11 @@ std::string CommonArtTestImpl::CreateClassPath(
 std::string CommonArtTestImpl::CreateClassPathWithChecksums(
     const std::vector<std::unique_ptr<const DexFile>>& dex_files) {
   CHECK(!dex_files.empty());
-  std::string classpath = dex_files[0]->GetLocation() + "*" +
-      std::to_string(dex_files[0]->GetLocationChecksum());
-  for (size_t i = 1; i < dex_files.size(); i++) {
-    classpath += ":" + dex_files[i]->GetLocation() + "*" +
-        std::to_string(dex_files[i]->GetLocationChecksum());
+  std::optional<uint32_t> checksum;
+  for (size_t i = 0; i < dex_files.size(); i++) {
+    CHECK(DexFileLoader::AccMultiDexChecksum(dex_files[i].get(), &checksum));
   }
-  return classpath;
+  return dex_files[0]->GetLocation() + "*" + std::to_string(*checksum);
 }
 
 CommonArtTestImpl::ForkAndExecResult CommonArtTestImpl::ForkAndExec(
