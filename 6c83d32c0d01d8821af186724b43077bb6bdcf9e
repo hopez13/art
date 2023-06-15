@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f9a1df1_0a0f7607",
+        "filename": "runtime/oat_quick_method_header.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-06-15T11:04:59Z",
+      "side": 1,
+      "message": "Is that the underlying allocator for `dlopen`? Are we sure that dlopen never tags .text and other sections?",
+      "range": {
+        "startLine": 122,
+        "startChar": 7,
+        "endLine": 122,
+        "endChar": 22
+      },
+      "revId": "6c83d32c0d01d8821af186724b43077bb6bdcf9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a7fdd1e_edc81b22",
+        "filename": "runtime/oat_quick_method_header.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-06-15T11:04:59Z",
+      "side": 1,
+      "message": "`UINT64_C(1)`",
+      "range": {
+        "startLine": 123,
+        "startChar": 70,
+        "endLine": 123,
+        "endChar": 74
+      },
+      "revId": "6c83d32c0d01d8821af186724b43077bb6bdcf9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
