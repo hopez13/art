@@ -109,6 +109,7 @@ RUNTIME_OPTIONS_KEY (std::string,         JniTrace)
 RUNTIME_OPTIONS_KEY (bool,                Relocate,                       kDefaultMustRelocate)
 RUNTIME_OPTIONS_KEY (bool,                ImageDex2Oat,                   true)
 RUNTIME_OPTIONS_KEY (bool,                Interpret,                      false) // -Xint
+RUNTIME_OPTIONS_KEY (bool,                Nterp,                          false) // -Xnterp
                                                         // Disable the compiler for CC (for now).
 RUNTIME_OPTIONS_KEY (XGcOption,           GcOption)  // -Xgc:
 RUNTIME_OPTIONS_KEY (gc::space::LargeObjectSpaceType, \

@@ -243,7 +243,7 @@ def gather_test_info():
   VARIANT_TYPE_DICT['address_sizes'] = {'64', '32'}
   VARIANT_TYPE_DICT['jvmti'] = {'no-jvmti', 'jvmti-stress', 'redefine-stress', 'trace-stress',
                                 'field-stress', 'step-stress'}
-  VARIANT_TYPE_DICT['compiler'] = {'interp-ac', 'interpreter', 'jit', 'jit-on-first-use',
+  VARIANT_TYPE_DICT['compiler'] = {'interp-ac', 'interpreter', 'nterp', 'jit', 'jit-on-first-use',
                                    'optimizing', 'regalloc_gc',
                                    'speed-profile', 'baseline'}
 
@@ -280,6 +280,7 @@ def setup_test_env():
       'compiler': {'optimizing',
                    'jit',
                    'interpreter',
+                   'nterp'
                    'interp-ac',
                    'speed-profile'},
       'relocate': {'no-relocate'},
@@ -532,6 +533,8 @@ def run_tests(tests):
         options_test += ' --optimizing -Xcompiler-option --register-allocation-strategy=graph-color'
       elif compiler == 'interpreter':
         options_test += ' --interpreter'
+      elif compiler == 'nterp':
+        options_test += ' --nterp'
       elif compiler == 'interp-ac':
         options_test += ' --interpreter --verify-soft-fail'
       elif compiler == 'jit':

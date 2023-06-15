@@ -73,6 +73,7 @@ def parse_args(argv):
   argp.add_argument("--image", default=True, action=opt_bool)
   argp.add_argument("--instruction-set-features", default="")
   argp.add_argument("--interpreter", action="store_true")
+  argp.add_argument("--nterp", action="store_true")
   argp.add_argument("--invoke-with", default=[], action="append")
   argp.add_argument("--jit", action="store_true")
   argp.add_argument("--jvm", action="store_true")
@@ -277,6 +278,7 @@ def default_run(ctx, args, **kwargs):
   USE_EXTRACTED_ZIPAPEX = (args.runtime_extracted_zipapex != "")
   EXTRACTED_ZIPAPEX_LOC = args.runtime_extracted_zipapex
   INTERPRETER = args.interpreter
+  NTERP = args.nterp
   JIT = args.jit
   INVOKE_WITH = " ".join(args.invoke_with)
   USE_JVMTI = args.jvmti
@@ -657,6 +659,9 @@ def default_run(ctx, args, **kwargs):
 
   if INTERPRETER:
     INT_OPTS += " -Xint"
+
+  if NTERP:
+    INT_OPTS += " -Xnterp"
 
   if JIT:
     INT_OPTS += " -Xusejit:true"

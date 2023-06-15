@@ -139,6 +139,9 @@ std::unique_ptr<RuntimeParser> ParsedOptions::MakeParser(bool ignore_unrecognize
       .Define("-Xint")
           .WithValue(true)
           .IntoKey(M::Interpret)
+      .Define("-Xnterp")
+          .WithValue(true)
+          .IntoKey(M::Nterp)
       .SetCategory("Dalvik")
       .Define("-Xzygote")
           .WithHelp("Start as zygote")
@@ -697,7 +700,25 @@ bool ParsedOptions::DoParse(const RuntimeOptions& options,
       Usage("-Xusejit:true and -Xint cannot be specified together\n");
       Exit(0);
     }
+    if (args.Exists(M::Nterp)) {
+      Usage("-Xnterp and -Xint cannot be specified together\n");
+      Exit(0);
+    }
     args.Set(M::UseJitCompilation, false);
+    args.Set(M::Nterp, false);
+  }
+
+  if (args.GetOrDefault(M::Nterp)) {
+    if (args.Exists(M::UseJitCompilation) && *args.Get(M::UseJitCompilation)) {
+      Usage("-Xusejit:true and -Xnterp cannot be specified together\n");
+      Exit(0);
+    }
+    if (args.Exists(M::Interpret)) {
+      Usage("-Xnterp and -Xint cannot be specified together\n");
+      Exit(0);
+    }
+    args.Set(M::UseJitCompilation, false);
+    args.Set(M::Interpret, false);
   }
 
   // Set a default boot class path if we didn't get an explicit one via command line.

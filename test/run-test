@@ -409,6 +409,9 @@ if True:
     elif arg == "--interpreter":
       run_args += ["--interpreter"]
       shift()
+    elif arg == "--nterp":
+      run_args += ["--nterp"]
+      shift()
     elif arg == "--jit":
       run_args += ["--jit"]
       shift()
@@ -812,7 +815,8 @@ if True:
         "    --simpleperf          Wraps the dalvikvm invocation in 'simpleperf record ...\n"
         "                          ... simpleperf report' and dumps stats to stdout.\n"
         "    --temp-path [path]    Location where to execute the tests.\n"
-        "    --interpreter         Enable interpreter only mode (off by default).\n"
+        "    --interpreter         Enable switch-interpreter only mode (off by default).\n"
+        "    --nterp               Enable nterp only mode (off by default).\n"
         "    --jit                 Enable jit (off by default).\n"
         "    --optimizing          Enable optimizing compiler (default).\n"
         "    --no-verify           Turn off verification (on by default).\n"
