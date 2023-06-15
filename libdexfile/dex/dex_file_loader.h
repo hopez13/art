@@ -32,7 +32,6 @@ namespace art {
 
 class MemMap;
 class OatDexFile;
-class ScopedTrace;
 class ZipArchive;
 
 enum class DexFileLoaderErrorCode {
@@ -64,6 +63,10 @@ class DexFileLoader {
   // whether the string contains the separator character.
   static bool IsMultiDexLocation(const char* location);
 
+  static bool IsMultiDexLocation(const DexFile* dex_file) {
+    return IsMultiDexLocation(dex_file->GetLocation().c_str());
+  }
+
   // Return the name of the index-th classes.dex in a multidex zip file. This is classes.dex for
   // index == 0, and classes{index + 1}.dex else.
   static std::string GetMultiDexClassesDexName(size_t index);
@@ -71,6 +74,35 @@ class DexFileLoader {
   // Return the (possibly synthetic) dex location for a multidex entry. This is dex_location for
   // index == 0, and dex_location + multi-dex-separator + GetMultiDexClassesDexName(index) else.
   static std::string GetMultiDexLocation(size_t index, const char* dex_location);
+
+  // Returns combined checksum of one or more dex files (one checksum for the whole multidex set).
+  //
+  // This uses the source path provided to DexFileLoader constructor.
+  //
+  // Returns false on error.  Sets *checksum to nullopt for an empty set.
+  bool GetMultiDexChecksum(/*out*/ std::optional<uint32_t>* checksum,
+                           /*out*/ std::string* error_msg,
+                           /*out*/ bool* only_contains_uncompressed_dex = nullptr);
+
+  // Accumulate checksum of one or more dex files (one checksum for the whole multidex set).
+  //
+  // This calculates the same value as GetMultiDexChecksum based on already open DexFiles.
+  //
+  // It must be called several times with all dex files belonging to the multidex set.
+  // The combined_checksum must be initialized to nullopt before the first call.
+  // The first call must have primary location and the following calls must have multidex location.
+  static void AccMultiDexChecksum(const std::string& dex_location,
+                                  uint32_t dex_location_checksum,
+                                  /*inout*/ std::optional<uint32_t>* combined_checksum);
+
+  static void AccMultiDexChecksum(const DexFile* dex_file,
+                                  /*inout*/ std::optional<uint32_t>* checksum) {
+    AccMultiDexChecksum(dex_file->GetLocation(), dex_file->GetLocationChecksum(), checksum);
+  }
+
+  // Non-zero initial value for multi-dex to catch bugs if multi-dex checksum is compared
+  // directly to DexFile::GetLocationChecksum without going through AccMultiDexChecksum.
+  static constexpr uint32_t kEmptyMultiDexChecksum = 1;
 
   // Returns the canonical form of the given dex location.
   //
