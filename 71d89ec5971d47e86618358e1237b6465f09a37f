@@ -379,6 +379,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6ec99540_5e5b5de6",
+        "filename": "compiler/utils/riscv64/jni_macro_assembler_riscv64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 445,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-06-15T09:50:56Z",
+      "side": 1,
+      "message": "From the standard (2.8. Environment Call and Breakpoints, note for EBREAK and ECALL):\n\n\u003e EBREAK was primarily designed to be used by a debugger to cause execution\n\u003e to stop and fall back into the debugger. EBREAK is also used by the standard\n\u003e gcc compiler to mark code paths that should not be executed.\n\nAlso a bit further:\n\n\u003e Note that these three instructions must be 32-bit-wide instructions, i.e.,\n\u003e they mustn’t be among the compressed 16-bit instructions described in Chapter 18.\n\nI think it\u0027s fine as is, but EBREAK will always be 32-bit even after we move to compressed 16-bit UNIMP.C.",
+      "parentUuid": "8b2db0b0_9841a21c",
+      "range": {
+        "startLine": 445,
+        "startChar": 2,
+        "endLine": 445,
+        "endChar": 14
+      },
+      "revId": "71d89ec5971d47e86618358e1237b6465f09a37f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5f90abc6_e77ddc74",
         "filename": "compiler/utils/riscv64/jni_macro_assembler_riscv64_test.cc",
         "patchSetId": 2
