@@ -401,6 +401,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cbe8981a_0b1f8f25",
+        "filename": "compiler/utils/riscv64/jni_macro_assembler_riscv64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 445,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-06-15T10:39:24Z",
+      "side": 1,
+      "message": "So EBREAK is in line with the usage in GCC (this path should not be executed).\n\nI\u0027ll submit this as is but I\u0027ll probably replace it with UNIMP in one of the following CLs.",
+      "parentUuid": "6ec99540_5e5b5de6",
+      "range": {
+        "startLine": 445,
+        "startChar": 2,
+        "endLine": 445,
+        "endChar": 14
+      },
+      "revId": "71d89ec5971d47e86618358e1237b6465f09a37f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5f90abc6_e77ddc74",
