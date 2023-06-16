@@ -24,8 +24,7 @@ package {
 }
 
 cc_defaults {
-    name: "libart_verify_dex_fuzzer-defaults",
-    srcs: ["libart_verify_dex_fuzzer.cc"],
+    name: "libart_fuzzer-defaults",
 
     defaults: [
         // To allow the ART module to build correctly.
@@ -58,6 +57,15 @@ cc_defaults {
     },
 }
 
+cc_defaults {
+    name: "libart_verify_dex_fuzzer-defaults",
+    srcs: ["libart_verify_dex_fuzzer.cc"],
+
+    defaults: [
+        "libart_fuzzer-defaults",
+    ],
+}
+
 cc_fuzz {
     name: "libart_verify_dex_fuzzer",
     defaults: [
@@ -77,6 +85,37 @@ cc_fuzz {
         "libart_verify_dex_fuzzer-defaults",
         "libartd_static_defaults",
     ],
+    // Can not be in defaults due to soong limitations.
+    corpus: [
+        ":art_runtest_corpus",
+        "corpus/*",
+    ],
+}
+
+cc_fuzz {
+    name: "libart_verify_classes_fuzzer",
+    srcs: ["libart_verify_classes_fuzzer.cc"],
+
+    defaults: [
+        "art_defaults",
+        "libart_fuzzer-defaults",
+        "libart_static_defaults",
+    ],
+
+    // TODO: Figure out how to compile for device
+    device_supported: false,
+
+    data: [
+        ":core-oj",
+        ":core-libart",
+        ":okhttp",
+        ":bouncycastle",
+        ":apache-xml",
+        ":core-icu4j",
+        // TODO: Figure out how to enable conscrypt
+        // ":conscrypt",
+    ],
+
     // Can not be in defaults due to soong limitations.
     corpus: [
         ":art_runtest_corpus",
