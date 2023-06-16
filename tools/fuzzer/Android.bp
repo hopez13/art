@@ -57,3 +57,51 @@ cc_fuzz {
         ],
     },
 }
+
+cc_fuzz {
+    name: "libart_verify_classes_fuzzer",
+    srcs: ["libart_verify_classes_fuzzer.cc"],
+
+    defaults: [
+        "art_defaults",
+        // Run in release mode since debug is too slow.
+        "libart_static_defaults",
+        // To allow the ART module to build correctly.
+        "art_module_source_build_defaults",
+    ],
+
+    // Build and run on x86 too.
+    host_supported: true,
+    // TODO: Figure out how to compile for device
+    device_supported: false,
+
+    target: {
+        android: {
+            shared_libs: [
+                // Perfetto as a shared lib.
+                "heapprofd_client_api",
+            ],
+        },
+    },
+
+    data: [
+        ":core-oj",
+        ":core-libart",
+        ":okhttp",
+        ":bouncycastle",
+        ":apache-xml",
+        ":core-icu4j",
+        // ":conscrypt",
+    ],
+
+    corpus: ["corpus/*"],
+    dictionary: "dex.dict",
+    fuzz_config: {
+        triage_assignee: "art-perf-team@google.com",
+        cc: ["solanes@google.com", "art-bugs@google.com"],
+        componentid: 86431,
+        acknowledgement: [
+            "Santiago Aboy Solanes of Google",
+        ],
+    },
+}
