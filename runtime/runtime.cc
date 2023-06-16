@@ -1885,6 +1885,9 @@ bool Runtime::Init(RuntimeArgumentMap&& runtime_options_in) {
                        ArrayRef<const int>(GetBootClassPathFds()),
                        &boot_class_path);
     }
+    for (const auto& dex_file : boot_class_path) {
+      LOG(ERROR) << "DexFile: " << dex_file->GetLocation();
+    }
     if (!class_linker_->InitWithoutImage(std::move(boot_class_path), &error_msg)) {
       LOG(ERROR) << "Could not initialize without image: " << error_msg;
       return false;

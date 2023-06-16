@@ -1,0 +1,221 @@
+/*
+ * Copyright (C) 2023 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+#include <ios>
+
+#include "android-base/logging.h"
+#include "android-base/macros.h"
+#include "android-base/strings.h"
+#include "base/file_utils.h"
+#include "base/mem_map.h"
+// #include "class_linker.h"
+#include "dex/class_accessor-inl.h"
+#include "dex/dex_file_loader.h"
+#include "handle_scope-inl.h"
+#include "interpreter/unstarted_runtime.h"
+#include "jit/jit.h"
+#include "jni.h"
+#include "jni/java_vm_ext.h"
+#include "linear_alloc-inl.h"
+#include "mirror/class.h"
+#include "noop_compiler_callbacks.h"
+#include "runtime.h"
+#include "scoped_thread_state_change-inl.h"
+#include "sigchain.h"
+#include "verifier/class_verifier.h"
+#include "well_known_classes.h"
+
+// std::unique_ptr<art::Runtime> global_runtime = nullptr;
+uint8_t* allocated_signal_stack = nullptr;
+
+std::vector<std::string> GetLibCoreModuleNames() {
+  // Note: This must start with the CORE_IMG_JARS in Android.common_path.mk because that's what we
+  // use for compiling the boot.art image. It may contain additional modules from TEST_CORE_JARS.
+
+  // CORE_IMG_JARS modules.
+  std::vector<std::string> modules{
+      "core-oj",
+      "core-libart",
+      "okhttp",
+      "bouncycastle",
+      "apache-xml",
+  };
+
+  // Additional modules. Maybe not include this ones.
+    // TODO: core-icu4j appeas in the data folder but then we cannot open it. Figure out why.
+    modules.push_back("core-icu4j");
+    // TODO: Get conscrypt too if possible. Build rule seems different than the others.
+  //   modules.push_back("conscrypt");
+
+  return modules;
+}
+
+std::string GetDexFileName(const std::string& jar_name, bool host) {
+  std::string prefix(host ? art::GetAndroidRoot() : "");
+  const char* extra_path = (jar_name == "core-icu4j" ? "combined/" : "");
+  std::string result = android::base::StringPrintf(
+      "%s/libart_verify_classes_fuzzer/data/%s%s.jar", prefix.c_str(), extra_path, jar_name.c_str());
+  LOG(ERROR) << "Name: " << result;
+  return result;
+}
+
+std::vector<std::string> GetLibCoreDexFileNames(const std::vector<std::string>& modules) {
+  std::vector<std::string> result;
+  result.reserve(modules.size());
+  for (const std::string& module : modules) {
+    result.push_back(GetDexFileName(module, !art::kIsTargetBuild));
+  }
+  return result;
+}
+
+std::vector<std::string> GetLibCoreDexFileNames() {
+  std::vector<std::string> modules = GetLibCoreModuleNames();
+  return GetLibCoreDexFileNames(modules);
+}
+
+std::string GetClassPathOption(const char* option, const std::vector<std::string>& class_path) {
+  return option + android::base::Join(class_path, ':');
+}
+
+jobject RegisterDexFileAndGetClassLoader(art::Runtime* runtime,
+                                         std::unique_ptr<const art::DexFile>& dex_file)
+    REQUIRES_SHARED(art::Locks::mutator_lock_) {
+  art::Thread* self = art::Thread::Current();
+  art::ClassLinker* class_linker = runtime->GetClassLinker();
+  const std::vector<const art::DexFile*> dex_files = {dex_file.get()};
+  jobject class_loader = class_linker->CreatePathClassLoader(self, dex_files);
+  art::ObjPtr<art::mirror::ClassLoader> cl = self->DecodeJObject(class_loader)->AsClassLoader();
+  class_linker->RegisterDexFile(*dex_file.get(), cl);
+  return class_loader;
+}
+
+extern "C" int LLVMFuzzerInitialize([[maybe_unused]] int* argc, [[maybe_unused]] char*** argv) {
+  // Initialize environment.
+  art::Locks::Init();
+  art::MemMap::Init();
+  // Set logging to error and above to avoid warnings about unexpected checksums.
+  android::base::SetMinimumLogSeverity(android::base::ERROR);
+
+  // Create runtime.
+  art::RuntimeOptions options;
+  {
+    static art::NoopCompilerCallbacks callbacks;
+    options.push_back(std::make_pair("compilercallbacks", &callbacks));
+  }
+
+  std::string boot_class_path_string =
+      GetClassPathOption("-Xbootclasspath:", GetLibCoreDexFileNames());
+  LOG(ERROR) << "boot_class_path_string: " << boot_class_path_string;
+  options.push_back(std::make_pair(boot_class_path_string, nullptr));
+
+  // Instruction set.
+  options.push_back(
+      std::make_pair("imageinstructionset",
+                     reinterpret_cast<const void*>(GetInstructionSetString(art::kRuntimeISA))));
+
+  // No need for sig chain.
+  options.push_back(std::make_pair("-Xno-sig-chain", nullptr));
+
+  if (!art::Runtime::Create(options, false)) {
+    CHECK(false) << "We should always be able to create the runtime";
+    return -1;
+  }
+
+  // Need well-known-classes.
+  art::WellKnownClasses::Init(art::Thread::Current()->GetJniEnv());
+  // Need a class loader. Fake that we're a compiler.
+  // Note: this will run initializers through the unstarted runtime, so make sure it's
+  //       initialized.
+  art::interpreter::UnstartedRuntime::Initialize();
+
+  art::Thread::Current()->TransitionFromRunnableToSuspended(art::ThreadState::kNative);
+
+  // Query the current stack and add it to the global variable. Otherwise LSAN complains about a
+  // non-existing leak.
+  stack_t ss;
+  if (sigaltstack(nullptr, &ss) == -1) {
+    PLOG(FATAL) << "sigaltstack failed";
+  }
+  allocated_signal_stack = reinterpret_cast<uint8_t*>(ss.ss_sp);
+
+  return 0;
+}
+
+extern "C" int LLVMFuzzerTestOneInput(const uint8_t* data, size_t size) {
+  // Skip compact DEX.
+  // TODO(dsrbecky): Remove after removing compact DEX.
+  const char* dex_string = "cdex";
+  if (size >= strlen(dex_string) &&
+      strncmp(dex_string, (const char*)data, strlen(dex_string)) == 0) {
+    // A -1 indicates we don't want this DEX added to the corpus.
+    return -1;
+  }
+
+  // Open and verify the DEX file. Do not verify the checksum as we only care about the DEX file
+  // contents, and know that the checksum would probably be erroneous.
+  std::string error_msg;
+  art::DexFileLoader loader(data, size, /*location=*/"fuzzer.dex");
+  std::unique_ptr<const art::DexFile> dex_file = loader.Open(
+      /*location_checksum=*/0, /*verify=*/true, /*verify_checksum=*/false, &error_msg);
+  if (dex_file == nullptr) {
+    // DEX file couldn't be verified, don't save it in the corpus.
+    return -1;
+  }
+
+  art::Runtime* runtime = art::Runtime::Current();
+  CHECK(runtime != nullptr);
+
+  art::ScopedObjectAccess soa(art::Thread::Current());
+  art::ClassLinker* class_linker = runtime->GetClassLinker();
+  jobject class_loader = RegisterDexFileAndGetClassLoader(runtime, dex_file);
+
+  // Scope for the handles
+  {
+    art::StackHandleScope<3> scope(soa.Self());
+    art::Handle<art::mirror::ClassLoader> h_loader =
+        scope.NewHandle(soa.Decode<art::mirror::ClassLoader>(class_loader));
+    art::MutableHandle<art::mirror::Class> h_klass(scope.NewHandle<art::mirror::Class>(nullptr));
+    art::MutableHandle<art::mirror::DexCache> h_dex_cache(
+        scope.NewHandle<art::mirror::DexCache>(nullptr));
+
+    for (art::ClassAccessor accessor : dex_file->GetClasses()) {
+      const char* descriptor = accessor.GetDescriptor();
+      h_klass.Assign(class_linker->FindClass(soa.Self(), descriptor, h_loader));
+      if (h_klass == nullptr || h_klass->IsErroneous()) {
+        soa.Self()->ClearException();
+        continue;
+      }
+      h_dex_cache.Assign(h_klass->GetDexCache());
+      art::verifier::ClassVerifier::VerifyClass(soa.Self(),
+                                                /* verifier_deps= */ nullptr,
+                                                h_dex_cache->GetDexFile(),
+                                                h_klass,
+                                                h_dex_cache,
+                                                h_loader,
+                                                *h_klass->GetClassDef(),
+                                                runtime->GetCompilerCallbacks(),
+                                                art::verifier::HardFailLogMode::kLogWarning,
+                                                /* api_level= */ 0,
+                                                &error_msg);
+    }
+  }
+
+  // Delete global ref and unload class loader to free RAM.
+  soa.Env()->GetVm()->DeleteGlobalRef(soa.Self(), class_loader);
+  runtime->GetHeap()->CollectGarbage(/* clear_soft_references */ true);
+
+  return 0;
+}
