@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "eae80e50_860217b0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-06-16T10:34:50Z",
+      "side": 1,
+      "message": "how will you handle the crc check for just knowing if the oat file is up to date (and avoiding the zip decompression) ?",
+      "range": {
+        "startLine": 12,
+        "startChar": 29,
+        "endLine": 13,
+        "endChar": 26
+      },
+      "revId": "9a7cb55d8ee6ccbc2eb824d766461f2cf9fca48a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "27b65a2a_802e6601",
@@ -14,6 +37,23 @@
       "writtenOn": "2023-06-15T17:06:46Z",
       "side": 1,
       "message": "PTAL",
+      "revId": "9a7cb55d8ee6ccbc2eb824d766461f2cf9fca48a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ff95d94_6405d842",
+        "filename": "libdexfile/dex/dex_file.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-06-16T10:34:50Z",
+      "side": 1,
+      "message": "Add a comment why this kind of printing.",
       "revId": "9a7cb55d8ee6ccbc2eb824d766461f2cf9fca48a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
