@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "01f54793_797a635d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2023-06-16T11:31:55Z",
+      "side": 1,
+      "message": "Nit: Long line.",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 73
+      },
+      "revId": "bc1e1175b03e22af1b370a764e2ff886f4011ef8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc64bc29_7985e68b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2023-06-16T11:31:55Z",
+      "side": 1,
+      "message": "Can you also add (and try) this:\n\n```\nTest: m mts \u0026\u0026 mts-tradefed run commandAndExit mts-art\n```\n\n?",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 27
+      },
+      "revId": "bc1e1175b03e22af1b370a764e2ff886f4011ef8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18eeec21_f745f1e2",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2023-06-16T11:31:55Z",
+      "side": 1,
+      "message": "Do we need something similar in `libart-compiler_deps` too? (Maybe something to address in a separate CL, if there\u0027s anything to do about it.)",
+      "range": {
+        "startLine": 91,
+        "startChar": 0,
+        "endLine": 94,
+        "endChar": 14
+      },
+      "revId": "bc1e1175b03e22af1b370a764e2ff886f4011ef8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d804de5b_6aaed605",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2023-06-16T11:31:55Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 101,
+        "startChar": 0,
+        "endLine": 104,
+        "endChar": 14
+      },
+      "revId": "bc1e1175b03e22af1b370a764e2ff886f4011ef8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec8ff6c1_1878ec92",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2023-06-16T11:31:55Z",
+      "side": 1,
+      "message": "I think this part is incorrect; IIRC, we don\u0027t have debug variants of standalone ART gtests.",
+      "range": {
+        "startLine": 397,
+        "startChar": 35,
+        "endLine": 397,
+        "endChar": 57
+      },
+      "revId": "bc1e1175b03e22af1b370a764e2ff886f4011ef8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "65dff769_d6c52040",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 758,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2023-06-16T11:31:55Z",
+      "side": 1,
+      "message": "Perhaps also add a comment about the lack of a `libartd-for-test` library, which is not needed, as we don\u0027t have debug variants of standalone ART gtests (yet).",
+      "range": {
+        "startLine": 756,
+        "startChar": 0,
+        "endLine": 758,
+        "endChar": 64
+      },
+      "revId": "bc1e1175b03e22af1b370a764e2ff886f4011ef8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "422aa6f4_41066613",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2023-06-16T11:31:55Z",
+      "side": 1,
+      "message": "You can use `[[maybe_unused]] /*out*/ std::string* error_msg` here and remove line 251.",
+      "range": {
+        "startLine": 249,
+        "startChar": 30,
+        "endLine": 249,
+        "endChar": 52
+      },
+      "revId": "bc1e1175b03e22af1b370a764e2ff886f4011ef8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
