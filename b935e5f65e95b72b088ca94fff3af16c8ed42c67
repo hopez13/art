@@ -117,6 +117,30 @@
       },
       "revId": "b935e5f65e95b72b088ca94fff3af16c8ed42c67",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca63f1fb_ab962917",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 15
+      },
+      "lineNbr": 766,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-06-16T20:15:39Z",
+      "side": 1,
+      "message": "Only with `whole_static_libs`.\nFor example, if we have:\n`executable` static links `libfoo`.\n`libfoo` static links `libbar`.\nThen `executable` will fail to link because of missing `libbar` symbols. Possible fixes are:\n1) Also specify `libbar` in `static_libs` of `executable`.\n2) Whole-static-link `libbar` into `libfoo`.",
+      "parentUuid": "83e3f4ae_a9695f73",
+      "range": {
+        "startLine": 762,
+        "startChar": 0,
+        "endLine": 766,
+        "endChar": 6
+      },
+      "revId": "b935e5f65e95b72b088ca94fff3af16c8ed42c67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
