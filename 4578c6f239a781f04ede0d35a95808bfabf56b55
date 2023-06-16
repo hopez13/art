@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ee27407_96266360",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1036,
+      "author": {
+        "id": 1995385
+      },
+      "writtenOn": "2023-06-16T03:42:11Z",
+      "side": 1,
+      "message": "The \u0027UNREACHABLE()\u0027 maybe is not needed. None of the other architectures use this.",
+      "revId": "4578c6f239a781f04ede0d35a95808bfabf56b55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
