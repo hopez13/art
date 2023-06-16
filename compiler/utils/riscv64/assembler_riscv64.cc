@@ -53,12 +53,8 @@ void Riscv64Assembler::FinalizeCode() {
   ReserveJumpTableSpace();
   EmitLiterals();
   PromoteBranches();
-}
-
-void Riscv64Assembler::FinalizeInstructions(const MemoryRegion& region) {
   EmitBranches();
   EmitJumpTables();
-  Assembler::FinalizeInstructions(region);
   PatchCFI();
 }
 
