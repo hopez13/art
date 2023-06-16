@@ -78,7 +78,7 @@ static std::unique_ptr<const std::vector<uint8_t>> CreateTrampoline(
   size_t cs = __ CodeSize();
   std::unique_ptr<std::vector<uint8_t>> entry_stub(new std::vector<uint8_t>(cs));
   MemoryRegion code(entry_stub->data(), entry_stub->size());
-  __ FinalizeInstructions(code);
+  __ CopyInstructions(code);
 
   return std::move(entry_stub);
 }
@@ -120,7 +120,7 @@ static std::unique_ptr<const std::vector<uint8_t>> CreateTrampoline(
   size_t cs = __ CodeSize();
   std::unique_ptr<std::vector<uint8_t>> entry_stub(new std::vector<uint8_t>(cs));
   MemoryRegion code(entry_stub->data(), entry_stub->size());
-  __ FinalizeInstructions(code);
+  __ CopyInstructions(code);
 
   return std::move(entry_stub);
 }
@@ -171,7 +171,6 @@ static std::unique_ptr<const std::vector<uint8_t>> CreateTrampoline(
 
     return std::move(entry_stub);
   }
-}
 }  // namespace riscv64
 #endif  // ART_ENABLE_CODEGEN_riscv64
 
@@ -189,7 +188,7 @@ static std::unique_ptr<const std::vector<uint8_t>> CreateTrampoline(ArenaAllocat
   size_t cs = __ CodeSize();
   std::unique_ptr<std::vector<uint8_t>> entry_stub(new std::vector<uint8_t>(cs));
   MemoryRegion code(entry_stub->data(), entry_stub->size());
-  __ FinalizeInstructions(code);
+  __ CopyInstructions(code);
 
   return std::move(entry_stub);
 }
@@ -210,7 +209,7 @@ static std::unique_ptr<const std::vector<uint8_t>> CreateTrampoline(ArenaAllocat
   size_t cs = __ CodeSize();
   std::unique_ptr<std::vector<uint8_t>> entry_stub(new std::vector<uint8_t>(cs));
   MemoryRegion code(entry_stub->data(), entry_stub->size());
-  __ FinalizeInstructions(code);
+  __ CopyInstructions(code);
 
   return std::move(entry_stub);
 }
