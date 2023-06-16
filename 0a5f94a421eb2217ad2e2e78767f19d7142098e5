@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a979ba05_e39d7c10",
+        "filename": "runtime/arch/riscv64/jni_entrypoints_riscv64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-06-16T14:47:04Z",
+      "side": 1,
+      "message": "Generic JNI call was handled on line 129 and couldn\u0027t reach here, so is there another case when GenericJNI frame is used?",
+      "range": {
+        "startLine": 150,
+        "startChar": 14,
+        "endLine": 150,
+        "endChar": 91
+      },
+      "revId": "0a5f94a421eb2217ad2e2e78767f19d7142098e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a71c02f6_658b6b1f",
+        "filename": "runtime/arch/riscv64/jni_entrypoints_riscv64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-06-16T14:47:04Z",
+      "side": 1,
+      "message": "I don\u0027t follow what\u0027s going on here.\n\nIt seems that we allocate a frame on the stack (line 152), then copy some stack slots from that frame down below on the stack (lines 160 - 170).\n\nThe frame wasn\u0027t filled --- why are we copying anyting? As far as I can tell it\u0027s uninitialized stack data.\n\nWhy do you call it \"move\" not \"copy\"?\n\nWhat\u0027s the purpose of this copying anyway?",
+      "range": {
+        "startLine": 160,
+        "startChar": 4,
+        "endLine": 160,
+        "endChar": 34
+      },
+      "revId": "0a5f94a421eb2217ad2e2e78767f19d7142098e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6dc3f973_6d5a51e7",
+        "filename": "runtime/arch/riscv64/jni_entrypoints_riscv64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-06-16T14:47:04Z",
+      "side": 1,
+      "message": "Why do you copy them in pairs? Is there a guarantee that the number of args is even?",
+      "range": {
+        "startLine": 164,
+        "startChar": 0,
+        "endLine": 165,
+        "endChar": 49
+      },
+      "revId": "0a5f94a421eb2217ad2e2e78767f19d7142098e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fae8898b_f5cb8a2a",
+        "filename": "runtime/arch/riscv64/jni_entrypoints_riscv64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-06-16T14:47:04Z",
+      "side": 1,
+      "message": "RA?",
+      "range": {
+        "startLine": 225,
+        "startChar": 73,
+        "endLine": 225,
+        "endChar": 75
+      },
+      "revId": "0a5f94a421eb2217ad2e2e78767f19d7142098e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d222805_27217de2",
+        "filename": "runtime/arch/riscv64/jni_entrypoints_riscv64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-06-16T14:47:04Z",
+      "side": 1,
+      "message": "No backticks in other places for register names, remove?",
+      "range": {
+        "startLine": 269,
+        "startChar": 53,
+        "endLine": 269,
+        "endChar": 57
+      },
+      "revId": "0a5f94a421eb2217ad2e2e78767f19d7142098e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
