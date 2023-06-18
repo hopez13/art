@@ -150,9 +150,7 @@ std::string SpaceBitmap<kAlignment>::DumpMemAround(mirror::Object* obj) const {
 template<size_t kAlignment>
 void SpaceBitmap<kAlignment>::Clear(bool release_eagerly) {
   if (bitmap_begin_ != nullptr) {
-    // We currently always eagerly release the memory to the OS.
-    static constexpr bool kAlwaysEagerlyReleaseBitmapMemory = true;
-    mem_map_.FillWithZero(kAlwaysEagerlyReleaseBitmapMemory || release_eagerly);
+    mem_map_.FillWithZero(release_eagerly);
   }
 }
 
