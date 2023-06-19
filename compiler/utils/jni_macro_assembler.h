@@ -27,6 +27,7 @@
 #include "base/array_ref.h"
 #include "base/enums.h"
 #include "base/macros.h"
+#include "dex/primitive.h"
 #include "managed_register.h"
 #include "offsets.h"
 
@@ -45,13 +46,16 @@ enum class JNIMacroUnaryCondition {
 
 class ArgumentLocation {
  public:
-  ArgumentLocation(ManagedRegister reg, size_t size)
-      : reg_(reg), frame_offset_(0u), size_(size) {
+  ArgumentLocation(ManagedRegister reg, Primitive::Type type)
+      : reg_(reg), frame_offset_(0u), type_(type) {
     DCHECK(reg.IsRegister());
+    DCheckType(type);
   }
 
-  ArgumentLocation(FrameOffset frame_offset, size_t size)
-      : reg_(ManagedRegister::NoRegister()), frame_offset_(frame_offset), size_(size) {}
+  ArgumentLocation(FrameOffset frame_offset, Primitive::Type type)
+      : reg_(ManagedRegister::NoRegister()), frame_offset_(frame_offset), type_(type) {
+    DCheckType(type);
+  }
 
   bool IsRegister() const {
     return reg_.IsRegister();
@@ -67,14 +71,38 @@ class ArgumentLocation {
     return frame_offset_;
   }
 
+  Primitive::Type GetType() const {
+    return type_;
+  }
+
   size_t GetSize() const {
-    return size_;
+    return Primitive::Is64BitType(type_) ? 8u : 4u;
   }
 
  private:
+  static void DCheckType(Primitive::Type type) {
+    // The `type` must be one of the characters used in a "shorty", except 'L' and 'V'.
+    // Raw pointers are `I` or `J`, depending on the architecture's pointer size.
+    // References are currently `I` but may change to `J` if we change them to 64-bit.
+    switch (type) {
+      case Primitive::kPrimBoolean:
+      case Primitive::kPrimByte:
+      case Primitive::kPrimChar:
+      case Primitive::kPrimShort:
+      case Primitive::kPrimInt:
+      case Primitive::kPrimLong:
+      case Primitive::kPrimFloat:
+      case Primitive::kPrimDouble:
+        break;
+      default:
+        LOG(FATAL) << "Unexpected type: " << type;
+        UNREACHABLE();
+    }
+  }
+
   ManagedRegister reg_;
   FrameOffset frame_offset_;
-  size_t size_;
+  Primitive::Type type_;
 };
 
 template <PointerSize kPointerSize>

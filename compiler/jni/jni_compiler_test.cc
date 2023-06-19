@@ -2230,11 +2230,19 @@ void JniCompilerTest::StackArgsIntsFirstImpl() {
 
 JNI_TEST_CRITICAL(StackArgsIntsFirst)
 
-void Java_MyClassNatives_stackArgsFloatsFirst(JNIEnv*, jclass, jfloat f1, jfloat f2,
-                                              jfloat f3, jfloat f4, jfloat f5, jfloat f6, jfloat f7,
-                                              jfloat f8, jfloat f9, jfloat f10, jint i1, jint i2,
-                                              jint i3, jint i4, jint i5, jint i6, jint i7, jint i8,
-                                              jint i9, jint i10) {
+#ifdef __riscv
+// We want to test that `float`s passed in general purpose registers are properly NaN-boxed.
+// To do that, declare the function as taking these arguments as 64-bit values.
+using NaNBoxedFloat = uint64_t;
+#else
+using NaNBoxedFloat = float;
+#endif
+
+void Java_MyClassNatives_stackArgsFloatsFirst(JNIEnv*, jclass, jfloat f1, jfloat f2, jfloat f3,
+                                              jfloat f4, jfloat f5, jfloat f6, jfloat f7, jfloat f8,
+                                              NaNBoxedFloat f9, NaNBoxedFloat f10,
+                                              jint i1, jint i2, jint i3, jint i4, jint i5,
+                                              jint i6, jint i7, jint i8, jint i9, jint i10) {
   EXPECT_EQ(i1, 1);
   EXPECT_EQ(i2, 2);
   EXPECT_EQ(i3, 3);
@@ -2262,10 +2270,16 @@ void Java_MyClassNatives_stackArgsFloatsFirst(JNIEnv*, jclass, jfloat f1, jfloat
   EXPECT_EQ(i17, 17);
   jint i18 = bit_cast<jint, jfloat>(f8);
   EXPECT_EQ(i18, 18);
+#ifdef __riscv
+  // Verify that the `float` args passed in GPRs have been NaN-boxed.
+  EXPECT_EQ(UINT64_C(0xffffffff00000000) + 19, f9);
+  EXPECT_EQ(UINT64_C(0xffffffff00000000) + 20, f10);
+#else
   jint i19 = bit_cast<jint, jfloat>(f9);
   EXPECT_EQ(i19, 19);
   jint i20 = bit_cast<jint, jfloat>(f10);
   EXPECT_EQ(i20, 20);
+#endif
 }
 
 void JniCompilerTest::StackArgsFloatsFirstImpl() {

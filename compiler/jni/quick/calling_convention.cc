@@ -123,6 +123,10 @@ bool ManagedRuntimeCallingConvention::IsCurrentArgPossiblyNull() {
   return IsCurrentArgExplicit();  // any user parameter may be null
 }
 
+Primitive::Type ManagedRuntimeCallingConvention::CurrentParamType() {
+  return ParamType(itr_args_);
+}
+
 size_t ManagedRuntimeCallingConvention::CurrentParamSize() {
   return ParamSize(itr_args_);
 }

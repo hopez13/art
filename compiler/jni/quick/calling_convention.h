@@ -178,14 +178,17 @@ class CallingConvention : public DeletableArenaObject<kArenaAllocCallingConventi
   size_t NumReferenceArgs() const {
     return num_ref_args_;
   }
-  size_t ParamSize(unsigned int param) const {
+  Primitive::Type ParamType(size_t param) const {
     DCHECK_LT(param, NumArgs());
     if (IsStatic()) {
       param++;  // 0th argument must skip return value at start of the shorty
     } else if (param == 0) {
-      return sizeof(mirror::HeapReference<mirror::Object>);  // this argument
+      return Primitive::kPrimNot;  // this argument
     }
-    size_t result = Primitive::ComponentSize(Primitive::GetType(shorty_[param]));
+    return Primitive::GetType(shorty_[param]);
+  }
+  size_t ParamSize(size_t param) const {
+    size_t result = Primitive::ComponentSize(ParamType(param));
     if (result >= 1 && result < 4) {
       result = 4;
     }
@@ -262,6 +265,7 @@ class ManagedRuntimeCallingConvention : public CallingConvention {
   }
   bool IsCurrentArgExplicit();  // ie a non-implict argument such as this
   bool IsCurrentArgPossiblyNull();
+  Primitive::Type CurrentParamType();
   size_t CurrentParamSize();
   virtual bool IsCurrentParamInRegister() = 0;
   virtual bool IsCurrentParamOnStack() = 0;

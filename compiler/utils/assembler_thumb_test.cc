@@ -160,23 +160,23 @@ TEST_F(ArmVIXLAssemblerTest, VixlJniHelpers) {
   // MoveArguments
   static constexpr FrameOffset kInvalidReferenceOffset =
       JNIMacroAssembler<kArmPointerSize>::kInvalidReferenceOffset;
-  static constexpr size_t kNativePointerSize = static_cast<size_t>(kArmPointerSize);
+  static constexpr Primitive::Type kNativePointerType = Primitive::kPrimInt;
   // Normal or @FastNative with parameters (Object, long, long, int, Object).
   // Note: This shall not spill the reference R1 to [sp, #36]. The JNI compiler spills
   // references in an separate initial pass before moving arguments and creating `jobject`s.
   ArgumentLocation move_dests1[] = {
-      ArgumentLocation(ArmManagedRegister::FromCoreRegister(R2), kNativePointerSize),
-      ArgumentLocation(FrameOffset(0), 2 * kVRegSize),
-      ArgumentLocation(FrameOffset(8), 2 * kVRegSize),
-      ArgumentLocation(FrameOffset(16), kVRegSize),
-      ArgumentLocation(FrameOffset(20), kNativePointerSize),
+      ArgumentLocation(ArmManagedRegister::FromCoreRegister(R2), kNativePointerType),
+      ArgumentLocation(FrameOffset(0), Primitive::kPrimLong),
+      ArgumentLocation(FrameOffset(8), Primitive::kPrimLong),
+      ArgumentLocation(FrameOffset(16), Primitive::kPrimInt),
+      ArgumentLocation(FrameOffset(20), kNativePointerType),
   };
   ArgumentLocation move_srcs1[] = {
-      ArgumentLocation(ArmManagedRegister::FromCoreRegister(R1), kVRegSize),
-      ArgumentLocation(ArmManagedRegister::FromRegisterPair(R2_R3), 2 * kVRegSize),
-      ArgumentLocation(FrameOffset(48), 2 * kVRegSize),
-      ArgumentLocation(FrameOffset(56), kVRegSize),
-      ArgumentLocation(FrameOffset(60), kVRegSize),
+      ArgumentLocation(ArmManagedRegister::FromCoreRegister(R1), Primitive::kPrimInt),
+      ArgumentLocation(ArmManagedRegister::FromRegisterPair(R2_R3), Primitive::kPrimLong),
+      ArgumentLocation(FrameOffset(48), Primitive::kPrimLong),
+      ArgumentLocation(FrameOffset(56), Primitive::kPrimInt),
+      ArgumentLocation(FrameOffset(60), Primitive::kPrimInt),
   };
   FrameOffset move_refs1[] {
       FrameOffset(36),
@@ -190,16 +190,16 @@ TEST_F(ArmVIXLAssemblerTest, VixlJniHelpers) {
                    ArrayRef<FrameOffset>(move_refs1));
   // @CriticalNative with parameters (long, long, long, int).
   ArgumentLocation move_dests2[] = {
-      ArgumentLocation(ArmManagedRegister::FromRegisterPair(R0_R1), 2 * kVRegSize),
-      ArgumentLocation(ArmManagedRegister::FromRegisterPair(R2_R3), 2 * kVRegSize),
-      ArgumentLocation(FrameOffset(0), 2 * kVRegSize),
-      ArgumentLocation(FrameOffset(8), kVRegSize),
+      ArgumentLocation(ArmManagedRegister::FromRegisterPair(R0_R1), Primitive::kPrimLong),
+      ArgumentLocation(ArmManagedRegister::FromRegisterPair(R2_R3), Primitive::kPrimLong),
+      ArgumentLocation(FrameOffset(0), Primitive::kPrimLong),
+      ArgumentLocation(FrameOffset(8), Primitive::kPrimInt),
   };
   ArgumentLocation move_srcs2[] = {
-      ArgumentLocation(ArmManagedRegister::FromRegisterPair(R2_R3), 2 * kVRegSize),
-      ArgumentLocation(FrameOffset(28), kVRegSize),
-      ArgumentLocation(FrameOffset(32), 2 * kVRegSize),
-      ArgumentLocation(FrameOffset(40), kVRegSize),
+      ArgumentLocation(ArmManagedRegister::FromRegisterPair(R2_R3), Primitive::kPrimLong),
+      ArgumentLocation(FrameOffset(28), Primitive::kPrimInt),
+      ArgumentLocation(FrameOffset(32), Primitive::kPrimLong),
+      ArgumentLocation(FrameOffset(40), Primitive::kPrimInt),
   };
   FrameOffset move_refs2[] {
       FrameOffset(kInvalidReferenceOffset),
