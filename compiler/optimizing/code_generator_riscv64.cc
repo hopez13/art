@@ -1405,14 +1405,34 @@ void InstructionCodeGeneratorRISCV64::VisitCheckCast(HCheckCast* instruction) {
   UNUSED(instruction);
   LOG(FATAL) << "Unimplemented";
 }
+
 void LocationsBuilderRISCV64::VisitClassTableGet(HClassTableGet* instruction) {
-  UNUSED(instruction);
-  LOG(FATAL) << "Unimplemented";
+  LocationSummary* locations =
+      new (GetGraph()->GetAllocator()) LocationSummary(instruction, LocationSummary::kNoCall);
+  locations->SetInAt(0, Location::RequiresRegister());
+  locations->SetOut(Location::RequiresRegister());
 }
 void InstructionCodeGeneratorRISCV64::VisitClassTableGet(HClassTableGet* instruction) {
-  UNUSED(instruction);
-  LOG(FATAL) << "Unimplemented";
+  LocationSummary* locations = instruction->GetLocations();
+  if (instruction->GetTableKind() == HClassTableGet::TableKind::kVTable) {
+    uint32_t method_offset =
+        mirror::Class::EmbeddedVTableEntryOffset(instruction->GetIndex(), kRiscv64PointerSize)
+            .SizeValue();
+    __ Loadd(locations->Out().AsRegister<XRegister>(),
+             locations->InAt(0).AsRegister<XRegister>(),
+             method_offset);
+  } else {
+    uint32_t method_offset = static_cast<uint32_t>(
+        ImTable::OffsetOfElement(instruction->GetIndex(), kRiscv64PointerSize));
+    __ Loadd(locations->Out().AsRegister<XRegister>(),
+             locations->InAt(0).AsRegister<XRegister>(),
+             mirror::Class::ImtPtrOffset(kRiscv64PointerSize).Uint32Value());
+    __ Loadd(locations->Out().AsRegister<XRegister>(),
+             locations->Out().AsRegister<XRegister>(),
+             method_offset);
+  }
 }
+
 void LocationsBuilderRISCV64::VisitClearException(HClearException* instruction) {
   UNUSED(instruction);
   LOG(FATAL) << "Unimplemented";
