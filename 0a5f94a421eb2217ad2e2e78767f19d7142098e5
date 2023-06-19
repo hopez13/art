@@ -95,6 +95,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1af12f88_1d5547e7",
+        "filename": "runtime/arch/riscv64/jni_entrypoints_riscv64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-06-19T11:54:20Z",
+      "side": 1,
+      "message": "I see, thanks for the explanation!",
+      "parentUuid": "4f7a850f_9c5638a3",
+      "range": {
+        "startLine": 160,
+        "startChar": 4,
+        "endLine": 160,
+        "endChar": 34
+      },
+      "revId": "0a5f94a421eb2217ad2e2e78767f19d7142098e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6dc3f973_6d5a51e7",
@@ -226,6 +250,30 @@
       "side": 1,
       "message": "Done. (Preferring uppercase `FP` in comments even though we\u0027re not really consistent here. We\u0027ve been inconsistent on other architectures and this just keeps spreading on riscv64.)",
       "parentUuid": "6d222805_27217de2",
+      "range": {
+        "startLine": 269,
+        "startChar": 53,
+        "endLine": 269,
+        "endChar": 57
+      },
+      "revId": "0a5f94a421eb2217ad2e2e78767f19d7142098e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea510ea1_a106d45e",
+        "filename": "runtime/arch/riscv64/jni_entrypoints_riscv64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-06-19T11:54:20Z",
+      "side": 1,
+      "message": "I also prefer capitals. Let\u0027s try to stick to them and maybe eventually make everything consistent.",
+      "parentUuid": "095908c7_4c759165",
       "range": {
         "startLine": 269,
         "startChar": 53,
