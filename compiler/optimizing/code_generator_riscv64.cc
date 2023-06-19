@@ -1123,14 +1123,13 @@ void InstructionCodeGeneratorRISCV64::VisitBoundsCheck(HBoundsCheck* instruction
   }
 }
 
-void LocationsBuilderRISCV64::VisitBoundType(HBoundType* instruction) {
-  UNUSED(instruction);
-  LOG(FATAL) << "Unimplemented";
+void LocationsBuilderRISCV64::VisitBoundType([[maybe_unused]] HBoundType* instruction) {
+  // Nothing to do, this should be removed during prepare for register allocator.
+  LOG(FATAL) << "Unreachable";
 }
-
-void InstructionCodeGeneratorRISCV64::VisitBoundType(HBoundType* instruction) {
-  UNUSED(instruction);
-  LOG(FATAL) << "Unimplemented";
+void InstructionCodeGeneratorRISCV64::VisitBoundType([[maybe_unused]] HBoundType* instruction) {
+  // Nothing to do, this should be removed during prepare for register allocator.
+  LOG(FATAL) << "Unreachable";
 }
 
 void LocationsBuilderRISCV64::VisitCheckCast(HCheckCast* instruction) {
