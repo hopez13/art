@@ -94,6 +94,11 @@ static JniCompiledMethod ArtJniCompileMethodInternal(const CompilerOptions& comp
                                                      const DexFile& dex_file,
                                                      ArenaAllocator* allocator) {
   constexpr size_t kRawPointerSize = static_cast<size_t>(kPointerSize);
+  constexpr Primitive::Type kRawPointerType =
+      (kRawPointerSize == 8u) ? Primitive::kPrimLong : Primitive::kPrimInt;
+  static_assert(kObjectReferenceSize == 4u);
+  constexpr Primitive::Type kObjectReferenceType = Primitive::kPrimInt;
+
   const bool is_native = (access_flags & kAccNative) != 0;
   CHECK(is_native);
   const bool is_static = (access_flags & kAccStatic) != 0;
@@ -230,8 +235,8 @@ static JniCompiledMethod ArtJniCompileMethodInternal(const CompilerOptions& comp
     for (; mr_conv->HasNext(); mr_conv->Next()) {
       if (mr_conv->IsCurrentParamInRegister() && mr_conv->IsCurrentParamAReference()) {
         // Spill the reference as raw data.
-        src_args.emplace_back(mr_conv->CurrentParamRegister(), kObjectReferenceSize);
-        dest_args.emplace_back(mr_conv->CurrentParamStackOffset(), kObjectReferenceSize);
+        src_args.emplace_back(mr_conv->CurrentParamRegister(), kObjectReferenceType);
+        dest_args.emplace_back(mr_conv->CurrentParamStackOffset(), kObjectReferenceType);
         refs.push_back(kInvalidReferenceOffset);
       }
     }
@@ -347,8 +352,8 @@ static JniCompiledMethod ArtJniCompileMethodInternal(const CompilerOptions& comp
     // Move the method pointer to the hidden argument register.
     // TODO: Pass this as the last argument, not first. Change ARM assembler
     // not to expect all register destinations at the beginning.
-    src_args.emplace_back(mr_conv->MethodRegister(), kRawPointerSize);
-    dest_args.emplace_back(main_jni_conv->HiddenArgumentRegister(), kRawPointerSize);
+    src_args.emplace_back(mr_conv->MethodRegister(), kRawPointerType);
+    dest_args.emplace_back(main_jni_conv->HiddenArgumentRegister(), kRawPointerType);
     refs.push_back(kInvalidReferenceOffset);
   } else {
     main_jni_conv->Next();    // Skip JNIEnv*.
@@ -367,16 +372,16 @@ static JniCompiledMethod ArtJniCompileMethodInternal(const CompilerOptions& comp
       DCHECK_EQ(ArtMethod::DeclaringClassOffset().SizeValue(), 0u);
       if (method_register.IsNoRegister()) {
         DCHECK(main_jni_conv->IsCurrentParamInRegister());
-        src_args.emplace_back(method_offset, kRawPointerSize);
+        src_args.emplace_back(method_offset, kRawPointerType);
       } else {
-        src_args.emplace_back(method_register, kRawPointerSize);
+        src_args.emplace_back(method_register, kRawPointerType);
       }
       if (main_jni_conv->IsCurrentParamInRegister()) {
         // The `jclass` argument becomes the new method register needed for the call.
         method_register = main_jni_conv->CurrentParamRegister();
-        dest_args.emplace_back(method_register, kRawPointerSize);
+        dest_args.emplace_back(method_register, kRawPointerType);
       } else {
-        dest_args.emplace_back(main_jni_conv->CurrentParamStackOffset(), kRawPointerSize);
+        dest_args.emplace_back(main_jni_conv->CurrentParamStackOffset(), kRawPointerType);
       }
       refs.push_back(kInvalidReferenceOffset);
       main_jni_conv->Next();
@@ -387,14 +392,14 @@ static JniCompiledMethod ArtJniCompileMethodInternal(const CompilerOptions& comp
     DCHECK(main_jni_conv->HasNext());
     static_assert(kObjectReferenceSize == 4u);
     bool is_reference = mr_conv->IsCurrentParamAReference();
-    size_t src_size = (!is_reference && mr_conv->IsCurrentParamALongOrDouble()) ? 8u : 4u;
-    size_t dest_size = is_reference ? kRawPointerSize : src_size;
+    Primitive::Type src_type = is_reference ? kObjectReferenceType : mr_conv->CurrentParamType();
+    Primitive::Type dest_type = is_reference ? kRawPointerType : src_type;
     src_args.push_back(mr_conv->IsCurrentParamInRegister()
-        ? ArgumentLocation(mr_conv->CurrentParamRegister(), src_size)
-        : ArgumentLocation(mr_conv->CurrentParamStackOffset(), src_size));
+        ? ArgumentLocation(mr_conv->CurrentParamRegister(), src_type)
+        : ArgumentLocation(mr_conv->CurrentParamStackOffset(), src_type));
     dest_args.push_back(main_jni_conv->IsCurrentParamInRegister()
-        ? ArgumentLocation(main_jni_conv->CurrentParamRegister(), dest_size)
-        : ArgumentLocation(main_jni_conv->CurrentParamStackOffset(), dest_size));
+        ? ArgumentLocation(main_jni_conv->CurrentParamRegister(), dest_type)
+        : ArgumentLocation(main_jni_conv->CurrentParamStackOffset(), dest_type));
     refs.push_back(is_reference ? mr_conv->CurrentParamStackOffset() : kInvalidReferenceOffset);
   }
   DCHECK(!main_jni_conv->HasNext());
