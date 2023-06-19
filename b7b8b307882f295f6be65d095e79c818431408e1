@@ -16,6 +16,24 @@
       "message": "Is seems to me that we should have a `__ FinalizeCode()` here, otherwise we\u0027re losing the call to the buffer\u0027s `ProcessFixups()`. Or is that a no-op on riscv64 because we don\u0027t have any fixups at the buffer level anyway?",
       "revId": "b7b8b307882f295f6be65d095e79c818431408e1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "77433611_6130e700",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-06-19T09:13:12Z",
+      "side": 1,
+      "message": "You\u0027re right, Assembler::FinalizeCode is meant to be called in overridden methods. Done.",
+      "parentUuid": "d9e8436f_a7214524",
+      "revId": "b7b8b307882f295f6be65d095e79c818431408e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
