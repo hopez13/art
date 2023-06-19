@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "3eca3655_3c2dc089",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-06-19T11:36:31Z",
+      "side": 1,
+      "message": "Use of oat requires having the decompressed dex in memory, so in theory, just the SHA1 is all we need.  (I failed to make it happen in practice... maybe later)\n\nHowever, oat might depend on vdex, and the vdex needs to depend on the zip CRC, which is unavoidable.  (so the CRC can never be removed form the vdex format)\n\nI agree that the commit message was confusing though.  Reworded.",
+      "parentUuid": "eae80e50_860217b0",
+      "range": {
+        "startLine": 12,
+        "startChar": 29,
+        "endLine": 13,
+        "endChar": 26
+      },
+      "revId": "9a7cb55d8ee6ccbc2eb824d766461f2cf9fca48a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "27b65a2a_802e6601",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
@@ -54,6 +78,24 @@
       "writtenOn": "2023-06-16T10:34:50Z",
       "side": 1,
       "message": "Add a comment why this kind of printing.",
+      "revId": "9a7cb55d8ee6ccbc2eb824d766461f2cf9fca48a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f145a25c_29b59b16",
+        "filename": "libdexfile/dex/dex_file.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-06-19T11:36:31Z",
+      "side": 1,
+      "message": "Done (it is just the git-like hex string of SHA1)",
+      "parentUuid": "3ff95d94_6405d842",
       "revId": "9a7cb55d8ee6ccbc2eb824d766461f2cf9fca48a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
