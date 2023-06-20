@@ -21,6 +21,7 @@
 #include "base/macros.h"
 #include "class_root.h"
 #include "code_generator.h"
+#include "code_generator_patches_arm64.h"
 #include "common_arm64.h"
 #include "dex/dex_file_types.h"
 #include "dex/string_reference.h"
@@ -836,13 +837,19 @@ class CodeGeneratorARM64 : public CodeGenerator {
   // the associated patch for AOT or slow path for JIT.
   void EmitBakerReadBarrierCbnz(uint32_t custom_data);
 
-  vixl::aarch64::Literal<uint32_t>* DeduplicateBootImageAddressLiteral(uint64_t address);
+  vixl::aarch64::Literal<uint32_t>* DeduplicateBootImageAddressLiteral(uint64_t address) {
+    return codegen_patches_.DeduplicateBootImageAddressLiteral(address);
+  }
   vixl::aarch64::Literal<uint32_t>* DeduplicateJitStringLiteral(const DexFile& dex_file,
                                                                 dex::StringIndex string_index,
-                                                                Handle<mirror::String> handle);
+                                                                Handle<mirror::String> handle) {
+    return codegen_patches_.DeduplicateJitStringLiteral(dex_file, string_index, handle);
+  }
   vixl::aarch64::Literal<uint32_t>* DeduplicateJitClassLiteral(const DexFile& dex_file,
-                                                               dex::TypeIndex string_index,
-                                                               Handle<mirror::Class> handle);
+                                                               dex::TypeIndex class_index,
+                                                               Handle<mirror::Class> handle) {
+    return codegen_patches_.DeduplicateJitClassLiteral(dex_file, class_index, handle);
+  }
 
   void EmitAdrpPlaceholder(vixl::aarch64::Label* fixup_label, vixl::aarch64::Register reg);
   void EmitAddPlaceholder(vixl::aarch64::Label* fixup_label,
@@ -1072,18 +1079,6 @@ class CodeGeneratorARM64 : public CodeGenerator {
                                     uint32_t encoded_data,
                                     /*out*/ std::string* debug_name);
 
-  using Uint64ToLiteralMap = ArenaSafeMap<uint64_t, vixl::aarch64::Literal<uint64_t>*>;
-  using Uint32ToLiteralMap = ArenaSafeMap<uint32_t, vixl::aarch64::Literal<uint32_t>*>;
-  using StringToLiteralMap = ArenaSafeMap<StringReference,
-                                          vixl::aarch64::Literal<uint32_t>*,
-                                          StringReferenceValueComparator>;
-  using TypeToLiteralMap = ArenaSafeMap<TypeReference,
-                                        vixl::aarch64::Literal<uint32_t>*,
-                                        TypeReferenceValueComparator>;
-
-  vixl::aarch64::Literal<uint32_t>* DeduplicateUint32Literal(uint32_t value);
-  vixl::aarch64::Literal<uint64_t>* DeduplicateUint64Literal(uint64_t value);
-
   // The PcRelativePatchInfo is used for PC-relative addressing of methods/strings/types,
   // whether through .data.bimg.rel.ro, .bss, or directly in the boot image.
   struct PcRelativePatchInfo : PatchInfo<vixl::aarch64::Label> {
@@ -1156,14 +1151,7 @@ class CodeGeneratorARM64 : public CodeGenerator {
   // Baker read barrier patch info.
   ArenaDeque<BakerReadBarrierPatchInfo> baker_read_barrier_patches_;
 
-  // Deduplication map for 32-bit literals, used for JIT for boot image addresses.
-  Uint32ToLiteralMap uint32_literals_;
-  // Deduplication map for 64-bit literals, used for JIT for method address or method code.
-  Uint64ToLiteralMap uint64_literals_;
-  // Patches for string literals in JIT compiled code.
-  StringToLiteralMap jit_string_patches_;
-  // Patches for class literals in JIT compiled code.
-  TypeToLiteralMap jit_class_patches_;
+  CodeGeneratorPatchesARM64 codegen_patches_;
 
   // Baker read barrier slow paths, mapping custom data (uint32_t) to label.
   // Wrap the label to work around vixl::aarch64::Label being non-copyable
