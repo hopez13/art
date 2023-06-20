@@ -1545,13 +1545,130 @@ void InstructionCodeGeneratorRISCV64::VisitClinitCheck(HClinitCheck* instruction
 }
 
 void LocationsBuilderRISCV64::VisitCompare(HCompare* instruction) {
-  UNUSED(instruction);
-  LOG(FATAL) << "Unimplemented";
+  DataType::Type in_type = instruction->InputAt(0)->GetType();
+
+  LocationSummary* locations = new (GetGraph()->GetAllocator()) LocationSummary(instruction);
+
+  switch (in_type) {
+    case DataType::Type::kBool:
+    case DataType::Type::kUint8:
+    case DataType::Type::kInt8:
+    case DataType::Type::kUint16:
+    case DataType::Type::kInt16:
+    case DataType::Type::kInt32:
+    case DataType::Type::kInt64:
+      locations->SetInAt(0, Location::RequiresRegister());
+      locations->SetInAt(1, Location::RegisterOrConstant(instruction->InputAt(1)));
+      locations->SetOut(Location::RequiresRegister(), Location::kNoOutputOverlap);
+      break;
+
+    case DataType::Type::kFloat32:
+    case DataType::Type::kFloat64:
+      locations->SetInAt(0, Location::RequiresFpuRegister());
+      locations->SetInAt(1, Location::RequiresFpuRegister());
+      locations->SetOut(Location::RequiresRegister(), Location::kNoOutputOverlap);
+      break;
+
+    default:
+      LOG(FATAL) << "Unexpected type for compare operation " << in_type;
+  }
 }
 void InstructionCodeGeneratorRISCV64::VisitCompare(HCompare* instruction) {
-  UNUSED(instruction);
-  LOG(FATAL) << "Unimplemented";
+  LocationSummary* locations = instruction->GetLocations();
+  XRegister result = locations->Out().AsRegister<XRegister>();
+  DataType::Type in_type = instruction->InputAt(0)->GetType();
+
+  //  0 if: left == right
+  //  1 if: left  > right
+  // -1 if: left  < right
+  switch (in_type) {
+    case DataType::Type::kBool:
+    case DataType::Type::kUint8:
+    case DataType::Type::kInt8:
+    case DataType::Type::kUint16:
+    case DataType::Type::kInt16:
+    case DataType::Type::kInt32:
+    case DataType::Type::kInt64: {
+      XRegister left = locations->InAt(0).AsRegister<XRegister>();
+      Location right_location = locations->InAt(1);
+      bool use_imm = right_location.IsConstant();
+      XRegister right = Zero;
+      if (use_imm) {
+        if (in_type == DataType::Type::kInt64) {
+          int64_t value =
+              CodeGenerator::GetInt64ValueOf(right_location.GetConstant()->AsConstant());
+          if (value != 0) {
+            // use result as the right register.
+            right = result;
+            __ LoadConst64(right, value);
+          }
+        } else {
+          int32_t value =
+              CodeGenerator::GetInt32ValueOf(right_location.GetConstant()->AsConstant());
+          if (value != 0) {
+            // use result as the right register.
+            right = result;
+            __ LoadConst32(right, value);
+          }
+        }
+      } else {
+        right = right_location.AsRegister<XRegister>();
+      }
+      __ Slt(TMP, left, right);
+      __ Slt(result, right, left);
+      __ Sub(result, result, TMP);
+      break;
+    }
+
+    case DataType::Type::kFloat32: {
+      FRegister left = locations->InAt(0).AsFpuRegister<FRegister>();
+      FRegister right = locations->InAt(1).AsFpuRegister<FRegister>();
+      Riscv64Label done;
+      __ FEqS(TMP, left, right);
+      __ LoadConst32(result, 0);
+      __ Bnez(TMP, &done);
+      if (instruction->IsGtBias()) {
+        __ FLtS(TMP, left, right);
+        __ LoadConst32(result, -1);
+        __ Bnez(TMP, &done);
+        __ LoadConst32(result, 1);
+      } else {
+        __ FLtS(TMP, right, left);
+        __ LoadConst32(result, 1);
+        __ Bnez(TMP, &done);
+        __ LoadConst32(result, -1);
+      }
+      __ Bind(&done);
+      break;
+    }
+
+    case DataType::Type::kFloat64: {
+      FRegister left = locations->InAt(0).AsFpuRegister<FRegister>();
+      FRegister right = locations->InAt(1).AsFpuRegister<FRegister>();
+      Riscv64Label done;
+      __ FEqD(TMP, left, right);
+      __ LoadConst32(result, 0);
+      __ Bnez(TMP, &done);
+      if (instruction->IsGtBias()) {
+        __ FLtD(TMP, left, right);
+        __ LoadConst32(result, -1);
+        __ Bnez(TMP, &done);
+        __ LoadConst32(result, 1);
+      } else {
+        __ FLtD(TMP, right, left);
+        __ LoadConst32(result, 1);
+        __ Bnez(TMP, &done);
+        __ LoadConst32(result, -1);
+      }
+      __ Bind(&done);
+      break;
+    }
+
+    default:
+      LOG(FATAL) << "Unimplemented compare type " << in_type;
+  }
 }
+
 void LocationsBuilderRISCV64::VisitConstructorFence(HConstructorFence* instruction) {
   UNUSED(instruction);
   LOG(FATAL) << "Unimplemented";
