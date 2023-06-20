@@ -141,6 +141,30 @@
       },
       "revId": "b935e5f65e95b72b088ca94fff3af16c8ed42c67",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9821e5b_27baec8d",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 15
+      },
+      "lineNbr": 766,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-06-20T08:35:41Z",
+      "side": 1,
+      "message": "True whole_static_libs is necessary for transitive dependencies, but static_libs should resolve direct ones. shared_libs (in a static library) would do neither. Hence the resulting library wouldn\u0027t be the same if static_libs is used instead of shared_libs.",
+      "parentUuid": "ca63f1fb_ab962917",
+      "range": {
+        "startLine": 762,
+        "startChar": 0,
+        "endLine": 766,
+        "endChar": 6
+      },
+      "revId": "b935e5f65e95b72b088ca94fff3af16c8ed42c67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
