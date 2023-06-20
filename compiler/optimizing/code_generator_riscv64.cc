@@ -1678,13 +1678,13 @@ void InstructionCodeGeneratorRISCV64::VisitConstructorFence(
 }
 
 void LocationsBuilderRISCV64::VisitCurrentMethod(HCurrentMethod* instruction) {
-  UNUSED(instruction);
-  LOG(FATAL) << "Unimplemented";
+  LocationSummary* locations =
+      new (GetGraph()->GetAllocator()) LocationSummary(instruction, LocationSummary::kNoCall);
+  locations->SetOut(Location::RegisterLocation(kArtMethodRegister));
 }
-void InstructionCodeGeneratorRISCV64::VisitCurrentMethod(HCurrentMethod* instruction) {
-  UNUSED(instruction);
-  LOG(FATAL) << "Unimplemented";
-}
+void InstructionCodeGeneratorRISCV64::VisitCurrentMethod(
+    [[maybe_unused]] HCurrentMethod* instruction) {}
+
 void LocationsBuilderRISCV64::VisitShouldDeoptimizeFlag(HShouldDeoptimizeFlag* instruction) {
   UNUSED(instruction);
   LOG(FATAL) << "Unimplemented";
