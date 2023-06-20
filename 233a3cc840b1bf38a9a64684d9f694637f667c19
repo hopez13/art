@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "40e4f282_ed1a8704",
+        "filename": "test/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-06-20T13:44:17Z",
+      "side": 1,
+      "message": "This means tests using the non-gtest test defaults (art_test_defaults, art_test_internal_library_defaults, art_standalone_test_defaults) will lose this directive. Is that intentional?",
+      "range": {
+        "startLine": 68,
+        "startChar": 0,
+        "endLine": 71,
+        "endChar": 6
+      },
+      "revId": "233a3cc840b1bf38a9a64684d9f694637f667c19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

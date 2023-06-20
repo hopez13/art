@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6ef76fa_d2e4bea9",
+        "filename": "test/Android.bp",
+        "patchSetId": 6
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-06-20T13:44:17Z",
+      "side": 1,
+      "message": "I understand that hiding the symbols would break the test, but I don\u0027t understand how using whole_static_libs would make that worse. If anything, it\u0027d be the opposite, wouldn\u0027t it?",
+      "range": {
+        "startLine": 260,
+        "startChar": 25,
+        "endLine": 260,
+        "endChar": 51
+      },
+      "revId": "454a6940e79c925e3697e150afe15fe857c420b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "05c16b3d_8ebd0b0d",
+        "filename": "test/Android.bp",
+        "patchSetId": 6
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-06-20T13:44:17Z",
+      "side": 1,
+      "message": "In which libs are those __asan* symbols?",
+      "range": {
+        "startLine": 281,
+        "startChar": 72,
+        "endLine": 281,
+        "endChar": 97
+      },
+      "revId": "454a6940e79c925e3697e150afe15fe857c420b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
