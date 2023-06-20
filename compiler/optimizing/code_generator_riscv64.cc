@@ -1686,14 +1686,17 @@ void InstructionCodeGeneratorRISCV64::VisitCurrentMethod(
     [[maybe_unused]] HCurrentMethod* instruction) {}
 
 void LocationsBuilderRISCV64::VisitShouldDeoptimizeFlag(HShouldDeoptimizeFlag* instruction) {
-  UNUSED(instruction);
-  LOG(FATAL) << "Unimplemented";
+  LocationSummary* locations =
+      new (GetGraph()->GetAllocator()) LocationSummary(instruction, LocationSummary::kNoCall);
+  locations->SetOut(Location::RequiresRegister());
 }
 void InstructionCodeGeneratorRISCV64::VisitShouldDeoptimizeFlag(
     HShouldDeoptimizeFlag* instruction) {
-  UNUSED(instruction);
-  LOG(FATAL) << "Unimplemented";
+  __ Loadw(instruction->GetLocations()->Out().AsRegister<XRegister>(),
+           SP,
+           codegen_->GetStackOffsetOfShouldDeoptimizeFlag());
 }
+
 void LocationsBuilderRISCV64::VisitDeoptimize(HDeoptimize* instruction) {
   UNUSED(instruction);
   LOG(FATAL) << "Unimplemented";
