@@ -59,7 +59,6 @@ class OptimizingCFITest : public CFITest, public OptimizingUnitTestHelper {
     // Generate simple frame with some spills.
     code_gen_ = CodeGenerator::Create(graph_, *compiler_options_);
     code_gen_->GetAssembler()->cfi().SetEnabled(true);
-    code_gen_->InitializeCodeGenerationData();
     const int frame_size = 64;
     int core_reg = 0;
     int fp_reg = 0;

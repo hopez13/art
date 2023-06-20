@@ -258,14 +258,8 @@ void CodeGenerator::GenerateSlowPaths() {
   current_slow_path_ = nullptr;
 }
 
-void CodeGenerator::InitializeCodeGenerationData() {
-  DCHECK(code_generation_data_ == nullptr);
-  code_generation_data_ = CodeGenerationData::Create(graph_->GetArenaStack(), GetInstructionSet());
-}
 
 void CodeGenerator::Compile(CodeAllocator* allocator) {
-  InitializeCodeGenerationData();
-
   // The register allocator already called `InitializeCodeGeneration`,
   // where the frame size has been computed.
   DCHECK(block_order_ != nullptr);
@@ -966,7 +960,8 @@ CodeGenerator::CodeGenerator(HGraph* graph,
       is_leaf_(true),
       needs_suspend_check_entry_(false),
       requires_current_method_(false),
-      code_generation_data_(),
+      code_generation_data_(CodeGenerationData::Create(graph_->GetArenaStack(),
+                                                       compiler_options.GetInstructionSet())),
       unimplemented_intrinsics_(unimplemented_intrinsics) {
   if (GetGraph()->IsCompilingOsr()) {
     // Make OSR methods have all registers spilled, this simplifies the logic of

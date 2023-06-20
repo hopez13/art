@@ -852,8 +852,11 @@ class CodeGenerator : public DeletableArenaObject<kArenaAllocCodeGenerator> {
 
   DisassemblyInformation* disasm_info_;
 
+  CodeGenerationData* GetCodeGenerationData() const {
+    return code_generation_data_.get();
+  }
+
  private:
-  void InitializeCodeGenerationData();
   size_t GetStackOffsetOfSavedRegister(size_t index);
   void GenerateSlowPaths();
   void BlockIfInRegister(Location location, bool is_out = false) const;
