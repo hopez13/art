@@ -64,6 +64,14 @@ Location Riscv64ReturnLocation(DataType::Type return_type) {
   UNREACHABLE();
 }
 
+static RegisterSet OneRegInReferenceOutSaveEverythingCallerSaves() {
+  InvokeRuntimeCallingConvention calling_convention;
+  RegisterSet caller_saves = RegisterSet::Empty();
+  caller_saves.Add(Location::RegisterLocation(calling_convention.GetRegisterAt(0)));
+  // The reference is returned in the same register. This differs from the standard return location.
+  return caller_saves;
+}
+
 Location InvokeDexCallingConventionVisitorRISCV64::GetReturnLocation(DataType::Type type) const {
   return Riscv64ReturnLocation(type);
 }
@@ -236,6 +244,70 @@ class BoundsCheckSlowPathRISCV64 : public SlowPathCodeRISCV64 {
   DISALLOW_COPY_AND_ASSIGN(BoundsCheckSlowPathRISCV64);
 };
 
+class LoadClassSlowPathRISCV64 : public SlowPathCodeRISCV64 {
+ public:
+  LoadClassSlowPathRISCV64(HLoadClass* cls, HInstruction* at) : SlowPathCodeRISCV64(at), cls_(cls) {
+    DCHECK(at->IsLoadClass() || at->IsClinitCheck());
+    DCHECK_EQ(instruction_->IsLoadClass(), cls_ == instruction_);
+  }
+
+  void EmitNativeCode(CodeGenerator* codegen) override {
+    LocationSummary* locations = instruction_->GetLocations();
+    Location out = locations->Out();
+    const uint32_t dex_pc = instruction_->GetDexPc();
+    bool must_resolve_type = instruction_->IsLoadClass() && cls_->MustResolveTypeOnSlowPath();
+    bool must_do_clinit = instruction_->IsClinitCheck() || cls_->MustGenerateClinitCheck();
+
+    CodeGeneratorRISCV64* riscv64_codegen = down_cast<CodeGeneratorRISCV64*>(codegen);
+    __ Bind(GetEntryLabel());
+    SaveLiveRegisters(codegen, locations);
+
+    InvokeRuntimeCallingConvention calling_convention;
+    if (must_resolve_type) {
+      DCHECK(IsSameDexFile(cls_->GetDexFile(), riscv64_codegen->GetGraph()->GetDexFile()));
+      dex::TypeIndex type_index = cls_->GetTypeIndex();
+      __ LoadConst32(calling_convention.GetRegisterAt(0), type_index.index_);
+      if (cls_->NeedsAccessCheck()) {
+        CheckEntrypointTypes<kQuickResolveTypeAndVerifyAccess, void*, uint32_t>();
+        riscv64_codegen->InvokeRuntime(
+            kQuickResolveTypeAndVerifyAccess, instruction_, dex_pc, this);
+      } else {
+        CheckEntrypointTypes<kQuickResolveType, void*, uint32_t>();
+        riscv64_codegen->InvokeRuntime(kQuickResolveType, instruction_, dex_pc, this);
+      }
+      // If we also must_do_clinit, the resolved type is now in the correct register.
+    } else {
+      DCHECK(must_do_clinit);
+      Location source = instruction_->IsLoadClass() ? out : locations->InAt(0);
+      riscv64_codegen->MoveLocation(
+          Location::RegisterLocation(calling_convention.GetRegisterAt(0)), source, cls_->GetType());
+    }
+    if (must_do_clinit) {
+      riscv64_codegen->InvokeRuntime(kQuickInitializeStaticStorage, instruction_, dex_pc, this);
+      CheckEntrypointTypes<kQuickInitializeStaticStorage, void*, mirror::Class*>();
+    }
+
+    // Move the class to the desired location.
+    if (out.IsValid()) {
+      DCHECK(out.IsRegister() && !locations->GetLiveRegisters()->ContainsCoreRegister(out.reg()));
+      DataType::Type type = instruction_->GetType();
+      riscv64_codegen->MoveLocation(
+          out, Location::RegisterLocation(calling_convention.GetRegisterAt(0)), type);
+    }
+    RestoreLiveRegisters(codegen, locations);
+
+    __ J(GetExitLabel());
+  }
+
+  const char* GetDescription() const override { return "LoadClassSlowPathRISCV64"; }
+
+ private:
+  // The class this slow path will load.
+  HLoadClass* const cls_;
+
+  DISALLOW_COPY_AND_ASSIGN(LoadClassSlowPathRISCV64);
+};
+
 #undef __
 #define __ down_cast<CodeGeneratorRISCV64*>(codegen_)->GetAssembler()->  // NOLINT
 
@@ -260,12 +332,21 @@ InstructionCodeGeneratorRISCV64::InstructionCodeGeneratorRISCV64(HGraph* graph,
     : InstructionCodeGenerator(graph, codegen),
       assembler_(codegen->GetAssembler()),
       codegen_(codegen) {}
+
 void InstructionCodeGeneratorRISCV64::GenerateClassInitializationCheck(
     SlowPathCodeRISCV64* slow_path, XRegister class_reg) {
-  UNUSED(slow_path);
-  UNUSED(class_reg);
-  LOG(FATAL) << "Unimplemented";
+  constexpr size_t status_lsb_position = SubtypeCheckBits::BitStructSizeOf();
+  const size_t status_byte_offset =
+      mirror::Class::StatusOffset().SizeValue() + (status_lsb_position / kBitsPerByte);
+  constexpr uint32_t shifted_initialized_value = enum_cast<uint32_t>(ClassStatus::kInitialized)
+                                                 << (status_lsb_position % kBitsPerByte);
+
+  __ Loadbu(TMP2, class_reg, status_byte_offset);
+  __ Sltiu(TMP, TMP2, shifted_initialized_value);
+  __ Bnez(TMP, slow_path->GetEntryLabel());
+  __ Bind(slow_path->GetExitLabel());
 }
+
 void InstructionCodeGeneratorRISCV64::GenerateBitstringTypeCheckCompare(
     HTypeCheckInstruction* instruction, XRegister temp) {
   UNUSED(instruction);
@@ -1445,13 +1526,24 @@ void InstructionCodeGeneratorRISCV64::VisitClearException(
 }
 
 void LocationsBuilderRISCV64::VisitClinitCheck(HClinitCheck* instruction) {
-  UNUSED(instruction);
-  LOG(FATAL) << "Unimplemented";
+  LocationSummary* locations = new (GetGraph()->GetAllocator())
+      LocationSummary(instruction, LocationSummary::kCallOnSlowPath);
+  locations->SetInAt(0, Location::RequiresRegister());
+  if (instruction->HasUses()) {
+    locations->SetOut(Location::SameAsFirstInput());
+  }
+  // Rely on the type initialization to save everything we need.
+  locations->SetCustomSlowPathCallerSaves(OneRegInReferenceOutSaveEverythingCallerSaves());
 }
 void InstructionCodeGeneratorRISCV64::VisitClinitCheck(HClinitCheck* instruction) {
-  UNUSED(instruction);
-  LOG(FATAL) << "Unimplemented";
+  // We assume the class is not null.
+  SlowPathCodeRISCV64* slow_path = new (codegen_->GetScopedAllocator())
+      LoadClassSlowPathRISCV64(instruction->GetLoadClass(), instruction);
+  codegen_->AddSlowPath(slow_path);
+  GenerateClassInitializationCheck(slow_path,
+                                   instruction->GetLocations()->InAt(0).AsRegister<XRegister>());
 }
+
 void LocationsBuilderRISCV64::VisitCompare(HCompare* instruction) {
   UNUSED(instruction);
   LOG(FATAL) << "Unimplemented";
