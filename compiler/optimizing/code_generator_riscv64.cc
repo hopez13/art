@@ -21,6 +21,7 @@
 #include "arch/riscv64/jni_frame_riscv64.h"
 #include "arch/riscv64/registers_riscv64.h"
 #include "base/macros.h"
+#include "code_generator_utils.h"
 #include "dwarf/register.h"
 #include "jit/profiling_info.h"
 #include "mirror/class-inl.h"
@@ -306,6 +307,29 @@ class LoadClassSlowPathRISCV64 : public SlowPathCodeRISCV64 {
   HLoadClass* const cls_;
 
   DISALLOW_COPY_AND_ASSIGN(LoadClassSlowPathRISCV64);
+};
+
+class DeoptimizationSlowPathRISCV64 : public SlowPathCodeRISCV64 {
+ public:
+  explicit DeoptimizationSlowPathRISCV64(HDeoptimize* instruction)
+      : SlowPathCodeRISCV64(instruction) {}
+
+  void EmitNativeCode(CodeGenerator* codegen) override {
+    CodeGeneratorRISCV64* riscv64_codegen = down_cast<CodeGeneratorRISCV64*>(codegen);
+    __ Bind(GetEntryLabel());
+    LocationSummary* locations = instruction_->GetLocations();
+    SaveLiveRegisters(codegen, locations);
+    InvokeRuntimeCallingConvention calling_convention;
+    __ LoadConst32(calling_convention.GetRegisterAt(0),
+                   static_cast<uint32_t>(instruction_->AsDeoptimize()->GetDeoptimizationKind()));
+    riscv64_codegen->InvokeRuntime(kQuickDeoptimize, instruction_, instruction_->GetDexPc(), this);
+    CheckEntrypointTypes<kQuickDeoptimize, void, DeoptimizationKind>();
+  }
+
+  const char* GetDescription() const override { return "DeoptimizationSlowPathRISCV64"; }
+
+ private:
+  DISALLOW_COPY_AND_ASSIGN(DeoptimizationSlowPathRISCV64);
 };
 
 #undef __
@@ -1698,13 +1722,25 @@ void InstructionCodeGeneratorRISCV64::VisitShouldDeoptimizeFlag(
 }
 
 void LocationsBuilderRISCV64::VisitDeoptimize(HDeoptimize* instruction) {
-  UNUSED(instruction);
-  LOG(FATAL) << "Unimplemented";
+  LocationSummary* locations = new (GetGraph()->GetAllocator())
+      LocationSummary(instruction, LocationSummary::kCallOnSlowPath);
+  InvokeRuntimeCallingConvention calling_convention;
+  RegisterSet caller_saves = RegisterSet::Empty();
+  caller_saves.Add(Location::RegisterLocation(calling_convention.GetRegisterAt(0)));
+  locations->SetCustomSlowPathCallerSaves(caller_saves);
+  if (IsBooleanValueOrMaterializedCondition(instruction->InputAt(0))) {
+    locations->SetInAt(0, Location::RequiresRegister());
+  }
 }
 void InstructionCodeGeneratorRISCV64::VisitDeoptimize(HDeoptimize* instruction) {
-  UNUSED(instruction);
-  LOG(FATAL) << "Unimplemented";
+  SlowPathCodeRISCV64* slow_path =
+      deopt_slow_paths_.NewSlowPath<DeoptimizationSlowPathRISCV64>(instruction);
+  GenerateTestAndBranch(instruction,
+                        /* condition_input_index= */ 0,
+                        slow_path->GetEntryLabel(),
+                        /* false_target= */ nullptr);
 }
+
 void LocationsBuilderRISCV64::VisitDiv(HDiv* instruction) {
   UNUSED(instruction);
   LOG(FATAL) << "Unimplemented";
