@@ -74,6 +74,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bc67140f_f81e62c4",
+        "filename": "test/Android.bp",
+        "patchSetId": 6
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-06-21T15:11:22Z",
+      "side": 1,
+      "message": "Example of transitive static_libs: https://paste.googleplex.com/5148497115348992?raw\n`m example_exe` gives:\n```\nFAILED: out/.../example_exe \nld.lld: error: undefined symbol: bar()\n\u003e\u003e\u003e referenced by foo.cc:6 (art/imgdiag/foo.cc:6)\n\u003e\u003e\u003e               foo.o:(foo()) in archive out/.../static_foo.a\n```\n`static_foo` library references a symbol from `static_bar`, but `static_foo.a` doesn\u0027t contain it.\n\n\n\nAbout `libsigchain` and ASAN, there were multiple slightly overlapping problems:\n\n\n1) `--exclude-libs\u003dALL` breaks gtests under ASAN, because it hides `libasan.a` symbols from the test executable and shared libraries can\u0027t resolve them.\n\nThis one is simple, replace `--exclude-libs\u003dALL` with `--exclude-libs\u003dlibart(d)-gtest.a`\n\n2) `art_sigchain_tests` break under ASAN when `libsigchain` is in `shared_libs` of the test executable.\nSimilar to this bug: b/183102427\n\nThe test works fine with either static linked `libsigchain` or if `libsigchain` is transitive shared library dependency of the executable (it used to be a shared lib dependency of `libart.so` before gtests became static linked). Now that `libart` is static linked into gtests, static linking seems to be the only way.\n\n3) `art_standalone_sigchain_tests` break if `libsigchain` symbols are hidden.\nFixed by removing `--exclude-libs\u003dALL` and not hiding `libsigchain` symbols.\n\n\n\u003eIs the salient point here that the ASAN code must bind to the real libc sigaction, so you need to adjust the linking so that only the test code binds to the libsigchain override?\n\nThe point of this particular comment is that `libsigchain` (unlike all other gtest dependencies) shouldn\u0027t be whole-static-linked into `libart(d)-gtest`, because otherwise its symbols will be hidden by `--exclude-libs\u003dlibart(d)-gtest` and problem #3 happens.\n\nAs for sigaction, `libsigchain` version is used now, but it works because `libsigchain` symbols reside in the executable.\n\nIt used to fail when `libsigchain` was in shared_libs, because ASAN would trigger `libsigchain.so` init ahead of time, which in turn triggered `libc.so` init. So some of the `libc` variables (specifically, `environ`) were initialised twice, once from `libsigchain.so` object and then from the actual executable.",
+      "parentUuid": "28992005_892f4ef9",
+      "range": {
+        "startLine": 260,
+        "startChar": 25,
+        "endLine": 260,
+        "endChar": 51
+      },
+      "revId": "454a6940e79c925e3697e150afe15fe857c420b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "05c16b3d_8ebd0b0d",
         "filename": "test/Android.bp",
         "patchSetId": 6
@@ -133,6 +157,30 @@
       "side": 1,
       "message": "You mean there\u0027s a runtime library (`libclang_rt.asan-*.a`?) with symbols that the all the libraries need? If so, shouldn\u0027t it be present in the final linking of the binary, when all the .a files come together? How does `--exclude-libs` interfere with that? I gather it\u0027s only dropping symbols from the export but it doesn\u0027t prohibit external imported symbols from being resolved, does it? I\u0027m afraid I still don\u0027t understand the problem with the ASAN symbols.",
       "parentUuid": "5ea73987_5a851e17",
+      "range": {
+        "startLine": 281,
+        "startChar": 72,
+        "endLine": 281,
+        "endChar": 97
+      },
+      "revId": "454a6940e79c925e3697e150afe15fe857c420b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb444848_e878b9f9",
+        "filename": "test/Android.bp",
+        "patchSetId": 6
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-06-21T15:11:22Z",
+      "side": 1,
+      "message": "\u003e libclang_rt.asan-*.a\n\nProbably this one, but I\u0027ve seen it being referenced as `libasan.a`.\n\n`--exclude-libs` hides symbols from the executable, i.e. they become `local` instead of `global` when I checked with objdump. They can be bound from the executable, but they can\u0027t be loaded by an external library.",
+      "parentUuid": "a10a2aa5_21f9dd20",
       "range": {
         "startLine": 281,
         "startChar": 72,
