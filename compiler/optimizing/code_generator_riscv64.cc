@@ -1773,14 +1773,9 @@ void InstructionCodeGeneratorRISCV64::VisitEqual(HEqual* instruction) {
   HandleCondition(instruction);
 }
 
-void LocationsBuilderRISCV64::VisitExit(HExit* instruction) {
-  UNUSED(instruction);
-  LOG(FATAL) << "Unimplemented";
-}
-void InstructionCodeGeneratorRISCV64::VisitExit(HExit* instruction) {
-  UNUSED(instruction);
-  LOG(FATAL) << "Unimplemented";
-}
+void LocationsBuilderRISCV64::VisitExit(HExit* instruction) { instruction->SetLocations(nullptr); }
+void InstructionCodeGeneratorRISCV64::VisitExit([[maybe_unused]] HExit* instruction) {}
+
 void LocationsBuilderRISCV64::VisitFloatConstant(HFloatConstant* instruction) {
   UNUSED(instruction);
   LOG(FATAL) << "Unimplemented";
