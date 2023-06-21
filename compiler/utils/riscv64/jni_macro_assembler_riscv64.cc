@@ -419,16 +419,67 @@ void Riscv64JNIMacroAssembler::CallFromThread(ThreadOffset64 offset) {
 void Riscv64JNIMacroAssembler::TryToTransitionFromRunnableToNative(
     JNIMacroLabel* label,
     ArrayRef<const ManagedRegister> scratch_regs) {
-  // TODO(riscv64): Implement this.
-  UNUSED(label, scratch_regs);
+  constexpr uint32_t kNativeStateValue = Thread::StoredThreadStateValue(ThreadState::kNative);
+  constexpr uint32_t kRunnableStateValue = Thread::StoredThreadStateValue(ThreadState::kRunnable);
+  constexpr ThreadOffset64 thread_flags_offset = Thread::ThreadFlagsOffset<kRiscv64PointerSize>();
+  constexpr ThreadOffset64 thread_held_mutex_mutator_lock_offset =
+      Thread::HeldMutexOffset<kRiscv64PointerSize>(kMutatorLock);
+
+  DCHECK_GE(scratch_regs.size(), 2u);
+  XRegister scratch = scratch_regs[0].AsRiscv64().AsXRegister();
+  XRegister scratch2 = scratch_regs[1].AsRiscv64().AsXRegister();
+
+  // CAS release, old_value = kRunnableStateValue, new_value = kNativeStateValue, no flags.
+  Riscv64Label retry;
+  __ Bind(&retry);
+  static_assert(thread_flags_offset.Int32Value() == 0);  // LDXR/STLXR require exact address.
+  __ LrW(scratch, TR, /*aqrl=*/ 0u);
+  __ Li(scratch2, kNativeStateValue);
+  // If any flags are set, go to the slow path.
+  static_assert(kRunnableStateValue == 0u);
+  __ Bnez(scratch, Riscv64JNIMacroLabel::Cast(label)->AsRiscv64());
+  __ ScW(scratch, scratch2, TR, /*aqrl=*/ 1u);  // Release.
+  __ Bnez(scratch, &retry);
+
+  // Clear `self->tlsPtr_.held_mutexes[kMutatorLock]`.
+  __ Stored(Zero, TR, thread_held_mutex_mutator_lock_offset.Int32Value());
 }
 
 void Riscv64JNIMacroAssembler::TryToTransitionFromNativeToRunnable(
     JNIMacroLabel* label,
     ArrayRef<const ManagedRegister> scratch_regs,
     ManagedRegister return_reg) {
-  // TODO(riscv64): Implement this.
-  UNUSED(label, scratch_regs, return_reg);
+  constexpr uint32_t kNativeStateValue = Thread::StoredThreadStateValue(ThreadState::kNative);
+  constexpr uint32_t kRunnableStateValue = Thread::StoredThreadStateValue(ThreadState::kRunnable);
+  constexpr ThreadOffset64 thread_flags_offset = Thread::ThreadFlagsOffset<kRiscv64PointerSize>();
+  constexpr ThreadOffset64 thread_held_mutex_mutator_lock_offset =
+      Thread::HeldMutexOffset<kRiscv64PointerSize>(kMutatorLock);
+  constexpr ThreadOffset64 thread_mutator_lock_offset =
+      Thread::MutatorLockOffset<kRiscv64PointerSize>();
+
+  DCHECK_GE(scratch_regs.size(), 2u);
+  DCHECK(!scratch_regs[0].AsRiscv64().Overlaps(return_reg.AsRiscv64()));
+  XRegister scratch = scratch_regs[0].AsRiscv64().AsXRegister();
+  DCHECK(!scratch_regs[1].AsRiscv64().Overlaps(return_reg.AsRiscv64()));
+  XRegister scratch2 = scratch_regs[1].AsRiscv64().AsXRegister();
+
+  // CAS acquire, old_value = kNativeStateValue, new_value = kRunnableStateValue, no flags.
+  Riscv64Label retry;
+  __ Bind(&retry);
+  static_assert(thread_flags_offset.Int32Value() == 0);  // LDAXR/STXR require exact address.
+  __ LrW(scratch, TR, /*aqrl=*/ 2u);  // Acquire.
+  __ Li(scratch2, kNativeStateValue);
+  // If any flags are set, or the state is not Native, go to the slow path.
+  // (While the thread can theoretically transition between different Suspended states,
+  // it would be very unexpected to see a state other than Native at this point.)
+  __ Bne(scratch, scratch2, Riscv64JNIMacroLabel::Cast(label)->AsRiscv64());
+  static_assert(kRunnableStateValue == 0u);
+  __ ScW(scratch, Zero, TR, /*aqrl=*/ 0u);
+  __ Bnez(scratch, &retry);
+
+  // Set `self->tlsPtr_.held_mutexes[kMutatorLock]` to the mutator lock.
+  __ Loadd(scratch, TR, thread_mutator_lock_offset.Int32Value());
+  __ Stored(scratch, TR, thread_held_mutex_mutator_lock_offset.Int32Value());
 }
 
 void Riscv64JNIMacroAssembler::SuspendCheck(JNIMacroLabel* label) {
@@ -451,7 +502,7 @@ void Riscv64JNIMacroAssembler::DeliverPendingException() {
   __ Loadd(RA, TR, QUICK_ENTRYPOINT_OFFSET(kRiscv64PointerSize, pDeliverException).Int32Value());
   __ Jalr(RA);
   // Call should never return.
-  __ Ebreak();
+  __ Unimp();
 }
 
 std::unique_ptr<JNIMacroLabel> Riscv64JNIMacroAssembler::CreateLabel() {

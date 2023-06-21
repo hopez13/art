@@ -541,4 +541,77 @@
     DELIVER_PENDING_EXCEPTION
 .endm
 
+// Locking is needed for both managed code and JNI stubs.
+.macro LOCK_OBJECT_FAST_PATH obj, slow_lock, can_be_null
+    // Use scratch registers t1-t6 as temporaries.
+    lw      t2, THREAD_ID_OFFSET(xSELF)
+    .if \can_be_null
+        beqz    \obj, \slow_lock
+    .endif
+                                      // Exclusive load/store has no immediate.
+    addi    t1, \obj, MIRROR_OBJECT_LOCK_WORD_OFFSET
+1:
+    lr.w.aq t3, (t1)                  // Acquire needed only in most common case.
+    li      t5, LOCK_WORD_GC_STATE_MASK_SHIFTED  // Prepare mask for testing non-gc bits.
+    xor     t4, t3, t2                // Prepare the value to store if unlocked
+                                      //   (thread id, count of 0 and preserved read barrier bits),
+                                      // or prepare to compare thread id for recursive lock check
+                                      //   (lock_word.ThreadId() ^ self->ThreadId()).
+    or      t6, t5, t3                // Test the non-gc bits.
+    bne     t6, t5, 2f                // Check if unlocked.
+    // Unlocked case - store w11: original lock word plus thread id, preserved read barrier bits.
+    sc.w    t3, t4, (t1)
+    bnez    t3, 1b                    // If the store failed, retry.
+    ret
+2:  // t3: original lock word, t2: thread id, t4: t3 ^ t2
+                                      // Check lock word state and thread id together,
+    li      t5, 0xffffffff ^ (LOCK_WORD_STATE_MASK_SHIFTED | LOCK_WORD_THIN_LOCK_OWNER_MASK_SHIFTED)
+    or      t6, t5, t4
+    bne     t6, t5, \slow_lock
+    li      t4, LOCK_WORD_THIN_LOCK_COUNT_ONE  // Increment the recursive lock count.
+    addw    t4, t3, t4
+    li      t5, LOCK_WORD_THIN_LOCK_COUNT_MASK_SHIFTED  // Test the new thin lock count.
+    and     t5, t4, t5
+    beqz    t5, \slow_lock            // Zero as the new count indicates overflow, go slow path.
+    sc.w    t3, t4, (t1)
+    bnez    t3, 1b                    // If the store failed, retry.
+    ret
+.endm
+
+// Unlocking is needed for both managed code and JNI stubs.
+.macro UNLOCK_OBJECT_FAST_PATH obj, slow_unlock, can_be_null
+    // Use scratch registers t1-t6 as temporaries.
+    lw      t2, THREAD_ID_OFFSET(xSELF)
+    .if \can_be_null
+        beqz    \obj, \slow_unlock
+    .endif
+                                      // Exclusive load/store has no immediate.
+    addi    t1, \obj, MIRROR_OBJECT_LOCK_WORD_OFFSET
+1:
+    // Note: Without read barriers, we could do plain LW here but there is no store-release
+    // other than SC on riscv64, so we do this with LR/SC for all cofigurations.
+    lr.w    t3, (t1)
+    li      t5, LOCK_WORD_GC_STATE_MASK_SHIFTED  // Prepare mask for testing non-gc bits.
+    xor     t4, t3, t2                // Prepare the value to store if simply locked
+                                      //   (mostly 0s, and preserved read barrier bits),
+                                      // or prepare to compare thread id for recursive lock check
+                                      //   (lock_word.ThreadId() ^ self->ThreadId()).
+    or      t6, t5, t4                // Test the non-gc bits.
+    bne     t6, t5, 2f                // Locked recursively or by other thread?
+    // Transition to unlocked.
+    sc.w.rl t3, t4, (t1)              // Need to use atomic instructions for read barrier.
+    bnez    t3, 1b                    // If the store failed, retry.
+    ret
+2:
+                                      // Check lock word state and thread id together.
+    li      t5, 0xffffffff ^ (LOCK_WORD_STATE_MASK_SHIFTED | LOCK_WORD_THIN_LOCK_OWNER_MASK_SHIFTED)
+    or      t6, t5, t4
+    bne     t6, t5, \slow_unlock
+    li      t4, LOCK_WORD_THIN_LOCK_COUNT_ONE  // Decrement the recursive lock count.
+    subw    t4, t3, t4
+    sc.w.rl t3, t4, (t1)
+    bnez    t3, 1b                    // If the store failed, retry.
+    ret
+.endm
+
 #endif  // ART_RUNTIME_ARCH_RISCV64_ASM_SUPPORT_RISCV64_S_
