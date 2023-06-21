@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "28992005_892f4ef9",
+        "filename": "test/Android.bp",
+        "patchSetId": 6
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-06-21T09:41:32Z",
+      "side": 1,
+      "message": "\u003e With static_libs:\n\u003e libsigchain object files are not copied into libart(d)-gtest, so it doesn\u0027t contain libsigchain symbols.\n\nMy understanding is that they are copied, but only for the symbols actually referenced from libart(d)-gtest.\n\nIs the salient point here that the ASAN code must bind to the real libc sigaction, so you need to adjust the linking so that only the test code binds to the libsigchain override? If so, please make that more clear.",
+      "parentUuid": "c09d2471_6abe972e",
+      "range": {
+        "startLine": 260,
+        "startChar": 25,
+        "endLine": 260,
+        "endChar": 51
+      },
+      "revId": "454a6940e79c925e3697e150afe15fe857c420b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "05c16b3d_8ebd0b0d",
         "filename": "test/Android.bp",
         "patchSetId": 6
@@ -85,6 +109,30 @@
       "side": 1,
       "message": "ASAN symbols are static linked into the executable. All shared libraries built with ASAN support require those symbols but don\u0027t contain them, they get the symbols from the executable.",
       "parentUuid": "05c16b3d_8ebd0b0d",
+      "range": {
+        "startLine": 281,
+        "startChar": 72,
+        "endLine": 281,
+        "endChar": 97
+      },
+      "revId": "454a6940e79c925e3697e150afe15fe857c420b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a10a2aa5_21f9dd20",
+        "filename": "test/Android.bp",
+        "patchSetId": 6
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-06-21T09:41:32Z",
+      "side": 1,
+      "message": "You mean there\u0027s a runtime library (`libclang_rt.asan-*.a`?) with symbols that the all the libraries need? If so, shouldn\u0027t it be present in the final linking of the binary, when all the .a files come together? How does `--exclude-libs` interfere with that? I gather it\u0027s only dropping symbols from the export but it doesn\u0027t prohibit external imported symbols from being resolved, does it? I\u0027m afraid I still don\u0027t understand the problem with the ASAN symbols.",
+      "parentUuid": "5ea73987_5a851e17",
       "range": {
         "startLine": 281,
         "startChar": 72,
