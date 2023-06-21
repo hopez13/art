@@ -668,6 +668,60 @@ TEST_F(JniMacroAssemblerRiscv64Test, Call) {
   DriverStr(expected, "Call");
 }
 
+TEST_F(JniMacroAssemblerRiscv64Test, Transitions) {
+  std::string expected;
+
+  constexpr uint32_t kNativeStateValue = Thread::StoredThreadStateValue(ThreadState::kNative);
+  constexpr uint32_t kRunnableStateValue = Thread::StoredThreadStateValue(ThreadState::kRunnable);
+  static_assert(kRunnableStateValue == 0u);
+  constexpr ThreadOffset64 thread_flags_offset = Thread::ThreadFlagsOffset<kRiscv64PointerSize>();
+  static_assert(thread_flags_offset.SizeValue() == 0u);
+  constexpr size_t thread_held_mutex_mutator_lock_offset =
+      Thread::HeldMutexOffset<kRiscv64PointerSize>(kMutatorLock).SizeValue();
+  constexpr size_t thread_mutator_lock_offset =
+      Thread::MutatorLockOffset<kRiscv64PointerSize>().SizeValue();
+
+  std::unique_ptr<JNIMacroLabel> slow_path = __ CreateLabel();
+  std::unique_ptr<JNIMacroLabel> resume = __ CreateLabel();
+
+  const ManagedRegister raw_scratch_regs[] = { AsManaged(T0), AsManaged(T1) };
+  const ArrayRef<const ManagedRegister> scratch_regs(raw_scratch_regs);
+
+  __ TryToTransitionFromRunnableToNative(slow_path.get(), scratch_regs);
+  expected += "1:\n"
+              "lr.w t0, (s1)\n"
+              "li t1, " + std::to_string(kNativeStateValue) + "\n"
+              "bnez t0, 4f\n"
+              "sc.w.rl t0, t1, (s1)\n"
+              "bnez t0, 1b\n"
+              "addi t6, s1, 0x7f8\n"
+              "sd x0, " + std::to_string(thread_held_mutex_mutator_lock_offset - 0x7f8u) + "(t6)\n";
+
+  __ TryToTransitionFromNativeToRunnable(slow_path.get(), scratch_regs, AsManaged(A0));
+  expected += "2:\n"
+              "lr.w.aq t0, (s1)\n"
+              "li t1, " + std::to_string(kNativeStateValue) + "\n"
+              "bne t0, t1, 4f\n"
+              "sc.w t0, x0, (s1)\n"
+              "bnez t0, 2b\n"
+              "ld t0, " + std::to_string(thread_mutator_lock_offset) + "(s1)\n"
+              "addi t6, s1, 0x7f8\n"
+              "sd t0, " + std::to_string(thread_held_mutex_mutator_lock_offset - 0x7f8u) + "(t6)\n";
+
+  __ Bind(resume.get());
+  expected += "3:\n";
+
+  expected += EmitRet();
+
+  __ Bind(slow_path.get());
+  expected += "4:\n";
+
+  __ Jump(resume.get());
+  expected += "j 3b";
+
+  DriverStr(expected, "SuspendCheck");
+}
+
 TEST_F(JniMacroAssemblerRiscv64Test, SuspendCheck) {
   std::string expected;
 
@@ -716,7 +770,7 @@ TEST_F(JniMacroAssemblerRiscv64Test, Exception) {
   expected += "ld a0, " + std::to_string(exception_offset.Int32Value()) + "(s1)\n"
               "ld ra, " + std::to_string(deliver_offset.Int32Value()) + "(s1)\n"
               "jalr ra\n"
-              "ebreak\n";
+              "unimp\n";
 
   DriverStr(expected, "Exception");
 }
