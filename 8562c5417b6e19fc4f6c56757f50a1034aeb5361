@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf0e5c62_484e3528",
+        "filename": "compiler/utils/riscv64/jni_macro_assembler_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-06-21T13:45:33Z",
+      "side": 1,
+      "message": "Added a comment pointing to `Thread::DecodeJObject()`.",
+      "parentUuid": "2eab4d18_9fa5206d",
+      "range": {
+        "startLine": 384,
+        "startChar": 0,
+        "endLine": 388,
+        "endChar": 24
+      },
+      "revId": "8562c5417b6e19fc4f6c56757f50a1034aeb5361",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8228b88b_71921f89",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-06-21T11:12:51Z",
       "side": 1,
       "message": "Why not BEQZ / BNEZ ?",
+      "range": {
+        "startLine": 498,
+        "startChar": 0,
+        "endLine": 502,
+        "endChar": 67
+      },
+      "revId": "8562c5417b6e19fc4f6c56757f50a1034aeb5361",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d515e68_51026270",
+        "filename": "compiler/utils/riscv64/jni_macro_assembler_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 502,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-06-21T13:45:33Z",
+      "side": 1,
+      "message": "Added a comment above the SLLIW.",
+      "parentUuid": "8228b88b_71921f89",
       "range": {
         "startLine": 498,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc3ac28a_357ca7a5",
+        "filename": "compiler/utils/riscv64/jni_macro_assembler_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 514,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-06-21T13:45:33Z",
+      "side": 1,
+      "message": "Yes, it would be nice to keep track of the temp registers we\u0027re using but it\u0027s a lot of effort, so I\u0027m skipping that for now.",
+      "parentUuid": "26b2fa7e_7064b7fe",
+      "range": {
+        "startLine": 514,
+        "startChar": 2,
+        "endLine": 514,
+        "endChar": 75
+      },
+      "revId": "8562c5417b6e19fc4f6c56757f50a1034aeb5361",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a160158f_14f01f92",
@@ -83,6 +155,30 @@
       "writtenOn": "2023-06-21T11:12:51Z",
       "side": 1,
       "message": "Why this change? Was this an error in the previous commit, or is it explained by the changes in this commit?",
+      "range": {
+        "startLine": 539,
+        "startChar": 4,
+        "endLine": 539,
+        "endChar": 44
+      },
+      "revId": "8562c5417b6e19fc4f6c56757f50a1034aeb5361",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "97468673_85f1620e",
+        "filename": "compiler/utils/riscv64/jni_macro_assembler_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 539,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-06-21T13:45:33Z",
+      "side": 1,
+      "message": "Yes, this was an error in the previous commit. This also prompted me to add the test for `CreateJObject` to this CL.",
+      "parentUuid": "a160158f_14f01f92",
       "range": {
         "startLine": 539,
         "startChar": 4,
