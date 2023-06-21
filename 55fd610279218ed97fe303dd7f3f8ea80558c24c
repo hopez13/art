@@ -1,0 +1,763 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "93b85797_a80ce683",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-06-21T15:47:04Z",
+      "side": 1,
+      "message": "Can you mention the limitations in more detail here? Also, did you make any measurements how often such loops occur in the wild, e.g. in the boot image?",
+      "range": {
+        "startLine": 10,
+        "startChar": 14,
+        "endLine": 10,
+        "endChar": 61
+      },
+      "revId": "55fd610279218ed97fe303dd7f3f8ea80558c24c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9663ed68_3eb508fc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-06-21T15:47:04Z",
+      "side": 1,
+      "message": "Nit: I think you could use just art/test.py (a bit shorter).",
+      "range": {
+        "startLine": 14,
+        "startChar": 6,
+        "endLine": 14,
+        "endChar": 42
+      },
+      "revId": "55fd610279218ed97fe303dd7f3f8ea80558c24c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e6b7af0_9fae0d22",
+        "filename": "compiler/optimizing/code_generator_vector_arm64_sve.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1249,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-06-21T15:47:04Z",
+      "side": 1,
+      "message": "Why are unsigned kUint32 and kUint64 not supported?",
+      "range": {
+        "startLine": 1246,
+        "startChar": 0,
+        "endLine": 1249,
+        "endChar": 1
+      },
+      "revId": "55fd610279218ed97fe303dd7f3f8ea80558c24c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba315a6c_8c661abb",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 459,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-06-21T15:47:04Z",
+      "side": 1,
+      "message": "Should the edges be directed (at least the back edge could have a tip)?",
+      "range": {
+        "startLine": 451,
+        "startChar": 0,
+        "endLine": 459,
+        "endChar": 43
+      },
+      "revId": "55fd610279218ed97fe303dd7f3f8ea80558c24c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4406b20_01454f19",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 862,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-06-21T15:47:04Z",
+      "side": 1,
+      "message": "What do you mean? What would change if `successor` had multiple predecessors?",
+      "range": {
+        "startLine": 862,
+        "startChar": 43,
+        "endLine": 862,
+        "endChar": 59
+      },
+      "revId": "55fd610279218ed97fe303dd7f3f8ea80558c24c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9c3222eb_58561b2a",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1246,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-06-21T15:47:04Z",
+      "side": 1,
+      "message": "Maybe just `ShouldVectorizeCommon`? It kind of implies the \"can\" part.",
+      "range": {
+        "startLine": 1246,
+        "startChar": 24,
+        "endLine": 1246,
+        "endChar": 51
+      },
+      "revId": "55fd610279218ed97fe303dd7f3f8ea80558c24c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5de9735a_de5ecb5e",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1261,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-06-21T15:47:04Z",
+      "side": 1,
+      "message": "Why are these two separate `if` statements?",
+      "range": {
+        "startLine": 1253,
+        "startChar": 0,
+        "endLine": 1261,
+        "endChar": 3
+      },
+      "revId": "55fd610279218ed97fe303dd7f3f8ea80558c24c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7cd80dd5_c1a48485",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2738,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-06-21T15:47:04Z",
+      "side": 1,
+      "message": "What does this mean?",
+      "range": {
+        "startLine": 2738,
+        "startChar": 51,
+        "endLine": 2738,
+        "endChar": 62
+      },
+      "revId": "55fd610279218ed97fe303dd7f3f8ea80558c24c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "debc4fa3_e1ff6532",
+        "filename": "compiler/optimizing/loop_optimization.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-06-21T15:47:04Z",
+      "side": 1,
+      "message": "I think CF-loop and DF-loop need to be deciphered, or you can change `control flow -\u003e data flow` to `control flow (CF) -\u003e data flow (DF)` on line 148 above to catch the eye.\n\nAlso, you can mention that by \"data\" you mean the values stored in predicate registers (this may be non obvious for someone not that familiar with predicated execution).",
+      "range": {
+        "startLine": 151,
+        "startChar": 38,
+        "endLine": 151,
+        "endChar": 45
+      },
+      "revId": "55fd610279218ed97fe303dd7f3f8ea80558c24c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb1010cd_de84c1f6",
+        "filename": "compiler/optimizing/loop_optimization.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-06-21T15:47:04Z",
+      "side": 1,
+      "message": "Add \"More specifically, a block will be executed if [...]\"",
+      "range": {
+        "startLine": 153,
+        "startChar": 17,
+        "endLine": 153,
+        "endChar": 20
+      },
+      "revId": "55fd610279218ed97fe303dd7f3f8ea80558c24c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "490bf533_18b7116f",
+        "filename": "compiler/optimizing/loop_optimization.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-06-21T15:47:04Z",
+      "side": 1,
+      "message": "Please fix this ERROR reported by Common Typos: Common typo found: \"the the\" -- should it be \"the\"?\n\nAnalyzer Description: Linter for catching common typos motivated by go/todo-fail and go/lol-codesearch. Shared with google3 common typos library go/common-typos.\nOwner: ayeaye-team@google.com\n\nCommon typo found: \"the the\" -- should it be \"the\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027No-Typo-Check: \u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 154,
+        "startChar": 65,
+        "endLine": 154,
+        "endChar": 72
+      },
+      "revId": "55fd610279218ed97fe303dd7f3f8ea80558c24c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d0a0e10_a3b84cb3",
+        "filename": "compiler/optimizing/loop_optimization.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-06-21T15:47:04Z",
+      "side": 1,
+      "message": "Either use lowercase or uppercase everywhere.",
+      "range": {
+        "startLine": 159,
+        "startChar": 62,
+        "endLine": 159,
+        "endChar": 63
+      },
+      "revId": "55fd610279218ed97fe303dd7f3f8ea80558c24c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7cc4957f_1fe9fc06",
+        "filename": "compiler/optimizing/loop_optimization.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-06-21T15:47:04Z",
+      "side": 1,
+      "message": "This example can take a bit less space if you remove some blank lines before and after `...`.",
+      "range": {
+        "startLine": 166,
+        "startChar": 0,
+        "endLine": 178,
+        "endChar": 25
+      },
+      "revId": "55fd610279218ed97fe303dd7f3f8ea80558c24c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b7cfa14_b0bff99f",
+        "filename": "compiler/optimizing/loop_optimization.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-06-21T15:47:04Z",
+      "side": 1,
+      "message": "Is this needed? Where are `t` and `f`?",
+      "range": {
+        "startLine": 180,
+        "startChar": 11,
+        "endLine": 180,
+        "endChar": 16
+      },
+      "revId": "55fd610279218ed97fe303dd7f3f8ea80558c24c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3bb410f6_4eb1001e",
+        "filename": "compiler/optimizing/loop_optimization.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-06-21T15:47:04Z",
+      "side": 1,
+      "message": "remove?",
+      "range": {
+        "startLine": 182,
+        "startChar": 62,
+        "endLine": 182,
+        "endChar": 66
+      },
+      "revId": "55fd610279218ed97fe303dd7f3f8ea80558c24c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d0fdd0f_321dff25",
+        "filename": "compiler/optimizing/loop_optimization.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-06-21T15:47:04Z",
+      "side": 1,
+      "message": "Can you expand this a bit for clarity: instead of \"non-CF (2-block)\" say something like \"a loop with two consecutive blocks and without the branching structure\".",
+      "range": {
+        "startLine": 184,
+        "startChar": 75,
+        "endLine": 184,
+        "endChar": 91
+      },
+      "revId": "55fd610279218ed97fe303dd7f3f8ea80558c24c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ce27b39_e3fd4cbf",
+        "filename": "compiler/optimizing/loop_optimization.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-06-21T15:47:04Z",
+      "side": 1,
+      "message": "Do we expect any other than the ones created in #2?",
+      "range": {
+        "startLine": 188,
+        "startChar": 53,
+        "endLine": 188,
+        "endChar": 85
+      },
+      "revId": "55fd610279218ed97fe303dd7f3f8ea80558c24c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3ad9b6d_2d29a502",
+        "filename": "compiler/optimizing/loop_optimization.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-06-21T15:47:04Z",
+      "side": 1,
+      "message": "Change this to \"control dependent\" so that it\u0027s easy to grep against the definition on line 162?",
+      "range": {
+        "startLine": 189,
+        "startChar": 33,
+        "endLine": 189,
+        "endChar": 51
+      },
+      "revId": "55fd610279218ed97fe303dd7f3f8ea80558c24c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a8780377_8210f10d",
+        "filename": "compiler/optimizing/loop_optimization.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-06-21T15:47:04Z",
+      "side": 1,
+      "message": "vectorize (typo)",
+      "range": {
+        "startLine": 322,
+        "startChar": 12,
+        "endLine": 322,
+        "endChar": 22
+      },
+      "revId": "55fd610279218ed97fe303dd7f3f8ea80558c24c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0008fcf_1ed3213e",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3132,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-06-21T15:47:04Z",
+      "side": 1,
+      "message": "adjusts",
+      "range": {
+        "startLine": 3132,
+        "startChar": 28,
+        "endLine": 3132,
+        "endChar": 34
+      },
+      "revId": "55fd610279218ed97fe303dd7f3f8ea80558c24c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b73ae0f1_45f14da3",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 832,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-06-21T15:47:04Z",
+      "side": 1,
+      "message": "\"is\" missing?",
+      "range": {
+        "startLine": 832,
+        "startChar": 15,
+        "endLine": 832,
+        "endChar": 19
+      },
+      "revId": "55fd610279218ed97fe303dd7f3f8ea80558c24c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f445f63_9188add8",
+        "filename": "compiler/optimizing/nodes_vector.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1472,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-06-21T15:47:04Z",
+      "side": 1,
+      "message": "Can this be DCHECKed somewhere so that it is explicit, not implicit?",
+      "range": {
+        "startLine": 1472,
+        "startChar": 34,
+        "endLine": 1472,
+        "endChar": 44
+      },
+      "revId": "55fd610279218ed97fe303dd7f3f8ea80558c24c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "43e3f567_043f11bb",
+        "filename": "test/661-checker-simd-cf-loops/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-06-21T15:47:04Z",
+      "side": 1,
+      "message": "2023 (I hope the patch won\u0027t be delayed until 2024!)",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "55fd610279218ed97fe303dd7f3f8ea80558c24c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "795b1e92_3b907527",
+        "filename": "test/661-checker-simd-cf-loops/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-06-21T15:47:04Z",
+      "side": 1,
+      "message": "Please fix this WARNING reported by Check Contents: Wrong casing for \"kArrayLength\". static final variables should be ALL_UPPERCASE.\n\nAnalyzer Description: Validates that changes do not have prohibited expressions in them.\nOwner: ayeaye-team@google.com\n\nWrong casing for \"kArrayLength\". static final variables should be ALL_UPPERCASE.",
+      "range": {
+        "startLine": 22,
+        "startChar": 9,
+        "endLine": 22,
+        "endChar": 44
+      },
+      "revId": "55fd610279218ed97fe303dd7f3f8ea80558c24c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af02d172_ece90fe1",
+        "filename": "test/661-checker-simd-cf-loops/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-06-21T15:47:04Z",
+      "side": 1,
+      "message": "Please fix this WARNING reported by Check Contents: Wrong casing for \"kMagicValueA\". static final variables should be ALL_UPPERCASE.\n\nAnalyzer Description: Validates that changes do not have prohibited expressions in them.\nOwner: ayeaye-team@google.com\n\nWrong casing for \"kMagicValueA\". static final variables should be ALL_UPPERCASE.",
+      "range": {
+        "startLine": 35,
+        "startChar": 9,
+        "endLine": 35,
+        "endChar": 42
+      },
+      "revId": "55fd610279218ed97fe303dd7f3f8ea80558c24c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d92b2d6d_3f99cca0",
+        "filename": "test/661-checker-simd-cf-loops/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-06-21T15:47:04Z",
+      "side": 1,
+      "message": "Please fix this WARNING reported by Check Contents: Wrong casing for \"kMagicValueB\". static final variables should be ALL_UPPERCASE.\n\nAnalyzer Description: Validates that changes do not have prohibited expressions in them.\nOwner: ayeaye-team@google.com\n\nWrong casing for \"kMagicValueB\". static final variables should be ALL_UPPERCASE.",
+      "range": {
+        "startLine": 36,
+        "startChar": 9,
+        "endLine": 36,
+        "endChar": 43
+      },
+      "revId": "55fd610279218ed97fe303dd7f3f8ea80558c24c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a891b922_91181894",
+        "filename": "test/661-checker-simd-cf-loops/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-06-21T15:47:04Z",
+      "side": 1,
+      "message": "Please fix this WARNING reported by Check Contents: Wrong casing for \"kMagicValueC\". static final variables should be ALL_UPPERCASE.\n\nAnalyzer Description: Validates that changes do not have prohibited expressions in them.\nOwner: ayeaye-team@google.com\n\nWrong casing for \"kMagicValueC\". static final variables should be ALL_UPPERCASE.",
+      "range": {
+        "startLine": 37,
+        "startChar": 9,
+        "endLine": 37,
+        "endChar": 44
+      },
+      "revId": "55fd610279218ed97fe303dd7f3f8ea80558c24c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db73fa0c_b078776a",
+        "filename": "test/661-checker-simd-cf-loops/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-06-21T15:47:04Z",
+      "side": 1,
+      "message": "Please fix this WARNING reported by Check Contents: Wrong casing for \"kMagicAddConst\". static final variables should be ALL_UPPERCASE.\n\nAnalyzer Description: Validates that changes do not have prohibited expressions in them.\nOwner: ayeaye-team@google.com\n\nWrong casing for \"kMagicAddConst\". static final variables should be ALL_UPPERCASE.",
+      "range": {
+        "startLine": 39,
+        "startChar": 9,
+        "endLine": 39,
+        "endChar": 45
+      },
+      "revId": "55fd610279218ed97fe303dd7f3f8ea80558c24c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "44258014_c4938a8b",
+        "filename": "test/661-checker-simd-cf-loops/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-06-21T15:47:04Z",
+      "side": 1,
+      "message": "Please fix this WARNING reported by Check Contents: Wrong casing for \"kMagicFloatValueA\". static final variables should be ALL_UPPERCASE.\n\nAnalyzer Description: Validates that changes do not have prohibited expressions in them.\nOwner: ayeaye-team@google.com\n\nWrong casing for \"kMagicFloatValueA\". static final variables should be ALL_UPPERCASE.",
+      "range": {
+        "startLine": 41,
+        "startChar": 9,
+        "endLine": 41,
+        "endChar": 49
+      },
+      "revId": "55fd610279218ed97fe303dd7f3f8ea80558c24c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ad296fe5_e057afdb",
+        "filename": "test/661-checker-simd-cf-loops/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-06-21T15:47:04Z",
+      "side": 1,
+      "message": "Please fix this WARNING reported by Check Contents: Wrong casing for \"kMagicFloatValueB\". static final variables should be ALL_UPPERCASE.\n\nAnalyzer Description: Validates that changes do not have prohibited expressions in them.\nOwner: ayeaye-team@google.com\n\nWrong casing for \"kMagicFloatValueB\". static final variables should be ALL_UPPERCASE.",
+      "range": {
+        "startLine": 42,
+        "startChar": 9,
+        "endLine": 42,
+        "endChar": 50
+      },
+      "revId": "55fd610279218ed97fe303dd7f3f8ea80558c24c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5562c6cb_0a8fb8f5",
+        "filename": "test/661-checker-simd-cf-loops/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-06-21T15:47:04Z",
+      "side": 1,
+      "message": "Please fix this WARNING reported by Check Contents: Wrong casing for \"kMagicFloatValueC\". static final variables should be ALL_UPPERCASE.\n\nAnalyzer Description: Validates that changes do not have prohibited expressions in them.\nOwner: ayeaye-team@google.com\n\nWrong casing for \"kMagicFloatValueC\". static final variables should be ALL_UPPERCASE.",
+      "range": {
+        "startLine": 43,
+        "startChar": 9,
+        "endLine": 43,
+        "endChar": 51
+      },
+      "revId": "55fd610279218ed97fe303dd7f3f8ea80558c24c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bcee1f17_c01f2742",
+        "filename": "test/661-checker-simd-cf-loops/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-06-21T15:47:04Z",
+      "side": 1,
+      "message": "Please fix this WARNING reported by Check Contents: Wrong casing for \"kMagicFloatAddConst\". static final variables should be ALL_UPPERCASE.\n\nAnalyzer Description: Validates that changes do not have prohibited expressions in them.\nOwner: ayeaye-team@google.com\n\nWrong casing for \"kMagicFloatAddConst\". static final variables should be ALL_UPPERCASE.",
+      "range": {
+        "startLine": 45,
+        "startChar": 9,
+        "endLine": 45,
+        "endChar": 52
+      },
+      "revId": "55fd610279218ed97fe303dd7f3f8ea80558c24c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3443d37_762dfd04",
+        "filename": "test/661-checker-simd-cf-loops/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 395,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-06-21T15:47:04Z",
+      "side": 1,
+      "message": "Please fix this WARNING reported by Check Contents: Wrong casing for \"kStencilArraySize\". static final variables should be ALL_UPPERCASE.\n\nAnalyzer Description: Validates that changes do not have prohibited expressions in them.\nOwner: ayeaye-team@google.com\n\nWrong casing for \"kStencilArraySize\". static final variables should be ALL_UPPERCASE.",
+      "range": {
+        "startLine": 395,
+        "startChar": 9,
+        "endLine": 395,
+        "endChar": 49
+      },
+      "revId": "55fd610279218ed97fe303dd7f3f8ea80558c24c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
