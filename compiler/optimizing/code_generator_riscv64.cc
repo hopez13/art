@@ -1777,13 +1777,15 @@ void LocationsBuilderRISCV64::VisitExit(HExit* instruction) { instruction->SetLo
 void InstructionCodeGeneratorRISCV64::VisitExit([[maybe_unused]] HExit* instruction) {}
 
 void LocationsBuilderRISCV64::VisitFloatConstant(HFloatConstant* instruction) {
-  UNUSED(instruction);
-  LOG(FATAL) << "Unimplemented";
+  LocationSummary* locations =
+      new (GetGraph()->GetAllocator()) LocationSummary(instruction, LocationSummary::kNoCall);
+  locations->SetOut(Location::ConstantLocation(instruction));
 }
-void InstructionCodeGeneratorRISCV64::VisitFloatConstant(HFloatConstant* instruction) {
-  UNUSED(instruction);
-  LOG(FATAL) << "Unimplemented";
+void InstructionCodeGeneratorRISCV64::VisitFloatConstant(
+    [[maybe_unused]] HFloatConstant* instruction) {
+  // Will be generated at use site.
 }
+
 void LocationsBuilderRISCV64::VisitGoto(HGoto* instruction) {
   UNUSED(instruction);
   LOG(FATAL) << "Unimplemented";
