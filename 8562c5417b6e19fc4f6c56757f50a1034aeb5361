@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2eab4d18_9fa5206d",
+        "filename": "compiler/utils/riscv64/jni_macro_assembler_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-06-21T11:12:51Z",
+      "side": 1,
+      "message": "A comment what is going on here would be appreciated.",
+      "range": {
+        "startLine": 384,
+        "startChar": 0,
+        "endLine": 388,
+        "endChar": 24
+      },
+      "revId": "8562c5417b6e19fc4f6c56757f50a1034aeb5361",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8228b88b_71921f89",
+        "filename": "compiler/utils/riscv64/jni_macro_assembler_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 502,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-06-21T11:12:51Z",
+      "side": 1,
+      "message": "Why not BEQZ / BNEZ ?",
+      "range": {
+        "startLine": 498,
+        "startChar": 0,
+        "endLine": 502,
+        "endChar": 67
+      },
+      "revId": "8562c5417b6e19fc4f6c56757f50a1034aeb5361",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26b2fa7e_7064b7fe",
+        "filename": "compiler/utils/riscv64/jni_macro_assembler_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 514,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-06-21T11:12:51Z",
+      "side": 1,
+      "message": "It would be good to add debug checks for this. Some sort of claim/release debug statements for temp registers that will fail if the register is already in use. Not for this CL, but WDYT about it in general?",
+      "range": {
+        "startLine": 514,
+        "startChar": 2,
+        "endLine": 514,
+        "endChar": 75
+      },
+      "revId": "8562c5417b6e19fc4f6c56757f50a1034aeb5361",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a160158f_14f01f92",
+        "filename": "compiler/utils/riscv64/jni_macro_assembler_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 539,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-06-21T11:12:51Z",
+      "side": 1,
+      "message": "Why this change? Was this an error in the previous commit, or is it explained by the changes in this commit?",
+      "range": {
+        "startLine": 539,
+        "startChar": 4,
+        "endLine": 539,
+        "endChar": 44
+      },
+      "revId": "8562c5417b6e19fc4f6c56757f50a1034aeb5361",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
