@@ -70,6 +70,30 @@
       },
       "revId": "82e4b706cc37d11474657756d0dae85e10d32e6e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7b09f32_cb409d0f",
+        "filename": "libartbase/base/mem_map.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1295,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-06-22T12:12:03Z",
+      "side": 1,
+      "message": "I wonder if this approach can cause correctness issues? Imagine the following scenario, assuming the range is of 2 pages:\n\n1) first page is resident and the second one is not. `mincore` returns this correctly\n2) We zero-fill the first page but in the process, due to some kind of prefetching, the second page gets swapped-in.\n3) We then call `madvise(MADV_FREE)` on entire range and end up not releasing second page immediately (as it is no longer swapped out).\n4) An access from mutator on the second page happens before kswapd takes it away, causing access to clobbered data.\n\nI guess we should keep this implemented as is. Although it\u0027s not optimal, but is required for correctness.",
+      "parentUuid": "a7d9ab26_ad592add",
+      "range": {
+        "startLine": 1295,
+        "startChar": 10,
+        "endLine": 1295,
+        "endChar": 61
+      },
+      "revId": "82e4b706cc37d11474657756d0dae85e10d32e6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
