@@ -1,0 +1,234 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86b4569b_68d01da0",
+        "filename": "compiler/utils/riscv64/jni_macro_assembler_riscv64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-06-22T15:15:04Z",
+      "side": 1,
+      "message": "Is this a forward jump (then maybe add a comment)? As I\u0027m reading \"10.3. Eventual Success of Store-Conditional Instructions\":\n\n\u003e An LR/SC sequence begins with an LR instruction and ends with an SC \n\u003e instruction. The dynamic code executed between the LR and SC instructions\n\u003e can only contain instructions from the base \u0027\u0027I\u0027\u0027 instruction set, excluding\n\u003e loads, stores, backward jumps, taken backward branches, JALR, FENCE,\n\u003e and SYSTEM instructions.",
+      "range": {
+        "startLine": 440,
+        "startChar": 0,
+        "endLine": 440,
+        "endChar": 67
+      },
+      "revId": "3e2b16c4f88f81d47340b0f8d001354537a4abae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b6c1c915_a30f2a92",
+        "filename": "compiler/utils/riscv64/jni_macro_assembler_riscv64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 441,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-06-22T15:15:04Z",
+      "side": 1,
+      "message": "For my understanding:\n\n- Is \"Table 54. Mappings from C/C++ primitives to RISC-V primitives\" from the unprivileged ISA spec the source of truth for now? Previously there was Table A.6 but now it seems to be replaced with table 54 (or I\u0027m looking in the wrong place, but I try to use the latest asciidoc-formatted spec).\n\n- If so, the is the relevant line `atomic_\u003cop\u003e(memory_order_release) loop:lr.{w|d}; \u003cop\u003e; sc.{w|d}.rl; bnez loop` and why not `atomic_\u003cop\u003e(memory_order_acq_rel) lr.{w|d}.aq; \u003cop\u003e; sc.{w|d}.rl`?\n\n- Would it change to `atomic_\u003cop\u003e(memory_order_release) lr.{w|d}; \u003cop\u003e; sc.{w|d}.rl` from table 55 after we have hardware/toolchain support for load-acquire/store-release instructions as per Hans\u0027es proposal? If so, is it worth adding a special-form comment to make the transition easier in the future? Something like `TODO(b/283313534)`?\n\n- What is the encoding for `aqrl` (what do different values mean), is it 1 \u003d rl, 2 \u003d aq, 3 \u003d aq \u0026 rl (somewhat non-intuitively)? Is this documented somewhere?",
+      "range": {
+        "startLine": 436,
+        "startChar": 0,
+        "endLine": 441,
+        "endChar": 59
+      },
+      "revId": "3e2b16c4f88f81d47340b0f8d001354537a4abae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6c45cf7_9538fb12",
+        "filename": "compiler/utils/riscv64/jni_macro_assembler_riscv64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 470,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-06-22T15:15:04Z",
+      "side": 1,
+      "message": "Why acquire here on LR and release above on SC (line 441)?",
+      "range": {
+        "startLine": 470,
+        "startChar": 38,
+        "endLine": 470,
+        "endChar": 49
+      },
+      "revId": "3e2b16c4f88f81d47340b0f8d001354537a4abae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1596ff8d_fc4a385b",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 546,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-06-22T15:15:04Z",
+      "side": 1,
+      "message": "Mention why not T0?",
+      "range": {
+        "startLine": 546,
+        "startChar": 29,
+        "endLine": 546,
+        "endChar": 35
+      },
+      "revId": "3e2b16c4f88f81d47340b0f8d001354537a4abae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "56e18880_d3dd7b71",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 555,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-06-22T15:15:04Z",
+      "side": 1,
+      "message": "Why does LI have to be in LR/SC sequence? (Here an in all other places added by the CL.) It looks like one instruction but in fact it may unfold to many, making it generally harder to verify 16-instruction limit. I think it can go just before the sequence.",
+      "range": {
+        "startLine": 555,
+        "startChar": 4,
+        "endLine": 555,
+        "endChar": 89
+      },
+      "revId": "3e2b16c4f88f81d47340b0f8d001354537a4abae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db1570ea_4a0c11a9",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 568,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-06-22T15:15:04Z",
+      "side": 1,
+      "message": "...I see you have more LI here. It\u0027s hard to say how many instructions all the LI contribute in total to the LR/SC sequence.",
+      "range": {
+        "startLine": 568,
+        "startChar": 4,
+        "endLine": 568,
+        "endChar": 100
+      },
+      "revId": "3e2b16c4f88f81d47340b0f8d001354537a4abae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ac615df_94fec762",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 576,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-06-22T15:15:04Z",
+      "side": 1,
+      "message": "I would prefer if possible to have one one LR in the code matched by one SC, I think the branching logic can be slightly rearranged to make the SC at line 563 same as this one.",
+      "range": {
+        "startLine": 576,
+        "startChar": 4,
+        "endLine": 576,
+        "endChar": 24
+      },
+      "revId": "3e2b16c4f88f81d47340b0f8d001354537a4abae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35b25b09_76d9c087",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 583,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-06-22T15:15:04Z",
+      "side": 1,
+      "message": "Mention why not T0?",
+      "range": {
+        "startLine": 583,
+        "startChar": 29,
+        "endLine": 583,
+        "endChar": 34
+      },
+      "revId": "3e2b16c4f88f81d47340b0f8d001354537a4abae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6f50c27_0be1fcf4",
+        "filename": "runtime/arch/riscv64/jni_entrypoints_riscv64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-06-22T15:15:04Z",
+      "side": 1,
+      "message": "This does not say much more than the code. Besides, there is a comment on line 81.",
+      "range": {
+        "startLine": 85,
+        "startChar": 47,
+        "endLine": 85,
+        "endChar": 69
+      },
+      "revId": "3e2b16c4f88f81d47340b0f8d001354537a4abae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e39fbd0_6b8ad2dd",
+        "filename": "runtime/arch/riscv64/jni_entrypoints_riscv64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-06-22T15:15:04Z",
+      "side": 1,
+      "message": "Same here.",
+      "range": {
+        "startLine": 107,
+        "startChar": 46,
+        "endLine": 107,
+        "endChar": 68
+      },
+      "revId": "3e2b16c4f88f81d47340b0f8d001354537a4abae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
