@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b635e7d_80cf1ef3",
+        "filename": "libartbase/base/mem_map.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1295,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-06-22T10:01:24Z",
+      "side": 1,
+      "message": "We don\u0027t need to call madvise multiple times. Also, `MADV_DONTNEED` is not needed for non-resident pages. We just need to zero all the resident pages first and then call madvise once with `MADV_FREE` on entire `page_end - page_begin` range. This is because MADV_FREE immediately reclaims non-resident pages.\n\nThis way we won\u0027t incur the cost of multiple syscall invocation and still achieve the same goal.",
+      "range": {
+        "startLine": 1295,
+        "startChar": 10,
+        "endLine": 1295,
+        "endChar": 61
+      },
+      "revId": "82e4b706cc37d11474657756d0dae85e10d32e6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
