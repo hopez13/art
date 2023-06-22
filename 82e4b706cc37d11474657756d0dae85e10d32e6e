@@ -46,6 +46,30 @@
       },
       "revId": "82e4b706cc37d11474657756d0dae85e10d32e6e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a7d9ab26_ad592add",
+        "filename": "libartbase/base/mem_map.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1295,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-06-22T10:14:06Z",
+      "side": 1,
+      "message": "https://elixir.bootlin.com/linux/v5.19/source/mm/madvise.c#L622\n\nI confirmed this is unchanged in the latest kernel (6.4-rc) as well. And it is implemented this way since the beginning of `MADV_FREE`.",
+      "parentUuid": "3e82b5eb_aaa3ecd0",
+      "range": {
+        "startLine": 1295,
+        "startChar": 10,
+        "endLine": 1295,
+        "endChar": 61
+      },
+      "revId": "82e4b706cc37d11474657756d0dae85e10d32e6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
