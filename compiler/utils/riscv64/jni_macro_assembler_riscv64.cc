@@ -469,7 +469,6 @@ void Riscv64JNIMacroAssembler::TestGcMarking(JNIMacroLabel* label, JNIMacroUnary
   CHECK(label != nullptr);
 
   DCHECK_EQ(Thread::IsGcMarkingSize(), 4u);
-  DCHECK(gUseReadBarrier);
 
   XRegister test_reg = TMP;
   int32_t is_gc_marking_offset = Thread::IsGcMarkingOffset<kRiscv64PointerSize>().Int32Value();
@@ -490,7 +489,6 @@ void Riscv64JNIMacroAssembler::TestGcMarking(JNIMacroLabel* label, JNIMacroUnary
 void Riscv64JNIMacroAssembler::TestMarkBit(ManagedRegister m_ref,
                                            JNIMacroLabel* label,
                                            JNIMacroUnaryCondition cond) {
-  DCHECK(kUseBakerReadBarrier);
   XRegister ref = m_ref.AsRiscv64().AsXRegister();
   __ Loadw(TMP, ref, mirror::Object::MonitorOffset().Int32Value());
   // Move the bit we want to check to the sign bit, so that we can use BGEZ/BLTZ
