@@ -22,6 +22,30 @@
       },
       "revId": "82e4b706cc37d11474657756d0dae85e10d32e6e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e82b5eb_aaa3ecd0",
+        "filename": "libartbase/base/mem_map.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1295,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-06-22T10:10:51Z",
+      "side": 1,
+      "message": "\u003e  This is because MADV_FREE immediately reclaims non-resident pages.\n\nWhere did you see that specified? (eg pages in zram, are they going to be immediately reclaimed?)",
+      "parentUuid": "6b635e7d_80cf1ef3",
+      "range": {
+        "startLine": 1295,
+        "startChar": 10,
+        "endLine": 1295,
+        "endChar": 61
+      },
+      "revId": "82e4b706cc37d11474657756d0dae85e10d32e6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
