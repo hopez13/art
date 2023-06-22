@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f223198_645d8863",
+        "filename": "libartbase/base/mem_map.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1243,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-06-22T08:17:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c45ba28e_66e7f15d",
+      "range": {
+        "startLine": 1243,
+        "startChar": 65,
+        "endLine": 1243,
+        "endChar": 82
+      },
+      "revId": "c02470737bbc4b056efcae3a33a1be5efdd93bfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dc290336_cf305e18",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3886270f_fbe53b7f",
+        "filename": "libartbase/base/mem_map.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1250,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-06-22T08:17:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dc290336_cf305e18",
+      "range": {
+        "startLine": 1250,
+        "startChar": 4,
+        "endLine": 1250,
+        "endChar": 13
+      },
+      "revId": "c02470737bbc4b056efcae3a33a1be5efdd93bfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "85d07c75_6dde953c",
@@ -60,6 +108,30 @@
       "writtenOn": "2023-06-21T22:59:45Z",
       "side": 1,
       "message": "Is there a way to log this occasionally? We\u0027d clearly want to know, but don\u0027t want log spam.\n\nI don\u0027t know whether webview disallows this.",
+      "range": {
+        "startLine": 1304,
+        "startChar": 4,
+        "endLine": 1304,
+        "endChar": 53
+      },
+      "revId": "c02470737bbc4b056efcae3a33a1be5efdd93bfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3804e83f_520c690c",
+        "filename": "libartbase/base/mem_map.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1304,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-06-22T08:17:27Z",
+      "side": 1,
+      "message": "Good point, done.",
+      "parentUuid": "85d07c75_6dde953c",
       "range": {
         "startLine": 1304,
         "startChar": 4,
