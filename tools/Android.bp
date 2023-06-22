@@ -30,6 +30,20 @@ python_binary_host {
     ],
 }
 
+python_binary_host {
+    name: "conditional_include",
+    srcs: [
+        "conditional_include.py",
+    ],
+}
+
+python_binary_host {
+    name: "transform_arm64_to_x86_64",
+    srcs: [
+        "transform_arm64_to_x86_64.py",
+    ],
+}
+
 soong_config_module_type_import {
     from: "art/build/SoongConfig.bp",
     module_types: [
