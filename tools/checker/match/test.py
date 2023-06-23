@@ -101,7 +101,10 @@ class MatchLines_Test(unittest.TestCase):
 
 class MatchFiles_Test(unittest.TestCase):
 
-  def assertMatches(self, checker_string, c1_string, isa=None, instruction_set_features=None):
+  def assertMatches(self, checker_string, c1_string,
+                    isa=None,
+                    instruction_set_features=None,
+                    has_read_barrier=False):
     checker_string = \
       """
         /// CHECK-START: MyMethod MyPass
@@ -117,6 +120,10 @@ class MatchFiles_Test(unittest.TestCase):
       joined_features = ",".join(
         name if present else "-" + name for name, present in instruction_set_features.items())
       meta_data += "isa_features:" + joined_features
+
+    if meta_data:
+      meta_data += " "
+    meta_data += "has_read_barrier:" + str(has_read_barrier).lower()
 
     meta_data_string = ""
     if meta_data:
@@ -145,11 +152,17 @@ class MatchFiles_Test(unittest.TestCase):
     c1_file = parse_c1_visualizer_stream("<c1-file>", io.StringIO(c1_string))
     assert len(checker_file.test_cases) == 1
     assert len(c1_file.passes) == 1
-    match_test_case(checker_file.test_cases[0], c1_file.passes[0], c1_file.instruction_set_features)
+    match_test_case(checker_file.test_cases[0],
+                    c1_file.passes[0],
+                    c1_file.instruction_set_features,
+                    c1_file.has_read_barrier)
 
-  def assertDoesNotMatch(self, checker_string, c1_string, isa=None, instruction_set_features=None):
+  def assertDoesNotMatch(self, checker_string, c1_string,
+                         isa=None,
+                         instruction_set_features=None,
+                         has_read_barrier=False):
     with self.assertRaises(MatchFailedException):
-      self.assertMatches(checker_string, c1_string, isa, instruction_set_features)
+      self.assertMatches(checker_string, c1_string, isa, instruction_set_features, has_read_barrier)
 
   def assertBadStructure(self, checker_string, c1_string):
     with self.assertRaises(BadStructureException):
@@ -1008,4 +1021,106 @@ class MatchFiles_Test(unittest.TestCase):
       """,
       "some_isa",
       ImmutableDict({"feature1": False, "feature2": True})
+    )
+
+  def test_useReadBarrier(self):
+    self.assertMatches(
+        """
+          /// CHECK-EVAL: hasReadBarrier
+        """,
+        """
+        foo
+        """,
+        None,
+        has_read_barrier=True
+    )
+    self.assertDoesNotMatch(
+        """
+          /// CHECK-EVAL: not hasReadBarrier
+        """,
+        """
+        foo
+        """,
+        None,
+        has_read_barrier=True
+    )
+    self.assertMatches(
+        """
+          /// CHECK-EVAL: not hasReadBarrier
+        """,
+        """
+        foo
+        """,
+        None,
+        has_read_barrier=False
+    )
+    self.assertDoesNotMatch(
+        """
+          /// CHECK-EVAL: hasReadBarrier
+        """,
+        """
+        foo
+        """,
+        None,
+        has_read_barrier=False
+    )
+    self.assertMatches(
+      """
+        /// CHECK-IF: hasReadBarrier
+        ///   CHECK: bar1
+        /// CHECK-ELSE:
+        ///   CHECK: bar2
+        /// CHECK-FI:
+      """,
+      """
+      foo
+      bar1
+      """,
+      None,
+      has_read_barrier=True
+    )
+    self.assertDoesNotMatch(
+      """
+        /// CHECK-IF: hasReadBarrier
+        ///   CHECK: bar1
+        /// CHECK-ELSE:
+        ///   CHECK: bar2
+        /// CHECK-FI:
+      """,
+      """
+      foo
+      bar1
+      """,
+      None,
+      has_read_barrier=False
+    )
+    self.assertMatches(
+      """
+        /// CHECK-IF: hasReadBarrier
+        ///   CHECK: bar1
+        /// CHECK-ELSE:
+        ///   CHECK: bar2
+        /// CHECK-FI:
+      """,
+      """
+      foo
+      bar2
+      """,
+      None,
+      has_read_barrier=False
+    )
+    self.assertDoesNotMatch(
+      """
+        /// CHECK-IF: hasReadBarrier
+        ///   CHECK: bar1
+        /// CHECK-ELSE:
+        ///   CHECK: bar2
+        /// CHECK-FI:
+      """,
+      """
+      foo
+      bar2
+      """,
+      None,
+      has_read_barrier=True
     )
