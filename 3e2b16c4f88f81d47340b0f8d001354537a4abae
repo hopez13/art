@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5fad3371_36f95b6f",
+        "filename": "compiler/utils/riscv64/jni_macro_assembler_riscv64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-06-23T08:39:04Z",
+      "side": 1,
+      "message": "If we take the branch, we\u0027re not going to complete the LR/SC sequence, so it does not matter. (For the record, JNI compiler puts slow-paths at the end, so this shall indeed be a forward branch.)",
+      "parentUuid": "86b4569b_68d01da0",
+      "range": {
+        "startLine": 440,
+        "startChar": 0,
+        "endLine": 440,
+        "endChar": 67
+      },
+      "revId": "3e2b16c4f88f81d47340b0f8d001354537a4abae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b6c1c915_a30f2a92",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-06-22T15:15:04Z",
       "side": 1,
       "message": "For my understanding:\n\n- Is \"Table 54. Mappings from C/C++ primitives to RISC-V primitives\" from the unprivileged ISA spec the source of truth for now? Previously there was Table A.6 but now it seems to be replaced with table 54 (or I\u0027m looking in the wrong place, but I try to use the latest asciidoc-formatted spec).\n\n- If so, the is the relevant line `atomic_\u003cop\u003e(memory_order_release) loop:lr.{w|d}; \u003cop\u003e; sc.{w|d}.rl; bnez loop` and why not `atomic_\u003cop\u003e(memory_order_acq_rel) lr.{w|d}.aq; \u003cop\u003e; sc.{w|d}.rl`?\n\n- Would it change to `atomic_\u003cop\u003e(memory_order_release) lr.{w|d}; \u003cop\u003e; sc.{w|d}.rl` from table 55 after we have hardware/toolchain support for load-acquire/store-release instructions as per Hans\u0027es proposal? If so, is it worth adding a special-form comment to make the transition easier in the future? Something like `TODO(b/283313534)`?\n\n- What is the encoding for `aqrl` (what do different values mean), is it 1 \u003d rl, 2 \u003d aq, 3 \u003d aq \u0026 rl (somewhat non-intuitively)? Is this documented somewhere?",
+      "range": {
+        "startLine": 436,
+        "startChar": 0,
+        "endLine": 441,
+        "endChar": 59
+      },
+      "revId": "3e2b16c4f88f81d47340b0f8d001354537a4abae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "adfd1359_61e8817e",
+        "filename": "compiler/utils/riscv64/jni_macro_assembler_riscv64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 441,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-06-23T08:39:04Z",
+      "side": 1,
+      "message": "The document I\u0027m looking at still has tables A.6 and A.7.\n\nThe line from A.6 with the loop seems to be an exact match for the code here.\n\nThe line from A.7 without the loop does not make much sense if SC can have spurious failures.\n\nThe encoding is: bit 1 (value 2) is \"acquire\", bit 0 (value 1) is \"release\". It would be nice to have some enumeration for these but I\u0027ll leave that for another CL. The meaning is actually tested against the clang\u0027s assembler.",
+      "parentUuid": "b6c1c915_a30f2a92",
       "range": {
         "startLine": 436,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "af6adfe2_aa42b463",
+        "filename": "compiler/utils/riscv64/jni_macro_assembler_riscv64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 470,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-06-23T08:39:04Z",
+      "side": 1,
+      "message": "Because load-acquire and store-release are the usual operations.\n\nThe fact that riscv64 allows load-release and store-acquire does not mean we should use them. They are so odd that other architectures do not have such instructions at all.",
+      "parentUuid": "d6c45cf7_9538fb12",
+      "range": {
+        "startLine": 470,
+        "startChar": 38,
+        "endLine": 470,
+        "endChar": 49
+      },
+      "revId": "3e2b16c4f88f81d47340b0f8d001354537a4abae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1596ff8d_fc4a385b",
@@ -83,6 +155,30 @@
       "writtenOn": "2023-06-22T15:15:04Z",
       "side": 1,
       "message": "Mention why not T0?",
+      "range": {
+        "startLine": 546,
+        "startChar": 29,
+        "endLine": 546,
+        "endChar": 35
+      },
+      "revId": "3e2b16c4f88f81d47340b0f8d001354537a4abae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aad4c9f0_d15a1551",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 546,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-06-23T08:39:04Z",
+      "side": 1,
+      "message": "Because I\u0027ve chosen T0 as the input register for `art_jni_lock_object`. We could change the calling convention if we wanted to - all callee-save registers are available at this point.\n\nAdded a comment.",
+      "parentUuid": "1596ff8d_fc4a385b",
       "range": {
         "startLine": 546,
         "startChar": 29,
@@ -116,6 +212,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "67d7368c_f8b17b20",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 555,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-06-23T08:39:04Z",
+      "side": 1,
+      "message": "Replaced with an explicit LUI.",
+      "parentUuid": "56e18880_d3dd7b71",
+      "range": {
+        "startLine": 555,
+        "startChar": 4,
+        "endLine": 555,
+        "endChar": 89
+      },
+      "revId": "3e2b16c4f88f81d47340b0f8d001354537a4abae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "db1570ea_4a0c11a9",
@@ -129,6 +249,30 @@
       "writtenOn": "2023-06-22T15:15:04Z",
       "side": 1,
       "message": "...I see you have more LI here. It\u0027s hard to say how many instructions all the LI contribute in total to the LR/SC sequence.",
+      "range": {
+        "startLine": 568,
+        "startChar": 4,
+        "endLine": 568,
+        "endChar": 100
+      },
+      "revId": "3e2b16c4f88f81d47340b0f8d001354537a4abae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c4ff875d_21995241",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 568,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-06-23T08:39:04Z",
+      "side": 1,
+      "message": "Replaced with an explicit LUI.",
+      "parentUuid": "db1570ea_4a0c11a9",
       "range": {
         "startLine": 568,
         "startChar": 4,
@@ -162,6 +306,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b2282489_86555af6",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 576,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-06-23T08:39:04Z",
+      "side": 1,
+      "message": "Recursive locking should be rare, so I\u0027d like to keep this as a slow-path (just like on other architectures). But the restriction to 16 instructions for LR/SC sequence does not make that possible, so I reordered the code.",
+      "parentUuid": "8ac615df_94fec762",
+      "range": {
+        "startLine": 576,
+        "startChar": 4,
+        "endLine": 576,
+        "endChar": 24
+      },
+      "revId": "3e2b16c4f88f81d47340b0f8d001354537a4abae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "35b25b09_76d9c087",
@@ -175,6 +343,30 @@
       "writtenOn": "2023-06-22T15:15:04Z",
       "side": 1,
       "message": "Mention why not T0?",
+      "range": {
+        "startLine": 583,
+        "startChar": 29,
+        "endLine": 583,
+        "endChar": 34
+      },
+      "revId": "3e2b16c4f88f81d47340b0f8d001354537a4abae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa7fbd2e_5b118457",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 583,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-06-23T08:39:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "35b25b09_76d9c087",
       "range": {
         "startLine": 583,
         "startChar": 29,
@@ -210,6 +402,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fff4738d_70f1afa6",
+        "filename": "runtime/arch/riscv64/jni_entrypoints_riscv64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-06-23T08:39:04Z",
+      "side": 1,
+      "message": "The comment on line 81 is for this section and implicitly contains passing arguments. The comment here is the last step, making the actual call. Unfortunately, they are literally the same.\n\nWe have these comments on other architectures. Do you want me to remove them from riscv64? And if I remove this comment, I would also want to remove the \"Pass arg1.\" That one also does not really say more than the code.",
+      "parentUuid": "c6f50c27_0be1fcf4",
+      "range": {
+        "startLine": 85,
+        "startChar": 47,
+        "endLine": 85,
+        "endChar": 69
+      },
+      "revId": "3e2b16c4f88f81d47340b0f8d001354537a4abae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5e39fbd0_6b8ad2dd",
         "filename": "runtime/arch/riscv64/jni_entrypoints_riscv64.S",
         "patchSetId": 2
@@ -221,6 +437,30 @@
       "writtenOn": "2023-06-22T15:15:04Z",
       "side": 1,
       "message": "Same here.",
+      "range": {
+        "startLine": 107,
+        "startChar": 46,
+        "endLine": 107,
+        "endChar": 68
+      },
+      "revId": "3e2b16c4f88f81d47340b0f8d001354537a4abae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae1c8c7c_205b2bb2",
+        "filename": "runtime/arch/riscv64/jni_entrypoints_riscv64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-06-23T08:39:04Z",
+      "side": 1,
+      "message": "Same.",
+      "parentUuid": "5e39fbd0_6b8ad2dd",
       "range": {
         "startLine": 107,
         "startChar": 46,
