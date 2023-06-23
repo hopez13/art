@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "72916223_f32a710e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-06-23T11:49:10Z",
+      "side": 1,
+      "message": "b",
+      "revId": "4c79d056cac8c187be9876e99ecddfc9e563e6ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69b3b964_6f5c5f78",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 577,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-06-23T11:49:10Z",
+      "side": 1,
+      "message": "Another LI in LR/SC sequence that should be deciphered?\n\nI wonder if the assembler could check this for us --- it would be much more useful than cluttering the code with `#ifdef`s.\n\nAs it is now, I\u0027d rather have a macro `LUI(...)` that would incorporate the `#ifdef` to make the code shorter.",
+      "range": {
+        "startLine": 577,
+        "startChar": 4,
+        "endLine": 577,
+        "endChar": 85
+      },
+      "revId": "4c79d056cac8c187be9876e99ecddfc9e563e6ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "40e87e84_c40b3302",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 579,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-06-23T11:49:10Z",
+      "side": 1,
+      "message": "Anotehr LI.",
+      "range": {
+        "startLine": 579,
+        "startChar": 4,
+        "endLine": 579,
+        "endChar": 6
+      },
+      "revId": "4c79d056cac8c187be9876e99ecddfc9e563e6ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9bb7a25e_3917ba3a",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 625,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-06-23T11:49:10Z",
+      "side": 1,
+      "message": "Another LI.",
+      "range": {
+        "startLine": 625,
+        "startChar": 4,
+        "endLine": 625,
+        "endChar": 6
+      },
+      "revId": "4c79d056cac8c187be9876e99ecddfc9e563e6ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
