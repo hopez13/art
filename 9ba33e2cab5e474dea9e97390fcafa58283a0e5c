@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a52214f6_295b025d",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 530,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-06-23T13:53:10Z",
+      "side": 1,
+      "message": "Can\u0027t we have it as a check not a comment? It would be very error prone otherwise. A `#define` won\u0027t work here because preprocessor runs before the assembler, but you could either make `LUI_VALUE` a preprocessor macro, or else if possible find a way to do the static check with assembler directives (maybe `.if`/`.endif`).",
+      "range": {
+        "startLine": 530,
+        "startChar": 4,
+        "endLine": 530,
+        "endChar": 85
+      },
+      "revId": "9ba33e2cab5e474dea9e97390fcafa58283a0e5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
