@@ -22,6 +22,30 @@
       },
       "revId": "9ba33e2cab5e474dea9e97390fcafa58283a0e5c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d0488623_d2778a1b",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 530,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-06-23T14:41:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a52214f6_295b025d",
+      "range": {
+        "startLine": 530,
+        "startChar": 4,
+        "endLine": 530,
+        "endChar": 85
+      },
+      "revId": "9ba33e2cab5e474dea9e97390fcafa58283a0e5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
