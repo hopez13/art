@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aad55d85_69326a80",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-06-23T20:31:25Z",
+      "side": 1,
+      "message": "The error actually suggests that the declaration on MacOS exists, but is just gratuitously slightly different, (No idea who introduced the gratuitous difference.) See https://developer.apple.com/library/archive/documentation/System/Conceptual/ManPages_iPhoneOS/man2/mincore.2.html . I still think this CL is a fine fix for us; there\u0027s no need for a further change.",
+      "revId": "1a950face5cd9cc43af1fbc7be4a60c178800ddf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
