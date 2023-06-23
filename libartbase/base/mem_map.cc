@@ -1280,6 +1280,8 @@ void ZeroMemory(void* address, size_t length, bool release_eagerly) {
 #else
   RawClearMemory(mem_begin, page_begin);
   RawClearMemory(page_end, mem_end);
+// mincore() is linux-specific syscall.
+#if defined(__linux__)
   if (!release_eagerly) {
     size_t vec_len = (page_end - page_begin) / kPageSize;
     std::unique_ptr<unsigned char[]> vec(new unsigned char[vec_len]);
@@ -1308,6 +1310,7 @@ void ZeroMemory(void* address, size_t length, bool release_eagerly) {
     }
     // mincore failed, fall through to MADV_DONTNEED.
   }
+#endif
   bool res = madvise(page_begin, page_end - page_begin, MADV_DONTNEED);
   CHECK_NE(res, -1) << "madvise failed";
 #endif
