@@ -336,8 +336,8 @@ class DeoptimizationSlowPathRISCV64 : public SlowPathCodeRISCV64 {
 #define __ down_cast<CodeGeneratorRISCV64*>(codegen_)->GetAssembler()->  // NOLINT
 
 void LocationsBuilderRISCV64::HandleInvoke(HInvoke* instruction) {
-  UNUSED(instruction);
-  LOG(FATAL) << "Unimplemented";
+  InvokeDexCallingConventionVisitorRISCV64 calling_convention_visitor;
+  CodeGenerator::CreateCommonInvokeLocationSummary(instruction, &calling_convention_visitor);
 }
 
 Location LocationsBuilderRISCV64::RegisterOrZeroConstant(HInstruction* instruction) {
@@ -2159,14 +2159,17 @@ void InstructionCodeGeneratorRISCV64::VisitIntermediateAddress(HIntermediateAddr
   UNUSED(instruction);
   LOG(FATAL) << "Unimplemented";
 }
+
 void LocationsBuilderRISCV64::VisitInvokeUnresolved(HInvokeUnresolved* instruction) {
-  UNUSED(instruction);
-  LOG(FATAL) << "Unimplemented";
+  // The trampoline uses the same calling convention as dex calling conventions,
+  // except instead of loading arg0/r0 with the target Method*, arg0/r0 will contain
+  // the method_idx.
+  HandleInvoke(instruction);
 }
 void InstructionCodeGeneratorRISCV64::VisitInvokeUnresolved(HInvokeUnresolved* instruction) {
-  UNUSED(instruction);
-  LOG(FATAL) << "Unimplemented";
+  codegen_->GenerateInvokeUnresolvedRuntimeCall(instruction);
 }
+
 void LocationsBuilderRISCV64::VisitInvokeInterface(HInvokeInterface* instruction) {
   UNUSED(instruction);
   LOG(FATAL) << "Unimplemented";
