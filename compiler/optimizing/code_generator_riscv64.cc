@@ -475,11 +475,76 @@ void InstructionCodeGeneratorRISCV64::GenerateTestAndBranch(HInstruction* instru
                                                             size_t condition_input_index,
                                                             Riscv64Label* true_target,
                                                             Riscv64Label* false_target) {
-  UNUSED(instruction);
-  UNUSED(condition_input_index);
-  UNUSED(true_target);
-  UNUSED(false_target);
-  LOG(FATAL) << "Unimplemented";
+  HInstruction* cond = instruction->InputAt(condition_input_index);
+
+  if (true_target == nullptr && false_target == nullptr) {
+    // Nothing to do. The code always falls through.
+    return;
+  } else if (cond->IsIntConstant()) {
+    // Constant condition, statically compared against "true" (integer value 1).
+    if (cond->AsIntConstant()->IsTrue()) {
+      if (true_target != nullptr) {
+        __ J(true_target);
+      }
+    } else {
+      DCHECK(cond->AsIntConstant()->IsFalse()) << cond->AsIntConstant()->GetValue();
+      if (false_target != nullptr) {
+        __ J(false_target);
+      }
+    }
+    return;
+  }
+
+  // The following code generates these patterns:
+  //  (1) true_target == nullptr && false_target != nullptr
+  //        - opposite condition true => branch to false_target
+  //  (2) true_target != nullptr && false_target == nullptr
+  //        - condition true => branch to true_target
+  //  (3) true_target != nullptr && false_target != nullptr
+  //        - condition true => branch to true_target
+  //        - branch to false_target
+  if (IsBooleanValueOrMaterializedCondition(cond)) {
+    // The condition instruction has been materialized, compare the output to 0.
+    Location cond_val = instruction->GetLocations()->InAt(condition_input_index);
+    DCHECK(cond_val.IsRegister());
+    if (true_target == nullptr) {
+      __ Beqz(cond_val.AsRegister<XRegister>(), false_target);
+    } else {
+      __ Bnez(cond_val.AsRegister<XRegister>(), true_target);
+    }
+  } else {
+    // The condition instruction has not been materialized, use its inputs as
+    // the comparison and its condition as the branch condition.
+    HCondition* condition = cond->AsCondition();
+    DataType::Type type = condition->InputAt(0)->GetType();
+    LocationSummary* locations = cond->GetLocations();
+    IfCondition if_cond = condition->GetCondition();
+    Riscv64Label* branch_target = true_target;
+
+    if (true_target == nullptr) {
+      if_cond = condition->GetOppositeCondition();
+      branch_target = false_target;
+    }
+
+    switch (type) {
+      default:
+        GenerateIntLongCompareAndBranch(if_cond, /* is_64bit= */ false, locations, branch_target);
+        break;
+      case DataType::Type::kInt64:
+        GenerateIntLongCompareAndBranch(if_cond, /* is_64bit= */ true, locations, branch_target);
+        break;
+      case DataType::Type::kFloat32:
+      case DataType::Type::kFloat64:
+        GenerateFpCompareAndBranch(if_cond, condition->IsGtBias(), type, locations, branch_target);
+        break;
+    }
+  }
+
+  // If neither branch falls through (case 3), the conditional branch to `true_target`
+  // was already emitted (case 2) and we need to emit a jump to `false_target`.
+  if (true_target != nullptr && false_target != nullptr) {
+    __ J(false_target);
+  }
 }
 
 void InstructionCodeGeneratorRISCV64::DivRemOneOrMinusOne(HBinaryOperation* instruction) {
@@ -681,11 +746,87 @@ void InstructionCodeGeneratorRISCV64::GenerateIntLongCompareAndBranch(IfConditio
                                                                       bool is_64bit,
                                                                       LocationSummary* locations,
                                                                       Riscv64Label* label) {
-  UNUSED(cond);
-  UNUSED(is_64bit);
-  UNUSED(locations);
-  UNUSED(label);
-  LOG(FATAL) << "UniMplemented";
+  XRegister left = locations->InAt(0).AsRegister<XRegister>();
+  Location right_location = locations->InAt(1);
+  XRegister right_reg = Zero;
+  int64_t right_imm = 0;
+  bool use_imm = right_location.IsConstant();
+  if (use_imm) {
+    if (is_64bit) {
+      right_imm = CodeGenerator::GetInt64ValueOf(right_location.GetConstant());
+    } else {
+      right_imm = CodeGenerator::GetInt32ValueOf(right_location.GetConstant());
+    }
+  } else {
+    right_reg = right_location.AsRegister<XRegister>();
+  }
+
+  if (use_imm && right_imm == 0) {
+    switch (cond) {
+      case kCondEQ:
+      case kCondBE:  // <= 0 if zero
+        __ Beqz(left, label);
+        break;
+      case kCondNE:
+      case kCondA:  // > 0 if non-zero
+        __ Bnez(left, label);
+        break;
+      case kCondLT:
+        __ Bltz(left, label);
+        break;
+      case kCondGE:
+        __ Bgez(left, label);
+        break;
+      case kCondLE:
+        __ Blez(left, label);
+        break;
+      case kCondGT:
+        __ Bgtz(left, label);
+        break;
+      case kCondB:  // always false
+        break;
+      case kCondAE:  // always true
+        __ J(label);
+        break;
+    }
+  } else {
+    if (use_imm) {
+      right_reg = TMP2;
+      __ LoadConst64(right_reg, right_imm);
+    }
+    switch (cond) {
+      case kCondEQ:
+        __ Beq(left, right_reg, label);
+        break;
+      case kCondNE:
+        __ Bne(left, right_reg, label);
+        break;
+      case kCondLT:
+        __ Blt(left, right_reg, label);
+        break;
+      case kCondGE:
+        __ Bge(left, right_reg, label);
+        break;
+      case kCondLE:
+        __ Bge(right_reg, left, label);
+        break;
+      case kCondGT:
+        __ Blt(right_reg, left, label);
+        break;
+      case kCondB:
+        __ Bltu(left, right_reg, label);
+        break;
+      case kCondAE:
+        __ Bgeu(left, right_reg, label);
+        break;
+      case kCondBE:
+        __ Bgeu(right_reg, left, label);
+        break;
+      case kCondA:
+        __ Bltu(right_reg, left, label);
+        break;
+    }
+  }
 }
 
 void InstructionCodeGeneratorRISCV64::CheckNanAndGotoLabel(XRegister tmp,
@@ -881,12 +1022,152 @@ void InstructionCodeGeneratorRISCV64::GenerateFpCompareAndBranch(IfCondition con
                                                                  DataType::Type type,
                                                                  LocationSummary* locations,
                                                                  Riscv64Label* label) {
-  UNUSED(cond);
-  UNUSED(gt_bias);
-  UNUSED(type);
-  UNUSED(locations);
-  UNUSED(label);
-  LOG(FATAL) << "Unimplemented";
+  FRegister lhs = locations->InAt(0).AsFpuRegister<FRegister>();
+  FRegister rhs = locations->InAt(1).AsFpuRegister<FRegister>();
+  if (type == DataType::Type::kFloat32) {
+    switch (cond) {
+      case kCondEQ:
+        __ FEqS(TMP, lhs, rhs);
+        __ Bnez(TMP, label);
+        break;
+      case kCondNE:
+        __ FEqS(TMP, lhs, rhs);
+        __ Beqz(TMP, label);
+        break;
+      case kCondLT:
+        if (gt_bias) {
+          Riscv64Label nan_label;
+          // Do compare.
+          CheckNanAndGotoLabel(TMP, lhs, &nan_label, false);
+          CheckNanAndGotoLabel(TMP, rhs, &nan_label, false);
+          __ FLtS(TMP, lhs, rhs);
+          __ Jal(Zero, 8);  // Skip "li rd, 1"
+          __ Bind(&nan_label);
+          __ Li(TMP, 1);
+        } else {
+          __ FLtS(TMP, lhs, rhs);
+        }
+        __ Bnez(TMP, label);
+        break;
+      case kCondLE:
+        if (gt_bias) {
+          Riscv64Label nan_label;
+          CheckNanAndGotoLabel(TMP, lhs, &nan_label, false);
+          CheckNanAndGotoLabel(TMP, rhs, &nan_label, false);
+          __ FLeS(TMP, lhs, rhs);
+          __ Jal(Zero, 8);  // Skip "li rd, 1"
+          __ Bind(&nan_label);
+          __ Li(TMP, 1);
+        } else {
+          __ FLeS(TMP, lhs, rhs);
+        }
+        __ Bnez(TMP, label);
+        break;
+      case kCondGT:
+        if (gt_bias) {
+          Riscv64Label nan_label;
+          CheckNanAndGotoLabel(TMP, lhs, &nan_label, false);
+          CheckNanAndGotoLabel(TMP, rhs, &nan_label, false);
+          __ FLtS(TMP, rhs, lhs);
+          __ Jal(Zero, 8);  // Skip "li rd, 1"
+          __ Bind(&nan_label);
+          __ Li(TMP, 1);
+        } else {
+          __ FLtS(TMP, rhs, lhs);
+        }
+        __ Bnez(TMP, label);
+        break;
+      case kCondGE:
+        if (gt_bias) {
+          Riscv64Label nan_label;
+          CheckNanAndGotoLabel(TMP, lhs, &nan_label, false);
+          CheckNanAndGotoLabel(TMP, rhs, &nan_label, false);
+          __ FLeS(TMP, rhs, lhs);
+          __ Jal(Zero, 8);  // Skip "li rd, 1"
+          __ Bind(&nan_label);
+          __ Li(TMP, 1);
+        } else {
+          __ FLeS(TMP, rhs, lhs);
+        }
+        __ Bnez(TMP, label);
+        break;
+      default:
+        LOG(FATAL) << "Unexpected non-floating-point condition";
+        UNREACHABLE();
+    }
+  } else {
+    DCHECK_EQ(type, DataType::Type::kFloat64);
+    switch (cond) {
+      case kCondEQ:
+        __ FEqD(TMP, lhs, rhs);
+        __ Bnez(TMP, label);
+        break;
+      case kCondNE:
+        __ FEqD(TMP, lhs, rhs);
+        __ Beqz(TMP, label);
+        break;
+      case kCondLT:
+        if (gt_bias) {
+          Riscv64Label nan_label;
+          // Do compare.
+          CheckNanAndGotoLabel(TMP, lhs, &nan_label, false);
+          CheckNanAndGotoLabel(TMP, rhs, &nan_label, false);
+          __ FLtD(TMP, lhs, rhs);
+          __ Jal(Zero, 8);  // Skip "li rd, 1"
+          __ Bind(&nan_label);
+          __ Li(TMP, 1);
+        } else {
+          __ FLtD(TMP, lhs, rhs);
+        }
+        __ Bnez(TMP, label);
+        break;
+      case kCondLE:
+        if (gt_bias) {
+          Riscv64Label nan_label;
+          CheckNanAndGotoLabel(TMP, lhs, &nan_label, false);
+          CheckNanAndGotoLabel(TMP, rhs, &nan_label, false);
+          __ FLeD(TMP, lhs, rhs);
+          __ Jal(Zero, 8);  // Skip "li rd, 1"
+          __ Bind(&nan_label);
+          __ Li(TMP, 1);
+        } else {
+          __ FLeD(TMP, lhs, rhs);
+        }
+        __ Bnez(TMP, label);
+        break;
+      case kCondGT:
+        if (gt_bias) {
+          Riscv64Label nan_label;
+          CheckNanAndGotoLabel(TMP, lhs, &nan_label, false);
+          CheckNanAndGotoLabel(TMP, rhs, &nan_label, false);
+          __ FLtD(TMP, rhs, lhs);
+          __ Jal(Zero, 8);  // Skip "li rd, 1"
+          __ Bind(&nan_label);
+          __ Li(TMP, 1);
+        } else {
+          __ FLtD(TMP, rhs, lhs);
+        }
+        __ Bnez(TMP, label);
+        break;
+      case kCondGE:
+        if (gt_bias) {
+          Riscv64Label nan_label;
+          CheckNanAndGotoLabel(TMP, lhs, &nan_label, false);
+          CheckNanAndGotoLabel(TMP, rhs, &nan_label, false);
+          __ FLeD(TMP, rhs, lhs);
+          __ Jal(Zero, 8);  // Skip "li rd, 1"
+          __ Bind(&nan_label);
+          __ Li(TMP, 1);
+        } else {
+          __ FLeD(TMP, rhs, lhs);
+        }
+        __ Bnez(TMP, label);
+        break;
+      default:
+        LOG(FATAL) << "Unexpected non-floating-point condition";
+        UNREACHABLE();
+    }
+  }
 }
 
 void InstructionCodeGeneratorRISCV64::HandleGoto(HInstruction* instruction,
@@ -1810,13 +2091,23 @@ void InstructionCodeGeneratorRISCV64::VisitGreaterThanOrEqual(HGreaterThanOrEqua
 }
 
 void LocationsBuilderRISCV64::VisitIf(HIf* instruction) {
-  UNUSED(instruction);
-  LOG(FATAL) << "Unimplemented";
+  LocationSummary* locations = new (GetGraph()->GetAllocator()) LocationSummary(instruction);
+  if (IsBooleanValueOrMaterializedCondition(instruction->InputAt(0))) {
+    locations->SetInAt(0, Location::RequiresRegister());
+  }
 }
 void InstructionCodeGeneratorRISCV64::VisitIf(HIf* instruction) {
-  UNUSED(instruction);
-  LOG(FATAL) << "Unimplemented";
+  HBasicBlock* true_successor = instruction->IfTrueSuccessor();
+  HBasicBlock* false_successor = instruction->IfFalseSuccessor();
+  Riscv64Label* true_target = codegen_->GoesToNextBlock(instruction->GetBlock(), true_successor) ?
+                                  nullptr :
+                                  codegen_->GetLabelOf(true_successor);
+  Riscv64Label* false_target = codegen_->GoesToNextBlock(instruction->GetBlock(), false_successor) ?
+                                   nullptr :
+                                   codegen_->GetLabelOf(false_successor);
+  GenerateTestAndBranch(instruction, /* condition_input_index= */ 0, true_target, false_target);
 }
+
 void LocationsBuilderRISCV64::VisitInstanceFieldGet(HInstanceFieldGet* instruction) {
   UNUSED(instruction);
   LOG(FATAL) << "Unimplemented";
