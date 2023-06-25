@@ -2142,14 +2142,15 @@ void InstructionCodeGeneratorRISCV64::VisitInstanceOf(HInstanceOf* instruction) 
   UNUSED(instruction);
   LOG(FATAL) << "Unimplemented";
 }
+
 void LocationsBuilderRISCV64::VisitIntConstant(HIntConstant* instruction) {
-  UNUSED(instruction);
-  LOG(FATAL) << "Unimplemented";
+  LocationSummary* locations = new (GetGraph()->GetAllocator()) LocationSummary(instruction);
+  locations->SetOut(Location::ConstantLocation(instruction));
 }
-void InstructionCodeGeneratorRISCV64::VisitIntConstant(HIntConstant* instruction) {
-  UNUSED(instruction);
-  LOG(FATAL) << "Unimplemented";
+void InstructionCodeGeneratorRISCV64::VisitIntConstant([[maybe_unused]] HIntConstant* instruction) {
+  // Will be generated at use site.
 }
+
 void LocationsBuilderRISCV64::VisitIntermediateAddress(HIntermediateAddress* instruction) {
   UNUSED(instruction);
   LOG(FATAL) << "Unimplemented";
