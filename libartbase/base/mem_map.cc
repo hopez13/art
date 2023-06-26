@@ -1312,6 +1312,8 @@ void ZeroMemory(void* address, size_t length, bool release_eagerly) {
     }
     // mincore failed, fall through to MADV_DONTNEED.
   }
+#else
+  UNUSED(release_eagerly);
 #endif  // __linux__
   bool res = madvise(page_begin, page_end - page_begin, MADV_DONTNEED);
   CHECK_NE(res, -1) << "madvise failed";
