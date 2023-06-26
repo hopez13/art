@@ -16,6 +16,29 @@
       "message": "Vladimir, friendly TH ping.",
       "revId": "e9b7e4846328b9f52602df32eee85be3828aeb9a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2e3cf4f4_e07ce502",
+        "filename": "compiler/optimizing/code_generator_arm64.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1156,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-06-26T13:00:22Z",
+      "side": 1,
+      "message": "[optional] Maybe these should be `jit_patches_`? Maybe the class name should also reflect the fact that it\u0027s used only for JIT?",
+      "range": {
+        "startLine": 1156,
+        "startChar": 2,
+        "endLine": 1156,
+        "endChar": 44
+      },
+      "revId": "e9b7e4846328b9f52602df32eee85be3828aeb9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
