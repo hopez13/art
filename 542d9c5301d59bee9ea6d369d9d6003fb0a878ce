@@ -1,0 +1,159 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b018ca33_96e69067",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-06-26T20:46:25Z",
+      "side": 1,
+      "message": "I didn\u0027t see any real issues. Some minor comments.",
+      "revId": "542d9c5301d59bee9ea6d369d9d6003fb0a878ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3bc0a4dd_ad2039c2",
+        "filename": "compiler/utils/riscv64/jni_macro_assembler_riscv64_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 772,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-06-26T20:46:25Z",
+      "side": 1,
+      "message": "This is the offset in the thread structure? So it needs to be updated if the layout changes? Any chance we can we make that easier and make this less of a magic number?",
+      "range": {
+        "startLine": 772,
+        "startChar": 81,
+        "endLine": 772,
+        "endChar": 87
+      },
+      "revId": "542d9c5301d59bee9ea6d369d9d6003fb0a878ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f2de2040_afaf8cf2",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 609,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-06-26T20:46:25Z",
+      "side": 1,
+      "message": "Move this up a line to get it out of the lr/sc window?",
+      "range": {
+        "startLine": 609,
+        "startChar": 3,
+        "endLine": 609,
+        "endChar": 91
+      },
+      "revId": "542d9c5301d59bee9ea6d369d9d6003fb0a878ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2281f24f_941daa7f",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 617,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-06-26T20:46:25Z",
+      "side": 1,
+      "message": "I would have moved the first comment up at least a couple of lines, and probably deleted the second.",
+      "range": {
+        "startLine": 616,
+        "startChar": 4,
+        "endLine": 617,
+        "endChar": 86
+      },
+      "revId": "542d9c5301d59bee9ea6d369d9d6003fb0a878ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c33cd17e_54ca27da",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 648,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-06-26T20:46:25Z",
+      "side": 1,
+      "message": "This will hopefully change. You could also do an amoswap with the zero register. But it\u0027s not worth it for now.",
+      "range": {
+        "startLine": 647,
+        "startChar": 3,
+        "endLine": 648,
+        "endChar": 80
+      },
+      "revId": "542d9c5301d59bee9ea6d369d9d6003fb0a878ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3fabff98_1e72c322",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 652,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-06-26T20:46:25Z",
+      "side": 1,
+      "message": "Same comment.",
+      "range": {
+        "startLine": 652,
+        "startChar": 4,
+        "endLine": 652,
+        "endChar": 91
+      },
+      "revId": "542d9c5301d59bee9ea6d369d9d6003fb0a878ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "01c42395_47096add",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 658,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-06-26T20:46:25Z",
+      "side": 1,
+      "message": "Reverse the sense of the comment? I.e. \"Simply locked by this thread?\"\n\nI\u0027m again not sure what the next line adds. \"Compare only lock word state and thread_id\" would have been more helpful to me.",
+      "range": {
+        "startLine": 658,
+        "startChar": 38,
+        "endLine": 658,
+        "endChar": 79
+      },
+      "revId": "542d9c5301d59bee9ea6d369d9d6003fb0a878ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
