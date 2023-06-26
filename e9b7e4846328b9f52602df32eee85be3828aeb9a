@@ -111,6 +111,30 @@
       },
       "revId": "e9b7e4846328b9f52602df32eee85be3828aeb9a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d1d1690_0f0e2a66",
+        "filename": "compiler/optimizing/code_generator_arm64.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1156,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-06-26T14:29:10Z",
+      "side": 1,
+      "message": "Even so, I think AOT patches should be stored separately. (We could even avoid creating one or the other with std::optional or std::variant and maybe save a bit of time from dex2oat executed by odrefresh.)",
+      "parentUuid": "589ff3a3_8aafec05",
+      "range": {
+        "startLine": 1156,
+        "startChar": 2,
+        "endLine": 1156,
+        "endChar": 44
+      },
+      "revId": "e9b7e4846328b9f52602df32eee85be3828aeb9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
