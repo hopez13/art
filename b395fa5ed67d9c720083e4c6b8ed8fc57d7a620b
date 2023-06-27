@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a46b731_e17c640e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-06-27T14:34:48Z",
+      "side": 1,
+      "message": "Are there RISCV tests on gtests?\n\nAlso I see the RISCV CLs having the same topic. This will mean that they will get merged all together. Have you considered merging them one by one? Otherwise, if we encounter a problem after merging we might have to revert all the CLs in the topic.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 27
+      },
+      "revId": "b395fa5ed67d9c720083e4c6b8ed8fc57d7a620b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
