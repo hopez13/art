@@ -22,6 +22,30 @@
       },
       "revId": "b395fa5ed67d9c720083e4c6b8ed8fc57d7a620b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ea96e86_bd6c20f8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-06-27T14:50:48Z",
+      "side": 1,
+      "message": "No, there are no tests for the new code in host gtests. (There are some for the riscv64 assembler and JNI macro assembler.) However, host tests are built with riscv64 codegen enabled, so this ensures that the `code_generator_riscv64.cc` actually compiles (whatever your actual `lunch` target).\n\nI missed the topic. I\u0027m planning to submit these CLs individually, so I\u0027ll start removing the topic.",
+      "parentUuid": "2a46b731_e17c640e",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 27
+      },
+      "revId": "b395fa5ed67d9c720083e4c6b8ed8fc57d7a620b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
