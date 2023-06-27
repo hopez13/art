@@ -66,6 +66,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "b023b4ed_3e081ad3",
+        "filename": "compiler/utils/riscv64/jni_macro_assembler_riscv64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 441,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-06-27T08:58:50Z",
+      "side": 1,
+      "message": "I was already thinking about making that change in a follow-up CL.",
+      "parentUuid": "11c27af5_abde4b74",
+      "range": {
+        "startLine": 441,
+        "startChar": 42,
+        "endLine": 441,
+        "endChar": 44
+      },
+      "revId": "b0d572c2ffbffeaff3d9ad8736df2fe296c5a098",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "f3ce4f7d_51e08e5a",
         "filename": "compiler/utils/riscv64/jni_macro_assembler_riscv64.cc",
         "patchSetId": 5
@@ -100,6 +124,30 @@
       "writtenOn": "2023-06-26T20:46:25Z",
       "side": 1,
       "message": "offset? Also below.",
+      "range": {
+        "startLine": 561,
+        "startChar": 69,
+        "endLine": 561,
+        "endChar": 78
+      },
+      "revId": "b0d572c2ffbffeaff3d9ad8736df2fe296c5a098",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f81a08f_67142a52",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 561,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-06-27T08:58:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "35f4a692_d6c06196",
       "range": {
         "startLine": 561,
         "startChar": 69,
