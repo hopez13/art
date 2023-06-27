@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b0c72624_03b32877",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-06-27T14:57:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "01299031_dbf29385",
+      "range": {
+        "startLine": 68,
+        "startChar": 47,
+        "endLine": 68,
+        "endChar": 48
+      },
+      "revId": "670f37743f9990aaba5ab4e3c206d00a4118b0b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "34059f23_a2e9414c",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d890e60_705df63f",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-06-27T14:57:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "34059f23_a2e9414c",
+      "range": {
+        "startLine": 206,
+        "startChar": 0,
+        "endLine": 207,
+        "endChar": 65
+      },
+      "revId": "670f37743f9990aaba5ab4e3c206d00a4118b0b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "21e90b69_86d41716",
@@ -60,6 +108,30 @@
       "writtenOn": "2023-06-27T14:30:16Z",
       "side": 1,
       "message": "Is there a reason to forward declare if we are going to define it two lines later?",
+      "range": {
+        "startLine": 52,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 27
+      },
+      "revId": "670f37743f9990aaba5ab4e3c206d00a4118b0b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "600dfc7e_fb24a31a",
+        "filename": "compiler/optimizing/code_generator_riscv64.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-06-27T14:57:07Z",
+      "side": 1,
+      "message": "Two CLs later we shall insert some code in between and I don\u0027t want to deal with unnecessary rebase conflicts when I remove this here.",
+      "parentUuid": "21e90b69_86d41716",
       "range": {
         "startLine": 52,
         "startChar": 0,
