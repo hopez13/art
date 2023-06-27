@@ -22,6 +22,30 @@
       },
       "revId": "89602f79a7380388ba39cdae32a980b8cd631328",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e709ff38_aa85096b",
+        "filename": "compiler/jni/quick/calling_convention.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-06-27T11:06:47Z",
+      "side": 1,
+      "message": "The `jobject` is a pointer. (Unlike the 32-bit vreg on the managed side.)",
+      "parentUuid": "2f59420e_65ebe024",
+      "range": {
+        "startLine": 299,
+        "startChar": 70,
+        "endLine": 299,
+        "endChar": 89
+      },
+      "revId": "89602f79a7380388ba39cdae32a980b8cd631328",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
