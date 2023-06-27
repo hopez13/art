@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f59420e_65ebe024",
+        "filename": "compiler/jni/quick/calling_convention.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-06-27T09:33:50Z",
+      "side": 1,
+      "message": "Why should it be `frame_pointer_size_` not `mirror::HeapReference\u003cmirror::Object\u003e` as before? How is frame pointer size related to reference size? Maybe add a comment to explain this?",
+      "range": {
+        "startLine": 299,
+        "startChar": 70,
+        "endLine": 299,
+        "endChar": 89
+      },
+      "revId": "89602f79a7380388ba39cdae32a980b8cd631328",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
