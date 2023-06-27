@@ -46,6 +46,30 @@
       },
       "revId": "b395fa5ed67d9c720083e4c6b8ed8fc57d7a620b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1037e8e4_1965f20b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-06-27T14:58:08Z",
+      "side": 1,
+      "message": "Santiago: FYI there are three kinds of tests for RISC-V:\n\n- gtests (as Vladimir mentioned, there are some assembler and JNI compiler ones specific to RISC-V)\n\n- run-tests (should be ran on a VM, as listed e.g. in this commit message (change tests/switches as necessary) aosp/2485130 or else in the readme http://cs/h/android/platform/superproject/+/master:art/test/README.chroot_vm.md)\n\n- booting cuttlefish `lunch aosp_cf_riscv64_phone-userdebug \u0026\u0026 m \u0026\u0026 launch_cvd --gpu_mode\u003ddrm_virgl` (it takes about half an hour to reach boot completed, but SIGILLs and SIGSEGVs in zygote usually show up much earlier, like after 3-5 minutes).\n\nIdeally we should test more thoroughly and avoid breaking cuttlefish boot often, as we do now.",
+      "parentUuid": "8ea96e86_bd6c20f8",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 27
+      },
+      "revId": "b395fa5ed67d9c720083e4c6b8ed8fc57d7a620b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
