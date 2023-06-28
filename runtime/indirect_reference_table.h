@@ -24,7 +24,11 @@
 #include <string>
 
 #include <android-base/logging.h>
-
+#include <android-base/stringprintf.h>
+#include <atomic>
+#include <dlfcn.h>
+#include "base/atomic.h"
+#include "reference_trace_frame.h"
 #include "base/bit_utils.h"
 #include "base/locks.h"
 #include "base/macros.h"
@@ -35,6 +39,7 @@
 #include "offsets.h"
 #include "read_barrier_option.h"
 
+typedef size_t (*AndroidUnsafeFPChase)(uintptr_t*, size_t);
 namespace art {
 
 class IsMarkedVisitor;
@@ -328,6 +333,24 @@ class IndirectReferenceTable {
   // Description of the algorithm is in the .cc file.
   // TODO: Consider other data structures for compact tables, e.g., free lists.
   size_t current_num_holes_;  // Number of holes in the current / top segment.
+#if defined (__aarch64__)
+  // Can not access bionic libraries while compiling runtime, using dlopen as a workaround.
+  // invoke android_unsafe_frame_pointer_chase() via dlopen bionic libc.so
+  static constexpr const char* LIBC_PATH = "/apex/com.android.runtime/lib64/bionic/libc.so";
+  static bool fp_unwind_func_inited;
+  static std::mutex dlopenLock;
+  static void *BionicFPUnwindImpl;
+  static AndroidUnsafeFPChase android_unsafe_frame_pointer_chase;
+  static AndroidUnsafeFPChase GetFPUnwindFunc();
+
+  // GlobalRef trace dump record
+  AtomicInteger trace_count;
+
+  void GetTraceLr(size_t idx, mirror::Class* classPtr, size_t objectCount);
+  IndirectReferenceStatistics frame_statistics_;
+
+  std::string proc_name_;
+#endif
 };
 
 }  // namespace art

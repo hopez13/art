@@ -30,7 +30,7 @@
 #if defined(__linux__)
 
 #include <vector>
-
+#include <iomanip>
 #include <linux/unistd.h>
 #include <poll.h>
 #include <signal.h>
@@ -315,7 +315,120 @@ std::string StripParameters(std::string name) {
   }
   return name;
 }
+void DumpNativeStackSimplify(std::ostream& os,
+                                pid_t tid,
+                                const char* prefix,
+                                ArtMethod* current_method,
+                                void* ucontext_ptr,
+                                bool skip_frames) {
 
+  unwindstack::AndroidLocalUnwinder unwinder;
+  unwindstack::AndroidUnwinderData data(!skip_frames /*show_all_frames*/);
+
+  bool unwind_ret;
+  if (ucontext_ptr != nullptr) {
+    unwind_ret = unwinder.Unwind(ucontext_ptr, data);
+  } else {
+    unwind_ret = unwinder.Unwind(tid, data);
+  }
+  if (!unwind_ret) {
+    os << prefix << "(Unwind failed for thread " << tid << ": "
+       <<  data.GetErrorString() << ")" << std::endl;
+    return;
+  }
+
+  // Check whether we have and should use addr2line.
+  bool use_addr2line;
+  if (kUseAddr2line) {
+    // Try to run it to see whether we have it. Push an argument so that it doesn't assume a.out
+    // and print to stderr.
+    use_addr2line = (gAborting > 0) && RunCommand(FindAddr2line() + " -h");
+  } else {
+    use_addr2line = false;
+  }
+
+  std::unique_ptr<Addr2linePipe> addr2line_state;
+  data.DemangleFunctionNames();
+  bool holds_mutator_lock =  Locks::mutator_lock_->IsSharedHeld(Thread::Current());
+  for (const unwindstack::FrameData& frame : data.frames) {
+    // We produce output like this:
+    // ]    # 0     566968: art::DumpNativeStackSimplify, libart.so
+    // In order for parsing tools to continue to function, the stack dump
+    // format must at least adhere to this format:
+    //  #XX pc <RELATIVE_ADDR>  <FULL_PATH_TO_SHARED_LIBRARY> ...
+    // The parsers require a single space before and after pc, and two spaces
+    // after the <RELATIVE_ADDR>. There can be any prefix data before the
+    // #XX. <RELATIVE_ADDR> has to be a hex number but with no 0x prefix.
+    os << "#" << std::right << std::setw(2) << StringPrintf("%2zu ", frame.num);
+    bool try_addr2line = false;
+    if (frame.map_info == nullptr) {
+      os << StringPrintf("%08" PRIx64 "  ???", frame.pc);
+    } else {
+      os << std::right << std::setw(10) << StringPrintf("%08" PRIx64 "  ", frame.rel_pc);
+      os << ": ";
+      const std::shared_ptr<unwindstack::MapInfo>& map_info = frame.map_info;
+      if (!frame.function_name.empty()) {
+        std::string raw_func_name = frame.function_name.c_str();
+        unsigned long pos = raw_func_name.size();
+        for (unsigned long i=0;i < raw_func_name.size();i++) {
+          if (raw_func_name[i] == '(') pos = i;
+        }
+        //pos <= func_name_len?0:pos - func_name_len,
+        //                                                     pos > func_name_len?func_name_len:pos
+        std::string func_name = raw_func_name.substr(0, pos);
+        os << std::left << func_name;
+//        if (it->func_offset != 0) {
+//          os << "+" << it->func_offset;
+//        }
+        // Functions found using the gdb jit interface will be in an empty
+        // map that cannot be found using addr2line.
+        if (!map_info->name().empty()) {
+          try_addr2line = true;
+        }
+      } else if (current_method != nullptr && holds_mutator_lock) {
+        const OatQuickMethodHeader* header = current_method->GetOatQuickMethodHeader(frame.pc);
+        if (header != nullptr) {
+          const void* start_of_code = header->GetCode();
+          os << current_method->JniLongName() << "+"
+             << (frame.pc - reinterpret_cast<uint64_t>(start_of_code));
+        } else {
+          os << "???";
+        }
+      } else {
+        os << "???";
+      }
+      os << ", ";
+      if (map_info->name().empty()) {
+        os << StringPrintf("<anonymous:%" PRIx64 ">", map_info->start());
+      } else {
+        std::string raw_name = map_info->name().c_str();
+        unsigned long pos = raw_name.size();
+        for (unsigned long i=0;i < raw_name.size();i++) {
+          if (raw_name[i] == '/') {
+            pos = i;
+          }
+        }
+        std::string name = raw_name.substr(pos + 1, raw_name.size() - pos);
+        os << name;
+      }
+//      if (it->map.offset != 0) {
+//        os << StringPrintf(" (offset %" PRIx64 ")", it->map.offset);
+//      }
+//      std::string build_id = map->GetBuildId(it->pc);
+//      if (!build_id.empty()) {
+//        os << " (BuildId: " << build_id << ")";
+//      }
+    }
+    os << std::endl;
+    if (try_addr2line && use_addr2line) {
+      Addr2line(frame.map_info->name(), frame.rel_pc, os, prefix, &addr2line_state);
+    }
+  }
+
+  if (addr2line_state != nullptr) {
+    Drain(0, prefix, &addr2line_state, os);
+  }
+}
 void DumpNativeStack(std::ostream& os,
                      pid_t tid,
                      const char* prefix,

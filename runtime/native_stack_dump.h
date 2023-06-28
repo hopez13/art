@@ -35,6 +35,14 @@ class ArtMethod;
 // Since functions can be defined inside functions, this can remove multiple substrings.
 std::string StripParameters(std::string name);
 
+void DumpNativeStackSimplify(std::ostream& os,
+                     pid_t tid,
+                     const char* prefix = "",
+                     ArtMethod* current_method = nullptr,
+                     void* ucontext = nullptr,
+                     bool skip_frames = true)
+  NO_THREAD_SAFETY_ANALYSIS;
+
 // Dumps the native stack for thread 'tid' to 'os'.
 void DumpNativeStack(std::ostream& os,
                      pid_t tid,

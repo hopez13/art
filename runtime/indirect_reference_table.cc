@@ -33,13 +33,39 @@
 #include "thread.h"
 
 #include <cstdlib>
+#include <mutex>
+#include <string>
+#include <vector>
+#include "base/bit_utils.h"
+#include "base/globals.h"
+#include "android-base/file.h"
+#include "android-base/stringprintf.h"
+#include "android-base/strings.h"
+#include "base/macros.h"
+#include "base/mutex.h"
+#include "indirect_reference_table-inl.h"
+#include "reference_trace_frame.h"
+// END Stability_ResourceSaving
 
 namespace art {
+#if defined(__aarch64__)
+void* IndirectReferenceTable::BionicFPUnwindImpl = nullptr;
+AndroidUnsafeFPChase IndirectReferenceTable::android_unsafe_frame_pointer_chase = nullptr;
+bool IndirectReferenceTable::fp_unwind_func_inited = false;
+std::mutex IndirectReferenceTable::dlopenLock;
+#endif
 
 static constexpr bool kDebugIRT = false;
 
 // Maximum table size we allow.
 static constexpr size_t kMaxTableSizeInBytes = 128 * MB;
+
+#if defined(__aarch64__)
+static size_t GetElementCount(ObjPtr<mirror::Object> obj) REQUIRES_SHARED(Locks::mutator_lock_) {
+  if (obj == nullptr || !obj->IsArrayInstance()) return 0;
+  return obj->AsArray()->GetLength();
+}
+#endif
 
 const char* GetIndirectRefKindString(IndirectRefKind kind) {
   switch (kind) {
@@ -95,7 +121,9 @@ bool IndirectReferenceTable::Initialize(size_t max_count, std::string* error_msg
 
   // Overflow and maximum check.
   CHECK_LE(max_count, kMaxTableSizeInBytes / sizeof(IrtEntry));
-
+#if defined(__aarch64__)
+  android_unsafe_frame_pointer_chase = GetFPUnwindFunc();
+#endif
   const size_t table_bytes = RoundUp(max_count * sizeof(IrtEntry), kPageSize);
   table_mem_map_ = NewIRTMap(table_bytes, error_msg);
   if (!table_mem_map_.IsValid()) {
@@ -173,7 +201,20 @@ static inline void CheckHoleCount(IrtEntry* table,
     CHECK_EQ(exp_num_holes, count) << " topIndex=" << top_index;
   }
 }
+#if defined (__aarch64__)
+void IndirectReferenceTable::GetTraceLr(size_t idx, mirror::Class* classPtr, size_t objectCount)
+REQUIRES_SHARED(Locks::mutator_lock_) {
 
+  uintptr_t lrs[BT_TRACE_COUNT];
+  if (!android_unsafe_frame_pointer_chase){
+    LOG(ERROR) << "android_unsafe_frame_pointer_chase is nullptr!";
+    return;
+  }
+  android_unsafe_frame_pointer_chase(lrs, BT_TRACE_COUNT);
+  frame_statistics_.AddLrs(lrs, idx, classPtr, objectCount);
+  trace_count++;
+}
+#endif
 IndirectRef IndirectReferenceTable::Add(ObjPtr<mirror::Object> obj, std::string* error_msg) {
   if (kDebugIRT) {
     LOG(INFO) << "+++ Add: top_index=" << top_index_
@@ -225,6 +266,14 @@ IndirectRef IndirectReferenceTable::Add(ObjPtr<mirror::Object> obj, std::string*
               << " holes=" << current_num_holes_;
   }
 
+#if defined (__aarch64__)
+  if (top_index_ > (max_entries_/2)) {
+    android::base::ReadFileToString("/proc/" + std::to_string(getpid()) + "/cmdline", &proc_name_);
+    if(android::base::StartsWith(proc_name_, "system_server")) {
+      GetTraceLr(index, obj->GetClass(), GetElementCount(obj));
+    }
+  }
+#endif
   DCHECK(result != nullptr);
   return result;
 }
@@ -306,7 +355,9 @@ bool IndirectReferenceTable::Remove(IndirectRef iref) {
       LOG(INFO) << "+++ left hole at " << idx << ", holes=" << current_num_holes_;
     }
   }
-
+#if defined (__aarch64__)
+    frame_statistics_.RemoveLrs(idx);
+#endif
   return true;
 }
 
@@ -364,6 +415,33 @@ void IndirectReferenceTable::Dump(std::ostream& os) const {
     }
   }
   ReferenceTable::Dump(os, entries);
+#if defined (__aarch64__)
+  if (trace_count.load() > 0 && top_index_ == max_entries_) {
+     os << "Total: " << trace_count.load() << "\n";
+     frame_statistics_.Dump(os);
+  }
+}
+
+AndroidUnsafeFPChase IndirectReferenceTable::GetFPUnwindFunc() {
+  std::lock_guard<std::mutex> lock(dlopenLock);
+  if (!BionicFPUnwindImpl && !fp_unwind_func_inited) {
+    BionicFPUnwindImpl = dlopen(LIBC_PATH, RTLD_LAZY);
+    if (BionicFPUnwindImpl) {
+      AndroidUnsafeFPChase create = (AndroidUnsafeFPChase)(dlsym(BionicFPUnwindImpl, 
+                                     "android_unsafe_frame_pointer_chase"));
+      if (create) {
+        android_unsafe_frame_pointer_chase = create;
+      } else {
+        LOG(ERROR) << "dlsym android_unsafe_frame_pointer_chase() is failed!";
+      }
+    } else {
+      LOG(ERROR) << LIBC_PATH << " open failed! Error: "
+                 << dlerror();
+    }
+    fp_unwind_func_inited = true;
+  }
+  return android_unsafe_frame_pointer_chase;
+  #endif
 }
 
 size_t IndirectReferenceTable::FreeCapacity() const {
