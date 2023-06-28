@@ -1,6 +1,75 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "da7b046f_36fbb3ff",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1199,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-06-28T11:14:26Z",
+      "side": 1,
+      "message": "Please use a new variable here to show the uses (lines 1189 and 1204) are unrelated",
+      "range": {
+        "startLine": 1199,
+        "startChar": 4,
+        "endLine": 1199,
+        "endChar": 17
+      },
+      "revId": "d30ea25eb41ef0def621df2680fd2619a9473e71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22ef49b0_ed9554cc",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1340,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-06-28T11:14:26Z",
+      "side": 1,
+      "message": "There\u0027s no need to assign to nullptr if we are going to assign in the next line.",
+      "range": {
+        "startLine": 1339,
+        "startChar": 44,
+        "endLine": 1340,
+        "endChar": 30
+      },
+      "revId": "d30ea25eb41ef0def621df2680fd2619a9473e71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4c220ef_65a92916",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1362,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-06-28T11:14:26Z",
+      "side": 1,
+      "message": "Extra space",
+      "range": {
+        "startLine": 1362,
+        "startChar": 68,
+        "endLine": 1362,
+        "endChar": 70
+      },
+      "revId": "d30ea25eb41ef0def621df2680fd2619a9473e71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "f1bd7e88_835bc72d",
@@ -14,6 +83,93 @@
       "writtenOn": "2023-06-28T07:15:54Z",
       "side": 1,
       "message": "I\u0027ve realized I was wrong with the previous assumption.\n\nReproducer: art/test/656-checker-simd-opt/src/Main.java : void Main.intVectorLongInvariant(int[], long[]) with SVE enabled.\n\n  static void intVectorLongInvariant(int[] x, long[] y) {\n    for (int i \u003d 0; i \u003c 100; i++) {\n      x[i] \u003d (int) y[0];\n    }\n  }\nBCE moves the checks and array access for y[0] outside the loop but the type conversion (long-\u003eint) stays inside. During the vectorization, for that type conversion a VecReplicateScalarreplicate will be put in the new vector loop preheader. Thus we actually need this in_vector_loop_body check.",
+      "revId": "d30ea25eb41ef0def621df2680fd2619a9473e71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e0e8544_e4562d60",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1504,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-06-28T11:14:26Z",
+      "side": 1,
+      "message": "Can we add a test for that? The repro seems easy enough for a checker art test.",
+      "parentUuid": "f1bd7e88_835bc72d",
+      "revId": "d30ea25eb41ef0def621df2680fd2619a9473e71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f28f4e18_9d8c12c3",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1510,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-06-28T11:14:26Z",
+      "side": 1,
+      "message": "Is this just for the loop body? Or does it include the loop header too?",
+      "range": {
+        "startLine": 1510,
+        "startChar": 48,
+        "endLine": 1510,
+        "endChar": 56
+      },
+      "revId": "d30ea25eb41ef0def621df2680fd2619a9473e71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "daf42d41_275f5ec9",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1513,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-06-28T11:14:26Z",
+      "side": 1,
+      "message": "Does it matter if the VecOperation is predicated or not for this check?",
+      "range": {
+        "startLine": 1511,
+        "startChar": 0,
+        "endLine": 1513,
+        "endChar": 0
+      },
+      "revId": "d30ea25eb41ef0def621df2680fd2619a9473e71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d7256ee_77780a1b",
+        "filename": "compiler/optimizing/loop_optimization.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-06-28T11:14:26Z",
+      "side": 1,
+      "message": "`in which` feels better here (Not a native speaker though)",
+      "range": {
+        "startLine": 220,
+        "startChar": 36,
+        "endLine": 220,
+        "endChar": 40
+      },
       "revId": "d30ea25eb41ef0def621df2680fd2619a9473e71",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
