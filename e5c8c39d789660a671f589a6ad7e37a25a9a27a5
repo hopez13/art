@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "db2f67d7_45634acf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-06-28T20:09:36Z",
+      "side": 1,
+      "message": "Thanks for the cleanup!",
+      "revId": "e5c8c39d789660a671f589a6ad7e37a25a9a27a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "33e4f5a1_7fb72091",
+        "filename": "runtime/oat_file_assistant.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-06-28T20:09:36Z",
+      "side": 1,
+      "message": "if the current compiler filter is verify and the target filter is ....",
+      "range": {
+        "startLine": 207,
+        "startChar": 48,
+        "endLine": 207,
+        "endChar": 49
+      },
+      "revId": "e5c8c39d789660a671f589a6ad7e37a25a9a27a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
