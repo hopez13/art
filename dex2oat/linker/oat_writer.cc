@@ -69,9 +69,6 @@
 #include "oat.h"
 #include "oat_quick_method_header.h"
 #include "profile/profile_compilation_info.h"
-#include "quicken_info.h"
-#include "scoped_thread_state_change-inl.h"
-#include "stack_map.h"
 #include "stream/buffered_output_stream.h"
 #include "stream/file_output_stream.h"
 #include "stream/output_stream.h"
@@ -338,11 +335,8 @@ OatWriter::OatWriter(const CompilerOptions& compiler_options,
       vdex_dex_files_offset_(0u),
       vdex_dex_shared_data_offset_(0u),
       vdex_verifier_deps_offset_(0u),
-      vdex_quickening_info_offset_(0u),
       vdex_lookup_tables_offset_(0u),
-      oat_checksum_(adler32(0L, Z_NULL, 0)),
       code_size_(0u),
-      oat_size_(0u),
       data_bimg_rel_ro_start_(0u),
       data_bimg_rel_ro_size_(0u),
       bss_start_(0u),
@@ -361,25 +355,16 @@ OatWriter::OatWriter(const CompilerOptions& compiler_options,
       size_vdex_header_(0),
       size_vdex_checksums_(0),
       size_dex_file_alignment_(0),
-      size_quickening_table_offset_(0),
       size_executable_offset_alignment_(0),
       size_oat_header_(0),
-      size_oat_header_key_value_store_(0),
       size_dex_file_(0),
       size_verifier_deps_(0),
-      size_verifier_deps_alignment_(0),
-      size_quickening_info_(0),
-      size_quickening_info_alignment_(0),
       size_vdex_lookup_table_alignment_(0),
       size_vdex_lookup_table_(0),
       size_interpreter_to_interpreter_bridge_(0),
-      size_interpreter_to_compiled_code_bridge_(0),
-      size_jni_dlsym_lookup_trampoline_(0),
       size_jni_dlsym_lookup_critical_trampoline_(0),
       size_quick_generic_jni_trampoline_(0),
       size_quick_imt_conflict_trampoline_(0),
-      size_quick_resolution_trampoline_(0),
-      size_quick_to_interpreter_bridge_(0),
       size_nterp_trampoline_(0),
       size_trampoline_alignment_(0),
       size_method_header_(0),
@@ -1276,7 +1261,7 @@ class OatWriter::LayoutReserveOffsetCodeMethodVisitor : public OrderedMethodVisi
       offset_ += code_size;
     }
 
-    // Exclude quickened dex methods (code_size == 0) since they have no native code.
+    // Exclude dex methods without native code.
     if (generate_debug_info_ && code_size != 0) {
       DCHECK(has_debug_info);
       const uint8_t* code_info = compiled_method->GetVmapTable().data();
@@ -2508,34 +2493,16 @@ bool OatWriter::WriteRodata(OutputStream* out) {
   return true;
 }
 
-void OatWriter::WriteQuickeningInfo([[maybe_unused]] /*out*/ std::vector<uint8_t>*) {
-  // Nothing to write. Leave `vdex_size_` untouched and unaligned.
-  vdex_quickening_info_offset_ = vdex_size_;
-  size_quickening_info_alignment_ = 0;
-}
-
 void OatWriter::WriteVerifierDeps(verifier::VerifierDeps* verifier_deps,
                                   /*out*/std::vector<uint8_t>* buffer) {
   if (verifier_deps == nullptr) {
     // Nothing to write. Record the offset, but no need
     // for alignment.
-    vdex_verifier_deps_offset_ = vdex_size_;
-    return;
-  }
-
-  TimingLogger::ScopedTiming split("VDEX verifier deps", timings_);
-
   DCHECK(buffer->empty());
   verifier_deps->Encode(*dex_files_, buffer);
   size_verifier_deps_ = buffer->size();
 
   // Verifier deps data should be 4 byte aligned.
-  size_verifier_deps_alignment_ = RoundUp(vdex_size_, 4u) - vdex_size_;
-  buffer->insert(buffer->begin(), size_verifier_deps_alignment_, 0u);
-
-  vdex_size_ += size_verifier_deps_alignment_;
-  vdex_verifier_deps_offset_ = vdex_size_;
-  vdex_size_ += size_verifier_deps_;
 }
 
 bool OatWriter::WriteCode(OutputStream* out) {
@@ -2621,7 +2588,6 @@ bool OatWriter::CheckOatSize(OutputStream* out, size_t file_offset, size_t relat
     DO_STAT(size_vdex_header_);
     DO_STAT(size_vdex_checksums_);
     DO_STAT(size_dex_file_alignment_);
-    DO_STAT(size_quickening_table_offset_);
     DO_STAT(size_executable_offset_alignment_);
     DO_STAT(size_oat_header_);
     DO_STAT(size_oat_header_key_value_store_);
@@ -2630,12 +2596,9 @@ bool OatWriter::CheckOatSize(OutputStream* out, size_t file_offset, size_t relat
     DO_STAT(size_verifier_deps_alignment_);
     DO_STAT(size_vdex_lookup_table_);
     DO_STAT(size_vdex_lookup_table_alignment_);
-    DO_STAT(size_quickening_info_);
-    DO_STAT(size_quickening_info_alignment_);
     DO_STAT(size_interpreter_to_interpreter_bridge_);
     DO_STAT(size_interpreter_to_compiled_code_bridge_);
     DO_STAT(size_jni_dlsym_lookup_trampoline_);
-    DO_STAT(size_jni_dlsym_lookup_critical_trampoline_);
     DO_STAT(size_quick_generic_jni_trampoline_);
     DO_STAT(size_quick_imt_conflict_trampoline_);
     DO_STAT(size_quick_resolution_trampoline_);
@@ -2644,12 +2607,9 @@ bool OatWriter::CheckOatSize(OutputStream* out, size_t file_offset, size_t relat
     DO_STAT(size_trampoline_alignment_);
     DO_STAT(size_method_header_);
     DO_STAT(size_code_);
-    DO_STAT(size_code_alignment_);
-    DO_STAT(size_data_bimg_rel_ro_);
     DO_STAT(size_data_bimg_rel_ro_alignment_);
     DO_STAT(size_relative_call_thunks_);
     DO_STAT(size_misc_thunks_);
-    DO_STAT(size_vmap_table_);
     DO_STAT(size_method_info_);
     DO_STAT(size_oat_dex_file_location_size_);
     DO_STAT(size_oat_dex_file_location_data_);
@@ -2658,8 +2618,6 @@ bool OatWriter::CheckOatSize(OutputStream* out, size_t file_offset, size_t relat
     DO_STAT(size_oat_dex_file_class_offsets_offset_);
     DO_STAT(size_oat_dex_file_lookup_table_offset_);
     DO_STAT(size_oat_dex_file_dex_layout_sections_offset_);
-    DO_STAT(size_oat_dex_file_dex_layout_sections_);
-    DO_STAT(size_oat_dex_file_dex_layout_sections_alignment_);
     DO_STAT(size_oat_dex_file_method_bss_mapping_offset_);
     DO_STAT(size_oat_dex_file_type_bss_mapping_offset_);
     DO_STAT(size_oat_dex_file_public_type_bss_mapping_offset_);
