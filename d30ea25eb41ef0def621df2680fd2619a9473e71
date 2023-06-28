@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f1bd7e88_835bc72d",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1504,
+      "author": {
+        "id": 1975361
+      },
+      "writtenOn": "2023-06-28T07:15:54Z",
+      "side": 1,
+      "message": "I\u0027ve realized I was wrong with the previous assumption.\n\nReproducer: art/test/656-checker-simd-opt/src/Main.java : void Main.intVectorLongInvariant(int[], long[]) with SVE enabled.\n\n  static void intVectorLongInvariant(int[] x, long[] y) {\n    for (int i \u003d 0; i \u003c 100; i++) {\n      x[i] \u003d (int) y[0];\n    }\n  }\nBCE moves the checks and array access for y[0] outside the loop but the type conversion (long-\u003eint) stays inside. During the vectorization, for that type conversion a VecReplicateScalarreplicate will be put in the new vector loop preheader. Thus we actually need this in_vector_loop_body check.",
+      "revId": "d30ea25eb41ef0def621df2680fd2619a9473e71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
