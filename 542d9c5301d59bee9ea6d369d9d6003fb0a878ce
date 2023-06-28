@@ -206,6 +206,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "655defaf_9edb5484",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 648,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-06-28T21:45:56Z",
+      "side": 1,
+      "message": "That\u0027s actually a bit more complicated since the architecture spec suggests eliminating the load with a zero destination. But it turns out it can\u0027t fully elimnate the ordering consequences of the load.",
+      "parentUuid": "3a4d726f_26833912",
+      "range": {
+        "startLine": 647,
+        "startChar": 3,
+        "endLine": 648,
+        "endChar": 80
+      },
+      "revId": "542d9c5301d59bee9ea6d369d9d6003fb0a878ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3fabff98_1e72c322",
