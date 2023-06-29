@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c1b7639_d2c37dad",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 418,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2023-06-29T18:18:01Z",
+      "side": 1,
+      "message": "You can replace this with: `ART_FORMAT(\"has_read_barrier: {}\", gUseReadBarrier)`.",
+      "range": {
+        "startLine": 418,
+        "startChar": 6,
+        "endLine": 418,
+        "endChar": 75
+      },
+      "revId": "705e7c84bffc318dbd91a8e223e530d1b27eee21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a81734fb_c08ca20d",
+        "filename": "test/1004-checker-volatile-ref-load/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2023-06-29T18:18:01Z",
+      "side": 1,
+      "message": "Actually, the checks in line 40–48 are only valid with Baker read barriers. Could you introduce a `useBakerReadBarrier` Checker condition based on `art::kUseBakerReadBarrier`?",
+      "range": {
+        "startLine": 39,
+        "startChar": 16,
+        "endLine": 39,
+        "endChar": 30
+      },
+      "revId": "705e7c84bffc318dbd91a8e223e530d1b27eee21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5775dc1_b5a69231",
+        "filename": "test/1004-checker-volatile-ref-load/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2023-06-29T18:18:01Z",
+      "side": 1,
+      "message": "Could you check whether this assertion is also valid with table-lookup read barriers (i.e. when `art::kUseTableLookupReadBarrier` is true)? If not, I suggest introducing a `useUserfaultfd` Checker condition (based on `art::gUseUserfaultfd`).",
+      "range": {
+        "startLine": 50,
+        "startChar": 8,
+        "endLine": 50,
+        "endChar": 68
+      },
+      "revId": "705e7c84bffc318dbd91a8e223e530d1b27eee21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
