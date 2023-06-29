@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2793df87_016bf329",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1199,
+      "author": {
+        "id": 1975361
+      },
+      "writtenOn": "2023-06-29T14:23:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "da7b046f_36fbb3ff",
+      "range": {
+        "startLine": 1199,
+        "startChar": 4,
+        "endLine": 1199,
+        "endChar": 17
+      },
+      "revId": "d30ea25eb41ef0def621df2680fd2619a9473e71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "22ef49b0_ed9554cc",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa9fd19e_ec06b880",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1340,
+      "author": {
+        "id": 1975361
+      },
+      "writtenOn": "2023-06-29T14:23:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "22ef49b0_ed9554cc",
+      "range": {
+        "startLine": 1339,
+        "startChar": 44,
+        "endLine": 1340,
+        "endChar": 30
+      },
+      "revId": "d30ea25eb41ef0def621df2680fd2619a9473e71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d4c220ef_65a92916",
@@ -60,6 +108,30 @@
       "writtenOn": "2023-06-28T11:14:26Z",
       "side": 1,
       "message": "Extra space",
+      "range": {
+        "startLine": 1362,
+        "startChar": 68,
+        "endLine": 1362,
+        "endChar": 70
+      },
+      "revId": "d30ea25eb41ef0def621df2680fd2619a9473e71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8dc9947e_a0d2b3f7",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1362,
+      "author": {
+        "id": 1975361
+      },
+      "writtenOn": "2023-06-29T14:23:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d4c220ef_65a92916",
       "range": {
         "startLine": 1362,
         "startChar": 68,
@@ -105,6 +177,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "adad6949_47a0ee14",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1504,
+      "author": {
+        "id": 1975361
+      },
+      "writtenOn": "2023-06-29T14:23:42Z",
+      "side": 1,
+      "message": "But we already have it: art/test/656-checker-simd-opt/src/Main.java : void Main.intVectorLongInvariant(int[], long[]) with SVE enabled: static void intVectorLongInvariant(int[] x, long[] y).\n\nI\u0027ve missed it because was testing the CL chain as a whole; now changed the way",
+      "parentUuid": "9e0e8544_e4562d60",
+      "revId": "d30ea25eb41ef0def621df2680fd2619a9473e71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f28f4e18_9d8c12c3",
@@ -118,6 +208,30 @@
       "writtenOn": "2023-06-28T11:14:26Z",
       "side": 1,
       "message": "Is this just for the loop body? Or does it include the loop header too?",
+      "range": {
+        "startLine": 1510,
+        "startChar": 48,
+        "endLine": 1510,
+        "endChar": 56
+      },
+      "revId": "d30ea25eb41ef0def621df2680fd2619a9473e71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a79e0ee9_6cbaa17b",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1510,
+      "author": {
+        "id": 1975361
+      },
+      "writtenOn": "2023-06-29T14:23:42Z",
+      "side": 1,
+      "message": "I fixed the term to avoid confusion, I hope it reads better never.",
+      "parentUuid": "f28f4e18_9d8c12c3",
       "range": {
         "startLine": 1510,
         "startChar": 48,
@@ -153,6 +267,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "53ba842d_d4bd95f5",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1513,
+      "author": {
+        "id": 1975361
+      },
+      "writtenOn": "2023-06-29T14:23:42Z",
+      "side": 1,
+      "message": "I am not 100% sure what you mean here; vector_external_set_ could only contain vector operations, so there is no point of trying to search for a scalar instruction there.",
+      "parentUuid": "daf42d41_275f5ec9",
+      "range": {
+        "startLine": 1511,
+        "startChar": 0,
+        "endLine": 1513,
+        "endChar": 0
+      },
+      "revId": "d30ea25eb41ef0def621df2680fd2619a9473e71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9d7256ee_77780a1b",
         "filename": "compiler/optimizing/loop_optimization.h",
         "patchSetId": 6
@@ -164,6 +302,30 @@
       "writtenOn": "2023-06-28T11:14:26Z",
       "side": 1,
       "message": "`in which` feels better here (Not a native speaker though)",
+      "range": {
+        "startLine": 220,
+        "startChar": 36,
+        "endLine": 220,
+        "endChar": 40
+      },
+      "revId": "d30ea25eb41ef0def621df2680fd2619a9473e71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c45ca41f_2c239e20",
+        "filename": "compiler/optimizing/loop_optimization.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1975361
+      },
+      "writtenOn": "2023-06-29T14:23:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9d7256ee_77780a1b",
       "range": {
         "startLine": 220,
         "startChar": 36,
