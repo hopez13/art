@@ -3,6 +3,29 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "3144f6f4_30e14cf1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-06-29T10:59:55Z",
+      "side": 1,
+      "message": "That\u0027s all right, however if you wanted to, you could run an arm64 VM as explained here: https://cs.android.com/android/platform/superproject/+/master:art/test/README.chroot_vm.md It takes a few minutes to create / boot / setup-ssh the VM (not hours). It may be useful if you want to start a QEMU instance with some CPU features, etc. Generally VM behaves like a target device (same chroot-based approach) only it\u0027s Linux rather than Android.",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 51
+      },
+      "revId": "89f3db39a4c5cadff680743d8791f6e26e33e1f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "46159b15_c1b4a67a",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
