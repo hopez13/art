@@ -53,10 +53,7 @@ cc_defaults {
         "libartpalette",
         "libbase",
         "liblog",
-    ],
-    static_libs: [
-        "libperfetto_client_experimental",
-        "perfetto_trace_protos",
+        "libperfetto_c",
     ],
     generated_sources: [
         "art_perfetto_hprof_operator_srcs",

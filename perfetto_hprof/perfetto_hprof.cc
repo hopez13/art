@@ -28,11 +28,11 @@
 #include <sys/types.h>
 #include <sys/un.h>
 #include <sys/wait.h>
-#include <thread>
 #include <time.h>
 
 #include <limits>
 #include <optional>
+#include <thread>
 #include <type_traits>
 
 #include "android-base/file.h"
@@ -40,25 +40,27 @@
 #include "android-base/properties.h"
 #include "base/fast_exit.h"
 #include "base/systrace.h"
+#include "dex/descriptors_names.h"
 #include "gc/heap-visit-objects-inl.h"
 #include "gc/heap.h"
 #include "gc/scoped_gc_critical_section.h"
 #include "mirror/object-refvisitor-inl.h"
 #include "nativehelper/scoped_local_ref.h"
-#include "perfetto/profiling/parse_smaps.h"
-#include "perfetto/trace/interned_data/interned_data.pbzero.h"
-#include "perfetto/trace/profiling/heap_graph.pbzero.h"
-#include "perfetto/trace/profiling/profile_common.pbzero.h"
-#include "perfetto/trace/profiling/smaps.pbzero.h"
-#include "perfetto/config/profiling/java_hprof_config.pbzero.h"
-#include "perfetto/protozero/packed_repeated_fields.h"
-#include "perfetto/tracing.h"
+#include "parse_smaps.h"
+#include "perfetto/public/data_source.h"
+#include "perfetto/public/pb_decoder.h"
+#include "perfetto/public/producer.h"
+#include "perfetto/public/protos/config/data_source_config.pzc.h"
+#include "perfetto/public/protos/config/profiling/java_hprof_config.pzc.h"
+#include "perfetto/public/protos/trace/interned_data/interned_data.pzc.h"
+#include "perfetto/public/protos/trace/profiling/heap_graph.pzc.h"
+#include "perfetto/public/protos/trace/profiling/profile_common.pzc.h"
+#include "perfetto/public/protos/trace/profiling/smaps.pzc.h"
 #include "runtime-inl.h"
 #include "runtime_callbacks.h"
 #include "scoped_thread_state_change-inl.h"
 #include "thread_list.h"
 #include "well_known_classes.h"
-#include "dex/descriptors_names.h"
 
 // There are three threads involved in this:
 // * listener thread: this is idle in the background when this plugin gets loaded, and waits
@@ -138,7 +140,7 @@ bool StartsWith(const std::string& str, const std::string& prefix) {
 // start with /vendor/
 // start with /data/app/
 // contains "extracted in memory from Y", where Y matches any of the above
-bool ShouldSampleSmapsEntry(const perfetto::profiling::SmapsEntry& e) {
+bool ShouldSampleSmapsEntry(const perfetto_hprof::SmapsEntry& e) {
   if (StartsWith(e.pathname, "/system/") || StartsWith(e.pathname, "/vendor/") ||
       StartsWith(e.pathname, "/data/app/")) {
     return true;
@@ -172,30 +174,193 @@ bool IsDebugBuild() {
 
 // Verifies the manifest restrictions are respected.
 // For regular heap dumps this is already handled by heapprofd.
-bool IsOomeHeapDumpAllowed(const perfetto::DataSourceConfig& ds_config) {
+bool IsOomeHeapDumpAllowed(perfetto_protos_DataSourceConfig_SessionInitiator session_initiator) {
   if (art::Runtime::Current()->IsJavaDebuggable() || IsDebugBuild()) {
     return true;
   }
 
-  if (ds_config.session_initiator() ==
-      perfetto::DataSourceConfig::SESSION_INITIATOR_TRUSTED_SYSTEM) {
+  if (session_initiator == perfetto_protos_DataSourceConfig_SESSION_INITIATOR_TRUSTED_SYSTEM) {
     return art::Runtime::Current()->IsProfileable() || art::Runtime::Current()->IsSystemServer();
   } else {
     return art::Runtime::Current()->IsProfileableFromShell();
   }
 }
 
-class JavaHprofDataSource : public perfetto::DataSource<JavaHprofDataSource> {
+// Round up |size| to a multiple of |alignment| (must be a power of two).
+template <size_t alignment>
+constexpr size_t AlignUp(size_t size) {
+  static_assert((alignment & (alignment - 1)) == 0, "alignment must be a pow2");
+  return (size + alignment - 1) & ~(alignment - 1);
+}
+
+class VarIntBuffer {
  public:
-  constexpr static perfetto::BufferExhaustedPolicy kBufferExhaustedPolicy =
-    perfetto::BufferExhaustedPolicy::kStall;
+  VarIntBuffer() { Reset(); }
+
+  // Copy and move are disabled due to pointers to inline buf.
+  VarIntBuffer(const VarIntBuffer&) = delete;
+  VarIntBuffer(VarIntBuffer&&) = delete;
+  VarIntBuffer& operator=(const VarIntBuffer&) = delete;
+  VarIntBuffer& operator=(VarIntBuffer&&) = delete;
+
+  void Reset() {
+    heap_buf_.reset();
+    storage_begin_ = reinterpret_cast<uint8_t*>(&inline_buf_[0]);
+    storage_end_ = reinterpret_cast<uint8_t*>(&inline_buf_[0]) + sizeof(inline_buf_);
+    write_ptr_ = storage_begin_;
+  }
+
+  const void* data() const { return storage_begin_; }
+  size_t size() const {
+    return static_cast<size_t>(write_ptr_ - storage_begin_);
+  }
+
+  void Append(uint64_t val) {
+    GrowIfNeeded();
+    write_ptr_ = PerfettoPbWriteVarInt(val, write_ptr_);
+  }
+
+ private:
+  void GrowIfNeeded() {
+    if (UNLIKELY(write_ptr_ + PERFETTO_PB_VARINT_MAX_SIZE_64 > storage_end_)) {
+      GrowSlowpath();
+    }
+  }
+
+  void GrowSlowpath() {
+    size_t write_off = static_cast<size_t>(write_ptr_ - storage_begin_);
+    size_t old_size = static_cast<size_t>(storage_end_ - storage_begin_);
+    size_t new_size = old_size * 2;
+    new_size = AlignUp<4096>(new_size);
+    std::unique_ptr<uint8_t[]> new_buf(new uint8_t[new_size]);
+    memcpy(new_buf.get(), storage_begin_, old_size);
+    heap_buf_ = std::move(new_buf);
+    storage_begin_ = heap_buf_.get();
+    storage_end_ = storage_begin_ + new_size;
+    write_ptr_ = storage_begin_ + write_off;
+  }
+
+  uint8_t* storage_begin_;
+  uint8_t* storage_end_;
+  uint8_t* write_ptr_;
+  std::unique_ptr<uint8_t[]> heap_buf_;
+  uint64_t inline_buf_[(8192 - (sizeof(uint8_t*) * 4))/sizeof(uint64_t)];
+};
+static_assert(sizeof(VarIntBuffer) == 8192);
+
+struct PerfettoDs java_hprof_data_source = PERFETTO_DS_INIT();
+bool g_is_oome_heap;
+
+class JavaHprofDataSource {
+ public:
+  static void* StaticOnSetup(struct PerfettoDsImpl*,
+                             PerfettoDsInstanceIndex,
+                             void* ds_config,
+                             size_t ds_config_size,
+                             void* user_arg,
+                             struct PerfettoDsOnSetupArgs*) {
+    auto* inst = new JavaHprofDataSource(*static_cast<bool*>(user_arg));
+    inst->OnSetup(ds_config, ds_config_size);
+    return inst;
+  }
+
+  static void StaticOnStart(struct PerfettoDsImpl* ds_impl,
+                            PerfettoDsInstanceIndex inst_idx,
+                            void*,
+                            void* inst_ctx,
+                            struct PerfettoDsOnStartArgs*) {
+    PerfettoDsImplGetInstanceLocked(ds_impl, inst_idx);
+    auto* inst = reinterpret_cast<JavaHprofDataSource*>(inst_ctx);
+    inst->OnStart();
+    PerfettoDsImplReleaseInstanceLocked(ds_impl, inst_idx);
+  }
+
+  static void StaticOnStop(struct PerfettoDsImpl* ds_impl,
+                           PerfettoDsInstanceIndex inst_idx,
+                           void*,
+                           void* inst_ctx,
+                           struct PerfettoDsOnStopArgs* args) {
+    PerfettoDsImplGetInstanceLocked(ds_impl, inst_idx);
+    auto* inst = reinterpret_cast<JavaHprofDataSource*>(inst_ctx);
+    inst->OnStop(args);
+    PerfettoDsImplReleaseInstanceLocked(ds_impl, inst_idx);
+  }
+
+  static void StaticOnDestroy(struct PerfettoDsImpl*, void*, void* inst_ctx) {
+    auto* inst = reinterpret_cast<JavaHprofDataSource*>(inst_ctx);
+    delete inst;
+  }
 
   explicit JavaHprofDataSource(bool is_oome_heap) : is_oome_heap_(is_oome_heap) {}
 
-  void OnSetup(const SetupArgs& args) override {
+  struct Config {
+    uint64_t tracing_session_id = 0;
+    uint64_t session_initiator = 0;
+
+    struct JavaHprof {
+      std::vector<std::string> ignored_types;
+      bool dump_smaps = false;
+      std::vector<std::string> process_cmdlines;
+
+      void Parse(const PerfettoPbDecoderField& field) {
+        *this = {};
+        if (field.wire_type != PERFETTO_PB_WIRE_TYPE_DELIMITED) {
+          return;
+        }
+        for (auto it = PerfettoPbDecoderIterateNestedBegin(field.value.delimited);
+             it.field.status == PERFETTO_PB_DECODER_OK;
+             PerfettoPbDecoderIterateNext(&it)) {
+          switch (it.field.id) {
+            case perfetto_protos_JavaHprofConfig_dump_smaps_field_number:
+              PerfettoPbDecoderFieldGetBool(&it.field, &dump_smaps);
+              break;
+            case perfetto_protos_JavaHprofConfig_ignored_types_field_number:
+              if (it.field.wire_type == PERFETTO_PB_WIRE_TYPE_DELIMITED) {
+                ignored_types.emplace_back(
+                    reinterpret_cast<const char*>(it.field.value.delimited.start),
+                    it.field.value.delimited.len);
+              }
+              break;
+            case perfetto_protos_JavaHprofConfig_process_cmdline_field_number:
+              if (it.field.wire_type == PERFETTO_PB_WIRE_TYPE_DELIMITED) {
+                process_cmdlines.emplace_back(
+                    reinterpret_cast<const char*>(it.field.value.delimited.start),
+                    it.field.value.delimited.len);
+              }
+              break;
+          }
+        }
+      }
+    };
+    JavaHprof java_hprof;
+
+    void Parse(void* ds_config, size_t ds_config_size) {
+      *this = {};
+      for (auto it = PerfettoPbDecoderIterateBegin(ds_config, ds_config_size);
+           it.field.status == PERFETTO_PB_DECODER_OK;
+           PerfettoPbDecoderIterateNext(&it)) {
+        switch (it.field.id) {
+          case perfetto_protos_DataSourceConfig_tracing_session_id_field_number:
+            PerfettoPbDecoderFieldGetUint64(&it.field, &tracing_session_id);
+            break;
+          case perfetto_protos_DataSourceConfig_java_hprof_config_field_number:
+            java_hprof.Parse(it.field);
+            break;
+          case perfetto_protos_DataSourceConfig_session_initiator_field_number:
+            PerfettoPbDecoderFieldGetUint64(&it.field, &session_initiator);
+            break;
+        }
+      }
+    }
+  };
+
+  void OnSetup(void* ds_config, size_t ds_config_size) {
+    Config config;
+    config.Parse(ds_config, ds_config_size);
+
     if (!is_oome_heap_) {
       uint64_t normalized_tracing_session_id =
-        args.config->tracing_session_id() % std::numeric_limits<int32_t>::max();
+          config.tracing_session_id % std::numeric_limits<int32_t>::max();
       if (requested_tracing_session_id < 0) {
         LOG(ERROR) << "invalid requested tracing session id " << requested_tracing_session_id;
         return;
@@ -205,28 +370,25 @@ class JavaHprofDataSource : public perfetto::DataSource<JavaHprofDataSource> {
       }
     }
 
-    // This is on the heap as it triggers -Wframe-larger-than.
-    std::unique_ptr<perfetto::protos::pbzero::JavaHprofConfig::Decoder> cfg(
-        new perfetto::protos::pbzero::JavaHprofConfig::Decoder(
-          args.config->java_hprof_config_raw()));
-
-    dump_smaps_ = cfg->dump_smaps();
-    for (auto it = cfg->ignored_types(); it; ++it) {
-      std::string name = (*it).ToStdString();
-      ignored_types_.emplace_back(art::InversePrettyDescriptor(name));
+    dump_smaps_ = config.java_hprof.dump_smaps;
+    for (const std::string& t : config.java_hprof.ignored_types) {
+      ignored_types_.emplace_back(art::InversePrettyDescriptor(t));
     }
     // This tracing session ID matches the requesting tracing session ID, so we know heapprofd
     // has verified it targets this process.
     enabled_ =
-        !is_oome_heap_ || (IsOomeHeapDumpAllowed(*args.config) && IsOomeDumpEnabled(*cfg.get()));
+        !is_oome_heap_ ||
+        (IsOomeHeapDumpAllowed(static_cast<perfetto_protos_DataSourceConfig_SessionInitiator>(
+             config.session_initiator)) &&
+         IsOomeDumpEnabled(config.java_hprof.process_cmdlines));
   }
 
   bool dump_smaps() { return dump_smaps_; }
 
-  // Per-DataSource enable bit. Invoked by the ::Trace method.
+  // Per-DataSource enable bit. Invoked by the PERFETTO_DS_TRACE body.
   bool enabled() { return enabled_; }
 
-  void OnStart(const StartArgs&) override {
+  void OnStart() {
     art::MutexLock lk(art_thread(), GetStateMutex());
     // In case there are multiple tracing sessions waiting for an OOME error,
     // there will be a data source instance for each of them. Before the
@@ -236,7 +398,7 @@ class JavaHprofDataSource : public perfetto::DataSource<JavaHprofDataSource> {
       --g_oome_sessions_pending;
     }
     if (g_state == State::kWaitForStart) {
-      // WriteHeapPackets is responsible for checking whether the DataSource is\
+      // WriteHeapPackets is responsible for checking whether the DataSource is
       // actually enabled.
       if (!is_oome_heap_ || g_oome_sessions_pending == 0) {
         g_state = State::kStart;
@@ -251,13 +413,13 @@ class JavaHprofDataSource : public perfetto::DataSource<JavaHprofDataSource> {
   // asynchronously, and notify the tracing service once we are done.
   // In case OnStop is called after the dump is done (but before the process)
   // has exited, we just acknowledge the request.
-  void OnStop(const StopArgs& a) override {
+  void OnStop(struct PerfettoDsOnStopArgs* args) {
     art::MutexLock lk(art_thread(), finish_mutex_);
     if (is_finished_) {
       return;
     }
     is_stopped_ = true;
-    async_stop_ = std::move(a.HandleStopAsynchronously());
+    async_stop_ = PerfettoDsOnStopArgsPostpone(args);
   }
 
   static art::Thread* art_thread() {
@@ -275,22 +437,21 @@ class JavaHprofDataSource : public perfetto::DataSource<JavaHprofDataSource> {
   void Finish() {
     art::MutexLock lk(art_thread(), finish_mutex_);
     if (is_stopped_) {
-      async_stop_();
+      PerfettoDsStopDone(async_stop_);
     } else {
       is_finished_ = true;
     }
   }
 
  private:
-  static bool IsOomeDumpEnabled(const perfetto::protos::pbzero::JavaHprofConfig::Decoder& cfg) {
+  static bool IsOomeDumpEnabled(const std::vector<std::string>& process_cmdlines) {
     std::string cmdline;
     if (!android::base::ReadFileToString("/proc/self/cmdline", &cmdline)) {
       return false;
     }
     const char* argv0 = cmdline.c_str();
 
-    for (auto it = cfg.process_cmdline(); it; ++it) {
-      std::string pattern = (*it).ToStdString();
+    for (const std::string& pattern : process_cmdlines) {
       if (fnmatch(pattern.c_str(), argv0, FNM_NOESCAPE) == 0) {
         return true;
       }
@@ -306,18 +467,29 @@ class JavaHprofDataSource : public perfetto::DataSource<JavaHprofDataSource> {
   art::Mutex finish_mutex_{"perfetto_hprof_ds_mutex", art::LockLevel::kGenericBottomLock};
   bool is_finished_ = false;
   bool is_stopped_ = false;
-  std::function<void()> async_stop_;
+  PerfettoDsAsyncStopper* async_stop_ = nullptr;
 };
 
-void SetupDataSource(const std::string& ds_name, bool is_oome_heap) {
-  perfetto::TracingInitArgs args;
-  args.backends = perfetto::BackendType::kSystemBackend;
-  perfetto::Tracing::Initialize(args);
+void SetupDataSource(const char* ds_name, bool is_oome_heap) {
+  // XXX We're in the forked process. In case the perfetto library was already
+  // initialized in the parent (this is not possible now, because nobody else
+  // uses the shared library), we should destroy it somehow, with something like
+  // perfetto::Tracing::Shutdown().
+  struct PerfettoProducerInitArgs args = {0};
+  args.backends = PERFETTO_BACKEND_SYSTEM;
+  PerfettoProducerInit(args);
 
-  perfetto::DataSourceDescriptor dsd;
-  dsd.set_name(ds_name);
-  dsd.set_will_notify_on_stop(true);
-  JavaHprofDataSource::Register(dsd, is_oome_heap);
+  PerfettoDsParams params = PerfettoDsParamsDefault();
+  params.on_setup_cb = JavaHprofDataSource::StaticOnSetup;
+  params.on_start_cb = JavaHprofDataSource::StaticOnStart;
+  params.on_stop_cb = JavaHprofDataSource::StaticOnStop;
+  params.on_destroy_cb = JavaHprofDataSource::StaticOnDestroy;
+  g_is_oome_heap = is_oome_heap;
+  params.user_arg = &g_is_oome_heap;
+  params.buffer_exhausted_policy = PERFETTO_DS_BUFFER_EXHAUSTED_POLICY_STALL_AND_ABORT;
+
+  PerfettoDsRegister(&java_hprof_data_source, ds_name, params);
+
   LOG(INFO) << "registered data source " << ds_name;
 }
 
@@ -348,27 +520,30 @@ bool TimedWaitForDataSource(art::Thread* self, int64_t timeout_ms) {
 // message too big.
 class Writer {
  public:
-  Writer(pid_t pid, JavaHprofDataSource::TraceContext* ctx, uint64_t timestamp)
-      : pid_(pid), ctx_(ctx), timestamp_(timestamp),
-        last_written_(ctx_->written()) {}
+  Writer(pid_t pid, PerfettoDsTracerIterator* ctx, uint64_t timestamp)
+      : pid_(pid), ctx_(ctx), timestamp_(timestamp) {}
 
   // Return whether the next call to GetHeapGraph will create a new TracePacket.
   bool will_create_new_packet() const {
-    return !heap_graph_ || ctx_->written() - last_written_ > kPacketSizeThreshold;
+    return !packets_ || PerfettoStreamWriterGetWrittenSize(&packets_->trace_packet.writer.writer) -
+                                packets_->last_written >
+                            kPacketSizeThreshold;
   }
 
-  perfetto::protos::pbzero::HeapGraph* GetHeapGraph() {
+  perfetto_protos_HeapGraph* GetHeapGraph() {
     if (will_create_new_packet()) {
       CreateNewHeapGraph();
     }
-    return heap_graph_;
+    return &packets_->heap_graph;
   }
 
   void Finalize() {
-    if (trace_packet_) {
-      trace_packet_->Finalize();
+    if (packets_) {
+      perfetto_protos_TracePacket_end_heap_graph(&packets_->trace_packet.msg,
+                                                 &packets_->heap_graph);
+      PerfettoDsTracerPacketEnd(ctx_, &packets_->trace_packet);
     }
-    heap_graph_ = nullptr;
+    packets_.reset();
   }
 
   ~Writer() { Finalize(); }
@@ -380,31 +555,34 @@ class Writer {
   Writer& operator=(Writer&&) = delete;
 
   void CreateNewHeapGraph() {
-    if (heap_graph_) {
-      heap_graph_->set_continued(true);
+    if (packets_) {
+      perfetto_protos_HeapGraph_set_continued(&packets_->heap_graph, true);
     }
     Finalize();
 
-    uint64_t written = ctx_->written();
+    packets_.emplace();
 
-    trace_packet_ = ctx_->NewTracePacket();
-    trace_packet_->set_timestamp(timestamp_);
-    heap_graph_ = trace_packet_->set_heap_graph();
-    heap_graph_->set_pid(pid_);
-    heap_graph_->set_index(index_++);
+    PerfettoDsTracerPacketBegin(ctx_, &packets_->trace_packet);
+    size_t written = PerfettoStreamWriterGetWrittenSize(&packets_->trace_packet.writer.writer);
+    perfetto_protos_TracePacket_set_timestamp(&packets_->trace_packet.msg, timestamp_);
+    perfetto_protos_TracePacket_begin_heap_graph(&packets_->trace_packet.msg,
+                                                 &packets_->heap_graph);
+    perfetto_protos_HeapGraph_set_pid(&packets_->heap_graph, pid_);
+    perfetto_protos_HeapGraph_set_index(&packets_->heap_graph, index_++);
 
-    last_written_ = written;
+    packets_->last_written = written;
   }
 
   const pid_t pid_;
-  JavaHprofDataSource::TraceContext* const ctx_;
+  PerfettoDsTracerIterator* const ctx_;
   const uint64_t timestamp_;
 
-  uint64_t last_written_ = 0;
-
-  perfetto::DataSource<JavaHprofDataSource>::TraceContext::TracePacketHandle
-      trace_packet_;
-  perfetto::protos::pbzero::HeapGraph* heap_graph_ = nullptr;
+  struct Packets {
+    PerfettoDsRootTracePacket trace_packet;
+    perfetto_protos_HeapGraph heap_graph;
+    size_t last_written;
+  };
+  std::optional<Packets> packets_;
 
   uint64_t index_ = 0;
 };
@@ -467,71 +645,69 @@ class RootFinder : public art::SingleRootVisitor {
   std::map<art::RootType, std::vector<art::mirror::Object*>>* root_objects_;
 };
 
-perfetto::protos::pbzero::HeapGraphRoot::Type ToProtoType(art::RootType art_type) {
-  using perfetto::protos::pbzero::HeapGraphRoot;
+perfetto_protos_HeapGraphRoot_Type ToProtoType(art::RootType art_type) {
   switch (art_type) {
     case art::kRootUnknown:
-      return HeapGraphRoot::ROOT_UNKNOWN;
+      return perfetto_protos_HeapGraphRoot_ROOT_UNKNOWN;
     case art::kRootJNIGlobal:
-      return HeapGraphRoot::ROOT_JNI_GLOBAL;
+      return perfetto_protos_HeapGraphRoot_ROOT_JNI_GLOBAL;
     case art::kRootJNILocal:
-      return HeapGraphRoot::ROOT_JNI_LOCAL;
+      return perfetto_protos_HeapGraphRoot_ROOT_JNI_LOCAL;
     case art::kRootJavaFrame:
-      return HeapGraphRoot::ROOT_JAVA_FRAME;
+      return perfetto_protos_HeapGraphRoot_ROOT_JAVA_FRAME;
     case art::kRootNativeStack:
-      return HeapGraphRoot::ROOT_NATIVE_STACK;
+      return perfetto_protos_HeapGraphRoot_ROOT_NATIVE_STACK;
     case art::kRootStickyClass:
-      return HeapGraphRoot::ROOT_STICKY_CLASS;
+      return perfetto_protos_HeapGraphRoot_ROOT_STICKY_CLASS;
     case art::kRootThreadBlock:
-      return HeapGraphRoot::ROOT_THREAD_BLOCK;
+      return perfetto_protos_HeapGraphRoot_ROOT_THREAD_BLOCK;
     case art::kRootMonitorUsed:
-      return HeapGraphRoot::ROOT_MONITOR_USED;
+      return perfetto_protos_HeapGraphRoot_ROOT_MONITOR_USED;
     case art::kRootThreadObject:
-      return HeapGraphRoot::ROOT_THREAD_OBJECT;
+      return perfetto_protos_HeapGraphRoot_ROOT_THREAD_OBJECT;
     case art::kRootInternedString:
-      return HeapGraphRoot::ROOT_INTERNED_STRING;
+      return perfetto_protos_HeapGraphRoot_ROOT_INTERNED_STRING;
     case art::kRootFinalizing:
-      return HeapGraphRoot::ROOT_FINALIZING;
+      return perfetto_protos_HeapGraphRoot_ROOT_FINALIZING;
     case art::kRootDebugger:
-      return HeapGraphRoot::ROOT_DEBUGGER;
+      return perfetto_protos_HeapGraphRoot_ROOT_DEBUGGER;
     case art::kRootReferenceCleanup:
-      return HeapGraphRoot::ROOT_REFERENCE_CLEANUP;
+      return perfetto_protos_HeapGraphRoot_ROOT_REFERENCE_CLEANUP;
     case art::kRootVMInternal:
-      return HeapGraphRoot::ROOT_VM_INTERNAL;
+      return perfetto_protos_HeapGraphRoot_ROOT_VM_INTERNAL;
     case art::kRootJNIMonitor:
-      return HeapGraphRoot::ROOT_JNI_MONITOR;
+      return perfetto_protos_HeapGraphRoot_ROOT_JNI_MONITOR;
   }
 }
 
-perfetto::protos::pbzero::HeapGraphType::Kind ProtoClassKind(uint32_t class_flags) {
-  using perfetto::protos::pbzero::HeapGraphType;
+perfetto_protos_HeapGraphType_Kind ProtoClassKind(uint32_t class_flags) {
   switch (class_flags) {
     case art::mirror::kClassFlagNormal:
     case art::mirror::kClassFlagRecord:
-      return HeapGraphType::KIND_NORMAL;
+      return perfetto_protos_HeapGraphType_KIND_NORMAL;
     case art::mirror::kClassFlagNoReferenceFields:
     case art::mirror::kClassFlagNoReferenceFields | art::mirror::kClassFlagRecord:
-      return HeapGraphType::KIND_NOREFERENCES;
+      return perfetto_protos_HeapGraphType_KIND_NOREFERENCES;
     case art::mirror::kClassFlagString | art::mirror::kClassFlagNoReferenceFields:
-      return HeapGraphType::KIND_STRING;
+      return perfetto_protos_HeapGraphType_KIND_STRING;
     case art::mirror::kClassFlagObjectArray:
-      return HeapGraphType::KIND_ARRAY;
+      return perfetto_protos_HeapGraphType_KIND_ARRAY;
     case art::mirror::kClassFlagClass:
-      return HeapGraphType::KIND_CLASS;
+      return perfetto_protos_HeapGraphType_KIND_CLASS;
     case art::mirror::kClassFlagClassLoader:
-      return HeapGraphType::KIND_CLASSLOADER;
+      return perfetto_protos_HeapGraphType_KIND_CLASSLOADER;
     case art::mirror::kClassFlagDexCache:
-      return HeapGraphType::KIND_DEXCACHE;
+      return perfetto_protos_HeapGraphType_KIND_DEXCACHE;
     case art::mirror::kClassFlagSoftReference:
-      return HeapGraphType::KIND_SOFT_REFERENCE;
+      return perfetto_protos_HeapGraphType_KIND_SOFT_REFERENCE;
     case art::mirror::kClassFlagWeakReference:
-      return HeapGraphType::KIND_WEAK_REFERENCE;
+      return perfetto_protos_HeapGraphType_KIND_WEAK_REFERENCE;
     case art::mirror::kClassFlagFinalizerReference:
-      return HeapGraphType::KIND_FINALIZER_REFERENCE;
+      return perfetto_protos_HeapGraphType_KIND_FINALIZER_REFERENCE;
     case art::mirror::kClassFlagPhantomReference:
-      return HeapGraphType::KIND_PHANTOM_REFERENCE;
+      return perfetto_protos_HeapGraphType_KIND_PHANTOM_REFERENCE;
     default:
-      return HeapGraphType::KIND_UNKNOWN;
+      return perfetto_protos_HeapGraphType_KIND_UNKNOWN;
   }
 }
 
@@ -544,22 +720,30 @@ std::string PrettyType(art::mirror::Class* klass) NO_THREAD_SAFETY_ANALYSIS {
   return result;
 }
 
-void DumpSmaps(JavaHprofDataSource::TraceContext* ctx) {
+void DumpSmaps(PerfettoDsTracerIterator* ctx) {
   FILE* smaps = fopen("/proc/self/smaps", "re");
   if (smaps != nullptr) {
-    auto trace_packet = ctx->NewTracePacket();
-    auto* smaps_packet = trace_packet->set_smaps_packet();
-    smaps_packet->set_pid(getpid());
-    perfetto::profiling::ParseSmaps(smaps,
-        [&smaps_packet](const perfetto::profiling::SmapsEntry& e) {
-      if (ShouldSampleSmapsEntry(e)) {
-        auto* smaps_entry = smaps_packet->add_entries();
-        smaps_entry->set_path(e.pathname);
-        smaps_entry->set_size_kb(e.size_kb);
-        smaps_entry->set_private_dirty_kb(e.private_dirty_kb);
-        smaps_entry->set_swap_kb(e.swap_kb);
-      }
-    });
+    struct PerfettoDsRootTracePacket root;
+    PerfettoDsTracerPacketBegin(ctx, &root);
+    {
+      struct perfetto_protos_SmapsPacket smaps_packet;
+      perfetto_protos_TracePacket_begin_smaps_packet(&root.msg, &smaps_packet);
+      perfetto_protos_SmapsPacket_set_pid(&smaps_packet, getpid());
+
+      perfetto_hprof::ParseSmaps(smaps, [&smaps_packet](const perfetto_hprof::SmapsEntry& e) {
+        if (ShouldSampleSmapsEntry(e)) {
+          struct perfetto_protos_SmapsEntry smaps_entry;
+          perfetto_protos_SmapsPacket_begin_entries(&smaps_packet, &smaps_entry);
+          perfetto_protos_SmapsEntry_set_path(&smaps_entry, e.pathname.data(), e.pathname.size());
+          perfetto_protos_SmapsEntry_set_size_kb(&smaps_entry, e.size_kb);
+          perfetto_protos_SmapsEntry_set_private_dirty_kb(&smaps_entry, e.private_dirty_kb);
+          perfetto_protos_SmapsEntry_set_swap_kb(&smaps_entry, e.swap_kb);
+          perfetto_protos_SmapsPacket_end_entries(&smaps_packet, &smaps_entry);
+        }
+      });
+      perfetto_protos_TracePacket_end_smaps_packet(&root.msg, &smaps_packet);
+    }
+    PerfettoDsTracerPacketEnd(ctx, &root);
     fclose(smaps);
   } else {
     PLOG(ERROR) << "failed to open smaps";
@@ -651,9 +835,7 @@ class HeapGraphDumper {
  public:
   // Instances of classes whose name is in `ignored_types` will be ignored.
   explicit HeapGraphDumper(const std::vector<std::string>& ignored_types)
-      : ignored_types_(ignored_types),
-        reference_field_ids_(std::make_unique<protozero::PackedVarInt>()),
-        reference_object_ids_(std::make_unique<protozero::PackedVarInt>()) {}
+      : ignored_types_(ignored_types) {}
 
   // Dumps a heap graph from `*runtime` and writes it to `writer`.
   void Dump(art::Runtime* runtime, Writer& writer) REQUIRES(art::Locks::mutator_lock_) {
@@ -671,23 +853,26 @@ class HeapGraphDumper {
     std::map<art::RootType, std::vector<art::mirror::Object*>> root_objects;
     RootFinder rcf(&root_objects);
     runtime->VisitRoots(&rcf);
-    std::unique_ptr<protozero::PackedVarInt> object_ids(new protozero::PackedVarInt);
-    for (const auto& p : root_objects) {
-      const art::RootType root_type = p.first;
-      const std::vector<art::mirror::Object*>& children = p.second;
-      perfetto::protos::pbzero::HeapGraphRoot* root_proto = writer.GetHeapGraph()->add_roots();
-      root_proto->set_root_type(ToProtoType(root_type));
+    for (const auto& [root_type, children] : root_objects) {
+      perfetto_protos_HeapGraph* hg = writer.GetHeapGraph();
+      perfetto_protos_HeapGraphRoot root_proto;
+      perfetto_protos_HeapGraph_begin_roots(hg, &root_proto);
+      perfetto_protos_HeapGraphRoot_set_root_type(&root_proto, ToProtoType(root_type));
+      PerfettoPbPackedMsgUint64 objects_proto;
+      perfetto_protos_HeapGraphRoot_begin_object_ids(&root_proto, &objects_proto);
       for (art::mirror::Object* obj : children) {
         if (writer.will_create_new_packet()) {
-          root_proto->set_object_ids(*object_ids);
-          object_ids->Reset();
-          root_proto = writer.GetHeapGraph()->add_roots();
-          root_proto->set_root_type(ToProtoType(root_type));
+          perfetto_protos_HeapGraphRoot_end_object_ids(&root_proto, &objects_proto);
+          perfetto_protos_HeapGraph_end_roots(hg, &root_proto);
+          hg = writer.GetHeapGraph();
+          perfetto_protos_HeapGraph_begin_roots(hg, &root_proto);
+          perfetto_protos_HeapGraphRoot_set_root_type(&root_proto, ToProtoType(root_type));
+          perfetto_protos_HeapGraphRoot_begin_object_ids(&root_proto, &objects_proto);
         }
-        object_ids->Append(GetObjectId(obj));
+        PerfettoPbPackedMsgUint64Append(&objects_proto, GetObjectId(obj));
       }
-      root_proto->set_object_ids(*object_ids);
-      object_ids->Reset();
+      perfetto_protos_HeapGraphRoot_end_object_ids(&root_proto, &objects_proto);
+      perfetto_protos_HeapGraph_end_roots(hg, &root_proto);
     }
   }
 
@@ -701,23 +886,23 @@ class HeapGraphDumper {
   // Writes all the previously accumulated (while dumping objects and roots) interned data to
   // `writer`.
   void WriteInternedData(Writer& writer) {
-    for (const auto& p : interned_locations_) {
-      const std::string& str = p.first;
-      uint64_t id = p.second;
-
-      perfetto::protos::pbzero::InternedString* location_proto =
-          writer.GetHeapGraph()->add_location_names();
-      location_proto->set_iid(id);
-      location_proto->set_str(reinterpret_cast<const uint8_t*>(str.c_str()), str.size());
+    for (const auto& [str, id] : interned_locations_) {
+      perfetto_protos_HeapGraph* hg = writer.GetHeapGraph();
+      perfetto_protos_InternedString location_proto;
+      perfetto_protos_HeapGraph_begin_location_names(hg, &location_proto);
+      perfetto_protos_InternedString_set_iid(&location_proto, id);
+      perfetto_protos_InternedString_set_str(
+          &location_proto, reinterpret_cast<const uint8_t*>(str.c_str()), str.size());
+      perfetto_protos_HeapGraph_end_location_names(hg, &location_proto);
     }
-    for (const auto& p : interned_fields_) {
-      const std::string& str = p.first;
-      uint64_t id = p.second;
-
-      perfetto::protos::pbzero::InternedString* field_proto =
-          writer.GetHeapGraph()->add_field_names();
-      field_proto->set_iid(id);
-      field_proto->set_str(reinterpret_cast<const uint8_t*>(str.c_str()), str.size());
+    for (const auto& [str, id] : interned_fields_) {
+      perfetto_protos_HeapGraph* hg = writer.GetHeapGraph();
+      perfetto_protos_InternedString field_proto;
+      perfetto_protos_HeapGraph_begin_field_names(hg, &field_proto);
+      perfetto_protos_InternedString_set_iid(&field_proto, id);
+      perfetto_protos_InternedString_set_str(
+          &field_proto, reinterpret_cast<const uint8_t*>(str.c_str()), str.size());
+      perfetto_protos_HeapGraph_end_field_names(hg, &field_proto);
     }
   }
 
@@ -744,68 +929,89 @@ class HeapGraphDumper {
     auto class_id = FindOrAppend(&interned_classes_, class_ptr);
 
     uint64_t object_id = GetObjectId(obj);
-    perfetto::protos::pbzero::HeapGraphObject* object_proto = writer.GetHeapGraph()->add_objects();
+    perfetto_protos_HeapGraph* hg = writer.GetHeapGraph();
+    perfetto_protos_HeapGraphObject object_proto;
+
+    perfetto_protos_HeapGraph_begin_objects(hg, &object_proto);
     if (prev_object_id_ && prev_object_id_ < object_id) {
-      object_proto->set_id_delta(object_id - prev_object_id_);
+      perfetto_protos_HeapGraphObject_set_id_delta(&object_proto, object_id - prev_object_id_);
     } else {
-      object_proto->set_id(object_id);
+      perfetto_protos_HeapGraphObject_set_id(&object_proto, object_id);
     }
     prev_object_id_ = object_id;
-    object_proto->set_type_id(class_id);
+    perfetto_protos_HeapGraphObject_set_type_id(&object_proto, class_id);
 
     // Arrays / strings are magic and have an instance dependent size.
     if (obj->SizeOf() != klass->GetObjectSize()) {
-      object_proto->set_self_size(obj->SizeOf());
+      perfetto_protos_HeapGraphObject_set_self_size(&object_proto, obj->SizeOf());
     }
 
-    FillReferences(obj, klass, object_proto);
+    FillReferences(obj, klass, &object_proto);
 
-    FillFieldValues(obj, klass, object_proto);
+    FillFieldValues(obj, klass, &object_proto);
+    perfetto_protos_HeapGraph_end_objects(hg, &object_proto);
   }
 
   // Writes `*klass` into `writer`.
   void WriteClass(art::mirror::Class* klass, Writer& writer)
       REQUIRES_SHARED(art::Locks::mutator_lock_) {
-    perfetto::protos::pbzero::HeapGraphType* type_proto = writer.GetHeapGraph()->add_types();
-    type_proto->set_id(FindOrAppend(&interned_classes_, reinterpret_cast<uintptr_t>(klass)));
-    type_proto->set_class_name(PrettyType(klass));
-    type_proto->set_location_id(FindOrAppend(&interned_locations_, klass->GetLocation()));
-    type_proto->set_object_size(klass->GetObjectSize());
-    type_proto->set_kind(ProtoClassKind(klass->GetClassFlags()));
-    type_proto->set_classloader_id(GetObjectId(klass->GetClassLoader().Ptr()));
+    perfetto_protos_HeapGraph* hg = writer.GetHeapGraph();
+    perfetto_protos_HeapGraphType type_proto;
+    perfetto_protos_HeapGraph_begin_types(hg, &type_proto);
+    perfetto_protos_HeapGraphType_set_id(
+        &type_proto, FindOrAppend(&interned_classes_, reinterpret_cast<uintptr_t>(klass)));
+    std::string class_name = PrettyType(klass);
+    perfetto_protos_HeapGraphType_set_class_name(&type_proto, class_name.data(), class_name.size());
+    perfetto_protos_HeapGraphType_set_location_id(
+        &type_proto, FindOrAppend(&interned_locations_, klass->GetLocation()));
+    perfetto_protos_HeapGraphType_set_object_size(&type_proto, klass->GetObjectSize());
+    perfetto_protos_HeapGraphType_set_kind(&type_proto, ProtoClassKind(klass->GetClassFlags()));
+    perfetto_protos_HeapGraphType_set_classloader_id(&type_proto,
+                                                     GetObjectId(klass->GetClassLoader().Ptr()));
     if (klass->GetSuperClass().Ptr()) {
-      type_proto->set_superclass_id(FindOrAppend(
-          &interned_classes_, reinterpret_cast<uintptr_t>(klass->GetSuperClass().Ptr())));
+      perfetto_protos_HeapGraphType_set_superclass_id(
+          &type_proto,
+          FindOrAppend(&interned_classes_,
+                       reinterpret_cast<uintptr_t>(klass->GetSuperClass().Ptr())));
     }
     ForInstanceReferenceField(
         klass, [klass, this](art::MemberOffset offset) NO_THREAD_SAFETY_ANALYSIS {
           auto art_field = art::ArtField::FindInstanceFieldWithOffset(klass, offset.Uint32Value());
-          reference_field_ids_->Append(
+          reference_field_ids_.Append(
               FindOrAppend(&interned_fields_, art_field->PrettyField(true)));
         });
-    type_proto->set_reference_field_id(*reference_field_ids_);
-    reference_field_ids_->Reset();
+    if (reference_field_ids_.size() != 0) {
+      perfetto_protos_HeapGraphType_set_reference_field_id(
+          &type_proto, reference_field_ids_.data(), reference_field_ids_.size());
+      reference_field_ids_.Reset();
+    }
+    perfetto_protos_HeapGraph_end_types(hg, &type_proto);
   }
 
   // Creates a fake class that represents a type only used by `*obj` into `writer`.
   uintptr_t WriteSyntheticClassFromObj(art::mirror::Object* obj, Writer& writer)
       REQUIRES_SHARED(art::Locks::mutator_lock_) {
     CHECK(obj->IsClass());
-    perfetto::protos::pbzero::HeapGraphType* type_proto = writer.GetHeapGraph()->add_types();
+    perfetto_protos_HeapGraph* hg = writer.GetHeapGraph();
+    perfetto_protos_HeapGraphType type_proto;
+    perfetto_protos_HeapGraph_begin_types(hg, &type_proto);
     // All pointers are at least multiples of two, so this way we can make sure
     // we are not colliding with a real class.
     uintptr_t class_ptr = reinterpret_cast<uintptr_t>(obj) | 1;
     auto class_id = FindOrAppend(&interned_classes_, class_ptr);
-    type_proto->set_id(class_id);
-    type_proto->set_class_name(obj->PrettyTypeOf());
-    type_proto->set_location_id(FindOrAppend(&interned_locations_, obj->AsClass()->GetLocation()));
+    perfetto_protos_HeapGraphType_set_id(&type_proto, class_id);
+    std::string class_name = obj->PrettyTypeOf();
+    perfetto_protos_HeapGraphType_set_class_name(&type_proto, class_name.data(), class_name.size());
+    perfetto_protos_HeapGraphType_set_location_id(
+        &type_proto, FindOrAppend(&interned_locations_, obj->AsClass()->GetLocation()));
+    perfetto_protos_HeapGraph_end_types(hg, &type_proto);
     return class_ptr;
   }
 
   // Fills `*object_proto` with all the references held by `*obj` (an object of type `*klass`).
   void FillReferences(art::mirror::Object* obj,
                       art::mirror::Class* klass,
-                      perfetto::protos::pbzero::HeapGraphObject* object_proto)
+                      perfetto_protos_HeapGraphObject* object_proto)
       REQUIRES_SHARED(art::Locks::mutator_lock_) {
     const uint32_t klass_flags = klass->GetClassFlags();
     const bool emit_field_ids = klass_flags != art::mirror::kClassFlagObjectArray &&
@@ -821,29 +1027,31 @@ class HeapGraphDumper {
 
     uint64_t base_obj_id = EncodeBaseObjId(referred_objects, min_nonnull_ptr);
 
-    for (const auto& p : referred_objects) {
-      const std::string& field_name = p.first;
-      art::mirror::Object* referred_obj = p.second;
+    for (const auto& [field_name, referred_obj] : referred_objects) {
       if (emit_field_ids) {
-        reference_field_ids_->Append(FindOrAppend(&interned_fields_, field_name));
+        reference_field_ids_.Append(FindOrAppend(&interned_fields_, field_name));
       }
       uint64_t referred_obj_id = GetObjectId(referred_obj);
       if (referred_obj_id) {
         referred_obj_id -= base_obj_id;
       }
-      reference_object_ids_->Append(referred_obj_id);
+      reference_object_ids_.Append(referred_obj_id);
     }
-    if (emit_field_ids) {
-      object_proto->set_reference_field_id(*reference_field_ids_);
-      reference_field_ids_->Reset();
+    if (emit_field_ids && reference_field_ids_.size() != 0) {
+      perfetto_protos_HeapGraphObject_set_reference_field_id(
+          object_proto, reference_field_ids_.data(), reference_field_ids_.size());
+      reference_field_ids_.Reset();
     }
     if (base_obj_id) {
       // The field is called `reference_field_id_base`, but it has always been used as a base for
       // `reference_object_id`. It should be called `reference_object_id_base`.
-      object_proto->set_reference_field_id_base(base_obj_id);
+      perfetto_protos_HeapGraphObject_set_reference_field_id_base(object_proto, base_obj_id);
     }
-    object_proto->set_reference_object_id(*reference_object_ids_);
-    reference_object_ids_->Reset();
+    if (reference_object_ids_.size() != 0) {
+      perfetto_protos_HeapGraphObject_set_reference_object_id(
+          object_proto, reference_object_ids_.data(), reference_object_ids_.size());
+      reference_object_ids_.Reset();
+    }
   }
 
   // Iterates all the `referred_objects` and sets all the objects that are supposed to be ignored
@@ -871,7 +1079,7 @@ class HeapGraphDumper {
   // (an object of type `*klass`).
   void FillFieldValues(art::mirror::Object* obj,
                        art::mirror::Class* klass,
-                       perfetto::protos::pbzero::HeapGraphObject* object_proto) const
+                       perfetto_protos_HeapGraphObject* object_proto) const
       REQUIRES_SHARED(art::Locks::mutator_lock_) {
     if (obj->IsClass() || klass->IsClassClass()) {
       return;
@@ -886,7 +1094,8 @@ class HeapGraphDumper {
         art::ArtField* af = cls->FindDeclaredInstanceField(
             "size", art::Primitive::Descriptor(art::Primitive::kPrimLong));
         if (af) {
-          object_proto->set_native_allocation_registry_size_field(af->GetLong(obj));
+          perfetto_protos_HeapGraphObject_set_native_allocation_registry_size_field(
+              object_proto, af->GetLong(obj));
         }
       }
     }
@@ -917,8 +1126,8 @@ class HeapGraphDumper {
   std::map<uintptr_t, uint64_t> interned_classes_{{0, 0}};
 
   // Temporary buffers: used locally in some methods and then cleared.
-  std::unique_ptr<protozero::PackedVarInt> reference_field_ids_;
-  std::unique_ptr<protozero::PackedVarInt> reference_object_ids_;
+  VarIntBuffer reference_field_ids_;
+  VarIntBuffer reference_object_ids_;
 
   // Id of the previous object that was dumped. Used for delta encoding.
   uint64_t prev_object_id_ = 0;
@@ -1016,54 +1225,64 @@ void ForkAndRun(art::Thread* self,
   art::FastExit(0);
 }
 
-void WriteHeapPackets(pid_t parent_pid, uint64_t timestamp) {
-  JavaHprofDataSource::Trace(
-      [parent_pid, timestamp](JavaHprofDataSource::TraceContext ctx)
-          NO_THREAD_SAFETY_ANALYSIS {
-            bool dump_smaps;
-            std::vector<std::string> ignored_types;
-            {
-              auto ds = ctx.GetDataSourceLocked();
-              if (!ds || !ds->enabled()) {
-                if (ds) ds->Finish();
-                LOG(INFO) << "skipping irrelevant data source.";
-                return;
-              }
-              dump_smaps = ds->dump_smaps();
-              ignored_types = ds->ignored_types();
-            }
-            LOG(INFO) << "dumping heap for " << parent_pid;
-            if (dump_smaps) {
-              DumpSmaps(&ctx);
-            }
-            Writer writer(parent_pid, &ctx, timestamp);
-            HeapGraphDumper dumper(ignored_types);
+void WriteHeapPackets(pid_t parent_pid, uint64_t timestamp) NO_THREAD_SAFETY_ANALYSIS {
+  PERFETTO_DS_TRACE(java_hprof_data_source, ctx) {
+    bool dump_smaps;
+    std::vector<std::string> ignored_types;
+    {
+      void* inst = PerfettoDsImplGetInstanceLocked(java_hprof_data_source.impl, ctx.impl.inst_id);
+      auto* ds = reinterpret_cast<JavaHprofDataSource*>(inst);
+      if (!ds || !ds->enabled()) {
+        if (ds) {
+          ds->Finish();
+          PerfettoDsImplReleaseInstanceLocked(java_hprof_data_source.impl, ctx.impl.inst_id);
+        }
+        LOG(INFO) << "skipping irrelevant data source.";
+        continue;
+      }
+      dump_smaps = ds->dump_smaps();
+      ignored_types = ds->ignored_types();
+      PerfettoDsImplReleaseInstanceLocked(java_hprof_data_source.impl, ctx.impl.inst_id);
+    }
 
-            dumper.Dump(art::Runtime::Current(), writer);
+    LOG(INFO) << "dumping heap for " << parent_pid;
+    if (dump_smaps) {
+      DumpSmaps(&ctx);
+    }
+    Writer writer(parent_pid, &ctx, timestamp);
+    // Too big to be on the stack (-Wframe-larger-than).
+    auto dumper = std::make_unique<HeapGraphDumper>(ignored_types);
 
-            writer.Finalize();
-            ctx.Flush([] {
-              art::MutexLock lk(JavaHprofDataSource::art_thread(), GetStateMutex());
-              g_state = State::kEnd;
-              GetStateCV().Broadcast(JavaHprofDataSource::art_thread());
-            });
-            // Wait for the Flush that will happen on the Perfetto thread.
-            {
-              art::MutexLock lk(JavaHprofDataSource::art_thread(), GetStateMutex());
-              while (g_state != State::kEnd) {
-                GetStateCV().Wait(JavaHprofDataSource::art_thread());
-              }
-            }
-            {
-              auto ds = ctx.GetDataSourceLocked();
-              if (ds) {
-                ds->Finish();
-              } else {
-                LOG(ERROR) << "datasource timed out (duration_ms + datasource_stop_timeout_ms) "
-                              "before dump finished";
-              }
-            }
-          });
+    dumper->Dump(art::Runtime::Current(), writer);
+
+    writer.Finalize();
+    PerfettoDsTracerFlush(
+        &ctx,
+        [](void*) {
+          art::MutexLock lk(JavaHprofDataSource::art_thread(), GetStateMutex());
+          g_state = State::kEnd;
+          GetStateCV().Broadcast(JavaHprofDataSource::art_thread());
+        },
+        nullptr);
+    // Wait for the Flush that will happen on the Perfetto thread.
+    {
+      art::MutexLock lk(JavaHprofDataSource::art_thread(), GetStateMutex());
+      while (g_state != State::kEnd) {
+        GetStateCV().Wait(JavaHprofDataSource::art_thread());
+      }
+    }
+    {
+      void* inst = PerfettoDsImplGetInstanceLocked(java_hprof_data_source.impl, ctx.impl.inst_id);
+      auto* ds = reinterpret_cast<JavaHprofDataSource*>(inst);
+      if (ds) {
+        ds->Finish();
+      } else {
+        LOG(ERROR) << "datasource timed out (duration_ms + datasource_stop_timeout_ms) "
+                      "before dump finished";
+      }
+      PerfettoDsImplReleaseInstanceLocked(java_hprof_data_source.impl, ctx.impl.inst_id);
+    }
+  }
 }
 
 void DumpPerfetto(art::Thread* self) {
@@ -1148,7 +1367,7 @@ void DumpPerfettoOutOfMemory() REQUIRES_SHARED(art::Locks::mutator_lock_) {
       ArmWatchdogOrDie();
       art::ScopedTrace trace("perfetto_hprof oome");
       SetupDataSource("android.java_hprof.oom", true);
-      perfetto::Tracing::ActivateTriggers({"com.android.telemetry.art-outofmemory"}, 500);
+      PerfettoProducerActivateTrigger("com.android.telemetry.art-outofmemory", 500);
 
       // A pre-armed tracing session might not exist, so we should wait for a
       // limited amount of time before we decide to let the execution continue.
@@ -1279,9 +1498,3 @@ extern "C" bool ArtPlugin_Deinitialize() {
 }
 
 }  // namespace perfetto_hprof
-
-namespace perfetto {
-
-PERFETTO_DEFINE_DATA_SOURCE_STATIC_MEMBERS(perfetto_hprof::JavaHprofDataSource);
-
-}
