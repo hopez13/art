@@ -16,6 +16,52 @@
       "message": "Thanks!",
       "revId": "71ea0c36bb80105886d06fbd1e91622a9a318ec6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e62897f8_c88bdf77",
+        "filename": "test/099-vmdebug/run.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2023-06-29T14:29:42Z",
+      "side": 1,
+      "message": "This will capture the entire line including the main error message. Note that a log now looks like\n\n```\n01-01 00:00:00.000  1234  4321 E tag     : simple message\n```\n\nor\n\n```\n01-01 00:00:00.000  1234  4321 E tag     : filename.cpp:123 simple message\n```\n\nif the log was with the filename and the line number. According to https://logs.chromium.org/logs/art/buildbucket/cr-buildbucket/8776974324012728145/+/u/test_debuggable/stdout you seem to be using the second form. \n\nI think the pattern should be\n\n`/^.* E dalvikvm\\s*: [^\\s]+:\\d+ /`",
+      "range": {
+        "startLine": 22,
+        "startChar": 49,
+        "endLine": 22,
+        "endChar": 52
+      },
+      "revId": "71ea0c36bb80105886d06fbd1e91622a9a318ec6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c95fdd4_7670eb5a",
+        "filename": "test/099-vmdebug/run.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2023-06-29T14:29:42Z",
+      "side": 1,
+      "message": "in theory, there can be one or more spaces between the tag name and the colon if the tag name is shorter than 8 characters. ex: `mytag   :`\n\ndalvikvm32 is 10, so there shouldn\u0027t be the space though.",
+      "range": {
+        "startLine": 22,
+        "startChar": 48,
+        "endLine": 22,
+        "endChar": 49
+      },
+      "revId": "71ea0c36bb80105886d06fbd1e91622a9a318ec6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
