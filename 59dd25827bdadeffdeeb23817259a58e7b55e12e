@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "631c96b8_317f21e1",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 940,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-06-29T15:30:48Z",
+      "side": 0,
+      "message": "I still have this question. Are `dm_for_oat_` and `dm_for_odex_` the same? If so, we can remove one of them.",
+      "range": {
+        "startLine": 940,
+        "startChar": 2,
+        "endLine": 940,
+        "endChar": 46
+      },
+      "revId": "59dd25827bdadeffdeeb23817259a58e7b55e12e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
