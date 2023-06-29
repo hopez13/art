@@ -62,6 +62,54 @@
       },
       "revId": "71ea0c36bb80105886d06fbd1e91622a9a318ec6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc49d60c_3c453003",
+        "filename": "test/099-vmdebug/run.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-06-29T19:21:24Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "0c95fdd4_7670eb5a",
+      "range": {
+        "startLine": 22,
+        "startChar": 48,
+        "endLine": 22,
+        "endChar": 49
+      },
+      "revId": "71ea0c36bb80105886d06fbd1e91622a9a318ec6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ebefbe0_001b522e",
+        "filename": "test/099-vmdebug/run.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-06-29T19:21:24Z",
+      "side": 1,
+      "message": "Ack, let me follow-up with this. I\u0027ll land this CL for now to fix the breakages.",
+      "parentUuid": "e62897f8_c88bdf77",
+      "range": {
+        "startLine": 22,
+        "startChar": 49,
+        "endLine": 22,
+        "endChar": 52
+      },
+      "revId": "71ea0c36bb80105886d06fbd1e91622a9a318ec6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
