@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0e5d6ebe_d4b40016",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-06-29T15:06:56Z",
+      "side": 1,
+      "message": "Thanks! This is mostly fore reassurance that later we will be able to handle some practical percent of all loops, and this logic will be used in the wild. Feel free to mark as resolved or leave as a reminder about the micobenchmark.",
+      "parentUuid": "92cadd8c_3c31b961",
+      "range": {
+        "startLine": 10,
+        "startChar": 14,
+        "endLine": 10,
+        "endChar": 61
+      },
+      "revId": "55fd610279218ed97fe303dd7f3f8ea80558c24c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9663ed68_3eb508fc",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -132,6 +156,30 @@
       "side": 1,
       "message": "It is more about reducing the scope of this original patch (and the required tests specifically); if you are happy with the design, we would implement the rest of the cases.\n\nI\u0027ve added a TODO",
       "parentUuid": "6e6b7af0_9fae0d22",
+      "range": {
+        "startLine": 1246,
+        "startChar": 0,
+        "endLine": 1249,
+        "endChar": 1
+      },
+      "revId": "55fd610279218ed97fe303dd7f3f8ea80558c24c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f8fb8696_5bcb54fe",
+        "filename": "compiler/optimizing/code_generator_vector_arm64_sve.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1249,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-06-29T15:06:56Z",
+      "side": 1,
+      "message": "Sounds good.",
+      "parentUuid": "a1e963bf_eae15b8d",
       "range": {
         "startLine": 1246,
         "startChar": 0,
@@ -226,6 +274,30 @@
       "side": 1,
       "message": "This effectively checks the exit edge is not a \u0027critical\u0027 edge; this was in the original code before I extracted it into a function.",
       "parentUuid": "b4406b20_01454f19",
+      "range": {
+        "startLine": 862,
+        "startChar": 43,
+        "endLine": 862,
+        "endChar": 59
+      },
+      "revId": "55fd610279218ed97fe303dd7f3f8ea80558c24c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "289f828d_81dd72b5",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 862,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-06-29T15:06:56Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "d8e9f13a_2d1bacd7",
       "range": {
         "startLine": 862,
         "startChar": 43,
@@ -377,6 +449,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "554dbcfe_e2f315b9",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2738,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-06-29T15:06:56Z",
+      "side": 1,
+      "message": "Ah, thanks for the explanation!",
+      "parentUuid": "c2a6ab7f_e6c07542",
+      "range": {
+        "startLine": 2738,
+        "startChar": 51,
+        "endLine": 2738,
+        "endChar": 62
+      },
+      "revId": "55fd610279218ed97fe303dd7f3f8ea80558c24c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "debc4fa3_e1ff6532",
@@ -414,6 +510,30 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "debc4fa3_e1ff6532",
+      "range": {
+        "startLine": 151,
+        "startChar": 38,
+        "endLine": 151,
+        "endChar": 45
+      },
+      "revId": "55fd610279218ed97fe303dd7f3f8ea80558c24c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf76f65e_2d825467",
+        "filename": "compiler/optimizing/loop_optimization.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-06-29T15:06:56Z",
+      "side": 1,
+      "message": "Thanks, this helps.",
+      "parentUuid": "33e0f511_b35bd616",
       "range": {
         "startLine": 151,
         "startChar": 38,
@@ -555,6 +675,30 @@
       "side": 1,
       "message": "All the basic blocks/nodes are denoted in upper case, all the values - in lower case. Do you have some specific suggestion what exactly I should change?",
       "parentUuid": "4d0a0e10_a3b84cb3",
+      "range": {
+        "startLine": 159,
+        "startChar": 62,
+        "endLine": 159,
+        "endChar": 63
+      },
+      "revId": "55fd610279218ed97fe303dd7f3f8ea80558c24c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5075c3ed_de3054c9",
+        "filename": "compiler/optimizing/loop_optimization.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-06-29T15:06:56Z",
+      "side": 1,
+      "message": "I was referring to `K` beig uppercase and `k` in `cond_k` being lowercase; is this not the same `K`?",
+      "parentUuid": "9f31d0eb_90912920",
       "range": {
         "startLine": 159,
         "startChar": 62,
