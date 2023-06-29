@@ -50,6 +50,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "5777f622_fc4fe267",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-06-29T14:44:10Z",
+      "side": 1,
+      "message": "Great! One extra tip: be sure that you have generated SSH keys with ssh-keygen (or you have them already on your workstation), as the testing scripts use public key authentication mechanism to avoid password prompt on every SSH command. Or just ping me if you have any issues.",
+      "parentUuid": "1a86f63e_21d2c1e9",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 51
+      },
+      "revId": "89f3db39a4c5cadff680743d8791f6e26e33e1f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "46159b15_c1b4a67a",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
