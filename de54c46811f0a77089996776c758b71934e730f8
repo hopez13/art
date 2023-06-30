@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3721b99f_68582738",
+        "filename": "test/536-checker-needs-access-check/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-06-30T09:45:24Z",
+      "side": 0,
+      "message": "Isn\u0027t that exposing that we have a bug in ART, and therefore some discrepancy between R8 (which I guess changes this code to returning 0?), and ART (throws an exception) ?",
+      "range": {
+        "startLine": 70,
+        "startChar": 14,
+        "endLine": 70,
+        "endChar": 49
+      },
+      "revId": "de54c46811f0a77089996776c758b71934e730f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
