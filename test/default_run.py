@@ -73,6 +73,7 @@ def parse_args(argv):
   argp.add_argument("--image", default=True, action=opt_bool)
   argp.add_argument("--instruction-set-features", default="")
   argp.add_argument("--interpreter", action="store_true")
+  argp.add_argument("--switch-interpreter", action="store_true")
   argp.add_argument("--invoke-with", default=[], action="append")
   argp.add_argument("--jit", action="store_true")
   argp.add_argument("--jvm", action="store_true")
@@ -277,6 +278,7 @@ def default_run(ctx, args, **kwargs):
   USE_EXTRACTED_ZIPAPEX = (args.runtime_extracted_zipapex != "")
   EXTRACTED_ZIPAPEX_LOC = args.runtime_extracted_zipapex
   INTERPRETER = args.interpreter
+  SWITCH_INTERPRETER = args.switch_interpreter
   JIT = args.jit
   INVOKE_WITH = " ".join(args.invoke_with)
   USE_JVMTI = args.jvmti
@@ -655,8 +657,13 @@ def default_run(ctx, args, **kwargs):
       GDB = "gdb"
       GDB_ARGS += f" -d '{ANDROID_BUILD_TOP}' --args {DALVIKVM}"
 
-  if INTERPRETER:
+  if SWITCH_INTERPRETER:
+    # run on the slow switch-interpreter enabled with -Xint
     INT_OPTS += " -Xint"
+
+  if INTERPRETER:
+    # run on Nterp the fast interpreter, not the slow switch-interpreter enabled with -Xint
+    INT_OPTS += " -Xusejit:false"
 
   if JIT:
     INT_OPTS += " -Xusejit:true"
