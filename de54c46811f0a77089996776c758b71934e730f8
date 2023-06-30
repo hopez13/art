@@ -94,6 +94,30 @@
       },
       "revId": "de54c46811f0a77089996776c758b71934e730f8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9dbb354_75f85643",
+        "filename": "test/536-checker-needs-access-check/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1241761
+      },
+      "writtenOn": "2023-06-30T11:21:46Z",
+      "side": 0,
+      "message": "Also, I actually did do an extended workaround to translate the code:\n```\nboolean result \u003d null instanceof InaccessibleClass;\n\u003ctail\u003e\n```\nto\n```\nboolean unused \u003d null instanceof InaccessibleClass;\nboolean result \u003d false;\n\u003ctail\u003e\n```\n\nAnd with this code DEX VM 6.0.1 did not throw an instance of IllegalAccessError. I did not investigate that further as neither do any JVMs and the spec is clear that it should not.\n\nJust an FYI, that I\u0027m not sure what the workaround for this code would look like to be consistent on all VMs.",
+      "parentUuid": "a167f763_ac0432bb",
+      "range": {
+        "startLine": 70,
+        "startChar": 14,
+        "endLine": 70,
+        "endChar": 49
+      },
+      "revId": "de54c46811f0a77089996776c758b71934e730f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
