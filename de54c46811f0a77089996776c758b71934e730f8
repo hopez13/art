@@ -118,6 +118,30 @@
       },
       "revId": "de54c46811f0a77089996776c758b71934e730f8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb5e4833_743a6a82",
+        "filename": "test/536-checker-needs-access-check/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-06-30T13:12:08Z",
+      "side": 0,
+      "message": "JVMS is not strictly relevant for ART. If it\u0027s not in JLS, we don\u0027t need to follow.\n\nIn this case, JLS surely says that the code would not compile, so the only requirements are in the Chapter 13, Binary Compatibility. (I\u0027 looking at SE17.) 13.4.3 says that IAE is thrown but the phrasing is \"needs but no longer has access to\", so the question is whether the expression `null instanceof C` \"needs\" access to `C`. And the description of `instanceof` in 15.20.2 does not really help answering the question whether the RHS operand of the `instanceof` operator is evaluated before processing the `instanceof` operator itself. I consider it reasonable to evaluate the RHS operand first (as ART does).",
+      "parentUuid": "b9dbb354_75f85643",
+      "range": {
+        "startLine": 70,
+        "startChar": 14,
+        "endLine": 70,
+        "endChar": 49
+      },
+      "revId": "de54c46811f0a77089996776c758b71934e730f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
