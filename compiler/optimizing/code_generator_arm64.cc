@@ -35,6 +35,7 @@
 #include "interpreter/mterp/nterp.h"
 #include "intrinsics.h"
 #include "intrinsics_arm64.h"
+#include "intrinsics_list.h"
 #include "intrinsics_utils.h"
 #include "linker/linker_patch.h"
 #include "lock_word.h"
@@ -940,6 +941,7 @@ Location CriticalNativeCallingConventionVisitorARM64::GetMethodLocation() const 
 }
 
 namespace detail {
+
 // Mark which intrinsics we don't have handcrafted code for.
 template <Intrinsics T>
 struct IsUnimplemented {
@@ -954,15 +956,13 @@ struct IsUnimplemented {
 UNIMPLEMENTED_INTRINSIC_LIST_ARM64(TRUE_OVERRIDE)
 #undef TRUE_OVERRIDE
 
-#include "intrinsics_list.h"
 static constexpr bool kIsIntrinsicUnimplemented[] = {
-  false,  // kNone
+    false,  // kNone
 #define IS_UNIMPLEMENTED(Intrinsic, ...) \
-  IsUnimplemented<Intrinsics::k##Intrinsic>().is_unimplemented,
-  INTRINSICS_LIST(IS_UNIMPLEMENTED)
+    IsUnimplemented<Intrinsics::k##Intrinsic>().is_unimplemented,
+    INTRINSICS_LIST(IS_UNIMPLEMENTED)
 #undef IS_UNIMPLEMENTED
 };
-#undef INTRINSICS_LIST
 
 }  // namespace detail
 
