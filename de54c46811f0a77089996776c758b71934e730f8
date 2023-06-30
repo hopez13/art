@@ -46,6 +46,30 @@
       },
       "revId": "de54c46811f0a77089996776c758b71934e730f8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b39d65ce_12198bf6",
+        "filename": "test/536-checker-needs-access-check/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-06-30T10:45:08Z",
+      "side": 0,
+      "message": "Hmm, should we have R8 just behave like ART for consistency?",
+      "parentUuid": "4b1cec54_6d05cdb8",
+      "range": {
+        "startLine": 70,
+        "startChar": 14,
+        "endLine": 70,
+        "endChar": 49
+      },
+      "revId": "de54c46811f0a77089996776c758b71934e730f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
