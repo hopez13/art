@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f712778f_570b73c1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-07-03T11:59:17Z",
+      "side": 1,
+      "message": "I take it that checker tests fail with `--optimizing` (or else why I didn\u0027t observe it before). In this case we should disable them temporarily. I can look into in in a follow up CL.",
+      "range": {
+        "startLine": 11,
+        "startChar": 8,
+        "endLine": 11,
+        "endChar": 42
+      },
+      "revId": "88339be348239b4117cfbf665cce449804ee3492",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "957a8bcf_bdeb2fc0",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-07-03T11:59:17Z",
+      "side": 1,
+      "message": "Maybe add a comment that it matters for CFI that FP is at 8*4 offset (otherwise someone may move it and forget to adjust the offsets below)?",
+      "range": {
+        "startLine": 48,
+        "startChar": 4,
+        "endLine": 48,
+        "endChar": 25
+      },
+      "revId": "88339be348239b4117cfbf665cce449804ee3492",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "92f7229b_7e48b8f7",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-07-03T11:59:17Z",
+      "side": 1,
+      "message": "Add a comment to explain that FP is not just SP but SP + 4*8 to keep CFI information correct.",
+      "range": {
+        "startLine": 51,
+        "startChar": 4,
+        "endLine": 51,
+        "endChar": 45
+      },
+      "revId": "88339be348239b4117cfbf665cce449804ee3492",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8834a312_540f1d6e",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-07-03T11:59:17Z",
+      "side": 1,
+      "message": "Extend the comment to explain about the 8*4 offset?",
+      "range": {
+        "startLine": 86,
+        "startChar": 25,
+        "endLine": 86,
+        "endChar": 38
+      },
+      "revId": "88339be348239b4117cfbf665cce449804ee3492",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e6a728d5_b7d64397",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-07-03T11:59:17Z",
+      "side": 1,
+      "message": "Interestingly it\u0027s not described in the official riscv asm manual: https://github.com/riscv-non-isa/riscv-asm-manual/blob/master/riscv-asm.md. I can find the binutils description: https://sourceware.org/binutils/docs/as/Org.html; I wonder if there is a description for LLVM.\n\nWhat it will do if the offset is too small --- fail silently (be ignored) or raise an error? If the offset is too large, it is supposed to fill the space with zeroes, which could result in SIGILL. As I understand, the idea is that the offset is always just right or else we will notice either a build-time or a runtime error.\n\nIt is an assembler check, right? Linker can further change instruction sequence length, but presumably not in this case?",
+      "range": {
+        "startLine": 150,
+        "startChar": 0,
+        "endLine": 150,
+        "endChar": 4
+      },
+      "revId": "88339be348239b4117cfbf665cce449804ee3492",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ba8488d_375b1d85",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-07-03T11:59:17Z",
+      "side": 1,
+      "message": "There is a `zero` alias that may be less confusing if you want to discard the value, but even better there is `JR` alias that means `JALR x0, ...` (see `jr rs` in https://github.com/riscv-non-isa/riscv-asm-manual/blob/master/riscv-asm.md).",
+      "range": {
+        "startLine": 198,
+        "startChar": 9,
+        "endLine": 198,
+        "endChar": 11
+      },
+      "revId": "88339be348239b4117cfbf665cce449804ee3492",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66ce7872_609f894b",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-07-03T11:59:17Z",
+      "side": 1,
+      "message": "Do I understand correctly that we don\u0027t need to bother here with passing FP args in GPRs because we chose so in the managed ABI?",
+      "range": {
+        "startLine": 251,
+        "startChar": 0,
+        "endLine": 251,
+        "endChar": 41
+      },
+      "revId": "88339be348239b4117cfbf665cce449804ee3492",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
