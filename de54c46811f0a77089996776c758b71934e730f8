@@ -166,6 +166,30 @@
       },
       "revId": "de54c46811f0a77089996776c758b71934e730f8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "483388d8_435dd2dd",
+        "filename": "test/536-checker-needs-access-check/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-07-03T09:40:29Z",
+      "side": 0,
+      "message": "Sure, we can get this in for now.\n\nI do worry still about the difference of behavior R8 will generate. As in you will get rid of the instanceof check, but ART would have thrown an exception if you hadn\u0027t.",
+      "parentUuid": "8dafc6be_e818eb42",
+      "range": {
+        "startLine": 70,
+        "startChar": 14,
+        "endLine": 70,
+        "endChar": 49
+      },
+      "revId": "de54c46811f0a77089996776c758b71934e730f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
