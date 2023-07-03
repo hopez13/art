@@ -22,6 +22,30 @@
       },
       "revId": "8abf96f913b48997935a7898dda88ae01893ee3f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ebf0f4cc_d8019e27",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 422,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2023-07-03T16:16:19Z",
+      "side": 1,
+      "message": "Thanks for spotting this, I had actually ran `clang-format` before uploading and it didn\u0027t complain about this - we might need to add `InsertBraces` (https://clang.llvm.org/docs/ClangFormatStyleOptions.html#insertbraces) into the .clang-format file to avoid this in the future. I will create a new CL for that.",
+      "parentUuid": "94c3488f_19d9827b",
+      "range": {
+        "startLine": 419,
+        "startChar": 4,
+        "endLine": 422,
+        "endChar": 40
+      },
+      "revId": "8abf96f913b48997935a7898dda88ae01893ee3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
