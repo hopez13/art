@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "52a5f3ae_144f7d88",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-07-03T17:44:22Z",
+      "side": 1,
+      "message": "Explicitly added `DupCloexec` which was previously done inside `GetMultidexChecksum`, but it is not done in the `DexFileLoader` constructor.\n\nI am considering trying to move from `int` fd to `File` object in more places, as cleanup CL.",
+      "revId": "86752d2bb4d1d86bd16ea61dba42ce59a3f68053",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
