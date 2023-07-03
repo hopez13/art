@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "21d8b7f2_d65f04c7",
+        "filename": "compiler/optimizing/code_generator_riscv64.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-07-03T16:07:14Z",
+      "side": 1,
+      "message": "The runtime should already support it as is, so we just need to make sure that nterp and Optimizing support it as well.",
+      "parentUuid": "359640a4_851a852a",
+      "range": {
+        "startLine": 174,
+        "startChar": 5,
+        "endLine": 174,
+        "endChar": 65
+      },
+      "revId": "263fff3042a39544fac0aaed06dbec25b548c276",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c9cb4208_b443f0c4",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "708e3c8c_bb32b190",
+        "filename": "compiler/optimizing/code_generator_riscv64.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-07-03T16:07:14Z",
+      "side": 1,
+      "message": "Look at arm64 codegen - the \"One\" function is using `maybe_temp` for both Baker and table-lookup read barriers, the \"Two\" function only for Baker.",
+      "parentUuid": "c9cb4208_b443f0c4",
+      "range": {
+        "startLine": 191,
+        "startChar": 53,
+        "endLine": 192,
+        "endChar": 10
+      },
+      "revId": "263fff3042a39544fac0aaed06dbec25b548c276",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "792b29cc_86819ff3",
@@ -60,6 +108,30 @@
       "writtenOn": "2023-07-03T14:59:15Z",
       "side": 1,
       "message": "Drop spaces?",
+      "range": {
+        "startLine": 263,
+        "startChar": 21,
+        "endLine": 263,
+        "endChar": 30
+      },
+      "revId": "263fff3042a39544fac0aaed06dbec25b548c276",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "94fd0097_55be8568",
+        "filename": "compiler/optimizing/code_generator_riscv64.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-07-03T16:07:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "792b29cc_86819ff3",
       "range": {
         "startLine": 263,
         "startChar": 21,
