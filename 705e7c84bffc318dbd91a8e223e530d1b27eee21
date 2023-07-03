@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b601e18_745382ad",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2023-07-03T12:01:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7ab89ef7_e21d2841",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 58
+      },
+      "revId": "705e7c84bffc318dbd91a8e223e530d1b27eee21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3c1b7639_d2c37dad",
@@ -95,6 +119,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b584244_5ab21971",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 418,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2023-07-03T12:01:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "af5af865_a80c821b",
+      "range": {
+        "startLine": 418,
+        "startChar": 6,
+        "endLine": 418,
+        "endChar": 75
+      },
+      "revId": "705e7c84bffc318dbd91a8e223e530d1b27eee21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a81734fb_c08ca20d",
@@ -120,6 +168,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "81c9dba5_561e94e8",
+        "filename": "test/1004-checker-volatile-ref-load/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2023-07-03T12:01:58Z",
+      "side": 1,
+      "message": "Changed to `readBarrierType(\u0027baker\u0027)` as a consequence of the changes suggested in optimizing_compiler.cc.",
+      "parentUuid": "a81734fb_c08ca20d",
+      "range": {
+        "startLine": 39,
+        "startChar": 16,
+        "endLine": 39,
+        "endChar": 30
+      },
+      "revId": "705e7c84bffc318dbd91a8e223e530d1b27eee21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a5775dc1_b5a69231",
         "filename": "test/1004-checker-volatile-ref-load/src/Main.java",
         "patchSetId": 5
@@ -131,6 +203,30 @@
       "writtenOn": "2023-06-29T18:18:01Z",
       "side": 1,
       "message": "Could you check whether this assertion is also valid with table-lookup read barriers (i.e. when `art::kUseTableLookupReadBarrier` is true)? If not, I suggest introducing a `useUserfaultfd` Checker condition (based on `art::gUseUserfaultfd`).",
+      "range": {
+        "startLine": 50,
+        "startChar": 8,
+        "endLine": 50,
+        "endChar": 68
+      },
+      "revId": "705e7c84bffc318dbd91a8e223e530d1b27eee21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "95852237_bf94f4f4",
+        "filename": "test/1004-checker-volatile-ref-load/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2023-07-03T12:01:58Z",
+      "side": 1,
+      "message": "I have verified by hardcoding the relevant values in `runtime/read_barrier_config.h` and running the test again, and the `else` branch is covering the `tablelookup` case, too:\n\n```\nbegin_compilation\n  name \"isa:arm64 isa_features:a53,crc,-lse,-fp16,-dotprod,-sve read_barrier_type:tablelookup\"\n  method \"isa:arm64 isa_features:a53,crc,-lse,-fp16,-dotprod,-sve read_barrier_type:tablelookup\"\n  date 1688385357\nend_compilation\n\n[...]\n\n0x000000d4: 14000042\tb #+0x108 (addr 0x1dc)\n \u003c|@\n      0 0 l23 NullCheck [l22] dex_pc:11 block:B5 env:[[i7,l22,_,l2]] loop:B2 outer_loop:none irreducible:false \u003c|@\n      0 0 l24 InstanceFieldGet [l22] dex_pc:11 block:B5 field_name:Foo.bar field_type:Reference loop:B2 outer_loop:none irreducible:false\n0x000000d8: 91002010\tadd x16, x0, #0x8 (8)\n0x000000dc: 88dffe19\tldar w25, [x16]\n```",
+      "parentUuid": "a5775dc1_b5a69231",
       "range": {
         "startLine": 50,
         "startChar": 8,
