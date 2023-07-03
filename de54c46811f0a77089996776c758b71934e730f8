@@ -142,6 +142,30 @@
       },
       "revId": "de54c46811f0a77089996776c758b71934e730f8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8dafc6be_e818eb42",
+        "filename": "test/536-checker-needs-access-check/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1241761
+      },
+      "writtenOn": "2023-07-03T06:35:26Z",
+      "side": 0,
+      "message": "Lets not block the roll of D8/R8 on this. We can definitely discuss what the right thing to do for instanceof is, but right now we are trying to land a workaround for a DEX VM bug that causes hard verification errors for users. In so doing it exposes a place ART has chosen to deviate from the JVM semantics of instanceof. I see the former aspect as critical to land. For the later aspect I really don\u0027t think it matters and it is likely fine if you choose to continue with a different semantics for instanceof.",
+      "parentUuid": "bb5e4833_743a6a82",
+      "range": {
+        "startLine": 70,
+        "startChar": 14,
+        "endLine": 70,
+        "endChar": 49
+      },
+      "revId": "de54c46811f0a77089996776c758b71934e730f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
