@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "359640a4_851a852a",
+        "filename": "compiler/optimizing/code_generator_riscv64.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-07-03T14:59:15Z",
+      "side": 1,
+      "message": "I don\u0027t think we support poisoning for riscv (the method is unimplemented though).",
+      "range": {
+        "startLine": 174,
+        "startChar": 5,
+        "endLine": 174,
+        "endChar": 65
+      },
+      "revId": "263fff3042a39544fac0aaed06dbec25b548c276",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c9cb4208_b443f0c4",
+        "filename": "compiler/optimizing/code_generator_riscv64.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-07-03T14:59:15Z",
+      "side": 1,
+      "message": "Why does this comment emphasize that this is Baker\u0027s read barrier, and the comment on line 176 doesn\u0027t? Is this intended or by accident?",
+      "range": {
+        "startLine": 191,
+        "startChar": 53,
+        "endLine": 192,
+        "endChar": 10
+      },
+      "revId": "263fff3042a39544fac0aaed06dbec25b548c276",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "792b29cc_86819ff3",
+        "filename": "compiler/optimizing/code_generator_riscv64.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-07-03T14:59:15Z",
+      "side": 1,
+      "message": "Drop spaces?",
+      "range": {
+        "startLine": 263,
+        "startChar": 21,
+        "endLine": 263,
+        "endChar": 30
+      },
+      "revId": "263fff3042a39544fac0aaed06dbec25b548c276",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
