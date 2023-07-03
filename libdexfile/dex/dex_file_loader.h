@@ -153,9 +153,9 @@ class DexFileLoader {
     return (pos == std::string::npos) ? std::string() : location.substr(pos);
   }
 
-  DexFileLoader(const char* filename, int fd, const std::string& location)
+  DexFileLoader(const char* filename, File* file, const std::string& location)
       : filename_(filename),
-        file_(fd == -1 ? std::optional<File>() : File(fd, /*check_usage=*/false)),
+        file_((file != nullptr && file->IsValid()) ? file : nullptr),
         location_(location) {}
 
   DexFileLoader(std::shared_ptr<DexFileContainer> container, const std::string& location)
@@ -169,14 +169,14 @@ class DexFileLoader {
 
   DexFileLoader(MemMap&& mem_map, const std::string& location);
 
-  DexFileLoader(int fd, const std::string& location)
-      : DexFileLoader(/*filename=*/location.c_str(), fd, location) {}
+  DexFileLoader(File* file, const std::string& location)
+      : DexFileLoader(/*filename=*/location.c_str(), file, location) {}
 
   DexFileLoader(const char* filename, const std::string& location)
-      : DexFileLoader(filename, /*fd=*/-1, location) {}
+      : DexFileLoader(filename, /*file=*/nullptr, location) {}
 
   explicit DexFileLoader(const std::string& location)
-      : DexFileLoader(location.c_str(), /*fd=*/-1, location) {}
+      : DexFileLoader(location.c_str(), /*file=*/nullptr, location) {}
 
   virtual ~DexFileLoader() {}
 
@@ -297,7 +297,8 @@ class DexFileLoader {
   // The DexFileLoader can be backed either by file or by memory (i.e. DexFileContainer).
   // We can not just mmap the file since APKs might be unreasonably large for 32-bit system.
   std::string filename_;
-  std::optional<File> file_;
+  File* file_ = nullptr;
+  std::optional<File> owned_file_;  // May be used as backing storage for 'file_'.
   std::shared_ptr<DexFileContainer> root_container_;
   const std::string location_;
 };
