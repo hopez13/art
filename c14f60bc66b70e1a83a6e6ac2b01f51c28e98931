@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "88f743d4_3c6f3461",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-07-04T10:51:23Z",
+      "side": 1,
+      "message": "Very nice change!\n\nI wonder if it would be possible to protect against raw usage of TMP/TMP2/FTMP (e.g. if someone doesn\u0027t know about ScratchRegisterScope). Something like, if an instruction uses TMP/TMP2/FTMP, then the assembler checks that these bits are zero in the scratch register mask (registers are booked). But this is not a guarantee that they were booked by the same function, and probably too much hassle to check on every instruction anyway.",
+      "revId": "c14f60bc66b70e1a83a6e6ac2b01f51c28e98931",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
