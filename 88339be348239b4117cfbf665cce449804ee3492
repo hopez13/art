@@ -71,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb75ef7e_c3bc13da",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-07-04T09:57:39Z",
+      "side": 1,
+      "message": "I thought this bit needs some testing with generic JNI, just because it\u0027s a different code path that may reveal something unexpected.",
+      "parentUuid": "44385f1f_d9ae0103",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 6
+      },
+      "revId": "88339be348239b4117cfbf665cce449804ee3492",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "957a8bcf_bdeb2fc0",
