@@ -49,6 +49,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "44385f1f_d9ae0103",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-07-04T09:42:06Z",
+      "side": 1,
+      "message": "Why should I spend additional 3 hours for that? (My testing resources are limited.)\n\nThe argument loading should be sufficiently tested whether with or without the JNI compiler and the nterp which currently supports only return-void.",
+      "parentUuid": "7fef6482_e17d2d34",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 6
+      },
+      "revId": "88339be348239b4117cfbf665cce449804ee3492",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "957a8bcf_bdeb2fc0",
         "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
         "patchSetId": 2
@@ -60,6 +84,30 @@
       "writtenOn": "2023-07-03T11:59:17Z",
       "side": 1,
       "message": "Maybe add a comment that it matters for CFI that FP is at 8*4 offset (otherwise someone may move it and forget to adjust the offsets below)?",
+      "range": {
+        "startLine": 48,
+        "startChar": 4,
+        "endLine": 48,
+        "endChar": 25
+      },
+      "revId": "88339be348239b4117cfbf665cce449804ee3492",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9150cb4f_de034cbb",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-07-04T09:42:06Z",
+      "side": 1,
+      "message": "I think the comment added below should be enough.",
+      "parentUuid": "957a8bcf_bdeb2fc0",
       "range": {
         "startLine": 48,
         "startChar": 4,
@@ -93,6 +141,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff04db5c_aa2c9f85",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-07-04T09:42:06Z",
+      "side": 1,
+      "message": "Please review the comment I added in PS3.",
+      "parentUuid": "92f7229b_7e48b8f7",
+      "range": {
+        "startLine": 51,
+        "startChar": 4,
+        "endLine": 51,
+        "endChar": 45
+      },
+      "revId": "88339be348239b4117cfbf665cce449804ee3492",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8834a312_540f1d6e",
@@ -106,6 +178,30 @@
       "writtenOn": "2023-07-03T11:59:17Z",
       "side": 1,
       "message": "Extend the comment to explain about the 8*4 offset?",
+      "range": {
+        "startLine": 86,
+        "startChar": 25,
+        "endLine": 86,
+        "endChar": 38
+      },
+      "revId": "88339be348239b4117cfbf665cce449804ee3492",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "91513e6e_7d16c404",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-07-04T09:42:06Z",
+      "side": 1,
+      "message": "Added reference to the previous macro.",
+      "parentUuid": "8834a312_540f1d6e",
       "range": {
         "startLine": 86,
         "startChar": 25,
@@ -139,6 +235,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b81946c7_e2ddf66b",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-07-04T09:42:06Z",
+      "side": 1,
+      "message": "Yes, this checks only that we did not add more code than expected. If there was less code, we should have sufficient test coverage to hit a SIGILL.\n\nWith the load having a negative offset and thus not suitable for a \"C\" instruction, and the C.ADDI already explicitly using the \"C\" extension, there is not much room for emitting smaller code here.",
+      "parentUuid": "e6a728d5_b7d64397",
+      "range": {
+        "startLine": 150,
+        "startChar": 0,
+        "endLine": 150,
+        "endChar": 4
+      },
+      "revId": "88339be348239b4117cfbf665cce449804ee3492",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1ba8488d_375b1d85",
@@ -162,6 +282,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2271f30_560ca66c",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-07-04T09:42:06Z",
+      "side": 1,
+      "message": "Given that I\u0027m using JALR with an offset below (and there\u0027s no JR macro for that), I\u0027d prefer to keep the explicit JALR here as well.",
+      "parentUuid": "1ba8488d_375b1d85",
+      "range": {
+        "startLine": 198,
+        "startChar": 9,
+        "endLine": 198,
+        "endChar": 11
+      },
+      "revId": "88339be348239b4117cfbf665cce449804ee3492",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "66ce7872_609f894b",
@@ -175,6 +319,30 @@
       "writtenOn": "2023-07-03T11:59:17Z",
       "side": 1,
       "message": "Do I understand correctly that we don\u0027t need to bother here with passing FP args in GPRs because we chose so in the managed ABI?",
+      "range": {
+        "startLine": 251,
+        "startChar": 0,
+        "endLine": 251,
+        "endChar": 41
+      },
+      "revId": "88339be348239b4117cfbf665cce449804ee3492",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8fd086f_c076f07e",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-07-04T09:42:06Z",
+      "side": 1,
+      "message": "Yes, that\u0027s how we want to define the managed ABI. This choice needs to be respected by the Optimizing compiler and nterp.",
+      "parentUuid": "66ce7872_609f894b",
       "range": {
         "startLine": 251,
         "startChar": 0,
