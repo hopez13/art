@@ -22,6 +22,30 @@
       },
       "revId": "731f01e8a9e8efa31a101688c0aad34a197f2b7a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b462ae40_283c72a6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-07-05T09:22:34Z",
+      "side": 1,
+      "message": "I need to know whether it is the old multidex (v \u003c 41) or new multidex (v \u003e\u003d 41) since affects how the multidex checksum is calculated (for the new multidex we just look at the checksum of the primary dex file only, since that is already the CRC of the whole zip entry)\n\nAlternatively, I could also calculate the multidex checksum in dex2oat and store that.",
+      "parentUuid": "77c0b3fb_f1b85081",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 18
+      },
+      "revId": "731f01e8a9e8efa31a101688c0aad34a197f2b7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
