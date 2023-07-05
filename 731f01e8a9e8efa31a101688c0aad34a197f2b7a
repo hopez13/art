@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77c0b3fb_f1b85081",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-07-05T08:28:11Z",
+      "side": 1,
+      "message": "The type should be known: it\u0027s either dex if it\u0027s in the APK, or cdex if it\u0027s in the vdex (though you can change the vdex generation with flags, you could still check the vdex content?).\n\nWhy do we need to know the version before we open it?",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 18
+      },
+      "revId": "731f01e8a9e8efa31a101688c0aad34a197f2b7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
