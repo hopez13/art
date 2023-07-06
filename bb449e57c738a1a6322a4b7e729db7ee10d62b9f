@@ -22,6 +22,30 @@
       },
       "revId": "bb449e57c738a1a6322a4b7e729db7ee10d62b9f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7285c576_e949bc28",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 942,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-07-06T13:12:57Z",
+      "side": 1,
+      "message": "I took another look at the CL. I think the `\u0026\u0026` is fine. I suggest changing the name to `kAllowPredicatedSIMD` or something similar.\n\nOtherwise, the CL LGTM",
+      "parentUuid": "c49dc416_166afe2b",
+      "range": {
+        "startLine": 942,
+        "startChar": 30,
+        "endLine": 942,
+        "endChar": 32
+      },
+      "revId": "bb449e57c738a1a6322a4b7e729db7ee10d62b9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
