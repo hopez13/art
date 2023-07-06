@@ -16,6 +16,24 @@
       "message": "Is this for golem benchmarks? golem benchmarks already use JITed code quite a bit, I was just wondering if reducing these thresholds further mask the problems with nterp.",
       "revId": "d22fa79ec7134fed601a2f2c0f48af56eeed10ad",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc950bd6_58f79510",
+        "filename": "tools/art",
+        "patchSetId": 1
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-07-06T16:40:29Z",
+      "side": 1,
+      "message": "After an offline chat, we have another config to measure nterp performance and to correctly measure JIT performance we either need to lower JIT thresholds or run benchmark for longer time. I think lowering JIT thresholds is better here.",
+      "parentUuid": "3d01a943_3ac69fd6",
+      "revId": "d22fa79ec7134fed601a2f2c0f48af56eeed10ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
