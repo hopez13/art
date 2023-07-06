@@ -63,7 +63,7 @@ art_cc_defaults {
 
 // Version of ART gtest `art_artd_tests` bundled with the ART APEX on target.
 //
-// This test requires the full libbinder_ndk implementation on host, which is
+// This  the full libbinder_ndk implementation on host, which is
 // not available as a prebuilt on the thin master-art branch. Hence it won't
 // work there, and there's a conditional in Android.gtest.mk to exclude it from
 // test-art-host-gtest.
