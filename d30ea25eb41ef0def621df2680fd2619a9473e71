@@ -242,6 +242,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed489d33_42977932",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1510,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-07-06T09:03:12Z",
+      "side": 1,
+      "message": "Looks good, thanks.",
+      "parentUuid": "a79e0ee9_6cbaa17b",
+      "range": {
+        "startLine": 1510,
+        "startChar": 48,
+        "endLine": 1510,
+        "endChar": 56
+      },
+      "revId": "d30ea25eb41ef0def621df2680fd2619a9473e71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "daf42d41_275f5ec9",
@@ -279,6 +303,30 @@
       "side": 1,
       "message": "I am not 100% sure what you mean here; vector_external_set_ could only contain vector operations, so there is no point of trying to search for a scalar instruction there.",
       "parentUuid": "daf42d41_275f5ec9",
+      "range": {
+        "startLine": 1511,
+        "startChar": 0,
+        "endLine": 1513,
+        "endChar": 0
+      },
+      "revId": "d30ea25eb41ef0def621df2680fd2619a9473e71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a50f2e02_ae220eea",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1513,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-07-06T09:03:12Z",
+      "side": 1,
+      "message": "I mean that we have a check in line 1515 (`!instr-\u003eAsVecOperation()-\u003eIsPredicated()`). Not sure if that is relevant for this DCHECK or not.",
+      "parentUuid": "53ba842d_d4bd95f5",
       "range": {
         "startLine": 1511,
         "startChar": 0,
