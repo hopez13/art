@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3d01a943_3ac69fd6",
+        "filename": "tools/art",
+        "patchSetId": 1
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-07-06T13:25:49Z",
+      "side": 1,
+      "message": "Is this for golem benchmarks? golem benchmarks already use JITed code quite a bit, I was just wondering if reducing these thresholds further mask the problems with nterp.",
+      "revId": "d22fa79ec7134fed601a2f2c0f48af56eeed10ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
