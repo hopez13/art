@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c49dc416_166afe2b",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 942,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-07-06T09:06:48Z",
+      "side": 1,
+      "message": "Should this be `||`? Otherwise it is not a `force` but an `allow`.",
+      "range": {
+        "startLine": 942,
+        "startChar": 30,
+        "endLine": 942,
+        "endChar": 32
+      },
+      "revId": "bb449e57c738a1a6322a4b7e729db7ee10d62b9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
