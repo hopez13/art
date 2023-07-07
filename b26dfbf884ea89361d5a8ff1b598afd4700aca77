@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "60e3d0ee_65b1a9dd",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2023-07-07T10:35:12Z",
+      "side": 1,
+      "message": "I had considered this, yes, but the only way I managed to make that work locally is to:\n\n* extract the performance checks into their own separate list from `art_clang_tidy_errors`\n* move this new list for performance checks, `art_clang_tidy_errors`, and `art_clang_tidy_disabled` into the top-level `Android.bp` file so they would be accessible in all subpackages (as `build/` and `test/` are sibling folders, so leaving the lists into `build/Android.bp` won\u0027t work)\n* change `tidy_checks` and `tidy_checks_as_errors` in `build/Android.bp` and `test/Android.bp` to reference their specific sets of checks to be performed (i.e., `art_clang_tidy_errors` + `performance_checks` for `build/Android.bp` and `art_clang_tidy_errors` for `test/Android.bp`)\n\nAll of the above is possible (and, in fact, it works) but it\u0027s maybe a bit cumbersome for such a small gain - unless I\u0027m missing an easier way to achieve this?",
+      "parentUuid": "8106aaac_7f3031c3",
+      "revId": "b26dfbf884ea89361d5a8ff1b598afd4700aca77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "e2309b58_d6c82b70",
