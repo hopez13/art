@@ -39,6 +39,30 @@
       },
       "revId": "7c9d75da88bb4d21543cc61e7f0cf825475d5528",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad93b5a1_66876de3",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1093,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-07-07T14:39:37Z",
+      "side": 1,
+      "message": "Done. In a follow up CL I will merge this into FlushBuffer so it\u0027s easier to read. I will do it as a follow up since I am also doing a bit more refactoring to keep all the code related to flushing to file at one place so it\u0027s easy to push it to a dedicated thread.",
+      "parentUuid": "cbc9517f_61121721",
+      "range": {
+        "startLine": 1092,
+        "startChar": 0,
+        "endLine": 1093,
+        "endChar": 46
+      },
+      "revId": "7c9d75da88bb4d21543cc61e7f0cf825475d5528",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
