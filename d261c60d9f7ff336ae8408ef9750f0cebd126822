@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b8ae3041_24652f92",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-07-07T15:22:32Z",
+      "side": 1,
+      "message": "Is there a way we could make these two methods be private and users use `GetSIMDRegisterWidthFromGraph`? If not, please add some comments explaining the difference so that developers will know which one to use.",
+      "range": {
+        "startLine": 262,
+        "startChar": 0,
+        "endLine": 263,
+        "endChar": 70
+      },
+      "revId": "d261c60d9f7ff336ae8408ef9750f0cebd126822",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "64db71e3_3ab6c7d7",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-07-07T15:22:32Z",
+      "side": 1,
+      "message": "extra space",
+      "range": {
+        "startLine": 263,
+        "startChar": 55,
+        "endLine": 263,
+        "endChar": 57
+      },
+      "revId": "d261c60d9f7ff336ae8408ef9750f0cebd126822",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "654605ba_9204686f",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-07-07T15:22:32Z",
+      "side": 1,
+      "message": "```suggestion\n  virtual size_t GetSIMDRegisterWidthFromGraph() const \u003d 0;\n```\n\nIn my opinion there\u0027s no need for `actual` to be there",
+      "range": {
+        "startLine": 264,
+        "startChar": 0,
+        "endLine": 264,
+        "endChar": 65
+      },
+      "revId": "d261c60d9f7ff336ae8408ef9750f0cebd126822",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0880e4ca_95efeed9",
+        "filename": "compiler/optimizing/code_generator_vector_arm64_neon.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1517,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-07-07T15:22:32Z",
+      "side": 1,
+      "message": "We already have the `LOG(FATAL)` before this. We don\u0027t need a `CHECK(false)`. Same for the others. You can leave the `UNREACHABLE()` that was there before.",
+      "range": {
+        "startLine": 1517,
+        "startChar": 2,
+        "endLine": 1517,
+        "endChar": 15
+      },
+      "revId": "d261c60d9f7ff336ae8408ef9750f0cebd126822",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b7b18cf_9830578c",
+        "filename": "compiler/optimizing/code_generator_vector_arm64_neon.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1567,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-07-07T15:22:32Z",
+      "side": 1,
+      "message": "Did you mean to use `GetSIMDRegisterWidthFromGraph`? If not, maybe this could be a static assert. Same for the others.",
+      "range": {
+        "startLine": 1567,
+        "startChar": 0,
+        "endLine": 1567,
+        "endChar": 75
+      },
+      "revId": "d261c60d9f7ff336ae8408ef9750f0cebd126822",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f5be6f2_bae46cca",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1293,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-07-07T15:22:32Z",
+      "side": 1,
+      "message": "nit: could this and others be DCHECK_EQ?",
+      "range": {
+        "startLine": 1293,
+        "startChar": 2,
+        "endLine": 1293,
+        "endChar": 8
+      },
+      "revId": "d261c60d9f7ff336ae8408ef9750f0cebd126822",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
