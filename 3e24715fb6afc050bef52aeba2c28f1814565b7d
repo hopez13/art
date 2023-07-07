@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "abbcc009_9b45d88a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-07-07T10:27:25Z",
+      "side": 1,
+      "message": "CHECK because that shouldn\u0027t ever happen, since we do the old check as well.\n\nIf the CHECK triggers, it means we have been seeing and ignoring 32-bit hash collisions.\n\nOr else, there is logic issue that I would like to be aware of.\n\n---\n\nHaving said that, if this CL works, then I would like to replace the conditions to use SHA1 only later (and thus remove the CHECK).",
+      "parentUuid": "cd62e910_1602f87c",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 5
+      },
+      "revId": "3e24715fb6afc050bef52aeba2c28f1814565b7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9bf5b227_fa426570",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "80ed770b_fea6b0c2",
+        "filename": "libdexfile/dex/dex_file.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-07-07T10:27:25Z",
+      "side": 1,
+      "message": "I just want to print the byte array in order (as if there was for-loop), but without all the string concatenations.",
+      "parentUuid": "9bf5b227_fa426570",
+      "range": {
+        "startLine": 67,
+        "startChar": 34,
+        "endLine": 67,
+        "endChar": 96
+      },
+      "revId": "3e24715fb6afc050bef52aeba2c28f1814565b7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7941a3f2_2e3b1fdb",
@@ -60,6 +108,30 @@
       "writtenOn": "2023-07-07T09:47:32Z",
       "side": 1,
       "message": "Optional: I\u0027d prefer a member instead of a base class.",
+      "range": {
+        "startLine": 128,
+        "startChar": 16,
+        "endLine": 128,
+        "endChar": 59
+      },
+      "revId": "3e24715fb6afc050bef52aeba2c28f1814565b7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "afd51da7_bf6a0700",
+        "filename": "libdexfile/dex/dex_file.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-07-07T10:27:25Z",
+      "side": 1,
+      "message": "I feel conflicted.  Deriving from std class isn\u0027t nice, but it does avoid a lot of boilerplate code.\n\nWhat about compromise: Deriving it as private and forward only the needed methods?",
+      "parentUuid": "7941a3f2_2e3b1fdb",
       "range": {
         "startLine": 128,
         "startChar": 16,
