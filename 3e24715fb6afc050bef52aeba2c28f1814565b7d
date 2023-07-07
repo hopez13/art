@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd62e910_1602f87c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-07-07T09:47:32Z",
+      "side": 1,
+      "message": "Is this the right approach? Shouldn\u0027t we just refuse to load the oat file and continue without it?",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 5
+      },
+      "revId": "3e24715fb6afc050bef52aeba2c28f1814565b7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9bf5b227_fa426570",
+        "filename": "libdexfile/dex/dex_file.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-07-07T09:47:32Z",
+      "side": 1,
+      "message": "Why big endian?",
+      "range": {
+        "startLine": 67,
+        "startChar": 34,
+        "endLine": 67,
+        "endChar": 96
+      },
+      "revId": "3e24715fb6afc050bef52aeba2c28f1814565b7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7941a3f2_2e3b1fdb",
+        "filename": "libdexfile/dex/dex_file.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-07-07T09:47:32Z",
+      "side": 1,
+      "message": "Optional: I\u0027d prefer a member instead of a base class.",
+      "range": {
+        "startLine": 128,
+        "startChar": 16,
+        "endLine": 128,
+        "endChar": 59
+      },
+      "revId": "3e24715fb6afc050bef52aeba2c28f1814565b7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
