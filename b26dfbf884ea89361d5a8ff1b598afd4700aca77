@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8106aaac_7f3031c3",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-07-07T09:50:14Z",
+      "side": 1,
+      "message": "This is test code. Have you considered disabling performance related warnings in tests? At least when they may be detrimental to readability (whether it is or not in this case is a matter of taste, I think). `art_test_common_defaults` should cover tests.",
+      "revId": "b26dfbf884ea89361d5a8ff1b598afd4700aca77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2309b58_d6c82b70",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 535,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-07-07T09:50:14Z",
+      "side": 1,
+      "message": "In the [fmtlib docs](https://fmt.dev/latest/index.html) I see nothing that suggests the parsing of the format string is done compile time. So this adds some extra runtime overhead there.\n\nOtoh it should be good in terms of minimising allocations, even compared to the [clang suggestion](https://clang.llvm.org/extra/clang-tidy/checks/performance/inefficient-string-concatenation.html) `std::string(artifact_dir).append(\"/\").append(basename)`.\n\nI suppose it\u0027s reasonable to assume the parsing is cheaper, at least in very short and simple format strings like this. But I\u0027m not sure.",
+      "range": {
+        "startLine": 535,
+        "startChar": 29,
+        "endLine": 535,
+        "endChar": 72
+      },
+      "revId": "b26dfbf884ea89361d5a8ff1b598afd4700aca77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
