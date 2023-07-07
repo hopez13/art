@@ -140,6 +140,30 @@
       },
       "revId": "3e24715fb6afc050bef52aeba2c28f1814565b7d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "202ee678_6bef8d2e",
+        "filename": "libdexfile/dex/dex_file.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-07-07T10:40:28Z",
+      "side": 1,
+      "message": "A `struct` with a private class would be odd. Feel free to keep this as is as long as this satisfies\n\n    static_assert(std::is_standard_layout_v\u003cSha1\u003e);",
+      "parentUuid": "afd51da7_bf6a0700",
+      "range": {
+        "startLine": 128,
+        "startChar": 16,
+        "endLine": 128,
+        "endChar": 59
+      },
+      "revId": "3e24715fb6afc050bef52aeba2c28f1814565b7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
