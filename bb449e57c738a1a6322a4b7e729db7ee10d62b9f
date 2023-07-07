@@ -46,6 +46,30 @@
       },
       "revId": "bb449e57c738a1a6322a4b7e729db7ee10d62b9f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8dde47f3_003f92b7",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 942,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-07-07T15:08:39Z",
+      "side": 1,
+      "message": "I saw the follow-up CL where `force` makes sense (https://android-review.git.corp.google.com/c/platform/art/+/2600336) so you can disregard this comment.",
+      "parentUuid": "7285c576_e949bc28",
+      "range": {
+        "startLine": 942,
+        "startChar": 30,
+        "endLine": 942,
+        "endChar": 32
+      },
+      "revId": "bb449e57c738a1a6322a4b7e729db7ee10d62b9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
