@@ -292,7 +292,7 @@ class MarkCompact final : public GarbageCollector {
       REQUIRES_SHARED(Locks::mutator_lock_);
   // Identify immune spaces and reset card-table, mod-union-table, and mark
   // bitmaps.
-  void BindAndResetBitmaps() REQUIRES_SHARED(Locks::mutator_lock_)
+  void AgeOrClearCardTable(bool first_invocation) REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(Locks::heap_bitmap_lock_);
 
   // Perform one last round of marking, identifying roots from dirty cards
@@ -767,8 +767,8 @@ class MarkCompact final : public GarbageCollector {
   class VerifyRootMarkedVisitor;
   class ScanObjectVisitor;
   class CheckpointMarkThreadRoots;
-  template<size_t kBufferSize> class ThreadRootsVisitor;
-  class CardModifiedVisitor;
+  template <size_t kBufferSize>
+  class ThreadRootsVisitor;
   class RefFieldsVisitor;
   template <bool kCheckBegin, bool kCheckEnd> class RefsUpdateVisitor;
   class ArenaPoolPageUpdater;
