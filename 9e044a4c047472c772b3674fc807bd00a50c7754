@@ -1,5 +1,29 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "68a2eba3_778c4ac2",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 2021276
+      },
+      "writtenOn": "2023-07-09T13:19:48Z",
+      "side": 1,
+      "message": "RESTORE_GPR s0,  (8*14)  // x8/fp, frame pointer\n    // s1 is the ART thread register",
+      "range": {
+        "startLine": 339,
+        "startChar": 4,
+        "endLine": 340,
+        "endChar": 36
+      },
+      "revId": "9e044a4c047472c772b3674fc807bd00a50c7754",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
