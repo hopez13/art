@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "50e7d385_b247356a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-07-09T18:48:08Z",
+      "side": 1,
+      "message": "LGTM except for minor nits below.",
+      "revId": "98c3d62b5e7f41fb8982e010ecff6023853d26a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "24dce64d_f08bcf76",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2019,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-07-09T18:48:08Z",
+      "side": 1,
+      "message": "Since this is specifically used only for homogenous-space compaction, can you please name it to indicate that.",
+      "range": {
+        "startLine": 2019,
+        "startChar": 9,
+        "endLine": 2019,
+        "endChar": 18
+      },
+      "revId": "98c3d62b5e7f41fb8982e010ecff6023853d26a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff86b4e7_92f0ddea",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2047,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-07-09T18:48:08Z",
+      "side": 1,
+      "message": "Can we avoid reassessing this for our default GC? Maybe have a local variable store the value of the first call in the loop. And update the variable if and when homogeneous compaction is done.",
+      "range": {
+        "startLine": 2047,
+        "startChar": 8,
+        "endLine": 2047,
+        "endChar": 29
+      },
+      "revId": "98c3d62b5e7f41fb8982e010ecff6023853d26a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
