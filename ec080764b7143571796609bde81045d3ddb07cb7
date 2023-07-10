@@ -1,0 +1,274 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d411629_ab88ea11",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2023-07-10T18:07:31Z",
+      "side": 1,
+      "message": "Does this change already significantly affect the size of the ART APEX? If so, could you mention this information in the commit message for compressed and non-compressed APEXes for Arm, Arm64, x86 and x86-64?\n\n(When mentioning this kind of information, I like to mention the size before and after the change as well as the delta in bytes and percentage change, but I\u0027ll let you decide what works best here.)",
+      "revId": "ec080764b7143571796609bde81045d3ddb07cb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7fec86d1_c6214368",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2023-07-10T18:07:31Z",
+      "side": 1,
+      "message": "Could you also add (and verify) these:\n\n```\nTest: art/build/apex/runtests.sh\nTest: atest art-apex-update-rollback\nTest: m mts \u0026\u0026 mts-tradefed run commandAndExit mts-art\n```\n\n?",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 5
+      },
+      "revId": "ec080764b7143571796609bde81045d3ddb07cb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "713618d8_adfb3508",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2023-07-10T18:07:31Z",
+      "side": 1,
+      "message": "Nit: Long line.",
+      "range": {
+        "startLine": 74,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 107
+      },
+      "revId": "ec080764b7143571796609bde81045d3ddb07cb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9913347f_222b7cd4",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2023-07-10T18:07:31Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 87,
+        "startChar": 0,
+        "endLine": 87,
+        "endChar": 105
+      },
+      "revId": "ec080764b7143571796609bde81045d3ddb07cb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c4aba820_cd0a635e",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2023-07-10T18:07:31Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 124,
+        "startChar": 0,
+        "endLine": 124,
+        "endChar": 108
+      },
+      "revId": "ec080764b7143571796609bde81045d3ddb07cb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5290969b_29715efb",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2023-07-10T18:07:31Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 137,
+        "startChar": 0,
+        "endLine": 137,
+        "endChar": 105
+      },
+      "revId": "ec080764b7143571796609bde81045d3ddb07cb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc184f64_610caeed",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 731,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2023-07-10T18:07:31Z",
+      "side": 1,
+      "message": "Nit: Long line.",
+      "range": {
+        "startLine": 731,
+        "startChar": 0,
+        "endLine": 731,
+        "endChar": 104
+      },
+      "revId": "ec080764b7143571796609bde81045d3ddb07cb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8fa5003f_d341905c",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 803,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2023-07-10T18:07:31Z",
+      "side": 1,
+      "message": "Is this still needed, as `libart-runtime` is a static library and no longer a direct component of any ART APEX?",
+      "range": {
+        "startLine": 794,
+        "startChar": 0,
+        "endLine": 803,
+        "endChar": 6
+      },
+      "revId": "ec080764b7143571796609bde81045d3ddb07cb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "943a1a27_efbcfa8c",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 826,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2023-07-10T18:07:31Z",
+      "side": 1,
+      "message": "Is this still needed, as `libart-runtime-broken` is a static library and no longer a direct component of any ART APEX?",
+      "range": {
+        "startLine": 819,
+        "startChar": 0,
+        "endLine": 826,
+        "endChar": 6
+      },
+      "revId": "ec080764b7143571796609bde81045d3ddb07cb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cfefea69_7c0d18fd",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 848,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2023-07-10T18:07:31Z",
+      "side": 1,
+      "message": "Is this still needed, as `libartd-runtime` is a static library and no longer a direct component of any ART APEX?",
+      "range": {
+        "startLine": 841,
+        "startChar": 0,
+        "endLine": 848,
+        "endChar": 6
+      },
+      "revId": "ec080764b7143571796609bde81045d3ddb07cb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "76f07207_639cb80a",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 864,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2023-07-10T18:07:31Z",
+      "side": 1,
+      "message": "I think this comment should be removed, as `libart` is part of `com.android.art`.",
+      "range": {
+        "startLine": 862,
+        "startChar": 0,
+        "endLine": 864,
+        "endChar": 50
+      },
+      "revId": "ec080764b7143571796609bde81045d3ddb07cb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "860f09ba_636a3ede",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2023-07-10T18:07:31Z",
+      "side": 1,
+      "message": "Perhaps we should return an `std::unique_ptr\u003cJit\u003e` here, to make the ownership of the `Jit` object more explicit (maybe in a follow-up CL).",
+      "range": {
+        "startLine": 189,
+        "startChar": 0,
+        "endLine": 189,
+        "endChar": 4
+      },
+      "revId": "ec080764b7143571796609bde81045d3ddb07cb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
