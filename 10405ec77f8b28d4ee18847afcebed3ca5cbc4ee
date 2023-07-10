@@ -1,0 +1,297 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c7b3af2f_3dbba3d4",
+        "filename": "runtime/interpreter/mterp/riscv64/control_flow.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-07-10T15:55:57Z",
+      "side": 1,
+      "message": "What units are used here? I would expect vregs, so \"1\" would be appropriate.",
+      "range": {
+        "startLine": 16,
+        "startChar": 48,
+        "endLine": 16,
+        "endChar": 49
+      },
+      "revId": "10405ec77f8b28d4ee18847afcebed3ca5cbc4ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22d8279c_c812b673",
+        "filename": "runtime/interpreter/mterp/riscv64/control_flow.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-07-10T15:55:57Z",
+      "side": 1,
+      "message": "also",
+      "range": {
+        "startLine": 17,
+        "startChar": 69,
+        "endLine": 17,
+        "endChar": 70
+      },
+      "revId": "10405ec77f8b28d4ee18847afcebed3ca5cbc4ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de3b3a6d_7a37bfde",
+        "filename": "runtime/interpreter/mterp/riscv64/control_flow.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-07-10T15:55:57Z",
+      "side": 1,
+      "message": "Shorten to `.elseif` and drop one `.endif`?",
+      "range": {
+        "startLine": 19,
+        "startChar": 6,
+        "endLine": 20,
+        "endChar": 11
+      },
+      "revId": "10405ec77f8b28d4ee18847afcebed3ca5cbc4ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1966e2a2_a7097a38",
+        "filename": "runtime/interpreter/mterp/riscv64/control_flow.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-07-10T15:55:57Z",
+      "side": 1,
+      "message": "also",
+      "range": {
+        "startLine": 24,
+        "startChar": 71,
+        "endLine": 24,
+        "endChar": 72
+      },
+      "revId": "10405ec77f8b28d4ee18847afcebed3ca5cbc4ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "381171ae_fbaa6e64",
+        "filename": "runtime/interpreter/mterp/riscv64/control_flow.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-07-10T15:55:57Z",
+      "side": 1,
+      "message": "Why not loading directly to SP?",
+      "range": {
+        "startLine": 31,
+        "startChar": 4,
+        "endLine": 32,
+        "endChar": 13
+      },
+      "revId": "10405ec77f8b28d4ee18847afcebed3ca5cbc4ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0549d64_43fbb4ba",
+        "filename": "runtime/interpreter/mterp/riscv64/control_flow.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-07-10T15:55:57Z",
+      "side": 1,
+      "message": "10\n\nWe\u0027re explicitly showing the opcode for `return-void`, so we should do that here as well.",
+      "range": {
+        "startLine": 41,
+        "startChar": 18,
+        "endLine": 41,
+        "endChar": 20
+      },
+      "revId": "10405ec77f8b28d4ee18847afcebed3ca5cbc4ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb0d5edf_e434e6a8",
+        "filename": "runtime/interpreter/mterp/riscv64/control_flow.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-07-10T15:55:57Z",
+      "side": 1,
+      "message": "11",
+      "range": {
+        "startLine": 46,
+        "startChar": 18,
+        "endLine": 46,
+        "endChar": 20
+      },
+      "revId": "10405ec77f8b28d4ee18847afcebed3ca5cbc4ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "50648d2e_752d11b9",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-07-10T15:55:57Z",
+      "side": 1,
+      "message": "1",
+      "range": {
+        "startLine": 341,
+        "startChar": 60,
+        "endLine": 341,
+        "endChar": 61
+      },
+      "revId": "10405ec77f8b28d4ee18847afcebed3ca5cbc4ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fafd847b_603333ed",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-07-10T15:55:57Z",
+      "side": 1,
+      "message": "Note: We could use the approach from https://android-review.googlesource.com/2613150 to reduce the number of instructions for wide ops.",
+      "revId": "10405ec77f8b28d4ee18847afcebed3ca5cbc4ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "37253cad_fc00d3be",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-07-10T15:55:57Z",
+      "side": 1,
+      "message": "1",
+      "range": {
+        "startLine": 349,
+        "startChar": 60,
+        "endLine": 349,
+        "endChar": 61
+      },
+      "revId": "10405ec77f8b28d4ee18847afcebed3ca5cbc4ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ead6122_c003f850",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-07-10T15:55:57Z",
+      "side": 1,
+      "message": "1",
+      "range": {
+        "startLine": 351,
+        "startChar": 61,
+        "endLine": 351,
+        "endChar": 62
+      },
+      "revId": "10405ec77f8b28d4ee18847afcebed3ca5cbc4ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d74f4239_ab281d85",
+        "filename": "runtime/interpreter/mterp/riscv64/other.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-07-10T15:55:57Z",
+      "side": 1,
+      "message": "Explicit opcode? (Here and below.)",
+      "range": {
+        "startLine": 18,
+        "startChar": 18,
+        "endLine": 18,
+        "endChar": 20
+      },
+      "revId": "10405ec77f8b28d4ee18847afcebed3ca5cbc4ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c9bfe932_52e217b5",
+        "filename": "runtime/interpreter/mterp/riscv64/other.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-07-10T15:55:57Z",
+      "side": 1,
+      "message": "Reorder for better scheduling?",
+      "range": {
+        "startLine": 44,
+        "startChar": 4,
+        "endLine": 45,
+        "endChar": 37
+      },
+      "revId": "10405ec77f8b28d4ee18847afcebed3ca5cbc4ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
