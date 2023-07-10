@@ -144,6 +144,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a723a6a2_1b997b2c",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2267,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-07-10T15:31:20Z",
+      "side": 1,
+      "message": "Then perhaps the message below should say \"vector extension is unsupported\"?",
+      "parentUuid": "da867d5d_1c6c65fe",
+      "range": {
+        "startLine": 2267,
+        "startChar": 24,
+        "endLine": 2267,
+        "endChar": 31
+      },
+      "revId": "529a07eeee87437b5541c1c4cdb9483e5a23ef53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d3c5a3cd_0bda568c",
         "filename": "compiler/optimizing/code_generator_riscv64.h",
         "patchSetId": 6
