@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c293ff43_cdfaa57a",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-07-10T13:59:37Z",
+      "side": 1,
+      "message": "Is this a risc-v requirement?",
+      "range": {
+        "startLine": 393,
+        "startChar": 0,
+        "endLine": 394,
+        "endChar": 54
+      },
+      "revId": "c9d06b0599f621328e4f20bf8e32ff120cdbab05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0cc243c8_f2c66744",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-07-10T13:59:37Z",
+      "side": 1,
+      "message": "Is there a way to check this? Could it change in the future?",
+      "range": {
+        "startLine": 395,
+        "startChar": 0,
+        "endLine": 397,
+        "endChar": 0
+      },
+      "revId": "c9d06b0599f621328e4f20bf8e32ff120cdbab05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f450e48a_21e6007b",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 732,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-07-10T13:59:37Z",
+      "side": 1,
+      "message": "Should we merge this with the `default` case? They are doing the same thing",
+      "range": {
+        "startLine": 732,
+        "startChar": 0,
+        "endLine": 732,
+        "endChar": 71
+      },
+      "revId": "c9d06b0599f621328e4f20bf8e32ff120cdbab05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
