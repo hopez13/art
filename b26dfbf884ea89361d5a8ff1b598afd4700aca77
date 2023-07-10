@@ -36,6 +36,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "ecf1c72d_284657a5",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-07-10T17:24:12Z",
+      "side": 1,
+      "message": "If it\u0027s only for this particular check then no, but if it\u0027s expected to be used for other checks as well then it could be worth it. Up to you.\n\n\u003e leaving the lists into build/Android.bp won\u0027t work\n\nOh, I didn\u0027t know constants had different visibility rules from Soong modules. Another variant for that is to create a default in build/Android.bp with performance_checks and use that in test/Android.bp.",
+      "parentUuid": "60e3d0ee_65b1a9dd",
+      "revId": "b26dfbf884ea89361d5a8ff1b598afd4700aca77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "e2309b58_d6c82b70",
@@ -78,6 +96,53 @@
         "startChar": 29,
         "endLine": 535,
         "endChar": 72
+      },
+      "revId": "b26dfbf884ea89361d5a8ff1b598afd4700aca77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b45afa8_30c04db2",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 535,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-07-10T17:24:12Z",
+      "side": 1,
+      "message": "Interesting, we should perhaps introduce an `ART_COMPILED_FORMAT` macro for hot code paths.",
+      "parentUuid": "f54f905c_4ce8491b",
+      "range": {
+        "startLine": 535,
+        "startChar": 29,
+        "endLine": 535,
+        "endChar": 72
+      },
+      "revId": "b26dfbf884ea89361d5a8ff1b598afd4700aca77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1b2c111_244d32a9",
+        "filename": "runtime/cha.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-07-10T17:24:12Z",
+      "side": 1,
+      "message": "There\u0027s a `+` left here, but if the check misses it then it\u0027s fine (if it was potentially hot code I\u0027d\u0027ve suggested two `append` calls).",
+      "range": {
+        "startLine": 293,
+        "startChar": 10,
+        "endLine": 293,
+        "endChar": 41
       },
       "revId": "b26dfbf884ea89361d5a8ff1b598afd4700aca77",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
