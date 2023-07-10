@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ecf02321_c1fea4fa",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2394,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-07-10T15:28:42Z",
+      "side": 1,
+      "message": "Nit: RISC-V",
+      "range": {
+        "startLine": 2394,
+        "startChar": 22,
+        "endLine": 2394,
+        "endChar": 27
+      },
+      "revId": "540a68892ae983b0aa5632d3aa8c33725b441f9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b74bc89f_b75f6bfb",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2395,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-07-10T15:28:42Z",
+      "side": 1,
+      "message": "I think it should say \"vector extension is unsupported\", as SIMD means the P extension in RISC-V terminology.",
+      "range": {
+        "startLine": 2395,
+        "startChar": 28,
+        "endLine": 2395,
+        "endChar": 50
+      },
+      "revId": "540a68892ae983b0aa5632d3aa8c33725b441f9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2fafdf5d_495d6622",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2404,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-07-10T15:28:42Z",
+      "side": 1,
+      "message": "Nit: RISC-V",
+      "range": {
+        "startLine": 2404,
+        "startChar": 22,
+        "endLine": 2404,
+        "endChar": 27
+      },
+      "revId": "540a68892ae983b0aa5632d3aa8c33725b441f9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1b42e165_152f8442",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2405,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-07-10T15:28:42Z",
+      "side": 1,
+      "message": "\"vector extension is unsupported\"?",
+      "range": {
+        "startLine": 2405,
+        "startChar": 28,
+        "endLine": 2405,
+        "endChar": 49
+      },
+      "revId": "540a68892ae983b0aa5632d3aa8c33725b441f9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
