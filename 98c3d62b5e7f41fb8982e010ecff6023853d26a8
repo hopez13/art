@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6480a70c_288e58f9",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2019,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-07-10T22:30:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "24dce64d_f08bcf76",
+      "range": {
+        "startLine": 2019,
+        "startChar": 9,
+        "endLine": 2019,
+        "endChar": 18
+      },
+      "revId": "98c3d62b5e7f41fb8982e010ecff6023853d26a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ff86b4e7_92f0ddea",
@@ -54,6 +78,30 @@
       "writtenOn": "2023-07-09T18:48:08Z",
       "side": 1,
       "message": "Can we avoid reassessing this for our default GC? Maybe have a local variable store the value of the first call in the loop. And update the variable if and when homogeneous compaction is done.",
+      "range": {
+        "startLine": 2047,
+        "startChar": 8,
+        "endLine": 2047,
+        "endChar": 29
+      },
+      "revId": "98c3d62b5e7f41fb8982e010ecff6023853d26a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b8d85470_5d95f9b9",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2047,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-07-10T22:30:59Z",
+      "side": 1,
+      "message": "Did that, though I wonder whether it\u0027s worth it. have_reclaimed_enough() isn\u0027t very expensive, right? And this is already a very slow path.\n\nIt now occurred to me that previously we were successfully returning after a HSC, even if we still didn\u0027t reclaim \"enough\". That feels wrong to me, so I think the change is positive. But does count_delayed_oom_ still make sense now?",
+      "parentUuid": "ff86b4e7_92f0ddea",
       "range": {
         "startLine": 2047,
         "startChar": 8,
