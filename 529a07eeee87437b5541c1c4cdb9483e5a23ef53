@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57fc955c_c1fcf1db",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2195,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-07-10T14:40:24Z",
+      "side": 1,
+      "message": "Should this be CHECK if we are uncertain at the moment? Note that we lack the ability to test debug builds on the VM, so we wouldn\u0027t notice if this was wrong.",
+      "range": {
+        "startLine": 2195,
+        "startChar": 2,
+        "endLine": 2195,
+        "endChar": 8
+      },
+      "revId": "529a07eeee87437b5541c1c4cdb9483e5a23ef53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2724dfe6_4d109d6d",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2206,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-07-10T14:40:24Z",
+      "side": 1,
+      "message": "Nit: `64-bit`",
+      "range": {
+        "startLine": 2206,
+        "startChar": 53,
+        "endLine": 2206,
+        "endChar": 58
+      },
+      "revId": "529a07eeee87437b5541c1c4cdb9483e5a23ef53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c3f1a39e_fe1d2755",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2267,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-07-10T14:40:24Z",
+      "side": 1,
+      "message": "Is this referring to vector (V) or SIMD (P)?",
+      "range": {
+        "startLine": 2267,
+        "startChar": 24,
+        "endLine": 2267,
+        "endChar": 31
+      },
+      "revId": "529a07eeee87437b5541c1c4cdb9483e5a23ef53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3c5a3cd_0bda568c",
+        "filename": "compiler/optimizing/code_generator_riscv64.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-07-10T14:40:24Z",
+      "side": 1,
+      "message": "What SIMD do you mean, the P extension? I don\u0027t think we aim at supporting it (e.g. it\u0027s not part of RVA22U64 https://github.com/riscv/riscv-profiles/blob/main/profiles.adoc#rva22u64-profile).\n\nOr is it a reference to the V (vector) extension? Then I think it would be better use \"vector\" terminology as the spec does.",
+      "range": {
+        "startLine": 297,
+        "startChar": 0,
+        "endLine": 298,
+        "endChar": 91
+      },
+      "revId": "529a07eeee87437b5541c1c4cdb9483e5a23ef53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
