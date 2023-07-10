@@ -33,6 +33,7 @@
 #include "jit/jit.h"
 #include "jit/jit_code_cache.h"
 #include "jit/jit_logger.h"
+#include "jit/small_pattern_matcher.h"
 
 namespace art HIDDEN {
 namespace jit {
@@ -180,6 +181,17 @@ bool JitCompiler::CompileMethod(
 
   DCHECK(!method->IsProxyMethod());
   DCHECK(method->GetDeclaringClass()->IsResolved());
+
+  // Try to pattern match the method.
+  if (!Runtime::Current()->IsJavaDebuggable() &&
+      compilation_kind == CompilationKind::kBaseline) {
+    const void* pattern = SmallPatternMatcher::TryMatch(method);
+    if (pattern != nullptr) {
+      VLOG(jit) << "Successfully pattern matched " << method->PrettyMethod();
+      Runtime::Current()->GetInstrumentation()->UpdateMethodsCode(method, pattern);
+      return true;
+    }
+  }
 
   TimingLogger logger(
       "JIT compiler timing logger", true, VLOG_IS_ON(jit), TimingLogger::TimingKind::kThreadCpu);
