@@ -405,6 +405,8 @@ class CodeGeneratorRISCV64 : public CodeGenerator {
 
   void MaybeIncrementHotness(bool is_frame_entry);
 
+  bool CanUseImplicitSuspendCheck() const;
+
  private:
   Riscv64Assembler assembler_;
   LocationsBuilderRISCV64 location_builder_;
