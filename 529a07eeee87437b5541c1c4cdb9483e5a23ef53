@@ -166,6 +166,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "14d29807_d251374f",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2267,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-07-10T16:04:44Z",
+      "side": 1,
+      "message": "Addressed in https://android-review.googlesource.com/2623802 together with similar comments there.",
+      "parentUuid": "a723a6a2_1b997b2c",
+      "range": {
+        "startLine": 2267,
+        "startChar": 24,
+        "endLine": 2267,
+        "endChar": 31
+      },
+      "revId": "529a07eeee87437b5541c1c4cdb9483e5a23ef53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d3c5a3cd_0bda568c",
