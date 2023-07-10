@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "37514527_77c209b5",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 565,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-07-10T09:10:21Z",
+      "side": 1,
+      "message": "I find this name not helping understand why we do things this way in the code. Maybe rename to `bind_bitmaps`?",
+      "range": {
+        "startLine": 565,
+        "startChar": 38,
+        "endLine": 565,
+        "endChar": 60
+      },
+      "revId": "62bda4236d4560579a2563ce2f3500f9f3557ffc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
