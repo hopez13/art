@@ -1474,13 +1474,13 @@ void InstructionCodeGeneratorRISCV64::VisitRem(HRem* instruction) {
 }
 
 void LocationsBuilderRISCV64::VisitReturn(HReturn* instruction) {
-  UNUSED(instruction);
-  LOG(FATAL) << "Unimplemented";
+  LocationSummary* locations = new (GetGraph()->GetAllocator()) LocationSummary(instruction);
+  DataType::Type return_type = instruction->InputAt(0)->GetType();
+  locations->SetInAt(0, Riscv64ReturnLocation(return_type));
 }
 
-void InstructionCodeGeneratorRISCV64::VisitReturn(HReturn* instruction) {
-  UNUSED(instruction);
-  LOG(FATAL) << "Unimplemented";
+void InstructionCodeGeneratorRISCV64::VisitReturn([[maybe_unused]] HReturn* instruction) {
+  codegen_->GenerateFrameExit();
 }
 
 void LocationsBuilderRISCV64::VisitReturnVoid(HReturnVoid* instruction) {
