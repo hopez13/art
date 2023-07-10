@@ -306,7 +306,11 @@ class CodeGeneratorRISCV64 : public CodeGenerator {
     UNREACHABLE();
   };
 
-  void Initialize() override { LOG(FATAL) << "unimplemented"; }
+  Riscv64Label* GetLabelOf(HBasicBlock* block) const {
+    return CommonGetLabelOf<Riscv64Label>(block_labels_, block);
+  }
+
+  void Initialize() override { block_labels_ = CommonInitializeLabels<Riscv64Label>(); }
 
   void MoveConstant(Location destination, int32_t value) override;
   void MoveLocation(Location dst, Location src, DataType::Type dst_type) override;
@@ -397,10 +401,13 @@ class CodeGeneratorRISCV64 : public CodeGenerator {
 
   void MaybeIncrementHotness(bool is_frame_entry);
 
+  bool CanUseImplicitSuspendCheck() const;
+
  private:
   Riscv64Assembler assembler_;
   LocationsBuilderRISCV64 location_builder_;
   Riscv64Label frame_entry_label_;
+  Riscv64Label* block_labels_;  // Indexed by block id.
 };
 
 }  // namespace riscv64
