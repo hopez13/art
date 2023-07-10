@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bbb2e066_0a1bdd17",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2520,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-07-10T15:51:56Z",
+      "side": 1,
+      "message": "nit: `DCHECK_EQ` would give us more info if type is different than the expected one",
+      "range": {
+        "startLine": 2520,
+        "startChar": 4,
+        "endLine": 2520,
+        "endChar": 10
+      },
+      "revId": "3e56c724584c32f047e37e7d114e31721aa4076f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "21251a32_6156b03c",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2529,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-07-10T15:51:56Z",
+      "side": 1,
+      "message": "Could we do an optimization like `kDiscardForSameWReg` does in Arm64? I\u0027d be okay with leaving this optimization as future improvement too.",
+      "range": {
+        "startLine": 2529,
+        "startChar": 0,
+        "endLine": 2529,
+        "endChar": 28
+      },
+      "revId": "3e56c724584c32f047e37e7d114e31721aa4076f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
