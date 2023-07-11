@@ -188,6 +188,30 @@
       },
       "revId": "b26dfbf884ea89361d5a8ff1b598afd4700aca77",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "572d3128_f167a980",
+        "filename": "runtime/cha.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-07-11T10:03:46Z",
+      "side": 1,
+      "message": "Well, there are still two concatenations here after your small change, but the check is apparently not clever enough to detect that.\n\nNo, I\u0027ve no strong opinion to change this, for the reason I\u0027ve mentioned.",
+      "parentUuid": "2aa37cfa_3a071f0a",
+      "range": {
+        "startLine": 293,
+        "startChar": 10,
+        "endLine": 293,
+        "endChar": 41
+      },
+      "revId": "b26dfbf884ea89361d5a8ff1b598afd4700aca77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
