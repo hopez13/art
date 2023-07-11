@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96ebc916_4a9417b0",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-07-11T10:09:57Z",
+      "side": 1,
+      "message": "`SaveLiveRegisters` hasn\u0027t been implemented, has it? I guess the idea would be to save only what\u0027s necessary",
+      "range": {
+        "startLine": 153,
+        "startChar": 44,
+        "endLine": 153,
+        "endChar": 89
+      },
+      "revId": "53e0e874838e897fea4a8482bd8cd14e0621f2d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9d8564e_e3f20734",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-07-11T10:09:57Z",
+      "side": 1,
+      "message": "Is there a reason to not use `Andi` here? Both would just leave the 3 lower bits",
+      "range": {
+        "startLine": 240,
+        "startChar": 0,
+        "endLine": 240,
+        "endChar": 95
+      },
+      "revId": "53e0e874838e897fea4a8482bd8cd14e0621f2d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6837b0cf_e0348a83",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-07-11T10:09:57Z",
+      "side": 1,
+      "message": "I think it would need refactoring, but it would be nice if we could we add `DCHECK_EQ(slow_path-\u003eGetExitLabel(), codegen_-\u003eGetLabelOf(successor))` or a similar check instead of a comment. I see Arm64 also just having a comment so this could be future cleanup.",
+      "range": {
+        "startLine": 247,
+        "startChar": 4,
+        "endLine": 247,
+        "endChar": 54
+      },
+      "revId": "53e0e874838e897fea4a8482bd8cd14e0621f2d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1fd6e911_e70461a2",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-07-11T10:09:57Z",
+      "side": 1,
+      "message": "nit: superfluous parenthesis",
+      "range": {
+        "startLine": 434,
+        "startChar": 31,
+        "endLine": 434,
+        "endChar": 32
+      },
+      "revId": "53e0e874838e897fea4a8482bd8cd14e0621f2d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
