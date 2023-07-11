@@ -110,6 +110,30 @@
       },
       "revId": "98c3d62b5e7f41fb8982e010ecff6023853d26a8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "05bb64e6_e5f417cd",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2047,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-07-11T03:05:45Z",
+      "side": 1,
+      "message": "I agree it\u0027s not expensive, but it just looked odd to call it again, particularly for our mostly used GCs.\n\n\u003e It now occurred to me that previously we were successfully returning after a HSC, even if we still didn\u0027t reclaim \"enough\". That feels wrong to me, so I think the change is positive.\n\nI don\u0027t see how it was the case before. You were calling `have_reclaimed_enough()` again after HSC. So wouldn\u0027t that have ensured that we returned only after reclaiming enough?\n\n\u003e But does count_delayed_oom_ still make sense now?\n\nYes, I agree. This counter isn\u0027t needed anymore.",
+      "parentUuid": "b8d85470_5d95f9b9",
+      "range": {
+        "startLine": 2047,
+        "startChar": 8,
+        "endLine": 2047,
+        "endChar": 29
+      },
+      "revId": "98c3d62b5e7f41fb8982e010ecff6023853d26a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
