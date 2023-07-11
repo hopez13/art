@@ -72,6 +72,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "57a3b1f2_4c903583",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1975361
+      },
+      "writtenOn": "2023-07-11T17:06:25Z",
+      "side": 1,
+      "message": "Sure! We have some multiple-X-times improvements on microbenchmark based on .java tests from this patch; will collect more data once more types of loops and data flow is supported.",
+      "parentUuid": "0e5d6ebe_d4b40016",
+      "range": {
+        "startLine": 10,
+        "startChar": 14,
+        "endLine": 10,
+        "endChar": 61
+      },
+      "revId": "55fd610279218ed97fe303dd7f3f8ea80558c24c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9663ed68_3eb508fc",
@@ -699,6 +723,30 @@
       "side": 1,
       "message": "I was referring to `K` beig uppercase and `k` in `cond_k` being lowercase; is this not the same `K`?",
       "parentUuid": "9f31d0eb_90912920",
+      "range": {
+        "startLine": 159,
+        "startChar": 62,
+        "endLine": 159,
+        "endChar": 63
+      },
+      "revId": "55fd610279218ed97fe303dd7f3f8ea80558c24c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e08a7b96_6e59751c",
+        "filename": "compiler/optimizing/loop_optimization.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1975361
+      },
+      "writtenOn": "2023-07-11T17:06:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5075c3ed_de3054c9",
       "range": {
         "startLine": 159,
         "startChar": 62,
