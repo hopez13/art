@@ -56,6 +56,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "8e09cc3e_4117beb2",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2023-07-11T08:56:19Z",
+      "side": 1,
+      "message": "I\u0027m inclined to go for the YAGNI approach and leave the checks as they currently are, and extracting them as described above if we realise that we want to disable more checks for tests code.",
+      "parentUuid": "ecf1c72d_284657a5",
+      "revId": "b26dfbf884ea89361d5a8ff1b598afd4700aca77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "e2309b58_d6c82b70",
         "filename": "odrefresh/odrefresh.cc",
         "patchSetId": 2
@@ -138,6 +156,30 @@
       "writtenOn": "2023-07-10T17:24:12Z",
       "side": 1,
       "message": "There\u0027s a `+` left here, but if the check misses it then it\u0027s fine (if it was potentially hot code I\u0027d\u0027ve suggested two `append` calls).",
+      "range": {
+        "startLine": 293,
+        "startChar": 10,
+        "endLine": 293,
+        "endChar": 41
+      },
+      "revId": "b26dfbf884ea89361d5a8ff1b598afd4700aca77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2aa37cfa_3a071f0a",
+        "filename": "runtime/cha.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2023-07-11T08:56:19Z",
+      "side": 1,
+      "message": "I believe the check is OK with one concatenation but will flag 2+ concatenations. To be fair, this looks a case where the `append` calls actually don\u0027t look terrible, so I\u0027m happy to change this line if you want.",
+      "parentUuid": "c1b2c111_244d32a9",
       "range": {
         "startLine": 293,
         "startChar": 10,
