@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf2a79f8_8340e837",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-07-11T00:10:50Z",
+      "side": 1,
+      "message": "Do we have a high-level description of CardTable and ModUnionTable somewhere? The interface description in the .h files could be clearer. I\u0027m thinking of questions like:\n- What does \"ageing\" mean? (I kind of know, but a clear definition would help.)\n- Why is there exactly one level of \"aged\"?\n- Why is there a separate ModUnionTable instead of using one more of the plentiful bits in the CardTable.\n- What exactly does a set bit in the ModUnionTable mean?\n\nIf don\u0027t have that, we should probably put it in a bug, and generate it in a later CL. If we have it, that would be really helpful for reviewing.",
+      "revId": "5127c3eca0414b7e924b5f04e3ab7eefb06cd9ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77dfa94a_45da5732",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 578,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-07-11T00:10:50Z",
+      "side": 1,
+      "message": "This seems to make a new assumption that either all or none of the immune spaces were previously added. Why is that always valid? The alternative of just making AddSpace idempotent doesn\u0027t seem too bad either.",
+      "range": {
+        "startLine": 578,
+        "startChar": 10,
+        "endLine": 578,
+        "endChar": 30
+      },
+      "revId": "5127c3eca0414b7e924b5f04e3ab7eefb06cd9ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
