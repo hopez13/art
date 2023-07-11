@@ -39,6 +39,30 @@
       },
       "revId": "ce8d416d15ee9db4593d3e4303e3c0b0045b3282",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "456732aa_fec3e9e6",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-07-11T16:31:29Z",
+      "side": 1,
+      "message": "Please check the new code in `Class::IsVisiblyInitialized()`.",
+      "parentUuid": "307aeced_72f436f9",
+      "range": {
+        "startLine": 275,
+        "startChar": 82,
+        "endLine": 275,
+        "endChar": 90
+      },
+      "revId": "ce8d416d15ee9db4593d3e4303e3c0b0045b3282",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
