@@ -339,6 +339,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "56692114_06f8e159",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1513,
+      "author": {
+        "id": 1975361
+      },
+      "writtenOn": "2023-07-11T08:56:46Z",
+      "side": 1,
+      "message": "\u003e Does it matter if the VecOperation is predicated or not for this check?\n\nI see now; no, actually it doesn\u0027t matter: a vec operation outside the vector loop body must be recorded in vector_external_set regardless whether it has a predicate or not.",
+      "parentUuid": "a50f2e02_ae220eea",
+      "range": {
+        "startLine": 1511,
+        "startChar": 0,
+        "endLine": 1513,
+        "endChar": 0
+      },
+      "revId": "d30ea25eb41ef0def621df2680fd2619a9473e71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9d7256ee_77780a1b",
         "filename": "compiler/optimizing/loop_optimization.h",
         "patchSetId": 6
