@@ -47,6 +47,54 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0bc8ce6d_b08deb97",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-07-11T15:58:38Z",
+      "side": 1,
+      "message": "The `SlowPathCode::SaveLiveRegisters()` has a default implementation that we can use without overriding. It saves only what\u0027s necessary and if the `GetGraph()-\u003eHasSIMD()` is false, then nothing is saved here because of the `SetCustomSlowPathCallerSaves()` call here: https://android-review.googlesource.com/c/platform/art/+/2651554/3/compiler/optimizing/code_generator_riscv64.cc#1620",
+      "parentUuid": "96ebc916_4a9417b0",
+      "range": {
+        "startLine": 153,
+        "startChar": 44,
+        "endLine": 153,
+        "endChar": 89
+      },
+      "revId": "53e0e874838e897fea4a8482bd8cd14e0621f2d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb7036da_57da19a4",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-07-11T15:58:38Z",
+      "side": 1,
+      "message": "This sort of refers to a \"SIMD graph\" (`GetGraph()-\u003eHasSIMD()`). I\u0027d prefer to keep it.",
+      "parentUuid": "39dee81a_7936ac37",
+      "range": {
+        "startLine": 153,
+        "startChar": 80,
+        "endLine": 153,
+        "endChar": 88
+      },
+      "revId": "53e0e874838e897fea4a8482bd8cd14e0621f2d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "195d61f1_5fc1bd73",
@@ -60,6 +108,30 @@
       "writtenOn": "2023-07-11T11:39:17Z",
       "side": 1,
       "message": "Drop?",
+      "range": {
+        "startLine": 156,
+        "startChar": 85,
+        "endLine": 156,
+        "endChar": 94
+      },
+      "revId": "53e0e874838e897fea4a8482bd8cd14e0621f2d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "315ea9bf_5018e0ee",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-07-11T15:58:38Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "195d61f1_5fc1bd73",
       "range": {
         "startLine": 156,
         "startChar": 85,
@@ -93,6 +165,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f03d6974_0a4278b8",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-07-11T15:58:38Z",
+      "side": 1,
+      "message": "I\u0027d prefer this to be a 16-bit instruction when we implement the \"C\" extension. C.ADDI cannot use our scratch registers `TMP` or `TMP2`. But I checked that there is no C.SLLIW, so we I need to change this to C.SLLI.",
+      "parentUuid": "e9d8564e_e3f20734",
+      "range": {
+        "startLine": 240,
+        "startChar": 0,
+        "endLine": 240,
+        "endChar": 95
+      },
+      "revId": "53e0e874838e897fea4a8482bd8cd14e0621f2d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6837b0cf_e0348a83",
@@ -116,6 +212,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d0854f4_00ebc9a4",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-07-11T15:58:38Z",
+      "side": 1,
+      "message": "Not doing the `__ Bind(slow_path-\u003eGetReturnLabel())` shall already do a weaker version of such check. If the slow path emitted a jump to its return label but the label was never bound, that label\u0027s destructor would fail the `CHECK(!IsLinked())`.",
+      "parentUuid": "6837b0cf_e0348a83",
+      "range": {
+        "startLine": 247,
+        "startChar": 4,
+        "endLine": 247,
+        "endChar": 54
+      },
+      "revId": "53e0e874838e897fea4a8482bd8cd14e0621f2d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1fd6e911_e70461a2",
@@ -129,6 +249,30 @@
       "writtenOn": "2023-07-11T10:09:57Z",
       "side": 1,
       "message": "nit: superfluous parenthesis",
+      "range": {
+        "startLine": 434,
+        "startChar": 31,
+        "endLine": 434,
+        "endChar": 32
+      },
+      "revId": "53e0e874838e897fea4a8482bd8cd14e0621f2d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "18877095_3a99d9fc",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-07-11T15:58:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1fd6e911_e70461a2",
       "range": {
         "startLine": 434,
         "startChar": 31,
