@@ -91,10 +91,11 @@ double tsc_to_microsec_scaling_factor = -1.0;
 uint64_t GetTimestamp() {
   uint64_t t = 0;
 #if defined(__arm__)
-  // See Architecture Reference Manual ARMv7-A and ARMv7-R edition section B4.1.34
-  // Q and R specify that they should be written to lower and upper halves of 64-bit value.
-  // See: https://llvm.org/docs/LangRef.html#asm-template-argument-modifiers
-  asm volatile("mrrc p15, 1, %Q0, %R0, c14" : "=r"(t));
+  // On ARM 32 bit, we don't always have access to the timestamp counters from
+  // user space. There is no easy way to check if it is safe to read the
+  // timestamp counters. So just fallback to clock_gettime on these processes.
+  // See b/289178149 for more context.
+  t = MicroTime();
 #elif defined(__aarch64__)
   // See Arm Architecture Registers  Armv8 section System Registers
   asm volatile("mrs %0, cntvct_el0" : "=r"(t));
@@ -173,11 +174,11 @@ void InitializeTimestampCounters() {
   }
 
 #if defined(__arm__)
-  double seconds_to_microseconds = 1000 * 1000;
-  uint64_t freq = 0;
-  // See Architecture Reference Manual ARMv7-A and ARMv7-R edition section B4.1.21
-  asm volatile("mrc p15, 0, %0, c14, c0, 0" : "=r"(freq));
-  tsc_to_microsec_scaling_factor = seconds_to_microseconds / static_cast<double>(freq);
+  // On ARM 32 bit, we don't always have access to the timestamp counters from
+  // user space. There is no easy way to check if it is safe to read the
+  // timestamp counters. So just fallback to clock_gettime on these processes.
+  // See b/289178149 for more context.
+  tsc_to_microsec_scaling_factor = 1.0;
 #elif defined(__aarch64__)
   double seconds_to_microseconds = 1000 * 1000;
   uint64_t freq = 0;
@@ -545,6 +546,13 @@ void Trace::Start(std::unique_ptr<File>&& trace_file_in,
         // For thread cpu clocks, we need to make a kernel call and hence we call into c++ to
         // support them.
         bool is_fast_trace = !the_trace_->UseThreadCpuClock();
+#if defined(__arm__)
+        // On ARM 32 bit, we don't always have access to the timestamp counters from
+        // user space. There is no easy way to check if it is safe to read the
+        // timestamp counters. So just fallback to clock_gettime on these processes.
+        // See b/289178149 for more context.
+        is_fast_trace = false;
+#endif
         runtime->GetInstrumentation()->AddListener(
             the_trace_,
             instrumentation::Instrumentation::kMethodEntered |
