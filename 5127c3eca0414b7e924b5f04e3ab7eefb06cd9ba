@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c972972_1274b101",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-07-11T02:40:06Z",
+      "side": 1,
+      "message": "I agree, this could be quite useful. Created b/290698597.",
+      "parentUuid": "bf2a79f8_8340e837",
+      "revId": "5127c3eca0414b7e924b5f04e3ab7eefb06cd9ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "77dfa94a_45da5732",
@@ -31,6 +49,30 @@
       "writtenOn": "2023-07-11T00:10:50Z",
       "side": 1,
       "message": "This seems to make a new assumption that either all or none of the immune spaces were previously added. Why is that always valid? The alternative of just making AddSpace idempotent doesn\u0027t seem too bad either.",
+      "range": {
+        "startLine": 578,
+        "startChar": 10,
+        "endLine": 578,
+        "endChar": 30
+      },
+      "revId": "5127c3eca0414b7e924b5f04e3ab7eefb06cd9ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "186d32fc_cfb7d335",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 578,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-07-11T02:40:06Z",
+      "side": 1,
+      "message": "Added a comment to clarify this. The reason I think this is a good place to capture all immune spaces is because this happens to be the first iteration over all the spaces after starting marking.\n\nPTAL at the latest patch. If you still want me to add spaces to it separately, I\u0027ll do it.",
+      "parentUuid": "77dfa94a_45da5732",
       "range": {
         "startLine": 578,
         "startChar": 10,
