@@ -134,6 +134,30 @@
       },
       "revId": "98c3d62b5e7f41fb8982e010ecff6023853d26a8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0c96743_56f38be3",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2047,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-07-11T23:57:48Z",
+      "side": 1,
+      "message": "I meant in the base code. I think even if have_reclaimed_enough was consistently false, and we did an HSC, we could set ptr to a non-null value at line 2012, fail the test at 2050, and return it at 2054. That seems like an oversight.\n\nActually, looking at count_delayed_oom_ again, it arguablty makes more sense than before. Now it counts how often we got enough memory back from HSC to rescue us from an OOME, which the heap.h comment says was what we meant to count before (in \"base\"). We also did that before, but would often have succeeded even if HSC accomplished nothing, so the count wasn\u0027t meaningful.\n\nWith that in mind, maybe we should just leave it?",
+      "parentUuid": "05bb64e6_e5f417cd",
+      "range": {
+        "startLine": 2047,
+        "startChar": 8,
+        "endLine": 2047,
+        "endChar": 29
+      },
+      "revId": "98c3d62b5e7f41fb8982e010ecff6023853d26a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
