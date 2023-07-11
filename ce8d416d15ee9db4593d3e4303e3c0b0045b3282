@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "90086d4a_41c9a066",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-07-11T16:17:33Z",
+      "side": 1,
+      "message": "On many large cores, all of this may actually not be worth it. The cost of acquire loads is often very low these days. But there still seem to be some common small cores, like A55s, on which it matters enough that we should do this.\n\nI agree this is a better approach, but I think it needs a couple of tweaks:",
+      "revId": "ce8d416d15ee9db4593d3e4303e3c0b0045b3282",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "307aeced_72f436f9",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-07-11T16:17:33Z",
+      "side": 1,
+      "message": "SyncCore is needed only to make sure that any newly generated instructions are properly visible to the core, and any information about instructions that may have been remembered by the core itself (as opposed to the i-cache, which is flushed separately) has been flushed. I don\u0027t believe that\u0027s needed here.\n\nIt is worth thinking carefully about the code that tests for visibly initialized. We need to make sure that no loads that depend on the state are speculated BY THE COMPILER above the load of the class state. I suspect that\u0027s not an issue for our compiler. But we may need some asm volatile (\"\" : : : \"memory\") statements in the switch interpreter right after a class initialization test? (atomic_signal_fence should also work, but I would follow the membarrier man page here).\n\nProbably just putting the asm in IsVisiblyInitialized() after the load should do?",
+      "range": {
+        "startLine": 275,
+        "startChar": 82,
+        "endLine": 275,
+        "endChar": 90
+      },
+      "revId": "ce8d416d15ee9db4593d3e4303e3c0b0045b3282",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
