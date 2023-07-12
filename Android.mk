@@ -589,7 +589,9 @@ standalone-apex-files: deapexer \
                        $(RELEASE_ART_APEX) \
                        $(RUNTIME_APEX) \
                        $(CONSCRYPT_APEX) \
+                       $(HOST_OUT_JAVA_LIBRARIES)/conscrypt-hostdex.jar \
                        $(I18N_APEX) \
+                       $(HOST_OUT_JAVA_LIBRARIES)/core-icu4j-hostdex.jar \
                        $(STATSD_APEX) \
                        $(TZDATA_APEX)
 	$(call extract-from-apex,$(RELEASE_ART_APEX),\
@@ -604,10 +606,17 @@ standalone-apex-files: deapexer \
 	    mv -f $$libdir/bionic/*.so $$libdir; \
 	  fi && \
 	  cp prebuilts/runtime/mainline/platform/impl/$(TARGET_ARCH)/*.so $$libdir
+	# We build the ART boot image from the host variant of `conscrypt` and
+	# `core-icu4j`, so we need to use the host variant of them to overwrite the
+	# ones extracted from the APEXes in order to match the boot image.
 	$(call extract-from-apex,$(CONSCRYPT_APEX),\
-	  $(PRIVATE_CONSCRYPT_APEX_DEPENDENCY_LIBS))
+	  $(PRIVATE_CONSCRYPT_APEX_DEPENDENCY_LIBS)) && \
+	  cp $(HOST_OUT_JAVA_LIBRARIES)/conscrypt-hostdex.jar \
+	    $(TARGET_OUT)/apex/com.android.conscrypt/javalib/conscrypt.jar
 	$(call extract-from-apex,$(I18N_APEX),\
-	  $(PRIVATE_I18N_APEX_DEPENDENCY_LIBS))
+	  $(PRIVATE_I18N_APEX_DEPENDENCY_LIBS)) && \
+	  cp $(HOST_OUT_JAVA_LIBRARIES)/core-icu4j-hostdex.jar \
+	    $(TARGET_OUT)/apex/com.android.i18n/javalib/core-icu4j.jar
 	$(call extract-from-apex,$(STATSD_APEX),\
 	  $(PRIVATE_STATSD_APEX_DEPENDENCY_LIBS))
 	$(call extract-from-apex,$(TZDATA_APEX),)
