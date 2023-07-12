@@ -2595,9 +2595,24 @@ void CodeGeneratorRISCV64::GenerateExplicitNullCheck(HNullCheck* instruction) {
 
 HLoadString::LoadKind CodeGeneratorRISCV64::GetSupportedLoadStringKind(
     HLoadString::LoadKind desired_string_load_kind) {
-  UNUSED(desired_string_load_kind);
-  LOG(FATAL) << "Unimplemented";
-  UNREACHABLE();
+  bool fallback_load = false;
+  switch (desired_string_load_kind) {
+    case HLoadString::LoadKind::kBootImageLinkTimePcRelative:
+    case HLoadString::LoadKind::kBootImageRelRo:
+    case HLoadString::LoadKind::kBssEntry:
+      DCHECK(!Runtime::Current()->UseJitCompilation());
+      break;
+    case HLoadString::LoadKind::kJitBootImageAddress:
+    case HLoadString::LoadKind::kJitTableAddress:
+      DCHECK(Runtime::Current()->UseJitCompilation());
+      break;
+    case HLoadString::LoadKind::kRuntimeCall:
+      break;
+  }
+  if (fallback_load) {
+    desired_string_load_kind = HLoadString::LoadKind::kRuntimeCall;
+  }
+  return desired_string_load_kind;
 }
 
 HLoadClass::LoadKind CodeGeneratorRISCV64::GetSupportedLoadClassKind(
