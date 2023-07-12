@@ -70,7 +70,7 @@ int GenerateBootImage(const std::string& dir, const std::string& compiler_filter
   std::vector<std::string> args;
   args.push_back(GetCompilerExecutable());
 
-  std::vector<std::string> dex_files = GetLibCoreDexFileNames(/*core_only=*/true);
+  std::vector<std::string> dex_files = GetLibCoreDexFileNames(/*core_only=*/false);
   args.push_back("--runtime-arg");
   args.push_back("-Xbootclasspath:" + Join(dex_files, ":"));
   for (const std::string& file : dex_files) {
