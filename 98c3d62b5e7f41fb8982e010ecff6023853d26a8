@@ -158,6 +158,30 @@
       },
       "revId": "98c3d62b5e7f41fb8982e010ecff6023853d26a8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "18859e77_d3246753",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2047,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-07-12T07:12:36Z",
+      "side": 1,
+      "message": "SGTM.",
+      "parentUuid": "f0c96743_56f38be3",
+      "range": {
+        "startLine": 2047,
+        "startChar": 8,
+        "endLine": 2047,
+        "endChar": 29
+      },
+      "revId": "98c3d62b5e7f41fb8982e010ecff6023853d26a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
