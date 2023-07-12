@@ -19,6 +19,7 @@
 
 #include <stddef.h>
 #include <stdint.h>
+#include <unistd.h>
 
 namespace art {
 
@@ -37,7 +38,7 @@ static constexpr size_t kStackAlignment = 16;
 // System page size. We check this against sysconf(_SC_PAGE_SIZE) at runtime, but use a simple
 // compile-time constant so the compiler can generate better code.
 #if defined(PAGE_SIZE_AGNOSTIC) && (defined(__aarch64__) || defined(__arm__))
-static constexpr size_t kPageSize = 16384;
+static const size_t kPageSize = getpagesize();
 #else
 static constexpr size_t kPageSize = 4096;
 #endif
