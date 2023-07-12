@@ -2645,11 +2645,10 @@ HLoadClass::LoadKind CodeGeneratorRISCV64::GetSupportedLoadClassKind(
 }
 
 HInvokeStaticOrDirect::DispatchInfo CodeGeneratorRISCV64::GetSupportedInvokeStaticOrDirectDispatch(
-    const HInvokeStaticOrDirect::DispatchInfo& desired_dispatch_info, ArtMethod* method) {
-  UNUSED(desired_dispatch_info);
-  UNUSED(method);
-  LOG(FATAL) << "Unimplemented";
-  UNREACHABLE();
+    const HInvokeStaticOrDirect::DispatchInfo& desired_dispatch_info,
+    [[maybe_unused]] ArtMethod* method) {
+  // On RISCV64 we support all dispatch types.
+  return desired_dispatch_info;
 }
 
 void CodeGeneratorRISCV64::LoadMethod(MethodLoadKind load_kind, Location temp, HInvoke* invoke) {
