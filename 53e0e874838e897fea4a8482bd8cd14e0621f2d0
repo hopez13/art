@@ -95,6 +95,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ca3e354_ad42b94f",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-07-12T07:04:50Z",
+      "side": 1,
+      "message": "Marking as resolved. (Interpreting CR+2 as Ack.)",
+      "parentUuid": "eb7036da_57da19a4",
+      "range": {
+        "startLine": 153,
+        "startChar": 80,
+        "endLine": 153,
+        "endChar": 88
+      },
+      "revId": "53e0e874838e897fea4a8482bd8cd14e0621f2d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "195d61f1_5fc1bd73",
@@ -132,6 +156,30 @@
       "side": 1,
       "message": "ditto",
       "parentUuid": "195d61f1_5fc1bd73",
+      "range": {
+        "startLine": 156,
+        "startChar": 85,
+        "endLine": 156,
+        "endChar": 94
+      },
+      "revId": "53e0e874838e897fea4a8482bd8cd14e0621f2d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd1964db_7032dc8c",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-07-12T07:04:50Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "315ea9bf_5018e0ee",
       "range": {
         "startLine": 156,
         "startChar": 85,
