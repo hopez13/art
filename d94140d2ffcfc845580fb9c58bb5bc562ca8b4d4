@@ -22,6 +22,30 @@
       },
       "revId": "d94140d2ffcfc845580fb9c58bb5bc562ca8b4d4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "511c2728_8b733516",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 589,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-07-12T06:59:55Z",
+      "side": 1,
+      "message": "On x86/x86-64 we actually skip \"initialized\" and go directly to \"visibly initialized\" (with a similar check in `MarkClassInitialized()`), so there is no reason to run the checkpoint.\n\nIf we find out that the x86 memory model does not provide sufficient guarantees in some obscure case, we\u0027ll need to remove these x86 simplifications.",
+      "parentUuid": "82f471cc_6516921b",
+      "range": {
+        "startLine": 589,
+        "startChar": 4,
+        "endLine": 589,
+        "endChar": 16
+      },
+      "revId": "d94140d2ffcfc845580fb9c58bb5bc562ca8b4d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
