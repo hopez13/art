@@ -589,7 +589,9 @@ standalone-apex-files: deapexer \
                        $(RELEASE_ART_APEX) \
                        $(RUNTIME_APEX) \
                        $(CONSCRYPT_APEX) \
+                       $(OUT_DIR)/soong/dexpreopt_$(TARGET_ARCH)/dex_artjars_input/conscrypt.jar \
                        $(I18N_APEX) \
+                       $(OUT_DIR)/soong/dexpreopt_$(TARGET_ARCH)/dex_artjars_input/core-icu4j.jar \
                        $(STATSD_APEX) \
                        $(TZDATA_APEX)
 	$(call extract-from-apex,$(RELEASE_ART_APEX),\
@@ -604,10 +606,20 @@ standalone-apex-files: deapexer \
 	    mv -f $$libdir/bionic/*.so $$libdir; \
 	  fi && \
 	  cp prebuilts/runtime/mainline/platform/impl/$(TARGET_ARCH)/*.so $$libdir
+	# The `conscrypt` and `core-icu4j` jars extracted from the APEXes are
+	# different from the ones that the ART boot image are built from, so we need
+	# to overwrite the former with the latter, to avoid checksum mismatches on the
+	# oat files.
+	# Currently, the ART boot image is built from `conscrypt-host` and
+	# `core-icu4j-host`.
 	$(call extract-from-apex,$(CONSCRYPT_APEX),\
-	  $(PRIVATE_CONSCRYPT_APEX_DEPENDENCY_LIBS))
+	  $(PRIVATE_CONSCRYPT_APEX_DEPENDENCY_LIBS)) && \
+	  cp $(OUT_DIR)/soong/dexpreopt_$(TARGET_ARCH)/dex_artjars_input/conscrypt.jar \
+	    $(TARGET_OUT)/apex/com.android.conscrypt/javalib/conscrypt.jar
 	$(call extract-from-apex,$(I18N_APEX),\
-	  $(PRIVATE_I18N_APEX_DEPENDENCY_LIBS))
+	  $(PRIVATE_I18N_APEX_DEPENDENCY_LIBS)) && \
+	  cp $(OUT_DIR)/soong/dexpreopt_$(TARGET_ARCH)/dex_artjars_input/core-icu4j.jar \
+	    $(TARGET_OUT)/apex/com.android.i18n/javalib/core-icu4j.jar
 	$(call extract-from-apex,$(STATSD_APEX),\
 	  $(PRIVATE_STATSD_APEX_DEPENDENCY_LIBS))
 	$(call extract-from-apex,$(TZDATA_APEX),)
