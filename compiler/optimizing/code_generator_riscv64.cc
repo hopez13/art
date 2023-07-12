@@ -2617,9 +2617,31 @@ HLoadString::LoadKind CodeGeneratorRISCV64::GetSupportedLoadStringKind(
 
 HLoadClass::LoadKind CodeGeneratorRISCV64::GetSupportedLoadClassKind(
     HLoadClass::LoadKind desired_class_load_kind) {
-  UNUSED(desired_class_load_kind);
-  LOG(FATAL) << "Unimplemented";
-  UNREACHABLE();
+  bool fallback_load = false;
+  switch (desired_class_load_kind) {
+    case HLoadClass::LoadKind::kInvalid:
+      LOG(FATAL) << "UNREACHABLE";
+      UNREACHABLE();
+    case HLoadClass::LoadKind::kReferrersClass:
+      break;
+    case HLoadClass::LoadKind::kBootImageLinkTimePcRelative:
+    case HLoadClass::LoadKind::kBootImageRelRo:
+    case HLoadClass::LoadKind::kBssEntry:
+    case HLoadClass::LoadKind::kBssEntryPublic:
+    case HLoadClass::LoadKind::kBssEntryPackage:
+      DCHECK(!Runtime::Current()->UseJitCompilation());
+      break;
+    case HLoadClass::LoadKind::kJitBootImageAddress:
+    case HLoadClass::LoadKind::kJitTableAddress:
+      DCHECK(Runtime::Current()->UseJitCompilation());
+      break;
+    case HLoadClass::LoadKind::kRuntimeCall:
+      break;
+  }
+  if (fallback_load) {
+    desired_class_load_kind = HLoadClass::LoadKind::kRuntimeCall;
+  }
+  return desired_class_load_kind;
 }
 
 HInvokeStaticOrDirect::DispatchInfo CodeGeneratorRISCV64::GetSupportedInvokeStaticOrDirectDispatch(
