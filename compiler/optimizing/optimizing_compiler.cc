@@ -435,11 +435,12 @@ bool OptimizingCompiler::CanCompileMethod([[maybe_unused]] uint32_t method_idx,
 }
 
 static bool IsInstructionSetSupported(InstructionSet instruction_set) {
-  return instruction_set == InstructionSet::kArm
-      || instruction_set == InstructionSet::kArm64
-      || instruction_set == InstructionSet::kThumb2
-      || instruction_set == InstructionSet::kX86
-      || instruction_set == InstructionSet::kX86_64;
+  return instruction_set == InstructionSet::kArm ||
+         instruction_set == InstructionSet::kArm64 ||
+         instruction_set == InstructionSet::kThumb2 ||
+         instruction_set == InstructionSet::kRiscv64 ||
+         instruction_set == InstructionSet::kX86 ||
+         instruction_set == InstructionSet::kX86_64;
 }
 
 bool OptimizingCompiler::RunBaselineOptimizations(HGraph* graph,
@@ -728,6 +729,30 @@ CompiledMethod* OptimizingCompiler::Emit(ArenaAllocator* allocator,
   return compiled_method;
 }
 
+// TODO(riscv64): Remove this check when codegen is complete.
+#ifdef ART_ENABLE_CODEGEN_riscv64
+static bool CanAssembleGraphForRiscv64(HGraph* graph) {
+  for (HBasicBlock* block : graph->GetPostOrder()) {
+    // Phis are implemented (and they have no code to emit), so check only non-Phi instructions.
+    for (HInstructionIterator it(block->GetInstructions()); !it.Done(); it.Advance()) {
+      switch (it.Current()->GetKind()) {
+        case HInstruction::kExit:
+        case HInstruction::kGoto:
+        case HInstruction::kParameterValue:
+        case HInstruction::kReturn:
+        case HInstruction::kReturnVoid:
+        case HInstruction::kSuspendCheck:
+          break;
+        default:
+          // Unimplemented instruction.
+          return false;
+      }
+    }
+  }
+  return true;
+}
+#endif
+
 CodeGenerator* OptimizingCompiler::TryCompile(ArenaAllocator* allocator,
                                               ArenaStack* arena_stack,
                                               const DexCompilationUnit& dex_compilation_unit,
@@ -886,6 +911,15 @@ CodeGenerator* OptimizingCompiler::TryCompile(ArenaAllocator* allocator,
     WriteBarrierElimination(graph, compilation_stats_.get()).Run();
   }
 
+  // TODO(riscv64): Remove this check when codegen is complete.
+#ifdef ART_ENABLE_CODEGEN_riscv64
+  if (instruction_set == InstructionSet::kRiscv64 && !CanAssembleGraphForRiscv64(graph)) {
+    MaybeRecordStat(compilation_stats_.get(),
+                    MethodCompilationStat::kNotCompiledUnsupportedIsa);
+    return nullptr;
+  }
+#endif
+
   RegisterAllocator::Strategy regalloc_strategy =
     compiler_options.GetRegisterAllocationStrategy();
   AllocateRegisters(graph,
@@ -893,6 +927,15 @@ CodeGenerator* OptimizingCompiler::TryCompile(ArenaAllocator* allocator,
                     &pass_observer,
                     regalloc_strategy,
                     compilation_stats_.get());
+
+  // TODO(riscv64): Remove this check when ParallelMove is supported by riscv64 codegen.
+#ifdef ART_ENABLE_CODEGEN_riscv64
+  if (instruction_set == InstructionSet::kRiscv64 && !CanAssembleGraphForRiscv64(graph)) {
+    MaybeRecordStat(compilation_stats_.get(),
+                    MethodCompilationStat::kNotCompiledUnsupportedIsa);
+    return nullptr;
+  }
+#endif
 
   codegen->Compile();
   pass_observer.DumpDisassembly();
@@ -981,6 +1024,15 @@ CodeGenerator* OptimizingCompiler::TryCompileIntrinsic(
     WriteBarrierElimination(graph, compilation_stats_.get()).Run();
   }
 
+  // TODO(riscv64): Remove this check when codegen is complete.
+#ifdef ART_ENABLE_CODEGEN_riscv64
+  if (instruction_set == InstructionSet::kRiscv64 && !CanAssembleGraphForRiscv64(graph)) {
+    MaybeRecordStat(compilation_stats_.get(),
+                    MethodCompilationStat::kNotCompiledUnsupportedIsa);
+    return nullptr;
+  }
+#endif
+
   AllocateRegisters(graph,
                     codegen.get(),
                     &pass_observer,
@@ -991,6 +1043,15 @@ CodeGenerator* OptimizingCompiler::TryCompileIntrinsic(
         << " " << graph->PrettyMethod();
     return nullptr;
   }
+
+  // TODO(riscv64): Remove this check when ParallelMove is supported by riscv64 codegen.
+#ifdef ART_ENABLE_CODEGEN_riscv64
+  if (instruction_set == InstructionSet::kRiscv64 && !CanAssembleGraphForRiscv64(graph)) {
+    MaybeRecordStat(compilation_stats_.get(),
+                    MethodCompilationStat::kNotCompiledUnsupportedIsa);
+    return nullptr;
+  }
+#endif
 
   codegen->Compile();
   pass_observer.DumpDisassembly();
@@ -1090,7 +1151,9 @@ CompiledMethod* OptimizingCompiler::Compile(const dex::CodeItem* code_item,
 
   if (kIsDebugBuild &&
       compiler_options.CompileArtTest() &&
-      IsInstructionSetSupported(compiler_options.GetInstructionSet())) {
+      IsInstructionSetSupported(compiler_options.GetInstructionSet()) &&
+      // TODO(riscv64): Enable this check when codegen is complete.
+      compiler_options.GetInstructionSet() != InstructionSet::kRiscv64) {
     // For testing purposes, we put a special marker on method names
     // that should be compiled with this compiler (when the
     // instruction set is supported). This makes sure we're not

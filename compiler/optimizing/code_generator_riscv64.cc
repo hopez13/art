@@ -2101,7 +2101,11 @@ CodeGeneratorRISCV64::CodeGeneratorRISCV64(HGraph* graph,
       assembler_(graph->GetAllocator(),
                  compiler_options.GetInstructionSetFeatures()->AsRiscv64InstructionSetFeatures()),
       location_builder_(graph, this),
-      block_labels_(nullptr) {}
+      instruction_visitor_(graph, this),
+      block_labels_(nullptr) {
+  // Always mark the RA register to be saved.
+  AddAllocatedRegister(Location::RegisterLocation(RA));
+}
 
 void CodeGeneratorRISCV64::MaybeIncrementHotness(bool is_frame_entry) {
   if (GetCompilerOptions().CountHotnessInCompiledCode()) {
@@ -2632,13 +2636,13 @@ void CodeGeneratorRISCV64::InvokeRuntimeWithoutRecordingPcInfo(int32_t entry_poi
 
 void CodeGeneratorRISCV64::IncreaseFrame(size_t adjustment) {
   int32_t adjustment32 = dchecked_integral_cast<int32_t>(adjustment);
-  __ AddConst32(SP, SP, -adjustment32);
+  __ AddConst64(SP, SP, -adjustment32);
   GetAssembler()->cfi().AdjustCFAOffset(adjustment32);
 }
 
 void CodeGeneratorRISCV64::DecreaseFrame(size_t adjustment) {
   int32_t adjustment32 = dchecked_integral_cast<int32_t>(adjustment);
-  __ AddConst32(SP, SP, adjustment32);
+  __ AddConst64(SP, SP, adjustment32);
   GetAssembler()->cfi().AdjustCFAOffset(-adjustment32);
 }
 
