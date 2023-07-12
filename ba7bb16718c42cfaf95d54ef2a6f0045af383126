@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b45db508_4eebe123",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-07-12T08:47:25Z",
+      "side": 1,
+      "message": "Will, could you PTAL at the comment to verify my understanding.\n\nNicolas, PTAL. Thanks!",
+      "revId": "ba7bb16718c42cfaf95d54ef2a6f0045af383126",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52d0ce06_4bf889ac",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-07-12T08:47:25Z",
+      "side": 1,
+      "message": "Will, could you please take a look at the comment if my understanding is correct.",
+      "revId": "ba7bb16718c42cfaf95d54ef2a6f0045af383126",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c7a691e_ad8855ab",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 553,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-07-12T08:47:25Z",
+      "side": 1,
+      "message": "I still left the code in JITed code to read timestamp counter, but we won\u0027t take that path because I am turning off is_fast_trace here. I kept it this way so it would be easy to cherrypick but happy to remove the JIT code support in this CL too.",
+      "revId": "ba7bb16718c42cfaf95d54ef2a6f0045af383126",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
