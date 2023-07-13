@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f9e6845c_77162eee",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2742,
+      "author": {
+        "id": 1096713
+      },
+      "writtenOn": "2023-07-13T13:23:49Z",
+      "side": 1,
+      "message": "Naive post-submit drive-by: It looks like we\u0027re checking the same thing twice here.  Did we intend to check \"opb\" in one of these two checks?",
+      "range": {
+        "startLine": 2741,
+        "startChar": 0,
+        "endLine": 2742,
+        "endChar": 62
+      },
+      "revId": "0b284aaa0f2b7c89591ac494e71af40adc8cf15d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
