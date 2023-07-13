@@ -1947,12 +1947,15 @@ mirror::Object* Heap::AllocateInternalWithGc(Thread* self,
     }
   }
 
-  uint64_t bytes_freed_before;
+  uint64_t bytes_freed_before = GetBytesFreedEver();
   auto have_reclaimed_enough = [&]() {
     size_t curr_bytes_allocated = GetBytesAllocated();
     size_t free_heap = UnsignedDifference(growth_limit_, curr_bytes_allocated);
     uint64_t newly_freed = GetBytesFreedEver() - bytes_freed_before;
-    DCHECK(newly_freed < (static_cast<uint64_t>(1) << 60));  // Didn't wrap.
+    // Make sure it didn't wrap.
+    DCHECK(newly_freed < (static_cast<uint64_t>(1) << 60))
+        << " GetBytesFreedEver() = " << GetBytesFreedEver()
+        << " bytes_freed_before = " << bytes_freed_before;
     double free_heap_ratio = static_cast<double>(free_heap) / growth_limit_;
     double newly_freed_ratio = static_cast<double>(newly_freed) / growth_limit_;
     return free_heap_ratio >= kMinFreeHeapAfterGcForAlloc ||
