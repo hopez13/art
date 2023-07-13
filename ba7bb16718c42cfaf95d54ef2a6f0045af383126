@@ -20,6 +20,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8d5d0b2d_3c1a625b",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1572468
+      },
+      "writtenOn": "2023-07-13T09:58:09Z",
+      "side": 1,
+      "message": "For the 64-bit kernel, I think the access should then be emulated by the kernel in response to a trap configured due to a CPU erratum. Are you seeing a SIGILL instead?",
+      "range": {
+        "startLine": 96,
+        "startChar": 85,
+        "endLine": 97,
+        "endChar": 78
+      },
+      "revId": "ba7bb16718c42cfaf95d54ef2a6f0045af383126",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "52d0ce06_4bf889ac",
         "filename": "runtime/trace.cc",
         "patchSetId": 2
