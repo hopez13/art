@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef52dad9_0974620c",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-07-13T08:23:42Z",
+      "side": 1,
+      "message": "The first part is RISC-V (FP compare operations yield 0 for NaN). The handling of `gt_bias` just follows the dex bytecode requirements for `cmp{lg}-{float,double}`, see https://source.android.com/docs/core/runtime/dalvik-bytecode . Here we\u0027re handling these instructions fused with a comparison with zero (see `InstructionSimplifierVisitor::VisitCondition()`.",
+      "parentUuid": "c293ff43_cdfaa57a",
+      "range": {
+        "startLine": 393,
+        "startChar": 0,
+        "endLine": 394,
+        "endChar": 54
+      },
+      "revId": "c9d06b0599f621328e4f20bf8e32ff120cdbab05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0cc243c8_f2c66744",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cfa8d729_8f4d5cf9",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-07-13T08:23:42Z",
+      "side": 1,
+      "message": "We would need to introduce some new optimization. And I cannot imagine one that would actually break this.\n\nWe get here with `kCondEQ` or `kCondNE` when we merge a `HCompare` (created from `cmp{lg}-{float,double}`) with `HEqual(., 0)` or `HNotEqual(., 0)`. As the dex instructions (and therefore `HCompare`) always generate non-zero values for NaNs, no matter the `gt_bias`, comparison with 0 is always either \"equal\", or \"not equal or unordered\".",
+      "parentUuid": "0cc243c8_f2c66744",
+      "range": {
+        "startLine": 395,
+        "startChar": 0,
+        "endLine": 397,
+        "endChar": 0
+      },
+      "revId": "c9d06b0599f621328e4f20bf8e32ff120cdbab05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f450e48a_21e6007b",
@@ -60,6 +108,30 @@
       "writtenOn": "2023-07-10T13:59:37Z",
       "side": 1,
       "message": "Should we merge this with the `default` case? They are doing the same thing",
+      "range": {
+        "startLine": 732,
+        "startChar": 0,
+        "endLine": 732,
+        "endChar": 71
+      },
+      "revId": "c9d06b0599f621328e4f20bf8e32ff120cdbab05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d639dc63_18b6f231",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 732,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-07-13T08:23:42Z",
+      "side": 1,
+      "message": "Done. (The original CL, https://android-review.googlesource.com/2623795 , had an `is_64bit` argument to `GenerateIntLongCondition()` but I simplified that without noticing that this can be merged.)",
+      "parentUuid": "f450e48a_21e6007b",
       "range": {
         "startLine": 732,
         "startChar": 0,
