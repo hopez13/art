@@ -149,6 +149,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4b8946cd_ceccb964",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1729538
+      },
+      "writtenOn": "2023-07-13T15:42:33Z",
+      "side": 1,
+      "message": "I just checked the offending kernel, and it seems to be missing some of these commits:\n\n```\n32a3e635fb0e arm64: compat: Add CNTFRQ trap handler\n50de013d22e4 arm64: compat: Add CNTVCT trap handler\n2a8905e18c55 arm64: compat: Add cp15_32 and cp15_64 handler arrays\n1f1c014035a8 arm64: compat: Add condition code checks and IT advance\n70c63cdfd6ee arm64: compat: Add separate CP15 trapping hook\nbd7ac140b82f arm64: Add decoding macros for CP15_32 and CP15_64 traps\n```\n\nwhich were never backported (they landed in v5.0).",
+      "parentUuid": "a74a6009_18bc4516",
+      "range": {
+        "startLine": 96,
+        "startChar": 85,
+        "endLine": 97,
+        "endChar": 78
+      },
+      "revId": "ba7bb16718c42cfaf95d54ef2a6f0045af383126",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "52d0ce06_4bf889ac",
         "filename": "runtime/trace.cc",
         "patchSetId": 2
