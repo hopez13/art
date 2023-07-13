@@ -1947,7 +1947,7 @@ mirror::Object* Heap::AllocateInternalWithGc(Thread* self,
     }
   }
 
-  uint64_t bytes_freed_before;
+  uint64_t bytes_freed_before = GetBytesFreedEver();
   auto have_reclaimed_enough = [&]() {
     size_t curr_bytes_allocated = GetBytesAllocated();
     size_t free_heap = UnsignedDifference(growth_limit_, curr_bytes_allocated);
