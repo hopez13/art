@@ -125,6 +125,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a74a6009_18bc4516",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-07-13T14:37:59Z",
+      "side": 1,
+      "message": "Thanks Will! I will continue looking into the device and see the SIGILL is indeed coming from tsc. I will possibly reach out to the vendors to see if it can be somehow fixed or at least narrow down the list. For now, I will land this CL since it\u0027s blocking the release for partners.",
+      "parentUuid": "03905521_05d920a0",
+      "range": {
+        "startLine": 96,
+        "startChar": 85,
+        "endLine": 97,
+        "endChar": 78
+      },
+      "revId": "ba7bb16718c42cfaf95d54ef2a6f0045af383126",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "52d0ce06_4bf889ac",
         "filename": "runtime/trace.cc",
         "patchSetId": 2
