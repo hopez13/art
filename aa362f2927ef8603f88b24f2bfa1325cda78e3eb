@@ -22,6 +22,30 @@
       },
       "revId": "aa362f2927ef8603f88b24f2bfa1325cda78e3eb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f6410d0_0e8561a1",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2629,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-07-13T11:18:40Z",
+      "side": 1,
+      "message": "Sorry, I missed that. Let\u0027s use RA.",
+      "parentUuid": "7737720d_79bb3f07",
+      "range": {
+        "startLine": 2629,
+        "startChar": 11,
+        "endLine": 2629,
+        "endChar": 15
+      },
+      "revId": "aa362f2927ef8603f88b24f2bfa1325cda78e3eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
