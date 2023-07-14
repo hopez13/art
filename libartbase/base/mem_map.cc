@@ -126,7 +126,7 @@ uintptr_t CreateStartPos(uint64_t input) {
   constexpr uintptr_t mask_ones = (1 << (31 - leading_zeros)) - 1;
 
   // Lowest (usually 12) bits are not used, as aligned by page size.
-  constexpr uintptr_t mask = mask_ones & ~(kPageSize - 1);
+  const uintptr_t mask = mask_ones & ~(kPageSize - 1);
 
   // Mask input data.
   return (input & mask) + LOW_MEM_START;
