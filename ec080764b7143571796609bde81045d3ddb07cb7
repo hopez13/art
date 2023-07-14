@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "81f07152_c9d3087e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-07-14T12:54:30Z",
+      "side": 1,
+      "message": "How do I run the first two? I just tried on up-to-date aosp-main checkout (without the CL under review).\n\n`atest art-apex-update-rollback` gives:\n```\ncom.android.tests.apex.art.BrokenArtApexUpdateRollbackHostTest (1 Test)                                                             \n[1/1] com.android.tests.apex.art.BrokenArtApexUpdateRollbackHostTest#verifyArtApexIsRolledBack: FAILED (180ms)\n                                                                                                                                    \nSTACKTRACE:                                                                                                                         \njava.lang.NoClassDefFoundError: com/android/loganalysis/parser/LogcatParser\n...\n```\n\nAnd `art/build/apex/runtests.sh`:\n```\nart/build/apex/runtests.sh: Checking APEX package com.android.art.host\nart/build/apex/runtests.sh: APEX package path: out/host/linux-x86/apex/com.android.art.host.zipapex\nCould not find lib/libart-dexlayout.so\nRelease Checker FAILED\nCould not find lib/libartd-dexlayout.so\nDebug Checker FAILED\nart/build/apex/runtests.sh: FAILED: Checks failed on com.android.art.host\n```",
+      "parentUuid": "7fec86d1_c6214368",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 5
+      },
+      "revId": "ec080764b7143571796609bde81045d3ddb07cb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "713618d8_adfb3508",
         "filename": "compiler/Android.bp",
         "patchSetId": 4
@@ -54,6 +78,30 @@
       "writtenOn": "2023-07-10T18:07:31Z",
       "side": 1,
       "message": "Nit: Long line.",
+      "range": {
+        "startLine": 74,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 107
+      },
+      "revId": "ec080764b7143571796609bde81045d3ddb07cb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fdef056a_4f694798",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-07-14T12:54:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "713618d8_adfb3508",
       "range": {
         "startLine": 74,
         "startChar": 0,
@@ -87,6 +135,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c0522e9_b1681503",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-07-14T12:54:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9913347f_222b7cd4",
+      "range": {
+        "startLine": 87,
+        "startChar": 0,
+        "endLine": 87,
+        "endChar": 105
+      },
+      "revId": "ec080764b7143571796609bde81045d3ddb07cb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c4aba820_cd0a635e",
@@ -100,6 +172,30 @@
       "writtenOn": "2023-07-10T18:07:31Z",
       "side": 1,
       "message": "Ditto.",
+      "range": {
+        "startLine": 124,
+        "startChar": 0,
+        "endLine": 124,
+        "endChar": 108
+      },
+      "revId": "ec080764b7143571796609bde81045d3ddb07cb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "053da062_04927c54",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-07-14T12:54:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c4aba820_cd0a635e",
       "range": {
         "startLine": 124,
         "startChar": 0,
@@ -133,6 +229,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1baec251_d6114a4f",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-07-14T12:54:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5290969b_29715efb",
+      "range": {
+        "startLine": 137,
+        "startChar": 0,
+        "endLine": 137,
+        "endChar": 105
+      },
+      "revId": "ec080764b7143571796609bde81045d3ddb07cb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dc184f64_610caeed",
@@ -146,6 +266,30 @@
       "writtenOn": "2023-07-10T18:07:31Z",
       "side": 1,
       "message": "Nit: Long line.",
+      "range": {
+        "startLine": 731,
+        "startChar": 0,
+        "endLine": 731,
+        "endChar": 104
+      },
+      "revId": "ec080764b7143571796609bde81045d3ddb07cb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d867e82_8e82b270",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 731,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-07-14T12:54:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dc184f64_610caeed",
       "range": {
         "startLine": 731,
         "startChar": 0,
@@ -179,6 +323,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e81f496f_f55cc954",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 803,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-07-14T12:54:30Z",
+      "side": 1,
+      "message": "Looks like it\u0027s still required:\n\n\nmodule \"com.android.art.debug\" variant \"android_common_com.android.art.debug_image\": \"libart\" requires \"libart-runtime\" that doesn\u0027t list the APEX under \u0027apex_available\u0027.",
+      "parentUuid": "8fa5003f_d341905c",
+      "range": {
+        "startLine": 794,
+        "startChar": 0,
+        "endLine": 803,
+        "endChar": 6
+      },
+      "revId": "ec080764b7143571796609bde81045d3ddb07cb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "943a1a27_efbcfa8c",
@@ -192,6 +360,30 @@
       "writtenOn": "2023-07-10T18:07:31Z",
       "side": 1,
       "message": "Is this still needed, as `libart-runtime-broken` is a static library and no longer a direct component of any ART APEX?",
+      "range": {
+        "startLine": 819,
+        "startChar": 0,
+        "endLine": 826,
+        "endChar": 6
+      },
+      "revId": "ec080764b7143571796609bde81045d3ddb07cb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "406a9bec_95ddb997",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 826,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-07-14T12:54:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "943a1a27_efbcfa8c",
       "range": {
         "startLine": 819,
         "startChar": 0,
@@ -225,6 +417,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "40d9edf9_c931061a",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 848,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-07-14T12:54:30Z",
+      "side": 1,
+      "message": "module \"com.android.art.debug\" variant \"android_common_com.android.art.debug_image\": \"libartd\" requires \"libartd-runtime\" that doesn\u0027t list the APEX under \u0027apex_available\u0027.",
+      "parentUuid": "cfefea69_7c0d18fd",
+      "range": {
+        "startLine": 841,
+        "startChar": 0,
+        "endLine": 848,
+        "endChar": 6
+      },
+      "revId": "ec080764b7143571796609bde81045d3ddb07cb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "76f07207_639cb80a",
@@ -248,6 +464,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c991d3b7_29f150f2",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 864,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-07-14T12:54:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "76f07207_639cb80a",
+      "range": {
+        "startLine": 862,
+        "startChar": 0,
+        "endLine": 864,
+        "endChar": 50
+      },
+      "revId": "ec080764b7143571796609bde81045d3ddb07cb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "860f09ba_636a3ede",
@@ -261,6 +501,30 @@
       "writtenOn": "2023-07-10T18:07:31Z",
       "side": 1,
       "message": "Perhaps we should return an `std::unique_ptr\u003cJit\u003e` here, to make the ownership of the `Jit` object more explicit (maybe in a follow-up CL).",
+      "range": {
+        "startLine": 189,
+        "startChar": 0,
+        "endLine": 189,
+        "endChar": 4
+      },
+      "revId": "ec080764b7143571796609bde81045d3ddb07cb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "730358cf_9d3d2ec6",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-07-14T12:54:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "860f09ba_636a3ede",
       "range": {
         "startLine": 189,
         "startChar": 0,
