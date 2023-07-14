@@ -396,6 +396,7 @@ MarkCompact::MarkCompact(Heap* heap)
       use_uffd_sigbus_(IsSigbusFeatureAvailable()),
       minor_fault_initialized_(false),
       map_linear_alloc_shared_(false) {
+  CHECK_LT(kOffsetChunkSize, kPageSize);
   if (kIsDebugBuild) {
     updated_roots_.reset(new std::unordered_set<void*>());
   }
