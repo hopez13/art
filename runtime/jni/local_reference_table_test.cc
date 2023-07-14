@@ -830,7 +830,7 @@ TEST_F(LocalReferenceTableTest, RegressionTestB276864369) {
 
   // Add refs to fill all small tables and one bigger table.
   const LRTSegmentState cookie0 = kLRTFirstSegment;
-  constexpr size_t kRefsPerPage = kPageSize / sizeof(LrtEntry);
+  const size_t kRefsPerPage = kPageSize / sizeof(LrtEntry);
   std::vector<IndirectRef> refs;
   for (size_t i = 0; i != 2 * kRefsPerPage; ++i) {
     refs.push_back(lrt.Add(cookie0, c, &error_msg));
@@ -854,7 +854,7 @@ TEST_F(LocalReferenceTableTest, Trim) {
 
   // Add refs to fill all small tables.
   const LRTSegmentState cookie0 = kLRTFirstSegment;
-  constexpr size_t kRefsPerPage = kPageSize / sizeof(LrtEntry);
+  const size_t kRefsPerPage = kPageSize / sizeof(LrtEntry);
   std::vector<IndirectRef> refs0;
   for (size_t i = 0; i != kRefsPerPage; ++i) {
     refs0.push_back(lrt.Add(cookie0, c, &error_msg));
@@ -978,7 +978,7 @@ TEST_F(LocalReferenceTableTest, PruneBeforeTrim) {
 
   // Add refs to fill all small tables and one bigger table.
   const LRTSegmentState cookie0 = kLRTFirstSegment;
-  constexpr size_t kRefsPerPage = kPageSize / sizeof(LrtEntry);
+  const size_t kRefsPerPage = kPageSize / sizeof(LrtEntry);
   std::vector<IndirectRef> refs;
   for (size_t i = 0; i != 2 * kRefsPerPage; ++i) {
     refs.push_back(lrt.Add(cookie0, c, &error_msg));
