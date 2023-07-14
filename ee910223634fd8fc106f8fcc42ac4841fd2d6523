@@ -22,6 +22,30 @@
       },
       "revId": "ee910223634fd8fc106f8fcc42ac4841fd2d6523",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e73a17be_5e0fc9ef",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-07-14T16:36:41Z",
+      "side": 1,
+      "message": "We discussed in ART Mainline chat room that we no longer want a phenotype flag that takes precedence.",
+      "parentUuid": "878dffd1_cdbcaff6",
+      "range": {
+        "startLine": 252,
+        "startChar": 9,
+        "endLine": 254,
+        "endChar": 63
+      },
+      "revId": "ee910223634fd8fc106f8fcc42ac4841fd2d6523",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
