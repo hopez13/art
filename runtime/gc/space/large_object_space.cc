@@ -137,11 +137,9 @@ mirror::Object* LargeObjectMapSpace::Alloc(Thread* self, size_t num_bytes,
                                            size_t* bytes_allocated, size_t* usable_size,
                                            size_t* bytes_tl_bulk_allocated) {
   std::string error_msg;
-  MemMap mem_map = MemMap::MapAnonymous("large object space allocation",
-                                        num_bytes,
-                                        PROT_READ | PROT_WRITE,
-                                        /*low_4gb=*/ true,
-                                        &error_msg);
+  MemMap mem_map = MemMap::MapAnonymousAligned<kLargeObjectAlignment>(
+      "large object space allocation", num_bytes, PROT_READ | PROT_WRITE,
+      /*low_4gb=*/ true, &error_msg);
   if (UNLIKELY(!mem_map.IsValid())) {
     LOG(WARNING) << "Large object allocation failed: " << error_msg;
     return nullptr;
@@ -263,7 +261,7 @@ class AllocationInfo {
  public:
   AllocationInfo() : prev_free_(0), alloc_size_(0) {
   }
-  // Return the number of pages that the allocation info covers.
+  // Return the number of kLargeObjectAlignment-sized blocks that the allocation info covers.
   size_t AlignSize() const {
     return alloc_size_ & kFlagsMask;
   }
@@ -360,11 +358,8 @@ inline bool FreeListSpace::SortByPrevFree::operator()(const AllocationInfo* a,
 FreeListSpace* FreeListSpace::Create(const std::string& name, size_t size) {
   CHECK_EQ(size % kLargeObjectAlignment, 0U);
   std::string error_msg;
-  MemMap mem_map = MemMap::MapAnonymous(name.c_str(),
-                                        size,
-                                        PROT_READ | PROT_WRITE,
-                                        /*low_4gb=*/ true,
-                                        &error_msg);
+  MemMap mem_map = MemMap::MapAnonymousAligned<kLargeObjectAlignment>(
+      name.c_str(), size, PROT_READ | PROT_WRITE, /*low_4gb=*/ true, &error_msg);
   CHECK(mem_map.IsValid()) << "Failed to allocate large object space mem map: " << error_msg;
   return new FreeListSpace(name, std::move(mem_map), mem_map.Begin(), mem_map.End());
 }
