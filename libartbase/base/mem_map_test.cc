@@ -382,7 +382,7 @@ TEST_F(MemMapTest, MapFile32Bit) {
   CommonInit();
   std::string error_msg;
   ScratchFile scratch_file;
-  constexpr size_t kMapSize = kPageSize;
+  const size_t kMapSize = kPageSize;
   std::unique_ptr<uint8_t[]> data(new uint8_t[kMapSize]());
   ASSERT_TRUE(scratch_file.GetFile()->WriteFully(&data[0], kMapSize));
   MemMap map = MemMap::MapFile(/*byte_count=*/kMapSize,
@@ -461,7 +461,7 @@ TEST_F(MemMapTest, RemapFileViewAtEnd) {
   ScratchFile scratch_file;
 
   // Create a scratch file 3 pages large.
-  constexpr size_t kMapSize = 3 * kPageSize;
+  const size_t kMapSize = 3 * kPageSize;
   std::unique_ptr<uint8_t[]> data(new uint8_t[kMapSize]());
   memset(data.get(), 1, kPageSize);
   memset(&data[0], 0x55, kPageSize);
@@ -773,7 +773,7 @@ TEST_F(MemMapTest, Reservation) {
   CommonInit();
   std::string error_msg;
   ScratchFile scratch_file;
-  constexpr size_t kMapSize = 5 * kPageSize;
+  const size_t kMapSize = 5 * kPageSize;
   std::unique_ptr<uint8_t[]> data(new uint8_t[kMapSize]());
   ASSERT_TRUE(scratch_file.GetFile()->WriteFully(&data[0], kMapSize));
 
@@ -786,7 +786,7 @@ TEST_F(MemMapTest, Reservation) {
   ASSERT_TRUE(error_msg.empty());
 
   // Map first part of the reservation.
-  constexpr size_t kChunk1Size = kPageSize - 1u;
+  const size_t kChunk1Size = kPageSize - 1u;
   static_assert(kChunk1Size < kMapSize, "We want to split the reservation.");
   uint8_t* addr1 = reservation.Begin();
   MemMap map1 = MemMap::MapFileAtAddress(addr1,
@@ -810,7 +810,7 @@ TEST_F(MemMapTest, Reservation) {
   ASSERT_EQ(map1.BaseEnd(), reservation.Begin());
 
   // Map second part as an anonymous mapping.
-  constexpr size_t kChunk2Size = 2 * kPageSize;
+  const size_t kChunk2Size = 2 * kPageSize;
   DCHECK_LT(kChunk2Size, reservation.Size());  // We want to split the reservation.
   uint8_t* addr2 = reservation.Begin();
   MemMap map2 = MemMap::MapAnonymous("MiddleReservation",
@@ -850,7 +850,7 @@ TEST_F(MemMapTest, Reservation) {
   ASSERT_FALSE(reservation.IsValid());
 
   // Now split the MiddleReservation.
-  constexpr size_t kChunk2ASize = kPageSize - 1u;
+  const size_t kChunk2ASize = kPageSize - 1u;
   DCHECK_LT(kChunk2ASize, map2.Size());  // We want to split the reservation.
   MemMap map2a = map2.TakeReservedMemory(kChunk2ASize);
   ASSERT_TRUE(map2a.IsValid()) << error_msg;

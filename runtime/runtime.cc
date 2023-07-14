@@ -1439,7 +1439,7 @@ bool Runtime::Init(RuntimeArgumentMap&& runtime_options_in) {
   // Note: Don't request an error message. That will lead to a maps dump in the case of failure,
   //       leading to logspam.
   {
-    constexpr uintptr_t kSentinelAddr =
+    const uintptr_t kSentinelAddr =
         RoundDown(static_cast<uintptr_t>(Context::kBadGprBase), kPageSize);
     protected_fault_page_ = MemMap::MapAnonymous("Sentinel fault page",
                                                  reinterpret_cast<uint8_t*>(kSentinelAddr),
