@@ -393,11 +393,16 @@ MemMap MemMap::MapAnonymousAligned(const char* name,
                                    size_t alignment,
                                    /*out=*/std::string* error_msg) {
   DCHECK(IsPowerOfTwo(alignment));
-  DCHECK_GT(alignment, kPageSize);
+
+  if (alignment <= kPageSize) {
+    return MapAnonymous(name, byte_count, prot, low_4gb, error_msg);
+  }
+
   // Allocate extra 'alignment - kPageSize' bytes so that the mapping can be aligned.
   MemMap ret = MapAnonymous(name,
                             /*addr=*/nullptr,
-                            byte_count + alignment - kPageSize,
+                            RoundUp(byte_count, kPageSize)
+                                + alignment - kPageSize,
                             prot,
                             low_4gb,
                             /*reuse=*/false,

@@ -188,7 +188,7 @@ class LargeObjectMapSpace : public LargeObjectSpace {
 // A continuous large object space with a free-list to handle holes.
 class FreeListSpace final : public LargeObjectSpace {
  public:
-  static constexpr size_t kAlignment = kPageSize;
+  static constexpr size_t kAlignment = kLargeObjectAlignment;
 
   virtual ~FreeListSpace();
   static FreeListSpace* Create(const std::string& name, size_t capacity);
