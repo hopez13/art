@@ -29,8 +29,8 @@ namespace art {
 
 TrackedArena::TrackedArena(uint8_t* start, size_t size, bool pre_zygote_fork)
     : Arena(), first_obj_array_(nullptr), pre_zygote_fork_(pre_zygote_fork) {
-  static_assert(ArenaAllocator::kArenaAlignment <= kPageSize,
-                "Arena should not need stronger alignment than kPageSize.");
+  CHECK_LE(ArenaAllocator::kArenaAlignment, kPageSize)
+      << "Arena should not need stronger alignment than kPageSize.";
   DCHECK_ALIGNED_PARAM(size, kPageSize);
   DCHECK_ALIGNED_PARAM(start, kPageSize);
   memory_ = start;
