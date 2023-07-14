@@ -65,7 +65,7 @@ void TrackedArena::SetFirstObject(uint8_t* obj_begin, uint8_t* obj_end) {
   size_t idx = static_cast<size_t>(obj_begin - Begin()) / kPageSize;
   size_t last_byte_idx = static_cast<size_t>(obj_end - 1 - Begin()) / kPageSize;
   // If the addr is at the beginning of a page, then we set it for that page too.
-  if (IsAligned<kPageSize>(obj_begin)) {
+  if (IsAlignedParam(obj_begin, kPageSize)) {
     first_obj_array_[idx] = obj_begin;
   }
   while (idx < last_byte_idx) {
