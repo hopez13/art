@@ -152,7 +152,7 @@ static constexpr size_t kSuspendTimeDuringFlip = 5'000;
 // of the stack (lowest memory).  The higher portion of the memory
 // is protected against reads and the lower is available for use while
 // throwing the StackOverflow exception.
-constexpr size_t kStackOverflowProtectedSize = kMemoryToolStackGuardSizeScale * kPageSize;
+static const size_t kStackOverflowProtectedSize = kMemoryToolStackGuardSizeScale * kPageSize;
 
 static const char* kThreadNameDuringStartup = "<native thread without managed peer>";
 
@@ -1348,7 +1348,7 @@ bool Thread::InitStackHwm() {
   // 8K) + the protected region size (4K) + another page (4K).  Typically this will
   // be 8+4+4 = 16K.  The thread won't be able to do much with this stack even the GC takes
   // between 8K and 12K.
-  uint32_t min_stack = GetStackOverflowReservedBytes(kRuntimeISA) + kStackOverflowProtectedSize
+  size_t min_stack = GetStackOverflowReservedBytes(kRuntimeISA) + kStackOverflowProtectedSize
     + kPageSize;
   if (read_stack_size <= min_stack) {
     // Note, as we know the stack is small, avoid operations that could use a lot of stack.
