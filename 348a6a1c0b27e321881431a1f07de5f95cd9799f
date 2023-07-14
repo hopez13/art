@@ -22,6 +22,30 @@
       },
       "revId": "348a6a1c0b27e321881431a1f07de5f95cd9799f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b8fde14c_2895f7f1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-07-14T17:21:59Z",
+      "side": 1,
+      "message": "I changed generate-boot-image in aosp/2653964 to add core-icu4j and consrypt for target tests too. Otherwise, it\u0027s too tricky that we run host tests and target tests with different boot image setups.",
+      "parentUuid": "0d3d7dd4_9d19f460",
+      "range": {
+        "startLine": 9,
+        "startChar": 35,
+        "endLine": 9,
+        "endChar": 62
+      },
+      "revId": "348a6a1c0b27e321881431a1f07de5f95cd9799f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
