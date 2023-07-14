@@ -147,6 +147,7 @@ LocalReferenceTable::LocalReferenceTable(bool check_jni)
       small_table_(nullptr),
       tables_(),
       table_mem_maps_() {
+  CHECK_EQ(kPageSize % kInitialLrtBytes, 0u);
 }
 
 void LocalReferenceTable::SetCheckJniEnabled(bool enabled) {
