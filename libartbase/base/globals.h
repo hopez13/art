@@ -60,12 +60,12 @@ static constexpr size_t kElfSegmentAlignment = kMaxPageSize;
 // TODO: Kernels for arm and x86 in both, 32-bit and 64-bit modes use 512 entries per page-table
 // page. Find a way to confirm that in userspace.
 // Address range covered by 1 Page Middle Directory (PMD) entry in the page table
-static constexpr size_t kPMDSize = (kPageSize / sizeof(uint64_t)) * kPageSize;
+static const size_t kPMDSize = (kPageSize / sizeof(uint64_t)) * kPageSize;
 // Address range covered by 1 Page Upper Directory (PUD) entry in the page table
-static constexpr size_t kPUDSize = (kPageSize / sizeof(uint64_t)) * kPMDSize;
+static const size_t kPUDSize = (kPageSize / sizeof(uint64_t)) * kPMDSize;
 // Returns the ideal alignment corresponding to page-table levels for the
 // given size.
-static constexpr size_t BestPageTableAlignment(size_t size) {
+static inline size_t BestPageTableAlignment(size_t size) {
   return size < kPUDSize ? kPMDSize : kPUDSize;
 }
 // Clion, clang analyzer, etc can falsely believe that "if (kIsDebugBuild)" always
