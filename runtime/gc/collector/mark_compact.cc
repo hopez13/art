@@ -415,6 +415,7 @@ MarkCompact::MarkCompact(Heap* heap)
       minor_fault_initialized_(false),
       map_linear_alloc_shared_(false),
       clamp_info_map_status_(ClampInfoStatus::kClampInfoNotDone) {
+  CHECK_LT(kOffsetChunkSize, kPageSize);
   if (kIsDebugBuild) {
     updated_roots_.reset(new std::unordered_set<void*>());
   }
