@@ -86,7 +86,7 @@ ImageHeader::ImageHeader(uint32_t image_reservation_size,
 
 void ImageHeader::RelocateImageReferences(int64_t delta) {
   // App Images can be relocated to a page aligned address.
-  CHECK_ALIGNED(delta, kPageSize) << "relocation delta must be page aligned";
+  CHECK_ALIGNED_PARAM(delta, kPageSize) << "relocation delta must be page aligned";
   oat_file_begin_ += delta;
   oat_data_begin_ += delta;
   oat_data_end_ += delta;
