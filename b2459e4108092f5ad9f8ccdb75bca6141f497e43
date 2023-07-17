@@ -1,0 +1,176 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0cbade82_141efd96",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-07-17T15:17:52Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be dropped?",
+      "range": {
+        "startLine": 69,
+        "startChar": 0,
+        "endLine": 73,
+        "endChar": 6
+      },
+      "revId": "b2459e4108092f5ad9f8ccdb75bca6141f497e43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "33e4269e_ce99c8b7",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-07-17T15:17:52Z",
+      "side": 1,
+      "message": "With the comment above this seems superfluous.",
+      "range": {
+        "startLine": 87,
+        "startChar": 0,
+        "endLine": 88,
+        "endChar": 49
+      },
+      "revId": "b2459e4108092f5ad9f8ccdb75bca6141f497e43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2b585ee_9be8aa51",
+        "filename": "compiler/jit/jit_compiler.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-07-17T15:17:52Z",
+      "side": 1,
+      "message": "Isn\u0027t this a misnomer now? There\u0027s no loading anymore, is there?",
+      "range": {
+        "startLine": 128,
+        "startChar": 26,
+        "endLine": 128,
+        "endChar": 30
+      },
+      "revId": "b2459e4108092f5ad9f8ccdb75bca6141f497e43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "639eaad2_3433dcb0",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-07-17T15:17:52Z",
+      "side": 1,
+      "message": "You mean \u003cxxx\u003e_deps?",
+      "range": {
+        "startLine": 135,
+        "startChar": 28,
+        "endLine": 135,
+        "endChar": 64
+      },
+      "revId": "b2459e4108092f5ad9f8ccdb75bca6141f497e43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6960ee37_14669ee2",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 820,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-07-17T15:17:52Z",
+      "side": 1,
+      "message": "Can\u0027t this be folded into libart-broken? We don\u0027t care about optimisations here.",
+      "range": {
+        "startLine": 815,
+        "startChar": 0,
+        "endLine": 820,
+        "endChar": 1
+      },
+      "revId": "b2459e4108092f5ad9f8ccdb75bca6141f497e43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "33f50e07_02293d1f",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 843,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-07-17T15:17:52Z",
+      "side": 1,
+      "message": "Please provide a short description of the library below.",
+      "revId": "b2459e4108092f5ad9f8ccdb75bca6141f497e43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f35555bd_323adca8",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 851,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-07-17T15:17:52Z",
+      "side": 1,
+      "message": "This isn\u0027t sorted alphabetically. Is this order intentional?",
+      "range": {
+        "startLine": 850,
+        "startChar": 0,
+        "endLine": 851,
+        "endChar": 26
+      },
+      "revId": "b2459e4108092f5ad9f8ccdb75bca6141f497e43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c8b926ca_0305becf",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-07-17T15:17:52Z",
+      "side": 1,
+      "message": "Suggest an empty line here to make it clear the comment above only applies to line 222.",
+      "revId": "b2459e4108092f5ad9f8ccdb75bca6141f497e43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "dbe1235d_928598b1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-07-17T15:17:52Z",
+      "side": 1,
+      "message": "BloatBuster was completely silent here, which presumably means it doesn\u0027t regress. However I\u0027m not entirely confident it catches everything, and it\u0027d also be interesting to see how much smaller it gets (if that\u0027s the case). So +1.",
+      "parentUuid": "5d411629_ab88ea11",
+      "revId": "ec080764b7143571796609bde81045d3ddb07cb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7fec86d1_c6214368",
         "filename": "/COMMIT_MSG",
         "patchSetId": 4
@@ -55,6 +73,30 @@
       "side": 1,
       "message": "How do I run the first two? I just tried on up-to-date aosp-main checkout (without the CL under review).\n\n`atest art-apex-update-rollback` gives:\n```\ncom.android.tests.apex.art.BrokenArtApexUpdateRollbackHostTest (1 Test)                                                             \n[1/1] com.android.tests.apex.art.BrokenArtApexUpdateRollbackHostTest#verifyArtApexIsRolledBack: FAILED (180ms)\n                                                                                                                                    \nSTACKTRACE:                                                                                                                         \njava.lang.NoClassDefFoundError: com/android/loganalysis/parser/LogcatParser\n...\n```\n\nAnd `art/build/apex/runtests.sh`:\n```\nart/build/apex/runtests.sh: Checking APEX package com.android.art.host\nart/build/apex/runtests.sh: APEX package path: out/host/linux-x86/apex/com.android.art.host.zipapex\nCould not find lib/libart-dexlayout.so\nRelease Checker FAILED\nCould not find lib/libartd-dexlayout.so\nDebug Checker FAILED\nart/build/apex/runtests.sh: FAILED: Checks failed on com.android.art.host\n```",
       "parentUuid": "7fec86d1_c6214368",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 5
+      },
+      "revId": "ec080764b7143571796609bde81045d3ddb07cb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48415e25_5655f5b2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-07-17T15:17:52Z",
+      "side": 1,
+      "message": "I\u0027m not familiar with art-apex-update-rollback, but if it fails the same way without your CL then it\u0027s fair to just note that it didn\u0027t regress.\n\nSame goes for runtests.sh. I see the host zipapex have lib64/libart-dexlayout{,d}.so files, but not the 32-bit libs. I haven\u0027t managed to figure out how and when it broke, but we\u0027re moving away from zipapex so I\u0027m not too inclined to get to the bottom with it.",
+      "parentUuid": "81f07152_c9d3087e",
       "range": {
         "startLine": 20,
         "startChar": 0,
