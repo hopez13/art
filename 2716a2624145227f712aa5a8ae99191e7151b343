@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "39600b3d_e19fa834",
+        "filename": "runtime/gc/heap_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-07-17T17:21:55Z",
+      "side": 1,
+      "message": "\u003e BTW, why do you think that the previous case of doing only one GC (like before) may not scan objects?\n\nBecause it didn\u0027t :) It looks like if the objects are trivially dead here we won\u0027t need any scanning? And so the test relied on some other (unknown) object being scanned.",
+      "parentUuid": "9b441158_01de992f",
+      "range": {
+        "startLine": 123,
+        "startChar": 7,
+        "endLine": 123,
+        "endChar": 9
+      },
+      "revId": "2716a2624145227f712aa5a8ae99191e7151b343",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e9814beb_33baaa22",
         "filename": "runtime/gc/verification.cc",
         "patchSetId": 1
@@ -61,6 +85,30 @@
       "writtenOn": "2023-07-17T16:04:16Z",
       "side": 1,
       "message": "Why is this required? This function is invoked to print any RAM content, not necessarily heap-space only.",
+      "range": {
+        "startLine": 37,
+        "startChar": 8,
+        "endLine": 37,
+        "endChar": 28
+      },
+      "revId": "2716a2624145227f712aa5a8ae99191e7151b343",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9046c30d_da959a57",
+        "filename": "runtime/gc/verification.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-07-17T17:21:55Z",
+      "side": 1,
+      "message": "The read will crash if the memory isn\u0027t accessible.",
+      "parentUuid": "e9814beb_33baaa22",
       "range": {
         "startLine": 37,
         "startChar": 8,
