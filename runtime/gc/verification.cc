@@ -34,11 +34,13 @@ std::string Verification::DumpRAMAroundAddress(uintptr_t addr, uintptr_t bytes) 
   std::ostringstream oss;
   oss << " adjacent_ram=";
   for (const uintptr_t* p = dump_start; p < dump_end; ++p) {
-    if (p == reinterpret_cast<uintptr_t*>(addr)) {
-      // Marker of where the address is.
-      oss << "|";
+    if (IsAddressInHeapSpace(p, nullptr)) {
+      if (p == reinterpret_cast<uintptr_t*>(addr)) {
+        // Marker of where the address is.
+        oss << "|";
+      }
+      oss << std::hex << std::setfill('0') << std::setw(sizeof(uintptr_t) * 2) << *p << " ";
     }
-    oss << std::hex << std::setfill('0') << std::setw(sizeof(uintptr_t) * 2) << *p << " ";
   }
   return oss.str();
 }
