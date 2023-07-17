@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b078b9fc_205ce4da",
+        "filename": "compiler/jit/small_pattern_matcher.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-07-17T09:35:50Z",
+      "side": 1,
+      "message": "These functions presumably need an `OatQuickMethodHeader` (or something somewhere is likely to break), so they should be implemented in assembly. (Or should we auto-generate them using the actual codegen?)\n\nThat should presumably prevent clobbering xmm12-xmm15 on x86-64. (This ABI mismatch should not be ignored.)\n\nThen we can actually include x86 as well.",
+      "revId": "6f0c73834da024042c508e2e877d64b6fe8f02a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
