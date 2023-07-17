@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18de8169_9aee8045",
+        "filename": "runtime/gc/heap_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-07-17T16:04:16Z",
+      "side": 1,
+      "message": "I would re-word the comment slightly as follows:\n```\nDo one GC while the temporary objects cannot be collected to ensure that the GC at line 127 does scan some objects.\n```\n\nBTW, why do you think that the previous case of doing only one GC (like before) may not scan objects?",
+      "range": {
+        "startLine": 123,
+        "startChar": 7,
+        "endLine": 123,
+        "endChar": 9
+      },
+      "revId": "2716a2624145227f712aa5a8ae99191e7151b343",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9814beb_33baaa22",
+        "filename": "runtime/gc/verification.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-07-17T16:04:16Z",
+      "side": 1,
+      "message": "Why is this required? This function is invoked to print any RAM content, not necessarily heap-space only.",
+      "range": {
+        "startLine": 37,
+        "startChar": 8,
+        "endLine": 37,
+        "endChar": 28
+      },
+      "revId": "2716a2624145227f712aa5a8ae99191e7151b343",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
