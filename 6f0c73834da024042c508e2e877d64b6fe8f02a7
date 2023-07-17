@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1fe45a10_b2c0df73",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-07-17T10:34:16Z",
+      "side": 1,
+      "message": "Is this the average delta versus baseline? Or the average total?",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 58
+      },
+      "revId": "6f0c73834da024042c508e2e877d64b6fe8f02a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b078b9fc_205ce4da",
         "filename": "compiler/jit/small_pattern_matcher.cc",
         "patchSetId": 5
@@ -14,6 +37,184 @@
       "writtenOn": "2023-07-17T09:35:50Z",
       "side": 1,
       "message": "These functions presumably need an `OatQuickMethodHeader` (or something somewhere is likely to break), so they should be implemented in assembly. (Or should we auto-generate them using the actual codegen?)\n\nThat should presumably prevent clobbering xmm12-xmm15 on x86-64. (This ABI mismatch should not be ignored.)\n\nThen we can actually include x86 as well.",
+      "revId": "6f0c73834da024042c508e2e877d64b6fe8f02a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3601f7bb_28f91bdb",
+        "filename": "compiler/jit/small_pattern_matcher.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-07-17T10:34:16Z",
+      "side": 1,
+      "message": "Where is this `offset` coming from?",
+      "range": {
+        "startLine": 97,
+        "startChar": 10,
+        "endLine": 97,
+        "endChar": 16
+      },
+      "revId": "6f0c73834da024042c508e2e877d64b6fe8f02a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b42b1471_4182d0fb",
+        "filename": "compiler/jit/small_pattern_matcher.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-07-17T10:34:16Z",
+      "side": 1,
+      "message": "Can these be methods instead of macros?\n\n`DO_SWITCH_OFFSET` could be something like:\n\n```\nif (offset % 4 !\u003d 0 || offset \u003c 4 || offset \u003e 64) {\n  return nullptr;\n}\n// SWITCH_CASE macro\nreturn is_object ? reinterpret_cast\u003cvoid*\u003e(\u0026object_case\u003coffset\u003e) \\\n                 : reinterpret_cast\u003cvoid*\u003e(\u0026primitive_case\u003coffset, type\u003e);\n```",
+      "range": {
+        "startLine": 92,
+        "startChar": 0,
+        "endLine": 123,
+        "endChar": 3
+      },
+      "revId": "6f0c73834da024042c508e2e877d64b6fe8f02a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "837aa0e7_acfee5b6",
+        "filename": "compiler/jit/small_pattern_matcher.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-07-17T10:34:16Z",
+      "side": 1,
+      "message": "Is this comment related to the `if` in line `140`? Or the one in `143`?\n\nCan we have `is_recognizable_constructor` for `insns_size \u003c 3`? If not, I would be in favour of adding the check `insns_size !\u003d 4u \u0026\u0026 insns_size !\u003d 6u` to `is_recognizable_constructor`. It would also save some checks e.g. line 269 would turn from `(insns_size \u003d\u003d 6u \u0026\u0026 is_recognizable_constructor)) {` to just `insns_size \u003d\u003d 6u` as the size equals to 6 implies is_recognizable_constructor.",
+      "range": {
+        "startLine": 139,
+        "startChar": 0,
+        "endLine": 139,
+        "endChar": 61
+      },
+      "revId": "6f0c73834da024042c508e2e877d64b6fe8f02a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eee5e42b_1b70fea3",
+        "filename": "compiler/jit/small_pattern_matcher.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-07-17T10:34:16Z",
+      "side": 1,
+      "message": "Is there an order for the pattern recognition? We go 4-\u003e1-\u003e2-\u003e3+6.",
+      "revId": "6f0c73834da024042c508e2e877d64b6fe8f02a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e8d6349_987a926d",
+        "filename": "compiler/jit/small_pattern_matcher.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-07-17T10:34:16Z",
+      "side": 1,
+      "message": "We should never hit this as we are checking it in line 140",
+      "range": {
+        "startLine": 171,
+        "startChar": 0,
+        "endLine": 174,
+        "endChar": 5
+      },
+      "revId": "6f0c73834da024042c508e2e877d64b6fe8f02a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "33c0e68e_f78367e8",
+        "filename": "compiler/jit/small_pattern_matcher.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-07-17T10:34:16Z",
+      "side": 1,
+      "message": "`v0`?",
+      "range": {
+        "startLine": 255,
+        "startChar": 38,
+        "endLine": 255,
+        "endChar": 41
+      },
+      "revId": "6f0c73834da024042c508e2e877d64b6fe8f02a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "935c1ed1_e0001304",
+        "filename": "compiler/jit/small_pattern_matcher.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-07-17T10:34:16Z",
+      "side": 1,
+      "message": "insns_size",
+      "range": {
+        "startLine": 268,
+        "startChar": 6,
+        "endLine": 268,
+        "endChar": 37
+      },
+      "revId": "6f0c73834da024042c508e2e877d64b6fe8f02a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72f2d99b_17cda696",
+        "filename": "compiler/jit/small_pattern_matcher.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-07-17T10:34:16Z",
+      "side": 1,
+      "message": "insns_size",
+      "range": {
+        "startLine": 269,
+        "startChar": 7,
+        "endLine": 269,
+        "endChar": 38
+      },
       "revId": "6f0c73834da024042c508e2e877d64b6fe8f02a7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
