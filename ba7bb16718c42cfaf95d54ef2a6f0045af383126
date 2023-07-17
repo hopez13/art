@@ -173,6 +173,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "39c3d08d_08fd3551",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-07-17T14:01:28Z",
+      "side": 1,
+      "message": "Thanks for checking Marc! \n\nJust to update, I verified with a simple test that that accessing CNTVCT causes a SIGILL. It seems to problem with Cortex A73. I can consistently reproduce this on CPUs 4-7 but not on CPUs 0-3. I see there\u0027s erratum 858921 related to this and also a workaround in kernel: https://patches.linaro.org/project/lkml/patch/1492374441-23336-16-git-send-email-daniel.lezcano@linaro.org/\n\nNot sure that\u0027s a part of 4.14 though.\n\nI guess I can check for kernel version here and use the timestamp counters for kernel versions \u003e\u003d 5.0. I have also reached out to ARM to see if we have a list of processors where this is a known problem. Once I have an update I will try to use the timestamp counters where it is known to be safe. Thanks for your inputs.",
+      "parentUuid": "4b8946cd_ceccb964",
+      "range": {
+        "startLine": 96,
+        "startChar": 85,
+        "endLine": 97,
+        "endChar": 78
+      },
+      "revId": "ba7bb16718c42cfaf95d54ef2a6f0045af383126",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "52d0ce06_4bf889ac",
         "filename": "runtime/trace.cc",
         "patchSetId": 2
