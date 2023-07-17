@@ -534,6 +534,21 @@ PRIVATE_STATSD_APEX_DEPENDENCY_LIBS := \
   lib/libstatssocket.so \
   lib64/libstatssocket.so \
 
+PRIVATE_BITNESS :=
+ifneq (,$(filter true,$(TARGET_IS_64_BIT)))
+  PRIVATE_BITNESS := 64
+endif
+
+PRIVATE_CONSTRYPT_NATIVE_LIB_FILES := \
+  $(patsubst %,prebuilts/module_sdk/conscrypt/current/test-exports/android/$(TARGET_ARCH)/lib/%.so,libjavacrypto) \
+  $(patsubst %,$(PRODUCT_OUT)/system/lib$(PRIVATE_BITNESS)/%.so,libcrypto libssl) \
+
+PRIVATE_I18N_NATIVE_LIB_FILES := \
+  $(patsubst %,art/tmp/i18n/test-exports/android/$(TARGET_ARCH)/lib/%.so,libicui18n libicu_jni libicuuc) \
+  $(patsubst %,art/tmp/i18n/sdk/android/$(TARGET_ARCH)/lib/%.so,libicu libandroidicu) \
+
+PRIVATE_ART_TARGET_EXTRA_LIB_FILES := $(PRIVATE_I18N_NATIVE_LIB_FILES)
+
 # Extracts files from an APEX into a location. The APEX can be either a .apex
 # file in $(TARGET_OUT)/apex, or a directory in the same location. Files are
 # extracted to $(TARGET_OUT) with the same relative paths as under the APEX
@@ -591,7 +606,10 @@ standalone-apex-files: deapexer \
                        $(CONSCRYPT_APEX) \
                        $(I18N_APEX) \
                        $(STATSD_APEX) \
-                       $(TZDATA_APEX)
+                       $(TZDATA_APEX) \
+                       $(HOST_OUT_JAVA_LIBRARIES)/conscrypt-hostdex.jar \
+                       art/tmp/i18n/test-exports/java/core-icu4j-for-host.jar \
+                       $(PRIVATE_ART_TARGET_EXTRA_LIB_FILES)
 	$(call extract-from-apex,$(RELEASE_ART_APEX),\
 	  $(PRIVATE_ART_APEX_DEPENDENCY_LIBS) $(PRIVATE_ART_APEX_DEPENDENCY_FILES))
 	# The Runtime APEX has the Bionic libs in ${LIB}/bionic subdirectories,
@@ -599,18 +617,30 @@ standalone-apex-files: deapexer \
 	# Also, platform libraries are installed in prebuilts, so copy them over.
 	$(call extract-from-apex,$(RUNTIME_APEX),\
 	  $(PRIVATE_RUNTIME_APEX_DEPENDENCY_FILES)) && \
-	  libdir=$(TARGET_OUT)/lib$$(expr $(TARGET_ARCH) : '.*\(64\)' || :) && \
+	  libdir=$(TARGET_OUT)/lib$(PRIVATE_BITNESS) && \
 	  if [ -d $$libdir/bionic ]; then \
 	    mv -f $$libdir/bionic/*.so $$libdir; \
 	  fi && \
 	  cp prebuilts/runtime/mainline/platform/impl/$(TARGET_ARCH)/*.so $$libdir
 	$(call extract-from-apex,$(CONSCRYPT_APEX),\
 	  $(PRIVATE_CONSCRYPT_APEX_DEPENDENCY_LIBS))
-	$(call extract-from-apex,$(I18N_APEX),\
-	  $(PRIVATE_I18N_APEX_DEPENDENCY_LIBS))
 	$(call extract-from-apex,$(STATSD_APEX),\
 	  $(PRIVATE_STATSD_APEX_DEPENDENCY_LIBS))
 	$(call extract-from-apex,$(TZDATA_APEX),)
+	# Extract the .dat files. (Extract files from APEX and only keep "etc".)
+	$(call extract-from-apex,$(I18N_APEX),) && \
+	  find $(TARGET_OUT)/apex/com.android.i18n -mindepth 1 -maxdepth 1 ! -name "etc" | xargs rm -rf
+	# Prepare extra Java libraries.
+	mkdir -p $(TARGET_OUT)/apex/com.android.i18n/javalib
+	cp art/tmp/i18n/test-exports/java/core-icu4j-for-host.jar \
+	  $(TARGET_OUT)/apex/com.android.i18n/javalib/core-icu4j.jar
+	# Prepare extra native libraries.
+	libdir=$(TARGET_OUT)/lib$(PRIVATE_BITNESS) && \
+	for file in $(PRIVATE_ART_TARGET_EXTRA_LIB_FILES); do \
+	  if [ $$(dirname "$$file") != $$libdir ]; then \
+	    cp $$file $$libdir; \
+	  fi \
+	done
 
 ########################################################################
 # Phony target for only building what go/lem requires for pushing ART on /data.
