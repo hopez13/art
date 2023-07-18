@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a63c8eb0_3b1a615e",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-07-18T15:52:51Z",
+      "side": 1,
+      "message": "Can\u0027t we do the exchange with only one temp? e.g. exchanging `a` and `b` with `t` as temp:\n```\nt \u003d a;\na \u003d b;\nb \u003d t;\n```",
+      "range": {
+        "startLine": 291,
+        "startChar": 34,
+        "endLine": 291,
+        "endChar": 42
+      },
+      "revId": "fdac808ff18a859e0331915f92104e06d7848804",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46ddf6c5_e8b50298",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3314,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-07-18T15:52:51Z",
+      "side": 1,
+      "message": "nit: extra parenthesis, they are all `\u0026\u0026`",
+      "range": {
+        "startLine": 3314,
+        "startChar": 8,
+        "endLine": 3314,
+        "endChar": 9
+      },
+      "revId": "fdac808ff18a859e0331915f92104e06d7848804",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
