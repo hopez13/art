@@ -98,6 +98,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2b169189_95b9d43a",
+        "filename": "runtime/gc/heap_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-07-18T10:06:09Z",
+      "side": 1,
+      "message": "Maybe the inner GC contributes to \"scanned bytes\", and the outer GC contributes to \"freed bytes\"? I\u0027m just guessing. It looks like the metrics are added up. https://source.corp.google.com/h/googleplex-android/platform/superproject/main/+/refs/heads/main:art/runtime/gc/collector/garbage_collector.cc;l\u003d217-239;drc\u003d9ae32f76a36382a3ded88b91d1695ab8af99bc47",
+      "parentUuid": "3e59451a_48c8914d",
+      "range": {
+        "startLine": 123,
+        "startChar": 7,
+        "endLine": 123,
+        "endChar": 9
+      },
+      "revId": "2716a2624145227f712aa5a8ae99191e7151b343",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e9814beb_33baaa22",
         "filename": "runtime/gc/verification.cc",
         "patchSetId": 1
