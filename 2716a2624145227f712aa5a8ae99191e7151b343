@@ -146,6 +146,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e3a443fb_eb41df39",
+        "filename": "runtime/gc/heap_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-07-18T13:20:17Z",
+      "side": 1,
+      "message": "Interesting! I\u0027ll leave this to Lokesh to judge if it explains it. If it does, it will be nice to put the explanation in the comment. LGTM on my side.",
+      "parentUuid": "8545cd74_01e2a55f",
+      "range": {
+        "startLine": 123,
+        "startChar": 7,
+        "endLine": 123,
+        "endChar": 9
+      },
+      "revId": "2716a2624145227f712aa5a8ae99191e7151b343",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e9814beb_33baaa22",
         "filename": "runtime/gc/verification.cc",
         "patchSetId": 1
@@ -229,6 +253,30 @@
       "side": 1,
       "message": "Ack, I\u0027ve changed it to use `write` instead with the memory, which should return -1 if the data is inaccessible.",
       "parentUuid": "5f5ad047_9fcca426",
+      "range": {
+        "startLine": 37,
+        "startChar": 8,
+        "endLine": 37,
+        "endChar": 28
+      },
+      "revId": "2716a2624145227f712aa5a8ae99191e7151b343",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "11d5acda_e394f60e",
+        "filename": "runtime/gc/verification.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-07-18T13:20:17Z",
+      "side": 1,
+      "message": "Interesting :)",
+      "parentUuid": "4b545693_9a87e0ec",
       "range": {
         "startLine": 37,
         "startChar": 8,

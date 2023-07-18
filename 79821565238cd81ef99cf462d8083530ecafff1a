@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "441e0e43_aec584fb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-07-18T13:20:17Z",
+      "side": 1,
+      "message": "Thank you for the quick fix!",
+      "revId": "79821565238cd81ef99cf462d8083530ecafff1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2fc03035_3faec3cd",
+        "filename": "runtime/gc/verification.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-07-18T13:20:17Z",
+      "side": 1,
+      "message": "You can use `android::base::Pipe`, which creates `unique_fd` objects that are automatically closed.",
+      "range": {
+        "startLine": 47,
+        "startChar": 4,
+        "endLine": 48,
+        "endChar": 22
+      },
+      "revId": "79821565238cd81ef99cf462d8083530ecafff1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
