@@ -224,6 +224,57 @@ class NullCheckSlowPathRISCV64 : public SlowPathCodeRISCV64 {
 
 #undef __
 #define __ down_cast<Riscv64Assembler*>(GetAssembler())->  // NOLINT
+Riscv64Assembler* ParallelMoveResolverRISCV64::GetAssembler() const {
+  return codegen_->GetAssembler();
+}
+
+void ParallelMoveResolverRISCV64::EmitMove(size_t index) {
+  MoveOperands* move = moves_[index];
+  codegen_->MoveLocation(move->GetDestination(), move->GetSource(), move->GetType());
+}
+
+void ParallelMoveResolverRISCV64::EmitSwap(size_t index) {
+  MoveOperands* move = moves_[index];
+  codegen_->SwapLocations(move->GetDestination(), move->GetSource(), move->GetType());
+}
+
+void ParallelMoveResolverRISCV64::RestoreScratch(int reg) {
+  // Pop reg
+  __ Ld(XRegister(reg), SP, 0);
+  codegen_->DecreaseFrame(kRiscv64DoublewordSize);
+}
+
+void ParallelMoveResolverRISCV64::SpillScratch(int reg) {
+  // Push reg
+  codegen_->IncreaseFrame(kRiscv64DoublewordSize);
+  __ Sd(XRegister(reg), SP, 0);
+}
+
+void ParallelMoveResolverRISCV64::Exchange(int index1, int index2, bool double_slot) {
+  // Allocate a scratch register other than TMP, if available.
+  // Else, spill V0 (arbitrary choice) and use it as a scratch register (it will be
+  // automatically unspilled when the scratch scope object is destroyed).
+  ScratchRegisterScope ensure_scratch(this, TMP, A0, codegen_->GetNumberOfCoreRegisters());
+  // If V0 spills onto the stack, SP-relative offsets need to be adjusted.
+  int stack_offset = ensure_scratch.IsSpilled() ? kRiscv64DoublewordSize : 0;
+  if (double_slot) {
+    __ Loadd(XRegister(ensure_scratch.GetRegister()), SP, index1 + stack_offset);
+    __ Loadd(TMP, SP, index2 + stack_offset);
+    __ Stored(XRegister(ensure_scratch.GetRegister()), SP, index2 + stack_offset);
+    __ Stored(TMP, SP, index1 + stack_offset);
+  } else {
+    __ Loadw(XRegister(ensure_scratch.GetRegister()), SP, index1 + stack_offset);
+    __ Loadw(TMP, SP, index2 + stack_offset);
+    __ Storew(XRegister(ensure_scratch.GetRegister()), SP, index2 + stack_offset);
+    __ Storew(TMP, SP, index1 + stack_offset);
+  }
+}
+
+void ParallelMoveResolverRISCV64::ExchangeQuadSlots(int index1, int index2) {
+  UNUSED(index1);
+  UNUSED(index2);
+  UNIMPLEMENTED(FATAL) << "Vector extension is unsupported";
+}
 
 InstructionCodeGeneratorRISCV64::InstructionCodeGeneratorRISCV64(HGraph* graph,
                                                                  CodeGeneratorRISCV64* codegen)
@@ -1825,14 +1876,19 @@ void InstructionCodeGeneratorRISCV64::VisitPackedSwitch(HPackedSwitch* instructi
   LOG(FATAL) << "Unimplemented";
 }
 
-void LocationsBuilderRISCV64::VisitParallelMove(HParallelMove* instruction) {
-  UNUSED(instruction);
-  LOG(FATAL) << "Unimplemented";
+void LocationsBuilderRISCV64::VisitParallelMove([[maybe_unused]] HParallelMove* instruction) {
+  LOG(FATAL) << "Unreachable";
 }
 
 void InstructionCodeGeneratorRISCV64::VisitParallelMove(HParallelMove* instruction) {
-  UNUSED(instruction);
-  LOG(FATAL) << "Unimplemented";
+  if (instruction->GetNext()->IsSuspendCheck() &&
+      instruction->GetBlock()->GetLoopInformation() != nullptr) {
+    HSuspendCheck* suspend_check = instruction->GetNext()->AsSuspendCheck();
+    // The back edge will generate the suspend check.
+    codegen_->ClearSpillSlotsFromLoopPhisInStackMap(suspend_check, instruction);
+  }
+
+  codegen_->GetMoveResolver()->EmitNativeCode(instruction);
 }
 
 void LocationsBuilderRISCV64::VisitParameterValue(HParameterValue* instruction) {
@@ -2469,7 +2525,7 @@ CodeGeneratorRISCV64::CodeGeneratorRISCV64(HGraph* graph,
     : CodeGenerator(graph,
                     kNumberOfXRegisters,
                     kNumberOfFRegisters,
-                    /*number_of_register_pairs=*/ 0u,
+                    /*number_of_register_pairs=*/0u,
                     ComputeRegisterMask(kCoreCalleeSaves, arraysize(kCoreCalleeSaves)),
                     ComputeRegisterMask(kFpuCalleeSaves, arraysize(kFpuCalleeSaves)),
                     compiler_options,
@@ -2478,7 +2534,8 @@ CodeGeneratorRISCV64::CodeGeneratorRISCV64(HGraph* graph,
       assembler_(graph->GetAllocator(),
                  compiler_options.GetInstructionSetFeatures()->AsRiscv64InstructionSetFeatures()),
       location_builder_(graph, this),
-      block_labels_(nullptr) {}
+      block_labels_(nullptr),
+      move_resolver_(graph->GetAllocator(), this) {}
 
 void CodeGeneratorRISCV64::MaybeIncrementHotness(bool is_frame_entry) {
   if (GetCompilerOptions().CountHotnessInCompiledCode()) {
@@ -3207,6 +3264,103 @@ inline void CodeGeneratorRISCV64::MaybePoisonHeapReference(XRegister reg) {
 inline void CodeGeneratorRISCV64::MaybeUnpoisonHeapReference(XRegister reg) {
   if (kPoisonHeapReferences) {
     UnpoisonHeapReference(reg);
+  }
+}
+
+void CodeGeneratorRISCV64::SwapLocations(Location loc1, Location loc2, DataType::Type type) {
+  DCHECK(!loc1.IsConstant());
+  DCHECK(!loc2.IsConstant());
+
+  if (loc1.Equals(loc2)) {
+    return;
+  }
+
+  bool is_slot1 = loc1.IsStackSlot() || loc1.IsDoubleStackSlot();
+  bool is_slot2 = loc2.IsStackSlot() || loc2.IsDoubleStackSlot();
+  bool is_simd1 = loc1.IsSIMDStackSlot();
+  bool is_simd2 = loc2.IsSIMDStackSlot();
+  bool is_fp_reg1 = loc1.IsFpuRegister();
+  bool is_fp_reg2 = loc2.IsFpuRegister();
+
+  if (loc2.IsRegister() && loc1.IsRegister()) {
+    // Swap 2 GPRs
+    XRegister r1 = loc1.AsRegister<XRegister>();
+    XRegister r2 = loc2.AsRegister<XRegister>();
+    ScratchRegisterScope srs(GetAssembler());
+    XRegister tmp = srs.AllocateXRegister();
+    __ Mv(tmp, r2);
+    __ Mv(r2, r1);
+    __ Mv(r1, tmp);
+  } else if (is_fp_reg2 && is_fp_reg1) {
+    // Swap 2 FPRs
+    if (GetGraph()->HasSIMD()) {
+      LOG(FATAL) << "unsupported";
+    } else {
+      FRegister r1 = loc1.AsFpuRegister<FRegister>();
+      FRegister r2 = loc2.AsFpuRegister<FRegister>();
+      ScratchRegisterScope srs(GetAssembler());
+      FRegister ftmp = srs.AllocateFRegister();
+      if (type == DataType::Type::kFloat32) {
+        __ FMvS(ftmp, r1);
+        __ FMvS(r1, r2);
+        __ FMvS(r2, ftmp);
+      } else {
+        DCHECK_EQ(type, DataType::Type::kFloat64);
+        __ FMvD(ftmp, r1);
+        __ FMvD(r1, r2);
+        __ FMvD(r2, ftmp);
+      }
+    }
+  } else if (is_slot1 != is_slot2) {
+    // Swap GPR/FPR and stack slot
+    Location reg_loc = is_slot1 ? loc2 : loc1;
+    Location mem_loc = is_slot1 ? loc1 : loc2;
+    ScratchRegisterScope srs(GetAssembler());
+    XRegister tmp = srs.AllocateXRegister();
+    // Load data from stack slot into tmp
+    if (type != DataType::Type::kReference) {
+      if (mem_loc.IsStackSlot()) {
+        __ Loadw(tmp, SP, mem_loc.GetStackIndex());
+      } else {
+        __ Loadd(tmp, SP, mem_loc.GetStackIndex());
+      }
+    } else {
+      __ Loadwu(tmp, SP, mem_loc.GetStackIndex());
+    }
+    // If reg_loc is FpuRegister
+    if (reg_loc.IsFpuRegister()) {
+      // Store the float value into stack slot
+      if (mem_loc.IsStackSlot()) {
+        __ FStorew(reg_loc.AsFpuRegister<FRegister>(), SP, mem_loc.GetStackIndex());
+      } else {
+        __ FStored(reg_loc.AsFpuRegister<FRegister>(), SP, mem_loc.GetStackIndex());
+      }
+      // Move the value info FRegister
+      if (mem_loc.IsStackSlot()) {
+        __ FMvWX(reg_loc.AsFpuRegister<FRegister>(), tmp);
+      } else {
+        DCHECK(mem_loc.IsDoubleStackSlot());
+        __ FMvDX(reg_loc.AsFpuRegister<FRegister>(), tmp);
+      }
+    } else {
+      // XRegister
+      if (mem_loc.IsStackSlot()) {
+        __ Storew(reg_loc.AsRegister<XRegister>(), SP, mem_loc.GetStackIndex());
+      } else {
+        __ Stored(reg_loc.AsRegister<XRegister>(), SP, mem_loc.GetStackIndex());
+      }
+      __ Mv(reg_loc.AsRegister<XRegister>(), tmp);
+    }
+  } else if (is_slot1 && is_slot2) {
+    move_resolver_.Exchange(loc1.GetStackIndex(), loc2.GetStackIndex(), loc1.IsDoubleStackSlot());
+  } else if (is_simd1 && is_simd2) {
+    // TODO(riscv64): Add VECTOR/SIMD later.
+    UNIMPLEMENTED(FATAL) << "Vector extension is unsupported";
+  } else if ((is_fp_reg1 && is_simd2) || (is_fp_reg2 && is_simd1)) {
+    // TODO(riscv64): Add VECTOR/SIMD later.
+    UNIMPLEMENTED(FATAL) << "Vector extension is unsupported";
+  } else {
+    LOG(FATAL) << "Unimplemented swap between locations " << loc1 << " and " << loc2;
   }
 }
 
