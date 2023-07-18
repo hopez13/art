@@ -192,6 +192,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b33388ed_e44ad5b9",
+        "filename": "runtime/gc/heap_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-07-18T14:36:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e23751b0_61e23ef2",
+      "range": {
+        "startLine": 123,
+        "startChar": 7,
+        "endLine": 123,
+        "endChar": 9
+      },
+      "revId": "2716a2624145227f712aa5a8ae99191e7151b343",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e9814beb_33baaa22",
