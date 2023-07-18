@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "92ac7375_726ce04b",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-07-18T15:57:13Z",
+      "side": 1,
+      "message": "These are both stack slots, so the `a \u003d b` requires another temp (and the store part may require another temp for address adjustment).",
+      "parentUuid": "a63c8eb0_3b1a615e",
+      "range": {
+        "startLine": 291,
+        "startChar": 34,
+        "endLine": 291,
+        "endChar": 42
+      },
+      "revId": "fdac808ff18a859e0331915f92104e06d7848804",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "46ddf6c5_e8b50298",
