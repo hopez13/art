@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6fe4410c_849728af",
+        "filename": "compiler/optimizing/code_generator_riscv64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-07-18T11:15:21Z",
+      "side": 1,
+      "message": "Not for this CL, but should we change that behavior in Loop optimization? We could do something like `simd_register_size_(codegen.SupportsPredicatedSIMD() ? codegen.GetSIMDRegisterWidth() : 0),`",
+      "range": {
+        "startLine": 307,
+        "startChar": 7,
+        "endLine": 307,
+        "endChar": 88
+      },
+      "revId": "8149efccf2ad00af648eddb7512c8519a93cae17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
