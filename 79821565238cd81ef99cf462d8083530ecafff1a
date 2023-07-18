@@ -115,6 +115,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "de68f0b0_a5d58e95",
+        "filename": "runtime/gc/verification.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-07-18T14:57:08Z",
+      "side": 1,
+      "message": "Not allowed means process crash. If some native library arbitrarily gives our heap\u0027s location to some system call and it ends up triggering userfault (because, say, we were in the middle of doing a GC and hence the accessed page was missing), then it will result in process crash. OTOH, if the library directly accesses it in userspace, then it\u0027s not a problem.\n\nIt\u0027s different from reading directly because if you do a userspace access on a userfaultfd protected missing page, it will be resolved and then access will be allowed.\n\nKernel doesn\u0027t allow userfaults being generated in kernel space for unprivileged processes and in Android all zygote forked processes are unprivileged.",
+      "parentUuid": "933b4483_00f97e82",
+      "range": {
+        "startLine": 43,
+        "startChar": 8,
+        "endLine": 43,
+        "endChar": 13
+      },
+      "revId": "79821565238cd81ef99cf462d8083530ecafff1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2fc03035_3faec3cd",
         "filename": "runtime/gc/verification.cc",
         "patchSetId": 3
