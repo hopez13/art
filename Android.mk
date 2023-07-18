@@ -434,6 +434,14 @@ build-art: build-art-target
 .PHONY: build-art-target
 build-art-target: $(TARGET_OUT_EXECUTABLES)/art $(ART_TARGET_DEPENDENCIES) $(TARGET_CORE_IMG_OUTS)
 
+TARGET_BOOT_IMAGE := $(PRODUCT_OUT)/apex/art_boot_images
+TARGET_BOOT_IMAGE_APEX := $(PRODUCT_OUT)/system/apex/$(TESTING_ART_APEX)
+
+# For simulator, build a target boot image on the host.
+.PHONY: build-art-simulator
+build-art-simulator: dexpreopt_bootjar.art_$(TARGET_ARCH)
+	cp -R $(TARGET_BOOT_IMAGE)/javalib/. $(TARGET_BOOT_IMAGE_APEX)/javalib
+
 PRIVATE_ART_APEX_DEPENDENCY_FILES := \
   bin/dalvikvm32 \
   bin/dalvikvm64 \
@@ -638,7 +646,7 @@ build-art-target-golem: $(RELEASE_ART_APEX) com.android.runtime $(CONSCRYPT_APEX
                         $(ART_TARGET_PLATFORM_DEPENDENCIES) \
                         $(ART_TARGET_SHARED_LIBRARY_BENCHMARK) \
 			$(TARGET_OUT_SHARED_LIBRARIES)/libgolemtiagent.so \
-                        $(PRODUCT_OUT)/apex/art_boot_images/javalib/$(TARGET_ARCH)/boot.art \
+                        $(TARGET_BOOT_IMAGE)/javalib/$(TARGET_ARCH)/boot.art \
                         standalone-apex-files
 	# remove debug libraries from public.libraries.txt because golem builds
 	# won't have it.
