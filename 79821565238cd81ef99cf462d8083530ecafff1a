@@ -163,6 +163,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b675a6c8_5808a1c4",
+        "filename": "runtime/gc/verification.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-07-18T15:59:45Z",
+      "side": 1,
+      "message": "Userfaultfd registered memory ranges have the same permissions as any other accessible memory range. So `write`\u0027s check will succeed. But access (via `copy-from-user`) will cause userfault if the page is missing.",
+      "parentUuid": "d4c3a284_4e0cf748",
+      "range": {
+        "startLine": 43,
+        "startChar": 8,
+        "endLine": 43,
+        "endChar": 13
+      },
+      "revId": "79821565238cd81ef99cf462d8083530ecafff1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2fc03035_3faec3cd",
         "filename": "runtime/gc/verification.cc",
         "patchSetId": 3
