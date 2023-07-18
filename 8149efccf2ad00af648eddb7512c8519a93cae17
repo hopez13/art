@@ -22,6 +22,30 @@
       },
       "revId": "8149efccf2ad00af648eddb7512c8519a93cae17",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "366ce545_bc5d6922",
+        "filename": "compiler/optimizing/code_generator_riscv64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-07-18T11:50:27Z",
+      "side": 1,
+      "message": "Predicated SIMD is just one flavor of SIMD. The SIMD support is declared in `HLoopOptimization::TrySetVectorType()` and should probably be moved to codegens but, as you said, that\u0027s not for this CL.",
+      "parentUuid": "6fe4410c_849728af",
+      "range": {
+        "startLine": 307,
+        "startChar": 7,
+        "endLine": 307,
+        "endChar": 88
+      },
+      "revId": "8149efccf2ad00af648eddb7512c8519a93cae17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
