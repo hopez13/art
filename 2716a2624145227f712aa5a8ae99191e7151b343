@@ -122,6 +122,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8545cd74_01e2a55f",
+        "filename": "runtime/gc/heap_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-07-18T12:33:46Z",
+      "side": 1,
+      "message": "AFAIU, doing the first GC will promote the current objects in the HandleScope to old gen, and then the second GC will scan those objects.",
+      "parentUuid": "2b169189_95b9d43a",
+      "range": {
+        "startLine": 123,
+        "startChar": 7,
+        "endLine": 123,
+        "endChar": 9
+      },
+      "revId": "2716a2624145227f712aa5a8ae99191e7151b343",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e9814beb_33baaa22",
         "filename": "runtime/gc/verification.cc",
         "patchSetId": 1
@@ -181,6 +205,30 @@
       "side": 1,
       "message": "I got that. In fact I have faced it myself 😊 But the thing is that this function is to dump any RAM content, not just heap spaces. For instance, I use it to dump RAM content in the from-space in uffd GC, which is not in the heap-space. With this change, this function will stop dumping from-space content even though it\u0027s accessible.\n\nUnfortunately, AFAIK, there is no easy way to check if a given address is mapped and accessible.",
       "parentUuid": "9046c30d_da959a57",
+      "range": {
+        "startLine": 37,
+        "startChar": 8,
+        "endLine": 37,
+        "endChar": 28
+      },
+      "revId": "2716a2624145227f712aa5a8ae99191e7151b343",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b545693_9a87e0ec",
+        "filename": "runtime/gc/verification.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-07-18T12:33:46Z",
+      "side": 1,
+      "message": "Ack, I\u0027ve changed it to use `write` instead with the memory, which should return -1 if the data is inaccessible.",
+      "parentUuid": "5f5ad047_9fcca426",
       "range": {
         "startLine": 37,
         "startChar": 8,
