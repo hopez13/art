@@ -74,6 +74,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3e59451a_48c8914d",
+        "filename": "runtime/gc/heap_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-07-18T04:52:58Z",
+      "side": 1,
+      "message": "But even now it\u0027s only the inner GC that would actually scan something. The outer GC may still not be able to find anything to scan, right? Is that ok? If it is, then why not remove the outer GC?\n\nI guess what is unclear is that how does the inner GC helps the outer GC in scanning some objects, as the comment suggests?",
+      "parentUuid": "39600b3d_e19fa834",
+      "range": {
+        "startLine": 123,
+        "startChar": 7,
+        "endLine": 123,
+        "endChar": 9
+      },
+      "revId": "2716a2624145227f712aa5a8ae99191e7151b343",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e9814beb_33baaa22",
         "filename": "runtime/gc/verification.cc",
         "patchSetId": 1
@@ -109,6 +133,30 @@
       "side": 1,
       "message": "The read will crash if the memory isn\u0027t accessible.",
       "parentUuid": "e9814beb_33baaa22",
+      "range": {
+        "startLine": 37,
+        "startChar": 8,
+        "endLine": 37,
+        "endChar": 28
+      },
+      "revId": "2716a2624145227f712aa5a8ae99191e7151b343",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f5ad047_9fcca426",
+        "filename": "runtime/gc/verification.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-07-18T04:52:58Z",
+      "side": 1,
+      "message": "I got that. In fact I have faced it myself 😊 But the thing is that this function is to dump any RAM content, not just heap spaces. For instance, I use it to dump RAM content in the from-space in uffd GC, which is not in the heap-space. With this change, this function will stop dumping from-space content even though it\u0027s accessible.\n\nUnfortunately, AFAIK, there is no easy way to check if a given address is mapped and accessible.",
+      "parentUuid": "9046c30d_da959a57",
       "range": {
         "startLine": 37,
         "startChar": 8,
