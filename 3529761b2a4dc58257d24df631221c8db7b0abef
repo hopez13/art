@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "363f467b_3af0a7c2",
+        "filename": "runtime/gc/heap_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-07-18T14:44:07Z",
+      "side": 1,
+      "message": "Sorry to make you change this comment so many times. But the current version is not correct. I suggest the following comment:\n\n```\nDo one GC while the temporary objects are reachable, forcing the GC to scan something. The subsequent GC at line 127 may not scan anything but will certainly free some bytes. Together the two GCs ensure success of the test.\n```",
+      "range": {
+        "startLine": 123,
+        "startChar": 6,
+        "endLine": 124,
+        "endChar": 60
+      },
+      "revId": "3529761b2a4dc58257d24df631221c8db7b0abef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
