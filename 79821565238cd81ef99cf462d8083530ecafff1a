@@ -20,6 +20,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "91de4b1e_a9d279fb",
+        "filename": "runtime/gc/verification.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-07-18T14:34:42Z",
+      "side": 1,
+      "message": "Very interesting trick 😊\n\nUnfortunately, it has the same problem that SafeCopy would have with userfaultfd. Since `write` would read from the `addr` within the kernel, it could potentially result in userfaults in the kernel space, which isn\u0027t allowed.\n\nI think it would be best to use a function parameter (default to do safe access), allowing direct (unsafe) access, if necessary (like with userfaultfd registered memory ranges).",
+      "range": {
+        "startLine": 43,
+        "startChar": 8,
+        "endLine": 43,
+        "endChar": 13
+      },
+      "revId": "79821565238cd81ef99cf462d8083530ecafff1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2fc03035_3faec3cd",
         "filename": "runtime/gc/verification.cc",
         "patchSetId": 3

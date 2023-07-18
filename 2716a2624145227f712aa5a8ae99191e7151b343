@@ -170,6 +170,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e23751b0_61e23ef2",
+        "filename": "runtime/gc/heap_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-07-18T14:34:42Z",
+      "side": 1,
+      "message": "If the first GC promotes the objects to old gen, and the subsequent GC is a young collection, then it won\u0027t scan those objects again.\n\nI think Jiakai\u0027s comment makes sense. Below there are `freed_bytes` as well as `scanned_bytes` metrics\u0027. The first GC will make sure we have something to scan but may not have freed anything. The second one will ensure we freed something. Together, they will succeed.",
+      "parentUuid": "e3a443fb_eb41df39",
+      "range": {
+        "startLine": 123,
+        "startChar": 7,
+        "endLine": 123,
+        "endChar": 9
+      },
+      "revId": "2716a2624145227f712aa5a8ae99191e7151b343",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e9814beb_33baaa22",
         "filename": "runtime/gc/verification.cc",
         "patchSetId": 1
