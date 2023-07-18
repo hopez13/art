@@ -43,6 +43,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8fb2cb89_318f65d8",
+        "filename": "compiler/jit/small_pattern_matcher.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-07-18T18:09:48Z",
+      "side": 1,
+      "message": "Given they are leaf, they don\u0027t need a `OatQuickMethodHeader`: the runtime will never see them when walking the stack.",
+      "parentUuid": "b078b9fc_205ce4da",
+      "revId": "6f0c73834da024042c508e2e877d64b6fe8f02a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3601f7bb_28f91bdb",
         "filename": "compiler/jit/small_pattern_matcher.cc",
         "patchSetId": 5
