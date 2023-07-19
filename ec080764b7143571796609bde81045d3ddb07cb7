@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a8067509_0bb7e8e3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-07-19T16:49:43Z",
+      "side": 1,
+      "message": "ART APEX size for \u0027separate libart-compiler\u0027 VS \u0027merged libart+libart-compiler\u0027\nX86: 31,132.00 KiB -\u003e 31,412.00 KiB (+280.00 KiB, +0.90%)\nX86_64: 52,220.00 KiB -\u003e 53,032.00 KiB (+812.00 KiB, +1.55%)\nArm32: 25,572.00 KiB -\u003e 26,144.00 KiB (+572.00 KiB, +2.24%)\nArm64: 48,652.00 KiB -\u003e 50,208.00 KiB (+1556.00 KiB, +3.20%)\n\n\nTurns out there is a regression, which is caused by `strip.keep_symbols: true` in one of the `libart` defaults: https://cs.android.com/android/platform/superproject/main/+/main:art/runtime/Android.bp;l\u003d51-75\nThis negates most of the savings from hiding libart-compiler symbols. I\u0027ll try removing `keep_symbols` property and see if it works, then update the numbers.",
+      "parentUuid": "dbe1235d_928598b1",
+      "revId": "ec080764b7143571796609bde81045d3ddb07cb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7fec86d1_c6214368",
         "filename": "/COMMIT_MSG",
         "patchSetId": 4
@@ -97,6 +115,30 @@
       "side": 1,
       "message": "I\u0027m not familiar with art-apex-update-rollback, but if it fails the same way without your CL then it\u0027s fair to just note that it didn\u0027t regress.\n\nSame goes for runtests.sh. I see the host zipapex have lib64/libart-dexlayout{,d}.so files, but not the 32-bit libs. I haven\u0027t managed to figure out how and when it broke, but we\u0027re moving away from zipapex so I\u0027m not too inclined to get to the bottom with it.",
       "parentUuid": "81f07152_c9d3087e",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 5
+      },
+      "revId": "ec080764b7143571796609bde81045d3ddb07cb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1570b789_69c47b78",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-07-19T16:49:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "48415e25_5655f5b2",
       "range": {
         "startLine": 20,
         "startChar": 0,
