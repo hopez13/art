@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "46d60ba3_d40091c9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-07-19T17:38:10Z",
+      "side": 1,
+      "message": "Afaict this location is only passed around for debug purposes and is not actually used to open files (at least not in code paths through `AddVdexDexFilesSource`, because it\u0027s not accurate then, and this CL doesn\u0027t change that). But something somewhere seems to still parse it to some extent, and I haven\u0027t figured out exactly where it went wrong in dex2oat. It didn\u0027t fail and log any error, it just didn\u0027t compile some methods, which makes it tedious to track down.\n\nTo me this isn\u0027t important enough to warrant a deep dive into all the `location_` related code. If you don\u0027t think this change can go in without getting to the bottom with that then I\u0027ll just abandon this.",
+      "parentUuid": "1254b835_51653ac8",
+      "range": {
+        "startLine": 11,
+        "startChar": 43,
+        "endLine": 12,
+        "endChar": 6
+      },
+      "revId": "67081c3aa007b3d4950175b76ce026f3f7c5139a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f28df8f9_f802794f",
@@ -71,6 +95,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "02f63722_48deec4d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-07-19T17:38:10Z",
+      "side": 1,
+      "message": "I verified that CompilationTestCases failied with PS1, then verified that PS3 fixed it. So the problem was present in the fd case.",
+      "parentUuid": "f28df8f9_f802794f",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 116
+      },
+      "revId": "67081c3aa007b3d4950175b76ce026f3f7c5139a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c3ee890e_75300125",
@@ -84,6 +132,30 @@
       "writtenOn": "2023-07-19T10:31:18Z",
       "side": 1,
       "message": "I looked at this error message and had a second thought. Since you\u0027ve added \"for\" here, it\u0027s now clear enough that this error is about the vdex file rather than the dex file. Do you still need `location` to be the vdex path?\n\nAlternatively, if you still prefer printing the vdex path, could you pass the vdex path as an additional argument to this function just for logging, to avoid breaking things?",
+      "range": {
+        "startLine": 488,
+        "startChar": 60,
+        "endLine": 488,
+        "endChar": 63
+      },
+      "revId": "67081c3aa007b3d4950175b76ce026f3f7c5139a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1abf8197_f1b4cad5",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 488,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-07-19T17:38:10Z",
+      "side": 1,
+      "message": "My premise is that it doesn\u0027t break things - the path wasn\u0027t (and still isn\u0027t) accurate to use for reading anything, and this CL only improves it when we actually have a vdex path. And yes, having the vdex path logged when it exists was useful.\n\nBut, well, something fishy is obviously going on here, so what do I know. It\u0027s perhaps better to leave this mess alone.\n\n\u003e could you pass the vdex path as an additional argument to this function just for logging\n\nThere\u0027s plenty of code further down the call chain that uses the location in log messages, so that would defeat the purpose.",
+      "parentUuid": "c3ee890e_75300125",
       "range": {
         "startLine": 488,
         "startChar": 60,
