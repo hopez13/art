@@ -236,6 +236,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "099669bd_9fc1146c",
+        "filename": "runtime/interpreter/mterp/riscv64/control_flow.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-07-19T08:18:35Z",
+      "side": 1,
+      "message": "Because arm64 does not have a load instruction that would load SP. (The register number 31 is used for SP or ZR, depending on the context. For load/store, 31 is interpreted as ZR for the register to load/store and as SP for the address register.)",
+      "parentUuid": "b203f912_b2da47d1",
+      "range": {
+        "startLine": 31,
+        "startChar": 4,
+        "endLine": 32,
+        "endChar": 13
+      },
+      "revId": "10405ec77f8b28d4ee18847afcebed3ca5cbc4ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a0549d64_43fbb4ba",
