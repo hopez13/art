@@ -22,6 +22,30 @@
       },
       "revId": "ca69de9e0151a2133b9d0704c2b18d4d914c5aa3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc87404b_94212576",
+        "filename": "odrefresh/odr_config.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-07-19T17:17:11Z",
+      "side": 1,
+      "message": "I can\u0027t. This overrides the default `GetProperty` method in libarttools, which calls `android::base::GetProperty` that returns `std::string`.",
+      "parentUuid": "75941a25_7e8baa52",
+      "range": {
+        "startLine": 104,
+        "startChar": 2,
+        "endLine": 104,
+        "endChar": 13
+      },
+      "revId": "ca69de9e0151a2133b9d0704c2b18d4d914c5aa3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
