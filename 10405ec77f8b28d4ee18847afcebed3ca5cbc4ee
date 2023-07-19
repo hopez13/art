@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb8b664d_5b7ce630",
+        "filename": "runtime/interpreter/mterp/riscv64/control_flow.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-07-19T04:34:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c7b3af2f_3dbba3d4",
+      "range": {
+        "startLine": 16,
+        "startChar": 48,
+        "endLine": 16,
+        "endChar": 49
+      },
+      "revId": "10405ec77f8b28d4ee18847afcebed3ca5cbc4ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "22d8279c_c812b673",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-07-10T15:55:57Z",
       "side": 1,
       "message": "also",
+      "range": {
+        "startLine": 17,
+        "startChar": 69,
+        "endLine": 17,
+        "endChar": 70
+      },
+      "revId": "10405ec77f8b28d4ee18847afcebed3ca5cbc4ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6aaae7e2_a7b1046e",
+        "filename": "runtime/interpreter/mterp/riscv64/control_flow.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-07-19T04:34:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "22d8279c_c812b673",
       "range": {
         "startLine": 17,
         "startChar": 69,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "32b18d6c_802d5329",
+        "filename": "runtime/interpreter/mterp/riscv64/control_flow.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-07-19T04:34:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "de3b3a6d_7a37bfde",
+      "range": {
+        "startLine": 19,
+        "startChar": 6,
+        "endLine": 20,
+        "endChar": 11
+      },
+      "revId": "10405ec77f8b28d4ee18847afcebed3ca5cbc4ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1966e2a2_a7097a38",
@@ -83,6 +155,30 @@
       "writtenOn": "2023-07-10T15:55:57Z",
       "side": 1,
       "message": "also",
+      "range": {
+        "startLine": 24,
+        "startChar": 71,
+        "endLine": 24,
+        "endChar": 72
+      },
+      "revId": "10405ec77f8b28d4ee18847afcebed3ca5cbc4ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0446b83b_3a043482",
+        "filename": "runtime/interpreter/mterp/riscv64/control_flow.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-07-19T04:34:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1966e2a2_a7097a38",
       "range": {
         "startLine": 24,
         "startChar": 71,
@@ -116,6 +212,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b203f912_b2da47d1",
+        "filename": "runtime/interpreter/mterp/riscv64/control_flow.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-07-19T04:34:19Z",
+      "side": 1,
+      "message": "Indeed! Not sure why arm64ng does it too.",
+      "parentUuid": "381171ae_fbaa6e64",
+      "range": {
+        "startLine": 31,
+        "startChar": 4,
+        "endLine": 32,
+        "endChar": 13
+      },
+      "revId": "10405ec77f8b28d4ee18847afcebed3ca5cbc4ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a0549d64_43fbb4ba",
@@ -129,6 +249,30 @@
       "writtenOn": "2023-07-10T15:55:57Z",
       "side": 1,
       "message": "10\n\nWe\u0027re explicitly showing the opcode for `return-void`, so we should do that here as well.",
+      "range": {
+        "startLine": 41,
+        "startChar": 18,
+        "endLine": 41,
+        "endChar": 20
+      },
+      "revId": "10405ec77f8b28d4ee18847afcebed3ca5cbc4ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "83ca90fa_6be2d2bd",
+        "filename": "runtime/interpreter/mterp/riscv64/control_flow.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-07-19T04:34:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a0549d64_43fbb4ba",
       "range": {
         "startLine": 41,
         "startChar": 18,
@@ -162,6 +306,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "01e74e5d_6997e7fc",
+        "filename": "runtime/interpreter/mterp/riscv64/control_flow.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-07-19T04:34:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fb0d5edf_e434e6a8",
+      "range": {
+        "startLine": 46,
+        "startChar": 18,
+        "endLine": 46,
+        "endChar": 20
+      },
+      "revId": "10405ec77f8b28d4ee18847afcebed3ca5cbc4ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "50648d2e_752d11b9",
@@ -175,6 +343,30 @@
       "writtenOn": "2023-07-10T15:55:57Z",
       "side": 1,
       "message": "1",
+      "range": {
+        "startLine": 341,
+        "startChar": 60,
+        "endLine": 341,
+        "endChar": 61
+      },
+      "revId": "10405ec77f8b28d4ee18847afcebed3ca5cbc4ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b7721a65_2dc5b598",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-07-19T04:34:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "50648d2e_752d11b9",
       "range": {
         "startLine": 341,
         "startChar": 60,
@@ -225,6 +417,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ff05301_0d6f96d9",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-07-19T04:34:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "37253cad_fc00d3be",
+      "range": {
+        "startLine": 349,
+        "startChar": 60,
+        "endLine": 349,
+        "endChar": 61
+      },
+      "revId": "10405ec77f8b28d4ee18847afcebed3ca5cbc4ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3ead6122_c003f850",
@@ -238,6 +454,30 @@
       "writtenOn": "2023-07-10T15:55:57Z",
       "side": 1,
       "message": "1",
+      "range": {
+        "startLine": 351,
+        "startChar": 61,
+        "endLine": 351,
+        "endChar": 62
+      },
+      "revId": "10405ec77f8b28d4ee18847afcebed3ca5cbc4ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c0bc9c2f_e859da10",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-07-19T04:34:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3ead6122_c003f850",
       "range": {
         "startLine": 351,
         "startChar": 61,
@@ -271,6 +511,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1eb7860a_a212f733",
+        "filename": "runtime/interpreter/mterp/riscv64/other.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-07-19T04:34:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d74f4239_ab281d85",
+      "range": {
+        "startLine": 18,
+        "startChar": 18,
+        "endLine": 18,
+        "endChar": 20
+      },
+      "revId": "10405ec77f8b28d4ee18847afcebed3ca5cbc4ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c9bfe932_52e217b5",
@@ -284,6 +548,30 @@
       "writtenOn": "2023-07-10T15:55:57Z",
       "side": 1,
       "message": "Reorder for better scheduling?",
+      "range": {
+        "startLine": 44,
+        "startChar": 4,
+        "endLine": 45,
+        "endChar": 37
+      },
+      "revId": "10405ec77f8b28d4ee18847afcebed3ca5cbc4ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "86bbc060_c3b58e84",
+        "filename": "runtime/interpreter/mterp/riscv64/other.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-07-19T04:34:19Z",
+      "side": 1,
+      "message": "ILP, right? I feel it\u0027s been applied inconsistently, but perhaps some is better than none.",
+      "parentUuid": "c9bfe932_52e217b5",
       "range": {
         "startLine": 44,
         "startChar": 4,
