@@ -93,6 +93,30 @@
       },
       "revId": "fdac808ff18a859e0331915f92104e06d7848804",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec7ad54e_9d3b4f2c",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3314,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-07-19T09:53:36Z",
+      "side": 1,
+      "message": "I am fine with keeping it as-is too.",
+      "parentUuid": "b2701f2f_961a48d6",
+      "range": {
+        "startLine": 3314,
+        "startChar": 8,
+        "endLine": 3314,
+        "endChar": 9
+      },
+      "revId": "fdac808ff18a859e0331915f92104e06d7848804",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
