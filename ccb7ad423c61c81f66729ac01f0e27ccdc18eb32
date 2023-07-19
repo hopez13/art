@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b17b924c_442b68a0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-07-19T17:51:43Z",
+      "side": 1,
+      "message": "Have you tested the script? Add a line like:\n\n```\nTest: tools/build_linux_x86.sh\n```\n\nif you have tested it.",
+      "revId": "ccb7ad423c61c81f66729ac01f0e27ccdc18eb32",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "daf5de76_650149e2",
+        "filename": "tools/build_linux_x86.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-07-19T17:51:43Z",
+      "side": 1,
+      "message": "2023",
+      "range": {
+        "startLine": 3,
+        "startChar": 16,
+        "endLine": 3,
+        "endChar": 20
+      },
+      "revId": "ccb7ad423c61c81f66729ac01f0e27ccdc18eb32",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b2378baf_731b5f75",
+        "filename": "tools/build_linux_x86.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-07-19T17:51:43Z",
+      "side": 1,
+      "message": "I believe this is unnecessary. You can get the root from `$ANDROID_BUILD_TOP`.",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 2
+      },
+      "revId": "ccb7ad423c61c81f66729ac01f0e27ccdc18eb32",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f502ace_4a5f2f48",
+        "filename": "tools/build_linux_x86.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-07-19T17:51:43Z",
+      "side": 1,
+      "message": "Don\u0027t you have to run `build/soong/soong_ui.bash --dumpvars-mode` to get these variables?",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 2
+      },
+      "revId": "ccb7ad423c61c81f66729ac01f0e27ccdc18eb32",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
