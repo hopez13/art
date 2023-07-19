@@ -763,6 +763,8 @@ void Runtime::PreZygoteFork() {
     class_linker_->VisitClasses(&visitor);
   }
   heap_->PreZygoteFork();
+  // Deletes any thread pool workers that were created to flush trace entries.
+  Trace::PreZygoteFork();
   PreZygoteForkNativeBridge();
 }
 
@@ -778,6 +780,8 @@ void Runtime::PostZygoteFork() {
                      : jit->GetThreadPoolPthreadPriority());
     }
   }
+  // Creates thread pool workers if necessary.
+  Trace::PostZygoteFork();
   // Reset all stats.
   ResetStats(0xFFFFFFFF);
 }
