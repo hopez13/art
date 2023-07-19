@@ -74,6 +74,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6d875c46_7c87990b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-07-19T19:20:26Z",
+      "side": 1,
+      "message": "Could you PTAL at the presubmit test failures? They look relevant to me as those tests involve calling dex2oat with `--input-vdex`.\n\nI\u0027d abandon this CL or only keep the changes to the log messages in oat_writer.cc.",
+      "parentUuid": "46d60ba3_d40091c9",
+      "range": {
+        "startLine": 11,
+        "startChar": 43,
+        "endLine": 12,
+        "endChar": 6
+      },
+      "revId": "67081c3aa007b3d4950175b76ce026f3f7c5139a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f28df8f9_f802794f",
         "filename": "/COMMIT_MSG",
         "patchSetId": 3
