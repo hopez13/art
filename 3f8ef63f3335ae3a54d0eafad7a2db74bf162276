@@ -3,6 +3,63 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0b41c326_436d591b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-07-19T18:40:40Z",
+      "side": 1,
+      "message": "Please add a \"Bug:\" tag.",
+      "revId": "3f8ef63f3335ae3a54d0eafad7a2db74bf162276",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff27c79e_50526c65",
+        "filename": "tools/build_linux_x86.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-07-19T18:40:40Z",
+      "side": 1,
+      "message": "I suggest the name `build-linux-x86-host-tools.sh` to make it more specific. (There\u0027s no clear guidance on whether to use dashes or underscores as separators, but most sh scripts in this directory use dashes.)",
+      "revId": "3f8ef63f3335ae3a54d0eafad7a2db74bf162276",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "691ccd1b_8ad74f31",
+        "filename": "tools/build_linux_x86.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-07-19T18:40:40Z",
+      "side": 1,
+      "message": "This is both long and repeated. I suggest using an array variable for them:\n\n```\nhost_binaries\u003d(\n  ${OUT_DIR}/host/linux-x86/bin/dex2oat64\n  ${OUT_DIR}/host/linux-x86/bin/dex2oatd64\n  ${OUT_DIR}/host/linux-x86/bin/dex2oat\n  ${OUT_DIR}/host/linux-x86/bin/dex2oatd\n  ${OUT_DIR}/host/linux-x86/bin/deapexer\n  ${OUT_DIR}/host/linux-x86/bin/debugfs_static\n)\n```\n\nand then expand that into the command lines:\n\n```\nblah blah ${host_binaries[*]}\n```\n\nAnd if you want to be a bit fancy you could use brace expansions to enumerate all the dex2oat variants: `${OUT_DIR}/host/linux-x86/bin/dex2oat{,d}{,64}`",
+      "range": {
+        "startLine": 35,
+        "startChar": 80,
+        "endLine": 35,
+        "endChar": 321
+      },
+      "revId": "3f8ef63f3335ae3a54d0eafad7a2db74bf162276",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fcf37d10_c56decdb",
         "filename": "tools/build_linux_x86.sh",
         "patchSetId": 2
@@ -19,6 +76,29 @@
         "startChar": 45,
         "endLine": 36,
         "endChar": 46
+      },
+      "revId": "3f8ef63f3335ae3a54d0eafad7a2db74bf162276",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d30bdfc_1539dec5",
+        "filename": "tools/build_linux_x86.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-07-19T18:40:40Z",
+      "side": 1,
+      "message": "Here you\u0027d use `${host_binaries[*]/#/-f }`.",
+      "range": {
+        "startLine": 36,
+        "startChar": 79,
+        "endLine": 36,
+        "endChar": 338
       },
       "revId": "3f8ef63f3335ae3a54d0eafad7a2db74bf162276",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"

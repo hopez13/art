@@ -85,6 +85,30 @@
       },
       "revId": "ccb7ad423c61c81f66729ac01f0e27ccdc18eb32",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "58f7ee95_e849ed3a",
+        "filename": "tools/build_linux_x86.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-07-19T18:40:40Z",
+      "side": 1,
+      "message": "I mentioned this in a chat with Prashant - the internal script calls https://cs.android.com/android/platform/superproject/main/+/main:packages/modules/common/build/mainline_modules_sdks.sh, and it\u0027s better to hook this script into there rather than the python script. And as you can see it already does this, so there\u0027s no need to do it again here (and besides it\u0027s not blazingly fast, so it\u0027s good to avoid unnecessary calls).",
+      "parentUuid": "8f502ace_4a5f2f48",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 2
+      },
+      "revId": "ccb7ad423c61c81f66729ac01f0e27ccdc18eb32",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
