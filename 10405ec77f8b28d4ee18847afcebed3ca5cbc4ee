@@ -260,6 +260,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "badc99f6_53e322fe",
+        "filename": "runtime/interpreter/mterp/riscv64/control_flow.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-07-19T15:08:28Z",
+      "side": 1,
+      "message": "🙏",
+      "parentUuid": "099669bd_9fc1146c",
+      "range": {
+        "startLine": 31,
+        "startChar": 4,
+        "endLine": 32,
+        "endChar": 13
+      },
+      "revId": "10405ec77f8b28d4ee18847afcebed3ca5cbc4ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a0549d64_43fbb4ba",
@@ -414,6 +438,24 @@
       "writtenOn": "2023-07-10T15:55:57Z",
       "side": 1,
       "message": "Note: We could use the approach from https://android-review.googlesource.com/2613150 to reduce the number of instructions for wide ops.",
+      "revId": "10405ec77f8b28d4ee18847afcebed3ca5cbc4ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "86d03c4d_9c235932",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-07-19T15:08:28Z",
+      "side": 1,
+      "message": "I\u0027ll revisit this in a future CL.",
+      "parentUuid": "fafd847b_603333ed",
       "revId": "10405ec77f8b28d4ee18847afcebed3ca5cbc4ee",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
