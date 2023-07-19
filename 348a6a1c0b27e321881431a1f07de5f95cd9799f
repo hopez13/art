@@ -70,6 +70,30 @@
       },
       "revId": "348a6a1c0b27e321881431a1f07de5f95cd9799f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a039b8e8_b15f3142",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-07-19T11:57:09Z",
+      "side": 1,
+      "message": "Yes, this CL is only for accommodating tests. Some tests use LoadBootImage with a bootclasspath different from the one that the runtime uses, and they started to fail since I added core-icu4j and consrypt.",
+      "parentUuid": "f204f4c8_c49632ff",
+      "range": {
+        "startLine": 9,
+        "startChar": 35,
+        "endLine": 9,
+        "endChar": 62
+      },
+      "revId": "348a6a1c0b27e321881431a1f07de5f95cd9799f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
