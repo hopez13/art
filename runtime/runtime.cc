@@ -424,6 +424,9 @@ Runtime::~Runtime() {
   // Make sure to let the GC complete if it is running.
   heap_->WaitForGcToComplete(gc::kGcCauseBackground, self);
 
+  // Shutdown any trace running.
+  Trace::Shutdown();
+
   {
     ScopedTrace trace2("Wait for shutdown cond");
     MutexLock mu(self, *Locks::runtime_shutdown_lock_);
@@ -441,9 +444,6 @@ Runtime::~Runtime() {
     ScopedObjectAccess soa(self);
     WellKnownClasses::java_lang_Daemons_stop->InvokeStatic<'V'>(self);
   }
-
-  // Shutdown any trace running.
-  Trace::Shutdown();
 
   // Report death. Clients may require a working thread, still, so do it before GC completes and
   // all non-daemon threads are done.
@@ -763,6 +763,8 @@ void Runtime::PreZygoteFork() {
     class_linker_->VisitClasses(&visitor);
   }
   heap_->PreZygoteFork();
+  // Deletes any thread pool workers that were created to flush trace entries.
+  Trace::PreZygoteFork();
   PreZygoteForkNativeBridge();
 }
 
@@ -778,6 +780,8 @@ void Runtime::PostZygoteFork() {
                      : jit->GetThreadPoolPthreadPriority());
     }
   }
+  // Creates thread pool workers if necessary.
+  Trace::PostZygoteFork();
   // Reset all stats.
   ResetStats(0xFFFFFFFF);
 }
