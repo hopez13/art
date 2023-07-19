@@ -69,6 +69,30 @@
       },
       "revId": "fdac808ff18a859e0331915f92104e06d7848804",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b2701f2f_961a48d6",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3314,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-07-19T09:49:52Z",
+      "side": 1,
+      "message": "This `(is_fp_reg2 \u0026\u0026 is_fp_reg1)` is tied together because it\u0027s the same term as on the previous line. If you want me to remove the parenthesis anyway, please say so and I\u0027ll do it in one of the following CLs.",
+      "parentUuid": "46ddf6c5_e8b50298",
+      "range": {
+        "startLine": 3314,
+        "startChar": 8,
+        "endLine": 3314,
+        "endChar": 9
+      },
+      "revId": "fdac808ff18a859e0331915f92104e06d7848804",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
