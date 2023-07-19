@@ -46,6 +46,30 @@
       },
       "revId": "348a6a1c0b27e321881431a1f07de5f95cd9799f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f204f4c8_c49632ff",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-07-19T11:07:26Z",
+      "side": 1,
+      "message": "But on device, we\u0027ve had had icu and conscrypt for a while (I\u0027m taking in production, not tests).\n\nIs this CL only for accomodating tests?",
+      "parentUuid": "b8fde14c_2895f7f1",
+      "range": {
+        "startLine": 9,
+        "startChar": 35,
+        "endLine": 9,
+        "endChar": 62
+      },
+      "revId": "348a6a1c0b27e321881431a1f07de5f95cd9799f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
