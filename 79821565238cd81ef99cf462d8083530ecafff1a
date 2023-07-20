@@ -259,6 +259,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a7dd46e0_3415d609",
+        "filename": "runtime/gc/verification.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-07-20T12:28:27Z",
+      "side": 1,
+      "message": "But this function is already used in the new GC (on debug build only though), right? https://source.corp.google.com/h/googleplex-android/platform/superproject/main/+/main:art/runtime/gc/collector/mark_compact-inl.h;l\u003d242;drc\u003dcce3151716083d5b7858915c7d1d6f8514c865cc\n\nLokesh, are those usages fine? Or do you plan to fix them?",
+      "parentUuid": "9d4e52cd_4dced42b",
+      "range": {
+        "startLine": 43,
+        "startChar": 8,
+        "endLine": 43,
+        "endChar": 13
+      },
+      "revId": "79821565238cd81ef99cf462d8083530ecafff1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2fc03035_3faec3cd",
         "filename": "runtime/gc/verification.cc",
         "patchSetId": 3
