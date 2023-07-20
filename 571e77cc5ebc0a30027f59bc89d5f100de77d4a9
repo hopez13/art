@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "04abd2d4_674ca036",
+        "filename": "tools/build-linux-x86-host-tools.sh",
+        "patchSetId": 5
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-07-20T13:28:36Z",
+      "side": 1,
+      "message": "I\u0027m starting to have second thoughts on whether it\u0027s a good idea to call this script from mainline_modules_sdks.sh.\n\nTo keep the options open, I suggest falling back to the `build/soong/soong_ui.bash --dumpvars-mode` stanza if either of these isn\u0027t set. That\u0027d also make it more convenient when run locally.",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 2
+      },
+      "revId": "571e77cc5ebc0a30027f59bc89d5f100de77d4a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "601c3694_406346b3",
+        "filename": "tools/build-linux-x86-host-tools.sh",
+        "patchSetId": 5
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-07-20T13:28:36Z",
+      "side": 1,
+      "message": "I wouldn\u0027t assume this is always set.",
+      "range": {
+        "startLine": 30,
+        "startChar": 4,
+        "endLine": 30,
+        "endChar": 21
+      },
+      "revId": "571e77cc5ebc0a30027f59bc89d5f100de77d4a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "266894f4_657ec1af",
+        "filename": "tools/build-linux-x86-host-tools.sh",
+        "patchSetId": 5
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-07-20T13:28:36Z",
+      "side": 1,
+      "message": "Are you sure this works? I think it only picks the first element out of the array.",
+      "range": {
+        "startLine": 42,
+        "startChar": 80,
+        "endLine": 42,
+        "endChar": 96
+      },
+      "revId": "571e77cc5ebc0a30027f59bc89d5f100de77d4a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce2fdc10_6ec80786",
+        "filename": "tools/build-linux-x86-host-tools.sh",
+        "patchSetId": 5
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-07-20T13:28:36Z",
+      "side": 1,
+      "message": "This should be more descriptive, because it may end up among loads of other build artifacts. Maybe `art-host-tools-linux-x86.zip`.\n\nAlso, please use `\\` to keep the line length down.",
+      "range": {
+        "startLine": 43,
+        "startChar": 61,
+        "endLine": 43,
+        "endChar": 74
+      },
+      "revId": "571e77cc5ebc0a30027f59bc89d5f100de77d4a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
