@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a6dafc14_b1db6dc3",
+        "filename": "tools/build-linux-x86-host-tools.sh",
+        "patchSetId": 5
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-07-20T14:25:12Z",
+      "side": 1,
+      "message": "I was thinking to do it only if the variables aren\u0027t set already, but this is fine - it\u0027s only slightly more work in that case.",
+      "parentUuid": "21e45893_d39c4949",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 2
+      },
+      "revId": "571e77cc5ebc0a30027f59bc89d5f100de77d4a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "601c3694_406346b3",
@@ -132,6 +156,30 @@
       "side": 1,
       "message": "You are right, fixed it now. Thanks.\n\nPreviously, I kept checking the zip file only.",
       "parentUuid": "266894f4_657ec1af",
+      "range": {
+        "startLine": 42,
+        "startChar": 80,
+        "endLine": 42,
+        "endChar": 96
+      },
+      "revId": "571e77cc5ebc0a30027f59bc89d5f100de77d4a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "216d57a4_633e60d7",
+        "filename": "tools/build-linux-x86-host-tools.sh",
+        "patchSetId": 5
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-07-20T14:25:12Z",
+      "side": 1,
+      "message": "The build system is incremental and doesn\u0027t clear the out directory, so to test this more robustly you should `rm -rf out/host/linux-x86/bin` before each test run.",
+      "parentUuid": "63b045ae_8f6578c3",
       "range": {
         "startLine": 42,
         "startChar": 80,
