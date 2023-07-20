@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6aefe938_d51280d9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1980056
+      },
+      "writtenOn": "2023-07-20T12:23:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b17b924c_442b68a0",
+      "revId": "ccb7ad423c61c81f66729ac01f0e27ccdc18eb32",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "daf5de76_650149e2",
@@ -41,6 +59,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d320ba1_6c0551be",
+        "filename": "tools/build_linux_x86.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1980056
+      },
+      "writtenOn": "2023-07-20T12:23:01Z",
+      "side": 1,
+      "message": "Done. Thanks.",
+      "parentUuid": "daf5de76_650149e2",
+      "range": {
+        "startLine": 3,
+        "startChar": 16,
+        "endLine": 3,
+        "endChar": 20
+      },
+      "revId": "ccb7ad423c61c81f66729ac01f0e27ccdc18eb32",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b2378baf_731b5f75",
@@ -54,6 +96,30 @@
       "writtenOn": "2023-07-19T17:51:43Z",
       "side": 1,
       "message": "I believe this is unnecessary. You can get the root from `$ANDROID_BUILD_TOP`.",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 2
+      },
+      "revId": "ccb7ad423c61c81f66729ac01f0e27ccdc18eb32",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ab57df9_25f40247",
+        "filename": "tools/build_linux_x86.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1980056
+      },
+      "writtenOn": "2023-07-20T12:23:01Z",
+      "side": 1,
+      "message": "I have assumed that $ANDROID_BUILD_TOP is always available, and I use it to change directory.",
+      "parentUuid": "b2378baf_731b5f75",
       "range": {
         "startLine": 21,
         "startChar": 0,

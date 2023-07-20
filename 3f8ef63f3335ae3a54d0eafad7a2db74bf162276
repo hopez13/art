@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c838f185_5211d594",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1980056
+      },
+      "writtenOn": "2023-07-20T12:23:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0b41c326_436d591b",
+      "revId": "3f8ef63f3335ae3a54d0eafad7a2db74bf162276",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ff27c79e_50526c65",
@@ -35,6 +53,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "68851699_6b376dc0",
+        "filename": "tools/build_linux_x86.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1980056
+      },
+      "writtenOn": "2023-07-20T12:23:01Z",
+      "side": 1,
+      "message": "Done. Thanks.",
+      "parentUuid": "ff27c79e_50526c65",
+      "revId": "3f8ef63f3335ae3a54d0eafad7a2db74bf162276",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "691ccd1b_8ad74f31",
@@ -48,6 +84,30 @@
       "writtenOn": "2023-07-19T18:40:40Z",
       "side": 1,
       "message": "This is both long and repeated. I suggest using an array variable for them:\n\n```\nhost_binaries\u003d(\n  ${OUT_DIR}/host/linux-x86/bin/dex2oat64\n  ${OUT_DIR}/host/linux-x86/bin/dex2oatd64\n  ${OUT_DIR}/host/linux-x86/bin/dex2oat\n  ${OUT_DIR}/host/linux-x86/bin/dex2oatd\n  ${OUT_DIR}/host/linux-x86/bin/deapexer\n  ${OUT_DIR}/host/linux-x86/bin/debugfs_static\n)\n```\n\nand then expand that into the command lines:\n\n```\nblah blah ${host_binaries[*]}\n```\n\nAnd if you want to be a bit fancy you could use brace expansions to enumerate all the dex2oat variants: `${OUT_DIR}/host/linux-x86/bin/dex2oat{,d}{,64}`",
+      "range": {
+        "startLine": 35,
+        "startChar": 80,
+        "endLine": 35,
+        "endChar": 321
+      },
+      "revId": "3f8ef63f3335ae3a54d0eafad7a2db74bf162276",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "64f59e29_0b20a082",
+        "filename": "tools/build_linux_x86.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1980056
+      },
+      "writtenOn": "2023-07-20T12:23:01Z",
+      "side": 1,
+      "message": "Done. Thanks for the tip.",
+      "parentUuid": "691ccd1b_8ad74f31",
       "range": {
         "startLine": 35,
         "startChar": 80,
@@ -94,6 +154,54 @@
       "writtenOn": "2023-07-19T18:40:40Z",
       "side": 1,
       "message": "Here you\u0027d use `${host_binaries[*]/#/-f }`.",
+      "range": {
+        "startLine": 36,
+        "startChar": 79,
+        "endLine": 36,
+        "endChar": 338
+      },
+      "revId": "3f8ef63f3335ae3a54d0eafad7a2db74bf162276",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c2c009a_9a07ee8a",
+        "filename": "tools/build_linux_x86.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1980056
+      },
+      "writtenOn": "2023-07-20T12:23:01Z",
+      "side": 1,
+      "message": "Thanks for the suggestion.",
+      "parentUuid": "fcf37d10_c56decdb",
+      "range": {
+        "startLine": 36,
+        "startChar": 45,
+        "endLine": 36,
+        "endChar": 46
+      },
+      "revId": "3f8ef63f3335ae3a54d0eafad7a2db74bf162276",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3a203a7_2b42555a",
+        "filename": "tools/build_linux_x86.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1980056
+      },
+      "writtenOn": "2023-07-20T12:23:01Z",
+      "side": 1,
+      "message": "Thanks for the suggestion.",
+      "parentUuid": "4d30bdfc_1539dec5",
       "range": {
         "startLine": 36,
         "startChar": 79,
