@@ -318,6 +318,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1063fe50_3ac26a35",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 851,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-07-20T14:17:10Z",
+      "side": 1,
+      "message": "Ok. The reason I asked is that I thought it may affect the order the linker puts them into the image, and maybe it\u0027s somewhat more efficient to mmap lower pages for the runtime. But that\u0027s all guesswork on my part.",
+      "parentUuid": "7a8e37e0_e065ef9b",
+      "range": {
+        "startLine": 850,
+        "startChar": 0,
+        "endLine": 851,
+        "endChar": 26
+      },
+      "revId": "b2459e4108092f5ad9f8ccdb75bca6141f497e43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c8b926ca_0305becf",
