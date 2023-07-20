@@ -233,6 +233,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d4e52cd_4dced42b",
+        "filename": "runtime/gc/verification.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-07-20T12:24:08Z",
+      "side": 1,
+      "message": "We discussed offline and decided to implement a separate function for userfaultfd scenario, if needed.",
+      "parentUuid": "7c35e045_6784ef34",
+      "range": {
+        "startLine": 43,
+        "startChar": 8,
+        "endLine": 43,
+        "endChar": 13
+      },
+      "revId": "79821565238cd81ef99cf462d8083530ecafff1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2fc03035_3faec3cd",
