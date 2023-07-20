@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "21e45893_d39c4949",
+        "filename": "tools/build-linux-x86-host-tools.sh",
+        "patchSetId": 5
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1980056
+      },
+      "writtenOn": "2023-07-20T14:15:22Z",
+      "side": 1,
+      "message": "Acknowledged.\n\nRemoved these lines and added  --dumpvars-mode",
+      "parentUuid": "04abd2d4_674ca036",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 2
+      },
+      "revId": "571e77cc5ebc0a30027f59bc89d5f100de77d4a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "601c3694_406346b3",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-07-20T13:28:36Z",
       "side": 1,
       "message": "I wouldn\u0027t assume this is always set.",
+      "range": {
+        "startLine": 30,
+        "startChar": 4,
+        "endLine": 30,
+        "endChar": 21
+      },
+      "revId": "571e77cc5ebc0a30027f59bc89d5f100de77d4a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef9501d2_9643de1d",
+        "filename": "tools/build-linux-x86-host-tools.sh",
+        "patchSetId": 5
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1980056
+      },
+      "writtenOn": "2023-07-20T14:15:22Z",
+      "side": 1,
+      "message": "Right. I received this error message:\n```\nANDROID_BUILD_TOP is obsolete. Use \u0027.\u0027 instead. See https://android.googlesource.com/platform/build/+/master/Changes.md#ANDROID_BUILD_TOP.\n```\n\nI have added the original check which confirms the presence of art directory.",
+      "parentUuid": "601c3694_406346b3",
       "range": {
         "startLine": 30,
         "startChar": 4,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "63b045ae_8f6578c3",
+        "filename": "tools/build-linux-x86-host-tools.sh",
+        "patchSetId": 5
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1980056
+      },
+      "writtenOn": "2023-07-20T14:15:22Z",
+      "side": 1,
+      "message": "You are right, fixed it now. Thanks.\n\nPreviously, I kept checking the zip file only.",
+      "parentUuid": "266894f4_657ec1af",
+      "range": {
+        "startLine": 42,
+        "startChar": 80,
+        "endLine": 42,
+        "endChar": 96
+      },
+      "revId": "571e77cc5ebc0a30027f59bc89d5f100de77d4a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ce2fdc10_6ec80786",
@@ -83,6 +155,30 @@
       "writtenOn": "2023-07-20T13:28:36Z",
       "side": 1,
       "message": "This should be more descriptive, because it may end up among loads of other build artifacts. Maybe `art-host-tools-linux-x86.zip`.\n\nAlso, please use `\\` to keep the line length down.",
+      "range": {
+        "startLine": 43,
+        "startChar": 61,
+        "endLine": 43,
+        "endChar": 74
+      },
+      "revId": "571e77cc5ebc0a30027f59bc89d5f100de77d4a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "965145b1_d19e5b85",
+        "filename": "tools/build-linux-x86-host-tools.sh",
+        "patchSetId": 5
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1980056
+      },
+      "writtenOn": "2023-07-20T14:15:22Z",
+      "side": 1,
+      "message": "Done. Thanks for the suggestion.",
+      "parentUuid": "ce2fdc10_6ec80786",
       "range": {
         "startLine": 43,
         "startChar": 61,
