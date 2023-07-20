@@ -121,6 +121,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5c0f88ea_0fcfd443",
+        "filename": "tools/build-linux-x86-host-tools.sh",
+        "patchSetId": 5
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-07-20T14:30:41Z",
+      "side": 1,
+      "message": "Discussed offline. Prashant got this message when he\u0027s trying to get this variable from \"--dumpvars-mode\", which is expected because the the variable is actually produced by `lunch` rather than Soong or Make.\n\nThe link in the error message is about Android.mk, but Prashant is writing is script, so I don\u0027t think the error applies.\n\nI would still use ANDROID_BUILD_TOP but add a check before `cd`.",
+      "parentUuid": "ef9501d2_9643de1d",
+      "range": {
+        "startLine": 30,
+        "startChar": 4,
+        "endLine": 30,
+        "endChar": 21
+      },
+      "revId": "571e77cc5ebc0a30027f59bc89d5f100de77d4a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "266894f4_657ec1af",
         "filename": "tools/build-linux-x86-host-tools.sh",
         "patchSetId": 5
