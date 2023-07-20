@@ -1705,6 +1705,7 @@ void LocationsBuilderRISCV64::VisitIntConstant(HIntConstant* instruction) {
   LocationSummary* locations = new (GetGraph()->GetAllocator()) LocationSummary(instruction);
   locations->SetOut(Location::ConstantLocation(instruction));
 }
+
 void InstructionCodeGeneratorRISCV64::VisitIntConstant([[maybe_unused]] HIntConstant* instruction) {
   // Will be generated at use site.
 }
@@ -1847,13 +1848,13 @@ void InstructionCodeGeneratorRISCV64::VisitLoadString(HLoadString* instruction) 
 }
 
 void LocationsBuilderRISCV64::VisitLongConstant(HLongConstant* instruction) {
-  UNUSED(instruction);
-  LOG(FATAL) << "Unimplemented";
+  LocationSummary* locations = new (GetGraph()->GetAllocator()) LocationSummary(instruction);
+  locations->SetOut(Location::ConstantLocation(instruction));
 }
 
-void InstructionCodeGeneratorRISCV64::VisitLongConstant(HLongConstant* instruction) {
-  UNUSED(instruction);
-  LOG(FATAL) << "Unimplemented";
+void InstructionCodeGeneratorRISCV64::VisitLongConstant(
+    [[maybe_unused]] HLongConstant* instruction) {
+  // Will be generated at use site.
 }
 
 void LocationsBuilderRISCV64::VisitMax(HMax* instruction) {

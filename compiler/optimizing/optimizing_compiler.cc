@@ -747,6 +747,33 @@ static bool CanAssembleGraphForRiscv64(HGraph* graph) {
         case HInstruction::kReturn:
         case HInstruction::kReturnVoid:
         case HInstruction::kSuspendCheck:
+        case HInstruction::kDoubleConstant:
+        case HInstruction::kFloatConstant:
+        case HInstruction::kIntConstant:
+        case HInstruction::kLongConstant:
+        case HInstruction::kAbove:
+        case HInstruction::kAboveOrEqual:
+        case HInstruction::kBelow:
+        case HInstruction::kBelowOrEqual:
+        case HInstruction::kEqual:
+        case HInstruction::kGreaterThan:
+        case HInstruction::kGreaterThanOrEqual:
+        case HInstruction::kLessThan:
+        case HInstruction::kLessThanOrEqual:
+        case HInstruction::kNotEqual:
+        case HInstruction::kCompare:
+        case HInstruction::kIf:
+        case HInstruction::kAdd:
+        case HInstruction::kAnd:
+        case HInstruction::kOr:
+        case HInstruction::kSub:
+        case HInstruction::kXor:
+        case HInstruction::kRor:
+        case HInstruction::kShl:
+        case HInstruction::kShr:
+        case HInstruction::kUShr:
+        case HInstruction::kAbs:
+        case HInstruction::kBooleanNot:
           break;
         default:
           // Unimplemented instruction.
