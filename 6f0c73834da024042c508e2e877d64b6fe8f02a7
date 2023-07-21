@@ -238,6 +238,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1a3b7c84_0de08daf",
+        "filename": "compiler/jit/small_pattern_matcher.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-07-21T13:35:09Z",
+      "side": 1,
+      "message": "I used macro because I couldn\u0027t turn it into methods 😊 But I\u0027m open to suggestions.",
+      "parentUuid": "a73bcee7_aa1bc29c",
+      "range": {
+        "startLine": 92,
+        "startChar": 0,
+        "endLine": 123,
+        "endChar": 3
+      },
+      "revId": "6f0c73834da024042c508e2e877d64b6fe8f02a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "837aa0e7_acfee5b6",
         "filename": "compiler/jit/small_pattern_matcher.cc",
         "patchSetId": 5
