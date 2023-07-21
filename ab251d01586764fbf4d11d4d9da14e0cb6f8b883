@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff3f25ef_82edb1e9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-07-21T16:04:29Z",
+      "side": 1,
+      "message": "I tested that it fixes boot problem on riscv64. You can add the following to commit message:\n```\nTest: cuttlefish boots on riscv64 accepts dexpreopt artifacts:\n  In one terminal:\n    $ lunch aosp_cf_riscv64_phone-userdebug\n    $ launch_cvd --gpu_mode\u003ddrm_virgl\n  In another terminal:\n    $ adb -s 0.0.0.0:6520 logcat | grep odrefresh\n    I odrefresh: ART APEX version 339990000\n    I odrefresh: No prior cache-info file: \u0027/data/misc/apexdata/com.android.art/dalvik-cache/cache-info.xml\u0027\n    I odrefresh: Boot images on /system OK (riscv64)\n    I odrefresh: system_server artifacts on /system OK\n    I odrefresh: odrefresh terminated by exit(79)\n    I odrefresh: ART APEX version 339990000\n    I odrefresh: No prior cache-info file: \u0027/data/misc/apexdata/com.android.art/dalvik-cache/cache-info.xml\u0027\n    I odrefresh: Boot images on /system OK (riscv64)\n    I odrefresh: system_server artifacts on /system OK\n    I odrefresh: odrefresh terminated by exit(80)\n    I odsign  : odrefresh compiled all artifacts, returned 80\n\n  Previously the boot rejected dexpreopt artifacts:\n    $ adb -s 0.0.0.0:6520 logcat | grep odrefresh\n    I odrefresh: Checking boot images /data (riscv64)\n    I odsign  : /data/misc/odsign/odsign.info not found.\n    I odrefresh: ART APEX version 339990000\n    W odrefresh: Userfaultfd GC check failed (build-time: true, runtime: false).\n```",
+      "revId": "ab251d01586764fbf4d11d4d9da14e0cb6f8b883",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
