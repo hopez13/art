@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 
-#include "code_generator_riscv64.h"
-
 #include "android-base/logging.h"
 #include "android-base/macros.h"
 #include "arch/riscv64/jni_frame_riscv64.h"
 #include "arch/riscv64/registers_riscv64.h"
+#include "base/arena_containers.h"
 #include "base/macros.h"
+#include "code_generator_riscv64.h"
 #include "code_generator_utils.h"
 #include "dwarf/register.h"
 #include "heap_poisoning.h"
@@ -36,6 +36,13 @@
 
 namespace art HIDDEN {
 namespace riscv64 {
+
+// Compare-and-jump packed switch generates approx. 4 + 1.5 * N 32-bit
+// instructions for N cases.
+// Table-based packed switch generates approx. 11 32-bit instructions
+// and N 32-bit data words for N cases.
+// We switch to the table-based method starting with 5 entries.
+static constexpr uint32_t kPackedSwitchCompareJumpThreshold = 5;
 
 static constexpr XRegister kCoreCalleeSaves[] = {
     // S1(TR) is excluded as the ART thread register.
@@ -1064,25 +1071,74 @@ void InstructionCodeGeneratorRISCV64::GenPackedSwitchWithCompares(XRegister reg,
                                                                   uint32_t num_entries,
                                                                   HBasicBlock* switch_block,
                                                                   HBasicBlock* default_block) {
-  UNUSED(reg);
-  UNUSED(lower_bound);
-  UNUSED(num_entries);
-  UNUSED(switch_block);
-  UNUSED(default_block);
-  LOG(FATAL) << "Unimplemented";
+  // Create a set of compare/jumps.
+  ScratchRegisterScope srs(GetAssembler());
+  XRegister temp_reg = srs.AllocateXRegister();
+
+  CHECK_LE(lower_bound, 0xfff);
+  __ AddConst32(temp_reg, reg, -lower_bound);
+
+  // Jump to default if index is negative
+  __ Bltz(temp_reg, codegen_->GetLabelOf(default_block));
+
+  const ArenaVector<HBasicBlock*>& successors = switch_block->GetSuccessors();
+  // Jump to successors[0] if value == lower_bound.
+  __ Beqz(temp_reg, codegen_->GetLabelOf(successors[0]));
+  int32_t last_index = 0;
+  for (; num_entries - last_index > 2; last_index += 2) {
+    __ Addi(temp_reg, temp_reg, -2);
+    // Jump to successors[last_index + 1] if value < case_value[last_index + 2].
+    __ Bltz(temp_reg, codegen_->GetLabelOf(successors[last_index + 1]));
+    // Jump to successors[last_index + 2] if value == case_value[last_index + 2].
+    __ Beqz(temp_reg, codegen_->GetLabelOf(successors[last_index + 2]));
+  }
+  if (num_entries - last_index == 2) {
+    // The last missing case_value.
+    __ Addiw(temp_reg, temp_reg, -1);
+    __ Beqz(temp_reg, codegen_->GetLabelOf(successors[last_index + 1]));
+  }
+
+  // And the default for any other value.
+  if (!codegen_->GoesToNextBlock(switch_block, default_block)) {
+    __ J(codegen_->GetLabelOf(default_block));
+  }
 }
 
-void InstructionCodeGeneratorRISCV64::GenTableBasedPackedSwitch(XRegister reg,
+void InstructionCodeGeneratorRISCV64::GenTableBasedPackedSwitch(XRegister value_reg,
                                                                 int32_t lower_bound,
                                                                 uint32_t num_entries,
                                                                 HBasicBlock* switch_block,
                                                                 HBasicBlock* default_block) {
-  UNUSED(reg);
-  UNUSED(lower_bound);
-  UNUSED(num_entries);
-  UNUSED(switch_block);
-  UNUSED(default_block);
-  LOG(FATAL) << "Unimplemented";
+  // Create a jump table.
+  ScratchRegisterScope srs(GetAssembler());
+  XRegister tmp1 = srs.AllocateXRegister();
+  XRegister tmp2 = srs.AllocateXRegister();
+  ArenaVector<Riscv64Label*> labels(num_entries, __ GetAllocator()->Adapter());
+  const ArenaVector<HBasicBlock*>& successors = switch_block->GetSuccessors();
+  for (uint32_t i = 0; i < num_entries; i++) {
+    labels[i] = codegen_->GetLabelOf(successors[i]);
+  }
+  // JumpTable* table = __ CreateJumpTable(std::move(labels));
+  JumpTable* table = __ CreateJumpTable(std::move(labels));
+
+  // Jump to default if the value out of range?
+  __ Addi(tmp1, value_reg, -lower_bound);
+  __ LoadConst32(tmp2, num_entries);
+  __ Bgeu(tmp1, tmp2, codegen_->GetLabelOf(default_block));
+
+  // We are in the range of the table.
+  // Load the target address from the jump table, indexing by the value.
+  XRegister table_base = tmp2;
+  __ LoadLabelAddress(table_base, table->GetLabel());
+
+  __ Slli(tmp1, tmp1, 2);
+  __ Add(tmp1, tmp1, table_base);
+  __ Lw(tmp1, tmp1, 0);
+  // Compute the absolute target address by adding the table start address
+  // (the table contains offsets to targets relative to its start).
+  __ Add(tmp1, tmp1, tmp2);
+  // And jump.
+  __ Jr(tmp1);
 }
 
 int32_t InstructionCodeGeneratorRISCV64::VecAddress(LocationSummary* locations,
@@ -2420,13 +2476,24 @@ void InstructionCodeGeneratorRISCV64::VisitOr(HOr* instruction) {
 }
 
 void LocationsBuilderRISCV64::VisitPackedSwitch(HPackedSwitch* instruction) {
-  UNUSED(instruction);
-  LOG(FATAL) << "Unimplemented";
+  LocationSummary* locations =
+      new (GetGraph()->GetAllocator()) LocationSummary(instruction, LocationSummary::kNoCall);
+  locations->SetInAt(0, Location::RequiresRegister());
 }
 
 void InstructionCodeGeneratorRISCV64::VisitPackedSwitch(HPackedSwitch* instruction) {
-  UNUSED(instruction);
-  LOG(FATAL) << "Unimplemented";
+  int32_t lower_bound = instruction->GetStartValue();
+  uint32_t num_entries = instruction->GetNumEntries();
+  LocationSummary* locations = instruction->GetLocations();
+  XRegister value_reg = locations->InAt(0).AsRegister<XRegister>();
+  HBasicBlock* switch_block = instruction->GetBlock();
+  HBasicBlock* default_block = instruction->GetDefaultBlock();
+
+  if (num_entries > kPackedSwitchCompareJumpThreshold) {
+    GenTableBasedPackedSwitch(value_reg, lower_bound, num_entries, switch_block, default_block);
+  } else {
+    GenPackedSwitchWithCompares(value_reg, lower_bound, num_entries, switch_block, default_block);
+  }
 }
 
 void LocationsBuilderRISCV64::VisitParallelMove([[maybe_unused]] HParallelMove* instruction) {
