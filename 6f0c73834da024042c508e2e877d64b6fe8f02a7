@@ -214,6 +214,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a73bcee7_aa1bc29c",
+        "filename": "compiler/jit/small_pattern_matcher.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-07-21T13:30:33Z",
+      "side": 1,
+      "message": "It would be better if we could avoid macros. They are harder to reason about and they are prone to bugs. For example, the `offset` which was supposed to be a parameter would have been a build time failure with a proper method. Instead, we got presubmit verified +2.\n\nCan we turn the macros into methods? I think it is possible with the use of templates",
+      "parentUuid": "34b82eb3_b8d22fd2",
+      "range": {
+        "startLine": 92,
+        "startChar": 0,
+        "endLine": 123,
+        "endChar": 3
+      },
+      "revId": "6f0c73834da024042c508e2e877d64b6fe8f02a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "837aa0e7_acfee5b6",
         "filename": "compiler/jit/small_pattern_matcher.cc",
         "patchSetId": 5
