@@ -262,6 +262,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "945f0ef3_fe278670",
+        "filename": "compiler/jit/small_pattern_matcher.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-07-21T13:36:47Z",
+      "side": 1,
+      "message": "Note, the use of stubs written in C++ is likely to be temporary here, and I\u0027ll move them to assembly, where only macros can be used anyway. So I suggest we don\u0027t try too hard in seeing how to avoid the macros.",
+      "parentUuid": "1a3b7c84_0de08daf",
+      "range": {
+        "startLine": 92,
+        "startChar": 0,
+        "endLine": 123,
+        "endChar": 3
+      },
+      "revId": "6f0c73834da024042c508e2e877d64b6fe8f02a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "837aa0e7_acfee5b6",
         "filename": "compiler/jit/small_pattern_matcher.cc",
         "patchSetId": 5
