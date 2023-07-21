@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45409425_da271fcd",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1609,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-07-21T22:48:54Z",
+      "side": 1,
+      "message": "Why does this hold? What prevents two other threads from setting both flip and suspend requests, and then CheckSuspend() getting us here? I guess that would contradict the original comment here. But why is that correct? I hadn\u0027t looked at the comment carefully, but I think I relied on the code to ensure that we run the flip function first in this scenario.",
+      "revId": "51a8c57be74f3a2d33ca269eac0a700ff37ba5e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b055dfa9_d4ce0526",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4708,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-07-21T22:48:54Z",
+      "side": 1,
+      "message": "Since this occurs more than once, it should really have a name. I guess this is intended to be short-lived code, but ...",
+      "range": {
+        "startLine": 4708,
+        "startChar": 11,
+        "endLine": 4708,
+        "endChar": 16
+      },
+      "revId": "51a8c57be74f3a2d33ca269eac0a700ff37ba5e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b93dd34b_c1f13663",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-07-21T22:48:54Z",
+      "side": 1,
+      "message": "If I repeat the outer loop a second time, won\u0027t some of the threads already have been resumed by the first pass, but not removed from suspended_count_modified_threads?",
+      "range": {
+        "startLine": 394,
+        "startChar": 3,
+        "endLine": 394,
+        "endChar": 19
+      },
+      "revId": "51a8c57be74f3a2d33ca269eac0a700ff37ba5e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
