@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8fc2b9d1_074330ef",
+        "filename": "compiler/optimizing/code_generator_riscv64.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 424,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-07-21T15:39:01Z",
+      "side": 1,
+      "message": "Is this used? Or can it be replaced with a boolean?",
+      "range": {
+        "startLine": 424,
+        "startChar": 31,
+        "endLine": 424,
+        "endChar": 46
+      },
+      "revId": "bc0fd1e54f40455e12ad9eb2eb16b904aa3af9fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
