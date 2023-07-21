@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d573611_640cb1e5",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-07-21T15:50:11Z",
+      "side": 1,
+      "message": "Could we use `kRuntimeParameterCoreRegisters` and skip the `1+` and `-1`?",
+      "range": {
+        "startLine": 140,
+        "startChar": 26,
+        "endLine": 140,
+        "endChar": 55
+      },
+      "revId": "70c995ae801471dddde6862f41e51260c0831dde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
