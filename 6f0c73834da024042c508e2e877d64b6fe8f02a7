@@ -24,6 +24,47 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b1321fc_bbdb0bee",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-07-21T10:47:57Z",
+      "side": 1,
+      "message": "That\u0027s for a given APK, how many methods we were able to pattern match.",
+      "parentUuid": "1fe45a10_b2c0df73",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 58
+      },
+      "revId": "6f0c73834da024042c508e2e877d64b6fe8f02a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "75d25486_e93c2b60",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-07-21T10:47:57Z",
+      "side": 1,
+      "message": "Thanks Santiago, PTAL.",
+      "revId": "6f0c73834da024042c508e2e877d64b6fe8f02a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b078b9fc_205ce4da",
@@ -59,6 +100,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf7647f3_48adcf8d",
+        "filename": "compiler/jit/small_pattern_matcher.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-07-21T10:47:57Z",
+      "side": 1,
+      "message": "Discussed offline, confirmed that it\u0027s OK for those leaf methods not to have a `OatQuickMethodHeader`.",
+      "parentUuid": "8fb2cb89_318f65d8",
+      "revId": "6f0c73834da024042c508e2e877d64b6fe8f02a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3601f7bb_28f91bdb",
@@ -72,6 +131,30 @@
       "writtenOn": "2023-07-17T10:34:16Z",
       "side": 1,
       "message": "Where is this `offset` coming from?",
+      "range": {
+        "startLine": 97,
+        "startChar": 10,
+        "endLine": 97,
+        "endChar": 16
+      },
+      "revId": "6f0c73834da024042c508e2e877d64b6fe8f02a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "128ac9eb_17a1edd0",
+        "filename": "compiler/jit/small_pattern_matcher.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-07-21T10:47:57Z",
+      "side": 1,
+      "message": "Oh, should have been an argument to the macro, done.",
+      "parentUuid": "3601f7bb_28f91bdb",
       "range": {
         "startLine": 97,
         "startChar": 10,
@@ -107,6 +190,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "34b82eb3_b8d22fd2",
+        "filename": "compiler/jit/small_pattern_matcher.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-07-21T10:47:57Z",
+      "side": 1,
+      "message": "Not sure what your suggestion is. Could you expand?\n\nAvoiding the macros looks to me like requiring more verbose code.",
+      "parentUuid": "b42b1471_4182d0fb",
+      "range": {
+        "startLine": 92,
+        "startChar": 0,
+        "endLine": 123,
+        "endChar": 3
+      },
+      "revId": "6f0c73834da024042c508e2e877d64b6fe8f02a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "837aa0e7_acfee5b6",
         "filename": "compiler/jit/small_pattern_matcher.cc",
         "patchSetId": 5
@@ -118,6 +225,30 @@
       "writtenOn": "2023-07-17T10:34:16Z",
       "side": 1,
       "message": "Is this comment related to the `if` in line `140`? Or the one in `143`?\n\nCan we have `is_recognizable_constructor` for `insns_size \u003c 3`? If not, I would be in favour of adding the check `insns_size !\u003d 4u \u0026\u0026 insns_size !\u003d 6u` to `is_recognizable_constructor`. It would also save some checks e.g. line 269 would turn from `(insns_size \u003d\u003d 6u \u0026\u0026 is_recognizable_constructor)) {` to just `insns_size \u003d\u003d 6u` as the size equals to 6 implies is_recognizable_constructor.",
+      "range": {
+        "startLine": 139,
+        "startChar": 0,
+        "endLine": 139,
+        "endChar": 61
+      },
+      "revId": "6f0c73834da024042c508e2e877d64b6fe8f02a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1770b8f6_80d8bcb8",
+        "filename": "compiler/jit/small_pattern_matcher.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-07-21T10:47:57Z",
+      "side": 1,
+      "message": "I find this less readable as recogizable_constructor is for the method kind, and insn_size its instructions.\n\nI\u0027ve moved the comment next to line 143 to avoid the confusion.",
+      "parentUuid": "837aa0e7_acfee5b6",
       "range": {
         "startLine": 139,
         "startChar": 0,
@@ -145,6 +276,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "05f88312_e2d22b51",
+        "filename": "compiler/jit/small_pattern_matcher.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-07-21T10:47:57Z",
+      "side": 1,
+      "message": "Not really, just going by simpler pattern matcher to less simple.",
+      "parentUuid": "eee5e42b_1b70fea3",
+      "revId": "6f0c73834da024042c508e2e877d64b6fe8f02a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6e8d6349_987a926d",
@@ -158,6 +307,30 @@
       "writtenOn": "2023-07-17T10:34:16Z",
       "side": 1,
       "message": "We should never hit this as we are checking it in line 140",
+      "range": {
+        "startLine": 171,
+        "startChar": 0,
+        "endLine": 174,
+        "endChar": 5
+      },
+      "revId": "6f0c73834da024042c508e2e877d64b6fe8f02a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "97675efa_0a024a6b",
+        "filename": "compiler/jit/small_pattern_matcher.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-07-21T10:47:57Z",
+      "side": 1,
+      "message": "Moved to DCHECK.",
+      "parentUuid": "6e8d6349_987a926d",
       "range": {
         "startLine": 171,
         "startChar": 0,
@@ -191,6 +364,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d0016c38_78366a52",
+        "filename": "compiler/jit/small_pattern_matcher.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-07-21T10:47:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "33c0e68e_f78367e8",
+      "range": {
+        "startLine": 255,
+        "startChar": 38,
+        "endLine": 255,
+        "endChar": 41
+      },
+      "revId": "6f0c73834da024042c508e2e877d64b6fe8f02a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "935c1ed1_e0001304",
@@ -214,6 +411,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fee5be58_0c880e0b",
+        "filename": "compiler/jit/small_pattern_matcher.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-07-21T10:47:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "935c1ed1_e0001304",
+      "range": {
+        "startLine": 268,
+        "startChar": 6,
+        "endLine": 268,
+        "endChar": 37
+      },
+      "revId": "6f0c73834da024042c508e2e877d64b6fe8f02a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "72f2d99b_17cda696",
@@ -227,6 +448,30 @@
       "writtenOn": "2023-07-17T10:34:16Z",
       "side": 1,
       "message": "insns_size",
+      "range": {
+        "startLine": 269,
+        "startChar": 7,
+        "endLine": 269,
+        "endChar": 38
+      },
+      "revId": "6f0c73834da024042c508e2e877d64b6fe8f02a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "baf936d7_3338640a",
+        "filename": "compiler/jit/small_pattern_matcher.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-07-21T10:47:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "72f2d99b_17cda696",
       "range": {
         "startLine": 269,
         "startChar": 7,
