@@ -440,7 +440,7 @@ struct CmdlineParser {
     Builder() : save_destination_(new SaveDestination()) {}
 
     // Define a single argument. The default type is Unit.
-    UntypedArgumentBuilder Define(const char* name) {
+    __attribute__((noinline)) UntypedArgumentBuilder Define(const char* name) {
       return Define({name});
     }
 
@@ -460,7 +460,8 @@ struct CmdlineParser {
     }
 
     // Define a single argument with multiple aliases.
-    UntypedArgumentBuilder Define(std::initializer_list<const char*> names) {
+    __attribute__((noinline)) UntypedArgumentBuilder Define(
+        std::initializer_list<const char*> names) {
       auto&& b = UntypedArgumentBuilder(*this);
       b.SetNames(names);
       b.SetCategory(default_category_);
