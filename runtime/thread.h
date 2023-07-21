@@ -387,10 +387,14 @@ class Thread {
   // that have tried to do that concurrently. After this function returns, the
   // `ThreadFlag::kPendingFlipFunction` is cleared but another thread may still
   // run the flip function as indicated by the `ThreadFlag::kRunningFlipFunction`.
-  void EnsureFlipFunctionStarted(Thread* self) REQUIRES_SHARED(Locks::mutator_lock_);
+  // If 'become_runnable' is true, we logically acquire the mutator lock if we win the race to
+  // run the flip function. If it's false we assume we already hold the mutator lock.
+  // Returns true if this call ran the flip function.
+  bool EnsureFlipFunctionStarted(Thread* self, bool become_runnable = false)
+      TRY_ACQUIRE_SHARED(true, Locks::mutator_lock_);
 
   // Wait for the flip function to complete if still running on another thread.
-  void WaitForFlipFunction(Thread* self) REQUIRES_SHARED(Locks::mutator_lock_);
+  void WaitForFlipFunction(Thread* self);
 
   gc::accounting::AtomicStack<mirror::Object>* GetThreadLocalMarkStack() {
     CHECK(gUseReadBarrier);
@@ -523,10 +527,12 @@ class Thread {
     CHECK(tlsPtr_.jpeer == nullptr);
     return tlsPtr_.opeer;
   }
-  // GetPeer is not safe if called on another thread in the middle of the CC thread flip and
+  // GetPeer is not safe if called on another thread in the middle of the thread flip and
   // the thread's stack may have not been flipped yet and peer may be a from-space (stale) ref.
-  // This function will explicitly mark/forward it.
-  mirror::Object* GetPeerFromOtherThread() const REQUIRES_SHARED(Locks::mutator_lock_);
+  // This function will force a flip for the other thread if necessary.
+  // Since we hold a shared mutator lock, a new flip function cannot be concurrently
+  // installed
+  mirror::Object* GetPeerFromOtherThread() REQUIRES_SHARED(Locks::mutator_lock_);
 
   bool HasPeer() const {
     return tlsPtr_.jpeer != nullptr || tlsPtr_.opeer != nullptr;
