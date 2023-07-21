@@ -49,7 +49,7 @@ struct SimpleParseArgumentMap : CompilerOptionsMap<SimpleParseArgumentMap,
 
 using Parser = CmdlineParser<SimpleParseArgumentMap, SimpleParseArgumentMapKey>;
 
-static inline Parser CreateSimpleParser(bool ignore_unrecognized) {
+__attribute__((noinline)) static inline Parser CreateSimpleParser(bool ignore_unrecognized) {
   std::unique_ptr<Parser::Builder> parser_builder =
       std::make_unique<Parser::Builder>();
 
