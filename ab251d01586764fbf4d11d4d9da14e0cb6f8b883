@@ -110,6 +110,30 @@
       },
       "revId": "ab251d01586764fbf4d11d4d9da14e0cb6f8b883",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a187f591_47eac810",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-07-21T16:18:08Z",
+      "side": 1,
+      "message": "I understand that you want to use minor-fault whenever possible, but I\u0027m still not sure how the DCHECK can pass. On a device where minor-fault isn\u0027t supported, `gUffdFeatures \u0026 kUffdFeaturesRequired` is `kUffdFeaturesForSigbus`, while `kUffdFeaturesRequired` is `kUffdFeaturesForMinorFault | kUffdFeaturesForSigbus`. How can they be equal in this case?",
+      "parentUuid": "ed0d693f_96578664",
+      "range": {
+        "startLine": 348,
+        "startChar": 59,
+        "endLine": 348,
+        "endChar": 80
+      },
+      "revId": "ab251d01586764fbf4d11d4d9da14e0cb6f8b883",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
