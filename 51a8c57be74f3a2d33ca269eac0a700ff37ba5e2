@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cccb45d2_ed677567",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1609,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-07-22T10:02:21Z",
+      "side": 1,
+      "message": "`CheckSuspend` and `RunCheckpointFunction` are called when the thread is runnable. When a thread sets flip function (only possible in `FlipThreadRoots`), all the threads are supposed to be suspended. So the scenario you are suggesting can\u0027t happen.\n\nAlso, when you look at all the usage of `RunCheckpointFunction`, which are mostly from `CheckSuspend`, it\u0027s always before transitioning from runnable to suspended.\n\nI\u0027m converting it to CHECK, just in case.",
+      "parentUuid": "45409425_da271fcd",
+      "revId": "51a8c57be74f3a2d33ca269eac0a700ff37ba5e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b055dfa9_d4ce0526",
         "filename": "runtime/thread.cc",
         "patchSetId": 1
@@ -31,6 +49,30 @@
       "writtenOn": "2023-07-21T22:48:54Z",
       "side": 1,
       "message": "Since this occurs more than once, it should really have a name. I guess this is intended to be short-lived code, but ...",
+      "range": {
+        "startLine": 4708,
+        "startChar": 11,
+        "endLine": 4708,
+        "endChar": 16
+      },
+      "revId": "51a8c57be74f3a2d33ca269eac0a700ff37ba5e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b87ec95_2557d9c3",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4708,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-07-22T10:02:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b055dfa9_d4ce0526",
       "range": {
         "startLine": 4708,
         "startChar": 11,
@@ -54,6 +96,30 @@
       "writtenOn": "2023-07-21T22:48:54Z",
       "side": 1,
       "message": "If I repeat the outer loop a second time, won\u0027t some of the threads already have been resumed by the first pass, but not removed from suspended_count_modified_threads?",
+      "range": {
+        "startLine": 394,
+        "startChar": 3,
+        "endLine": 394,
+        "endChar": 19
+      },
+      "revId": "51a8c57be74f3a2d33ca269eac0a700ff37ba5e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "81c76c30_a11302a1",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-07-22T10:02:21Z",
+      "side": 1,
+      "message": "Those threads on which checkpoint is run and are resumed I\u0027m setting the thread pointer in the vector to nullptr (line 415). So if there is a second iteration, then only those threads will be repeated which were being flipped by another thread during the previous iteration.\n\nI\u0027m adding some comments to clarify this.",
+      "parentUuid": "b93dd34b_c1f13663",
       "range": {
         "startLine": 394,
         "startChar": 3,
