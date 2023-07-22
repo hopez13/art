@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46a57822_7cb13622",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1608,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-07-22T15:10:19Z",
+      "side": 0,
+      "message": "@hboehm@google.com This statement is true for `ThreadList::RunCheckpoint`, not for this function. Also, the DCHECKs below at line 1614 and 1616 will never be true. So the fact that this never broke means the if condition at line 1613 was never true.\n\nThat\u0027s the reason I removed this code.",
+      "range": {
+        "startLine": 1608,
+        "startChar": 4,
+        "endLine": 1608,
+        "endChar": 91
+      },
+      "revId": "e5a09b184db65ab5802824e0102f7a42f3d9b184",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
