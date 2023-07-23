@@ -36,6 +36,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f518491_e5d85034",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1609,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-07-23T05:39:59Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "cccb45d2_ed677567",
+      "revId": "51a8c57be74f3a2d33ca269eac0a700ff37ba5e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b055dfa9_d4ce0526",
@@ -120,6 +138,30 @@
       "side": 1,
       "message": "Those threads on which checkpoint is run and are resumed I\u0027m setting the thread pointer in the vector to nullptr (line 415). So if there is a second iteration, then only those threads will be repeated which were being flipped by another thread during the previous iteration.\n\nI\u0027m adding some comments to clarify this.",
       "parentUuid": "b93dd34b_c1f13663",
+      "range": {
+        "startLine": 394,
+        "startChar": 3,
+        "endLine": 394,
+        "endChar": 19
+      },
+      "revId": "51a8c57be74f3a2d33ca269eac0a700ff37ba5e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ce7a0fa_d941866d",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-07-23T05:39:59Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "81c76c30_a11302a1",
       "range": {
         "startLine": 394,
         "startChar": 3,
