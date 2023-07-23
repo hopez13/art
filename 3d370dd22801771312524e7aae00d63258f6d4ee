@@ -33,6 +33,24 @@
       "message": "Actually, on second thought, I think this copies a bug I just found in my CL. It\u0027s not safe to have EnsureFlipFunctionStarted reread the status and make the thread runnable like this. It can lose suspend requests that arrive while we\u0027re transitioning to Runnable. We need to pass in the previously read status from TransitionFromRunnableToSuspended and not have EnsureFlipFunctionStarted re-read it in that case. I hope to generate a fix for that on Monday.",
       "revId": "3d370dd22801771312524e7aae00d63258f6d4ee",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "907e0551_6ef6dc8d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-07-23T11:36:40Z",
+      "side": 1,
+      "message": "Good catch! I have uploaded PS3 taking care of this scenario. PTAL",
+      "parentUuid": "89446e30_cdb8d103",
+      "revId": "3d370dd22801771312524e7aae00d63258f6d4ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
