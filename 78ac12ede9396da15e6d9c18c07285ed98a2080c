@@ -52,6 +52,24 @@
       "parentUuid": "dc9d9fc0_cc869be1",
       "revId": "78ac12ede9396da15e6d9c18c07285ed98a2080c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b2b4f5a5_82ba5d6b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-07-24T20:59:21Z",
+      "side": 1,
+      "message": "I\u0027ve checked with `art/test/testrunner/testrunner.py --target --32 -t 137-cfi` on a panther device.\nOne of the comments in the bug mentioned, that there could be a problem on clang update. I don\u0027t know the full picture, so I wasn\u0027t sure if `.gnu_debugdata` was enough.",
+      "parentUuid": "05c5a751_4735dcbc",
+      "revId": "78ac12ede9396da15e6d9c18c07285ed98a2080c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
