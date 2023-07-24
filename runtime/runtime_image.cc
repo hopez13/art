@@ -1614,7 +1614,7 @@ class RuntimeImageHelper {
     } else {
       // If we fail to initialize, remove initialization related flags and
       // clear again.
-      copy->SetObjectSizeAllocFastPath(std::numeric_limits<uint32_t>::max());
+      copy->SetObjectSizeAllocFastPath(std::numeric_limits<int32_t>::max());
       copy->SetAccessFlags(copy->GetAccessFlags() & ~kAccRecursivelyInitialized);
       clear_class();
     }

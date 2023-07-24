@@ -854,9 +854,9 @@ class CodeGeneratorARM64 : public CodeGenerator {
   // Emit the BL instruction for entrypoint thunk call and record the associated patch for AOT.
   void EmitEntrypointThunkCall(ThreadOffset64 entrypoint_offset);
 
-  // Emit the CBNZ instruction for baker read barrier and record
+  // Emit the branch instruction for baker read barrier and record
   // the associated patch for AOT or slow path for JIT.
-  void EmitBakerReadBarrierCbnz(uint32_t custom_data);
+  void EmitBakerReadBarrierBranch(uint32_t custom_data);
 
   vixl::aarch64::Literal<uint32_t>* DeduplicateBootImageAddressLiteral(uint64_t address) {
     return jit_patches_.DeduplicateBootImageAddressLiteral(address);

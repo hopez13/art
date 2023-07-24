@@ -1020,7 +1020,7 @@ void ArmVIXLJNIMacroAssembler::Jump(JNIMacroLabel* label) {
   ___ B(ArmVIXLJNIMacroLabel::Cast(label)->AsArm());
 }
 
-void ArmVIXLJNIMacroAssembler::TestGcMarking(JNIMacroLabel* label, JNIMacroUnaryCondition cond) {
+void ArmVIXLJNIMacroAssembler::TestGcMarking(JNIMacroLabel* label) {
   CHECK(label != nullptr);
 
   UseScratchRegisterScope temps(asm_.GetVIXLAssembler());
@@ -1038,17 +1038,7 @@ void ArmVIXLJNIMacroAssembler::TestGcMarking(JNIMacroLabel* label, JNIMacroUnary
     test_reg = temps.Acquire();
     ___ Ldr(test_reg, MemOperand(tr, Thread::IsGcMarkingOffset<kArmPointerSize>().Int32Value()));
   }
-  switch (cond) {
-    case JNIMacroUnaryCondition::kZero:
-      ___ CompareAndBranchIfZero(test_reg, ArmVIXLJNIMacroLabel::Cast(label)->AsArm());
-      break;
-    case JNIMacroUnaryCondition::kNotZero:
-      ___ CompareAndBranchIfNonZero(test_reg, ArmVIXLJNIMacroLabel::Cast(label)->AsArm());
-      break;
-    default:
-      LOG(FATAL) << "Not implemented unary condition: " << static_cast<int>(cond);
-      UNREACHABLE();
-  }
+  ___ CompareAndBranchIfNonZero(test_reg, ArmVIXLJNIMacroLabel::Cast(label)->AsArm());
 }
 
 void ArmVIXLJNIMacroAssembler::TestMarkBit(ManagedRegister mref,

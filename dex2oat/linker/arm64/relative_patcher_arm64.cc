@@ -322,7 +322,7 @@ void Arm64RelativePatcher::PatchBakerReadBarrierBranch(std::vector<uint8_t>* cod
   DCHECK_ALIGNED(patch_offset, 4u);
   uint32_t literal_offset = patch.LiteralOffset();
   uint32_t insn = GetInsn(code, literal_offset);
-  DCHECK_EQ(insn & 0xffffffe0u, 0xb5000000);  // CBNZ Xt, +0 (unpatched)
+  DCHECK_EQ(insn & 0xffffffe0u, 0xb4000000);  // CBZ Xt, +0 (unpatched)
   ThunkKey key = GetBakerThunkKey(patch);
   uint32_t target_offset = GetThunkTargetOffset(key, patch_offset);
   DCHECK_ALIGNED(target_offset, 4u);
