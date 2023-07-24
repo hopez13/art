@@ -16,6 +16,24 @@
       "message": "Speculatively starting presubmit, but I would really like to hear from Alan or Jiakai, or see more of a trend, before submitting.",
       "revId": "55daf22d80847ffd60047cda88e7c871b20ab52e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b67bda03_a9091bca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-07-24T08:14:48Z",
+      "side": 1,
+      "message": "I\u0027ve no idea what a LUCI failure is.\nBut I\u0027d be very surprised if this caused anything to fail. It could cause the test to run when it would previously have failed early. The main difference is we would actually run compilation instead of bailing out. \nPerhaps that\u0027s triggering something? But that would indicate a real problem somewhere else.",
+      "parentUuid": "81c84ac1_e40c16f8",
+      "revId": "55daf22d80847ffd60047cda88e7c871b20ab52e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
