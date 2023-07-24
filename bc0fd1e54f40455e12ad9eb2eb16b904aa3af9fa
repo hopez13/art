@@ -22,6 +22,30 @@
       },
       "revId": "bc0fd1e54f40455e12ad9eb2eb16b904aa3af9fa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ec9cee6_0d93fc36",
+        "filename": "compiler/optimizing/code_generator_riscv64.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 424,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-07-24T07:49:17Z",
+      "side": 1,
+      "message": "It shall be used once we override and implement `EmitLinkerPatches()`. (Though the info pointer could probably be replaced with a `Riscv64Label*` similar to what we do on arm64 because that\u0027s all we need.)`",
+      "parentUuid": "8fc2b9d1_074330ef",
+      "range": {
+        "startLine": 424,
+        "startChar": 31,
+        "endLine": 424,
+        "endChar": 46
+      },
+      "revId": "bc0fd1e54f40455e12ad9eb2eb16b904aa3af9fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
