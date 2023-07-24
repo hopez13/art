@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e5aca928_6bd94fa6",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2801,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-07-24T15:57:04Z",
+      "side": 1,
+      "message": "Should this one be `Loadwu` too?",
+      "range": {
+        "startLine": 2801,
+        "startChar": 7,
+        "endLine": 2801,
+        "endChar": 12
+      },
+      "revId": "4d383adb34e84db60819f5584a18515a9fab5362",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
