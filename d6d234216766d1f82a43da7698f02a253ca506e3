@@ -22,6 +22,30 @@
       },
       "revId": "d6d234216766d1f82a43da7698f02a253ca506e3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e1864e6_9f35f10a",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-07-24T16:48:19Z",
+      "side": 1,
+      "message": "I think we should keep it as is. These `kSaveEverything` methods try to minimize the number of clobbered registers, so I would want them to return the result in the same register as the argument, even if the native ABI used a different return register.",
+      "parentUuid": "2d3df561_1fbbe165",
+      "range": {
+        "startLine": 338,
+        "startChar": 61,
+        "endLine": 338,
+        "endChar": 77
+      },
+      "revId": "d6d234216766d1f82a43da7698f02a253ca506e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
