@@ -34,6 +34,24 @@
       "parentUuid": "46e67a66_494b290b",
       "revId": "78ac12ede9396da15e6d9c18c07285ed98a2080c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "05c5a751_4735dcbc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-07-24T20:09:29Z",
+      "side": 1,
+      "message": "`.gnu_debugdata` should include `.debug_frame` (compressed).",
+      "parentUuid": "dc9d9fc0_cc869be1",
+      "revId": "78ac12ede9396da15e6d9c18c07285ed98a2080c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
