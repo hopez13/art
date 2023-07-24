@@ -286,7 +286,7 @@ ENTRY \name
   SETUP_SAVE_REFS_ONLY_FRAME
   bl \helper
   RESTORE_SAVE_REFS_ONLY_FRAME
-  REFRESH_MARKING_REGISTER
+  REFRESH_SPECIAL_REGISTERS xIP0
   ldr xIP0, [xSELF, # THREAD_EXCEPTION_OFFSET]   // Get exception field.
   cbnz xIP0, nterp_deliver_pending_exception
   ret
@@ -379,10 +379,6 @@ END \name
     .endif
     add \code_item, \code_item, #CODE_ITEM_INSNS_OFFSET
 5:
-.endm
-
-.macro TEST_IF_MARKING label
-    cbnz wMR, \label
 .endm
 
 // Setup the stack to start executing the method. Expects:

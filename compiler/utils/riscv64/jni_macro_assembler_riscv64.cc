@@ -543,7 +543,7 @@ void Riscv64JNIMacroAssembler::Jump(JNIMacroLabel* label) {
   __ J(down_cast<Riscv64Label*>(Riscv64JNIMacroLabel::Cast(label)->AsRiscv64()));
 }
 
-void Riscv64JNIMacroAssembler::TestGcMarking(JNIMacroLabel* label, JNIMacroUnaryCondition cond) {
+void Riscv64JNIMacroAssembler::TestGcMarking(JNIMacroLabel* label) {
   CHECK(label != nullptr);
 
   DCHECK_EQ(Thread::IsGcMarkingSize(), 4u);
@@ -552,17 +552,7 @@ void Riscv64JNIMacroAssembler::TestGcMarking(JNIMacroLabel* label, JNIMacroUnary
   XRegister test_reg = srs.AllocateXRegister();
   int32_t is_gc_marking_offset = Thread::IsGcMarkingOffset<kRiscv64PointerSize>().Int32Value();
   __ Loadw(test_reg, TR, is_gc_marking_offset);
-  switch (cond) {
-    case JNIMacroUnaryCondition::kZero:
-      __ Beqz(test_reg, down_cast<Riscv64Label*>(Riscv64JNIMacroLabel::Cast(label)->AsRiscv64()));
-      break;
-    case JNIMacroUnaryCondition::kNotZero:
-      __ Bnez(test_reg, down_cast<Riscv64Label*>(Riscv64JNIMacroLabel::Cast(label)->AsRiscv64()));
-      break;
-    default:
-      LOG(FATAL) << "Not implemented unary condition: " << static_cast<int>(cond);
-      UNREACHABLE();
-  }
+  __ Bnez(test_reg, down_cast<Riscv64Label*>(Riscv64JNIMacroLabel::Cast(label)->AsRiscv64()));
 }
 
 void Riscv64JNIMacroAssembler::TestMarkBit(ManagedRegister m_ref,

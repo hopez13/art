@@ -137,7 +137,7 @@ class Arm64JNIMacroAssembler final : public JNIMacroAssemblerFwd<Arm64Assembler,
   // Emit an unconditional jump to the label.
   void Jump(JNIMacroLabel* label) override;
   // Emit a conditional jump to the label by applying a unary condition test to the GC marking flag.
-  void TestGcMarking(JNIMacroLabel* label, JNIMacroUnaryCondition cond) override;
+  void TestGcMarking(JNIMacroLabel* label) override;
   // Emit a conditional jump to the label by applying a unary condition test to object's mark bit.
   void TestMarkBit(ManagedRegister ref, JNIMacroLabel* label, JNIMacroUnaryCondition cond) override;
   // Emit a conditional jump to label if the loaded value from specified locations is not zero.

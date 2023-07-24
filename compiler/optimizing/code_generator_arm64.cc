@@ -868,6 +868,40 @@ class CompileOptimizedSlowPathARM64 : public SlowPathCodeARM64 {
   DISALLOW_COPY_AND_ASSIGN(CompileOptimizedSlowPathARM64);
 };
 
+class NewInstanceSlowPathARM64 : public SlowPathCodeARM64 {
+ public:
+  explicit NewInstanceSlowPathARM64(HNewInstance* instr, Register temp)
+      : SlowPathCodeARM64(instr),
+        temp_(temp) {}
+
+  void EmitNativeCode(CodeGenerator* codegen) override {
+    LocationSummary* locations = instruction_->GetLocations();
+    Location cls = locations->InAt(0);
+    CodeGeneratorARM64* arm64_codegen = down_cast<CodeGeneratorARM64*>(codegen);
+    __ Bind(GetEntryLabel());
+    __ Add(mr, mr, temp_);
+    SaveLiveRegisters(codegen, locations);
+    InvokeRuntimeCallingConvention calling_convention;
+    __ Mov(calling_convention.GetRegisterAt(0).W(), WRegisterFrom(cls));
+    arm64_codegen->InvokeRuntime(instruction_->AsNewInstance()->GetEntrypoint(),
+                                 instruction_,
+                                 instruction_->GetDexPc(),
+                                 this);
+    __ Mov(WRegisterFrom(locations->Out()), WRegisterFrom(calling_convention.GetReturnLocation(DataType::Type::kReference)));
+    RestoreLiveRegisters(codegen, locations);
+    __ B(GetExitLabel());
+  }
+
+  bool IsFatal() const override { return false; }
+
+  const char* GetDescription() const override { return "NewInstanceSlowPathARM64"; }
+
+ private:
+  Register temp_;
+
+  DISALLOW_COPY_AND_ASSIGN(NewInstanceSlowPathARM64);
+};
+
 #undef __
 
 Location InvokeDexCallingConventionVisitorARM64::GetNextLocation(DataType::Type type) {
@@ -5093,17 +5127,17 @@ void CodeGeneratorARM64::EmitEntrypointThunkCall(ThreadOffset64 entrypoint_offse
   __ bl(static_cast<int64_t>(0));  // Placeholder, patched at link-time.
 }
 
-void CodeGeneratorARM64::EmitBakerReadBarrierCbnz(uint32_t custom_data) {
+void CodeGeneratorARM64::EmitBakerReadBarrierBranch(uint32_t custom_data) {
   DCHECK(!__ AllowMacroInstructions());  // In ExactAssemblyScope.
   if (GetCompilerOptions().IsJitCompiler()) {
     auto it = jit_baker_read_barrier_slow_paths_.FindOrAdd(custom_data);
     vixl::aarch64::Label* slow_path_entry = &it->second.label;
-    __ cbnz(mr, slow_path_entry);
+    __ cbz(mr, slow_path_entry);
   } else {
     baker_read_barrier_patches_.emplace_back(custom_data);
     vixl::aarch64::Label* cbnz_label = &baker_read_barrier_patches_.back().label;
     __ bind(cbnz_label);
-    __ cbnz(mr, static_cast<int64_t>(0));  // Placeholder, patched at link-time.
+    __ cbz(mr, static_cast<int64_t>(0));  // Placeholder, patched at link-time.
   }
 }
 
@@ -5847,16 +5881,52 @@ void InstructionCodeGeneratorARM64::VisitNewArray(HNewArray* instruction) {
 }
 
 void LocationsBuilderARM64::VisitNewInstance(HNewInstance* instruction) {
-  LocationSummary* locations = new (GetGraph()->GetAllocator()) LocationSummary(
-      instruction, LocationSummary::kCallOnMainOnly);
-  InvokeRuntimeCallingConvention calling_convention;
-  locations->SetInAt(0, LocationFrom(calling_convention.GetRegisterAt(0)));
-  locations->SetOut(calling_convention.GetReturnLocation(DataType::Type::kReference));
+  uint32_t size = 0u;
+  if (instruction->GetLoadClass()->GetClass() != nullptr &&
+      instruction->GetEntrypoint() == kQuickAllocObjectInitialized) {
+    ScopedObjectAccess soa(Thread::Current());
+    size = instruction->GetLoadClass()->GetClass()->GetObjectSizeAllocFastPath();
+  }
+  if (instruction->GetEntrypoint() != kQuickAllocObjectInitialized || size == static_cast<uint32_t>(std::numeric_limits<int32_t>::max())) {
+    LocationSummary* locations = new (GetGraph()->GetAllocator()) LocationSummary(
+        instruction, LocationSummary::kCallOnMainOnly);
+    InvokeRuntimeCallingConvention calling_convention;
+    locations->SetInAt(0, LocationFrom(calling_convention.GetRegisterAt(0)));
+    locations->SetOut(calling_convention.GetReturnLocation(DataType::Type::kReference));
+  } else {
+    LocationSummary* locations = new (GetGraph()->GetAllocator()) LocationSummary(
+        instruction, LocationSummary::kCallOnSlowPath);
+    //locations->SetCustomSlowPathCallerSaves(OneRegInReferenceOutSaveEverythingCallerSaves());
+    locations->SetInAt(0, Location::RequiresRegister());
+    locations->SetOut(Location::RequiresRegister(), Location::kOutputOverlap);
+  }
 }
 
 void InstructionCodeGeneratorARM64::VisitNewInstance(HNewInstance* instruction) {
-  codegen_->InvokeRuntime(instruction->GetEntrypoint(), instruction, instruction->GetDexPc());
-  CheckEntrypointTypes<kQuickAllocObjectWithChecks, void*, mirror::Class*>();
+  uint32_t size = 0u;
+  if (instruction->GetLoadClass()->GetClass() != nullptr &&
+      instruction->GetEntrypoint() == kQuickAllocObjectInitialized) {
+    ScopedObjectAccess soa(Thread::Current());
+    size = instruction->GetLoadClass()->GetClass()->GetObjectSizeAllocFastPath();
+  }
+  if (instruction->GetEntrypoint() != kQuickAllocObjectInitialized || size == static_cast<uint32_t>(std::numeric_limits<int32_t>::max())) {
+    codegen_->InvokeRuntime(instruction->GetEntrypoint(), instruction, instruction->GetDexPc());
+    CheckEntrypointTypes<kQuickAllocObjectWithChecks, void*, mirror::Class*>();
+  } else {
+    UseScratchRegisterScope temps(GetVIXLAssembler());
+    Register temp = temps.AcquireX();
+    SlowPathCodeARM64* slow_path = new (codegen_->GetScopedAllocator()) NewInstanceSlowPathARM64(instruction, temp);
+    codegen_->AddSlowPath(slow_path);
+    LocationSummary* locations = instruction->GetLocations();
+    Location cls = locations->InAt(0);
+    __ Mov(temp, (static_cast<uint64_t>(size) << 32) - size);
+    __ Mov(WRegisterFrom(locations->Out()), mr.W());
+    __ Subs(mr, mr, temp);
+    __ B(mi, slow_path->GetEntryLabel());
+    __ Str(WRegisterFrom(cls), HeapOperandFrom(locations->Out(), mirror::Object::ClassOffset()));
+    __ Str(mr.W(), MemOperand(tr, Thread::ThreadLocalPosOffset<kArm64PointerSize>().Int32Value()));
+    __ Bind(slow_path->GetExitLabel());
+  }
   codegen_->MaybeGenerateMarkingRegisterCheck(/* code= */ __LINE__);
 }
 
@@ -6685,7 +6755,7 @@ void CodeGeneratorARM64::GenerateGcRootFieldLoad(
       static_assert(BAKER_MARK_INTROSPECTION_GC_ROOT_LDR_OFFSET == -8,
                     "GC root LDR must be 2 instructions (8B) before the return address label.");
       __ ldr(root_reg, MemOperand(obj.X(), offset));
-      EmitBakerReadBarrierCbnz(custom_data);
+      EmitBakerReadBarrierBranch(custom_data);
       __ bind(&return_address);
     } else {
       // GC root loaded through a slow path for read barriers other
@@ -6728,7 +6798,7 @@ void CodeGeneratorARM64::GenerateIntrinsicCasMoveWithBakerReadBarrier(
   static_assert(BAKER_MARK_INTROSPECTION_GC_ROOT_LDR_OFFSET == -8,
                 "GC root LDR must be 2 instructions (8B) before the return address label.");
   __ mov(marked_old_value, old_value);
-  EmitBakerReadBarrierCbnz(custom_data);
+  EmitBakerReadBarrierBranch(custom_data);
   __ bind(&return_address);
 }
 
@@ -6778,7 +6848,7 @@ void CodeGeneratorARM64::GenerateFieldLoadWithBakerReadBarrier(HInstruction* ins
                              (kPoisonHeapReferences ? 4u : 3u) * vixl::aarch64::kInstructionSize);
     vixl::aarch64::Label return_address;
     __ adr(lr, &return_address);
-    EmitBakerReadBarrierCbnz(custom_data);
+    EmitBakerReadBarrierBranch(custom_data);
     static_assert(BAKER_MARK_INTROSPECTION_FIELD_LDR_OFFSET == (kPoisonHeapReferences ? -8 : -4),
                   "Field LDR must be 1 instruction (4B) before the return address label; "
                   " 2 instructions (8B) for heap poisoning.");
@@ -6894,7 +6964,7 @@ void CodeGeneratorARM64::GenerateArrayLoadWithBakerReadBarrier(HArrayGet* instru
                              (kPoisonHeapReferences ? 4u : 3u) * vixl::aarch64::kInstructionSize);
     vixl::aarch64::Label return_address;
     __ adr(lr, &return_address);
-    EmitBakerReadBarrierCbnz(custom_data);
+    EmitBakerReadBarrierBranch(custom_data);
     static_assert(BAKER_MARK_INTROSPECTION_ARRAY_LDR_OFFSET == (kPoisonHeapReferences ? -8 : -4),
                   "Array LDR must be 1 instruction (4B) before the return address label; "
                   " 2 instructions (8B) for heap poisoning.");

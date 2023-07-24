@@ -888,13 +888,9 @@ TEST_F(JniMacroAssemblerRiscv64Test, ReadBarrier) {
   std::unique_ptr<JNIMacroLabel> slow_path = __ CreateLabel();
   std::unique_ptr<JNIMacroLabel> resume = __ CreateLabel();
 
-  __ TestGcMarking(slow_path.get(), JNIMacroUnaryCondition::kNotZero);
+  __ TestGcMarking(slow_path.get());
   expected += "lw t6, " + std::to_string(is_gc_marking_offset.Int32Value()) + "(s1)\n"
               "bnez t6, 2f\n";
-
-  __ TestGcMarking(slow_path.get(), JNIMacroUnaryCondition::kZero);
-  expected += "lw t6, " + std::to_string(is_gc_marking_offset.Int32Value()) + "(s1)\n"
-              "beqz t6, 2f\n";
 
   __ Bind(resume.get());
   expected += "1:\n";

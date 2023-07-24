@@ -80,7 +80,7 @@ class Arm64RelativePatcherTest : public RelativePatcherTest {
   static constexpr uint32_t kLdrXSpRelInsn = 0xf94003edu;
 
   // CBNZ x17, +0. Bits 5-23 are a placeholder for target offset from PC in units of 4-bytes.
-  static constexpr uint32_t kCbnzIP1Plus0Insn = 0xb5000011u;
+  static constexpr uint32_t kCbzIP1Plus0Insn = 0xb4000011u;
 
   void InsertInsn(std::vector<uint8_t>* code, size_t pos, uint32_t insn) {
     CHECK_LE(pos, code->size());
@@ -1053,7 +1053,7 @@ void Arm64RelativePatcherTest::TestBakerField(uint32_t offset, uint32_t ref_reg)
   for (uint32_t base_reg : valid_regs) {
     for (uint32_t holder_reg : valid_regs) {
       uint32_t ldr = kLdrWInsn | (offset << (10 - 2)) | (base_reg << 5) | ref_reg;
-      const std::vector<uint8_t> raw_code = RawCode({kCbnzIP1Plus0Insn, ldr});
+      const std::vector<uint8_t> raw_code = RawCode({kCbzIP1Plus0Insn, ldr});
       ASSERT_EQ(kMethodCodeSize, raw_code.size());
       ArrayRef<const uint8_t> code(raw_code);
       uint32_t encoded_data = EncodeBakerReadBarrierFieldData(base_reg, holder_reg);
@@ -1074,7 +1074,7 @@ void Arm64RelativePatcherTest::TestBakerField(uint32_t offset, uint32_t ref_reg)
     for (uint32_t holder_reg : valid_regs) {
       ++method_idx;
       uint32_t cbnz_offset = thunk_offset - (GetMethodOffset(method_idx) + kLiteralOffset);
-      uint32_t cbnz = kCbnzIP1Plus0Insn | (cbnz_offset << (5 - 2));
+      uint32_t cbnz = kCbzIP1Plus0Insn | (cbnz_offset << (5 - 2));
       uint32_t ldr = kLdrWInsn | (offset << (10 - 2)) | (base_reg << 5) | ref_reg;
       const std::vector<uint8_t> expected_code = RawCode({cbnz, ldr});
       ASSERT_EQ(kMethodCodeSize, expected_code.size());
@@ -1147,7 +1147,7 @@ TEST_F(Arm64RelativePatcherTestDefault, BakerOffsetThunkInTheMiddle) {
   // One thunk in the middle with maximum distance branches to it from both sides.
   // Use offset = 0, base_reg = 0, ref_reg = 0, the LDR is simply `kLdrWInsn`.
   constexpr uint32_t kLiteralOffset1 = 4;
-  const std::vector<uint8_t> raw_code1 = RawCode({kNopInsn, kCbnzIP1Plus0Insn, kLdrWInsn});
+  const std::vector<uint8_t> raw_code1 = RawCode({kNopInsn, kCbzIP1Plus0Insn, kLdrWInsn});
   ArrayRef<const uint8_t> code1(raw_code1);
   uint32_t encoded_data = EncodeBakerReadBarrierFieldData(/* base_reg */ 0, /* holder_reg */ 0);
   const LinkerPatch patches1[] = {
@@ -1181,7 +1181,7 @@ TEST_F(Arm64RelativePatcherTestDefault, BakerOffsetThunkInTheMiddle) {
   AddCompiledMethod(MethodRef(4u), filler2_code);
 
   constexpr uint32_t kLiteralOffset2 = 0;
-  const std::vector<uint8_t> raw_code2 = RawCode({kCbnzIP1Plus0Insn, kLdrWInsn});
+  const std::vector<uint8_t> raw_code2 = RawCode({kCbzIP1Plus0Insn, kLdrWInsn});
   ArrayRef<const uint8_t> code2(raw_code2);
   const LinkerPatch patches2[] = {
       LinkerPatch::BakerReadBarrierBranchPatch(kLiteralOffset2, encoded_data),
@@ -1194,8 +1194,8 @@ TEST_F(Arm64RelativePatcherTestDefault, BakerOffsetThunkInTheMiddle) {
   uint32_t last_method_offset = GetMethodOffset(5u);
   EXPECT_EQ(2 * MB, last_method_offset - first_method_offset);
 
-  const uint32_t cbnz_max_forward = kCbnzIP1Plus0Insn | 0x007fffe0;
-  const uint32_t cbnz_max_backward = kCbnzIP1Plus0Insn | 0x00800000;
+  const uint32_t cbnz_max_forward = kCbzIP1Plus0Insn | 0x007fffe0;
+  const uint32_t cbnz_max_backward = kCbzIP1Plus0Insn | 0x00800000;
   const std::vector<uint8_t> expected_code1 = RawCode({kNopInsn, cbnz_max_forward, kLdrWInsn});
   const std::vector<uint8_t> expected_code2 = RawCode({cbnz_max_backward, kLdrWInsn});
   ASSERT_TRUE(CheckLinkedMethod(MethodRef(1), ArrayRef<const uint8_t>(expected_code1)));
@@ -1207,7 +1207,7 @@ TEST_F(Arm64RelativePatcherTestDefault, BakerOffsetThunkBeforeFiller) {
   // earlier, so the thunk is emitted before the filler.
   // Use offset = 0, base_reg = 0, ref_reg = 0, the LDR is simply `kLdrWInsn`.
   constexpr uint32_t kLiteralOffset1 = 0;
-  const std::vector<uint8_t> raw_code1 = RawCode({kCbnzIP1Plus0Insn, kLdrWInsn, kNopInsn});
+  const std::vector<uint8_t> raw_code1 = RawCode({kCbzIP1Plus0Insn, kLdrWInsn, kNopInsn});
   ArrayRef<const uint8_t> code1(raw_code1);
   uint32_t encoded_data = EncodeBakerReadBarrierFieldData(/* base_reg */ 0, /* holder_reg */ 0);
   const LinkerPatch patches1[] = {
@@ -1226,7 +1226,7 @@ TEST_F(Arm64RelativePatcherTestDefault, BakerOffsetThunkBeforeFiller) {
   Link();
 
   const uint32_t cbnz_offset = RoundUp(raw_code1.size(), kArm64CodeAlignment) - kLiteralOffset1;
-  const uint32_t cbnz = kCbnzIP1Plus0Insn | (cbnz_offset << (5 - 2));
+  const uint32_t cbnz = kCbzIP1Plus0Insn | (cbnz_offset << (5 - 2));
   const std::vector<uint8_t> expected_code1 = RawCode({cbnz, kLdrWInsn, kNopInsn});
   ASSERT_TRUE(CheckLinkedMethod(MethodRef(1), ArrayRef<const uint8_t>(expected_code1)));
 }
@@ -1236,7 +1236,7 @@ TEST_F(Arm64RelativePatcherTestDefault, BakerOffsetThunkInTheMiddleUnreachableFr
   // by NOP and cannot reach the thunk in the middle, so we emit an extra thunk at the end.
   // Use offset = 0, base_reg = 0, ref_reg = 0, the LDR is simply `kLdrWInsn`.
   constexpr uint32_t kLiteralOffset1 = 4;
-  const std::vector<uint8_t> raw_code1 = RawCode({kNopInsn, kCbnzIP1Plus0Insn, kLdrWInsn});
+  const std::vector<uint8_t> raw_code1 = RawCode({kNopInsn, kCbzIP1Plus0Insn, kLdrWInsn});
   ArrayRef<const uint8_t> code1(raw_code1);
   uint32_t encoded_data = EncodeBakerReadBarrierFieldData(/* base_reg */ 0, /* holder_reg */ 0);
   const LinkerPatch patches1[] = {
@@ -1271,7 +1271,7 @@ TEST_F(Arm64RelativePatcherTestDefault, BakerOffsetThunkInTheMiddleUnreachableFr
 
   // Extra NOP compared to BakerOffsetThunkInTheMiddle.
   constexpr uint32_t kLiteralOffset2 = 4;
-  const std::vector<uint8_t> raw_code2 = RawCode({kNopInsn, kCbnzIP1Plus0Insn, kLdrWInsn});
+  const std::vector<uint8_t> raw_code2 = RawCode({kNopInsn, kCbzIP1Plus0Insn, kLdrWInsn});
   ArrayRef<const uint8_t> code2(raw_code2);
   const LinkerPatch patches2[] = {
       LinkerPatch::BakerReadBarrierBranchPatch(kLiteralOffset2, encoded_data),
@@ -1280,10 +1280,10 @@ TEST_F(Arm64RelativePatcherTestDefault, BakerOffsetThunkInTheMiddleUnreachableFr
 
   Link();
 
-  const uint32_t cbnz_max_forward = kCbnzIP1Plus0Insn | 0x007fffe0;
+  const uint32_t cbnz_max_forward = kCbzIP1Plus0Insn | 0x007fffe0;
   const uint32_t cbnz_last_offset =
       RoundUp(raw_code2.size(), kArm64CodeAlignment) - kLiteralOffset2;
-  const uint32_t cbnz_last = kCbnzIP1Plus0Insn | (cbnz_last_offset << (5 - 2));
+  const uint32_t cbnz_last = kCbzIP1Plus0Insn | (cbnz_last_offset << (5 - 2));
   const std::vector<uint8_t> expected_code1 = RawCode({kNopInsn, cbnz_max_forward, kLdrWInsn});
   const std::vector<uint8_t> expected_code2 = RawCode({kNopInsn, cbnz_last, kLdrWInsn});
   ASSERT_TRUE(CheckLinkedMethod(MethodRef(1), ArrayRef<const uint8_t>(expected_code1)));
@@ -1307,7 +1307,7 @@ TEST_F(Arm64RelativePatcherTestDefault, BakerArray) {
   uint32_t method_idx = 0u;
   for (uint32_t base_reg : valid_regs) {
     ++method_idx;
-    const std::vector<uint8_t> raw_code = RawCode({kCbnzIP1Plus0Insn, ldr(base_reg)});
+    const std::vector<uint8_t> raw_code = RawCode({kCbzIP1Plus0Insn, ldr(base_reg)});
     ASSERT_EQ(kMethodCodeSize, raw_code.size());
     ArrayRef<const uint8_t> code(raw_code);
     const LinkerPatch patches[] = {
@@ -1325,7 +1325,7 @@ TEST_F(Arm64RelativePatcherTestDefault, BakerArray) {
   for (uint32_t base_reg : valid_regs) {
     ++method_idx;
     uint32_t cbnz_offset = thunk_offset - (GetMethodOffset(method_idx) + kLiteralOffset);
-    uint32_t cbnz = kCbnzIP1Plus0Insn | (cbnz_offset << (5 - 2));
+    uint32_t cbnz = kCbzIP1Plus0Insn | (cbnz_offset << (5 - 2));
     const std::vector<uint8_t> expected_code = RawCode({cbnz, ldr(base_reg)});
     ASSERT_EQ(kMethodCodeSize, expected_code.size());
     EXPECT_TRUE(CheckLinkedMethod(MethodRef(method_idx), ArrayRef<const uint8_t>(expected_code)));
@@ -1385,7 +1385,7 @@ TEST_F(Arm64RelativePatcherTestDefault, BakerGcRoot) {
   for (uint32_t root_reg : valid_regs) {
     ++method_idx;
     uint32_t ldr = kLdrWInsn | (/* offset */ 8 << (10 - 2)) | (/* base_reg */ 0 << 5) | root_reg;
-    const std::vector<uint8_t> raw_code = RawCode({ldr, kCbnzIP1Plus0Insn});
+    const std::vector<uint8_t> raw_code = RawCode({ldr, kCbzIP1Plus0Insn});
     ASSERT_EQ(kMethodCodeSize, raw_code.size());
     ArrayRef<const uint8_t> code(raw_code);
     const LinkerPatch patches[] = {
@@ -1403,7 +1403,7 @@ TEST_F(Arm64RelativePatcherTestDefault, BakerGcRoot) {
   for (uint32_t root_reg : valid_regs) {
     ++method_idx;
     uint32_t cbnz_offset = thunk_offset - (GetMethodOffset(method_idx) + kLiteralOffset);
-    uint32_t cbnz = kCbnzIP1Plus0Insn | (cbnz_offset << (5 - 2));
+    uint32_t cbnz = kCbzIP1Plus0Insn | (cbnz_offset << (5 - 2));
     uint32_t ldr = kLdrWInsn | (/* offset */ 8 << (10 - 2)) | (/* base_reg */ 0 << 5) | root_reg;
     const std::vector<uint8_t> expected_code = RawCode({ldr, cbnz});
     ASSERT_EQ(kMethodCodeSize, expected_code.size());
@@ -1483,9 +1483,9 @@ TEST_F(Arm64RelativePatcherTestDefault, BakerAndMethodCallInteraction) {
   const uint32_t ldr2 = kLdrWInsn | /* root_reg */ 2;
   const std::vector<uint8_t> last_method_raw_code = RawCode({
       kNopInsn, kNopInsn, kNopInsn, kNopInsn,   // Padding before first GC root read barrier.
-      ldr1, kCbnzIP1Plus0Insn,                  // First GC root LDR with read barrier.
+      ldr1, kCbzIP1Plus0Insn,                  // First GC root LDR with read barrier.
       kNopInsn, kNopInsn,                       // Padding before second GC root read barrier.
-      ldr2, kCbnzIP1Plus0Insn,                  // Second GC root LDR with read barrier.
+      ldr2, kCbzIP1Plus0Insn,                  // Second GC root LDR with read barrier.
   });
   uint32_t encoded_data1 = EncodeBakerReadBarrierGcRootData(/* root_reg */ 1);
   uint32_t encoded_data2 = EncodeBakerReadBarrierGcRootData(/* root_reg */ 2);
