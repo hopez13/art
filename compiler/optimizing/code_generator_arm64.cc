@@ -5095,17 +5095,17 @@ void CodeGeneratorARM64::EmitEntrypointThunkCall(ThreadOffset64 entrypoint_offse
   __ bl(static_cast<int64_t>(0));  // Placeholder, patched at link-time.
 }
 
-void CodeGeneratorARM64::EmitBakerReadBarrierCbnz(uint32_t custom_data) {
+void CodeGeneratorARM64::EmitBakerReadBarrierBranch(uint32_t custom_data) {
   DCHECK(!__ AllowMacroInstructions());  // In ExactAssemblyScope.
   if (GetCompilerOptions().IsJitCompiler()) {
     auto it = jit_baker_read_barrier_slow_paths_.FindOrAdd(custom_data);
     vixl::aarch64::Label* slow_path_entry = &it->second.label;
-    __ cbnz(mr, slow_path_entry);
+    __ cbz(mr, slow_path_entry);
   } else {
     baker_read_barrier_patches_.emplace_back(custom_data);
     vixl::aarch64::Label* cbnz_label = &baker_read_barrier_patches_.back().label;
     __ bind(cbnz_label);
-    __ cbnz(mr, static_cast<int64_t>(0));  // Placeholder, patched at link-time.
+    __ cbz(mr, static_cast<int64_t>(0));  // Placeholder, patched at link-time.
   }
 }
 
@@ -6687,7 +6687,7 @@ void CodeGeneratorARM64::GenerateGcRootFieldLoad(
       static_assert(BAKER_MARK_INTROSPECTION_GC_ROOT_LDR_OFFSET == -8,
                     "GC root LDR must be 2 instructions (8B) before the return address label.");
       __ ldr(root_reg, MemOperand(obj.X(), offset));
-      EmitBakerReadBarrierCbnz(custom_data);
+      EmitBakerReadBarrierBranch(custom_data);
       __ bind(&return_address);
     } else {
       // GC root loaded through a slow path for read barriers other
@@ -6730,7 +6730,7 @@ void CodeGeneratorARM64::GenerateIntrinsicCasMoveWithBakerReadBarrier(
   static_assert(BAKER_MARK_INTROSPECTION_GC_ROOT_LDR_OFFSET == -8,
                 "GC root LDR must be 2 instructions (8B) before the return address label.");
   __ mov(marked_old_value, old_value);
-  EmitBakerReadBarrierCbnz(custom_data);
+  EmitBakerReadBarrierBranch(custom_data);
   __ bind(&return_address);
 }
 
@@ -6780,7 +6780,7 @@ void CodeGeneratorARM64::GenerateFieldLoadWithBakerReadBarrier(HInstruction* ins
                              (kPoisonHeapReferences ? 4u : 3u) * vixl::aarch64::kInstructionSize);
     vixl::aarch64::Label return_address;
     __ adr(lr, &return_address);
-    EmitBakerReadBarrierCbnz(custom_data);
+    EmitBakerReadBarrierBranch(custom_data);
     static_assert(BAKER_MARK_INTROSPECTION_FIELD_LDR_OFFSET == (kPoisonHeapReferences ? -8 : -4),
                   "Field LDR must be 1 instruction (4B) before the return address label; "
                   " 2 instructions (8B) for heap poisoning.");
@@ -6896,7 +6896,7 @@ void CodeGeneratorARM64::GenerateArrayLoadWithBakerReadBarrier(HArrayGet* instru
                              (kPoisonHeapReferences ? 4u : 3u) * vixl::aarch64::kInstructionSize);
     vixl::aarch64::Label return_address;
     __ adr(lr, &return_address);
-    EmitBakerReadBarrierCbnz(custom_data);
+    EmitBakerReadBarrierBranch(custom_data);
     static_assert(BAKER_MARK_INTROSPECTION_ARRAY_LDR_OFFSET == (kPoisonHeapReferences ? -8 : -4),
                   "Array LDR must be 1 instruction (4B) before the return address label; "
                   " 2 instructions (8B) for heap poisoning.");

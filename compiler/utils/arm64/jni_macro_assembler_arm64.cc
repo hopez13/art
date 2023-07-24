@@ -805,11 +805,10 @@ void Arm64JNIMacroAssembler::Jump(JNIMacroLabel* label) {
   ___ B(Arm64JNIMacroLabel::Cast(label)->AsArm64());
 }
 
-void Arm64JNIMacroAssembler::TestGcMarking(JNIMacroLabel* label, JNIMacroUnaryCondition cond) {
+void Arm64JNIMacroAssembler::TestGcMarking(JNIMacroLabel* label) {
   CHECK(label != nullptr);
 
   UseScratchRegisterScope temps(asm_.GetVIXLAssembler());
-  Register test_reg;
   DCHECK_EQ(Thread::IsGcMarkingSize(), 4u);
   DCHECK(gUseReadBarrier);
   if (kUseBakerReadBarrier) {
@@ -818,22 +817,13 @@ void Arm64JNIMacroAssembler::TestGcMarking(JNIMacroLabel* label, JNIMacroUnaryCo
       Register temp = temps.AcquireW();
       asm_.GenerateMarkingRegisterCheck(temp);
     }
-    test_reg = reg_w(MR);
+    Register test_reg = reg_w(MR);
+    ___ Cbz(test_reg, Arm64JNIMacroLabel::Cast(label)->AsArm64());
   } else {
-    test_reg = temps.AcquireW();
+    Register test_reg = temps.AcquireW();
     int32_t is_gc_marking_offset = Thread::IsGcMarkingOffset<kArm64PointerSize>().Int32Value();
     ___ Ldr(test_reg, MEM_OP(reg_x(TR), is_gc_marking_offset));
-  }
-  switch (cond) {
-    case JNIMacroUnaryCondition::kZero:
-      ___ Cbz(test_reg, Arm64JNIMacroLabel::Cast(label)->AsArm64());
-      break;
-    case JNIMacroUnaryCondition::kNotZero:
-      ___ Cbnz(test_reg, Arm64JNIMacroLabel::Cast(label)->AsArm64());
-      break;
-    default:
-      LOG(FATAL) << "Not implemented unary condition: " << static_cast<int>(cond);
-      UNREACHABLE();
+    ___ Cbnz(test_reg, Arm64JNIMacroLabel::Cast(label)->AsArm64());
   }
 }
 
@@ -942,10 +932,27 @@ void Arm64JNIMacroAssembler::RemoveFrame(size_t frame_size,
   if (kReserveMarkingRegister) {
     vixl::aarch64::Register mr = reg_x(MR);  // Marking Register.
     vixl::aarch64::Register tr = reg_x(TR);  // Thread Register.
+    vixl::aarch64::Register zr = reg_x(XZR);  // Zero Register.
 
     if (may_suspend) {
+      UseScratchRegisterScope temps(asm_.GetVIXLAssembler());
+      Register temp = temps.AcquireX();
+      vixl::aarch64::Label done, not_marking;
       // The method may be suspended; refresh the Marking Register.
       ___ Ldr(mr.W(), MemOperand(tr, Thread::IsGcMarkingOffset<kArm64PointerSize>().Int32Value()));
+      ___ Cbz(mr.W(), &not_marking);
+      ___ Mov(mr.X(), zr.X());
+      ___ B(&done);
+      ___ Bind(&not_marking);
+      // Store ((tlab_end - tlab_pos) << 32) | tlab_pos into xMR
+      ___ Ldp(mr.X(),
+              temp.X(),
+              MemOperand(tr, Thread::ThreadLocalPosOffset<kArm64PointerSize>().Int32Value()));
+      ___ Sub(temp.X(), temp.X(), mr.X());
+      ___ Orr(mr.X(), mr.X(), Operand(temp.X(), LSL, 32));
+      ___ Cbnz(mr.X(), &done);
+      ___ Mov(mr.X(), 1);
+      ___ Bind(&done);
     } else {
       // The method shall not be suspended; no need to refresh the Marking Register.
 

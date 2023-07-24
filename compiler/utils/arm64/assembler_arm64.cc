@@ -190,13 +190,17 @@ void Arm64Assembler::GenerateMarkingRegisterCheck(Register temp, int code) {
 
   vixl::aarch64::Register mr = reg_x(MR);  // Marking Register.
   vixl::aarch64::Register tr = reg_x(TR);  // Thread Register.
-  vixl::aarch64::Label mr_is_ok;
+  vixl::aarch64::Label mr_is_ok, is_marking;
 
   // temp = self.tls32_.is.gc_marking
   ___ Ldr(temp, MemOperand(tr, Thread::IsGcMarkingOffset<kArm64PointerSize>().Int32Value()));
-  // Check that mr == self.tls32_.is.gc_marking.
-  ___ Cmp(mr.W(), temp);
-  ___ B(eq, &mr_is_ok);
+  ___ Cbnz(temp, &is_marking);
+  // GC is not marking, check that mr != 0
+  ___ Cbnz(mr, &mr_is_ok);
+  ___ Brk(code);
+  ___ Bind(&is_marking);
+  // GC is marking check that mr == 0
+  ___ Cbz(mr, &mr_is_ok);
   ___ Brk(code);
   ___ Bind(&mr_is_ok);
 }

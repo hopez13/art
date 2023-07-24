@@ -562,14 +562,14 @@ static Condition UnaryConditionToX86Condition(JNIMacroUnaryCondition cond) {
   }
 }
 
-void X86JNIMacroAssembler::TestGcMarking(JNIMacroLabel* label, JNIMacroUnaryCondition cond) {
+void X86JNIMacroAssembler::TestGcMarking(JNIMacroLabel* label) {
   CHECK(label != nullptr);
 
   // CMP self->tls32_.is_gc_marking, 0
   // Jcc <Offset>
   DCHECK_EQ(Thread::IsGcMarkingSize(), 4u);
   __ fs()->cmpl(Address::Absolute(Thread::IsGcMarkingOffset<kX86PointerSize>()), Immediate(0));
-  __ j(UnaryConditionToX86Condition(cond), X86JNIMacroLabel::Cast(label)->AsX86());
+  __ j(kNotZero, X86JNIMacroLabel::Cast(label)->AsX86());
 }
 
 void X86JNIMacroAssembler::TestMarkBit(ManagedRegister mref,

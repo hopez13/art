@@ -274,7 +274,7 @@ ENTRY art_jni_dlsym_lookup_critical_stub
     RESTORE_TWO_REGS_BASE x29, x27, x28, 192
     RESTORE_REG_BASE x29, x29, 208
 
-    REFRESH_MARKING_REGISTER
+    REFRESH_SPECIAL_REGISTERS xIP0
 
     // Check for exception before moving args back to keep the return PC for managed stack walk.
     CFI_REMEMBER_STATE

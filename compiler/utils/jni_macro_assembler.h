@@ -206,8 +206,8 @@ class JNIMacroAssembler : public DeletableArenaObject<kArenaAllocAssembler> {
   virtual std::unique_ptr<JNIMacroLabel> CreateLabel() = 0;
   // Emit an unconditional jump to the label.
   virtual void Jump(JNIMacroLabel* label) = 0;
-  // Emit a conditional jump to the label by applying a unary condition test to the GC marking flag.
-  virtual void TestGcMarking(JNIMacroLabel* label, JNIMacroUnaryCondition cond) = 0;
+  // Emit a conditional jump to the label by checking the GC marking flag.
+  virtual void TestGcMarking(JNIMacroLabel* label) = 0;
   // Emit a conditional jump to the label by applying a unary condition test to object's mark bit.
   virtual void TestMarkBit(ManagedRegister ref,
                            JNIMacroLabel* label,
