@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "711a7284_d5d7f185",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-07-24T08:24:32Z",
+      "side": 1,
+      "message": "The `GET_VREG_OBJECT` macro is usually used only when copying a vreg of an unknown type to copy from the REFS. And I\u0027d prefer to keep it that way to avoid hiding type errors with an NPE (let\u0027s crash instead if the vreg is a small non-zero int).",
+      "range": {
+        "startLine": 323,
+        "startChar": 6,
+        "endLine": 323,
+        "endChar": 33
+      },
+      "revId": "bbcee44c359c1f16c7d00ac615196a2bedf540cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1cef9ce2_c647e90c",
+        "filename": "runtime/interpreter/mterp/riscv64/other.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-07-24T08:24:32Z",
+      "side": 1,
+      "message": "We could pass `is_wide` here and to `GET_VREG` below to implement `op_move_wide` with this code. (Same for the other `move*wide` opcodes.)",
+      "range": {
+        "startLine": 16,
+        "startChar": 4,
+        "endLine": 16,
+        "endChar": 12
+      },
+      "revId": "bbcee44c359c1f16c7d00ac615196a2bedf540cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
