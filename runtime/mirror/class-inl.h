@@ -913,7 +913,7 @@ inline void Class::InitializeClassVisitor::operator()(ObjPtr<Object> obj,
   // Default to force slow path until visibly initialized.
   // There is no need for release store (volatile) in pre-fence visitor.
   klass->SetField32</*kTransactionActive=*/ false, /*kCheckTransaction=*/ false>(
-      ObjectSizeAllocFastPathOffset(), std::numeric_limits<uint32_t>::max());
+      ObjectSizeAllocFastPathOffset(), std::numeric_limits<int32_t>::max());
 }
 
 inline void Class::SetAccessFlagsDuringLinking(uint32_t new_access_flags) {

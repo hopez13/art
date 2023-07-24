@@ -45,7 +45,7 @@ public class Main {
   //    not null. The null offset (#+0x0) in the CBNZ instruction is a placeholder
   //    for the offset to the Baker read barrier thunk (which is not yet set when
   //    the CFG output is emitted).
-  ///   CHECK-NEXT:      cbnz x20, #+0x0
+  ///   CHECK-NEXT:      cbz x20, #+0x0
   /// CHECK-ELSE:
   ///   CHECK-NEXT:      add x<<BaseRegNum:\d+>>, {{x\d+}}, #0x8 (8)
   /// CHECK-FI:

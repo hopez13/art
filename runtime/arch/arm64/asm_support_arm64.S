@@ -35,8 +35,10 @@
 #define wIP1 w17
 
 #ifdef RESERVE_MARKING_REGISTER
-// Marking Register, holding Thread::Current()->GetIsGcMarking().
+// Marking Register, if Thread::Current()->GetIsGcMarking() holds zero,
+// otherwise holds tlab information.
 #define wMR w20
+#define xMR x20
 #endif
 
 // Implicit suspend check register.
@@ -181,9 +183,28 @@
 // This macro must be called at the end of functions implementing
 // entrypoints that possibly (directly or indirectly) perform a
 // suspend check (before they return).
-.macro REFRESH_MARKING_REGISTER
+.macro REFRESH_SPECIAL_REGISTERS temp
 #ifdef RESERVE_MARKING_REGISTER
     ldr wMR, [xSELF, #THREAD_IS_GC_MARKING_OFFSET]
+    cbz wMR, 4f
+    mov wMR, wzr
+    b 5f
+// We use 4 and 5 as temporary labels here to not clash with others.
+4:
+    // Store ((tlab_end - tlab_pos) << 32) | tlab_pos into xMR
+    ldp xMR, \temp, [xSELF, #THREAD_LOCAL_POS_OFFSET]
+    sub \temp, \temp, xMR
+    orr xMR, xMR, \temp, lsl #32
+    cbnz xMR, 5f
+    // In case the tlab is null, we store 1 to flag that the GC is not marking.
+    mov wMR, #1
+5:
+#endif
+.endm
+
+.macro TEST_IF_MARKING label
+#ifdef RESERVE_MARKING_REGISTER
+    cbz xMR, \label
 #endif
 .endm
 

@@ -213,7 +213,7 @@ static JniCompiledMethod ArtJniCompileMethodInternal(const CompilerOptions& comp
     jclass_read_barrier_return = __ CreateLabel();
 
     // Check if gc_is_marking is set -- if it's not, we don't need a read barrier.
-    __ TestGcMarking(jclass_read_barrier_slow_path.get(), JNIMacroUnaryCondition::kNotZero);
+    __ TestGcMarking(jclass_read_barrier_slow_path.get());
 
     // If marking, the slow path returns after the check.
     __ Bind(jclass_read_barrier_return.get());
