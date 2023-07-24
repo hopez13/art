@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46e67a66_494b290b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-07-24T15:36:36Z",
+      "side": 1,
+      "message": "Concerning the arm32 debug_frame issue (http://b/145790995), I can see that without `keep_symbols_and_debug_frame` there is no .debug_frame in libart.so.\nShould I leave `keep_symbols_and_debug_frame: true` for arm32?\n\nWith `keep_symbols`:\n```\n    FILE SIZE        VM SIZE                                                                             \n --------------  --------------                                                                          \n  58.9%  4.05Mi  82.1%  4.05Mi    .text                                                                  \n  16.3%  1.12Mi   0.0%       0    .strtab                                                                \n   8.0%   566Ki   0.0%       0    .symtab                                                                \n   5.3%   374Ki   7.4%   374Ki    .dynstr                                                                \n   4.1%   288Ki   0.0%       0    .debug_frame                                                           \n   3.4%   235Ki   4.7%   235Ki    .rodata                                                                \n   1.3%  94.8Ki   1.9%  94.8Ki    .dynsym                                                                \n   0.7%  47.5Ki   0.9%  47.5Ki    .ARM.exidx                                                             \n   0.5%  34.2Ki   0.7%  34.2Ki    .gnu.hash                                                              \n   0.5%  31.9Ki   0.6%  31.9Ki    .eh_frame                                                              \n...                                                          \n 100.0%  6.88Mi 100.0%  4.93Mi    TOTAL\n```\n\nWithout `keep_symbols` (.gnu_debugdata instead of .strtab, .symtab and .debug_frame):\n```\n    FILE SIZE        VM SIZE                                                                             \n --------------  --------------                                                                          \n  80.2%  4.05Mi  82.1%  4.05Mi    .text                                                                  \n   7.2%   374Ki   7.4%   374Ki    .dynstr                                                                \n   4.6%   235Ki   4.7%   235Ki    .rodata                                                                \n   2.6%   132Ki   0.0%       0    .gnu_debugdata                                                         \n   1.8%  94.8Ki   1.9%  94.8Ki    .dynsym                                                                \n   0.9%  47.5Ki   0.9%  47.5Ki    .ARM.exidx                                                             \n   0.7%  34.2Ki   0.7%  34.2Ki    .gnu.hash                                                              \n   0.6%  31.9Ki   0.6%  31.9Ki    .eh_frame                                                              \n...                                                                \n 100.0%  5.05Mi 100.0%  4.93Mi    TOTAL   \n```",
+      "revId": "78ac12ede9396da15e6d9c18c07285ed98a2080c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
