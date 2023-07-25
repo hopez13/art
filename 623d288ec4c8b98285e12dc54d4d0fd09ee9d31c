@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "1ba7dea7_de9e5a77",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1867,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-07-25T01:10:33Z",
+      "side": 1,
+      "message": "Agreed. That would be simpler to reason.",
+      "parentUuid": "7be60dc7_82ab7510",
+      "range": {
+        "startLine": 1865,
+        "startChar": 6,
+        "endLine": 1867,
+        "endChar": 7
+      },
+      "revId": "623d288ec4c8b98285e12dc54d4d0fd09ee9d31c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "4915396b_5a607015",
         "filename": "runtime/thread.h",
         "patchSetId": 3
@@ -37,6 +61,30 @@
       "writtenOn": "2023-07-24T20:49:15Z",
       "side": 1,
       "message": "White space looks like an editing accident? Fixed.",
+      "range": {
+        "startLine": 2185,
+        "startChar": 28,
+        "endLine": 2185,
+        "endChar": 38
+      },
+      "revId": "623d288ec4c8b98285e12dc54d4d0fd09ee9d31c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a302708c_3aec6fdc",
+        "filename": "runtime/thread.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 2185,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-07-25T01:10:33Z",
+      "side": 1,
+      "message": "It wasn\u0027t accidental. When I ran `repo upload` it wanted to have this indentation.",
+      "parentUuid": "4915396b_5a607015",
       "range": {
         "startLine": 2185,
         "startChar": 28,
