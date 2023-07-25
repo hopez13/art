@@ -72,6 +72,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a014cb9c_5cf276d1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-07-25T23:18:24Z",
+      "side": 1,
+      "message": "With the CL to remove `keep_symbols` submitted (http://aosp/2673136), there is a slight size decrease after merging libart and libart-compiler. I\u0027ve put the numbers in the commit message.",
+      "parentUuid": "48dff4fc_2a4d8890",
+      "revId": "ec080764b7143571796609bde81045d3ddb07cb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7fec86d1_c6214368",
