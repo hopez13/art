@@ -34,7 +34,14 @@ namespace art {
 namespace interpreter {
 
 bool IsNterpSupported() {
+#ifdef ART_USE_RESTRICTED_MODE
+  // TODO(Simulator): Support Nterp.
+  // Nterp uses the native stack and quick stack frame layout; this will be a complication
+  // for the simulator mode. We should use switch interpreter only for now.
+  return false;
+#else
   return !kPoisonHeapReferences && kReserveMarkingRegister;
+#endif  // #ifdef ART_USE_RESTRICTED_MODE
 }
 
 bool CanRuntimeUseNterp() REQUIRES_SHARED(Locks::mutator_lock_) {

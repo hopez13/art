@@ -140,11 +140,13 @@ HInvokeStaticOrDirect::DispatchInfo HSharpening::SharpenLoadMethod(
     code_ptr_location = CodePtrLocation::kCallArtMethod;
   }
 
+#ifndef ART_USE_RESTRICTED_MODE
   if (method_load_kind != MethodLoadKind::kRuntimeCall && callee->IsCriticalNative()) {
     DCHECK_NE(method_load_kind, MethodLoadKind::kRecursive);
     DCHECK(callee->IsStatic());
     code_ptr_location = CodePtrLocation::kCallCriticalNative;
   }
+#endif  // ART_USE_RESTRICTED_MODE
 
   if (codegen->GetGraph()->IsDebuggable()) {
     // For debuggable apps always use the code pointer from ArtMethod
