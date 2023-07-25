@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7367a8c8_eb7c6c45",
+        "filename": "runtime/arch/arm64/asm_support_arm64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1975361
+      },
+      "writtenOn": "2023-07-25T08:00:56Z",
+      "side": 1,
+      "message": "Do you think we could use \"label_name\\\\@:\" that should expand to a unique one in each macro instantiation?",
+      "range": {
+        "startLine": 193,
+        "startChar": 0,
+        "endLine": 193,
+        "endChar": 2
+      },
+      "revId": "e48bf6b69e56438f98a7f952f47881e7dfab08ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
