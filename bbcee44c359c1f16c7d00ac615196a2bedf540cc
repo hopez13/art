@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "aac4b930_7e54b8d6",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-07-25T00:31:47Z",
+      "side": 1,
+      "message": "Okay, sounds like we want GET|SET_VREG_OBJECT as its own call, no overloads in GET|SET_VREG.",
+      "parentUuid": "711a7284_d5d7f185",
+      "range": {
+        "startLine": 323,
+        "startChar": 6,
+        "endLine": 323,
+        "endChar": 33
+      },
+      "revId": "bbcee44c359c1f16c7d00ac615196a2bedf540cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1cef9ce2_c647e90c",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-07-24T08:24:32Z",
       "side": 1,
       "message": "We could pass `is_wide` here and to `GET_VREG` below to implement `op_move_wide` with this code. (Same for the other `move*wide` opcodes.)",
+      "range": {
+        "startLine": 16,
+        "startChar": 4,
+        "endLine": 16,
+        "endChar": 12
+      },
+      "revId": "bbcee44c359c1f16c7d00ac615196a2bedf540cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0df199f6_fc77076c",
+        "filename": "runtime/interpreter/mterp/riscv64/other.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-07-25T00:31:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1cef9ce2_c647e90c",
       "range": {
         "startLine": 16,
         "startChar": 4,
