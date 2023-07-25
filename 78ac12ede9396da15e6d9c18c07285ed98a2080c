@@ -70,6 +70,24 @@
       "parentUuid": "05c5a751_4735dcbc",
       "revId": "78ac12ede9396da15e6d9c18c07285ed98a2080c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ca51c11_798d31b7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-07-25T09:52:43Z",
+      "side": 1,
+      "message": "Yes, `.gnu_debugdata` is enough. Clang update might make it necessary to have `.debug_frame`, but we still will have it (compressed). Furthermore, we will have it on all arches now, so even better.",
+      "parentUuid": "b2b4f5a5_82ba5d6b",
+      "revId": "78ac12ede9396da15e6d9c18c07285ed98a2080c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
