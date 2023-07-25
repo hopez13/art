@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ceb6caee_9c371794",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-07-25T07:31:34Z",
+      "side": 1,
+      "message": "Works for me. We could make the code shorter if `SET_VREG` had `is_object` but the discrepancy between the parameters for `GET_VREG` and `SET_VREG` would be odd.",
+      "parentUuid": "aac4b930_7e54b8d6",
+      "range": {
+        "startLine": 323,
+        "startChar": 6,
+        "endLine": 323,
+        "endChar": 33
+      },
+      "revId": "bbcee44c359c1f16c7d00ac615196a2bedf540cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1cef9ce2_c647e90c",
