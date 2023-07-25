@@ -1,0 +1,211 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "37bc6f47_6d9e537a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-07-25T08:52:42Z",
+      "side": 1,
+      "message": "Do we need to add these types, or could we easily find them when doing dex2oat?\n\nAsking because the size of the dirty-image-objects file may be important.",
+      "range": {
+        "startLine": 11,
+        "startChar": 52,
+        "endLine": 11,
+        "endChar": 75
+      },
+      "revId": "3aa48a44c1413b5d991b61746cebb1f41af0eed8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c8d632a1_6c1104de",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 356,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-07-25T08:52:42Z",
+      "side": 1,
+      "message": "AFAIK, we use struct for simple structures. I think here you could make this a class.",
+      "range": {
+        "startLine": 356,
+        "startChar": 0,
+        "endLine": 356,
+        "endChar": 30
+      },
+      "revId": "3aa48a44c1413b5d991b61746cebb1f41af0eed8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "787539ff_44b03c4b",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-07-25T08:52:42Z",
+      "side": 1,
+      "message": "drop",
+      "range": {
+        "startLine": 364,
+        "startChar": 18,
+        "endLine": 364,
+        "endChar": 34
+      },
+      "revId": "3aa48a44c1413b5d991b61746cebb1f41af0eed8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16525869_96e8d5b9",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 371,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-07-25T08:52:42Z",
+      "side": 1,
+      "message": "Add a comment what these two cases mean.",
+      "range": {
+        "startLine": 365,
+        "startChar": 1,
+        "endLine": 371,
+        "endChar": 5
+      },
+      "revId": "3aa48a44c1413b5d991b61746cebb1f41af0eed8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "41bdf0c2_d41bc733",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-07-25T08:52:42Z",
+      "side": 1,
+      "message": "Add a comment how this can happen.",
+      "range": {
+        "startLine": 386,
+        "startChar": 0,
+        "endLine": 388,
+        "endChar": 5
+      },
+      "revId": "3aa48a44c1413b5d991b61746cebb1f41af0eed8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85cc8208_f4cf0c0b",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 483,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-07-25T08:52:42Z",
+      "side": 1,
+      "message": "classes",
+      "range": {
+        "startLine": 483,
+        "startChar": 61,
+        "endLine": 483,
+        "endChar": 68
+      },
+      "revId": "3aa48a44c1413b5d991b61746cebb1f41af0eed8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "406b7040_8f91311b",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 522,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-07-25T08:52:42Z",
+      "side": 1,
+      "message": "drop",
+      "range": {
+        "startLine": 522,
+        "startChar": 27,
+        "endLine": 522,
+        "endChar": 28
+      },
+      "revId": "3aa48a44c1413b5d991b61746cebb1f41af0eed8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "47e29da6_f8551220",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 523,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-07-25T08:52:42Z",
+      "side": 1,
+      "message": "drop",
+      "range": {
+        "startLine": 523,
+        "startChar": 22,
+        "endLine": 523,
+        "endChar": 23
+      },
+      "revId": "3aa48a44c1413b5d991b61746cebb1f41af0eed8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7a5909c_ad6ba367",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 569,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-07-25T08:52:42Z",
+      "side": 1,
+      "message": "\"Number of non-string objects not reached through classes\" ?",
+      "range": {
+        "startLine": 569,
+        "startChar": 12,
+        "endLine": 569,
+        "endChar": 48
+      },
+      "revId": "3aa48a44c1413b5d991b61746cebb1f41af0eed8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
