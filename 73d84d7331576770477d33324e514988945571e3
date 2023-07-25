@@ -34,6 +34,29 @@
       "parentUuid": "1adaa3a2_bc4d0f23",
       "revId": "73d84d7331576770477d33324e514988945571e3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0cc0330_93fbcb15",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 354,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2023-07-25T09:12:34Z",
+      "side": 1,
+      "message": "I don\u0027t understand how it works, normally when you want to add a bit flag it\u0027s OR not AND.\n\nAnd then how can adding a feature make sure we only ask for those features that are available?",
+      "range": {
+        "startLine": 354,
+        "startChar": 23,
+        "endLine": 354,
+        "endChar": 25
+      },
+      "revId": "73d84d7331576770477d33324e514988945571e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
