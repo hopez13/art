@@ -93,6 +93,30 @@
       },
       "revId": "623d288ec4c8b98285e12dc54d4d0fd09ee9d31c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d1f45d0a_e4ea993b",
+        "filename": "runtime/thread.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 2185,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-07-25T15:10:58Z",
+      "side": 1,
+      "message": "Weird. Maybe it wants it aligned and just looks at the next line? Seems like a bug to me.",
+      "parentUuid": "a302708c_3aec6fdc",
+      "range": {
+        "startLine": 2185,
+        "startChar": 28,
+        "endLine": 2185,
+        "endChar": 38
+      },
+      "revId": "623d288ec4c8b98285e12dc54d4d0fd09ee9d31c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
