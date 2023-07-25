@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f0f2442d_cb1d2a03",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-07-25T16:16:58Z",
+      "side": 1,
+      "message": "These types can be used in `dex2oat` to check if `dirty-image-objects` file applies correctly to the boot image objects.\nFor example, a java object field can be updated to have a different type, but unchanged name. If such a path is recorded in `dirty-image-objects`, the type mismatch can be detected with this info.\n\nThe types are not required to find the objects, though. Assuming the number of \"false positives\" is negligible, they can be omitted.",
+      "parentUuid": "37bc6f47_6d9e537a",
+      "range": {
+        "startLine": 11,
+        "startChar": 52,
+        "endLine": 11,
+        "endChar": 75
+      },
+      "revId": "3aa48a44c1413b5d991b61746cebb1f41af0eed8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c8d632a1_6c1104de",
         "filename": "imgdiag/imgdiag.cc",
         "patchSetId": 1
@@ -37,6 +61,30 @@
       "writtenOn": "2023-07-25T08:52:42Z",
       "side": 1,
       "message": "AFAIK, we use struct for simple structures. I think here you could make this a class.",
+      "range": {
+        "startLine": 356,
+        "startChar": 0,
+        "endLine": 356,
+        "endChar": 30
+      },
+      "revId": "3aa48a44c1413b5d991b61746cebb1f41af0eed8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "16592bc5_c087634f",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 356,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-07-25T16:16:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c8d632a1_6c1104de",
       "range": {
         "startLine": 356,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "caf0ec60_ebf2389a",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-07-25T16:16:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "787539ff_44b03c4b",
+      "range": {
+        "startLine": 364,
+        "startChar": 18,
+        "endLine": 364,
+        "endChar": 34
+      },
+      "revId": "3aa48a44c1413b5d991b61746cebb1f41af0eed8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "16525869_96e8d5b9",
@@ -83,6 +155,30 @@
       "writtenOn": "2023-07-25T08:52:42Z",
       "side": 1,
       "message": "Add a comment what these two cases mean.",
+      "range": {
+        "startLine": 365,
+        "startChar": 1,
+        "endLine": 371,
+        "endChar": 5
+      },
+      "revId": "3aa48a44c1413b5d991b61746cebb1f41af0eed8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9987d043_c81b2c24",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 371,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-07-25T16:16:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "16525869_96e8d5b9",
       "range": {
         "startLine": 365,
         "startChar": 1,
@@ -116,6 +212,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5eaef1a8_3c789d7f",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-07-25T16:16:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "41bdf0c2_d41bc733",
+      "range": {
+        "startLine": 386,
+        "startChar": 0,
+        "endLine": 388,
+        "endChar": 5
+      },
+      "revId": "3aa48a44c1413b5d991b61746cebb1f41af0eed8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "85cc8208_f4cf0c0b",
@@ -129,6 +249,30 @@
       "writtenOn": "2023-07-25T08:52:42Z",
       "side": 1,
       "message": "classes",
+      "range": {
+        "startLine": 483,
+        "startChar": 61,
+        "endLine": 483,
+        "endChar": 68
+      },
+      "revId": "3aa48a44c1413b5d991b61746cebb1f41af0eed8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f694abc_5e35138a",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 483,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-07-25T16:16:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "85cc8208_f4cf0c0b",
       "range": {
         "startLine": 483,
         "startChar": 61,
@@ -162,6 +306,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "68df1128_cbfb7821",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 522,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-07-25T16:16:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "406b7040_8f91311b",
+      "range": {
+        "startLine": 522,
+        "startChar": 27,
+        "endLine": 522,
+        "endChar": 28
+      },
+      "revId": "3aa48a44c1413b5d991b61746cebb1f41af0eed8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "47e29da6_f8551220",
@@ -185,6 +353,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "59b86439_68daa1d3",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 523,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-07-25T16:16:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "47e29da6_f8551220",
+      "range": {
+        "startLine": 523,
+        "startChar": 22,
+        "endLine": 523,
+        "endChar": 23
+      },
+      "revId": "3aa48a44c1413b5d991b61746cebb1f41af0eed8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e7a5909c_ad6ba367",
@@ -198,6 +390,30 @@
       "writtenOn": "2023-07-25T08:52:42Z",
       "side": 1,
       "message": "\"Number of non-string objects not reached through classes\" ?",
+      "range": {
+        "startLine": 569,
+        "startChar": 12,
+        "endLine": 569,
+        "endChar": 48
+      },
+      "revId": "3aa48a44c1413b5d991b61746cebb1f41af0eed8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "48a9cdd1_0d2f80c6",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 569,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-07-25T16:16:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e7a5909c_ad6ba367",
       "range": {
         "startLine": 569,
         "startChar": 12,
