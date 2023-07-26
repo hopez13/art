@@ -91,6 +91,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a51a664d_3cf4b916",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-07-26T10:41:26Z",
+      "side": 1,
+      "message": "I must be missing something because I\u0027m not familiar with userfaultfd APIs. By just looking at the code, I see 8 possible combinations.\n\n1) SIGBUS\n\n- `UFFD_FEATURE_SIGBUS | UFFD_FEATURE_MISSING_SHMEM | UFFD_FEATURE_MINOR_SHMEM`\n- `UFFD_FEATURE_SIGBUS | UFFD_FEATURE_MISSING_SHMEM`\n- `UFFD_FEATURE_SIGBUS | UFFD_FEATURE_MINOR_SHMEM`\n- `UFFD_FEATURE_SIGBUS`\n\n2) minor-fault\n\n- `UFFD_FEATURE_MISSING_SHMEM | UFFD_FEATURE_MINOR_SHMEM`\n- `UFFD_FEATURE_MISSING_SHMEM`\n- `UFFD_FEATURE_MINOR_SHMEM`\n\n3) none\n\n- `0`\n\nThis makes me a bit worried because the code supports too many combinations and we don\u0027t have tests that cover all of them. Let\u0027s discuss this in today\u0027s meeting.",
+      "parentUuid": "da21f3b3_1b941752",
+      "revId": "73d84d7331576770477d33324e514988945571e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e0cc0330_93fbcb15",
         "filename": "runtime/gc/collector/mark_compact.cc",
         "patchSetId": 2
