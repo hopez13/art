@@ -2120,13 +2120,11 @@ void InstructionCodeGeneratorRISCV64::VisitInvokePolymorphic(HInvokePolymorphic*
 }
 
 void LocationsBuilderRISCV64::VisitInvokeCustom(HInvokeCustom* instruction) {
-  UNUSED(instruction);
-  LOG(FATAL) << "Unimplemented";
+  HandleInvoke(instruction);
 }
 
 void InstructionCodeGeneratorRISCV64::VisitInvokeCustom(HInvokeCustom* instruction) {
-  UNUSED(instruction);
-  LOG(FATAL) << "Unimplemented";
+  codegen_->GenerateInvokeCustomCall(instruction);
 }
 
 void LocationsBuilderRISCV64::VisitLessThan(HLessThan* instruction) {
