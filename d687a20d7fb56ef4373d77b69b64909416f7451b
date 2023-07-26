@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "55b24018_b6a55a11",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 785,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-07-26T15:29:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "94983bb7_7d8920c6",
+      "range": {
+        "startLine": 785,
+        "startChar": 48,
+        "endLine": 785,
+        "endChar": 54
+      },
+      "revId": "d687a20d7fb56ef4373d77b69b64909416f7451b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bb53a936_e1791e5e",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e13dcba3_dca1f071",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 786,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-07-26T15:29:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bb53a936_e1791e5e",
+      "range": {
+        "startLine": 786,
+        "startChar": 82,
+        "endLine": 786,
+        "endChar": 86
+      },
+      "revId": "d687a20d7fb56ef4373d77b69b64909416f7451b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "14f65dab_3051a310",
@@ -60,6 +108,30 @@
       "writtenOn": "2023-07-26T14:46:50Z",
       "side": 1,
       "message": "thread_pool_ !\u003d nullptr",
+      "range": {
+        "startLine": 813,
+        "startChar": 8,
+        "endLine": 813,
+        "endChar": 20
+      },
+      "revId": "d687a20d7fb56ef4373d77b69b64909416f7451b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f58204e4_9392bc40",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 813,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-07-26T15:29:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "14f65dab_3051a310",
       "range": {
         "startLine": 813,
         "startChar": 8,
@@ -117,6 +189,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d1126350_d1e96ddf",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1081,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-07-26T15:29:34Z",
+      "side": 1,
+      "message": "After an offline discussion reverting back to the original implementation. This will be fixed in a follow up CL by collecting all the new methods as we flush the entries and getting method information for all entries at one place in a ScopedObjectAccess scope and then flushing outside that scope.",
+      "parentUuid": "0f887255_e88d3658",
+      "range": {
+        "startLine": 1075,
+        "startChar": 2,
+        "endLine": 1081,
+        "endChar": 3
+      },
+      "revId": "d687a20d7fb56ef4373d77b69b64909416f7451b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8dab9025_7315cc92",
@@ -130,6 +226,30 @@
       "writtenOn": "2023-07-26T14:46:50Z",
       "side": 1,
       "message": "(thread_pool_ \u003d\u003d nullptr)",
+      "range": {
+        "startLine": 1151,
+        "startChar": 18,
+        "endLine": 1151,
+        "endChar": 30
+      },
+      "revId": "d687a20d7fb56ef4373d77b69b64909416f7451b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c8f0a8a_77feecad",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1151,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-07-26T15:29:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8dab9025_7315cc92",
       "range": {
         "startLine": 1151,
         "startChar": 18,
