@@ -73,6 +73,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "da21f3b3_1b941752",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-07-26T03:52:06Z",
+      "side": 1,
+      "message": "\u003e A high level comment: It looks like we will be requesting any combination of the features (2^3\u003d8) after this change. Are we sure that all those 8 combinations can work?\n\nHow did you come up with that? There are basically 3 possibilities:\n1) SIGBUS (with or without minor-fault): this is handled by first condition\n2) minor-fault (without SIGBUS, of course): this is handled by second\n3) none: no features required (threaded-mode with private anonymous mappings)\n\nPlease note that minor-fault as of now is disabled (can\u0027t be used). However, just for sake of future use I\u0027m maintaining it. Also, the flags like `use_uffd_sigbus_` and `uffd_minor_fault_supported_` are enabled only if they are supported.\n\nAlso, the reason all features can\u0027t be requested is that while most of the features are passive (becomes active only if later uffd registration is done with that feature), some features are proactive (like SIGBUS). The moment they are selected here, they get enabled forever for that process.\n\nI hope this clarifies.",
+      "parentUuid": "cd7c72eb_c063719d",
+      "revId": "73d84d7331576770477d33324e514988945571e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e0cc0330_93fbcb15",
         "filename": "runtime/gc/collector/mark_compact.cc",
         "patchSetId": 2
