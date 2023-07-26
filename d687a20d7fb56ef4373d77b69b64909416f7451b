@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "82e1020a_67db918b",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1081,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-07-26T14:39:10Z",
+      "side": 1,
+      "message": "I couldn\u0027t find a better way of doing this. We call this both from mutator threads (for ex: on zygote where we don\u0027t create thread pool or when finishing tracing) and from thread pool worker threads. I tried to refactor the code but that was making it more messier. We can handle the case of finish trace by adding tasks and waiting for thread pool to finish the tasks but there\u0027s no easy way for zygote.",
+      "range": {
+        "startLine": 1075,
+        "startChar": 2,
+        "endLine": 1081,
+        "endChar": 3
+      },
+      "revId": "d687a20d7fb56ef4373d77b69b64909416f7451b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

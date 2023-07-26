@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a7536083_5b8d747a",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 427,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-07-26T14:39:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2065c31f_91e263a0",
+      "revId": "1d6f05ec30c4be2424960eefe285d6e85b5b7c65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "23a69d59_a30e22c6",
@@ -31,6 +49,30 @@
       "writtenOn": "2023-07-26T08:49:15Z",
       "side": 1,
       "message": "Can we make the zygote not create threads for flushing trace entries? Forks are critical for performance for app startup, and adding a MutexLock for a debugging feature doesn\u0027t seem worth it.",
+      "range": {
+        "startLine": 766,
+        "startChar": 0,
+        "endLine": 767,
+        "endChar": 25
+      },
+      "revId": "1d6f05ec30c4be2424960eefe285d6e85b5b7c65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "99abe46a_926d5a11",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 767,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-07-26T14:39:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "23a69d59_a30e22c6",
       "range": {
         "startLine": 766,
         "startChar": 0,
@@ -64,6 +106,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b369719e_b7f32e7a",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-07-26T14:39:10Z",
+      "side": 1,
+      "message": "Done. See my comment below though.",
+      "parentUuid": "a5a5e9ac_e4e46f6e",
+      "range": {
+        "startLine": 237,
+        "startChar": 0,
+        "endLine": 237,
+        "endChar": 33
+      },
+      "revId": "1d6f05ec30c4be2424960eefe285d6e85b5b7c65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "81a83c71_62cbe998",
@@ -87,6 +153,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "79ab7c31_e88de410",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 840,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-07-26T14:39:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "81a83c71_62cbe998",
+      "range": {
+        "startLine": 840,
+        "startChar": 91,
+        "endLine": 840,
+        "endChar": 99
+      },
+      "revId": "1d6f05ec30c4be2424960eefe285d6e85b5b7c65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c7bfdf79_9b39cf16",
@@ -100,6 +190,24 @@
       "writtenOn": "2023-07-26T08:49:15Z",
       "side": 1,
       "message": "add a comment.",
+      "revId": "1d6f05ec30c4be2424960eefe285d6e85b5b7c65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b87e3f35_9b68c18d",
+        "filename": "runtime/trace.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-07-26T14:39:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c7bfdf79_9b39cf16",
       "revId": "1d6f05ec30c4be2424960eefe285d6e85b5b7c65",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
