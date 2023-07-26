@@ -2038,13 +2038,14 @@ void InstructionCodeGeneratorRISCV64::VisitIntermediateAddress(HIntermediateAddr
 }
 
 void LocationsBuilderRISCV64::VisitInvokeUnresolved(HInvokeUnresolved* instruction) {
-  UNUSED(instruction);
-  LOG(FATAL) << "Unimplemented";
+  // The trampoline uses the same calling convention as dex calling conventions,
+  // except instead of loading arg0/a0 with the target Method*, arg0/a0 will contain
+  // the method_idx.
+  HandleInvoke(instruction);
 }
 
 void InstructionCodeGeneratorRISCV64::VisitInvokeUnresolved(HInvokeUnresolved* instruction) {
-  UNUSED(instruction);
-  LOG(FATAL) << "Unimplemented";
+  codegen_->GenerateInvokeUnresolvedRuntimeCall(instruction);
 }
 
 void LocationsBuilderRISCV64::VisitInvokeInterface(HInvokeInterface* instruction) {
