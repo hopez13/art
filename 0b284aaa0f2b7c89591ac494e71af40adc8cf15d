@@ -46,6 +46,30 @@
       },
       "revId": "0b284aaa0f2b7c89591ac494e71af40adc8cf15d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8bc11c45_9e235d43",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2742,
+      "author": {
+        "id": 1975361
+      },
+      "writtenOn": "2023-07-26T16:24:57Z",
+      "side": 1,
+      "message": "Nice catch, thanks!\n\nI\u0027ve pushed a fix here: https://android-review.googlesource.com/c/platform/art/+/2677599\n\nI wasn\u0027t able to come up with a reproducer though and expect this issue not to affect the actual vectorization behaviour. There are two possible opb type situations:\n - opb type size is less than 32-bit: even with the typo, the situation will be handled properly by IsNarrowerOperands() below.\n - opb type \u003d\u003d int64: this is not possible because the opa would have been promoted to int64 as well, due to JAVA binary operation integer promotion rules.",
+      "parentUuid": "58c02742_eb57288a",
+      "range": {
+        "startLine": 2741,
+        "startChar": 0,
+        "endLine": 2742,
+        "endChar": 62
+      },
+      "revId": "0b284aaa0f2b7c89591ac494e71af40adc8cf15d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
