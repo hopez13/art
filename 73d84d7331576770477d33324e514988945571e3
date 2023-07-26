@@ -109,6 +109,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d0922f8b_735fc811",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-07-26T11:13:29Z",
+      "side": 1,
+      "message": "You came up with these many combinations because you didn\u0027t consider that for this GC using minor-fault feature, we need two of them together: `UFFD_FEATURE_MISSING_SHMEM | UFFD_FEATURE_MINOR_SHMEM`. See: https://cs.android.com/android/platform/superproject/main/+/main:art/runtime/gc/collector/mark_compact.cc;drc\u003dfab50833f1787848002bb96a6033f08a8c5212d3;l\u003d117\n\nAlso, `UFFD_FEATURE_MISSING_SHMEM` was introduced in the kernel very early, while `UFFD_FEATURE_MINOR_SHMEM` was introduced recently and that too selectively (only on intel and ARM 64-bit kernels). IOW, having `UFFD_FEATURE_MINOR_SHMEM` implies having `UFFD_FEATURE_MISSING_SHMEM`.\n\nIn short we don\u0027t need these many combinations to test. From our GCs perspective, if you just combine the two (as the above link necessitates), then we are left with 4 possibilities that my previous reply in this thread listed. Among those 4, 2 which involves minor-fault is disabled (see https://cs.android.com/android/platform/superproject/main/+/main:art/runtime/gc/collector/mark_compact.cc;drc\u003dfab50833f1787848002bb96a6033f08a8c5212d3;l\u003d386).\n\nThe only reason for still maintaining minor-fault is due to a small possibility of needing it in the future for jit-code-cache. That\u0027s because jit-code-cache has to be shmem. The heap will always be private anonymous.\n\nThe other two possibilities: SIGBUS and thread-mode (features \u003d 0) are thoroughly tested. In medium to long term we are going to get rid of threaded-mode also.",
+      "parentUuid": "a51a664d_3cf4b916",
+      "revId": "73d84d7331576770477d33324e514988945571e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e0cc0330_93fbcb15",
         "filename": "runtime/gc/collector/mark_compact.cc",
         "patchSetId": 2
