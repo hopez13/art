@@ -25,6 +25,7 @@
 #include "dwarf/register.h"
 #include "heap_poisoning.h"
 #include "intrinsics_list.h"
+#include "intrinsics_riscv64.h"
 #include "jit/profiling_info.h"
 #include "mirror/class-inl.h"
 #include "optimizing/nodes.h"
