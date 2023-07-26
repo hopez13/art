@@ -1,0 +1,107 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2065c31f_91e263a0",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 427,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-07-26T08:49:15Z",
+      "side": 1,
+      "message": "Nit: given you\u0027re moving this, comment why it needs to happen now. (before line 431 and after line 425).",
+      "revId": "1d6f05ec30c4be2424960eefe285d6e85b5b7c65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23a69d59_a30e22c6",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 767,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-07-26T08:49:15Z",
+      "side": 1,
+      "message": "Can we make the zygote not create threads for flushing trace entries? Forks are critical for performance for app startup, and adding a MutexLock for a debugging feature doesn\u0027t seem worth it.",
+      "range": {
+        "startLine": 766,
+        "startChar": 0,
+        "endLine": 767,
+        "endChar": 25
+      },
+      "revId": "1d6f05ec30c4be2424960eefe285d6e85b5b7c65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5a5e9ac_e4e46f6e",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-07-26T08:49:15Z",
+      "side": 1,
+      "message": "Could we avoid this? Holding the mutator lock while doing I/O isn\u0027t great.",
+      "range": {
+        "startLine": 237,
+        "startChar": 0,
+        "endLine": 237,
+        "endChar": 33
+      },
+      "revId": "1d6f05ec30c4be2424960eefe285d6e85b5b7c65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "81a83c71_62cbe998",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 840,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-07-26T08:49:15Z",
+      "side": 1,
+      "message": "shutdown,",
+      "range": {
+        "startLine": 840,
+        "startChar": 91,
+        "endLine": 840,
+        "endChar": 99
+      },
+      "revId": "1d6f05ec30c4be2424960eefe285d6e85b5b7c65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c7bfdf79_9b39cf16",
+        "filename": "runtime/trace.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-07-26T08:49:15Z",
+      "side": 1,
+      "message": "add a comment.",
+      "revId": "1d6f05ec30c4be2424960eefe285d6e85b5b7c65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
