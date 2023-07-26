@@ -74,6 +74,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "82488659_1390328b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-07-26T16:14:28Z",
+      "side": 1,
+      "message": "We could probably omit them for boot image where we do not expect R8/D8 to do certain aggressive optimizations, namely renaming fields to single-character (to reduce string data size) and sharing the same name for different types.\n\nBut if we want to _guarantee_ unique identifiers, we need to keep the field type.",
+      "parentUuid": "37bc6f47_6d9e537a",
+      "range": {
+        "startLine": 11,
+        "startChar": 52,
+        "endLine": 11,
+        "endChar": 75
+      },
+      "revId": "3aa48a44c1413b5d991b61746cebb1f41af0eed8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c8d632a1_6c1104de",
         "filename": "imgdiag/imgdiag.cc",
         "patchSetId": 1
