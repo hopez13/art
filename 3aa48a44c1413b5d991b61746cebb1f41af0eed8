@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e5129eb4_26f4f978",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-07-26T09:02:21Z",
+      "side": 1,
+      "message": "OK, it\u0027d be good to know the size penalty for them. OK to keep for now, but worth considering removing if that makes the file a lot smaller.",
+      "parentUuid": "f0f2442d_cb1d2a03",
+      "range": {
+        "startLine": 11,
+        "startChar": 52,
+        "endLine": 11,
+        "endChar": 75
+      },
+      "revId": "3aa48a44c1413b5d991b61746cebb1f41af0eed8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c8d632a1_6c1104de",
         "filename": "imgdiag/imgdiag.cc",
         "patchSetId": 1
