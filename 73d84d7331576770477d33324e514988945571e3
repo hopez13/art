@@ -143,6 +143,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e7820e1_2095a332",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-07-26T17:59:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8ae66d77_a2402b00",
+      "revId": "73d84d7331576770477d33324e514988945571e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e0cc0330_93fbcb15",
@@ -227,6 +245,30 @@
       "writtenOn": "2023-07-26T12:14:01Z",
       "side": 1,
       "message": "\u003e You came up with these many combinations because you didn\u0027t consider that for this GC using minor-fault feature, we need two of them together: `UFFD_FEATURE_MISSING_SHMEM | UFFD_FEATURE_MINOR_SHMEM`\n\nAccording to what you said, this should be something like:\n\n```\napi.features \u003d kUffdFeaturesForSigbus;\nif ((gUffdFeatures \u0026 kUffdFeaturesForMinorFault) !\u003d 0) {\n  api.features |\u003d kUffdFeaturesForMinorFault;\n}\n```\n\nto make sure that the two minor-fault feature always come together?",
+      "range": {
+        "startLine": 354,
+        "startChar": 10,
+        "endLine": 354,
+        "endChar": 49
+      },
+      "revId": "73d84d7331576770477d33324e514988945571e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b082c94_0c2ddde0",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 354,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-07-26T17:59:18Z",
+      "side": 1,
+      "message": "I have completely overhauled the code in the function to make it explicit as to what feature we are asking and that it must be present.",
+      "parentUuid": "bfebf18d_7a865d61",
       "range": {
         "startLine": 354,
         "startChar": 10,
