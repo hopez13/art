@@ -477,6 +477,7 @@ libart_cc_defaults {
 
     header_libs: [
         "art_cmdlineparser_headers",
+        "libart_simulator_headers",
         "cpp-define-generator-definitions",
         "dlmalloc",
         "jni_platform_headers",
@@ -667,6 +668,7 @@ libart_static_cc_defaults {
     name: "libart_static_base_defaults",
     whole_static_libs: [
         "libartpalette",
+        "libart-simulator-container",
         "libbase",
         "liblog",
         "liblz4",
@@ -779,6 +781,7 @@ art_cc_defaults {
     ],
     shared_libs: [
         "libartbase",
+        "libart-simulator-container",
         "libdexfile",
         "libprofile",
     ],
@@ -831,6 +834,7 @@ art_cc_library {
     ],
     shared_libs: [
         "libartbased",
+        "libartd-simulator-container",
         "libdexfiled",
         "libprofiled",
     ],

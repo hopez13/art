@@ -55,6 +55,10 @@ class AndroidLocalUnwinder;
 
 namespace art {
 
+#ifdef ART_USE_SIMULATOR
+class CodeSimulator;
+#endif
+
 namespace gc {
 namespace accounting {
 template<class T> class AtomicStack;
@@ -250,6 +254,10 @@ class Thread {
 
   // Get the thread from the JNI environment.
   static Thread* ForEnv(JNIEnv* env);
+
+#ifdef ART_USE_SIMULATOR
+  CodeSimulator* GetSimExecutor() const;
+#endif
 
   // On a runnable thread, check for pending thread suspension request and handle if pending.
   void AllowThreadSuspension() REQUIRES_SHARED(Locks::mutator_lock_);
@@ -1010,6 +1018,8 @@ class Thread {
         ManagedStack::TopShadowFrameOffset());
   }
 
+  bool IsRawObjOnStack(uint8_t* raw_obj) const;
+
   // Is the given obj in one of this thread's JNI transition frames?
   bool IsJniTransitionReference(jobject obj) const REQUIRES_SHARED(Locks::mutator_lock_);
 
@@ -1577,6 +1587,11 @@ class Thread {
       REQUIRES(Locks::runtime_shutdown_lock_);
   void InitCardTable();
   void InitCpu();
+
+#ifdef ART_USE_SIMULATOR
+  void CreateSimExecutor();
+#endif
+
   void CleanupCpu();
   void InitTlsEntryPoints();
   void InitTid();
@@ -1946,7 +1961,12 @@ class Thread {
                                method_verifier(nullptr),
                                thread_local_mark_stack(nullptr),
                                async_exception(nullptr),
+#ifdef ART_USE_SIMULATOR
+                               top_reflective_handle_scope(nullptr),
+                               sim_executor(nullptr) {
+#else
                                top_reflective_handle_scope(nullptr) {
+#endif
       std::fill(held_mutexes, held_mutexes + kLockLevelCount, nullptr);
     }
 
@@ -2109,6 +2129,11 @@ class Thread {
 
     // Top of the linked-list for reflective-handle scopes or null if none.
     BaseReflectiveHandleScope* top_reflective_handle_scope;
+#ifdef ART_USE_SIMULATOR
+    // Each thread has its own simulator executor with a full sim CPU context: registers,
+    // stack, etc.
+    CodeSimulator* sim_executor;
+#endif
   } tlsPtr_;
 
   // Small thread-local cache to be used from the interpreter.

@@ -186,6 +186,7 @@ if True:
   create_runner = "no"
   update_mode = "no"
   debug_mode = "no"
+  simulator_mode = "no"
   relocate = "no"
   runtime = "art"
   usage = "no"
@@ -236,6 +237,9 @@ if True:
       run_args += ["--host"]
       os.environ["RUN_MODE"] = "host"
       shift()
+    elif arg == "--simulator":
+      simulator_mode = "yes"
+      shift()
     elif arg == "--quiet":
       quiet = "yes"
       shift()
@@ -278,9 +282,8 @@ if True:
       prebuild_mode = "yes"
       shift()
     elif arg == "--compact-dex-level":
-      option = arg
       shift()
-      run_args += [f'"{option}" "{arg}"']
+      run_args += [f'--compact-dex-level "{arg}"']
       shift()
     elif arg == "--strip-dex":
       run_args += ["--strip-dex"]
@@ -688,7 +691,15 @@ if True:
     else:
       pass  # defaults to using target BOOTCLASSPATH
   elif runtime == "art":
-    if target_mode == "no":
+    if simulator_mode == "yes":
+      run_args += ["--simulator"]
+      run_args += [
+          f'--boot "{ANDROID_PRODUCT_OUT}/system/apex/com.android.art.testing/javalib/boot.art"'
+      ]
+
+      java_lp = f"{host_lib_root}/lib{suffix64}:{host_lib_root}/nativetest{suffix64}"
+      run_args += [f'--runtime-option "-Djava.library.path={java_lp}"']
+    elif target_mode == "no":
       host_arch_name = guess_host_arch_name()
       run_args += [
           f'--boot "{ANDROID_HOST_OUT}/apex/art_boot_images/javalib/boot.art"'
@@ -898,7 +909,10 @@ if True:
           run_checker = "no"
           cfg_output_dir = tmp_dir
 
-        if target_mode == "no":
+        if simulator_mode == "yes":
+          # TODO(Simulator): remove the ISA hard-coding.
+          checker_args = "--arch=ARM64"
+        elif target_mode == "no":
           cfg_output_dir = tmp_dir
           checker_args = f"--arch={host_arch_name.upper()}"
         else:
