@@ -29,6 +29,12 @@ namespace art {
 extern "C" void artDeliverPendingExceptionFromCode(Thread* self)
     REQUIRES_SHARED(Locks::mutator_lock_);
 
+extern "C" int artTestSuspendFromCode(Thread* self) REQUIRES_SHARED(Locks::mutator_lock_);
+
+extern "C" mirror::Array* artAllocArrayFromCodeResolvedRosAlloc(
+    mirror::Class* klass, int32_t component_count, Thread* self)
+    REQUIRES_SHARED(Locks::mutator_lock_);
+
 extern "C" uint64_t artQuickToInterpreterBridge(
     ArtMethod* method, Thread* self, ArtMethod** sp)
         REQUIRES_SHARED(Locks::mutator_lock_);
@@ -80,6 +86,25 @@ extern "C" int artMethodExitHook(Thread* self,
                                  uint64_t* gpr_result,
                                  uint64_t* fpr_result,
                                  uint32_t frame_size)
+    REQUIRES_SHARED(Locks::mutator_lock_);
+
+extern "C" mirror::Object* artAllocObjectFromCodeInitializedRosAlloc(
+    mirror::Class* klass, Thread* self)
+    REQUIRES_SHARED(Locks::mutator_lock_);
+
+extern "C" mirror::Object* artAllocObjectFromCodeResolvedRosAlloc(
+    mirror::Class* klass, Thread* self)
+    REQUIRES_SHARED(Locks::mutator_lock_);
+
+extern "C" mirror::Class* artResolveTypeFromCode(uint32_t type_idx, Thread* self)
+    REQUIRES_SHARED(Locks::mutator_lock_);
+
+extern "C" void artThrowClassCastExceptionForObject(mirror::Object* obj,
+                                                    mirror::Class* dest_type,
+                                                    Thread* self)
+    REQUIRES_SHARED(Locks::mutator_lock_);
+
+extern "C" size_t artInstanceOfFromCode(mirror::Object* obj, mirror::Class* ref_class)
     REQUIRES_SHARED(Locks::mutator_lock_);
 
 extern "C" NO_RETURN void artArm64SimulatorGenericJNIPlaceholder(
@@ -168,6 +193,13 @@ class CustomSimulator final: public Simulator {
     RegisterBranchInterception(artQuickProxyInvokeHandler);
     RegisterBranchInterception(artInvokeObsoleteMethod);
     RegisterBranchInterception(artMethodExitHook);
+    RegisterBranchInterception(artAllocArrayFromCodeResolvedRosAlloc);
+    RegisterBranchInterception(artTestSuspendFromCode);
+    RegisterBranchInterception(artAllocObjectFromCodeInitializedRosAlloc);
+    RegisterBranchInterception(artAllocObjectFromCodeResolvedRosAlloc);
+    RegisterBranchInterception(artResolveTypeFromCode);
+    RegisterBranchInterception(artThrowClassCastExceptionForObject);
+    RegisterBranchInterception(artInstanceOfFromCode);
 
     RegisterBranchInterception(artArm64SimulatorGenericJNIPlaceholder,
                                [this](uint64_t addr ATTRIBUTE_UNUSED)

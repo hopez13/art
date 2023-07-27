@@ -178,6 +178,88 @@ public class Main {
     }
   }
 
+  public void $compile$noinline$loopWithAllocations() {
+    for (int i = 0; i < LENGTH; i++) {
+      a[i] = new int[LENGTH_SMALL];
+      for (int j = 0; j < LENGTH_SMALL; j++) {
+        a[i][j] = j;
+      }
+    }
+  }
+
+  public void testLoopWithAllocations() {
+    $compile$noinline$loopWithAllocations();
+
+    for (int i = 0; i < LENGTH; i++) {
+      for (int j = 0; j < LENGTH_SMALL; j++) {
+        expectEquals(j, a[i][j]);
+      }
+    }
+    System.out.println("LoopWithAllocations passed");
+  }
+
+  // Test the art_quick_resolve_type entrypoint.
+  public static Class $compile$testResolveType() {
+    return ClassTest.class;
+  }
+
+  // Test the art_quick_alloc_object_initialized_rosalloc entrypoint.
+  public static Object $compile$testAllocObjectInitialized() {
+    Object x = new Object();
+    return x;
+  }
+
+  // Test the art_quick_alloc_object_resolved_rosalloc entrypoint.
+  public static ClassTest $compile$testAllocObjectResolved() {
+    ClassTest x = new ClassTest();
+    return x;
+  }
+
+  // Test object allocation entrypoints.
+  public static void testAllocObject() {
+    Object objVal = $compile$testAllocObjectInitialized();
+    if (objVal == null) {
+      System.out.println("Expected initialized object, but found NULL.");
+      throw new AssertionError();
+    }
+
+    ClassTest testObjVal = $compile$testAllocObjectResolved();
+    if (testObjVal == null) {
+      System.out.println("Expected resolved object, but found NULL.");
+      throw new AssertionError();
+    }
+
+    System.out.println("AllocObject passed");
+  }
+
+  // Test the InstanceOf entrypoint main path.
+  public static void $compile$testInstanceOfTrivial(Object o) {
+    Object obj = (ClassTest[]) o;
+  }
+
+  // Test the CheckInstanceOfNonTrivial entrypoint.
+  public static boolean $compile$testInstanceOfInterface(Object o) {
+    return o instanceof Itf;
+  }
+
+  // Test the InstanceOf entrypoint by throwing a ClassCastException.
+  public static ClassTestFinal $compile$testThrowClassCastException(Object o) {
+    return (ClassTestFinal) o;
+  }
+
+  // Test InstanceOf entrypoints.
+  public static void testInstanceOf() {
+    $compile$testInstanceOfTrivial(new ClassTestExtends[2]);
+
+    expectEquals($compile$testInstanceOfInterface(new Main()), false);
+
+    try {
+      $compile$testThrowClassCastException(new Object());
+    } catch (ClassCastException e) {
+      System.out.println("ClassCastException caught as expected");
+    }
+  }
+
   public static void main(String[] args) throws Exception {
     System.loadLibrary(args[0]);
     Main obj = new Main();
@@ -191,6 +273,14 @@ public class Main {
     testJNI();
 
     testExceptions();
+
+    obj.testLoopWithAllocations();
+
+    $compile$testResolveType();
+
+    testAllocObject();
+
+    testInstanceOf();
 
     System.out.println("passed");
   }
