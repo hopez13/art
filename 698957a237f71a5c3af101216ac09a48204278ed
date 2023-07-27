@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc04b0d3_c49cc4a1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-07-27T01:53:00Z",
+      "side": 1,
+      "message": "There was a silly mistake in a CHECK_EQ in PS4 which led to presubmit failures. Fixed in PS5.",
+      "revId": "698957a237f71a5c3af101216ac09a48204278ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
