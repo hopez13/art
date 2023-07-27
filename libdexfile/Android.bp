@@ -215,6 +215,7 @@ art_cc_library {
         "com.android.art",
         "com.android.art.debug",
         "test_broken_com.android.art",
+        "//apex_available:platform",
     ],
 
     // This library is exported in stub form by art-module-sdk, and it brings
@@ -272,6 +273,7 @@ art_cc_library {
         // apex_available lists need to be the same for internal libs to avoid
         // stubs, and libartd depends on this.
         "com.android.art",
+        "//apex_available:platform",
     ],
 }
 
