@@ -20,7 +20,18 @@
 
 namespace art {
 
-CodeSimulator* CodeSimulator::CreateCodeSimulator(InstructionSet target_isa) {
+BasicCodeSimulator* CreateBasicCodeSimulator(InstructionSet target_isa) {
+  switch (target_isa) {
+    case InstructionSet::kArm64:
+      return arm64::BasicCodeSimulatorArm64::CreateBasicCodeSimulatorArm64();
+    default:
+      return nullptr;
+  }
+}
+
+#ifdef ART_USE_SIMULATOR
+
+CodeSimulator* CreateCodeSimulator(InstructionSet target_isa) {
   switch (target_isa) {
     case InstructionSet::kArm64:
       return arm64::CodeSimulatorArm64::CreateCodeSimulatorArm64();
@@ -29,8 +40,6 @@ CodeSimulator* CodeSimulator::CreateCodeSimulator(InstructionSet target_isa) {
   }
 }
 
-CodeSimulator* CreateCodeSimulator(InstructionSet target_isa) {
-  return CodeSimulator::CreateCodeSimulator(target_isa);
-}
+#endif
 
 }  // namespace art

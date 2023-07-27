@@ -39,9 +39,11 @@
 namespace art {
 
 extern "C" int artMethodExitHook(Thread* self,
-                                 ArtMethod* method,
+                                 ArtMethod** sp,
                                  uint64_t* gpr_result,
-                                 uint64_t* fpr_result);
+                                 uint64_t* fpr_result,
+                                 uint32_t frame_size)
+    REQUIRES_SHARED(Locks::mutator_lock_);
 
 static_assert(sizeof(jni::LRTSegmentState) == sizeof(uint32_t), "LRTSegmentState size unexpected");
 static_assert(std::is_trivial<jni::LRTSegmentState>::value, "LRTSegmentState not trivial");
