@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a6a6a95_9f177648",
+        "filename": "runtime/interpreter/mterp/riscv64/arithmetic.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-07-27T07:15:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ca253d1f_6b0625b5",
+      "range": {
+        "startLine": 138,
+        "startChar": 9,
+        "endLine": 138,
+        "endChar": 13
+      },
+      "revId": "bfdb5cfe499893ae29c2b3a083564722b37dac83",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "729d5d80_24cde017",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-07-26T11:42:31Z",
       "side": 1,
       "message": "Remove the `instr` and move `divz_throw` to the next line. Same for `op_rem_int_2add` below.",
+      "range": {
+        "startLine": 293,
+        "startChar": 22,
+        "endLine": 293,
+        "endChar": 46
+      },
+      "revId": "bfdb5cfe499893ae29c2b3a083564722b37dac83",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "da0951e9_8bebac3a",
+        "filename": "runtime/interpreter/mterp/riscv64/arithmetic.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-07-27T07:15:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "729d5d80_24cde017",
       "range": {
         "startLine": 293,
         "startChar": 22,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "662bd62e_dfde3b3b",
+        "filename": "runtime/interpreter/mterp/riscv64/arithmetic.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-07-27T07:15:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6782ce76_e28975ca",
+      "range": {
+        "startLine": 336,
+        "startChar": 23,
+        "endLine": 336,
+        "endChar": 44
+      },
+      "revId": "bfdb5cfe499893ae29c2b3a083564722b37dac83",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c0e7d6ca_73d76e73",
@@ -83,6 +155,30 @@
       "writtenOn": "2023-07-26T11:42:31Z",
       "side": 1,
       "message": "Also add `divz_throw` here and to `op_rem_long_2addr` below.",
+      "range": {
+        "startLine": 352,
+        "startChar": 46,
+        "endLine": 352,
+        "endChar": 47
+      },
+      "revId": "bfdb5cfe499893ae29c2b3a083564722b37dac83",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "52d035a8_9b72d3f9",
+        "filename": "runtime/interpreter/mterp/riscv64/arithmetic.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-07-27T07:15:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c0e7d6ca_73d76e73",
       "range": {
         "startLine": 352,
         "startChar": 46,
@@ -110,6 +206,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "89e43139_16faf872",
+        "filename": "runtime/interpreter/mterp/riscv64/arithmetic.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 376,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-07-27T07:15:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aeab5615_e906cea8",
+      "revId": "bfdb5cfe499893ae29c2b3a083564722b37dac83",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "da19a6c6_9ff91eda",
@@ -123,6 +237,30 @@
       "writtenOn": "2023-07-26T11:42:31Z",
       "side": 1,
       "message": "Why is this here? (The previous location needed to make a copy to avoid clobbering.)",
+      "range": {
+        "startLine": 513,
+        "startChar": 43,
+        "endLine": 513,
+        "endChar": 65
+      },
+      "revId": "bfdb5cfe499893ae29c2b3a083564722b37dac83",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cf3528de_a5b88c97",
+        "filename": "runtime/interpreter/mterp/riscv64/arithmetic.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 513,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-07-27T07:15:56Z",
+      "side": 1,
+      "message": "This just computes A and can go anywhere before SET_VREG. Maybe the comment adds confusion, removed it.",
+      "parentUuid": "da19a6c6_9ff91eda",
       "range": {
         "startLine": 513,
         "startChar": 43,
@@ -156,6 +294,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "47ef5ea7_67af11dd",
+        "filename": "runtime/interpreter/mterp/riscv64/arithmetic.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 603,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-07-27T07:15:56Z",
+      "side": 1,
+      "message": "Slick!!",
+      "parentUuid": "096a96fb_c53076c0",
+      "range": {
+        "startLine": 603,
+        "startChar": 4,
+        "endLine": 603,
+        "endChar": 45
+      },
+      "revId": "bfdb5cfe499893ae29c2b3a083564722b37dac83",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e90289b8_69cf59d4",
@@ -169,6 +331,30 @@
       "writtenOn": "2023-07-26T11:42:31Z",
       "side": 1,
       "message": "CALL (we need the return address for stack walk).",
+      "range": {
+        "startLine": 441,
+        "startChar": 4,
+        "endLine": 441,
+        "endChar": 8
+      },
+      "revId": "bfdb5cfe499893ae29c2b3a083564722b37dac83",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac77334a_6ca58f29",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 441,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-07-27T07:15:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e90289b8_69cf59d4",
       "range": {
         "startLine": 441,
         "startChar": 4,
