@@ -2209,6 +2209,10 @@ bool HBasicBlock::IsSingleTryBoundary() const {
   return HasOnlyOneInstruction(*this) && GetLastInstruction()->IsTryBoundary();
 }
 
+bool HBasicBlock::IsSingleIf() const {
+  return HasOnlyOneInstruction(*this) && GetLastInstruction()->IsIf();
+}
+
 bool HBasicBlock::EndsWithControlFlowInstruction() const {
   return !GetInstructions().IsEmpty() && GetLastInstruction()->IsControlFlow();
 }

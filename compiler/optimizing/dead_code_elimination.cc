@@ -449,6 +449,111 @@ bool HDeadCodeElimination::SimplifyIfs() {
   return simplified_one_or_more_ifs;
 }
 
+// Move this to the correct place
+HBasicBlock* HDeadCodeElimination::FirstNonEmptyBlock(HBasicBlock* block) const {
+  while (block->IsSingleJump()) {
+    block = block->GetSuccessors()[0];
+  }
+  return block;
+}
+
+bool SingleIfOrDeadInstrucions(HBasicBlock* block) {
+  if (!block->GetPhis().IsEmpty()) {
+    return false;
+  }
+  for (HInstructionIterator it(block->GetInstructions()); !it.Done(); it.Advance()) {
+    HInstruction* instruction = it.Current();
+    if (instruction->IsIf()) {
+      return true;
+    }
+    if (!instruction->IsDeadAndRemovable()) {
+      return false;
+    }
+  }
+  return false;
+}
+
+bool HDeadCodeElimination::FurtherSimplifyIfs() {
+  bool did_opt = false;
+  for (HBasicBlock* block : graph_->GetReversePostOrderSkipEntryBlock()) {
+    HIf* if_instruction = block->GetLastInstruction()->AsIfOrNull();
+    if (if_instruction == nullptr) {
+      continue;
+    }
+    if (block->GetPredecessors().size() == 0u) {
+      // Already dead block.
+      continue;
+    }
+    if (block->IsInLoop()) {
+      // Enabling this optimization in loops might block loop optimization.
+      continue;
+    }
+
+    bool block_did_opt = false;
+    // Let the same block chain several Ifs.
+    do {
+      block_did_opt = false;
+      // TODO(solanes): Improve this. We could change "IsSingleIf" with "IsSingleIf or dead and
+      // removable instructions".
+      // Recognize AND(a, b)
+      if (SingleIfOrDeadInstrucions(if_instruction->IfTrueSuccessor())) {
+        HBasicBlock* false_first_if = FirstNonEmptyBlock(if_instruction->IfFalseSuccessor());
+        HIf* second_if = if_instruction->IfTrueSuccessor()->GetLastInstruction()->AsIf();
+        HBasicBlock* false_second_if = FirstNonEmptyBlock(second_if->IfFalseSuccessor());
+
+        // TODO(solanes): If we have a phi we could potentially do this optimization if the values are the same on all phis. It seems more truoble than worth.
+        if (false_first_if == false_second_if && false_first_if->GetPhis().IsEmpty()) {
+          MaybeRecordStat(stats_, MethodCompilationStat::kFoundAnd);
+          HAnd* new_and = new (graph_->GetAllocator())
+              HAnd(DataType::Type::kBool, if_instruction->InputAt(0), second_if->InputAt(0));
+          if_instruction->GetBlock()->InsertInstructionBefore(new_and, if_instruction);
+          if_instruction->ReplaceInput(new_and, 0);
+          if_instruction->GetBlock()->ReplaceSuccessor(if_instruction->IfTrueSuccessor(),
+                                                       second_if->IfTrueSuccessor());
+          did_opt = true;
+          block_did_opt = true;
+          // {
+          //   ScopedObjectAccess soa(Thread::Current());
+          //   LOG(INFO) << "Found And in method " << GetGraph()->GetArtMethod()->PrettyMethod();
+          // }
+        }
+      }
+
+      // Recognize OR(a, b)
+      if (SingleIfOrDeadInstrucions(if_instruction->IfFalseSuccessor())) {
+        HBasicBlock* true_first_if = FirstNonEmptyBlock(if_instruction->IfTrueSuccessor());
+        HIf* second_if = if_instruction->IfFalseSuccessor()->GetLastInstruction()->AsIf();
+        HBasicBlock* true_second_if = FirstNonEmptyBlock(second_if->IfTrueSuccessor());
+
+        // TODO(solanes): If we have a phi we could potentially do this optimization if the values are the same on all phis. It seems more truoble than worth.
+        if (true_first_if == true_second_if && true_first_if->GetPhis().IsEmpty()) {
+          MaybeRecordStat(stats_, MethodCompilationStat::kFoundOr);
+          HOr* new_or = new (graph_->GetAllocator())
+              HOr(DataType::Type::kBool, if_instruction->InputAt(0), second_if->InputAt(0));
+          if_instruction->GetBlock()->InsertInstructionBefore(new_or, if_instruction);
+          if_instruction->ReplaceInput(new_or, 0);
+          if_instruction->GetBlock()->ReplaceSuccessor(if_instruction->IfFalseSuccessor(),
+                                                       second_if->IfFalseSuccessor());
+          did_opt = true;
+          block_did_opt = true;
+          // {
+          //   ScopedObjectAccess soa(Thread::Current());
+          //   LOG(INFO) << "Found Or in method " << GetGraph()->GetArtMethod()->PrettyMethod();
+          // }
+        }
+      }
+    } while (block_did_opt);
+  }
+
+  if (did_opt) {
+    graph_->ClearLoopInformation();
+    graph_->ClearDominanceInformation();
+    graph_->BuildDominatorTree();
+  }
+
+  return did_opt;
+}
+
 void HDeadCodeElimination::MaybeAddPhi(HBasicBlock* block) {
   DCHECK(block->GetLastInstruction()->IsIf());
   HIf* if_instruction = block->GetLastInstruction()->AsIf();
@@ -983,6 +1088,7 @@ bool HDeadCodeElimination::Run() {
     bool did_any_simplification = false;
     did_any_simplification |= SimplifyAlwaysThrows();
     did_any_simplification |= SimplifyIfs();
+    did_any_simplification |= FurtherSimplifyIfs();
     did_any_simplification |= RemoveEmptyIfs();
     did_any_simplification |= RemoveDeadBlocks();
     // We call RemoveDeadBlocks before RemoveUnneededTries to remove the dead blocks from the

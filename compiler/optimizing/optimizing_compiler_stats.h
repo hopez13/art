@@ -135,6 +135,8 @@ enum class MethodCompilationStat {
   kPartialLSEPossible,
   kPartialStoreRemoved,
   kPartialAllocationMoved,
+  kFoundAnd,
+  kFoundOr,
   kDevirtualized,
   kLastStat
 };

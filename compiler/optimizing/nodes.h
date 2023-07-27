@@ -1154,6 +1154,7 @@ class HBasicBlock : public ArenaObject<kArenaAllocBasicBlock> {
   bool IsSingleReturn() const;
   bool IsSingleReturnOrReturnVoidAllowingPhis() const;
   bool IsSingleTryBoundary() const;
+  bool IsSingleIf() const;
 
   // Returns true if this block emits nothing but a jump.
   bool IsSingleJump() const {

@@ -83,6 +83,8 @@ class HDeadCodeElimination : public HOptimization {
   //
   // Note that we rely on the dead code elimination to get rid of B3.
   bool SimplifyIfs();
+  HBasicBlock* FirstNonEmptyBlock(HBasicBlock* block) const;
+  bool FurtherSimplifyIfs();
   void ConnectSuccessiveBlocks();
   // Updates the graph flags related to instructions (e.g. HasSIMD()) since we may have eliminated
   // the relevant instructions. There's no need to update `SetHasTryCatch` since we do that in
