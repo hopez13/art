@@ -1422,6 +1422,16 @@
         "description": ["Checks LOG_STREAM output, which cannot be captured on target."]
     },
     {
+      "tests": ["2233-metrics-background-thread"],
+      "variant": "jvm",
+      "description": ["RI does not support ART metrics."]
+    },
+    {
+        "tests": ["2233-metrics-background-thread"],
+        "variant": "target",
+        "description": ["Checks LOG_STREAM output, which cannot be captured on target."]
+    },
+    {
         "tests": ["053-wait-some"],
         "env_vars": {"ART_TEST_DEBUG_GC": "true"},
         "bug": "b/175435088",
