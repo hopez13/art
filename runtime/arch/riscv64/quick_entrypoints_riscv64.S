@@ -552,10 +552,10 @@ ENTRY art_quick_proxy_invoke_handler
 END art_quick_proxy_invoke_handler
 
 
-.macro NO_ARG_RUNTIME_EXCEPTION_SAVE_EVERYTHING c_name, cxx_name
+.macro NO_ARG_RUNTIME_EXCEPTION c_name, cxx_name
 .extern \cxx_name
 ENTRY \c_name
-    SETUP_SAVE_ALL_CALLEE_SAVES_FRAME // save all registers as basis for long jump context.
+    SETUP_SAVE_ALL_CALLEE_SAVES_FRAME // save registers as basis for long jump context.
     mv  a0, xSELF                     // pass Thread::Current.
     call \cxx_name                    // \cxx_name(arg, Thread*).
     ebreak
@@ -566,7 +566,7 @@ END \c_name
 .macro ONE_ARG_RUNTIME_EXCEPTION c_name, cxx_name
 .extern \cxx_name
 ENTRY \c_name
-    SETUP_SAVE_ALL_CALLEE_SAVES_FRAME // save all registers as basis for long jump context.
+    SETUP_SAVE_ALL_CALLEE_SAVES_FRAME // save registers as basis for long jump context.
     mv  a1, xSELF                     // pass Thread::Current.
     call \cxx_name                    // \cxx_name(arg, Thread*).
     ebreak
@@ -575,7 +575,7 @@ END \c_name
 
 
 // Called by managed code to deliver an ArithmeticException.
-NO_ARG_RUNTIME_EXCEPTION_SAVE_EVERYTHING art_quick_throw_div_zero, artThrowDivZeroFromCode
+NO_ARG_RUNTIME_EXCEPTION art_quick_throw_div_zero, artThrowDivZeroFromCode
 
 
 // Called by managed code to deliver an exception.
