@@ -26,7 +26,6 @@
 #include <string_view>
 
 #include "android-base/stringprintf.h"
-
 #include "base/file_utils.h"
 #include "base/logging.h"
 #include "base/mutex.h"
@@ -197,6 +196,11 @@ struct CmdlineArgs {
       }
     }
 
+    if (instruction_set_ == InstructionSet::kNone) {
+      LOG(WARNING) << "No instruction set given, assuming " << GetInstructionSetString(kRuntimeISA);
+      instruction_set_ = kRuntimeISA;
+    }
+
     DBG_LOG << "will call parse checks";
 
     {
@@ -259,10 +263,6 @@ struct CmdlineArgs {
       *error_msg = "--boot-image must be specified";
       return false;
     }
-    if (instruction_set_ == InstructionSet::kNone) {
-      LOG(WARNING) << "No instruction set given, assuming " << GetInstructionSetString(kRuntimeISA);
-      instruction_set_ = kRuntimeISA;
-    }
 
     DBG_LOG << "boot image location: " << boot_image_location_;
 
@@ -300,17 +300,16 @@ struct CmdlineArgs {
         }
       }
 
-      // Check that the boot image location points to a valid file name.
       std::string file_name;
       if (!LocationToFilename(boot_image_location, instruction_set_, &file_name)) {
-        *error_msg = android::base::StringPrintf(
-            "No corresponding file for location '%s' (filename '%s') exists",
+        std::cerr << android::base::StringPrintf(
+            "Warning: No corresponding file for location '%s' (filename '%s') exists. Starting "
+            "runtime in imageless mode\n",
             boot_image_location.c_str(),
             file_name.c_str());
-        return false;
+      } else {
+        DBG_LOG << "boot_image_filename does exist: " << file_name;
       }
-
-      DBG_LOG << "boot_image_filename does exist: " << file_name;
     }
 
     return true;
