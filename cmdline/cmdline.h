@@ -26,7 +26,6 @@
 #include <string_view>
 
 #include "android-base/stringprintf.h"
-
 #include "base/file_utils.h"
 #include "base/logging.h"
 #include "base/mutex.h"
@@ -197,6 +196,11 @@ struct CmdlineArgs {
       }
     }
 
+    if (instruction_set_ == InstructionSet::kNone) {
+      LOG(WARNING) << "No instruction set given, assuming " << GetInstructionSetString(kRuntimeISA);
+      instruction_set_ = kRuntimeISA;
+    }
+
     DBG_LOG << "will call parse checks";
 
     {
@@ -258,10 +262,6 @@ struct CmdlineArgs {
     if (boot_image_location_ == nullptr) {
       *error_msg = "--boot-image must be specified";
       return false;
-    }
-    if (instruction_set_ == InstructionSet::kNone) {
-      LOG(WARNING) << "No instruction set given, assuming " << GetInstructionSetString(kRuntimeISA);
-      instruction_set_ = kRuntimeISA;
     }
 
     DBG_LOG << "boot image location: " << boot_image_location_;
