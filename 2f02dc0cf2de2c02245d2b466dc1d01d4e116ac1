@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e13bea2a_3b5681fe",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-07-31T09:46:42Z",
+      "side": 1,
+      "message": "This is to simplify the decoder in the CPU. The RISC-V standard talks about this in sections 2.2 and 2.3.",
+      "parentUuid": "df075728_8bb24fdc",
+      "range": {
+        "startLine": 213,
+        "startChar": 2,
+        "endLine": 213,
+        "endChar": 85
+      },
+      "revId": "2f02dc0cf2de2c02245d2b466dc1d01d4e116ac1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b8fdf9fb_2b7f36ef",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-07-31T09:23:33Z",
       "side": 1,
       "message": "Is the `u` needed here? If so, do we need one in line 276? I am trying to understand when we need the `u`s",
+      "range": {
+        "startLine": 277,
+        "startChar": 40,
+        "endLine": 277,
+        "endChar": 41
+      },
+      "revId": "2f02dc0cf2de2c02245d2b466dc1d01d4e116ac1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "289b6827_53c9dcb7",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-07-31T09:46:42Z",
+      "side": 1,
+      "message": "The `insn32` is unsigned and I don\u0027t want to mix that with signed values. The C/C++ rules for that are somewhat subtle and prefer not to think about them when I see this code.",
+      "parentUuid": "b8fdf9fb_2b7f36ef",
       "range": {
         "startLine": 277,
         "startChar": 40,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9f71b0b_424d4c08",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 343,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-07-31T09:46:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8c4306ea_2f2b7bfb",
+      "range": {
+        "startLine": 341,
+        "startChar": 0,
+        "endLine": 343,
+        "endChar": 4
+      },
+      "revId": "2f02dc0cf2de2c02245d2b466dc1d01d4e116ac1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0dbc6a7b_351e464a",
@@ -93,6 +165,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "59dba0da_5ac89546",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 501,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-07-31T09:46:42Z",
+      "side": 1,
+      "message": "It does work but let\u0027s make that explicit, similar to the unsigned constants.",
+      "parentUuid": "0dbc6a7b_351e464a",
+      "range": {
+        "startLine": 501,
+        "startChar": 31,
+        "endLine": 501,
+        "endChar": 43
+      },
+      "revId": "2f02dc0cf2de2c02245d2b466dc1d01d4e116ac1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "52cfe6bb_f9e1d529",
@@ -106,6 +202,30 @@
       "writtenOn": "2023-07-31T09:23:33Z",
       "side": 1,
       "message": "Is end guaranteed to be `IsAligned\u003c2u\u003e`? This method depends on that",
+      "range": {
+        "startLine": 544,
+        "startChar": 86,
+        "endLine": 544,
+        "endChar": 89
+      },
+      "revId": "2f02dc0cf2de2c02245d2b466dc1d01d4e116ac1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e5de241_33c82420",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 544,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-07-31T09:46:42Z",
+      "side": 1,
+      "message": "This function does not depend on that. It can print a trailing `.byte`.",
+      "parentUuid": "52cfe6bb_f9e1d529",
       "range": {
         "startLine": 544,
         "startChar": 86,
