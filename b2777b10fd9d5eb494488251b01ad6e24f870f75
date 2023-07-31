@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72bf19a7_5d324053",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-07-31T22:35:04Z",
+      "side": 1,
+      "message": "Empirically, we don\u0027t always hold the mutator lock here, which contradicts a comment for EnsureFlipFunctionStarted, and caused some CHECK failures in my version, notably as part of call from DexFile_closeDexFile to ClearAllInterpreterCaches. I\u0027m not sure whether it matters here. I\u0027ll fix it in aosp/2652371 by simply not doing this if we don\u0027t hold the lock. That\u0027s not ideal, but requiring callers to hold the mutator lock may also be problematic, though I haven\u0027t pursued that thoroughly.",
+      "range": {
+        "startLine": 401,
+        "startChar": 8,
+        "endLine": 401,
+        "endChar": 48
+      },
+      "revId": "b2777b10fd9d5eb494488251b01ad6e24f870f75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
