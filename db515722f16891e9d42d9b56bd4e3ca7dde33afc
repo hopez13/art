@@ -70,6 +70,30 @@
       },
       "revId": "db515722f16891e9d42d9b56bd4e3ca7dde33afc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cfef715a_7fa5ced9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1019050
+      },
+      "writtenOn": "2023-07-31T21:32:29Z",
+      "side": 1,
+      "message": "Did you mean add this to libdebuggerd? By syncing to the latest source, the libunwindstack code already has the ramdisk_available: true line.\n\nI added the ramdisk_available: stuff to debuggerd (and moving the runtime_libs the same as in libunwindstack), and everything builds properly. I needed to do a few other bp file changes to get it to compile though. I uploaded those changes, and added you to them.\n\nIf they work, I think you can abandon this change.",
+      "parentUuid": "106c7ef3_63345aa9",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 12
+      },
+      "revId": "db515722f16891e9d42d9b56bd4e3ca7dde33afc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
