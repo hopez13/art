@@ -258,6 +258,30 @@
       },
       "revId": "40c22667531e3a6f875ebd7ad030f190cfe7e027",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ed7a185_617bd741",
+        "filename": "runtime/oat_file.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-07-31T17:09:45Z",
+      "side": 1,
+      "message": "What about \"OpenWithOptions\"?",
+      "parentUuid": "b300efba_1e54fec2",
+      "range": {
+        "startLine": 103,
+        "startChar": 18,
+        "endLine": 103,
+        "endChar": 22
+      },
+      "revId": "40c22667531e3a6f875ebd7ad030f190cfe7e027",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
