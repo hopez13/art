@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d63e3ee_4b2c0a04",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-07-31T10:29:20Z",
+      "side": 1,
+      "message": "This CL is problematic since it removes the build time check that libdexfile.so doesn\u0027t end up in the system image, which would be bad (it should always be used from the ART APEX).\n\nFrom this I take it you don\u0027t actually need libdexfile in your case. The problem is that libunwindstack statically [declares a dependency](https://cs.android.com/android/platform/superproject/main/+/main:system/unwinding/libunwindstack/Android.bp;l\u003d156;drc\u003d41d01777d9cb0bbcc9d51e8b4aa3bb8719439b44) on libdexfile, while in reality it\u0027s optional. Is it possible to remove the `runtime_libs` dependency from the ramdisk variant of libunwindstack? +cferris as libunwindstack owner.",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 12
+      },
+      "revId": "db515722f16891e9d42d9b56bd4e3ca7dde33afc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
