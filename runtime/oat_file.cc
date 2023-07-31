@@ -115,8 +115,9 @@ class OatFileBase : public OatFile {
                                   bool low_4gb,
                                   ArrayRef<const std::string> dex_filenames,
                                   ArrayRef<const int> dex_fds,
-                                  /*inout*/MemMap* reservation,  // Where to load if not null.
-                                  /*out*/std::string* error_msg);
+                                  bool allow_no_dex_code,
+                                  /*inout*/ MemMap* reservation,  // Where to load if not null.
+                                  /*out*/ std::string* error_msg);
 
   template <typename kOatFileBaseSubType>
   static OatFileBase* OpenOatFile(int zip_fd,
@@ -172,6 +173,7 @@ class OatFileBase : public OatFile {
   bool Setup(int zip_fd,
              ArrayRef<const std::string> dex_filenames,
              ArrayRef<const int> dex_fds,
+             bool allow_no_dex_code,
              std::string* error_msg);
 
   bool Setup(const std::vector<const DexFile*>& dex_files, std::string* error_msg);
@@ -204,8 +206,9 @@ OatFileBase* OatFileBase::OpenOatFile(int zip_fd,
                                       bool low_4gb,
                                       ArrayRef<const std::string> dex_filenames,
                                       ArrayRef<const int> dex_fds,
-                                      /*inout*/MemMap* reservation,
-                                      /*out*/std::string* error_msg) {
+                                      bool allow_no_dex_code,
+                                      /*inout*/ MemMap* reservation,
+                                      /*out*/ std::string* error_msg) {
   std::unique_ptr<OatFileBase> ret(new kOatFileBaseSubType(location, executable));
 
   ret->PreLoad();
@@ -229,7 +232,7 @@ OatFileBase* OatFileBase::OpenOatFile(int zip_fd,
     return nullptr;
   }
 
-  if (!ret->Setup(zip_fd, dex_filenames, dex_fds, error_msg)) {
+  if (!ret->Setup(zip_fd, dex_filenames, dex_fds, allow_no_dex_code, error_msg)) {
     return nullptr;
   }
 
@@ -270,7 +273,7 @@ OatFileBase* OatFileBase::OpenOatFile(int zip_fd,
     return nullptr;
   }
 
-  if (!ret->Setup(zip_fd, dex_filenames, dex_fds, error_msg)) {
+  if (!ret->Setup(zip_fd, dex_filenames, dex_fds, /*allow_no_dex_code=*/false, error_msg)) {
     return nullptr;
   }
 
@@ -574,6 +577,7 @@ bool OatFileBase::Setup(const std::vector<const DexFile*>& dex_files, std::strin
 bool OatFileBase::Setup(int zip_fd,
                         ArrayRef<const std::string> dex_filenames,
                         ArrayRef<const int> dex_fds,
+                        bool allow_no_dex_code,
                         std::string* error_msg) {
   if (!GetOatHeader().IsValid()) {
     std::string cause = GetOatHeader().GetValidationErrorMessage();
@@ -820,9 +824,9 @@ bool OatFileBase::Setup(int zip_fd,
                                         &new_dex_files);
         }
         if (!loaded) {
-          if (Runtime::Current() == nullptr) {
-            // If there's no runtime, we're running oatdump, so return
-            // a half constructed oat file that oatdump knows how to deal with.
+          if (allow_no_dex_code) {
+            // We're running oatdump, so return a half constructed oat file that oatdump knows how
+            // to deal with.
             LOG(WARNING) << "Could not find associated dex files of oat file. "
                          << "Oatdump will only dump the header.";
             return true;
@@ -1645,7 +1649,11 @@ bool ElfOatFile::InitializeFromElfFile(int zip_fd,
   SetBegin(elf_file->Begin() + offset);
   SetEnd(elf_file->Begin() + size + offset);
   // Ignore the optional .bss section when opening non-executable.
-  return Setup(zip_fd, dex_filenames, /*dex_fds=*/ArrayRef<const int>(), error_msg);
+  return Setup(zip_fd,
+               dex_filenames,
+               /*dex_fds=*/ArrayRef<const int>(),
+               /*allow_no_dex_code=*/false,
+               error_msg);
 }
 
 bool ElfOatFile::Load(const std::string& elf_filename,
@@ -1915,8 +1923,9 @@ OatFile* OatFile::Open(int zip_fd,
                        bool low_4gb,
                        ArrayRef<const std::string> dex_filenames,
                        ArrayRef<const int> dex_fds,
-                       /*inout*/MemMap* reservation,
-                       /*out*/std::string* error_msg) {
+                       bool allow_no_dex_code,
+                       /*inout*/ MemMap* reservation,
+                       /*out*/ std::string* error_msg) {
   ScopedTrace trace("Open oat file " + oat_location);
   CHECK(!oat_filename.empty()) << oat_location;
   CheckLocation(oat_location);
@@ -1942,6 +1951,7 @@ OatFile* OatFile::Open(int zip_fd,
                                                                  low_4gb,
                                                                  dex_filenames,
                                                                  dex_fds,
+                                                                 allow_no_dex_code,
                                                                  reservation,
                                                                  error_msg);
   if (with_dlopen != nullptr) {
@@ -1972,6 +1982,7 @@ OatFile* OatFile::Open(int zip_fd,
                                                                 low_4gb,
                                                                 dex_filenames,
                                                                 dex_fds,
+                                                                allow_no_dex_code,
                                                                 reservation,
                                                                 error_msg);
   return with_internal;
