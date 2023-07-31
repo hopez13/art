@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d920ef63_490a3538",
+        "filename": "compiler/art_standalone_compiler_tests.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-07-31T12:08:09Z",
+      "side": 1,
+      "message": "Docs for this option seems a bit scarce. I suppose it handles multiple values, but could you please try some test with the `[com.google.android.art.apex]` suffix?",
+      "range": {
+        "startLine": 18,
+        "startChar": 51,
+        "endLine": 18,
+        "endChar": 65
+      },
+      "revId": "9490685777f70abe8c51e59449e10ab981e55078",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
