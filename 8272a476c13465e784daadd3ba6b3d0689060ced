@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2195c6a6_f6f6e079",
+        "filename": "libdexfile/dex/dex_file_loader.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-07-31T16:59:47Z",
+      "side": 1,
+      "message": "Could we avoid this check and put the responsability to the caller?",
+      "range": {
+        "startLine": 158,
+        "startChar": 14,
+        "endLine": 158,
+        "endChar": 51
+      },
+      "revId": "8272a476c13465e784daadd3ba6b3d0689060ced",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5925b5d5_63d2cac7",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3480,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-07-31T16:59:47Z",
+      "side": 1,
+      "message": "Expand the comment as to why?",
+      "range": {
+        "startLine": 3480,
+        "startChar": 0,
+        "endLine": 3480,
+        "endChar": 45
+      },
+      "revId": "8272a476c13465e784daadd3ba6b3d0689060ced",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a66bbd4d_c3a3a480",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 828,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-07-31T16:59:47Z",
+      "side": 1,
+      "message": "ditto: why?",
+      "range": {
+        "startLine": 828,
+        "startChar": 27,
+        "endLine": 828,
+        "endChar": 51
+      },
+      "revId": "8272a476c13465e784daadd3ba6b3d0689060ced",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c7a3b83_029ac94f",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 735,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-07-31T16:59:47Z",
+      "side": 1,
+      "message": "ditto: why?",
+      "range": {
+        "startLine": 735,
+        "startChar": 0,
+        "endLine": 735,
+        "endChar": 45
+      },
+      "revId": "8272a476c13465e784daadd3ba6b3d0689060ced",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f788da1_63f42cd8",
+        "filename": "runtime/oat_file_assistant_context.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-07-31T16:59:47Z",
+      "side": 1,
+      "message": "ditto: why?",
+      "range": {
+        "startLine": 166,
+        "startChar": 0,
+        "endLine": 166,
+        "endChar": 43
+      },
+      "revId": "8272a476c13465e784daadd3ba6b3d0689060ced",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
