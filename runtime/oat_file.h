@@ -107,8 +107,30 @@ class OatFile {
                        bool low_4gb,
                        ArrayRef<const std::string> dex_filenames,
                        ArrayRef<const int> dex_fds,
-                       /*inout*/MemMap* reservation,  // Where to load if not null.
-                       /*out*/std::string* error_msg);
+                       bool allow_no_dex_code,
+                       /*inout*/ MemMap* reservation,  // Where to load if not null.
+                       /*out*/ std::string* error_msg);
+  // Helper overload that omits allow_no_dex_code.
+  static OatFile* Open(int zip_fd,
+                       const std::string& filename,
+                       const std::string& location,
+                       bool executable,
+                       bool low_4gb,
+                       ArrayRef<const std::string> dex_filenames,
+                       ArrayRef<const int> dex_fds,
+                       /*inout*/ MemMap* reservation,  // Where to load if not null.
+                       /*out*/ std::string* error_msg) {
+    return Open(zip_fd,
+                filename,
+                location,
+                executable,
+                low_4gb,
+                dex_filenames,
+                dex_fds,
+                /*allow_no_dex_code=*/false,
+                reservation,
+                error_msg);
+  }
   // Helper overload that takes a single dex filename and no reservation.
   static OatFile* Open(int zip_fd,
                        const std::string& filename,
