@@ -22,18 +22,13 @@
 
 #include <sstream>
 #include <string>
+#include <type_traits>
 #include <vector>
 
-#include "android-base/strings.h"
 #include "arch/instruction_set.h"
 #include "base/file_utils.h"
 #include "base/os.h"
-#include "base/unix_file/fd_file.h"
-#include "base/utils.h"
 #include "common_runtime_test.h"
-#include "exec_utils.h"
-#include "gc/heap.h"
-#include "gc/space/image_space.h"
 #include "gtest/gtest.h"
 
 namespace art {
@@ -92,19 +87,24 @@ class OatDumpTest : public CommonRuntimeTest, public testing::WithParamInterface
     return GetExecutableFilePath(name, kIsDebugBuild, flavor == Flavor::kStatic, bitness);
   }
 
-  enum Mode {
-    kModeOat,
-    kModeCoreOat,
-    kModeOatWithBootImage,
-    kModeAppImage,
-    kModeArt,
-    kModeSymbolize,
+  enum Args {
+    kArgImage = 1 << 0,      // --image=<boot-image>
+    kArgAppImage = 1 << 1,   // --app-image=<app-image>
+    kArgOatBcp = 1 << 2,     // --oat-file=<bcp-oat-file>
+    kArgDexBcp = 1 << 3,     // --dex-file=<bcp-dex-file>
+    kArgOatApp = 1 << 4,     // --oat-file=<app-oat-file>
+    kArgSymbolize = 1 << 5,  // --symbolize=<bcp-oat-file>
+
+    // Runtime args.
+    kArgBcp = 1 << 16,        // --runtime-arg -Xbootclasspath:<bcp>
+    kArgBootImage = 1 << 17,  // --boot-image=<boot-image>
+    kArgIsa = 1 << 18,        // --instruction-set=<isa>
   };
 
-  // Display style.
-  enum Display {
-    kListOnly,
-    kListAndCode
+  enum Expects {
+    kExpectImage = 1 << 0,
+    kExpectOat = 1 << 1,
+    kExpectCode = 1 << 2,
   };
 
   std::string GetAppBaseName() {
@@ -113,23 +113,14 @@ class OatDumpTest : public CommonRuntimeTest, public testing::WithParamInterface
     return "ProfileTestMultiDex";
   }
 
-  void SetAppImageName(const std::string& name) {
-    app_image_name_ = name;
-  }
-
-  std::string GetAppImageName() {
-    if (app_image_name_.empty()) {
-      app_image_name_ =  tmp_dir_ + "/" + GetAppBaseName() + ".art";
-    }
-    return app_image_name_;
-  }
+  std::string GetAppImageName() { return tmp_dir_ + "/" + GetAppBaseName() + ".art"; }
 
   std::string GetAppOdexName() {
     return tmp_dir_ + "/" + GetAppBaseName() + ".odex";
   }
 
   ::testing::AssertionResult GenerateAppOdexFile(Flavor flavor,
-                                                 const std::vector<std::string>& args) {
+                                                 const std::vector<std::string>& args = {}) {
     std::string dex2oat_path =
         GetExecutableFilePath(flavor, "dex2oat", /* bitness= */ kIsTargetBuild);
     std::vector<std::string> exec_argv = {
@@ -137,7 +128,7 @@ class OatDumpTest : public CommonRuntimeTest, public testing::WithParamInterface
         "--runtime-arg",
         "-Xms64m",
         "--runtime-arg",
-        "-Xmx512m",
+        "-Xmx64m",
         "--runtime-arg",
         "-Xnorelocate",
         "--runtime-arg",
@@ -148,7 +139,7 @@ class OatDumpTest : public CommonRuntimeTest, public testing::WithParamInterface
         "--instruction-set=" + std::string(GetInstructionSetString(kRuntimeISA)),
         "--dex-file=" + GetTestDexFileName(GetAppBaseName().c_str()),
         "--oat-file=" + GetAppOdexName(),
-        "--compiler-filter=speed"
+        "--compiler-filter=speed",
     };
     exec_argv.insert(exec_argv.end(), args.begin(), args.end());
 
@@ -170,9 +161,9 @@ class OatDumpTest : public CommonRuntimeTest, public testing::WithParamInterface
 
   // Run the test with custom arguments.
   ::testing::AssertionResult Exec(Flavor flavor,
-                                  Mode mode,
-                                  const std::vector<std::string>& args,
-                                  Display display,
+                                  std::underlying_type_t<Args> args,
+                                  const std::vector<std::string>& extra_args,
+                                  std::underlying_type_t<Expects> expects,
                                   bool expect_failure = false) {
     std::string file_path = GetExecutableFilePath(flavor, "oatdump", /* bitness= */ false);
 
@@ -180,64 +171,58 @@ class OatDumpTest : public CommonRuntimeTest, public testing::WithParamInterface
       return ::testing::AssertionFailure() << file_path << " should be a valid file path";
     }
 
-    // ScratchFile scratch;
-    std::vector<std::string> exec_argv = { file_path };
     std::vector<std::string> expected_prefixes;
-    if (mode == kModeSymbolize) {
-      exec_argv.push_back("--symbolize=" + core_oat_location_);
-      exec_argv.push_back("--output=" + core_oat_location_ + ".symbolize");
-    } else {
+    if ((expects & kExpectImage) != 0) {
+      expected_prefixes.push_back("IMAGE LOCATION:");
+      expected_prefixes.push_back("IMAGE BEGIN:");
+      expected_prefixes.push_back("kDexCaches:");
+    }
+    if ((expects & kExpectOat) != 0) {
       expected_prefixes.push_back("LOCATION:");
       expected_prefixes.push_back("MAGIC:");
       expected_prefixes.push_back("DEX FILE COUNT:");
-      if (display == kListAndCode) {
-        // Code and dex code do not show up if list only.
-        expected_prefixes.push_back("DEX CODE:");
-        expected_prefixes.push_back("CODE:");
-        expected_prefixes.push_back("StackMap");
-      }
-      if (mode == kModeArt) {
-        exec_argv.push_back("--runtime-arg");
-        exec_argv.push_back(GetClassPathOption("-Xbootclasspath:", GetLibCoreDexFileNames()));
-        exec_argv.push_back("--runtime-arg");
-        exec_argv.push_back(
-            GetClassPathOption("-Xbootclasspath-locations:", GetLibCoreDexLocations()));
-        exec_argv.push_back("--image=" + core_art_location_);
-        exec_argv.push_back("--instruction-set=" + std::string(
-            GetInstructionSetString(kRuntimeISA)));
-        expected_prefixes.push_back("IMAGE LOCATION:");
-        expected_prefixes.push_back("IMAGE BEGIN:");
-        expected_prefixes.push_back("kDexCaches:");
-      } else if (mode == kModeOatWithBootImage) {
-        exec_argv.push_back("--runtime-arg");
-        exec_argv.push_back(GetClassPathOption("-Xbootclasspath:", GetLibCoreDexFileNames()));
-        exec_argv.push_back("--runtime-arg");
-        exec_argv.push_back(
-            GetClassPathOption("-Xbootclasspath-locations:", GetLibCoreDexLocations()));
-        exec_argv.push_back("--boot-image=" + GetCoreArtLocation());
-        exec_argv.push_back("--instruction-set=" + std::string(
-            GetInstructionSetString(kRuntimeISA)));
-        exec_argv.push_back("--oat-file=" + GetAppOdexName());
-      } else if (mode == kModeAppImage) {
-        exec_argv.push_back("--runtime-arg");
-        exec_argv.push_back(GetClassPathOption("-Xbootclasspath:", GetLibCoreDexFileNames()));
-        exec_argv.push_back("--runtime-arg");
-        exec_argv.push_back(
-            GetClassPathOption("-Xbootclasspath-locations:", GetLibCoreDexLocations()));
-        exec_argv.push_back("--image=" + GetCoreArtLocation());
-        exec_argv.push_back("--instruction-set=" + std::string(
-            GetInstructionSetString(kRuntimeISA)));
-        exec_argv.push_back("--app-oat=" + GetAppOdexName());
-        exec_argv.push_back("--app-image=" + GetAppImageName());
-      } else if (mode == kModeCoreOat) {
-        exec_argv.push_back("--oat-file=" + core_oat_location_);
-        exec_argv.push_back("--dex-file=" + GetLibCoreDexFileNames()[0]);
-      } else {
-        CHECK_EQ(static_cast<size_t>(mode), static_cast<size_t>(kModeOat));
-        exec_argv.push_back("--oat-file=" + GetAppOdexName());
-      }
     }
-    exec_argv.insert(exec_argv.end(), args.begin(), args.end());
+    if ((expects & kExpectCode) != 0) {
+      // Code and dex code do not show up if list only.
+      expected_prefixes.push_back("DEX CODE:");
+      expected_prefixes.push_back("CODE:");
+      expected_prefixes.push_back("StackMap");
+    }
+
+    std::vector<std::string> exec_argv = {file_path};
+    if ((args & kArgSymbolize) != 0) {
+      exec_argv.push_back("--symbolize=" + core_oat_location_);
+      exec_argv.push_back("--output=" + core_oat_location_ + ".symbolize");
+    }
+    if ((args & kArgBcp) != 0) {
+      exec_argv.push_back("--runtime-arg");
+      exec_argv.push_back(GetClassPathOption("-Xbootclasspath:", GetLibCoreDexFileNames()));
+      exec_argv.push_back("--runtime-arg");
+      exec_argv.push_back(
+          GetClassPathOption("-Xbootclasspath-locations:", GetLibCoreDexLocations()));
+    }
+    if ((args & kArgIsa) != 0) {
+      exec_argv.push_back("--instruction-set=" + std::string(GetInstructionSetString(kRuntimeISA)));
+    }
+    if ((args & kArgBootImage) != 0) {
+      exec_argv.push_back("--boot-image=" + GetCoreArtLocation());
+    }
+    if ((args & kArgImage) != 0) {
+      exec_argv.push_back("--image=" + GetCoreArtLocation());
+    }
+    if ((args & kArgAppImage) != 0) {
+      exec_argv.push_back("--app-image=" + GetAppImageName());
+    }
+    if ((args & kArgOatBcp) != 0) {
+      exec_argv.push_back("--oat-file=" + core_oat_location_);
+    }
+    if ((args & kArgDexBcp) != 0) {
+      exec_argv.push_back("--dex-file=" + GetLibCoreDexFileNames()[0]);
+    }
+    if ((args & kArgOatApp) != 0) {
+      exec_argv.push_back("--oat-file=" + GetAppOdexName());
+    }
+    exec_argv.insert(exec_argv.end(), extra_args.begin(), extra_args.end());
 
     std::vector<bool> found(expected_prefixes.size(), false);
     auto line_handle_fn = [&found, &expected_prefixes](const char* line, size_t line_len) {
@@ -356,7 +341,7 @@ class OatDumpTest : public CommonRuntimeTest, public testing::WithParamInterface
       return ::testing::AssertionFailure() << "Expected failure";
     }
 
-    if (mode == kModeSymbolize) {
+    if ((args & kArgSymbolize) != 0) {
       EXPECT_EQ(total, 0u);
     } else {
       EXPECT_GT(total, 0u);
@@ -379,7 +364,6 @@ class OatDumpTest : public CommonRuntimeTest, public testing::WithParamInterface
   }
 
   std::string tmp_dir_;
-  std::string app_image_name_;
 
  private:
   std::string core_art_location_;
