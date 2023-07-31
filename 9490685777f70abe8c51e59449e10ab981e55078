@@ -46,6 +46,30 @@
       },
       "revId": "9490685777f70abe8c51e59449e10ab981e55078",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "80260830_8f468275",
+        "filename": "compiler/art_standalone_compiler_tests.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2023-07-31T13:19:06Z",
+      "side": 1,
+      "message": "Also note that the `[com.google.android.art.apex]` suffix is already used in the Mainline pre-submit testing via Test Mapping (https://cs.android.com/android/platform/superproject/main/+/main:art/TEST_MAPPING;l\u003d3-1409;drc\u003dc1ba0a1ff03f2bc55363f1d060513c4dfdd0953d).",
+      "parentUuid": "10640fe0_e3ce53a0",
+      "range": {
+        "startLine": 18,
+        "startChar": 51,
+        "endLine": 18,
+        "endChar": 65
+      },
+      "revId": "9490685777f70abe8c51e59449e10ab981e55078",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
