@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df075728_8bb24fdc",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-07-31T09:23:33Z",
+      "side": 1,
+      "message": "non-blocking: do you know why the spec says that the offset should be split like that? Why not have the 20 bits in sequential order?",
+      "range": {
+        "startLine": 213,
+        "startChar": 2,
+        "endLine": 213,
+        "endChar": 85
+      },
+      "revId": "2f02dc0cf2de2c02245d2b466dc1d01d4e116ac1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b8fdf9fb_2b7f36ef",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-07-31T09:23:33Z",
+      "side": 1,
+      "message": "Is the `u` needed here? If so, do we need one in line 276? I am trying to understand when we need the `u`s",
+      "range": {
+        "startLine": 277,
+        "startChar": 40,
+        "endLine": 277,
+        "endChar": 41
+      },
+      "revId": "2f02dc0cf2de2c02245d2b466dc1d01d4e116ac1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c4306ea_2f2b7bfb",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 343,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-07-31T09:23:33Z",
+      "side": 1,
+      "message": "Should these be prefixed with `f` e.g. `fsw`?",
+      "range": {
+        "startLine": 341,
+        "startChar": 0,
+        "endLine": 343,
+        "endChar": 4
+      },
+      "revId": "2f02dc0cf2de2c02245d2b466dc1d01d4e116ac1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0dbc6a7b_351e464a",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 501,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-07-31T09:23:33Z",
+      "side": 1,
+      "message": "Does this work fine without a cast to uint32_t first? i.e. it doesn\u0027t get zeroed out?",
+      "range": {
+        "startLine": 501,
+        "startChar": 31,
+        "endLine": 501,
+        "endChar": 43
+      },
+      "revId": "2f02dc0cf2de2c02245d2b466dc1d01d4e116ac1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52cfe6bb_f9e1d529",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 544,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-07-31T09:23:33Z",
+      "side": 1,
+      "message": "Is end guaranteed to be `IsAligned\u003c2u\u003e`? This method depends on that",
+      "range": {
+        "startLine": 544,
+        "startChar": 86,
+        "endLine": 544,
+        "endChar": 89
+      },
+      "revId": "2f02dc0cf2de2c02245d2b466dc1d01d4e116ac1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
