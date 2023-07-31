@@ -282,6 +282,30 @@
       },
       "revId": "40c22667531e3a6f875ebd7ad030f190cfe7e027",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab0c23d9_bacf665b",
+        "filename": "runtime/oat_file.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-07-31T17:25:39Z",
+      "side": 1,
+      "message": "I reverted this change. I realized that I don\u0027t need this parameter because we never dump with runtime when there is no dex code. It is actually a leftover during my trial-and-error.",
+      "parentUuid": "1ed7a185_617bd741",
+      "range": {
+        "startLine": 103,
+        "startChar": 18,
+        "endLine": 103,
+        "endChar": 22
+      },
+      "revId": "40c22667531e3a6f875ebd7ad030f190cfe7e027",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
