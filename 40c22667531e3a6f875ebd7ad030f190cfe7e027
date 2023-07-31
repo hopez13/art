@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "466eb655_9b3a6222",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-07-31T16:46:37Z",
+      "side": 1,
+      "message": "`OatFile::Open` takes `const std::string\u0026 filename` and `ArrayRef\u003cconst std::string\u003e dex_filenames`. If we use `char*` here, we\u0027ll have to instantiate `std::string` objects somewhere else and keep them alive to avoid use-after-free.",
+      "parentUuid": "e390c1ef_8fe1ecab",
+      "range": {
+        "startLine": 385,
+        "startChar": 0,
+        "endLine": 386,
+        "endChar": 49
+      },
+      "revId": "40c22667531e3a6f875ebd7ad030f190cfe7e027",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "44b90e97_6f6f99bc",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-07-31T16:26:38Z",
       "side": 1,
       "message": "We rarely use std::cerr. Did you mean to put this in LOG(WARNING) ?",
+      "range": {
+        "startLine": 3187,
+        "startChar": 0,
+        "endLine": 3190,
+        "endChar": 26
+      },
+      "revId": "40c22667531e3a6f875ebd7ad030f190cfe7e027",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2181cae0_2ba8610c",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3190,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-07-31T16:46:37Z",
+      "side": 1,
+      "message": "This class inherits `CmdlineArgs` from `cmdline.h`, where we use many `fprintf(stderr, ...)` for printing warnings about arguments. I\u0027m just following the same pattern.\n\nOne benefit of printing warnings about arguments to stderr is that users can see the warnings right away. Also, errors (stored in `error_msg`) are printed to stderr, so printing warnings to stderr keeps the consistency.\n\nNote that I\u0027m only using stderr for warnings/errors about arguments. Other things are still printed to logcat.",
+      "parentUuid": "44b90e97_6f6f99bc",
       "range": {
         "startLine": 3187,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a63bf9e2_03ce7c0f",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3213,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-07-31T16:46:37Z",
+      "side": 1,
+      "message": "Ditto.",
+      "parentUuid": "eccbceb8_a7b0fe57",
+      "range": {
+        "startLine": 3208,
+        "startChar": 0,
+        "endLine": 3213,
+        "endChar": 24
+      },
+      "revId": "40c22667531e3a6f875ebd7ad030f190cfe7e027",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "13e1402a_c864c542",
@@ -93,6 +165,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e6f62d7b_67852fa1",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3227,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-07-31T16:46:37Z",
+      "side": 1,
+      "message": "Ditto.",
+      "parentUuid": "13e1402a_c864c542",
+      "range": {
+        "startLine": 3226,
+        "startChar": 0,
+        "endLine": 3227,
+        "endChar": 24
+      },
+      "revId": "40c22667531e3a6f875ebd7ad030f190cfe7e027",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f0671f4a_2709726d",
@@ -106,6 +202,30 @@
       "writtenOn": "2023-07-31T16:26:38Z",
       "side": 1,
       "message": "To make this easier to grep, call this OpenInternal ?",
+      "range": {
+        "startLine": 103,
+        "startChar": 18,
+        "endLine": 103,
+        "endChar": 22
+      },
+      "revId": "40c22667531e3a6f875ebd7ad030f190cfe7e027",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5cc2a466_6c3883aa",
+        "filename": "runtime/oat_file.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-07-31T16:46:37Z",
+      "side": 1,
+      "message": "\"OpenInternal\" suggests that it\u0027s internal, but I\u0027m using it in oatdump, so it might not be appropriate.\n\nIn terms of finding this function, searching for `OatFile::Open` on Code Search should do.",
+      "parentUuid": "f0671f4a_2709726d",
       "range": {
         "startLine": 103,
         "startChar": 18,
