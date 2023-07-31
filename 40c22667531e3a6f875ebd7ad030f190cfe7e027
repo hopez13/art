@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e390c1ef_8fe1ecab",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-07-31T16:26:38Z",
+      "side": 1,
+      "message": "What are we gaining from moving to char* to std::optional?",
+      "range": {
+        "startLine": 385,
+        "startChar": 0,
+        "endLine": 386,
+        "endChar": 49
+      },
+      "revId": "40c22667531e3a6f875ebd7ad030f190cfe7e027",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "44b90e97_6f6f99bc",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3190,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-07-31T16:26:38Z",
+      "side": 1,
+      "message": "We rarely use std::cerr. Did you mean to put this in LOG(WARNING) ?",
+      "range": {
+        "startLine": 3187,
+        "startChar": 0,
+        "endLine": 3190,
+        "endChar": 26
+      },
+      "revId": "40c22667531e3a6f875ebd7ad030f190cfe7e027",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eccbceb8_a7b0fe57",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3213,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-07-31T16:26:38Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 3208,
+        "startChar": 0,
+        "endLine": 3213,
+        "endChar": 24
+      },
+      "revId": "40c22667531e3a6f875ebd7ad030f190cfe7e027",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "13e1402a_c864c542",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3227,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-07-31T16:26:38Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 3226,
+        "startChar": 0,
+        "endLine": 3227,
+        "endChar": 24
+      },
+      "revId": "40c22667531e3a6f875ebd7ad030f190cfe7e027",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0671f4a_2709726d",
+        "filename": "runtime/oat_file.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-07-31T16:26:38Z",
+      "side": 1,
+      "message": "To make this easier to grep, call this OpenInternal ?",
+      "range": {
+        "startLine": 103,
+        "startChar": 18,
+        "endLine": 103,
+        "endChar": 22
+      },
+      "revId": "40c22667531e3a6f875ebd7ad030f190cfe7e027",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
