@@ -22,6 +22,30 @@
       },
       "revId": "db515722f16891e9d42d9b56bd4e3ca7dde33afc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a7c714d5_4ccd9722",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1019050
+      },
+      "writtenOn": "2023-07-31T20:44:57Z",
+      "side": 1,
+      "message": "The problem is that soong does not support removing it for a single target type. However, it looks like I can move the runtime_libs value into a specific target for android. I think that\u0027s enough to make this work.\n\nIs there any specific tests I can use to make sure this works as expected?",
+      "parentUuid": "4d63e3ee_4b2c0a04",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 12
+      },
+      "revId": "db515722f16891e9d42d9b56bd4e3ca7dde33afc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
