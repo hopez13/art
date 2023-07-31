@@ -22,6 +22,30 @@
       },
       "revId": "087224aca478e483197a4d28391605cb728b9af4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "de220837_33d2acd0",
+        "filename": "libdexfile/dex/dex_file_loader_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-07-31T13:31:40Z",
+      "side": 0,
+      "message": "Only the first value (as that was deferenced).  It was a bug.",
+      "parentUuid": "7314202a_d7df4d0f",
+      "range": {
+        "startLine": 358,
+        "startChar": 4,
+        "endLine": 358,
+        "endChar": 59
+      },
+      "revId": "087224aca478e483197a4d28391605cb728b9af4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
