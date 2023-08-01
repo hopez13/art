@@ -404,6 +404,13 @@ inline const char* ArtMethod::GetShorty(uint32_t* out_length) {
   return dex_file->GetMethodShorty(dex_file->GetMethodId(GetDexMethodIndex()), out_length);
 }
 
+inline std::string_view ArtMethod::GetShortyView() {
+  uint32_t length;
+  const char* shorty = GetShorty(&length);
+  DCHECK_EQ(shorty[length], 0);  // Shorty is ASCII, the UTF16 length is the shorty length.
+  return std::string_view(shorty, length);
+}
+
 inline const Signature ArtMethod::GetSignature() {
   uint32_t dex_method_idx = GetDexMethodIndex();
   if (dex_method_idx != dex::kDexNoIndex) {
