@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cae523ab_ecd63825",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 751,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-08-01T13:10:41Z",
+      "side": 1,
+      "message": "missing `the`? The comment looks to be copy paste from other archs, but I am trying to understand the message.",
+      "range": {
+        "startLine": 751,
+        "startChar": 22,
+        "endLine": 751,
+        "endChar": 23
+      },
+      "revId": "cac6639c9c948b7f7fc9249a5e7009bb93afac7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a8561dd2_a05b1a89",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 823,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-08-01T13:10:41Z",
+      "side": 1,
+      "message": "should this also be `fa0` like `art_quick_invoke_polymorphic`?",
+      "range": {
+        "startLine": 823,
+        "startChar": 12,
+        "endLine": 823,
+        "endChar": 15
+      },
+      "revId": "cac6639c9c948b7f7fc9249a5e7009bb93afac7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4dcb2a58_bc30a7bc",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 837,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-08-01T13:10:41Z",
+      "side": 1,
+      "message": "I am assuming these benchmarks were for arm. Not sure if it will be worth it to test it again on RISC-V and assess",
+      "range": {
+        "startLine": 837,
+        "startChar": 24,
+        "endLine": 837,
+        "endChar": 76
+      },
+      "revId": "cac6639c9c948b7f7fc9249a5e7009bb93afac7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
