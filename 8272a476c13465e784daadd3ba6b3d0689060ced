@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0564e394_a6cf2355",
+        "filename": "libdexfile/dex/dex_file_loader.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-08-01T14:39:24Z",
+      "side": 1,
+      "message": "Done.  (the file has two invalid states (`nullptr` or `file-\u003eFd() \u003d\u003d -1`), I have enforced that `file !\u003d nullptr`)  That means I could also just pass `File\u0026`... I am not sure if that is better.",
+      "parentUuid": "2195c6a6_f6f6e079",
+      "range": {
+        "startLine": 158,
+        "startChar": 14,
+        "endLine": 158,
+        "endChar": 51
+      },
+      "revId": "8272a476c13465e784daadd3ba6b3d0689060ced",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5925b5d5_63d2cac7",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-07-31T16:59:47Z",
       "side": 1,
       "message": "Expand the comment as to why?",
+      "range": {
+        "startLine": 3480,
+        "startChar": 0,
+        "endLine": 3480,
+        "endChar": 45
+      },
+      "revId": "8272a476c13465e784daadd3ba6b3d0689060ced",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c750627_2b25f9eb",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3480,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-08-01T14:39:24Z",
+      "side": 1,
+      "message": "In most cases because we used the file to read the checksum, but we still need it to read the dex later.",
+      "parentUuid": "5925b5d5_63d2cac7",
       "range": {
         "startLine": 3480,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1fa471a1_afb1b0c6",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 828,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-08-01T14:39:24Z",
+      "side": 1,
+      "message": "I don\u0027t know here.  It is implied by the old `DupCloexec` that we can not close the descriptor just yet.  However, the tests pass and the build builds even if we do close the file here.",
+      "parentUuid": "a66bbd4d_c3a3a480",
+      "range": {
+        "startLine": 828,
+        "startChar": 27,
+        "endLine": 828,
+        "endChar": 51
+      },
+      "revId": "8272a476c13465e784daadd3ba6b3d0689060ced",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8c7a3b83_029ac94f",
@@ -93,6 +165,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "150f3fa0_c495217e",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 735,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-08-01T14:39:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8c7a3b83_029ac94f",
+      "range": {
+        "startLine": 735,
+        "startChar": 0,
+        "endLine": 735,
+        "endChar": 45
+      },
+      "revId": "8272a476c13465e784daadd3ba6b3d0689060ced",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5f788da1_63f42cd8",
@@ -106,6 +202,30 @@
       "writtenOn": "2023-07-31T16:59:47Z",
       "side": 1,
       "message": "ditto: why?",
+      "range": {
+        "startLine": 166,
+        "startChar": 0,
+        "endLine": 166,
+        "endChar": 43
+      },
+      "revId": "8272a476c13465e784daadd3ba6b3d0689060ced",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ed2e029_68b870d1",
+        "filename": "runtime/oat_file_assistant_context.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-08-01T14:39:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5f788da1_63f42cd8",
       "range": {
         "startLine": 166,
         "startChar": 0,
