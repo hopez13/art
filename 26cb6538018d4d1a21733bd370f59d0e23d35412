@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5061faa3_5b4bc63c",
+        "filename": "test/015-checker-switch/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-08-01T14:16:48Z",
+      "side": 1,
+      "message": "Here and in `packedSwitch5` I added some cases because we have a heuristic that says than less than 3 cases are turned into an if/else",
+      "range": {
+        "startLine": 86,
+        "startChar": 33,
+        "endLine": 86,
+        "endChar": 46
+      },
+      "revId": "26cb6538018d4d1a21733bd370f59d0e23d35412",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

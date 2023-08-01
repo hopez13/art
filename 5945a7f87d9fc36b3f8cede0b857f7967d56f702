@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7be345e0_f3a90176",
+        "filename": "test/015-checker-switch/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-08-01T14:16:48Z",
+      "side": 0,
+      "message": "Only one case it is sparse due to our heuristics. Renamed to `sparseSwitch6`",
+      "range": {
+        "startLine": 106,
+        "startChar": 23,
+        "endLine": 106,
+        "endChar": 36
+      },
+      "revId": "5945a7f87d9fc36b3f8cede0b857f7967d56f702",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6fa54543_04d13c6a",
+        "filename": "test/015-checker-switch/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-08-01T14:16:48Z",
+      "side": 0,
+      "message": "A hole of `1` still generates a packed switch in DEX code. I did some testing and we can have several numbers missing before it turns into a sparse switch. I added a bigger hole to compensate. I did the same for other sparse tests.\n\nAccording to the DEX spec packed switch tables are `(size * 2) + 4` and sparse ones are `(size * 4) + 2`. I am guessing there are some heuristics regarding that.",
+      "range": {
+        "startLine": 261,
+        "startChar": 23,
+        "endLine": 261,
+        "endChar": 35
+      },
+      "revId": "5945a7f87d9fc36b3f8cede0b857f7967d56f702",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
