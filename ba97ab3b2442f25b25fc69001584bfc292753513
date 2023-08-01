@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e8babc76_6a93a08c",
+        "filename": "runtime/class_loader_context.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 488,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-08-01T22:20:47Z",
+      "side": 1,
+      "message": "Yes, I think it looks weird because it is weird.\n\nThe previous implicit side-effect of using `ArtDexFileLoader` was that it `close()`ed the integer fd so that it was no longer usable after.  The secondary weirdness was that we had `DupCloexec` here and there to close `fd`s that we still need later.\n\nThe new `ArtDexFileLoader` takes `File*`, but does have not any side-effects.  It does not duplicate it or close it.  So `ArtDexFileLoader` is reasonable now and any further weirdness is pushed to callers.\n\nThis CL maintains previous semantics, because our `File` wrapper closes the `fd` on destruction, so the `fd` are still closed \"almost\" at the same time (when `File` goes out of scope rather than when `ArtDexFileLoader` goes out of scope).\n\nThe previous `DupCloexec` maps to `File::Release` - both meaning that we don\u0027t want to close the `fd` just yet when we get out of scope.\n\n---\n\nI think the reasonable expected followup would be replace the integer `fd` with `File` objects even further.  Then the files would be closed a bit later in the callers when the `File` objects get destroyed, or one of the callers should `close()` them explicitely.  And we wouldn\u0027t need the `Release` or any other special cases since all the `fd` would essentially live for the whole duration of the main method.",
+      "parentUuid": "6df2a312_af8d0ff8",
+      "range": {
+        "startLine": 488,
+        "startChar": 0,
+        "endLine": 488,
+        "endChar": 86
+      },
+      "revId": "ba97ab3b2442f25b25fc69001584bfc292753513",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "775f2450_c18394df",
