@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "77eee2b2_abf5b34a",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 751,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-08-01T16:59:24Z",
+      "side": 1,
+      "message": "Done (\"the\").\n\nIt is indeed a copy from other archs. I guess that \"first visible argument\" means the first argument other than the implicit `ArtMethod*`.",
+      "parentUuid": "cae523ab_ecd63825",
+      "range": {
+        "startLine": 751,
+        "startChar": 22,
+        "endLine": 751,
+        "endChar": 23
+      },
+      "revId": "cac6639c9c948b7f7fc9249a5e7009bb93afac7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a8561dd2_a05b1a89",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dbb6bcc1_9efb522d",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 823,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-08-01T16:59:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a8561dd2_a05b1a89",
+      "range": {
+        "startLine": 823,
+        "startChar": 12,
+        "endLine": 823,
+        "endChar": 15
+      },
+      "revId": "cac6639c9c948b7f7fc9249a5e7009bb93afac7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4dcb2a58_bc30a7bc",
@@ -60,6 +108,30 @@
       "writtenOn": "2023-08-01T13:10:41Z",
       "side": 1,
       "message": "I am assuming these benchmarks were for arm. Not sure if it will be worth it to test it again on RISC-V and assess",
+      "range": {
+        "startLine": 837,
+        "startChar": 24,
+        "endLine": 837,
+        "endChar": 76
+      },
+      "revId": "cac6639c9c948b7f7fc9249a5e7009bb93afac7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "894d165a_251c0f44",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 837,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-08-01T16:59:24Z",
+      "side": 1,
+      "message": "Removed.",
+      "parentUuid": "4dcb2a58_bc30a7bc",
       "range": {
         "startLine": 837,
         "startChar": 24,
