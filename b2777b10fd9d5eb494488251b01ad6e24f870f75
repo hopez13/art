@@ -22,6 +22,30 @@
       },
       "revId": "b2777b10fd9d5eb494488251b01ad6e24f870f75",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "13544be2_79c5a717",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-08-01T21:51:53Z",
+      "side": 1,
+      "message": "As discussed offline, while this definitely should be avoided probably by calling `EnsureFlipFunctionStarted` only if this thread is runnable, but in practice it can\u0027t cause any issues even in the current scenario.\n\nThe reason is that the gc-thread running `ThreadFlipRoots` (concurrently with this function) will not go ahead and do anything that requires holding mutator lock exclusively, until *all* threads are done running flip function. This is ensured with the help of barrier in the GC code.",
+      "parentUuid": "72bf19a7_5d324053",
+      "range": {
+        "startLine": 401,
+        "startChar": 8,
+        "endLine": 401,
+        "endChar": 48
+      },
+      "revId": "b2777b10fd9d5eb494488251b01ad6e24f870f75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
