@@ -439,7 +439,8 @@ void DisassemblerRiscv64::Printer::Print32BinOp(uint32_t insn32) {
       os_ << kOpcodes[funct3];
       bad_high_bits = (high_bits != 0u);
     } else {
-      os_ << "<unknown32>";  // There is no SLTW/SLTUW/XORW/ORW/ANDW.
+      DCHECK(narrow);
+      os_ << "<unknown32>";  // Some of the above instructions do not have a narrow version.
       return;
     }
     os_ << (narrow ? "w " : " ") << XRegName(rd) << ", " << XRegName(rs1) << ", " << XRegName(rs2);
