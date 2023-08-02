@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e5b1c243_5126c981",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1186,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-08-02T19:06:12Z",
+      "side": 1,
+      "message": "Suggest reversing this and doing an early return here. That\u0027ll also allow a more informative VLOG message.",
+      "range": {
+        "startLine": 1186,
+        "startChar": 6,
+        "endLine": 1186,
+        "endChar": 49
+      },
+      "revId": "d5bb0ebdc4163d37238e5c507c73956e196e9483",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc3762b2_2ae5762c",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1195,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-08-02T19:06:12Z",
+      "side": 1,
+      "message": "This seems to imply that we get here in the boot-after-ota case, but iiuc the new condition above would be `CompilerFilter::IsAsGoodAs(\"verify\", \"speed-profile\")`, which would be false, so this isn\u0027t applicable. Have I got something wrong?",
+      "range": {
+        "startLine": 1193,
+        "startChar": 0,
+        "endLine": 1195,
+        "endChar": 89
+      },
+      "revId": "d5bb0ebdc4163d37238e5c507c73956e196e9483",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
