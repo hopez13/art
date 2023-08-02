@@ -131,6 +131,8 @@ enum NativeBridgeImplementationVersion {
   RUNTIME_NAMESPACE_VERSION = 5,
   // The version with pre-zygote-fork hook to support app-zygotes.
   PRE_ZYGOTE_FORK_VERSION = 6,
+  // The version with critical_native support
+  CRITICAL_NATIVE_SUPPORT_VERSION = 7,
 };
 
 // Whether we had an error at some point.
@@ -569,7 +571,21 @@ void* NativeBridgeLoadLibrary(const char* libpath, int flag) {
 
 void* NativeBridgeGetTrampoline(void* handle, const char* name, const char* shorty,
                                 uint32_t len) {
+  return NativeBridgeGetTrampoline2(handle, name, shorty, len, kJNICallTypeRegular);
+}
+
+void* NativeBridgeGetTrampoline2(
+    void* handle, const char* name, const char* shorty, uint32_t len, JNICallType jni_call_type) {
   if (NativeBridgeInitialized()) {
+    // For version 1 just call getTrampoline()
+    if (callbacks != nullptr && callbacks->version == DEFAULT_VERSION) {
+      return callbacks->getTrampoline(handle, name, shorty, len);
+    }
+
+    if (isCompatibleWith(CRITICAL_NATIVE_SUPPORT_VERSION)) {
+      return callbacks->getTrampoline2(handle, name, shorty, len, jni_call_type);
+    }
+
     return callbacks->getTrampoline(handle, name, shorty, len);
   }
   return nullptr;
