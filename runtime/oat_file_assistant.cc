@@ -1182,27 +1182,33 @@ bool OatFileAssistant::OatFileInfo::ShouldRecompileForFilter(CompilerFilter::Fil
     return true;
   }
 
-  if (dexopt_trigger.primaryBootImageBecomesUsable &&
-      CompilerFilter::DependsOnImageChecksum(current)) {
-    // If the oat file has been compiled without an image, and the runtime is
-    // now running with an image loaded from disk, return that we need to
-    // re-compile. The recompilation will generate a better oat file, and with an app
-    // image for profile guided compilation.
-    const char* oat_boot_class_path_checksums =
-        file->GetOatHeader().GetStoreValueByKey(OatHeader::kBootClassPathChecksumsKey);
-    if (oat_boot_class_path_checksums != nullptr &&
-        !StartsWith(oat_boot_class_path_checksums, "i") &&
-        oat_file_assistant_->IsPrimaryBootImageUsable()) {
-      DCHECK(!file->GetOatHeader().RequiresImage());
-      VLOG(oat) << "Should recompile: primaryBootImageBecomesUsable";
+  // Don't regress the compiler filter for the triggers handled below.
+  if (CompilerFilter::IsAsGoodAs(target, current)) {
+    if (dexopt_trigger.primaryBootImageBecomesUsable &&
+        CompilerFilter::IsAotCompilationEnabled(current)) {
+      // If the oat file has been compiled without an image, and the runtime is
+      // now running with an image loaded from disk, return that we need to
+      // re-compile. The recompilation will generate a better oat file, and with an app
+      // image for profile guided compilation.
+      // However, don't recompile for "verify". Although verification depends on the boot image, the
+      // penalty of being verified without a boot image is low. Consider the case where a dex file
+      // is verified by "ab-ota", we don't want it to be re-verified by "boot-after-ota".
+      const char* oat_boot_class_path_checksums =
+          file->GetOatHeader().GetStoreValueByKey(OatHeader::kBootClassPathChecksumsKey);
+      if (oat_boot_class_path_checksums != nullptr &&
+          !StartsWith(oat_boot_class_path_checksums, "i") &&
+          oat_file_assistant_->IsPrimaryBootImageUsable()) {
+        DCHECK(!file->GetOatHeader().RequiresImage());
+        VLOG(oat) << "Should recompile: primaryBootImageBecomesUsable";
+        return true;
+      }
+    }
+
+    if (dexopt_trigger.needExtraction && !file->ContainsDexCode() &&
+        !oat_file_assistant_->ZipFileOnlyContainsUncompressedDex()) {
+      VLOG(oat) << "Should recompile: needExtraction";
       return true;
     }
-  }
-
-  if (dexopt_trigger.needExtraction && !file->ContainsDexCode() &&
-      !oat_file_assistant_->ZipFileOnlyContainsUncompressedDex()) {
-    VLOG(oat) << "Should recompile: needExtraction";
-    return true;
   }
 
   VLOG(oat) << "Should not recompile";
