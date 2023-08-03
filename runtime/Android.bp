@@ -696,7 +696,6 @@ art_cc_library {
         // dependencies.
         "test_broken_com.android.art",
     ],
-    afdo: true,
     target: {
         android: {
             lto: {
