@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "35b15511_cb579b90",
+        "filename": "libnativebridge/include/nativebridge/native_bridge.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1041673
+      },
+      "writtenOn": "2023-08-04T12:38:08Z",
+      "side": 1,
+      "message": "It doesn\u0027t affect the ABI.",
+      "parentUuid": "8f3f9c2a_1af5e9d1",
+      "revId": "d0fd85643b6bc0147d06cb766a719a367dab5d33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2eb4ff06_f8a809be",
@@ -31,6 +49,30 @@
       "writtenOn": "2023-08-04T02:25:00Z",
       "side": 1,
       "message": "signature",
+      "range": {
+        "startLine": 409,
+        "startChar": 14,
+        "endLine": 409,
+        "endChar": 22
+      },
+      "revId": "d0fd85643b6bc0147d06cb766a719a367dab5d33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e636054_cb12de1e",
+        "filename": "libnativebridge/include/nativebridge/native_bridge.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 409,
+      "author": {
+        "id": 1041673
+      },
+      "writtenOn": "2023-08-04T12:38:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2eb4ff06_f8a809be",
       "range": {
         "startLine": 409,
         "startChar": 14,
@@ -64,6 +106,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "39acce44_81f26a0e",
+        "filename": "libnativebridge/include/nativebridge/native_bridge.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 419,
+      "author": {
+        "id": 1041673
+      },
+      "writtenOn": "2023-08-04T12:38:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9a2b1f19_81785e31",
+      "range": {
+        "startLine": 418,
+        "startChar": 0,
+        "endLine": 419,
+        "endChar": 75
+      },
+      "revId": "d0fd85643b6bc0147d06cb766a719a367dab5d33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e3f8ecb3_6c9d998d",
@@ -77,6 +143,30 @@
       "writtenOn": "2023-08-04T02:25:00Z",
       "side": 1,
       "message": "`getTrampoline2` sounds a bit cryptic for long living external facing API, I\u0027d suggest something like `getTrampolineWithJNICallType`",
+      "range": {
+        "startLine": 420,
+        "startChar": 10,
+        "endLine": 420,
+        "endChar": 24
+      },
+      "revId": "d0fd85643b6bc0147d06cb766a719a367dab5d33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e94d4f3_64e3d9d7",
+        "filename": "libnativebridge/include/nativebridge/native_bridge.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 1041673
+      },
+      "writtenOn": "2023-08-04T12:38:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e3f8ecb3_6c9d998d",
       "range": {
         "startLine": 420,
         "startChar": 10,
@@ -110,6 +200,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0847aecd_d14c3a71",
+        "filename": "libnativebridge/native_bridge.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 586,
+      "author": {
+        "id": 1041673
+      },
+      "writtenOn": "2023-08-04T12:38:08Z",
+      "side": 1,
+      "message": "That was a surprise to me, but apparently isCompatibleWith(anyversion) is always true for callbacks version 1. So we need this special case here.",
+      "parentUuid": "777937b9_af326142",
+      "range": {
+        "startLine": 583,
+        "startChar": 0,
+        "endLine": 586,
+        "endChar": 3
+      },
+      "revId": "d0fd85643b6bc0147d06cb766a719a367dab5d33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bf02f30d_c85b1d61",
@@ -123,6 +237,24 @@
       "writtenOn": "2023-08-04T02:25:00Z",
       "side": 1,
       "message": "It seems like we need to call ResetTrampolinCalledState() here, so that the next checks are not influenced by the previous calls.",
+      "revId": "d0fd85643b6bc0147d06cb766a719a367dab5d33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "adcaa8b7_d96cf9bd",
+        "filename": "libnativebridge/tests/NativeBridge7CriticalNative_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1041673
+      },
+      "writtenOn": "2023-08-04T12:38:08Z",
+      "side": 1,
+      "message": "done.",
+      "parentUuid": "bf02f30d_c85b1d61",
       "revId": "d0fd85643b6bc0147d06cb766a719a367dab5d33",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
