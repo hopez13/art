@@ -226,6 +226,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "84bb574d_47174b88",
+        "filename": "libnativebridge/native_bridge.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 586,
+      "author": {
+        "id": 1069898
+      },
+      "writtenOn": "2023-08-04T20:08:41Z",
+      "side": 1,
+      "message": "I think it\u0027s very non-obvious and it worth documenting here. Smth like `For version 1 isCompatibleWith is always true, even though the extensions are not supported, so we need to handle it separately.`",
+      "parentUuid": "0847aecd_d14c3a71",
+      "range": {
+        "startLine": 583,
+        "startChar": 0,
+        "endLine": 586,
+        "endChar": 3
+      },
+      "revId": "d0fd85643b6bc0147d06cb766a719a367dab5d33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bf02f30d_c85b1d61",
         "filename": "libnativebridge/tests/NativeBridge7CriticalNative_test.cpp",
         "patchSetId": 3
