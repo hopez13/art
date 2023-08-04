@@ -128,6 +128,30 @@
       },
       "revId": "d5bb0ebdc4163d37238e5c507c73956e196e9483",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b909ea5_37e60aec",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1195,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-08-04T17:40:12Z",
+      "side": 1,
+      "message": "Ok. This has the effect that we won\u0027t improve the vdex\u0027es in ordinary background dexopt either. I can\u0027t judge if that\u0027s a good thing or not since I don\u0027t have a clear idea how much we gain with a vdex that has the correct boot image.",
+      "parentUuid": "28417628_e2b34f99",
+      "range": {
+        "startLine": 1193,
+        "startChar": 0,
+        "endLine": 1195,
+        "endChar": 89
+      },
+      "revId": "d5bb0ebdc4163d37238e5c507c73956e196e9483",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

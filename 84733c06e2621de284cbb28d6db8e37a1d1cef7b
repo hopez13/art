@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9696a6d2_c74cd3bd",
+        "filename": "runtime/oat_file_assistant_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2109,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-08-04T17:40:12Z",
+      "side": 1,
+      "message": "There\u0027s a lot of code dup in the following three tests. I suggest merging the bulk of them into a helper function.",
+      "range": {
+        "startLine": 2108,
+        "startChar": 0,
+        "endLine": 2109,
+        "endChar": 91
+      },
+      "revId": "84733c06e2621de284cbb28d6db8e37a1d1cef7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd5a70f0_62b9bd4e",
+        "filename": "runtime/oat_file_assistant_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2124,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-08-04T17:40:12Z",
+      "side": 1,
+      "message": "Stupid question, but what does the odex contain for the verify filter? Compiled JNI calls and nothing more?",
+      "range": {
+        "startLine": 2124,
+        "startChar": 5,
+        "endLine": 2124,
+        "endChar": 25
+      },
+      "revId": "84733c06e2621de284cbb28d6db8e37a1d1cef7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
