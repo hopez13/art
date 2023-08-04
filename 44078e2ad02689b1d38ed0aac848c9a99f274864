@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d1011e82_f8f3d37b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2023-08-04T13:54:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b07cf377_2489490a",
+      "range": {
+        "startLine": 10,
+        "startChar": 6,
+        "endLine": 10,
+        "endChar": 58
+      },
+      "revId": "44078e2ad02689b1d38ed0aac848c9a99f274864",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c915024e_fcc85076",
@@ -37,6 +61,24 @@
       "writtenOn": "2023-08-01T14:49:35Z",
       "side": 1,
       "message": "This file will need to be regenerated when the `run` (Bash) script is turned into a `run.py` (Python) script.",
+      "revId": "44078e2ad02689b1d38ed0aac848c9a99f274864",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a4b7d5b_4c962538",
+        "filename": "TEST_MAPPING",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2023-08-04T13:54:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c915024e_fcc85076",
       "revId": "44078e2ad02689b1d38ed0aac848c9a99f274864",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -58,6 +100,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6dd79c0f_5db9dca3",
+        "filename": "test/2233-metrics-background-thread/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2023-08-04T13:54:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c1c0fa1a_0478ca9b",
+      "revId": "44078e2ad02689b1d38ed0aac848c9a99f274864",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "aab56042_768322e6",
@@ -75,6 +135,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc46f8f8_6ff06662",
+        "filename": "test/2233-metrics-background-thread/check",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2023-08-04T13:54:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aab56042_768322e6",
+      "revId": "44078e2ad02689b1d38ed0aac848c9a99f274864",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "29a9b384_0b6466d8",
@@ -88,6 +166,24 @@
       "writtenOn": "2023-08-01T14:49:35Z",
       "side": 1,
       "message": "David has converted `run` (Bash) scripts into `run.py` (Python) scripts last year (see https://android-review.git.corp.google.com/c/platform/art/+/2267545 and https://android-review.git.corp.google.com/c/platform/art/+/2282758), so this will need to be adjusted.",
+      "revId": "44078e2ad02689b1d38ed0aac848c9a99f274864",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b006a3a_1a436f82",
+        "filename": "test/2233-metrics-background-thread/run",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2023-08-04T13:54:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "29a9b384_0b6466d8",
       "revId": "44078e2ad02689b1d38ed0aac848c9a99f274864",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
