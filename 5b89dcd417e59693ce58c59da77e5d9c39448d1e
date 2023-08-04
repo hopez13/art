@@ -22,6 +22,30 @@
       },
       "revId": "5b89dcd417e59693ce58c59da77e5d9c39448d1e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "81315c8e_b797ee33",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3532,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-08-04T16:32:18Z",
+      "side": 1,
+      "message": "I have reworded the comment to explain the issue.\n\nThe steps we are taking here (mapping zero-page and the unregistering unused portion) cannot break anything. If the kernel\u0027s behavior changes, it will at best make this unneeded.",
+      "parentUuid": "bc13db12_2ed85cf4",
+      "range": {
+        "startLine": 3528,
+        "startChar": 5,
+        "endLine": 3532,
+        "endChar": 75
+      },
+      "revId": "5b89dcd417e59693ce58c59da77e5d9c39448d1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
