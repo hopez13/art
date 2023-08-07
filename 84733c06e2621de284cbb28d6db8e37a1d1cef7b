@@ -145,6 +145,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "409a9f7b_c0807907",
+        "filename": "runtime/oat_file_assistant_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2109,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-08-07T16:21:22Z",
+      "side": 1,
+      "message": "I\u0027m a bit cautious about adding helper functions. If we add one, we have to make sure that it\u0027s sustainable. In the future, we may change OatFileAssistant\u0027s behavior and cause the expectations of some test cases to change (for example, we might want to recompile for \"verify\" but not recompile for \"speed-profile\"). I don\u0027t want a helper function that hurts the flexibility of the test and makes it hard to make future changes. That\u0027s why I\u0027d like to look at all the test cases and see what the right abstraction should be. This requires quite a bit of work.",
+      "parentUuid": "a135d27b_888f48ad",
+      "range": {
+        "startLine": 2108,
+        "startChar": 0,
+        "endLine": 2109,
+        "endChar": 91
+      },
+      "revId": "84733c06e2621de284cbb28d6db8e37a1d1cef7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "bd5a70f0_62b9bd4e",
         "filename": "runtime/oat_file_assistant_test.cc",
         "patchSetId": 3
@@ -204,6 +228,30 @@
       "side": 1,
       "message": "But that\u0027s just to track invalidation, isn\u0027t it? I was rather thinking about the payload data (that would typically need the invalidation). So there\u0027s none?",
       "parentUuid": "7c918ccc_34142357",
+      "range": {
+        "startLine": 2124,
+        "startChar": 5,
+        "endLine": 2124,
+        "endChar": 25
+      },
+      "revId": "84733c06e2621de284cbb28d6db8e37a1d1cef7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "73429053_4a94131f",
+        "filename": "runtime/oat_file_assistant_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2124,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-08-07T16:21:22Z",
+      "side": 1,
+      "message": "AFAIK, there isn\u0027t anything more. There is only metadata, but the metadata can affect how the runtime uses the vdex file. Nicolas once mentioned that when the checksums don\u0027t match, the runtime has to check some the preconditions (such as that a class inherits another) before using the vdex.",
+      "parentUuid": "4152d6a4_bea3174d",
       "range": {
         "startLine": 2124,
         "startChar": 5,
