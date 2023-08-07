@@ -360,7 +360,8 @@ class MarkCompact final : public GarbageCollector {
   // allocated chunk's size and next page's first_obj. 'dest' is the kPageSize
   // sized memory where the contents would be copied.
   void SlideBlackPage(mirror::Object* first_obj,
-                      const size_t page_idx,
+                      mirror::Object* next_page_first_obj,
+                      uint32_t first_chunk_size,
                       uint8_t* const pre_compact_page,
                       uint8_t* dest,
                       bool needs_memset_zero) REQUIRES_SHARED(Locks::mutator_lock_);
