@@ -121,6 +121,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "a135d27b_888f48ad",
+        "filename": "runtime/oat_file_assistant_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2109,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-08-07T15:05:00Z",
+      "side": 1,
+      "message": "Hm, I can\u0027t say I see the problem with avoiding the duplication in the new code here, unrelated to any cleanups in other tests.",
+      "parentUuid": "9a04451e_8a1b7bc4",
+      "range": {
+        "startLine": 2108,
+        "startChar": 0,
+        "endLine": 2109,
+        "endChar": 91
+      },
+      "revId": "84733c06e2621de284cbb28d6db8e37a1d1cef7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "bd5a70f0_62b9bd4e",
         "filename": "runtime/oat_file_assistant_test.cc",
         "patchSetId": 3
@@ -156,6 +180,30 @@
       "side": 1,
       "message": "It contains bootclasspath checksums / boot image checksums.",
       "parentUuid": "bd5a70f0_62b9bd4e",
+      "range": {
+        "startLine": 2124,
+        "startChar": 5,
+        "endLine": 2124,
+        "endChar": 25
+      },
+      "revId": "84733c06e2621de284cbb28d6db8e37a1d1cef7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4152d6a4_bea3174d",
+        "filename": "runtime/oat_file_assistant_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2124,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-08-07T15:05:00Z",
+      "side": 1,
+      "message": "But that\u0027s just to track invalidation, isn\u0027t it? I was rather thinking about the payload data (that would typically need the invalidation). So there\u0027s none?",
+      "parentUuid": "7c918ccc_34142357",
       "range": {
         "startLine": 2124,
         "startChar": 5,
