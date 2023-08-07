@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3eaefb39_54ac491a",
+        "filename": "test/2233-metrics-background-thread/run.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2023-08-07T14:08:52Z",
+      "side": 1,
+      "message": "Because this file is brand new, the copyright should be 2023.",
+      "range": {
+        "startLine": 2,
+        "startChar": 16,
+        "endLine": 2,
+        "endChar": 20
+      },
+      "revId": "2b7bb4f8985ba9d4f1a8ebd9495653837097cf87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a83b27bd_3ed6e85c",
+        "filename": "test/2233-metrics-background-thread/run.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2023-08-07T14:08:52Z",
+      "side": 1,
+      "message": "You can avoid using a temporary file by using an in-place `sed` substitution here:\n\n```\n  ctx.run(fr\"sed -rnie \u0027s/.*(Metrics reporting thread (started|terminating)).*/\\1/p\u0027 \u0027{args.stderr_file}\u0027\")\n```",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 53
+      },
+      "revId": "2b7bb4f8985ba9d4f1a8ebd9495653837097cf87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63fdb7ff_6822d838",
+        "filename": "test/knownfailures.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 1428,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2023-08-07T14:08:52Z",
+      "side": 1,
+      "message": "Actually, could you group this test exclusion with the one from lines 1414–1418:\n\n```\n    {\n        \"tests\": [\"2232-write-metrics-to-log\",\n                  \"2233-metrics-background-thread\"],\n        \"variant\": \"jvm\",\n        \"description\": [\"RI does not support ART metrics.\"]\n    },\n```\n\n?",
+      "range": {
+        "startLine": 1424,
+        "startChar": 0,
+        "endLine": 1428,
+        "endChar": 6
+      },
+      "revId": "2b7bb4f8985ba9d4f1a8ebd9495653837097cf87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af8cb021_329e0b38",
+        "filename": "test/knownfailures.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 1433,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2023-08-07T14:08:52Z",
+      "side": 1,
+      "message": "Ditto with lines 1419–1424.",
+      "range": {
+        "startLine": 1429,
+        "startChar": 0,
+        "endLine": 1433,
+        "endChar": 6
+      },
+      "revId": "2b7bb4f8985ba9d4f1a8ebd9495653837097cf87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
