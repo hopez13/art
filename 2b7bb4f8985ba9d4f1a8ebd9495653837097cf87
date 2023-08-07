@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "944a6904_47755934",
+        "filename": "test/2233-metrics-background-thread/run.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2023-08-07T14:32:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3eaefb39_54ac491a",
+      "range": {
+        "startLine": 2,
+        "startChar": 16,
+        "endLine": 2,
+        "endChar": 20
+      },
+      "revId": "2b7bb4f8985ba9d4f1a8ebd9495653837097cf87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a83b27bd_3ed6e85c",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-08-07T14:08:52Z",
       "side": 1,
       "message": "You can avoid using a temporary file by using an in-place `sed` substitution here:\n\n```\n  ctx.run(fr\"sed -rnie \u0027s/.*(Metrics reporting thread (started|terminating)).*/\\1/p\u0027 \u0027{args.stderr_file}\u0027\")\n```",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 53
+      },
+      "revId": "2b7bb4f8985ba9d4f1a8ebd9495653837097cf87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "94114fe4_6ad80a87",
+        "filename": "test/2233-metrics-background-thread/run.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2023-08-07T14:32:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a83b27bd_3ed6e85c",
       "range": {
         "startLine": 25,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "415efa46_6af86513",
+        "filename": "test/knownfailures.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 1428,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2023-08-07T14:32:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "63fdb7ff_6822d838",
+      "range": {
+        "startLine": 1424,
+        "startChar": 0,
+        "endLine": 1428,
+        "endChar": 6
+      },
+      "revId": "2b7bb4f8985ba9d4f1a8ebd9495653837097cf87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "af8cb021_329e0b38",
@@ -83,6 +155,30 @@
       "writtenOn": "2023-08-07T14:08:52Z",
       "side": 1,
       "message": "Ditto with lines 1419–1424.",
+      "range": {
+        "startLine": 1429,
+        "startChar": 0,
+        "endLine": 1433,
+        "endChar": 6
+      },
+      "revId": "2b7bb4f8985ba9d4f1a8ebd9495653837097cf87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "51915206_70289ba5",
+        "filename": "test/knownfailures.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 1433,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2023-08-07T14:32:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "af8cb021_329e0b38",
       "range": {
         "startLine": 1429,
         "startChar": 0,
