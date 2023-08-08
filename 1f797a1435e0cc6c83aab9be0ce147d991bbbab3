@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "859b2fae_ec59f640",
+        "filename": "libnativebridge/include/nativebridge/native_bridge.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1041673
+      },
+      "writtenOn": "2023-08-08T13:28:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d0d40980_f993ad5f",
+      "range": {
+        "startLine": 416,
+        "startChar": 20,
+        "endLine": 416,
+        "endChar": 21
+      },
+      "revId": "1f797a1435e0cc6c83aab9be0ce147d991bbbab3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a50023b7_dc0bde07",
@@ -37,6 +61,24 @@
       "writtenOn": "2023-08-07T16:13:09Z",
       "side": 1,
       "message": "Nit: \"Is\" and \"Set\" are in the reverse order compared to the .h file (and compared to the \"Trampoline2\" functions).",
+      "revId": "1f797a1435e0cc6c83aab9be0ce147d991bbbab3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "37a18bb7_f194d394",
+        "filename": "libnativebridge/tests/NativeBridge7CriticalNative_lib.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1041673
+      },
+      "writtenOn": "2023-08-08T13:28:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a50023b7_dc0bde07",
       "revId": "1f797a1435e0cc6c83aab9be0ce147d991bbbab3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
