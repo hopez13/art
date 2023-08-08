@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "40fd4cd9_2865b1db",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1137,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-08-08T12:48:27Z",
+      "side": 1,
+      "message": "I decided to make this explicit here and the assembler accepts that. Otherwise, I would have to remove the \", \" from individual tests (say, `\"fsqrt.s {reg1}, {reg2}{rm}\" instead of \"fsqrt.s {reg1}, {reg2}, {rm}\") and put that in the strings above.",
+      "parentUuid": "1106b55e_ff571641",
+      "range": {
+        "startLine": 1137,
+        "startChar": 23,
+        "endLine": 1137,
+        "endChar": 26
+      },
+      "revId": "e763c0b5ea01362874f7179f694b9d9253a6bc61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b56bf3ce_64270a6b",
@@ -37,6 +61,24 @@
       "writtenOn": "2023-08-08T12:12:12Z",
       "side": 1,
       "message": "Should we add a `EXPECT_NE(rm_index, std::string::npos)`? I think such a statement could help user error when writing tests.\n\nSimilar in `ReplaceReg` when looking for those tokens",
+      "revId": "e763c0b5ea01362874f7179f694b9d9253a6bc61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a4f34ecb_577734d7",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1143,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-08-08T12:48:27Z",
+      "side": 1,
+      "message": "Done for the helpers in this file. Note that `ReplaceReg()` has a loop that can replace more than one occurrence.",
+      "parentUuid": "b56bf3ce_64270a6b",
       "revId": "e763c0b5ea01362874f7179f694b9d9253a6bc61",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
