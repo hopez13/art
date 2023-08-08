@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "40d041f2_2b794d8f",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2080,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-08-08T12:53:33Z",
+      "side": 1,
+      "message": "Is it an issue if we are loading the class offset as int32 but storing it in uint32?",
+      "range": {
+        "startLine": 2080,
+        "startChar": 2,
+        "endLine": 2080,
+        "endChar": 10
+      },
+      "revId": "87987cd7701070ad812bdda8c5ec8a98dfd0fda4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
