@@ -22,6 +22,30 @@
       },
       "revId": "0d24928f69b1b5a7e7b6cf4b18c62bc369f9692a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "24f4cbeb_85de7c9c",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 410,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-08-08T13:33:05Z",
+      "side": 1,
+      "message": "`GetSugnature()` seems to have different use cases, including runtime methods. That\u0027s not the case here.\n\nThis is just a new overload of the function above and I\u0027d like to keep the checks in sync with that function.",
+      "parentUuid": "a70c9f67_5ce4f1a0",
+      "range": {
+        "startLine": 410,
+        "startChar": 61,
+        "endLine": 410,
+        "endChar": 78
+      },
+      "revId": "0d24928f69b1b5a7e7b6cf4b18c62bc369f9692a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
