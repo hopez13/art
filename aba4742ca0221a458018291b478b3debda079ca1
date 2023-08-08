@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bec7580c_f7d1f275",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 486,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-08-08T13:57:02Z",
+      "side": 1,
+      "message": "I tried, but that\u0027s what pre-upload `clang-format` does anyway. Should I bypass it?",
+      "parentUuid": "87ebb680_d4f5a706",
+      "range": {
+        "startLine": 486,
+        "startChar": 79,
+        "endLine": 486,
+        "endChar": 80
+      },
+      "revId": "aba4742ca0221a458018291b478b3debda079ca1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ddc06a69_bcb444a6",
         "filename": "imgdiag/imgdiag.cc",
         "patchSetId": 3
@@ -60,6 +84,30 @@
       "writtenOn": "2023-08-08T08:30:08Z",
       "side": 1,
       "message": "I guess this should be `const ParentMap\u0026`, otherwise we\u0027re making a copy in the constructor.",
+      "range": {
+        "startLine": 840,
+        "startChar": 2,
+        "endLine": 840,
+        "endChar": 11
+      },
+      "revId": "aba4742ca0221a458018291b478b3debda079ca1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d0f34074_24e3ebce",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 840,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-08-08T13:57:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ddd0538e_be707f3d",
       "range": {
         "startLine": 840,
         "startChar": 2,
