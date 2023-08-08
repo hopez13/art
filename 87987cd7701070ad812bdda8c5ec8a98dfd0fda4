@@ -22,6 +22,30 @@
       },
       "revId": "87987cd7701070ad812bdda8c5ec8a98dfd0fda4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8dce9ade_eb0e541d",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2080,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-08-08T14:10:10Z",
+      "side": 1,
+      "message": "It would work but there\u0027s no need to have this unnecessary conversion from `int32_t` to `uint32_t` and back (`Loadwu()` takes the offset as `int32_t`).",
+      "parentUuid": "40d041f2_2b794d8f",
+      "range": {
+        "startLine": 2080,
+        "startChar": 2,
+        "endLine": 2080,
+        "endChar": 10
+      },
+      "revId": "87987cd7701070ad812bdda8c5ec8a98dfd0fda4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
