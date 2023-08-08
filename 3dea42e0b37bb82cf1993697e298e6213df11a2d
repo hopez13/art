@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26ba8c65_ee04f2fd",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 488,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-08-08T14:30:30Z",
+      "side": 1,
+      "message": "Indentation: 2 more spaces before REQUIRES_SHARED, 2 fewer spaces for the code.\n\n    auto func \u003d [...](...)\n        REQUIRES_SHARED(...) {\n      // Code...\n    };",
+      "range": {
+        "startLine": 487,
+        "startChar": 4,
+        "endLine": 488,
+        "endChar": 42
+      },
+      "revId": "3dea42e0b37bb82cf1993697e298e6213df11a2d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
