@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1106b55e_ff571641",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1137,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-08-08T12:12:12Z",
+      "side": 1,
+      "message": "Why do we print it here but not in the disassembler? https://android-review.git.corp.google.com/c/platform/art/+/2686567/3/disassembler/disassembler_riscv64.cc#177",
+      "range": {
+        "startLine": 1137,
+        "startChar": 23,
+        "endLine": 1137,
+        "endChar": 26
+      },
+      "revId": "e763c0b5ea01362874f7179f694b9d9253a6bc61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b56bf3ce_64270a6b",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1143,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-08-08T12:12:12Z",
+      "side": 1,
+      "message": "Should we add a `EXPECT_NE(rm_index, std::string::npos)`? I think such a statement could help user error when writing tests.\n\nSimilar in `ReplaceReg` when looking for those tokens",
+      "revId": "e763c0b5ea01362874f7179f694b9d9253a6bc61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
