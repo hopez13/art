@@ -1,0 +1,211 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f181e6e3_bc83eb35",
+        "filename": "openjdkjvmti/ti_thread.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 910,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-08-08T01:14:44Z",
+      "side": 1,
+      "message": "Maybe remove this comment since there is no notion of timeout anymore?",
+      "range": {
+        "startLine": 910,
+        "startChar": 6,
+        "endLine": 910,
+        "endChar": 45
+      },
+      "revId": "3c8330d8775b46c539b471051c9c69cdfd8db75c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc2b476c_99649340",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1751,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-08-08T01:14:44Z",
+      "side": 1,
+      "message": "Is it worth moving this function to `thread-inl.h`? It\u0027s being called at quite a few places now (as compared to just 2 places before",
+      "range": {
+        "startLine": 1751,
+        "startChar": 13,
+        "endLine": 1751,
+        "endChar": 38
+      },
+      "revId": "3c8330d8775b46c539b471051c9c69cdfd8db75c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7192b71_c8cc33f3",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 4702,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-08-08T01:14:44Z",
+      "side": 1,
+      "message": "Why is this loop required? `EnsureFlip...` already does this test, right? And since `self` is runnable, it\u0027s not possible that another flip request comes in after `EnsureFlip...` and/or `WaitFor...`. and before accessing `peer`",
+      "range": {
+        "startLine": 4702,
+        "startChar": 2,
+        "endLine": 4702,
+        "endChar": 92
+      },
+      "revId": "3c8330d8775b46c539b471051c9c69cdfd8db75c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c0bca07_12ccab50",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 538,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-08-08T01:14:44Z",
+      "side": 1,
+      "message": "We should add a `NOTE` here that there better be only one `FlipThreadRoots` at a time as we don\u0027t have any mechanism of chaining multiple flip functions.",
+      "range": {
+        "startLine": 538,
+        "startChar": 17,
+        "endLine": 538,
+        "endChar": 32
+      },
+      "revId": "3c8330d8775b46c539b471051c9c69cdfd8db75c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d8a8fe6f_8933cbe6",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 598,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-08-08T01:14:44Z",
+      "side": 1,
+      "message": "In `SuspendAll` we make sure that the thread doing it runs its own flip-function. However, what if it does that and then acquires `mutator-lock` exclusively (thereby blocking gc-thread from running flip-function for other threads below) and then tries to do something like `RunCheckpoint` but without running other threads\u0027 flip functions?\n\nMaybe we can run flip-functions (like in `RunCheckpoint`) for all threads in SuspendAll, after acquiring mutator-lock exclusively?",
+      "range": {
+        "startLine": 598,
+        "startChar": 2,
+        "endLine": 598,
+        "endChar": 11
+      },
+      "revId": "3c8330d8775b46c539b471051c9c69cdfd8db75c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e922f0e_e26ef78a",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 706,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-08-08T01:14:44Z",
+      "side": 1,
+      "message": "typo -\u003e `only`",
+      "range": {
+        "startLine": 706,
+        "startChar": 48,
+        "endLine": 706,
+        "endChar": 51
+      },
+      "revId": "3c8330d8775b46c539b471051c9c69cdfd8db75c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7fb88131_a32c2a35",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 710,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-08-08T01:14:44Z",
+      "side": 1,
+      "message": "Is it not possible that the gc-thread, which is running `FlipThreadRoots`, starts running this thread\u0027s `EnsureFlip...` before this thread? If so, then we should wait here for it to be finished, no?",
+      "range": {
+        "startLine": 710,
+        "startChar": 4,
+        "endLine": 710,
+        "endChar": 62
+      },
+      "revId": "3c8330d8775b46c539b471051c9c69cdfd8db75c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f4d9a1ec_67010233",
+        "filename": "runtime/thread_list.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-08-08T01:14:44Z",
+      "side": 1,
+      "message": "typo -\u003e `not`",
+      "range": {
+        "startLine": 119,
+        "startChar": 75,
+        "endLine": 119,
+        "endChar": 78
+      },
+      "revId": "3c8330d8775b46c539b471051c9c69cdfd8db75c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1f6eca5a_d638e8e2",
+        "filename": "test/129-ThreadGetId/src/Main.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-08-08T01:14:44Z",
+      "side": 1,
+      "message": "Isn\u0027t it too tight? Why do we need this timeout mechanism at all?",
+      "range": {
+        "startLine": 35,
+        "startChar": 33,
+        "endLine": 35,
+        "endChar": 39
+      },
+      "revId": "3c8330d8775b46c539b471051c9c69cdfd8db75c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
