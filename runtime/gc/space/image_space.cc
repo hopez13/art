@@ -999,7 +999,8 @@ class ImageSpace::Loader {
     if (!is_compressed && allow_direct_mapping) {
       uint8_t* address = (image_reservation != nullptr) ? image_reservation->Begin() : nullptr;
       return MemMap::MapFileAtAddress(address,
-                                      RoundUp(image_header.GetImageSize(), kElfSegmentAlignment),
+                                      CondRoundUp<kPageSizeAgnostic>(image_header.GetImageSize(),
+                                                                     kElfSegmentAlignment),
                                       PROT_READ | PROT_WRITE,
                                       MAP_PRIVATE,
                                       fd,
@@ -1013,7 +1014,8 @@ class ImageSpace::Loader {
 
     // Reserve output and copy/decompress into it.
     MemMap map = MemMap::MapAnonymous(image_location,
-                                      RoundUp(image_header.GetImageSize(), kElfSegmentAlignment),
+                                      CondRoundUp<kPageSizeAgnostic>(image_header.GetImageSize(),
+                                                                     kElfSegmentAlignment),
                                       PROT_READ | PROT_WRITE,
                                       /*low_4gb=*/ true,
                                       image_reservation,

@@ -47,8 +47,10 @@ static constexpr size_t kPageSize = 4096;
 // kElfSegmentAlignment needs to be equal to the largest page size supported.
 #if defined(PAGE_SIZE_AGNOSTIC)
 static constexpr size_t kElfSegmentAlignment = 16384;
+static constexpr bool kPageSizeAgnostic = true;
 #else
 static constexpr size_t kElfSegmentAlignment = kPageSize;
+static constexpr bool kPageSizeAgnostic = false;
 #endif
 
 // TODO: Kernels for arm and x86 in both, 32-bit and 64-bit modes use 512 entries per page-table
