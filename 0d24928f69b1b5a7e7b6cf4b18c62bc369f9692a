@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a70c9f67_5ce4f1a0",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 410,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-08-08T13:06:14Z",
+      "side": 1,
+      "message": "`GetMethodId` DCHECKS for `kDexNoIndex`.\n\nShould we check here for `dex_method_idx !\u003d dex::kDexNoIndex` like `ArtMethod::GetSignature` does?",
+      "range": {
+        "startLine": 410,
+        "startChar": 61,
+        "endLine": 410,
+        "endChar": 78
+      },
+      "revId": "0d24928f69b1b5a7e7b6cf4b18c62bc369f9692a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
