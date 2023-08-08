@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5eb4a788_8ec66672",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 486,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-08-08T14:14:30Z",
+      "side": 1,
+      "message": "I\u0027m mostly working in `master-art` which does not seem to trigger this pre-upload check. When I tried to upload something from `aosp/main` recently, I found this check extremely annoying and decided that `--no-verify` is the way to proceed.\n\nI\u0027d prefer to override the `clang-format` in this case.",
+      "parentUuid": "bec7580c_f7d1f275",
+      "range": {
+        "startLine": 486,
+        "startChar": 79,
+        "endLine": 486,
+        "endChar": 80
+      },
+      "revId": "aba4742ca0221a458018291b478b3debda079ca1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ddc06a69_bcb444a6",
         "filename": "imgdiag/imgdiag.cc",
         "patchSetId": 3
