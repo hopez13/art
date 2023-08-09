@@ -22,6 +22,30 @@
       },
       "revId": "af1cdfb7b35415a3423e2ff7f2d884b376230158",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a9d7c7d9_b536087f",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2496,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-08-09T15:11:09Z",
+      "side": 1,
+      "message": "We don\u0027t have to keep this special case. The other path works fine for `num_entries \u003d\u003d 1u` (with one more instruction).\n\nDo you want me to simplify this?",
+      "parentUuid": "054f899d_e54ec0f2",
+      "range": {
+        "startLine": 2496,
+        "startChar": 0,
+        "endLine": 2496,
+        "endChar": 26
+      },
+      "revId": "af1cdfb7b35415a3423e2ff7f2d884b376230158",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
