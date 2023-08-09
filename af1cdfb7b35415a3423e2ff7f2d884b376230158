@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "054f899d_e54ec0f2",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2496,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-08-09T14:45:31Z",
+      "side": 1,
+      "message": "For what it\u0027s worth, we don\u0027t create `HPackedSwitch` instructions for less than 4 cases (https://cs.android.com/android/platform/superproject/main/+/main:art/compiler/optimizing/instruction_builder.cc;l\u003d810-823;drc\u003dcde6497d286337de2ed21c71c85157e2745b742b and https://cs.android.com/android/platform/superproject/main/+/refs/heads/main:art/libdexfile/dex/bytecode_utils.h;l\u003d80;drc\u003d9cd872880b91e92d2bfe67e31666270a197fe96f). Having said that, there are some gtests that create `HPackedSwitch` for a small amount of cases so we might have to keep this `if`.",
+      "range": {
+        "startLine": 2496,
+        "startChar": 0,
+        "endLine": 2496,
+        "endChar": 26
+      },
+      "revId": "af1cdfb7b35415a3423e2ff7f2d884b376230158",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
