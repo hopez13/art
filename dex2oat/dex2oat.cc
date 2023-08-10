@@ -1179,9 +1179,11 @@ class Dex2Oat final {
           Usage("Option --stored-class-loader-context has an incorrect format: %s",
                 stored_context_arg.c_str());
         } else if (class_loader_context_->VerifyClassLoaderContextMatch(
-            stored_context_arg,
-            /*verify_names*/ false,
-            /*verify_checksums*/ false) != ClassLoaderContext::VerificationResult::kVerifies) {
+                       stored_context_arg,
+                       /*dex_file_name*/ "",
+                       /*verify_names*/ false,
+                       /*verify_checksums*/ false) !=
+                   ClassLoaderContext::VerificationResult::kVerifies) {
           Usage(
               "Option --stored-class-loader-context '%s' mismatches --class-loader-context '%s'",
               stored_context_arg.c_str(),
@@ -1655,22 +1657,14 @@ class Dex2Oat final {
 
       DCHECK_EQ(oat_writers_.size(), 1u);
 
-      // Note: Ideally we would reject context where the source dex files are also
-      // specified in the classpath (as it doesn't make sense). However this is currently
-      // needed for non-prebuild tests and benchmarks which expects on the fly compilation.
-      // Also, for secondary dex files we do not have control on the actual classpath.
-      // Instead of aborting, remove all the source location from the context classpaths.
-      if (class_loader_context_->RemoveLocationsFromClassPaths(
-            oat_writers_[0]->GetSourceLocations())) {
-        LOG(WARNING) << "The source files to be compiled are also in the classpath.";
-      }
-
       // We need to open the dex files before encoding the context in the oat file.
       // (because the encoding adds the dex checksum...)
       // TODO(calin): consider redesigning this so we don't have to open the dex files before
       // creating the actual class loader.
       if (!class_loader_context_->OpenDexFiles(classpath_dir_,
-                                               class_loader_context_fds_)) {
+                                               class_loader_context_fds_,
+                                               /*only_read_checksums=*/false,
+                                               oat_writers_[0]->GetSourceLocations())) {
         // Do not abort if we couldn't open files from the classpath. They might be
         // apks without dex files and right now are opening flow will fail them.
         LOG(WARNING) << "Failed to open classpath dex files";
