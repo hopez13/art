@@ -1100,22 +1100,6 @@ TEST_F(ClassLoaderContextTest, CreateClassLoaderWithSharedLibrariesDependencies)
       WellKnownClasses::java_lang_BootClassLoader);
 }
 
-TEST_F(ClassLoaderContextTest, RemoveSourceLocations) {
-  std::unique_ptr<ClassLoaderContext> context =
-      ClassLoaderContext::Create("PCL[a.dex]");
-  dchecked_vector<std::string> classpath_dex;
-  classpath_dex.push_back("a.dex");
-  dchecked_vector<std::string> compilation_sources;
-  compilation_sources.push_back("src.dex");
-
-  // Nothing should be removed.
-  ASSERT_FALSE(context->RemoveLocationsFromClassPaths(compilation_sources));
-  VerifyClassLoaderPCL(context.get(), 0, "a.dex");
-  // Classes should be removed.
-  ASSERT_TRUE(context->RemoveLocationsFromClassPaths(classpath_dex));
-  VerifyClassLoaderPCL(context.get(), 0, "");
-}
-
 TEST_F(ClassLoaderContextTest, CreateClassLoaderWithSameSharedLibraries) {
   // Setup the context.
   std::vector<std::unique_ptr<const DexFile>> classpath_dex_a = OpenTestDexFiles("ForClassLoaderA");
@@ -1786,6 +1770,43 @@ TEST_F(ClassLoaderContextTest, CreateContextForClassLoaderWithSharedLibraries) {
   VerifyClassLoaderSharedLibraryPCL(context.get(), 0, 0, dex_files[0]->GetLocation());
 
   ASSERT_EQ(context->VerifyClassLoaderContextMatch(context->EncodeContextForOatFile("")),
+            ClassLoaderContext::VerificationResult::kVerifies);
+}
+
+TEST_F(ClassLoaderContextTest, VerifyClassLoaderContextMatchFullClassLoaderContext) {
+  std::string context_spec = "PCL[base.dex*123:split1.dex*456:split2.dex*789]";
+  std::unique_ptr<ClassLoaderContext> context = ParseContextWithChecksums(context_spec);
+  // Pretend that we successfully open the dex files to pass the DCHECKS.
+  // (as it's much easier to test all the corner cases without relying on actual dex files).
+  PretendContextOpenedDexFilesForChecksums(context.get());
+
+  VerifyContextSize(context.get(), 1);
+  VerifyClassLoaderPCL(context.get(), 0, "base.dex:split1.dex:split2.dex");
+
+  ASSERT_EQ(context->VerifyClassLoaderContextMatch(context_spec),
+            ClassLoaderContext::VerificationResult::kVerifies);
+
+  // Old way: Incrementally add dex files to the class loader context.
+  std::string old_way_for_base = "PCL[]";
+  ASSERT_EQ(context->VerifyClassLoaderContextMatch(old_way_for_base, "base.dex"),
+            ClassLoaderContext::VerificationResult::kVerifies);
+
+  std::string old_way_for_split1 = "PCL[base.dex*123]";
+  ASSERT_EQ(context->VerifyClassLoaderContextMatch(old_way_for_split1, "split1.dex"),
+            ClassLoaderContext::VerificationResult::kVerifies);
+
+  std::string old_way_for_split2 = "PCL[base.dex*123:split1.dex*456]";
+  ASSERT_EQ(context->VerifyClassLoaderContextMatch(old_way_for_split2, "split2.dex"),
+            ClassLoaderContext::VerificationResult::kVerifies);
+
+  // New way: Have all the dex files for all compiles.
+  ASSERT_EQ(context->VerifyClassLoaderContextMatch(context_spec, "base.dex"),
+            ClassLoaderContext::VerificationResult::kVerifies);
+
+  ASSERT_EQ(context->VerifyClassLoaderContextMatch(context_spec, "split1.dex"),
+            ClassLoaderContext::VerificationResult::kVerifies);
+
+  ASSERT_EQ(context->VerifyClassLoaderContextMatch(context_spec, "split2.dex"),
             ClassLoaderContext::VerificationResult::kVerifies);
 }
 
