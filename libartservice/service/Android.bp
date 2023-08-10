@@ -92,6 +92,8 @@ java_defaults {
     static_libs: [
         "art-statslog-art-java",
         "artd-aidl-java",
+        "artd_chroot-aidl-java",
+        "modules-utils-build",
         "modules-utils-package-state",
         "modules-utils-shell-command-handler",
         "service-art-proto-java",

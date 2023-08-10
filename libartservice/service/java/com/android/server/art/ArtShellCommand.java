@@ -43,6 +43,7 @@ import androidx.annotation.RequiresApi;
 
 import com.android.internal.annotations.GuardedBy;
 import com.android.modules.utils.BasicShellCommandHandler;
+import com.android.modules.utils.build.SdkLevel;
 import com.android.server.art.model.ArtFlags;
 import com.android.server.art.model.DeleteResult;
 import com.android.server.art.model.DexoptParams;
@@ -175,6 +176,9 @@ public final class ArtShellCommand extends BasicShellCommandHandler {
                 mArtManagerLocal.clearAppProfiles(snapshot, getNextArgRequired());
                 pw.println("Profiles cleared");
                 return 0;
+            }
+            case "pre-reboot-dexopt-job": {
+                return handlePreRebootDexoptJob(pw);
             }
             default:
                 pw.printf("Error: Unknown 'art' sub-command '%s'\n", subcmd);
@@ -597,6 +601,13 @@ public final class ArtShellCommand extends BasicShellCommandHandler {
             });
         } finally {
             progressCallbackExecutor.shutdown();
+        }
+        return 0;
+    }
+
+    private int handlePreRebootDexoptJob(@NonNull PrintWriter pw) {
+        if (SdkLevel.isAtLeastV()) {
+            mArtManagerLocal.getPreRebootDexoptJob().run();
         }
         return 0;
     }
