@@ -170,9 +170,12 @@ class ClassLoaderContext {
   // need to fully open the dex files if the only thing that needs to be done is to verify
   // the context.
   //
+  // TODO(solanes): Explain `dex_file_name`.
+  //
   // Names are only verified if verify_names is true.
   // Checksums are only verified if verify_checksums is true.
   VerificationResult VerifyClassLoaderContextMatch(const std::string& context_spec,
+                                                   const std::string& dex_file_name = "",
                                                    bool verify_names = true,
                                                    bool verify_checksums = true) const;
 
@@ -338,11 +341,22 @@ class ClassLoaderContext {
                                 ClassLoaderInfo* stored_info,
                                 std::ostringstream& out) const;
 
+  // `dex_file_name` is used for backwards compatibility. See `FindIgnoredEntries`.
   bool ClassLoaderInfoMatch(const ClassLoaderInfo& info,
                             const ClassLoaderInfo& expected_info,
                             const std::string& context_spec,
+                            const std::string& dex_file_name,
                             bool verify_names,
-                            bool verify_checksums) const;
+                            bool verify_checksums,
+                            bool first_class_loader_info = true) const;
+
+  // Returns the index of the last ignored entry, which is the one with a matching name with
+  // `dex_file_name`. Used for backwards compatibility. In previous versions, we were expected to
+  // compile with a partial class loader, but now we are expected to have the full CLC at compile
+  // time.
+  size_t FindIgnoredEntries(const ClassLoaderInfo& info,
+                            const ClassLoaderInfo& expected_info,
+                            const std::string& dex_file_name) const;
 
   // Extracts the class loader type from the given spec.
   // Return ClassLoaderContext::kInvalidClassLoader if the class loader type is not

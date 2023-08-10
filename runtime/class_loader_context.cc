@@ -18,8 +18,11 @@
 
 #include <algorithm>
 #include <optional>
+#include <sstream>
+#include <string>
 
 #include "android-base/file.h"
+#include "android-base/logging.h"
 #include "android-base/parseint.h"
 #include "android-base/strings.h"
 #include "art_field-inl.h"
@@ -1287,7 +1290,10 @@ bool ClassLoaderContext::IsValidEncoding(const std::string& possible_encoded_cla
 }
 
 ClassLoaderContext::VerificationResult ClassLoaderContext::VerifyClassLoaderContextMatch(
-    const std::string& context_spec, bool verify_names, bool verify_checksums) const {
+    const std::string& context_spec,
+    const std::string& dex_file_name,
+    bool verify_names,
+    bool verify_checksums) const {
   ScopedTrace trace(__FUNCTION__);
   if (verify_names || verify_checksums) {
     DCHECK(dex_files_state_ == kDexFilesChecksumsRead || dex_files_state_ == kDexFilesOpened)
@@ -1304,7 +1310,8 @@ ClassLoaderContext::VerificationResult ClassLoaderContext::VerifyClassLoaderCont
   ClassLoaderInfo* expected = expected_context.class_loader_chain_.get();
   CHECK(info != nullptr);
   CHECK(expected != nullptr);
-  if (!ClassLoaderInfoMatch(*info, *expected, context_spec, verify_names, verify_checksums)) {
+  if (!ClassLoaderInfoMatch(
+          *info, *expected, context_spec, dex_file_name, verify_names, verify_checksums)) {
     return VerificationResult::kMismatch;
   }
   return VerificationResult::kVerifies;
@@ -1382,11 +1389,42 @@ static bool AreDexNameMatching(const std::string& actual_dex_name,
   return dex_names_match;
 }
 
+size_t ClassLoaderContext::FindIgnoredEntries(const ClassLoaderInfo& info,
+                                              const ClassLoaderInfo& expected_info,
+                                              const std::string& dex_file_name) const {
+  // Keep only the apk name.
+  size_t dex_orig_pos = dex_file_name.rfind('/');
+  std::string dex_orig_name =
+      dex_orig_pos == std::string::npos ? dex_file_name : dex_file_name.substr(dex_orig_pos + 1);
+
+  // Search for the compiled dex file in the expected info to determine it was compiled with a full
+  // or partial class loader context.
+  for (size_t i = 0; i < expected_info.classpath.size(); i++) {
+    if (AreDexNameMatching(dex_orig_name, expected_info.classpath[i])) {
+      // Compiled with a full class loader context. Nothing to do.
+      return info.classpath.size();
+    }
+  }
+
+  // Ignore the dex files from the start to the compiled dex file (including it).
+  for (size_t i = 0; i < info.classpath.size(); i++) {
+    if (AreDexNameMatching(dex_orig_name, info.classpath[i])) {
+      return i;
+    }
+  }
+
+  // We found the compiled dex file in `expected_info`, but not in `info`. This will mean a mismatch
+  // down the line.
+  return info.classpath.size();
+}
+
 bool ClassLoaderContext::ClassLoaderInfoMatch(const ClassLoaderInfo& info,
                                               const ClassLoaderInfo& expected_info,
                                               const std::string& context_spec,
+                                              const std::string& dex_file_name,
                                               bool verify_names,
-                                              bool verify_checksums) const {
+                                              bool verify_checksums,
+                                              bool first_class_loader_info) const {
   if (info.type != expected_info.type) {
     LOG(WARNING) << "ClassLoaderContext type mismatch"
                  << ". expected=" << GetClassLoaderTypeName(expected_info.type)
@@ -1394,11 +1432,21 @@ bool ClassLoaderContext::ClassLoaderInfoMatch(const ClassLoaderInfo& info,
                  << EncodeContextForOatFile("") << ")";
     return false;
   }
-  if (info.classpath.size() != expected_info.classpath.size()) {
+
+  // Only the first ClassLoaderInfo can be partial.
+  const size_t read_until = first_class_loader_info ?
+                                FindIgnoredEntries(info, expected_info, dex_file_name) :
+                                info.classpath.size();
+
+  if (read_until != expected_info.classpath.size()) {
+    std::stringstream ss;
+    if (read_until != info.classpath.size()) {
+      ss << ". Ignoring the from the " << read_until << " entry in the class path.";
+    }
     LOG(WARNING) << "ClassLoaderContext classpath size mismatch"
                  << ". expected=" << expected_info.classpath.size()
                  << ", found=" << info.classpath.size() << " (" << context_spec << " | "
-                 << EncodeContextForOatFile("") << ")";
+                 << EncodeContextForOatFile("") << ")" << ss.str();
     return false;
   }
 
@@ -1408,24 +1456,32 @@ bool ClassLoaderContext::ClassLoaderInfoMatch(const ClassLoaderInfo& info,
   }
 
   if (verify_names) {
-    for (size_t k = 0; k < info.classpath.size(); k++) {
+    for (size_t k = 0; k < read_until; k++) {
       bool dex_names_match = AreDexNameMatching(info.classpath[k], expected_info.classpath[k]);
 
       // Compare the locations.
       if (!dex_names_match) {
+        std::stringstream ss;
+        if (read_until != info.classpath.size()) {
+          ss << ". Ignoring the from the " << read_until << " entry in the class path.";
+        }
         LOG(WARNING) << "ClassLoaderContext classpath element mismatch"
                      << ". expected=" << expected_info.classpath[k]
                      << ", found=" << info.classpath[k] << " (" << context_spec << " | "
-                     << EncodeContextForOatFile("") << ")";
+                     << EncodeContextForOatFile("") << ")" << ss.str();
         return false;
       }
 
       // Compare the checksums.
       if (info.checksums[k] != expected_info.checksums[k]) {
+        std::stringstream ss;
+        if (read_until != info.classpath.size()) {
+          ss << ". Ignoring the from the " << read_until << " entry in the class path.";
+        }
         LOG(WARNING) << "ClassLoaderContext classpath element checksum mismatch"
                      << ". expected=" << expected_info.checksums[k]
                      << ", found=" << info.checksums[k] << " (" << context_spec << " | "
-                     << EncodeContextForOatFile("") << ")";
+                     << EncodeContextForOatFile("") << ")" << ss.str();
         return false;
       }
     }
@@ -1442,8 +1498,10 @@ bool ClassLoaderContext::ClassLoaderInfoMatch(const ClassLoaderInfo& info,
     if (!ClassLoaderInfoMatch(*info.shared_libraries[i].get(),
                               *expected_info.shared_libraries[i].get(),
                               context_spec,
+                              dex_file_name,
                               verify_names,
-                              verify_checksums)) {
+                              verify_checksums,
+                              /*first_class_loader_info=*/false)) {
       return false;
     }
   }
@@ -1462,8 +1520,10 @@ bool ClassLoaderContext::ClassLoaderInfoMatch(const ClassLoaderInfo& info,
     return ClassLoaderInfoMatch(*info.parent.get(),
                                 *expected_info.parent.get(),
                                 context_spec,
+                                dex_file_name,
                                 verify_names,
-                                verify_checksums);
+                                verify_checksums,
+                                /*first_class_loader_info=*/false);
   }
 }
 
