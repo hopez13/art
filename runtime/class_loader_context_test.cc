@@ -1761,6 +1761,46 @@ TEST_F(ClassLoaderContextTest, CreateContextForClassLoaderWithSharedLibraries) {
             ClassLoaderContext::VerificationResult::kVerifies);
 }
 
+TEST_F(ClassLoaderContextTest, VerifyClassLoaderContextMatchFullClassLoaderContext) {
+  std::string context_spec = "PCL[base.dex*123:split1.dex*456:split2.dex*789]";
+  std::unique_ptr<ClassLoaderContext> context = ParseContextWithChecksums(context_spec);
+  // Pretend that we successfully open the dex files to pass the DCHECKS.
+  // (as it's much easier to test all the corner cases without relying on actual dex files).
+  PretendContextOpenedDexFilesForChecksums(context.get());
+
+  VerifyContextSize(context.get(), 1);
+  VerifyClassLoaderPCL(context.get(), 0, "base.dex:split1.dex:split2.dex");
+
+  ASSERT_EQ(context->VerifyClassLoaderContextMatch(context_spec),
+            ClassLoaderContext::VerificationResult::kVerifies);
+
+  // Old way: Incrementally add dex files to the class loader context.
+  std::string old_way_for_base = "PCL[]";
+  ASSERT_EQ(context->VerifyClassLoaderContextMatch(old_way_for_base, "base.dex"),
+            ClassLoaderContext::VerificationResult::kVerifies);
+
+  std::string old_way_for_split1 = "PCL[base.dex*123]";
+  ASSERT_EQ(context->VerifyClassLoaderContextMatch(old_way_for_split1, "split1.dex"),
+            ClassLoaderContext::VerificationResult::kVerifies);
+
+  std::string old_way_for_split2 = "PCL[base.dex*123:split1.dex*456]";
+  ASSERT_EQ(context->VerifyClassLoaderContextMatch(old_way_for_split2, "split2.dex"),
+            ClassLoaderContext::VerificationResult::kVerifies);
+
+  // New way: Have all the dex files for all compiles.
+  std::string new_way_for_base = "PCL[base.dex*123:split1.dex*456:split2.dex*789]";
+  ASSERT_EQ(context->VerifyClassLoaderContextMatch(new_way_for_base, "base.dex"),
+            ClassLoaderContext::VerificationResult::kVerifies);
+
+  std::string new_way_for_split1 = "PCL[base.dex*123:split1.dex*456:split2.dex*789]";
+  ASSERT_EQ(context->VerifyClassLoaderContextMatch(new_way_for_split1, "split1.dex"),
+            ClassLoaderContext::VerificationResult::kVerifies);
+
+  std::string new_way_for_split2 = "PCL[base.dex*123:split1.dex*456:split2.dex*789]";
+  ASSERT_EQ(context->VerifyClassLoaderContextMatch(new_way_for_split2, "split2.dex"),
+            ClassLoaderContext::VerificationResult::kVerifies);
+}
+
 TEST_F(ClassLoaderContextTest, CheckForDuplicateDexFilesNotFoundSingleCL) {
   jobject class_loader = LoadDexInPathClassLoader("Main", nullptr);
 

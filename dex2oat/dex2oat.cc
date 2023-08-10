@@ -1189,6 +1189,7 @@ class Dex2Oat final {
                 stored_context_arg.c_str());
         } else if (class_loader_context_->VerifyClassLoaderContextMatch(
             stored_context_arg,
+            /*dex_file_name*/ "",
             /*verify_names*/ false,
             /*verify_checksums*/ false) != ClassLoaderContext::VerificationResult::kVerifies) {
           Usage(
