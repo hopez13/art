@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc17f77c_ccf3bdb2",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3480,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-08-10T09:25:31Z",
+      "side": 1,
+      "message": "This pattern is error-prone. You just want a `File` that does not actually own the file descriptor. Maybe we should have a subclass that calls `Release()` in the destructor before destroying the base class subobject. (It can also deal with passing the `/*check_usage\u003d*/ false` to the base class constructor.)",
+      "range": {
+        "startLine": 3480,
+        "startChar": 4,
+        "endLine": 3480,
+        "endChar": 82
+      },
+      "revId": "15cee1fb59fd20d75902596f5099ba31ee1c419d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
