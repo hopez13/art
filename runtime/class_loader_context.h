@@ -86,16 +86,18 @@ class EXPORT ClassLoaderContext {
   // that we hit a I/O or checksum mismatch error.
   // TODO(calin): Currently there's no easy way to tell the difference.
   //
+  // `compilation_locations` contains a list of the compiled locations. If these are present in the
+  // classpath, we skip opening them to avoid having the filed opened twice. We do it here to be in
+  // sync with the number of FDs.
+  //
   // TODO(calin): we're forced to complicate the flow in this class with a different
   // OpenDexFiles step because the current dex2oat flow requires the dex files be opened before
   // the class loader is created. Consider reworking the dex2oat part.
-  bool OpenDexFiles(const std::string& classpath_dir = "",
-                    const std::vector<int>& context_fds = std::vector<int>(),
-                    bool only_read_checksums = false);
-
-  // Remove the specified compilation sources from all classpaths present in this context.
-  // Should only be called before the first call to OpenDexFiles().
-  bool RemoveLocationsFromClassPaths(const dchecked_vector<std::string>& compilation_sources);
+  bool OpenDexFiles(
+      const std::string& classpath_dir = "",
+      const std::vector<int>& context_fds = std::vector<int>(),
+      bool only_read_checksums = false,
+      const dchecked_vector<std::string>& compilation_locations = dchecked_vector<std::string>());
 
   // Creates the entire class loader hierarchy according to the current context.
   // Returns the first class loader from the chain.
@@ -171,9 +173,11 @@ class EXPORT ClassLoaderContext {
   // need to fully open the dex files if the only thing that needs to be done is to verify
   // the context.
   //
+  // `dex_file_name` is used for backwards compatibility. See `FindIgnoredEntries`.
   // Names are only verified if verify_names is true.
   // Checksums are only verified if verify_checksums is true.
   VerificationResult VerifyClassLoaderContextMatch(const std::string& context_spec,
+                                                   const std::string& dex_file_name = "",
                                                    bool verify_names = true,
                                                    bool verify_checksums = true) const;
 
@@ -339,11 +343,22 @@ class EXPORT ClassLoaderContext {
                                 ClassLoaderInfo* stored_info,
                                 std::ostringstream& out) const;
 
+  // `dex_file_name` is used for backwards compatibility. See `FindIgnoredEntries`.
   bool ClassLoaderInfoMatch(const ClassLoaderInfo& info,
                             const ClassLoaderInfo& expected_info,
                             const std::string& context_spec,
+                            const std::string& dex_file_name,
                             bool verify_names,
-                            bool verify_checksums) const;
+                            bool verify_checksums,
+                            bool first_class_loader_info = true) const;
+
+  // Returns the index of the last ignored entry, which is the one with a matching name with
+  // `dex_file_name`. Used for backwards compatibility. In previous versions, we were expected to
+  // compile with a partial class loader, but now we are expected to have the full CLC at compile
+  // time.
+  size_t FindIgnoredEntries(const ClassLoaderInfo& info,
+                            const ClassLoaderInfo& expected_info,
+                            const std::string& dex_file_name) const;
 
   // Extracts the class loader type from the given spec.
   // Return ClassLoaderContext::kInvalidClassLoader if the class loader type is not
