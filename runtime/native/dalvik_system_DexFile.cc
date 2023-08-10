@@ -465,7 +465,7 @@ static jboolean DexFile_closeDexFile(JNIEnv* env, jclass, jobject cookie) {
     VLOG(class_linker) << "Unregistering " << oat_file;
     runtime->GetOatFileManager().UnRegisterAndDeleteOatFile(oat_file);
   }
-  return all_deleted ? JNI_TRUE : JNI_FALSE;
+  return JNI_TRUE;
 }
 
 static jclass DexFile_defineClassNative(JNIEnv* env,
