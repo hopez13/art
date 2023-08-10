@@ -1221,10 +1221,11 @@ bool OatFileAssistant::ClassLoaderContextIsOkay(const OatFile& oat_file) const {
     return true;
   }
 
-  ClassLoaderContext::VerificationResult matches =
-      context_->VerifyClassLoaderContextMatch(oat_file.GetClassLoaderContext(),
-                                              /*verify_names=*/true,
-                                              /*verify_checksums=*/true);
+  ClassLoaderContext::VerificationResult matches = context_->VerifyClassLoaderContextMatch(
+      oat_file.GetClassLoaderContext(),
+      (oat_file.GetOatDexFiles().empty() ? "" : oat_file.GetOatDexFiles()[0]->GetDexFileLocation()),
+      /*verify_names=*/true,
+      /*verify_checksums=*/true);
   if (matches == ClassLoaderContext::VerificationResult::kMismatch) {
     VLOG(oat) << "ClassLoaderContext check failed. Context was " << oat_file.GetClassLoaderContext()
               << ". The expected context is "

@@ -24,7 +24,7 @@ public class Main {
 
         Class<?> tc1 = Class.forName("TestClass");
 
-        String dexPath = System.getenv("DEX_LOCATION") + "/" + TEST_NAME + ".jar";
+        String dexPath = System.getenv("DEX_LOCATION") + "/" + TEST_NAME + "-ex.jar";
         Class<?> bdcl = Class.forName("dalvik.system.BaseDexClassLoader");
         Method addDexPathMethod = bdcl.getDeclaredMethod("addDexPath", String.class);
         addDexPathMethod.invoke(Main.class.getClassLoader(), dexPath);
