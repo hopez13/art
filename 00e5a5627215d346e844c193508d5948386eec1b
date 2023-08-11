@@ -46,6 +46,29 @@
       },
       "revId": "00e5a5627215d346e844c193508d5948386eec1b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0e4afc5_a67eaa04",
+        "filename": "dex2oat/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2793,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-08-11T16:38:20Z",
+      "side": 1,
+      "message": "I wonder when this is _not_ true. Afaics it\u0027s only for \"weird\" OS\u0027es like Windows and Darwin. It would perhaps be better for code health to reverse the condition and only disable it for those, but that\u0027s optional.",
+      "range": {
+        "startLine": 2793,
+        "startChar": 0,
+        "endLine": 2793,
+        "endChar": 75
+      },
+      "revId": "00e5a5627215d346e844c193508d5948386eec1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

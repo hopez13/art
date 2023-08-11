@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e796ef13_d955b8b1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-08-11T16:38:20Z",
+      "side": 1,
+      "message": "I suggest you have a look at other places where `__GLIBC__` is tested and consider if they need to be adapted to MUSL too, to avoid discovering them one by one through bugs. In particular in art/runtime/gc/heap.cc there\u0027s very similar code to deal with mallinfo.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 44
+      },
+      "revId": "a9c00d8f3dd48b965cd1e556cdebadd15807982f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
