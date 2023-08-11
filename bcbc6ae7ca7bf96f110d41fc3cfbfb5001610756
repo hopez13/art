@@ -16,6 +16,29 @@
       "message": "Friendly ping",
       "revId": "bcbc6ae7ca7bf96f110d41fc3cfbfb5001610756",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c74e849f_08d224af",
+        "filename": "compiler/optimizing/code_sinking.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-08-11T11:02:58Z",
+      "side": 1,
+      "message": "We could move the variable definition just before the loop where we fill it.",
+      "range": {
+        "startLine": 346,
+        "startChar": 35,
+        "endLine": 346,
+        "endChar": 62
+      },
+      "revId": "bcbc6ae7ca7bf96f110d41fc3cfbfb5001610756",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
