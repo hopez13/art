@@ -513,9 +513,6 @@ class OatDexFile final {
     return dex_file_location_;
   }
 
-  // Returns original path of DexFile that was the source of this OatDexFile.
-  const std::string& GetLocation() const { return dex_file_location_; }
-
   // Returns the canonical location of DexFile that was the source of this OatDexFile.
   const std::string& GetCanonicalDexFileLocation() const {
     return canonical_dex_file_location_;

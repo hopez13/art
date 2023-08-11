@@ -3482,7 +3482,7 @@ struct OatdumpMain : public CmdlineMain<OatdumpArgs> {
       return false;
     }
 
-    OatFileAssistant oat_file_assistant(dex_files[0]->GetLocation().c_str(),
+    OatFileAssistant oat_file_assistant(dex_files[0]->GetDexFileLocation().c_str(),
                                         args_->instruction_set_,
                                         /*context=*/nullptr,
                                         /*load_executable=*/false,
