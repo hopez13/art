@@ -95,6 +95,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4187c869_458b7bc8",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1751,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-08-12T01:28:13Z",
+      "side": 1,
+      "message": "Sure.",
+      "parentUuid": "c13c2f3e_a14e0ac0",
+      "range": {
+        "startLine": 1751,
+        "startChar": 13,
+        "endLine": 1751,
+        "endChar": 38
+      },
+      "revId": "3c8330d8775b46c539b471051c9c69cdfd8db75c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e7192b71_c8cc33f3",
@@ -320,6 +344,30 @@
       "side": 1,
       "message": "Interesting question. But RunFlipFunction needs the mutator lock, and everything should be suspended here. So in the absence of other logic errors, this should indeed be impossible. Tried to clarify that in the comment, and moved the DCHECK ouside the if to better test that.",
       "parentUuid": "7fb88131_a32c2a35",
+      "range": {
+        "startLine": 710,
+        "startChar": 4,
+        "endLine": 710,
+        "endChar": 62
+      },
+      "revId": "3c8330d8775b46c539b471051c9c69cdfd8db75c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "27820ce7_8bfa0837",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 710,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-08-12T01:28:13Z",
+      "side": 1,
+      "message": "Good point. I somehow missed that we acquire mutator-lock exclusively (above) before getting here.",
+      "parentUuid": "0838e644_4eb93aa1",
       "range": {
         "startLine": 710,
         "startChar": 4,

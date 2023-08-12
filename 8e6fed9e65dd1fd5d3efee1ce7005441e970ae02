@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f0fc4bd_531cf76b",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 653,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-08-12T01:28:13Z",
+      "side": 1,
+      "message": "Why did this have to be moved to the end of the function?",
+      "range": {
+        "startLine": 653,
+        "startChar": 24,
+        "endLine": 653,
+        "endChar": 37
+      },
+      "revId": "8e6fed9e65dd1fd5d3efee1ce7005441e970ae02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3cdeb816_ea2db0bb",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 736,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-08-12T01:28:13Z",
+      "side": 1,
+      "message": "Since now we are not leaving any gap open for this thread to reach here before all flip-functions are completed, we can drop this?",
+      "range": {
+        "startLine": 736,
+        "startChar": 12,
+        "endLine": 736,
+        "endChar": 37
+      },
+      "revId": "8e6fed9e65dd1fd5d3efee1ce7005441e970ae02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c89b0f4d_06e9271f",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 911,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-08-12T01:28:13Z",
+      "side": 1,
+      "message": "Why did you require moving this decrement after suspend-count decrements?",
+      "range": {
+        "startLine": 911,
+        "startChar": 4,
+        "endLine": 911,
+        "endChar": 22
+      },
+      "revId": "8e6fed9e65dd1fd5d3efee1ce7005441e970ae02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8ca9ad3_c574f2e1",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 1441,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-08-12T01:28:13Z",
+      "side": 1,
+      "message": "I wonder how come not having this didn\u0027t cause problem in earlier patches 😊",
+      "range": {
+        "startLine": 1441,
+        "startChar": 26,
+        "endLine": 1441,
+        "endChar": 35
+      },
+      "revId": "8e6fed9e65dd1fd5d3efee1ce7005441e970ae02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
