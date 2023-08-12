@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c663d06_662df8e1",
+        "filename": "openjdkjvmti/ti_thread.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 910,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-08-12T00:07:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f181e6e3_bc83eb35",
+      "range": {
+        "startLine": 910,
+        "startChar": 6,
+        "endLine": 910,
+        "endChar": 45
+      },
+      "revId": "3c8330d8775b46c539b471051c9c69cdfd8db75c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dc2b476c_99649340",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-08-08T01:14:44Z",
       "side": 1,
       "message": "Is it worth moving this function to `thread-inl.h`? It\u0027s being called at quite a few places now (as compared to just 2 places before",
+      "range": {
+        "startLine": 1751,
+        "startChar": 13,
+        "endLine": 1751,
+        "endChar": 38
+      },
+      "revId": "3c8330d8775b46c539b471051c9c69cdfd8db75c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c13c2f3e_a14e0ac0",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1751,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-08-12T00:07:45Z",
+      "side": 1,
+      "message": "My concern is that increasing code size also doesn\u0027t help. And I don\u0027t think this is called with sufficient dynamic frequency to justify inlining.\n\nHow do you feel about just splitting this into two, one of which is the flip_thread_roots version that supports the exit_flag and finished? That one does seem to need a longer code path, but not the old_state_and_flags stuff. Both of the resulting versions should be significantly easier to read, I think.\n\nMaybe leave this for the next CL?",
+      "parentUuid": "dc2b476c_99649340",
       "range": {
         "startLine": 1751,
         "startChar": 13,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e05d905d_713a3a2b",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 4702,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-08-12T00:07:45Z",
+      "side": 1,
+      "message": "Done, with a comment. When I last looked at this, I assumed that WaitForFlipFunction could release the mutator lock. But it doesn\u0027t, and really can\u0027t.",
+      "parentUuid": "e7192b71_c8cc33f3",
+      "range": {
+        "startLine": 4702,
+        "startChar": 2,
+        "endLine": 4702,
+        "endChar": 92
+      },
+      "revId": "3c8330d8775b46c539b471051c9c69cdfd8db75c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3c0bca07_12ccab50",
@@ -83,6 +155,30 @@
       "writtenOn": "2023-08-08T01:14:44Z",
       "side": 1,
       "message": "We should add a `NOTE` here that there better be only one `FlipThreadRoots` at a time as we don\u0027t have any mechanism of chaining multiple flip functions.",
+      "range": {
+        "startLine": 538,
+        "startChar": 17,
+        "endLine": 538,
+        "endChar": 32
+      },
+      "revId": "3c8330d8775b46c539b471051c9c69cdfd8db75c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b436af7_6e46b365",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 538,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-08-12T00:07:45Z",
+      "side": 1,
+      "message": "Added that to the heading comment in thread_list.h. While I was there, fixed up that comment so it actually says what the function does.",
+      "parentUuid": "3c0bca07_12ccab50",
       "range": {
         "startLine": 538,
         "startChar": 17,
@@ -116,6 +212,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "072731a6_78759937",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 598,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-08-12T00:07:45Z",
+      "side": 1,
+      "message": "Great Observation!\n\nWe already have suspend_all_count_, which prohibits concurrent SuspendAll attempts. If we hold suspend_all_count a bit longer, I think that solves the problem. Unfortunately doing that required some contortions to get it past all our error checking.",
+      "parentUuid": "d8a8fe6f_8933cbe6",
+      "range": {
+        "startLine": 598,
+        "startChar": 2,
+        "endLine": 598,
+        "endChar": 11
+      },
+      "revId": "3c8330d8775b46c539b471051c9c69cdfd8db75c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7e922f0e_e26ef78a",
@@ -129,6 +249,30 @@
       "writtenOn": "2023-08-08T01:14:44Z",
       "side": 1,
       "message": "typo -\u003e `only`",
+      "range": {
+        "startLine": 706,
+        "startChar": 48,
+        "endLine": 706,
+        "endChar": 51
+      },
+      "revId": "3c8330d8775b46c539b471051c9c69cdfd8db75c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0795fa2b_059c3f75",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 706,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-08-12T00:07:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7e922f0e_e26ef78a",
       "range": {
         "startLine": 706,
         "startChar": 48,
@@ -162,6 +306,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0838e644_4eb93aa1",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 710,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-08-12T00:07:45Z",
+      "side": 1,
+      "message": "Interesting question. But RunFlipFunction needs the mutator lock, and everything should be suspended here. So in the absence of other logic errors, this should indeed be impossible. Tried to clarify that in the comment, and moved the DCHECK ouside the if to better test that.",
+      "parentUuid": "7fb88131_a32c2a35",
+      "range": {
+        "startLine": 710,
+        "startChar": 4,
+        "endLine": 710,
+        "endChar": 62
+      },
+      "revId": "3c8330d8775b46c539b471051c9c69cdfd8db75c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f4d9a1ec_67010233",
@@ -185,6 +353,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c0cf68c1_64ff37a8",
+        "filename": "runtime/thread_list.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-08-12T00:07:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f4d9a1ec_67010233",
+      "range": {
+        "startLine": 119,
+        "startChar": 75,
+        "endLine": 119,
+        "endChar": 78
+      },
+      "revId": "3c8330d8775b46c539b471051c9c69cdfd8db75c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1f6eca5a_d638e8e2",
@@ -198,6 +390,30 @@
       "writtenOn": "2023-08-08T01:14:44Z",
       "side": 1,
       "message": "Isn\u0027t it too tight? Why do we need this timeout mechanism at all?",
+      "range": {
+        "startLine": 35,
+        "startChar": 33,
+        "endLine": 35,
+        "endChar": 39
+      },
+      "revId": "3c8330d8775b46c539b471051c9c69cdfd8db75c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1929ea56_a4a68da8",
+        "filename": "test/129-ThreadGetId/src/Main.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-08-12T00:07:45Z",
+      "side": 1,
+      "message": "The argument is in milliseconds, so this is 50 seconds. The timeout mechanism is here only to get more information in the event of a timeout.",
+      "parentUuid": "1f6eca5a_d638e8e2",
       "range": {
         "startLine": 35,
         "startChar": 33,
