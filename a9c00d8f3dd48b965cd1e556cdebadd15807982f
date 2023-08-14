@@ -22,6 +22,30 @@
       },
       "revId": "a9c00d8f3dd48b965cd1e556cdebadd15807982f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4692d6c4_f9b5cd3c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1980056
+      },
+      "writtenOn": "2023-08-14T13:37:16Z",
+      "side": 1,
+      "message": "Thanks for pointing it out, Martin.\n\n@vmarko@google.com I see similar `defined(__GLIC__)` condition in other art files, namely, `art/runtime/gc/heap.cc`, `art/runtime/thread.cc`, and `art/openjdkjvm/OpenjdkJvm.cc` without equivalent conditions for `ANDROID_HOST_MUSL`. Should I add the condition `defined(ANDROID_HOST_MUSL)` at all these places?",
+      "parentUuid": "e796ef13_d955b8b1",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 44
+      },
+      "revId": "a9c00d8f3dd48b965cd1e556cdebadd15807982f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
