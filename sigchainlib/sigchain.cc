@@ -206,6 +206,8 @@ static pthread_key_t GetHandlingSignalKey(size_t idx) {
       if (rc != 0) {
         fatal("failed to create sigchain pthread key: %s", strerror(rc));
       }
+      static_assert(sizeof(uint32_t) == sizeof(pthread_key_t));
+      LogError("Created key 0x%x", static_cast<uint32_t>(key[i]));
     }
   });
   return key[idx];

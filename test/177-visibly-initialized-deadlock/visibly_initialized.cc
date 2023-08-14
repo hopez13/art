@@ -22,11 +22,27 @@
 #include "scoped_thread_state_change-inl.h"
 #include "thread-current-inl.h"
 
+#include <pthread.h>
+
 namespace art {
 
 extern "C" JNIEXPORT void JNICALL Java_Main_makeVisiblyInitialized(JNIEnv*, jclass) {
   Runtime::Current()->GetClassLinker()->MakeInitializedClassesVisiblyInitialized(
       Thread::Current(), /*wait=*/ true);
+}
+
+// @CriticalNative
+extern "C" JNIEXPORT void JNICALL Java_Main_makeImplicitSuspendCrash() {
+#if 0
+  Thread* self = Thread::Current();
+  CHECK_EQ(self->GetState(), ThreadState::kRunnable);
+  CHECK_EQ(self->GetHeldMutex(kMutatorLock), Locks::mutator_lock_);
+  self->SetHeldMutex(kMutatorLock, nullptr);
+#else
+  pthread_key_t key = static_cast<pthread_key_t>(0x80000001u);
+  LOG(ERROR) << "Calling pthread_setpecific(0x" << std::hex << key << ", 0xffffffffu)";
+  pthread_setspecific(key, reinterpret_cast<void*>(0xffffffffu));
+#endif
 }
 
 extern "C" JNIEXPORT jboolean JNICALL Java_Main_isVisiblyInitialized(JNIEnv*, jclass, jclass c) {
