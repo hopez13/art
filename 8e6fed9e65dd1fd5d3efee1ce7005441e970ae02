@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "35bb6c32_35e56274",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 653,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-08-14T21:09:19Z",
+      "side": 1,
+      "message": "We discussed this. It should definitely be moved higher, to before the preceding loops. It should be moved below where it was because we don\u0027t want to wake threads when they will immediately have to suspend again.",
+      "parentUuid": "4f0fc4bd_531cf76b",
+      "range": {
+        "startLine": 653,
+        "startChar": 24,
+        "endLine": 653,
+        "endChar": 37
+      },
+      "revId": "8e6fed9e65dd1fd5d3efee1ce7005441e970ae02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3cdeb816_ea2db0bb",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-08-12T01:28:13Z",
       "side": 1,
       "message": "Since now we are not leaving any gap open for this thread to reach here before all flip-functions are completed, we can drop this?",
+      "range": {
+        "startLine": 736,
+        "startChar": 12,
+        "endLine": 736,
+        "endChar": 37
+      },
+      "revId": "8e6fed9e65dd1fd5d3efee1ce7005441e970ae02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "307f7f80_d2054722",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 736,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-08-14T21:09:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3cdeb816_ea2db0bb",
       "range": {
         "startLine": 736,
         "startChar": 12,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e535a12_9445f640",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 911,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-08-14T21:09:19Z",
+      "side": 1,
+      "message": "It seemed to read better to me to decrement this once we\u0027re really done. It makes no difference, since we always held suspend_count_lock for the duration, and suspend_all_count_ is protected by that.",
+      "parentUuid": "c89b0f4d_06e9271f",
+      "range": {
+        "startLine": 911,
+        "startChar": 4,
+        "endLine": 911,
+        "endChar": 22
+      },
+      "revId": "8e6fed9e65dd1fd5d3efee1ce7005441e970ae02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e8ca9ad3_c574f2e1",
@@ -83,6 +155,30 @@
       "writtenOn": "2023-08-12T01:28:13Z",
       "side": 1,
       "message": "I wonder how come not having this didn\u0027t cause problem in earlier patches 😊",
+      "range": {
+        "startLine": 1441,
+        "startChar": 26,
+        "endLine": 1441,
+        "endChar": 35
+      },
+      "revId": "8e6fed9e65dd1fd5d3efee1ce7005441e970ae02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "571dbaaf_ded6a0a2",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 1441,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-08-14T21:09:19Z",
+      "side": 1,
+      "message": "I guess the argument might have been that these threads were suspended anyway, so we don\u0027t yet need to wake them? But I can\u0027t wuite convince myself that that\u0027s actually correct.\n\nThis only seems to be called from MarkSweep::VerifySuspendedThreadRoots, whose only call is followed by LOG(FATAL). So it probably doesn\u0027t actually matter much.",
+      "parentUuid": "e8ca9ad3_c574f2e1",
       "range": {
         "startLine": 1441,
         "startChar": 26,
