@@ -29,6 +29,14 @@ extern "C" JNIEXPORT void JNICALL Java_Main_makeVisiblyInitialized(JNIEnv*, jcla
       Thread::Current(), /*wait=*/ true);
 }
 
+// @CriticalNative
+extern "C" JNIEXPORT void JNICALL Java_Main_makeImplicitSuspendCrash() {
+  Thread* self = Thread::Current();
+  CHECK_EQ(self->GetState(), ThreadState::kRunnable);
+  CHECK_EQ(self->GetHeldMutex(kMutatorLock), Locks::mutator_lock_);
+  self->SetHeldMutex(kMutatorLock, nullptr);
+}
+
 extern "C" JNIEXPORT jboolean JNICALL Java_Main_isVisiblyInitialized(JNIEnv*, jclass, jclass c) {
   ScopedObjectAccess soa(Thread::Current());
   ObjPtr<mirror::Class> klass = soa.Decode<mirror::Class>(c);
