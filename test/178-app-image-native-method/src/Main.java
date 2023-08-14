@@ -24,6 +24,7 @@ public class Main {
   public static void main(String[] args) throws Exception {
     System.loadLibrary(args[0]);
 
+    /*
     // To avoid going through resolution trampoline, make test classes visibly initialized.
     new Test();
     new TestFast();
@@ -58,6 +59,57 @@ public class Main {
 
     new CriticalClinitCheck();
     sTestCriticalClinitCheckOtherThread.join();
+    */
+    $noinline$opt$triggerCrash();
+  }
+
+  public static void $noinline$opt$triggerCrash() throws Exception {
+    Thread t = new Thread() {
+      public void run() {
+        while (!stopped) {
+          leakage = new Object[1024];
+        }
+      }
+    };
+    t.start();
+    Thread.sleep(1000);
+    StringBuilder sb = new StringBuilder();
+    sb.append("12345678901234567890123456789012345678901234567890123456789012345678901234567890");
+    sb.setLength(0);
+    System.out.println("Making implicit suspend crash on this thread!");
+    makeImplicitSuspendCrash();
+    long end = System.nanoTime() + 10000000000l;
+    while (System.nanoTime() < end) {
+      sb.append('a');
+      sb.append('b');
+      sb.append('c');
+      sb.append('d');
+      sb.append('e');
+      sb.append('f');
+      sb.append('g');
+      sb.append('h');
+      sb.append('i');
+      sb.append('j');
+      sb.append('k');
+      sb.append('l');
+      sb.append('m');
+      sb.append('n');
+      sb.append('o');
+      sb.append('p');
+      sb.append('q');
+      sb.append('r');
+      sb.append('s');
+      sb.append('t');
+      sb.append('u');
+      sb.append('v');
+      sb.append('w');
+      sb.append('x');
+      sb.append('y');
+      sb.append('z');
+      sb.setLength(0);
+    }
+    stopped = true;
+    t.join();
   }
 
   static void $noinline$opt$test() {
@@ -628,6 +680,12 @@ public class Main {
       throw new AssertionError("Expected " + expected + " got " + actual);
     }
   }
+
+  static volatile Object leakage;
+  static volatile boolean stopped = false;
+
+  @CriticalNative
+  public static native void makeImplicitSuspendCrash();
 
   public static native void makeVisiblyInitialized();
 
