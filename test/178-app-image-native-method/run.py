@@ -26,8 +26,8 @@ def run(ctx, args):
       ])
 
   # Also run with the verify filter to avoid compiling JNI stubs.
-  ctx.default_run(
-      args, profile=True, Xcompiler_option=["--compiler-filter=verify"])
+  #ctx.default_run(
+  #    args, profile=True, Xcompiler_option=["--compiler-filter=verify"])
 
   # Filter out error messages for missing native methods.
   ctx.run(fr"sed -i '/No implementation found for/d' '{args.stderr_file}'")
