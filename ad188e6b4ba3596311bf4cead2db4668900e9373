@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e148a5ae_c13ab605",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-08-15T23:47:59Z",
+      "side": 1,
+      "message": "We encountered a bunch of gcstress failures during the last submission attempt. My current thoughts on what\u0027s breaking follow. (I\u0027m writing this down to leave a record for myself and others.)\n\nThread 1 does a SuspendThreadByX, while Thread 2 does a SuspendAll, typically as part of a thread flip.\n\nWe avoid suspension cycles by blocking before suspending a thread if we are asked to suspend ourselves.\n\nThings proceed as follows:\n\nThread 1 issues a suspend request to Thread 2, which is about to perform a SuspendAll as part of GC.\n\nThread 2 tries to perform the SuspendAll, but notices the suspend request and waits, in a suspended state, for Thread 1 to do its thing and resume thread 2.\n\nThread 1 allocates while Thread 2 is still suspended. This forces an allocation. This in turn forces a GC in Thread 1, either because we are in gcstress mode, or we are out of memory.\n\nWe are now deadlocked. (Thread 2 actually detects that as likely, and often bails before we really time out.)\n\nI currently think we can fix this by not blocking Thread 2 if there is a pending suspension request, but rather ignoring all such requests while we\u0027re between SuspendAll() and ResumeAll(). I think the GC code should already stay in a suspended state for the duration. But I think there are a bunch of other SuspendAll clients that don\u0027t share this property, so we need to explicitly enforce that. Since there cannot be a concurrent SuspendAll/thread-flip. I think that\u0027s safe so long as we still handle empty checkpoints?\n\nWe could also consider separating GC SuspendAlls and SuspendAlls running Java code during the suspension. But I don\u0027t think that\u0027s necessary.\n\nMaybe that will also help with the need for GCCriticalSections?",
+      "revId": "ad188e6b4ba3596311bf4cead2db4668900e9373",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
