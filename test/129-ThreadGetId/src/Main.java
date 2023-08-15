@@ -16,23 +16,66 @@
 
 import java.lang.reflect.Field;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class Main implements Runnable {
     static final int NUMBER_OF_THREADS = 5;
-    static final int TOTAL_OPERATIONS = 900;
+    static volatile int total_operations = 1000;
+    static AtomicInteger operations_completed = new AtomicInteger(0);
+    static int[] progress = new int[NUMBER_OF_THREADS];
+    static AtomicInteger totalStackFrames = new AtomicInteger(0);
+    static final boolean printStats = false;  // True causes test to fail.
+    int index;
+
+    Main(int i) {
+        index = i;
+    }
 
     public static void main(String[] args) throws Exception {
         final Thread[] threads = new Thread[NUMBER_OF_THREADS];
+        Thread watchdog = new Thread() {
+            public void run() {
+                try {
+                    if (printStats) {
+                      System.out.println("total_operations = " + total_operations);
+                    }
+                    Thread.sleep(10_000);
+                    if (operations_completed.get() < total_operations/10) {
+                      // We're in some sort of "go slow" mode, probably gcstress. Finish early.
+                      total_operations /= 10;
+                    }
+                    if (printStats) {
+                      System.out.println("total_operations = " + total_operations);
+                    }
+                    Thread.sleep(200_000);
+                    System.out.print("Watchdog timed out: ");
+                    for (int i = 0; i < NUMBER_OF_THREADS; ++i) {
+                        System.out.print(progress[i] + ", ");
+                    }
+                    System.out.println("");
+                    System.err.println("Watchdog thread timed out");
+                    System.exit(1);
+                } catch (InterruptedException e) {}
+            }
+        };
+        watchdog.start();
+        long start_millis = System.currentTimeMillis();
         for (int t = 0; t < threads.length; t++) {
-            threads[t] = new Thread(new Main());
+            threads[t] = new Thread(new Main(t));
             threads[t].start();
         }
         for (Thread t : threads) {
             t.join();
         }
+        long elapsed_millis = System.currentTimeMillis() - start_millis;
+        if (printStats) {
+          System.out.println("Captured " + totalStackFrames + " stack frames in " + elapsed_millis + "msecs");
+        }
+        System.out.println("All joined");
         // Do this test after the other part to leave some time for the heap task daemon to start
         // up.
         test_getStackTraces();
+        watchdog.interrupt();
         System.out.println("Finishing");
     }
 
@@ -83,12 +126,15 @@ public class Main implements Runnable {
             if (thread.getId() <= 0) {
                 System.out.println("thread's ID is not positive: " + thread.getName());
             }
+            totalStackFrames.addAndGet(stMap.get(thread).length);
         }
     }
 
     public void run() {
-        for (int i = 0; i < TOTAL_OPERATIONS; ++i) {
+        for (int i = 1; i <= total_operations; ++i) {
             test_getId();
+            progress[index] = i;
         }
+        System.out.println("Thread finished");
     }
 }
