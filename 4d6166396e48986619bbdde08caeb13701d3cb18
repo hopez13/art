@@ -93,6 +93,30 @@
       },
       "revId": "4d6166396e48986619bbdde08caeb13701d3cb18",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5081d6d4_9089d900",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 765,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-08-16T07:57:01Z",
+      "side": 1,
+      "message": "Ah, I knew I was missing something trivial",
+      "parentUuid": "a97a5a0a_6f64c207",
+      "range": {
+        "startLine": 765,
+        "startChar": 9,
+        "endLine": 765,
+        "endChar": 14
+      },
+      "revId": "4d6166396e48986619bbdde08caeb13701d3cb18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
