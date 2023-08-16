@@ -70,6 +70,30 @@
       },
       "revId": "63d8118f1e63a831468dbdc6506f4261ae551f34",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e68ca91d_f987621d",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2659,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-08-16T20:59:48Z",
+      "side": 1,
+      "message": "Based on my reading of Colin\u0027s code, we don\u0027t want any of the glibc hacks. uordblks should be fine as is. I remain confused about what hblkhd is supposed to be, and I think Colin and I diverged in our preferred interpretation. I think neither interpretation (total amount of allocated memory vs objects directly allocated as separate malloc blocks) is unreasonable, and so long as uordblks is correct, I don\u0027t think we care here. So I think this CL is correct as is.",
+      "parentUuid": "667fa91e_31541369",
+      "range": {
+        "startLine": 2659,
+        "startChar": 2,
+        "endLine": 2659,
+        "endChar": 10
+      },
+      "revId": "63d8118f1e63a831468dbdc6506f4261ae551f34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
