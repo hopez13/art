@@ -70,6 +70,30 @@
       },
       "revId": "a9c00d8f3dd48b965cd1e556cdebadd15807982f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0161357a_4090da45",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1980056
+      },
+      "writtenOn": "2023-08-16T14:52:23Z",
+      "side": 1,
+      "message": "I have added the condition `defined(ANDROID_HOST_MUSL)` in `heap.cc` at places which were not workarounds for glibc. \n\n`strerror_r()` in MUSL seems to have a different definition. I have thus left `OpenJdkJvm.cc`.\n\n@vmarko@google.com, I believe we can investigate and update the remaining ones later.",
+      "parentUuid": "2b2ce329_fcfc9ff3",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 44
+      },
+      "revId": "a9c00d8f3dd48b965cd1e556cdebadd15807982f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
