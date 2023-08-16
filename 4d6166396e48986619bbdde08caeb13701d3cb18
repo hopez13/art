@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e699670_1a3ffc25",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 643,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-08-16T07:23:50Z",
+      "side": 1,
+      "message": "This is `CSRRW x0, CYCLE, x0` and not `unknown32`. For some reason this instruction was chosen as UNIMP. I guess writing zero to the CYCLE counter is not a valid (userspace?) instruction.\n\nSee `Riscv64Assembler::Unimp()` and `TEST_F(AssemblerRISCV64Test, Unimp)` (testing against clang\u0027s assembler).",
+      "parentUuid": "7b0369fe_0d346529",
+      "range": {
+        "startLine": 643,
+        "startChar": 12,
+        "endLine": 643,
+        "endChar": 17
+      },
+      "revId": "4d6166396e48986619bbdde08caeb13701d3cb18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8001bee3_c3e0d695",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-08-14T15:42:20Z",
       "side": 1,
       "message": "In the manual (version December 2022) I see `ecall` being `0...01110011` which would be `115u`. Same for opcodes the `Print32Zicsr` case. Am I missing something?",
+      "range": {
+        "startLine": 765,
+        "startChar": 9,
+        "endLine": 765,
+        "endChar": 14
+      },
+      "revId": "4d6166396e48986619bbdde08caeb13701d3cb18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a97a5a0a_6f64c207",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 765,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-08-16T07:23:50Z",
+      "side": 1,
+      "message": "Well, `0x73u \u003d\u003d 115u`, the only difference being the choice of base for writing the number.",
+      "parentUuid": "8001bee3_c3e0d695",
       "range": {
         "startLine": 765,
         "startChar": 9,
