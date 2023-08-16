@@ -46,6 +46,30 @@
       },
       "revId": "63d8118f1e63a831468dbdc6506f4261ae551f34",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "667fa91e_31541369",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2659,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-08-16T19:50:59Z",
+      "side": 1,
+      "message": "Hmm, I found a [thread](https://www.openwall.com/lists/musl/2022/01/06/2) where ccross is working on adding mallinfo. It may not exist upstream yet, but we have it in [external/musl](https://cs.android.com/android/platform/superproject/main/+/main:external/musl/src/malloc/mallocng/mallinfo.c).",
+      "parentUuid": "aa242f33_4eae4daf",
+      "range": {
+        "startLine": 2659,
+        "startChar": 2,
+        "endLine": 2659,
+        "endChar": 10
+      },
+      "revId": "63d8118f1e63a831468dbdc6506f4261ae551f34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
