@@ -22,6 +22,30 @@
       },
       "revId": "63d8118f1e63a831468dbdc6506f4261ae551f34",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa242f33_4eae4daf",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2659,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-08-16T19:18:12Z",
+      "side": 1,
+      "message": "I\u0027m missing context here. Which malloc/mallinfo implementation is being used? I couldn\u0027t find any musl mallinfo source.",
+      "parentUuid": "b10306b9_11d266ec",
+      "range": {
+        "startLine": 2659,
+        "startChar": 2,
+        "endLine": 2659,
+        "endChar": 10
+      },
+      "revId": "63d8118f1e63a831468dbdc6506f4261ae551f34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
