@@ -112,7 +112,7 @@ TEST_F(X86RelativePatcherTest, StringBssEntry) {
   bss_begin_ = 0x12345678;
   constexpr size_t kStringEntryOffset = 0x1234;
   constexpr uint32_t kStringIndex = 1u;
-  string_index_to_offset_map_.Put(kStringIndex, kStringEntryOffset);
+  index_to_offset_map_.Put(kStringIndex, kStringEntryOffset);
   static const uint8_t raw_code[] = {
       0xe8, 0x00, 0x00, 0x00, 0x00,         // call +0
       0x5b,                                 // pop ebx
@@ -144,7 +144,7 @@ TEST_F(X86RelativePatcherTest, StringBssEntry) {
 TEST_F(X86RelativePatcherTest, StringReference) {
   constexpr uint32_t kStringIndex = 1u;
   constexpr uint32_t kStringOffset = 0x12345678;
-  string_index_to_offset_map_.Put(kStringIndex, kStringOffset);
+  index_to_offset_map_.Put(kStringIndex, kStringOffset);
   static const uint8_t raw_code[] = {
       0xe8, 0x00, 0x00, 0x00, 0x00,         // call +0
       0x5b,                                 // pop ebx

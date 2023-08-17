@@ -132,7 +132,7 @@ TEST_F(X86_64RelativePatcherTest, StringBssEntry) {
   bss_begin_ = 0x12345678;
   constexpr size_t kStringEntryOffset = 0x1234;
   constexpr uint32_t kStringIndex = 1u;
-  string_index_to_offset_map_.Put(kStringIndex, kStringEntryOffset);
+  index_to_offset_map_.Put(kStringIndex, kStringEntryOffset);
   LinkerPatch patches[] = {
       LinkerPatch::StringBssEntryPatch(kDexCacheLoadCode.size() - 4u, nullptr, 0u, kStringIndex),
   };
@@ -155,7 +155,7 @@ TEST_F(X86_64RelativePatcherTest, StringBssEntry) {
 TEST_F(X86_64RelativePatcherTest, StringReference) {
   constexpr uint32_t kStringIndex = 1u;
   constexpr uint32_t kStringOffset = 0x12345678;
-  string_index_to_offset_map_.Put(kStringIndex, kStringOffset);
+  index_to_offset_map_.Put(kStringIndex, kStringOffset);
   LinkerPatch patches[] = {
       LinkerPatch::RelativeStringPatch(
           kStringReferenceCode.size() - 4u, nullptr, 0u, kStringIndex),

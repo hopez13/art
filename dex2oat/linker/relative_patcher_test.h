@@ -67,7 +67,7 @@ class RelativePatcherTest : public testing::Test {
     compiled_methods_.clear();
     patcher_.reset();
     bss_begin_ = 0u;
-    string_index_to_offset_map_.clear();
+    index_to_offset_map_.clear();
     compiled_method_refs_.clear();
     compiled_methods_.clear();
     patched_code_.clear();
@@ -85,7 +85,7 @@ class RelativePatcherTest : public testing::Test {
                                        &thunk_provider_,
                                        &method_offset_map_);
     bss_begin_ = 0u;
-    string_index_to_offset_map_.clear();
+    index_to_offset_map_.clear();
     compiled_method_refs_.clear();
     compiled_methods_.clear();
     patched_code_.clear();
@@ -180,14 +180,21 @@ class RelativePatcherTest : public testing::Test {
                                 target_offset);
           } else if (patch.GetType() == LinkerPatch::Type::kStringBssEntry) {
             uint32_t target_offset =
-                bss_begin_ + string_index_to_offset_map_.Get(patch.TargetStringIndex().index_);
+                bss_begin_ + index_to_offset_map_.Get(patch.TargetStringIndex().index_);
+            patcher_->PatchPcRelativeReference(&patched_code_,
+                                               patch,
+                                               offset + patch.LiteralOffset(),
+                                               target_offset);
+          } else if (patch.GetType() == LinkerPatch::Type::kMethodBssEntry) {
+            uint32_t target_offset =
+                bss_begin_ + index_to_offset_map_.Get(patch.TargetMethod().index);
             patcher_->PatchPcRelativeReference(&patched_code_,
                                                patch,
                                                offset + patch.LiteralOffset(),
                                                target_offset);
           } else if (patch.GetType() == LinkerPatch::Type::kStringRelative) {
             uint32_t target_offset =
-                string_index_to_offset_map_.Get(patch.TargetStringIndex().index_);
+                index_to_offset_map_.Get(patch.TargetStringIndex().index_);
             patcher_->PatchPcRelativeReference(&patched_code_,
                                                patch,
                                                offset + patch.LiteralOffset(),
@@ -390,7 +397,7 @@ class RelativePatcherTest : public testing::Test {
   MethodOffsetMap method_offset_map_;
   std::unique_ptr<RelativePatcher> patcher_;
   uint32_t bss_begin_;
-  SafeMap<uint32_t, uint32_t> string_index_to_offset_map_;
+  SafeMap<uint32_t, uint32_t> index_to_offset_map_;
   std::vector<MethodReference> compiled_method_refs_;
   std::vector<std::unique_ptr<CompiledMethod>> compiled_methods_;
   std::vector<uint8_t> patched_code_;

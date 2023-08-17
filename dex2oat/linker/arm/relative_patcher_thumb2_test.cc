@@ -354,7 +354,7 @@ const uint32_t Thumb2RelativePatcherTest::kPcInsnOffset = 8u;
 void Thumb2RelativePatcherTest::TestStringBssEntry(uint32_t bss_begin,
                                                    uint32_t string_entry_offset) {
   constexpr uint32_t kStringIndex = 1u;
-  string_index_to_offset_map_.Put(kStringIndex, string_entry_offset);
+  index_to_offset_map_.Put(kStringIndex, string_entry_offset);
   bss_begin_ = bss_begin;
   const LinkerPatch patches[] = {
       LinkerPatch::StringBssEntryPatch(0u, nullptr, kPcInsnOffset, kStringIndex),
@@ -365,7 +365,7 @@ void Thumb2RelativePatcherTest::TestStringBssEntry(uint32_t bss_begin,
 
 void Thumb2RelativePatcherTest::TestStringReference(uint32_t string_offset) {
   constexpr uint32_t kStringIndex = 1u;
-  string_index_to_offset_map_.Put(kStringIndex, string_offset);
+  index_to_offset_map_.Put(kStringIndex, string_offset);
   const LinkerPatch patches[] = {
       LinkerPatch::RelativeStringPatch(0u, nullptr, kPcInsnOffset, kStringIndex),
       LinkerPatch::RelativeStringPatch(4u, nullptr, kPcInsnOffset, kStringIndex),
