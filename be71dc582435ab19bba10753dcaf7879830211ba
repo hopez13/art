@@ -22,6 +22,30 @@
       },
       "revId": "be71dc582435ab19bba10753dcaf7879830211ba",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "64cf6661_f5b40d7c",
+        "filename": "compiler/optimizing/intrinsics_riscv64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-08-17T08:16:18Z",
+      "side": 1,
+      "message": "Done in https://android-review.googlesource.com/2714353 (`enum FPClassMaskType` split out of https://android-review.googlesource.com/2489338 ).",
+      "parentUuid": "7ddc1983_b0d57daf",
+      "range": {
+        "startLine": 97,
+        "startChar": 20,
+        "endLine": 97,
+        "endChar": 38
+      },
+      "revId": "be71dc582435ab19bba10753dcaf7879830211ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
