@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "947262eb_891f022b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-08-17T23:15:45Z",
+      "side": 1,
+      "message": "LGTM, with one minor suggestion for a future CL.",
+      "revId": "607a06723b009ce7c7ec388a77a823ec79a4ab24",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b2411d39_487d8b9e",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-08-17T23:15:45Z",
+      "side": 1,
+      "message": "Note that LR.rl and SC.aq, without the second bit also set, are not really supported, though RVWMO does technically give them semantics. and hence this is easy to overlook. You may want to eventually add CHECKs for that. (See page 50, just before the example, in the Dec 2019 official pdf spec.)",
+      "range": {
+        "startLine": 392,
+        "startChar": 0,
+        "endLine": 392,
+        "endChar": 68
+      },
+      "revId": "607a06723b009ce7c7ec388a77a823ec79a4ab24",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
