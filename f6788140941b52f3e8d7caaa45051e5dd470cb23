@@ -22,6 +22,30 @@
       },
       "revId": "f6788140941b52f3e8d7caaa45051e5dd470cb23",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "066a9d66_ea7461a6",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-08-17T13:33:30Z",
+      "side": 1,
+      "message": "I prefer a plain `enum` when it\u0027s used to define names for individual bits.\n\nWe need the operator `|` and with an `enum class`, it would be like `enum_cast\u003cuint32_t\u003e(FPClassMaskType::kPositiveInfinity) | enum_cast\u003cuint32_t\u003e(FPClassMaskType::kNegativeInfinity)` if we do not explicitly provide an overload.",
+      "parentUuid": "26e35a7b_9cfd20bd",
+      "range": {
+        "startLine": 76,
+        "startChar": 0,
+        "endLine": 76,
+        "endChar": 20
+      },
+      "revId": "f6788140941b52f3e8d7caaa45051e5dd470cb23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
