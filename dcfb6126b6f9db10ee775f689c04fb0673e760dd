@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a71cbcb6_706b1be0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-08-18T14:33:36Z",
+      "side": 1,
+      "message": "Where can I access the spec on zbb/zba extensions? The one in https://github.com/riscv/riscv-isa-manual/releases/tag/riscv-isa-release-1239329-2023-05-23 has stub for the bit manipulations. For example `sh1add` is not mentioned in the doc",
+      "revId": "dcfb6126b6f9db10ee775f689c04fb0673e760dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c28b0a6_e680b69e",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 476,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-08-18T14:33:36Z",
+      "side": 1,
+      "message": "Do you know the current version number? It might be good to say\n`Neither does the a.b.c version of clang\u0027s assembler which we test against` for future-proofing",
+      "range": {
+        "startLine": 476,
+        "startChar": 23,
+        "endLine": 476,
+        "endChar": 38
+      },
+      "revId": "dcfb6126b6f9db10ee775f689c04fb0673e760dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
