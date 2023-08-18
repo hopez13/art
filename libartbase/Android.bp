@@ -196,6 +196,22 @@ art_cc_library {
         "libartbase_defaults",
         "libart_nativeunwind_defaults",
     ],
+    // orderfile: {
+    //     instrumentation: true,
+    //     load_order_file: false,
+    //     order_file_path: "",
+    //     cflags: [
+    //         // Ignore frame-size increase resulting from instrumentation.
+    //         "-Wno-frame-larger-than=",
+    //         "-mllvm",
+    //         "-orderfile-write-mapping=libartbase-mapping.txt",
+    //     ],
+    // },
+    orderfile: {
+        instrumentation: true,
+        load_order_file: true,
+        order_file_path: "libartbase.orderfile",
+    },
     visibility: [
         // TODO(b/183483755): Please visibility checks when the prebuilt
         // libartbase is present but not preferred, and the prebuilt libdexfile
@@ -231,6 +247,22 @@ art_cc_library {
         "art_debug_defaults",
         "libartbase_defaults",
     ],
+    // orderfile: {
+    //     instrumentation: true,
+    //     load_order_file: false,
+    //     order_file_path: "",
+    //     cflags: [
+    //         // Ignore frame-size increase resulting from instrumentation.
+    //         "-Wno-frame-larger-than=",
+    //         "-mllvm",
+    //         "-orderfile-write-mapping=libartbased-mapping.txt",
+    //     ],
+    // },
+    orderfile: {
+        instrumentation: true,
+        load_order_file: true,
+        order_file_path: "libartbased.orderfile",
+    },
     apex_available: [
         "com.android.art.debug",
     ],
