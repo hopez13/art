@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8aab674c_25cee835",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-08-18T14:49:17Z",
+      "side": 1,
+      "message": "You can download the pdf from https://wiki.riscv.org/display/HOME/Recently+Ratified+Extensions .",
+      "parentUuid": "a71cbcb6_706b1be0",
+      "revId": "dcfb6126b6f9db10ee775f689c04fb0673e760dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3c28b0a6_e680b69e",
@@ -31,6 +49,30 @@
       "writtenOn": "2023-08-18T14:33:36Z",
       "side": 1,
       "message": "Do you know the current version number? It might be good to say\n`Neither does the a.b.c version of clang\u0027s assembler which we test against` for future-proofing",
+      "range": {
+        "startLine": 476,
+        "startChar": 23,
+        "endLine": 476,
+        "endChar": 38
+      },
+      "revId": "dcfb6126b6f9db10ee775f689c04fb0673e760dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b40a2731_79cdde0b",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 476,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-08-18T14:49:17Z",
+      "side": 1,
+      "message": "I\u0027ve used `prebuilts/clang/host/linux-x86/clang-r487747c/bin/clang` for compiling individual instructions and trying to find the right `-march\u003d` string. I\u0027m not sure which version is picked up by `m test-art-host-gtest` but the behavior seems to be the same.",
+      "parentUuid": "3c28b0a6_e680b69e",
       "range": {
         "startLine": 476,
         "startChar": 23,
