@@ -39,6 +39,30 @@
       },
       "revId": "607a06723b009ce7c7ec388a77a823ec79a4ab24",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5dc22dac_fefab2ec",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-08-18T07:10:15Z",
+      "side": 1,
+      "message": "My reading is that these are still valid instructions even though they are not useful. The assembler gives you what you ask for even if it\u0027s not useful in many other cases (say, `add zero, a0, a1`), so I\u0027ll keep this as is for now. (We may reconsider in the future.)",
+      "parentUuid": "b2411d39_487d8b9e",
+      "range": {
+        "startLine": 392,
+        "startChar": 0,
+        "endLine": 392,
+        "endChar": 68
+      },
+      "revId": "607a06723b009ce7c7ec388a77a823ec79a4ab24",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
