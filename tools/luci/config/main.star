@@ -156,9 +156,11 @@ luci.gitiles_poller(
 
 def ci_builder(name, category, short_name, dimensions, properties={}, is_fyi=False):
     default_properties = {
-        "use_props": False,
         "builder_group": "client.art",
+        "concurrent_collector": True,
+        "generational_cc": True,
     }
+
 
     default_properties.update(properties)
 
