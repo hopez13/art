@@ -81,6 +81,30 @@
       },
       "revId": "dcfb6126b6f9db10ee775f689c04fb0673e760dd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c02cdb4d_a698f194",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 476,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-08-18T14:52:56Z",
+      "side": 1,
+      "message": "I added a log that printed `[...]prebuilts/clang/host/linux-x86/clang-r498229/bin/clang`.",
+      "parentUuid": "b40a2731_79cdde0b",
+      "range": {
+        "startLine": 476,
+        "startChar": 23,
+        "endLine": 476,
+        "endChar": 38
+      },
+      "revId": "dcfb6126b6f9db10ee775f689c04fb0673e760dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
