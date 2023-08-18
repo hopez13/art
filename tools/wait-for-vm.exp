@@ -1,0 +1,14 @@
+#!/usr/local/bin/expect -f
+set OUT_FILE [lindex $argv 0]
+set timeout 600
+spawn -ignore HUP ./buildbot-vm.sh boot >> boot.out 2>> boot.err
+spawn tail -f boot.out
+expect {
+    -re "Cloud-init .* finished" {
+	    close
+	    exit
+    }
+    eof {
+        exit
+    }
+}

@@ -156,7 +156,6 @@ luci.gitiles_poller(
 
 def ci_builder(name, category, short_name, dimensions, properties={}, is_fyi=False):
     default_properties = {
-        "use_props": False,
         "builder_group": "client.art",
     }
 
@@ -216,7 +215,6 @@ def target_builders():
         short_name="dbg",
         dimensions=target_dims,
         properties={
-            "use_props": True,
             "device": "angler-armv7",
             "debug": True,
         }
@@ -227,7 +225,6 @@ def target_builders():
         short_name="ngen",
         dimensions=userfault_gc_target_dims,
         properties={
-            "use_props": True,
             "device": "angler-armv7",
             "debug": True,
             "concurrent_collector": False,
@@ -240,7 +237,6 @@ def target_builders():
         short_name="ndbg",
         dimensions=target_dims,
         properties={
-            "use_props": True,
             "device": "angler-armv7",
             "debug": False,
         }
@@ -251,7 +247,6 @@ def target_builders():
         short_name="dbg",
         dimensions=target_dims,
         properties={
-            "use_props": True,
             "device": "angler-armv8",
             "debug": True,
         }
@@ -262,7 +257,6 @@ def target_builders():
         short_name="ngen",
         dimensions=userfault_gc_target_dims,
         properties={
-            "use_props": True,
             "device": "angler-armv8",
             "debug": True,
             "concurrent_collector": False,
@@ -275,7 +269,6 @@ def target_builders():
         short_name="ndbg",
         dimensions=target_dims,
         properties={
-            "use_props": True,
             "device": "angler-armv8",
             "debug": False,
         }
@@ -286,7 +279,6 @@ def target_builders():
         short_name="dbg",
         dimensions=target_dims,
         properties={
-            "use_props": True,
             "device": "bullhead-armv7",
             "debug": False,
             "gcstress": True,
@@ -298,7 +290,6 @@ def target_builders():
         short_name="dbg",
         dimensions=target_dims,
         properties={
-            "use_props": True,
             "device": "bullhead-armv8",
             "debug": True,
             "gcstress": True,
@@ -310,7 +301,6 @@ def target_builders():
         short_name="ndbg",
         dimensions=target_dims,
         properties={
-            "use_props": True,
             "device": "bullhead-armv8",
             "debug": False,
             "gcstress": True,
@@ -322,7 +312,6 @@ def target_builders():
         short_name="dbg",
         dimensions=target_dims,
         properties={
-            "use_props": True,
             "device": "walleye-armv7",
             "debug": True,
             "heap_poisoning": True,
@@ -334,7 +323,6 @@ def target_builders():
         short_name="dbg",
         dimensions=target_dims,
         properties={
-            "use_props": True,
             "device": "walleye-armv8",
             "debug": True,
             "heap_poisoning": True,
@@ -346,7 +334,6 @@ def target_builders():
         short_name="ndbg",
         dimensions=target_dims,
         properties={
-            "use_props": True,
             "device": "walleye-armv8",
             "debug": False,
             "heap_poisoning": True,
@@ -361,7 +348,6 @@ def host_builders():
         short_name="cms",
         dimensions=host_dims,
         properties={
-            "use_props": True,
             "debug": True,
             "bitness": 32,
             "concurrent_collector": False,
@@ -374,7 +360,6 @@ def host_builders():
         short_name="dbg",
         dimensions=host_dims,
         properties={
-            "use_props": True,
             "debug": True,
             "bitness": 32,
         }
@@ -385,7 +370,6 @@ def host_builders():
         short_name="ndbg",
         dimensions=host_dims,
         properties={
-            "use_props": True,
             "debug": False,
             "bitness": 32,
         }
@@ -396,7 +380,6 @@ def host_builders():
         short_name="gcs",
         dimensions=host_dims,
         properties={
-            "use_props": True,
             "debug": True,
             "gcstress": True,
             "bitness": 32,
@@ -408,7 +391,6 @@ def host_builders():
         short_name="psn",
         dimensions=host_dims,
         properties={
-            "use_props": True,
             "bitness": 32,
             "debug": True,
             "heap_poisoning": True,
@@ -432,7 +414,6 @@ def host_builders():
         short_name="cms",
         dimensions=host_dims,
         properties={
-            "use_props": True,
             "bitness": 64,
             "concurrent_collector": False,
             "debug": True,
@@ -445,7 +426,6 @@ def host_builders():
         short_name="dbg",
         dimensions=host_dims,
         properties={
-            "use_props": True,
             "bitness": 64,
             "debug": True,
         }
@@ -456,7 +436,6 @@ def host_builders():
         short_name="ngen",
         dimensions=host_dims,
         properties={
-            "use_props": True,
             "bitness": 64,
             "debug": True,
             "generational_cc": False,
@@ -468,7 +447,6 @@ def host_builders():
         short_name="ndbg",
         dimensions=host_dims,
         properties={
-            "use_props": True,
             "bitness": 64,
             "debug": False,
         }
@@ -479,7 +457,6 @@ def host_builders():
         short_name="psn",
         dimensions=host_dims,
         properties={
-            "use_props": True,
             "bitness": 64,
             "debug": True,
             "heap_poisoning": True,
@@ -492,7 +469,6 @@ def host_builders():
         dimensions=host_dims,
         is_fyi=True,
         properties={
-            "use_props": True,
             "debug": False,
             "device": "qemu-riscv64",
             "on_virtual_machine": True,
@@ -504,7 +480,6 @@ def host_builders():
         short_name="bo",
         dimensions=host_dims,
         properties={
-            "use_props": True,
             "build_only": True,
             "debug": False,
             "device": "qemu-riscv64",
