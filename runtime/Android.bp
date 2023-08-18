@@ -806,6 +806,22 @@ art_cc_library_static {
 art_cc_library {
     name: "libart",
     defaults: ["libart_defaults"],
+    // orderfile: {
+    //     instrumentation: true,
+    //     load_order_file: false,
+    //     order_file_path: "",
+    //     cflags: [
+    //         // Ignore frame-size increase resulting from instrumentation.
+    //         "-Wno-frame-larger-than=",
+    //         "-mllvm",
+    //         "-orderfile-write-mapping=libart-mapping.txt",
+    //     ],
+    // },
+    orderfile: {
+        instrumentation: true,
+        load_order_file: true,
+        order_file_path: "libart.orderfile",
+    },
     // `libart-runtime` and `libart-compiler` are built separately because they use different
     // optimization profiles (AFDO and PGO respectively), which can't be combined: b/255683875
     whole_static_libs: [
@@ -834,6 +850,22 @@ art_cc_library {
 art_cc_library {
     name: "libart-unstripped",
     defaults: ["libart_defaults"],
+    // orderfile: {
+    //     instrumentation: true,
+    //     load_order_file: false,
+    //     order_file_path: "",
+    //     cflags: [
+    //         // Ignore frame-size increase resulting from instrumentation.
+    //         "-Wno-frame-larger-than=",
+    //         "-mllvm",
+    //         "-orderfile-write-mapping=libarts-mapping.txt",
+    //     ],
+    // },
+    orderfile: {
+        instrumentation: true,
+        load_order_file: true,
+        order_file_path: "libart.orderfile",
+    },
     whole_static_libs: [
         "libart-compiler",
         "libart-runtime",
@@ -880,6 +912,22 @@ art_cc_test_library {
 art_cc_library {
     name: "libartd",
     defaults: ["libartd_defaults"],
+    // orderfile: {
+    //     instrumentation: true,
+    //     load_order_file: false,
+    //     order_file_path: "",
+    //     cflags: [
+    //         // Ignore frame-size increase resulting from instrumentation.
+    //         "-Wno-frame-larger-than=",
+    //         "-mllvm",
+    //         "-orderfile-write-mapping=libartd-mapping.txt",
+    //     ],
+    // },
+    orderfile: {
+        instrumentation: true,
+        load_order_file: true,
+        order_file_path: "libart.orderfile",
+    },
     whole_static_libs: [
         "libartd-compiler",
         "libartd-runtime",
