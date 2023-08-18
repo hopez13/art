@@ -63,6 +63,30 @@
       },
       "revId": "607a06723b009ce7c7ec388a77a823ec79a4ab24",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "be18a3ba_8fb59a5e",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-08-18T16:15:33Z",
+      "side": 1,
+      "message": "I opened https://github.com/riscv/riscv-isa-manual/issues/1097 . IMO, these encodings should really trap, and generally be treated as invalid.",
+      "parentUuid": "5dc22dac_fefab2ec",
+      "range": {
+        "startLine": 392,
+        "startChar": 0,
+        "endLine": 392,
+        "endChar": 68
+      },
+      "revId": "607a06723b009ce7c7ec388a77a823ec79a4ab24",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
