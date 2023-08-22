@@ -72,6 +72,8 @@ class MANAGED MethodHandle : public Object {
 
   ArtMethod* GetTargetMethod() REQUIRES_SHARED(Locks::mutator_lock_);
 
+  void SuccessfulInvokeExact(dex::ProtoIndex proto_idx) REQUIRES_SHARED(Locks::mutator_lock_);
+
   // Gets the return type for a named invoke method, or nullptr if the invoke method is not
   // supported.
   static const char* GetReturnTypeDescriptor(const char* invoke_method_name);
@@ -79,6 +81,18 @@ class MANAGED MethodHandle : public Object {
   // Used when classes become structurally obsolete to change the MethodHandle to refer to the new
   // method or field.
   void VisitTarget(ReflectiveValueVisitor* v) REQUIRES(Locks::mutator_lock_);
+
+  static MemberOffset HandleKindOffset() {
+    return MemberOffset(OFFSETOF_MEMBER(MethodHandle, handle_kind_));
+  }
+
+  static MemberOffset ArtFieldOrMethodOffset() {
+    return MemberOffset(OFFSETOF_MEMBER(MethodHandle, art_field_or_method_));
+  }
+
+  static MemberOffset LastAcceptedProtoIdx() {
+    return MemberOffset(OFFSETOF_MEMBER(MethodHandle, last_accepted_proto_idx_));
+  }
 
  protected:
   void Initialize(uintptr_t art_field_or_method, Kind kind, Handle<MethodType> method_type)
@@ -90,6 +104,7 @@ class MANAGED MethodHandle : public Object {
   HeapReference<mirror::MethodType> method_type_;
   uint32_t handle_kind_;
   uint64_t art_field_or_method_;
+  uint32_t last_accepted_proto_idx_;
 
  private:
   static MemberOffset CachedSpreadInvokerOffset() {
@@ -100,12 +115,6 @@ class MANAGED MethodHandle : public Object {
   }
   static MemberOffset MethodTypeOffset() {
     return MemberOffset(OFFSETOF_MEMBER(MethodHandle, method_type_));
-  }
-  static MemberOffset ArtFieldOrMethodOffset() {
-    return MemberOffset(OFFSETOF_MEMBER(MethodHandle, art_field_or_method_));
-  }
-  static MemberOffset HandleKindOffset() {
-    return MemberOffset(OFFSETOF_MEMBER(MethodHandle, handle_kind_));
   }
 
   friend struct art::MethodHandleOffsets;  // for verifying offset information

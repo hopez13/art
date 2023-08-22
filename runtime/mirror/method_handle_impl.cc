@@ -40,6 +40,7 @@ void MethodHandle::Initialize(uintptr_t art_field_or_method,
   SetFieldObject<false>(AsTypeCacheOffset(), nullptr);
   SetField32<false>(HandleKindOffset(), static_cast<uint32_t>(kind));
   SetField64<false>(ArtFieldOrMethodOffset(), art_field_or_method);
+  SetField32<false>(LastAcceptedProtoIdx(), -1);
 }
 
 ObjPtr<mirror::MethodHandleImpl> MethodHandleImpl::Create(Thread* const self,

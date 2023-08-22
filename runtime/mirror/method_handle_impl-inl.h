@@ -52,6 +52,11 @@ inline ArtMethod* MethodHandle::GetTargetMethod() REQUIRES_SHARED(Locks::mutator
       GetField64(OFFSET_OF_OBJECT_MEMBER(MethodHandle, art_field_or_method_)));
 }
 
+inline void MethodHandle::SuccessfulInvokeExact(dex::ProtoIndex proto_idx)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  SetField32<false>(MethodHandle::LastAcceptedProtoIdx(), proto_idx.index_);
+}
+
 }  // namespace mirror
 }  // namespace art
 
