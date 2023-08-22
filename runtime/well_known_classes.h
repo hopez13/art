@@ -101,6 +101,7 @@ struct WellKnownClasses {
   static jclass java_lang_StringFactory;
   static jclass java_lang_System;
   static jclass java_lang_Void;
+  static jclass java_lang_invoke_WrongMethodTypeException;
   static jclass libcore_reflect_AnnotationMember__array;
 
   static ArtMethod* dalvik_system_BaseDexClassLoader_getLdLibraryPath;
