@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c86a2f5_2db30fc0",
+        "filename": "runtime/thread-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-08-22T23:21:42Z",
+      "side": 1,
+      "message": "That was mostly because there was a missng break. But I agree there is still no real need to change this, even after putting in the break statement. Changed it to something much closer to the original.",
+      "parentUuid": "593e2b44_b06bd240",
+      "range": {
+        "startLine": 83,
+        "startChar": 6,
+        "endLine": 83,
+        "endChar": 14
+      },
+      "revId": "197733bcf636a74a6b72c4fbf343702ff2ec2029",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "180c71c4_a9b1a921",
@@ -64,6 +88,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "80262a0f_7c82d2a3",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1631,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-08-22T23:21:42Z",
+      "side": 1,
+      "message": "I changed it back to the way it was in the base. It seemed very slightly more consistent. They are synonymous, and used inconsistently.",
+      "parentUuid": "180c71c4_a9b1a921",
+      "range": {
+        "startLine": 1631,
+        "startChar": 30,
+        "endLine": 1631,
+        "endChar": 45
+      },
+      "revId": "197733bcf636a74a6b72c4fbf343702ff2ec2029",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9fbcef5c_bc23c2c2",
@@ -77,6 +125,30 @@
       "writtenOn": "2023-08-22T21:06:54Z",
       "side": 1,
       "message": "Please also mention that this leads to deadlock.",
+      "range": {
+        "startLine": 156,
+        "startChar": 71,
+        "endLine": 156,
+        "endChar": 80
+      },
+      "revId": "197733bcf636a74a6b72c4fbf343702ff2ec2029",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c3a3294_0c89e6ee",
+        "filename": "runtime/thread.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-08-22T23:21:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9fbcef5c_bc23c2c2",
       "range": {
         "startLine": 156,
         "startChar": 71,
