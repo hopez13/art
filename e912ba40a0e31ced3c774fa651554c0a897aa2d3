@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0949d4ac_177c99a0",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2497,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-08-22T20:48:08Z",
+      "side": 1,
+      "message": "non-blocking: Sometimes I see `UNREACHABLE` after a `LOG(FATAL)`, and sometimes there\u0027s just a `LOG(FATAL)`. Is there a difference between including it or not?",
+      "range": {
+        "startLine": 2497,
+        "startChar": 6,
+        "endLine": 2497,
+        "endChar": 20
+      },
+      "revId": "e912ba40a0e31ced3c774fa651554c0a897aa2d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
