@@ -770,6 +770,7 @@ struct MethodHandleOffsets : public CheckOffsets<mirror::MethodHandle> {
     addOffset(OFFSETOF_MEMBER(mirror::MethodHandle, cached_spread_invoker_),
               "cachedSpreadInvoker");
     addOffset(OFFSETOF_MEMBER(mirror::MethodHandle, handle_kind_), "handleKind");
+    addOffset(OFFSETOF_MEMBER(mirror::MethodHandle, last_accepted_proto_idx_), "protoId");
     addOffset(OFFSETOF_MEMBER(mirror::MethodHandle, method_type_), "type");
   }
 };
