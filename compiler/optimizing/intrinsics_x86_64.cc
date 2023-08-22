@@ -40,6 +40,8 @@ namespace art HIDDEN {
 
 namespace x86_64 {
 
+static constexpr Register kMethodRegisterArgument = RDI;
+
 IntrinsicLocationsBuilderX86_64::IntrinsicLocationsBuilderX86_64(CodeGeneratorX86_64* codegen)
   : allocator_(codegen->GetGraph()->GetAllocator()), codegen_(codegen) {
 }
@@ -3895,6 +3897,73 @@ static void GenerateVarHandleGet(HInvoke* invoke,
 
   if (slow_path != nullptr) {
     DCHECK(!byte_swap);
+    __ Bind(slow_path->GetExitLabel());
+  }
+}
+
+void IntrinsicLocationsBuilderX86_64::VisitMethodHandleInvokeExact(HInvoke* invoke) {
+  uint32_t num_of_args = invoke->GetNumberOfArguments();
+  if (num_of_args == 2) {
+    ArenaAllocator* allocator = invoke->GetBlock()->GetGraph()->GetAllocator();
+    LocationSummary* locations = new (allocator)
+        LocationSummary(invoke, LocationSummary::kCallOnMainAndSlowPath, kIntrinsified);
+    DataType::Type return_type = invoke->GetType();
+    if (return_type != DataType::Type::kVoid) {
+      if (DataType::IsFloatingPointType(return_type)) {
+        locations->SetOut(Location::RequiresFpuRegister());
+      } else {
+        locations->SetOut(Location::RequiresRegister());
+      }
+    }
+    locations->SetInAt(0, Location::RequiresRegister());
+    locations->SetInAt(1, Location::RegisterLocation(RSI));
+
+    // Temporary for handle kind.
+    locations->AddTemp(Location::RequiresRegister());
+    // Temporary for method pointer.
+    locations->AddTemp(Location::RegisterLocation(kMethodRegisterArgument));
+    // Class
+    locations->AddTemp(Location::RequiresRegister());
+    // Class's vtable
+    locations->AddTemp(Location::RequiresRegister());
+  }
+}
+
+void IntrinsicCodeGeneratorX86_64::VisitMethodHandleInvokeExact(HInvoke* invoke) {
+  uint32_t num_of_args = invoke->GetNumberOfArguments();
+
+  if (num_of_args == 2) {
+    SlowPathCode* slow_path = new (codegen_->GetScopedAllocator()) IntrinsicSlowPathX86_64(invoke);
+    X86_64Assembler* assembler = codegen_->GetAssembler();
+    codegen_->AddSlowPath(slow_path);
+    LocationSummary* locations = invoke->GetLocations();
+
+    CpuRegister method_handle = locations->InAt(0).AsRegister<CpuRegister>();
+    Address method_handle_kind = Address(method_handle, mirror::MethodHandle::HandleKindOffset());
+
+    // If it is not InvokeVirtual then go to slowpath.
+    __ cmpl(method_handle_kind, Immediate(mirror::MethodHandle::Kind::kInvokeVirtual));
+    __ j(kNotEqual, slow_path->GetEntryLabel());
+
+    CpuRegister method = locations->GetTemp(1).AsRegister<CpuRegister>();
+
+    // Check that return type matches.
+    // TODO
+
+    // Call method.
+    __ movq(method, Address(method_handle, mirror::MethodHandle::ArtFieldOrMethodOffset()));
+
+    CpuRegister vtable_index = locations->GetTemp(0).AsRegister<CpuRegister>();
+    __ movl(vtable_index, Address(method, ArtMethod::MethodIndexOffset()));
+
+    // Location declaring_class = locations->GetTemp(2);
+    // CpuRegister vtable = locations->GetTemp(3).AsRegister<CpuRegister>();
+    // read declaring_class using GenerateGcRootFieldLoad?
+    // Can I read HeapReference like this?
+    // __ movq(vtable, Address(declaring_class.AsRegister<CpuRegister>(),
+    // mirror::Class::VTableOffset()));
+
+    // __ call(???);
     __ Bind(slow_path->GetExitLabel());
   }
 }

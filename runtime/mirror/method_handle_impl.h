@@ -80,6 +80,14 @@ class MANAGED MethodHandle : public Object {
   // method or field.
   void VisitTarget(ReflectiveValueVisitor* v) REQUIRES(Locks::mutator_lock_);
 
+  static MemberOffset HandleKindOffset() {
+    return MemberOffset(OFFSETOF_MEMBER(MethodHandle, handle_kind_));
+  }
+
+  static MemberOffset ArtFieldOrMethodOffset() {
+    return MemberOffset(OFFSETOF_MEMBER(MethodHandle, art_field_or_method_));
+  }
+
  protected:
   void Initialize(uintptr_t art_field_or_method, Kind kind, Handle<MethodType> method_type)
       REQUIRES_SHARED(Locks::mutator_lock_);
@@ -100,12 +108,6 @@ class MANAGED MethodHandle : public Object {
   }
   static MemberOffset MethodTypeOffset() {
     return MemberOffset(OFFSETOF_MEMBER(MethodHandle, method_type_));
-  }
-  static MemberOffset ArtFieldOrMethodOffset() {
-    return MemberOffset(OFFSETOF_MEMBER(MethodHandle, art_field_or_method_));
-  }
-  static MemberOffset HandleKindOffset() {
-    return MemberOffset(OFFSETOF_MEMBER(MethodHandle, handle_kind_));
   }
 
   friend struct art::MethodHandleOffsets;  // for verifying offset information
