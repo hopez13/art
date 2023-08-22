@@ -92,7 +92,6 @@ static constexpr FloatRegister non_volatile_xmm_regs[] = { XMM12, XMM13, XMM14, 
   V(UnsafeGetAndSetInt)                        \
   V(UnsafeGetAndSetLong)                       \
   V(UnsafeGetAndSetObject)                     \
-  V(MethodHandleInvokeExact)                   \
   V(MethodHandleInvoke)                        \
   /* OpenJDK 11 */                             \
   V(JdkUnsafeGetAndAddInt)                     \

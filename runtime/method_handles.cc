@@ -14,8 +14,6 @@
  * limitations under the License.
  */
 
-#include "method_handles-inl.h"
-
 #include "android-base/macros.h"
 #include "android-base/stringprintf.h"
 #include "class_root-inl.h"
@@ -24,6 +22,7 @@
 #include "interpreter/shadow_frame-inl.h"
 #include "interpreter/shadow_frame.h"
 #include "jvalue-inl.h"
+#include "method_handles-inl.h"
 #include "mirror/class-inl.h"
 #include "mirror/emulated_stack_frame-inl.h"
 #include "mirror/emulated_stack_frame.h"
