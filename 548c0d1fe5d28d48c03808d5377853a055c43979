@@ -22,6 +22,30 @@
       },
       "revId": "548c0d1fe5d28d48c03808d5377853a055c43979",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b28836d_48ff348e",
+        "filename": "dex2oat/linker/arm64/relative_patcher_arm64_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 936,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-08-22T10:41:34Z",
+      "side": 0,
+      "message": "The `add` instruction is used as the `insn2`. The `TestAdrpInsn2Add()` adds another ADD and it does not check the `insn2` instruction at all.\n\n(Thus this test was effectively replicating the `StringReferenceSubX3X2` test above with different registers.)",
+      "parentUuid": "bb58f910_e6a7f59f",
+      "range": {
+        "startLine": 936,
+        "startChar": 23,
+        "endLine": 936,
+        "endChar": 32
+      },
+      "revId": "548c0d1fe5d28d48c03808d5377853a055c43979",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
