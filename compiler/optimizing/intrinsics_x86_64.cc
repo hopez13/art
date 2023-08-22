@@ -3899,6 +3899,58 @@ static void GenerateVarHandleGet(HInvoke* invoke,
   }
 }
 
+void IntrinsicCodeGeneratorX86_64::VisitMethodHandleInvokeExact(HInvoke* invoke) {
+  uint32_t num_of_args = invoke->GetNumberOfArguments();
+
+  if (num_of_args == 2) {
+    SlowPathCode* slow_path = new (codegen_->GetScopedAllocator()) IntrinsicSlowPathX86_64(invoke);
+    X86_64Assembler* assembler = codegen_->GetAssembler();
+    codegen_->AddSlowPath(slow_path);
+    LocationSummary* locations = invoke->GetLocations();
+
+    CpuRegister method_handle = locations->InAt(0).AsRegister<CpuRegister>();
+    CpuRegister mh_kind = locations->GetTemp(0).AsRegister<CpuRegister>();
+    const MemberOffset mh_kind_offset = mirror::MethodHandle::HandleKindOffset();
+
+    // If it is not InvokeVirtual then go to slowpath.
+    __ movl(mh_kind, Address(method_handle, mh_kind_offset));
+    __ cmpl(mh_kind, Immediate(mirror::MethodHandle::Kind::kInvokeVirtual));
+    __ j(kNotEqual, slow_path->GetEntryLabel());
+
+    CpuRegister method = locations->GetTemp(1).AsRegister<CpuRegister>();
+    const MemberOffset mh_method_offset = mirror::MethodHandle::ArtFieldOrMethodOffset();
+
+    // Check that return type matches.
+    // TODO
+    // Call method.
+    __ movq(method, Address(method_handle, mh_method_offset));
+    __ call(Address(
+        method, ArtMethod::EntryPointFromQuickCompiledCodeOffset(kX86_64PointerSize).SizeValue()));
+    __ Bind(slow_path->GetExitLabel());
+  }
+}
+
+void IntrinsicLocationsBuilderX86_64::VisitMethodHandleInvokeExact(HInvoke* invoke) {
+  // uint32_t num_of_args = invoke->GetNumberOfArguments();
+  ArenaAllocator* allocator = invoke->GetBlock()->GetGraph()->GetAllocator();
+  LocationSummary* locations =
+      new (allocator) LocationSummary(invoke, LocationSummary::kCallOnSlowPath, kIntrinsified);
+  DataType::Type return_type = invoke->GetType();
+  if (DataType::IsFloatingPointType(return_type)) {
+    locations->SetOut(Location::RequiresFpuRegister());
+  }
+  if (DataType::IsIntegralType(return_type)) {
+    locations->SetOut(Location::RequiresRegister());
+  }
+  locations->SetInAt(0, Location::RequiresRegister());
+  locations->SetInAt(1, Location::RequiresRegister());
+
+  // Temporary for handle kind.
+  locations->AddTemp(Location::RequiresRegister());
+  // Temporary for method pointer.
+  locations->AddTemp(Location::RequiresRegister());
+}
+
 void IntrinsicLocationsBuilderX86_64::VisitVarHandleGet(HInvoke* invoke) {
   CreateVarHandleGetLocations(invoke);
 }
