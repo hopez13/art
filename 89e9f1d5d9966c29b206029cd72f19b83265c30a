@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "303b610e_65a6447a",
+        "filename": "runtime/oat.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-08-22T23:36:18Z",
+      "side": 1,
+      "message": "Don\u0027t we need to update the comment with reason?",
+      "range": {
+        "startLine": 47,
+        "startChar": 38,
+        "endLine": 47,
+        "endChar": 75
+      },
+      "revId": "89e9f1d5d9966c29b206029cd72f19b83265c30a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e3ae0d0_36572f83",
+        "filename": "test/129-ThreadGetId/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-08-22T23:36:18Z",
+      "side": 1,
+      "message": "I don\u0027t see this being set anywhere. I think this needs to be updated in `run()` right?",
+      "range": {
+        "startLine": 24,
+        "startChar": 25,
+        "endLine": 24,
+        "endChar": 45
+      },
+      "revId": "89e9f1d5d9966c29b206029cd72f19b83265c30a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "684e6e36_5f88051e",
+        "filename": "test/129-ThreadGetId/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-08-22T23:36:18Z",
+      "side": 1,
+      "message": "Can we move this in the following if condition? Hopefully compiler can optimize given that `printStats` is a constant.",
+      "range": {
+        "startLine": 70,
+        "startChar": 8,
+        "endLine": 70,
+        "endChar": 27
+      },
+      "revId": "89e9f1d5d9966c29b206029cd72f19b83265c30a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
