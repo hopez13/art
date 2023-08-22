@@ -88,8 +88,6 @@ static constexpr FloatRegister non_volatile_xmm_regs[] = { XMM12, XMM13, XMM14, 
   V(StringBuilderAppendDouble)                 \
   V(StringBuilderLength)                       \
   V(StringBuilderToString)                     \
-  /* 1.8 */                                    \
-  V(MethodHandleInvokeExact)                   \
   V(MethodHandleInvoke)
 
 class InvokeRuntimeCallingConvention : public CallingConvention<Register, FloatRegister> {
