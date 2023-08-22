@@ -56,6 +56,7 @@ jclass WellKnownClasses::java_lang_reflect_Parameter__array;
 jclass WellKnownClasses::java_lang_StringFactory;
 jclass WellKnownClasses::java_lang_System;
 jclass WellKnownClasses::java_lang_Void;
+jclass WellKnownClasses::java_lang_invoke_WrongMethodTypeException;
 jclass WellKnownClasses::libcore_reflect_AnnotationMember__array;
 
 ArtMethod* WellKnownClasses::dalvik_system_BaseDexClassLoader_getLdLibraryPath;
@@ -331,6 +332,8 @@ void WellKnownClasses::Init(JNIEnv* env) {
   java_lang_StringFactory = CacheClass(env, "java/lang/StringFactory");
   java_lang_System = CacheClass(env, "java/lang/System");
   java_lang_Void = CacheClass(env, "java/lang/Void");
+  java_lang_invoke_WrongMethodTypeException =
+      CacheClass(env, "java/lang/invoke/WrongMethodTypeException");
   libcore_reflect_AnnotationMember__array = CacheClass(env, "[Llibcore/reflect/AnnotationMember;");
 
   InitFieldsAndMethodsOnly(env);
