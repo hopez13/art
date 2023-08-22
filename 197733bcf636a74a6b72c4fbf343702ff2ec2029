@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e653df7_6fc2333b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-08-22T21:06:54Z",
+      "side": 1,
+      "message": "Minor comments. Otherwise, LGTM.",
+      "revId": "197733bcf636a74a6b72c4fbf343702ff2ec2029",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "593e2b44_b06bd240",
+        "filename": "runtime/thread-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-08-22T21:06:54Z",
+      "side": 1,
+      "message": "Wondering what purpose does introducing `continue` serve? The `if...else if..` seems to work just fine, unless I\u0027m missing something.",
+      "range": {
+        "startLine": 83,
+        "startChar": 6,
+        "endLine": 83,
+        "endChar": 14
+      },
+      "revId": "197733bcf636a74a6b72c4fbf343702ff2ec2029",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "180c71c4_a9b1a921",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1631,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-08-22T21:06:54Z",
+      "side": 1,
+      "message": "Why was this renaming required? I see for Mutex, which these locks are, `Unlock` calls `ExclusiveUnlock`.",
+      "range": {
+        "startLine": 1631,
+        "startChar": 30,
+        "endLine": 1631,
+        "endChar": 45
+      },
+      "revId": "197733bcf636a74a6b72c4fbf343702ff2ec2029",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9fbcef5c_bc23c2c2",
+        "filename": "runtime/thread.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-08-22T21:06:54Z",
+      "side": 1,
+      "message": "Please also mention that this leads to deadlock.",
+      "range": {
+        "startLine": 156,
+        "startChar": 71,
+        "endLine": 156,
+        "endChar": 80
+      },
+      "revId": "197733bcf636a74a6b72c4fbf343702ff2ec2029",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
