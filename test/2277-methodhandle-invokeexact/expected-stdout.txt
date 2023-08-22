@@ -1,0 +1,12 @@
+in voidMethod
+A.returnInt()=42
+A.returnDouble()=42.0
+in I.defaultMethod
+in A.overrideMe
+A.privateReturnInt()=1042
+B.privateReturnInt()=9999
+B_PRIVATE_RETURN_INT(new A())=9999
+I am from throwException
+A.staticMethod()=staticMethod
+Multi.getMethodHandle().invokeExact(nonEmpty)=hello
+Multi: mh.invokeExact(nonEmpty)=1001
