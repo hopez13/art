@@ -1390,14 +1390,35 @@ bool HInstructionBuilder::BuildInvokePolymorphic(uint32_t dex_pc,
                                             &is_string_constructor);
 
   MethodReference method_reference(&graph_->GetDexFile(), method_idx);
+
+  bool is_invoke_exact =
+      static_cast<Intrinsics>(resolved_method->GetIntrinsic()) ==
+          Intrinsics::kMethodHandleInvokeExact;
+  uint32_t number_of_other_inputs = is_invoke_exact ? 1u : 0u;
+
   HInvoke* invoke = new (allocator_) HInvokePolymorphic(allocator_,
                                                         number_of_arguments,
+                                                        number_of_other_inputs,
                                                         return_type,
                                                         dex_pc,
                                                         method_reference,
                                                         resolved_method,
                                                         resolved_method_reference,
                                                         proto_idx);
+
+  if (invoke->AsInvokePolymorphic()->IsMethodHandleInvokeExact()) {
+    HLoadMethodType* load_method_type =
+        new (allocator_) HLoadMethodType(graph_->GetCurrentMethod(),
+                                         proto_idx,
+                                         graph_->GetDexFile(),
+                                         dex_pc);
+    HSharpening::ProcessLoadMethodType(load_method_type,
+                                       code_generator_,
+                                       *dex_compilation_unit_,
+                                       graph_->GetHandleCache()->GetHandles());
+    invoke->AsInvokePolymorphic()->SetLoadMethodType(load_method_type);
+  }
+
   if (!HandleInvoke(invoke, operands, shorty, /* is_unresolved= */ false)) {
     return false;
   }
@@ -1879,6 +1900,16 @@ bool HInstructionBuilder::SetupInvokeArguments(HInstruction* invoke,
                           graph_->GetCurrentMethod());
   }
 
+  if (invoke->IsInvokePolymorphic()) {
+    HInvokePolymorphic* invoke_polymorphic = invoke->AsInvokePolymorphic();
+    if (invoke_polymorphic->IsMethodHandleInvokeExact()) {
+      DCHECK(invoke_polymorphic->GetLoadMethodType() != nullptr);
+      DCHECK_EQ(invoke_polymorphic->InputCount(), invoke_polymorphic->GetNumberOfArguments() + 1);
+      invoke_polymorphic->SetRawInputAt(
+          invoke_polymorphic->GetNumberOfArguments(), invoke_polymorphic->GetLoadMethodType());
+    }
+  }
+
   return true;
 }
 
@@ -1896,6 +1927,12 @@ bool HInstructionBuilder::HandleInvoke(HInvoke* invoke,
     return false;
   }
 
+  if (invoke->IsInvokePolymorphic()) {
+    if (invoke->AsInvokePolymorphic()->IsMethodHandleInvokeExact()) {
+      DCHECK_EQ(invoke->InputCount(), invoke->GetNumberOfArguments() + 1);
+      AppendInstruction(invoke->AsInvokePolymorphic()->GetLoadMethodType());
+    }
+  }
   AppendInstruction(invoke);
   latest_result_ = invoke;
 
