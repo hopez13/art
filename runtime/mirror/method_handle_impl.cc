@@ -38,8 +38,9 @@ void MethodHandle::Initialize(uintptr_t art_field_or_method,
   SetFieldObject<false>(CachedSpreadInvokerOffset(), nullptr);
   SetFieldObject<false>(MethodTypeOffset(), method_type.Get());
   SetFieldObject<false>(AsTypeCacheOffset(), nullptr);
-  SetField32<false>(HandleKindOffset(), static_cast<uint32_t>(kind));
+  SetField32<false>(AcceptedProtoIdx(), -1);
   SetField64<false>(ArtFieldOrMethodOffset(), art_field_or_method);
+  SetField32<false>(HandleKindOffset(), static_cast<uint32_t>(kind));
 }
 
 ObjPtr<mirror::MethodHandleImpl> MethodHandleImpl::Create(Thread* const self,

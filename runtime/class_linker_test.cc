@@ -765,6 +765,7 @@ struct MethodTypeOffsets : public CheckOffsets<mirror::MethodType> {
 struct MethodHandleOffsets : public CheckOffsets<mirror::MethodHandle> {
   MethodHandleOffsets() : CheckOffsets<mirror::MethodHandle>(
       false, "Ljava/lang/invoke/MethodHandle;") {
+    addOffset(OFFSETOF_MEMBER(mirror::MethodHandle, accepted_proto_idx_), "acceptedProtoId");
     addOffset(OFFSETOF_MEMBER(mirror::MethodHandle, art_field_or_method_), "artFieldOrMethod");
     addOffset(OFFSETOF_MEMBER(mirror::MethodHandle, as_type_cache_), "asTypeCache");
     addOffset(OFFSETOF_MEMBER(mirror::MethodHandle, cached_spread_invoker_),
