@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7feb634_ef52a4ff",
+        "filename": "runtime/oat.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-08-23T04:58:16Z",
+      "side": 1,
+      "message": "This is the \"new\" reason. It\u0027s the same as before. It\u0027s just that another update snuck in in the meantime.",
+      "parentUuid": "303b610e_65a6447a",
+      "range": {
+        "startLine": 47,
+        "startChar": 38,
+        "endLine": 47,
+        "endChar": 75
+      },
+      "revId": "89e9f1d5d9966c29b206029cd72f19b83265c30a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4e3ae0d0_36572f83",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a7bd8f8_f52eaff7",
+        "filename": "test/129-ThreadGetId/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-08-23T04:58:16Z",
+      "side": 1,
+      "message": "Right. I thought I had tested that. Done.\n\nOddly, it turns out it doesn\u0027t matter much. In the fast case, the watchdog gets killed before it decreases the count.\n\nI also fixed some other minor issues to make it work more like originally intended.",
+      "parentUuid": "4e3ae0d0_36572f83",
+      "range": {
+        "startLine": 24,
+        "startChar": 25,
+        "endLine": 24,
+        "endChar": 45
+      },
+      "revId": "89e9f1d5d9966c29b206029cd72f19b83265c30a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "684e6e36_5f88051e",
@@ -60,6 +108,30 @@
       "writtenOn": "2023-08-22T23:36:18Z",
       "side": 1,
       "message": "Can we move this in the following if condition? Hopefully compiler can optimize given that `printStats` is a constant.",
+      "range": {
+        "startLine": 70,
+        "startChar": 8,
+        "endLine": 70,
+        "endChar": 27
+      },
+      "revId": "89e9f1d5d9966c29b206029cd72f19b83265c30a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "059b0813_5b1941f1",
+        "filename": "test/129-ThreadGetId/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-08-23T04:58:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "684e6e36_5f88051e",
       "range": {
         "startLine": 70,
         "startChar": 8,
