@@ -22,6 +22,30 @@
       },
       "revId": "e912ba40a0e31ced3c774fa651554c0a897aa2d3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c10d6fb2_bbb36a96",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2497,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-08-23T07:09:20Z",
+      "side": 1,
+      "message": "Without `UNREACHABLE`, clang needs to generate code as if the control flow continues normally. This may inhibit some optimizations and cause clang to generate more code (such as an extra function epilogue) but there is otherwise very little difference for code that\u0027s not performance critical.",
+      "parentUuid": "0949d4ac_177c99a0",
+      "range": {
+        "startLine": 2497,
+        "startChar": 6,
+        "endLine": 2497,
+        "endChar": 20
+      },
+      "revId": "e912ba40a0e31ced3c774fa651554c0a897aa2d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
