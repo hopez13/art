@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cbead92f_e1322445",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 796,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-08-23T17:40:22Z",
+      "side": 1,
+      "message": "If you pass Codegen* to `CanAssembleGraphForRiscv64` you can make use of [IsImplementedIntrinsic](https://cs.android.com/android/platform/superproject/main/+/main:art/compiler/optimizing/code_generator.h;l\u003d293;drc\u003d6ffe680028c9d69fdf3e70ac45d6a8cf8a1e937b) to make this update itself when we implement more intrinsics.",
+      "range": {
+        "startLine": 781,
+        "startChar": 0,
+        "endLine": 796,
+        "endChar": 11
+      },
+      "revId": "f0f4d8b9f1e1267969c83d7143da9c70c01f37dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
