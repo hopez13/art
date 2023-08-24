@@ -46,6 +46,30 @@
       },
       "revId": "f0f4d8b9f1e1267969c83d7143da9c70c01f37dd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d57baf3b_8f18dc33",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 796,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-08-24T06:56:32Z",
+      "side": 1,
+      "message": "One use of the Zbb extension has actually been activated: HRor has been rewritten in https://android-review.googlesource.com/2719253 . And I actually tested `557-checker-instruct-simplifier-ror` with that change cherry-picked to my test tree.",
+      "parentUuid": "18ea9cec_3d43edb0",
+      "range": {
+        "startLine": 781,
+        "startChar": 0,
+        "endLine": 796,
+        "endChar": 11
+      },
+      "revId": "f0f4d8b9f1e1267969c83d7143da9c70c01f37dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
