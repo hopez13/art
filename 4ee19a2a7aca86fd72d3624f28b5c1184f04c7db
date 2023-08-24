@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "04d2f12d_e4310648",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-08-24T06:32:30Z",
+      "side": 1,
+      "message": "PS6 resolves oat version conflict with https://android-review.googlesource.com/2710354 . But a revert for that change has been created, so we may need to rebase and resolve the conflict again if that revert gets merged before this one.",
+      "revId": "4ee19a2a7aca86fd72d3624f28b5c1184f04c7db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
