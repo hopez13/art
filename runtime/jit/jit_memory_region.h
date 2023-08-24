@@ -90,9 +90,7 @@ class JitMemoryRegion {
   // Returns pointer to copied code (within reserved_code region; after OatQuickMethodHeader).
   const uint8_t* CommitCode(ArrayRef<const uint8_t> reserved_code,
                             ArrayRef<const uint8_t> code,
-                            const uint8_t* stack_map,
-                            bool has_should_deoptimize_flag)
-      REQUIRES(Locks::jit_lock_);
+                            const uint8_t* stack_map) REQUIRES(Locks::jit_lock_);
 
   // Emit roots and stack map into the memory pointed by `roots_data` (despite it being const).
   bool CommitData(ArrayRef<const uint8_t> reserved_data,
