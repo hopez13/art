@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f44ef38b_3a27c101",
+        "filename": "compiler/optimizing/code_generator_riscv64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 500,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-08-24T16:35:04Z",
+      "side": 1,
+      "message": "It\u0027s a bit confusing that the double word is the word size. Not sure if it warrants a comment saying that `kRiscv64DoublewordSize` is equal to `kRiscv64PointerSize`. Up to you",
+      "range": {
+        "startLine": 500,
+        "startChar": 47,
+        "endLine": 500,
+        "endChar": 69
+      },
+      "revId": "3c9cba729d67b8e054b629af9375af940e51e5e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
