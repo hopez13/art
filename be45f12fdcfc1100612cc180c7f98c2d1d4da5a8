@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52195f83_27a1959a",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 4885,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-08-24T17:17:06Z",
+      "side": 1,
+      "message": "This would mean that method tracing won\u0027t report these varhandle invokes too. Here are the list of polymorphic intrinsics: https://cs.android.com/android/platform/superproject/main/+/main:art/runtime/intrinsics_list.h;l\u003d51;drc\u003d47fffdd53115a9af1820e3f89d8108745be4b55d\nThey are mostly atomics or bitwise operations which maybe needed for performance.",
+      "revId": "be45f12fdcfc1100612cc180c7f98c2d1d4da5a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
