@@ -497,7 +497,7 @@ class CodeGeneratorRISCV64 : public CodeGenerator {
 
   void Bind(HBasicBlock* block) override;
 
-  size_t GetWordSize() const override { return kRiscv64WordSize; }
+  size_t GetWordSize() const override { return kRiscv64DoublewordSize; }
 
   bool SupportsPredicatedSIMD() const override {
     // TODO(riscv64): Check the vector extension.
