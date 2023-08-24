@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa46fae7_a5489d57",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3941,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-08-24T06:48:26Z",
+      "side": 1,
+      "message": "I don\u0027t think pointer values provide valuable information here.",
+      "parentUuid": "40618a5b_d5e7b288",
+      "range": {
+        "startLine": 3941,
+        "startChar": 2,
+        "endLine": 3941,
+        "endChar": 8
+      },
+      "revId": "38ceecebb48928a91ca790eda4fc7e9f32da0bf5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "31020ccb_b466c787",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-08-23T18:00:04Z",
       "side": 1,
       "message": "Where is this `label` variable coming from?",
+      "range": {
+        "startLine": 641,
+        "startChar": 68,
+        "endLine": 641,
+        "endChar": 73
+      },
+      "revId": "38ceecebb48928a91ca790eda4fc7e9f32da0bf5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d62825bc_126aed7d",
+        "filename": "compiler/optimizing/code_generator_riscv64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 641,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-08-24T06:48:26Z",
+      "side": 1,
+      "message": "Base class. Do you want a `this-\u003elabel`?\n(I think a `PatchInfo\u003cRiscv64Label\u003e::` qualification would be bad style, with or without `this-\u003e`.)",
+      "parentUuid": "31020ccb_b466c787",
       "range": {
         "startLine": 641,
         "startChar": 68,
