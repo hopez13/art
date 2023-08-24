@@ -117,6 +117,30 @@
       },
       "revId": "38ceecebb48928a91ca790eda4fc7e9f32da0bf5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3bf2a8f_30d23f1b",
+        "filename": "compiler/optimizing/code_generator_riscv64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 641,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-08-24T16:34:29Z",
+      "side": 1,
+      "message": "Then I\u0027m keeping it as is to avoid another presubmit run.",
+      "parentUuid": "5ba392ef_d7a8b39e",
+      "range": {
+        "startLine": 641,
+        "startChar": 68,
+        "endLine": 641,
+        "endChar": 73
+      },
+      "revId": "38ceecebb48928a91ca790eda4fc7e9f32da0bf5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
