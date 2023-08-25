@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b96636d_bf53232b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-08-25T23:25:01Z",
+      "side": 1,
+      "message": "Status (also as not to myself, since I\u0027ll be away from this for a few days):\n\n\"Check failed: tlsPtr_.thread_exit_flags \u003d\u003d tef\" failures should be fixed. This was the most frequent that we saw last time.\n\n\"Check failed: self-\u003eGetSuspendCount() \u003d\u003d 0 (self-\u003eGetSuspendCount()\u003d1, 0\u003d0)\" is not easily explained by this, though the previous bug could clearly have led to corruption. So it\u0027s not impossible that this was a symptom of the same issue. The failure looks impossible without some weird corruption or the like. But I should check again.\n\nSIGSEGV in RunFlipFunction was almost certainly the ThreadExitFlag bug. Should be fixed as well.\n\n\"Check failed: Locks::IsExpectedOnWeakRefAccess(held_mutex) Holding unexpected mutex checkpoint placeholder mutex when accessing weak ref\" seems to be caused by more aggressive checking with the CL. We\u0027re blocking on a weak global access in a checkpoint. I need to think about whether this is actually broken (in which case we should temporarily disable this until the underlying bug is fixed) or the check is overzealous, and we should adjust it.\n\nI expect this CL is a significant improvement over the last one, but it\u0027s not quite done.",
+      "revId": "97f5550111533d100cccfddb04b2047d9f68b278",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
