@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "38f41d48_efaefc2b",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1511,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-08-25T07:49:19Z",
+      "side": 1,
+      "message": "Is this cheap enough to use `CHECK`? Or should we use a `DCHECK`?",
+      "range": {
+        "startLine": 1511,
+        "startChar": 4,
+        "endLine": 1511,
+        "endChar": 12
+      },
+      "revId": "c41737e103104045e7cc22040f0dec4b3817e48a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "53531692_0f374f39",
+        "filename": "runtime/jit/jit_code_cache.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-08-25T07:49:19Z",
+      "side": 1,
+      "message": "Restore the alignment with the other argument comments above. (Does the clang-format object? I would override that with `repo upload --no-verify`.)",
+      "range": {
+        "startLine": 267,
+        "startChar": 50,
+        "endLine": 267,
+        "endChar": 52
+      },
+      "revId": "c41737e103104045e7cc22040f0dec4b3817e48a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89c39a53_c6b71e7b",
+        "filename": "runtime/oat.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-08-25T07:49:19Z",
+      "side": 1,
+      "message": "Needs a rebase (there\u0027s a conflict to resolve).",
+      "range": {
+        "startLine": 48,
+        "startChar": 65,
+        "endLine": 48,
+        "endChar": 68
+      },
+      "revId": "c41737e103104045e7cc22040f0dec4b3817e48a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
