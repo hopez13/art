@@ -122,6 +122,11 @@ public class Main {
     return (Integer)m.invoke(null, cond);
   }
 
+  public static int smaliAnd0(int arg) throws Exception {
+    Method m = Class.forName("TestCmp").getMethod("And0", int.class);
+    return (Integer)m.invoke(null, arg);
+  }
+
 
   /**
    * Exercise constant folding on negation.
@@ -1075,24 +1080,6 @@ public class Main {
    * Test optimizations of arithmetic identities yielding a constant result.
    */
 
-  /// CHECK-START: int Main.And0(int) constant_folding (before)
-  /// CHECK-DAG:     <<Arg:i\d+>>      ParameterValue
-  /// CHECK-DAG:     <<Const0:i\d+>>   IntConstant 0
-  /// CHECK-DAG:     <<And:i\d+>>      And [<<Arg>>,<<Const0>>]
-  /// CHECK-DAG:                       Return [<<And>>]
-
-  /// CHECK-START: int Main.And0(int) constant_folding (after)
-  /// CHECK-DAG:     <<Arg:i\d+>>      ParameterValue
-  /// CHECK-DAG:     <<Const0:i\d+>>   IntConstant 0
-  /// CHECK-DAG:                       Return [<<Const0>>]
-
-  /// CHECK-START: int Main.And0(int) constant_folding (after)
-  /// CHECK-NOT:                       And
-
-  public static int And0(int arg) {
-    return arg & 0;
-  }
-
   /// CHECK-START: long Main.Mul0(long) constant_folding (before)
   /// CHECK-DAG:     <<Arg:j\d+>>      ParameterValue
   /// CHECK-DAG:     <<Const0:j\d+>>   LongConstant 0
@@ -1932,9 +1919,10 @@ public class Main {
     assertIntEquals(7, smaliJumpsAndConditionals(true));
     assertIntEquals(3, smaliJumpsAndConditionals(false));
 
+    Main main = new Main();
     int arbitrary = 123456;  // Value chosen arbitrarily.
 
-    assertIntEquals(0, And0(arbitrary));
+    assertIntEquals(0, main.smaliAnd0(arbitrary));
     assertLongEquals(0, Mul0(arbitrary));
     assertIntEquals(-1, OrAllOnes(arbitrary));
     assertLongEquals(0, Rem0(arbitrary));
@@ -1969,7 +1957,6 @@ public class Main {
     assertFalse(CmpFloatGreaterThanNaN(arbitrary));
     assertFalse(CmpDoubleLessThanNaN(arbitrary));
 
-    Main main = new Main();
     assertIntEquals(1, main.smaliCmpLongConstants());
     assertIntEquals(-1, main.smaliCmpGtFloatConstants());
     assertIntEquals(-1, main.smaliCmpLtFloatConstants());

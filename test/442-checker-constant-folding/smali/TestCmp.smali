@@ -468,3 +468,25 @@
     sub-int v2, v0, v1
     goto :goto_6
 .end method
+
+## CHECK-START: int TestCmp.And0(int) constant_folding (before)
+## CHECK-DAG:     <<Arg:i\d+>>      ParameterValue
+## CHECK-DAG:     <<Const0:i\d+>>   IntConstant 0
+## CHECK-DAG:     <<And:i\d+>>      And [<<Arg>>,<<Const0>>]
+## CHECK-DAG:                       Return [<<And>>]
+
+## CHECK-START: int TestCmp.And0(int) constant_folding (after)
+## CHECK-DAG:     <<Arg:i\d+>>      ParameterValue
+## CHECK-DAG:     <<Const0:i\d+>>   IntConstant 0
+## CHECK-DAG:                       Return [<<Const0>>]
+
+## CHECK-START: int TestCmp.And0(int) constant_folding (after)
+## CHECK-NOT:                       And
+.method public static And0(I)I
+    # return arg & 0;
+    .registers 2
+
+    and-int/lit8 v0, p0, 0x0
+
+    return v0
+.end method
