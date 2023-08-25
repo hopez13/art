@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "707b598f_e97c6960",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4110,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-08-25T17:46:50Z",
+      "side": 0,
+      "message": "Since these were the only calls to TMP and TMP2, do we need to do changes on the temp allocation?",
+      "range": {
+        "startLine": 4104,
+        "startChar": 0,
+        "endLine": 4110,
+        "endChar": 7
+      },
+      "revId": "134d1ae6e38c679f0325b08a1e773e526a00db78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
