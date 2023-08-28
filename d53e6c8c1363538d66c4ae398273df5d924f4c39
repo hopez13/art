@@ -16,6 +16,92 @@
       "message": "This replaces https://android-review.git.corp.google.com/c/platform/art/+/2727973, where the `OrAllOnes` was not rewritten to smali.",
       "revId": "d53e6c8c1363538d66c4ae398273df5d924f4c39",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a966e10b_d781bafb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-08-28T10:55:42Z",
+      "side": 1,
+      "message": "You should submit this CL on its own before submitting the D8 update.",
+      "revId": "d53e6c8c1363538d66c4ae398273df5d924f4c39",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "efcfb72a_9161cefd",
+        "filename": "test/442-checker-constant-folding/smali/TestCmp.smali",
+        "patchSetId": 1
+      },
+      "lineNbr": 479,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-08-28T10:55:42Z",
+      "side": 1,
+      "message": "Unnecessary. (And inconsistent with the corresponding `OrAllOnes` \"after\" test where the `ParameterValue` is omitted.)",
+      "range": {
+        "startLine": 479,
+        "startChar": 0,
+        "endLine": 479,
+        "endChar": 50
+      },
+      "revId": "d53e6c8c1363538d66c4ae398273df5d924f4c39",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cdc46f4b_2bede36b",
+        "filename": "test/442-checker-constant-folding/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1912,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-08-28T10:55:42Z",
+      "side": 1,
+      "message": "This is a static method, so the variable `main` is unnecessary here.",
+      "range": {
+        "startLine": 1912,
+        "startChar": 28,
+        "endLine": 1912,
+        "endChar": 37
+      },
+      "revId": "d53e6c8c1363538d66c4ae398273df5d924f4c39",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e5c0bc09_a97d77bc",
+        "filename": "test/442-checker-constant-folding/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1914,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-08-28T10:55:42Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 1914,
+        "startChar": 29,
+        "endLine": 1914,
+        "endChar": 43
+      },
+      "revId": "d53e6c8c1363538d66c4ae398273df5d924f4c39",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
