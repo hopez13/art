@@ -22,6 +22,30 @@
       },
       "revId": "134d1ae6e38c679f0325b08a1e773e526a00db78",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8cc619b1_2a3bd469",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4110,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-08-28T07:56:55Z",
+      "side": 0,
+      "message": "We do not need any temps here, we just use RA.\n\nI missed this in https://android-review.googlesource.com/2623807 . Everything else was updated there since PS6.",
+      "parentUuid": "707b598f_e97c6960",
+      "range": {
+        "startLine": 4104,
+        "startChar": 0,
+        "endLine": 4110,
+        "endChar": 7
+      },
+      "revId": "134d1ae6e38c679f0325b08a1e773e526a00db78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
