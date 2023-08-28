@@ -35,6 +35,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0fec1ea6_dd75d265",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1121678
+      },
+      "writtenOn": "2023-08-28T11:11:31Z",
+      "side": 1,
+      "message": "Good point. Removed from topic.",
+      "parentUuid": "a966e10b_d781bafb",
+      "revId": "d53e6c8c1363538d66c4ae398273df5d924f4c39",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "efcfb72a_9161cefd",
@@ -48,6 +66,30 @@
       "writtenOn": "2023-08-28T10:55:42Z",
       "side": 1,
       "message": "Unnecessary. (And inconsistent with the corresponding `OrAllOnes` \"after\" test where the `ParameterValue` is omitted.)",
+      "range": {
+        "startLine": 479,
+        "startChar": 0,
+        "endLine": 479,
+        "endChar": 50
+      },
+      "revId": "d53e6c8c1363538d66c4ae398273df5d924f4c39",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "99e26c1d_d3bedaa7",
+        "filename": "test/442-checker-constant-folding/smali/TestCmp.smali",
+        "patchSetId": 1
+      },
+      "lineNbr": 479,
+      "author": {
+        "id": 1121678
+      },
+      "writtenOn": "2023-08-28T11:11:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "efcfb72a_9161cefd",
       "range": {
         "startLine": 479,
         "startChar": 0,
@@ -81,6 +123,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd26d030_84c9940c",
+        "filename": "test/442-checker-constant-folding/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1912,
+      "author": {
+        "id": 1121678
+      },
+      "writtenOn": "2023-08-28T11:11:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cdc46f4b_2bede36b",
+      "range": {
+        "startLine": 1912,
+        "startChar": 28,
+        "endLine": 1912,
+        "endChar": 37
+      },
+      "revId": "d53e6c8c1363538d66c4ae398273df5d924f4c39",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e5c0bc09_a97d77bc",
@@ -94,6 +160,30 @@
       "writtenOn": "2023-08-28T10:55:42Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 1914,
+        "startChar": 29,
+        "endLine": 1914,
+        "endChar": 43
+      },
+      "revId": "d53e6c8c1363538d66c4ae398273df5d924f4c39",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f17df1b_3d88a154",
+        "filename": "test/442-checker-constant-folding/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1914,
+      "author": {
+        "id": 1121678
+      },
+      "writtenOn": "2023-08-28T11:11:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e5c0bc09_a97d77bc",
       "range": {
         "startLine": 1914,
         "startChar": 29,
