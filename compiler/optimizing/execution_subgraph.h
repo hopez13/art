@@ -218,7 +218,7 @@ class ExecutionSubgraph : public DeletableArenaObject<kArenaAllocLSA> {
   // Finalization is needed to call this function.
   // See RemoveConcavity and Prune for more information.
   bool ContainsBlock(const HBasicBlock* blk) const {
-    DCHECK_IMPLIES(finalized_, !needs_prune_);
+    DCHECK_IMPLIES(finalized_, can_be_queried_);
     if (!can_reach_end_block_) {
       return false;
     }
@@ -246,7 +246,7 @@ class ExecutionSubgraph : public DeletableArenaObject<kArenaAllocLSA> {
   bool IsValid() const { return can_reach_end_block_; }
 
   ArrayRef<const ExcludedCohort> GetExcludedCohorts() const {
-    DCHECK_IMPLIES(IsValid(), !needs_prune_);
+    DCHECK_IMPLIES(IsValid(), can_be_queried_);
     if (!IsValid() || !unreachable_blocks_.IsAnyBitSet()) {
       return ArrayRef<const ExcludedCohort>();
     } else {
@@ -318,10 +318,9 @@ class ExecutionSubgraph : public DeletableArenaObject<kArenaAllocLSA> {
   // True if there is at least one known path from the start block to the end in this graph. Used to
   // short-circuit computation.
   bool can_reach_end_block_;
-  // False if the subgraph is consistent and can be queried. Modifying the subgraph sets this to
-  // true and requires a prune to restore.
-  // TODO(solanes): rename to can_be_queried_ and flip the values.
-  bool needs_prune_;
+  // True if the subgraph is consistent and can be queried. Modifying the subgraph sets this to
+  // false and requires a prune to restore.
+  bool can_be_queried_;
   // True if no more modification of the subgraph is permitted.
   bool finalized_;
 

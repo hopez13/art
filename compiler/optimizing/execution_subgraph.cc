@@ -37,7 +37,7 @@ ExecutionSubgraph::ExecutionSubgraph(HGraph* graph, ScopedArenaAllocator* alloca
       unreachable_blocks_(
           allocator_, graph_->GetBlocks().size(), /*expandable=*/ false, kArenaAllocLSA),
       can_reach_end_block_(true),
-      needs_prune_(false),
+      can_be_queried_(true),
       finalized_(false) {
   if (can_reach_end_block_) {
     DCHECK(std::all_of(graph->GetBlocks().begin(), graph->GetBlocks().end(), [](HBasicBlock* it) {
@@ -55,7 +55,7 @@ void ExecutionSubgraph::RemoveBlock(const HBasicBlock* to_remove) {
     if (kIsDebugBuild) {
       // This isn't really needed but it's good to have this so it functions as
       // a DCHECK that we always call Prune after every RemoveBlock call.
-      needs_prune_ = true;
+      can_be_queried_ = false;
     }
     return;
   }
@@ -63,7 +63,7 @@ void ExecutionSubgraph::RemoveBlock(const HBasicBlock* to_remove) {
   for (HBasicBlock* pred : to_remove->GetPredecessors()) {
     size_t succ_idx = pred->GetSuccessorIndexOf(to_remove);
     allowed_successors_[pred->GetBlockId()].reset(succ_idx);
-    needs_prune_ = true;
+    can_be_queried_ = false;
   }
 }
 
@@ -72,7 +72,7 @@ void ExecutionSubgraph::Prune() {
   if (UNLIKELY(!can_reach_end_block_)) {
     return;
   }
-  needs_prune_ = false;
+  can_be_queried_ = true;
   // This is the record of the edges that were both (1) explored and (2) reached
   // the exit node.
   {
@@ -236,7 +236,7 @@ void ExecutionSubgraph::RemoveConcavity() {
   if (UNLIKELY(!can_reach_end_block_)) {
     return;
   }
-  DCHECK(!needs_prune_);
+  DCHECK(can_be_queried_);
   for (const HBasicBlock* blk : graph_->GetBlocks()) {
     if (blk == nullptr || unreachable_blocks_.IsBitSet(blk->GetBlockId())) {
       continue;
@@ -255,7 +255,7 @@ void ExecutionSubgraph::RemoveConcavity() {
 }
 
 void ExecutionSubgraph::RecalculateExcludedCohort() {
-  DCHECK(!needs_prune_);
+  DCHECK(can_be_queried_);
   excluded_list_.emplace(allocator_->Adapter(kArenaAllocLSA));
   ScopedArenaVector<ExcludedCohort>& res = excluded_list_.value();
   // Make a copy of unreachable_blocks_;
