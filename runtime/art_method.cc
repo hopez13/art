@@ -605,6 +605,10 @@ const OatQuickMethodHeader* ArtMethod::GetOatQuickMethodHeader(uintptr_t pc) {
   // methods or proxy invoke handlers which are handled earlier.
   DCHECK_NE(pc, 0u) << "PC 0 for " << PrettyMethod();
 
+  if (OatQuickMethodHeader::IsNterpPc(pc)) {
+    return OatQuickMethodHeader::NterpMethodHeader;
+  }
+
   // Check whether the current entry point contains this pc.
   if (!class_linker->IsQuickGenericJniStub(existing_entry_point) &&
       !class_linker->IsQuickResolutionStub(existing_entry_point) &&
@@ -616,10 +620,6 @@ const OatQuickMethodHeader* ArtMethod::GetOatQuickMethodHeader(uintptr_t pc) {
     if (method_header->Contains(pc)) {
       return method_header;
     }
-  }
-
-  if (OatQuickMethodHeader::IsNterpPc(pc)) {
-    return OatQuickMethodHeader::NterpMethodHeader;
   }
 
   // Check whether the pc is in the JIT code cache.

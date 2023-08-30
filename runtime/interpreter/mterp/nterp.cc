@@ -73,6 +73,13 @@ const void* GetNterpEntryPoint() {
   return reinterpret_cast<const void*>(interpreter::ExecuteNterpImpl);
 }
 
+// End of the nterp code range.
+extern "C" void EndExecuteNterpImpl() REQUIRES_SHARED(Locks::mutator_lock_);
+
+const void* GetNterpImplEnd() {
+  return reinterpret_cast<const void*>(interpreter::EndExecuteNterpImpl);
+}
+
 // Another entrypoint, which does a clinit check at entry.
 extern "C" void ExecuteNterpWithClinitImpl() REQUIRES_SHARED(Locks::mutator_lock_);
 
