@@ -252,12 +252,9 @@
     .hidden \name
     .global \name
     .balign 16
-    // Padding of 3 * 4 bytes to get 16 bytes alignment of code entry.
-    .long 0
-    .long 0
-    .long 0
-    // OatQuickMethodHeader. Note that the top two bits must be clear.
+    .zero 8
     .long (\end - \name)
+    .long 0xFFFF57AB  // OatQuickMethodHeader.
 \name:
 .endm
 

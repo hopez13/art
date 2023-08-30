@@ -29,12 +29,10 @@
 .macro ENTRY name
     .hidden \name  // Hide this as a global symbol, so we do not incur plt calls.
     .global \name
-    // ART-compiled functions have OatQuickMethodHeader but assembly functions do not.
-    // Prefix the assembly code with 0xFFs, which means there is no method header.
-    .byte 0xFF, 0xFF, 0xFF, 0xFF
-    // Cache alignment for function entry.
-    // Use 0xFF as the last 4 bytes of alignment stand for OatQuickMethodHeader.
-    .balign 16, 0xFF
+    .balign 16
+    .zero 8
+    .long (999999999f - \name)
+    .long 0xFFFF57AB  // OatQuickMethodHeader.
 \name:
     .cfi_startproc
 .endm
@@ -42,6 +40,8 @@
 
 .macro END name
     .cfi_endproc
+999999999:
+    .size \name, .-\name
 .endm
 
 
