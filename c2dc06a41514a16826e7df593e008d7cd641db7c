@@ -16,6 +16,161 @@
       "message": "PTAL",
       "revId": "c2dc06a41514a16826e7df593e008d7cd641db7c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "10e19ddb_ab04bbe8",
+        "filename": "dex2oat/dex2oat_image_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 427,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-08-30T14:47:52Z",
+      "side": 1,
+      "message": "`files`?",
+      "range": {
+        "startLine": 427,
+        "startChar": 26,
+        "endLine": 427,
+        "endChar": 29
+      },
+      "revId": "c2dc06a41514a16826e7df593e008d7cd641db7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "345837e8_7751678e",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2477,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-08-30T14:47:52Z",
+      "side": 1,
+      "message": "`files`?",
+      "range": {
+        "startLine": 2477,
+        "startChar": 54,
+        "endLine": 2477,
+        "endChar": 57
+      },
+      "revId": "c2dc06a41514a16826e7df593e008d7cd641db7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "13425763_b589882a",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 373,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-08-30T14:47:52Z",
+      "side": 1,
+      "message": "Odd style. I\u0027d use\n\n      max_allocation_stack_size_(kGCALotMode\n          ? kGcAlotAllocationStackSize\n          : (kVerifyObjectSupport \u003e kVerifyObjectModeFast)\n              ? kVerifyObjectAllocationStackSize\n              : kDefaultAllocationStackSize),\n\nbut that\u0027s not perfect either. Unfortunately, all the identifiers here have pretty long names.\nA constexpr helper function that uses `if` instead of the ternary operator could help.",
+      "revId": "c2dc06a41514a16826e7df593e008d7cd641db7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b6c73fec_dc862624",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1742,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-08-30T14:47:52Z",
+      "side": 1,
+      "message": "Break before `?` and `:`?",
+      "range": {
+        "startLine": 1742,
+        "startChar": 60,
+        "endLine": 1742,
+        "endChar": 62
+      },
+      "revId": "c2dc06a41514a16826e7df593e008d7cd641db7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a9d46055_c098c793",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1761,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-08-30T14:47:52Z",
+      "side": 1,
+      "message": "Is clang-tidy making these changes for you? Can we change the config to have that extra space here?",
+      "range": {
+        "startLine": 1761,
+        "startChar": 19,
+        "endLine": 1761,
+        "endChar": 21
+      },
+      "revId": "c2dc06a41514a16826e7df593e008d7cd641db7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "09ff5a83_d088b8db",
+        "filename": "runtime/gc/space/image_space.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-08-30T14:47:52Z",
+      "side": 1,
+      "message": "`files`?",
+      "range": {
+        "startLine": 293,
+        "startChar": 49,
+        "endLine": 293,
+        "endChar": 52
+      },
+      "revId": "c2dc06a41514a16826e7df593e008d7cd641db7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c63a0501_256bb31e",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1302,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-08-30T14:47:52Z",
+      "side": 1,
+      "message": "This is new code, right? Should it be under `kIsDebugBuild` or do you want to make the `Close()` explicit even in release mode? (And maybe change the `DCHECK` below to `CHECK`.)",
+      "range": {
+        "startLine": 1302,
+        "startChar": 22,
+        "endLine": 1302,
+        "endChar": 35
+      },
+      "revId": "c2dc06a41514a16826e7df593e008d7cd641db7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
