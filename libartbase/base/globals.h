@@ -42,6 +42,12 @@ static constexpr size_t kPageSize = 16384;
 static constexpr size_t kPageSize = 4096;
 #endif
 
+// Minimum supported page size.
+static constexpr size_t kMinPageSize = 4096;
+
+// Maximum supported page size.
+static constexpr size_t kMaxPageSize = 16384;
+
 // Targets can have different page size (eg. 4kB or 16kB). Because Art can crosscompile, it needs
 // to be able to generate OAT (ELF) files with alignment other than the host page size.
 // kElfSegmentAlignment needs to be equal to the largest page size supported.
