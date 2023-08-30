@@ -16,6 +16,12 @@
 
 #include "oat_quick_method_header.h"
 
+#include <optional>
+
+#ifndef __APPLE__
+#include <link.h>  // for dl_iterate_phdr.
+#endif
+
 #include "arch/instruction_set.h"
 #include "art_method.h"
 #include "dex/dex_file_types.h"
@@ -128,8 +134,50 @@ static inline OatQuickMethodHeader* GetNterpMethodHeader() {
 
 OatQuickMethodHeader* OatQuickMethodHeader::NterpMethodHeader = GetNterpMethodHeader();
 
+static inline size_t GetNterpImplSize() {
+  if (!interpreter::IsNterpSupported()) {
+    return 0;
+  }
+  uintptr_t ptr = reinterpret_cast<uintptr_t>(interpreter::GetNterpEntryPoint());
+  uintptr_t end = reinterpret_cast<uintptr_t>(interpreter::GetNterpImplEnd());
+  return end - ptr;
+}
+
+size_t OatQuickMethodHeader::NterpImplSize = GetNterpImplSize();
+
 bool OatQuickMethodHeader::IsNterpMethodHeader() const {
   return interpreter::IsNterpSupported() ? (this == NterpMethodHeader) : false;
+}
+
+std::optional<bool> OatQuickMethodHeader::IsStub() const {
+#ifndef __APPLE__
+  // Find memory range where all libart code is located in memory.
+  static uintptr_t libart_code = 0;
+  static uintptr_t libart_code_end = 0;
+  if (libart_code == 0) {
+    auto callback = [](dl_phdr_info* info, size_t, void*) {
+      for (size_t i = 0; i < info->dlpi_phnum; i++) {
+        if (info->dlpi_phdr[i].p_type == PT_LOAD) {
+          uintptr_t self = reinterpret_cast<uintptr_t>(Runtime::Current);
+          libart_code = info->dlpi_addr + info->dlpi_phdr[i].p_vaddr;
+          libart_code_end = libart_code + info->dlpi_phdr[i].p_memsz;
+          if (libart_code <= self && self < libart_code_end) {
+            return 1;  // Stop iteration and return 1 from dl_iterate_phdr.
+          }
+        }
+      }
+      return 0;  // Continue iteration and return 0 from dl_iterate_phdr when finished.
+    };
+    bool ok = dl_iterate_phdr(callback, nullptr) != 0;
+    CHECK(ok) << "Can not find libart code in memory";
+  }
+
+  // Check is the current method header is in libart.
+  uintptr_t code = reinterpret_cast<uintptr_t>(code_);
+  return libart_code <= code && code < libart_code_end;
+#else
+  return std::nullopt;
+#endif
 }
 
 }  // namespace art
