@@ -75,9 +75,14 @@ class PACKED(4) OatQuickMethodHeader {
 
   ALWAYS_INLINE bool IsOptimized() const {
     uintptr_t code = reinterpret_cast<uintptr_t>(code_);
-    DCHECK_NE(data_, 0u) << std::hex << code;          // Probably a padding of native code.
-    DCHECK_NE(data_, kInvalidData) << std::hex << code;  // Probably a stub or trampoline.
-    return (data_ & kIsCodeInfoMask) != 0;
+    DCHECK_NE(data_, 0u) << std::hex << code;  // Probably a padding of native code.
+    return data_ != kStubMagic;
+  }
+
+  ALWAYS_INLINE bool IsStub() const {
+    uintptr_t code = reinterpret_cast<uintptr_t>(code_);
+    DCHECK_NE(data_, 0u) << std::hex << code;  // Probably a padding of native code.
+    return data_ == kStubMagic;
   }
 
   ALWAYS_INLINE const uint8_t* GetOptimizedCodeInfoPtr() const {
@@ -99,23 +104,21 @@ class PACKED(4) OatQuickMethodHeader {
   ALWAYS_INLINE uint32_t GetCodeSize() const {
     return LIKELY(IsOptimized())
         ? CodeInfo::DecodeCodeSize(GetOptimizedCodeInfoPtr())
-        : (data_ & kCodeSizeMask);
+        : reinterpret_cast<const uint32_t*>(&data_)[-1];
   }
 
   ALWAYS_INLINE uint32_t GetCodeInfoOffset() const {
-    DCHECK(IsOptimized());
-    return data_ & kCodeInfoMask;
+    CHECK_NE(data_, kStubMagic);
+    return data_;
   }
 
   void SetCodeInfoOffset(uint32_t offset) {
-    data_ = kIsCodeInfoMask | offset;
-    CHECK_EQ(GetCodeInfoOffset(), offset);
+    CHECK_NE(offset, kStubMagic);
+    data_ = offset;
   }
 
   bool Contains(uintptr_t pc) const {
     uintptr_t code_start = reinterpret_cast<uintptr_t>(code_);
-    // We should not call `Contains` on a stub or trampoline.
-    DCHECK_NE(data_, kInvalidData) << std::hex << code_start;
 // Let's not make assumptions about other architectures.
 #if defined(__aarch64__) || defined(__riscv__) || defined(__riscv)
     // Verify that the code pointer is not tagged. Memory for code gets allocated with
@@ -187,13 +190,9 @@ class PACKED(4) OatQuickMethodHeader {
   }
 
  private:
-  static constexpr uint32_t kIsCodeInfoMask = 0x80000000;
-  static constexpr uint32_t kCodeInfoMask = 0x7FFFFFFF;  // If kIsCodeInfoMask is set.
-  static constexpr uint32_t kCodeSizeMask = 0x7FFFFFFF;  // If kIsCodeInfoMask is clear.
-
-  // In order to not confuse a stub with Java-generated code, we prefix each
-  // stub with a 0xFFFFFFFF marker.
-  static constexpr uint32_t kInvalidData = 0xFFFFFFFF;
+  // In order to not confuse a stub with oat-compiled code, we prefix each stub with a marker.
+  // The marker is prefixed with another 32-bit integer which specifies the size of the stub.
+  static constexpr uint32_t kStubMagic = 0xFFFF57AB;
 
   uint32_t data_ = 0u;  // Combination of fields using the above masks.
   uint8_t code_[0];     // The actual method code.
