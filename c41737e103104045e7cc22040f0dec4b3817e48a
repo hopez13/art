@@ -95,6 +95,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc33c096_97e107e9",
+        "filename": "runtime/jit/jit_code_cache.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-08-30T13:02:49Z",
+      "side": 1,
+      "message": "Up to you. (I would prefer the old alignment but avoiding future clang-tidy nagging has some value too.)",
+      "parentUuid": "be8594b5_17330bca",
+      "range": {
+        "startLine": 267,
+        "startChar": 50,
+        "endLine": 267,
+        "endChar": 52
+      },
+      "revId": "c41737e103104045e7cc22040f0dec4b3817e48a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "89c39a53_c6b71e7b",
