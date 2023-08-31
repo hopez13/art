@@ -71,7 +71,8 @@ def parse_args(argv):
   argp.add_argument("--gdbserver-port", default=":5039")
   argp.add_argument("--host", action="store_true")
   argp.add_argument("--image", default=True, action=opt_bool)
-  argp.add_argument("--instruction-set-features", default="")
+  # If not set, then try to run-time detect the target ISA features.
+  argp.add_argument("--instruction-set-features", default="runtime")
   argp.add_argument("--interpreter", action="store_true")
   argp.add_argument("--switch-interpreter", action="store_true")
   argp.add_argument("--invoke-with", default=[], action="append")
