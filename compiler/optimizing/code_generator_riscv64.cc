@@ -1719,20 +1719,151 @@ void InstructionCodeGeneratorRISCV64::HandleShift(HBinaryOperation* instruction)
   }
 }
 
-void LocationsBuilderRISCV64::HandleFieldSet(HInstruction* instruction,
-                                             const FieldInfo& field_info) {
-  UNUSED(instruction);
-  UNUSED(field_info);
-  LOG(FATAL) << "Unimplemented";
+void CodeGeneratorRISCV64::MarkGCCard(XRegister object,
+                                     XRegister value,
+                                     bool value_can_be_null) {
+  Riscv64Label done;
+  ScratchRegisterScope srs(GetAssembler());
+  XRegister card = srs.AllocateXRegister();
+  XRegister temp = srs.AllocateXRegister();
+  if (value_can_be_null) {
+    __ Beqz(value, &done);
+  }
+  // Load the address of the card table into `card`.
+  __ Loadd(card, TR, Thread::CardTableOffset<kRiscv64PointerSize>().Int32Value());
+
+  // Calculate the address of the card corresponding to `object`.
+  __ Srli(temp, object, gc::accounting::CardTable::kCardShift);
+  __ Add(temp, card, temp);
+  // Write the `art::gc::accounting::CardTable::kCardDirty` value into the
+  // `object`'s card.
+  //
+  // Register `card` contains the address of the card table. Note that the card
+  // table's base is biased during its creation so that it always starts at an
+  // address whose least-significant byte is equal to `kCardDirty` (see
+  // art::gc::accounting::CardTable::Create). Therefore the SB instruction
+  // below writes the `kCardDirty` (byte) value into the `object`'s card
+  // (located at `card + object >> kCardShift`).
+  //
+  // This dual use of the value in register `card` (1. to calculate the location
+  // of the card to mark; and 2. to load the `kCardDirty` value) saves a load
+  // (no need to explicitly load `kCardDirty` as an immediate value).
+  __ Storeb(card, temp, 0);
+  if (value_can_be_null) {
+    __ Bind(&done);
+  }
+}
+
+void LocationsBuilderRISCV64::HandleFieldSet(HInstruction* instruction) {
+  LocationSummary* locations =
+      new (GetGraph()->GetAllocator()) LocationSummary(instruction, LocationSummary::kNoCall);
+  locations->SetInAt(0, Location::RequiresRegister());
+  HInstruction* value = instruction->InputAt(1);
+  if(IsZeroBitPattern(value)) {
+    locations->SetInAt(1, Location::ConstantLocation(value));
+  } else if (DataType::IsFloatingPointType(instruction->InputAt(1)->GetType())) {
+    locations->SetInAt(1, Location::RequiresFpuRegister());
+  } else {
+    locations->SetInAt(1, Location::RequiresRegister());
+  }
 }
 
 void InstructionCodeGeneratorRISCV64::HandleFieldSet(HInstruction* instruction,
                                                      const FieldInfo& field_info,
                                                      bool value_can_be_null) {
-  UNUSED(instruction);
-  UNUSED(field_info);
-  UNUSED(value_can_be_null);
-  LOG(FATAL) << "Unimplemented";
+  DataType::Type type = field_info.GetFieldType();
+  LocationSummary* locations = instruction->GetLocations();
+  XRegister obj = locations->InAt(0).AsRegister<XRegister>();
+  Location value_location = locations->InAt(1);
+  bool is_volatile = field_info.IsVolatile();
+  uint32_t offset = field_info.GetFieldOffset().Uint32Value();
+  bool needs_write_barrier = CodeGenerator::StoreNeedsWriteBarrier(type, instruction->InputAt(1));
+  bool is_predicated =
+      instruction->IsInstanceFieldSet() && instruction->AsInstanceFieldSet()->GetIsPredicatedSet();
+
+  Riscv64Label pred_is_null;
+  if (is_predicated) {
+    __ Beqz(obj, &pred_is_null);
+  }
+
+  auto emit_store_with_type = [&](DataType::Type t, int ori, XRegister rs1, int64_t imm) {
+    switch (t) {
+      case DataType::Type::kBool:
+      case DataType::Type::kUint8:
+      case DataType::Type::kInt8:
+        __ Storeb(XRegister(ori), rs1, imm);
+        break;
+      case DataType::Type::kUint16:
+      case DataType::Type::kInt16:
+        __ Storeh(XRegister(ori), rs1, imm);
+        break;
+      case DataType::Type::kInt32:
+      case DataType::Type::kUint32:
+      case DataType::Type::kReference:
+        __ Storew(XRegister(ori), rs1, imm);
+        break;
+      case DataType::Type::kInt64:
+      case DataType::Type::kUint64:
+        __ Stored(XRegister(ori), rs1, imm);
+        break;
+      case DataType::Type::kFloat32:
+        __ FStorew(FRegister(ori), rs1, imm);
+        break;
+      case DataType::Type::kFloat64:
+        __ FStored(FRegister(ori), rs1, imm);
+        break;
+      case DataType::Type::kVoid:
+        LOG(FATAL) << "Unreachable type " << type;
+        UNREACHABLE();
+    }
+  };
+
+  if (is_volatile) {
+    codegen_->GenerateMemoryBarrier(MemBarrierKind::kAnyStore);
+  }
+
+  if (value_location.IsConstant()) {
+    ScratchRegisterScope srs(GetAssembler());
+    XRegister tmp = srs.AllocateXRegister();
+    int64_t value = CodeGenerator::GetInt64ValueOf(value_location.GetConstant());
+    __ LoadConst64(tmp, value);
+    emit_store_with_type(type, tmp, obj, offset);
+  } else {
+    if (!DataType::IsFloatingPointType(type)) {
+      DCHECK(value_location.IsRegister());
+      XRegister src = value_location.AsRegister<XRegister>();
+      ScratchRegisterScope srs(GetAssembler());
+      XRegister tmp = srs.AllocateXRegister();
+      if (kPoisonHeapReferences && needs_write_barrier) {
+        // Note that in the case where `value` is a null reference,
+        // we do not enter this block, as a null reference does not
+        // need poisoning.
+        DCHECK_EQ(type, DataType::Type::kReference);
+        codegen_->PoisonHeapReference(tmp);
+        emit_store_with_type(type, tmp, obj, offset);
+      } else {
+        emit_store_with_type(type, src, obj, offset);
+      }
+    } else {
+      DCHECK(value_location.IsFpuRegister());
+      FRegister src = value_location.AsFpuRegister<FRegister>();
+      emit_store_with_type(type, src, obj, offset);
+    }
+  }
+
+  if (needs_write_barrier) {
+    DCHECK(value_location.IsRegister());
+    XRegister src = value_location.AsRegister<XRegister>();
+    codegen_->MarkGCCard(obj, src, value_can_be_null);
+  }
+
+  if (is_volatile) {
+    codegen_->GenerateMemoryBarrier(MemBarrierKind::kAnyAny);
+  }
+
+  if (is_predicated) {
+    __ Bind(&pred_is_null);
+  }
 }
 
 void LocationsBuilderRISCV64::HandleFieldGet(HInstruction* instruction,
@@ -2486,13 +2617,11 @@ void InstructionCodeGeneratorRISCV64::VisitInstanceFieldGet(HInstanceFieldGet* i
 }
 
 void LocationsBuilderRISCV64::VisitInstanceFieldSet(HInstanceFieldSet* instruction) {
-  UNUSED(instruction);
-  LOG(FATAL) << "Unimplemented";
+  HandleFieldSet(instruction);
 }
 
 void InstructionCodeGeneratorRISCV64::VisitInstanceFieldSet(HInstanceFieldSet* instruction) {
-  UNUSED(instruction);
-  LOG(FATAL) << "Unimplemented";
+  HandleFieldSet(instruction, instruction->GetFieldInfo(), instruction->GetValueCanBeNull());
 }
 
 void LocationsBuilderRISCV64::VisitPredicatedInstanceFieldGet(
@@ -3226,13 +3355,11 @@ void InstructionCodeGeneratorRISCV64::VisitStaticFieldGet(HStaticFieldGet* instr
 }
 
 void LocationsBuilderRISCV64::VisitStaticFieldSet(HStaticFieldSet* instruction) {
-  UNUSED(instruction);
-  LOG(FATAL) << "Unimplemented";
+  HandleFieldSet(instruction);
 }
 
 void InstructionCodeGeneratorRISCV64::VisitStaticFieldSet(HStaticFieldSet* instruction) {
-  UNUSED(instruction);
-  LOG(FATAL) << "Unimplemented";
+  HandleFieldSet(instruction, instruction->GetFieldInfo(), instruction->GetValueCanBeNull());
 }
 
 void LocationsBuilderRISCV64::VisitStringBuilderAppend(HStringBuilderAppend* instruction) {
