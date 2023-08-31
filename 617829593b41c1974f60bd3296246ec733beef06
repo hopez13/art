@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "29c50ae2_4434538a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-08-31T14:58:25Z",
+      "side": 1,
+      "message": "The problem in https://r.android.com/2727593 was that it added an include for updatable_apex.mk, which caused PRODUCT_COMPRESSED_APEX to be set in the Golem builds.",
+      "revId": "617829593b41c1974f60bd3296246ec733beef06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
