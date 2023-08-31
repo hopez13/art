@@ -1245,6 +1245,8 @@ TEST_F(Dex2oatDeterminism, UnloadCompile) {
 // Test that dexlayout section info is correctly written to the oat file for profile based
 // compilation.
 TEST_F(Dex2oatTest, LayoutSections) {
+  GTEST_SKIP() << "Compact dex is disabled (b/256664509)";
+#if 0
   using Hotness = ProfileCompilationInfo::MethodHotness;
   std::unique_ptr<const DexFile> dex(OpenTestDexFile("ManyMethods"));
   ScratchFile profile_file;
@@ -1395,10 +1397,13 @@ TEST_F(Dex2oatTest, LayoutSections) {
     EXPECT_GT(startup_count, 0u);
     EXPECT_GT(unused_count, 0u);
   }
+#endif // 0
 }
 
 // Test that generating compact dex works.
 TEST_F(Dex2oatTest, GenerateCompactDex) {
+  GTEST_SKIP() << "Compact dex is disabled (b/256664509)";
+#if 0
   // Generate a compact dex based odex.
   const std::string dir = GetScratchDir();
   const std::string oat_filename = dir + "/base.oat";
@@ -1454,6 +1459,7 @@ TEST_F(Dex2oatTest, GenerateCompactDex) {
       }
     }
   }
+#endif // 0
 }
 
 class Dex2oatVerifierAbort : public Dex2oatTest {};
@@ -1694,7 +1700,7 @@ TEST_F(Dex2oatTest, CompactDexGenerationFailureMultiDex) {
   const std::string& dex_location = apk_file.GetFilename();
   const std::string odex_location = GetOdexDir() + "/output.odex";
   ASSERT_TRUE(GenerateOdexForTest(
-      dex_location, odex_location, CompilerFilter::kVerify, {"--compact-dex-level=fast"}, true));
+      dex_location, odex_location, CompilerFilter::kVerify, {}, true));
 }
 
 TEST_F(Dex2oatTest, StderrLoggerOutput) {
@@ -1877,7 +1883,7 @@ TEST_F(Dex2oatTest, CompactDexInvalidSource) {
                                              odex_location,
                                              CompilerFilter::kVerify,
                                              &error_msg,
-                                             {"--compact-dex-level=fast"});
+                                             {});
   ASSERT_TRUE(WIFEXITED(status) && WEXITSTATUS(status) != 0) << status << " " << output_;
 }
 
@@ -1915,14 +1921,14 @@ TEST_F(Dex2oatTest, CompactDexInZip) {
                                          GetOdexDir() + "/output_apk.odex",
                                          CompilerFilter::kVerify,
                                          &error_msg,
-                                         {"--compact-dex-level=fast"});
+                                         {});
   ASSERT_TRUE(WIFEXITED(status) && WEXITSTATUS(status) != 0) << status << " " << output_;
 
   status = GenerateOdexForTestWithStatus({invalid_dex.GetFilename()},
                                          GetOdexDir() + "/output.odex",
                                          CompilerFilter::kVerify,
                                          &error_msg,
-                                         {"--compact-dex-level=fast"});
+                                         {});
   ASSERT_TRUE(WIFEXITED(status) && WEXITSTATUS(status) != 0) << status << " " << output_;
 }
 
