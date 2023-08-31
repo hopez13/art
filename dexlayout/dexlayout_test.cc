@@ -225,10 +225,9 @@ static const char kDuplicateCodeItemInputDex[] =
     "AHAAAAACAAAAAwAAAIwAAAADAAAAAQAAAJgAAAAFAAAABAAAAKQAAAAGAAAAAQAAAMQAAAABIAAA"
     "AwAAAOQAAAACIAAABwAAACQBAAADIAAAAwAAAFYBAAAAIAAAAQAAAGUBAAAAEAAAAQAAAHgBAAA=";
 
-// Returns the default compact dex option for dexlayout based on kDefaultCompactDexLevel.
+// Returns the default compact dex option for dexlayout.
 static std::vector<std::string> DefaultCompactDexOption() {
-  return (kDefaultCompactDexLevel == CompactDexLevel::kCompactDexLevelFast) ?
-      std::vector<std::string>{"-x", "fast"} : std::vector<std::string>{"-x", "none"};
+  return std::vector<std::string>{"-x", "none"};
 }
 
 static void WriteBase64ToFile(const char* base64, File* file) {
@@ -549,17 +548,23 @@ class DexLayoutTest : public CommonArtTest {
 
 
 TEST_F(DexLayoutTest, FullPlainOutput) {
+  GTEST_SKIP() << "Compact dex is disabled (b/256664509)";
+#if 0
   // Disable test on target.
   TEST_DISABLED_FOR_TARGET();
   std::string error_msg;
   ASSERT_TRUE(FullPlainOutputExec(&error_msg)) << error_msg;
+#endif
 }
 
 TEST_F(DexLayoutTest, DexFileOutput) {
+  GTEST_SKIP() << "Compact dex is disabled (b/256664509)";
+#if 0
   // Disable test on target.
   TEST_DISABLED_FOR_TARGET();
   std::string error_msg;
   ASSERT_TRUE(DexFileOutputExec(&error_msg)) << error_msg;
+#endif
 }
 
 TEST_F(DexLayoutTest, DexFileLayout) {
