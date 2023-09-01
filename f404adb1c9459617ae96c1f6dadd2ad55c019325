@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc384c4c_acdb07c5",
+        "filename": "dex2oat/dex2oat_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1249,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2023-09-01T13:34:28Z",
+      "side": 1,
+      "message": "I\u0027d suggest to either:\n* add a TODO as reminder to clean (or perhaps adjust) this test case; or\n* remove this test case althogether.\n\nSame for similar test cases below and in `dexlayout/dexlayout_test.cc`.",
+      "range": {
+        "startLine": 1248,
+        "startChar": 0,
+        "endLine": 1249,
+        "endChar": 5
+      },
+      "revId": "f404adb1c9459617ae96c1f6dadd2ad55c019325",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b251c68_dc758a07",
+        "filename": "dexlayout/dexlayout_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2023-09-01T13:34:28Z",
+      "side": 1,
+      "message": "```suggestion\n  return {\"-x\", \"none\"};\n```",
+      "range": {
+        "startLine": 230,
+        "startChar": 2,
+        "endLine": 230,
+        "endChar": 48
+      },
+      "revId": "f404adb1c9459617ae96c1f6dadd2ad55c019325",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
