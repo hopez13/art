@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ef50abcc_da1300ba",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-09-04T14:52:21Z",
+      "side": 1,
+      "message": "I see, arm nterp uses A32, not T32. I wanted to try T32 but I guess I\u0027ll never find the time.\n\nWe could still reuse `ENTRY` on other archs but it can be done in a separate CL.\n\nHowever, the comment above should really be updated as the `OatQuickMethodHeader` is no longer there.",
+      "parentUuid": "8ae5b9bd_f8f4dc6c",
+      "range": {
+        "startLine": 250,
+        "startChar": 7,
+        "endLine": 250,
+        "endChar": 16
+      },
+      "revId": "eb9f396cad2aa1c0edfbb77fec7b9fae991911d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "076bfb36_71c0f3ca",
         "filename": "runtime/oat_quick_method_header.cc",
         "patchSetId": 5
