@@ -1,0 +1,211 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dbe0eff4_0696b05f",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 2203,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-09-04T09:33:28Z",
+      "side": 1,
+      "message": "I don\u0027t think these two make sense, maybe they should be `void`. We should at least add a TODO.",
+      "range": {
+        "startLine": 2202,
+        "startChar": 2,
+        "endLine": 2203,
+        "endChar": 32
+      },
+      "revId": "d5ac8c85cdfd236288bcb14d000a7844ea4179d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "91814ac9_e2f13877",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 2929,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-09-04T09:33:28Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 2928,
+        "startChar": 2,
+        "endLine": 2929,
+        "endChar": 32
+      },
+      "revId": "d5ac8c85cdfd236288bcb14d000a7844ea4179d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "919dcea0_5e4d17dd",
+        "filename": "libartbase/base/bit_vector.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-09-04T09:33:28Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 60,
+        "startChar": 4,
+        "endLine": 60,
+        "endChar": 31
+      },
+      "revId": "d5ac8c85cdfd236288bcb14d000a7844ea4179d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0fc71d5_1e25d2c8",
+        "filename": "libartbase/base/stl_util.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-09-04T09:33:28Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 164,
+        "startChar": 2,
+        "endLine": 165,
+        "endChar": 32
+      },
+      "revId": "d5ac8c85cdfd236288bcb14d000a7844ea4179d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "948c0554_105b149f",
+        "filename": "libartbase/base/stl_util.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-09-04T09:33:28Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 198,
+        "startChar": 2,
+        "endLine": 199,
+        "endChar": 27
+      },
+      "revId": "d5ac8c85cdfd236288bcb14d000a7844ea4179d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "97d29e06_7848eeb3",
+        "filename": "libartbase/base/stl_util.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-09-04T09:33:28Z",
+      "side": 1,
+      "message": "ditto (though these could reasonably be defined as `RealIter::{pointer,reference}`)",
+      "range": {
+        "startLine": 256,
+        "startChar": 2,
+        "endLine": 257,
+        "endChar": 32
+      },
+      "revId": "d5ac8c85cdfd236288bcb14d000a7844ea4179d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "29b786fd_00491b7e",
+        "filename": "libartbase/base/stl_util.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-09-04T09:33:28Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 346,
+        "startChar": 2,
+        "endLine": 347,
+        "endChar": 32
+      },
+      "revId": "d5ac8c85cdfd236288bcb14d000a7844ea4179d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "456c8b46_16d909ff",
+        "filename": "libdexfile/dex/class_iterator.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-09-04T09:33:28Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 49,
+        "startChar": 2,
+        "endLine": 50,
+        "endChar": 32
+      },
+      "revId": "d5ac8c85cdfd236288bcb14d000a7844ea4179d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a544b492_c5c85ec0",
+        "filename": "libdexfile/dex/dex_instruction_iterator.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-09-04T09:33:28Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 65,
+        "startChar": 2,
+        "endLine": 66,
+        "endChar": 32
+      },
+      "revId": "d5ac8c85cdfd236288bcb14d000a7844ea4179d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
