@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3f887fd_80892bc3",
+        "filename": "runtime/interpreter/mterp/arm64ng/main.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-09-04T14:13:52Z",
+      "side": 1,
+      "message": "Should we just use `ENTRY` now and remove the explicit `.cfi_startproc` from Nterp entrypoints?",
+      "range": {
+        "startLine": 250,
+        "startChar": 7,
+        "endLine": 250,
+        "endChar": 16
+      },
+      "revId": "eb9f396cad2aa1c0edfbb77fec7b9fae991911d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "076bfb36_71c0f3ca",
+        "filename": "runtime/oat_quick_method_header.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-09-04T14:13:52Z",
+      "side": 1,
+      "message": "This is racy, a thread can see `libart_code !\u003d 0` and `libart_code_end \u003d\u003d 0`.\n\nRefactor this to find the range in a separate function that returns a `ArrayRef\u003cconst uint8_t\u003e` (in line with the rest of the CL). Initialize the `static` range variable with a function call.",
+      "range": {
+        "startLine": 151,
+        "startChar": 2,
+        "endLine": 151,
+        "endChar": 25
+      },
+      "revId": "eb9f396cad2aa1c0edfbb77fec7b9fae991911d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b9566f0_b986d1c3",
+        "filename": "runtime/oat_quick_method_header.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-09-04T14:13:52Z",
+      "side": 1,
+      "message": "`if`",
+      "range": {
+        "startLine": 169,
+        "startChar": 11,
+        "endLine": 169,
+        "endChar": 13
+      },
+      "revId": "eb9f396cad2aa1c0edfbb77fec7b9fae991911d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
