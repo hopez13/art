@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5461022e_fd96709c",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-09-04T07:21:52Z",
+      "side": 1,
+      "message": "The assignment is a bit unnecessary.\n\n    ClassFuncVisitor class_visitor([\u0026](ObjPtr\u003cmirror::Class\u003e klass) ...\n\nbut feel free to keep it if you prefer this style. (Without the assignment, you\u0027ll probably need to break the line before `REQUIRES_SHARED`.)",
+      "range": {
+        "startLine": 250,
+        "startChar": 32,
+        "endLine": 251,
+        "endChar": 22
+      },
+      "revId": "024ba7d60f6579aae0e3dcb6b8b55e361ab5a2c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
