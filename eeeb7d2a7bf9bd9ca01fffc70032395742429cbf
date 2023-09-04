@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69e5f3bf_7f35300a",
+        "filename": "runtime/oat_quick_method_header.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-09-04T15:03:40Z",
+      "side": 1,
+      "message": "You somehow returned to this old code in PS7. Please reinstate the code from PS6 here.",
+      "revId": "eeeb7d2a7bf9bd9ca01fffc70032395742429cbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
