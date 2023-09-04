@@ -1795,12 +1795,10 @@ void InstructionCodeGeneratorRISCV64::HandleFieldSet(HInstruction* instruction,
         __ Storeh(XRegister(ori), rs1, imm);
         break;
       case DataType::Type::kInt32:
-      case DataType::Type::kUint32:
       case DataType::Type::kReference:
         __ Storew(XRegister(ori), rs1, imm);
         break;
       case DataType::Type::kInt64:
-      case DataType::Type::kUint64:
         __ Stored(XRegister(ori), rs1, imm);
         break;
       case DataType::Type::kFloat32:
@@ -1809,6 +1807,8 @@ void InstructionCodeGeneratorRISCV64::HandleFieldSet(HInstruction* instruction,
       case DataType::Type::kFloat64:
         __ FStored(FRegister(ori), rs1, imm);
         break;
+      case DataType::Type::kUint32:
+      case DataType::Type::kUint64:
       case DataType::Type::kVoid:
         LOG(FATAL) << "Unreachable type " << type;
         UNREACHABLE();
@@ -1948,11 +1948,9 @@ void InstructionCodeGeneratorRISCV64::HandleFieldGet(HInstruction* instruction,
         __ Loadw(XRegister(rd), rs1, imm);
         break;
       case DataType::Type::kInt64:
-      case DataType::Type::kUint64:
         __ Loadd(XRegister(rd), rs1, imm);
         break;
       case DataType::Type::kReference:
-      case DataType::Type::kUint32:
         __ Loadwu(XRegister(rd), rs1, imm);
         break;
       case DataType::Type::kFloat32:
@@ -1961,6 +1959,8 @@ void InstructionCodeGeneratorRISCV64::HandleFieldGet(HInstruction* instruction,
       case DataType::Type::kFloat64:
         __ FLoadd(FRegister(rd), rs1, imm);
         break;
+      case DataType::Type::kUint32:
+      case DataType::Type::kUint64:
       case DataType::Type::kVoid:
         LOG(FATAL) << "Unreachable type " << type;
         UNREACHABLE();
@@ -2102,13 +2102,244 @@ void InstructionCodeGeneratorRISCV64::VisitAnd(HAnd* instruction) {
 }
 
 void LocationsBuilderRISCV64::VisitArrayGet(HArrayGet* instruction) {
-  UNUSED(instruction);
-  LOG(FATAL) << "Unimplemented";
+  DataType::Type type = instruction->GetType();
+  bool object_array_get_with_read_barrier = gUseReadBarrier && (type == DataType::Type::kReference);
+  LocationSummary* locations = new (GetGraph()->GetAllocator())
+      LocationSummary(instruction,
+                      object_array_get_with_read_barrier ? LocationSummary::kCallOnSlowPath :
+                                                           LocationSummary::kNoCall);
+  if (object_array_get_with_read_barrier && kUseBakerReadBarrier) {
+    locations->SetCustomSlowPathCallerSaves(RegisterSet::Empty());  // No caller-save registers.
+  }
+  locations->SetInAt(0, Location::RequiresRegister());
+  locations->SetInAt(1, Location::RegisterOrConstant(instruction->InputAt(1)));
+  if (DataType::IsFloatingPointType(type)) {
+    locations->SetOut(Location::RequiresFpuRegister(), Location::kNoOutputOverlap);
+  } else {
+    // The output overlaps in the case of an object array get with
+    // read barriers enabled: we do not want the move to overwrite the
+    // array's location, as we need it to emit the read barrier.
+    locations->SetOut(
+        Location::RequiresRegister(),
+        object_array_get_with_read_barrier ? Location::kOutputOverlap : Location::kNoOutputOverlap);
+  }
+  // We need a temporary register for the read barrier marking slow
+  // path in CodeGeneratorRISCV64::GenerateArrayLoadWithBakerReadBarrier.
+  if (object_array_get_with_read_barrier && kUseBakerReadBarrier) {
+    locations->AddTemp(Location::RequiresRegister());
+  }
 }
 
 void InstructionCodeGeneratorRISCV64::VisitArrayGet(HArrayGet* instruction) {
-  UNUSED(instruction);
-  LOG(FATAL) << "Unimplemented";
+  LocationSummary* locations = instruction->GetLocations();
+  Location obj_loc = locations->InAt(0);
+  XRegister obj = obj_loc.AsRegister<XRegister>();
+  Location out_loc = locations->Out();
+  Location index = locations->InAt(1);
+  uint32_t data_offset = CodeGenerator::GetArrayDataOffset(instruction);
+
+  ScratchRegisterScope srs(GetAssembler());
+  XRegister tmp = srs.AllocateXRegister();
+
+  DataType::Type type = instruction->GetType();
+  const bool maybe_compressed_char_at =
+      mirror::kUseStringCompression && instruction->IsStringCharAt();
+  switch (type) {
+    case DataType::Type::kBool:
+    case DataType::Type::kUint8: {
+      XRegister out = out_loc.AsRegister<XRegister>();
+      if (index.IsConstant()) {
+        size_t offset = (index.GetConstant()->AsIntConstant()->GetValue()) + data_offset;
+        __ Loadbu(out, obj, offset);
+      } else {
+        __ Add(tmp, obj, index.AsRegister<XRegister>());
+        __ Loadbu(out, tmp, data_offset);
+      }
+      break;
+    }
+
+    case DataType::Type::kInt8: {
+      XRegister out = out_loc.AsRegister<XRegister>();
+      if (index.IsConstant()) {
+        size_t offset = (index.GetConstant()->AsIntConstant()->GetValue()) + data_offset;
+        __ Loadb(out, obj, offset);
+      } else {
+        __ Add(tmp, obj, index.AsRegister<XRegister>());
+        __ Loadb(out, tmp, data_offset);
+      }
+      break;
+    }
+
+    case DataType::Type::kUint16: {
+      XRegister out = out_loc.AsRegister<XRegister>();
+      if (maybe_compressed_char_at) {
+        uint32_t count_offset = mirror::String::CountOffset().Uint32Value();
+        __ Loadw(tmp, obj, count_offset);
+        __ Andi(tmp, tmp, 0x1);
+        static_assert(static_cast<uint32_t>(mirror::StringCompressionFlag::kCompressed) == 0u,
+                      "Expecting 0=compressed, 1=uncompressed");
+      }
+      if (index.IsConstant()) {
+        int32_t const_index = index.GetConstant()->AsIntConstant()->GetValue();
+        if (maybe_compressed_char_at) {
+          Riscv64Label uncompressed_load, done;
+          __ Bnez(tmp, &uncompressed_load);
+          __ Loadbu(out, obj, data_offset + const_index);
+          __ J(&done);
+          __ Bind(&uncompressed_load);
+          __ Loadhu(out, obj, data_offset + (const_index << 1));
+          __ Bind(&done);
+        } else {
+          __ Loadhu(out, obj, data_offset + (const_index << 1));
+        }
+      } else {
+        XRegister index_reg = index.AsRegister<XRegister>();
+        if (maybe_compressed_char_at) {
+          Riscv64Label uncompressed_load, done;
+          __ Bnez(tmp, &uncompressed_load);
+          __ Add(tmp, obj, index_reg);
+          __ Loadbu(out, tmp, data_offset);
+          __ J(&done);
+          __ Bind(&uncompressed_load);
+          __ Slli(tmp, index_reg, 1);
+          __ Add(tmp, tmp, obj);
+          __ Loadhu(out, tmp, data_offset);
+          __ Bind(&done);
+        } else {
+          __ Slli(tmp, index_reg, 1);
+          __ Add(tmp, tmp, obj);
+          __ Loadhu(out, tmp, data_offset);
+        }
+      }
+      break;
+    }
+
+    case DataType::Type::kInt16: {
+      XRegister out = out_loc.AsRegister<XRegister>();
+      if (index.IsConstant()) {
+        size_t offset = (index.GetConstant()->AsIntConstant()->GetValue() << 1) + data_offset;
+        __ Loadh(out, obj, offset);
+      } else {
+        __ Slli(tmp, index.AsRegister<XRegister>(), 1);
+        __ Add(tmp, tmp, obj);
+        __ Loadh(out, tmp, data_offset);
+      }
+      break;
+    }
+
+    case DataType::Type::kInt32: {
+      DCHECK_EQ(sizeof(mirror::HeapReference<mirror::Object>), sizeof(int32_t));
+      XRegister out = out_loc.AsRegister<XRegister>();
+      if (index.IsConstant()) {
+        size_t offset = (index.GetConstant()->AsIntConstant()->GetValue() << 2) + data_offset;
+        __ Loadw(out, obj, offset);
+      } else {
+        __ Slli(tmp, index.AsRegister<XRegister>(), 2);
+        __ Add(tmp, tmp, obj);
+        __ Loadw(out, tmp, data_offset);
+      }
+      break;
+    }
+
+    case DataType::Type::kReference: {
+      static_assert(
+          sizeof(mirror::HeapReference<mirror::Object>) == sizeof(int32_t),
+          "art::mirror::HeapReference<art::mirror::Object> and int32_t have different sizes.");
+      // /* HeapReference<Object> */ out =
+      //     *(obj + data_offset + index * sizeof(HeapReference<Object>))
+      if (gUseReadBarrier && kUseBakerReadBarrier) {
+        Location temp = locations->GetTemp(0);
+        // Note that a potential implicit null check is handled in this
+        // CodeGeneratorRISCV64::GenerateArrayLoadWithBakerReadBarrier call.
+        DCHECK(!instruction->CanDoImplicitNullCheckOn(instruction->InputAt(0)));
+        if (index.IsConstant()) {
+          // Array load with a constant index can be treated as a field load.
+          size_t offset =
+              (index.GetConstant()->AsIntConstant()->GetValue() << 2) + data_offset;
+          codegen_->GenerateFieldLoadWithBakerReadBarrier(instruction,
+                                                          out_loc,
+                                                          obj,
+                                                          offset,
+                                                          temp,
+                                                          /* needs_null_check= */ false);
+        } else {
+          codegen_->GenerateArrayLoadWithBakerReadBarrier(instruction,
+                                                          out_loc,
+                                                          obj,
+                                                          data_offset,
+                                                          index,
+                                                          temp,
+                                                          /* needs_null_check= */ false);
+        }
+      } else {
+        XRegister out = out_loc.AsRegister<XRegister>();
+        if (index.IsConstant()) {
+          size_t offset =
+              (index.GetConstant()->AsIntConstant()->GetValue() << 2) + data_offset;
+          __ Loadwu(out, obj, offset);
+          // If read barriers are enabled, emit read barriers other than
+          // Baker's using a slow path (and also unpoison the loaded
+          // reference, if heap poisoning is enabled).
+          codegen_->MaybeGenerateReadBarrierSlow(instruction, out_loc, out_loc, obj_loc, offset);
+        } else {
+          __ Slli(tmp, index.AsRegister<XRegister>(), 2);
+          __ Add(tmp, tmp, obj);
+          __ Loadwu(out, tmp, data_offset);
+          // If read barriers are enabled, emit read barriers other than
+          // Baker's using a slow path (and also unpoison the loaded
+          // reference, if heap poisoning is enabled).
+          codegen_->MaybeGenerateReadBarrierSlow(
+              instruction, out_loc, out_loc, obj_loc, data_offset, index);
+        }
+      }
+      break;
+    }
+
+    case DataType::Type::kInt64: {
+      XRegister out = out_loc.AsRegister<XRegister>();
+      if (index.IsConstant()) {
+        size_t offset = (index.GetConstant()->AsIntConstant()->GetValue() << 3) + data_offset;
+        __ Loadd(out, obj, offset);
+      } else {
+        __ Slli(tmp, index.AsRegister<XRegister>(), 3);
+        __ Add(tmp, tmp, obj);
+        __ Loadd(out, tmp, data_offset);
+      }
+      break;
+    }
+
+    case DataType::Type::kFloat32: {
+      FRegister out = out_loc.AsFpuRegister<FRegister>();
+      if (index.IsConstant()) {
+        size_t offset = (index.GetConstant()->AsIntConstant()->GetValue() << 2) + data_offset;
+        __ FLoadw(out, obj, offset);
+      } else {
+        __ Slli(tmp, index.AsRegister<XRegister>(), 2);
+        __ Add(tmp, tmp, obj);
+        __ FLoadw(out, tmp, data_offset);
+      }
+      break;
+    }
+
+    case DataType::Type::kFloat64: {
+      FRegister out = out_loc.AsFpuRegister<FRegister>();
+      if (index.IsConstant()) {
+        size_t offset = (index.GetConstant()->AsIntConstant()->GetValue() << 3) + data_offset;
+        __ FLoadd(out, obj, offset);
+      } else {
+        __ Slli(tmp, index.AsRegister<XRegister>(), 3);
+        __ Add(tmp, tmp, obj);
+        __ FLoadd(out, tmp, data_offset);
+      }
+      break;
+    }
+
+    case DataType::Type::kUint32:
+    case DataType::Type::kUint64:
+    case DataType::Type::kVoid:
+      LOG(FATAL) << "Unreachable type " << instruction->GetType();
+      UNREACHABLE();
+  }
 }
 
 void LocationsBuilderRISCV64::VisitArrayLength(HArrayLength* instruction) {
