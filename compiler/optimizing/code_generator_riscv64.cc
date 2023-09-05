@@ -479,6 +479,47 @@ class ReadBarrierForRootSlowPathRISCV64 : public SlowPathCodeRISCV64 {
   DISALLOW_COPY_AND_ASSIGN(ReadBarrierForRootSlowPathRISCV64);
 };
 
+class ArraySetSlowPathRISCV64 : public SlowPathCodeRISCV64 {
+ public:
+  explicit ArraySetSlowPathRISCV64(HInstruction* instruction) : SlowPathCodeRISCV64(instruction) {}
+
+  void EmitNativeCode(CodeGenerator* codegen) override {
+    LocationSummary* locations = instruction_->GetLocations();
+    __ Bind(GetEntryLabel());
+    SaveLiveRegisters(codegen, locations);
+
+    InvokeRuntimeCallingConvention calling_convention;
+    HParallelMove parallel_move(codegen->GetGraph()->GetAllocator());
+    parallel_move.AddMove(
+        locations->InAt(0),
+        Location::RegisterLocation(calling_convention.GetRegisterAt(0)),
+        DataType::Type::kReference,
+        nullptr);
+    parallel_move.AddMove(
+        locations->InAt(1),
+        Location::RegisterLocation(calling_convention.GetRegisterAt(1)),
+        DataType::Type::kInt32,
+        nullptr);
+    parallel_move.AddMove(
+        locations->InAt(2),
+        Location::RegisterLocation(calling_convention.GetRegisterAt(2)),
+        DataType::Type::kReference,
+        nullptr);
+    codegen->GetMoveResolver()->EmitNativeCode(&parallel_move);
+
+    CodeGeneratorRISCV64* riscv64_codegen = down_cast<CodeGeneratorRISCV64*>(codegen);
+    riscv64_codegen->InvokeRuntime(kQuickAputObject, instruction_, instruction_->GetDexPc(), this);
+    CheckEntrypointTypes<kQuickAputObject, void, mirror::Array*, int32_t, mirror::Object*>();
+    RestoreLiveRegisters(codegen, locations);
+    __ J(GetExitLabel());
+  }
+
+  const char* GetDescription() const override { return "ArraySetSlowPathRISCV64"; }
+
+ private:
+  DISALLOW_COPY_AND_ASSIGN(ArraySetSlowPathRISCV64);
+};
+
 #undef __
 #define __ down_cast<Riscv64Assembler*>(GetAssembler())->  // NOLINT
 
@@ -2362,13 +2403,300 @@ void InstructionCodeGeneratorRISCV64::VisitArrayLength(HArrayLength* instruction
 }
 
 void LocationsBuilderRISCV64::VisitArraySet(HArraySet* instruction) {
-  UNUSED(instruction);
-  LOG(FATAL) << "Unimplemented";
+  DataType::Type value_type = instruction->GetComponentType();
+
+  bool needs_write_barrier =
+      CodeGenerator::StoreNeedsWriteBarrier(value_type, instruction->GetValue());
+  bool may_need_runtime_call_for_type_check = instruction->NeedsTypeCheck();
+
+  LocationSummary* locations = new (GetGraph()->GetAllocator())
+      LocationSummary(instruction,
+                      may_need_runtime_call_for_type_check ? LocationSummary::kCallOnSlowPath :
+                                                             LocationSummary::kNoCall);
+
+  locations->SetInAt(0, Location::RequiresRegister());
+  locations->SetInAt(1, Location::RegisterOrConstant(instruction->InputAt(1)));
+  if (DataType::IsFloatingPointType(instruction->InputAt(2)->GetType())) {
+    locations->SetInAt(2, FpuRegisterOrConstantForStore(instruction->InputAt(2)));
+  } else {
+    locations->SetInAt(2, RegisterOrZeroConstant(instruction->InputAt(2)));
+  }
+  if (needs_write_barrier) {
+    // Temporary register for the write barrier.
+    locations->AddTemp(Location::RequiresRegister());  // Possibly used for ref. poisoning too.
+  }
 }
 
 void InstructionCodeGeneratorRISCV64::VisitArraySet(HArraySet* instruction) {
-  UNUSED(instruction);
-  LOG(FATAL) << "Unimplemented";
+  LocationSummary* locations = instruction->GetLocations();
+  XRegister obj = locations->InAt(0).AsRegister<XRegister>();
+  Location index = locations->InAt(1);
+  Location value_location = locations->InAt(2);
+  DataType::Type value_type = instruction->GetComponentType();
+  bool may_need_runtime_call_for_type_check = instruction->NeedsTypeCheck();
+  bool needs_write_barrier =
+      CodeGenerator::StoreNeedsWriteBarrier(value_type, instruction->GetValue());
+  ScratchRegisterScope srs(GetAssembler());
+  XRegister tmp = srs.AllocateXRegister();
+  XRegister base_reg = index.IsConstant() ? obj : tmp;
+
+  switch (value_type) {
+    case DataType::Type::kBool:
+    case DataType::Type::kUint8:
+    case DataType::Type::kInt8: {
+      uint32_t data_offset = mirror::Array::DataOffset(sizeof(uint8_t)).Uint32Value();
+      if (index.IsConstant()) {
+        data_offset += index.GetConstant()->AsIntConstant()->GetValue();
+      } else {
+        __ Add(base_reg, obj, index.AsRegister<XRegister>());
+      }
+      if (value_location.IsConstant()) {
+        int32_t value = CodeGenerator::GetInt32ValueOf(value_location.GetConstant());
+        XRegister tmp2 = srs.AllocateXRegister();
+        __ LoadConst32(tmp2, value);
+        __ Storeb(tmp2, base_reg, data_offset);
+      } else {
+        XRegister value = value_location.AsRegister<XRegister>();
+        __ Storeb(value, base_reg, data_offset);
+      }
+      break;
+    }
+
+    case DataType::Type::kUint16:
+    case DataType::Type::kInt16: {
+      uint32_t data_offset = mirror::Array::DataOffset(sizeof(uint16_t)).Uint32Value();
+      if (index.IsConstant()) {
+        data_offset += index.GetConstant()->AsIntConstant()->GetValue()
+                       << DataType::SizeShift(value_type);
+      } else {
+        __ Slli(base_reg, index.AsRegister<XRegister>(), DataType::SizeShift(value_type));
+        __ Add(base_reg, obj, base_reg);
+      }
+      if (value_location.IsConstant()) {
+        int32_t value = CodeGenerator::GetInt32ValueOf(value_location.GetConstant());
+        XRegister tmp2 = srs.AllocateXRegister();
+        __ LoadConst32(tmp2, value);
+        __ Storeh(tmp2, base_reg, data_offset);
+      } else {
+        XRegister value = value_location.AsRegister<XRegister>();
+        __ Storeh(value, base_reg, data_offset);
+      }
+      break;
+    }
+
+    case DataType::Type::kInt32: {
+      uint32_t data_offset = mirror::Array::DataOffset(sizeof(int32_t)).Uint32Value();
+      if (index.IsConstant()) {
+        data_offset += index.GetConstant()->AsIntConstant()->GetValue()
+                       << DataType::SizeShift(value_type);
+      } else {
+        __ Slli(base_reg, index.AsRegister<XRegister>(), DataType::SizeShift(value_type));
+        __ Add(base_reg, obj, base_reg);
+      }
+      if (value_location.IsConstant()) {
+        int32_t value = CodeGenerator::GetInt32ValueOf(value_location.GetConstant());
+        XRegister tmp2 = srs.AllocateXRegister();
+        __ LoadConst32(tmp2, value);
+        __ Storew(tmp2, base_reg, data_offset);
+      } else {
+        XRegister value = value_location.AsRegister<XRegister>();
+        __ Storew(value, base_reg, data_offset);
+      }
+      break;
+    }
+
+    case DataType::Type::kReference: {
+      if (value_location.IsConstant()) {
+        // Just setting null.
+        uint32_t data_offset = mirror::Array::DataOffset(sizeof(int32_t)).Uint32Value();
+        if (index.IsConstant()) {
+          data_offset += index.GetConstant()->AsIntConstant()->GetValue()
+                         << DataType::SizeShift(value_type);
+        } else {
+          __ Slli(base_reg, index.AsRegister<XRegister>(), DataType::SizeShift(value_type));
+          __ Add(base_reg, obj, base_reg);
+        }
+        int32_t value = CodeGenerator::GetInt32ValueOf(value_location.GetConstant());
+        DCHECK_EQ(value, 0);
+        XRegister tmp2 = srs.AllocateXRegister();
+        __ LoadConst32(tmp2, value);
+        __ Storew(tmp2, base_reg, data_offset);
+        DCHECK(!needs_write_barrier);
+        DCHECK(!may_need_runtime_call_for_type_check);
+        break;
+      }
+
+      DCHECK(needs_write_barrier);
+      XRegister value = value_location.AsRegister<XRegister>();
+      XRegister temp1 = locations->GetTemp(0).AsRegister<XRegister>();
+      XRegister temp2 = TMP;  // Doesn't need to survive slow path.
+      uint32_t class_offset = mirror::Object::ClassOffset().Int32Value();
+      uint32_t super_offset = mirror::Class::SuperClassOffset().Int32Value();
+      uint32_t component_offset = mirror::Class::ComponentTypeOffset().Int32Value();
+      Riscv64Label done;
+      SlowPathCodeRISCV64* slow_path = nullptr;
+
+      if (may_need_runtime_call_for_type_check) {
+        slow_path = new (codegen_->GetScopedAllocator()) ArraySetSlowPathRISCV64(instruction);
+        codegen_->AddSlowPath(slow_path);
+        if (instruction->GetValueCanBeNull()) {
+          Riscv64Label non_zero;
+          __ Bnez(value, &non_zero);
+          uint32_t data_offset = mirror::Array::DataOffset(sizeof(int32_t)).Uint32Value();
+          if (index.IsConstant()) {
+            data_offset += index.GetConstant()->AsIntConstant()->GetValue()
+                           << DataType::SizeShift(value_type);
+          } else {
+            __ Slli(base_reg, index.AsRegister<XRegister>(), DataType::SizeShift(value_type));
+            __ Add(base_reg, obj, base_reg);
+          }
+          __ Storew(value, base_reg, data_offset);
+          __ J(&done);
+          __ Bind(&non_zero);
+        }
+
+        // Note that when read barriers are enabled, the type checks
+        // are performed without read barriers.  This is fine, even in
+        // the case where a class object is in the from-space after
+        // the flip, as a comparison involving such a type would not
+        // produce a false positive; it may of course produce a false
+        // negative, in which case we would take the ArraySet slow
+        // path.
+
+        // /* HeapReference<Class> */ temp1 = obj->klass_
+        __ Loadwu(temp1, obj, class_offset);
+        codegen_->MaybeUnpoisonHeapReference(temp1);
+
+        // /* HeapReference<Class> */ temp1 = temp1->component_type_
+        __ Loadwu(temp1, temp1, component_offset);
+        // /* HeapReference<Class> */ temp2 = value->klass_
+        __ Loadwu(temp2, value, class_offset);
+        // If heap poisoning is enabled, no need to unpoison `temp1`
+        // nor `temp2`, as we are comparing two poisoned references.
+
+        if (instruction->StaticTypeOfArrayIsObjectArray()) {
+          Riscv64Label do_put;
+          __ Beq(temp1, temp2, &do_put);
+          // If heap poisoning is enabled, the `temp1` reference has
+          // not been unpoisoned yet; unpoison it now.
+          codegen_->MaybeUnpoisonHeapReference(temp1);
+
+          // /* HeapReference<Class> */ temp1 = temp1->super_class_
+          __ Loadwu(temp1, temp1, super_offset);
+          // If heap poisoning is enabled, no need to unpoison
+          // `temp1`, as we are comparing against null below.
+          __ Bnez(temp1, slow_path->GetEntryLabel());
+          __ Bind(&do_put);
+        } else {
+          __ Bne(temp1, temp2, slow_path->GetEntryLabel());
+        }
+      }
+
+      XRegister source = value;
+      if (kPoisonHeapReferences) {
+        // Note that in the case where `value` is a null reference,
+        // we do not enter this block, as a null reference does not
+        // need poisoning.
+        __ Mv(temp1, value);
+        codegen_->PoisonHeapReference(temp1);
+        source = temp1;
+      }
+
+      uint32_t data_offset = mirror::Array::DataOffset(sizeof(int32_t)).Uint32Value();
+      if (index.IsConstant()) {
+        data_offset += index.GetConstant()->AsIntConstant()->GetValue()
+                       << DataType::SizeShift(value_type);
+      } else {
+        __ Slli(base_reg, index.AsRegister<XRegister>(), DataType::SizeShift(value_type));
+        __ Add(base_reg, obj, base_reg);
+      }
+      __ Storew(source, base_reg, data_offset);
+
+      if (!may_need_runtime_call_for_type_check) {
+        codegen_->MaybeRecordImplicitNullCheck(instruction);
+      }
+
+      codegen_->MarkGCCard(obj, value, instruction->GetValueCanBeNull());
+
+      if (done.IsLinked()) {
+        __ Bind(&done);
+      }
+
+      if (slow_path != nullptr) {
+        __ Bind(slow_path->GetExitLabel());
+      }
+      break;
+    }
+
+    case DataType::Type::kInt64: {
+      uint32_t data_offset = mirror::Array::DataOffset(sizeof(int64_t)).Uint32Value();
+      if (index.IsConstant()) {
+        data_offset += index.GetConstant()->AsIntConstant()->GetValue()
+                       << DataType::SizeShift(value_type);
+      } else {
+        __ Slli(base_reg, index.AsRegister<XRegister>(), DataType::SizeShift(value_type));
+        __ Add(base_reg, obj, base_reg);
+      }
+      if (value_location.IsConstant()) {
+        int64_t value = CodeGenerator::GetInt64ValueOf(value_location.GetConstant());
+        XRegister tmp2 = srs.AllocateXRegister();
+        __ LoadConst32(tmp2, value);
+        __ Stored(tmp2, base_reg, data_offset);
+      } else {
+        XRegister value = value_location.AsRegister<XRegister>();
+        __ Stored(value, base_reg, data_offset);
+      }
+      break;
+    }
+
+    case DataType::Type::kFloat32: {
+      uint32_t data_offset = mirror::Array::DataOffset(sizeof(float)).Uint32Value();
+      if (index.IsConstant()) {
+        data_offset += index.GetConstant()->AsIntConstant()->GetValue()
+                       << DataType::SizeShift(value_type);
+      } else {
+        __ Slli(base_reg, index.AsRegister<XRegister>(), DataType::SizeShift(value_type));
+        __ Add(base_reg, obj, base_reg);
+      }
+      if (value_location.IsConstant()) {
+        int32_t value = CodeGenerator::GetInt32ValueOf(value_location.GetConstant());
+        XRegister tmp2 = srs.AllocateXRegister();
+        __ LoadConst32(tmp2, value);
+        __ Storew(tmp2, base_reg, data_offset);
+      } else {
+        FRegister value = value_location.AsFpuRegister<FRegister>();
+        __ FStorew(value, base_reg, data_offset);
+      }
+      break;
+    }
+
+    case DataType::Type::kFloat64: {
+      uint32_t data_offset = mirror::Array::DataOffset(sizeof(double)).Uint32Value();
+      if (index.IsConstant()) {
+        data_offset += index.GetConstant()->AsIntConstant()->GetValue()
+                       << DataType::SizeShift(value_type);
+      } else {
+        __ Slli(base_reg, index.AsRegister<XRegister>(), DataType::SizeShift(value_type));
+        __ Add(base_reg, obj, base_reg);
+      }
+      if (value_location.IsConstant()) {
+        int64_t value = CodeGenerator::GetInt64ValueOf(value_location.GetConstant());
+        XRegister tmp2 = srs.AllocateXRegister();
+        __ LoadConst64(tmp2, value);
+        __ Stored(tmp2, base_reg, data_offset);
+      } else {
+        FRegister value = value_location.AsFpuRegister<FRegister>();
+        __ FStored(value, base_reg, data_offset);
+      }
+      break;
+    }
+
+    case DataType::Type::kUint32:
+    case DataType::Type::kUint64:
+    case DataType::Type::kVoid:
+      LOG(FATAL) << "Unreachable type " << instruction->GetType();
+      UNREACHABLE();
+  }
 }
 
 void LocationsBuilderRISCV64::VisitBelow(HBelow* instruction) {
