@@ -1716,6 +1716,47 @@ void IntrinsicCodeGeneratorX86_64::VisitStringGetCharsNoCheck(HInvoke* invoke) {
   __ Bind(&done);
 }
 
+void IntrinsicLocationsBuilderX86_64::VisitStringFillBytesLatin1(HInvoke* invoke) {
+  // public void fillBytesLatin1(byte[] dst, int dstBegin);
+  LocationSummary* locations =
+      new (allocator_) LocationSummary(invoke, LocationSummary::kNoCall, kIntrinsified);
+  locations->SetInAt(0, Location::RequiresRegister());
+  locations->SetInAt(1, Location::RequiresRegister());
+  locations->SetInAt(2, Location::RegisterOrConstant(invoke->InputAt(2)));
+
+  // And we need some temporaries.  We will use REP MOVSW, so we need fixed registers.
+  locations->AddTemp(Location::RegisterLocation(RSI));
+  locations->AddTemp(Location::RegisterLocation(RDI));
+  locations->AddTemp(Location::RegisterLocation(RCX));
+}
+
+void IntrinsicCodeGeneratorX86_64::VisitStringFillBytesLatin1(HInvoke* invoke) {
+  X86_64Assembler* assembler = GetAssembler();
+  LocationSummary* locations = invoke->GetLocations();
+
+  CpuRegister obj = locations->InAt(0).AsRegister<CpuRegister>();
+  CpuRegister byte_array = locations->InAt(1).AsRegister<CpuRegister>();
+  Location begin_location = locations->InAt(2);
+  size_t byte_component_size = DataType::Size(DataType::Type::kUint8);
+  // Location of data in byte array buffer.
+  const uint32_t data_offset = mirror::Array::DataOffset(byte_component_size).Uint32Value();
+  // Location of byte array data in string.
+  const uint32_t value_offset = mirror::String::ValueOffset().Uint32Value();
+
+  // Load the count in RCX.
+  const uint32_t count_offset = mirror::String::CountOffset().Uint32Value();
+  __ movl(CpuRegister(RCX), Address(obj, count_offset));
+  __ shrl(CpuRegister(RCX), Immediate(1));
+
+  // Compute the address of the source string in RSI
+  __ leaq(CpuRegister(RSI), Address(obj, value_offset));
+
+  // Compute the address of the byte array + dstBegin in RDI
+  __ leaq(CpuRegister(RDI),
+          CodeGeneratorX86_64::ArrayAddress(byte_array, begin_location, TIMES_1, data_offset));
+  __ rep_movsb();
+}
+
 static void GenPeek(LocationSummary* locations, DataType::Type size, X86_64Assembler* assembler) {
   CpuRegister address = locations->InAt(0).AsRegister<CpuRegister>();
   CpuRegister out = locations->Out().AsRegister<CpuRegister>();  // == address, here for clarity.

@@ -289,6 +289,7 @@ ALWAYS_INLINE inline uint32_t GetRuntimeFlags(ArtMethod* method)
       case Intrinsics::kSystemArrayCopyChar:
       case Intrinsics::kSystemArrayCopyByte:
       case Intrinsics::kSystemArrayCopyInt:
+      case Intrinsics::kStringFillBytesLatin1:
       case Intrinsics::kStringGetCharsNoCheck:
       case Intrinsics::kReferenceGetReferent:
       case Intrinsics::kReferenceRefersTo:

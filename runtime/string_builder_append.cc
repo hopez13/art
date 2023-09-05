@@ -28,6 +28,74 @@
 
 namespace art {
 
+class SmallVector {
+ public:
+  SmallVector(uint8_t* data) : buffer_(data) {}
+
+  bool push_back(uint8_t value) {
+    if (length_ == 256) {
+      overflow_ = true;
+      return false;
+    }
+    buffer_[length_++] = value;
+    return true;
+  }
+
+  bool push_back(const char* start, size_t len) {
+    uint32_t new_length = len + length_;
+    if (new_length >= 256) {
+      overflow_ = true;
+      return false;
+    }
+    for (uint32_t i = 0; i < len; ++i) {
+      buffer_[i + length_] = start[i];
+    }
+    length_ = new_length;
+    return true;
+  }
+
+  uint8_t* data() { return buffer_; }
+  const uint8_t* data() const { return buffer_; }
+  uint32_t size() const { return length_; }
+  bool Overflow() const { return overflow_; }
+
+  bool resize(uint32_t new_length) {
+    if (new_length > 256) {
+      overflow_ = true;
+      return false;
+    }
+    length_ = new_length;
+    return true;
+  }
+ private:
+  bool overflow_ = false;
+  uint32_t length_ = 0u;
+  uint8_t* buffer_;
+};
+
+class StringBuilderAppend::SmallBuilder {
+ public:
+  SmallBuilder(uint32_t format, const uint32_t* args)
+      : format_(format),
+        args_(args) {}
+
+  bool StoreData(SmallVector& data) const
+      REQUIRES_SHARED(Locks::mutator_lock_);
+  static void AppendInt64(SmallVector& data,
+                               int64_t value) REQUIRES_SHARED(Locks::mutator_lock_);
+ private:
+  static constexpr char kNull[] = "null";
+  static constexpr size_t kNullLength = sizeof(kNull) - 1u;
+  static constexpr char kTrue[] = "true";
+  static constexpr size_t kTrueLength = sizeof(kTrue) - 1u;
+  static constexpr char kFalse[] = "false";
+  static constexpr size_t kFalseLength = sizeof(kFalse) - 1u;
+
+  // The format and arguments to append.
+  const uint32_t format_;
+  const uint32_t* const args_;
+};
+
 class StringBuilderAppend::Builder {
  public:
   Builder(uint32_t format, const uint32_t* args, Thread* self)
@@ -40,9 +108,12 @@ class StringBuilderAppend::Builder {
   void operator()(ObjPtr<mirror::Object> obj, size_t usable_size) const
       REQUIRES_SHARED(Locks::mutator_lock_);
 
- private:
+  bool StoreData(SmallVector& data) const
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
   static size_t Uint64Length(uint64_t value);
 
+ private:
   static size_t Int64Length(int64_t value) {
     uint64_t v = static_cast<uint64_t>(value);
     return (value >= 0) ? Uint64Length(v) : 1u + Uint64Length(-v);
@@ -80,6 +151,9 @@ class StringBuilderAppend::Builder {
   template <typename CharType>
   static CharType* AppendInt64(ObjPtr<mirror::String> new_string,
                                CharType* data,
+                               int64_t value) REQUIRES_SHARED(Locks::mutator_lock_);
+
+  static void AppendInt64(SmallVector& data,
                                int64_t value) REQUIRES_SHARED(Locks::mutator_lock_);
 
   int32_t ConvertFpArgs() REQUIRES_SHARED(Locks::mutator_lock_);
@@ -232,6 +306,30 @@ inline CharType* StringBuilderAppend::Builder::AppendInt64(ObjPtr<mirror::String
   DCHECK_LE(v, 10u);
   *data = '0' + static_cast<char>(v);
   return data + length;
+}
+
+inline void StringBuilderAppend::SmallBuilder::AppendInt64(SmallVector& data,
+                                                      int64_t value) {
+  uint64_t v = static_cast<uint64_t>(value);
+  if (value < 0) {
+    data.push_back('-');
+    v = -v;
+  }
+  size_t length = Builder::Uint64Length(v);
+  size_t old_size = data.size();
+  if (!data.resize(old_size + length)) {
+    return;
+  }
+  uint8_t* buffer = data.data() + old_size;
+  // Write the digits from the end, do not write the most significant digit
+  // in the loop to avoid an unnecessary division.
+  for (size_t i = 1; i != length; ++i) {
+    uint64_t digit = v % UINT64_C(10);
+    v /= UINT64_C(10);
+    buffer[length - i] = '0' + static_cast<char>(digit);
+  }
+  DCHECK_LE(v, 10u);
+  *buffer = '0' + static_cast<char>(v);
 }
 
 int32_t StringBuilderAppend::Builder::ConvertFpArgs() {
@@ -420,6 +518,65 @@ inline int32_t StringBuilderAppend::Builder::CalculateLengthWithFlag() {
   return length_with_flag_;
 }
 
+inline bool StringBuilderAppend::SmallBuilder::StoreData(SmallVector& data) const {
+  static_assert(static_cast<size_t>(Argument::kEnd) == 0u, "kEnd must be 0.");
+  const uint32_t* current_arg = args_;
+  for (uint32_t f = format_; f != 0u; f >>= kBitsPerArg) {
+    DCHECK_LE(f & kArgMask, static_cast<uint32_t>(Argument::kLast));
+    switch (static_cast<Argument>(f & kArgMask)) {
+      case Argument::kString: {
+        ObjPtr<mirror::String> str = reinterpret_cast32<mirror::String*>(*current_arg);
+        if (str != nullptr) {
+          if (!str->IsCompressed()) {
+            return false;
+          }
+          data.push_back(reinterpret_cast<char*>(str->GetValueCompressed()), str->GetLength());
+        } else {
+          data.push_back(kNull, kNullLength);
+        }
+        break;
+      }
+      case Argument::kBoolean: {
+        if (*current_arg == 0u) {
+          data.push_back(kFalse, kFalseLength);
+        } else {
+          data.push_back(kTrue, kTrueLength);
+        }
+        break;
+      }
+      case Argument::kChar: {
+        const uint16_t c = reinterpret_cast<const uint16_t*>(current_arg)[0];
+        if (!mirror::String::IsASCII(c)) {
+          return false;
+        }
+        data.push_back(c);
+        break;
+      }
+      case Argument::kInt: {
+        AppendInt64(data, static_cast<int32_t>(*current_arg));
+        break;
+      }
+      case Argument::kLong: {
+        current_arg = AlignUp(current_arg, sizeof(int64_t));
+        const int64_t value = (*reinterpret_cast<const int64_t*>(current_arg));
+        AppendInt64(data, value);
+        ++current_arg;  // Skip the low word, let the common code skip the high word.
+        break;
+      }
+      case Argument::kDouble:
+      case Argument::kFloat:
+      case Argument::kStringBuilder:
+      case Argument::kCharArray:
+      case Argument::kObject:
+      default:
+        return false;
+    }
+    ++current_arg;
+  }
+
+  return !data.Overflow();
+}
+
 template <typename CharType>
 inline void StringBuilderAppend::Builder::StoreData(ObjPtr<mirror::String> new_string,
                                                     CharType* data) const {
@@ -505,13 +662,32 @@ inline void StringBuilderAppend::Builder::operator()(ObjPtr<mirror::Object> obj,
 ObjPtr<mirror::String> StringBuilderAppend::AppendF(uint32_t format,
                                                     const uint32_t* args,
                                                     Thread* self) {
+  gc::AllocatorType allocator_type = Runtime::Current()->GetHeap()->GetCurrentAllocator();
+  {
+    SmallBuilder fast_builder(format, args);
+    auto visitor = [&](ObjPtr<mirror::Object> obj, [[maybe_unused]] size_t usable_size) REQUIRES_SHARED(Locks::mutator_lock_) {
+      ObjPtr<mirror::String> new_string = ObjPtr<mirror::String>::DownCast(obj);
+      SmallVector buffer(new_string->GetValueCompressed());
+      if (fast_builder.StoreData(buffer)) {
+        int32_t length_with_flag =
+            mirror::String::GetFlaggedCount(buffer.size(), /* compressible= */ true);
+        new_string->SetCount(length_with_flag);
+      } else {
+        new_string->SetCount(0);
+      }
+    };
+    ObjPtr<mirror::String> str = mirror::String::Alloc(self, 256, allocator_type, visitor);
+    if (str->GetLength() != 0u) {
+      return str;
+    }
+  }
+
   Builder builder(format, args, self);
   self->AssertNoPendingException();
   int32_t length_with_flag = builder.CalculateLengthWithFlag();
   if (self->IsExceptionPending()) {
     return nullptr;
   }
-  gc::AllocatorType allocator_type = Runtime::Current()->GetHeap()->GetCurrentAllocator();
   ObjPtr<mirror::String> result = mirror::String::Alloc(
       self, length_with_flag, allocator_type, builder);
 

@@ -140,6 +140,7 @@ using VIXLUInt32Literal = vixl::aarch32::Literal<uint32_t>;
   V(FP16Min)                                                               \
   V(FP16Max)                                                               \
   V(MathMultiplyHigh)                                                      \
+  V(StringFillBytesLatin1)                                                 \
   V(StringStringIndexOf)                                                   \
   V(StringStringIndexOfAfter)                                              \
   V(StringBufferAppend)                                                    \

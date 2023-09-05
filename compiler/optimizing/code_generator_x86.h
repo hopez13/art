@@ -71,6 +71,7 @@ static constexpr size_t kRuntimeParameterFpuRegistersLength =
   V(FP16Min)                                \
   V(FP16Max)                                \
   V(MathMultiplyHigh)                       \
+  V(StringFillBytesLatin1)                  \
   V(StringStringIndexOf)                    \
   V(StringStringIndexOfAfter)               \
   V(StringBufferAppend)                     \

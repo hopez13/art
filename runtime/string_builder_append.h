@@ -60,6 +60,7 @@ class StringBuilderAppend {
 
  private:
   class Builder;
+  class SmallBuilder;
 };
 
 }  // namespace art

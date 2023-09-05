@@ -188,6 +188,7 @@
   V(StringCompareTo, kVirtual, kNeedsEnvironment, kReadSideEffects, kCanThrow, "Ljava/lang/String;", "compareTo", "(Ljava/lang/String;)I") \
   V(StringEquals, kVirtual, kNeedsEnvironment, kReadSideEffects, kCanThrow, "Ljava/lang/String;", "equals", "(Ljava/lang/Object;)Z") \
   V(StringGetCharsNoCheck, kVirtual, kNeedsEnvironment, kReadSideEffects, kCanThrow, "Ljava/lang/String;", "getCharsNoCheck", "(II[CI)V") \
+  V(StringFillBytesLatin1, kDirect, kNeedsEnvironment, kAllSideEffects, kNoThrow, "Ljava/lang/String;", "fillBytesLatin1", "([BI)V") \
   V(StringIndexOf, kVirtual, kNeedsEnvironment, kReadSideEffects, kNoThrow, "Ljava/lang/String;", "indexOf", "(I)I") \
   V(StringIndexOfAfter, kVirtual, kNeedsEnvironment, kReadSideEffects, kNoThrow, "Ljava/lang/String;", "indexOf", "(II)I") \
   V(StringStringIndexOf, kVirtual, kNeedsEnvironment, kReadSideEffects, kCanThrow, "Ljava/lang/String;", "indexOf", "(Ljava/lang/String;)I") \
