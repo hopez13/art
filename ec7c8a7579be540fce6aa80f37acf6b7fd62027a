@@ -130,6 +130,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f17b8466_d39b54ce",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-09-06T11:29:05Z",
+      "side": 1,
+      "message": "`class_linker-\u003eVisitClasses` checks that `self-\u003eGetDebugDisallowReadBarrierCount() \u003d\u003d 0u`, which is false inside `CalculateNewObjectOffsets`.",
+      "parentUuid": "4a103f24_a77ca97f",
+      "range": {
+        "startLine": 259,
+        "startChar": 33,
+        "endLine": 259,
+        "endChar": 45
+      },
+      "revId": "ec7c8a7579be540fce6aa80f37acf6b7fd62027a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d6edf68e_6217452e",
