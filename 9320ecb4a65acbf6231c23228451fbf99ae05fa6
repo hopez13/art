@@ -22,6 +22,30 @@
       },
       "revId": "9320ecb4a65acbf6231c23228451fbf99ae05fa6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "110118b5_f78215fc",
+        "filename": "runtime/image.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-09-06T11:34:28Z",
+      "side": 1,
+      "message": "(Or maybe leave that for the follow-up promised by the `Test:`.)",
+      "parentUuid": "797cd1ea_774c344b",
+      "range": {
+        "startLine": 423,
+        "startChar": 4,
+        "endLine": 423,
+        "endChar": 6
+      },
+      "revId": "9320ecb4a65acbf6231c23228451fbf99ae05fa6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
