@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4af4ffe7_3c098633",
+        "filename": "libartbase/base/metrics/metrics_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2023-09-06T10:13:46Z",
+      "side": 1,
+      "message": "Fix applied.",
+      "parentUuid": "12f2f89c_7ca9f3be",
+      "revId": "bcec1101d191f778b1971ba2d3524530e8197d53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8e01bb67_f6ac35ec",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-09-05T17:58:40Z",
       "side": 1,
       "message": "```suggestion\n  // Save the current timestamp to be able to calculate the elapsed time for the next report cycle.\n```",
+      "revId": "bcec1101d191f778b1971ba2d3524530e8197d53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "01951779_78eaade6",
+        "filename": "libartbase/base/metrics/metrics_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2023-09-06T10:13:46Z",
+      "side": 1,
+      "message": "Fix applied.",
+      "parentUuid": "8e01bb67_f6ac35ec",
       "revId": "bcec1101d191f778b1971ba2d3524530e8197d53",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
