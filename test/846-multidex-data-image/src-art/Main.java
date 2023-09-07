@@ -19,6 +19,13 @@ import dalvik.system.VMRuntime;
 import java.io.File;
 import java.io.IOException;
 
+class SuperClass {}
+
+class ClassWithStatics extends SuperClass {
+    public static final String STATIC_STRING = "foo";
+    public static final int STATIC_INT = 42;
+}
+
 public class Main {
   public static void main(String[] args) throws Exception {
     System.loadLibrary(args[0]);
@@ -48,7 +55,7 @@ public class Main {
 
     if (args.length == 2 && "--second-run".equals(args[1])) {
       DexFile.OptimizationInfo info = VMRuntime.getBaseApkOptimizationInfo();
-      if (!info.isOptimized()) {
+      if (!info.isOptimized() || !isInImageSpace(ClassWithStatics.class)) {
         throw new Error("Expected image to be loaded");
       }
     }
@@ -74,9 +81,12 @@ public class Main {
     Class.forName("Foo");
   }
 
+  public static ClassWithStatics statics = new ClassWithStatics();
+
   private static native boolean hasOatFile();
   private static native boolean hasImage();
   private static native String getCompilerFilter(Class<?> cls);
+  private static native boolean isInImageSpace(Class<?> cls);
 
   private static final String TEMP_FILE_NAME_PREFIX = "temp";
   private static final String TEMP_FILE_NAME_SUFFIX = "-file";
