@@ -1,0 +1,182 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c367aa65_4aecc7ac",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 3947,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-09-07T08:22:06Z",
+      "side": 1,
+      "message": "Use in-memory compare just like with the `method_handle_kind` above.",
+      "range": {
+        "startLine": 3946,
+        "startChar": 4,
+        "endLine": 3947,
+        "endChar": 65
+      },
+      "revId": "df82ef93e4795c5de14cf964862b9c25636d5e16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9de2b902_0c525897",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 3959,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-09-07T08:22:06Z",
+      "side": 1,
+      "message": "__ testl(Address(method, ArtMethod::AccessFlagsOffset()),\n             Immediate(kAccStatic | kAccFinal | kAccPrivate));`\n\nBut why are you testing for `kAccFinal`? Is there a different method handle kind for final methods?\n\n(Final methods can skip the virtual dispatch but maybe it\u0027s better to avoid this optimization to emit less code.)",
+      "range": {
+        "startLine": 3957,
+        "startChar": 4,
+        "endLine": 3959,
+        "endChar": 40
+      },
+      "revId": "df82ef93e4795c5de14cf964862b9c25636d5e16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16ab3181_4f40af28",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 3972,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-09-07T08:22:06Z",
+      "side": 1,
+      "message": "I\u0027d prefer not to have another variable for `method`. It\u0027s better to explicitly clobber the `method` register, rather than hiding that we\u0027re doing it.",
+      "range": {
+        "startLine": 3972,
+        "startChar": 4,
+        "endLine": 3972,
+        "endChar": 77
+      },
+      "revId": "df82ef93e4795c5de14cf964862b9c25636d5e16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "70e21634_028120d9",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 3982,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-09-07T08:22:06Z",
+      "side": 1,
+      "message": "If the method throws, do we get the same stack trace for fast-path and slow-path?",
+      "revId": "df82ef93e4795c5de14cf964862b9c25636d5e16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d5a377c8_b9b51041",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 3991,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-09-07T08:22:06Z",
+      "side": 1,
+      "message": "Code like this belongs to the slow-path (define a new slow-path class) to avoid the `jmp` over it.",
+      "range": {
+        "startLine": 3990,
+        "startChar": 4,
+        "endLine": 3991,
+        "endChar": 21
+      },
+      "revId": "df82ef93e4795c5de14cf964862b9c25636d5e16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "90d46db4_9ac1aeae",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 3998,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-09-07T08:22:06Z",
+      "side": 1,
+      "message": "This is not a constant, not even for JIT because the class can actually move in jitzygote mode. You would need to restrict the intrinsic to the case where we have a boot image and use `LoadBootImageAddress()` with all the complexity that it adds. But that\u0027s probably moot because of the next comment below.",
+      "range": {
+        "startLine": 3997,
+        "startChar": 4,
+        "endLine": 3998,
+        "endChar": 96
+      },
+      "revId": "df82ef93e4795c5de14cf964862b9c25636d5e16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ca1ffd3_88daed23",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 4000,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-09-07T08:22:06Z",
+      "side": 1,
+      "message": "If an exception is thrown, ART shall do a long-jump and we\u0027ll never reach this code.",
+      "range": {
+        "startLine": 3999,
+        "startChar": 4,
+        "endLine": 4000,
+        "endChar": 33
+      },
+      "revId": "df82ef93e4795c5de14cf964862b9c25636d5e16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1fddf4ba_87498d05",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 4006,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-09-07T08:22:06Z",
+      "side": 1,
+      "message": "What if the same method handle is used from different dex files? A `proto_idx` could match for a different set of arguments.",
+      "range": {
+        "startLine": 4005,
+        "startChar": 4,
+        "endLine": 4006,
+        "endChar": 45
+      },
+      "revId": "df82ef93e4795c5de14cf964862b9c25636d5e16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
