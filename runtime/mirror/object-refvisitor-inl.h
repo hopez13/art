@@ -22,6 +22,7 @@
 #include "class-refvisitor-inl.h"
 #include "class_loader-inl.h"
 #include "dex_cache-inl.h"
+#include "well_known_classes-inl.h"
 
 namespace art {
 namespace mirror {
@@ -63,6 +64,14 @@ inline void Object::VisitReferences(const Visitor& visitor,
                                    kVerifyFlags,
                                    kReadBarrierOption>(klass, visitor);
       } else {
+        // Debugging code for b/297966050.
+        bool is_class_class = klass->GetClass<kVerifyFlags, kReadBarrierOption>()->IsClassClass();
+        CHECK(is_class_class);
+        ObjPtr<mirror::Class> temp = klass;
+        do {
+          CHECK(temp->IsClassLoaderClass()) << klass->PrettyClass();
+          temp = temp->GetSuperClass<kVerifyFlags, kReadBarrierOption>();
+        } while (temp->GetSuperClass<kVerifyFlags, kReadBarrierOption>() != nullptr);
         ObjPtr<mirror::ClassLoader> const class_loader =
             AsClassLoader<kVerifyFlags, kReadBarrierOption>();
         class_loader->VisitReferences<kVisitNativeRoots,
