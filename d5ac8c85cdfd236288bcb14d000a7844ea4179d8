@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "570c6cc9_ad280d12",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1229339
+      },
+      "writtenOn": "2023-09-08T04:52:59Z",
+      "side": 1,
+      "message": "It looks like this TransformIterator problem applies only to:\n\n - IndexIterator\n - CountIter\n - FilterIterator\n\nIn I589cc36a95e505c3c356ad245dd03286680aa4f7, I changed the indicated typedefs to void, except for these three iterator classes. For FilterIterator, I used the suggested `RealIter::{pointer,reference}`.",
+      "parentUuid": "da02dee5_4f75639a",
+      "revId": "d5ac8c85cdfd236288bcb14d000a7844ea4179d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "dbe0eff4_0696b05f",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 2
