@@ -22,6 +22,30 @@
       },
       "revId": "d389d6221ca009836208df5edd80b74211285075",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c4ed1e6b_59736df5",
+        "filename": "dex2oat/linker/arm/relative_patcher_thumb2_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 777,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-09-08T13:44:12Z",
+      "side": 1,
+      "message": "I\u0027d prefer to use the argument here. The `implicit_null_checks_` is just a way to pass that to `CompileThunk()`.",
+      "parentUuid": "abf06192_75cde712",
+      "range": {
+        "startLine": 777,
+        "startChar": 10,
+        "endLine": 777,
+        "endChar": 30
+      },
+      "revId": "d389d6221ca009836208df5edd80b74211285075",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
