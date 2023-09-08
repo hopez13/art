@@ -4890,14 +4890,19 @@ void InstructionCodeGeneratorRISCV64::VisitStringBuilderAppend(HStringBuilderApp
 
 void LocationsBuilderRISCV64::VisitUnresolvedInstanceFieldGet(
     HUnresolvedInstanceFieldGet* instruction) {
-  UNUSED(instruction);
-  LOG(FATAL) << "Unimplemented";
+  FieldAccessCallingConventionRISCV64 calling_convention;
+  codegen_->CreateUnresolvedFieldLocationSummary(
+      instruction, instruction->GetFieldType(), calling_convention);
 }
 
 void InstructionCodeGeneratorRISCV64::VisitUnresolvedInstanceFieldGet(
     HUnresolvedInstanceFieldGet* instruction) {
-  UNUSED(instruction);
-  LOG(FATAL) << "Unimplemented";
+  FieldAccessCallingConventionRISCV64 calling_convention;
+  codegen_->GenerateUnresolvedFieldAccess(instruction,
+                                          instruction->GetFieldType(),
+                                          instruction->GetFieldIndex(),
+                                          instruction->GetDexPc(),
+                                          calling_convention);
 }
 
 void LocationsBuilderRISCV64::VisitUnresolvedInstanceFieldSet(
