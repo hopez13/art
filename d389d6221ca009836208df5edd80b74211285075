@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "abf06192_75cde712",
+        "filename": "dex2oat/linker/arm/relative_patcher_thumb2_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 777,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-09-08T13:15:35Z",
+      "side": 1,
+      "message": "nit: `implicit_null_checks_`. This is the same for now, but I think we should use the `_` version just in case we do some `implicit_null_checks_` manipulation between line 729 and here.\n\nSame for line 881, and for `relative_patcher_arm64_test.cc` line 1112",
+      "range": {
+        "startLine": 777,
+        "startChar": 10,
+        "endLine": 777,
+        "endChar": 30
+      },
+      "revId": "d389d6221ca009836208df5edd80b74211285075",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
