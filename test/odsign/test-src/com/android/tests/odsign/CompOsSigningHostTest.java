@@ -43,8 +43,7 @@ public class CompOsSigningHostTest extends ActivationTest {
 
     private static final String ORIGINAL_CHECKSUMS_KEY = "compos_test_orig_checksums";
     private static final String PENDING_CHECKSUMS_KEY = "compos_test_pending_checksums";
-    private static final String TIMESTAMP_VM_START_KEY = "compos_test_timestamp_vm_start";
-    private static final String TIMESTAMP_REBOOT_KEY = "compos_test_timestamp_reboot";
+    private static final String PENDING_FILE_TIMESTAMPS_KEY = "compos_test_pending_timestamps";
 
     @Rule public TestLogData mTestLogs = new TestLogData();
 
@@ -64,15 +63,12 @@ public class CompOsSigningHostTest extends ActivationTest {
         try {
             testUtils.installTestApex();
 
-            testInfo.properties().put(TIMESTAMP_VM_START_KEY,
-                    String.valueOf(testUtils.getCurrentTimeMs()));
-
             compOsTestUtils.runCompilationJobEarlyAndWait();
 
             testInfo.properties().put(PENDING_CHECKSUMS_KEY,
                     compOsTestUtils.checksumDirectoryContentPartial(PENDING_ARTIFACTS_DIR));
-            testInfo.properties().put(TIMESTAMP_REBOOT_KEY,
-                    String.valueOf(testUtils.getCurrentTimeMs()));
+            testInfo.properties().put(PENDING_FILE_TIMESTAMPS_KEY,
+                    compOsTestUtils.snapshotDirectoryContentCreationTime(PENDING_ARTIFACTS_DIR));
         } finally {
             // Make sure to reboot after installTestApex.
             testUtils.reboot();
@@ -107,24 +103,13 @@ public class CompOsSigningHostTest extends ActivationTest {
     @Test
     @CtsTestCase
     public void checkFileCreationTimeAfterVmStartAndBeforeReboot() throws Exception {
-        OdsignTestUtils testUtils = new OdsignTestUtils(getTestInformation());
+        CompOsTestUtils compOsTestUtils = new CompOsTestUtils(getDevice());
 
-        // No files are created before our VM starts.
-        int numFiles = testUtils.countFilesCreatedBeforeTime(
-                OdsignTestUtils.ART_APEX_DALVIK_CACHE_DIRNAME,
-                Long.parseLong(getTestInformation().properties().get(TIMESTAMP_VM_START_KEY)));
-        assertThat(numFiles).isEqualTo(0);
-
-        // (All) Files are created after our VM starts.
-        numFiles = testUtils.countFilesCreatedAfterTime(
-                OdsignTestUtils.ART_APEX_DALVIK_CACHE_DIRNAME,
-                Long.parseLong(getTestInformation().properties().get(TIMESTAMP_VM_START_KEY)));
-        assertThat(numFiles).isGreaterThan(0);
-
-        // No files are created after reboot.
-        numFiles = testUtils.countFilesCreatedAfterTime(
-                OdsignTestUtils.ART_APEX_DALVIK_CACHE_DIRNAME,
-                Long.parseLong(getTestInformation().properties().get(TIMESTAMP_REBOOT_KEY)));
-        assertThat(numFiles).isEqualTo(0);
+        // The file names and timestamps look exactly like when they were just compiled.
+        String actualTimestamps = compOsTestUtils.snapshotDirectoryContentCreationTime(
+                OdsignTestUtils.ART_APEX_DALVIK_CACHE_DIRNAME);
+        String expectedTimestamps =
+                getTestInformation().properties().get(PENDING_FILE_TIMESTAMPS_KEY);
+        assertThat(expectedTimestamps).isEqualTo(actualTimestamps);
     }
 }

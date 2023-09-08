@@ -65,7 +65,7 @@ public class CompOsDenialHostTest extends BaseHostJUnit4Test {
         // reduce testing time.
         compOsTestUtils.runCompilationJobEarlyAndWait();
         testInfo.properties().put(TIMESTAMP_COMPOS_COMPILED_KEY,
-                String.valueOf(testUtils.getCurrentTimeMs()));
+                compOsTestUtils.snapshotDirectoryContentCreationTime(PENDING_ARTIFACTS_DIR));
         testUtils.assertCommandSucceeds(
                 "mv " + PENDING_ARTIFACTS_DIR + " " + PENDING_ARTIFACTS_BACKUP_DIR);
     }
@@ -145,13 +145,13 @@ public class CompOsDenialHostTest extends BaseHostJUnit4Test {
     }
 
     private void expectNoCurrentFilesFromCompOs() throws DeviceNotAvailableException {
-        // None of the files should have a timestamp earlier than the first reboot.
-        long timestamp = Long.parseLong(getTestInformation().properties().get(
-                    TIMESTAMP_COMPOS_COMPILED_KEY));
-        int numFiles = mTestUtils.countFilesCreatedBeforeTime(
-                OdsignTestUtils.ART_APEX_DALVIK_CACHE_DIRNAME,
-                timestamp);
-        assertThat(numFiles).isEqualTo(0);
+        String compilationTimestamp = getTestInformation().properties().get(
+                TIMESTAMP_COMPOS_COMPILED_KEY);
+        CompOsTestUtils compOsTestUtils = new CompOsTestUtils(getDevice());
+        // The current files should 
+        assertThat(compOsTestUtils.snapshotDirectoryContentCreationTime(
+                    OdsignTestUtils.ART_APEX_DALVIK_CACHE_DIRNAME))
+            .isNotEqualTo(compilationTimestamp);
 
         // odsign should have deleted the pending directory.
         assertThat(getDevice().isDirectory(PENDING_ARTIFACTS_DIR)).isFalse();

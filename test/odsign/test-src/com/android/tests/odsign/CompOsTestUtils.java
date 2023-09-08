@@ -16,6 +16,7 @@
 
 package com.android.tests.odsign;
 
+import static com.google.common.truth.Truth.assertThat;
 import static com.google.common.truth.Truth.assertWithMessage;
 
 import static org.junit.Assert.fail;
@@ -27,6 +28,7 @@ import com.android.tradefed.device.TestDevice;
 import com.android.tradefed.util.CommandResult;
 
 import java.util.concurrent.TimeUnit;
+import java.util.regex.Pattern;
 
 public class CompOsTestUtils {
 
@@ -76,6 +78,20 @@ public class CompOsTestUtils {
         return assertCommandSucceeds("cd " + path + " && find -type f -exec sha256sum {} \\;"
                 + "| grep -v cache-info.xml | grep -v compos.info"
                 + "| sort -k2");
+    }
+
+    public String snapshotDirectoryContentCreationTime(String path) throws DeviceNotAvailableException {
+        // Generate file path and timestamp of relevant files. The output looks like:
+        // ./arm64/boot.art 1694111409
+        // ./arm64/boot.oat 1694111410
+        // ...
+        String output = assertCommandSucceeds("cd " + path + " && find -type f"
+                + "| xargs stat -c '%n %Z'"
+                + "| grep -v cache-info.xml | grep -v compos.info"
+                + "| sort -k2");
+        // Ensure the output is in expected format and not any kinds of error.
+        assertThat(output).matches(Pattern.compile("(^.+ \\d+$\n?)+", Pattern.MULTILINE));
+        return output;
     }
 
     private void waitForJobToBeScheduled()

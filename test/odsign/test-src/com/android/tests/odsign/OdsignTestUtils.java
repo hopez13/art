@@ -387,28 +387,6 @@ public class OdsignTestUtils {
         return parseFormattedDateTime(dateTimeStr);
     }
 
-    public int countFilesCreatedBeforeTime(String directory, long timestampMs)
-            throws DeviceNotAvailableException {
-        // Drop the precision to second, mainly because we need to use `find -newerct` to query
-        // files by timestamp, but toybox can't parse `date +'%s.%N'` currently.
-        String timestamp = String.valueOf(timestampMs / 1000);
-        // For simplicity, directory must be a simple path that doesn't require escaping.
-        String output = assertCommandSucceeds(
-                "find " + directory + " -type f ! -newerct '@" + timestamp + "' | wc -l");
-        return Integer.parseInt(output);
-    }
-
-    public int countFilesCreatedAfterTime(String directory, long timestampMs)
-            throws DeviceNotAvailableException {
-        // Drop the precision to second, mainly because we need to use `find -newerct` to query
-        // files by timestamp, but toybox can't parse `date +'%s.%N'` currently.
-        String timestamp = String.valueOf(timestampMs / 1000);
-        // For simplicity, directory must be a simple path that doesn't require escaping.
-        String output = assertCommandSucceeds(
-                "find " + directory + " -type f -newerct '@" + timestamp + "' | wc -l");
-        return Integer.parseInt(output);
-    }
-
     public String assertCommandSucceeds(String command) throws DeviceNotAvailableException {
         CommandResult result = mTestInfo.getDevice().executeShellV2Command(command);
         assertWithMessage(result.toString()).that(result.getExitCode()).isEqualTo(0);
