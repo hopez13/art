@@ -54,6 +54,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "51edb2dc_fc12fa38",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1229339
+      },
+      "writtenOn": "2023-09-08T23:53:29Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "1ea06755_18f6a8b8",
+      "revId": "d5ac8c85cdfd236288bcb14d000a7844ea4179d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dbe0eff4_0696b05f",
@@ -67,6 +85,30 @@
       "writtenOn": "2023-09-04T09:33:28Z",
       "side": 1,
       "message": "I don\u0027t think these two make sense, maybe they should be `void`. We should at least add a TODO.",
+      "range": {
+        "startLine": 2202,
+        "startChar": 2,
+        "endLine": 2203,
+        "endChar": 32
+      },
+      "revId": "d5ac8c85cdfd236288bcb14d000a7844ea4179d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b92da77_9a8cb8db",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 2203,
+      "author": {
+        "id": 1229339
+      },
+      "writtenOn": "2023-09-08T23:53:29Z",
+      "side": 1,
+      "message": "Done: https://android-review.googlesource.com/2746156",
+      "parentUuid": "dbe0eff4_0696b05f",
       "range": {
         "startLine": 2202,
         "startChar": 2,
@@ -100,6 +142,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6aaf4042_1fc8c92c",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 2929,
+      "author": {
+        "id": 1229339
+      },
+      "writtenOn": "2023-09-08T23:53:29Z",
+      "side": 1,
+      "message": "Done: https://android-review.googlesource.com/2746156",
+      "parentUuid": "91814ac9_e2f13877",
+      "range": {
+        "startLine": 2928,
+        "startChar": 2,
+        "endLine": 2929,
+        "endChar": 32
+      },
+      "revId": "d5ac8c85cdfd236288bcb14d000a7844ea4179d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "919dcea0_5e4d17dd",
@@ -113,6 +179,30 @@
       "writtenOn": "2023-09-04T09:33:28Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 60,
+        "startChar": 4,
+        "endLine": 60,
+        "endChar": 31
+      },
+      "revId": "d5ac8c85cdfd236288bcb14d000a7844ea4179d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "01de8cd6_7645b731",
+        "filename": "libartbase/base/bit_vector.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1229339
+      },
+      "writtenOn": "2023-09-08T23:53:29Z",
+      "side": 1,
+      "message": "Changing the `reference` typedef to `void` broke the instantiation of `TransformIterator\u003cBitVector::IndexIterator, ...\u003e`, so leaving it as `uint32_t`.\n\n```\nart/libartbase/base/transform_iterator.h:47:57: error: argument may not have \u0027void\u0027 type\n  using ResultType \u003d std::result_of_t\u003cFunction(InputType)\u003e;\n                                                        ^\nprebuilts/clang/host/linux-x86/clang-r498229/include/c++/v1/__iterator/iterator_traits.h:130:68: note: in instantiation of template class \u0027art::TransformIterator\u003cart::BitVector::IndexIterator, art::BlockIdToBlockTransformer\u003e\u0027 requested here\n    template \u003cclass _Up\u003e static true_type __test(__void_t\u003ctypename _Up::iterator_category\u003e* \u003d nullptr,\n                                                                   ^\nprebuilts/clang/host/linux-x86/clang-r498229/include/c++/v1/__iterator/iterator_traits.h:136:40: note: while substituting explicitly-specified template arguments into function template \u0027__test\u0027 \n    static const bool value \u003d decltype(__test\u003c_Tp\u003e(0,0,0,0,0))::value;\n                                       ^\nprebuilts/clang/host/linux-x86/clang-r498229/include/c++/v1/__iterator/iterator_traits.h:417:32: note: in instantiation of template class \u0027std::__has_iterator_typedefs\u003cart::TransformIterator\u003cart::BitVector::IndexIterator, art::BlockIdToBlockTransformer\u003e\u003e\u0027 request\ned here\n    : __iterator_traits\u003c_Iter, __has_iterator_typedefs\u003c_Iter\u003e::value\u003e {\n                               ^\nart/libartbase/base/iteration_range.h:31:41: note: in instantiation of template class \u0027std::iterator_traits\u003cart::TransformIterator\u003cart::BitVector::IndexIterator, art::BlockIdToBlockTransformer\u003e\u003e\u0027 requested here\n  using difference_type \u003d typename std::iterator_traits\u003cIter\u003e::difference_type;\n                                        ^\nart/compiler/optimizing/execution_subgraph.h:139:22: note: in instantiation of template class \u0027art::IterationRange\u003cart::TransformIterator\u003cart::BitVector::IndexIterator, art::BlockIdToBlockTransformer\u003e\u003e\u0027 requested here\n    BitVecBlockRange Blocks() const {\n                     ^\n```",
+      "parentUuid": "919dcea0_5e4d17dd",
       "range": {
         "startLine": 60,
         "startChar": 4,
@@ -146,6 +236,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8060b4fc_d70e170c",
+        "filename": "libartbase/base/stl_util.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1229339
+      },
+      "writtenOn": "2023-09-08T23:53:29Z",
+      "side": 1,
+      "message": "Done: https://android-review.googlesource.com/2746156",
+      "parentUuid": "a0fc71d5_1e25d2c8",
+      "range": {
+        "startLine": 164,
+        "startChar": 2,
+        "endLine": 165,
+        "endChar": 32
+      },
+      "revId": "d5ac8c85cdfd236288bcb14d000a7844ea4179d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "948c0554_105b149f",
@@ -159,6 +273,30 @@
       "writtenOn": "2023-09-04T09:33:28Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 198,
+        "startChar": 2,
+        "endLine": 199,
+        "endChar": 27
+      },
+      "revId": "d5ac8c85cdfd236288bcb14d000a7844ea4179d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea1e585f_d85d96dc",
+        "filename": "libartbase/base/stl_util.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1229339
+      },
+      "writtenOn": "2023-09-08T23:53:29Z",
+      "side": 1,
+      "message": "Changing these typedefs to `void` broke the instantiation of `TransformIterator\u003cCountIter, ...\u003e`, so leaving as size_t.\n\n```\nart/libartbase/base/transform_iterator.h:47:57: error: argument may not have \u0027void\u0027 type\n  using ResultType \u003d std::result_of_t\u003cFunction(InputType)\u003e;\n                                                        ^\nprebuilts/clang/host/linux-x86/clang-r498229/include/c++/v1/__iterator/iterator_traits.h:130:68: note: in instantiation of template class \u0027art::TransformIterator\u003cart::CountIter, art::HEnvironment::EnvInputSelector\u003e\u0027 requested here\n    template \u003cclass _Up\u003e static true_type __test(__void_t\u003ctypename _Up::iterator_category\u003e* \u003d nullptr,\n                                                                   ^\nprebuilts/clang/host/linux-x86/clang-r498229/include/c++/v1/__iterator/iterator_traits.h:136:40: note: while substituting explicitly-specified template arguments into function template \u0027__test\u0027 \n    static const bool value \u003d decltype(__test\u003c_Tp\u003e(0,0,0,0,0))::value;\n                                       ^\nprebuilts/clang/host/linux-x86/clang-r498229/include/c++/v1/__iterator/iterator_traits.h:417:32: note: in instantiation of template class \u0027std::__has_iterator_typedefs\u003cart::TransformIterator\u003cart::CountIter, art::HEnvironment::EnvInputSelector\u003e\u003e\u0027 requested here\n    : __iterator_traits\u003c_Iter, __has_iterator_typedefs\u003c_Iter\u003e::value\u003e {\n                               ^\nart/libartbase/base/iteration_range.h:31:41: note: in instantiation of template class \u0027std::iterator_traits\u003cart::TransformIterator\u003cart::CountIter, art::HEnvironment::EnvInputSelector\u003e\u003e\u0027 requested here\n  using difference_type \u003d typename std::iterator_traits\u003cIter\u003e::difference_type;\n                                        ^\nart/compiler/optimizing/nodes.h:2173:37: note: in instantiation of template class \u0027art::IterationRange\u003cart::TransformIterator\u003cart::CountIter, art::HEnvironment::EnvInputSelector\u003e\u003e\u0027 requested here\n  IterationRange\u003cHConstEnvInputRef\u003e GetEnvInputs() const {\n                                    ^\n```",
+      "parentUuid": "948c0554_105b149f",
       "range": {
         "startLine": 198,
         "startChar": 2,
@@ -192,6 +330,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f2f5f87_1953067e",
+        "filename": "libartbase/base/stl_util.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1229339
+      },
+      "writtenOn": "2023-09-08T23:53:29Z",
+      "side": 1,
+      "message": "Done: https://android-review.googlesource.com/2746156\n\n(Changing these typedefs to void broke the instantiation of `TransformIterator\u003cFilterIterator, ...\u003e`, so use `RealIter::{pointer,reference}` instead.)\n\n```\nart/libartbase/base/transform_iterator.h:47:57: error: argument may not have \u0027void\u0027 type\n  using ResultType \u003d std::result_of_t\u003cFunction(InputType)\u003e;\n                                                        ^\nart/libartbase/base/transform_iterator.h:164:29: note: in instantiation of template class \u0027art::TransformIterator\u003cart::FilterIterator\u003cstd::__wrap_iter\u003cconst art::DexFile *const *\u003e, (lambda at art/runtime/native/java_lang_VMClassLoader.cc:142:31)\u003e, (lambda at art/runtime/native/java_lang_VMClassLoader.cc:159:23)\u003e\u0027 requested here\n  return MakeIterationRange(MakeTransformIterator(range.begin(), f),\n                            ^\nart/runtime/native/java_lang_VMClassLoader.cc:164:7: note: in instantiation of function template specialization \u0027art::MakeTransformRange\u003cart::IterationRange\u003cart::FilterIterator\u003cstd::__wrap_iter\u003cconst art::DexFile *const *\u003e, (lambda at art/runtime/native/java_lang_VMClassLoader.cc:142:31)\u003e\u003e, (lambda at art/runtime/native/java_lang_VMClassLoader.cc:159:23)\u003e\u0027 requested here\n      MakeTransformRange(Filter(path, dchecked_is_base_dex), get_location)));\n      ^\n```",
+      "parentUuid": "97d29e06_7848eeb3",
+      "range": {
+        "startLine": 256,
+        "startChar": 2,
+        "endLine": 257,
+        "endChar": 32
+      },
+      "revId": "d5ac8c85cdfd236288bcb14d000a7844ea4179d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "29b786fd_00491b7e",
@@ -205,6 +367,30 @@
       "writtenOn": "2023-09-04T09:33:28Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 346,
+        "startChar": 2,
+        "endLine": 347,
+        "endChar": 32
+      },
+      "revId": "d5ac8c85cdfd236288bcb14d000a7844ea4179d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b1391d74_f0d33c53",
+        "filename": "libartbase/base/stl_util.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1229339
+      },
+      "writtenOn": "2023-09-08T23:53:29Z",
+      "side": 1,
+      "message": "Done: https://android-review.googlesource.com/2746156",
+      "parentUuid": "29b786fd_00491b7e",
       "range": {
         "startLine": 346,
         "startChar": 2,
@@ -238,6 +424,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3671750e_e2d6b5e5",
+        "filename": "libdexfile/dex/class_iterator.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1229339
+      },
+      "writtenOn": "2023-09-08T23:53:29Z",
+      "side": 1,
+      "message": "Done: https://android-review.googlesource.com/2746156",
+      "parentUuid": "456c8b46_16d909ff",
+      "range": {
+        "startLine": 49,
+        "startChar": 2,
+        "endLine": 50,
+        "endChar": 32
+      },
+      "revId": "d5ac8c85cdfd236288bcb14d000a7844ea4179d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a544b492_c5c85ec0",
@@ -251,6 +461,30 @@
       "writtenOn": "2023-09-04T09:33:28Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 65,
+        "startChar": 2,
+        "endLine": 66,
+        "endChar": 32
+      },
+      "revId": "d5ac8c85cdfd236288bcb14d000a7844ea4179d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e920e328_c96e7dce",
+        "filename": "libdexfile/dex/dex_instruction_iterator.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1229339
+      },
+      "writtenOn": "2023-09-08T23:53:29Z",
+      "side": 1,
+      "message": "Done: https://android-review.googlesource.com/2746156",
+      "parentUuid": "a544b492_c5c85ec0",
       "range": {
         "startLine": 65,
         "startChar": 2,
