@@ -2633,6 +2633,9 @@ ClassLinker::~ClassLinker() {
     // all the classloaders are deleted at the same time.
     DeleteClassLoader(self, data, /*cleanup_cha=*/ false);
   }
+  for (const ClassLoaderData& data : class_loaders_) {
+    delete data.allocator;
+  }
   class_loaders_.clear();
   while (!running_visibly_initialized_callbacks_.empty()) {
     std::unique_ptr<VisiblyInitializedCallback> callback(
@@ -2672,8 +2675,6 @@ void ClassLinker::DeleteClassLoader(Thread* self, const ClassLoaderData& data, b
       }
     }
   }
-
-  delete data.allocator;
   delete data.class_table;
 }
 
@@ -10866,6 +10867,13 @@ void ClassLinker::CleanupClassLoaders() {
       // CHA unloading analysis and SingleImplementaion cleanups are required.
       DeleteClassLoader(self, data, /*cleanup_cha=*/ true);
     }
+  }
+  // Delete allocator separately as cha could try accessing
+  // CHA::ResetSingleImplementationInHierarchy, for a klass, ArtMethods of its
+  // interface/super-class such that the two are on different class loaders and
+  // the interface's class loader is deleted in previous iteration (b/298575095).
+  for (const ClassLoaderData& data : to_delete) {
+    delete data.allocator;
   }
   Runtime* runtime = Runtime::Current();
   if (!unregistered_oat_files.empty()) {
