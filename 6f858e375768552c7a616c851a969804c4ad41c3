@@ -80,6 +80,30 @@
       },
       "revId": "6f858e375768552c7a616c851a969804c4ad41c3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca1675a2_7e8a2b36",
+        "filename": "runtime/thread.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 2286,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-09-09T01:12:08Z",
+      "side": 1,
+      "message": "This should be fine. In Runtime class also we have non-constexpr statics first, then constexpr ones, and then non-static ones.",
+      "parentUuid": "99d30194_9c732b2a",
+      "range": {
+        "startLine": 2286,
+        "startChar": 2,
+        "endLine": 2286,
+        "endChar": 8
+      },
+      "revId": "6f858e375768552c7a616c851a969804c4ad41c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
