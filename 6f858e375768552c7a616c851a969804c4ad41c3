@@ -16,6 +16,46 @@
       "message": "This is ready to be reviewed.\n\nI looked at the waiting inside checkpoints issue again. We wait in\nWaitForWeakGlobalsAccess, which currently waits while holding the mutator lock. But I think that should be fine, since the GC should not issue any non-empty checkpoints at that stage, and we run the one empty one that might still be pending. So I think that weakening the check is correct.",
       "revId": "6f858e375768552c7a616c851a969804c4ad41c3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d513e04b_13d198e3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-09-09T00:31:25Z",
+      "side": 1,
+      "message": "LGTM except for a minor nit about static.",
+      "revId": "6f858e375768552c7a616c851a969804c4ad41c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72f07012_c97a359e",
+        "filename": "runtime/thread.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 2286,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-09-09T00:31:25Z",
+      "side": 1,
+      "message": "I believe we keep statics in the beginning of the class and not with non-statics.",
+      "range": {
+        "startLine": 2286,
+        "startChar": 2,
+        "endLine": 2286,
+        "endChar": 8
+      },
+      "revId": "6f858e375768552c7a616c851a969804c4ad41c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
