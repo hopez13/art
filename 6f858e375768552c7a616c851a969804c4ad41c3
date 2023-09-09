@@ -56,6 +56,30 @@
       },
       "revId": "6f858e375768552c7a616c851a969804c4ad41c3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "99d30194_9c732b2a",
+        "filename": "runtime/thread.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 2286,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-09-09T01:05:17Z",
+      "side": 1,
+      "message": "I couldn\u0027t find many examples. image.h puts some at the beginning of the main \"private:\" section. Copied that here.",
+      "parentUuid": "72f07012_c97a359e",
+      "range": {
+        "startLine": 2286,
+        "startChar": 2,
+        "endLine": 2286,
+        "endChar": 8
+      },
+      "revId": "6f858e375768552c7a616c851a969804c4ad41c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
