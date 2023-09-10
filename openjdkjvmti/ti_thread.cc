@@ -547,6 +547,7 @@ static jint GetJavaStateFromInternal(const InternalThreadState& state) {
 
 // Suspends the current thread if it has any suspend requests on it.
 void ThreadUtil::SuspendCheck(art::Thread* self) {
+  DCHECK(!self->ReadFlag(art::ThreadFlag::kSuspensionImmune));
   art::ScopedObjectAccess soa(self);
   // Really this is only needed if we are in FastJNI and actually have the mutator_lock_ already.
   self->FullSuspendCheck();
@@ -900,17 +901,13 @@ jvmtiError ThreadUtil::SuspendOther(art::Thread* self,
         }
       }
     }
-    bool timeout = true;
     art::Thread* ret_target = art::Runtime::Current()->GetThreadList()->SuspendThreadByPeer(
-        target_jthread,
-        art::SuspendReason::kForUserCode,
-        &timeout);
-    if (ret_target == nullptr && !timeout) {
+        target_jthread, art::SuspendReason::kForUserCode);
+    if (ret_target == nullptr) {
       // TODO It would be good to get more information about why exactly the thread failed to
       // suspend.
       return ERR(INTERNAL);
-    } else if (!timeout) {
-      // we didn't time out and got a result.
+    } else {
       return OK;
     }
     // We timed out. Just go around and try again.
@@ -927,10 +924,11 @@ jvmtiError ThreadUtil::SuspendSelf(art::Thread* self) {
       // This can only happen if we race with another thread to suspend 'self' and we lose.
       return ERR(THREAD_SUSPENDED);
     }
-    // We shouldn't be able to fail this.
-    if (!self->ModifySuspendCount(self, +1, nullptr, art::SuspendReason::kForUserCode)) {
-      // TODO More specific error would be nice.
-      return ERR(INTERNAL);
+    {
+      // IncrementSuspendCount normally needs thread_list_lock_ to ensure the thread stays
+      // around. In this case we are the target thread, so we fake it.
+      art::FakeMutexLock fmu(*art::Locks::thread_list_lock_);
+      self->IncrementSuspendCount(self, nullptr, nullptr, art::SuspendReason::kForUserCode);
     }
   }
   // Once we have requested the suspend we actually go to sleep. We need to do this after releasing
