@@ -289,7 +289,10 @@ jvmtiError ThreadUtil::GetThreadInfo(jvmtiEnv* env, jthread thread, jvmtiThreadI
 
     info_ptr->is_daemon = target->IsDaemon();
 
-    art::ObjPtr<art::mirror::Object> peer = target->GetPeerFromOtherThread();
+    art::ThreadExitFlag tef;
+    target->NotifyOnThreadExit(&tef);
+    art::ObjPtr<art::mirror::Object> peer = target->LockedGetPeerFromOtherThread(&tef);
+    target->UnregisterThreadExitFlag(&tef);
 
     // ThreadGroup.
     if (peer != nullptr) {
@@ -547,6 +550,7 @@ static jint GetJavaStateFromInternal(const InternalThreadState& state) {
 
 // Suspends the current thread if it has any suspend requests on it.
 void ThreadUtil::SuspendCheck(art::Thread* self) {
+  DCHECK(!self->ReadFlag(art::ThreadFlag::kSuspensionImmune));
   art::ScopedObjectAccess soa(self);
   // Really this is only needed if we are in FastJNI and actually have the mutator_lock_ already.
   self->FullSuspendCheck();
@@ -640,20 +644,30 @@ jvmtiError ThreadUtil::GetAllThreads(jvmtiEnv* env,
 
   art::MutexLock mu(current, *art::Locks::thread_list_lock_);
   std::list<art::Thread*> thread_list = art::Runtime::Current()->GetThreadList()->GetList();
+  // We have to be careful with threads exiting while we build this list.
+  std::vector<art::ThreadExitFlag> tefs(thread_list.size());
+  auto i = tefs.begin();
+  for (art::Thread* thd : thread_list) {
+    thd->NotifyOnThreadExit(&*i++);
+  }
+  DCHECK(i == tefs.end());
 
   std::vector<art::ObjPtr<art::mirror::Object>> peers;
 
+  i = tefs.begin();
   for (art::Thread* thread : thread_list) {
+    art::ThreadExitFlag* tef = &*i++;
     // Skip threads that are still starting.
-    if (thread->IsStillStarting()) {
-      continue;
+    if (!tef->HasExited() && !thread->IsStillStarting()) {
+      // LockedGetPeerFromOtherThreads() may release lock!
+      art::ObjPtr<art::mirror::Object> peer = thread->LockedGetPeerFromOtherThread(tef);
+      if (peer != nullptr) {
+        peers.push_back(peer);
+      }
     }
-
-    art::ObjPtr<art::mirror::Object> peer = thread->GetPeerFromOtherThread();
-    if (peer != nullptr) {
-      peers.push_back(peer);
-    }
+    thread->UnregisterThreadExitFlag(tef);
   }
+  DCHECK(i == tefs.end());
 
   if (peers.empty()) {
     *threads_count_ptr = 0;
@@ -665,8 +679,8 @@ jvmtiError ThreadUtil::GetAllThreads(jvmtiEnv* env,
       return data_result;
     }
     jthread* threads = reinterpret_cast<jthread*>(data);
-    for (size_t i = 0; i != peers.size(); ++i) {
-      threads[i] = soa.AddLocalReference<jthread>(peers[i]);
+    for (size_t j = 0; j != peers.size(); ++j) {
+      threads[j] = soa.AddLocalReference<jthread>(peers[j]);
     }
 
     *threads_count_ptr = static_cast<jint>(peers.size());
@@ -900,17 +914,13 @@ jvmtiError ThreadUtil::SuspendOther(art::Thread* self,
         }
       }
     }
-    bool timeout = true;
     art::Thread* ret_target = art::Runtime::Current()->GetThreadList()->SuspendThreadByPeer(
-        target_jthread,
-        art::SuspendReason::kForUserCode,
-        &timeout);
-    if (ret_target == nullptr && !timeout) {
+        target_jthread, art::SuspendReason::kForUserCode);
+    if (ret_target == nullptr) {
       // TODO It would be good to get more information about why exactly the thread failed to
       // suspend.
       return ERR(INTERNAL);
-    } else if (!timeout) {
-      // we didn't time out and got a result.
+    } else {
       return OK;
     }
     // We timed out. Just go around and try again.
@@ -927,10 +937,11 @@ jvmtiError ThreadUtil::SuspendSelf(art::Thread* self) {
       // This can only happen if we race with another thread to suspend 'self' and we lose.
       return ERR(THREAD_SUSPENDED);
     }
-    // We shouldn't be able to fail this.
-    if (!self->ModifySuspendCount(self, +1, nullptr, art::SuspendReason::kForUserCode)) {
-      // TODO More specific error would be nice.
-      return ERR(INTERNAL);
+    {
+      // IncrementSuspendCount normally needs thread_list_lock_ to ensure the thread stays
+      // around. In this case we are the target thread, so we fake it.
+      art::FakeMutexLock fmu(*art::Locks::thread_list_lock_);
+      self->IncrementSuspendCount(self, nullptr, nullptr, art::SuspendReason::kForUserCode);
     }
   }
   // Once we have requested the suspend we actually go to sleep. We need to do this after releasing
