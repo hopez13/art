@@ -43,6 +43,10 @@ int32_t String::FastIndexOf(int32_t ch, int32_t start) {
     start = count;
   }
   if (IsCompressed()) {
+    // If the string is compressed, it can't contain code points larger than ascii's max.
+    if (ch > 127) {
+      return -1;
+    }
     return FastIndexOf<uint8_t>(GetValueCompressed(), ch, start);
   } else {
     return FastIndexOf<uint16_t>(GetValue(), ch, start);
