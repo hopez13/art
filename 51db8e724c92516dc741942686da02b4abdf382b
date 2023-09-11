@@ -70,6 +70,30 @@
       },
       "revId": "51db8e724c92516dc741942686da02b4abdf382b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af9f8242_75fbc8c3",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1928,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-09-11T18:05:44Z",
+      "side": 1,
+      "message": "I would prefer not to do that, for several reasons. The most straightfowrward argument against it is that it\u0027s incompatible with the current RMW-\u003eLR/SC mappings, since it would allow reordering of the final SC.rl with a volatile load.\n\nIMO, we should stick to the Table 1 mappings in the psABI, observing that the \"note 3\" mappings are fine for us, since we have no legacy issue.",
+      "parentUuid": "44bc574d_ef1d487b",
+      "range": {
+        "startLine": 1928,
+        "startChar": 4,
+        "endLine": 1928,
+        "endChar": 62
+      },
+      "revId": "51db8e724c92516dc741942686da02b4abdf382b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
