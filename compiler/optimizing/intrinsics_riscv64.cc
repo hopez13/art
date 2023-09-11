@@ -219,37 +219,66 @@ void IntrinsicCodeGeneratorRISCV64::VisitMemoryPokeShortNative(HInvoke* invoke) 
   EmitMemoryPoke(invoke, [&](XRegister rs2, XRegister rs1) { __ Sh(rs2, rs1, 0); });
 }
 
-static void GenerateReverseBytes(Riscv64Assembler* assembler,
+static void GenerateOrEmulateRev8(CodeGeneratorRISCV64* codegen,
+                                  XRegister rd,
+                                  XRegister rs1,
+                                  uint32_t significant_bits) {
+  Riscv64Assembler* assembler = codegen->GetAssembler();
+  if (codegen->GetInstructionSetFeatures().HasZbb()) {
+    __ Rev8(rd, rs1);
+  } else {
+    ScratchRegisterScope srs(assembler);
+    XRegister tmp = srs.AllocateXRegister();
+    XRegister rs = rd == rs1 ? srs.AllocateXRegister() : rs1;
+    if (rs != rs1) {
+      __ Mv(rs, rs1);
+    }
+    __ Slli(rd, rs1, 56);
+    for (uint32_t i = 8; i < significant_bits; i += 8) {
+      __ Srli(tmp, rs, i);
+      if (i < 56) {
+        __ Andi(tmp, tmp, 0xff);
+        __ Slli(tmp, tmp, 56 - i);
+      }
+      __ Or(rd, rd, tmp);
+    }
+  }
+}
+
+static void GenerateReverseBytes(CodeGeneratorRISCV64* codegen,
                                  Location rd,
                                  XRegister rs1,
                                  DataType::Type type) {
+  Riscv64Assembler* assembler = codegen->GetAssembler();
   switch (type) {
     case DataType::Type::kUint16:
       // There is no 16-bit reverse bytes instruction.
-      __ Rev8(rd.AsRegister<XRegister>(), rs1);
+      GenerateOrEmulateRev8(codegen, rd.AsRegister<XRegister>(), rs1, 16);
       __ Srli(rd.AsRegister<XRegister>(), rd.AsRegister<XRegister>(), 48);
       break;
     case DataType::Type::kInt16:
       // There is no 16-bit reverse bytes instruction.
-      __ Rev8(rd.AsRegister<XRegister>(), rs1);
+      GenerateOrEmulateRev8(codegen, rd.AsRegister<XRegister>(), rs1, 16);
       __ Srai(rd.AsRegister<XRegister>(), rd.AsRegister<XRegister>(), 48);
       break;
     case DataType::Type::kInt32:
       // There is no 32-bit reverse bytes instruction.
-      __ Rev8(rd.AsRegister<XRegister>(), rs1);
+      GenerateOrEmulateRev8(codegen, rd.AsRegister<XRegister>(), rs1, 32);
       __ Srai(rd.AsRegister<XRegister>(), rd.AsRegister<XRegister>(), 32);
       break;
     case DataType::Type::kInt64:
-      __ Rev8(rd.AsRegister<XRegister>(), rs1);
+      GenerateOrEmulateRev8(codegen, rd.AsRegister<XRegister>(), rs1, 64);
       break;
     case DataType::Type::kFloat32:
       // There is no 32-bit reverse bytes instruction.
-      __ Rev8(rs1, rs1);  // Note: Clobbers `rs1`.
+      // Note: Clobbers `rs1`.
+      GenerateOrEmulateRev8(codegen, rs1, rs1, 32);
       __ Srai(rs1, rs1, 32);
       __ FMvWX(rd.AsFpuRegister<FRegister>(), rs1);
       break;
     case DataType::Type::kFloat64:
-      __ Rev8(rs1, rs1);  // Note: Clobbers `rs1`.
+      // Note: Clobbers `rs1`.
+      GenerateOrEmulateRev8(codegen, rs1, rs1, 64);
       __ FMvDX(rd.AsFpuRegister<FRegister>(), rs1);
       break;
     default:
@@ -258,13 +287,13 @@ static void GenerateReverseBytes(Riscv64Assembler* assembler,
   }
 }
 
-static void GenerateReverseBytes(Riscv64Assembler* assembler,
+static void GenerateReverseBytes(CodeGeneratorRISCV64* codegen,
                                  HInvoke* invoke,
                                  DataType::Type type) {
   DCHECK_EQ(type, invoke->GetType());
   LocationSummary* locations = invoke->GetLocations();
   GenerateReverseBytes(
-      assembler, locations->Out(), locations->InAt(0).AsRegister<XRegister>(), type);
+      codegen, locations->Out(), locations->InAt(0).AsRegister<XRegister>(), type);
 }
 
 void IntrinsicLocationsBuilderRISCV64::VisitIntegerReverseBytes(HInvoke* invoke) {
@@ -272,7 +301,7 @@ void IntrinsicLocationsBuilderRISCV64::VisitIntegerReverseBytes(HInvoke* invoke)
 }
 
 void IntrinsicCodeGeneratorRISCV64::VisitIntegerReverseBytes(HInvoke* invoke) {
-  GenerateReverseBytes(GetAssembler(), invoke, DataType::Type::kInt32);
+  GenerateReverseBytes(codegen_, invoke, DataType::Type::kInt32);
 }
 
 void IntrinsicLocationsBuilderRISCV64::VisitLongReverseBytes(HInvoke* invoke) {
@@ -280,7 +309,7 @@ void IntrinsicLocationsBuilderRISCV64::VisitLongReverseBytes(HInvoke* invoke) {
 }
 
 void IntrinsicCodeGeneratorRISCV64::VisitLongReverseBytes(HInvoke* invoke) {
-  GenerateReverseBytes(GetAssembler(), invoke, DataType::Type::kInt64);
+  GenerateReverseBytes(codegen_, invoke, DataType::Type::kInt64);
 }
 
 void IntrinsicLocationsBuilderRISCV64::VisitShortReverseBytes(HInvoke* invoke) {
@@ -288,7 +317,7 @@ void IntrinsicLocationsBuilderRISCV64::VisitShortReverseBytes(HInvoke* invoke) {
 }
 
 void IntrinsicCodeGeneratorRISCV64::VisitShortReverseBytes(HInvoke* invoke) {
-  GenerateReverseBytes(GetAssembler(), invoke, DataType::Type::kInt16);
+  GenerateReverseBytes(codegen_, invoke, DataType::Type::kInt16);
 }
 
 template <typename EmitOp>
@@ -303,7 +332,23 @@ void IntrinsicLocationsBuilderRISCV64::VisitIntegerBitCount(HInvoke* invoke) {
 
 void IntrinsicCodeGeneratorRISCV64::VisitIntegerBitCount(HInvoke* invoke) {
   Riscv64Assembler* assembler = GetAssembler();
-  EmitIntegralUnOp(invoke, [&](XRegister rd, XRegister rs1) { __ Cpopw(rd, rs1); });
+  EmitIntegralUnOp(invoke, [&](XRegister rd, XRegister rs1) {
+    if (codegen_->GetInstructionSetFeatures().HasZbb()) {
+      __ Cpopw(rd, rs1);
+    } else {
+      ScratchRegisterScope srs(GetAssembler());
+      XRegister tmp = srs.AllocateXRegister();
+      XRegister tmp2 = srs.AllocateXRegister();
+      Riscv64Label loop;
+      __ Mv(tmp, rs1);
+      __ Li(rd, 0);
+      __ Bind(&loop);
+      __ Andi(tmp2, tmp, 1);
+      __ Add(rd, rd, tmp2);
+      __ Srli(tmp, tmp, 1);
+      __ Bnez(tmp, &loop);
+    }
+  });
 }
 
 void IntrinsicLocationsBuilderRISCV64::VisitLongBitCount(HInvoke* invoke) {
@@ -312,7 +357,23 @@ void IntrinsicLocationsBuilderRISCV64::VisitLongBitCount(HInvoke* invoke) {
 
 void IntrinsicCodeGeneratorRISCV64::VisitLongBitCount(HInvoke* invoke) {
   Riscv64Assembler* assembler = GetAssembler();
-  EmitIntegralUnOp(invoke, [&](XRegister rd, XRegister rs1) { __ Cpop(rd, rs1); });
+  EmitIntegralUnOp(invoke, [&](XRegister rd, XRegister rs1) {
+    if (codegen_->GetInstructionSetFeatures().HasZbb()) {
+      __ Cpop(rd, rs1);
+    } else {
+      ScratchRegisterScope srs(GetAssembler());
+      XRegister tmp = srs.AllocateXRegister();
+      XRegister tmp2 = srs.AllocateXRegister();
+      Riscv64Label loop;
+      __ Mv(tmp, rs1);
+      __ Li(rd, 0);
+      __ Bind(&loop);
+      __ Andi(tmp2, tmp, 1);
+      __ Add(rd, rd, tmp2);
+      __ Srli(tmp, tmp, 1);
+      __ Bnez(tmp, &loop);
+    }
+  });
 }
 
 void IntrinsicLocationsBuilderRISCV64::VisitIntegerHighestOneBit(HInvoke* invoke) {
@@ -324,11 +385,21 @@ void IntrinsicCodeGeneratorRISCV64::VisitIntegerHighestOneBit(HInvoke* invoke) {
   EmitIntegralUnOp(invoke, [&](XRegister rd, XRegister rs1) {
     ScratchRegisterScope srs(assembler);
     XRegister tmp = srs.AllocateXRegister();
-    XRegister tmp2 = srs.AllocateXRegister();
-    __ Clzw(tmp, rs1);
-    __ Li(tmp2, INT64_C(-0x80000000));
-    __ Srlw(tmp2, tmp2, tmp);
-    __ And(rd, rs1, tmp2);  // Make sure the result is zero if the input is zero.
+    if (codegen_->GetInstructionSetFeatures().HasZbb()) {
+      XRegister tmp2 = srs.AllocateXRegister();
+      __ Clzw(tmp, rs1);
+      __ Li(tmp2, INT64_C(-0x80000000));
+      __ Srlw(tmp2, tmp2, tmp);
+      __ And(rd, rs1, tmp2);  // Make sure the result is zero if the input is zero.
+    } else {
+      __ Mv(rd, rs1);
+      for (int i = 1; i < 32; i *= 2) {
+        __ Srli(tmp, rd, i);
+        __ Or(rd, rd, tmp);
+      }
+      __ Srli(tmp, rd, 1);
+      __ Xor(rd, rd, tmp);
+    }
   });
 }
 
@@ -341,11 +412,21 @@ void IntrinsicCodeGeneratorRISCV64::VisitLongHighestOneBit(HInvoke* invoke) {
   EmitIntegralUnOp(invoke, [&](XRegister rd, XRegister rs1) {
     ScratchRegisterScope srs(assembler);
     XRegister tmp = srs.AllocateXRegister();
-    XRegister tmp2 = srs.AllocateXRegister();
-    __ Clz(tmp, rs1);
-    __ Li(tmp2, INT64_C(-0x8000000000000000));
-    __ Srl(tmp2, tmp2, tmp);
-    __ And(rd, rs1, tmp2);  // Make sure the result is zero if the input is zero.
+    if (codegen_->GetInstructionSetFeatures().HasZbb()) {
+      XRegister tmp2 = srs.AllocateXRegister();
+      __ Clz(tmp, rs1);
+      __ Li(tmp2, INT64_C(-0x8000000000000000));
+      __ Srl(tmp2, tmp2, tmp);
+      __ And(rd, rs1, tmp2);  // Make sure the result is zero if the input is zero.
+    } else {
+      __ Mv(rd, rs1);
+      for (int i = 1; i < 64; i *= 2) {
+        __ Srli(tmp, rd, i);
+        __ Or(rd, rd, tmp);
+      }
+      __ Srli(tmp, rd, 1);
+      __ Xor(rd, rd, tmp);
+    }
   });
 }
 
@@ -383,7 +464,23 @@ void IntrinsicLocationsBuilderRISCV64::VisitIntegerNumberOfLeadingZeros(HInvoke*
 
 void IntrinsicCodeGeneratorRISCV64::VisitIntegerNumberOfLeadingZeros(HInvoke* invoke) {
   Riscv64Assembler* assembler = GetAssembler();
-  EmitIntegralUnOp(invoke, [&](XRegister rd, XRegister rs1) { __ Clzw(rd, rs1); });
+  EmitIntegralUnOp(invoke, [&](XRegister rd, XRegister rs1) {
+    if (codegen_->GetInstructionSetFeatures().HasZbb()) {
+      __ Clzw(rd, rs1);
+    } else {
+      ScratchRegisterScope srs(assembler);
+      XRegister tmp = srs.AllocateXRegister();
+      Riscv64Label loop, start;
+      __ Mv(tmp, rs1);
+      __ Li(rd, INT64_C(32));
+      __ J(&start);
+      __ Bind(&loop);
+      __ Srli(tmp, tmp, 1);
+      __ Addi(rd, rd, -1);
+      __ Bind(&start);
+      __ Bnez(tmp, &loop);
+    }
+  });
 }
 
 void IntrinsicLocationsBuilderRISCV64::VisitLongNumberOfLeadingZeros(HInvoke* invoke) {
@@ -392,7 +489,23 @@ void IntrinsicLocationsBuilderRISCV64::VisitLongNumberOfLeadingZeros(HInvoke* in
 
 void IntrinsicCodeGeneratorRISCV64::VisitLongNumberOfLeadingZeros(HInvoke* invoke) {
   Riscv64Assembler* assembler = GetAssembler();
-  EmitIntegralUnOp(invoke, [&](XRegister rd, XRegister rs1) { __ Clz(rd, rs1); });
+  EmitIntegralUnOp(invoke, [&](XRegister rd, XRegister rs1) {
+    if (codegen_->GetInstructionSetFeatures().HasZbb()) {
+      __ Clz(rd, rs1);
+    } else {
+      ScratchRegisterScope srs(assembler);
+      XRegister tmp = srs.AllocateXRegister();
+      Riscv64Label loop, start;
+      __ Mv(tmp, rs1);
+      __ Li(rd, INT64_C(64));
+      __ J(&start);
+      __ Bind(&loop);
+      __ Srli(tmp, tmp, 1);
+      __ Addi(rd, rd, -1);
+      __ Bind(&start);
+      __ Bnez(tmp, &loop);
+    }
+  });
 }
 
 void IntrinsicLocationsBuilderRISCV64::VisitIntegerNumberOfTrailingZeros(HInvoke* invoke) {
@@ -401,7 +514,23 @@ void IntrinsicLocationsBuilderRISCV64::VisitIntegerNumberOfTrailingZeros(HInvoke
 
 void IntrinsicCodeGeneratorRISCV64::VisitIntegerNumberOfTrailingZeros(HInvoke* invoke) {
   Riscv64Assembler* assembler = GetAssembler();
-  EmitIntegralUnOp(invoke, [&](XRegister rd, XRegister rs1) { __ Ctzw(rd, rs1); });
+  EmitIntegralUnOp(invoke, [&](XRegister rd, XRegister rs1) {
+    if (codegen_->GetInstructionSetFeatures().HasZbb()) {
+      __ Ctzw(rd, rs1);
+    } else {
+      ScratchRegisterScope srs(assembler);
+      XRegister tmp = srs.AllocateXRegister();
+      Riscv64Label loop, start;
+      __ Slli(tmp, rs1, 32);
+      __ Li(rd, INT64_C(32));
+      __ J(&start);
+      __ Bind(&loop);
+      __ Slli(tmp, tmp, 1);
+      __ Addi(rd, rd, -1);
+      __ Bind(&start);
+      __ Bnez(tmp, &loop);
+    }
+  });
 }
 
 void IntrinsicLocationsBuilderRISCV64::VisitLongNumberOfTrailingZeros(HInvoke* invoke) {
@@ -410,7 +539,23 @@ void IntrinsicLocationsBuilderRISCV64::VisitLongNumberOfTrailingZeros(HInvoke* i
 
 void IntrinsicCodeGeneratorRISCV64::VisitLongNumberOfTrailingZeros(HInvoke* invoke) {
   Riscv64Assembler* assembler = GetAssembler();
-  EmitIntegralUnOp(invoke, [&](XRegister rd, XRegister rs1) { __ Ctz(rd, rs1); });
+  EmitIntegralUnOp(invoke, [&](XRegister rd, XRegister rs1) {
+    if (codegen_->GetInstructionSetFeatures().HasZbb()) {
+      __ Ctz(rd, rs1);
+    } else {
+      ScratchRegisterScope srs(assembler);
+      XRegister tmp = srs.AllocateXRegister();
+      Riscv64Label loop, start;
+      __ Mv(tmp, rs1);
+      __ Li(rd, INT64_C(64));
+      __ J(&start);
+      __ Bind(&loop);
+      __ Slli(tmp, tmp, 1);
+      __ Addi(rd, rd, -1);
+      __ Bind(&start);
+      __ Bnez(tmp, &loop);
+    }
+  });
 }
 
 static void GenerateVisitStringIndexOf(HInvoke* invoke,
@@ -1050,7 +1195,7 @@ static void GenerateVarHandleGet(HInvoke* invoke,
       codegen->MaybeGenerateReadBarrierSlow(
           invoke, out, out, object_loc, /*offset=*/ 0u, /*index=*/ offset_loc);
     } else if (byte_swap) {
-      GenerateReverseBytes(assembler, out, load_loc.AsRegister<XRegister>(), type);
+      GenerateReverseBytes(codegen, out, load_loc.AsRegister<XRegister>(), type);
     }
   }
 
@@ -1140,7 +1285,7 @@ static void GenerateVarHandleSet(HInvoke* invoke,
         codegen->MoveLocation(new_value, value, value_type);
         value = new_value;
       }
-      GenerateReverseBytes(assembler, new_value, value.AsRegister<XRegister>(), value_type);
+      GenerateReverseBytes(codegen, new_value, value.AsRegister<XRegister>(), value_type);
       value = new_value;
     }
 

@@ -2185,11 +2185,43 @@ void InstructionCodeGeneratorRISCV64::HandleBinaryOp(HBinaryOperation* instructi
         }
       } else if (instruction->IsMin()) {
         DCHECK_IMPLIES(use_imm, imm == 0);
-        __ Min(rd, rs1, use_imm ? Zero : rs2);
+        if (codegen_->GetInstructionSetFeatures().HasZbb()) {
+          __ Min(rd, rs1, use_imm ? Zero : rs2);
+        } else {
+          XRegister rs;
+          if (rd == rs2) {
+            rs = rs1;
+          } else {
+            rs = rs2;
+            if (rd != rs1) {
+              __ Mv(rd, rs1);
+            }
+          }
+          Riscv64Label skip;
+          __ Ble(rd, use_imm ? Zero : rs, &skip);
+          __ Mv(rd, use_imm ? Zero : rs);
+          __ Bind(&skip);
+        }
       } else {
         DCHECK(instruction->IsMax());
         DCHECK_IMPLIES(use_imm, imm == 0);
-        __ Max(rd, rs1, use_imm ? Zero : rs2);
+        if (codegen_->GetInstructionSetFeatures().HasZbb()) {
+          __ Max(rd, rs1, use_imm ? Zero : rs2);
+        } else {
+          XRegister rs;
+          if (rd == rs2) {
+            rs = rs1;
+          } else {
+            rs = rs2;
+            if (rd != rs1) {
+              __ Mv(rd, rs1);
+            }
+          }
+          Riscv64Label skip;
+          __ Bge(rd, use_imm ? Zero : rs, &skip);
+          __ Mv(rd, use_imm ? Zero : rs);
+          __ Bind(&skip);
+        }
       }
       break;
     }
@@ -2366,7 +2398,15 @@ void InstructionCodeGeneratorRISCV64::HandleShift(HBinaryOperation* instruction)
             __ Srliw(rd, rs1, shamt);
           } else {
             DCHECK(instruction->IsRor());
-            __ Roriw(rd, rs1, shamt);
+            if (codegen_->GetInstructionSetFeatures().HasZbb()) {
+              __ Roriw(rd, rs1, shamt);
+            } else {
+              ScratchRegisterScope srs(GetAssembler());
+              XRegister tmp = srs.AllocateXRegister();
+              __ Srliw(tmp, rs1, shamt);
+              __ Slliw(rd, rs1, 32 - shamt);
+              __ Or(rd, rd, tmp);
+            }
           }
         } else {
           if (instruction->IsShl()) {
@@ -2377,7 +2417,15 @@ void InstructionCodeGeneratorRISCV64::HandleShift(HBinaryOperation* instruction)
             __ Srli(rd, rs1, shamt);
           } else {
             DCHECK(instruction->IsRor());
-            __ Rori(rd, rs1, shamt);
+            if (codegen_->GetInstructionSetFeatures().HasZbb()) {
+              __ Rori(rd, rs1, shamt);
+            } else {
+              ScratchRegisterScope srs(GetAssembler());
+              XRegister tmp = srs.AllocateXRegister();
+              __ Srli(tmp, rs1, shamt);
+              __ Slli(rd, rs1, 64 - shamt);
+              __ Or(rd, rd, tmp);
+            }
           }
         }
       } else {
@@ -2391,7 +2439,17 @@ void InstructionCodeGeneratorRISCV64::HandleShift(HBinaryOperation* instruction)
             __ Srlw(rd, rs1, rs2);
           } else {
             DCHECK(instruction->IsRor());
-            __ Rorw(rd, rs1, rs2);
+            if (codegen_->GetInstructionSetFeatures().HasZbb()) {
+              __ Rorw(rd, rs1, rs2);
+            } else {
+              ScratchRegisterScope srs(GetAssembler());
+              XRegister tmp = srs.AllocateXRegister();
+              XRegister tmp2 = srs.AllocateXRegister();
+              __ Srlw(tmp, rs1, rs2);
+              __ Sub(tmp2, Zero, rs2);  // tmp2 = -rs; we can use this instead of `32 - rs`
+              __ Sllw(rd, rs1, tmp2);   // because only low 5 bits are used for SLLW.
+              __ Or(rd, rd, tmp);
+            }
           }
         } else {
           if (instruction->IsShl()) {
@@ -2402,7 +2460,17 @@ void InstructionCodeGeneratorRISCV64::HandleShift(HBinaryOperation* instruction)
             __ Srl(rd, rs1, rs2);
           } else {
             DCHECK(instruction->IsRor());
-            __ Ror(rd, rs1, rs2);
+            if (codegen_->GetInstructionSetFeatures().HasZbb()) {
+              __ Ror(rd, rs1, rs2);
+            } else {
+              ScratchRegisterScope srs(GetAssembler());
+              XRegister tmp = srs.AllocateXRegister();
+              XRegister tmp2 = srs.AllocateXRegister();
+              __ Srl(tmp, rs1, rs2);
+              __ Sub(tmp2, Zero, rs2);  // tmp2 = -rs; we can use this instead of `64 - rs`
+              __ Sll(rd, rs1, tmp2);    // because only low 6 bits are used for SLL.
+              __ Or(rd, rd, tmp);
+            }
           }
         }
       }
