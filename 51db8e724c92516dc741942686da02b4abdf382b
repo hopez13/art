@@ -22,6 +22,30 @@
       },
       "revId": "51db8e724c92516dc741942686da02b4abdf382b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3616ab7f_08c01467",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1928,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-09-11T15:57:51Z",
+      "side": 1,
+      "message": "The psABI document currently does not suggest using LR for volatile/seq_cst get. And I think that\u0027s correct. It may sometimes be faster, but it may also cause surprising scalability issues, since loads are likely to require exclusive cache line access. I would just go with the double fence version for now.\n\nI would use AMOSWAP for longer stores, though that\u0027s also a guess. Current implementation costs are all over the place. For narrow ones, I agree with you that we should use fences/barriers.\n\nThe current psABI atomics specification is at https://github.com/riscv-non-isa/riscv-elf-psabi-doc/blob/master/riscv-atomic.adoc",
+      "parentUuid": "e6b70054_8fa44122",
+      "range": {
+        "startLine": 1928,
+        "startChar": 4,
+        "endLine": 1928,
+        "endChar": 62
+      },
+      "revId": "51db8e724c92516dc741942686da02b4abdf382b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
