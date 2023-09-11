@@ -46,6 +46,30 @@
       },
       "revId": "51db8e724c92516dc741942686da02b4abdf382b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "44bc574d_ef1d487b",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1928,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-09-11T16:22:16Z",
+      "side": 1,
+      "message": "We don\u0027t need to follow the current psABI C++ mappings for managed code. (We do not need to interact with libraries compiled with old mappings.)\n\nYou proposed removing one fence from the load and adding one to the store for C++, right? That\u0027s what I\u0027d like to do for managed code.",
+      "parentUuid": "3616ab7f_08c01467",
+      "range": {
+        "startLine": 1928,
+        "startChar": 4,
+        "endLine": 1928,
+        "endChar": 62
+      },
+      "revId": "51db8e724c92516dc741942686da02b4abdf382b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
