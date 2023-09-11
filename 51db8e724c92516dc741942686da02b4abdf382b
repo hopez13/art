@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e6b70054_8fa44122",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1928,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-09-11T11:19:25Z",
+      "side": 1,
+      "message": "Hans, do we want to implement volatile load with a memory barrier or LR? And do we want volatile store to use memory barriers or AMOSWAP for 32-bit and 64-bit fields?\n\n(We could use LR for narrow volatile loads and extract the right field but that\u0027s more instructions. For narrow volatile stores I would definitely prefer to use memory barriers as we would otherwise need a CAS.)",
+      "range": {
+        "startLine": 1928,
+        "startChar": 4,
+        "endLine": 1928,
+        "endChar": 62
+      },
+      "revId": "51db8e724c92516dc741942686da02b4abdf382b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
