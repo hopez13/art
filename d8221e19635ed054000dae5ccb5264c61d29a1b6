@@ -20,6 +20,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2f5a8864_d0700f6d",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2678,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-09-11T08:11:53Z",
+      "side": 1,
+      "message": "Should we also move this? Maybe we\u0027re not doing any class lookup today, but the bug you exposed shows that this is brittle and it could be safer to delete the class table after all unreachable class loaders are unloaded.",
+      "range": {
+        "startLine": 2678,
+        "startChar": 2,
+        "endLine": 2678,
+        "endChar": 26
+      },
+      "revId": "d8221e19635ed054000dae5ccb5264c61d29a1b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a840051a_e294d9f3",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 1
