@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "028d7341_90424b35",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2058,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-09-12T12:04:52Z",
+      "side": 1,
+      "message": "Should we add `\u0026\u0026 kUseBakerReadBarrier` too? Looks like we are using the three of them together every time.",
+      "revId": "fa5ed0312ca05888aebd08cfb77d7b5e766ded7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72465a0a_c3ba35b4",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2082,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-09-12T12:04:52Z",
+      "side": 1,
+      "message": "Can we merge it with lines 2063-2065?",
+      "range": {
+        "startLine": 2080,
+        "startChar": 0,
+        "endLine": 2082,
+        "endChar": 3
+      },
+      "revId": "fa5ed0312ca05888aebd08cfb77d7b5e766ded7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
