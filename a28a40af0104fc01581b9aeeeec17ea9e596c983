@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "584e1b39_a0bd086a",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-09-12T22:01:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b2c5d835_b98ebfae",
+      "range": {
+        "startLine": 33,
+        "startChar": 3,
+        "endLine": 33,
+        "endChar": 4
+      },
+      "revId": "a28a40af0104fc01581b9aeeeec17ea9e596c983",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "57f048bd_e6fa8d9c",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-09-12T13:55:32Z",
       "side": 1,
       "message": "other",
+      "range": {
+        "startLine": 25,
+        "startChar": 3,
+        "endLine": 25,
+        "endChar": 14
+      },
+      "revId": "a28a40af0104fc01581b9aeeeec17ea9e596c983",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c3d1942d_988aa885",
+        "filename": "runtime/arch/riscv64/entrypoints_init_riscv64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-09-12T22:01:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "57f048bd_e6fa8d9c",
       "range": {
         "startLine": 25,
         "startChar": 3,
@@ -64,6 +112,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b92543c7_e2a977c7",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 1037,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-09-12T22:01:26Z",
+      "side": 1,
+      "message": "good catch. thank you.",
+      "parentUuid": "a90e3240_36a0763d",
+      "revId": "a28a40af0104fc01581b9aeeeec17ea9e596c983",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1a9a0d56_2fd214b8",
@@ -77,6 +143,30 @@
       "writtenOn": "2023-09-12T13:55:32Z",
       "side": 1,
       "message": "SLLIW",
+      "range": {
+        "startLine": 1042,
+        "startChar": 4,
+        "endLine": 1042,
+        "endChar": 8
+      },
+      "revId": "a28a40af0104fc01581b9aeeeec17ea9e596c983",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "44ead2dc_e3a03c4a",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 1042,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-09-12T22:01:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1a9a0d56_2fd214b8",
       "range": {
         "startLine": 1042,
         "startChar": 4,
@@ -110,6 +200,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d3c5848d_e3b300c1",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 1085,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-09-12T22:01:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d9d444d9_80de8356",
+      "range": {
+        "startLine": 1085,
+        "startChar": 4,
+        "endLine": 1085,
+        "endChar": 59
+      },
+      "revId": "a28a40af0104fc01581b9aeeeec17ea9e596c983",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fddc27f2_ee0cc4ca",
@@ -123,6 +237,30 @@
       "writtenOn": "2023-09-12T13:55:32Z",
       "side": 1,
       "message": "We could just add some `#if ... #error ... #endif` to check the values and then\n\n    andi t1, xPC, 0xff \u003c\u003c 2\n    addi t1, t1, THREAD_INTERPRETER_CACHE_OFFSET \u003e\u003e 2\n    sh2add t0, t1, xSELF",
+      "range": {
+        "startLine": 284,
+        "startChar": 0,
+        "endLine": 295,
+        "endChar": 0
+      },
+      "revId": "a28a40af0104fc01581b9aeeeec17ea9e596c983",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "866f675f_f5add7ff",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-09-12T22:01:26Z",
+      "side": 1,
+      "message": "Oh, compiler checked hardcoding. Okay!\nProps on the clever, clever asm compression. I had to work through it.",
+      "parentUuid": "fddc27f2_ee0cc4ca",
       "range": {
         "startLine": 284,
         "startChar": 0,
@@ -156,6 +294,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ddf108f_b8c1cbfc",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-09-12T22:01:26Z",
+      "side": 1,
+      "message": "Yes, it was after the BNE in one of my patches ... let\u0027s get this in before more drifting.",
+      "parentUuid": "c260c004_cf1f6398",
+      "range": {
+        "startLine": 296,
+        "startChar": 4,
+        "endLine": 296,
+        "endChar": 18
+      },
+      "revId": "a28a40af0104fc01581b9aeeeec17ea9e596c983",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "094cae11_a88cd79b",
@@ -179,6 +341,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e705665e_28b4aa03",
+        "filename": "runtime/interpreter/mterp/riscv64/object.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-09-12T22:01:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "094cae11_a88cd79b",
+      "range": {
+        "startLine": 97,
+        "startChar": 7,
+        "endLine": 97,
+        "endChar": 30
+      },
+      "revId": "a28a40af0104fc01581b9aeeeec17ea9e596c983",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a542f408_f626fb0d",
@@ -192,6 +378,30 @@
       "writtenOn": "2023-09-12T13:55:32Z",
       "side": 1,
       "message": "The `$value_reg` holds the value we want to store and `a0` holds the tagged `ArtField*`. Are you trying to say that we can clobber them once we don\u0027t need them anymore? Can we just remove this confusing comment?",
+      "range": {
+        "startLine": 184,
+        "startChar": 30,
+        "endLine": 184,
+        "endChar": 59
+      },
+      "revId": "a28a40af0104fc01581b9aeeeec17ea9e596c983",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c00bfce8_f127cddb",
+        "filename": "runtime/interpreter/mterp/riscv64/object.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-09-12T22:01:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a542f408_f626fb0d",
       "range": {
         "startLine": 184,
         "startChar": 30,
