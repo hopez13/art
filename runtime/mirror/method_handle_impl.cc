@@ -23,7 +23,8 @@ namespace art {
 namespace mirror {
 
 const char* MethodHandle::GetReturnTypeDescriptor(const char* invoke_method_name) {
-  if (strcmp(invoke_method_name, "invoke") == 0 || strcmp(invoke_method_name, "invokeExact") == 0) {
+  if (strcmp(invoke_method_name, "invoke") == 0 || strcmp(invoke_method_name, "invokeExact") == 0 ||
+      strcmp(invoke_method_name, "invokeBasic") == 0) {
     return "Ljava/lang/Object;";
   } else {
     return nullptr;

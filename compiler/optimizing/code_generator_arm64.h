@@ -149,6 +149,7 @@ Location ARM64ReturnLocation(DataType::Type return_type);
   V(UnsafeGetAndSetInt)                       \
   V(UnsafeGetAndSetLong)                      \
   V(UnsafeGetAndSetObject)                    \
+  V(MethodHandleInvokeBasic)                  \
   V(MethodHandleInvokeExact)                  \
   V(MethodHandleInvoke)                       \
   /* OpenJDK 11 */                            \

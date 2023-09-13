@@ -167,6 +167,7 @@ using VIXLUInt32Literal = vixl::aarch32::Literal<uint32_t>;
   V(UnsafeGetAndSetInt)                                                    \
   V(UnsafeGetAndSetLong)                                                   \
   V(UnsafeGetAndSetObject)                                                 \
+  V(MethodHandleInvokeBasic)                                               \
   V(MethodHandleInvokeExact)                                               \
   V(MethodHandleInvoke)                                                    \
   /* OpenJDK 11 */                                                         \
