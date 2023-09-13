@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f0cf838_5fdafd5e",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1855,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-09-13T07:48:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b90d0cae_d560a22a",
+      "range": {
+        "startLine": 1855,
+        "startChar": 2,
+        "endLine": 1855,
+        "endChar": 21
+      },
+      "revId": "51db8e724c92516dc741942686da02b4abdf382b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "84ffb298_e86ca11a",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4115df17_5145d5db",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1898,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-09-13T07:48:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "84ffb298_e86ca11a",
+      "range": {
+        "startLine": 1894,
+        "startChar": 0,
+        "endLine": 1898,
+        "endChar": 3
+      },
+      "revId": "51db8e724c92516dc741942686da02b4abdf382b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d03800fe_6b6eae3b",
@@ -60,6 +108,24 @@
       "writtenOn": "2023-09-12T11:49:14Z",
       "side": 1,
       "message": "Suggestion: Add\n```\n  DCHECK(instruction-\u003eIsInstanceFieldGet() ||\n         instruction-\u003eIsStaticFieldGet() ||\n         instruction-\u003eIsPredicatedInstanceFieldGet());\n```\nhere too",
+      "revId": "51db8e724c92516dc741942686da02b4abdf382b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d9c8dd1_f86a4b4d",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1902,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-09-13T07:48:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d03800fe_6b6eae3b",
       "revId": "51db8e724c92516dc741942686da02b4abdf382b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -159,6 +225,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7089c179_94e70923",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1928,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-09-13T07:48:34Z",
+      "side": 1,
+      "message": "Done (including updated `GenerateMemoryBarrier()`)",
+      "parentUuid": "af9f8242_75fbc8c3",
+      "range": {
+        "startLine": 1928,
+        "startChar": 4,
+        "endLine": 1928,
+        "endChar": 62
+      },
+      "revId": "51db8e724c92516dc741942686da02b4abdf382b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "88581670_b27c822e",
@@ -172,6 +262,30 @@
       "writtenOn": "2023-09-12T11:49:14Z",
       "side": 1,
       "message": "This comment is (at least for now) not true. Are we planning on using `GenerateReferenceLoadWithBakerReadBarrier` like this comment suggests? The intrinsics part is the part that sounds the most unlikely to me.",
+      "range": {
+        "startLine": 720,
+        "startChar": 0,
+        "endLine": 721,
+        "endChar": 63
+      },
+      "revId": "51db8e724c92516dc741942686da02b4abdf382b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f72734d_68cc8517",
+        "filename": "compiler/optimizing/code_generator_riscv64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 721,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-09-13T07:48:34Z",
+      "side": 1,
+      "message": "I\u0027d prefer to keep this for now. I removed the intrinsics part because arm/arm64 intrinsics use it only indirectly via `GenerateFieldLoadWithBakerReadBarrier()`.",
+      "parentUuid": "88581670_b27c822e",
       "range": {
         "startLine": 720,
         "startChar": 0,
