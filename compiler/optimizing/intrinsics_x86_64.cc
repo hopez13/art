@@ -3899,6 +3899,66 @@ static void GenerateVarHandleGet(HInvoke* invoke,
   }
 }
 
+void IntrinsicLocationsBuilderX86_64::VisitMethodHandleInvokeBasic(HInvoke* invoke) {
+  uint32_t num_of_args = invoke->GetNumberOfArguments();
+  if (num_of_args == 2) {
+    // If it is not reference, it is not InvokeVirtual.
+    if (invoke->InputAt(1)->GetType() == DataType::Type::kReference) {
+      ArenaAllocator* allocator = invoke->GetBlock()->GetGraph()->GetAllocator();
+      LocationSummary* locations = new (allocator)
+          LocationSummary(invoke, LocationSummary::kCallOnMainAndSlowPath, kIntrinsified);
+
+      InvokeDexCallingConventionVisitorX86_64 calling_convention;
+      locations->SetOut(calling_convention.GetReturnLocation(invoke->GetType()));
+
+      locations->SetInAt(0, Location::RequiresRegister());
+      locations->SetInAt(1, Location::RegisterLocation(RSI));
+
+      locations->AddTemp(Location::RequiresRegister());
+      // We use a fixed-register temporary to pass the target method.
+      locations->AddTemp(calling_convention.GetMethodLocation());
+      locations->AddTemp(Location::RequiresRegister());
+    }
+  }
+}
+
+void IntrinsicCodeGeneratorX86_64::VisitMethodHandleInvokeBasic(HInvoke* invoke) {
+  uint32_t num_of_args = invoke->GetNumberOfArguments();
+
+  if (num_of_args == 2) {
+    auto slow_path = new (codegen_->GetScopedAllocator()) IntrinsicSlowPathX86_64(invoke);
+    X86_64Assembler* assembler = codegen_->GetAssembler();
+    codegen_->AddSlowPath(slow_path);
+    LocationSummary* locations = invoke->GetLocations();
+
+    CpuRegister method_handle = locations->InAt(0).AsRegister<CpuRegister>();
+    Address method_handle_kind = Address(method_handle, mirror::MethodHandle::HandleKindOffset());
+
+    CpuRegister method = locations->GetTemp(1).AsRegister<CpuRegister>();
+    // Find method to call.
+    __ movq(method, Address(method_handle, mirror::MethodHandle::ArtFieldOrMethodOffset()));
+
+    CpuRegister receiver = locations->InAt(1).AsRegister<CpuRegister>();
+
+    CpuRegister vtable_index = locations->GetTemp(0).AsRegister<CpuRegister>();
+    // MethodIndex is uint16_t.
+    __ movzxw(vtable_index, Address(method, ArtMethod::MethodIndexOffset()));
+
+    uint32_t class_offset = mirror::Object::ClassOffset().Int32Value();
+    // Re-using method register for receiver class.
+    __ movl(method, Address(receiver, class_offset));
+
+    uint32_t vtable_offset =
+        mirror::Class::EmbeddedVTableOffset(art::PointerSize::k64).Int32Value();
+    __ movq(method, Address(method, vtable_index, TIMES_8, vtable_offset));
+    __ call(Address(
+        method,
+        ArtMethod::EntryPointFromQuickCompiledCodeOffset(art::PointerSize::k64).SizeValue()));
+
+    __ Bind(slow_path->GetExitLabel());
+  }
+}
+
 void IntrinsicLocationsBuilderX86_64::VisitVarHandleGet(HInvoke* invoke) {
   CreateVarHandleGetLocations(invoke);
 }

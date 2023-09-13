@@ -185,6 +185,7 @@ static constexpr size_t kRuntimeParameterFpuRegistersLength =
   V(CRC32Update)                                \
   V(CRC32UpdateBytes)                           \
   V(CRC32UpdateByteBuffer)                      \
+  V(MethodHandleInvokeBasic)                    \
   V(MethodHandleInvokeExact)                    \
   V(MethodHandleInvoke)                         \
   V(VarHandleCompareAndExchange)                \

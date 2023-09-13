@@ -49,6 +49,7 @@
 
 // Intrinsics for methods with signature polymorphic behaviours.
 #define ART_SIGNATURE_POLYMORPHIC_INTRINSICS_LIST(V) \
+  V(MethodHandleInvokeBasic, kPolymorphic, kNeedsEnvironment, kAllSideEffects, kCanThrow, "Ljava/lang/invoke/MethodHandle;", "invokeBasic", "([Ljava/lang/Object;)Ljava/lang/Object;") \
   V(MethodHandleInvokeExact, kPolymorphic, kNeedsEnvironment, kAllSideEffects, kCanThrow, "Ljava/lang/invoke/MethodHandle;", "invokeExact", "([Ljava/lang/Object;)Ljava/lang/Object;") \
   V(MethodHandleInvoke, kPolymorphic, kNeedsEnvironment, kAllSideEffects, kCanThrow, "Ljava/lang/invoke/MethodHandle;", "invoke", "([Ljava/lang/Object;)Ljava/lang/Object;") \
   V(VarHandleCompareAndExchange, kPolymorphic, kNeedsEnvironment, kAllSideEffects, kCanThrow, "Ljava/lang/invoke/VarHandle;", "compareAndExchange", "([Ljava/lang/Object;)Ljava/lang/Object;") \

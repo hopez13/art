@@ -1372,6 +1372,7 @@ bool HInstructionBuilder::BuildInvokePolymorphic(uint32_t dex_pc,
   if (invoke->GetIntrinsic() != Intrinsics::kNone &&
       invoke->GetIntrinsic() != Intrinsics::kMethodHandleInvoke &&
       invoke->GetIntrinsic() != Intrinsics::kMethodHandleInvokeExact &&
+      invoke->GetIntrinsic() != Intrinsics::kMethodHandleInvokeBasic &&
       VarHandleAccessorNeedsReturnTypeCheck(invoke, return_type)) {
     // Type check is needed because VarHandle intrinsics do not type check the retrieved reference.
     ScopedObjectAccess soa(Thread::Current());
