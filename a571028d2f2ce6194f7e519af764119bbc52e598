@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77b861a4_469dfc1a",
+        "filename": "libartbase/base/globals.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-09-13T17:59:02Z",
+      "side": 1,
+      "message": "This line is probably worth an early discussion, since I expect everything else depends on it. Concerns, in no particular order:\n\n- I believe we use k... names only for compile-time values. It should be renamed to gPageSize. Lokesh recently went through this exercise with gUseReadBarrier. (See https://cs.android.com/android/platform/superproject/main/+/main:art/runtime/read_barrier_config.h;l\u003d76-92)\n\n- I believe ToT declares only constexpr values in this file, as should be the case. I think using \"static const\" here will potentially introduce a new copy of the variable for each compilation unit that includes this. Due to initialization ordering rules, I don\u0027t see how the compiler can avoid that. \n\n- I don\u0027t see an argument that this is correct with respect to initialization ordering. My guess would be that having many copies of the constant makes the initialization-ordering argument intractable. Note that a static initializer in one file may potentially call a function in another file, which would access that other version of the constant. At a minimum, we need a careful argument that static initialization is OK here. Or maybe some large disclaimer about where it\u0027s safe to use this \"constant\", but that seems really brittle.\n\n- What about https://cs.android.com/android/platform/superproject/main/+/main:bionic/libc/bionic/getpagesize.cpp;l\u003d32 ?\n\nI suspect we need something closer to Lokesh\u0027s gUseReadBarrier code. And maybe some ugly non-portable \"do this first\" hack to deal with the initialization ordering issue. Or lazy-on-demand initialization, which would be slower.\n\nApologies for piling on this one line of code. But getting this right is really tricky, and we\u0027ve been bitten before. Also lines 66 and 68 seem to have snuck in here before with similar issues.",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 46
+      },
+      "revId": "a571028d2f2ce6194f7e519af764119bbc52e598",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
