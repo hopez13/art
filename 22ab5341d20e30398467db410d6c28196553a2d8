@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "babcbc50_0938de4e",
+        "filename": "compiler/jit/jit_compiler.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-09-13T15:40:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0e9b1f93_2462bb6c",
+      "range": {
+        "startLine": 186,
+        "startChar": 5,
+        "endLine": 186,
+        "endChar": 9
+      },
+      "revId": "22ab5341d20e30398467db410d6c28196553a2d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "609b4ef3_9a87b9c5",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-07-24T09:25:06Z",
       "side": 1,
       "message": "Should we use compiler options instead?",
+      "range": {
+        "startLine": 188,
+        "startChar": 9,
+        "endLine": 188,
+        "endChar": 47
+      },
+      "revId": "22ab5341d20e30398467db410d6c28196553a2d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "050aa704_2e40294a",
+        "filename": "compiler/jit/jit_compiler.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-09-13T15:40:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "609b4ef3_9a87b9c5",
       "range": {
         "startLine": 188,
         "startChar": 9,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f5d5fbf_db88e274",
+        "filename": "compiler/jit/small_pattern_matcher.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-09-13T15:40:19Z",
+      "side": 1,
+      "message": "Thanks! Added a new template typename for the return type, and removed the handling of float/double for arm32.",
+      "parentUuid": "b8707c81_e8c5efd9",
+      "range": {
+        "startLine": 37,
+        "startChar": 7,
+        "endLine": 37,
+        "endChar": 8
+      },
+      "revId": "22ab5341d20e30398467db410d6c28196553a2d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f0d30232_64b77232",
@@ -83,6 +155,30 @@
       "writtenOn": "2023-07-24T09:25:06Z",
       "side": 1,
       "message": "ditto; except that this is effectively unused because we\u0027re recognizing only `sget-object`.",
+      "range": {
+        "startLine": 49,
+        "startChar": 7,
+        "endLine": 49,
+        "endChar": 8
+      },
+      "revId": "22ab5341d20e30398467db410d6c28196553a2d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "de429537_d69ac8c6",
+        "filename": "compiler/jit/small_pattern_matcher.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-09-13T15:40:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f0d30232_64b77232",
       "range": {
         "startLine": 49,
         "startChar": 7,
@@ -110,6 +206,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "19742021_f33976d1",
+        "filename": "compiler/jit/small_pattern_matcher.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-09-13T15:40:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2a2be82b_463bfe79",
+      "revId": "22ab5341d20e30398467db410d6c28196553a2d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "68b7e15c_fb7124e0",
@@ -133,6 +247,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "909a8599_c0543694",
+        "filename": "compiler/jit/small_pattern_matcher.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-09-13T15:40:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "68b7e15c_fb7124e0",
+      "range": {
+        "startLine": 98,
+        "startChar": 16,
+        "endLine": 98,
+        "endChar": 17
+      },
+      "revId": "22ab5341d20e30398467db410d6c28196553a2d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "90d4cf30_154b210d",
@@ -146,6 +284,24 @@
       "writtenOn": "2023-07-24T09:25:06Z",
       "side": 1,
       "message": "I\u0027d prefer one per line.",
+      "revId": "22ab5341d20e30398467db410d6c28196553a2d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e850410_0902e408",
+        "filename": "compiler/jit/small_pattern_matcher.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-09-13T15:40:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "90d4cf30_154b210d",
       "revId": "22ab5341d20e30398467db410d6c28196553a2d8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -190,6 +346,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f64f0463_bb64daa6",
+        "filename": "compiler/jit/small_pattern_matcher.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-09-13T15:40:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "39a8d675_c112b456",
+      "revId": "22ab5341d20e30398467db410d6c28196553a2d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "786d5741_a0899ac0",
@@ -203,6 +377,30 @@
       "writtenOn": "2023-07-24T09:25:06Z",
       "side": 1,
       "message": "Only `insns_size \u003d\u003d 6` here. Add `DCHECK_IMPLIES(insns_size \u003d\u003d 6u, is_recognizable_constructor)` inside the then-block.",
+      "range": {
+        "startLine": 265,
+        "startChar": 26,
+        "endLine": 265,
+        "endChar": 75
+      },
+      "revId": "22ab5341d20e30398467db410d6c28196553a2d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d7b73f7_0819f0e0",
+        "filename": "compiler/jit/small_pattern_matcher.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-09-13T15:40:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "786d5741_a0899ac0",
       "range": {
         "startLine": 265,
         "startChar": 26,
