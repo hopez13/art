@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b288d47_4ed2e033",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-09-13T17:35:11Z",
+      "side": 1,
+      "message": "Thanks. Please include the branch and lunch target in the `Test:` tag.",
+      "parentUuid": "d1f227ea_7ce43896",
+      "range": {
+        "startLine": 14,
+        "startChar": 6,
+        "endLine": 14,
+        "endChar": 32
+      },
+      "revId": "7adf714d045ac8278d4069095977e51fcede9858",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "f4ace43e_a14a3100",
@@ -61,6 +85,52 @@
       "writtenOn": "2023-09-13T05:44:18Z",
       "side": 1,
       "message": "PTAL - would appreciate advice.",
+      "revId": "7adf714d045ac8278d4069095977e51fcede9858",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a896835b_c05452f7",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-09-13T17:35:11Z",
+      "side": 1,
+      "message": "$system_linker_config_pb is deleted on line 326, so I don\u0027t see how this is necessary.",
+      "range": {
+        "startLine": 416,
+        "startChar": 142,
+        "endLine": 416,
+        "endChar": 149
+      },
+      "revId": "7adf714d045ac8278d4069095977e51fcede9858",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a261808_221036fa",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-09-13T17:35:11Z",
+      "side": 1,
+      "message": "Please only skip this when the arch is riscv64 (see e.g. line 226), and add a TODO(b/xxxx) comment pointing to a ticket tracking the work to fix it.",
+      "range": {
+        "startLine": 428,
+        "startChar": 91,
+        "endLine": 428,
+        "endChar": 115
+      },
       "revId": "7adf714d045ac8278d4069095977e51fcede9858",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
