@@ -61,13 +61,16 @@ static constexpr size_t kMaximumNumberOfInstructionsForSmallMethod = 3;
 static constexpr size_t kMaximumNumberOfCumulatedDexRegisters = 32;
 
 // Limit recursive call inlining, which do not benefit from too
-// much inlining compared to code locality.
-static constexpr size_t kMaximumNumberOfRecursiveCalls = 4;
+// much inlining compared to code locality. We set this to 0 to disallow recursive calls at all.
+static constexpr size_t kMaximumNumberOfRecursiveCalls = 0;
 
 // Limit recursive polymorphic call inlining to prevent code bloat, since it can quickly get out of
 // hand in the presence of multiple Wrapper classes. We set this to 0 to disallow polymorphic
 // recursive calls at all.
 static constexpr size_t kMaximumNumberOfPolymorphicRecursiveCalls = 0;
+
+static_assert(kMaximumNumberOfPolymorphicRecursiveCalls <= kMaximumNumberOfRecursiveCalls,
+              "The polymorphic recursive calls are a subset of recursive calls.");
 
 // Controls the use of inline caches in AOT mode.
 static constexpr bool kUseAOTInlineCaches = true;
