@@ -437,7 +437,22 @@ END \name
 
 OAT_ENTRY ExecuteNterpWithClinitImpl
     .cfi_startproc
-    unimp
+    ld t0, ART_METHOD_DECLARING_CLASS_OFFSET(a0)
+    lb t1, MIRROR_CLASS_IS_VISIBLY_INITIALIZED_OFFSET(t0)
+    li t2, MIRROR_CLASS_IS_VISIBLY_INITIALIZED_VALUE
+    bgeu t1, t2, ExecuteNterpImpl
+    li t2, MIRROR_CLASS_IS_INITIALIZED_VALUE
+    bltu t1, t2, .Linitializing_check
+    fence w, w
+    j ExecuteNterpImpl
+.Linitializing_check:
+    li t2, MIRROR_CLASS_IS_INITIALIZING_VALUE
+    bltu t1, t2, .Lresolution_trampoline
+    ld t1, MIRROR_CLASS_CLINIT_THREAD_ID_OFFSET(t0)
+    ld t0, THREAD_TID_OFFSET(xSELF)
+    beq t0, t1, ExecuteNterpImpl
+.Lresolution_trampoline:
+    call art_quick_resolution_trampoline
     .cfi_endproc
     .type EndExecuteNterpWithClinitImpl, @function
     .hidden EndExecuteNterpWithClinitImpl
