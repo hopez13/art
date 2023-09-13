@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a62849cb_7950bb94",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 441,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-09-13T13:57:44Z",
+      "side": 1,
+      "message": "This would have to be LBU but...\n\nI would prefer to read the full 32-bit status field. Reading just a byte is a hack which we do on some architectures to reduce managed code size but it\u0027s really unnecessary on riscv64. See `CodeGeneratorRISCV64::GenerateFrameEntry()`.\n\nNote that the code size difference can be significant in the compiled managed code where we can have many checks but it doesn\u0027t matter for a single function in `libart.so`, so I\u0027d like to clean this up: https://android-review.googlesource.com/2748418 .\n\nYou should probably add a check that `MIRROR_CLASS_STATUS_SHIFT \u003e\u003d 12` and use explicit `lui t2, MIRROR_CLASS_STATUS_\u003cstatus\u003e \u003c\u003c (MIRROR_CLASS_STATUS_SHIFT - 12)`. For LI, you\u0027d have to sign-extend the shifted status but LUI takes an unsigned 20-bit constant.",
+      "range": {
+        "startLine": 441,
+        "startChar": 4,
+        "endLine": 441,
+        "endChar": 6
+      },
+      "revId": "9d46dfb3a469bea9b1ad3641f545c3c80d796b77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8fea4d40_227b7920",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 455,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-09-13T13:57:44Z",
+      "side": 1,
+      "message": "tail (we need to preserve RA)",
+      "range": {
+        "startLine": 455,
+        "startChar": 4,
+        "endLine": 455,
+        "endChar": 8
+      },
+      "revId": "9d46dfb3a469bea9b1ad3641f545c3c80d796b77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
