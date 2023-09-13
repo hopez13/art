@@ -434,10 +434,33 @@ END \name
  *  a0     ArtMethod* callee
  *  a1-a7  method parameters
  */
-
 OAT_ENTRY ExecuteNterpWithClinitImpl
+#if MIRROR_CLASS_STATUS_SHIFT < 12
+#error mirror class status bits cannot use LUI load technique
+#endif
     .cfi_startproc
-    unimp
+    // For simplicity, we don't do a read barrier here, but instead rely
+    // on art_quick_resolution_trampoline to always have a suspend point before
+    // calling back here.
+    ld t0, ART_METHOD_DECLARING_CLASS_OFFSET(a0)
+    lw t1, MIRROR_CLASS_STATUS_OFFSET(t0)  // t1 := status word, sext
+    lui t2, MIRROR_CLASS_STATUS_VISIBLY_INITIALIZED << (MIRROR_CLASS_STATUS_SHIFT - 12)
+    // The unsigned comparison works in tandem with the 64-bit sign-extension of
+    // the status bits at the top of the 32-bit word. The order of the status
+    // constants (sign extended from LUI) is unchanged with unsigned comparison.
+    bgeu t1, t2, ExecuteNterpImpl
+    lui t2, MIRROR_CLASS_STATUS_INITIALIZED << (MIRROR_CLASS_STATUS_SHIFT - 12)
+    bltu t1, t2, .Linitializing_check
+    fence w, w
+    j ExecuteNterpImpl
+.Linitializing_check:
+    lui t2, MIRROR_CLASS_STATUS_INITIALIZING << (MIRROR_CLASS_STATUS_SHIFT - 12)
+    bltu t1, t2, .Lresolution_trampoline
+    ld t1, MIRROR_CLASS_CLINIT_THREAD_ID_OFFSET(t0)
+    ld t0, THREAD_TID_OFFSET(xSELF)
+    beq t0, t1, ExecuteNterpImpl
+.Lresolution_trampoline:
+    tail art_quick_resolution_trampoline
     .cfi_endproc
     .type EndExecuteNterpWithClinitImpl, @function
     .hidden EndExecuteNterpWithClinitImpl
