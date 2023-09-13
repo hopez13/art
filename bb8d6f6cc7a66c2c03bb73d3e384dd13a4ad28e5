@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "013a35cc_df876284",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1121678
+      },
+      "writtenOn": "2023-09-13T08:48:06Z",
+      "side": 1,
+      "message": "dbc.",
+      "revId": "bb8d6f6cc7a66c2c03bb73d3e384dd13a4ad28e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3a79a140_37982dc8",
@@ -14,6 +31,24 @@
       "writtenOn": "2023-09-13T08:38:02Z",
       "side": 1,
       "message": "This flag will be removed. We should coordinate to remove it from here as well when D8 lands without the flag.",
+      "revId": "bb8d6f6cc7a66c2c03bb73d3e384dd13a4ad28e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec7f97cb_d23f887f",
+        "filename": "test/849-records/build.py",
+        "patchSetId": 8
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1121678
+      },
+      "writtenOn": "2023-09-13T08:48:06Z",
+      "side": 1,
+      "message": "You might also want to set -`JDcom.android.tools.r8.emitRecordAnnotationsExInDex` to match what soong sets - but probably not relevant for this test.\n\nI landed https://r8-review.git.corp.google.com/c/r8/+/83806 yesterday, and that should go into this weeks update of R8 in AOSP. Then I will make a CL to remove the -D options (both here and in soong).\n\nRemoving the flags is tracked in b/293591931.",
+      "parentUuid": "3a79a140_37982dc8",
       "revId": "bb8d6f6cc7a66c2c03bb73d3e384dd13a4ad28e5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
