@@ -413,7 +413,7 @@ EOF
   )
 
   msginfo "Encoding linker.config.json" "to $system_linker_config_pb"
-  $ANDROID_HOST_OUT/bin/conv_linker_config proto -s $ANDROID_BUILD_TOP/system/core/rootdir/etc/linker.config.json -o $system_linker_config_pb
+  $ANDROID_HOST_OUT/bin/conv_linker_config proto -s $ANDROID_BUILD_TOP/system/core/rootdir/etc/linker.config.json -o $system_linker_config_pb --force
   $ANDROID_HOST_OUT/bin/conv_linker_config append -s $system_linker_config_pb -o $system_linker_config_pb --key "provideLibs" --value "${system_provide_libs[*]}"
 
   # To avoid warnings from linkerconfig when it checks following two partitions
@@ -425,6 +425,6 @@ EOF
   msginfo "Generating linkerconfig" "in $linkerconfig_out"
   rm -rf $linkerconfig_out
   mkdir -p $linkerconfig_out
-  $ANDROID_HOST_OUT/bin/linkerconfig --target $linkerconfig_out --root $linkerconfig_root --vndk $platform_version
+  $ANDROID_HOST_OUT/bin/linkerconfig --target $linkerconfig_out --root $linkerconfig_root #--vndk $platform_version
   msgnote "Don't be scared by \"Unable to access VNDK APEX\" message, it's not fatal"
 fi
