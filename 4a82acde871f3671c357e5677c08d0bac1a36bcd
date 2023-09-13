@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "123c4164_b20837ba",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 1048,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-09-13T07:12:30Z",
+      "side": 1,
+      "message": "Add `CFI_REMEMBER_STATE` and `CFI_RESTORE_STATE_AND_DEF_CFA` around this.",
+      "range": {
+        "startLine": 1043,
+        "startChar": 0,
+        "endLine": 1048,
+        "endChar": 7
+      },
+      "revId": "4a82acde871f3671c357e5677c08d0bac1a36bcd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c78828b1_155ca75a",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-09-13T07:12:30Z",
+      "side": 1,
+      "message": "This is not C++. Does this actually compile?",
+      "range": {
+        "startLine": 308,
+        "startChar": 6,
+        "endLine": 308,
+        "endChar": 15
+      },
+      "revId": "4a82acde871f3671c357e5677c08d0bac1a36bcd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
