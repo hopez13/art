@@ -16,6 +16,24 @@
       "message": "Is there a new bug, or should this be under b/37272822 as indicated by the section in known failures?",
       "revId": "98a63f037513290694bb8b12c24023aa190cc645",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "63c31bf1_528dd319",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-09-13T13:06:19Z",
+      "side": 1,
+      "message": "Fine to keep it as is, slicer hasn\u0027t been udpated for 2 years, so a lot of catchup will be needed.",
+      "parentUuid": "f6894895_908e4bd3",
+      "revId": "98a63f037513290694bb8b12c24023aa190cc645",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
