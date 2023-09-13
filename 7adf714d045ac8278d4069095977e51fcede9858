@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "d1f227ea_7ce43896",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-09-13T14:40:20Z",
+      "side": 1,
+      "message": "Please try:\n\n- checkout aosp-main\n- $ source build/envsetup.sh\n- $ lunch aosp_riscv64-userdebug\n- $ time art/tools/buildbot-build.sh --target --installclean",
+      "parentUuid": "6b06c768_7c39a82a",
+      "range": {
+        "startLine": 14,
+        "startChar": 6,
+        "endLine": 14,
+        "endChar": 32
+      },
+      "revId": "7adf714d045ac8278d4069095977e51fcede9858",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "f4ace43e_a14a3100",
