@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4fd63126_bfcab8f3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-09-13T20:46:27Z",
+      "side": 1,
+      "message": "Just looked at the implementation for the volatile version.",
+      "revId": "36877fea5a533dc7c2f506d131009ab44118e382",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4bac3630_5a545d7a",
+        "filename": "runtime/interpreter/mterp/riscv64/object.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-09-13T20:46:27Z",
+      "side": 1,
+      "message": "Not sure this adds anything, but it was presumably just copied?",
+      "range": {
+        "startLine": 179,
+        "startChar": 4,
+        "endLine": 179,
+        "endChar": 45
+      },
+      "revId": "36877fea5a533dc7c2f506d131009ab44118e382",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
