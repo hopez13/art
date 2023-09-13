@@ -239,6 +239,7 @@ class BuildTestContext:
         "agents": 26,
         "method-handles": 26,
         "var-handles": 28,
+        "invoke-basic": 34,
       }
       api_level = API_LEVEL[api_level]
     assert isinstance(api_level, int), api_level

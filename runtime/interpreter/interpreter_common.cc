@@ -440,6 +440,15 @@ bool DoMethodHandleInvoke(Thread* self,
   }
 }
 
+bool DoMethodHandleInvokeBasic(Thread* self,
+                               ShadowFrame& shadow_frame,
+                               const Instruction* inst,
+                               uint16_t inst_data,
+                               JValue* result) REQUIRES_SHARED(Locks::mutator_lock_) {
+  // TODO: this still does type check.
+  return DoMethodHandleInvoke(self, shadow_frame, inst, inst_data, result);
+}
+
 static bool DoVarHandleInvokeCommon(Thread* self,
                                     ShadowFrame& shadow_frame,
                                     const Instruction* inst,

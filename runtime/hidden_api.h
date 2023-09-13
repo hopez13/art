@@ -361,6 +361,7 @@ ALWAYS_INLINE inline uint32_t GetRuntimeFlags(ArtMethod* method)
       case Intrinsics::kJdkUnsafePutLong:
       case Intrinsics::kJdkUnsafePut:
       case Intrinsics::kJdkUnsafePutObject:
+      case Intrinsics::kMethodHandleInvokeBasic:
         return 0u;
       case Intrinsics::kFP16Ceil:
       case Intrinsics::kFP16Compare:
