@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f32a371_e1ce55b0",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 1048,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-09-13T22:13:55Z",
+      "side": 1,
+      "message": "Some notes from the meeting. \n(1) We need CFI directives to adjust SP interpretation for the slow path.\n(2) The CFI directives are interpreted textually top-down, and critically, *do not* interact with the dynamic control flow of branches.\n(5) Placing CFI directives in close accordance with dynamic branches will yield a correct interpretation of SP.\n\nSome background too-\n(1) Each PC _requires_ correct SP and RA CFI for correct unwinding.\n(2) Debuggers want CFI for _every_ register, but anything other than SP and RA is best effort on our part.\n(3) The `m check_cfi` tool can look for discrepancies.",
+      "parentUuid": "123c4164_b20837ba",
+      "range": {
+        "startLine": 1043,
+        "startChar": 0,
+        "endLine": 1048,
+        "endChar": 7
+      },
+      "revId": "4a82acde871f3671c357e5677c08d0bac1a36bcd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c78828b1_155ca75a",
