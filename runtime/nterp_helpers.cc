@@ -122,8 +122,8 @@ static constexpr size_t NterpGetFrameEntrySize(InstructionSet isa) {
       InstructionSetAbort(isa);
   }
   // Note: the return address is considered part of the callee saves.
-  return (POPCOUNT(core_spills) + POPCOUNT(fp_spills)) *
-      static_cast<size_t>(InstructionSetPointerSize(isa));
+  return (POPCOUNT(core_spills) + POPCOUNT(fp_spills) + 2) *
+         static_cast<size_t>(InstructionSetPointerSize(isa));
 }
 
 static uint16_t GetNumberOfOutRegs(const CodeItemDataAccessor& accessor, InstructionSet isa) {
@@ -235,9 +235,6 @@ bool CanMethodUseNterp(ArtMethod* method, InstructionSet isa) {
     return false;
   }
   if (isa == InstructionSet::kRiscv64) {
-    if (method->NeedsClinitCheckBeforeCall()) {
-      return false;  // Riscv64 nterp does not implement ExecuteNterpWithClinitImpl.
-    }
     if (method->GetDexFile()->IsCompactDexFile()) {
       return false;  // Riscv64 nterp does not support compact dex yet.
     }
