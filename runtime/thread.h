@@ -1307,9 +1307,9 @@ class Thread {
   // Trigger a suspend check by making the suspend_trigger_ TLS value an invalid pointer.
   // The next time a suspend check is done, it will load from the value at this address
   // and trigger a SIGSEGV.
-  // Only needed if Runtime::implicit_suspend_checks_ is true and fully implemented.  It currently
-  // is always false. Client code currently just looks at the thread flags directly to determine
-  // whether we should suspend, so this call is currently unnecessary.
+  // Only needed if Runtime::implicit_suspend_checks_ is true. It is currently set to true on
+  // ARM64 only. On other architectures, client code currently just looks at the thread flags
+  // directly to determine whether we should suspend, so this call is currently unnecessary.
   void TriggerSuspend() {
     tlsPtr_.suspend_trigger = nullptr;
   }
