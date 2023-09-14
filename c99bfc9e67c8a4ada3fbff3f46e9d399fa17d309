@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b34a259_18addc0b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-09-14T09:40:29Z",
+      "side": 1,
+      "message": "I happened to see the code in runtime/startup_completed_task.cc and found the issue, then I did an experiment to confirm it.",
+      "parentUuid": "5fc3bbbc_2efc004c",
+      "revId": "c99bfc9e67c8a4ada3fbff3f46e9d399fa17d309",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6e0a2ecf_e54f8479",
@@ -55,6 +73,30 @@
       "side": 1,
       "message": "Maybe? :) Did you validate this works?\n\nCould be that going back to marking speed-profile is simpler?",
       "parentUuid": "6e0a2ecf_e54f8479",
+      "range": {
+        "startLine": 797,
+        "startChar": 6,
+        "endLine": 800,
+        "endChar": 7
+      },
+      "revId": "c99bfc9e67c8a4ada3fbff3f46e9d399fa17d309",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f439f98_b2d6eed8",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 800,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-09-14T09:40:29Z",
+      "side": 1,
+      "message": "I verified that the runtime no longer repeatedly generates runtime images after the fix. It now only generates a runtime image on the first app startup.\n\nHowever, there is two things unclear to me:\n\n1. Is it true that an image space is either a boot image space or an app image space? Am I missing any edge cases?\n2. Does it make sense to pass `space-\u003eBegin()` to `IsBootImageAddress`?\n\n\u003e Could be that going back to marking speed-profile is simpler?\n\nI prefer not. That behavior has too many surprising side effects. The (speed-profile, install) case I mentioned last time is only one of them. Another case where this can be surprising is that when the build system runs dexpreopt for an app with an invalid profile, it generates an almost empty .art file, and GetPrimaryApkOptimizationStatus will return (speed-profile, prebuilt).",
+      "parentUuid": "c4266e0c_702f1eff",
       "range": {
         "startLine": 797,
         "startChar": 6,
