@@ -129,6 +129,30 @@
       },
       "revId": "c99bfc9e67c8a4ada3fbff3f46e9d399fa17d309",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "acfa25c7_8d89d496",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 800,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-09-14T14:24:37Z",
+      "side": 1,
+      "message": "1. Yes, an `ImageSpace` is either a (part of) boot image or an app image.\n2. The code LGTM. (But maybe it would be enough to compare the sizes of `boot_image_spaces_` and `continuous_spaces_`.)",
+      "parentUuid": "d8de86d6_ecc8b772",
+      "range": {
+        "startLine": 797,
+        "startChar": 6,
+        "endLine": 800,
+        "endChar": 7
+      },
+      "revId": "c99bfc9e67c8a4ada3fbff3f46e9d399fa17d309",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
