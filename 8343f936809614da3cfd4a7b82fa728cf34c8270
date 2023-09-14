@@ -22,6 +22,30 @@
       },
       "revId": "8343f936809614da3cfd4a7b82fa728cf34c8270",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b5c012b2_89f5df7c",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 9
+      },
+      "lineNbr": 1042,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-09-14T18:15:27Z",
+      "side": 1,
+      "message": "Removed it. I think I got it backwards, the relation between SP and CFA. Let me rephrase - WDYT? CFI_REMEMBER_STATE lets us track a few things: How to compute CFA from the current SP, and where to find the values of T5 and T6 relative to CFA.",
+      "parentUuid": "989f2264_eeec9189",
+      "range": {
+        "startLine": 1041,
+        "startChar": 22,
+        "endLine": 1042,
+        "endChar": 74
+      },
+      "revId": "8343f936809614da3cfd4a7b82fa728cf34c8270",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
