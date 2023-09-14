@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "989f2264_eeec9189",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 9
+      },
+      "lineNbr": 1042,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-09-14T07:42:22Z",
+      "side": 1,
+      "message": "I would remove this comment.\n\nNote that this actually saves the state of saved registers (T5 and T6 saved above and restored in the code we branch over). This is restored with the `.cfi_restore_state` directive.\n\nWhether this actually saves the CFA (sp+16 here) seems to be ambiguous in the DWARF standard (unless fixed in the last few years) and debuggers seemed to disagree, so the macro `CFI_RESTORE_STATE_AND_DEF_CFA` also defines CFA to be safe.",
+      "range": {
+        "startLine": 1041,
+        "startChar": 22,
+        "endLine": 1042,
+        "endChar": 74
+      },
+      "revId": "8343f936809614da3cfd4a7b82fa728cf34c8270",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
