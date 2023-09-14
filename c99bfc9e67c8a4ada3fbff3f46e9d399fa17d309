@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5fc3bbbc_2efc004c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-09-14T08:57:35Z",
+      "side": 1,
+      "message": "How did you find the issue?",
+      "revId": "c99bfc9e67c8a4ada3fbff3f46e9d399fa17d309",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6e0a2ecf_e54f8479",
         "filename": "runtime/gc/heap.h",
         "patchSetId": 1
@@ -14,6 +31,30 @@
       "writtenOn": "2023-09-13T17:45:00Z",
       "side": 1,
       "message": "Nicolas, does this make sense to you?",
+      "range": {
+        "startLine": 797,
+        "startChar": 6,
+        "endLine": 800,
+        "endChar": 7
+      },
+      "revId": "c99bfc9e67c8a4ada3fbff3f46e9d399fa17d309",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c4266e0c_702f1eff",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 800,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-09-14T08:57:35Z",
+      "side": 1,
+      "message": "Maybe? :) Did you validate this works?\n\nCould be that going back to marking speed-profile is simpler?",
+      "parentUuid": "6e0a2ecf_e54f8479",
       "range": {
         "startLine": 797,
         "startChar": 6,
