@@ -22,4 +22,4 @@ def run(ctx, args):
 
   # The problem was first exposed in a no-verify setting, as that changes the resolution path
   # taken. Make sure we also test in that environment.
-  ctx.default_run(args, no_verify=True)
+  ctx.default_run(args, verify=False)
