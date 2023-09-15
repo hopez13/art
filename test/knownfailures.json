@@ -1349,17 +1349,14 @@
     },
     {
         "tests": ["2031-zygote-compiled-frame-deopt"],
-        "zipapex": true,
+        "variant": "target",
         "bug": "b/144947842",
-        "description": ["This test requires strong knowledge about where the libdir is",
-                        "which the zipapex runner breaks."]
+        "description": ["This test hangs on device."]
     },
     {
-        "tests": ["909-attach-agent", "126-miranda-multidex"],
-        "zipapex": true,
+        "tests": ["909-attach-agent"],
         "bug": "b/135507613",
-        "description": ["These tests run dalvikvm multiple times, this can mess up the",
-                        "zipapex runner."]
+        "description": ["This test fails to libtiagentd.so on device and complains about invalid version on host."]
     },
     {
         "tests": ["175-alloc-big-bignums"],
