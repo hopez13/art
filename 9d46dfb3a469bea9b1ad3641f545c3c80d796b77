@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2414f002_9c922a4a",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 441,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-09-16T02:49:08Z",
+      "side": 1,
+      "message": "I had to think about the sext + unsigned comparison. Nice.",
+      "parentUuid": "a62849cb_7950bb94",
+      "range": {
+        "startLine": 441,
+        "startChar": 4,
+        "endLine": 441,
+        "endChar": 6
+      },
+      "revId": "9d46dfb3a469bea9b1ad3641f545c3c80d796b77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8fea4d40_227b7920",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-09-13T13:57:44Z",
       "side": 1,
       "message": "tail (we need to preserve RA)",
+      "range": {
+        "startLine": 455,
+        "startChar": 4,
+        "endLine": 455,
+        "endChar": 8
+      },
+      "revId": "9d46dfb3a469bea9b1ad3641f545c3c80d796b77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32c93804_eee7b9f0",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 455,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-09-16T02:49:08Z",
+      "side": 1,
+      "message": "If we spill RA to stack, would the RA at this callsite be useful in a stack walk?",
+      "parentUuid": "8fea4d40_227b7920",
       "range": {
         "startLine": 455,
         "startChar": 4,
