@@ -613,7 +613,12 @@
    // - The out array has \z0 slots.
    // - Each register slot is 4 bytes.
    // - Additional 24 bytes for 3 fields: saved frame pointer, dex pc, and ArtMethod*.
+#ifdef __riscv_zba
    sh1add $z1, $regs, $z0
+#else
+   slli $z1, $regs, 1
+   add $z1, $z1, $z0
+#endif
    slli $z1, $z1, 2
    addi $z1, $z1, 24    // z1 := frame size, without alignment padding
 
@@ -624,13 +629,23 @@
 
    // Set \refs to base of reference array. Align to pointer size for the frame pointer and dex pc
    // pointer, below the reference array.
+#ifdef __riscv_zba
    sh2add $z0, $z0, $z1  // z0 := out array size in bytes
+#else
+   slli $z0, $z0, 2
+   add $z0, $z0, $z1
+#endif
    addi $z0, $z0, 28     //     + 24 bytes for 3 fields, plus 4 for alignment slack.
    andi $refs, $z0, -__SIZEOF_POINTER__
                          // refs := refs array base
 
    // Set \fp to base of register array, above the reference array. This region is already aligned.
+#ifdef __riscv_zba
    sh2add $fp, $regs, $refs
+#else
+   slli $fp, $regs, 2
+   add $fp, $fp, $refs
+#endif
                          // fp := fp array base
 
    // Set up the stack pointer.

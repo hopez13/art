@@ -1194,7 +1194,12 @@ ENTRY art_quick_aput_obj
     // value's type == array's component type - trivial assignability
     bne   a3, a4, .Laput_obj_check_assignability
 .Laput_obj_store:
+#ifdef __riscv_zba
     sh2add a3, a1, a0
+#else
+    slli  a3, a1, 2
+    add   a3, a3, a0
+#endif
     POISON_HEAP_REF a2
     sw    a2, MIRROR_OBJECT_ARRAY_DATA_OFFSET(a3)      // Heap reference = 32b.
     ld    a3, THREAD_CARD_TABLE_OFFSET(xSELF)
@@ -1204,7 +1209,12 @@ ENTRY art_quick_aput_obj
     ret
 
 .Laput_obj_null:
+#ifdef __riscv_zba
     sh2add a3, a1, a0
+#else
+    slli  a3, a1, 2
+    add   a3, a3, a0
+#endif
     sw    a2, MIRROR_OBJECT_ARRAY_DATA_OFFSET(a3)      // Heap reference = 32b.
     ret
 
@@ -1232,7 +1242,12 @@ ENTRY art_quick_aput_obj
     RESTORE_GPR ra, 3*8
     DECREASE_FRAME 32
 
+#ifdef __riscv_zba
     sh2add a3, a1, a0
+#else
+    slli  a3, a1, 2
+    add   a3, a3, a0
+#endif
     POISON_HEAP_REF a2
     sw    a2, MIRROR_OBJECT_ARRAY_DATA_OFFSET(a3)      // Heap reference = 32b.
     ld    a3, THREAD_CARD_TABLE_OFFSET(xSELF)
