@@ -46,6 +46,30 @@
       },
       "revId": "a571028d2f2ce6194f7e519af764119bbc52e598",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "134fe049_ef19a597",
+        "filename": "libartbase/base/globals.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1280281
+      },
+      "writtenOn": "2023-09-18T06:20:56Z",
+      "side": 1,
+      "message": "Thank you for the feedback and suggestions.\n\nI will rename `kPageSize` -\u003e `gPageSize` and other values, which are not `constexpr` anymore, accordingly. Also I\u0027m planning to move the declaration to another file. However, I\u0027d like to keep the value `constexpr` for build configuration not meant to be agnostic to page size. In those configurations, `gPageSize` and the other values would be `constexpr`. Would this be suitable?\n\nWith regards to the possibility of the static initialization order issue, I agree defining the variable as a `static const` isn\u0027t guaranteeing correct order even though every module has own copy - due to possibility of a cross-module function call during the initialization. I\u0027m looking into this and should get back with my findings and ideas on how the solution could look like by end of the week.",
+      "parentUuid": "ba293cbd_9ba62de4",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 46
+      },
+      "revId": "a571028d2f2ce6194f7e519af764119bbc52e598",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
