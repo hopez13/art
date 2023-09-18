@@ -66,7 +66,12 @@
    lwu t0, MIRROR_OBJECT_CLASS_OFFSET(a1)
                                     // t0 := klass object (32-bit addr)
    // Entry address = entry's byte offset in vtable + vtable's byte offset in klass object.
+#ifdef __riscv_zba
    sh3add a0, a0, t0                // a0 := entry's byte offset
+#else
+   slli a0, a0, 3
+   add a0, a0, t0                   // a0 := entry's byte offset
+#endif
    ld a0, MIRROR_CLASS_VTABLE_OFFSET_64(a0)
                                     // a0 := ArtMethod*
    tail NterpInvokeVirtual${range}  // args a0, a1, s7
@@ -177,7 +182,12 @@
 2:
    ld t1, MIRROR_CLASS_IMT_PTR_OFFSET_64(t1)
                           // t1 := base address of imt
+#ifdef __riscv_zba
    sh3add t1, t2, t1      // t1 := entry's address in imt
+#else
+   slli t2, t2, 3
+   add t1, t2, t1         // t1 := entry's address in imt
+#endif
 3:
    ld a0, (t1)            // a0 := ArtMethod*
    tail NterpInvokeInterface${range}  // args a0, a1, s7, t0
@@ -194,7 +204,12 @@
    srliw t0, t0, 16       // t0 := method index
    lwu t1, MIRROR_CLASS_VTABLE_OFFSET_64(t1)
                           // t1 := base address of vtable (32-bit addr)
+#ifdef __riscv_zba
    sh3add t1, t0, t1      // t1 := entry's address in vtable
+#else
+   slli t2, t0, 3
+   add t1, t2, t1         // t1 := entry's address in vtable
+#endif
    j 3b
 6:
 %  resolve_method_into_a0()
@@ -1020,7 +1035,12 @@
    // - The out array has \z0 slots.
    // - Each register slot is 4 bytes.
    // - Additional 24 bytes for 3 fields: saved frame pointer, dex pc, and ArtMethod*.
+#ifdef __riscv_zba
    sh1add $z1, $regs, $z0
+#else
+   slli $z1, $regs, 1
+   add $z1, $z1, $z0
+#endif
    slli $z1, $z1, 2
    addi $z1, $z1, 24    // z1 := frame size, without alignment padding
 
@@ -1031,13 +1051,23 @@
 
    // Set \refs to base of reference array. Align to pointer size for the frame pointer and dex pc
    // pointer, below the reference array.
+#ifdef __riscv_zba
    sh2add $z0, $z0, $z1  // z0 := out array size in bytes
+#else
+   slli $z0, $z0, 2
+   add $z0, $z0, $z1
+#endif
    addi $z0, $z0, 28     //     + 24 bytes for 3 fields, plus 4 for alignment slack.
    andi $refs, $z0, -__SIZEOF_POINTER__
                          // refs := refs array base
 
    // Set \fp to base of register array, above the reference array. This region is already aligned.
+#ifdef __riscv_zba
    sh2add $fp, $regs, $refs
+#else
+   slli $fp, $regs, 2
+   add $fp, $fp, $refs
+#endif
                          // fp := fp array base
 
    // Set up the stack pointer.
@@ -1077,8 +1107,14 @@
    // A >= 1, decide and branch
    li $z1, 2
    sub $z2, $regs, $z0        // z2 := regs - A; vC's index in fp
+#ifdef __riscv_zba
    sh2add $z3, $z2, $fp       // z3 := addr of fp[C]
    sh2add $z2, $z2, $refs     // z2 := addr of refs[C]
+#else
+   slli $z2, $z2, 2
+   add $z3, $z2, $fp          // z3 := addr of fp[C]
+   add $z2, $z2, $refs        // z2 := addr of refs[C]
+#endif
    blt $z0, $z1, .L${uniq}_arg_1
    beq $z0, $z1, .L${uniq}_arg_2
    li $z1, 4
