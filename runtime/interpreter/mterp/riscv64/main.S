@@ -254,7 +254,12 @@ END \name
 #endif
     andi \z0, xPC, 0xFF << 2
     addi \z0, \z0, THREAD_INTERPRETER_CACHE_OFFSET >> 2
+#ifdef __riscv_zba
     sh2add \z0, \z0, xSELF  // z0 := entry's address
+#else
+    slli \z0, \z0, 2
+    add \z0, \z0, xSELF     // z0 := entry's address
+#endif
     ld \z1, (\z0)           // z1 := dex PC
     bne xPC, \z1, \miss_label
     ld \reg, 8(\z0)         // value: depends on context; see call site
@@ -312,7 +317,12 @@ END \name
     .if \is_wide
       GET_VREG_WIDE \reg, \vreg
     .else
+#ifdef __riscv_zba
       sh2add \reg, \vreg, xFP  // vreg addr in register array
+#else
+      slli \reg, \vreg, 2
+      add \reg, \reg, xFP      // vreg addr in register array
+#endif
       lw \reg, (\reg)          // reg := fp[vreg]
     .endif
 .endm
@@ -323,9 +333,19 @@ END \name
     .if \is_wide
       SET_VREG_WIDE \reg, \vreg, \z0
     .else
+#ifdef __riscv_zba
       sh2add \z0, \vreg, xFP    // vreg addr in register array
+#else
+      slli \z0, \vreg, 2
+      add \z0, \z0, xFP         // vreg addr in register array
+#endif
       sw \reg, (\z0)            // fp[vreg] := reg
+#ifdef __riscv_zba
       sh2add \z0, \vreg, xREFS  // vreg addr in reference array
+#else
+      slli \z0, \vreg, 2
+      add \z0, \z0, xREFS       // vreg addr in reference array
+#endif
       sw zero, (\z0)            // refs[vreg] := null
     .endif
 .endm
@@ -334,16 +354,31 @@ END \name
 // Clobbers: \reg
 // Safe if \reg == \vreg.
 .macro GET_VREG_WIDE reg, vreg
+#ifdef __riscv_zba
     sh2add \reg, \vreg, xFP  // vreg addr in register array
+#else
+    slli \reg, \vreg, 2
+    add \reg, \reg, xFP      // vreg addr in register array
+#endif
     ld \reg, (\reg)          // reg := fp[vreg](lo) | fp[vreg+1](hi)
 .endm
 
 // 64 bit write
 // Clobbers: z0
 .macro SET_VREG_WIDE reg, vreg, z0
+#ifdef __riscv_zba
     sh2add \z0, \vreg, xFP    // vreg addr in register array
+#else
+    slli \z0, \vreg, 2
+    add \z0, \z0, xFP         // vreg addr in register array
+#endif
     sd \reg, (\z0)            // fp[vreg] := reg(lo) ; fp[vreg+1] := reg(hi)
+#ifdef __riscv_zba
     sh2add \z0, \vreg, xREFS  // vreg addr in reference array
+#else
+    slli \z0, \vreg, 2
+    add \z0, \z0, xREFS       // vreg addr in reference array
+#endif
     sd zero, (\z0)            // refs[vreg] := null ; refs[vreg+1] := null
 .endm
 
@@ -351,16 +386,31 @@ END \name
 // Clobbers: \reg
 // Safe if \reg == \vreg.
 .macro GET_VREG_OBJECT reg, vreg
+#ifdef __riscv_zba
     sh2add \reg, \vreg, xREFS  // vreg addr in reference array
+#else
+    slli \reg, \vreg, 2
+    add \reg, \reg, xREFS      // vreg addr in reference array
+#endif
     lwu \reg, (\reg)           // reg := refs[vreg]
 .endm
 
 // Object write
 // Clobbers: z0
 .macro SET_VREG_OBJECT reg, vreg, z0
+#ifdef __riscv_zba
     sh2add \z0, \vreg, xFP    // vreg addr in register array
+#else
+    slli \z0, \vreg, 2
+    add \z0, \z0, xFP         // vreg addr in register array
+#endif
     sw \reg, (\z0)            // fp[vreg] := reg
+#ifdef __riscv_zba
     sh2add \z0, \vreg, xREFS  // vreg addr in reference array
+#else
+    slli \z0, \vreg, 2
+    add \z0, \z0, xREFS       // vreg addr in reference array
+#endif
     sw \reg, (\z0)            // refs[vreg] := reg
 .endm
 
@@ -370,7 +420,12 @@ END \name
     .if \is_double
       GET_VREG_DOUBLE \reg, \vreg
     .else
+#ifdef __riscv_zba
       sh2add \vreg, \vreg, xFP  // vreg addr in register array
+#else
+      slli \vreg, \vreg, 2
+      add \vreg, \vreg, xFP     // vreg addr in register array
+#endif
       flw \reg, (\vreg)         // reg := fp[vreg]
     .endif
 .endm
@@ -381,9 +436,19 @@ END \name
     .if \is_double
       SET_VREG_DOUBLE \reg, \vreg, \z0
     .else
+#ifdef __riscv_zba
       sh2add \z0, \vreg, xFP    // vreg addr in register array
+#else
+      slli \z0, \vreg, 2
+      add \z0, \z0, xFP         // vreg addr in register array
+#endif
       fsw \reg, (\z0)           // fp[vreg] := reg
+#ifdef __riscv_zba
       sh2add \z0, \vreg, xREFS  // vreg addr in reference array
+#else
+      slli \z0, \vreg, 2
+      add \z0, \z0, xREFS       // vreg addr in reference array
+#endif
       sw zero, (\z0)            // refs[vreg] := null
     .endif
 .endm
@@ -391,16 +456,31 @@ END \name
 // Floating-point 64 bit read
 // Clobbers: \reg, \vreg
 .macro GET_VREG_DOUBLE reg, vreg
+#ifdef __riscv_zba
     sh2add \vreg, \vreg, xFP  // vreg addr in register array
+#else
+    slli \vreg, \vreg, 2
+    add \vreg, \vreg, xFP     // vreg addr in register array
+#endif
     fld \reg, (\vreg)         // reg := fp[vreg](lo) | fp[vreg+1](hi)
 .endm
 
 // Floating-point 64 bit write
 // Clobbers: \reg, z0
 .macro SET_VREG_DOUBLE reg, vreg, z0
+#ifdef __riscv_zba
     sh2add \z0, \vreg, xFP    // vreg addr in register array
+#else
+    slli \z0, \vreg, 2
+    add \z0, \z0, xFP         // vreg addr in register array
+#endif
     fsd \reg, (\z0)           // fp[vreg] := reg(lo) ; fp[vreg+1] := reg(hi)
+#ifdef __riscv_zba
     sh2add \z0, \vreg, xREFS  // vreg addr in reference array
+#else
+    slli \z0, \vreg, 2
+    add \z0, \z0, xREFS       // vreg addr in reference array
+#endif
     sd zero, (\z0)            // refs[vreg] := null ; refs[vreg+1] := null
 .endm
 
@@ -465,8 +545,14 @@ OAT_ENTRY ExecuteNterpImpl
                             // s10 := method flags
 
    // Fast path: all reference args.
+#ifdef __riscv_zba
    sh2add t0, s7, xFP       // t0 := &xFP[a1]
    sh2add t1, s7, xREFS     // t1 := &xREFS[a1]
+#else
+   slli t1, s7, 2
+   add t0, t1, xFP          // t0 := &xFP[a1]
+   add t1, t1, xREFS        // t1 := &xREFS[a1]
+#endif
    BRANCH_IF_BIT_CLEAR t2, s10, ART_METHOD_NTERP_ENTRY_POINT_FAST_PATH_FLAG_BIT, .Lentry_a1
 %  setup_ref_args_and_go(fp="t0", refs="t1", refs_end="xFP", spills_sp="s9", z0="t2", z1="t3", done=".Lentry_go")
 
@@ -489,8 +575,14 @@ OAT_ENTRY ExecuteNterpImpl
    RESTORE_ALL_ARGUMENTS
 
    // temporaries are trashed, recompute some values
+#ifdef __riscv_zba
    sh2add t0, s7, xFP       // t0 := &xFP[a1]
    sh2add t1, s7, xREFS     // t1 := &xREFS[a1]
+#else
+   slli t1, s7, 2
+   add t0, t1, xFP          // t0 := &xFP[a1]
+   add t1, t1, xREFS        // t1 := &xREFS[a1]
+#endif
    addi t2, s11, 1          // t2 := shorty arg (skip return type)
    xori s10, s10, 1         // s10 := 0 if static, 1 if instance
    slliw t3, s10, 2         // t3 := (static) 0, (instance) 4: fp/refs/outs byte offset
@@ -522,7 +614,12 @@ OAT_ENTRY ExecuteNterpImpl
 %  store_outs_to_vregs(outs="t3", shorty="t2", fp="t0", refs="t1", z0="t5", z1="t6", D="s0", F="s4", J="s5", L="s8", next=".Lentry_fargs")
 
 .Lentry_fargs:
+#ifdef __riscv_zba
    sh2add t0, s7, xFP       // t0 := &FP[a1]
+#else
+   slli t0, s7, 2
+   add t0, t0, xFP          // t0 := &FP[a1]
+#endif
    addi t1, s11, 1          // t1 := shorty arg (skip return type)
    slliw t2, s10, 2         // t2 := starting byte offset for fp/outs, static and instance
    // linear scan through shorty: extract float args

@@ -1269,7 +1269,12 @@ ENTRY art_quick_aput_obj
     // value's type == array's component type - trivial assignability
     bne   a3, a4, .Laput_obj_check_assignability
 .Laput_obj_store:
+#ifdef __riscv_zba
     sh2add a3, a1, a0
+#else
+    slli  a3, a1, 2
+    add   a3, a3, a0
+#endif
     POISON_HEAP_REF a2
     sw    a2, MIRROR_OBJECT_ARRAY_DATA_OFFSET(a3)      // Heap reference = 32b.
     ld    a3, THREAD_CARD_TABLE_OFFSET(xSELF)
@@ -1279,7 +1284,12 @@ ENTRY art_quick_aput_obj
     ret
 
 .Laput_obj_null:
+#ifdef __riscv_zba
     sh2add a3, a1, a0
+#else
+    slli  a3, a1, 2
+    add   a3, a3, a0
+#endif
     sw    a2, MIRROR_OBJECT_ARRAY_DATA_OFFSET(a3)      // Heap reference = 32b.
     ret
 
@@ -1307,7 +1317,12 @@ ENTRY art_quick_aput_obj
     RESTORE_GPR ra, 3*8
     DECREASE_FRAME 32
 
+#ifdef __riscv_zba
     sh2add a3, a1, a0
+#else
+    slli  a3, a1, 2
+    add   a3, a3, a0
+#endif
     POISON_HEAP_REF a2
     sw    a2, MIRROR_OBJECT_ARRAY_DATA_OFFSET(a3)      // Heap reference = 32b.
     ld    a3, THREAD_CARD_TABLE_OFFSET(xSELF)
@@ -1839,26 +1854,50 @@ END \name
 
 .macro COMPUTE_ARRAY_SIZE_8 class, count, temp0, temp1, temp2
     // Add array data offset and alignment adjustment to the `\count`.
+#ifdef __riscv_zba
     li     \temp1, (MIRROR_INT_ARRAY_DATA_OFFSET + OBJECT_ALIGNMENT_MASK)
     add.uw \temp1, \count, \temp1
+#else
+    slli   \temp1, \count, 32
+    srli   \temp1, \temp1, 32
+    addi   \temp1, \temp1, (MIRROR_INT_ARRAY_DATA_OFFSET + OBJECT_ALIGNMENT_MASK)
+#endif
 .endm
 
 .macro COMPUTE_ARRAY_SIZE_16 class, count, temp0, temp1, temp2
     // Add array data offset and alignment adjustment to the shifted `\count`.
+#ifdef __riscv_zba
     li     \temp1, (MIRROR_INT_ARRAY_DATA_OFFSET + OBJECT_ALIGNMENT_MASK)
     sh1add.uw \temp1, \count, \temp1
+#else
+    slli   \temp1, \count, 32
+    srli   \temp1, \temp1, 31
+    addi   \temp1, \temp1, (MIRROR_INT_ARRAY_DATA_OFFSET + OBJECT_ALIGNMENT_MASK)
+#endif
 .endm
 
 .macro COMPUTE_ARRAY_SIZE_32 class, count, temp0, temp1, temp2
     // Add array data offset and alignment adjustment to the shifted `\count`.
+#ifdef __riscv_zba
     li     \temp1, (MIRROR_INT_ARRAY_DATA_OFFSET + OBJECT_ALIGNMENT_MASK)
     sh2add.uw \temp1, \count, \temp1
+#else
+    slli   \temp1, \count, 32
+    srli   \temp1, \temp1, 30
+    addi   \temp1, \temp1, (MIRROR_INT_ARRAY_DATA_OFFSET + OBJECT_ALIGNMENT_MASK)
+#endif
 .endm
 
 .macro COMPUTE_ARRAY_SIZE_64 class, count, temp0, temp1, temp2
     // Add array data offset and alignment adjustment to the shifted `\count`.
+#ifdef __riscv_zba
     li     \temp1, (MIRROR_WIDE_ARRAY_DATA_OFFSET + OBJECT_ALIGNMENT_MASK)
     sh3add.uw \temp1, \count, \temp1
+#else
+    slli   \temp1, \count, 32
+    srli   \temp1, \temp1, 29
+    addi   \temp1, \temp1, (MIRROR_WIDE_ARRAY_DATA_OFFSET + OBJECT_ALIGNMENT_MASK)
+#endif
 .endm
 
 // TODO(ngeoffray): art_quick_alloc_array_resolved_region_tlab is not used for arm64, remove
@@ -1926,8 +1965,15 @@ ENTRY art_quick_indexof
     beqz  a4, .Lstring_indexof_compressed
 #endif
     /* Build pointers to start and end of the data to compare */
+#ifdef __riscv_zba
     sh1add a2, a2, a0
     sh1add a3, a3, a0
+#else
+    slli   a2, a2, 1
+    add    a2, a2, a0
+    slli   a3, a3, 1
+    add    a3, a3, a0
+#endif
 
     /*
      * At this point we have:
