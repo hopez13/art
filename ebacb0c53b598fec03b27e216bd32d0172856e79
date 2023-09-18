@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "edbea46f_aa15569a",
+        "filename": "test/126-miranda-multidex/run.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-09-18T21:06:16Z",
+      "side": 0,
+      "message": "The `--no-xxx` logic argparser.BooleanOptionalAction doesn\u0027t apply to these argument lists.\n\nLooks like this has been broken since the conversion to python, but due to the buggy zipapex filter in knowfailures.json we haven\u0027t noticed.\n\nI\u0027ve checked that the change to `verify\u003dFalse` does propagate to `VERIFY \u003d\u003d \"n\"` in default_run.",
+      "range": {
+        "startLine": 25,
+        "startChar": 24,
+        "endLine": 25,
+        "endChar": 33
+      },
+      "revId": "ebacb0c53b598fec03b27e216bd32d0172856e79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
