@@ -93,6 +93,30 @@
       },
       "revId": "9d46dfb3a469bea9b1ad3641f545c3c80d796b77",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9306a759_3d9cec86",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 455,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-09-18T07:51:39Z",
+      "side": 1,
+      "message": "We cannot spill RA to the stack because cannot add a stack frame. We need to get to `art_quick_resolution_trampoline` as if we were never here - with the same SP, RA callee-saves and args; only temps (T0-T6) can be clobbered.",
+      "parentUuid": "32c93804_eee7b9f0",
+      "range": {
+        "startLine": 455,
+        "startChar": 4,
+        "endLine": 455,
+        "endChar": 8
+      },
+      "revId": "9d46dfb3a469bea9b1ad3641f545c3c80d796b77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
