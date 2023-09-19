@@ -16,6 +16,24 @@
       "message": "Even with this, we still get a SIGILL on vsetvli.",
       "revId": "49f92030bd62b7bacdf1aae0910e34c2b0866d86",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "afa0b044_be4bee18",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1279898
+      },
+      "writtenOn": "2023-09-19T23:31:41Z",
+      "side": 1,
+      "message": "Your issue is likely with the prebuilt Ubuntu being referred to above in this file - Ubuntu 22.04 is on the 6.2 kernel, while vector support was only added in 6.5. We would need to pull in an image with that support for this to have a chance of working, but how that practically happens I think is a question for the ART team (I assume we\u0027re not thrilled with the idea of pulling an unstable release).",
+      "parentUuid": "7ce97f6c_89647a42",
+      "revId": "49f92030bd62b7bacdf1aae0910e34c2b0866d86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
