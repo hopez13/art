@@ -34,6 +34,24 @@
       "parentUuid": "7ce97f6c_89647a42",
       "revId": "49f92030bd62b7bacdf1aae0910e34c2b0866d86",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "40853f49_8f2e0d7e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-09-19T23:36:52Z",
+      "side": 1,
+      "message": "Thank you. Mantic Minotaur will be available in a few weeks according to this schedule.\nhttps://discourse.ubuntu.com/t/mantic-minotaur-release-schedule/34989\n\nI could just carry a local revert of soong/cc/config/riscv64_device.go until then. \n\nHowever, I don\u0027t know who/where else uses buildbot-vm.sh - ngeoffray or vmarko, any thoughts?",
+      "parentUuid": "afa0b044_be4bee18",
+      "revId": "49f92030bd62b7bacdf1aae0910e34c2b0866d86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
