@@ -16,6 +16,29 @@
       "message": "PTAL!",
       "revId": "ee16957f7b0a41d876eec0fb8c056f6f5daff376",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6f80c383_4a618a4d",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 564,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-09-19T06:49:40Z",
+      "side": 1,
+      "message": "You could have added an `offset` parameter to the `SAVE_ALL_CALLEE_SAVES`, see arm64. But that would make the frame size assertion a bit odd, so feel free to keep this as is. Or maybe move these two macros to the nterp\u0027s `main.S`. Or just ACK and submit as is.",
+      "range": {
+        "startLine": 564,
+        "startChar": 7,
+        "endLine": 564,
+        "endChar": 36
+      },
+      "revId": "ee16957f7b0a41d876eec0fb8c056f6f5daff376",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
