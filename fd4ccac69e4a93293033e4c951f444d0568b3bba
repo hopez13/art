@@ -55,6 +55,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "05ce662d_ade946b0",
+        "filename": "runtime/nterp_helpers.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-09-19T04:46:50Z",
+      "side": 1,
+      "message": "I see now. Thank you for the context - helps a lot.",
+      "parentUuid": "7def6ff4_8142eb4b",
+      "revId": "fd4ccac69e4a93293033e4c951f444d0568b3bba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "d65f77ef_629d57fc",
         "filename": "tools/cpp-define-generator/mirror_class.def",
         "patchSetId": 7
@@ -84,6 +102,24 @@
       "side": 1,
       "message": "I don\u0027t like sorted - the \"OFFSET\" and \"SHIFT\" should not be in the middle of the status values.\n\nI\u0027d prefer to have all the \"OFFSET\" definitions first (the `PRIMITIVE_TYPE_SIZE_SHIFT_SHIFT` was previously between them and it\u0027s OK to move it down), then the rest with all the class status values grouped together.",
       "parentUuid": "d65f77ef_629d57fc",
+      "revId": "fd4ccac69e4a93293033e4c951f444d0568b3bba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d0d94004_d047a70f",
+        "filename": "tools/cpp-define-generator/mirror_class.def",
+        "patchSetId": 7
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-09-19T04:46:50Z",
+      "side": 1,
+      "message": "PTAL",
+      "parentUuid": "e1c0ac81_d1b97f21",
       "revId": "fd4ccac69e4a93293033e4c951f444d0568b3bba",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
