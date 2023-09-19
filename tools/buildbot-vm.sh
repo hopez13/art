@@ -90,6 +90,7 @@ elif [[ $action = boot ]]; then
             -m 16G \
             -smp 8 \
             -M virt \
+            -cpu rv64,v=true \
             -nographic \
             -bios fw_jump.elf \
             -kernel uboot.elf \
