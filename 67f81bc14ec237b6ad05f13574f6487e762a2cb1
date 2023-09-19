@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "55dad826_205316d4",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1974,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-09-19T15:51:48Z",
+      "side": 1,
+      "message": "We are missing the [write barrier elimination](https://cs.android.com/android/platform/superproject/main/+/main:art/compiler/optimizing/code_generator_arm64.cc;l\u003d2335-2336;drc\u003d5899d7919d5ad8e0c437e72c4aa04d4024e32431) here. Was this on purpose?\n\nNote that WriteBarrierElimination was added this year so it probably was not present in the checkout from T-HEAD.",
+      "range": {
+        "startLine": 1974,
+        "startChar": 0,
+        "endLine": 1974,
+        "endChar": 98
+      },
+      "revId": "67f81bc14ec237b6ad05f13574f6487e762a2cb1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
