@@ -95,6 +95,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d1a384cf_a11fec83",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 3959,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-09-20T10:32:40Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "e97de61d_892cfa0a",
+      "range": {
+        "startLine": 3957,
+        "startChar": 4,
+        "endLine": 3959,
+        "endChar": 40
+      },
+      "revId": "df82ef93e4795c5de14cf964862b9c25636d5e16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "16ab3181_4f40af28",
@@ -173,6 +197,24 @@
       "side": 1,
       "message": "I\u0027ve added `new Exception().printStackTrace();` to `throwException` method in Main.java and results are the same (removed proto ID check to force fast-path).\n\nShould they differ?",
       "parentUuid": "70e21634_028120d9",
+      "revId": "df82ef93e4795c5de14cf964862b9c25636d5e16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef0be0fb_23b43441",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 3982,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-09-20T10:32:40Z",
+      "side": 1,
+      "message": "The same is good. We don\u0027t want the stack trace depend on which implementation path we take.",
+      "parentUuid": "4fde3d5b_30564c5a",
       "revId": "df82ef93e4795c5de14cf964862b9c25636d5e16",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -272,6 +314,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2906ed4d_72c9b4bc",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 4000,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-09-20T10:32:40Z",
+      "side": 1,
+      "message": "The point is that if we get back to the intrinsic code (slow path or not), we know that there was no exception, so we can just skip these checks and update the cache.\n\nBut it would be even better to update the cache in the runtime call instead and avoid the extra code here.",
+      "parentUuid": "a318e2de_f4a2929b",
+      "range": {
+        "startLine": 3999,
+        "startChar": 4,
+        "endLine": 4000,
+        "endChar": 33
+      },
+      "revId": "df82ef93e4795c5de14cf964862b9c25636d5e16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1fddf4ba_87498d05",
         "filename": "compiler/optimizing/intrinsics_x86_64.cc",
         "patchSetId": 14
@@ -307,6 +373,30 @@
       "side": 1,
       "message": "You\u0027re right, it won\u0027t work.\n\nShould I check that MethodType is resolved and do MethodType::IsExactMatch equivalent or cache dex file and proto ID pair? Or there is a better way?",
       "parentUuid": "1fddf4ba_87498d05",
+      "range": {
+        "startLine": 4005,
+        "startChar": 4,
+        "endLine": 4006,
+        "endChar": 45
+      },
+      "revId": "df82ef93e4795c5de14cf964862b9c25636d5e16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a9bbd225_212b1be8",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 4006,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-09-20T10:32:40Z",
+      "side": 1,
+      "message": "Do we have some global map (WeakHashMap?) with all `MethodType`s?",
+      "parentUuid": "f3044662_271e63f1",
       "range": {
         "startLine": 4005,
         "startChar": 4,
