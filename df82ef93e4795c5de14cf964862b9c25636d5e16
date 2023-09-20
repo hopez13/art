@@ -336,6 +336,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7850b162_306c4bbf",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 4000,
+      "author": {
+        "id": 1793992
+      },
+      "writtenOn": "2023-09-20T11:15:43Z",
+      "side": 1,
+      "message": "Got it, thanks.",
+      "parentUuid": "2906ed4d_72c9b4bc",
+      "range": {
+        "startLine": 3999,
+        "startChar": 4,
+        "endLine": 4000,
+        "endChar": 33
+      },
+      "revId": "df82ef93e4795c5de14cf964862b9c25636d5e16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1fddf4ba_87498d05",
@@ -397,6 +421,30 @@
       "side": 1,
       "message": "Do we have some global map (WeakHashMap?) with all `MethodType`s?",
       "parentUuid": "f3044662_271e63f1",
+      "range": {
+        "startLine": 4005,
+        "startChar": 4,
+        "endLine": 4006,
+        "endChar": 45
+      },
+      "revId": "df82ef93e4795c5de14cf964862b9c25636d5e16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cfa92738_5117ba9c",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 4006,
+      "author": {
+        "id": 1793992
+      },
+      "writtenOn": "2023-09-20T11:15:43Z",
+      "side": 1,
+      "message": "Not exactly WeakHashMap, but we do have a global map: https://source.corp.google.com/h/android/platform/superproject/main/+/main:libcore/ojluni/src/main/java/java/lang/invoke/MethodType.java;l\u003d199;drc\u003d43a083135917c3b4267e87184ca4aea73dece040",
+      "parentUuid": "a9bbd225_212b1be8",
       "range": {
         "startLine": 4005,
         "startChar": 4,
