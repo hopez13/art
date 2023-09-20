@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7172e527_540d921f",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2472,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-09-20T15:00:28Z",
+      "side": 1,
+      "message": "Could we have non-int constants too? e.g. Long",
+      "range": {
+        "startLine": 2472,
+        "startChar": 47,
+        "endLine": 2472,
+        "endChar": 60
+      },
+      "revId": "b539be57e40efdb8f6c77cd9d0649ec5fbf7c2b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "108b5490_6b05907e",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2484,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-09-20T15:00:28Z",
+      "side": 1,
+      "message": "Suggestion: This can be simplified to `(!needs_type_check || instruction-\u003eGetValueCanBeNull())` to avoid double negatives.",
+      "range": {
+        "startLine": 2484,
+        "startChar": 0,
+        "endLine": 2484,
+        "endChar": 65
+      },
+      "revId": "b539be57e40efdb8f6c77cd9d0649ec5fbf7c2b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
