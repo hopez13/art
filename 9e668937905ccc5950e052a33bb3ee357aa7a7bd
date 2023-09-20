@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77d71fc8_e7dec82f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1937056
+      },
+      "writtenOn": "2023-09-20T04:24:00Z",
+      "side": 1,
+      "message": "Hi Lokesh,\n\nObserved this change(patch set 2) is causing boottime regressions\n\nhttps://screenshot.googleplex.com/vtmeYdKwukX5z7U\n\nhttps://crystalball-presubmit.corp.google.com/dashboard/I78700010199396352?change_number\u003d2756532\u0026host\u003dandroid-review.googlesource.com\u0026patchset\u003d2\n\nPlease fix these regressions before merging",
+      "revId": "9e668937905ccc5950e052a33bb3ee357aa7a7bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
