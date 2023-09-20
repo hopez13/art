@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "376b4e9e_42d67487",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2472,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-09-20T15:38:51Z",
+      "side": 1,
+      "message": "Aray index is always int (or smaller type with implicit conversion to int).",
+      "parentUuid": "7172e527_540d921f",
+      "range": {
+        "startLine": 2472,
+        "startChar": 47,
+        "endLine": 2472,
+        "endChar": 60
+      },
+      "revId": "b539be57e40efdb8f6c77cd9d0649ec5fbf7c2b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "108b5490_6b05907e",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-09-20T15:00:28Z",
       "side": 1,
       "message": "Suggestion: This can be simplified to `(!needs_type_check || instruction-\u003eGetValueCanBeNull())` to avoid double negatives.",
+      "range": {
+        "startLine": 2484,
+        "startChar": 0,
+        "endLine": 2484,
+        "endChar": 65
+      },
+      "revId": "b539be57e40efdb8f6c77cd9d0649ec5fbf7c2b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42c02eb8_736c9819",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2484,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-09-20T15:38:51Z",
+      "side": 1,
+      "message": "I thought about that but this expression better corresponds to the reasoning above; \"_type check_ makes the null check _unconditionally_\" -\u003e `needs_type_check \u0026\u0026 !instruction-\u003eGetValueCanBeNull()`.",
+      "parentUuid": "108b5490_6b05907e",
       "range": {
         "startLine": 2484,
         "startChar": 0,
