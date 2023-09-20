@@ -68,6 +68,42 @@
       "message": "Why is this not seen on the bots?",
       "revId": "9e668937905ccc5950e052a33bb3ee357aa7a7bd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e88cb7c2_8d7cfebe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-09-20T15:36:21Z",
+      "side": 1,
+      "message": "Bhargavi, how do you want me to proceed? I\u0027m 100% confirmed that this change couldn\u0027t have caused this regression. Is it ok to merge it then?",
+      "parentUuid": "9feae54f_282dfde3",
+      "revId": "9e668937905ccc5950e052a33bb3ee357aa7a7bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8fba2f04_fb112ddd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-09-20T15:36:21Z",
+      "side": 1,
+      "message": "Beats me as well. I synced my local tree yesterday and this test started failing continuously. I thought one of your recent CLs about destdir for this test may have caused it. But then why didn\u0027t LUCI catch it.",
+      "parentUuid": "a2113f4a_75eee7d2",
+      "revId": "9e668937905ccc5950e052a33bb3ee357aa7a7bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
