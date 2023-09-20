@@ -16,6 +16,24 @@
       "message": "Could you add an explicit mention here that this new flag is stronger than the old flag? E.g. something like this:\n\n\u003e This new flag (`runtime_native_boot.force_disable_uffd_gc`) has priority over the flag that enables the CMC GC (`runtime_native_boot.enable_uffd_gc_2`).",
       "revId": "9595cf9c1be01310dc0fe7b0037eaf6191bcc1d0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e533c82_a0b0dcfa",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-09-20T17:36:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7ec5e81f_13c236a0",
+      "revId": "9595cf9c1be01310dc0fe7b0037eaf6191bcc1d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
