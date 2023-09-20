@@ -52,6 +52,24 @@
       "parentUuid": "afa0b044_be4bee18",
       "revId": "49f92030bd62b7bacdf1aae0910e34c2b0866d86",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "27d86e24_09034c13",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-09-20T08:02:11Z",
+      "side": 1,
+      "message": "I switched to testing on cuttlefish (aosp_cf_riscv64_phone-userdebug). I build and boot a cuttlefish instance in a full AOSP tree and then use chroot testing from a `master-art` tree. (Though it seems to be a bit slower as a few more long gtests time out.)",
+      "parentUuid": "40853f49_8f2e0d7e",
+      "revId": "49f92030bd62b7bacdf1aae0910e34c2b0866d86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
