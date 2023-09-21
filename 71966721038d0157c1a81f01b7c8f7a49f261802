@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8aff92f1_62540568",
+        "filename": "compiler/jit/small_pattern_matcher.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-09-21T08:58:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "af404a4a_448cc31c",
+      "range": {
+        "startLine": 58,
+        "startChar": 49,
+        "endLine": 58,
+        "endChar": 65
+      },
+      "revId": "71966721038d0157c1a81f01b7c8f7a49f261802",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "63a68671_0bcb73e3",
@@ -54,6 +78,30 @@
       "writtenOn": "2023-09-20T15:48:55Z",
       "side": 1,
       "message": "Should we ensure this for the other two methods too?",
+      "range": {
+        "startLine": 54,
+        "startChar": 4,
+        "endLine": 54,
+        "endChar": 29
+      },
+      "revId": "71966721038d0157c1a81f01b7c8f7a49f261802",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "359d4efd_e511609b",
+        "filename": "test/848-pattern-match/src/Main.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-09-21T08:58:58Z",
+      "side": 1,
+      "message": "Doh! Yes, thanks for catching this.",
+      "parentUuid": "63a68671_0bcb73e3",
       "range": {
         "startLine": 54,
         "startChar": 4,
