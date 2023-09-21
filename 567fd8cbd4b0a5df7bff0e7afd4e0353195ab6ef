@@ -16,6 +16,121 @@
       "message": "Thanks Santiago, PTAL.",
       "revId": "567fd8cbd4b0a5df7bff0e7afd4e0353195ab6ef",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a4c2e93_902e64de",
+        "filename": "compiler/jit/small_pattern_matcher.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-09-21T09:59:18Z",
+      "side": 1,
+      "message": "Why not `std::condtional_t\u003csizeof(T) \u003c sizeof(int32_t), int32_t, T\u003e`? Then we can drop the template parameter `RT`.",
+      "range": {
+        "startLine": 37,
+        "startChar": 7,
+        "endLine": 37,
+        "endChar": 9
+      },
+      "revId": "567fd8cbd4b0a5df7bff0e7afd4e0353195ab6ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b45a14ea_e5b1da34",
+        "filename": "compiler/jit/small_pattern_matcher.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-09-21T09:59:18Z",
+      "side": 1,
+      "message": "Unused, only needed by the macro. If we use the `std::conditional_t\u003c\u003e` above, this can be removed.",
+      "range": {
+        "startLine": 66,
+        "startChar": 32,
+        "endLine": 66,
+        "endChar": 45
+      },
+      "revId": "567fd8cbd4b0a5df7bff0e7afd4e0353195ab6ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "310fc8cf_f44e9513",
+        "filename": "compiler/jit/small_pattern_matcher.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-09-21T09:59:18Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 82,
+        "startChar": 32,
+        "endLine": 82,
+        "endChar": 45
+      },
+      "revId": "567fd8cbd4b0a5df7bff0e7afd4e0353195ab6ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa3b6f19_fe13bc0d",
+        "filename": "compiler/jit/small_pattern_matcher.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-09-21T09:59:18Z",
+      "side": 1,
+      "message": "I\u0027d prefer the number of cases to be a power of 2. So, maybe remove the last case?",
+      "range": {
+        "startLine": 123,
+        "startChar": 4,
+        "endLine": 123,
+        "endChar": 32
+      },
+      "revId": "567fd8cbd4b0a5df7bff0e7afd4e0353195ab6ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb4cbc53_b60822cf",
+        "filename": "compiler/jit/small_pattern_matcher.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-09-21T09:59:18Z",
+      "side": 1,
+      "message": "We already know that this is the object case and the other switch cases are primitive. We could reduce the number of arguments to `DO_SWITCH_OFFSET` by passing only `P` or `O` as needed if we add an extra unused template parameter to the `ReturnFieldObjectAt` and `ReturnStaticFieldObjectAt`.\n\nAnd we should specify `mirror::Object*` instead of `int32_t` here. We could then `static_assert(std::is_same_v\u003cT, mirror::Object*\u003e)` and actually make use of that extra template parameter.\n\nThen, we shall not need to check `is_object` in `SWITCH_CASE`. We could simply `DCHECK_EQ(is_object, K \u003d\u003d Primitive::kPrimNot)` in `DO_SWITCH` instead.",
+      "range": {
+        "startLine": 136,
+        "startChar": 31,
+        "endLine": 136,
+        "endChar": 35
+      },
+      "revId": "567fd8cbd4b0a5df7bff0e7afd4e0353195ab6ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
