@@ -89,6 +89,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b515fd7c_5eb967cb",
+        "filename": "compiler/jit/small_pattern_matcher.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-09-21T11:44:17Z",
+      "side": 1,
+      "message": "We could also collect function pointers to an array and just do a bounds check and load from an array instead of a switch. That would actually work a lot better for classes with many small fields. The current implementation restricts `boolean` fields to 4-byte alignment.",
+      "range": {
+        "startLine": 106,
+        "startChar": 2,
+        "endLine": 106,
+        "endChar": 8
+      },
+      "revId": "567fd8cbd4b0a5df7bff0e7afd4e0353195ab6ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fa3b6f19_fe13bc0d",
         "filename": "compiler/jit/small_pattern_matcher.cc",
         "patchSetId": 11
@@ -124,6 +147,30 @@
       "side": 1,
       "message": "Not against the idea, but curious: is it preference? Or is there a reason e.g. performance/size?",
       "parentUuid": "fa3b6f19_fe13bc0d",
+      "range": {
+        "startLine": 123,
+        "startChar": 4,
+        "endLine": 123,
+        "endChar": 32
+      },
+      "revId": "567fd8cbd4b0a5df7bff0e7afd4e0353195ab6ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2086cadc_30164ca2",
+        "filename": "compiler/jit/small_pattern_matcher.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-09-21T11:44:17Z",
+      "side": 1,
+      "message": "Personal preference. (In the absence of actual data, we cannot make an informed decision.)",
+      "parentUuid": "d4993e10_c817f972",
       "range": {
         "startLine": 123,
         "startChar": 4,
