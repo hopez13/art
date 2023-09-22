@@ -94,6 +94,30 @@
       },
       "revId": "a571028d2f2ce6194f7e519af764119bbc52e598",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3a391cb_d231f80c",
+        "filename": "libartbase/base/globals.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1280281
+      },
+      "writtenOn": "2023-09-22T19:43:29Z",
+      "side": 1,
+      "message": "\u003e With regards to the possibility of the static initialization order issue, I agree defining the variable as a static const isn\u0027t guaranteeing correct order even though every module has own copy - due to possibility of a cross-module function call during the initialization. I\u0027m looking into this and should get back with my findings and ideas on how the solution could look like by end of the week.\n\nMy immediate plan is to change the gPageSize to a singleton-like variable initialized upon first access. This is likely suboptimal from performance perspective, however should guarantee correctness. However, at this stage I\u0027m only attempting to achieve functional correctness for the page size agnostic configuration, with no (or with minimal) change for the base static 4K configuration where it still should behave as constexpr.\n\nThe initial idea behind `static const` was that it limits chance of referring to the variable from other modules\u0027 static initializers due to each module has own copy of the variable. While of course it means multiple copies are initialized, my assumption was that it doesn\u0027t have a significant impact on performance due to in zygote-based model the initialization would happen only once per zygote startup so shouldn\u0027t affect application startup time.\n\nTo guarantee there are no static initialization order issues left, I was planning testing with ASan in mode detecting this kind of issues.\n\nHowever, as also discussed above, it isn\u0027t a guarantee in long-term unless something like ASan-based CI job is introduced to regularly test for this kind of issues, since it is still possible that a function in a module referring to gPageSize would be called during static initialization of another module which might happen before gPageSize of called module is initialized.\n\nA few potential other approaches to solving this I\u0027ve been thinking of:\n\n1. modify dynamic linker to handle this value a special case (new relocation type?) - this doesn\u0027t seem suitable as it would require custom dynamic linker so anything else than bionic-based linker wouldn\u0027t be suitable unless updated accordingly + it wouldn\u0027t solve the issue for variables statically initialized using gPageSize (where value doesn\u0027t have to be the page size - instead could be something computed based on page size);\n\n2. implement accessor class which would have a flag indicating whether a global is already initialized; with assertions upon each access to the variable - that is possibly suitable however introduces own performance overhead for the assertion or, if enabled only in debug build, doesn\u0027t guarantee there are no order issues in non-debug builds;\n\n3. forbid access to gPageSize and derived variables until art::MemMap::Init - that would require updating statically initialized variables dependent on gPageSize in a similar way + some special handling in unit tests which seem to not necessarily call art::MemMap::Init.",
+      "parentUuid": "950fa760_906e0deb",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 46
+      },
+      "revId": "a571028d2f2ce6194f7e519af764119bbc52e598",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
