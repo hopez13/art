@@ -22,6 +22,30 @@
       },
       "revId": "5432bd890143330abd43f7dcb1ba963a568c016a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c17fbd74_1cda86a5",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2742,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-09-22T09:05:12Z",
+      "side": 1,
+      "message": "I\u0027ll remove it in some follow-up CL.\n\n    $ git grep -cE \u0027ConstantLocation\\(.*AsConstant\u0027\n    compiler/optimizing/code_generator_riscv64.cc:11",
+      "parentUuid": "0302c3a3_e69ebb64",
+      "range": {
+        "startLine": 2742,
+        "startChar": 78,
+        "endLine": 2742,
+        "endChar": 88
+      },
+      "revId": "5432bd890143330abd43f7dcb1ba963a568c016a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
