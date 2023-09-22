@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2508b67_a04fe1df",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1104,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-09-22T16:00:18Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "aa009ca9_359a8804",
+      "range": {
+        "startLine": 1104,
+        "startChar": 49,
+        "endLine": 1104,
+        "endChar": 55
+      },
+      "revId": "316df83e3f7b6d68f2edb549150d5f56fad13510",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4ab31daf_822f84dc",
@@ -85,6 +109,30 @@
       "side": 1,
       "message": "Even if we could load a `class+1`, it would not be very useful here. We need to change all other values to 0.",
       "parentUuid": "4ab31daf_822f84dc",
+      "range": {
+        "startLine": 3558,
+        "startChar": 0,
+        "endLine": 3559,
+        "endChar": 24
+      },
+      "revId": "316df83e3f7b6d68f2edb549150d5f56fad13510",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69bb806b_cf352c23",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3559,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-09-22T16:00:18Z",
+      "side": 1,
+      "message": "What do you mean by \"All other values\"?\n\nMy concern is if the `Xor(out, cls)` with `out !\u003d cls` can produce the same output as `Seqz(out, out)` when `out \u003d\u003d cls`. Is this possible? Or am I overthinking this?",
+      "parentUuid": "0024f801_e87b4f4e",
       "range": {
         "startLine": 3558,
         "startChar": 0,
