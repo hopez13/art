@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0302c3a3_e69ebb64",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2742,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-09-22T09:00:28Z",
+      "side": 1,
+      "message": "FYI cast not [needed](https://cs.android.com/android/platform/superproject/main/+/main:art/compiler/optimizing/locations.h;l\u003d106;drc\u003df76ca8c3cb8a1f0ceee099ef8ce64295286b8b6b) but it is also not costly so it is fine to keep.",
+      "range": {
+        "startLine": 2742,
+        "startChar": 78,
+        "endLine": 2742,
+        "endChar": 88
+      },
+      "revId": "5432bd890143330abd43f7dcb1ba963a568c016a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
