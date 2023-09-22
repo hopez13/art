@@ -145,6 +145,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "09f1842d_9045fc54",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3559,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-09-22T16:11:53Z",
+      "side": 1,
+      "message": "If `out !\u003d cls`, then `Xor(out, cls)` can be an arbitrary non-zero value (limited by object alignment and managed heap layout but still a very large set of values). And we really need a `0` or `1` as the result, so there is no way to avoid the SEQZ or something similar.\n\n(Unless we implement fusing `HInstanceOf` with `HIf` to avoid materializing the result. Say, mark the `HInstanceOf` as \"emitted at use site\" just like we do for comparisons, and then directly emit branches instead of XOR+SEQZ.)",
+      "parentUuid": "69bb806b_cf352c23",
+      "range": {
+        "startLine": 3558,
+        "startChar": 0,
+        "endLine": 3559,
+        "endChar": 24
+      },
+      "revId": "316df83e3f7b6d68f2edb549150d5f56fad13510",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "720d061b_ac99bf5c",
         "filename": "compiler/optimizing/code_generator_riscv64.cc",
         "patchSetId": 4
