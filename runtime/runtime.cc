@@ -201,7 +201,7 @@ namespace art {
 static constexpr bool kEnableJavaStackTraceHandler = false;
 // Tuned by compiling GmsCore under perf and measuring time spent in DescriptorEquals for class
 // linking.
-static constexpr double kLowMemoryMinLoadFactor = 0.5;
+static constexpr double kLowMemoryMinLoadFactor = 0.6;
 static constexpr double kLowMemoryMaxLoadFactor = 0.8;
 static constexpr double kNormalMinLoadFactor = 0.4;
 static constexpr double kNormalMaxLoadFactor = 0.7;
