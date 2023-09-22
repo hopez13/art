@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa009ca9_359a8804",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1104,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-09-22T15:41:49Z",
+      "side": 1,
+      "message": "I\u0027ll add that to my cleanup CL (this shall delay the cleanup until after the `VisitLoadString` CL).",
+      "parentUuid": "d1aefb90_7f38b108",
+      "range": {
+        "startLine": 1104,
+        "startChar": 49,
+        "endLine": 1104,
+        "endChar": 55
+      },
+      "revId": "316df83e3f7b6d68f2edb549150d5f56fad13510",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4ab31daf_822f84dc",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0024f801_e87b4f4e",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3559,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-09-22T15:41:49Z",
+      "side": 1,
+      "message": "Even if we could load a `class+1`, it would not be very useful here. We need to change all other values to 0.",
+      "parentUuid": "4ab31daf_822f84dc",
+      "range": {
+        "startLine": 3558,
+        "startChar": 0,
+        "endLine": 3559,
+        "endChar": 24
+      },
+      "revId": "316df83e3f7b6d68f2edb549150d5f56fad13510",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "720d061b_ac99bf5c",
@@ -60,6 +108,30 @@
       "writtenOn": "2023-09-22T10:04:47Z",
       "side": 1,
       "message": "This is only used in line 3946. Suggestion: have `locations-\u003eInAt(0).AsRegister\u003cXRegister\u003e()` over there and remove these lines",
+      "range": {
+        "startLine": 3932,
+        "startChar": 0,
+        "endLine": 3935,
+        "endChar": 0
+      },
+      "revId": "316df83e3f7b6d68f2edb549150d5f56fad13510",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e0cb0b7_c151ebdc",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3935,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-09-22T15:41:49Z",
+      "side": 1,
+      "message": "Done (with a local variable `current_method` just like the arm64 codegen).",
+      "parentUuid": "720d061b_ac99bf5c",
       "range": {
         "startLine": 3932,
         "startChar": 0,
