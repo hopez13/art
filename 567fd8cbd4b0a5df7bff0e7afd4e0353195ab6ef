@@ -206,6 +206,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd048ebc_b12cc218",
+        "filename": "compiler/jit/small_pattern_matcher.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-09-22T13:14:10Z",
+      "side": 1,
+      "message": "Acknowledged.",
+      "parentUuid": "69e38c5a_eb9061c1",
+      "range": {
+        "startLine": 106,
+        "startChar": 2,
+        "endLine": 106,
+        "endChar": 8
+      },
+      "revId": "567fd8cbd4b0a5df7bff0e7afd4e0353195ab6ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fa3b6f19_fe13bc0d",
@@ -291,6 +315,30 @@
       "side": 1,
       "message": "The 64 was taken from data compiling popular APKs. There was a big drop of cases when moving to 68.",
       "parentUuid": "2086cadc_30164ca2",
+      "range": {
+        "startLine": 123,
+        "startChar": 4,
+        "endLine": 123,
+        "endChar": 32
+      },
+      "revId": "567fd8cbd4b0a5df7bff0e7afd4e0353195ab6ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d434d68d_ba13599d",
+        "filename": "compiler/jit/small_pattern_matcher.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-09-22T13:14:10Z",
+      "side": 1,
+      "message": "Interesting.",
+      "parentUuid": "72c1eadb_6962567d",
       "range": {
         "startLine": 123,
         "startChar": 4,
