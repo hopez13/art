@@ -796,7 +796,7 @@ class Runtime {
   }
 
   bool AreExperimentalFlagsEnabled(ExperimentalFlags flags) {
-    return (experimental_flags_ & flags) != ExperimentalFlags::kNone;
+    return (experimental_flags_ & flags);
   }
 
   void CreateJitCodeCache(bool rwx_memory_allowed);
