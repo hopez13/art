@@ -167,6 +167,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a47d05ac_d51b79ed",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3559,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-09-22T16:17:44Z",
+      "side": 1,
+      "message": "I was under the (wrong) impression that `Seqz` was `set to 1 if 0, else do nothing`. However, it is `set to 1 if 0, else 0`. Sorry for the confusion",
+      "parentUuid": "09f1842d_9045fc54",
+      "range": {
+        "startLine": 3558,
+        "startChar": 0,
+        "endLine": 3559,
+        "endChar": 24
+      },
+      "revId": "316df83e3f7b6d68f2edb549150d5f56fad13510",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "720d061b_ac99bf5c",
