@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d1aefb90_7f38b108",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1104,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-09-22T10:04:47Z",
+      "side": 1,
+      "message": "Not for this CL, but as a cleanup it could be a good idea to define the `0x12345` and `0x678` as constexpr placeholders e.g. LowBitsPlaceHolder and HighBitsPlaceholder",
+      "range": {
+        "startLine": 1104,
+        "startChar": 49,
+        "endLine": 1104,
+        "endChar": 55
+      },
+      "revId": "316df83e3f7b6d68f2edb549150d5f56fad13510",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ab31daf_822f84dc",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3559,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-09-22T10:04:47Z",
+      "side": 1,
+      "message": "Can they be equal except for the last bit? I am thinking what if we have `out` as `1` due to the `Xor` (and not due to the `Seqz`)",
+      "range": {
+        "startLine": 3558,
+        "startChar": 0,
+        "endLine": 3559,
+        "endChar": 24
+      },
+      "revId": "316df83e3f7b6d68f2edb549150d5f56fad13510",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "720d061b_ac99bf5c",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3935,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-09-22T10:04:47Z",
+      "side": 1,
+      "message": "This is only used in line 3946. Suggestion: have `locations-\u003eInAt(0).AsRegister\u003cXRegister\u003e()` over there and remove these lines",
+      "range": {
+        "startLine": 3932,
+        "startChar": 0,
+        "endLine": 3935,
+        "endChar": 0
+      },
+      "revId": "316df83e3f7b6d68f2edb549150d5f56fad13510",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
