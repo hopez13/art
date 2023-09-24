@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f713289_82b3ce09",
+        "filename": "libnativeloader/public_libraries.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 427,
+      "author": {
+        "id": 1146974
+      },
+      "writtenOn": "2023-09-24T23:14:03Z",
+      "side": 0,
+      "message": "This was added for the host targets that does not have sysprop functions.\nCan it be safe to assume all targets define product vndk?",
+      "range": {
+        "startLine": 427,
+        "startChar": 2,
+        "endLine": 427,
+        "endChar": 15
+      },
+      "revId": "1017823d56e821f29606e5b08f4bf51078c257a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

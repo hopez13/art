@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03b466c4_befecc9a",
+        "filename": "libnativeloader/public_libraries.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1146974
+      },
+      "writtenOn": "2023-09-24T23:14:03Z",
+      "side": 1,
+      "message": "Any reason to add this here?",
+      "range": {
+        "startLine": 278,
+        "startChar": 7,
+        "endLine": 278,
+        "endChar": 26
+      },
+      "revId": "ff3ea90a802209780b0fe5f5378368999c97c82b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48f7ee81_aedec6c7",
+        "filename": "libnativeloader/public_libraries.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1146974
+      },
+      "writtenOn": "2023-09-24T23:14:03Z",
+      "side": 1,
+      "message": "I think the error message must be changed. Vndk version is always defined until it is deprecated.",
+      "range": {
+        "startLine": 279,
+        "startChar": 38,
+        "endLine": 279,
+        "endChar": 68
+      },
+      "revId": "ff3ea90a802209780b0fe5f5378368999c97c82b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4292daa_6540d5c2",
+        "filename": "libnativeloader/public_libraries.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1146974
+      },
+      "writtenOn": "2023-09-24T23:14:03Z",
+      "side": 1,
+      "message": "This must be always `true`.",
+      "range": {
+        "startLine": 296,
+        "startChar": 7,
+        "endLine": 296,
+        "endChar": 29
+      },
+      "revId": "ff3ea90a802209780b0fe5f5378368999c97c82b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
