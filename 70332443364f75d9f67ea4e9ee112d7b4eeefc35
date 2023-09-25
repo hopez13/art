@@ -16,6 +16,24 @@
       "message": "LGTM. Unsafe.compareAndSetObject doesn\u0027t seem to be used in the platform anymore: https://cs.android.com/search?q\u003df:java%20compareAndSetObject\u0026sq\u003d - we could probably update 2235-JdkUnsafeTest to use compareAndSetReference.",
       "revId": "70332443364f75d9f67ea4e9ee112d7b4eeefc35",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "32cfd872_29e0227c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1793992
+      },
+      "writtenOn": "2023-09-25T15:49:53Z",
+      "side": 1,
+      "message": "I think we can do it as part of Unsafe clean-up (though these deprecated methods are not removed in upstream ToT, won\u0027t happen soon).",
+      "parentUuid": "f3dbabd6_1313feda",
+      "revId": "70332443364f75d9f67ea4e9ee112d7b4eeefc35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
