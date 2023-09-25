@@ -136,7 +136,7 @@ class MarkCompact final : public GarbageCollector {
 
   mirror::Object* GetFromSpaceAddrFromBarrier(mirror::Object* old_ref) {
     CHECK(compacting_);
-    if (live_words_bitmap_->HasAddress(old_ref)) {
+    if (HasAddress(old_ref)) {
       return GetFromSpaceAddr(old_ref);
     }
     return old_ref;
@@ -240,11 +240,15 @@ class MarkCompact final : public GarbageCollector {
     }
   };
 
+  bool HasAddress(mirror::Object* obj) const {
+    uint8_t* ptr = reinterpret_cast<uint8_t*>(obj);
+    return ptr >= moving_space_begin_ && ptr < moving_space_end_;
+  }
   // For a given object address in pre-compact space, return the corresponding
   // address in the from-space, where heap pages are relocated in the compaction
   // pause.
   mirror::Object* GetFromSpaceAddr(mirror::Object* obj) const {
-    DCHECK(live_words_bitmap_->HasAddress(obj)) << " obj=" << obj;
+    DCHECK(HasAddress(obj)) << " obj=" << obj;
     return reinterpret_cast<mirror::Object*>(reinterpret_cast<uintptr_t>(obj)
                                              + from_space_slide_diff_);
   }
@@ -712,6 +716,11 @@ class MarkCompact final : public GarbageCollector {
   size_t black_page_count_;
 
   uint8_t* from_space_begin_;
+  // Cached values of moving-space range to optimize checking if reference
+  // belongs to moving-space or not. May get updated if and when heap is
+  // clamped.
+  uint8_t* const moving_space_begin_;
+  uint8_t* const moving_space_end_;
   // moving-space's end pointer at the marking pause. All allocations beyond
   // this will be considered black in the current GC cycle. Aligned up to page
   // size.
