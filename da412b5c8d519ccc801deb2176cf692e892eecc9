@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf6703fb_8745ae5d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-09-25T10:54:59Z",
+      "side": 1,
+      "message": "Please run `atest libnativeloader_e2e_tests`.\n\nAlso, would it be possible to add some tests there for VNDK related use cases?",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 4
+      },
+      "revId": "da412b5c8d519ccc801deb2176cf692e892eecc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a199ac70_1d5ca0bf",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-09-25T10:54:59Z",
+      "side": 1,
+      "message": "I\u0027d like to get a better understanding of the implications of these flags and the VNDK support in libnativeloader in general. Can you please point me to some docs about it?",
+      "range": {
+        "startLine": 432,
+        "startChar": 92,
+        "endLine": 432,
+        "endChar": 149
+      },
+      "revId": "da412b5c8d519ccc801deb2176cf692e892eecc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

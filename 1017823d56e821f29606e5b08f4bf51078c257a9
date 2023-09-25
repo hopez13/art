@@ -70,6 +70,29 @@
       },
       "revId": "1017823d56e821f29606e5b08f4bf51078c257a9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c16d4f7d_d0837224",
+        "filename": "libnativeloader/public_libraries.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-09-25T10:54:59Z",
+      "side": 0,
+      "message": "Note that there\u0027s a negation in the condition. Shouldn\u0027t this line be deleted?",
+      "range": {
+        "startLine": 222,
+        "startChar": 4,
+        "endLine": 222,
+        "endChar": 53
+      },
+      "revId": "1017823d56e821f29606e5b08f4bf51078c257a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
