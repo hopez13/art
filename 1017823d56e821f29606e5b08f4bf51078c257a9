@@ -22,6 +22,30 @@
       },
       "revId": "1017823d56e821f29606e5b08f4bf51078c257a9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c9d4a6d_86cb652a",
+        "filename": "libnativeloader/public_libraries.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 427,
+      "author": {
+        "id": 1413436
+      },
+      "writtenOn": "2023-09-25T07:22:45Z",
+      "side": 0,
+      "message": "I think so, and if there is any target / case which does not work, we may need to fix it as all devices are now working as product treblelized.",
+      "parentUuid": "4f713289_82b3ce09",
+      "range": {
+        "startLine": 427,
+        "startChar": 2,
+        "endLine": 427,
+        "endChar": 15
+      },
+      "revId": "1017823d56e821f29606e5b08f4bf51078c257a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

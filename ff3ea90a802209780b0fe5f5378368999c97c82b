@@ -49,6 +49,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "34c66497_fc9a06ae",
+        "filename": "libnativeloader/public_libraries.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1413436
+      },
+      "writtenOn": "2023-09-25T07:22:45Z",
+      "side": 1,
+      "message": "If VNDK is deprecated from vendor image, then there is no `vndk-sp` libraries.",
+      "parentUuid": "03b466c4_befecc9a",
+      "range": {
+        "startLine": 278,
+        "startChar": 7,
+        "endLine": 278,
+        "endChar": 26
+      },
+      "revId": "ff3ea90a802209780b0fe5f5378368999c97c82b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "48f7ee81_aedec6c7",
         "filename": "libnativeloader/public_libraries.cpp",
         "patchSetId": 3
@@ -72,6 +96,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a4fdd1d2_c62edb33",
+        "filename": "libnativeloader/public_libraries.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1413436
+      },
+      "writtenOn": "2023-09-25T07:22:45Z",
+      "side": 1,
+      "message": "Thx. I updated debug message with VNDK deprecation.",
+      "parentUuid": "48f7ee81_aedec6c7",
+      "range": {
+        "startLine": 279,
+        "startChar": 38,
+        "endLine": 279,
+        "endChar": 68
+      },
+      "revId": "ff3ea90a802209780b0fe5f5378368999c97c82b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d4292daa_6540d5c2",
         "filename": "libnativeloader/public_libraries.cpp",
         "patchSetId": 3
@@ -83,6 +131,30 @@
       "writtenOn": "2023-09-24T23:14:03Z",
       "side": 1,
       "message": "This must be always `true`.",
+      "range": {
+        "startLine": 296,
+        "startChar": 7,
+        "endLine": 296,
+        "endChar": 29
+      },
+      "revId": "ff3ea90a802209780b0fe5f5378368999c97c82b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "914bf9b1_609dc3d4",
+        "filename": "libnativeloader/public_libraries.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1413436
+      },
+      "writtenOn": "2023-09-25T07:22:45Z",
+      "side": 1,
+      "message": "Not if VNDK is deprecated with product partition.",
+      "parentUuid": "d4292daa_6540d5c2",
       "range": {
         "startLine": 296,
         "startChar": 7,
