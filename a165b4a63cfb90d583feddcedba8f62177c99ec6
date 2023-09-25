@@ -63,6 +63,30 @@
       },
       "revId": "a165b4a63cfb90d583feddcedba8f62177c99ec6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb889941_b5e17f1f",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 4185,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-09-25T13:10:48Z",
+      "side": 1,
+      "message": "Ack, it\u0027s fine to keep as-is. I just found it strange",
+      "parentUuid": "5ab20e22_46a12f7d",
+      "range": {
+        "startLine": 4180,
+        "startChar": 0,
+        "endLine": 4185,
+        "endChar": 63
+      },
+      "revId": "a165b4a63cfb90d583feddcedba8f62177c99ec6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
