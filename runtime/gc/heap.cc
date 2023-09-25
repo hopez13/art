@@ -1107,7 +1107,7 @@ void Heap::UpdateProcessState(ProcessState old_process_state, ProcessState new_p
     const bool jank_perceptible = new_process_state == kProcessStateJankPerceptible;
     if (jank_perceptible) {
       // Transition back to foreground right away to prevent jank.
-      RequestCollectorTransition(foreground_collector_type_, 0);
+      desired_collector_type_ = foreground_collector_type_;
       GrowHeapOnJankPerceptibleSwitch();
     } else {
       // If background_collector_type_ is kCollectorTypeHomogeneousSpaceCompact then we have
@@ -3981,7 +3981,7 @@ void Heap::ClearPendingCollectorTransition(Thread* self) {
 void Heap::RequestCollectorTransition(CollectorType desired_collector_type, uint64_t delta_time) {
   Thread* self = Thread::Current();
   desired_collector_type_ = desired_collector_type;
-  if (desired_collector_type_ == collector_type_ || !CanAddHeapTask(self)) {
+  if (!CanAddHeapTask(self)) {
     return;
   }
   if (collector_type_ == kCollectorTypeCC) {
