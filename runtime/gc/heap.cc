@@ -3981,7 +3981,7 @@ void Heap::ClearPendingCollectorTransition(Thread* self) {
 void Heap::RequestCollectorTransition(CollectorType desired_collector_type, uint64_t delta_time) {
   Thread* self = Thread::Current();
   desired_collector_type_ = desired_collector_type;
-  if (desired_collector_type_ == collector_type_ || !CanAddHeapTask(self)) {
+  if (!CanAddHeapTask(self)) {
     return;
   }
   if (collector_type_ == kCollectorTypeCC) {
