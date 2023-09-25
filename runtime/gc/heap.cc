@@ -436,6 +436,9 @@ Heap::Heap(size_t initial_size,
     // The check is just to ensure that compiler doesn't eliminate the function call above.
     // Userfaultfd support is certain to be there if its minor-fault feature is supported.
     CHECK_IMPLIES(minor_fault_supported, uffd_supported);
+  } else {
+    CHECK_EQ(foreground_collector_type_, kCollectorTypeCMC);
+    CHECK_EQ(background_collector_type_, kCollectorTypeCMCBackground);
   }
 
   if (gUseReadBarrier) {
@@ -1566,7 +1569,7 @@ void Heap::DoPendingCollectorTransition() {
       VLOG(gc) << "Homogeneous compaction ignored due to jank perceptible process state";
     }
   } else if (desired_collector_type == kCollectorTypeCCBackground ||
-             desired_collector_type == kCollectorTypeCMC) {
+             desired_collector_type == kCollectorTypeCMCBackground) {
     if (!CareAboutPauseTimes()) {
       // Invoke full compaction.
       CollectGarbageInternal(collector::kGcTypeFull,
@@ -3989,7 +3992,12 @@ void Heap::RequestCollectorTransition(CollectorType desired_collector_type, uint
     // doesn't change.
     DCHECK_EQ(desired_collector_type_, kCollectorTypeCCBackground);
   }
+  if (collector_type_ == kCollectorTypeCMC) {
+    // For CMC collector type doesn't change.
+    DCHECK_EQ(desired_collector_type_, kCollectorTypeCMCBackground);
+  }
   DCHECK_NE(collector_type_, kCollectorTypeCCBackground);
+  DCHECK_NE(collector_type_, kCollectorTypeCMCBackground);
   CollectorTransitionTask* added_task = nullptr;
   const uint64_t target_time = NanoTime() + delta_time;
   {
