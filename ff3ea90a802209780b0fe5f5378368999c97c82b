@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3d66292d_fe22033e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2023-09-25T00:08:07Z",
+      "side": 1,
+      "message": "Martin, Android 10 (Q) has stopped getting Mainline updates. So, I think this is fine, but would like you to confirm.",
+      "range": {
+        "startLine": 13,
+        "startChar": 12,
+        "endLine": 13,
+        "endChar": 18
+      },
+      "revId": "ff3ea90a802209780b0fe5f5378368999c97c82b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "03b466c4_befecc9a",
         "filename": "libnativeloader/public_libraries.cpp",
         "patchSetId": 3
