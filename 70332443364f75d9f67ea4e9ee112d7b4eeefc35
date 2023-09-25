@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "c57d9f18_fdebafb4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-09-25T17:01:31Z",
+      "side": 1,
+      "message": "This change is OK as a follow-up to the previous CL. However, we should probably file a separate bug for properly updating the `JdkUnsafe` intrinsics in `UnstartedRuntime` and codegens.\n\nI would also prefer to deprecate the \"Android-added\" methods that have an equivalent method from upstream. (But we cannot actually remove them for as long as they are being used by platform code in supported releases.)",
+      "revId": "70332443364f75d9f67ea4e9ee112d7b4eeefc35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "f3dbabd6_1313feda",
