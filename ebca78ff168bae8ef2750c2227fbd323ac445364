@@ -16,6 +16,46 @@
       "message": "Thanks for fixing these. It reminds my about the chained build we used to have to test prebuilt building (redfin_prebuilt_art-userdebug on git_master_throttled), but it\u0027s long broken and disabled.",
       "revId": "ebca78ff168bae8ef2750c2227fbd323ac445364",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "387ec35a_c151c363",
+        "filename": "libartservice/service/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-09-25T17:44:38Z",
+      "side": 1,
+      "message": "Looks like it\u0027s a cc_defaults. Why does it work for android_test?",
+      "range": {
+        "startLine": 130,
+        "startChar": 9,
+        "endLine": 130,
+        "endChar": 41
+      },
+      "revId": "ebca78ff168bae8ef2750c2227fbd323ac445364",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4bd06a81_aadda92d",
+        "filename": "tools/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-09-25T17:44:38Z",
+      "side": 1,
+      "message": "Can we use `art_module_source_build_defaults` here?",
+      "revId": "ebca78ff168bae8ef2750c2227fbd323ac445364",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
