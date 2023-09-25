@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0685eaf6_d24f4428",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 4098,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-09-25T13:05:29Z",
+      "side": 1,
+      "message": "Should we `DCHECK_EQ(DataType::Type::kReference, instruction_-\u003eGetType());` ?",
+      "revId": "a165b4a63cfb90d583feddcedba8f62177c99ec6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "56c15cea_c9b33a44",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 4185,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-09-25T13:05:29Z",
+      "side": 1,
+      "message": "Why is this case outside the switch? We could add a DCHECK in default like `DCHECK_EQ(load_kind, HLoadString::LoadKind::kRuntimeCall);`. I see it is outside in the Arm64 implementation too but I don\u0027t really understand why this is the case.",
+      "range": {
+        "startLine": 4180,
+        "startChar": 0,
+        "endLine": 4185,
+        "endChar": 63
+      },
+      "revId": "a165b4a63cfb90d583feddcedba8f62177c99ec6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
