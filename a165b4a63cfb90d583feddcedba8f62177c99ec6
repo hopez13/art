@@ -39,6 +39,30 @@
       },
       "revId": "a165b4a63cfb90d583feddcedba8f62177c99ec6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ab20e22_46a12f7d",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 4185,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-09-25T13:09:14Z",
+      "side": 1,
+      "message": "It\u0027s outside on all architectures, probably for historical reasons. If we want to move this to the switch, we should do it in a separate CL.",
+      "parentUuid": "56c15cea_c9b33a44",
+      "range": {
+        "startLine": 4180,
+        "startChar": 0,
+        "endLine": 4185,
+        "endChar": 63
+      },
+      "revId": "a165b4a63cfb90d583feddcedba8f62177c99ec6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
