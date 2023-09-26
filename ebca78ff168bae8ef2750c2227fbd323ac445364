@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ebd14968_88d58c54",
+        "filename": "libartservice/service/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1951966
+      },
+      "writtenOn": "2023-09-26T07:55:54Z",
+      "side": 1,
+      "message": "Maybe because the default properties provided here are not specific to cc. To avoid any potential issue, I changed this to java default variant",
+      "parentUuid": "387ec35a_c151c363",
+      "range": {
+        "startLine": 130,
+        "startChar": 9,
+        "endLine": 130,
+        "endChar": 41
+      },
+      "revId": "ebca78ff168bae8ef2750c2227fbd323ac445364",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4bd06a81_aadda92d",
@@ -54,6 +78,24 @@
       "writtenOn": "2023-09-25T17:44:38Z",
       "side": 1,
       "message": "Can we use `art_module_source_build_defaults` here?",
+      "revId": "ebca78ff168bae8ef2750c2227fbd323ac445364",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9570f81_84fda127",
+        "filename": "tools/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1951966
+      },
+      "writtenOn": "2023-09-26T07:55:54Z",
+      "side": 1,
+      "message": "I tried, but genrule doesn\u0027t seem to accept `defaults`.",
+      "parentUuid": "4bd06a81_aadda92d",
       "revId": "ebca78ff168bae8ef2750c2227fbd323ac445364",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
