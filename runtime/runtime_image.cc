@@ -118,7 +118,8 @@ class RuntimeImageHelper {
     image_bitmap_ = gc::accounting::ContinuousSpaceBitmap::Create(
         "image bitmap",
         reinterpret_cast<uint8_t*>(image_begin_),
-        RoundUp(object_section_size_, kPageSize));
+        RoundUp(object_section_size_, kElfSegmentAlignment),
+        /* is_image_part= */ true);
     for (uint32_t offset : object_offsets_) {
       DCHECK(IsAligned<kObjectAlignment>(image_begin_ + sizeof(ImageHeader) + offset));
       image_bitmap_.Set(
@@ -126,8 +127,8 @@ class RuntimeImageHelper {
     }
     const size_t bitmap_bytes = image_bitmap_.Size();
     auto* bitmap_section = &sections_[ImageHeader::kSectionImageBitmap];
-    *bitmap_section = ImageSection(RoundUp(sections_end, kPageSize),
-                                   RoundUp(bitmap_bytes, kPageSize));
+    *bitmap_section = ImageSection(RoundUp(sections_end, kElfSegmentAlignment),
+                                   RoundUp(bitmap_bytes, kElfSegmentAlignment));
 
     // Compute boot image checksum and boot image components, to be stored in
     // the header.
@@ -144,7 +145,7 @@ class RuntimeImageHelper {
     }
 
     header_ = ImageHeader(
-        /* image_reservation_size= */ RoundUp(sections_end, kPageSize),
+        /* image_reservation_size= */ RoundUp(sections_end, kElfSegmentAlignment),
         /* component_count= */ 1,
         image_begin_,
         sections_end,
