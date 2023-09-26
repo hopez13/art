@@ -52,6 +52,24 @@
       "parentUuid": "95295f33_9923545c",
       "revId": "ed5be80f8015705e9b53e6b376b6ada5c7f4a817",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "608c1830_968a5165",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1793992
+      },
+      "writtenOn": "2023-09-26T09:54:13Z",
+      "side": 1,
+      "message": "And it seems that in https://ci.chromium.org/ui/p/art/builders/ci/angler-armv7-ndebug/4432/overview previously failing step [1] passed.\n\nHope these failures were transient.\n\n[1] https://ci.chromium.org/ui/p/art/builders/ci/angler-armv7-ndebug/4431/overview",
+      "parentUuid": "99b7043d_67f13070",
+      "revId": "ed5be80f8015705e9b53e6b376b6ada5c7f4a817",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
