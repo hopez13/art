@@ -34,6 +34,24 @@
       "parentUuid": "b7628c2c_90607bd1",
       "revId": "30fccad68a15158c8af66d349f98c55d990ac3ef",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f26ae349_343719ab",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-09-26T11:11:31Z",
+      "side": 1,
+      "message": "And compare with hundreds of entrypoints to slow down unwinding? No, thank you!\n\nIf we move those functions to assembly, we can define symbols before and after the whole bunch and compare that range. But as long as they remain in C++, I don\u0027t know how to force the linker to put them together and between specified symbols.",
+      "parentUuid": "92fdd2c7_9499323f",
+      "revId": "30fccad68a15158c8af66d349f98c55d990ac3ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
