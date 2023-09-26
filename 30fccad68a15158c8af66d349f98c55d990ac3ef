@@ -87,6 +87,24 @@
       "parentUuid": "f26ae349_343719ab",
       "revId": "30fccad68a15158c8af66d349f98c55d990ac3ef",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5a1cc91_288e7657",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-09-26T15:45:42Z",
+      "side": 1,
+      "message": "Maybe we could generalize it to something like `Runtime::IsStub()` so that we can use that as fast-path to check if `PC` is any stub (so that we don\u0027t have the long chains of `if`s)\n\nInitializing it sounds like the hard part.  It might be very tempting to use non-trivial static initialzation (e.g. call `Runttime::AddStub()` from all the places we where we define the stubs)",
+      "parentUuid": "ff121ca6_b275c52b",
+      "revId": "30fccad68a15158c8af66d349f98c55d990ac3ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
