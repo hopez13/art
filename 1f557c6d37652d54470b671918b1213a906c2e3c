@@ -22,6 +22,30 @@
       },
       "revId": "1f557c6d37652d54470b671918b1213a906c2e3c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "236b6163_9f99b6c1",
+        "filename": "runtime/metrics/statsd.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-09-26T13:55:55Z",
+      "side": 1,
+      "message": "Thanks. Weird that neither local testing nor presubmit complained about it.\n\nFixed in PS6. PTAL.",
+      "parentUuid": "1f9a6e36_23f87436",
+      "range": {
+        "startLine": 310,
+        "startChar": 9,
+        "endLine": 310,
+        "endChar": 40
+      },
+      "revId": "1f557c6d37652d54470b671918b1213a906c2e3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
