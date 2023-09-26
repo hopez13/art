@@ -69,6 +69,24 @@
       "message": "Not individual compares.  Build a static set or hashmap.",
       "revId": "30fccad68a15158c8af66d349f98c55d990ac3ef",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff121ca6_b275c52b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-09-26T12:01:12Z",
+      "side": 1,
+      "message": "| Not individual compares. Build a static set or hashmap.\n\nThat sounds better. Then the question is whether it should be static, or a member of `Jit`/`JitCodeCache`.",
+      "parentUuid": "f26ae349_343719ab",
+      "revId": "30fccad68a15158c8af66d349f98c55d990ac3ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
