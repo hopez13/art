@@ -1489,7 +1489,7 @@ bool Runtime::Init(RuntimeArgumentMap&& runtime_options_in) {
   using Opt = RuntimeArgumentMap;
   Opt runtime_options(std::move(runtime_options_in));
   ScopedTrace trace(__FUNCTION__);
-  CHECK_EQ(static_cast<size_t>(sysconf(_SC_PAGE_SIZE)), kPageSize);
+  CHECK_EQ(static_cast<size_t>(sysconf(_SC_PAGE_SIZE)), gPageSize);
 
   // Reload all the flags value (from system properties and device configs).
   ReloadAllFlags(__FUNCTION__);
@@ -1519,11 +1519,11 @@ bool Runtime::Init(RuntimeArgumentMap&& runtime_options_in) {
   // Note: Don't request an error message. That will lead to a maps dump in the case of failure,
   //       leading to logspam.
   {
-    constexpr uintptr_t kSentinelAddr =
-        RoundDown(static_cast<uintptr_t>(Context::kBadGprBase), kPageSize);
+    const uintptr_t sentinel_addr =
+        RoundDown(static_cast<uintptr_t>(Context::kBadGprBase), gPageSize);
     protected_fault_page_ = MemMap::MapAnonymous("Sentinel fault page",
-                                                 reinterpret_cast<uint8_t*>(kSentinelAddr),
-                                                 kPageSize,
+                                                 reinterpret_cast<uint8_t*>(sentinel_addr),
+                                                 gPageSize,
                                                  PROT_NONE,
                                                  /*low_4gb=*/ true,
                                                  /*reuse=*/ false,
@@ -1531,7 +1531,7 @@ bool Runtime::Init(RuntimeArgumentMap&& runtime_options_in) {
                                                  /*error_msg=*/ nullptr);
     if (!protected_fault_page_.IsValid()) {
       LOG(WARNING) << "Could not reserve sentinel fault page";
-    } else if (reinterpret_cast<uintptr_t>(protected_fault_page_.Begin()) != kSentinelAddr) {
+    } else if (reinterpret_cast<uintptr_t>(protected_fault_page_.Begin()) != sentinel_addr) {
       LOG(WARNING) << "Could not reserve sentinel fault page at the right address.";
       protected_fault_page_.Reset();
     }
@@ -3511,8 +3511,8 @@ void Runtime::MadviseFileForRange(size_t madvise_size_limit_bytes,
                                   const uint8_t* map_begin,
                                   const uint8_t* map_end,
                                   const std::string& file_name) {
-  map_begin = AlignDown(map_begin, kPageSize);
-  map_size_bytes = RoundUp(map_size_bytes, kPageSize);
+  map_begin = AlignDown(map_begin, gPageSize);
+  map_size_bytes = RoundUp(map_size_bytes, gPageSize);
 #ifdef ART_TARGET_ANDROID
   // Short-circuit the madvise optimization for background processes. This
   // avoids IO and memory contention with foreground processes, particularly

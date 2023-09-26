@@ -887,7 +887,7 @@ void ImageWriter::UpdateImageBinSlotOffset(mirror::Object* object,
 
 bool ImageWriter::AllocMemory() {
   for (ImageInfo& image_info : image_infos_) {
-    const size_t length = RoundUp(image_info.CreateImageSections().first, kPageSize);
+    const size_t length = RoundUp(image_info.CreateImageSections().first, kElfSegmentAlignment);
 
     std::string error_msg;
     image_info.image_ = MemMap::MapAnonymous("image writer image",
@@ -901,9 +901,12 @@ bool ImageWriter::AllocMemory() {
     }
 
     // Create the image bitmap, only needs to cover mirror object section which is up to image_end_.
+    // The covered size is rounded up to kCardSize to match the bitmap size expected by Loader::Init
+    // at art::gc::space::ImageSpace.
     CHECK_LE(image_info.image_end_, length);
-    image_info.image_bitmap_ = gc::accounting::ContinuousSpaceBitmap::Create(
-        "image bitmap", image_info.image_.Begin(), RoundUp(image_info.image_end_, kPageSize));
+    image_info.image_bitmap_ = gc::accounting::ContinuousSpaceBitmap::Create("image bitmap",
+        image_info.image_.Begin(),
+        RoundUp(image_info.image_end_, gc::accounting::CardTable::kCardSize));
     if (!image_info.image_bitmap_.IsValid()) {
       LOG(ERROR) << "Failed to allocate memory for image bitmap";
       return false;
@@ -2590,7 +2593,7 @@ void ImageWriter::CalculateNewObjectOffsets() {
   for (ImageInfo& image_info : image_infos_) {
     image_info.image_begin_ = global_image_begin_ + image_offset;
     image_info.image_offset_ = image_offset;
-    image_info.image_size_ = RoundUp(image_info.CreateImageSections().first, kPageSize);
+    image_info.image_size_ = RoundUp(image_info.CreateImageSections().first, kElfSegmentAlignment);
     // There should be no gaps until the next image.
     image_offset += image_info.image_size_;
   }
@@ -2726,7 +2729,7 @@ void ImageWriter::CreateHeader(size_t oat_index, size_t component_count) {
   const uint8_t* oat_data_end = image_info.oat_data_begin_ + image_info.oat_size_;
 
   uint32_t image_reservation_size = image_info.image_size_;
-  DCHECK_ALIGNED(image_reservation_size, kPageSize);
+  DCHECK_ALIGNED(image_reservation_size, kElfSegmentAlignment);
   uint32_t current_component_count = 1u;
   if (compiler_options_.IsAppImage()) {
     DCHECK_EQ(oat_index, 0u);
@@ -2737,9 +2740,9 @@ void ImageWriter::CreateHeader(size_t oat_index, size_t component_count) {
     if (oat_index == 0u) {
       const ImageInfo& last_info = image_infos_.back();
       const uint8_t* end = last_info.oat_file_begin_ + last_info.oat_loaded_size_;
-      DCHECK_ALIGNED(image_info.image_begin_, kPageSize);
-      image_reservation_size =
-          dchecked_integral_cast<uint32_t>(RoundUp(end - image_info.image_begin_, kPageSize));
+      DCHECK_ALIGNED(image_info.image_begin_, kElfSegmentAlignment);
+      image_reservation_size = dchecked_integral_cast<uint32_t>(
+          RoundUp(end - image_info.image_begin_, kElfSegmentAlignment));
       current_component_count = component_count;
     } else {
       image_reservation_size = 0u;
@@ -2771,7 +2774,11 @@ void ImageWriter::CreateHeader(size_t oat_index, size_t component_count) {
   // Finally bitmap section.
   const size_t bitmap_bytes = image_info.image_bitmap_.Size();
   auto* bitmap_section = &sections[ImageHeader::kSectionImageBitmap];
-  *bitmap_section = ImageSection(RoundUp(image_end, kPageSize), RoundUp(bitmap_bytes, kPageSize));
+  // The offset of the bitmap section should be aligned to kElfSegmentAlignment to enable mapping
+  // the section from file to memory. However the section size doesn't have to be rounded up as it
+  // is located at the end of the file. When mapping file contents to memory, if the last page of
+  // the mapping is only partially filled with data, the rest will be zero-filled.
+  *bitmap_section = ImageSection(RoundUp(image_end, kElfSegmentAlignment), bitmap_bytes);
   if (VLOG_IS_ON(compiler)) {
     LOG(INFO) << "Creating header for " << oat_filenames_[oat_index];
     size_t idx = 0;

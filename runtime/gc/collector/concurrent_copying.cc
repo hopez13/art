@@ -135,7 +135,7 @@ ConcurrentCopying::ConcurrentCopying(Heap* heap,
     for (size_t i = 0; i < kMarkStackPoolSize; ++i) {
       accounting::AtomicStack<mirror::Object>* mark_stack =
           accounting::AtomicStack<mirror::Object>::Create(
-              "thread local mark stack", kMarkStackSize, kMarkStackSize);
+              "thread local mark stack", GetMarkStackSize(), GetMarkStackSize());
       pooled_mark_stacks_.push_back(mark_stack);
     }
   }
@@ -144,7 +144,7 @@ ConcurrentCopying::ConcurrentCopying(Heap* heap,
     std::string error_msg;
     sweep_array_free_buffer_mem_map_ = MemMap::MapAnonymous(
         "concurrent copying sweep array free buffer",
-        RoundUp(kSweepArrayChunkFreeSize * sizeof(mirror::Object*), kPageSize),
+        RoundUp(kSweepArrayChunkFreeSize * sizeof(mirror::Object*), gPageSize),
         PROT_READ | PROT_WRITE,
         /*low_4gb=*/ false,
         &error_msg);
@@ -1224,7 +1224,7 @@ bool ConcurrentCopying::TestAndSetMarkBitForRef(mirror::Object* ref) {
   } else {
     // Should be a large object. Must be page aligned and the LOS must exist.
     if (kIsDebugBuild
-        && (!IsAligned<kPageSize>(ref) || heap_->GetLargeObjectsSpace() == nullptr)) {
+        && (!IsAligned<kLargeObjectAlignment>(ref) || heap_->GetLargeObjectsSpace() == nullptr)) {
       // It must be heap corruption. Remove memory protection and dump data.
       region_space_->Unprotect();
       heap_->GetVerification()->LogHeapCorruption(/* obj */ nullptr,
@@ -1253,7 +1253,7 @@ bool ConcurrentCopying::TestMarkBitmapForRef(mirror::Object* ref) {
   } else {
     // Should be a large object. Must be page aligned and the LOS must exist.
     if (kIsDebugBuild
-        && (!IsAligned<kPageSize>(ref) || heap_->GetLargeObjectsSpace() == nullptr)) {
+        && (!IsAligned<kLargeObjectAlignment>(ref) || heap_->GetLargeObjectsSpace() == nullptr)) {
       // It must be heap corruption. Remove memory protection and dump data.
       region_space_->Unprotect();
       heap_->GetVerification()->LogHeapCorruption(/* obj */ nullptr,
@@ -2308,7 +2308,7 @@ inline void ConcurrentCopying::ProcessMarkStackRef(mirror::Object* to_ref) {
             heap_->GetNonMovingSpace()->GetMarkBitmap();
         const bool is_los = !mark_bitmap->HasAddress(to_ref);
         if (is_los) {
-          if (!IsAligned<kPageSize>(to_ref)) {
+          if (!IsAligned<kLargeObjectAlignment>(to_ref)) {
             // Ref is a large object that is not aligned, it must be heap
             // corruption. Remove memory protection and dump data before
             // AtomicSetReadBarrierState since it will fault if the address is not
@@ -2658,19 +2658,19 @@ void ConcurrentCopying::CaptureRssAtPeak() {
   if (Runtime::Current()->GetDumpGCPerformanceOnShutdown()) {
     std::list<range_t> gc_ranges;
     auto add_gc_range = [&gc_ranges](void* start, size_t size) {
-      void* end = static_cast<char*>(start) + RoundUp(size, kPageSize);
+      void* end = static_cast<char*>(start) + RoundUp(size, gPageSize);
       gc_ranges.emplace_back(range_t(start, end));
     };
 
     // region space
-    DCHECK(IsAligned<kPageSize>(region_space_->Limit()));
+    DCHECK(IsAlignedParam(region_space_->Limit(), gPageSize));
     gc_ranges.emplace_back(range_t(region_space_->Begin(), region_space_->Limit()));
     // mark bitmap
     add_gc_range(region_space_bitmap_->Begin(), region_space_bitmap_->Size());
 
     // non-moving space
     {
-      DCHECK(IsAligned<kPageSize>(heap_->non_moving_space_->Limit()));
+      DCHECK(IsAlignedParam(heap_->non_moving_space_->Limit(), gPageSize));
       gc_ranges.emplace_back(range_t(heap_->non_moving_space_->Begin(),
                                      heap_->non_moving_space_->Limit()));
       // mark bitmap
@@ -2690,7 +2690,7 @@ void ConcurrentCopying::CaptureRssAtPeak() {
     // large-object space
     if (heap_->GetLargeObjectsSpace()) {
       heap_->GetLargeObjectsSpace()->ForEachMemMap([&add_gc_range](const MemMap& map) {
-        DCHECK(IsAligned<kPageSize>(map.BaseSize()));
+        DCHECK(IsAlignedParam(map.BaseSize(), gPageSize));
         add_gc_range(map.BaseBegin(), map.BaseSize());
       });
       // mark bitmap
@@ -3684,7 +3684,7 @@ mirror::Object* ConcurrentCopying::MarkNonMoving(Thread* const self,
   accounting::LargeObjectBitmap* los_bitmap = nullptr;
   const bool is_los = !mark_bitmap->HasAddress(ref);
   if (is_los) {
-    if (!IsAligned<kPageSize>(ref)) {
+    if (!IsAligned<kLargeObjectAlignment>(ref)) {
       // Ref is a large object that is not aligned, it must be heap
       // corruption. Remove memory protection and dump data before
       // AtomicSetReadBarrierState since it will fault if the address is not
