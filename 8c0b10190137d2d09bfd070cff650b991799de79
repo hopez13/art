@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3254c72d_b48df534",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2300,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-09-26T07:40:17Z",
+      "side": 1,
+      "message": "The second SUB is not needed in this case, we may use the second input of the first SUB instead with a NEG.",
+      "range": {
+        "startLine": 2299,
+        "startChar": 7,
+        "endLine": 2300,
+        "endChar": 47
+      },
+      "revId": "8c0b10190137d2d09bfd070cff650b991799de79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79f80761_92e1cb4c",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2318,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-09-26T07:40:17Z",
+      "side": 1,
+      "message": "The second SUB is not needed in this case, we may use the second input of the first SUB instead.",
+      "range": {
+        "startLine": 2317,
+        "startChar": 7,
+        "endLine": 2318,
+        "endChar": 36
+      },
+      "revId": "8c0b10190137d2d09bfd070cff650b991799de79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "93494fb7_110bc0aa",
+        "filename": "test/2267-checker-sub-add-simplifications/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-09-26T07:40:17Z",
+      "side": 1,
+      "message": "Can we keep these tests in `458-checker-instruction-simplification`, please?\nMaybe in additional files/classes (`SubSub`, `SubAdd`).",
+      "range": {
+        "startLine": 20,
+        "startChar": 21,
+        "endLine": 20,
+        "endChar": 59
+      },
+      "revId": "8c0b10190137d2d09bfd070cff650b991799de79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5bc39fc7_cccc4845",
+        "filename": "test/2267-checker-sub-add-simplifications/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-09-26T07:40:17Z",
+      "side": 1,
+      "message": "Maybe add suffix `Int`/`Long` instead of overloading?",
+      "range": {
+        "startLine": 164,
+        "startChar": 26,
+        "endLine": 164,
+        "endChar": 36
+      },
+      "revId": "8c0b10190137d2d09bfd070cff650b991799de79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
