@@ -86,8 +86,11 @@ SpaceBitmap<kAlignment> SpaceBitmap<kAlignment>::Create(
   // (we represent one word as an `intptr_t`).
   const size_t bitmap_size = ComputeBitmapSize(heap_capacity);
   std::string error_msg;
+  // To ensure image file size is independent of page size, the written bitmap size is aligned up
+  // to kElfSegmentAlignment. Align the mapping size accordingly to ensure the file write can
+  // succeed.
   MemMap mem_map = MemMap::MapAnonymous(name.c_str(),
-                                        bitmap_size,
+                                        RoundUp(bitmap_size, kElfSegmentAlignment),
                                         PROT_READ | PROT_WRITE,
                                         /*low_4gb=*/ false,
                                         &error_msg);
