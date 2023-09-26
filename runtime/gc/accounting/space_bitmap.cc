@@ -90,7 +90,7 @@ SpaceBitmap<kAlignment> SpaceBitmap<kAlignment>::Create(
     // To ensure image file size is independent of page size, the written bitmap size is aligned up
     // to kElfSegmentAlignment. Align the mapping size accordingly to ensure the file write can
     // succeed.
-    bitmap_size = RoundUp(bitmap_size, kElfSegmentAlignment);
+    bitmap_size = CondRoundUp<kPageSizeAgnostic>(bitmap_size, kElfSegmentAlignment);
   }
   MemMap mem_map = MemMap::MapAnonymous(name.c_str(),
                                         bitmap_size,
