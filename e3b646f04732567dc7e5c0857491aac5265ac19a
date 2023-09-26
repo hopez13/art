@@ -46,6 +46,30 @@
       },
       "revId": "e3b646f04732567dc7e5c0857491aac5265ac19a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eac569d8_edcadf3c",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2318,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-09-26T13:11:32Z",
+      "side": 1,
+      "message": "Yeah, I removed it because it was superfluous",
+      "parentUuid": "950cb2b6_dc86a7b8",
+      "range": {
+        "startLine": 2318,
+        "startChar": 14,
+        "endLine": 2318,
+        "endChar": 25
+      },
+      "revId": "e3b646f04732567dc7e5c0857491aac5265ac19a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
