@@ -16,6 +16,24 @@
       "message": "The only failures I see are redefine-stress failures in `2265-const-method-type-cached` which has been disabled by https://android-review.googlesource.com/2761727 .",
       "revId": "ed5be80f8015705e9b53e6b376b6ada5c7f4a817",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "95295f33_9923545c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1793992
+      },
+      "writtenOn": "2023-09-26T09:16:56Z",
+      "side": 1,
+      "message": "There are https://ci.chromium.org/ui/p/art/builders/ci/angler-armv7-ndebug/4431/overview and https://ci.chromium.org/ui/p/art/builders/ci/angler-armv7-non-gen-cc/3336/overview.",
+      "parentUuid": "68e7aec3_61b36a46",
+      "revId": "ed5be80f8015705e9b53e6b376b6ada5c7f4a817",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
