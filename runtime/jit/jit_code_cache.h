@@ -182,8 +182,10 @@ class JitCodeCache {
  public:
   static constexpr size_t kMaxCapacity = 64 * MB;
   // Put the default to a very low amount for debug builds to stress the code cache
-  // collection.
-  static constexpr size_t kInitialCapacity = kIsDebugBuild ? 8 * KB : 64 * KB;
+  // collection. It should be at least two pages, however, as the storage is split
+  // into data and code sections with sizes that should be aligned to page size each
+  // as that's the unit mspaces use. See also: JitMemoryRegion::Initialize.
+  static constexpr size_t kInitialCapacity = kIsDebugBuild ?  2 * kPageSize : 64 * KB;
 
   // By default, do not GC until reaching 256KB.
   static constexpr size_t kReservedCapacity = kInitialCapacity * 4;
