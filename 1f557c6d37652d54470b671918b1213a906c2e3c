@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1f9a6e36_23f87436",
+        "filename": "runtime/metrics/statsd.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2023-09-26T08:38:12Z",
+      "side": 1,
+      "message": "This should be `gc::CollectorType::kCollectorTypeCMCBackground`.",
+      "range": {
+        "startLine": 310,
+        "startChar": 9,
+        "endLine": 310,
+        "endChar": 40
+      },
+      "revId": "1f557c6d37652d54470b671918b1213a906c2e3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
