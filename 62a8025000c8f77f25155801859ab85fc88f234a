@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f38a19eb_d494df96",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-09-26T17:54:37Z",
+      "side": 1,
+      "message": "Confirmed in local testing that this CL starts doing transition GC for uffd GC. Without the CL they aren\u0027t happening.",
+      "revId": "62a8025000c8f77f25155801859ab85fc88f234a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
