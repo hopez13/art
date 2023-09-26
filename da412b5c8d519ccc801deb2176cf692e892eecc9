@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "5d6f5f31_f2134f2f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1413436
+      },
+      "writtenOn": "2023-09-26T07:34:41Z",
+      "side": 1,
+      "message": "I ran tests and found some corner cases (and fixed). Thanks. I don\u0027t know any VNDK related test case, especially for product partition.",
+      "parentUuid": "bf6703fb_8745ae5d",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 4
+      },
+      "revId": "da412b5c8d519ccc801deb2176cf692e892eecc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "a199ac70_1d5ca0bf",
         "filename": "tools/buildbot-build.sh",
         "patchSetId": 4
@@ -37,6 +61,30 @@
       "writtenOn": "2023-09-25T10:54:59Z",
       "side": 1,
       "message": "I\u0027d like to get a better understanding of the implications of these flags and the VNDK support in libnativeloader in general. Can you please point me to some docs about it?",
+      "range": {
+        "startLine": 432,
+        "startChar": 92,
+        "endLine": 432,
+        "endChar": 149
+      },
+      "revId": "da412b5c8d519ccc801deb2176cf692e892eecc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d051df40_267cd25d",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 1413436
+      },
+      "writtenOn": "2023-09-26T07:34:41Z",
+      "side": 1,
+      "message": "There is no doc which explains this logic in detail. Let me create a task in bugnazier to write this doc for any future contribution on libnativeloader.",
+      "parentUuid": "a199ac70_1d5ca0bf",
       "range": {
         "startLine": 432,
         "startChar": 92,
