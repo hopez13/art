@@ -16,6 +16,52 @@
       "message": "Confirmed in local testing that this CL starts doing transition GC for uffd GC. Without the CL they aren\u0027t happening.",
       "revId": "62a8025000c8f77f25155801859ab85fc88f234a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e28fa1b_bc1aa26b",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 431,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2023-09-26T18:01:03Z",
+      "side": 1,
+      "message": "Suggestion: Reverse this condition and swap the branches of this conditional.",
+      "range": {
+        "startLine": 431,
+        "startChar": 6,
+        "endLine": 431,
+        "endChar": 22
+      },
+      "revId": "62a8025000c8f77f25155801859ab85fc88f234a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a9aad196_a951513d",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 1240,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2023-09-26T18:01:03Z",
+      "side": 1,
+      "message": "Would you mind updating (or removing) this comment?",
+      "range": {
+        "startLine": 1239,
+        "startChar": 61,
+        "endLine": 1240,
+        "endChar": 40
+      },
+      "revId": "62a8025000c8f77f25155801859ab85fc88f234a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
