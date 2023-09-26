@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b7628c2c_90607bd1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-09-26T08:38:30Z",
+      "side": 1,
+      "message": "I have originally intended for the method to be used as debug check (since it does not work on mac, and it uses linker iteration to self-reflect which feels kind of hacky). I would prefer if the entrypoints were enumerated explicitly and then the IsStub was used to make sure it is correct.\n\nHaving said that, it LGTM as-is as well.",
+      "revId": "30fccad68a15158c8af66d349f98c55d990ac3ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
