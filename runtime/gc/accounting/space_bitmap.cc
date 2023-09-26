@@ -90,7 +90,8 @@ SpaceBitmap<kAlignment> SpaceBitmap<kAlignment>::Create(
   // to kElfSegmentAlignment. Align the mapping size accordingly to ensure the file write can
   // succeed.
   MemMap mem_map = MemMap::MapAnonymous(name.c_str(),
-                                        RoundUp(bitmap_size, kElfSegmentAlignment),
+                                        CondRoundUp<kPageSizeAgnostic>(bitmap_size,
+                                                                       kElfSegmentAlignment),
                                         PROT_READ | PROT_WRITE,
                                         /*low_4gb=*/ false,
                                         &error_msg);
