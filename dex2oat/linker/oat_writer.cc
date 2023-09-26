@@ -616,7 +616,7 @@ void OatWriter::PrepareLayout(MultiOatRelativePatcher* relative_patcher) {
     offset = InitDataBimgRelRoLayout(offset);
   }
   oat_size_ = offset;  // .bss does not count towards oat_size_.
-  bss_start_ = (bss_size_ != 0u) ? RoundUp(oat_size_, kPageSize) : 0u;
+  bss_start_ = (bss_size_ != 0u) ? RoundUp(oat_size_, kElfSegmentAlignment) : 0u;
 
   CHECK_EQ(dex_files_->size(), oat_dex_files_.size());
 
@@ -2196,7 +2196,7 @@ size_t OatWriter::InitOatCode(size_t offset) {
   // calculate the offsets within OatHeader to executable code
   size_t old_offset = offset;
   // required to be on a new page boundary
-  offset = RoundUp(offset, kPageSize);
+  offset = RoundUp(offset, kElfSegmentAlignment);
   oat_header_->SetExecutableOffset(offset);
   size_executable_offset_alignment_ = offset - old_offset;
   InstructionSet instruction_set = compiler_options_.GetInstructionSet();
@@ -2310,7 +2310,7 @@ size_t OatWriter::InitDataBimgRelRoLayout(size_t offset) {
     return offset;
   }
 
-  data_bimg_rel_ro_start_ = RoundUp(offset, kPageSize);
+  data_bimg_rel_ro_start_ = RoundUp(offset, kElfSegmentAlignment);
 
   for (auto& entry : data_bimg_rel_ro_entries_) {
     size_t& entry_offset = entry.second;
@@ -2517,7 +2517,7 @@ bool OatWriter::WriteDataBimgRelRo(OutputStream* out) {
   // Record the padding before the .data.bimg.rel.ro section.
   // Do not write anything, this zero-filled part was skipped (Seek()) when starting the section.
   size_t code_end = GetOatHeader().GetExecutableOffset() + code_size_;
-  DCHECK_EQ(RoundUp(code_end, kPageSize), relative_offset);
+  DCHECK_EQ(RoundUp(code_end, kElfSegmentAlignment), relative_offset);
   size_t padding_size = relative_offset - code_end;
   DCHECK_EQ(size_data_bimg_rel_ro_alignment_, 0u);
   size_data_bimg_rel_ro_alignment_ = padding_size;
@@ -3214,7 +3214,7 @@ bool OatWriter::WriteDexFiles(File* file,
 
     // Extend the file and include the full page at the end as we need to write
     // additional data there and do not want to mmap that page twice.
-    size_t page_aligned_size = RoundUp(vdex_size_with_dex_files, kPageSize);
+    size_t page_aligned_size = RoundUp(vdex_size_with_dex_files, kElfSegmentAlignment);
     if (!use_existing_vdex) {
       if (file->SetLength(page_aligned_size) != 0) {
         PLOG(ERROR) << "Failed to resize vdex file " << file->GetPath();
@@ -3593,7 +3593,7 @@ bool OatWriter::FinishVdexFile(File* vdex_file, verifier::VerifierDeps* verifier
   if (extract_dex_files_into_vdex_) {
     DCHECK(vdex_begin != nullptr);
     // Write data to the last already mmapped page of the vdex file.
-    size_t mmapped_vdex_size = RoundUp(old_vdex_size, kPageSize);
+    size_t mmapped_vdex_size = RoundUp(old_vdex_size, kElfSegmentAlignment);
     size_t first_chunk_size = std::min(buffer.size(), mmapped_vdex_size - old_vdex_size);
     memcpy(vdex_begin + old_vdex_size, buffer.data(), first_chunk_size);
 
@@ -3682,7 +3682,7 @@ bool OatWriter::FinishVdexFile(File* vdex_file, verifier::VerifierDeps* verifier
     if (extract_dex_files_into_vdex_) {
       // Note: We passed the ownership of the vdex dex file MemMap to the caller,
       // so we need to use msync() for the range explicitly.
-      if (msync(vdex_begin, RoundUp(old_vdex_size, kPageSize), MS_SYNC) != 0) {
+      if (msync(vdex_begin, RoundUp(old_vdex_size, kElfSegmentAlignment), MS_SYNC) != 0) {
         PLOG(ERROR) << "Failed to sync vdex file contents" << vdex_file->GetPath();
         return false;
       }
@@ -3700,7 +3700,7 @@ bool OatWriter::FinishVdexFile(File* vdex_file, verifier::VerifierDeps* verifier
 
   // Note: If `extract_dex_files_into_vdex_`, we passed the ownership of the vdex dex file
   // MemMap to the caller, so we need to use msync() for the range explicitly.
-  if (msync(vdex_begin, kPageSize, MS_SYNC) != 0) {
+  if (msync(vdex_begin, kElfSegmentAlignment, MS_SYNC) != 0) {
     PLOG(ERROR) << "Failed to sync vdex file header " << vdex_file->GetPath();
     return false;
   }
