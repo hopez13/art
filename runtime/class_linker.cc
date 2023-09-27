@@ -7951,27 +7951,18 @@ void ClassLinker::LinkMethodsHelper<kPointerSize>::ReallocMethods(ObjPtr<mirror:
                                                                       kMethodSize,
                                                                       kMethodAlignment);
   const size_t old_methods_ptr_size = (old_methods != nullptr) ? old_size : 0;
-  auto* methods = reinterpret_cast<LengthPrefixedArray<ArtMethod>*>(
-      class_linker_->GetAllocatorForClassLoader(klass->GetClassLoader())->Realloc(
-          self_, old_methods, old_methods_ptr_size, new_size, LinearAllocKind::kArtMethodArray));
+  LinearAlloc* allocator = class_linker_->GetAllocatorForClassLoader(klass->GetClassLoader());
+  auto* methods = reinterpret_cast<LengthPrefixedArray<ArtMethod>*>(allocator->Realloc(
+      self_, old_methods, old_methods_ptr_size, new_size, LinearAllocKind::kArtMethodArray));
   CHECK(methods != nullptr);  // Native allocation failure aborts.
 
-  if (methods != old_methods) {
-    if (gUseReadBarrier) {
-      StrideIterator<ArtMethod> out = methods->begin(kMethodSize, kMethodAlignment);
-      // Copy over the old methods. The `ArtMethod::CopyFrom()` is only necessary to not miss
-      // read barriers since `LinearAlloc::Realloc()` won't do read barriers when it copies.
-      for (auto& m : klass->GetMethods(kPointerSize)) {
-        out->CopyFrom(&m, kPointerSize);
-        ++out;
-      }
-    } else if (gUseUserfaultfd) {
-      // Clear the declaring class of the old dangling method array so that GC doesn't
-      // try to update them, which could cause crashes in userfaultfd GC due to
-      // checks in post-compact address computation.
-      for (auto& m : klass->GetMethods(kPointerSize)) {
-        m.SetDeclaringClass(nullptr);
-      }
+  if (gUseReadBarrier && methods != old_methods) {
+    StrideIterator<ArtMethod> out = methods->begin(kMethodSize, kMethodAlignment);
+    // Copy over the old methods. The `ArtMethod::CopyFrom()` is only necessary to not miss
+    // read barriers since `LinearAlloc::Realloc()` won't do read barriers when it copies.
+    for (auto& m : klass->GetMethods(kPointerSize)) {
+      out->CopyFrom(&m, kPointerSize);
+      ++out;
     }
   }
 
@@ -8079,6 +8070,13 @@ void ClassLinker::LinkMethodsHelper<kPointerSize>::ReallocMethods(ObjPtr<mirror:
   }
 
   class_linker_->UpdateClassMethods(klass, methods);
+  // In order to make compaction code skip updating the declaring_class_ in
+  // old_methods, convert it into a 'no GC-root' array. The marking-phase doesn't
+  // need this as it wouldn't reach the old_methods array after it has been
+  // replaced by the new array above.
+  if (gUseUserfaultfd && methods != old_methods) {
+    allocator->ConvertToNoGcRoots(old_methods, LinearAllocKind::kArtMethodArray);
+  }
 }
 
 template <PointerSize kPointerSize>
