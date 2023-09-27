@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea50c3e7_3eefa03a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-09-27T15:20:12Z",
+      "side": 1,
+      "message": "\u003e I don\u0027t know any VNDK related test case, especially for product partition.\n\nI haven\u0027t added any to libnativeloader_e2e_tests because I don\u0027t know what they should look like. Wouldn\u0027t it be good to cover that area though? The test in art/libnativeloader/test already does a lot of the heavy lifting by remounting and pushing test apps to all the different partitions, so I\u0027m hoping the additional work to add VNDK cases to them wouldn\u0027t be too bad. WDYT?",
+      "parentUuid": "5d6f5f31_f2134f2f",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 4
+      },
+      "revId": "da412b5c8d519ccc801deb2176cf692e892eecc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "a199ac70_1d5ca0bf",
@@ -109,6 +133,30 @@
       "side": 1,
       "message": "Filed a bug : b/302077829",
       "parentUuid": "d051df40_267cd25d",
+      "range": {
+        "startLine": 432,
+        "startChar": 92,
+        "endLine": 432,
+        "endChar": 149
+      },
+      "revId": "da412b5c8d519ccc801deb2176cf692e892eecc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "21ce17f1_725e5a54",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-09-27T15:20:12Z",
+      "side": 1,
+      "message": "Thanks. I\u0027m not sure a doc with a _detailed_ description of this part of the logic is sustainable; what I\u0027m looking for is a bit of the context to understand it better. I guess [this page on SAC](https://source.android.com/docs/core/architecture/vndk/linker-namespace) that I\u0027ve forgotten about provides some of that, but I\u0027m wondering how up-to-date that is wrt to these changes. Are we getting rid of the product partition separation here, or is all of VNDK going away? If so, what is the replacement for it?",
+      "parentUuid": "6a29e064_b29c5a64",
       "range": {
         "startLine": 432,
         "startChar": 92,
