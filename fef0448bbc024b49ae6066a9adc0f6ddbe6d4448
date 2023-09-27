@@ -22,6 +22,30 @@
       },
       "revId": "fef0448bbc024b49ae6066a9adc0f6ddbe6d4448",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a9c1354_3b0766a9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1413436
+      },
+      "writtenOn": "2023-09-27T07:57:24Z",
+      "side": 1,
+      "message": "Yes this change is to fix a breakage that libnativeloader checked if product is treblelized from ro.product.vndk.version which is no longer valid.",
+      "parentUuid": "1bd63b7d_895b60b0",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 64
+      },
+      "revId": "fef0448bbc024b49ae6066a9adc0f6ddbe6d4448",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
