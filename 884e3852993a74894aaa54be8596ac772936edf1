@@ -22,6 +22,30 @@
       },
       "revId": "884e3852993a74894aaa54be8596ac772936edf1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6fa80661_bffd426b",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 8076,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-09-27T21:16:42Z",
+      "side": 1,
+      "message": "Actually there is no reason to do it down here. So I moved it up where the previous code was.\n\nAlso fixed the comment. Thanks.",
+      "parentUuid": "4685bff0_f9674345",
+      "range": {
+        "startLine": 8074,
+        "startChar": 56,
+        "endLine": 8076,
+        "endChar": 37
+      },
+      "revId": "884e3852993a74894aaa54be8596ac772936edf1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
