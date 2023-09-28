@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "7045cc87_d98ce654",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-09-28T14:01:41Z",
+      "side": 1,
+      "message": "Do you know why it was done this way?",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 10
+      },
+      "revId": "3d701f405b1e400b1a26bb5f7d5f340750b6e176",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "eb746a52_96cebad8",
@@ -32,6 +55,23 @@
       "side": 1,
       "message": "Sorry for the weird draft comment I thought I had discarded. One of the presubmit failures should go away once aosp/2766127 has propagated, the other is a flake.",
       "parentUuid": "eb746a52_96cebad8",
+      "revId": "3d701f405b1e400b1a26bb5f7d5f340750b6e176",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e20744c0_d1fe1b9e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-09-28T14:01:41Z",
+      "side": 1,
+      "message": "Thanks! lgtm.",
       "revId": "3d701f405b1e400b1a26bb5f7d5f340750b6e176",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
