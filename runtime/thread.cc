@@ -47,6 +47,7 @@
 #include "base/file_utils.h"
 #include "base/memory_tool.h"
 #include "base/mutex.h"
+#include "base/page_size_agnostic_globals.h"
 #include "base/stl_util.h"
 #include "base/systrace.h"
 #include "base/time_utils.h"
@@ -152,7 +153,8 @@ static constexpr size_t kSuspendTimeDuringFlip = 5'000;
 // of the stack (lowest memory).  The higher portion of the memory
 // is protected against reads and the lower is available for use while
 // throwing the StackOverflow exception.
-static const size_t gStackOverflowProtectedSize = kMemoryToolStackGuardSizeScale * gPageSize;
+ART_PAGE_SIZE_AGNOSTIC_DECLARE_AND_DEFINE(size_t, gStackOverflowProtectedSize,
+                                          kMemoryToolStackGuardSizeScale * gPageSize);
 
 static const char* kThreadNameDuringStartup = "<native thread without managed peer>";
 

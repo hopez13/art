@@ -20,6 +20,8 @@
 #include <stddef.h>
 #include <stdint.h>
 
+#include "base/page_size_agnostic_globals.h"
+
 namespace art {
 
 static constexpr size_t KB = 1024;
@@ -33,10 +35,6 @@ static constexpr int kBitsPerIntPtrT = sizeof(intptr_t) * kBitsPerByte;
 
 // Required stack alignment
 static constexpr size_t kStackAlignment = 16;
-
-// System page size. We check this against sysconf(_SC_PAGE_SIZE) at runtime, but use a simple
-// compile-time constant so the compiler can generate better code.
-static constexpr size_t gPageSize = 4096;
 
 #if defined(ART_PAGE_SIZE_AGNOSTIC)
 static constexpr bool kPageSizeAgnostic = true;
@@ -61,17 +59,6 @@ static constexpr size_t kMaxPageSize = 4096;
 // kElfSegmentAlignment needs to be equal to the largest page size supported.
 static constexpr size_t kElfSegmentAlignment = kMaxPageSize;
 
-// TODO: Kernels for arm and x86 in both, 32-bit and 64-bit modes use 512 entries per page-table
-// page. Find a way to confirm that in userspace.
-// Address range covered by 1 Page Middle Directory (PMD) entry in the page table
-static const size_t gPMDSize = (gPageSize / sizeof(uint64_t)) * gPageSize;
-// Address range covered by 1 Page Upper Directory (PUD) entry in the page table
-static const size_t gPUDSize = (gPageSize / sizeof(uint64_t)) * gPMDSize;
-// Returns the ideal alignment corresponding to page-table levels for the
-// given size.
-static inline size_t BestPageTableAlignment(size_t size) {
-  return size < gPUDSize ? gPMDSize : gPUDSize;
-}
 // Clion, clang analyzer, etc can falsely believe that "if (kIsDebugBuild)" always
 // returns the same value. By wrapping into a call to another constexpr function, we force it
 // to realize that is not actually always evaluating to the same value.
