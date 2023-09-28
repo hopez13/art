@@ -146,7 +146,7 @@ void* SwapSpace::Alloc(size_t size) {
 
 SwapSpace::SpaceChunk SwapSpace::NewFileChunk(size_t min_size) {
 #if !defined(__APPLE__)
-  size_t next_part = std::max(RoundUp(min_size, kPageSize), RoundUp(kMininumMapSize, kPageSize));
+  size_t next_part = std::max(RoundUp(min_size, gPageSize), RoundUp(kMininumMapSize, gPageSize));
   int result = TEMP_FAILURE_RETRY(ftruncate64(fd_, size_ + next_part));
   if (result != 0) {
     PLOG(FATAL) << "Unable to increase swap file.";
