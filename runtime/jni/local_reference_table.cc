@@ -20,6 +20,7 @@
 #include "base/casts.h"
 #include "base/globals.h"
 #include "base/mutator_locked_dumpable.h"
+#include "base/page_size_agnostic_globals.h"
 #include "base/systrace.h"
 #include "base/utils.h"
 #include "indirect_reference_table.h"
@@ -41,7 +42,8 @@ static constexpr bool kDumpStackOnNonLocalReference = false;
 static constexpr bool kDebugLRT = false;
 
 // Number of free lists in the allocator.
-static const size_t gNumLrtSlots = WhichPowerOf2(gPageSize / kInitialLrtBytes);
+ART_PAGE_SIZE_AGNOSTIC_DECLARE_AND_DEFINE(size_t, gNumLrtSlots,
+                                          WhichPowerOf2(gPageSize / kInitialLrtBytes));
 
 // Mmap an "indirect ref table region. Table_bytes is a multiple of a page size.
 static inline MemMap NewLRTMap(size_t table_bytes, std::string* error_msg) {
