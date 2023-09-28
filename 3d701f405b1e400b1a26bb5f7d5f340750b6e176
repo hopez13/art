@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "c2263e33_02b2edc5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-09-28T14:22:55Z",
+      "side": 1,
+      "message": "No, and the original CL doesn\u0027t say. I suppose it\u0027s connected with how libnativeloader worked at the time, and/or the linker setup in run tests, but I don\u0027t know those details. All I know is that it was long before linker namespaces were introduced, and in particular before https://r.android.com/1689792 where we added NATIVELOADER_DEFAULT_NAMESPACE_LIBS as a way to load test libraries through libnativeloader.",
+      "parentUuid": "7045cc87_d98ce654",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 10
+      },
+      "revId": "3d701f405b1e400b1a26bb5f7d5f340750b6e176",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "eb746a52_96cebad8",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
