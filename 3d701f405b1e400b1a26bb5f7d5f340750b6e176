@@ -16,6 +16,24 @@
       "message": "The TH",
       "revId": "3d701f405b1e400b1a26bb5f7d5f340750b6e176",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9edc2406_f399a71a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-09-28T13:30:44Z",
+      "side": 1,
+      "message": "Sorry for the weird draft comment I thought I had discarded. One of the presubmit failures should go away once aosp/2766127 has propagated, the other is a flake.",
+      "parentUuid": "eb746a52_96cebad8",
+      "revId": "3d701f405b1e400b1a26bb5f7d5f340750b6e176",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
