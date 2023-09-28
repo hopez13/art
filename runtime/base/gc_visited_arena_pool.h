@@ -38,26 +38,26 @@ class TrackedArena final : public Arena {
 
   template <typename PageVisitor>
   void VisitRoots(PageVisitor& visitor) const REQUIRES_SHARED(Locks::mutator_lock_) {
-    DCHECK_ALIGNED_PARAM(Size(), kPageSize);
-    DCHECK_ALIGNED_PARAM(Begin(), kPageSize);
-    int nr_pages = Size() / kPageSize;
+    DCHECK_ALIGNED_PARAM(Size(), gPageSize);
+    DCHECK_ALIGNED_PARAM(Begin(), gPageSize);
+    int nr_pages = Size() / gPageSize;
     uint8_t* page_begin = Begin();
-    for (int i = 0; i < nr_pages && first_obj_array_[i] != nullptr; i++, page_begin += kPageSize) {
+    for (int i = 0; i < nr_pages && first_obj_array_[i] != nullptr; i++, page_begin += gPageSize) {
       visitor(page_begin, first_obj_array_[i]);
     }
   }
 
   // Return the page addr of the first page with first_obj set to nullptr.
   uint8_t* GetLastUsedByte() const REQUIRES_SHARED(Locks::mutator_lock_) {
-    DCHECK_ALIGNED_PARAM(Begin(), kPageSize);
-    DCHECK_ALIGNED_PARAM(End(), kPageSize);
+    DCHECK_ALIGNED_PARAM(Begin(), gPageSize);
+    DCHECK_ALIGNED_PARAM(End(), gPageSize);
     // Jump past bytes-allocated for arenas which are not currently being used
     // by arena-allocator. This helps in reducing loop iterations below.
-    uint8_t* last_byte = AlignUp(Begin() + GetBytesAllocated(), kPageSize);
+    uint8_t* last_byte = AlignUp(Begin() + GetBytesAllocated(), gPageSize);
     DCHECK_LE(last_byte, End());
-    for (size_t i = (last_byte - Begin()) / kPageSize;
+    for (size_t i = (last_byte - Begin()) / gPageSize;
          last_byte < End() && first_obj_array_[i] != nullptr;
-         last_byte += kPageSize, i++) {
+         last_byte += gPageSize, i++) {
       // No body.
     }
     return last_byte;
@@ -66,7 +66,7 @@ class TrackedArena final : public Arena {
   uint8_t* GetFirstObject(uint8_t* addr) const REQUIRES_SHARED(Locks::mutator_lock_) {
     DCHECK_LE(Begin(), addr);
     DCHECK_GT(End(), addr);
-    return first_obj_array_[(addr - Begin()) / kPageSize];
+    return first_obj_array_[(addr - Begin()) / gPageSize];
   }
 
   // Set 'obj_begin' in first_obj_array_ in every element for which it's the

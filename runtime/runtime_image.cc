@@ -131,7 +131,7 @@ class RuntimeImageHelper {
     // is the last section. Sizes of previous sections are aligned so that the start of the next
     // section will be aligned.
     *bitmap_section = ImageSection(RoundUp(sections_end, kElfSegmentAlignment),
-                                   RoundUp(bitmap_bytes, kPageSize));
+                                   RoundUp(bitmap_bytes, gPageSize));
 
     // Compute boot image checksum and boot image components, to be stored in
     // the header.
