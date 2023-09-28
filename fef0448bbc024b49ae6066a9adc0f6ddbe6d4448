@@ -46,6 +46,30 @@
       },
       "revId": "fef0448bbc024b49ae6066a9adc0f6ddbe6d4448",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b8953d5d_4411eb89",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2023-09-28T03:00:15Z",
+      "side": 1,
+      "message": "ok, then I\u0027d rewrite the commit message like the below.\n\n1. before this change, we used ro.product.vndk.version to check if product partition is treblized or not.\n\n2. however, as we deprecate VNDK, the system property no longer exists. As a side effect of that, the product partition is incorrectly recognized as being non-Treblized although it is Treblized.\n\n3. This has caused \u003cdescription of the failure\u003e.\n\n4. We fix this by removing the check for ro.product.vndk.version, which essentially is saying that the product partition is \"always\" Treblized. This is a safe decision because Treblizing the product partition has been a must requirement since Android R.",
+      "parentUuid": "2a9c1354_3b0766a9",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 64
+      },
+      "revId": "fef0448bbc024b49ae6066a9adc0f6ddbe6d4448",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
