@@ -118,6 +118,30 @@
       },
       "revId": "a571028d2f2ce6194f7e519af764119bbc52e598",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "93972de7_510f7fc3",
+        "filename": "libartbase/base/globals.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1280281
+      },
+      "writtenOn": "2023-09-29T18:37:44Z",
+      "side": 1,
+      "message": "I\u0027ve updated the patch accordingly - goal of the current version is to ensure no static initialization order issues although possibly with increased overhead in page size agnostic configuration, however with minimal effect on non page size agnostic builds.\n\nThe plan is to subsequently prepare a patch minimizing the overhead for the page size agnostic configuration as well.",
+      "parentUuid": "d3a391cb_d231f80c",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 46
+      },
+      "revId": "a571028d2f2ce6194f7e519af764119bbc52e598",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
