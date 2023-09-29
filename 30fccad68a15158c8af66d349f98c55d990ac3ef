@@ -105,6 +105,24 @@
       "parentUuid": "ff121ca6_b275c52b",
       "revId": "30fccad68a15158c8af66d349f98c55d990ac3ef",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "78bb0081_1f914d0b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-09-29T09:47:38Z",
+      "side": 1,
+      "message": "After further discussion, let\u0027s go with the current state of the CL - I\u0027m not sure I want to add extra code to generate that set. It\u0027s indeed nicer, but IsStub fulfils already handles what we need.",
+      "parentUuid": "c5a1cc91_288e7657",
+      "revId": "30fccad68a15158c8af66d349f98c55d990ac3ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
