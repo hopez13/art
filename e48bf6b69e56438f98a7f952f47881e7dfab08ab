@@ -46,6 +46,30 @@
       },
       "revId": "e48bf6b69e56438f98a7f952f47881e7dfab08ab",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0de85216_caa02fbd",
+        "filename": "runtime/arch/arm64/asm_support_arm64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2023-09-29T09:13:34Z",
+      "side": 1,
+      "message": "Hi Nicolas. Sorry it\u0027s taken a little while to come back on this. Unfortunately LLVM\u0027s integrated assembler is not very well documented - it is simply stated to be \"extremely compatible\" with the GNU assembler, for which the directive is supported and properly documentated: https://sourceware.org/binutils/docs/as/Macro.html#index-_005c_0040.\n\nThe directive was added to the LLVM integrated assembler in this commit from 2015 https://github.com/llvm/llvm-project/commit/217116e684550545f88e45a0c7411153dcccf1ee which has been merged since Clang 3.7. So I think it should be available for use in this case to avoid the magic numbers / potential for clashing labels?",
+      "parentUuid": "8f7ae6e5_ad11263a",
+      "range": {
+        "startLine": 193,
+        "startChar": 0,
+        "endLine": 193,
+        "endChar": 2
+      },
+      "revId": "e48bf6b69e56438f98a7f952f47881e7dfab08ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
