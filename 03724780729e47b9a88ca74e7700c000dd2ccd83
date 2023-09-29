@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "294d42ee_b5f0b55d",
+        "filename": "test/593-checker-boolean-2-integral-conv/smali/SmaliTests.smali",
+        "patchSetId": 5
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-09-29T12:45:16Z",
+      "side": 1,
+      "message": "In this case we have `Select-\u003eTypeConversion-\u003eReturn` and ends up as a slight regression as constant folding happens before the instruction simplifier can trigger. I think this is fine because I\u0027d be surprised if casting booleans to long is common.",
+      "revId": "03724780729e47b9a88ca74e7700c000dd2ccd83",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
