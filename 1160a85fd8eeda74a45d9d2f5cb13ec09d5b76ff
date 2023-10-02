@@ -22,6 +22,30 @@
       },
       "revId": "1160a85fd8eeda74a45d9d2f5cb13ec09d5b76ff",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f26f966c_e3967be4",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1745,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-02T16:14:21Z",
+      "side": 1,
+      "message": "This is a temporary implementation. We\u0027ll reconsider when addressing the TODO above.",
+      "parentUuid": "62bb1618_a7aefe07",
+      "range": {
+        "startLine": 1745,
+        "startChar": 9,
+        "endLine": 1745,
+        "endChar": 13
+      },
+      "revId": "1160a85fd8eeda74a45d9d2f5cb13ec09d5b76ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
