@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "77a5c73c_1d8839f2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-10-02T14:52:01Z",
+      "side": 1,
+      "message": "@rpl @mast: ready for review again.\n\nIn theory, now it should be possible to define `libart` target by combining defaults from `libart-runtime` and `libart-compiler`. However, that requires referencing `srcs` from different subdirectory, which only works with `filegroup`. And `filegroup` doesn\u0027t work with `codegen` that we use in `libart-compiler`... \n\nI suggest leaving `libart-compiler.a` and `libart-runtime.a` static libs for now. I can clean that up once `codegen` is removed (probably in b/247785938)",
+      "revId": "c41cb45e3a962f0e4fcec2f5dee4ded1b2f38d27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
