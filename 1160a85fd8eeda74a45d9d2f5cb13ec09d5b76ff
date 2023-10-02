@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "62bb1618_a7aefe07",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1745,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-10-02T15:01:04Z",
+      "side": 1,
+      "message": "Are there plans to use `temp`? Otherwise, we can remove this parameter",
+      "range": {
+        "startLine": 1745,
+        "startChar": 9,
+        "endLine": 1745,
+        "endChar": 13
+      },
+      "revId": "1160a85fd8eeda74a45d9d2f5cb13ec09d5b76ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
