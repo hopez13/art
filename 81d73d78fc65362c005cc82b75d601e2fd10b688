@@ -22,6 +22,30 @@
       },
       "revId": "81d73d78fc65362c005cc82b75d601e2fd10b688",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b2667a7_6af80223",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1307979
+      },
+      "writtenOn": "2023-10-02T21:53:55Z",
+      "side": 1,
+      "message": "Yes, it\u0027s related to a googletest upgrade. This snippet was added upstream:\n\nhttps://source.corp.google.com/h/android/platform/superproject/main/+/main:external/googletest/googletest/src/gtest.cc;l\u003d2986;drc\u003da00801a508bed52885e961b08058af6af7206bf9",
+      "parentUuid": "a6ba3c33_0ef4570a",
+      "range": {
+        "startLine": 11,
+        "startChar": 24,
+        "endLine": 11,
+        "endChar": 47
+      },
+      "revId": "81d73d78fc65362c005cc82b75d601e2fd10b688",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
