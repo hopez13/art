@@ -549,7 +549,15 @@ class Dex2Oat final {
         crash_on_linkage_violation_(false),
         compile_individually_(false),
         profile_load_attempted_(false),
-        should_report_dex2oat_compilation_(false) {}
+        should_report_dex2oat_compilation_(false) {
+    // TODO(b/256664509): Clean this up.
+    std::string ph_enable_compact_dex = android::base::GetProperty(kPhEnableCompactDex, "false");
+    if (ph_enable_compact_dex == "true") {
+      compact_dex_level_ = CompactDexLevel::kCompactDexLevelFast;
+    } else {
+      compact_dex_level_ = CompactDexLevel::kCompactDexLevelNone;
+    }
+  }
 
   ~Dex2Oat() {
     // Log completion time before deleting the runtime_, because this accesses
@@ -1111,9 +1119,18 @@ class Dex2Oat final {
     AssignIfExists(args, M::PublicSdk, &public_sdk_);
     AssignIfExists(args, M::ApexVersions, &apex_versions_argument_);
 
+    // Check for phenotype flag to allow compact_dex_level_, if it isn't "none" already.
+    // TODO(b/256664509): Clean this up.
     if (compact_dex_level_ != CompactDexLevel::kCompactDexLevelNone) {
-      LOG(WARNING) << "Obsolete flag --compact-dex-level ignored";
-      compact_dex_level_ = CompactDexLevel::kCompactDexLevelNone;
+      std::string ph_enable_compact_dex = android::base::GetProperty(kPhEnableCompactDex, "false");
+      if (ph_enable_compact_dex == "true") {
+        LOG(WARNING)
+            << "Allowing --compact-dex-level=fast because "
+               "persist.device_config.runtime_native_boot.enable_compact_dex is `true`";
+      } else {
+        LOG(WARNING) << "Obsolete flag --compact-dex-level ignored";
+        compact_dex_level_ = CompactDexLevel::kCompactDexLevelNone;
+      }
     }
 
     AssignIfExists(args, M::Backend, &compiler_kind_);
@@ -2968,7 +2985,7 @@ class Dex2Oat final {
   bool force_allow_oj_inlines_ = false;
 
   // TODO(b/256664509): Clean this up.
-  CompactDexLevel compact_dex_level_ = CompactDexLevel::kCompactDexLevelNone;
+  CompactDexLevel compact_dex_level_;
 
   std::vector<std::unique_ptr<linker::ElfWriter>> elf_writers_;
   std::vector<std::unique_ptr<linker::OatWriter>> oat_writers_;

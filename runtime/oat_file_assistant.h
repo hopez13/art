@@ -432,10 +432,11 @@ class OatFileAssistant {
     // the OatFileInfo object.
     std::unique_ptr<OatFile> ReleaseFileForUse();
 
-    // Check if we should reject vdex containing cdex code as part of the
-    // disable_cdex experiment.
+    // Returns true iff we have compact dex files that we need to invalidate to
+    // trigger recompilation to standard dex. That's always the case unless the
+    // enable_cdex experiment is active.
     // TODO(b/256664509): Clean this up.
-    bool CheckDisableCompactDexExperiment();
+    bool CheckInvalidateCompactDexFiles();
 
    private:
     // Returns true if the oat file is usable but at least one dexopt trigger is matched. This
