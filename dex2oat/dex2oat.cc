@@ -1111,9 +1111,18 @@ class Dex2Oat final {
     AssignIfExists(args, M::PublicSdk, &public_sdk_);
     AssignIfExists(args, M::ApexVersions, &apex_versions_argument_);
 
+    // Check for phenotype flag to allow compact_dex_level_, if it isn't "none" already.
+    // TODO(b/256664509): Clean this up.
     if (compact_dex_level_ != CompactDexLevel::kCompactDexLevelNone) {
-      LOG(WARNING) << "Obsolete flag --compact-dex-level ignored";
-      compact_dex_level_ = CompactDexLevel::kCompactDexLevelNone;
+      std::string ph_enable_compact_dex = android::base::GetProperty(kPhEnableCompactDex, "false");
+      if (ph_enable_compact_dex == "true") {
+        LOG(WARNING)
+            << "Allowing --compact-dex-level=fast because "
+               "persist.device_config.runtime_native_boot.enable_compact_dex is `true`";
+      } else {
+        LOG(WARNING) << "Obsolete flag --compact-dex-level ignored";
+        compact_dex_level_ = CompactDexLevel::kCompactDexLevelNone;
+      }
     }
 
     AssignIfExists(args, M::Backend, &compiler_kind_);

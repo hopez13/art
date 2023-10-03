@@ -427,7 +427,7 @@ Parser CreateDex2oatArgumentParser() {
           .WithType<CompactDexLevel>()
           .WithValueMap({{"none", CompactDexLevel::kCompactDexLevelNone},
                          {"fast", CompactDexLevel::kCompactDexLevelFast}})
-          .WithHelp("This flag is obsolete and does nothing.")
+          .WithHelp("This flag is obsolete and normally does nothing.")
           .IntoKey(M::CompactDexLevel)
       .Define("--runtime-arg _")
           .WithType<std::vector<std::string>>().AppendValues()
