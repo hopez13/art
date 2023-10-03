@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "19fdd19b_2ac217ac",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1116,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2023-10-03T09:30:06Z",
+      "side": 1,
+      "message": "Chatted offline with Martin; `CompactDexLevel::kCompactDexLevelNone` seems to be the default already:\n\nhttps://cs.android.com/android/platform/superproject/main/+/main:art/dexlayout/dexlayout.h;l\u003d69;drc\u003d63aae1fc09ff4216726ce916c8d6b77ae26311b1\n\n```\n  CompactDexLevel compact_dex_level_ \u003d CompactDexLevel::kCompactDexLevelNone;\n```",
+      "range": {
+        "startLine": 1116,
+        "startChar": 0,
+        "endLine": 1116,
+        "endChar": 70
+      },
+      "revId": "779eec14c2a20e72c2958f4024fa4e9a143920a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8c1bff6d_904d7fbf",
         "filename": "dex2oat/dex2oat_options.cc",
         "patchSetId": 1
@@ -67,6 +90,29 @@
         "startChar": 47,
         "endLine": 430,
         "endChar": 55
+      },
+      "revId": "779eec14c2a20e72c2958f4024fa4e9a143920a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac103f97_14c390df",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1290,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2023-10-03T09:30:06Z",
+      "side": 1,
+      "message": "Suggestion: Remove this comment, as a similar comment precedes the declaration of this method (maybe in a follow-up CL).",
+      "range": {
+        "startLine": 1287,
+        "startChar": 0,
+        "endLine": 1290,
+        "endChar": 36
       },
       "revId": "779eec14c2a20e72c2958f4024fa4e9a143920a7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
