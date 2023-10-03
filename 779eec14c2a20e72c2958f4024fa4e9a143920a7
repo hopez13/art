@@ -116,6 +116,29 @@
       },
       "revId": "779eec14c2a20e72c2958f4024fa4e9a143920a7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e8c63c5_ed3fa221",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1302,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-10-03T10:27:12Z",
+      "side": 1,
+      "message": "If I understand this code correctly, a change to the flag from \"false\" to \"true\" doesn\u0027t trigger re-compilation. To ensure a meaningful experiment, I think the logic should be the opposite: if we have cdex, it\u0027s okay because the cdex will eventually go away; if we don\u0027t have cdex and the flag is on, we should invalidate standard dex and generate cdex, \n\nIf we implement that logic, we need to be careful that we shouldn\u0027t invalidate standard dex when `--compact-dex-level` is `none`, to avoid repetitive compilation. This is hard because we don\u0027t know the value of `--compact-dex-level` here. I can see two options:\n\n1. Pass the value of `--compact-dex-level` from ART Service to here. This means we can only do the experiment on U devices, so the population will be limited.\n2. Change dex2oat to always override `--compact-dex-level` to `fast` when the experiment flag is on, and assume `--compact-dex-level\u003dfast` here.",
+      "range": {
+        "startLine": 1292,
+        "startChar": 0,
+        "endLine": 1302,
+        "endChar": 47
+      },
+      "revId": "779eec14c2a20e72c2958f4024fa4e9a143920a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
