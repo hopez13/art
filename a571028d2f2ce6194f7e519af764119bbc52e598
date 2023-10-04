@@ -142,6 +142,30 @@
       },
       "revId": "a571028d2f2ce6194f7e519af764119bbc52e598",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "041c3eeb_60329ae1",
+        "filename": "libartbase/base/globals.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-10-04T19:52:03Z",
+      "side": 1,
+      "message": "This looks very good to me from a correctness viewpoint. I would be tempted to manually confirm that this generates reasonable code in the dynamic case, though. I think it should, but I don\u0027t have a good sense as to whether clang actually does the right thing here.",
+      "parentUuid": "93972de7_510f7fc3",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 46
+      },
+      "revId": "a571028d2f2ce6194f7e519af764119bbc52e598",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
