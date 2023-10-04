@@ -97,6 +97,7 @@ class HSelectGenerator : public HOptimization {
   //         7
   //         |
   //         8
+  // Block 6 might have a Phi, but block 7 has to have a Phi.
   // into:
   //      1 (outer if)
   //     / \
@@ -108,8 +109,9 @@ class HSelectGenerator : public HOptimization {
   //      |
   //      8
   //
-  // In short, block 7 disappears and we merge 6 and 7. Now we have a diamond with {3,4,5,6}, and
-  // when that gets resolved we get another one with the outer if.
+  // In short, block 7 disappears and we merge 6 and 7 (adding a Phi to 6, if there wasn't one
+  // before). Now we have a diamond with {3,4,5,6}, and when that gets resolved we get another one
+  // with the outer if.
   HBasicBlock* TryFixupDoubleDiamondPattern(HBasicBlock* block);
 
   DISALLOW_COPY_AND_ASSIGN(HSelectGenerator);

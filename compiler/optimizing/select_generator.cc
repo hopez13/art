@@ -252,17 +252,19 @@ HBasicBlock* HSelectGenerator::TryFixupDoubleDiamondPattern(HBasicBlock* block) 
     return nullptr;
   }
 
-  // First merge merges the outer if with one of the inner if branches. The block must be a Phi and
-  // a Goto.
+  // First merge merges the outer if with one of the inner if branches. The block must be either:
+  // 1) A single goto, or
+  // 2) Phi and a Goto.
   HBasicBlock* first_merge = single_goto->GetSingleSuccessor();
-  if (first_merge->GetNumberOfPredecessors() != 2 ||
-      first_merge->GetPhis().CountSize() != 1 ||
-      !first_merge->GetLastInstruction()->IsGoto() ||
-      first_merge->GetFirstInstruction() != first_merge->GetLastInstruction()) {
+  const bool phi_and_goto = first_merge->GetNumberOfPredecessors() == 2 &&
+                            first_merge->GetPhis().CountSize() == 1 &&
+                            first_merge->GetLastInstruction()->IsGoto() &&
+                            first_merge->GetFirstInstruction() == first_merge->GetLastInstruction();
+  if (!(first_merge->IsSingleGoto() || phi_and_goto)) {
     return nullptr;
   }
 
-  HPhi* first_phi = first_merge->GetFirstPhi()->AsPhi();
+  HPhi* first_phi = phi_and_goto ? first_merge->GetFirstPhi()->AsPhi() : nullptr;
 
   // Second merge is first_merge and the remainder branch merging. It must be phi + goto, or phi +
   // return. Depending on the first merge, we define the second merge.
@@ -283,11 +285,29 @@ HBasicBlock* HSelectGenerator::TryFixupDoubleDiamondPattern(HBasicBlock* block) 
     return nullptr;
   }
 
-  size_t index = second_merge->GetPredecessorIndexOf(merges_into_second_merge);
   HPhi* second_phi = second_merge->GetFirstPhi()->AsPhi();
 
-  // Merge the phis.
-  first_phi->AddInput(second_phi->InputAt(index));
+  // Connect into second merge, and update the Phi instruction(s).
+  if (!phi_and_goto) {
+    DCHECK(first_phi == nullptr);
+    // We have no `first_phi` since both paths had the same value. We now create a Phi with equal
+    // values to be merged with a new one.
+    first_phi = new (graph_->GetAllocator()) HPhi(graph_->GetAllocator(),
+                                                  kNoRegNumber,
+                                                  /*number_of_inputs=*/0,
+                                                  second_phi->GetType());
+    first_merge->AddPhi(first_phi);
+    HInstruction* value_for_first_merge =
+        second_phi->InputAt(second_merge->GetPredecessorIndexOf(first_merge));
+    // We use a loop here because in this case `first_merge` is not guaranteed to have two inputs.
+    for (size_t i = 0; i < first_merge->GetPredecessors().size(); ++i) {
+      first_phi->AddInput(value_for_first_merge);
+    }
+  }
+
+  DCHECK(first_phi != nullptr);
+  first_phi->AddInput(
+      second_phi->InputAt(second_merge->GetPredecessorIndexOf(merges_into_second_merge)));
   merges_into_second_merge->ReplaceSuccessor(second_merge, first_merge);
   second_phi->ReplaceWith(first_phi);
   second_merge->RemovePhi(second_phi);
