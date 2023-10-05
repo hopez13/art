@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d9f5bfa_d7f94bf4",
+        "filename": "libartbase/base/mem_map_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 790,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-10-05T01:12:52Z",
+      "side": 1,
+      "message": "for this situation, ASSERT_LT(kChunk1Size, kMapSize) so gtest will print nice values",
+      "range": {
+        "startLine": 790,
+        "startChar": 2,
+        "endLine": 790,
+        "endChar": 7
+      },
+      "revId": "f962b14ddf965dd6cd136dec46bb8b75f027efe8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
