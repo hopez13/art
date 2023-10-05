@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ffa3ca9_fcf088a4",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-10-05T01:16:00Z",
+      "side": 1,
+      "message": "This will use an extra 7.5KB of RAM, right? Seems reasonable?",
+      "range": {
+        "startLine": 52,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 84
+      },
+      "revId": "3e42a7ea9e5f727d910a01eb36294b594f739d55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
