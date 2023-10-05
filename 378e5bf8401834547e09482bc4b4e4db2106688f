@@ -22,6 +22,30 @@
       },
       "revId": "378e5bf8401834547e09482bc4b4e4db2106688f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03980022_fb9b21cc",
+        "filename": "libartbase/base/globals.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1499410
+      },
+      "writtenOn": "2023-10-05T02:41:16Z",
+      "side": 1,
+      "message": "I think 16k is ok here, since we control updates of art unlike the app ecosystem",
+      "parentUuid": "3aa9c54f_85ae9e90",
+      "range": {
+        "startLine": 48,
+        "startChar": 39,
+        "endLine": 48,
+        "endChar": 44
+      },
+      "revId": "378e5bf8401834547e09482bc4b4e4db2106688f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
