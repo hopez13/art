@@ -195,7 +195,7 @@ class InstrumentationTest : public CommonRuntimeTest {
                                     gc::kGcCauseInstrumentation,
                                     gc::kCollectorTypeInstrumentation);
     ScopedSuspendAll ssa("Instrumentation::ConfigureStubs");
-    instr->ConfigureStubs(key, level);
+    instr->ConfigureStubs(key, level, /*try_switch_runtime=*/false);
   }
 
   Instrumentation::InstrumentationLevel GetCurrentInstrumentationLevel() {
@@ -286,7 +286,7 @@ class InstrumentationTest : public CommonRuntimeTest {
     ScopedSuspendAll ssa("Single method undeoptimization");
     instrumentation->Undeoptimize(method);
     if (disable_deoptimization) {
-      instrumentation->DisableDeoptimization(key);
+      instrumentation->DisableDeoptimization(key, /*try_switch_runtime=*/false);
     }
   }
 
@@ -313,7 +313,7 @@ class InstrumentationTest : public CommonRuntimeTest {
     ScopedSuspendAll ssa("Full undeoptimization");
     instrumentation->UndeoptimizeEverything(key);
     if (disable_deoptimization) {
-      instrumentation->DisableDeoptimization(key);
+      instrumentation->DisableDeoptimization(key, /*try_switch_runtime=*/false);
     }
   }
 
