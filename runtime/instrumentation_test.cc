@@ -286,7 +286,7 @@ class InstrumentationTest : public CommonRuntimeTest {
     ScopedSuspendAll ssa("Single method undeoptimization");
     instrumentation->Undeoptimize(method);
     if (disable_deoptimization) {
-      instrumentation->DisableDeoptimization(key);
+      instrumentation->DisableDeoptimization(key, /*try_switch_runtime=*/false);
     }
   }
 
@@ -313,7 +313,7 @@ class InstrumentationTest : public CommonRuntimeTest {
     ScopedSuspendAll ssa("Full undeoptimization");
     instrumentation->UndeoptimizeEverything(key);
     if (disable_deoptimization) {
-      instrumentation->DisableDeoptimization(key);
+      instrumentation->DisableDeoptimization(key, /*try_switch_runtime=*/false);
     }
   }
 

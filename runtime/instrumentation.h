@@ -246,7 +246,7 @@ class Instrumentation {
       REQUIRES(Locks::mutator_lock_, !Locks::thread_list_lock_, !Locks::classlinker_classes_lock_);
 
   // Calls UndeoptimizeEverything which may visit class linker classes through ConfigureStubs.
-  void DisableDeoptimization(const char* key)
+  void DisableDeoptimization(const char* key, bool try_switch_runtime)
       REQUIRES(Locks::mutator_lock_, Roles::uninterruptible_);
 
   // Enables entry exit hooks support. This is called in preparation for debug requests that require
@@ -254,10 +254,6 @@ class Instrumentation {
   void EnableEntryExitHooks(const char* key)
       REQUIRES(Locks::mutator_lock_, Roles::uninterruptible_);
 
-  // Switches the runtime state to non-java debuggable if entry / exit hooks are no longer required
-  // and the runtime did not start off as java debuggable.
-  void MaybeSwitchRuntimeDebugState(Thread* self)
-      REQUIRES(Locks::mutator_lock_, Roles::uninterruptible_);
 
   bool AreAllMethodsDeoptimized() const {
     return InterpreterStubsInstalled();
@@ -592,10 +588,6 @@ class Instrumentation {
       REQUIRES_SHARED(Locks::mutator_lock_);
 
  private:
-  // Returns true if moving to the given instrumentation level requires the installation of stubs.
-  // False otherwise.
-  bool RequiresInstrumentationInstallation(InstrumentationLevel new_level) const;
-
   // Update the current instrumentation_level_.
   void UpdateInstrumentationLevel(InstrumentationLevel level);
 
@@ -604,18 +596,23 @@ class Instrumentation {
   // the caller must pass a unique key (a string) identifying it so we remind which
   // instrumentation level it needs. Therefore the current instrumentation level
   // becomes the highest instrumentation level required by a client.
-  void ConfigureStubs(const char* key, InstrumentationLevel desired_instrumentation_level)
+  void ConfigureStubs(const char* key,
+                      InstrumentationLevel desired_instrumentation_level,
+                      bool try_switch_runtime)
       REQUIRES(Locks::mutator_lock_, Roles::uninterruptible_)
-      REQUIRES(!Locks::thread_list_lock_,
-               !Locks::classlinker_classes_lock_);
-  void UpdateStubs() REQUIRES(Locks::mutator_lock_, Roles::uninterruptible_)
-      REQUIRES(!Locks::thread_list_lock_,
-               !Locks::classlinker_classes_lock_);
+          REQUIRES(!Locks::thread_list_lock_, !Locks::classlinker_classes_lock_);
+  void UpdateStubs(bool try_switch_runtime) REQUIRES(Locks::mutator_lock_, Roles::uninterruptible_)
+      REQUIRES(!Locks::thread_list_lock_, !Locks::classlinker_classes_lock_);
 
   // If there are no pending deoptimizations restores the stack to the normal state by updating the
   // return pcs to actual return addresses from the instrumentation stack and clears the
   // instrumentation stack.
   void MaybeRestoreInstrumentationStack() REQUIRES(Locks::mutator_lock_);
+
+  // Switches the runtime state to non-java debuggable if entry / exit hooks are no longer required
+  // and the runtime did not start off as java debuggable.
+  void MaybeSwitchRuntimeDebugState(Thread* self)
+      REQUIRES(Locks::mutator_lock_, Roles::uninterruptible_);
 
   // No thread safety analysis to get around SetQuickAllocEntryPointsInstrumented requiring
   // exclusive access to mutator lock which you can't get if the runtime isn't started.

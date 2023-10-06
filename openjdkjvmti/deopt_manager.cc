@@ -388,9 +388,10 @@ void DeoptManager::Shutdown() {
     return;
   }
 
-  runtime->GetInstrumentation()->DisableDeoptimization(kInstrumentationKey);
-  runtime->GetInstrumentation()->DisableDeoptimization(kDeoptManagerInstrumentationKey);
-  runtime->GetInstrumentation()->MaybeSwitchRuntimeDebugState(self);
+  runtime->GetInstrumentation()->DisableDeoptimization(kInstrumentationKey,
+                                                       /*try_switch_runtime=*/true);
+  runtime->GetInstrumentation()->DisableDeoptimization(kDeoptManagerInstrumentationKey,
+                                                       /*try_switch_runtime=*/true);
 }
 
 void DeoptManager::RemoveDeoptimizeAllMethodsLocked(art::Thread* self) {
@@ -475,7 +476,8 @@ void DeoptManager::RemoveDeoptimizationRequester() {
   deopter_count_--;
   if (deopter_count_ == 0) {
     ScopedDeoptimizationContext sdc(self, this);
-    art::Runtime::Current()->GetInstrumentation()->DisableDeoptimization(kInstrumentationKey);
+    art::Runtime::Current()->GetInstrumentation()->DisableDeoptimization(
+        kInstrumentationKey, /*try_switch_runtime=*/false);
     return;
   } else {
     deoptimization_status_lock_.ExclusiveUnlock(self);
