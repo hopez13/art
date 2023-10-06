@@ -2232,16 +2232,15 @@ void InstructionCodeGeneratorARMVIXL::GenerateMethodEntryExitHook(HInstruction* 
   uint32_t trace_buffer_index_addr = Thread::TraceBufferIndexOffset<kArmPointerSize>().Int32Value();
   vixl32::Register index = value;
   __ Ldr(index, MemOperand(tr, trace_buffer_index_addr));
-  __ Cmp(index, kNumEntriesForWallClock);
+  __ Subs(index, index, kNumEntriesForWallClock);
   __ B(lt, slow_path->GetEntryLabel());
 
+  // Advance the index
+  __ Str(index, MemOperand(tr, trace_buffer_index_addr));
   // Just update the buffer and advance the offset
   // addr = base_addr + sizeof(void*) * index
   __ Ldr(addr, MemOperand(tr, Thread::TraceBufferPtrOffset<kArmPointerSize>().SizeValue()));
   __ Add(addr, addr, Operand(index, LSL, TIMES_4));
-  // Advance the index
-  __ Sub(index, index, kNumEntriesForWallClock);
-  __ Str(index, MemOperand(tr, trace_buffer_index_addr));
 
   // Record method pointer and trace action.
   __ Ldr(tmp, MemOperand(sp, 0));
@@ -2249,8 +2248,9 @@ void InstructionCodeGeneratorARMVIXL::GenerateMethodEntryExitHook(HInstruction* 
   // so no need to set the bits since they are 0 already.
   if (instruction->IsMethodExitHook()) {
     DCHECK_GE(ArtMethod::Alignment(kRuntimePointerSize), static_cast<size_t>(4));
-    uint32_t trace_action = 1;
-    __ Orr(tmp, tmp, Operand(trace_action));
+    static_assert(enum_cast<int32_t>(TraceAction::kTraceMethodEnter) == 0);
+    static_assert(enum_cast<int32_t>(TraceAction::kTraceMethodExit) == 1);
+    __ Orr(tmp, tmp, Operand(enum_cast<int32_t>(TraceAction::kTraceMethodExit)));
   }
   __ Str(tmp, MemOperand(addr, kMethodOffsetInBytes));
 
