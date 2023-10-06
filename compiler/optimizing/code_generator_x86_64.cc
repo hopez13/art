@@ -1628,9 +1628,11 @@ void InstructionCodeGeneratorX86_64::GenerateMethodEntryExitHook(HInstruction* i
   uint64_t trace_buffer_index_addr =
       Thread::TraceBufferIndexOffset<kX86_64PointerSize>().SizeValue();
   __ gs()->movq(CpuRegister(index), Address::Absolute(trace_buffer_index_addr, /* no_rip= */ true));
-  __ cmpq(CpuRegister(index), Immediate(kNumEntriesForWallClock));
+  __ subq(CpuRegister(index), Immediate(kNumEntriesForWallClock));
   __ j(kLess, slow_path->GetEntryLabel());
 
+  // Advance the index in the buffer
+  __ gs()->movq(Address::Absolute(trace_buffer_index_addr, /* no_rip= */ true), CpuRegister(index));
   // Just update the buffer and advance the offset
   // entry_addr = base_addr + sizeof(void*) * index
   __ gs()->movq(entry_addr,
@@ -1638,9 +1640,6 @@ void InstructionCodeGeneratorX86_64::GenerateMethodEntryExitHook(HInstruction* i
                                   /* no_rip= */ true));
   __ leaq(CpuRegister(entry_addr),
           Address(CpuRegister(entry_addr), CpuRegister(index), TIMES_8, 0));
-  // Advance the index in the buffer
-  __ subq(CpuRegister(index), Immediate(kNumEntriesForWallClock));
-  __ gs()->movq(Address::Absolute(trace_buffer_index_addr, /* no_rip= */ true), CpuRegister(index));
 
   // Record method pointer and action.
   CpuRegister method = index;
@@ -1649,8 +1648,9 @@ void InstructionCodeGeneratorX86_64::GenerateMethodEntryExitHook(HInstruction* i
   // so no need to set the bits since they are 0 already.
   if (instruction->IsMethodExitHook()) {
     DCHECK_GE(ArtMethod::Alignment(kRuntimePointerSize), static_cast<size_t>(4));
-    uint32_t trace_action = 1;
-    __ orq(method, Immediate(trace_action));
+    static_assert(enum_cast<int32_t>(TraceAction::kTraceMethodEnter) == 0);
+    static_assert(enum_cast<int32_t>(TraceAction::kTraceMethodExit) == 1);
+    __ orq(method, Immediate(enum_cast<int32_t>(TraceAction::kTraceMethodExit)));
   }
   __ movq(Address(entry_addr, kMethodOffsetInBytes), CpuRegister(method));
   // Get the timestamp. rdtsc returns timestamp in RAX + RDX even in 64-bit architectures.

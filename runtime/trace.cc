@@ -1088,7 +1088,8 @@ void TraceWriter::PreProcessTraceForMethodInfos(
   MutexLock mu(Thread::Current(), tracing_lock_);
   size_t record_size = (clock_source_ == TraceClockSource::kDual) ? kNumEntriesForDualClock :
                                                                     kNumEntriesForWallClock;
-  for (size_t entry_index = kPerThreadBufSize - 1; entry_index > current_offset;
+  size_t first_entry_index = kPerThreadBufSize - record_size;
+  for (size_t entry_index = first_entry_index; entry_index >= current_offset;
        entry_index -= record_size) {
     uintptr_t method_and_action = method_trace_entries[entry_index];
     ArtMethod* method = reinterpret_cast<ArtMethod*>(method_and_action & kMaskTraceAction);
@@ -1181,7 +1182,7 @@ void TraceWriter::FlushBuffer(Thread* thread, bool is_sync) {
     // This is a synchronous flush, so no need to allocate a new buffer. This is used either
     // when the tracing has finished or in non-streaming mode.
     // Just reset the buffer pointer to the initial value, so we can reuse the same buffer.
-    *current_offset = kPerThreadBufSize - 1;
+    *current_offset = kPerThreadBufSize;
   } else {
     // The TraceWriterTask takes the ownership of the buffer and delets the buffer once the
     // entries are flushed.
@@ -1192,7 +1193,7 @@ void TraceWriter::FlushBuffer(Thread* thread, bool is_sync) {
     // flushing to finish.
     uintptr_t* method_trace_buffer = new uintptr_t[std::max(kMinBufSize, kPerThreadBufSize)]();
     thread->SetMethodTraceBuffer(method_trace_buffer);
-    *current_offset = kPerThreadBufSize - 1;
+    *current_offset = kPerThreadBufSize;
   }
 
   return;
@@ -1221,21 +1222,26 @@ void TraceWriter::FlushBuffer(uintptr_t* method_trace_entries,
     current_index = cur_offset_;
   }
   uint16_t thread_id = GetThreadEncoding(tid);
-  for (size_t entry_index = kPerThreadBufSize - 1; entry_index > current_offset;) {
-    uintptr_t method_and_action = method_trace_entries[entry_index--];
+
+  size_t required_entries = (clock_source_ == TraceClockSource::kDual) ? kNumEntriesForDualClock :
+                                                                         kNumEntriesForWallClock;
+  size_t initial_record_index = kPerThreadBufSize - required_entries;
+  for (size_t entry_index = initial_record_index; entry_index >= current_offset; entry_index -= required_entries) {
+    size_t record_index = entry_index;
+    uintptr_t method_and_action = method_trace_entries[record_index++];
     ArtMethod* method = reinterpret_cast<ArtMethod*>(method_and_action & kMaskTraceAction);
     CHECK(method != nullptr);
     TraceAction action = DecodeTraceAction(method_and_action);
     uint32_t thread_time = 0;
     uint32_t wall_time = 0;
     if (UseThreadCpuClock(clock_source_)) {
-      thread_time = method_trace_entries[entry_index--];
+      thread_time = method_trace_entries[record_index++];
     }
     if (UseWallClock(clock_source_)) {
-      uint64_t timestamp = method_trace_entries[entry_index--];
+      uint64_t timestamp = method_trace_entries[record_index++];
       if (art::kRuntimePointerSize == PointerSize::k32) {
         // On 32-bit architectures timestamp is stored as two 32-bit values.
-        timestamp = (timestamp << 32 | method_trace_entries[entry_index--]);
+        timestamp = (timestamp << 32 | method_trace_entries[record_index++]);
       }
       wall_time = GetMicroTime(timestamp) - start_time_;
     }
@@ -1294,7 +1300,7 @@ void Trace::LogMethodTraceEvent(Thread* thread,
   if (method_trace_buffer == nullptr) {
     method_trace_buffer = new uintptr_t[std::max(kMinBufSize, kPerThreadBufSize)]();
     thread->SetMethodTraceBuffer(method_trace_buffer);
-    *current_offset = kPerThreadBufSize - 1;
+    *current_offset = kPerThreadBufSize;
     trace_writer_->RecordThreadInfo(thread);
   }
 
@@ -1310,26 +1316,26 @@ void Trace::LogMethodTraceEvent(Thread* thread,
   }
 
   // Record entry in per-thread trace buffer.
-  int current_index = *current_offset;
+  // Update the offset
+  int current_index = *current_offset - required_entries;
+  *current_offset = current_index;
 
   // Ensure we always use the non-obsolete version of the method so that entry/exit events have the
   // same pointer value.
   method = method->GetNonObsoleteMethod();
-  method_trace_buffer[current_index--] = reinterpret_cast<uintptr_t>(method) | action;
-
+  method_trace_buffer[current_index++] = reinterpret_cast<uintptr_t>(method) | action;
   if (UseThreadCpuClock(clock_source_)) {
-    method_trace_buffer[current_index--] = thread_clock_diff;
+    method_trace_buffer[current_index++] = thread_clock_diff;
   }
   if (UseWallClock(clock_source_)) {
     if (art::kRuntimePointerSize == PointerSize::k32) {
       // On 32-bit architectures store timestamp counter as two 32-bit values.
-      method_trace_buffer[current_index--] = timestamp_counter >> 32;
-      method_trace_buffer[current_index--] = static_cast<uint32_t>(timestamp_counter);
+      method_trace_buffer[current_index++] = timestamp_counter >> 32;
+      method_trace_buffer[current_index++] = static_cast<uint32_t>(timestamp_counter);
     } else {
-      method_trace_buffer[current_index--] = timestamp_counter;
+      method_trace_buffer[current_index++] = timestamp_counter;
     }
   }
-  *current_offset = current_index;
 }
 
 void TraceWriter::EncodeEventEntry(uint8_t* ptr,
