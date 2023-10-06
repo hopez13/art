@@ -16,6 +16,190 @@
       "message": "PTAL. Thanks!",
       "revId": "3b66b20ec7a6749608d077c1dbea00111ebf6d39",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5da399e0_8d0f5d25",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2232,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-06T14:06:43Z",
+      "side": 1,
+      "message": "This is an offset, not an address. Same on other architectures.",
+      "range": {
+        "startLine": 2232,
+        "startChar": 30,
+        "endLine": 2232,
+        "endChar": 34
+      },
+      "revId": "3b66b20ec7a6749608d077c1dbea00111ebf6d39",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9fd45ead_7666114d",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2240,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-06T14:06:43Z",
+      "side": 1,
+      "message": "We\u0027re not advancing anything here anymore. Maybe use my comment from riscv64? (`Calculate the entry address in the buffer.`)\n\nSame on arm64.",
+      "range": {
+        "startLine": 2240,
+        "startChar": 5,
+        "endLine": 2240,
+        "endChar": 50
+      },
+      "revId": "3b66b20ec7a6749608d077c1dbea00111ebf6d39",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8b72c9b_61a3b30b",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2265,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-06T14:06:43Z",
+      "side": 1,
+      "message": "These are consecutive, so we could use STRD (with a `static_assert` for the difference of offsets).",
+      "range": {
+        "startLine": 2264,
+        "startChar": 2,
+        "endLine": 2265,
+        "endChar": 60
+      },
+      "revId": "3b66b20ec7a6749608d077c1dbea00111ebf6d39",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "148152df_0eb1774b",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-06T14:06:43Z",
+      "side": 1,
+      "message": "Indentation.",
+      "range": {
+        "startLine": 289,
+        "startChar": 51,
+        "endLine": 289,
+        "endChar": 52
+      },
+      "revId": "3b66b20ec7a6749608d077c1dbea00111ebf6d39",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3920446f_2b935523",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1095,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-06T14:06:43Z",
+      "side": 1,
+      "message": "if `current_offset \u003d\u003d 0u`, this is an infinite loop.\nFor backward iteration I prefer to put the decrement at the start of the loop body:\n\n    DCHECK_EQ((end - start) % chunk_size, 0u);\n    for (size_t i \u003d end; i !\u003d start; ) {\n      i -\u003d chunk_size;\n      ...\n    }",
+      "range": {
+        "startLine": 1095,
+        "startChar": 61,
+        "endLine": 1095,
+        "endChar": 90
+      },
+      "revId": "3b66b20ec7a6749608d077c1dbea00111ebf6d39",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1fd2ec74_a9f869e2",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1230,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-06T14:06:43Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 1230,
+        "startChar": 61,
+        "endLine": 1230,
+        "endChar": 90
+      },
+      "revId": "3b66b20ec7a6749608d077c1dbea00111ebf6d39",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f9f52a3_fab35450",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1321,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-06T14:06:43Z",
+      "side": 1,
+      "message": "The naming is confusing here. This is a pointer to the \"index\" (not offset) but a simple rename would clash with `current_index`.",
+      "range": {
+        "startLine": 1321,
+        "startChar": 23,
+        "endLine": 1321,
+        "endChar": 37
+      },
+      "revId": "3b66b20ec7a6749608d077c1dbea00111ebf6d39",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "025ffa00_d85a8263",
+        "filename": "runtime/trace.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-06T14:06:43Z",
+      "side": 1,
+      "message": "Are we reordering these? I thought we would just change them to 8, 0 for 64-bit targets (8, 4, 0 for 32-bit) but you\u0027re changing them to 0, 8 for 64-bit targets (0, 4, 8 for 32-bit).\n\nStoring the \"high\" before \"low\" is weird because it\u0027s kind of mixing endianness - storing two 32-bit internally little-endian entries in big-endian order. We could replace `kLowTimestampOffsetInBytes` with `kHighTimestampOffsetInBytes` and adjust the code accordingly.",
+      "range": {
+        "startLine": 115,
+        "startChar": 0,
+        "endLine": 119,
+        "endChar": 51
+      },
+      "revId": "3b66b20ec7a6749608d077c1dbea00111ebf6d39",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
