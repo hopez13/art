@@ -711,15 +711,15 @@ static jstring Class_getSimpleNameNative(JNIEnv* env, jobject javaThis) {
   if (h_name == nullptr) {
     return nullptr;
   }
-  int32_t dotIndex = h_name->LastIndexOf('.');
-  if (dotIndex < 0) {
+  int32_t dot_index = h_name->LastIndexOf('.');
+  if (dot_index < 0) {
     return soa.AddLocalReference<jstring>(h_name.Get());
   }
-  int32_t startIndex = dotIndex + 1;
-  int32_t length = h_name->GetLength() - startIndex;
+  int32_t start_index = dot_index + 1;
+  int32_t length = h_name->GetLength() - start_index;
   gc::AllocatorType allocator_type = Runtime::Current()->GetHeap()->GetCurrentAllocator();
   return soa.AddLocalReference<jstring>(
-      mirror::String::AllocFromString(soa.Self(), length, h_name, startIndex, allocator_type));
+      mirror::String::AllocFromString(soa.Self(), length, h_name, start_index, allocator_type));
 }
 
 static jobjectArray Class_getSignatureAnnotation(JNIEnv* env, jobject javaThis) {

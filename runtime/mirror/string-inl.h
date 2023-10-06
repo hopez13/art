@@ -68,9 +68,9 @@ int32_t String::FastIndexOf(MemoryType* chars, int32_t ch, int32_t start) {
 }
 
 template <typename MemoryType>
-int32_t String::LastIndexOf(MemoryType* chars, int32_t ch, int32_t end) {
+int32_t String::LastIndexOf(MemoryType* chars, int32_t ch, int32_t from_index) {
   const MemoryType* start = chars;
-  const MemoryType* p = chars + end;
+  const MemoryType* p = chars + from_index;
   while (p >= start) {
     if (*p == ch) {
       return p - chars;
