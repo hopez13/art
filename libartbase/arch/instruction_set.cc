@@ -123,15 +123,23 @@ namespace instruction_set_details {
 
 static struct InitAssertions {
   InitAssertions() {
+#if defined(__arm__)
     CHECK(IsAlignedParam(kArmStackOverflowReservedBytes, kPageSize))
         << "ARM gap not page aligned";
+#endif
+#if defined(__aarch64__)
     CHECK(IsAlignedParam(kArm64StackOverflowReservedBytes, kPageSize))
         << "ARM64 gap not page aligned";
-#if !defined(__arm__) && !defined(__aarch64__)
+#endif
+#if defined(__riscv)
     CHECK(IsAlignedParam(kRiscv64StackOverflowReservedBytes, kPageSize))
         << "RISCV64 gap not page aligned";
+#endif
+    #if defined(__i386__)
     CHECK(IsAlignedParam(kX86StackOverflowReservedBytes, kPageSize))
         << "X86 gap not page aligned";
+#endif
+#if defined(__x86_64__)
     CHECK(IsAlignedParam(kX86_64StackOverflowReservedBytes, kPageSize))
         << "X86_64 gap not page aligned";
 #endif
