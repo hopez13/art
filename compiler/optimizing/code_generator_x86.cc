@@ -1257,24 +1257,24 @@ void InstructionCodeGeneratorX86::GenerateMethodEntryExitHook(HInstruction* inst
   // If yes, just take the slow path.
   __ j(kGreater, slow_path->GetEntryLabel());
 
-  // Check if there is place in the buffer for a new entry, if no, take slow path.
-  uint64_t trace_buffer_index_addr = Thread::TraceBufferIndexOffset<kX86PointerSize>().Int32Value();
-  __ fs()->cmpl(Address::Absolute(trace_buffer_index_addr), Immediate(kNumEntriesForWallClock));
-  __ j(kLess, slow_path->GetEntryLabel());
-
-  // Just update the buffer and advance the offset
   // For entry_addr use the first temp that isn't EAX or EDX. We need this after
   // rdtsc which returns values in EAX + EDX.
   Register entry_addr = locations->GetTemp(2).AsRegister<Register>();
   Register index = locations->GetTemp(1).AsRegister<Register>();
+
+  // Check if there is place in the buffer for a new entry, if no, take slow path.
   uint32_t trace_buffer_ptr = Thread::TraceBufferPtrOffset<kX86PointerSize>().Int32Value();
-  // entry_addr = base_addr + sizeof(void*) * index
+  uint64_t trace_buffer_index_addr = Thread::TraceBufferIndexOffset<kX86PointerSize>().Int32Value();
+
   __ fs()->movl(index, Address::Absolute(trace_buffer_index_addr));
+  __ subl(index, Immediate(kNumEntriesForWallClock));
+  __ j(kLess, slow_path->GetEntryLabel());
+
+  // Advance the index in the buffer
+  __ fs()->movl(Address::Absolute(trace_buffer_index_addr), index);
+  // entry_addr = base_addr + sizeof(void*) * index
   __ fs()->movl(entry_addr, Address::Absolute(trace_buffer_ptr));
   __ leal(entry_addr, Address(entry_addr, index, TIMES_4, 0));
-  // Advance the index in the buffer
-  __ subl(index, Immediate(kNumEntriesForWallClock));
-  __ fs()->movl(Address::Absolute(trace_buffer_index_addr), index);
 
   // Record method pointer and trace action.
   Register method = index;
@@ -1283,8 +1283,9 @@ void InstructionCodeGeneratorX86::GenerateMethodEntryExitHook(HInstruction* inst
   // so no need to set the bits since they are 0 already.
   if (instruction->IsMethodExitHook()) {
     DCHECK_GE(ArtMethod::Alignment(kRuntimePointerSize), static_cast<size_t>(4));
-    uint32_t trace_action = 1;
-    __ orl(method, Immediate(trace_action));
+    static_assert(enum_cast<int32_t>(TraceAction::kTraceMethodEnter) == 0);
+    static_assert(enum_cast<int32_t>(TraceAction::kTraceMethodExit) == 1);
+    __ orl(method, Immediate(enum_cast<int32_t>(TraceAction::kTraceMethodExit)));
   }
   __ movl(Address(entry_addr, kMethodOffsetInBytes), method);
   // Get the timestamp. rdtsc returns timestamp in EAX + EDX.
