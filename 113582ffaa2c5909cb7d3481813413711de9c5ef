@@ -1,0 +1,107 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a8de488_07e9ce19",
+        "filename": "runtime/mirror/string-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1793992
+      },
+      "writtenOn": "2023-10-09T12:03:29Z",
+      "side": 1,
+      "message": "nit: in Java APIs ranges are only half open. But here end is closed, i.e. it\u0027s `..end]`, not `..end)`.",
+      "range": {
+        "startLine": 71,
+        "startChar": 59,
+        "endLine": 71,
+        "endChar": 70
+      },
+      "revId": "113582ffaa2c5909cb7d3481813413711de9c5ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2824c390_d367367c",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 688,
+      "author": {
+        "id": 1793992
+      },
+      "writtenOn": "2023-10-09T12:03:29Z",
+      "side": 1,
+      "message": "Should they be declared after `if` statement?",
+      "revId": "113582ffaa2c5909cb7d3481813413711de9c5ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9891a152_41bb8b78",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 705,
+      "author": {
+        "id": 1793992
+      },
+      "writtenOn": "2023-10-09T12:03:29Z",
+      "side": 1,
+      "message": "Won\u0027t `soa.AddLocalReference\u003cjstring\u003e(class_name)` work here?",
+      "revId": "113582ffaa2c5909cb7d3481813413711de9c5ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dd94efae_3d5912fd",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 714,
+      "author": {
+        "id": 1793992
+      },
+      "writtenOn": "2023-10-09T12:03:29Z",
+      "side": 1,
+      "message": "`dot_index`",
+      "range": {
+        "startLine": 714,
+        "startChar": 10,
+        "endLine": 714,
+        "endChar": 18
+      },
+      "revId": "113582ffaa2c5909cb7d3481813413711de9c5ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ab3cda7a_06c65a2d",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 718,
+      "author": {
+        "id": 1793992
+      },
+      "writtenOn": "2023-10-09T12:03:29Z",
+      "side": 1,
+      "message": "`start_index`",
+      "range": {
+        "startLine": 718,
+        "startChar": 10,
+        "endLine": 718,
+        "endChar": 20
+      },
+      "revId": "113582ffaa2c5909cb7d3481813413711de9c5ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
