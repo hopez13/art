@@ -16,6 +16,57 @@
       "message": "PTAL. Thanks!",
       "revId": "132f0e6f6281655605b49b934e4877f333f5d58f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "30f03e68_f5f674b2",
+        "filename": "openjdkjvmti/deopt_manager.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 390,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-10-09T13:20:00Z",
+      "side": 1,
+      "message": "Worth adding comments here and below about why true/false for the flag.",
+      "revId": "132f0e6f6281655605b49b934e4877f333f5d58f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "41bb9fb1_c166e938",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1359,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-10-09T13:20:00Z",
+      "side": 1,
+      "message": "Worth adding comments below about why true/false for the flag.",
+      "revId": "132f0e6f6281655605b49b934e4877f333f5d58f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a209ba1_6f5a3765",
+        "filename": "runtime/instrumentation.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-10-09T13:20:00Z",
+      "side": 1,
+      "message": "Add a comment about try_switch_runtime.",
+      "revId": "132f0e6f6281655605b49b934e4877f333f5d58f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
