@@ -33,6 +33,7 @@
 #include "jit/jit.h"
 #include "jit/jit_code_cache.h"
 #include "jit/jit_logger.h"
+#include "jit/small_pattern_matcher.h"
 
 namespace art HIDDEN {
 namespace jit {
