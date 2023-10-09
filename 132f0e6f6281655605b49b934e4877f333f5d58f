@@ -35,6 +35,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce2da8bc_ac2e7658",
+        "filename": "openjdkjvmti/deopt_manager.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 390,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-10-09T17:21:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30f03e68_f5f674b2",
+      "revId": "132f0e6f6281655605b49b934e4877f333f5d58f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "41bb9fb1_c166e938",
@@ -52,6 +70,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e51aa53_a915b0d6",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1359,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-10-09T17:21:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "41bb9fb1_c166e938",
+      "revId": "132f0e6f6281655605b49b934e4877f333f5d58f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1a209ba1_6f5a3765",
@@ -65,6 +101,24 @@
       "writtenOn": "2023-10-09T13:20:00Z",
       "side": 1,
       "message": "Add a comment about try_switch_runtime.",
+      "revId": "132f0e6f6281655605b49b934e4877f333f5d58f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9639c8ba_e90f3b25",
+        "filename": "runtime/instrumentation.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-10-09T17:21:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1a209ba1_6f5a3765",
       "revId": "132f0e6f6281655605b49b934e4877f333f5d58f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
