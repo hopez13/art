@@ -588,6 +588,70 @@
 .endm
 
 
+// CFI note. This macro is used where the CFA rule is a dwarf expression, so we cannot use the
+// typical "register + offset" CFI style. The location of each arg reg is still expressed as an
+// offset against SP, but written directly in a dwarf expression.
+.macro SPILL_ALL_ARGUMENTS
+#if (FRAME_SIZE_SAVE_ARGS_ONLY != 128)
+#error "FRAME_SIZE_SAVE_ARGS_ONLY(riscv64) not as expected."
+#endif
+    addi sp, sp, -FRAME_SIZE_SAVE_ARGS_ONLY
+    sd a0,   (8*0)(sp)
+    CFI_EXPRESSION_BREG 10, 2, (8*0)
+    sd a1,   (8*1)(sp)
+    CFI_EXPRESSION_BREG 11, 2, (8*1)
+    sd a2,   (8*2)(sp)
+    CFI_EXPRESSION_BREG 12, 2, (8*2)
+    sd a3,   (8*3)(sp)
+    CFI_EXPRESSION_BREG 13, 2, (8*3)
+    sd a4,   (8*4)(sp)
+    CFI_EXPRESSION_BREG 14, 2, (8*4)
+    sd a5,   (8*5)(sp)
+    CFI_EXPRESSION_BREG 15, 2, (8*5)
+    sd a6,   (8*6)(sp)
+    CFI_EXPRESSION_BREG 16, 2, (8*6)
+    sd a7,   (8*7)(sp)
+    CFI_EXPRESSION_BREG 17, 2, (8*7)
+    fsd fa0, (8*8)(sp)
+    CFI_EXPRESSION_BREG 42, 2, (8*8)
+    fsd fa1, (8*9)(sp)
+    CFI_EXPRESSION_BREG 43, 2, (8*9)
+    fsd fa2, (8*10)(sp)
+    CFI_EXPRESSION_BREG 44, 2, (8*10)
+    fsd fa3, (8*11)(sp)
+    CFI_EXPRESSION_BREG 45, 2, (8*11)
+    fsd fa4, (8*12)(sp)
+    CFI_EXPRESSION_BREG 46, 2, (8*12)
+    fsd fa5, (8*13)(sp)
+    CFI_EXPRESSION_BREG 47, 2, (8*13)
+    fsd fa6, (8*14)(sp)
+    CFI_EXPRESSION_BREG 48, 2, (8*14)
+    fsd fa7, (8*15)(sp)
+    CFI_EXPRESSION_BREG 49, 2, (8*15)
+.endm
+
+
+.macro RESTORE_ALL_ARGUMENTS
+    RESTORE_GPR  a0, (8*0)
+    RESTORE_GPR  a1, (8*1)
+    RESTORE_GPR  a2, (8*2)
+    RESTORE_GPR  a3, (8*3)
+    RESTORE_GPR  a4, (8*4)
+    RESTORE_GPR  a5, (8*5)
+    RESTORE_GPR  a6, (8*6)
+    RESTORE_GPR  a7, (8*7)
+    RESTORE_FPR fa0, (8*8)
+    RESTORE_FPR fa1, (8*9)
+    RESTORE_FPR fa2, (8*10)
+    RESTORE_FPR fa3, (8*11)
+    RESTORE_FPR fa4, (8*12)
+    RESTORE_FPR fa5, (8*13)
+    RESTORE_FPR fa6, (8*14)
+    RESTORE_FPR fa7, (8*15)
+    addi sp, sp, FRAME_SIZE_SAVE_ARGS_ONLY
+.endm
+
+
 .macro SETUP_NTERP_SAVE_CALLEE_SAVES
 #if (NTERP_SIZE_SAVE_CALLEE_SAVES != 8*(12 + 1 + 10 + 1))
 #error "NTERP_SIZE_SAVE_CALLEE_SAVES(RISCV64) size not as expected."
