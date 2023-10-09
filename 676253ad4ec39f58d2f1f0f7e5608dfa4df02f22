@@ -1,0 +1,228 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b802a00a_d9e43a9e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-09T14:00:13Z",
+      "side": 1,
+      "message": "Just some initial comments.\n\nYou should really split this up. You\u0027re putting a lot of different changes together. Cleaning up VREG getters/setters, incoming args processing, static call to other compiled code, static nterp-to-nterp fastpath... this could be 4 different CLs.",
+      "revId": "676253ad4ec39f58d2f1f0f7e5608dfa4df02f22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "68f6aaee_6a0e0934",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-09T14:00:13Z",
+      "side": 1,
+      "message": "Remove - this applies only to invoke-super/-range.",
+      "range": {
+        "startLine": 56,
+        "startChar": 3,
+        "endLine": 58,
+        "endChar": 22
+      },
+      "revId": "676253ad4ec39f58d2f1f0f7e5608dfa4df02f22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed2b17e8_d204705c",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-09T14:00:13Z",
+      "side": 1,
+      "message": "I think this also applies only to invoke-super but I\u0027m not completely sure.",
+      "range": {
+        "startLine": 59,
+        "startChar": 3,
+        "endLine": 62,
+        "endChar": 17
+      },
+      "revId": "676253ad4ec39f58d2f1f0f7e5608dfa4df02f22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b102bd3_06c4e53e",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-09T14:00:13Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 121,
+        "startChar": 41,
+        "endLine": 121,
+        "endChar": 46
+      },
+      "revId": "676253ad4ec39f58d2f1f0f7e5608dfa4df02f22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "56a798fd_c229cc25",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-09T14:00:13Z",
+      "side": 1,
+      "message": "Remove. A0 is clobbered by any helper call.",
+      "range": {
+        "startLine": 265,
+        "startChar": 15,
+        "endLine": 265,
+        "endChar": 64
+      },
+      "revId": "676253ad4ec39f58d2f1f0f7e5608dfa4df02f22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2e77c1c_54383c32",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-09T14:00:13Z",
+      "side": 1,
+      "message": "`dest` or `reg`?",
+      "range": {
+        "startLine": 270,
+        "startChar": 20,
+        "endLine": 270,
+        "endChar": 22
+      },
+      "revId": "676253ad4ec39f58d2f1f0f7e5608dfa4df02f22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a50f05b_6143e70e",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 685,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-09T14:00:13Z",
+      "side": 1,
+      "message": "This is a bad name, a \"caller SP\" would be the value of SP on entry. Given that this points to the spilled registers area, what about `spills_sp`?",
+      "range": {
+        "startLine": 685,
+        "startChar": 80,
+        "endLine": 685,
+        "endChar": 89
+      },
+      "revId": "676253ad4ec39f58d2f1f0f7e5608dfa4df02f22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "15e542fe_44bae218",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 862,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-09T14:00:13Z",
+      "side": 1,
+      "message": "Remove blank comments.",
+      "range": {
+        "startLine": 862,
+        "startChar": 14,
+        "endLine": 862,
+        "endChar": 18
+      },
+      "revId": "676253ad4ec39f58d2f1f0f7e5608dfa4df02f22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba6677fe_4820a7de",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-09T14:00:13Z",
+      "side": 1,
+      "message": "Is there any reason to use this extension opcode over the ANDI from the base instruction set?",
+      "range": {
+        "startLine": 131,
+        "startChar": 4,
+        "endLine": 131,
+        "endChar": 32
+      },
+      "revId": "676253ad4ec39f58d2f1f0f7e5608dfa4df02f22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3297e4c9_b7aad516",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-09T14:00:13Z",
+      "side": 1,
+      "message": "Maybe `tmp0`, `tmp1`? Are you trying to use very short identifiers? It\u0027s not really helping you to stay under the 100 character per line limit. (We could split those python lines if we really wanted to.)",
+      "range": {
+        "startLine": 240,
+        "startChar": 48,
+        "endLine": 240,
+        "endChar": 54
+      },
+      "revId": "676253ad4ec39f58d2f1f0f7e5608dfa4df02f22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
