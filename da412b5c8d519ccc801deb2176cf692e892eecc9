@@ -96,6 +96,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "23967e03_1fac49d8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1413436
+      },
+      "writtenOn": "2023-10-09T05:35:31Z",
+      "side": 1,
+      "message": "Adding VNDK test to existing e2e tests make sense in terms of supporting from R to U devices, but I\u0027d like to discuss this as a separated effort. Please let me know your thought, and I\u0027ll create a new bug if you agree on this.",
+      "parentUuid": "f37788b0_c11bba01",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 4
+      },
+      "revId": "da412b5c8d519ccc801deb2176cf692e892eecc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "a199ac70_1d5ca0bf",
