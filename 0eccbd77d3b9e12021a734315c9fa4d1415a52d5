@@ -39,6 +39,30 @@
       },
       "revId": "0eccbd77d3b9e12021a734315c9fa4d1415a52d5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf0a6c7a_0ce6571b",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2266,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-10-09T15:28:26Z",
+      "side": 1,
+      "message": "This is a static_assert, so if I use kArmPointerSize which is always fixed it fails at build time.Should I change it to a DCHECK_EQ with kArmPointerSize or maybe add an additional DCHECK that kRuntimePointerSize \u003d\u003d kArmPointerSize?",
+      "parentUuid": "a9345117_4c950935",
+      "range": {
+        "startLine": 2266,
+        "startChar": 64,
+        "endLine": 2266,
+        "endChar": 83
+      },
+      "revId": "0eccbd77d3b9e12021a734315c9fa4d1415a52d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
