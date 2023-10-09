@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "09ceed16_20c8bcb8",
+        "filename": "runtime/mirror/string-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1047684
+      },
+      "writtenOn": "2023-10-09T13:37:56Z",
+      "side": 1,
+      "message": "Done. Renamed the argument.",
+      "parentUuid": "6a8de488_07e9ce19",
+      "range": {
+        "startLine": 71,
+        "startChar": 59,
+        "endLine": 71,
+        "endChar": 70
+      },
+      "revId": "113582ffaa2c5909cb7d3481813413711de9c5ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2824c390_d367367c",
@@ -43,6 +67,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9802be20_72fed68a",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 688,
+      "author": {
+        "id": 1047684
+      },
+      "writtenOn": "2023-10-09T13:37:56Z",
+      "side": 1,
+      "message": "I initially did so, but both styles seems to exist in the ART code base. However, I can\u0027t exactly find the reasons from the documentation. But it\u0027s more clear when these 3 handles are allocated with this current style. Are you concerned with the overhead?",
+      "parentUuid": "2824c390_d367367c",
+      "revId": "113582ffaa2c5909cb7d3481813413711de9c5ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9891a152_41bb8b78",
         "filename": "runtime/native/java_lang_Class.cc",
         "patchSetId": 1
@@ -54,6 +96,24 @@
       "writtenOn": "2023-10-09T12:03:29Z",
       "side": 1,
       "message": "Won\u0027t `soa.AddLocalReference\u003cjstring\u003e(class_name)` work here?",
+      "revId": "113582ffaa2c5909cb7d3481813413711de9c5ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ba3ac08_08d5f661",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 705,
+      "author": {
+        "id": 1047684
+      },
+      "writtenOn": "2023-10-09T13:37:56Z",
+      "side": 1,
+      "message": "I think that `annotations::GetDeclaringClass` or `annotations::GetEnclosingMethod` may have suspend points, and use handle instead.",
+      "parentUuid": "9891a152_41bb8b78",
       "revId": "113582ffaa2c5909cb7d3481813413711de9c5ef",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -81,6 +141,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "84cd1ff7_18b07437",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 714,
+      "author": {
+        "id": 1047684
+      },
+      "writtenOn": "2023-10-09T13:37:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dd94efae_3d5912fd",
+      "range": {
+        "startLine": 714,
+        "startChar": 10,
+        "endLine": 714,
+        "endChar": 18
+      },
+      "revId": "113582ffaa2c5909cb7d3481813413711de9c5ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ab3cda7a_06c65a2d",
@@ -94,6 +178,30 @@
       "writtenOn": "2023-10-09T12:03:29Z",
       "side": 1,
       "message": "`start_index`",
+      "range": {
+        "startLine": 718,
+        "startChar": 10,
+        "endLine": 718,
+        "endChar": 20
+      },
+      "revId": "113582ffaa2c5909cb7d3481813413711de9c5ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "392efb6e_c243881c",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 718,
+      "author": {
+        "id": 1047684
+      },
+      "writtenOn": "2023-10-09T13:37:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ab3cda7a_06c65a2d",
       "range": {
         "startLine": 718,
         "startChar": 10,
