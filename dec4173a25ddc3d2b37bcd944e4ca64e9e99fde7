@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ddd675e_18c55877",
+        "filename": "runtime/mirror/string-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1047684
+      },
+      "writtenOn": "2023-10-09T15:30:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c68c6c89_e4265ceb",
+      "revId": "dec4173a25ddc3d2b37bcd944e4ca64e9e99fde7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2919b3f0_4f6f2d0a",
@@ -31,6 +49,30 @@
       "writtenOn": "2023-10-09T13:57:33Z",
       "side": 1,
       "message": "`from_index`?",
+      "range": {
+        "startLine": 221,
+        "startChar": 61,
+        "endLine": 221,
+        "endChar": 64
+      },
+      "revId": "dec4173a25ddc3d2b37bcd944e4ca64e9e99fde7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "764e3c2a_68976baa",
+        "filename": "runtime/mirror/string.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1047684
+      },
+      "writtenOn": "2023-10-09T15:30:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2919b3f0_4f6f2d0a",
       "range": {
         "startLine": 221,
         "startChar": 61,
