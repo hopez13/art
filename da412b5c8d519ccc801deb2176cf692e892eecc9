@@ -120,6 +120,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "375d4335_16970540",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-10-09T15:46:36Z",
+      "side": 1,
+      "message": "In what sense is VNDK deprecated? From justinyun@\u0027s reply I gather that the linker namespace separations will remain, it\u0027s just the knobs to turn it off that are going away, and a new partition is being added(?). Is there a design doc on this?",
+      "parentUuid": "23967e03_1fac49d8",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 4
+      },
+      "revId": "da412b5c8d519ccc801deb2176cf692e892eecc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "a199ac70_1d5ca0bf",
