@@ -18,6 +18,190 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "6ac62c65_a31956d5",
+        "filename": "compiler/optimizing/constant_folding.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-09T10:10:12Z",
+      "side": 1,
+      "message": "`HasOnlyOneNonEnvironmentUse()` (Same for binary operation and type conversion.)",
+      "range": {
+        "startLine": 123,
+        "startChar": 63,
+        "endLine": 123,
+        "endChar": 95
+      },
+      "revId": "03724780729e47b9a88ca74e7700c000dd2ccd83",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "284a7a3b_a4ecb2f5",
+        "filename": "compiler/optimizing/constant_folding.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-09T10:10:12Z",
+      "side": 1,
+      "message": "unary operation",
+      "range": {
+        "startLine": 124,
+        "startChar": 25,
+        "endLine": 124,
+        "endChar": 40
+      },
+      "revId": "03724780729e47b9a88ca74e7700c000dd2ccd83",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0aa4d640_3f8b640d",
+        "filename": "compiler/optimizing/constant_folding.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-09T10:10:12Z",
+      "side": 1,
+      "message": "Should we try to save time/memory and skip this evaluation if `false_constant` is null? (Same for binary operation and type conversion.)",
+      "range": {
+        "startLine": 128,
+        "startChar": 37,
+        "endLine": 128,
+        "endChar": 56
+      },
+      "revId": "03724780729e47b9a88ca74e7700c000dd2ccd83",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f2319021_42cda57f",
+        "filename": "compiler/optimizing/constant_folding.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-09T10:10:12Z",
+      "side": 1,
+      "message": "If we wanted to save memory, we would directly replace inputs of the existing Select and replace the `inst` uses with the Select. Otherwise, just apply the comment below. (Same for binary operation and type conversion.)",
+      "range": {
+        "startLine": 130,
+        "startChar": 28,
+        "endLine": 130,
+        "endChar": 60
+      },
+      "revId": "03724780729e47b9a88ca74e7700c000dd2ccd83",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4cd440b_35058cd8",
+        "filename": "compiler/optimizing/constant_folding.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-09T10:10:12Z",
+      "side": 1,
+      "message": "The `new_select` provides the same result as the old `inst`, so we should `ReplaceAndRemoveInstructionWith(inst, new_select)`. Then we do not need the `ReplaceWith(.)` below and just need to `RemoveInstruction(select)`. (Same for binary operation and type conversion.)",
+      "range": {
+        "startLine": 132,
+        "startChar": 58,
+        "endLine": 132,
+        "endChar": 64
+      },
+      "revId": "03724780729e47b9a88ca74e7700c000dd2ccd83",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e06bbee2_eab0ddec",
+        "filename": "compiler/optimizing/constant_folding.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-09T10:10:12Z",
+      "side": 1,
+      "message": "binary operation",
+      "range": {
+        "startLine": 154,
+        "startChar": 25,
+        "endLine": 154,
+        "endChar": 40
+      },
+      "revId": "03724780729e47b9a88ca74e7700c000dd2ccd83",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6188385_aa4b4dc5",
+        "filename": "test/2265-checker-select-binary-unary/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-09T10:10:12Z",
+      "side": 1,
+      "message": "Multiple simple CHECK-NOT statements can be merged to a single block.",
+      "range": {
+        "startLine": 47,
+        "startChar": 4,
+        "endLine": 51,
+        "endChar": 38
+      },
+      "revId": "03724780729e47b9a88ca74e7700c000dd2ccd83",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e280cca8_1ae7da31",
+        "filename": "test/2265-checker-select-binary-unary/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-09T10:10:12Z",
+      "side": 1,
+      "message": "Maybe just \"cast\"?",
+      "range": {
+        "startLine": 131,
+        "startChar": 48,
+        "endLine": 131,
+        "endChar": 54
+      },
+      "revId": "03724780729e47b9a88ca74e7700c000dd2ccd83",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "294d42ee_b5f0b55d",

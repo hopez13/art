@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "19cf7530_3b9948fb",
+        "filename": "test/570-checker-select/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 503,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-09T10:10:12Z",
+      "side": 0,
+      "message": "Why was this extra conversion here? I don\u0027t see it in the Java code.",
+      "range": {
+        "startLine": 503,
+        "startChar": 38,
+        "endLine": 503,
+        "endChar": 52
+      },
+      "revId": "931ebb25cf5a07cf39d238db91831b5eff65a500",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
