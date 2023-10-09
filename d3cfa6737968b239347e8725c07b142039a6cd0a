@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "981da21f_01eba9e9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-10-09T11:05:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "50ea3c75_71d97ac6",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 9
+      },
+      "revId": "d3cfa6737968b239347e8725c07b142039a6cd0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "84b00f3e_692952e4",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -77,6 +101,30 @@
       "writtenOn": "2023-10-04T06:51:11Z",
       "side": 1,
       "message": "I am not specifically checking that this came from the header or that the name is null, but I think it\u0027s safe to ignore variables with empty ranges. I can add additional checks here or DCHECKs that we only see end_address in the header for parameters.",
+      "range": {
+        "startLine": 335,
+        "startChar": 13,
+        "endLine": 335,
+        "endChar": 50
+      },
+      "revId": "d3cfa6737968b239347e8725c07b142039a6cd0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b7126026_8f28e87d",
+        "filename": "libdexfile/dex/dex_file-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-10-09T11:05:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e7e99022_7ab9706e",
       "range": {
         "startLine": 335,
         "startChar": 13,
