@@ -103,6 +103,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "56a95dd1_c3bee58d",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 688,
+      "author": {
+        "id": 1047684
+      },
+      "writtenOn": "2023-10-10T15:29:46Z",
+      "side": 1,
+      "message": "I was told that Handle is needed if there is a suspend check. For `h_inner_name`, how do I know `GetDeclaringClass` and `GetEnclosingMethod` doesn\u0027t have a suspend check given that it has allocations?\n\nOtherwise, it\u0027s done in https://r.android.com/2781307.",
+      "parentUuid": "adb2cb8c_fb4cb6d6",
+      "revId": "113582ffaa2c5909cb7d3481813413711de9c5ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9891a152_41bb8b78",
         "filename": "runtime/native/java_lang_Class.cc",
         "patchSetId": 1
