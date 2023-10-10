@@ -16,6 +16,29 @@
       "message": "PTAL",
       "revId": "d79eb8c85ab13814d0192d59a94525cd3d88b6e4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd62e096_1f19208a",
+        "filename": "runtime/instrumentation.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-10-10T09:14:00Z",
+      "side": 1,
+      "message": "try_switch_to_non_debuggable",
+      "range": {
+        "startLine": 249,
+        "startChar": 5,
+        "endLine": 249,
+        "endChar": 23
+      },
+      "revId": "d79eb8c85ab13814d0192d59a94525cd3d88b6e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
