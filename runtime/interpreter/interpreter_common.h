@@ -214,22 +214,6 @@ static ALWAYS_INLINE bool DoInvoke(Thread* self,
       called_method, self, shadow_frame, inst, inst_data, string_init, result);
 }
 
-static inline ObjPtr<mirror::MethodHandle> ResolveMethodHandle(Thread* self,
-                                                               uint32_t method_handle_index,
-                                                               ArtMethod* referrer)
-    REQUIRES_SHARED(Locks::mutator_lock_) {
-  ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
-  return class_linker->ResolveMethodHandle(self, method_handle_index, referrer);
-}
-
-static inline ObjPtr<mirror::MethodType> ResolveMethodType(Thread* self,
-                                                           dex::ProtoIndex method_type_index,
-                                                           ArtMethod* referrer)
-    REQUIRES_SHARED(Locks::mutator_lock_) {
-  ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
-  return class_linker->ResolveMethodType(self, method_type_index, referrer);
-}
-
 #define DECLARE_SIGNATURE_POLYMORPHIC_HANDLER(Name, ...)              \
 bool Do ## Name(Thread* self,                                         \
                 ShadowFrame& shadow_frame,                            \

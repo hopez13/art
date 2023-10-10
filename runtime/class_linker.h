@@ -439,13 +439,14 @@ class ClassLinker {
   ObjPtr<mirror::MethodType> ResolveMethodType(Thread* self,
                                                dex::ProtoIndex proto_idx,
                                                Handle<mirror::DexCache> dex_cache,
-                                               Handle<mirror::ClassLoader> class_loader)
-      REQUIRES_SHARED(Locks::mutator_lock_)
-      REQUIRES(!Locks::dex_lock_, !Roles::uninterruptible_);
+                                               Handle<mirror::ClassLoader> class_loader,
+                                               bool cache)
+      REQUIRES_SHARED(Locks::mutator_lock_) REQUIRES(!Locks::dex_lock_, !Roles::uninterruptible_);
 
   ObjPtr<mirror::MethodType> ResolveMethodType(Thread* self,
                                                dex::ProtoIndex proto_idx,
-                                               ArtMethod* referrer)
+                                               ArtMethod* referrer,
+                                               bool cache)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Resolve a method handle with a given ID from the DexFile. The
