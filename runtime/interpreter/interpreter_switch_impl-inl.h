@@ -581,7 +581,8 @@ class InstructionHandler {
     ClassLinker* cl = Runtime::Current()->GetClassLinker();
     ObjPtr<mirror::MethodType> mt = cl->ResolveMethodType(Self(),
                                                           dex::ProtoIndex(B()),
-                                                          shadow_frame_.GetMethod());
+                                                          shadow_frame_.GetMethod(),
+                                                          /*cache=*/ true);
     if (UNLIKELY(mt == nullptr)) {
       return false;  // Pending exception.
     }

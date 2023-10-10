@@ -243,6 +243,8 @@ extern "C" mirror::MethodType* artResolveMethodTypeFromCode(uint32_t proto_idx, 
                                                                   CalleeSaveType::kSaveEverything);
   ArtMethod* caller = caller_and_outer.caller;
   ObjPtr<mirror::MethodType> result = ResolveMethodTypeFromCode(caller, dex::ProtoIndex(proto_idx));
+  DCHECK_IMPLIES(!result.IsNull(), result->IsCached())
+      << result->PrettyDescriptor() << " is not cached";
   return result.Ptr();
 }
 

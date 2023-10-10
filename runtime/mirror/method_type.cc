@@ -22,6 +22,7 @@
 #include "obj_ptr-inl.h"
 #include "object_array-alloc-inl.h"
 #include "object_array-inl.h"
+#include "well_known_classes.h"
 
 namespace art {
 namespace mirror {
@@ -39,6 +40,22 @@ ObjPtr<ObjectArray<Class>> AllocatePTypesArray(Thread* self, int count)
 ObjPtr<MethodType> MethodType::Create(Thread* const self,
                                       Handle<Class> return_type,
                                       Handle<ObjectArray<Class>> parameter_types) {
+  ArtMethod* make_impl = WellKnownClasses::java_lang_invoke_MethodType_makeImpl;
+
+  const bool is_trusted = true;
+  ObjPtr<MethodType> mt = ObjPtr<MethodType>::DownCast(make_impl->InvokeStatic<'L', 'L', 'L', 'Z'>(
+      self, return_type.Get(), parameter_types.Get(), is_trusted));
+
+  if (self->IsExceptionPending()) {
+    return nullptr;
+  }
+
+  return mt;
+}
+
+ObjPtr<MethodType> MethodType::CreateUncached(Thread* const self,
+                                              Handle<Class> return_type,
+                                              Handle<ObjectArray<Class>> parameter_types) {
   StackHandleScope<1> hs(self);
   Handle<MethodType> mt(
       hs.NewHandle(ObjPtr<MethodType>::DownCast(GetClassRoot<MethodType>()->AllocObject(self))));
@@ -50,6 +67,7 @@ ObjPtr<MethodType> MethodType::Create(Thread* const self,
 
   // We're initializing a newly allocated object, so we do not need to record that under
   // a transaction. If the transaction is aborted, the whole object shall be unreachable.
+  mt->SetFieldPrimitive<uint8_t, /*kIsVolatile=*/ false>(CachedOffset(), 0);
   mt->SetFieldObject</*kTransactionActive=*/ false, /*kCheckTransaction=*/ false>(
       FormOffset(), nullptr);
   mt->SetFieldObject</*kTransactionActive=*/ false, /*kCheckTransaction=*/ false>(
@@ -65,8 +83,9 @@ ObjPtr<MethodType> MethodType::Create(Thread* const self,
 }
 
 ObjPtr<MethodType> MethodType::CloneWithoutLeadingParameter(Thread* const self,
-                                                            ObjPtr<MethodType> method_type) {
-  StackHandleScope<3> hs(self);
+                                                            ObjPtr<MethodType> method_type,
+                                                            bool cache) {
+  StackHandleScope<4> hs(self);
   Handle<ObjectArray<Class>> src_ptypes = hs.NewHandle(method_type->GetPTypes());
   Handle<Class> dst_rtype = hs.NewHandle(method_type->GetRType());
   const int32_t dst_ptypes_count = method_type->GetNumberOfPTypes() - 1;
@@ -77,13 +96,18 @@ ObjPtr<MethodType> MethodType::CloneWithoutLeadingParameter(Thread* const self,
   for (int32_t i = 0; i < dst_ptypes_count; ++i) {
     dst_ptypes->Set(i, src_ptypes->Get(i + 1));
   }
-  return Create(self, dst_rtype, dst_ptypes);
+  if (cache) {
+    return Create(self, dst_rtype, dst_ptypes);
+  } else {
+    return CreateUncached(self, dst_rtype, dst_ptypes);
+  }
 }
 
 ObjPtr<MethodType> MethodType::CollectTrailingArguments(Thread* self,
                                                         ObjPtr<MethodType> method_type,
                                                         ObjPtr<Class> collector_array_class,
-                                                        int32_t start_index) {
+                                                        int32_t start_index,
+                                                        bool cache) {
   int32_t ptypes_length = method_type->GetNumberOfPTypes();
   if (start_index > ptypes_length) {
     return method_type;
@@ -101,7 +125,11 @@ ObjPtr<MethodType> MethodType::CollectTrailingArguments(Thread* self,
     dst_ptypes->Set(i, src_ptypes->Get(i));
   }
   dst_ptypes->Set(start_index, collector_class.Get());
-  return Create(self, dst_rtype, dst_ptypes);
+  if (cache) {
+    return Create(self, dst_rtype, dst_ptypes);
+  } else {
+    return CreateUncached(self, dst_rtype, dst_ptypes);
+  }
 }
 
 size_t MethodType::NumberOfVRegs() {
@@ -229,6 +257,10 @@ std::string MethodType::PrettyDescriptor() {
   ss << GetRType()->PrettyDescriptor();
 
   return ss.str();
+}
+
+bool MethodType::IsCached() {
+  return cached_;
 }
 
 }  // namespace mirror

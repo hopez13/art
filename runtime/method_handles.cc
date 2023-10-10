@@ -728,7 +728,7 @@ bool DoVarHandleInvokeTranslation(Thread* self,
   Handle<mirror::MethodType> vh_type =
       hs.NewHandle(vh->GetMethodTypeForAccessMode(self, access_mode));
   Handle<mirror::MethodType> mh_invoke_type = hs.NewHandle(
-      mirror::MethodType::CloneWithoutLeadingParameter(self, method_handle->GetMethodType()));
+      mirror::MethodType::CloneWithoutLeadingParameter(self, method_handle->GetMethodType(), /* cache= */ false));
   if (method_handle->GetHandleKind() == mirror::MethodHandle::Kind::kInvokeVarHandleExact) {
     if (!mh_invoke_type->IsExactMatch(vh_type.Get())) {
       ThrowWrongMethodTypeException(vh_type.Get(), mh_invoke_type.Get());
@@ -737,7 +737,7 @@ bool DoVarHandleInvokeTranslation(Thread* self,
   }
 
   Handle<mirror::MethodType> callsite_type_without_varhandle =
-      hs.NewHandle(mirror::MethodType::CloneWithoutLeadingParameter(self, callsite_type.Get()));
+      hs.NewHandle(mirror::MethodType::CloneWithoutLeadingParameter(self, callsite_type.Get(), /* cache= */ false));
   NoReceiverInstructionOperands varhandle_operands(operands);
   return VarHandleInvokeAccessor(self,
                                  shadow_frame,

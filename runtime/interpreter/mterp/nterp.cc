@@ -576,8 +576,9 @@ extern "C" mirror::Object* NterpLoadObject(Thread* self, ArtMethod* caller, uint
     case Instruction::CONST_METHOD_TYPE: {
       // Don't cache: we don't expect this to be performance sensitive, and we
       // don't want the cache to conflict with a performance sensitive entry.
-      return class_linker->ResolveMethodType(
-          self, dex::ProtoIndex(inst->VRegB_21c()), caller).Ptr();
+      return class_linker
+          ->ResolveMethodType(self, dex::ProtoIndex(inst->VRegB_21c()), caller, /*cache=*/ true)
+          .Ptr();
     }
     default:
       LOG(FATAL) << "Unreachable";

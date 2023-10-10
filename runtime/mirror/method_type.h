@@ -37,8 +37,14 @@ class MANAGED MethodType : public Object {
                                    Handle<ObjectArray<Class>> param_types)
       REQUIRES_SHARED(Locks::mutator_lock_) REQUIRES(!Roles::uninterruptible_);
 
+  static ObjPtr<MethodType> CreateUncached(Thread* const self,
+                                           Handle<Class> return_type,
+                                           Handle<ObjectArray<Class>> param_types)
+      REQUIRES_SHARED(Locks::mutator_lock_) REQUIRES(!Roles::uninterruptible_);
+
   static ObjPtr<MethodType> CloneWithoutLeadingParameter(Thread* const self,
-                                                         ObjPtr<MethodType> method_type)
+                                                         ObjPtr<MethodType> method_type,
+                                                         bool cache)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Collects trailing parameter types into an array. Assumes caller
@@ -46,7 +52,8 @@ class MANAGED MethodType : public Object {
   static ObjPtr<MethodType> CollectTrailingArguments(Thread* const self,
                                                      ObjPtr<MethodType> method_type,
                                                      ObjPtr<Class> collector_array_class,
-                                                     int32_t start_index)
+                                                     int32_t start_index,
+                                                     bool cache)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   ObjPtr<ObjectArray<Class>> GetPTypes() REQUIRES_SHARED(Locks::mutator_lock_);
@@ -76,7 +83,13 @@ class MANAGED MethodType : public Object {
   // exception messages and the like.
   std::string PrettyDescriptor() REQUIRES_SHARED(Locks::mutator_lock_);
 
+  bool IsCached() REQUIRES_SHARED(Locks::mutator_lock_);
+
  private:
+  static MemberOffset CachedOffset() {
+      return MemberOffset(OFFSETOF_MEMBER(MethodType, cached_));
+  }
+
   static MemberOffset FormOffset() {
     return MemberOffset(OFFSETOF_MEMBER(MethodType, form_));
   }
@@ -102,6 +115,7 @@ class MANAGED MethodType : public Object {
   HeapReference<ObjectArray<Class>> p_types_;
   HeapReference<Class> r_type_;
   HeapReference<Object> wrap_alt_;  // Unused in the runtime
+  bool cached_;
 
   friend struct art::MethodTypeOffsets;  // for verifying offset information
   DISALLOW_IMPLICIT_CONSTRUCTORS(MethodType);
