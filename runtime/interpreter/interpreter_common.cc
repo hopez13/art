@@ -349,7 +349,7 @@ static bool DoMethodHandleInvokeCommon(Thread* self,
   // guaranteed to be fast after the first resolution.
   ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
   Handle<mirror::MethodType> callsite_type(hs.NewHandle(
-      class_linker->ResolveMethodType(self, callsite_proto_id, shadow_frame.GetMethod())));
+      class_linker->ResolveMethodType(self, callsite_proto_id, shadow_frame.GetMethod(), true)));
 
   // This implies we couldn't resolve one or more types in this method handle.
   if (UNLIKELY(callsite_type == nullptr)) {
@@ -456,8 +456,8 @@ static bool DoVarHandleInvokeCommon(Thread* self,
   bool is_var_args = inst->HasVarArgs();
   const uint16_t vRegH = is_var_args ? inst->VRegH_45cc() : inst->VRegH_4rcc();
   ClassLinker* const class_linker = Runtime::Current()->GetClassLinker();
-  Handle<mirror::MethodType> callsite_type(hs.NewHandle(
-      class_linker->ResolveMethodType(self, dex::ProtoIndex(vRegH), shadow_frame.GetMethod())));
+  Handle<mirror::MethodType> callsite_type(hs.NewHandle(class_linker->ResolveMethodType(
+      self, dex::ProtoIndex(vRegH), shadow_frame.GetMethod(), /* cache= */ false)));
   // This implies we couldn't resolve one or more types in this VarHandle.
   if (UNLIKELY(callsite_type == nullptr)) {
     CHECK(self->IsExceptionPending());
@@ -634,7 +634,7 @@ static bool GetArgumentForBootstrapMethod(Thread* self,
       dex::ProtoIndex proto_idx(encoded_value->GetC());
       ClassLinker* cl = Runtime::Current()->GetClassLinker();
       ObjPtr<mirror::MethodType> o =
-          cl->ResolveMethodType(self, proto_idx, dex_cache, class_loader);
+          cl->ResolveMethodType(self, proto_idx, dex_cache, class_loader, true);
       if (UNLIKELY(o.IsNull())) {
         DCHECK(self->IsExceptionPending());
         return false;

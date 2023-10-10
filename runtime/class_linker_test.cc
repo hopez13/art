@@ -754,6 +754,7 @@ struct ExecutableOffsets : public CheckOffsets<mirror::Executable> {
 struct MethodTypeOffsets : public CheckOffsets<mirror::MethodType> {
   MethodTypeOffsets() : CheckOffsets<mirror::MethodType>(
       false, "Ljava/lang/invoke/MethodType;") {
+    addOffset(OFFSETOF_MEMBER(mirror::MethodType, cached_), "cached");
     addOffset(OFFSETOF_MEMBER(mirror::MethodType, form_), "form");
     addOffset(OFFSETOF_MEMBER(mirror::MethodType, method_descriptor_), "methodDescriptor");
     addOffset(OFFSETOF_MEMBER(mirror::MethodType, p_types_), "ptypes");
@@ -1587,8 +1588,8 @@ TEST_F(ClassLinkerMethodHandlesTest, TestResolveMethodTypes) {
   // String MethodTypes# method1(String).
   // Its RType = Ljava/lang/String;
   // Its PTypes = { Ljava/lang/String; }
-  Handle<mirror::MethodType> method1_type = hs.NewHandle(
-      class_linker_->ResolveMethodType(soa.Self(), method1_id.proto_idx_, dex_cache, class_loader));
+  Handle<mirror::MethodType> method1_type = hs.NewHandle(class_linker_->ResolveMethodType(
+      soa.Self(), method1_id.proto_idx_, dex_cache, class_loader, /* cached= */ false));
 
   // Assert that the method type was resolved successfully.
   ASSERT_TRUE(method1_type != nullptr);
@@ -1601,8 +1602,8 @@ TEST_F(ClassLinkerMethodHandlesTest, TestResolveMethodTypes) {
   ASSERT_OBJ_PTR_EQ(string_class.Get(), method1_type->GetPTypes()->Get(0));
 
   // Resolve the method type again and assert that we get back the same value.
-  Handle<mirror::MethodType> method1_type2 = hs.NewHandle(
-      class_linker_->ResolveMethodType(soa.Self(), method1_id.proto_idx_, dex_cache, class_loader));
+  Handle<mirror::MethodType> method1_type2 = hs.NewHandle(class_linker_->ResolveMethodType(
+      soa.Self(), method1_id.proto_idx_, dex_cache, class_loader, /* cached= */ false));
   ASSERT_OBJ_PTR_EQ(method1_type.Get(), method1_type2.Get());
 
   // Resolve the MethodType associated with a different method signature
@@ -1614,9 +1615,54 @@ TEST_F(ClassLinkerMethodHandlesTest, TestResolveMethodTypes) {
   ASSERT_TRUE(method2 != nullptr);
   ASSERT_FALSE(method2->IsDirect());
   const dex::MethodId& method2_id = dex_file.GetMethodId(method2->GetDexMethodIndex());
-  Handle<mirror::MethodType> method2_type = hs.NewHandle(
-      class_linker_->ResolveMethodType(soa.Self(), method2_id.proto_idx_, dex_cache, class_loader));
+  Handle<mirror::MethodType> method2_type = hs.NewHandle(class_linker_->ResolveMethodType(
+      soa.Self(), method2_id.proto_idx_, dex_cache, class_loader, /* cached= */ false));
   ASSERT_OBJ_PTR_NE(method1_type.Get(), method2_type.Get());
+}
+
+TEST_F(ClassLinkerMethodHandlesTest, TestResolveMethodTypesCachedCallOverridesNonCachedInstance) {
+  ScopedObjectAccess soa(Thread::Current());
+  StackHandleScope<7> hs(soa.Self());
+
+  Handle<mirror::ClassLoader> class_loader(
+      hs.NewHandle(soa.Decode<mirror::ClassLoader>(LoadDex("MethodTypes"))));
+  Handle<mirror::Class> method_types(
+      hs.NewHandle(class_linker_->FindClass(soa.Self(), "LMethodTypes;", class_loader)));
+  class_linker_->EnsureInitialized(soa.Self(), method_types, true, true);
+
+  ArtMethod* method1 = method_types->FindClassMethod(
+      "method1",
+      "(Ljava/lang/String;)Ljava/lang/String;",
+      kRuntimePointerSize);
+  ASSERT_TRUE(method1 != nullptr);
+  ASSERT_FALSE(method1->IsDirect());
+
+  const DexFile& dex_file = *(method1->GetDexFile());
+  Handle<mirror::DexCache> dex_cache = hs.NewHandle(
+      class_linker_->FindDexCache(soa.Self(), dex_file));
+
+  const dex::MethodId& method1_id = dex_file.GetMethodId(method1->GetDexMethodIndex());
+
+  // This is the MethodType corresponding to the prototype of
+  // String MethodTypes# method1(String).
+  // Its RType = Ljava/lang/String;
+  // Its PTypes = { Ljava/lang/String; }
+  Handle<mirror::MethodType> method1_type_first_uncached_call = hs.NewHandle(
+      class_linker_->ResolveMethodType(
+          soa.Self(), method1_id.proto_idx_, dex_cache, class_loader, /* cached= */ false));
+
+  ASSERT_FALSE(method1_type_first_uncached_call->IsCached());
+
+  Handle<mirror::MethodType> method1_type_cached = hs.NewHandle(class_linker_->ResolveMethodType(
+      soa.Self(), method1_id.proto_idx_, dex_cache, class_loader, /* cached= */ true));
+
+  ASSERT_TRUE(method1_type_cached->IsCached());
+
+  Handle<mirror::MethodType> method1_type_second_uncached_call = hs.NewHandle(
+      class_linker_->ResolveMethodType(
+          soa.Self(), method1_id.proto_idx_, dex_cache, class_loader, /* cached= */ false));
+
+  ASSERT_OBJ_PTR_EQ(method1_type_second_uncached_call.Get(), method1_type_cached.Get());
 }
 
 // Verify that ClassLinker's CreateWellknownClassLoader works as expected
