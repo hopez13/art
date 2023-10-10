@@ -168,6 +168,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a5cb599_87a1d2d6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1146974
+      },
+      "writtenOn": "2023-10-10T00:56:23Z",
+      "side": 1,
+      "message": "VNDK is just a set of libraries installed in the system partition for vendor use. This is a component from the Treble system/vendor separation.\nDeprecating VNDK means system will not include the set of VNDK libraries but install them to the vendor partition by setting them to vendor_available (or product_available) libraries, but not VNDK. So we will keep the Treble configuration, but there will be no libraries that have `vndk: {enabled: true}`.",
+      "parentUuid": "851e10ae_05001daf",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 4
+      },
+      "revId": "da412b5c8d519ccc801deb2176cf692e892eecc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "a199ac70_1d5ca0bf",
