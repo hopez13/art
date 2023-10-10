@@ -362,6 +362,10 @@ public final class Utils {
      * final location by calling {@link IArtd#commitTmpProfile} or clean it up by calling {@link
      * IArtd#deleteProfile}.
      *
+     * Note: "External profile" means profiles that are external to the device, as opposed to local
+     * profiles, which are collected on the device. An embedded profile (a profile embedded in the
+     * dex file) is also an external profile.
+     *
      * @param dexPath the path to the dex file that the profile is checked against
      * @param refProfile the path where an existing reference profile would be found, if present
      * @param externalProfiles a list of external profiles to initialize the reference profile from,
@@ -421,6 +425,21 @@ public final class Utils {
             } catch (ServiceSpecificException e) {
                 Log.e(TAG, "Failed to initialize profile from " + AidlUtils.toString(profile), e);
             }
+        }
+
+        // The order matters. Non-embedded profiles handled above should take precedence.
+        try {
+            CopyAndRewriteProfileResult result =
+                    artd.copyAndRewriteEmbeddedProfile(output, dexPath);
+            if (result.status == CopyAndRewriteProfileResult.Status.SUCCESS) {
+                return InitProfileResult.create(ProfilePath.tmpProfilePath(output.profilePath),
+                        true /* isOtherReadable */, externalProfileErrors);
+            }
+            if (result.status == CopyAndRewriteProfileResult.Status.BAD_PROFILE) {
+                externalProfileErrors.add(result.errorMsg);
+            }
+        } catch (ServiceSpecificException e) {
+            Log.e(TAG, "Failed to initialize profile from embedded profile", e);
         }
 
         return InitProfileResult.create(
