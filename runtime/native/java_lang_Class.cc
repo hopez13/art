@@ -683,10 +683,8 @@ static jint Class_getInnerClassFlags(JNIEnv* env, jobject javaThis, jint default
 
 static jstring Class_getSimpleNameNative(JNIEnv* env, jobject javaThis) {
   ScopedFastNativeObjectAccess soa(env);
-  StackHandleScope<3> hs(soa.Self());
+  StackHandleScope<2> hs(soa.Self());
   Handle<mirror::Class> klass(hs.NewHandle(DecodeClass(soa, javaThis)));
-  MutableHandle<mirror::String> h_name(hs.NewHandle<mirror::String>(nullptr));
-  MutableHandle<mirror::String> h_inner_name(hs.NewHandle<mirror::String>(nullptr));
   if (klass->IsObsoleteObject()) {
     ThrowRuntimeException("Obsolete Object!");
     return nullptr;
@@ -695,19 +693,20 @@ static jstring Class_getSimpleNameNative(JNIEnv* env, jobject javaThis) {
     ObjPtr<mirror::String> class_name = nullptr;
     if (annotations::GetInnerClass(klass, &class_name)) {
       if (class_name == nullptr) {  // Anonymous class
-        gc::AllocatorType allocator_type = Runtime::Current()->GetHeap()->GetCurrentAllocator();
-        return soa.AddLocalReference<jstring>(
-            mirror::String::AllocEmptyString(soa.Self(), allocator_type));
+        ObjPtr<mirror::Class> j_l_String = GetClassRoot<mirror::String>();
+        ObjPtr<mirror::Object> empty_string =
+            WellKnownClasses::java_lang_String_EMPTY->GetObject(j_l_String);
+        DCHECK(empty_string != nullptr);
+        return soa.AddLocalReference<jstring>(empty_string);
       }
-      h_inner_name.Assign(class_name);
       if (annotations::GetDeclaringClass(klass) != nullptr ||   // member class
           annotations::GetEnclosingMethod(klass) != nullptr) {  // local class
-        return soa.AddLocalReference<jstring>(h_inner_name.Get());
+        return soa.AddLocalReference<jstring>(class_name);
       }
     }
   }
 
-  h_name.Assign(mirror::Class::ComputeName(klass));
+  Handle<mirror::String> h_name(hs.NewHandle<mirror::String>(mirror::Class::ComputeName(klass)));
   if (h_name == nullptr) {
     return nullptr;
   }
