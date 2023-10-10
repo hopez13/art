@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aea6e83c_885e86a0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-10T08:02:53Z",
+      "side": 1,
+      "message": "The only \"denser\" instructions are the address calculation instructions SH2ADD from the \"Zba\" extension (included in the \"Bit-Manipulation\" extension document).\n\nThe real bit manipulation instruction used here (BEXTI) does not make the code any more dense. Though one could argue it\u0027s more readable than shifting the sought bit to the sign bit for comparison.",
+      "range": {
+        "startLine": 10,
+        "startChar": 4,
+        "endLine": 10,
+        "endChar": 29
+      },
+      "revId": "7be2759fcad422e7dd734636db6a4385ecb84a6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
