@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "867974d5_b9e753de",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 697,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-10T15:30:56Z",
+      "side": 1,
+      "message": "Get the class from the field instead: `WellKnownClasses::java_lang_String_EMPTY-\u003eGetDeclaringClass()`.",
+      "range": {
+        "startLine": 697,
+        "startChar": 43,
+        "endLine": 697,
+        "endChar": 73
+      },
+      "revId": "9892202077c0c35ffba0b1cb2b245f7a734cd858",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "43e3c21b_8d6c5a4b",
+        "filename": "runtime/well_known_classes.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 744,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-10T15:30:56Z",
+      "side": 1,
+      "message": "Move before `java_lang_Thread_*` fields.",
+      "range": {
+        "startLine": 743,
+        "startChar": 2,
+        "endLine": 744,
+        "endChar": 80
+      },
+      "revId": "9892202077c0c35ffba0b1cb2b245f7a734cd858",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
