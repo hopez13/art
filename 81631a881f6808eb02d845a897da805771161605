@@ -39,6 +39,30 @@
       },
       "revId": "81631a881f6808eb02d845a897da805771161605",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "57f2b282_66e5dbb9",
+        "filename": "libartservice/service/java/com/android/server/art/model/DexoptResult.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-10-10T18:46:20Z",
+      "side": 1,
+      "message": "Discussed offline. The error messages are for logging only, and they include the paths to the profile files that caused the errors.",
+      "parentUuid": "9d3f6920_7583482e",
+      "range": {
+        "startLine": 339,
+        "startChar": 33,
+        "endLine": 339,
+        "endChar": 37
+      },
+      "revId": "81631a881f6808eb02d845a897da805771161605",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
