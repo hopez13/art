@@ -22,6 +22,30 @@
       },
       "revId": "931ebb25cf5a07cf39d238db91831b5eff65a500",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f9b792d_bc1bdeab",
+        "filename": "test/570-checker-select/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 503,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-10-10T09:40:32Z",
+      "side": 0,
+      "message": "`(a \u003c b ? 0 : 1)` is an Int. Since we want to add it to a float we convert from Int to Float.",
+      "parentUuid": "19cf7530_3b9948fb",
+      "range": {
+        "startLine": 503,
+        "startChar": 38,
+        "endLine": 503,
+        "endChar": 52
+      },
+      "revId": "931ebb25cf5a07cf39d238db91831b5eff65a500",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

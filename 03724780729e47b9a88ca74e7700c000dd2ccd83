@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7163e83e_fb2008ff",
+        "filename": "compiler/optimizing/constant_folding.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-10-10T09:40:32Z",
+      "side": 1,
+      "message": "Since we are now replacing the inputs, it\u0027s fine if the `select` has envinroment uses.",
+      "parentUuid": "6ac62c65_a31956d5",
+      "range": {
+        "startLine": 123,
+        "startChar": 63,
+        "endLine": 123,
+        "endChar": 95
+      },
+      "revId": "03724780729e47b9a88ca74e7700c000dd2ccd83",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "284a7a3b_a4ecb2f5",
@@ -54,6 +78,30 @@
       "writtenOn": "2023-10-09T10:10:12Z",
       "side": 1,
       "message": "unary operation",
+      "range": {
+        "startLine": 124,
+        "startChar": 25,
+        "endLine": 124,
+        "endChar": 40
+      },
+      "revId": "03724780729e47b9a88ca74e7700c000dd2ccd83",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f75f29bb_ec58b0ce",
+        "filename": "compiler/optimizing/constant_folding.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-10-10T09:40:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "284a7a3b_a4ecb2f5",
       "range": {
         "startLine": 124,
         "startChar": 25,
@@ -87,6 +135,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5651c18e_fc5547ff",
+        "filename": "compiler/optimizing/constant_folding.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-10-10T09:40:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0aa4d640_3f8b640d",
+      "range": {
+        "startLine": 128,
+        "startChar": 37,
+        "endLine": 128,
+        "endChar": 56
+      },
+      "revId": "03724780729e47b9a88ca74e7700c000dd2ccd83",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f2319021_42cda57f",
@@ -100,6 +172,30 @@
       "writtenOn": "2023-10-09T10:10:12Z",
       "side": 1,
       "message": "If we wanted to save memory, we would directly replace inputs of the existing Select and replace the `inst` uses with the Select. Otherwise, just apply the comment below. (Same for binary operation and type conversion.)",
+      "range": {
+        "startLine": 130,
+        "startChar": 28,
+        "endLine": 130,
+        "endChar": 60
+      },
+      "revId": "03724780729e47b9a88ca74e7700c000dd2ccd83",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d3f6668_67a303a7",
+        "filename": "compiler/optimizing/constant_folding.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-10-10T09:40:32Z",
+      "side": 1,
+      "message": "Replacing select\u0027s inputs sounds like the better option. Done.",
+      "parentUuid": "f2319021_42cda57f",
       "range": {
         "startLine": 130,
         "startChar": 28,
@@ -133,6 +229,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e6515a3c_ab79f3e3",
+        "filename": "compiler/optimizing/constant_folding.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-10-10T09:40:32Z",
+      "side": 1,
+      "message": "Replacing select\u0027s inputs sounds like the better option.",
+      "parentUuid": "b4cd440b_35058cd8",
+      "range": {
+        "startLine": 132,
+        "startChar": 58,
+        "endLine": 132,
+        "endChar": 64
+      },
+      "revId": "03724780729e47b9a88ca74e7700c000dd2ccd83",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e06bbee2_eab0ddec",
@@ -146,6 +266,30 @@
       "writtenOn": "2023-10-09T10:10:12Z",
       "side": 1,
       "message": "binary operation",
+      "range": {
+        "startLine": 154,
+        "startChar": 25,
+        "endLine": 154,
+        "endChar": 40
+      },
+      "revId": "03724780729e47b9a88ca74e7700c000dd2ccd83",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "43145266_14dc9501",
+        "filename": "compiler/optimizing/constant_folding.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-10-10T09:40:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e06bbee2_eab0ddec",
       "range": {
         "startLine": 154,
         "startChar": 25,
@@ -179,6 +323,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bff80fdd_376b16d6",
+        "filename": "test/2265-checker-select-binary-unary/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-10-10T09:40:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c6188385_aa4b4dc5",
+      "range": {
+        "startLine": 47,
+        "startChar": 4,
+        "endLine": 51,
+        "endChar": 38
+      },
+      "revId": "03724780729e47b9a88ca74e7700c000dd2ccd83",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e280cca8_1ae7da31",
@@ -192,6 +360,30 @@
       "writtenOn": "2023-10-09T10:10:12Z",
       "side": 1,
       "message": "Maybe just \"cast\"?",
+      "range": {
+        "startLine": 131,
+        "startChar": 48,
+        "endLine": 131,
+        "endChar": 54
+      },
+      "revId": "03724780729e47b9a88ca74e7700c000dd2ccd83",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1c6ea634_6d5ad902",
+        "filename": "test/2265-checker-select-binary-unary/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-10-10T09:40:32Z",
+      "side": 1,
+      "message": "WDYT about `after casted to int`?",
+      "parentUuid": "e280cca8_1ae7da31",
       "range": {
         "startLine": 131,
         "startChar": 48,
