@@ -194,6 +194,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "2e174e29_27036836",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-10-10T13:16:32Z",
+      "side": 1,
+      "message": "Thanks, now I have more context. So iiuc the VNDK libs will from a libnativeloader perspective become either vendor private libraries or LLNDK. The former are [already tested](https://cs.android.com/search?q\u003dvendor_private\u0026sq\u003d\u0026ss\u003dandroid%2Fplatform%2Fsuperproject%2Fmain:art%2Flibnativeloader%2Ftest%2Fsrc%2Fandroid%2Ftest%2Fapp%2F) from apps in various locations, and with the VNDK knobs getting removed here I agree there are no new tests to add. (And if I\u0027m not mistaken the tests would fail if `ro.product.vndk.version` wasn\u0027t set.)\n\nHowever, the tests don\u0027t cover LLNDK, and I think it\u0027d be valuable to add that. It\u0027s out of scope for this CL though.",
+      "parentUuid": "2a5cb599_87a1d2d6",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 4
+      },
+      "revId": "da412b5c8d519ccc801deb2176cf692e892eecc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "a199ac70_1d5ca0bf",
         "filename": "tools/buildbot-build.sh",
         "patchSetId": 4
@@ -301,6 +325,30 @@
       "side": 1,
       "message": "We don\u0027t remove the Treble separation (system|product|vendor), but only removing the VNDK part which will be served from their own partition instead of the inter-partition interface. So the SAC doc you linked needs to be updated to remove the VNDK part.\nBut also, we need to have a documentation for the libnativeloader which is more complicated than the linker namespace, I think.",
       "parentUuid": "21ce17f1_725e5a54",
+      "range": {
+        "startLine": 432,
+        "startChar": 92,
+        "endLine": 432,
+        "endChar": 149
+      },
+      "revId": "da412b5c8d519ccc801deb2176cf692e892eecc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "647197bc_ee65c0e9",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-10-10T13:16:32Z",
+      "side": 1,
+      "message": "So, VNDK is going away, but these flags (with \"vndk\" in them) are still here. Why? I see that without them we get a \"legacy\" config which looks a lot like the \"unrestricted\" section in the normal one. Do we still need that legacy mode, or is it possible to simplify linkerconfig and remove these flags altogether?\n\nMaybe that\u0027s next on the to-do list? If so, can you please add a TODO here pointing to the ticket, so we get some context on the flags.",
+      "parentUuid": "256aee1f_8e1712c6",
       "range": {
         "startLine": 432,
         "startChar": 92,
