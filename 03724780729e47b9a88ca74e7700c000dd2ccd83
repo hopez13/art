@@ -89,6 +89,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "55504e54_10f53a72",
+        "filename": "compiler/optimizing/constant_folding.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-10-10T11:22:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "310201ca_30606bc5",
+      "range": {
+        "startLine": 123,
+        "startChar": 63,
+        "endLine": 123,
+        "endChar": 95
+      },
+      "revId": "03724780729e47b9a88ca74e7700c000dd2ccd83",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "284a7a3b_a4ecb2f5",
@@ -432,6 +456,30 @@
       "side": 1,
       "message": "There is no word \"casted\" in English, the common suffix \"ed\" is never added. It\u0027s just cast/cast/casting (making it more difficult to recognize the tense).",
       "parentUuid": "1c6ea634_6d5ad902",
+      "range": {
+        "startLine": 131,
+        "startChar": 48,
+        "endLine": 131,
+        "endChar": 54
+      },
+      "revId": "03724780729e47b9a88ca74e7700c000dd2ccd83",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6bd7bd00_70032ecf",
+        "filename": "test/2265-checker-select-binary-unary/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-10-10T11:22:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c3cc7707_961396b3",
       "range": {
         "startLine": 131,
         "startChar": 48,
