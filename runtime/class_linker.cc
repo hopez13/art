@@ -1191,8 +1191,9 @@ void ClassLinker::RunRootClinits(Thread* self) {
       WellKnownClasses::java_lang_reflect_InvocationTargetException_init,
       // Ensure `Parameter` class is initialized (avoid check at runtime).
       WellKnownClasses::java_lang_reflect_Parameter_init,
-      // Ensure `MethodHandles` class is initialized (avoid check at runtime).
+      // Ensure `MethodHandles` and `MethodType` classes are initialized (avoid check at runtime).
       WellKnownClasses::java_lang_invoke_MethodHandles_lookup,
+      WellKnownClasses::java_lang_invoke_MethodType_makeImpl,
       // Ensure `DirectByteBuffer` class is initialized (avoid check at runtime).
       WellKnownClasses::java_nio_DirectByteBuffer_init,
       // Ensure `FloatingDecimal` class is initialized (avoid check at runtime).
@@ -10075,18 +10076,22 @@ ArtField* ClassLinker::FindResolvedFieldJLS(ObjPtr<mirror::Class> klass,
   return resolved;
 }
 
-ObjPtr<mirror::MethodType> ClassLinker::ResolveMethodType(
-    Thread* self,
-    dex::ProtoIndex proto_idx,
-    Handle<mirror::DexCache> dex_cache,
-    Handle<mirror::ClassLoader> class_loader) {
+ObjPtr<mirror::MethodType> ClassLinker::ResolveMethodType(Thread* self,
+                                                          dex::ProtoIndex proto_idx,
+                                                          Handle<mirror::DexCache> dex_cache,
+                                                          Handle<mirror::ClassLoader> class_loader,
+                                                          bool cache) {
   DCHECK(Runtime::Current()->IsMethodHandlesEnabled());
   DCHECK(dex_cache != nullptr);
   DCHECK(dex_cache->GetClassLoader() == class_loader.Get());
 
   ObjPtr<mirror::MethodType> resolved = dex_cache->GetResolvedMethodType(proto_idx);
   if (resolved != nullptr) {
-    return resolved;
+    // If DexCache's MethodType instance is not interned (is absent from MethodType.internMap), but
+    // a cached instance is requested, then DexCache should be updated with an interned MethodType.
+    if (!cache || resolved->IsCached()) {
+      return resolved;
+    }
   }
 
   StackHandleScope<4> hs(self);
@@ -10131,8 +10136,12 @@ ObjPtr<mirror::MethodType> ClassLinker::ResolveMethodType(
 
   DCHECK(!it.HasNext());
 
-  Handle<mirror::MethodType> type = hs.NewHandle(
-      mirror::MethodType::Create(self, return_type, method_params));
+  Handle<mirror::MethodType> type;
+  if (cache) {
+    type = hs.NewHandle(mirror::MethodType::Create(self, return_type, method_params));
+  } else {
+    type = hs.NewHandle(mirror::MethodType::CreateUncached(self, return_type, method_params));
+  }
   if (type != nullptr) {
     // Ensure all stores for the newly created MethodType are visible, before we attempt to place
     // it in the DexCache (b/224733324).
@@ -10145,11 +10154,12 @@ ObjPtr<mirror::MethodType> ClassLinker::ResolveMethodType(
 
 ObjPtr<mirror::MethodType> ClassLinker::ResolveMethodType(Thread* self,
                                                           dex::ProtoIndex proto_idx,
-                                                          ArtMethod* referrer) {
+                                                          ArtMethod* referrer,
+                                                          bool cache) {
   StackHandleScope<2> hs(self);
   Handle<mirror::DexCache> dex_cache(hs.NewHandle(referrer->GetDexCache()));
   Handle<mirror::ClassLoader> class_loader(hs.NewHandle(referrer->GetClassLoader()));
-  return ResolveMethodType(self, proto_idx, dex_cache, class_loader);
+  return ResolveMethodType(self, proto_idx, dex_cache, class_loader, cache);
 }
 
 ObjPtr<mirror::MethodHandle> ClassLinker::ResolveMethodHandleForField(

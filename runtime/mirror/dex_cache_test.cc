@@ -134,12 +134,14 @@ TEST_F(DexCacheMethodHandlesTest, TestResolvedMethodTypes) {
       class_linker_->ResolveMethodType(soa.Self(),
                                        method1_id.proto_idx_,
                                        dex_cache,
-                                       class_loader));
+                                       class_loader,
+                                       /* cache= */ false));
   Handle<mirror::MethodType> method2_type = hs.NewHandle(
       class_linker_->ResolveMethodType(soa.Self(),
                                        method2_id.proto_idx_,
                                        dex_cache,
-                                       class_loader));
+                                       class_loader,
+                                       /* cache= */ false));
   EXPECT_EQ(method1_type.Get(), dex_cache->GetResolvedMethodType(method1_id.proto_idx_));
   EXPECT_EQ(method2_type.Get(), dex_cache->GetResolvedMethodType(method2_id.proto_idx_));
 

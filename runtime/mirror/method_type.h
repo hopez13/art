@@ -17,6 +17,7 @@
 #ifndef ART_RUNTIME_MIRROR_METHOD_TYPE_H_
 #define ART_RUNTIME_MIRROR_METHOD_TYPE_H_
 
+#include "method_type-inl.h"
 #include "object_array.h"
 #include "object.h"
 #include "string.h"
@@ -35,6 +36,11 @@ class MANAGED MethodType : public Object {
   static ObjPtr<MethodType> Create(Thread* const self,
                                    Handle<Class> return_type,
                                    Handle<ObjectArray<Class>> param_types)
+      REQUIRES_SHARED(Locks::mutator_lock_) REQUIRES(!Roles::uninterruptible_);
+
+  static ObjPtr<MethodType> CreateUncached(Thread* const self,
+                                           Handle<Class> return_type,
+                                           Handle<ObjectArray<Class>> param_types)
       REQUIRES_SHARED(Locks::mutator_lock_) REQUIRES(!Roles::uninterruptible_);
 
   static ObjPtr<MethodType> CloneWithoutLeadingParameter(Thread* const self,
@@ -76,7 +82,13 @@ class MANAGED MethodType : public Object {
   // exception messages and the like.
   std::string PrettyDescriptor() REQUIRES_SHARED(Locks::mutator_lock_);
 
+  bool IsCached() REQUIRES_SHARED(Locks::mutator_lock_);
+
  private:
+  static MemberOffset CachedOffset() {
+      return MemberOffset(OFFSETOF_MEMBER(MethodType, cached_));
+  }
+
   static MemberOffset FormOffset() {
     return MemberOffset(OFFSETOF_MEMBER(MethodType, form_));
   }
@@ -102,6 +114,7 @@ class MANAGED MethodType : public Object {
   HeapReference<ObjectArray<Class>> p_types_;
   HeapReference<Class> r_type_;
   HeapReference<Object> wrap_alt_;  // Unused in the runtime
+  bool cached_;
 
   friend struct art::MethodTypeOffsets;  // for verifying offset information
   DISALLOW_IMPLICIT_CONSTRUCTORS(MethodType);

@@ -3232,8 +3232,9 @@ jobjectArray Thread::InternalStackTraceToStackTraceElementArray(
 
   dex::ProtoIndex proto_idx =
       method->GetDexFile()->GetIndexForProtoId(interface_method->GetPrototype());
-  Handle<mirror::MethodType> method_type_object(hs.NewHandle<mirror::MethodType>(
-      class_linker->ResolveMethodType(soa.Self(), proto_idx, interface_method)));
+  Handle<mirror::MethodType> method_type_object(
+      hs.NewHandle<mirror::MethodType>(class_linker->ResolveMethodType(
+          soa.Self(), proto_idx, interface_method, /* cache= */ false)));
   if (method_type_object == nullptr) {
     soa.Self()->AssertPendingOOMException();
     return nullptr;
