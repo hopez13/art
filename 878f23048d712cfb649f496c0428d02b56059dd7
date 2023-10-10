@@ -16,6 +16,224 @@
       "message": "So this CL has the 2264-throwing-systemcleaner test failure. Nterp runs a static 1-ref-arg method that does sput-object. It seemed like ExecuteNterpImpl\u0027s responsibility here is limited to ensuring the a1 ref arg is captured in both xFP and xREFS at method start. Hopefully review will yield ideas for a fix.",
       "revId": "878f23048d712cfb649f496c0428d02b56059dd7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9237ca7d_84e69e35",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-10T08:47:53Z",
+      "side": 1,
+      "message": "Add blank line before and after `setup_nterp_frame`?",
+      "revId": "878f23048d712cfb649f496c0428d02b56059dd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48c34422_b046f641",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-10T08:47:53Z",
+      "side": 1,
+      "message": "`(\\cfi_refs: raw register number of \\refs for CFI)`",
+      "range": {
+        "startLine": 63,
+        "startChar": 5,
+        "endLine": 63,
+        "endChar": 24
+      },
+      "revId": "878f23048d712cfb649f496c0428d02b56059dd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d77a40da_6a5c4fcd",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-10T08:47:53Z",
+      "side": 1,
+      "message": "Document `uniq`. (OK to leave the zN temps undocumented.)",
+      "revId": "878f23048d712cfb649f496c0428d02b56059dd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1853c8b7_856a2546",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-10T08:47:53Z",
+      "side": 1,
+      "message": "without alignment padding",
+      "range": {
+        "startLine": 93,
+        "startChar": 33,
+        "endLine": 93,
+        "endChar": 43
+      },
+      "revId": "878f23048d712cfb649f496c0428d02b56059dd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b31b5db6_0a962444",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-10T08:47:53Z",
+      "side": 1,
+      "message": "Missing `$`s? (`fp\u003d$fp, refs\u003d$refs...`)\nAre these not needed for the untranslated python-to-python call?",
+      "range": {
+        "startLine": 139,
+        "startChar": 31,
+        "endLine": 139,
+        "endChar": 67
+      },
+      "revId": "878f23048d712cfb649f496c0428d02b56059dd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cbaa9912_672ac7ed",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-10T08:47:53Z",
+      "side": 1,
+      "message": "We could just compare `\\refs` with the `xFP` which could be passed as an additional `refs_end` argument.",
+      "range": {
+        "startLine": 157,
+        "startChar": 3,
+        "endLine": 158,
+        "endChar": 31
+      },
+      "revId": "878f23048d712cfb649f496c0428d02b56059dd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c18bf2f_d7357117",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-10T08:47:53Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 168,
+        "startChar": 3,
+        "endLine": 169,
+        "endChar": 19
+      },
+      "revId": "878f23048d712cfb649f496c0428d02b56059dd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef28d992_02e070b1",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-10T08:47:53Z",
+      "side": 1,
+      "message": "Should we pass this as `next`? (For consistency with other helpers.)",
+      "range": {
+        "startLine": 271,
+        "startChar": 13,
+        "endLine": 271,
+        "endChar": 32
+      },
+      "revId": "878f23048d712cfb649f496c0428d02b56059dd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48ed941b_6b92130a",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 460,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-10T08:47:53Z",
+      "side": 1,
+      "message": "Is there a reason why we have this twice now? Shouldn\u0027t one be removed?",
+      "range": {
+        "startLine": 460,
+        "startChar": 3,
+        "endLine": 460,
+        "endChar": 32
+      },
+      "revId": "878f23048d712cfb649f496c0428d02b56059dd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "430e3a7c_34897362",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 478,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-10T08:47:53Z",
+      "side": 1,
+      "message": "Use `s10` here to avoid repeating the BEXTI below.",
+      "range": {
+        "startLine": 478,
+        "startChar": 9,
+        "endLine": 478,
+        "endChar": 11
+      },
+      "revId": "878f23048d712cfb649f496c0428d02b56059dd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
