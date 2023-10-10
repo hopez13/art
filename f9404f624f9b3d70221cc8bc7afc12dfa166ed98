@@ -1,5 +1,52 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ad1c8d1e_43b4d436",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 696,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-10T09:41:49Z",
+      "side": 1,
+      "message": "If this returns false, there can be a pending exception and it\u0027s not safe to continue with the `ComputeName()`. But it can even return true with a pending exception, so error handling is pretty impossible to get right anyway, see b/62612630 .",
+      "range": {
+        "startLine": 696,
+        "startChar": 8,
+        "endLine": 696,
+        "endChar": 54
+      },
+      "revId": "f9404f624f9b3d70221cc8bc7afc12dfa166ed98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "98818244_55d58eaa",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 700,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-10T09:41:49Z",
+      "side": 1,
+      "message": "Should we have a canonical empty string somewhere, similar to the `Collections.EMPTY_{SET,MAP,LIST}`? Maybe `String.EMPTY`?",
+      "range": {
+        "startLine": 700,
+        "startChar": 28,
+        "endLine": 700,
+        "endChar": 44
+      },
+      "revId": "f9404f624f9b3d70221cc8bc7afc12dfa166ed98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
