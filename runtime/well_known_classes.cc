@@ -125,6 +125,7 @@ ArtField* WellKnownClasses::dalvik_system_DexPathList__Element_dexFile;
 ArtField* WellKnownClasses::dalvik_system_VMRuntime_nonSdkApiUsageConsumer;
 ArtField* WellKnownClasses::java_io_FileDescriptor_descriptor;
 ArtField* WellKnownClasses::java_lang_ClassLoader_parent;
+ArtField* WellKnownClasses::java_lang_String_EMPTY;
 ArtField* WellKnownClasses::java_lang_Thread_parkBlocker;
 ArtField* WellKnownClasses::java_lang_Thread_daemon;
 ArtField* WellKnownClasses::java_lang_Thread_group;
@@ -748,6 +749,8 @@ void WellKnownClasses::InitFieldsAndMethodsOnly(JNIEnv* env) {
       CacheField(j_n_bb.Get(), /*is_static=*/ false, "isReadOnly", "Z");
   java_nio_ByteBuffer_offset = CacheField(j_n_bb.Get(), /*is_static=*/ false, "offset", "I");
 
+  java_lang_String_EMPTY =
+      CacheField(j_l_String, /*is_static=*/true, "EMPTY", "Ljava/lang/String;");
   java_util_Collections_EMPTY_LIST =
       CacheField(j_u_c.Get(), /*is_static=*/ true, "EMPTY_LIST", "Ljava/util/List;");
 
@@ -880,6 +883,7 @@ void WellKnownClasses::Clear() {
   dalvik_system_DexPathList__Element_dexFile = nullptr;
   dalvik_system_VMRuntime_nonSdkApiUsageConsumer = nullptr;
   java_lang_ClassLoader_parent = nullptr;
+  java_lang_String_EMPTY = nullptr;
   java_lang_Thread_parkBlocker = nullptr;
   java_lang_Thread_daemon = nullptr;
   java_lang_Thread_group = nullptr;
