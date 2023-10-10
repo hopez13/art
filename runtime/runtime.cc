@@ -2964,6 +2964,7 @@ void Runtime::AbortTransactionAndThrowAbortError(Thread* self, const std::string
   // marking the transaction aborted avoids that.
   // But now the transaction can be nested, and abort the transaction will relax the constraints
   // for constructing stack trace.
+  printf("Aborting: %s\n", abort_message.c_str());
   GetTransaction()->Abort(abort_message);
   GetTransaction()->ThrowAbortError(self, &abort_message);
 }

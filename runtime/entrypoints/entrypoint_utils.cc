@@ -307,7 +307,8 @@ ObjPtr<mirror::MethodType> ResolveMethodTypeFromCode(ArtMethod* referrer,
     Handle<mirror::DexCache> dex_cache(hs.NewHandle(referrer->GetDexCache()));
     Handle<mirror::ClassLoader> class_loader(hs.NewHandle(referrer->GetClassLoader()));
     ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
-    method_type = class_linker->ResolveMethodType(hs.Self(), proto_idx, dex_cache, class_loader);
+    method_type = class_linker->ResolveMethodType(
+        hs.Self(), proto_idx, dex_cache, class_loader, /*cache=*/ true);
   }
   return method_type;
 }

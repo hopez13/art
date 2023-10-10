@@ -754,6 +754,7 @@ struct ExecutableOffsets : public CheckOffsets<mirror::Executable> {
 struct MethodTypeOffsets : public CheckOffsets<mirror::MethodType> {
   MethodTypeOffsets() : CheckOffsets<mirror::MethodType>(
       false, "Ljava/lang/invoke/MethodType;") {
+    addOffset(OFFSETOF_MEMBER(mirror::MethodType, cached_), "cached");
     addOffset(OFFSETOF_MEMBER(mirror::MethodType, form_), "form");
     addOffset(OFFSETOF_MEMBER(mirror::MethodType, method_descriptor_), "methodDescriptor");
     addOffset(OFFSETOF_MEMBER(mirror::MethodType, p_types_), "ptypes");

@@ -1415,7 +1415,7 @@ ObjPtr<MethodType> VarHandle::GetMethodTypeForAccessMode(Thread* self,
   for (int32_t i = 0; i < ptypes_count; ++i) {
     ptypes->Set(i, ptypes_array[i]);
   }
-  return MethodType::Create(self, rtype, ptypes);
+  return MethodType::CreateUncached(self, rtype, ptypes);
 }
 
 ObjPtr<MethodType> VarHandle::GetMethodTypeForAccessMode(Thread* self, AccessMode access_mode) {

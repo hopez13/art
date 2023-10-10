@@ -2367,8 +2367,14 @@ extern "C" uint64_t artInvokePolymorphic(mirror::Object* raw_receiver, Thread* s
   ArtMethod* resolved_method = linker->ResolveMethod<ClassLinker::ResolveMode::kCheckICCEAndIAE>(
       self, inst.VRegB(), caller_method, kVirtual);
 
-  Handle<mirror::MethodType> method_type(
-      hs.NewHandle(linker->ResolveMethodType(self, proto_idx, caller_method)));
+  Handle<mirror::MethodType> method_type;
+
+  if (resolved_method->GetDeclaringClass() == GetClassRoot<mirror::MethodHandle>(linker)) {
+    method_type = hs.NewHandle(linker->ResolveMethodType(self, proto_idx, caller_method, true));
+  } else {
+    method_type = hs.NewHandle(linker->ResolveMethodType(self, proto_idx, caller_method, false));
+  }
+
   if (UNLIKELY(method_type.IsNull())) {
     // This implies we couldn't resolve one or more types in this method handle.
     CHECK(self->IsExceptionPending());

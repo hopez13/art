@@ -530,8 +530,19 @@ TEST_F(TransactionTest, ResolveString) {
   ASSERT_FALSE(soa.Self()->IsExceptionPending());
 }
 
+class MethodTypeTransactionTest : public TransactionTest {
+ protected:
+  MethodTypeTransactionTest() {
+    // java.lang.invoke.MethodType factory methods and mirror::MethodType::Create
+    // are backed by the same cache, which is in the primary boot image. As as a
+    // result, MethodType creation can lead to writes to the map under a
+    // transaction, which is forbidden.
+    this->use_boot_image_ = false;
+  }
+};
+
 // Tests rolling back resolved method types in dex cache.
-TEST_F(TransactionTest, ResolveMethodType) {
+TEST_F(MethodTypeTransactionTest, ResolveMethodType) {
   ScopedObjectAccess soa(Thread::Current());
   StackHandleScope<3> hs(soa.Self());
   Handle<mirror::ClassLoader> class_loader(
@@ -554,7 +565,7 @@ TEST_F(TransactionTest, ResolveMethodType) {
   // Do the transaction, then roll back.
   EnterTransactionMode();
   ObjPtr<mirror::MethodType> method_type =
-      class_linker_->ResolveMethodType(soa.Self(), proto_index, h_dex_cache, class_loader);
+      class_linker_->ResolveMethodType(soa.Self(), proto_index, h_dex_cache, class_loader, true);
   ASSERT_TRUE(method_type != nullptr);
   // Make sure the method type was recorded in the dex cache.
   ASSERT_TRUE(h_dex_cache->GetResolvedMethodType(proto_index) == method_type);
