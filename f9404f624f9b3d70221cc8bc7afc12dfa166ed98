@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1c230b25_abcc8e9d",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 696,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-10T10:25:34Z",
+      "side": 1,
+      "message": "Maybe that should be part of b/62612630 which is unlikely to get any attention soon. Acknowledge and move on?",
+      "parentUuid": "ee137e29_a09f31f6",
+      "range": {
+        "startLine": 696,
+        "startChar": 8,
+        "endLine": 696,
+        "endChar": 54
+      },
+      "revId": "f9404f624f9b3d70221cc8bc7afc12dfa166ed98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "98818244_55d58eaa",
         "filename": "runtime/native/java_lang_Class.cc",
         "patchSetId": 5
@@ -85,6 +109,30 @@
       "side": 1,
       "message": "I was looking for one, but can\u0027t find an existing one.\n\nHow to access the field from the runtime without reverse JNI? add the String.EMPTY field to both String.java in java and WellKnownClasses?",
       "parentUuid": "98818244_55d58eaa",
+      "range": {
+        "startLine": 700,
+        "startChar": 28,
+        "endLine": 700,
+        "endChar": 44
+      },
+      "revId": "f9404f624f9b3d70221cc8bc7afc12dfa166ed98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "858a0910_c306e475",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 700,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-10T10:25:34Z",
+      "side": 1,
+      "message": "Yes, adding it to the `WellKnownClasses` is the right approach (unless we consider this an edge case that\u0027s not worth optimizing).",
+      "parentUuid": "3db749a5_143c3baa",
       "range": {
         "startLine": 700,
         "startChar": 28,

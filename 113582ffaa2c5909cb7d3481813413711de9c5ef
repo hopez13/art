@@ -85,6 +85,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "adb2cb8c_fb4cb6d6",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 688,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-10T10:25:34Z",
+      "side": 1,
+      "message": "I would define the `h_name` using the result of the `ComputeName()`.\nAnd I would not define `h_inner_name` at all, the `class_name` does not need to be wrapped in a `Handle\u003c\u003e` in that code path.",
+      "parentUuid": "9802be20_72fed68a",
+      "revId": "113582ffaa2c5909cb7d3481813413711de9c5ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9891a152_41bb8b78",
         "filename": "runtime/native/java_lang_Class.cc",
         "patchSetId": 1
