@@ -144,6 +144,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "851e10ae_05001daf",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1413436
+      },
+      "writtenOn": "2023-10-10T00:33:47Z",
+      "side": 1,
+      "message": "You can find details from go/deprecate-vndk. In long story short, we will keep Treble (which means linker namespace separation for vendor and product), but will deprecate VNDK libraries packaging.",
+      "parentUuid": "375d4335_16970540",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 4
+      },
+      "revId": "da412b5c8d519ccc801deb2176cf692e892eecc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "a199ac70_1d5ca0bf",
