@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ee137e29_a09f31f6",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 696,
+      "author": {
+        "id": 1047684
+      },
+      "writtenOn": "2023-10-10T10:01:39Z",
+      "side": 1,
+      "message": "I don\u0027t exactly understand how to fix it. Should I check `soa.Self()-\u003eIsExceptionPending()` after `GetInnerClass()`?",
+      "parentUuid": "ad1c8d1e_43b4d436",
+      "range": {
+        "startLine": 696,
+        "startChar": 8,
+        "endLine": 696,
+        "endChar": 54
+      },
+      "revId": "f9404f624f9b3d70221cc8bc7afc12dfa166ed98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "98818244_55d58eaa",
         "filename": "runtime/native/java_lang_Class.cc",
         "patchSetId": 5
@@ -37,6 +61,30 @@
       "writtenOn": "2023-10-10T09:41:49Z",
       "side": 1,
       "message": "Should we have a canonical empty string somewhere, similar to the `Collections.EMPTY_{SET,MAP,LIST}`? Maybe `String.EMPTY`?",
+      "range": {
+        "startLine": 700,
+        "startChar": 28,
+        "endLine": 700,
+        "endChar": 44
+      },
+      "revId": "f9404f624f9b3d70221cc8bc7afc12dfa166ed98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3db749a5_143c3baa",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 700,
+      "author": {
+        "id": 1047684
+      },
+      "writtenOn": "2023-10-10T10:01:39Z",
+      "side": 1,
+      "message": "I was looking for one, but can\u0027t find an existing one.\n\nHow to access the field from the runtime without reverse JNI? add the String.EMPTY field to both String.java in java and WellKnownClasses?",
+      "parentUuid": "98818244_55d58eaa",
       "range": {
         "startLine": 700,
         "startChar": 28,
