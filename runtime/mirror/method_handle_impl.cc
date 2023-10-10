@@ -47,6 +47,7 @@ ObjPtr<mirror::MethodHandleImpl> MethodHandleImpl::Create(Thread* const self,
                                                           MethodHandle::Kind kind,
                                                           Handle<MethodType> method_type)
     REQUIRES_SHARED(Locks::mutator_lock_) REQUIRES(!Roles::uninterruptible_) {
+  DCHECK(method_type->IsCached());
   StackHandleScope<1> hs(self);
   Handle<mirror::MethodHandleImpl> mh(hs.NewHandle(ObjPtr<MethodHandleImpl>::DownCast(
       GetClassRoot<MethodHandleImpl>()->AllocObject(self))));

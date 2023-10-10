@@ -52,7 +52,8 @@ ObjPtr<mirror::Class> FindClass(Thread* self, ClassLinker* const cl, const std::
 }
 
 static ObjPtr<mirror::MethodType> CreateMethodType(const std::string& return_type,
-                                                   const std::vector<std::string>& param_types) {
+                                                   const std::vector<std::string>& param_types,
+                                                   const bool cached = false) {
   Runtime* const runtime = Runtime::Current();
   ClassLinker* const class_linker = runtime->GetClassLinker();
   Thread* const self = Thread::Current();
@@ -73,9 +74,12 @@ static ObjPtr<mirror::MethodType> CreateMethodType(const std::string& return_typ
     param_classes->Set(i, param);
   }
 
-  return mirror::MethodType::Create(self, return_clazz, param_classes);
+  if (!cached) {
+    return mirror::MethodType::CreateUncached(self, return_clazz, param_classes);
+  } else {
+    return mirror::MethodType::Create(self, return_clazz, param_classes);
+  }
 }
-
 
 TEST_F(MethodTypeTest, IsExactMatch) {
   ScopedObjectAccess soa(Thread::Current());
@@ -205,6 +209,21 @@ TEST_F(MethodTypeTest, IsInPlaceConvertible) {
     Handle<mirror::MethodType> mh = hs.NewHandle(CreateMethodType("Z", {}));
     ASSERT_FALSE(cs->IsInPlaceConvertible(mh.Get()));
   }
+}
+
+TEST_F(MethodTypeTest, CachedAndNonCached) {
+  ScopedObjectAccess soa(Thread::Current());
+  StackHandleScope<2> hs(soa.Self());
+  Handle<mirror::MethodType> non_cached = hs.NewHandle(CreateMethodType("I", {"J", "Z"}));
+  Handle<mirror::MethodType> cached =
+      hs.NewHandle(CreateMethodType("I", {"J", "Z"}, /*cached=*/ true));
+
+  ASSERT_TRUE(cached->IsCached());
+  ASSERT_FALSE(non_cached->IsCached());
+
+  ASSERT_EQ(non_cached->NumberOfVRegs(), cached->NumberOfVRegs());
+  ASSERT_EQ(non_cached->GetNumberOfPTypes(), cached->GetNumberOfPTypes());
+  ASSERT_TRUE(non_cached->GetRType() == cached->GetRType());
 }
 
 }  // namespace mirror
