@@ -16,6 +16,29 @@
       "message": "This is a cherry-pick CL. The API change is not flagged yet, and flagging is tracked by b/304478059.",
       "revId": "81631a881f6808eb02d845a897da805771161605",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d3f6920_7583482e",
+        "filename": "libartservice/service/java/com/android/server/art/model/DexoptResult.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1166043
+      },
+      "writtenOn": "2023-10-10T16:41:43Z",
+      "side": 1,
+      "message": "do we need a way to trace the errors back to the source(s)?",
+      "range": {
+        "startLine": 339,
+        "startChar": 33,
+        "endLine": 339,
+        "endChar": 37
+      },
+      "revId": "81631a881f6808eb02d845a897da805771161605",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
