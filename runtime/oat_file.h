@@ -18,6 +18,7 @@
 #define ART_RUNTIME_OAT_FILE_H_
 
 #include <list>
+#include <memory>
 #include <string>
 #include <string_view>
 #include <vector>
