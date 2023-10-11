@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94ecd295_ddca3916",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-11T07:30:49Z",
+      "side": 1,
+      "message": "BLTU or BNE (my personal preference: use !\u003d for loop conditions)",
+      "range": {
+        "startLine": 162,
+        "startChar": 3,
+        "endLine": 162,
+        "endChar": 6
+      },
+      "revId": "7a8a38be3ca299bf95d8b7f67855a0a311cf0e0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6b90d2d_5ea8f07a",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-11T07:30:49Z",
+      "side": 1,
+      "message": "BGEU or BEQ",
+      "range": {
+        "startLine": 172,
+        "startChar": 3,
+        "endLine": 172,
+        "endChar": 6
+      },
+      "revId": "7a8a38be3ca299bf95d8b7f67855a0a311cf0e0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e3c374d_0639e3d4",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 504,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-11T07:30:49Z",
+      "side": 1,
+      "message": "`(ins is not needed anymore)`",
+      "range": {
+        "startLine": 504,
+        "startChar": 44,
+        "endLine": 504,
+        "endChar": 45
+      },
+      "revId": "7a8a38be3ca299bf95d8b7f67855a0a311cf0e0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
