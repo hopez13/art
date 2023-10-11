@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "277f5fd2_797ca0f1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-10-11T20:12:55Z",
+      "side": 1,
+      "message": "I hope this means verifying that the fd indeed becomes read only and that profman can read the profile properly. (Given that e.g. dup3 and fcntl doesn\u0027t manage to change the open mode I don\u0027t take for granted that the /proc/self/fd trick works.)",
+      "range": {
+        "startLine": 14,
+        "startChar": 6,
+        "endLine": 14,
+        "endChar": 12
+      },
+      "revId": "640bec0b38e9fec580cefb6e31cb7990e431e298",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f83a4904_e7be4ed3",
+        "filename": "artd/artd.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 471,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-10-11T20:12:55Z",
+      "side": 1,
+      "message": "I believe \"TODO\" signifies an ongoing issue, not a closed one like in this case. I think keeping the ticket reference is useful, but just put it in the text.\n\n(I think I\u0027ve seen a bot internally that reopen tickets that are referenced by TODO\u0027s in the code, and it\u0027s possible we\u0027ll get something similar here sooner or later.)",
+      "range": {
+        "startLine": 471,
+        "startChar": 5,
+        "endLine": 471,
+        "endChar": 9
+      },
+      "revId": "640bec0b38e9fec580cefb6e31cb7990e431e298",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
