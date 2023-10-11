@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4bacdff_32723e45",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-10-11T19:44:18Z",
+      "side": 1,
+      "message": "Please reference the original ticket as well.",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 14
+      },
+      "revId": "c86f89fec06ebf1e7f58c9ad8fb2f35708092daf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b6420520_66e02f27",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-10-11T19:44:18Z",
+      "side": 1,
+      "message": "Is this used?",
+      "range": {
+        "startLine": 121,
+        "startChar": 16,
+        "endLine": 121,
+        "endChar": 41
+      },
+      "revId": "c86f89fec06ebf1e7f58c9ad8fb2f35708092daf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "64c09161_f88a60ec",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-10-11T19:44:18Z",
+      "side": 1,
+      "message": "I\u0027d consider avoiding reordering headers in a big risky CL like this. But optional.",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 34
+      },
+      "revId": "c86f89fec06ebf1e7f58c9ad8fb2f35708092daf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
