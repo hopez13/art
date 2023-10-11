@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "25231969_e51101cc",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-11T15:22:57Z",
+      "side": 1,
+      "message": "I prefer to use the least restrictive requirements for iterators. It\u0027s enough for iterators to be equality comparable without supporting `\u003c`. This allows the same code to be reused for a wider range of iterators.\n\n(This may be pointless in hand-written assembly but I tend to stick to that style anyway.)",
+      "parentUuid": "d1399d6d_829f4822",
+      "range": {
+        "startLine": 162,
+        "startChar": 3,
+        "endLine": 162,
+        "endChar": 6
+      },
+      "revId": "7a8a38be3ca299bf95d8b7f67855a0a311cf0e0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c6b90d2d_5ea8f07a",
