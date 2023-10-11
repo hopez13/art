@@ -655,9 +655,11 @@ void MemMap::Invalidate() {
   DCHECK(IsValid());
 
   // Remove it from gMaps.
-  std::lock_guard<std::mutex> mu(*mem_maps_lock_);
-  auto it = GetGMapsEntry(*this);
-  gMaps->erase(it);
+  if (mem_maps_lock_ != nullptr) {  // Runtime was shutdown.
+    std::lock_guard<std::mutex> mu(*mem_maps_lock_);
+    auto it = GetGMapsEntry(*this);
+    gMaps->erase(it);
+  }
 
   // Mark it as invalid.
   base_size_ = 0u;
