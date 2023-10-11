@@ -22,6 +22,47 @@
       },
       "revId": "4cc6bef653f9d9dbabb4df4cf064f3f3bfab23b1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5349fe2c_ef179fa9",
+        "filename": "libartbase/base/mem_map.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 658,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-10-11T14:41:36Z",
+      "side": 1,
+      "message": "(see comment below)",
+      "parentUuid": "d52e0daa_918ebfd3",
+      "range": {
+        "startLine": 658,
+        "startChar": 0,
+        "endLine": 658,
+        "endChar": 60
+      },
+      "revId": "4cc6bef653f9d9dbabb4df4cf064f3f3bfab23b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd33b834_22a2020f",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 551,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-10-11T14:41:36Z",
+      "side": 1,
+      "message": "If we create oat file from existing `DexFile` I just reuse the containers.\n\nWhich I assume extends the container lifetime until shutdown (which also transitively extends the MemMem lifetime).",
+      "revId": "4cc6bef653f9d9dbabb4df4cf064f3f3bfab23b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
