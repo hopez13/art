@@ -357,6 +357,30 @@
       },
       "revId": "da412b5c8d519ccc801deb2176cf692e892eecc9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8720eab5_f3a6d83a",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 1413436
+      },
+      "writtenOn": "2023-10-11T00:48:35Z",
+      "side": 1,
+      "message": "There are two reasons. One is that VNDK deprecation is still under development for V, so it should not be enabled as default until 2024Q1 branch is in cherry-pick mode (I\u0027m preparing feature flag for this now). Second is that linkerconfig prebuilt needs to be updated to enable treble without VNDK versions. I added a TODO for this, which shares same bug to unify linkerconfig command with riscv.",
+      "parentUuid": "647197bc_ee65c0e9",
+      "range": {
+        "startLine": 432,
+        "startChar": 92,
+        "endLine": 432,
+        "endChar": 149
+      },
+      "revId": "da412b5c8d519ccc801deb2176cf692e892eecc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

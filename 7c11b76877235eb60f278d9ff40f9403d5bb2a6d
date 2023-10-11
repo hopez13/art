@@ -22,6 +22,30 @@
       },
       "revId": "7c11b76877235eb60f278d9ff40f9403d5bb2a6d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "838d0bef_3b4f0f89",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1413436
+      },
+      "writtenOn": "2023-10-11T00:48:35Z",
+      "side": 1,
+      "message": "It means that current libnativeloader considers absence of `ro.product.vndk.version` as product partition is not treblelized, while it would not be true.",
+      "parentUuid": "fa6764d8_1e24d25d",
+      "range": {
+        "startLine": 12,
+        "startChar": 13,
+        "endLine": 13,
+        "endChar": 65
+      },
+      "revId": "7c11b76877235eb60f278d9ff40f9403d5bb2a6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
