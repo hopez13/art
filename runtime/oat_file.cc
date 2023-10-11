@@ -814,23 +814,17 @@ bool OatFileBase::Setup(int zip_fd,
         if (zip_fd != -1) {
           File file(zip_fd, /*check_usage=*/false);
           ArtDexFileLoader dex_file_loader(&file, dex_file_location);
-          loaded = dex_file_loader.Open(/*verify=*/false,
-                                        /*verify_checksum=*/false,
-                                        error_msg,
-                                        &new_dex_files);
+          loaded = dex_file_loader.Open(
+              /*verify=*/false, /*verify_checksum=*/false, error_msg, &new_dex_files);
         } else if (dex_file->IsValid()) {
           // Note that we assume dex_fds are backing by jars.
           ArtDexFileLoader dex_file_loader(dex_file, dex_file_location);
-          loaded = dex_file_loader.Open(/*verify=*/false,
-                                        /*verify_checksum=*/false,
-                                        error_msg,
-                                        &new_dex_files);
+          loaded = dex_file_loader.Open(
+              /*verify=*/false, /*verify_checksum=*/false, error_msg, &new_dex_files);
         } else {
           ArtDexFileLoader dex_file_loader(dex_file_name.c_str(), dex_file_location);
-          loaded = dex_file_loader.Open(/*verify=*/false,
-                                        /*verify_checksum=*/false,
-                                        error_msg,
-                                        &new_dex_files);
+          loaded = dex_file_loader.Open(
+              /*verify=*/false, /*verify_checksum=*/false, error_msg, &new_dex_files);
         }
         if (!loaded) {
           if (Runtime::Current() == nullptr) {

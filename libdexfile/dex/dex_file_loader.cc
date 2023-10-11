@@ -252,7 +252,8 @@ DexFileLoader::DexFileLoader(std::vector<uint8_t>&& memory, const std::string& l
 DexFileLoader::DexFileLoader(MemMap&& mem_map, const std::string& location)
     : DexFileLoader(std::make_shared<MemMapContainer>(std::move(mem_map)), location) {}
 
-std::unique_ptr<const DexFile> DexFileLoader::Open(uint32_t location_checksum,
+std::unique_ptr<const DexFile> DexFileLoader::Open(size_t header_offset,
+                                                   uint32_t location_checksum,
                                                    const OatDexFile* oat_dex_file,
                                                    bool verify,
                                                    bool verify_checksum,
@@ -265,9 +266,10 @@ std::unique_ptr<const DexFile> DexFileLoader::Open(uint32_t location_checksum,
     return {};
   }
   DCHECK(root_container_ != nullptr);
+  DCHECK_LE(header_offset, root_container_->Size());
   std::unique_ptr<const DexFile> dex_file = OpenCommon(root_container_,
-                                                       root_container_->Begin(),
-                                                       root_container_->Size(),
+                                                       root_container_->Begin() + header_offset,
+                                                       root_container_->Size() - header_offset,
                                                        location_,
                                                        location_checksum,
                                                        oat_dex_file,
@@ -428,6 +430,9 @@ std::unique_ptr<DexFile> DexFileLoader::OpenCommon(std::shared_ptr<DexFileContai
     // We should never pass null here, but use reasonable default for app compat anyway.
     container = std::make_shared<MemoryDexFileContainer>(base, size);
   }
+  CHECK_GE(base, container->Begin());
+  CHECK_LE(base, container->End());
+  DCHECK_EQ(size, static_cast<size_t>(container->End() - base));
   if (error_code != nullptr) {
     *error_code = DexFileLoaderErrorCode::kDexFileError;
   }
