@@ -1,0 +1,257 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c17a2ab_a2a90c82",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-11T15:14:36Z",
+      "side": 1,
+      "message": "This is supposed to be in https://android-review.googlesource.com/2779325 , not here. For now, this should be just\n\n    ld s7, ART_METHOD_QUICK_CODE_OFFSET_64(a0)\n\nNote that I would actually want to pull that out of `try_nterp` and do it first.",
+      "range": {
+        "startLine": 298,
+        "startChar": 0,
+        "endLine": 303,
+        "endChar": 17
+      },
+      "revId": "e47583015ee5cb2cc8b07c0b4be7b8d588e60d5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec0d2391_09dfeaae",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-11T15:14:36Z",
+      "side": 1,
+      "message": "This should be `lla` to avoid an unnecessary GOT indirection. Or maybe\n\n    addi $z0, xIBASE, ExecuteNterpImpl - artNterpAsmInstructionStart\n\nif the assembler and linker can handle this expression correctly.\n\n(But move the helper to the next CL, please.)",
+      "range": {
+        "startLine": 413,
+        "startChar": 3,
+        "endLine": 413,
+        "endChar": 5
+      },
+      "revId": "e47583015ee5cb2cc8b07c0b4be7b8d588e60d5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "396dd394_ac87ef37",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 493,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-11T15:14:36Z",
+      "side": 1,
+      "message": "get_shorty_preserve_a0",
+      "range": {
+        "startLine": 493,
+        "startChar": 5,
+        "endLine": 493,
+        "endChar": 22
+      },
+      "revId": "e47583015ee5cb2cc8b07c0b4be7b8d588e60d5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "60f08a8e_ad1c4ab1",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 555,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-11T15:14:36Z",
+      "side": 1,
+      "message": "shift out the processed arg vreg",
+      "range": {
+        "startLine": 555,
+        "startChar": 33,
+        "endLine": 555,
+        "endChar": 49
+      },
+      "revId": "e47583015ee5cb2cc8b07c0b4be7b8d588e60d5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d01d499d_10c99be7",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 559,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-11T15:14:36Z",
+      "side": 1,
+      "message": "shift out the processed arg vreg pair",
+      "range": {
+        "startLine": 559,
+        "startChar": 33,
+        "endLine": 559,
+        "endChar": 54
+      },
+      "revId": "e47583015ee5cb2cc8b07c0b4be7b8d588e60d5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f65dba9_bcbc9c4b",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 563,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-11T15:14:36Z",
+      "side": 1,
+      "message": "shift out a skipped arg vreg",
+      "range": {
+        "startLine": 563,
+        "startChar": 26,
+        "endLine": 563,
+        "endChar": 27
+      },
+      "revId": "e47583015ee5cb2cc8b07c0b4be7b8d588e60d5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf81faf9_18f2a8c9",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 565,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-11T15:14:36Z",
+      "side": 1,
+      "message": "shift out a skipped arg vreg",
+      "range": {
+        "startLine": 565,
+        "startChar": 4,
+        "endLine": 565,
+        "endChar": 27
+      },
+      "revId": "e47583015ee5cb2cc8b07c0b4be7b8d588e60d5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6cddf31e_4a5680c0",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 583,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-11T15:14:36Z",
+      "side": 1,
+      "message": "shift out a skipped arg vreg",
+      "range": {
+        "startLine": 583,
+        "startChar": 33,
+        "endLine": 583,
+        "endChar": 48
+      },
+      "revId": "e47583015ee5cb2cc8b07c0b4be7b8d588e60d5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b0d998f_6909fd78",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 585,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-11T15:14:36Z",
+      "side": 1,
+      "message": "shift out one more skipped arg vreg for J",
+      "range": {
+        "startLine": 585,
+        "startChar": 33,
+        "endLine": 585,
+        "endChar": 58
+      },
+      "revId": "e47583015ee5cb2cc8b07c0b4be7b8d588e60d5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0381e875_6bd68797",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 591,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-11T15:14:36Z",
+      "side": 1,
+      "message": "shift out the processed arg vreg",
+      "range": {
+        "startLine": 591,
+        "startChar": 26,
+        "endLine": 591,
+        "endChar": 27
+      },
+      "revId": "e47583015ee5cb2cc8b07c0b4be7b8d588e60d5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "47db0b17_6f385bd8",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 596,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-11T15:14:36Z",
+      "side": 1,
+      "message": "shift out the processed arg vreg pair",
+      "range": {
+        "startLine": 596,
+        "startChar": 26,
+        "endLine": 596,
+        "endChar": 27
+      },
+      "revId": "e47583015ee5cb2cc8b07c0b4be7b8d588e60d5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

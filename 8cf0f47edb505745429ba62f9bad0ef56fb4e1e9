@@ -1,0 +1,251 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e3b59ed_601d54a0",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-11T15:14:36Z",
+      "side": 1,
+      "message": "doesn\u0027t",
+      "range": {
+        "startLine": 2,
+        "startChar": 39,
+        "endLine": 2,
+        "endChar": 44
+      },
+      "revId": "8cf0f47edb505745429ba62f9bad0ef56fb4e1e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b6dfdcd_33db508c",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-11T15:14:36Z",
+      "side": 1,
+      "message": "and stack",
+      "range": {
+        "startLine": 6,
+        "startChar": 31,
+        "endLine": 6,
+        "endChar": 52
+      },
+      "revId": "8cf0f47edb505745429ba62f9bad0ef56fb4e1e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd6734ae_54dfbd72",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-11T15:14:36Z",
+      "side": 1,
+      "message": "and stack",
+      "range": {
+        "startLine": 10,
+        "startChar": 57,
+        "endLine": 10,
+        "endChar": 78
+      },
+      "revId": "8cf0f47edb505745429ba62f9bad0ef56fb4e1e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4678b902_ea3c145a",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-11T15:14:36Z",
+      "side": 1,
+      "message": "`by nterp`\n\nManaged ABI is happy to leave float/double in fa0.",
+      "range": {
+        "startLine": 27,
+        "startChar": 18,
+        "endLine": 27,
+        "endChar": 36
+      },
+      "revId": "8cf0f47edb505745429ba62f9bad0ef56fb4e1e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9298c71a_e8601fba",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-11T15:14:36Z",
+      "side": 1,
+      "message": "Even nterp-to-nterp transition makes an actual call and when we return we still replace string references. (See `COMMON_INVOKE_NON_RANGE` on arm64.)",
+      "range": {
+        "startLine": 82,
+        "startChar": 73,
+        "endLine": 82,
+        "endChar": 79
+      },
+      "revId": "8cf0f47edb505745429ba62f9bad0ef56fb4e1e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a159671b_e0f23044",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-11T15:14:36Z",
+      "side": 1,
+      "message": "Line too long.",
+      "revId": "8cf0f47edb505745429ba62f9bad0ef56fb4e1e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7eed07c5_35b33733",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-11T15:14:36Z",
+      "side": 1,
+      "message": "A0 is often clobbered.",
+      "range": {
+        "startLine": 251,
+        "startChar": 15,
+        "endLine": 251,
+        "endChar": 64
+      },
+      "revId": "8cf0f47edb505745429ba62f9bad0ef56fb4e1e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ecca9a27_ba3470b1",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-11T15:14:36Z",
+      "side": 1,
+      "message": "Not needed for invoke-static.",
+      "range": {
+        "startLine": 256,
+        "startChar": 5,
+        "endLine": 256,
+        "endChar": 19
+      },
+      "revId": "8cf0f47edb505745429ba62f9bad0ef56fb4e1e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3fd126a6_bdb0093d",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-11T15:14:36Z",
+      "side": 1,
+      "message": "Maybe just `unimp` for now.",
+      "range": {
+        "startLine": 271,
+        "startChar": 0,
+        "endLine": 271,
+        "endChar": 45
+      },
+      "revId": "8cf0f47edb505745429ba62f9bad0ef56fb4e1e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b0d5e1a_91f80b4c",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-11T15:14:36Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 278,
+        "startChar": 0,
+        "endLine": 278,
+        "endChar": 43
+      },
+      "revId": "8cf0f47edb505745429ba62f9bad0ef56fb4e1e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "103b6917_5c9421e2",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 568,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-11T15:14:36Z",
+      "side": 1,
+      "message": "Not needed for invoke-static but let\u0027s leave this generic helper here.",
+      "range": {
+        "startLine": 568,
+        "startChar": 0,
+        "endLine": 568,
+        "endChar": 20
+      },
+      "revId": "8cf0f47edb505745429ba62f9bad0ef56fb4e1e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
