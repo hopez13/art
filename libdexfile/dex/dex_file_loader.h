@@ -180,17 +180,28 @@ class DexFileLoader {
 
   virtual ~DexFileLoader() {}
 
-  std::unique_ptr<const DexFile> Open(uint32_t location_checksum,
+  std::unique_ptr<const DexFile> Open(size_t header_offset,
+                                      uint32_t location_checksum,
                                       const OatDexFile* oat_dex_file,
                                       bool verify,
                                       bool verify_checksum,
                                       std::string* error_msg);
 
   std::unique_ptr<const DexFile> Open(uint32_t location_checksum,
+                                      const OatDexFile* oat_dex_file,
                                       bool verify,
                                       bool verify_checksum,
                                       std::string* error_msg) {
-    return Open(location_checksum,
+    return Open(
+        /*header_offset=*/0, location_checksum, oat_dex_file, verify, verify_checksum, error_msg);
+  }
+
+  std::unique_ptr<const DexFile> Open(uint32_t location_checksum,
+                                      bool verify,
+                                      bool verify_checksum,
+                                      std::string* error_msg) {
+    return Open(/*header_offset=*/0,
+                location_checksum,
                 /*oat_dex_file=*/nullptr,
                 verify,
                 verify_checksum,
