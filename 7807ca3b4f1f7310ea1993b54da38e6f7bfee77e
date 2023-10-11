@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0b054f8b_472668aa",
+        "filename": "libartservice/service/java/com/android/server/art/Utils.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 430,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-10-11T20:30:04Z",
+      "side": 1,
+      "message": "\"handled above\", just to make it clear it\u0027s not order within the block below it\u0027s talking about.",
+      "range": {
+        "startLine": 430,
+        "startChar": 51,
+        "endLine": 430,
+        "endChar": 52
+      },
+      "revId": "7807ca3b4f1f7310ea1993b54da38e6f7bfee77e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af0d587e_0328ae4a",
+        "filename": "libartservice/service/java/com/android/server/art/Utils.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-10-11T20:30:04Z",
+      "side": 1,
+      "message": "Consider using a lambda for this, to avoid the code dup wrt the above.",
+      "range": {
+        "startLine": 432,
+        "startChar": 0,
+        "endLine": 440,
+        "endChar": 13
+      },
+      "revId": "7807ca3b4f1f7310ea1993b54da38e6f7bfee77e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a68b19d0_6e583603",
+        "filename": "libartservice/service/javatests/com/android/server/art/PrimaryDexopterTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 805,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-10-11T20:30:04Z",
+      "side": 1,
+      "message": "\u003e Please fix this WARNING reported by Error Prone: [UnusedMethod] Method \u0027makeEmbeddedProfileNotUsable\u0027 is never used.\n\nIs there a test if none of the locations have a profile?",
+      "range": {
+        "startLine": 805,
+        "startChar": 0,
+        "endLine": 805,
+        "endChar": 80
+      },
+      "revId": "7807ca3b4f1f7310ea1993b54da38e6f7bfee77e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
