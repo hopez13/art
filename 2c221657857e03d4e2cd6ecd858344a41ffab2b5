@@ -213,6 +213,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9fe4f2f3_7b5bbb35",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 767,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-10-12T22:49:35Z",
+      "side": 1,
+      "message": "you will get a single read() --- you\u0027re basically just replacing your own char[] with stdio\u0027s one. you\u0027re relying on the kernel allocating a page and servicing any \u003c\u003dPAGE_SIZE read() as a single[1] read either way (and, yes, you can rely on that). fscanf() is the same, but shorter and clearer.\n\n___\n1. well, \"single\" in the TEMP_FAILURE_RETRY() sense, but i know that\u0027s what you mean :-)",
+      "parentUuid": "e7745d6a_a1dcbdb4",
+      "revId": "2c221657857e03d4e2cd6ecd858344a41ffab2b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e17c424d_d1ac69ac",
         "filename": "runtime/runtime.cc",
         "patchSetId": 3
@@ -311,6 +329,24 @@
       "side": 1,
       "message": "Oops. Fixed. Not that I expect this code to ever be executed.\n\nART currently has several dozen uses of usleep, and none of sleep_for. We should probably clean this up separately.",
       "parentUuid": "016f8a0d_64cb6a81",
+      "revId": "2c221657857e03d4e2cd6ecd858344a41ffab2b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7dab2db9_b4f861e6",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 793,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-10-12T22:49:35Z",
+      "side": 1,
+      "message": "(yeah, philosophically i\u0027m not a huge fan of user-defined literals, but std::chrono_literals is pretty cool.)",
+      "parentUuid": "9858808b_996daca2",
       "revId": "2c221657857e03d4e2cd6ecd858344a41ffab2b5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
