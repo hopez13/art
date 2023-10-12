@@ -22,6 +22,30 @@
       },
       "revId": "bf397e234ac1822c1d77eed5453707c5df3588af",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e9d8451a_5e5ea93b",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-10-12T13:56:03Z",
+      "side": 1,
+      "message": "This is also for production configs: the class could be initializing and one of its method becoming hot before the class is initialized.",
+      "parentUuid": "fdc89e83_98569ebe",
+      "range": {
+        "startLine": 336,
+        "startChar": 8,
+        "endLine": 336,
+        "endChar": 51
+      },
+      "revId": "bf397e234ac1822c1d77eed5453707c5df3588af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
