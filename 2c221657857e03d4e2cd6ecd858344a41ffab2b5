@@ -117,6 +117,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1c62d60b_1cea826d",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 767,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-10-12T21:43:35Z",
+      "side": 1,
+      "message": "oh, actually i\u0027ve just realized that format string was for status, not stat...\n\nyou can either do that the \"hard\" way (still easier than what you have here, though; see https://source.corp.google.com/h/android/platform/superproject/main/+/main:system/libprocinfo/process.cpp;l\u003d149) if you want the name, or the code above but with this format string:\n```\n\"%*d \" // pid\n\"%*s \" // comm\n\"%*c \" // state\n\"%*d \" // ppid\n\"%*d \" // pgrp\n\"%*d \" // session\n\"%*d \" // tty_nr\n\"%*d \" // tpgid\n\"%*u \" // flags\n\"%*lu \" // minflt\n\"%*lu \" // cminflt\n\"%*lu \" // majflt\n\"%*lu \" // cmajflt\n\"%*lu \" // utime\n\"%*lu \" // stime\n\"%*ld \" // cutime\n\"%*ld \" // cstime\n\"%*ld \" // priority\n\"%*ld \" // nice\n\"%ld \"  // num_threads\n```\n(untested, just copied from what `man 5 proc` says.)",
+      "parentUuid": "df049af1_57b6df31",
+      "revId": "2c221657857e03d4e2cd6ecd858344a41ffab2b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e17c424d_d1ac69ac",
         "filename": "runtime/runtime.cc",
         "patchSetId": 3
