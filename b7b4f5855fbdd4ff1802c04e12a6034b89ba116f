@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "38b5ab4f_f2271801",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 758,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-10-12T04:23:39Z",
+      "side": 1,
+      "message": "This ensures that the daemons are removed from the thread list. But, on second thought, I\u0027m no longer convinced that suffices. We shouldn\u0027t really be forking until the actual OS-level threads have terminated. So maybe we want to do this AND leave the original, probably not 100% reliable libcore code?\n\nOr is there some guaranteed atomic way to read a directory? Getdents64 seems promising, but I don\u0027t think atomicity is guaranteed, even for small directories.",
+      "range": {
+        "startLine": 758,
+        "startChar": 4,
+        "endLine": 758,
+        "endChar": 38
+      },
+      "revId": "b7b4f5855fbdd4ff1802c04e12a6034b89ba116f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
