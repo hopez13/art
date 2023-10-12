@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "732000b6_46c3db92",
+        "filename": "libartservice/service/java/com/android/server/art/Utils.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 430,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-10-12T19:13:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0b054f8b_472668aa",
+      "range": {
+        "startLine": 430,
+        "startChar": 51,
+        "endLine": 430,
+        "endChar": 52
+      },
+      "revId": "7807ca3b4f1f7310ea1993b54da38e6f7bfee77e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "af0d587e_0328ae4a",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c952c7a_d1af7599",
+        "filename": "libartservice/service/java/com/android/server/art/Utils.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-10-12T19:13:45Z",
+      "side": 1,
+      "message": "This piece of code contains a `return`, so I can\u0027t put it in a lambda.",
+      "parentUuid": "af0d587e_0328ae4a",
+      "range": {
+        "startLine": 432,
+        "startChar": 0,
+        "endLine": 440,
+        "endChar": 13
+      },
+      "revId": "7807ca3b4f1f7310ea1993b54da38e6f7bfee77e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a68b19d0_6e583603",
@@ -60,6 +108,30 @@
       "writtenOn": "2023-10-11T20:30:04Z",
       "side": 1,
       "message": "\u003e Please fix this WARNING reported by Error Prone: [UnusedMethod] Method \u0027makeEmbeddedProfileNotUsable\u0027 is never used.\n\nIs there a test if none of the locations have a profile?",
+      "range": {
+        "startLine": 805,
+        "startChar": 0,
+        "endLine": 805,
+        "endChar": 80
+      },
+      "revId": "7807ca3b4f1f7310ea1993b54da38e6f7bfee77e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "63e3de52_5c216730",
+        "filename": "libartservice/service/javatests/com/android/server/art/PrimaryDexopterTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 805,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-10-12T19:13:45Z",
+      "side": 1,
+      "message": "\u003e Please fix this WARNING reported by Error Prone: [UnusedMethod] Method \u0027makeEmbeddedProfileNotUsable\u0027 is never used.\n\nRemoved.\n\n\u003e Is there a test if none of the locations have a profile?\n\nWe do, on line 235-242. That test doesn\u0027t need this method because I made all profiles unusable by default in `setUp`. I realized that we probably don\u0027t even need the `makeProfileNotUsable` method above. I forgot why I added it. Maybe it\u0027s fine to keep it for making things more explicit?",
+      "parentUuid": "a68b19d0_6e583603",
       "range": {
         "startLine": 805,
         "startChar": 0,
