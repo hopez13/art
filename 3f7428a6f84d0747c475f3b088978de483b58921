@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52515c5e_4ce0e32d",
+        "filename": "build/art.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-10-12T23:43:37Z",
+      "side": 1,
+      "message": "This is too much for 4KB case. Are we planning on not enabling agnosticism on devices with 32-bit processes? This can have meaningful impact on virtual memory use on 32-bit processes.",
+      "range": {
+        "startLine": 101,
+        "startChar": 6,
+        "endLine": 101,
+        "endChar": 40
+      },
+      "revId": "3f7428a6f84d0747c475f3b088978de483b58921",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
