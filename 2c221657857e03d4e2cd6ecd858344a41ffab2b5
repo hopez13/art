@@ -58,6 +58,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "93024e87_083ff31a",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 756,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-10-12T22:37:22Z",
+      "side": 1,
+      "message": "I think I would rather see a crash in the log. I\u0027ve otherwise usually had a hard time finding the cause of the boot process hanging, especially if it\u0027s an intermittent failure in postsubmit or later. Which seems to be my usual problem.",
+      "parentUuid": "56dac071_e756e992",
+      "revId": "2c221657857e03d4e2cd6ecd858344a41ffab2b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9464212f_1f7187cc",
@@ -77,6 +95,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3b64641b_333228c1",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 757,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-10-12T22:37:22Z",
+      "side": 1,
+      "message": "To be honest, I wasn\u0027t really aware of it. But it sounds like it\u0027s not really intended to be compatible with possible frame size constraints?",
+      "parentUuid": "9464212f_1f7187cc",
+      "revId": "2c221657857e03d4e2cd6ecd858344a41ffab2b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "87474cc1_39570764",
         "filename": "runtime/runtime.cc",
         "patchSetId": 3
@@ -88,6 +124,30 @@
       "writtenOn": "2023-10-12T21:36:20Z",
       "side": 1,
       "message": "`|O_CLOEXEC`",
+      "range": {
+        "startLine": 759,
+        "startChar": 42,
+        "endLine": 759,
+        "endChar": 50
+      },
+      "revId": "2c221657857e03d4e2cd6ecd858344a41ffab2b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f266e72e_afbba173",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 759,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-10-12T22:37:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "87474cc1_39570764",
       "range": {
         "startLine": 759,
         "startChar": 42,
@@ -128,6 +188,24 @@
       "writtenOn": "2023-10-12T21:43:35Z",
       "side": 1,
       "message": "oh, actually i\u0027ve just realized that format string was for status, not stat...\n\nyou can either do that the \"hard\" way (still easier than what you have here, though; see https://source.corp.google.com/h/android/platform/superproject/main/+/main:system/libprocinfo/process.cpp;l\u003d149) if you want the name, or the code above but with this format string:\n```\n\"%*d \" // pid\n\"%*s \" // comm\n\"%*c \" // state\n\"%*d \" // ppid\n\"%*d \" // pgrp\n\"%*d \" // session\n\"%*d \" // tty_nr\n\"%*d \" // tpgid\n\"%*u \" // flags\n\"%*lu \" // minflt\n\"%*lu \" // cminflt\n\"%*lu \" // majflt\n\"%*lu \" // cmajflt\n\"%*lu \" // utime\n\"%*lu \" // stime\n\"%*ld \" // cutime\n\"%*ld \" // cstime\n\"%*ld \" // priority\n\"%*ld \" // nice\n\"%ld \"  // num_threads\n```\n(untested, just copied from what `man 5 proc` says.)",
+      "parentUuid": "df049af1_57b6df31",
+      "revId": "2c221657857e03d4e2cd6ecd858344a41ffab2b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7745d6a_a1dcbdb4",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 767,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-10-12T22:37:22Z",
+      "side": 1,
+      "message": "In general, sure. But in this case, I wanted to be very sure that the result I get corresponds to a single read call. I guess this could be done similarly with sscanf, But, given the need for paren matching, it didn\u0027t seem any less obscure. I assume the command name can include blanks, so we either need a messy scanf format or a mixture of styles? Or is there an easy way to match anything up to the first \")\"?",
       "parentUuid": "df049af1_57b6df31",
       "revId": "2c221657857e03d4e2cd6ecd858344a41ffab2b5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
@@ -219,6 +297,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9858808b_996daca2",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 793,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-10-12T22:37:22Z",
+      "side": 1,
+      "message": "Oops. Fixed. Not that I expect this code to ever be executed.\n\nART currently has several dozen uses of usleep, and none of sleep_for. We should probably clean this up separately.",
+      "parentUuid": "016f8a0d_64cb6a81",
+      "revId": "2c221657857e03d4e2cd6ecd858344a41ffab2b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e0366f46_46cdcf04",
@@ -232,6 +328,30 @@
       "writtenOn": "2023-10-12T21:36:20Z",
       "side": 1,
       "message": "wouldn\u0027t this be more useful in your failure case code in WaitUntilSingleThreaded()? _that_ seems like when i\u0027d want to see this? (but was also what i meant by \"are you sure it isn\u0027t more useful to just hang so i can inspect to work out what\u0027s wrong?\")",
+      "range": {
+        "startLine": 813,
+        "startChar": 4,
+        "endLine": 821,
+        "endChar": 7
+      },
+      "revId": "2c221657857e03d4e2cd6ecd858344a41ffab2b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff5f8f68_5cf3cd05",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 821,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-10-12T22:37:22Z",
+      "side": 1,
+      "message": "I agree this reads strangely. The condition should actually be established by WaitForUnregisterToComplete. So I moved up the checks. Since we still hold the thread_list_lock_, it can\u0027t be invalidated.",
+      "parentUuid": "e0366f46_46cdcf04",
       "range": {
         "startLine": 813,
         "startChar": 4,
