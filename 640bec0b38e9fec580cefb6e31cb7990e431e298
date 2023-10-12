@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ad62fd7_2518398c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-10-12T19:13:27Z",
+      "side": 1,
+      "message": "Yes, I did verify that.\n\nI expect the /proc/self/fd trick to be reliable to some extent since it\u0027s in the example of the man page of [`memfd_create(2)`](https://man7.org/linux/man-pages/man2/memfd_create.2.html), although it\u0027s not mentioned in the doc.\n\nI\u0027ll follow up with a CTS test to test embedded profile support end-to-end. It requires some build system changes to enable us to pack the profile into the APK, so I cannot add the test until I have done the build system changes.",
+      "parentUuid": "277f5fd2_797ca0f1",
+      "range": {
+        "startLine": 14,
+        "startChar": 6,
+        "endLine": 14,
+        "endChar": 12
+      },
+      "revId": "640bec0b38e9fec580cefb6e31cb7990e431e298",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f83a4904_e7be4ed3",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-10-11T20:12:55Z",
       "side": 1,
       "message": "I believe \"TODO\" signifies an ongoing issue, not a closed one like in this case. I think keeping the ticket reference is useful, but just put it in the text.\n\n(I think I\u0027ve seen a bot internally that reopen tickets that are referenced by TODO\u0027s in the code, and it\u0027s possible we\u0027ll get something similar here sooner or later.)",
+      "range": {
+        "startLine": 471,
+        "startChar": 5,
+        "endLine": 471,
+        "endChar": 9
+      },
+      "revId": "640bec0b38e9fec580cefb6e31cb7990e431e298",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "30228c47_a524722c",
+        "filename": "artd/artd.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 471,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-10-12T19:13:27Z",
+      "side": 1,
+      "message": "Good to know the difference. Done.",
+      "parentUuid": "f83a4904_e7be4ed3",
       "range": {
         "startLine": 471,
         "startChar": 5,
