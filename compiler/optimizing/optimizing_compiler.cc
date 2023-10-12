@@ -760,6 +760,8 @@ static bool CanAssembleGraphForRiscv64(HGraph* graph) {
         case HInstruction::kLoadString:
         case HInstruction::kLoadMethodHandle:
         case HInstruction::kLoadMethodType:
+        case HInstruction::kNewArray:
+        case HInstruction::kNewInstance:
         case HInstruction::kInstanceFieldGet:
         case HInstruction::kInstanceFieldSet:
         case HInstruction::kStaticFieldGet:
