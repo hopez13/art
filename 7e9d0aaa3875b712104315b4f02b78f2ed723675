@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "09033e48_70cbb36d",
+        "filename": "runtime/interpreter/mterp/riscv64/object.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-12T06:58:37Z",
+      "side": 1,
+      "message": "I would prefer to keep the `GET_VREG`, reserving the `GET_VREG_OBJECT` for the nterp-to-nterp invoke paths. (For references, the values in \"FP\" and \"REFS\" should be identical.)",
+      "range": {
+        "startLine": 164,
+        "startChar": 6,
+        "endLine": 164,
+        "endChar": 21
+      },
+      "revId": "7e9d0aaa3875b712104315b4f02b78f2ed723675",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9176c3d6_ed136f05",
+        "filename": "runtime/interpreter/mterp/riscv64/object.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-12T06:58:37Z",
+      "side": 1,
+      "message": "We don\u0027t care about the old value, so this can be `zero` (X0).",
+      "range": {
+        "startLine": 189,
+        "startChar": 19,
+        "endLine": 189,
+        "endChar": 21
+      },
+      "revId": "7e9d0aaa3875b712104315b4f02b78f2ed723675",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2dfc74e9_cc8a993e",
+        "filename": "runtime/interpreter/mterp/riscv64/object.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-12T06:58:37Z",
+      "side": 1,
+      "message": "`zero`",
+      "range": {
+        "startLine": 191,
+        "startChar": 19,
+        "endLine": 191,
+        "endChar": 29
+      },
+      "revId": "7e9d0aaa3875b712104315b4f02b78f2ed723675",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4ec99ee_14941806",
+        "filename": "runtime/interpreter/mterp/riscv64/object.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-12T06:58:37Z",
+      "side": 1,
+      "message": "I find this comment unnecessary, especially if we use `zero` as the result register for AMOSWAP.",
+      "range": {
+        "startLine": 193,
+        "startChar": 4,
+        "endLine": 197,
+        "endChar": 74
+      },
+      "revId": "7e9d0aaa3875b712104315b4f02b78f2ed723675",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
