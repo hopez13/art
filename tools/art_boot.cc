@@ -22,6 +22,16 @@
 #include "android-base/logging.h"
 #include "android-base/properties.h"
 
+static void SetPropertyAndLog(const std::string& key,
+                              const std::string& value,
+                              const std::string& message = "") {
+  if (android::base::SetProperty(key, value)) {
+    LOG(INFO) << "Set property " << key << " to " << value << " " << message;
+  } else {
+    LOG(ERROR) << "Failed to set property " << key << " to " << value << " " << message;
+  }
+}
+
 // Copies the value of one system property to another if it isn't empty and
 // passes the predicate test_fn.
 static void CopyPropertyIf(const char* src, const char* dst, bool (*test_fn)(const std::string&)) {
@@ -31,11 +41,7 @@ static void CopyPropertyIf(const char* src, const char* dst, bool (*test_fn)(con
   } else if (!test_fn(prop)) {
     LOG(INFO) << "Property " << src << " has ignored value " << prop;
   } else {
-    if (android::base::SetProperty(dst, prop)) {
-      LOG(INFO) << "Set property " << dst << " to " << prop << " from " << src;
-    } else {
-      LOG(ERROR) << "Failed to set property " << dst << " to " << prop;
-    }
+    SetPropertyAndLog(dst, prop, std::string("from ") + src);
   }
 }
 
@@ -50,6 +56,9 @@ int main(int, char** argv) {
                  // If an OEM has set dalvik.vm.useartservice to false we
                  // shouldn't override it to true from the P/H property.
                  [](const std::string& prop) { return prop == "false"; });
+
+  // TODO(b/305000383): Clean this up.
+  SetPropertyAndLog("dalvik.vm.features.embedded_profile", "true");
 
   return 0;
 }
