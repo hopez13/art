@@ -16,6 +16,24 @@
       "message": "It\u0027s this line that causes dwarfdump to exit 1.",
       "revId": "372fb31b7fcde47c6b8d364eebf3d0ecf3574462",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86861e93_599c5ae6",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-10-12T22:10:27Z",
+      "side": 1,
+      "message": "```\nerror: decoding the FDE opcodes into rows failed\nerror: DW_CFA_def_cfa_offset found when CFA rule was not RegPlusOffset\n```\nfrom\nhttps://llvm.org/doxygen/DWARFDebugFrame_8cpp_source.html line 751\n\nWe do a CFI_DEF_CFA with a dwarf expression here, then later when calling shorty we use cfi_adjust_cfa_offset. Apparently the toolchain does not like that sequence.\n\ndwarfdump worked when swapping the two expressions, so CFI_DEF_CFA with a register is the last one. WDYT? \n\nWe don\u0027t clobber $spills_sp in the surrounding contexts, but if we did, we\u0027d need to have a CFI expression about it, right?",
+      "parentUuid": "7a72130a_318d6e6c",
+      "revId": "372fb31b7fcde47c6b8d364eebf3d0ecf3574462",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
