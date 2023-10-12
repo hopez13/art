@@ -750,6 +750,25 @@ void Runtime::PreZygoteFork() {
   if (GetJit() != nullptr) {
     GetJit()->PreZygoteFork();
   }
+  // All other threads have already been joined, but they may not have finished
+  // removing themselves from the thread list. Wait until they do.
+  ThreadList* tl = GetThreadList();
+  {
+    MutexLock mu(nullptr, *Locks::thread_list_lock_);
+    tl->WaitForUnregisterToComplete();
+    if (kIsDebugBuild) {
+      auto list = tl->GetList();
+      if (list.size() != 1) {
+        for (Thread* t : list) {
+          std::string name;
+          t->GetThreadName(name);
+          LOG(ERROR) << "Remaining pre-fork thread: " << name;
+        }
+      }
+    }
+    CHECK_EQ(tl->Size(), static_cast<size_t>(1));
+  }
+
   if (!heap_->HasZygoteSpace()) {
     Thread* self = Thread::Current();
     // This is the first fork. Update ArtMethods in the boot classpath now to
