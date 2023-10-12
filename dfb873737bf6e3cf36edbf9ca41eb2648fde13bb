@@ -22,6 +22,30 @@
       },
       "revId": "dfb873737bf6e3cf36edbf9ca41eb2648fde13bb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b8c2b65d_ad7451f6",
+        "filename": "runtime/mirror/stack_frame_info.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-12T15:36:40Z",
+      "side": 1,
+      "message": "ART does not seem to use that field other than setting it and the type does not really matter to the C++ setter. So, there is no reason to cherry-pick.",
+      "parentUuid": "568c0d2e_c0a05b0e",
+      "range": {
+        "startLine": 49,
+        "startChar": 2,
+        "endLine": 49,
+        "endChar": 41
+      },
+      "revId": "dfb873737bf6e3cf36edbf9ca41eb2648fde13bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
