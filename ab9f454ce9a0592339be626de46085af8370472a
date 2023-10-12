@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "684c31f9_218722e9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-12T10:25:50Z",
+      "side": 1,
+      "message": "This is not a full code review, I just moved here a few draft comments I\u0027ve had on the Revert^2 for a very long time as they are still applicable.",
+      "revId": "ab9f454ce9a0592339be626de46085af8370472a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e93dbd8f_1f35d49b",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1500,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-12T10:25:50Z",
+      "side": 1,
+      "message": "Why do we copy the list? We should just take the pointer to first entry and clear it. Then we can walk the list, making sure we fetch the next entry before passing the barrier in the current entry.\n\n(With an `IntrusiveForwardList\u003c\u003e` we would use `swap(...)` to move all nodes to a local variable.)",
+      "range": {
+        "startLine": 1498,
+        "startChar": 4,
+        "endLine": 1500,
+        "endChar": 5
+      },
+      "revId": "ab9f454ce9a0592339be626de46085af8370472a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe8ff55e_d6f49381",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1554,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-12T10:25:50Z",
+      "side": 1,
+      "message": "Define these inside the loop and define a `bool success` here. Move the CAS from loop condition inside the loop.",
+      "range": {
+        "startLine": 1554,
+        "startChar": 2,
+        "endLine": 1554,
+        "endChar": 89
+      },
+      "revId": "ab9f454ce9a0592339be626de46085af8370472a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18172989_2c85b9e4",
+        "filename": "runtime/thread.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 2196,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-12T10:25:50Z",
+      "side": 1,
+      "message": "Note: We could use `IntrusiveForwardList\u003cWrappedSuspend1Barrier\u003e`.",
+      "range": {
+        "startLine": 2196,
+        "startChar": 4,
+        "endLine": 2196,
+        "endChar": 27
+      },
+      "revId": "ab9f454ce9a0592339be626de46085af8370472a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
