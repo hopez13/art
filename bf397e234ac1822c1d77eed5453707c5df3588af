@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fdc89e83_98569ebe",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-10-12T13:53:11Z",
+      "side": 1,
+      "message": "Is this only needed for jit on first use? Otherwise methods that are being JITed shouldn\u0027t still need a clinit check right because they would have executed few times already?",
+      "range": {
+        "startLine": 336,
+        "startChar": 8,
+        "endLine": 336,
+        "endChar": 51
+      },
+      "revId": "bf397e234ac1822c1d77eed5453707c5df3588af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
