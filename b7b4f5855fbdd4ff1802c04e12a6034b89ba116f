@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d557200_cb0b96bf",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 758,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-10-12T21:13:57Z",
+      "side": 1,
+      "message": "We discussed this offline, Briefly, the problem is that any sort of join does not ensure that the thread has completed the code necessary to clean up thread data structures.",
+      "parentUuid": "016461a6_7b867ebf",
+      "range": {
+        "startLine": 758,
+        "startChar": 4,
+        "endLine": 758,
+        "endChar": 38
+      },
+      "revId": "b7b4f5855fbdd4ff1802c04e12a6034b89ba116f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f7188085_c6d9d5d2",
@@ -61,6 +85,30 @@
       "writtenOn": "2023-10-12T07:45:16Z",
       "side": 1,
       "message": "1u",
+      "range": {
+        "startLine": 769,
+        "startChar": 25,
+        "endLine": 769,
+        "endChar": 47
+      },
+      "revId": "b7b4f5855fbdd4ff1802c04e12a6034b89ba116f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dfa173d5_8a1804ec",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 769,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-10-12T21:13:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f7188085_c6d9d5d2",
       "range": {
         "startLine": 769,
         "startChar": 25,
