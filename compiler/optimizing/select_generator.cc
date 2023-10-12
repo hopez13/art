@@ -87,6 +87,141 @@ static HPhi* GetSinglePhi(HBasicBlock* block, size_t index1, size_t index2) {
   return select_phi;
 }
 
+bool HSelectGenerator::TryCombineWithOtherIf(HBasicBlock* block) {
+  DCHECK(block->GetLastInstruction()->IsIf());
+  HIf* if_instruction = block->GetLastInstruction()->AsIf();
+  HBasicBlock* true_block = if_instruction->IfTrueSuccessor();
+  HBasicBlock* false_block = if_instruction->IfFalseSuccessor();
+  DCHECK_NE(true_block, false_block);
+
+  if (block->IsInLoop()) {
+    // TODO(solanes): If we perform this optimization for loops, we might avoid loop optimizations
+    // to take place. See if we can enable this for loops.
+    return false;
+  }
+
+  // One branch must be a single goto, and the other one the inner if.
+  if (true_block->IsSingleGoto() == false_block->IsSingleGoto()) {
+    return false;
+  }
+
+  HBasicBlock* single_goto = true_block->IsSingleGoto() ? true_block : false_block;
+  HBasicBlock* inner_if_block = true_block->IsSingleGoto() ? false_block : true_block;
+
+  // The innner if branch has to:
+  // * End with an HIf
+  // * Be able to move all instructions (to be moved to its parent block)
+  DCHECK(inner_if_block->GetPhis().IsEmpty());
+  if (!inner_if_block->EndsWithIf()) {
+    return false;
+  }
+
+  for (HInstructionIterator it(inner_if_block->GetInstructions()); !it.Current()->IsIf();
+       it.Advance()) {
+    HInstruction* instruction = it.Current();
+    if (!instruction->CanBeMoved() || instruction->HasSideEffects() || instruction->CanThrow()) {
+      return false;
+    }
+  }
+
+  HIf* inner_if_instruction = inner_if_block->GetLastInstruction()->AsIf();
+  HBasicBlock* inner_if_true_block = inner_if_instruction->IfTrueSuccessor();
+  HBasicBlock* inner_if_false_block = inner_if_instruction->IfFalseSuccessor();
+
+  // Let `A` be the first HIf condition, and `B` be the second. Let FV_X/TV_X be the false/true
+  // branch of {A,B}.
+  if (!inner_if_false_block->IsSingleGoto() || !inner_if_true_block->IsSingleGoto()) {
+    // TODO(solanes): There's no need for the non-merging path to be a single goto. However, we are
+    // seeing code size regressions if we don't disallow it. We should investigate to understand why
+    // this is happening.
+    return false;
+  }
+
+  if (BlocksMergeTogether(single_goto, inner_if_false_block) ==
+      BlocksMergeTogether(single_goto, inner_if_true_block)) {
+    // One must merge into the outer condition and the other must not.
+    return false;
+  }
+
+  // Check that the phi values in `merge_block` are the same.
+  const bool fv_b_merges = BlocksMergeTogether(single_goto, inner_if_false_block);
+  // This is the block that merges the first if and a branch of the inner if.
+  HBasicBlock* merge_block = single_goto->GetSingleSuccessor();
+  const size_t index_of_single_goto = merge_block->GetPredecessorIndexOf(single_goto);
+  const size_t index_of_if_block_merging_from_if =
+      merge_block->GetPredecessorIndexOf(fv_b_merges ? inner_if_false_block : inner_if_true_block);
+  for (HInstructionIterator it(merge_block->GetPhis()); !it.Done(); it.Advance()) {
+    HPhi* phi = it.Current()->AsPhi();
+    if (phi->InputAt(index_of_single_goto) != phi->InputAt(index_of_if_block_merging_from_if)) {
+      // Different values, can't be merged.
+      return false;
+    }
+  }
+
+  // Move the inner instructions.
+  for (HInstructionIterator it(inner_if_block->GetInstructions()); !it.Current()->IsIf();
+       /* it.Advance() in loop*/) {
+    HInstruction* instruction = it.Current();
+    it.Advance();
+    instruction->MoveBefore(if_instruction);
+  }
+
+  HInstruction* outer_if_guard = if_instruction->InputAt(0);
+  HInstruction* inner_if_guard = inner_if_block->GetLastInstruction()->AsIf()->InputAt(0);
+
+  // We have 4 cases:
+  // * FV_A merges with FV_B. This is `A && B`.
+  // * FV_A merges with TV_B. This is `A && !B`.
+  // * TV_A merges with FV_B. This is `A || !B`
+  // * TV_A merges with TV_B. This is `A || B`.
+  const bool fv_a_merges = false_block->IsSingleGoto();
+
+  // Add the new HAnd/HOr instructions.
+  if (fv_a_merges) {
+    // FV_A cases (A && B / A && !B).
+    HBooleanNot* bnot = nullptr;
+    if (!fv_b_merges) {
+      bnot = new (graph_->GetAllocator()) HBooleanNot(inner_if_guard);
+      block->InsertInstructionBefore(bnot, if_instruction);
+    }
+    // TODO: Change DataType::Type::kInt32 to DataType::Type::kBool?
+    HAnd* and_instr = new (graph_->GetAllocator())
+        HAnd(DataType::Type::kInt32, outer_if_guard, bnot != nullptr ? bnot : inner_if_guard);
+    block->InsertInstructionBefore(and_instr, if_instruction);
+    if_instruction->ReplaceInput(and_instr, 0);
+  } else {
+    // TV_A cases (A || !B / A || B).
+    HBooleanNot* bnot = nullptr;
+    if (fv_b_merges) {
+      bnot = new (graph_->GetAllocator()) HBooleanNot(inner_if_guard);
+      block->InsertInstructionBefore(bnot, if_instruction);
+    }
+    // TODO: Change DataType::Type::kInt32 to DataType::Type::kBool?
+    HOr* or_instr = new (graph_->GetAllocator())
+        HOr(DataType::Type::kInt32, outer_if_guard, bnot != nullptr ? bnot : inner_if_guard);
+    block->InsertInstructionBefore(or_instr, if_instruction);
+    if_instruction->ReplaceInput(or_instr, 0);
+  }
+
+  // Reconfigure the blocks.
+  block->ReplaceSuccessor(fv_a_merges ? false_block : true_block, merge_block);
+  HBasicBlock* non_merge_block = fv_b_merges ? inner_if_true_block : inner_if_false_block;
+  block->ReplaceSuccessor(fv_a_merges ? true_block : false_block, non_merge_block);
+  // Fix up Phis.
+  for (HInstructionIterator it(merge_block->GetPhis()); !it.Done(); it.Advance()) {
+    HPhi* phi = it.Current()->AsPhi();
+    phi->AddInput(phi->InputAt(index_of_single_goto));
+  }
+
+  const size_t index_of_inner_if = non_merge_block->GetPredecessorIndexOf(inner_if_block);
+  for (HInstructionIterator it(non_merge_block->GetPhis()); !it.Done(); it.Advance()) {
+    HPhi* phi = it.Current()->AsPhi();
+    phi->AddInput(phi->InputAt(index_of_inner_if));
+  }
+
+  return true;
+}
+
 bool HSelectGenerator::TryGenerateSelectSimpleDiamondPattern(
     HBasicBlock* block, ScopedArenaSafeMap<HInstruction*, HSelect*>* cache) {
   DCHECK(block->GetLastInstruction()->IsIf());
@@ -307,7 +442,32 @@ HBasicBlock* HSelectGenerator::TryFixupDoubleDiamondPattern(HBasicBlock* block) 
   return inner_if_block;
 }
 
-bool HSelectGenerator::Run() {
+bool HSelectGenerator::IfCombination() {
+  if (graph_->HasIrreducibleLoops()) {
+    // Rebuilding the dominator tree is not supported for graphs with irreducible loops.
+    return false;
+  }
+
+  // Iterate in post order in the unlikely case that removing one occurrence of
+  // the selection pattern empties a branch block of another occurrence.
+  bool phi_combination = false;
+  for (HBasicBlock* block : graph_->GetPostOrder()) {
+    if (!block->EndsWithIf()) {
+      continue;
+    }
+    phi_combination |= TryCombineWithOtherIf(block);
+  }
+
+  if (phi_combination) {
+    graph_->ClearLoopInformation();
+    graph_->ClearDominanceInformation();
+    graph_->BuildDominatorTree();
+  }
+
+  return phi_combination;
+}
+
+bool HSelectGenerator::SelectGeneration() {
   bool did_select = false;
   // Select cache with local allocator.
   ScopedArenaAllocator allocator(graph_->GetArenaStack());
@@ -337,8 +497,13 @@ bool HSelectGenerator::Run() {
       }
     }
   }
-
   return did_select;
+}
+
+bool HSelectGenerator::Run() {
+  const bool phi_combination = IfCombination();
+  const bool did_select = SelectGeneration();
+  return did_select || phi_combination;
 }
 
 }  // namespace art
