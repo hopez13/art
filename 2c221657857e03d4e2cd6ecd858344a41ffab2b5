@@ -16,6 +16,120 @@
       "message": "I think this version should be solid. enh also suggested using pidfd instead. That\u0027s probably an even better, but much more intrusive solution.",
       "revId": "2c221657857e03d4e2cd6ecd858344a41ffab2b5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "56dac071_e756e992",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 756,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-10-12T21:36:20Z",
+      "side": 1,
+      "message": "isn\u0027t an infinite loop likely to be easier to spot and debug?",
+      "revId": "2c221657857e03d4e2cd6ecd858344a41ffab2b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9464212f_1f7187cc",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 757,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-10-12T21:36:20Z",
+      "side": 1,
+      "message": "do you have a reason to avoid libc\u0027s BUFSIZ?",
+      "revId": "2c221657857e03d4e2cd6ecd858344a41ffab2b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "87474cc1_39570764",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 759,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-10-12T21:36:20Z",
+      "side": 1,
+      "message": "`|O_CLOEXEC`",
+      "range": {
+        "startLine": 759,
+        "startChar": 42,
+        "endLine": 759,
+        "endChar": 50
+      },
+      "revId": "2c221657857e03d4e2cd6ecd858344a41ffab2b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df049af1_57b6df31",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 767,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-10-12T21:36:20Z",
+      "side": 1,
+      "message": "y u hate fscanf()?\n\nsomething like this should work, i think:\n```\n  FILE* fp \u003d fopen(\"/proc/self/stat\", \"re\");\n  CHECK(fp !\u003d nullptr) \u003c\u003c strerror(errno);\n  CHECK(fscanf(fp,\n      \"%*c \"   // state\n      \"%*d \"   // ppid\n      \"%*d \"   // pgrp\n      \"%*d \"   // session\n      \"%*d \"   // tty_nr\n      \"%*d \"   // tpgid\n      \"%*u \"   // flags\n      \"%*lu \"  // minflt\n      \"%*lu \"  // cminflt\n      \"%*lu \"  // majflt\n      \"%*lu \"  // cmajflt\n      \"%*lu \"  // utime\n      \"%*lu \"  // stime\n      \"%*ld \"  // cutime\n      \"%*ld \"  // cstime\n      \"%*ld \"  // priority\n      \"%*ld \"  // nice\n      \"%ld \",  // num_threads\n      \u0026num_threads) \u003d\u003d 1);\n  fclose(fp);\n```",
+      "revId": "2c221657857e03d4e2cd6ecd858344a41ffab2b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "016f8a0d_64cb6a81",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 793,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-10-12T21:36:20Z",
+      "side": 1,
+      "message": "we\u0027re counting in https://en.wikipedia.org/wiki/Myriad s now? :-)\n\n(`#include \u003candroid-base/chrono_utils.h\u003e` to take advantage of the chrono literals and `std::this_thread::sleep_for(2s);` or whatever you actually want to say.)",
+      "revId": "2c221657857e03d4e2cd6ecd858344a41ffab2b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0366f46_46cdcf04",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 821,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-10-12T21:36:20Z",
+      "side": 1,
+      "message": "wouldn\u0027t this be more useful in your failure case code in WaitUntilSingleThreaded()? _that_ seems like when i\u0027d want to see this? (but was also what i meant by \"are you sure it isn\u0027t more useful to just hang so i can inspect to work out what\u0027s wrong?\")",
+      "range": {
+        "startLine": 813,
+        "startChar": 4,
+        "endLine": 821,
+        "endChar": 7
+      },
+      "revId": "2c221657857e03d4e2cd6ecd858344a41ffab2b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
