@@ -63,6 +63,53 @@
       },
       "revId": "802c04dc70171fb14a1ba4926af24be8d8ccc55d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "477cfc1b_8c19f04f",
+        "filename": "runtime/jit/jit_code_cache.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-10-12T22:51:46Z",
+      "side": 1,
+      "message": "You comment made me realize that I was not considering that with 4KB page-size, we\u0027ll be reducing the capacity, which would affect performance. But, to be really page agnostic (and the fact that we need at least 2 pages in this case), I still think we should change this to something in terms of page-size.\n\nMaybe:\n`std::max(64*KB, 2*kPageSize)`",
+      "parentUuid": "b30cbb09_b150db87",
+      "range": {
+        "startLine": 188,
+        "startChar": 78,
+        "endLine": 188,
+        "endChar": 86
+      },
+      "revId": "802c04dc70171fb14a1ba4926af24be8d8ccc55d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5cc85873_21311251",
+        "filename": "runtime/jit/jit_code_cache.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-10-12T22:51:46Z",
+      "side": 1,
+      "message": "If we decide to make initial-capacity in terms of page-size, then we should re-word this as well.",
+      "range": {
+        "startLine": 190,
+        "startChar": 42,
+        "endLine": 190,
+        "endChar": 47
+      },
+      "revId": "802c04dc70171fb14a1ba4926af24be8d8ccc55d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
