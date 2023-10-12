@@ -161,7 +161,7 @@
     .if $is_object
       // Reload value, it may have moved.
       srliw $value_reg, xINST, 8  // $value_reg := AA
-      GET_VREG $value_reg, $value_reg  // $value_reg := v[AA]
+      GET_VREG_OBJECT $value_reg, $value_reg  // $value_reg := v[AA]
     .endif  // is_object
 
     // Test for volatile bit
@@ -186,11 +186,17 @@
       sh $value_reg, (t0)
       fence rw, rw
     .elseif $width == 32
-      amoswap.w.rl $value_reg, $value_reg, (t0)
+      // Obj ref is always 32 bits wide.
+      // This AMOSWAP results in:
+      //  - (t0) = ref
+      //  - value_reg = ref
+      //  - t1 = old ref from (t0)
+      // (Instead, if RS2 = value_reg, then value_reg := old ref from (t0)!)
+      amoswap.w.rl t1, $value_reg, (t0)
+      WRITE_BARRIER_IF_OBJECT $is_object, $value_reg, /*holder*/a0, /*uniq*/slow_${opcode}
     .else  // width == 64
       amoswap.d.rl $value_reg, $value_reg, (t0)
     .endif  // width
-    WRITE_BARRIER_IF_OBJECT $is_object, $value_reg, /*holder*/a0, /*uniq*/slow_${opcode}
 
     FETCH_ADVANCE_INST 2
     GET_INST_OPCODE t0
