@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f91ed106_07d696ae",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1475,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-13T10:52:26Z",
+      "side": 1,
+      "message": "Done (I copied the arm64 code and uploaded that as PS1, then made the necessary modifications for riscv64.)",
+      "parentUuid": "3f2a10fa_7914e92a",
+      "range": {
+        "startLine": 1475,
+        "startChar": 36,
+        "endLine": 1475,
+        "endChar": 41
+      },
+      "revId": "2a706788e6c8c5d34876726a622cbddb6d2d3fbb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9bf415f4_cd05fa12",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-10-13T09:34:50Z",
       "side": 1,
       "message": "`a3`",
+      "range": {
+        "startLine": 1514,
+        "startChar": 92,
+        "endLine": 1514,
+        "endChar": 94
+      },
+      "revId": "2a706788e6c8c5d34876726a622cbddb6d2d3fbb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e505877b_c5c0c016",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1514,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-13T10:52:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9bf415f4_cd05fa12",
       "range": {
         "startLine": 1514,
         "startChar": 92,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "75ddc9a5_09dfbf22",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1526,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-13T10:52:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9601ffc8_be45f116",
+      "range": {
+        "startLine": 1526,
+        "startChar": 19,
+        "endLine": 1526,
+        "endChar": 75
+      },
+      "revId": "2a706788e6c8c5d34876726a622cbddb6d2d3fbb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "136c9ba4_4ad9fbf3",
@@ -93,6 +165,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f47e7685_48fd5da6",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1699,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-13T10:52:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "136c9ba4_4ad9fbf3",
+      "range": {
+        "startLine": 1698,
+        "startChar": 0,
+        "endLine": 1699,
+        "endChar": 62
+      },
+      "revId": "2a706788e6c8c5d34876726a622cbddb6d2d3fbb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "180a8ccc_1997e044",
@@ -106,6 +202,30 @@
       "writtenOn": "2023-10-13T09:34:50Z",
       "side": 1,
       "message": "This slow path pattern we have it three times this CL. Not sure if we want to create a macro for it. I\u0027m fine with keeping as-is and cleaning it up later too.",
+      "range": {
+        "startLine": 1714,
+        "startChar": 0,
+        "endLine": 1721,
+        "endChar": 52
+      },
+      "revId": "2a706788e6c8c5d34876726a622cbddb6d2d3fbb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f4ff5a1_b883c1e4",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1721,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-13T10:52:26Z",
+      "side": 1,
+      "message": "I\u0027m keeping this as is for now (in line with arm64).",
+      "parentUuid": "180a8ccc_1997e044",
       "range": {
         "startLine": 1714,
         "startChar": 0,

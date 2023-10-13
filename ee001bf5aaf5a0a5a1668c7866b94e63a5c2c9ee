@@ -16,6 +16,24 @@
       "message": "Some of the lines e.g. `art_quick_alloc_array_resolved_dlmalloc` I don\u0027t see implemented. Was it intended to remove those lines?",
       "revId": "ee001bf5aaf5a0a5a1668c7866b94e63a5c2c9ee",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea1950a7_b0e54dd1",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1428,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-13T10:52:26Z",
+      "side": 0,
+      "message": "See `GENERATE_ALLOC_ENTRYPOINTS_FOR_NON_TLAB_ALLOCATORS`.",
+      "parentUuid": "7431159d_2b41d3b9",
+      "revId": "ee001bf5aaf5a0a5a1668c7866b94e63a5c2c9ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
