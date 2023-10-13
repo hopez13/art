@@ -167,6 +167,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0bde9db7_70ec44fc",
+        "filename": "libartservice/service/java/com/android/server/art/Utils.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-10-13T15:32:36Z",
+      "side": 1,
+      "message": "Alright, I\u0027ll keep the latest version then, as it at least avoid the duplication of the logic that is prone to grow.",
+      "parentUuid": "b97d43b7_094f8dad",
+      "range": {
+        "startLine": 432,
+        "startChar": 0,
+        "endLine": 440,
+        "endChar": 13
+      },
+      "revId": "7807ca3b4f1f7310ea1993b54da38e6f7bfee77e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a68b19d0_6e583603",
