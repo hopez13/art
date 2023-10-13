@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "30992bfd_5fdfc061",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-10-13T20:45:23Z",
+      "side": 1,
+      "message": "Should be ok, mainly because we are not using Rosalloc in production. However, Hans is familiar with the code, so he is best to review this CL.",
+      "revId": "3e42a7ea9e5f727d910a01eb36294b594f739d55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2ffa3ca9_fcf088a4",
