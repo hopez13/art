@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6fb2e485_8b0f7a01",
+        "filename": "libartbase/base/bit_utils.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-10-13T19:23:22Z",
+      "side": 1,
+      "message": "\u0027constexpr\u0027 if was a relatively recent addition. I was curious too, so looking it up, and found an interesting article:\nhttps://stackoverflow.com/questions/53809853/if-vs-if-constexpr-inside-constexpr-function\n\nIt seems like it may evaluate the expression before deducing the type of the function if constexpr is used, but it shouldn\u0027t be needed in that case.\n\nThat being said, I think being explicit about this is good in general.",
+      "parentUuid": "5d359c05_fc6c121c",
+      "range": {
+        "startLine": 180,
+        "startChar": 5,
+        "endLine": 180,
+        "endChar": 14
+      },
+      "revId": "378e5bf8401834547e09482bc4b4e4db2106688f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3aa9c54f_85ae9e90",
         "filename": "libartbase/base/globals.h",
         "patchSetId": 3
