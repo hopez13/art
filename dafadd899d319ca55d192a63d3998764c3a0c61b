@@ -16,6 +16,29 @@
       "message": "Note: Not sending this CL for review yet, as I\u0027d like to do some local testing first.",
       "revId": "dafadd899d319ca55d192a63d3998764c3a0c61b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c199744e_fa3cb697",
+        "filename": "TEST_MAPPING",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-10-13T13:35:01Z",
+      "side": 1,
+      "message": "\u003e Test module \"art-run-test-2265-checker-select-binary-unary\" is being added to presubmit. It needs to meet SLO in postsubmit on all configured targets.\n\nSo it needs more soak before this can go in?",
+      "range": {
+        "startLine": 0,
+        "startChar": 0,
+        "endLine": 0,
+        "endChar": 0
+      },
+      "revId": "dafadd899d319ca55d192a63d3998764c3a0c61b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
