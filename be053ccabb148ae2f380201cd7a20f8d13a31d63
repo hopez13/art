@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d6c5a62_d06a09aa",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2182,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-10-13T13:56:14Z",
+      "side": 1,
+      "message": "Yeah, for baseline I wouldn\u0027t consider this too important.",
+      "parentUuid": "8dff98e6_34b51b2c",
+      "range": {
+        "startLine": 2182,
+        "startChar": 9,
+        "endLine": 2182,
+        "endChar": 62
+      },
+      "revId": "be053ccabb148ae2f380201cd7a20f8d13a31d63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dbbc2c75_aadbf017",
@@ -54,6 +78,30 @@
       "writtenOn": "2023-10-13T12:56:42Z",
       "side": 1,
       "message": "Is the assumption here that lhs can only have a 0 or 1 so we can correctly compute true_ or false_ offset and update the respective count? \n\nI remember discussion around boolean values not always being 1 or 0. Does this not impact it here? Or by this phase are we always sure it would be 1 or 0.",
+      "range": {
+        "startLine": 2303,
+        "startChar": 50,
+        "endLine": 2303,
+        "endChar": 79
+      },
+      "revId": "be053ccabb148ae2f380201cd7a20f8d13a31d63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "35ec93a0_b53c8973",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2303,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-10-13T13:56:14Z",
+      "side": 1,
+      "message": "Given this is baseline compilation, we don\u0027t do optimizations that would not make the input a condition. I\u0027ve added a DCHECK.",
+      "parentUuid": "dbbc2c75_aadbf017",
       "range": {
         "startLine": 2303,
         "startChar": 50,
@@ -87,6 +135,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "65d4269b_4407eafc",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2305,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-10-13T13:56:14Z",
+      "side": 1,
+      "message": "Yes, switched to kZero.",
+      "parentUuid": "8836f815_76962655",
+      "range": {
+        "startLine": 2305,
+        "startChar": 7,
+        "endLine": 2305,
+        "endChar": 28
+      },
+      "revId": "be053ccabb148ae2f380201cd7a20f8d13a31d63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "296ca86a_1c4d439a",
@@ -100,6 +172,30 @@
       "writtenOn": "2023-10-13T12:56:42Z",
       "side": 1,
       "message": "Just for my understanding, we are setting the counts here so we can use this to generate better optimized code which will be done in a future CL right?",
+      "range": {
+        "startLine": 685,
+        "startChar": 5,
+        "endLine": 686,
+        "endChar": 49
+      },
+      "revId": "be053ccabb148ae2f380201cd7a20f8d13a31d63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "29e3673b_86506caf",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 686,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-10-13T13:56:14Z",
+      "side": 1,
+      "message": "Yes, that\u0027s correct.",
+      "parentUuid": "296ca86a_1c4d439a",
       "range": {
         "startLine": 685,
         "startChar": 5,
@@ -133,6 +229,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d0417697_0935ae1d",
+        "filename": "runtime/deoptimization_kind.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-10-13T13:56:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3a7b653a_79b6fea1",
+      "range": {
+        "startLine": 29,
+        "startChar": 2,
+        "endLine": 29,
+        "endChar": 10
+      },
+      "revId": "be053ccabb148ae2f380201cd7a20f8d13a31d63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a74fe102_64e56445",
@@ -146,6 +266,30 @@
       "writtenOn": "2023-10-13T12:56:42Z",
       "side": 1,
       "message": "nit: Not from this CL, but maybe just add JIT code cache internally uses it for hotness counters.",
+      "range": {
+        "startLine": 90,
+        "startChar": 20,
+        "endLine": 90,
+        "endChar": 57
+      },
+      "revId": "be053ccabb148ae2f380201cd7a20f8d13a31d63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9723e420_28367eb7",
+        "filename": "runtime/jit/profiling_info.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-10-13T13:56:14Z",
+      "side": 1,
+      "message": "Done in this CL (small enough).",
+      "parentUuid": "a74fe102_64e56445",
       "range": {
         "startLine": 90,
         "startChar": 20,
@@ -179,6 +323,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "69482967_7f417f2a",
+        "filename": "runtime/jit/profiling_info.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-10-13T13:56:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "51305721_e37dc21d",
+      "range": {
+        "startLine": 118,
+        "startChar": 5,
+        "endLine": 118,
+        "endChar": 46
+      },
+      "revId": "be053ccabb148ae2f380201cd7a20f8d13a31d63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b64ace01_19c9e0d7",
@@ -192,6 +360,30 @@
       "writtenOn": "2023-10-13T12:56:42Z",
       "side": 1,
       "message": "nit: may be ExecutionCount?",
+      "range": {
+        "startLine": 73,
+        "startChar": 11,
+        "endLine": 73,
+        "endChar": 22
+      },
+      "revId": "be053ccabb148ae2f380201cd7a20f8d13a31d63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff80c8f4_9155ddc4",
+        "filename": "runtime/jit/profiling_info.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-10-13T13:56:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b64ace01_19c9e0d7",
       "range": {
         "startLine": 73,
         "startChar": 11,
