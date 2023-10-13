@@ -72,6 +72,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f749e47e_29c044c3",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1475,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-13T15:50:07Z",
+      "side": 1,
+      "message": "Yes, starting with a copy of arm64 ensured that at this point the same entrypoints shall have custom hand-written implementation. (But they can diverge in the future.)",
+      "parentUuid": "bc515194_acebe4a1",
+      "range": {
+        "startLine": 1475,
+        "startChar": 36,
+        "endLine": 1475,
+        "endChar": 41
+      },
+      "revId": "2a706788e6c8c5d34876726a622cbddb6d2d3fbb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9bf415f4_cd05fa12",

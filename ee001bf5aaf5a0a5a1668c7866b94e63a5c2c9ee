@@ -52,6 +52,24 @@
       "parentUuid": "ea1950a7_b0e54dd1",
       "revId": "ee001bf5aaf5a0a5a1668c7866b94e63a5c2c9ee",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c18b179_5606e405",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1428,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-13T15:50:07Z",
+      "side": 0,
+      "message": "The `GENERATE_ALLOC_ENTRYPOINTS_FOR_NON_TLAB_ALLOCATORS` implements `*_dlmalloc` and many other entrypoints. They do not have a fast path and just call the runtime but they are implemented.",
+      "parentUuid": "8dc3de43_9fd08025",
+      "revId": "ee001bf5aaf5a0a5a1668c7866b94e63a5c2c9ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
