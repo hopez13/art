@@ -52,6 +52,24 @@
       "parentUuid": "86861e93_599c5ae6",
       "revId": "372fb31b7fcde47c6b8d364eebf3d0ecf3574462",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8b27666_57e072b1",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-13T07:27:11Z",
+      "side": 1,
+      "message": "Remove all CFI directives from `{SETUP,RESTORE}_SAVE_ARGS_ONLY_FRAME` (use plain instructions instead of INCREMENT/DECREMENT/SAVE/RESTORE macros). Then try moving the `.cfi_def_cfa_register $spills_sp` back, after the `mv sp, $z1`.\n\n(Maybe rename `{SETUP,RESTORE}_SAVE_ARGS_ONLY_FRAME` to `{SPILL,RESTORE}_ALL_ARGUMENTS` to align naming with arm64.)",
+      "parentUuid": "fcadec3d_b6859dbb",
+      "revId": "372fb31b7fcde47c6b8d364eebf3d0ecf3574462",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
