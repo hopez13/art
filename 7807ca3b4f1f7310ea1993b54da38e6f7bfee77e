@@ -143,6 +143,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b97d43b7_094f8dad",
+        "filename": "libartservice/service/java/com/android/server/art/Utils.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-10-13T15:24:24Z",
+      "side": 1,
+      "message": "Yeah, \"elegant\" is hard to achieve here (to some extent it\u0027s a matter of adjusting one\u0027s perception of what that entails), but the (single) lambda approach didn\u0027t look too awful to me (I\u0027d put the assignments before the ifs though).\n\nI\u0027m a little less keen on this approach, because of all the lambdas ending up in the array, and the dislocated type below. So that\u0027s my ¢2, I still leave it to you.",
+      "parentUuid": "ec34883e_cfa9e3ff",
+      "range": {
+        "startLine": 432,
+        "startChar": 0,
+        "endLine": 440,
+        "endChar": 13
+      },
+      "revId": "7807ca3b4f1f7310ea1993b54da38e6f7bfee77e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a68b19d0_6e583603",
