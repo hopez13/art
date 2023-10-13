@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fdde7950_ba60b4e4",
+        "filename": "runtime/interpreter/mterp/riscv64/object.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-13T07:14:55Z",
+      "side": 1,
+      "message": "The nterp-to-nterp path uses `GET_VREG_OBJECT` to copy the required REFS, so that we correctly mark references without processing the shorty. The StringInit reference replacement also uses `GET_VREG_OBJECT` to avoid replacing an integral value with the new String. Other than that, arm64 has no reason to use `GET_VREG_OBJECT`.\n\nBut, as you point out, we have LW v. LWU on riscv64, so it makes sense to use `GET_VREG_OBJECT` in other contexts. It does not matter here but it shall matter for `iget*` and `iput*`.\n\nLet\u0027s submit this now as is, making this CL just a pure fix for the AMOSWAP clobbering. Feel free to change this to `GET_VREG_OBJECT` in a future CL.",
+      "parentUuid": "e5486063_bb445852",
+      "range": {
+        "startLine": 164,
+        "startChar": 6,
+        "endLine": 164,
+        "endChar": 21
+      },
+      "revId": "7e9d0aaa3875b712104315b4f02b78f2ed723675",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9176c3d6_ed136f05",
