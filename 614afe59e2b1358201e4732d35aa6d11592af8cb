@@ -46,6 +46,30 @@
       },
       "revId": "614afe59e2b1358201e4732d35aa6d11592af8cb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a8e91ab_bdd385ed",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-10-13T13:11:29Z",
+      "side": 0,
+      "message": "Interesting. The same goes for that defaults in the now static libart-compiler, doesn\u0027t it? I suppose it needs to move from libart-compiler to libart etc, or some defaults that end up there, like libart-compiler_common_deps. Is that already the case?\n\nHave you verified that we\u0027re not losing that or any other linker flags from either libart-runtime or libart-compiler when they become static here? There\u0027s quite a tangle of defaults, so I\u0027d consider comparing the final command lines, but it\u0027s necessary to do both with and without debug, and both host and target.",
+      "parentUuid": "6effdba1_119aa679",
+      "range": {
+        "startLine": 323,
+        "startChar": 8,
+        "endLine": 323,
+        "endChar": 31
+      },
+      "revId": "614afe59e2b1358201e4732d35aa6d11592af8cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
