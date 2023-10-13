@@ -22,6 +22,30 @@
       },
       "revId": "765171a29180fcf68bc48c164f5f3718fc2ece09",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b1f160b5_3759f5d5",
+        "filename": "runtime/runtime_globals.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-10-13T20:39:10Z",
+      "side": 1,
+      "message": "Please also note that in all the GC implementations we assume large-objects are page-aligned and therefore the checks are directly based on kPageSize, and not kLargeObjectAlignment.",
+      "parentUuid": "6175d8eb_e13f4814",
+      "range": {
+        "startLine": 36,
+        "startChar": 48,
+        "endLine": 36,
+        "endChar": 60
+      },
+      "revId": "765171a29180fcf68bc48c164f5f3718fc2ece09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
