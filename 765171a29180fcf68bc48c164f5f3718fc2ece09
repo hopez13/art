@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6175d8eb_e13f4814",
+        "filename": "runtime/runtime_globals.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-10-13T20:36:52Z",
+      "side": 1,
+      "message": "I see that large-object alignment is being set to max page-size due to page-size not being constexpr in future, but this has serious ramifications. With this change, even with 4KB page-size, if I have an object of 16.1KB, it will result in 32KB of heap be considered allocated, instead of 20KB. This could result in dubious OOM errors.\n\nI\u0027d suggest not using constexpr alignment in large-object space, so that you can use page-size for alignment. And for bitmaps define two bitmaps, for both kMinPageSize, and kMaxPageSize. And then at runtime reinterpret-cast based on page-size.",
+      "range": {
+        "startLine": 36,
+        "startChar": 48,
+        "endLine": 36,
+        "endChar": 60
+      },
+      "revId": "765171a29180fcf68bc48c164f5f3718fc2ece09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
