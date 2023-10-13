@@ -97,6 +97,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "daffed22_7e0beddd",
+        "filename": "libartservice/service/java/com/android/server/art/Utils.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-10-13T11:43:38Z",
+      "side": 1,
+      "message": "The lambda could return either an InitProfileResult to return or null to continue. Maybe that\u0027d become more boilerplate than it\u0027s worth? I\u0027m not sure, I\u0027ll leave it to you.\n\nOne reason I brought it up is that the logic here may be prone to grow.",
+      "parentUuid": "5c952c7a_d1af7599",
+      "range": {
+        "startLine": 432,
+        "startChar": 0,
+        "endLine": 440,
+        "endChar": 13
+      },
+      "revId": "7807ca3b4f1f7310ea1993b54da38e6f7bfee77e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a68b19d0_6e583603",
         "filename": "libartservice/service/javatests/com/android/server/art/PrimaryDexopterTest.java",
         "patchSetId": 2
@@ -132,6 +156,30 @@
       "side": 1,
       "message": "\u003e Please fix this WARNING reported by Error Prone: [UnusedMethod] Method \u0027makeEmbeddedProfileNotUsable\u0027 is never used.\n\nRemoved.\n\n\u003e Is there a test if none of the locations have a profile?\n\nWe do, on line 235-242. That test doesn\u0027t need this method because I made all profiles unusable by default in `setUp`. I realized that we probably don\u0027t even need the `makeProfileNotUsable` method above. I forgot why I added it. Maybe it\u0027s fine to keep it for making things more explicit?",
       "parentUuid": "a68b19d0_6e583603",
+      "range": {
+        "startLine": 805,
+        "startChar": 0,
+        "endLine": 805,
+        "endChar": 80
+      },
+      "revId": "7807ca3b4f1f7310ea1993b54da38e6f7bfee77e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c915317_0350df5a",
+        "filename": "libartservice/service/javatests/com/android/server/art/PrimaryDexopterTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 805,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-10-13T11:43:38Z",
+      "side": 1,
+      "message": "If it\u0027s made explicit by a call that in reality doesn\u0027t do anything then it can become a lie. I think in that case we\u0027re probably better off just with comments that they\u0027re not usable (if anything at all).\n\nThe most prudent approach would of course be to have less default mocking in `setUp`, so a call to either `blahUsable` or `blahNotUsable` is required, and then use `lenient` less as well.",
+      "parentUuid": "63e3de52_5c216730",
       "range": {
         "startLine": 805,
         "startChar": 0,
