@@ -325,6 +325,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b12fd823_b121424b",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 767,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-10-13T18:30:32Z",
+      "side": 1,
+      "message": "It appears to me that we would have to use GetProcessTids(), which has the same issue that we currently have: It relies on multiple calls to readdir returning consistent results, and not failing, even when the underlying directory is concurrently changing. That may happen to work, but we currently have some empirical evidence that it might not, at least in some cases. And I haven\u0027t found a claim that it should work. I really want code that does a manifestly atomic read of some value that indicates the number of threads.\n\nI\u0027m still inclined to leave this as, at least for now.",
+      "parentUuid": "b49c2f4c_9c8492b3",
+      "revId": "2c221657857e03d4e2cd6ecd858344a41ffab2b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e17c424d_d1ac69ac",
