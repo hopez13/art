@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b7765fd6_d74e3c46",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 752,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-10-13T02:48:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d5afeef8_72d47a2f",
+      "range": {
+        "startLine": 752,
+        "startChar": 44,
+        "endLine": 752,
+        "endChar": 49
+      },
+      "revId": "2c221657857e03d4e2cd6ecd858344a41ffab2b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "56dac071_e756e992",
@@ -231,6 +255,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3cc080a7_831f045b",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 767,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-10-13T02:48:02Z",
+      "side": 1,
+      "message": "I assume that library you pointed at isn\u0027t directly usable from ART. But borrowing existing code does sound more attractive. I\u0027ll see if I can do that.",
+      "parentUuid": "9fe4f2f3_7b5bbb35",
+      "revId": "2c221657857e03d4e2cd6ecd858344a41ffab2b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e17c424d_d1ac69ac",
         "filename": "runtime/runtime.cc",
         "patchSetId": 3
@@ -242,6 +284,30 @@
       "writtenOn": "2023-10-12T21:42:21Z",
       "side": 1,
       "message": "I don\u0027t think you have to be worried about partial reads.",
+      "range": {
+        "startLine": 767,
+        "startChar": 2,
+        "endLine": 770,
+        "endChar": 5
+      },
+      "revId": "2c221657857e03d4e2cd6ecd858344a41ffab2b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ef3bb68_ba9a61f0",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 770,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-10-13T02:48:02Z",
+      "side": 1,
+      "message": "My concern was finding that guarantee somewhere in a spec, since we seem to be having some issues around this now. (Though I\u0027m not sure exactly what system call sequence the current code results in.) But there seems to be enough reliance on that for it to be OK.",
+      "parentUuid": "e17c424d_d1ac69ac",
       "range": {
         "startLine": 767,
         "startChar": 2,
@@ -275,6 +341,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "379ae8be_8ae1d1c8",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 788,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-10-13T02:48:02Z",
+      "side": 1,
+      "message": "See above discussion :-) Feel free to chime in there.",
+      "parentUuid": "03a1edc4_fe88282a",
+      "range": {
+        "startLine": 771,
+        "startChar": 2,
+        "endLine": 788,
+        "endChar": 5
+      },
+      "revId": "2c221657857e03d4e2cd6ecd858344a41ffab2b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c6685cc9_6a26947a",
@@ -288,6 +378,30 @@
       "writtenOn": "2023-10-12T21:42:21Z",
       "side": 1,
       "message": "Isn\u0027t it too brittle? Maybe log it with warning but continue to loop?",
+      "range": {
+        "startLine": 791,
+        "startChar": 6,
+        "endLine": 791,
+        "endChar": 11
+      },
+      "revId": "2c221657857e03d4e2cd6ecd858344a41ffab2b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e7cd443_a6b1c439",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 791,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-10-13T02:48:02Z",
+      "side": 1,
+      "message": "I guess there\u0027s not much of a cost to increase the iteration count, so we wait at least a second before crashing. I\u0027ll do that. Though we are waiting for a thread that has already finished unregistering itself, so it should be really really close to exiting.\n\nI would rather not continue indefinitely in this case. Given the limited information we get from many crashes, I think that would be hard to diagnose.",
+      "parentUuid": "c6685cc9_6a26947a",
       "range": {
         "startLine": 791,
         "startChar": 6,
