@@ -39,6 +39,30 @@
       },
       "revId": "3e42a7ea9e5f727d910a01eb36294b594f739d55",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3734c3a5_8f9bf12c",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-10-13T22:09:23Z",
+      "side": 1,
+      "message": "I also don\u0027t know this code well. Given that there seem to be no real clients, this seems OK.  Otherwise it would probably merit more investigation. I\u0027m not sure whether this memory is actually touched past the header. I suspect not.\n\nThe actual required size seems to be specified at\n\nhttps://cs.android.com/android/platform/superproject/main/+/main:art/runtime/gc/allocator/rosalloc.h;l\u003d393",
+      "parentUuid": "2ffa3ca9_fcf088a4",
+      "range": {
+        "startLine": 52,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 84
+      },
+      "revId": "3e42a7ea9e5f727d910a01eb36294b594f739d55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
