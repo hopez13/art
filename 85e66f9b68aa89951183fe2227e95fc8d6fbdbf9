@@ -39,6 +39,53 @@
       },
       "revId": "85e66f9b68aa89951183fe2227e95fc8d6fbdbf9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "31da07f2_5d7850cd",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 754,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-13T08:02:54Z",
+      "side": 1,
+      "message": "Use `size_t` for these constants and the loop variable `tries`.",
+      "parentUuid": "872dea0f_d6e8f907",
+      "range": {
+        "startLine": 754,
+        "startChar": 23,
+        "endLine": 754,
+        "endChar": 32
+      },
+      "revId": "85e66f9b68aa89951183fe2227e95fc8d6fbdbf9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1cc294b0_85e1682e",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 795,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-13T08:02:54Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 795,
+        "startChar": 62,
+        "endLine": 795,
+        "endChar": 68
+      },
+      "revId": "85e66f9b68aa89951183fe2227e95fc8d6fbdbf9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
