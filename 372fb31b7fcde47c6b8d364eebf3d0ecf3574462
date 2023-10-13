@@ -34,6 +34,24 @@
       "parentUuid": "7a72130a_318d6e6c",
       "revId": "372fb31b7fcde47c6b8d364eebf3d0ecf3574462",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fcadec3d_b6859dbb",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-10-13T00:35:12Z",
+      "side": 1,
+      "message": "044-proxy had this error message:\n+10-12 22:32:14.049 1011389 1011389 E unwind  : Attempt to set new register, but cfa is not already set to a register.\n\nthat was with PS8, the message looks related to this code.",
+      "parentUuid": "86861e93_599c5ae6",
+      "revId": "372fb31b7fcde47c6b8d364eebf3d0ecf3574462",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
