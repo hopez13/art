@@ -22,6 +22,30 @@
       },
       "revId": "3f7428a6f84d0747c475f3b088978de483b58921",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aad63353_c8900143",
+        "filename": "build/art.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-10-13T22:40:25Z",
+      "side": 1,
+      "message": "16k would be arm64-only.",
+      "parentUuid": "52515c5e_4ce0e32d",
+      "range": {
+        "startLine": 101,
+        "startChar": 6,
+        "endLine": 101,
+        "endChar": 40
+      },
+      "revId": "3f7428a6f84d0747c475f3b088978de483b58921",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
