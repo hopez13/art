@@ -429,6 +429,30 @@
       },
       "revId": "da412b5c8d519ccc801deb2176cf692e892eecc9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "762e675f_f737b1d0",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-10-13T13:19:46Z",
+      "side": 1,
+      "message": "Aha, so just with a new prebuilt linkerconfig binary we can already clean up these flags? Happy to do that once this landed then.",
+      "parentUuid": "c497eb97_bc7a87cd",
+      "range": {
+        "startLine": 432,
+        "startChar": 92,
+        "endLine": 432,
+        "endChar": 149
+      },
+      "revId": "da412b5c8d519ccc801deb2176cf692e892eecc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
