@@ -273,6 +273,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2cb26e58_33fdde06",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 767,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-10-13T03:30:51Z",
+      "side": 1,
+      "message": "Making an explicit read call (you are already doing that) and then using sscanf(buf...) to simplify the code seems like the best way?\n\nRegarding the parren matching and command name, aren\u0027t we sure that it will always be `(zygote)` or `(zygote64)`? That should be correctly captured by `%*s`, right? If you want to be even more robust regarding command name then also once you are past `)`, I\u0027d recommend using sscanf for the rest",
+      "parentUuid": "3cc080a7_831f045b",
+      "revId": "2c221657857e03d4e2cd6ecd858344a41ffab2b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e17c424d_d1ac69ac",
         "filename": "runtime/runtime.cc",
         "patchSetId": 3
@@ -308,6 +326,30 @@
       "side": 1,
       "message": "My concern was finding that guarantee somewhere in a spec, since we seem to be having some issues around this now. (Though I\u0027m not sure exactly what system call sequence the current code results in.) But there seems to be enough reliance on that for it to be OK.",
       "parentUuid": "e17c424d_d1ac69ac",
+      "range": {
+        "startLine": 767,
+        "startChar": 2,
+        "endLine": 770,
+        "endChar": 5
+      },
+      "revId": "2c221657857e03d4e2cd6ecd858344a41ffab2b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ab3e023b_d5b59fb5",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 770,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-10-13T03:30:51Z",
+      "side": 1,
+      "message": "Only `read` syscall is involved here. The kernel (in the VFS layer) figures out from the inode associated with the passed fd that it belongs to procfs, and then the procfs\u0027 relevant function computes/captures the values, writes them on the user buffer, and returns.\n\nThat\u0027s why I don\u0027t see any possibility of partial reads here.",
+      "parentUuid": "0ef3bb68_ba9a61f0",
       "range": {
         "startLine": 767,
         "startChar": 2,
