@@ -3072,10 +3072,8 @@ class PartialLoadStoreEliminationHelper {
                                        Handle<mirror::DexCache>(),
                                        /* is_first_run= */ false);
     rtp_fixup.Visit(ArrayRef<HInstruction* const>(new_ref_phis_));
-    GetGraph()->ClearLoopInformation();
-    GetGraph()->ClearDominanceInformation();
     GetGraph()->ClearReachabilityInformation();
-    GetGraph()->BuildDominatorTree();
+    GetGraph()->RecomputeDominatorTree();
     GetGraph()->ComputeReachabilityInformation();
   }
 
