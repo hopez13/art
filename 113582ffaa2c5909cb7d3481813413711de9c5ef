@@ -137,6 +137,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "02f3b573_afd8805e",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 688,
+      "author": {
+        "id": 1047684
+      },
+      "writtenOn": "2023-10-13T16:04:00Z",
+      "side": 1,
+      "message": "Thanks for confirmation. Done for moving `h_name` in https://r.android.com/2781307.",
+      "parentUuid": "3ddb7e18_c22c0e04",
+      "revId": "113582ffaa2c5909cb7d3481813413711de9c5ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9891a152_41bb8b78",
