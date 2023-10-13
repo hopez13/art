@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77a80ec0_18089fe7",
+        "filename": "libartbase/base/page_size_agnostic_globals.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1889140
+      },
+      "writtenOn": "2023-10-13T23:15:29Z",
+      "side": 1,
+      "message": "We could include in the documentation that the PMD changes depending on the page size and the number of page descriptors (entries) per page-table also change.\n\nThe page descriptors are 8 bytes and the number of descriptors (entries) is given by:\n\nPAGE_SIZE/8\n\nFor 4k page sizes, there are 512 entries.\nFor 16k page sizes, there are 2048 entries.",
+      "range": {
+        "startLine": 87,
+        "startChar": 49,
+        "endLine": 87,
+        "endChar": 91
+      },
+      "revId": "1ed59d9e4b42e38f55ee300e044b44c9161ef268",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
