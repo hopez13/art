@@ -379,6 +379,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ffddf707_c26a5d20",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 767,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-10-13T23:01:37Z",
+      "side": 1,
+      "message": "That may be a good thing to do later. For now, I\u0027d really like to understand whether this solves the original problem.\n\nCan we change the size of struct ProcessInfo without ill effects? I\u0027m also very mildly concerned that GetProcessInfo does enough other stuff and allocates/deallocated enough memory that I\u0027m less enthusiastic about running it in zygote before forks. I\u0027m sure we have much bigger fish to fry there, but it might matter at some point.",
+      "parentUuid": "2121b194_5e472738",
+      "revId": "2c221657857e03d4e2cd6ecd858344a41ffab2b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e17c424d_d1ac69ac",
