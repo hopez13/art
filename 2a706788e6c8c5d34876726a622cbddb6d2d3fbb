@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f2a10fa_7914e92a",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1475,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-10-13T09:34:50Z",
+      "side": 1,
+      "message": "`risc-v`? Are we commenting the same ones as in `arm64`?",
+      "range": {
+        "startLine": 1475,
+        "startChar": 36,
+        "endLine": 1475,
+        "endChar": 41
+      },
+      "revId": "2a706788e6c8c5d34876726a622cbddb6d2d3fbb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9bf415f4_cd05fa12",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1514,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-10-13T09:34:50Z",
+      "side": 1,
+      "message": "`a3`",
+      "range": {
+        "startLine": 1514,
+        "startChar": 92,
+        "endLine": 1514,
+        "endChar": 94
+      },
+      "revId": "2a706788e6c8c5d34876726a622cbddb6d2d3fbb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9601ffc8_be45f116",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1526,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-10-13T09:34:50Z",
+      "side": 1,
+      "message": "`ROSALLOC_BRACKET_QUANTUM_SIZE_SHIFT` is defined as `3` (https://cs.android.com/android/platform/superproject/main/+/main:art/tools/cpp-define-generator/rosalloc.def;l\u003d27;drc\u003d766e74f58312af149219473a691c6f2d9bcca428), and `POINTER_SIZE_SHIFT` (https://cs.android.com/android/platform/superproject/main/+/main:art/tools/cpp-define-generator/globals.def;l\u003d78;drc\u003dc2632ac7512d21407f86c10c8160854e4ff9466f) would be `3` for `riscv64`, right? Am I missing something or is this substraction `0`?",
+      "range": {
+        "startLine": 1526,
+        "startChar": 19,
+        "endLine": 1526,
+        "endChar": 75
+      },
+      "revId": "2a706788e6c8c5d34876726a622cbddb6d2d3fbb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "136c9ba4_4ad9fbf3",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1699,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-10-13T09:34:50Z",
+      "side": 1,
+      "message": "`fence w, w` instead of `dmb ishst`? `op_new_array` hasn\u0027t been implemented yet for `risc-v` but I guess that would be the instruction",
+      "range": {
+        "startLine": 1698,
+        "startChar": 0,
+        "endLine": 1699,
+        "endChar": 62
+      },
+      "revId": "2a706788e6c8c5d34876726a622cbddb6d2d3fbb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "180a8ccc_1997e044",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1721,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-10-13T09:34:50Z",
+      "side": 1,
+      "message": "This slow path pattern we have it three times this CL. Not sure if we want to create a macro for it. I\u0027m fine with keeping as-is and cleaning it up later too.",
+      "range": {
+        "startLine": 1714,
+        "startChar": 0,
+        "endLine": 1721,
+        "endChar": 52
+      },
+      "revId": "2a706788e6c8c5d34876726a622cbddb6d2d3fbb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
