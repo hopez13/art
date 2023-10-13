@@ -119,6 +119,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec34883e_cfa9e3ff",
+        "filename": "libartservice/service/java/com/android/server/art/Utils.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-10-13T13:56:52Z",
+      "side": 1,
+      "message": "\u003e The lambda could return either an InitProfileResult to return or null to continue. \n\nThanks for the suggestion. I tried that, but it made the code more verbose. https://diff.googleplex.com/#key\u003dRF4z6YMd73wr\n\nI\u0027m now trying a different approach. It\u0027s a bit cleaner, but it still has some boilerplate. At the end of the day, Java is not a great language for writing elegant code :) PTAL. If you think it\u0027s not worth it, I\u0027ll revert the code.",
+      "parentUuid": "daffed22_7e0beddd",
+      "range": {
+        "startLine": 432,
+        "startChar": 0,
+        "endLine": 440,
+        "endChar": 13
+      },
+      "revId": "7807ca3b4f1f7310ea1993b54da38e6f7bfee77e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a68b19d0_6e583603",
@@ -180,6 +204,30 @@
       "side": 1,
       "message": "If it\u0027s made explicit by a call that in reality doesn\u0027t do anything then it can become a lie. I think in that case we\u0027re probably better off just with comments that they\u0027re not usable (if anything at all).\n\nThe most prudent approach would of course be to have less default mocking in `setUp`, so a call to either `blahUsable` or `blahNotUsable` is required, and then use `lenient` less as well.",
       "parentUuid": "63e3de52_5c216730",
+      "range": {
+        "startLine": 805,
+        "startChar": 0,
+        "endLine": 805,
+        "endChar": 80
+      },
+      "revId": "7807ca3b4f1f7310ea1993b54da38e6f7bfee77e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc4444b2_92208be2",
+        "filename": "libartservice/service/javatests/com/android/server/art/PrimaryDexopterTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 805,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-10-13T13:56:52Z",
+      "side": 1,
+      "message": "OK, I dropped that method as well.\n\nI prefer having the default mocking in `setUp` because we have many tests that aren\u0027t related to profiles and I don\u0027t want to add multiple `makeProfileNotUsable` calls to every of them.",
+      "parentUuid": "9c915317_0350df5a",
       "range": {
         "startLine": 805,
         "startChar": 0,
