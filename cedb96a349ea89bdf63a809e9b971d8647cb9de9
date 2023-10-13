@@ -1,0 +1,829 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "55058c7e_117f1510",
+        "filename": "compiler/optimizing/fast_compiler.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-10-13T15:00:46Z",
+      "side": 1,
+      "message": "The current way to do this is to add `[[maybe_unused]]` in the parameters themselves.",
+      "range": {
+        "startLine": 69,
+        "startChar": 8,
+        "endLine": 69,
+        "endChar": 14
+      },
+      "revId": "cedb96a349ea89bdf63a809e9b971d8647cb9de9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d98fdace_83cbb798",
+        "filename": "compiler/optimizing/fast_compiler_arm64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-10-13T15:00:46Z",
+      "side": 1,
+      "message": "`constexpr`? Same for the others",
+      "range": {
+        "startLine": 59,
+        "startChar": 7,
+        "endLine": 59,
+        "endChar": 12
+      },
+      "revId": "cedb96a349ea89bdf63a809e9b971d8647cb9de9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "add3d42d_f9978590",
+        "filename": "compiler/optimizing/fast_compiler_arm64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-10-13T15:00:46Z",
+      "side": 1,
+      "message": "suggestion: rename to `MaybeGenerateFrame` since it may not generate one",
+      "range": {
+        "startLine": 187,
+        "startChar": 7,
+        "endLine": 187,
+        "endChar": 20
+      },
+      "revId": "cedb96a349ea89bdf63a809e9b971d8647cb9de9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6ca99cb_874ca708",
+        "filename": "compiler/optimizing/fast_compiler_arm64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-10-13T15:00:46Z",
+      "side": 1,
+      "message": "suggestion: Add `Maybe` as a prefix (same as above)",
+      "range": {
+        "startLine": 196,
+        "startChar": 7,
+        "endLine": 196,
+        "endChar": 31
+      },
+      "revId": "cedb96a349ea89bdf63a809e9b971d8647cb9de9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9932bd6a_acf33dd4",
+        "filename": "compiler/optimizing/fast_compiler_arm64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-10-13T15:00:46Z",
+      "side": 1,
+      "message": "Suggestion: Add `DCHECK_IMPLIES(can_be_null, is_object)` to catch errors, especially since `can_be_null` has a default value",
+      "revId": "cedb96a349ea89bdf63a809e9b971d8647cb9de9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa7f3fc3_0f20bda5",
+        "filename": "compiler/optimizing/fast_compiler_arm64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-10-13T15:00:46Z",
+      "side": 1,
+      "message": "These could be `ArenaBitVector`. They have nice helpers like set a bit, or clear it so we can avoid redefining those here",
+      "range": {
+        "startLine": 318,
+        "startChar": 0,
+        "endLine": 328,
+        "endChar": 29
+      },
+      "revId": "cedb96a349ea89bdf63a809e9b971d8647cb9de9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5797f477_f7231c09",
+        "filename": "compiler/optimizing/fast_compiler_arm64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-10-13T15:00:46Z",
+      "side": 1,
+      "message": "`std::string`?",
+      "range": {
+        "startLine": 338,
+        "startChar": 2,
+        "endLine": 338,
+        "endChar": 13
+      },
+      "revId": "cedb96a349ea89bdf63a809e9b971d8647cb9de9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "07bdcd0a_edbc300a",
+        "filename": "compiler/optimizing/fast_compiler_arm64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-10-13T15:00:46Z",
+      "side": 1,
+      "message": "Do we want to account for the `this` parameter when checking the number of available registers?",
+      "range": {
+        "startLine": 362,
+        "startChar": 0,
+        "endLine": 368,
+        "endChar": 3
+      },
+      "revId": "cedb96a349ea89bdf63a809e9b971d8647cb9de9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "095ba525_5f92de86",
+        "filename": "compiler/optimizing/fast_compiler_arm64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-10-13T15:00:46Z",
+      "side": 1,
+      "message": "Wouldn\u0027t this also be `type \u003d\u003d DataType::Type::kReference`?",
+      "range": {
+        "startLine": 375,
+        "startChar": 35,
+        "endLine": 375,
+        "endChar": 39
+      },
+      "revId": "cedb96a349ea89bdf63a809e9b971d8647cb9de9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8fdb689_60019ad9",
+        "filename": "compiler/optimizing/fast_compiler_arm64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-10-13T15:00:46Z",
+      "side": 1,
+      "message": "Can be moved to the `for` guard like we do in `SetupArguments`",
+      "range": {
+        "startLine": 376,
+        "startChar": 0,
+        "endLine": 377,
+        "endChar": 27
+      },
+      "revId": "cedb96a349ea89bdf63a809e9b971d8647cb9de9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d7282118_b0f740a6",
+        "filename": "compiler/optimizing/fast_compiler_arm64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-10-13T15:00:46Z",
+      "side": 1,
+      "message": "Are we guaranteed that `end \u003e it + 1`? If not, can you add an early break checking that?",
+      "revId": "cedb96a349ea89bdf63a809e9b971d8647cb9de9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b501d8d_c0f69d42",
+        "filename": "compiler/optimizing/fast_compiler_arm64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-10-13T15:00:46Z",
+      "side": 1,
+      "message": "If we make `ProcessDexInstruction` return false if and only if we hit unimplemented, we don\u0027t have to ask this for every instruction.",
+      "range": {
+        "startLine": 413,
+        "startChar": 0,
+        "endLine": 415,
+        "endChar": 5
+      },
+      "revId": "cedb96a349ea89bdf63a809e9b971d8647cb9de9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "795791c8_8833dd53",
+        "filename": "compiler/optimizing/fast_compiler_arm64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 426,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-10-13T15:00:46Z",
+      "side": 1,
+      "message": "Was this intended to be `IsRegister` and leave out `FP` registers? We can support them with `__ Fmov` I think",
+      "range": {
+        "startLine": 426,
+        "startChar": 0,
+        "endLine": 426,
+        "endChar": 56
+      },
+      "revId": "cedb96a349ea89bdf63a809e9b971d8647cb9de9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "389e99f1_ea884d45",
+        "filename": "compiler/optimizing/fast_compiler_arm64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 542,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-10-13T15:00:46Z",
+      "side": 1,
+      "message": "This method is the exact same as `CodeGeneratorARM64::GenerateFrameExit`. Would be nice if we could de-duplicate code where it makes sense. I am fine to keep this as-is and leave it as a future cleanup",
+      "range": {
+        "startLine": 542,
+        "startChar": 24,
+        "endLine": 542,
+        "endChar": 42
+      },
+      "revId": "cedb96a349ea89bdf63a809e9b971d8647cb9de9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce268423_b43da78d",
+        "filename": "compiler/optimizing/fast_compiler_arm64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 592,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-10-13T15:00:46Z",
+      "side": 1,
+      "message": "Related to https://android-review.git.corp.google.com/c/platform/art/+/2671457/11/compiler/optimizing/fast_compiler_arm64.cc#415. For example this is a place where it would be nice to have an early `return false` and not continue with this method (and also don\u0027t continue with its parent method)",
+      "revId": "cedb96a349ea89bdf63a809e9b971d8647cb9de9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "908bbfaa_9dbad99c",
+        "filename": "compiler/optimizing/fast_compiler_arm64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 614,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-10-13T15:00:46Z",
+      "side": 1,
+      "message": "Is there a reason to do the stack overflow check unconditionally?",
+      "range": {
+        "startLine": 603,
+        "startChar": 0,
+        "endLine": 614,
+        "endChar": 3
+      },
+      "revId": "cedb96a349ea89bdf63a809e9b971d8647cb9de9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "92428162_fa1ea662",
+        "filename": "compiler/optimizing/fast_compiler_arm64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 720,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-10-13T15:00:46Z",
+      "side": 1,
+      "message": "`/* in */`. Same for definition",
+      "revId": "cedb96a349ea89bdf63a809e9b971d8647cb9de9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "361fcfac_d888a977",
+        "filename": "compiler/optimizing/fast_compiler_arm64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 721,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-10-13T15:00:46Z",
+      "side": 1,
+      "message": "`/* out */`. Same for definition (there are other pointers which need similar comments)",
+      "revId": "cedb96a349ea89bdf63a809e9b971d8647cb9de9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6bbb47e5_c0754a75",
+        "filename": "compiler/optimizing/fast_compiler_arm64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 722,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-10-13T15:00:46Z",
+      "side": 1,
+      "message": "suggestion: move to line 742, closer to its first use",
+      "range": {
+        "startLine": 722,
+        "startChar": 11,
+        "endLine": 722,
+        "endChar": 23
+      },
+      "revId": "cedb96a349ea89bdf63a809e9b971d8647cb9de9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6b52b52_f69e5011",
+        "filename": "compiler/optimizing/fast_compiler_arm64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 751,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-10-13T15:00:46Z",
+      "side": 1,
+      "message": "We can avoid this second array access by storing it in a local variable. `shorty_index++` could be moved to the `for` guard too.",
+      "range": {
+        "startLine": 751,
+        "startChar": 47,
+        "endLine": 751,
+        "endChar": 66
+      },
+      "revId": "cedb96a349ea89bdf63a809e9b971d8647cb9de9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1dd248cf_555f8aa5",
+        "filename": "compiler/optimizing/fast_compiler_arm64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 781,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-10-13T15:00:46Z",
+      "side": 1,
+      "message": "Not sure what this comment is talking about. We are doing several things for release too",
+      "range": {
+        "startLine": 779,
+        "startChar": 0,
+        "endLine": 781,
+        "endChar": 0
+      },
+      "revId": "cedb96a349ea89bdf63a809e9b971d8647cb9de9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c2b76a1_7ce404e1",
+        "filename": "compiler/optimizing/fast_compiler_arm64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 811,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-10-13T15:00:46Z",
+      "side": 1,
+      "message": "Should we set `previous_invoke_type_` here for consistency?",
+      "revId": "cedb96a349ea89bdf63a809e9b971d8647cb9de9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f1d58e5_08fea015",
+        "filename": "compiler/optimizing/fast_compiler_arm64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 943,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-10-13T15:00:46Z",
+      "side": 1,
+      "message": "Can be removed. `0` is the default value",
+      "range": {
+        "startLine": 943,
+        "startChar": 36,
+        "endLine": 943,
+        "endChar": 39
+      },
+      "revId": "cedb96a349ea89bdf63a809e9b971d8647cb9de9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cbd97054_32eb47ec",
+        "filename": "compiler/optimizing/fast_compiler_arm64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 976,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-10-13T15:00:46Z",
+      "side": 1,
+      "message": "Same as above, `0` is the default",
+      "range": {
+        "startLine": 976,
+        "startChar": 44,
+        "endLine": 976,
+        "endChar": 47
+      },
+      "revId": "cedb96a349ea89bdf63a809e9b971d8647cb9de9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4959a0c2_066a0fa7",
+        "filename": "compiler/optimizing/fast_compiler_arm64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1007,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-10-13T15:00:46Z",
+      "side": 1,
+      "message": "nit: Upper case `C`",
+      "range": {
+        "startLine": 1007,
+        "startChar": 45,
+        "endLine": 1007,
+        "endChar": 46
+      },
+      "revId": "cedb96a349ea89bdf63a809e9b971d8647cb9de9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb6c3aff_58c4bbe8",
+        "filename": "compiler/optimizing/fast_compiler_arm64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1019,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-10-13T15:00:46Z",
+      "side": 1,
+      "message": "Same here, `0` is default",
+      "range": {
+        "startLine": 1018,
+        "startChar": 0,
+        "endLine": 1019,
+        "endChar": 46
+      },
+      "revId": "cedb96a349ea89bdf63a809e9b971d8647cb9de9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1e64c18_569a616e",
+        "filename": "compiler/optimizing/fast_compiler_arm64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1030,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-10-13T15:00:46Z",
+      "side": 1,
+      "message": "Do we need to do it again after the read barriers?",
+      "range": {
+        "startLine": 1029,
+        "startChar": 0,
+        "endLine": 1030,
+        "endChar": 18
+      },
+      "revId": "cedb96a349ea89bdf63a809e9b971d8647cb9de9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8003ca77_6cb9eaf0",
+        "filename": "compiler/optimizing/fast_compiler_arm64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1087,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-10-13T15:00:46Z",
+      "side": 1,
+      "message": "Can we use `GetIntConstant`? If so, there\u0027s no need to make the constructors public. If we don\u0027t use `GetIntConstant` or similar, we are also missing the cache (but that may be okay for small graphs)",
+      "range": {
+        "startLine": 1087,
+        "startChar": 54,
+        "endLine": 1087,
+        "endChar": 66
+      },
+      "revId": "cedb96a349ea89bdf63a809e9b971d8647cb9de9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bea070f2_8ff145c7",
+        "filename": "compiler/optimizing/fast_compiler_arm64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1088,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-10-13T15:00:46Z",
+      "side": 1,
+      "message": "`, /* can_be_null\u003d */ false`",
+      "revId": "cedb96a349ea89bdf63a809e9b971d8647cb9de9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bcd0f426_c3cdedc2",
+        "filename": "compiler/optimizing/fast_compiler_arm64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1097,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-10-13T15:00:46Z",
+      "side": 1,
+      "message": "`, /* can_be_null\u003d */ false`",
+      "revId": "cedb96a349ea89bdf63a809e9b971d8647cb9de9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "845dc367_973fb759",
+        "filename": "compiler/optimizing/fast_compiler_arm64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1100,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-10-13T15:00:46Z",
+      "side": 1,
+      "message": "maybe change defining all of the instructions in favour of a `default`?",
+      "revId": "cedb96a349ea89bdf63a809e9b971d8647cb9de9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89928e7e_0bdf5d95",
+        "filename": "compiler/optimizing/fast_compiler_arm64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1659,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-10-13T15:00:46Z",
+      "side": 1,
+      "message": "`, /* can_be_null\u003d */ is_object`",
+      "revId": "cedb96a349ea89bdf63a809e9b971d8647cb9de9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e4d9121_096a1e06",
+        "filename": "compiler/optimizing/fast_compiler_arm64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1713,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-10-13T15:00:46Z",
+      "side": 1,
+      "message": "This could be outside of the `ScopedObjectAccess` scope",
+      "range": {
+        "startLine": 1711,
+        "startChar": 0,
+        "endLine": 1713,
+        "endChar": 9
+      },
+      "revId": "cedb96a349ea89bdf63a809e9b971d8647cb9de9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1998a602_bd446b0c",
+        "filename": "compiler/optimizing/fast_compiler_arm64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1788,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-10-13T15:00:46Z",
+      "side": 1,
+      "message": "`, /* can_be_null\u003d */ false`",
+      "revId": "cedb96a349ea89bdf63a809e9b971d8647cb9de9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f47d66b4_c1344b30",
+        "filename": "compiler/optimizing/fast_compiler_arm64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1820,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-10-13T15:00:46Z",
+      "side": 1,
+      "message": "same as IGET, this could be one scope out",
+      "range": {
+        "startLine": 1818,
+        "startChar": 0,
+        "endLine": 1820,
+        "endChar": 9
+      },
+      "revId": "cedb96a349ea89bdf63a809e9b971d8647cb9de9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b1066342_5c490b55",
+        "filename": "compiler/optimizing/fast_compiler_arm64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 2031,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-10-13T15:00:46Z",
+      "side": 1,
+      "message": "Is this case possible?",
+      "range": {
+        "startLine": 2029,
+        "startChar": 0,
+        "endLine": 2031,
+        "endChar": 3
+      },
+      "revId": "cedb96a349ea89bdf63a809e9b971d8647cb9de9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1aceef63_44e8151e",
+        "filename": "compiler/optimizing/fast_compiler_arm64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 2071,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-10-13T15:00:46Z",
+      "side": 1,
+      "message": "How is the compilation tested? Can we add tests (maybe gtests?) that check that we are emitting the code we are expecting to emit?\n\nMaybe we can also test which methods are compiled, and which ones are not.",
+      "revId": "cedb96a349ea89bdf63a809e9b971d8647cb9de9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b416315c_bd9b51be",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1334,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-10-13T15:00:46Z",
+      "side": 1,
+      "message": "why the move up?",
+      "range": {
+        "startLine": 1319,
+        "startChar": 0,
+        "endLine": 1334,
+        "endChar": 3
+      },
+      "revId": "cedb96a349ea89bdf63a809e9b971d8647cb9de9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71723d54_11182be2",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1458,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-10-13T15:00:46Z",
+      "side": 1,
+      "message": "We can merge this with the `if` in line `1444` to avoid extra branches",
+      "range": {
+        "startLine": 1458,
+        "startChar": 0,
+        "endLine": 1458,
+        "endChar": 33
+      },
+      "revId": "cedb96a349ea89bdf63a809e9b971d8647cb9de9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
