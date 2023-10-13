@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5d359c05_fc6c121c",
+        "filename": "libartbase/base/bit_utils.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-10-13T19:19:31Z",
+      "side": 1,
+      "message": "Is this required? Elsewhere in the runtime we don\u0027t.",
+      "range": {
+        "startLine": 180,
+        "startChar": 5,
+        "endLine": 180,
+        "endChar": 14
+      },
+      "revId": "378e5bf8401834547e09482bc4b4e4db2106688f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3aa9c54f_85ae9e90",
         "filename": "libartbase/base/globals.h",
         "patchSetId": 3
