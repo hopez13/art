@@ -405,6 +405,30 @@
       },
       "revId": "da412b5c8d519ccc801deb2176cf692e892eecc9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c497eb97_bc7a87cd",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 1413436
+      },
+      "writtenOn": "2023-10-13T02:01:51Z",
+      "side": 1,
+      "message": "I think it can be updated now and later update script to remove vndks. Anyway, script using prebuilt linkerconfig should be updated together when the prebuilt linkerconfig is updated.",
+      "parentUuid": "e4e8047e_8528f0f4",
+      "range": {
+        "startLine": 432,
+        "startChar": 92,
+        "endLine": 432,
+        "endChar": 149
+      },
+      "revId": "da412b5c8d519ccc801deb2176cf692e892eecc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
