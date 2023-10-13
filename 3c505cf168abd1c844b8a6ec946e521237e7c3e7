@@ -1,0 +1,159 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7451087a_58751a65",
+        "filename": "libartbase/base/globals.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-10-13T21:51:44Z",
+      "side": 1,
+      "message": "These will create copies of the variable in every .cc file where this header file is included. But I guess it\u0027s ok since the the subsequent CL (correctly) changes things.\n\nAs an individual CL these should become extern here and then moved to .cc file.",
+      "range": {
+        "startLine": 67,
+        "startChar": 20,
+        "endLine": 67,
+        "endChar": 28
+      },
+      "revId": "3c505cf168abd1c844b8a6ec946e521237e7c3e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c3fce3b0_46bc4856",
+        "filename": "libartbase/base/mem_map_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-10-13T21:51:44Z",
+      "side": 1,
+      "message": "Now that this is a normal local variable, please rename like one. For instance `map_size`. The same applies to other changes in this file.",
+      "range": {
+        "startLine": 385,
+        "startChar": 15,
+        "endLine": 385,
+        "endChar": 23
+      },
+      "revId": "3c505cf168abd1c844b8a6ec946e521237e7c3e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2283bf86_ec597aea",
+        "filename": "libartbase/base/unix_file/fd_file.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 501,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-10-13T21:51:44Z",
+      "side": 1,
+      "message": "Rename to `max_buffer_size`",
+      "range": {
+        "startLine": 501,
+        "startChar": 15,
+        "endLine": 501,
+        "endChar": 29
+      },
+      "revId": "3c505cf168abd1c844b8a6ec946e521237e7c3e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9550a6c5_66660289",
+        "filename": "runtime/jni/local_reference_table.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-10-13T21:51:44Z",
+      "side": 1,
+      "message": "Rename to `gNumLrtSlots`",
+      "range": {
+        "startLine": 44,
+        "startChar": 20,
+        "endLine": 44,
+        "endChar": 32
+      },
+      "revId": "3c505cf168abd1c844b8a6ec946e521237e7c3e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0910083a_8bfb7679",
+        "filename": "runtime/jni/local_reference_table_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 833,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-10-13T21:51:44Z",
+      "side": 1,
+      "message": "Rename to `refs_per_page`",
+      "revId": "3c505cf168abd1c844b8a6ec946e521237e7c3e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f1574072_184cb6e3",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1456,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-10-13T21:51:44Z",
+      "side": 1,
+      "message": "Rename to `sentinel_addr`",
+      "range": {
+        "startLine": 1456,
+        "startChar": 20,
+        "endLine": 1456,
+        "endChar": 33
+      },
+      "revId": "3c505cf168abd1c844b8a6ec946e521237e7c3e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2aca7580_2b5a4ee8",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-10-13T21:51:44Z",
+      "side": 1,
+      "message": "Rename to `gStackOverflowProtectedSize`",
+      "range": {
+        "startLine": 155,
+        "startChar": 20,
+        "endLine": 155,
+        "endChar": 47
+      },
+      "revId": "3c505cf168abd1c844b8a6ec946e521237e7c3e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
