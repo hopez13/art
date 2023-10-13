@@ -1,0 +1,205 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca13dd7f_fab60b49",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-10-13T12:56:42Z",
+      "side": 1,
+      "message": "Thanks Nicolas! Mostly nits and a couple of questions for my understanding.",
+      "revId": "be053ccabb148ae2f380201cd7a20f8d13a31d63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8dff98e6_34b51b2c",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2182,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-10-13T12:56:42Z",
+      "side": 1,
+      "message": "We could potentially limit this to cases only when we have a branch cache for this. Though maybe not important.",
+      "range": {
+        "startLine": 2182,
+        "startChar": 9,
+        "endLine": 2182,
+        "endChar": 62
+      },
+      "revId": "be053ccabb148ae2f380201cd7a20f8d13a31d63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dbbc2c75_aadbf017",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2303,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-10-13T12:56:42Z",
+      "side": 1,
+      "message": "Is the assumption here that lhs can only have a 0 or 1 so we can correctly compute true_ or false_ offset and update the respective count? \n\nI remember discussion around boolean values not always being 1 or 0. Does this not impact it here? Or by this phase are we always sure it would be 1 or 0.",
+      "range": {
+        "startLine": 2303,
+        "startChar": 50,
+        "endLine": 2303,
+        "endChar": 79
+      },
+      "revId": "be053ccabb148ae2f380201cd7a20f8d13a31d63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8836f815_76962655",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2305,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-10-13T12:56:42Z",
+      "side": 1,
+      "message": "is this a overflow check? Does kOverflow or kZero work here? kEqual is a bit confusing.",
+      "range": {
+        "startLine": 2305,
+        "startChar": 7,
+        "endLine": 2305,
+        "endChar": 28
+      },
+      "revId": "be053ccabb148ae2f380201cd7a20f8d13a31d63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "296ca86a_1c4d439a",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 686,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-10-13T12:56:42Z",
+      "side": 1,
+      "message": "Just for my understanding, we are setting the counts here so we can use this to generate better optimized code which will be done in a future CL right?",
+      "range": {
+        "startLine": 685,
+        "startChar": 5,
+        "endLine": 686,
+        "endChar": 49
+      },
+      "revId": "be053ccabb148ae2f380201cd7a20f8d13a31d63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a7b653a_79b6fea1",
+        "filename": "runtime/deoptimization_kind.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-10-13T12:56:42Z",
+      "side": 1,
+      "message": "Remove. Here and below. I guess this is not used in this CL.",
+      "range": {
+        "startLine": 29,
+        "startChar": 2,
+        "endLine": 29,
+        "endChar": 10
+      },
+      "revId": "be053ccabb148ae2f380201cd7a20f8d13a31d63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a74fe102_64e56445",
+        "filename": "runtime/jit/profiling_info.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-10-13T12:56:42Z",
+      "side": 1,
+      "message": "nit: Not from this CL, but maybe just add JIT code cache internally uses it for hotness counters.",
+      "range": {
+        "startLine": 90,
+        "startChar": 20,
+        "endLine": 90,
+        "endChar": 57
+      },
+      "revId": "be053ccabb148ae2f380201cd7a20f8d13a31d63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51305721_e37dc21d",
+        "filename": "runtime/jit/profiling_info.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-10-13T12:56:42Z",
+      "side": 1,
+      "message": "nit: Maybe add some information / pointers about what we aren\u0027t profiling? I tried to look what but couldn\u0027t find. In lines 69-80, we seem to be creating for all ifs.",
+      "range": {
+        "startLine": 118,
+        "startChar": 5,
+        "endLine": 118,
+        "endChar": 46
+      },
+      "revId": "be053ccabb148ae2f380201cd7a20f8d13a31d63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b64ace01_19c9e0d7",
+        "filename": "runtime/jit/profiling_info.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-10-13T12:56:42Z",
+      "side": 1,
+      "message": "nit: may be ExecutionCount?",
+      "range": {
+        "startLine": 73,
+        "startChar": 11,
+        "endLine": 73,
+        "endChar": 22
+      },
+      "revId": "be053ccabb148ae2f380201cd7a20f8d13a31d63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
