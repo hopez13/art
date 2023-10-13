@@ -309,6 +309,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b49c2f4c_9c8492b3",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 767,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-10-13T15:53:01Z",
+      "side": 1,
+      "message": "actually, ART already uses libprocinfo, so that might be the best choice of all.\n\n(the macros like SCNd32 are the solution to 32-/64-bit format issues, though i\u0027m supicious that libprocinfo doesn\u0027t have to use them...)",
+      "parentUuid": "5dad8889_f9336520",
+      "revId": "2c221657857e03d4e2cd6ecd858344a41ffab2b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e17c424d_d1ac69ac",
         "filename": "runtime/runtime.cc",
         "patchSetId": 3
