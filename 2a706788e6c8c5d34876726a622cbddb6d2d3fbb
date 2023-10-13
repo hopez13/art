@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bc515194_acebe4a1",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1475,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-10-13T13:21:25Z",
+      "side": 1,
+      "message": "I meant if all allocators that have arm64 specific asm also have riscv64 specific asm. Is it a 1:1 relationship?",
+      "parentUuid": "f91ed106_07d696ae",
+      "range": {
+        "startLine": 1475,
+        "startChar": 36,
+        "endLine": 1475,
+        "endChar": 41
+      },
+      "revId": "2a706788e6c8c5d34876726a622cbddb6d2d3fbb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9bf415f4_cd05fa12",
         "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
         "patchSetId": 4
