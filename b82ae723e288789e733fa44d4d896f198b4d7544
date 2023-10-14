@@ -1,0 +1,941 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ccea3d4_7aff481e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-10-14T00:17:04Z",
+      "side": 1,
+      "message": "A lot of comments in this CL are actually applicable after the next CL which makes gPageSize a static const. But since it was easier to comment in here, I did that.",
+      "revId": "b82ae723e288789e733fa44d4d896f198b4d7544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "095ffe3c_5e745c1e",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-10-14T00:17:04Z",
+      "side": 1,
+      "message": "Cache it please.",
+      "range": {
+        "startLine": 301,
+        "startChar": 41,
+        "endLine": 301,
+        "endChar": 50
+      },
+      "revId": "b82ae723e288789e733fa44d4d896f198b4d7544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85f556ac_6d4c31b7",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1416,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-10-14T00:17:04Z",
+      "side": 1,
+      "message": "Cache it please.",
+      "range": {
+        "startLine": 1416,
+        "startChar": 75,
+        "endLine": 1416,
+        "endChar": 84
+      },
+      "revId": "b82ae723e288789e733fa44d4d896f198b4d7544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99f84dc1_1831b55f",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1558,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-10-14T00:17:04Z",
+      "side": 1,
+      "message": "Cache it please",
+      "range": {
+        "startLine": 1558,
+        "startChar": 73,
+        "endLine": 1558,
+        "endChar": 82
+      },
+      "revId": "b82ae723e288789e733fa44d4d896f198b4d7544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5492481_a07af1a5",
+        "filename": "libartbase/base/mem_map.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 403,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-10-14T00:17:04Z",
+      "side": 1,
+      "message": "Cache it please.",
+      "range": {
+        "startLine": 403,
+        "startChar": 19,
+        "endLine": 403,
+        "endChar": 28
+      },
+      "revId": "b82ae723e288789e733fa44d4d896f198b4d7544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce7694e5_c69c3c28",
+        "filename": "libartbase/base/mem_map.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 562,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-10-14T00:17:04Z",
+      "side": 1,
+      "message": "Cache it please.",
+      "range": {
+        "startLine": 562,
+        "startChar": 28,
+        "endLine": 562,
+        "endChar": 37
+      },
+      "revId": "b82ae723e288789e733fa44d4d896f198b4d7544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e93a16d0_91ef5109",
+        "filename": "libartbase/base/mem_map.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1083,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-10-14T00:17:04Z",
+      "side": 1,
+      "message": "Cache it please.",
+      "range": {
+        "startLine": 1083,
+        "startChar": 59,
+        "endLine": 1083,
+        "endChar": 68
+      },
+      "revId": "b82ae723e288789e733fa44d4d896f198b4d7544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94e34053_7aa10f00",
+        "filename": "libartbase/base/mem_map.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1287,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-10-14T00:17:04Z",
+      "side": 1,
+      "message": "Cache it please.",
+      "range": {
+        "startLine": 1287,
+        "startChar": 49,
+        "endLine": 1287,
+        "endChar": 58
+      },
+      "revId": "b82ae723e288789e733fa44d4d896f198b4d7544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cfae35ea_d178f0e3",
+        "filename": "libartbase/base/mem_map_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 464,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-10-14T00:17:04Z",
+      "side": 1,
+      "message": "rename to `map_size`",
+      "range": {
+        "startLine": 464,
+        "startChar": 15,
+        "endLine": 464,
+        "endChar": 23
+      },
+      "revId": "b82ae723e288789e733fa44d4d896f198b4d7544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "571d9472_55f58c50",
+        "filename": "libartbase/base/utils.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-10-14T00:17:04Z",
+      "side": 1,
+      "message": "Cache it and pass it to `TouchAndFlushCacheLinesWithinPage` as well.",
+      "range": {
+        "startLine": 142,
+        "startChar": 43,
+        "endLine": 142,
+        "endChar": 52
+      },
+      "revId": "b82ae723e288789e733fa44d4d896f198b4d7544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c944c7ab_6e0b077e",
+        "filename": "libelffile/elf/xz_utils.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-10-14T00:17:04Z",
+      "side": 1,
+      "message": "Cache it please",
+      "range": {
+        "startLine": 112,
+        "startChar": 37,
+        "endLine": 112,
+        "endChar": 46
+      },
+      "revId": "b82ae723e288789e733fa44d4d896f198b4d7544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35362703_50c47f66",
+        "filename": "runtime/base/gc_visited_arena_pool.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-10-14T00:17:04Z",
+      "side": 1,
+      "message": "I\u0027m really concerned if these kind of cases are optimized or not. I hope they are. Please analyze objdump to confirm. Either way, as per my comment in .h file, please create a class static and use that instead.",
+      "range": {
+        "startLine": 65,
+        "startChar": 58,
+        "endLine": 65,
+        "endChar": 67
+      },
+      "revId": "b82ae723e288789e733fa44d4d896f198b4d7544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6f1d6897_723cf92c",
+        "filename": "runtime/base/gc_visited_arena_pool.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-10-14T00:17:04Z",
+      "side": 1,
+      "message": "Create a static in the class and then possibly cache in a local variable as well. These functions are very hot.",
+      "range": {
+        "startLine": 41,
+        "startChar": 33,
+        "endLine": 41,
+        "endChar": 42
+      },
+      "revId": "b82ae723e288789e733fa44d4d896f198b4d7544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3f052b7_405d86ae",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 467,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-10-14T00:17:04Z",
+      "side": 1,
+      "message": "Cache it please.",
+      "range": {
+        "startLine": 467,
+        "startChar": 35,
+        "endLine": 467,
+        "endChar": 44
+      },
+      "revId": "b82ae723e288789e733fa44d4d896f198b4d7544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a095f84_86cda151",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1040,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-10-14T00:17:04Z",
+      "side": 1,
+      "message": "Cache it please.",
+      "range": {
+        "startLine": 1040,
+        "startChar": 54,
+        "endLine": 1040,
+        "endChar": 63
+      },
+      "revId": "b82ae723e288789e733fa44d4d896f198b4d7544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f9e3ccf_79e7790c",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1413,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-10-14T00:17:04Z",
+      "side": 1,
+      "message": "Cache it please.",
+      "range": {
+        "startLine": 1413,
+        "startChar": 70,
+        "endLine": 1413,
+        "endChar": 79
+      },
+      "revId": "b82ae723e288789e733fa44d4d896f198b4d7544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "513ed5c3_68c6c67c",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1766,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-10-14T00:17:04Z",
+      "side": 1,
+      "message": "Cache it please.",
+      "range": {
+        "startLine": 1766,
+        "startChar": 72,
+        "endLine": 1766,
+        "endChar": 81
+      },
+      "revId": "b82ae723e288789e733fa44d4d896f198b4d7544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf91a7ec_438bf6ef",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1882,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-10-14T00:17:04Z",
+      "side": 1,
+      "message": "Cache it please.",
+      "range": {
+        "startLine": 1882,
+        "startChar": 64,
+        "endLine": 1882,
+        "endChar": 73
+      },
+      "revId": "b82ae723e288789e733fa44d4d896f198b4d7544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "34387a6f_749cfcc2",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2049,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-10-14T00:17:04Z",
+      "side": 1,
+      "message": "Cache it please.",
+      "range": {
+        "startLine": 2049,
+        "startChar": 13,
+        "endLine": 2049,
+        "endChar": 22
+      },
+      "revId": "b82ae723e288789e733fa44d4d896f198b4d7544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "29a62fab_94f7bb13",
+        "filename": "runtime/gc/collector/garbage_collector.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-10-14T00:17:04Z",
+      "side": 1,
+      "message": "Cache it please.",
+      "range": {
+        "startLine": 127,
+        "startChar": 41,
+        "endLine": 127,
+        "endChar": 50
+      },
+      "revId": "b82ae723e288789e733fa44d4d896f198b4d7544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f43f31fb_50cd2d1b",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-10-14T00:17:04Z",
+      "side": 1,
+      "message": "This file has a lot of page-size accesses. So please create a static cached copy of page-size. Many functions have only one or two use of this, but they are hot functions. So for those this static cache copy would be helpful. Other functions with several usages, a local variable initialized from this cache copy would be good.",
+      "range": {
+        "startLine": 101,
+        "startChar": 28,
+        "endLine": 101,
+        "endChar": 37
+      },
+      "revId": "b82ae723e288789e733fa44d4d896f198b4d7544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "831033e8_6d0c5dd9",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 863,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-10-14T00:17:04Z",
+      "side": 1,
+      "message": "Cache it in a local variable please.",
+      "range": {
+        "startLine": 863,
+        "startChar": 30,
+        "endLine": 863,
+        "endChar": 39
+      },
+      "revId": "b82ae723e288789e733fa44d4d896f198b4d7544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5bb6e2d_5a84caac",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 921,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-10-14T00:17:04Z",
+      "side": 1,
+      "message": "Cache it pleas.e",
+      "range": {
+        "startLine": 921,
+        "startChar": 60,
+        "endLine": 921,
+        "endChar": 69
+      },
+      "revId": "b82ae723e288789e733fa44d4d896f198b4d7544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c5f8b5d_24a86894",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1060,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-10-14T00:17:04Z",
+      "side": 1,
+      "message": "Cache it please.",
+      "range": {
+        "startLine": 1060,
+        "startChar": 51,
+        "endLine": 1060,
+        "endChar": 60
+      },
+      "revId": "b82ae723e288789e733fa44d4d896f198b4d7544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a5daff0_ef58c805",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1599,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-10-14T00:17:04Z",
+      "side": 1,
+      "message": "Cache it please.",
+      "range": {
+        "startLine": 1599,
+        "startChar": 6,
+        "endLine": 1599,
+        "endChar": 15
+      },
+      "revId": "b82ae723e288789e733fa44d4d896f198b4d7544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bdfc54fc_6cfd3089",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1756,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-10-14T00:17:04Z",
+      "side": 1,
+      "message": "Cache it please.",
+      "range": {
+        "startLine": 1756,
+        "startChar": 42,
+        "endLine": 1756,
+        "endChar": 51
+      },
+      "revId": "b82ae723e288789e733fa44d4d896f198b4d7544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "385e8b48_d28f954b",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1942,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-10-14T00:17:04Z",
+      "side": 1,
+      "message": "Cache it please.",
+      "range": {
+        "startLine": 1942,
+        "startChar": 39,
+        "endLine": 1942,
+        "endChar": 48
+      },
+      "revId": "b82ae723e288789e733fa44d4d896f198b4d7544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f451e37_ce9ac92c",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2035,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-10-14T00:17:04Z",
+      "side": 1,
+      "message": "This and the following functions are very hot. Please use the file-local static page-size for these.",
+      "range": {
+        "startLine": 2035,
+        "startChar": 30,
+        "endLine": 2035,
+        "endChar": 39
+      },
+      "revId": "b82ae723e288789e733fa44d4d896f198b4d7544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "844d5608_afd12734",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2142,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-10-14T00:17:04Z",
+      "side": 1,
+      "message": "Cache it please.",
+      "range": {
+        "startLine": 2142,
+        "startChar": 77,
+        "endLine": 2142,
+        "endChar": 86
+      },
+      "revId": "b82ae723e288789e733fa44d4d896f198b4d7544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ef8c04c_bd022866",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2262,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-10-14T00:17:04Z",
+      "side": 1,
+      "message": "Cache it please.",
+      "range": {
+        "startLine": 2262,
+        "startChar": 79,
+        "endLine": 2262,
+        "endChar": 88
+      },
+      "revId": "b82ae723e288789e733fa44d4d896f198b4d7544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "09e5206c_aa74b7d9",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2333,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-10-14T00:17:04Z",
+      "side": 1,
+      "message": "Cache it please.",
+      "range": {
+        "startLine": 2333,
+        "startChar": 54,
+        "endLine": 2333,
+        "endChar": 63
+      },
+      "revId": "b82ae723e288789e733fa44d4d896f198b4d7544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "406b172d_8cae8a94",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2387,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-10-14T00:17:04Z",
+      "side": 1,
+      "message": "Cache it please.",
+      "range": {
+        "startLine": 2387,
+        "startChar": 78,
+        "endLine": 2387,
+        "endChar": 87
+      },
+      "revId": "b82ae723e288789e733fa44d4d896f198b4d7544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3d79a416_5e8c7ed0",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2457,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-10-14T00:17:04Z",
+      "side": 1,
+      "message": "Cache it please.",
+      "range": {
+        "startLine": 2457,
+        "startChar": 47,
+        "endLine": 2457,
+        "endChar": 56
+      },
+      "revId": "b82ae723e288789e733fa44d4d896f198b4d7544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af341ad6_48deb718",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2541,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-10-14T00:17:04Z",
+      "side": 1,
+      "message": "Cache it please.",
+      "range": {
+        "startLine": 2541,
+        "startChar": 69,
+        "endLine": 2541,
+        "endChar": 78
+      },
+      "revId": "b82ae723e288789e733fa44d4d896f198b4d7544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5fcef6e_d02a3869",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3209,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-10-14T00:17:04Z",
+      "side": 1,
+      "message": "Cache it please.",
+      "range": {
+        "startLine": 3209,
+        "startChar": 66,
+        "endLine": 3209,
+        "endChar": 75
+      },
+      "revId": "b82ae723e288789e733fa44d4d896f198b4d7544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22c2f669_2ce770fc",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3610,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-10-14T00:17:04Z",
+      "side": 1,
+      "message": "Cache it please.",
+      "range": {
+        "startLine": 3610,
+        "startChar": 70,
+        "endLine": 3610,
+        "endChar": 79
+      },
+      "revId": "b82ae723e288789e733fa44d4d896f198b4d7544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d1a91ed6_9de0c219",
+        "filename": "runtime/gc/collector/semi_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 378,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-10-14T00:17:04Z",
+      "side": 1,
+      "message": "Cache it please.",
+      "range": {
+        "startLine": 378,
+        "startChar": 41,
+        "endLine": 378,
+        "endChar": 50
+      },
+      "revId": "b82ae723e288789e733fa44d4d896f198b4d7544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cfaa3229_c6ca6795",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1031,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-10-14T00:17:04Z",
+      "side": 1,
+      "message": "Please cache it.",
+      "range": {
+        "startLine": 1031,
+        "startChar": 56,
+        "endLine": 1031,
+        "endChar": 65
+      },
+      "revId": "b82ae723e288789e733fa44d4d896f198b4d7544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6ddcc330_192d447d",
+        "filename": "runtime/gc/space/malloc_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-10-14T00:17:04Z",
+      "side": 1,
+      "message": "Please cache it in a local variable.",
+      "range": {
+        "startLine": 186,
+        "startChar": 80,
+        "endLine": 186,
+        "endChar": 89
+      },
+      "revId": "b82ae723e288789e733fa44d4d896f198b4d7544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4192613e_565f1f2c",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 645,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-10-14T00:17:04Z",
+      "side": 1,
+      "message": "Cases like this are where I believe it would be better to cache page-size in a local variable and then use that instead.",
+      "range": {
+        "startLine": 645,
+        "startChar": 77,
+        "endLine": 645,
+        "endChar": 86
+      },
+      "revId": "b82ae723e288789e733fa44d4d896f198b4d7544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f4dca243_3677037c",
+        "filename": "runtime/thread_pool.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-10-14T00:17:04Z",
+      "side": 1,
+      "message": "Can we analyze libart.so using objdump or something similar with all the CLs included to see if compiler is able to optimize access to page-size? My experience has been that even for the const member fields it is not obvious for the compiler to always optimize it, so this looks even less likely.\n\nAlthough this function is not performance critical, but I know there are other places where kPageSize is used in critical paths (some places even in loops). If the analysis shows that compiler isn\u0027t optimizing, then it would be better to create a local variable and then use that instead.",
+      "range": {
+        "startLine": 58,
+        "startChar": 18,
+        "endLine": 58,
+        "endChar": 27
+      },
+      "revId": "b82ae723e288789e733fa44d4d896f198b4d7544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
