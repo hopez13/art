@@ -70,6 +70,30 @@
       },
       "revId": "614afe59e2b1358201e4732d35aa6d11592af8cb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b3aa0c62_81cead59",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-10-15T20:51:00Z",
+      "side": 0,
+      "message": "\u003eThe same goes for that defaults in the now static libart-compiler, doesn\u0027t it?\n\nTrue, I forgot about that one. Removed.\n\n\u003eI suppose it needs to move from libart-compiler to libart etc, or some defaults that end up there, like libart-compiler_common_deps. Is that already the case?\n\nYes, it is already included in `libart_common_defaults`, which goes into `libart(d)_defaults` and then into `libart(d).so`.\n\n\n\u003eHave you verified that we\u0027re not losing that or any other linker flags from either libart-runtime or libart-compiler when they become static here? \n\nInitially I did not, because there doesn\u0027t seem to be too many `ldflags` in libart. Only `JIT_DEBUG_REGISTER_CODE_LDFLAGS` and `art_hugepage_defaults`, which are now in `libart_common_defaults`.\n\nLink commands comparison: http://gpaste/4758488797413376?raw\n\n`libart.so` link commands are identical before and after this CL (except for libart.so.rsp file contents, of course).\n\n`libart-compiler.so` link commands don\u0027t have any unique flags, except for PGO and linker version script (both of those no longer relevant).",
+      "parentUuid": "4a8e91ab_bdd385ed",
+      "range": {
+        "startLine": 323,
+        "startChar": 8,
+        "endLine": 323,
+        "endChar": 31
+      },
+      "revId": "614afe59e2b1358201e4732d35aa6d11592af8cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
