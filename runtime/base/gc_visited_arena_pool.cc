@@ -29,13 +29,13 @@ namespace art {
 
 TrackedArena::TrackedArena(uint8_t* start, size_t size, bool pre_zygote_fork)
     : Arena(), first_obj_array_(nullptr), pre_zygote_fork_(pre_zygote_fork) {
-  static_assert(ArenaAllocator::kArenaAlignment <= kPageSize,
-                "Arena should not need stronger alignment than kPageSize.");
-  DCHECK_ALIGNED(size, kPageSize);
-  DCHECK_ALIGNED(start, kPageSize);
+  CHECK_LE(ArenaAllocator::kArenaAlignment, gPageSize)
+      << "Arena should not need stronger alignment than gPageSize.";
+  DCHECK_ALIGNED_PARAM(size, gPageSize);
+  DCHECK_ALIGNED_PARAM(start, gPageSize);
   memory_ = start;
   size_ = size;
-  size_t arr_size = size / kPageSize;
+  size_t arr_size = size / gPageSize;
   first_obj_array_.reset(new uint8_t*[arr_size]);
   std::fill_n(first_obj_array_.get(), arr_size, nullptr);
 }
@@ -54,7 +54,7 @@ void TrackedArena::Release() {
       // use MADV_DONTNEED.
       ZeroAndReleaseMemory(Begin(), Size());
     }
-    std::fill_n(first_obj_array_.get(), Size() / kPageSize, nullptr);
+    std::fill_n(first_obj_array_.get(), Size() / gPageSize, nullptr);
     bytes_allocated_ = 0;
   }
 }
@@ -62,10 +62,10 @@ void TrackedArena::Release() {
 void TrackedArena::SetFirstObject(uint8_t* obj_begin, uint8_t* obj_end) {
   DCHECK_LE(static_cast<void*>(Begin()), static_cast<void*>(obj_end));
   DCHECK_LT(static_cast<void*>(obj_begin), static_cast<void*>(obj_end));
-  size_t idx = static_cast<size_t>(obj_begin - Begin()) / kPageSize;
-  size_t last_byte_idx = static_cast<size_t>(obj_end - 1 - Begin()) / kPageSize;
+  size_t idx = static_cast<size_t>(obj_begin - Begin()) / gPageSize;
+  size_t last_byte_idx = static_cast<size_t>(obj_end - 1 - Begin()) / gPageSize;
   // If the addr is at the beginning of a page, then we set it for that page too.
-  if (IsAligned<kPageSize>(obj_begin)) {
+  if (IsAlignedParam(obj_begin, gPageSize)) {
     first_obj_array_[idx] = obj_begin;
   }
   while (idx < last_byte_idx) {
@@ -82,7 +82,7 @@ uint8_t* GcVisitedArenaPool::AddMap(size_t min_size) {
   }
 #endif
   size_t alignment = BestPageTableAlignment(size);
-  DCHECK_GE(size, kPMDSize);
+  DCHECK_GE(size, gPMDSize);
   std::string err_msg;
   maps_.emplace_back(MemMap::MapAnonymousAligned(
       name_, size, PROT_READ | PROT_WRITE, low_4gb_, alignment, &err_msg));
@@ -139,7 +139,7 @@ uint8_t* GcVisitedArenaPool::AddPreZygoteForkMap(size_t size) {
 
 Arena* GcVisitedArenaPool::AllocArena(size_t size) {
   // Return only page aligned sizes so that madvise can be leveraged.
-  size = RoundUp(size, kPageSize);
+  size = RoundUp(size, gPageSize);
   std::lock_guard<std::mutex> lock(lock_);
 
   if (pre_zygote_fork_) {

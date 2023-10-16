@@ -19,6 +19,7 @@
 
 #include <pthread.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 #include <random>
 #include <string>
@@ -155,11 +156,34 @@ inline static int32_t Signum(T opnd) {
   return (opnd < 0) ? -1 : ((opnd == 0) ? 0 : 1);
 }
 
+
+static inline void PrintMaps() {
+    FILE *file;
+    char line[256]; // Buffer to store each line read from /proc/self/maps
+
+    // Open the /proc/self/maps file for reading
+    file = fopen("/proc/self/maps", "r");
+    if (file == NULL) {
+        return;
+    }
+
+    // Read and print each line from /proc/self/maps to stderr
+    while (fgets(line, sizeof(line), file) != NULL) {
+      // DL_ERR_AND_LOG("DEBUG: maps:    %s", line);
+      fprintf(stderr, "DEBUG: maps: %s", line);
+      LOG(INFO) << "crash maps: " << line;
+    }
+
+    // Close the file
+    fclose(file);
+}
+
 template <typename Func, typename... Args>
 static inline void CheckedCall(const Func& function, const char* what, Args... args) {
   int rc = function(args...);
   if (UNLIKELY(rc != 0)) {
-    PLOG(FATAL) << "Checked call failed for " << what;
+	PrintMaps();
+    PLOG(FATAL) << "Checked call failed for (PANIC) " << what;
   }
 }
 
