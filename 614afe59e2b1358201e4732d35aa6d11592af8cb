@@ -94,6 +94,30 @@
       },
       "revId": "614afe59e2b1358201e4732d35aa6d11592af8cb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d718ab8_8dec0852",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-10-16T13:27:01Z",
+      "side": 0,
+      "message": "\u003e Yes, it is already included in libart_common_defaults\n\nAha, so it\u0027s no longer attributed to libart-compiler, as it used to be when it was a dynamic library. Fair enough - I reckon the `-z max-page-size` option isn\u0027t directly related to the code specifically in libart-compiler.\n\n\u003e Link commands comparison: http://gpaste/4758488797413376?raw\n\nThanks, the flag differences look ok.\n\n\u003e except for libart.so.rsp file contents, of course\n\nWhat\u0027s relevant is the flags (but not the objects to link in), whether they are in the rsp\u0027s or not. But yes, there are no (significant) flags in them.",
+      "parentUuid": "b3aa0c62_81cead59",
+      "range": {
+        "startLine": 323,
+        "startChar": 8,
+        "endLine": 323,
+        "endChar": 31
+      },
+      "revId": "614afe59e2b1358201e4732d35aa6d11592af8cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
