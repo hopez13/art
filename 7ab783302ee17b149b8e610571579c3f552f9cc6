@@ -134,6 +134,30 @@
       },
       "revId": "7ab783302ee17b149b8e610571579c3f552f9cc6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "260aec8b_93bdc40b",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 3528,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-10-16T15:53:05Z",
+      "side": 1,
+      "message": "These are the counts that will be used by the compiler for generating better code  If we set both of them to 0, compiler thinks they are never taken. These counters would be read from the profiling info that was collected from the baseline code. Maybe we could rename them to avoid confusion but not sure what\u0027s a good name here. \n\nThe counters that are incremented are a part of the ProfilingInfo object which is initialized to 0 using memset in the ProfilingInfo constructor (see profiling_info.cc).",
+      "parentUuid": "3a1524ed_c441a9c5",
+      "range": {
+        "startLine": 3527,
+        "startChar": 0,
+        "endLine": 3528,
+        "endChar": 58
+      },
+      "revId": "7ab783302ee17b149b8e610571579c3f552f9cc6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
