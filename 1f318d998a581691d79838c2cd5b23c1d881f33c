@@ -58,6 +58,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb490b1d_ae1f6ed0",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 3039,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-10-16T12:14:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "94ccb011_bae7b1c9",
+      "range": {
+        "startLine": 3039,
+        "startChar": 8,
+        "endLine": 3039,
+        "endChar": 17
+      },
+      "revId": "1f318d998a581691d79838c2cd5b23c1d881f33c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "61be16e8_50a2ea27",
@@ -71,6 +95,30 @@
       "writtenOn": "2023-10-16T09:38:11Z",
       "side": 1,
       "message": "`-1`? Our \"increment hotness\" methods actually subtract `-1`",
+      "range": {
+        "startLine": 3048,
+        "startChar": 34,
+        "endLine": 3048,
+        "endChar": 35
+      },
+      "revId": "1f318d998a581691d79838c2cd5b23c1d881f33c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c974e8c_f25c09fa",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 3048,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-10-16T12:14:41Z",
+      "side": 1,
+      "message": "The -1 for hotness is so we can start with an arbitrary number and then count down to zero so the generated code only needs to do a cbz. For branches, it doesn\u0027t make much difference on which order we go.",
+      "parentUuid": "61be16e8_50a2ea27",
       "range": {
         "startLine": 3048,
         "startChar": 34,
@@ -106,6 +154,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b02e0ef1_ee1f2403",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 3050,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-10-16T12:14:41Z",
+      "side": 1,
+      "message": "Not sure I follow, could you expand (the counter today goes from 0 to 0xffff)?",
+      "parentUuid": "15e318a9_5bab8130",
+      "range": {
+        "startLine": 3050,
+        "startChar": 0,
+        "endLine": 3050,
+        "endChar": 50
+      },
+      "revId": "1f318d998a581691d79838c2cd5b23c1d881f33c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6fd631e5_0600d846",
         "filename": "compiler/optimizing/instruction_builder.cc",
         "patchSetId": 7
@@ -117,6 +189,30 @@
       "writtenOn": "2023-10-16T09:38:11Z",
       "side": 1,
       "message": "Don\u0027t we want something like `graph_()-\u003eIsCompilingBaseline() \u0026\u0026 !Runtime::Current()-\u003eIsAotCompiler()` here?",
+      "range": {
+        "startLine": 682,
+        "startChar": 25,
+        "endLine": 682,
+        "endChar": 55
+      },
+      "revId": "1f318d998a581691d79838c2cd5b23c1d881f33c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d0423e96_22432718",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 682,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-10-16T12:14:41Z",
+      "side": 1,
+      "message": "When compiling baseline, there isn\u0027t any use of the profiles (also baseline is the one generating them).\n\nWhen compiling with AOT, we eventually will want to have branch caches in the profile file.",
+      "parentUuid": "6fd631e5_0600d846",
       "range": {
         "startLine": 682,
         "startChar": 25,
@@ -150,6 +246,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e03f723_7c5bcd88",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 691,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-10-16T12:14:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "374475e9_d3d7ed53",
+      "range": {
+        "startLine": 691,
+        "startChar": 16,
+        "endLine": 691,
+        "endChar": 18
+      },
+      "revId": "1f318d998a581691d79838c2cd5b23c1d881f33c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "63548dce_a821d244",
@@ -163,6 +283,30 @@
       "writtenOn": "2023-10-16T09:38:11Z",
       "side": 1,
       "message": "This could potentially overflow right? We should be safe if we do the addition using `uint32_t`",
+      "range": {
+        "startLine": 74,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 26
+      },
+      "revId": "1f318d998a581691d79838c2cd5b23c1d881f33c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "be4e0a9a_65c8ac5f",
+        "filename": "runtime/jit/profiling_info.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-10-16T12:14:41Z",
+      "side": 1,
+      "message": "Doh yes, done.",
+      "parentUuid": "63548dce_a821d244",
       "range": {
         "startLine": 74,
         "startChar": 0,
