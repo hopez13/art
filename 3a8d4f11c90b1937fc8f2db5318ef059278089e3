@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f1d5699b_589aa925",
+        "filename": "libartservice/service/java/com/android/server/art/Dexopter.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-10-16T19:57:12Z",
+      "side": 1,
+      "message": "There are several returns above that can still return \"speed-profile\" (if `targetCompilerFilter` is set to that). Shouldn\u0027t this override all of them?\n\nIf it shouldn\u0027t, e.g. for the system UI and launcher special cases above, then it\u0027d be more clear if we checked that this flag isn\u0027t set in those cases.",
+      "range": {
+        "startLine": 340,
+        "startChar": 0,
+        "endLine": 344,
+        "endChar": 9
+      },
+      "revId": "3a8d4f11c90b1937fc8f2db5318ef059278089e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "283fc765_ed07f030",
+        "filename": "libartservice/service/java/com/android/server/art/model/ArtFlags.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-10-16T19:57:12Z",
+      "side": 1,
+      "message": "Grammar nit: Looks slightly clunky to me to follow \"i.e.\" by a comma like this. But I\u0027m no language expert.",
+      "range": {
+        "startLine": 82,
+        "startChar": 54,
+        "endLine": 82,
+        "endChar": 55
+      },
+      "revId": "3a8d4f11c90b1937fc8f2db5318ef059278089e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d42f89ff_8c940586",
+        "filename": "libartservice/service/java/com/android/server/art/model/DexoptResult.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-10-16T19:57:12Z",
+      "side": 1,
+      "message": "Nit: I\u0027d say error messages are for logging almost by definition. However, the errors as a whole may or may not be.",
+      "range": {
+        "startLine": 338,
+        "startChar": 21,
+        "endLine": 338,
+        "endChar": 29
+      },
+      "revId": "3a8d4f11c90b1937fc8f2db5318ef059278089e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
