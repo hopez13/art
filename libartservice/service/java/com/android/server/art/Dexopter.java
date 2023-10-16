@@ -337,6 +337,12 @@ public abstract class Dexopter<DexInfoType extends DetailedDexInfo> {
                                                                            : targetCompilerFilter;
         }
 
+        if ((mParams.getFlags() & ArtFlags.FLAG_NO_PROFILE) != 0) {
+            return DexFile.isProfileGuidedCompilerFilter(targetCompilerFilter)
+                    ? "verify"
+                    : targetCompilerFilter;
+        }
+
         return targetCompilerFilter;
     }
 
