@@ -121,13 +121,18 @@ public abstract class Dexopter<DexInfoType extends DetailedDexInfo> {
                 // If true, implies that the profile has changed since the last compilation.
                 boolean profileMerged = false;
                 if (DexFile.isProfileGuidedCompilerFilter(compilerFilter)) {
+                    boolean noExternalProfile =
+                            (mParams.getFlags() & ArtFlags.FLAG_NO_EXTERNAL_PROFILE) != 0;
                     if (needsToBeShared) {
-                        InitProfileResult result = initReferenceProfile(dexInfo);
+                        InitProfileResult result = noExternalProfile
+                                ? InitProfileResult.empty()
+                                : initReferenceProfile(dexInfo);
                         profile = result.profile();
                         isOtherReadable = result.isOtherReadable();
                         externalProfileErrors = result.externalProfileErrors();
                     } else {
-                        InitProfileResult result = getOrInitReferenceProfile(dexInfo);
+                        InitProfileResult result =
+                                getOrInitReferenceProfile(dexInfo, noExternalProfile);
                         profile = result.profile();
                         isOtherReadable = result.isOtherReadable();
                         externalProfileErrors = result.externalProfileErrors();
@@ -352,11 +357,11 @@ public abstract class Dexopter<DexInfoType extends DetailedDexInfo> {
 
     /** @see Utils#getOrInitReferenceProfile */
     @Nullable
-    private InitProfileResult getOrInitReferenceProfile(@NonNull DexInfoType dexInfo)
-            throws RemoteException {
+    private InitProfileResult getOrInitReferenceProfile(
+            @NonNull DexInfoType dexInfo, boolean noExternalProfile) throws RemoteException {
         return Utils.getOrInitReferenceProfile(mInjector.getArtd(), dexInfo.dexPath(),
                 buildRefProfilePath(dexInfo), getExternalProfiles(dexInfo),
-                buildOutputProfile(dexInfo, true /* isPublic */));
+                buildOutputProfile(dexInfo, true /* isPublic */), noExternalProfile);
     }
 
     @Nullable

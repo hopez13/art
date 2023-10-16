@@ -375,8 +375,8 @@ public final class Utils {
     @NonNull
     public static InitProfileResult getOrInitReferenceProfile(@NonNull IArtd artd,
             @NonNull String dexPath, @NonNull ProfilePath refProfile,
-            @NonNull List<ProfilePath> externalProfiles, @NonNull OutputProfile initOutput)
-            throws RemoteException {
+            @NonNull List<ProfilePath> externalProfiles, @NonNull OutputProfile initOutput,
+            boolean noExternalProfile) throws RemoteException {
         try {
             if (artd.isProfileUsable(refProfile, dexPath)) {
                 boolean isOtherReadable =
@@ -391,7 +391,9 @@ public final class Utils {
                     e);
         }
 
-        return initReferenceProfile(artd, dexPath, externalProfiles, initOutput);
+        return noExternalProfile
+                ? InitProfileResult.empty()
+                : initReferenceProfile(artd, dexPath, externalProfiles, initOutput);
     }
 
     /**
@@ -513,6 +515,11 @@ public final class Utils {
                 boolean isOtherReadable, @NonNull List<String> externalProfileErrors) {
             return new AutoValue_Utils_InitProfileResult(
                     profile, isOtherReadable, Collections.unmodifiableList(externalProfileErrors));
+        }
+
+        static @NonNull InitProfileResult empty() {
+            return new AutoValue_Utils_InitProfileResult(null /* profile */,
+                    true /* isOtherReadable */, List.of() /* externalProfileErrors */);
         }
 
         /**

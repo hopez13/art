@@ -78,6 +78,11 @@ public class ArtFlags {
      * sys_storage_threshold_max_bytes}.
      */
     public static final int FLAG_SKIP_IF_STORAGE_LOW = 1 << 6;
+    /**
+     * If set, no external profile will be used by dexopt, including the profile in the DM file and
+     * the profile embedded in the dex container file.
+     */
+    public static final int FLAG_NO_EXTERNAL_PROFILE = 1 << 7;
 
     /**
      * Flags for {@link
@@ -118,6 +123,7 @@ public class ArtFlags {
         FLAG_FORCE,
         FLAG_FOR_SINGLE_SPLIT,
         FLAG_SKIP_IF_STORAGE_LOW,
+        FLAG_NO_EXTERNAL_PROFILE,
     })
     // clang-format on
     @Retention(RetentionPolicy.SOURCE)

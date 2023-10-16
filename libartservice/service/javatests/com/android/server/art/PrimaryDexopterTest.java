@@ -419,6 +419,31 @@ public class PrimaryDexopterTest extends PrimaryDexopterTestBase {
     }
 
     @Test
+    public void testDexoptNoExternalProfile() throws Exception {
+        makeProfileUsable(mPrebuiltProfile);
+        makeProfileUsable(mDmProfile);
+        makeEmbeddedProfileUsable(mDexPath);
+
+        mDexoptParams =
+                new DexoptParams.Builder("install")
+                        .setCompilerFilter("speed-profile")
+                        .setFlags(ArtFlags.FLAG_FOR_PRIMARY_DEX | ArtFlags.FLAG_NO_EXTERNAL_PROFILE)
+                        .build();
+        mPrimaryDexopter =
+                new PrimaryDexopter(mInjector, mPkgState, mPkg, mDexoptParams, mCancellationSignal);
+
+        List<DexContainerFileDexoptResult> results = mPrimaryDexopter.dexopt();
+        verifyStatusAllOk(results);
+
+        checkDexoptWithNoProfile(verify(mArtd), mDexPath, "arm64", "verify");
+        checkDexoptWithNoProfile(verify(mArtd), mDexPath, "arm", "verify");
+
+        verifyProfileNotUsed(mPrebuiltProfile);
+        verifyProfileNotUsed(mDmProfile);
+        verifyEmbeddedProfileNotUsed(mDexPath);
+    }
+
+    @Test
     public void testDexoptExternalProfileErrors() throws Exception {
         // Having no profile should not be reported.
         // Having a bad profile should be reported.

@@ -752,7 +752,8 @@ public final class ArtManagerLocal {
                     dexInfo.dexPath(), PrimaryDexUtils.buildRefProfilePath(pkgState, dexInfo),
                     PrimaryDexUtils.getExternalProfiles(dexInfo),
                     PrimaryDexUtils.buildOutputProfile(pkgState, dexInfo, Process.SYSTEM_UID,
-                            Process.SYSTEM_UID, false /* isPublic */));
+                            Process.SYSTEM_UID, false /* isPublic */),
+                    false /* noExternalProfile */);
             if (!result.externalProfileErrors().isEmpty()) {
                 Log.e(TAG,
                         "Error occurred when initializing from external profiles: "
