@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f13856c4_74db3177",
+        "filename": "dex2oat/linker/image_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1280281
+      },
+      "writtenOn": "2023-10-16T13:24:19Z",
+      "side": 1,
+      "message": "If this value is larger than ImageHeader, it seems there might be a chance WriteData will overread beyond `image_header` bounds and account for something \"random\" on stack during checksum computation at https://cs.android.com/android/platform/superproject/main/+/main:art/runtime/image.cc;l\u003d379;drc\u003db7342ed569cfbcf41fb5eea56aa1495afdb3c474;bpv\u003d0;bpt\u003d1",
+      "range": {
+        "startLine": 221,
+        "startChar": 43,
+        "endLine": 221,
+        "endChar": 52
+      },
+      "revId": "1447185ed05b1e20d660581e4bb64cb40c55e05d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
