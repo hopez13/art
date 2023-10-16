@@ -176,6 +176,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9f998bb_ab8f33a2",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 3050,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-10-16T12:49:08Z",
+      "side": 1,
+      "message": "This was under the assumption that we would go the `add -1` route.",
+      "parentUuid": "b02e0ef1_ee1f2403",
+      "range": {
+        "startLine": 3050,
+        "startChar": 0,
+        "endLine": 3050,
+        "endChar": 50
+      },
+      "revId": "1f318d998a581691d79838c2cd5b23c1d881f33c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6fd631e5_0600d846",

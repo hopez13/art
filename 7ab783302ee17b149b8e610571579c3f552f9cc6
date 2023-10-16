@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b3db5a1_e99d065c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-10-16T12:49:08Z",
+      "side": 1,
+      "message": "Is there a way to test this? Java tests similar to hotness counters, or using `true_count` and `false_count` could good ideas https://android-review.git.corp.google.com/c/platform/art/+/2779128/8/compiler/optimizing/graph_visualizer.cc",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 58
+      },
+      "revId": "7ab783302ee17b149b8e610571579c3f552f9cc6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "39e15d03_6bdcac25",
@@ -14,6 +37,29 @@
       "writtenOn": "2023-10-16T12:14:41Z",
       "side": 1,
       "message": "Thanks Santiago, PTAL.",
+      "revId": "7ab783302ee17b149b8e610571579c3f552f9cc6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9707d488_6242d40e",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 3528,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-10-16T12:49:08Z",
+      "side": 1,
+      "message": "If we are going 0 to 0xffff wouldn\u0027t these need to start at `0`?",
+      "range": {
+        "startLine": 3527,
+        "startChar": 0,
+        "endLine": 3528,
+        "endChar": 58
+      },
       "revId": "7ab783302ee17b149b8e610571579c3f552f9cc6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
