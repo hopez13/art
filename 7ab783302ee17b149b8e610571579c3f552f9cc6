@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "464266a7_16a3a951",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-10-16T15:32:57Z",
+      "side": 1,
+      "message": "Good idea! Done.",
+      "parentUuid": "2b3db5a1_e99d065c",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 58
+      },
+      "revId": "7ab783302ee17b149b8e610571579c3f552f9cc6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "39e15d03_6bdcac25",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 8
@@ -54,6 +78,30 @@
       "writtenOn": "2023-10-16T12:49:08Z",
       "side": 1,
       "message": "If we are going 0 to 0xffff wouldn\u0027t these need to start at `0`?",
+      "range": {
+        "startLine": 3527,
+        "startChar": 0,
+        "endLine": 3528,
+        "endChar": 58
+      },
+      "revId": "7ab783302ee17b149b8e610571579c3f552f9cc6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f6b7169_2f1dab54",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 3528,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-10-16T15:32:57Z",
+      "side": 1,
+      "message": "No, a value of 0 means branch not taken. So I\u0027m making the default here as both targets always taken.",
+      "parentUuid": "9707d488_6242d40e",
       "range": {
         "startLine": 3527,
         "startChar": 0,
