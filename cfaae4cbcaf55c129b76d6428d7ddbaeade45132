@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94245623_21fe5303",
+        "filename": "test/utils/regen-test-files",
+        "patchSetId": 3
+      },
+      "lineNbr": 591,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-10-16T19:17:47Z",
+      "side": 1,
+      "message": "This line break makes it look like `ART_... + (t for t in ...)`. Please move up `t` to the preceding line.",
+      "range": {
+        "startLine": 590,
+        "startChar": 70,
+        "endLine": 591,
+        "endChar": 41
+      },
+      "revId": "cfaae4cbcaf55c129b76d6428d7ddbaeade45132",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c8028b31_e716d36d",
+        "filename": "test/utils/regen-test-files",
+        "patchSetId": 3
+      },
+      "lineNbr": 936,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-10-16T19:17:47Z",
+      "side": 1,
+      "message": "Don\u0027t the postsubmit tests include all the presubmit tests? From the way it\u0027s constructed this should be called `postsubmit_only_run_tests`, but I think it\u0027d be more useful to report all the postsubmit tests.",
+      "range": {
+        "startLine": 936,
+        "startChar": 4,
+        "endLine": 936,
+        "endChar": 24
+      },
+      "revId": "cfaae4cbcaf55c129b76d6428d7ddbaeade45132",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
