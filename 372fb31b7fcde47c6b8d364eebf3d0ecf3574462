@@ -88,6 +88,24 @@
       "parentUuid": "f8b27666_57e072b1",
       "revId": "372fb31b7fcde47c6b8d364eebf3d0ecf3574462",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "01202f6f_756d6b52",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-17T13:35:36Z",
+      "side": 1,
+      "message": "The `.cfi_def_cfa_register $spills_sp` below may silence the `check_cfi` but it also provides the wrong CFI information. Please move it back and fix `{SETUP,RESTORE}_SAVE_ARGS_ONLY_FRAME` as I suggested before.\n\nI tried it locally and didn\u0027t get any errors. (I did when I moved `.cfi_def_cfa_register $spills_sp` and deliberately left `{SETUP,RESTORE}_SAVE_ARGS_ONLY_FRAME` unchanged.)",
+      "parentUuid": "48632d6e_4bfb7137",
+      "revId": "372fb31b7fcde47c6b8d364eebf3d0ecf3574462",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
