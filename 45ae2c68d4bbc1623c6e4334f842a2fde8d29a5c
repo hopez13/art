@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d393b12_189340c3",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 580,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-10-17T15:45:51Z",
+      "side": 1,
+      "message": "Do we want to forgo the `CompactDexFile` case?",
+      "range": {
+        "startLine": 580,
+        "startChar": 41,
+        "endLine": 580,
+        "endChar": 56
+      },
+      "revId": "45ae2c68d4bbc1623c6e4334f842a2fde8d29a5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
