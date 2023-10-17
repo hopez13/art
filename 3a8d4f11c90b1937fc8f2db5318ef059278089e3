@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "4fa3f047_cf8971f1",
+        "filename": "libartservice/service/java/com/android/server/art/Dexopter.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-10-17T13:28:08Z",
+      "side": 1,
+      "message": "Hmm, I think it makes it harder to reason about the code, because one has to consider more branches for the different cases.\n\nI suggest keeping the returns but reversing the order (more or less - see below). Assuming \"verify\" is the lowest compiler filter*, you can safely return that directly near the top, and it\u0027s simple and clear.\n\nThe fall through from `getSafeModeCompilerFilter` looks like a fix from the old code, but that too can be handled by putting it after the \"verify\" downgrades.\n\nFor the system UI and launcher special cases, do we want all the downgrade checks to apply to them? Most shouldn\u0027t be applicable then, but if something is off then they may kick in, and in that case I wonder if it\u0027s better that dex2oat gets fed \"speed-profile\" and complains instead. That\u0027d make those special cases easier to reason about.\n\nFor the particular case of `FLAG_IGNORE_PROFILE`, I\u0027d argue it should override even them, though.\n\n*) Actually, there\u0027s \"assume-verified\" which is even lower, but if this function is fed that it\u0027s already buggy in the sense that it\u0027ll upgrade it. Could be worth a debug check that we\u0027re not getting that value.",
+      "parentUuid": "7ef2fa8f_69f7e076",
+      "range": {
+        "startLine": 340,
+        "startChar": 0,
+        "endLine": 344,
+        "endChar": 9
+      },
+      "revId": "3a8d4f11c90b1937fc8f2db5318ef059278089e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "283fc765_ed07f030",
@@ -85,6 +109,30 @@
       "side": 1,
       "message": "\"I.e.,\" is American English style. I found [this doc](https://developers.google.com/style/spelling), which applies to \"Google-related developer documentation\", which I believe includes Android API documentation, and it prefers American English.",
       "parentUuid": "283fc765_ed07f030",
+      "range": {
+        "startLine": 82,
+        "startChar": 54,
+        "endLine": 82,
+        "endChar": 55
+      },
+      "revId": "3a8d4f11c90b1937fc8f2db5318ef059278089e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8187fc85_8399ef5f",
+        "filename": "libartservice/service/java/com/android/server/art/model/ArtFlags.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-10-17T13:28:08Z",
+      "side": 1,
+      "message": "Oh, I\u0027d no idea that\u0027s AE.",
+      "parentUuid": "9c954dcb_2230baeb",
       "range": {
         "startLine": 82,
         "startChar": 54,
