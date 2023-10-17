@@ -480,6 +480,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "69a3e717_e5810c2b",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 398,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-10-17T17:46:49Z",
+      "side": 1,
+      "message": "There are tons of places where something is divided by page-size. Once it is no longer a constexpr, the compiler won\u0027t be able to figure out that it is a power of two and hence the division can be optimized by bit-shift. Please introduce a shift constant for the page-size and then use that instead of division.",
+      "range": {
+        "startLine": 398,
+        "startChar": 45,
+        "endLine": 398,
+        "endChar": 54
+      },
+      "revId": "b82ae723e288789e733fa44d4d896f198b4d7544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "831033e8_6d0c5dd9",
         "filename": "runtime/gc/collector/mark_compact.cc",
         "patchSetId": 3
