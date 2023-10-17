@@ -74,6 +74,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "59993a1c_6b1e4c70",
+        "filename": "libartservice/service/java/com/android/server/art/Dexopter.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-10-17T15:36:47Z",
+      "side": 1,
+      "message": "Discussed offline. Kept the early returns to keep the logic simple, but changed the order.",
+      "parentUuid": "4fa3f047_cf8971f1",
+      "range": {
+        "startLine": 340,
+        "startChar": 0,
+        "endLine": 344,
+        "endChar": 9
+      },
+      "revId": "3a8d4f11c90b1937fc8f2db5318ef059278089e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "283fc765_ed07f030",
         "filename": "libartservice/service/java/com/android/server/art/model/ArtFlags.java",
         "patchSetId": 1
