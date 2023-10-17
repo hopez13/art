@@ -141,6 +141,30 @@
       },
       "revId": "cfaae4cbcaf55c129b76d6428d7ddbaeade45132",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f9818cad_ceee0944",
+        "filename": "test/utils/regen-test-files",
+        "patchSetId": 3
+      },
+      "lineNbr": 936,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-10-17T17:32:57Z",
+      "side": 1,
+      "message": "Very well. I still think it\u0027s quite confusing with variable names like `postsubmit_run_tests` when it\u0027s a mostly empty subset of the actual tests run at postsubmit. Another variant could be to clarify its context with `postsubmit_group_run_tests` etc, but it\u0027s longer than `postsubmit_only_run_tests`.\n\nHowever if you don\u0027t agree with this then we can just agree to disagree; it\u0027s not a blocker after all.",
+      "parentUuid": "377b68dd_ecfe8e93",
+      "range": {
+        "startLine": 936,
+        "startChar": 4,
+        "endLine": 936,
+        "endChar": 24
+      },
+      "revId": "cfaae4cbcaf55c129b76d6428d7ddbaeade45132",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
