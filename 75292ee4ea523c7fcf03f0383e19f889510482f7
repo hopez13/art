@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8e336f5d_f59e0c80",
+        "filename": "libartservice/service/java/com/android/server/art/model/ArtFlags.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1166043
+      },
+      "writtenOn": "2023-10-17T22:07:59Z",
+      "side": 1,
+      "message": "This sounds like there are non-trivial rules who this will affect compiler filter. Maybe just \"make compiler behave as if there was no profile provided?\"",
+      "range": {
+        "startLine": 83,
+        "startChar": 56,
+        "endLine": 83,
+        "endChar": 58
+      },
+      "revId": "75292ee4ea523c7fcf03f0383e19f889510482f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
