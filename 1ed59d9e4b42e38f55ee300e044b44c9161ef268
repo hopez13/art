@@ -3,6 +3,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1eb9fbdb_bc437959",
+        "filename": "libartbase/base/global_const.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-10-17T21:30:56Z",
+      "side": 1,
+      "message": "These new files are not required. GlobalConst and the other macros can be defined in `globals.h`, and assuming that page-agnosticism is going to be not on windows, the defines can be done in `globals_unix.cc`.",
+      "range": {
+        "startLine": 17,
+        "startChar": 8,
+        "endLine": 17,
+        "endChar": 43
+      },
+      "revId": "1ed59d9e4b42e38f55ee300e044b44c9161ef268",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2745d1bc_85279fb4",
+        "filename": "libartbase/base/global_const.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-10-17T21:30:56Z",
+      "side": 1,
+      "message": "I see that this solves the initialization ordering issues. But any idea of how further more expensive is this as compared to a simple global variable? I\u0027m guessing at the least compiler will have to check on every invocation if the initialization is already done or not.",
+      "range": {
+        "startLine": 31,
+        "startChar": 2,
+        "endLine": 31,
+        "endChar": 22
+      },
+      "revId": "1ed59d9e4b42e38f55ee300e044b44c9161ef268",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "77a80ec0_18089fe7",
         "filename": "libartbase/base/page_size_agnostic_globals.h",
         "patchSetId": 5
@@ -19,6 +65,76 @@
         "startChar": 49,
         "endLine": 87,
         "endChar": 91
+      },
+      "revId": "1ed59d9e4b42e38f55ee300e044b44c9161ef268",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "59552c11_bb9592ef",
+        "filename": "libartbase/base/page_size_agnostic_globals.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-10-17T21:30:56Z",
+      "side": 1,
+      "message": "It looks like the complexities of GlobalConst are only required for gPageSize. All the others declared/defined using these macros in this CL has to be just the following as there is no ordering concerns there:\n\nFor page-agnostic case:\n   declare: extern const type name;\n   define: const type name \u003d `initialization based on gPageSize`\nelse:\n   declare: static constexpr type name \u003d `initialization based on gPageSize`\n   define: nothing",
+      "range": {
+        "startLine": 87,
+        "startChar": 0,
+        "endLine": 87,
+        "endChar": 30
+      },
+      "revId": "1ed59d9e4b42e38f55ee300e044b44c9161ef268",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf66fed4_ec30e8a3",
+        "filename": "libartbase/base/page_size_agnostic_globals.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-10-17T21:30:56Z",
+      "side": 1,
+      "message": "A little confused. Is the calculation here wrong?",
+      "parentUuid": "77a80ec0_18089fe7",
+      "range": {
+        "startLine": 87,
+        "startChar": 49,
+        "endLine": 87,
+        "endChar": 91
+      },
+      "revId": "1ed59d9e4b42e38f55ee300e044b44c9161ef268",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "008f8cd2_a7ff5322",
+        "filename": "runtime/jni/local_reference_table.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-10-17T21:30:56Z",
+      "side": 1,
+      "message": "Not a compiler expert so asking: isn\u0027t it a a problem to declare something `extern` in a source file? That would happen here if page-agnosticism is enabled, right? \n\nIn fact, why is this required at all? Current code should suffice. I have observed in the past that if the initialization is a compile-time constant, then even if something is defined `const`, compiler implicitly converts it into a compile-time const.\n\nThe comment applies to `thread.cc` file change as well.",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 41
       },
       "revId": "1ed59d9e4b42e38f55ee300e044b44c9161ef268",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
