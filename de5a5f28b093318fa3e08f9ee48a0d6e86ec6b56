@@ -22,6 +22,30 @@
       },
       "revId": "de5a5f28b093318fa3e08f9ee48a0d6e86ec6b56",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "648391be_e3811305",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-17T08:50:49Z",
+      "side": 1,
+      "message": "Yes, this is a rare path, so I chose to use a CHECK.",
+      "parentUuid": "7dff273f_3678385e",
+      "range": {
+        "startLine": 215,
+        "startChar": 6,
+        "endLine": 215,
+        "endChar": 14
+      },
+      "revId": "de5a5f28b093318fa3e08f9ee48a0d6e86ec6b56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
