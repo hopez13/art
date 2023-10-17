@@ -117,6 +117,30 @@
       },
       "revId": "cfaae4cbcaf55c129b76d6428d7ddbaeade45132",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "377b68dd_ecfe8e93",
+        "filename": "test/utils/regen-test-files",
+        "patchSetId": 3
+      },
+      "lineNbr": 936,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2023-10-17T17:16:59Z",
+      "side": 1,
+      "message": "The output (printed by code lines 949–961) is essentially giving a summary of the contents of the `TEST_MAPPING` file, using the verbatim names of the test groups.\n\nI added an additional note in PS5 to make this more explicit in the output, but I\u0027d like to keep the test group names aligned with the Test Mapping terminology.",
+      "parentUuid": "95dbb6d1_fa9c4ac2",
+      "range": {
+        "startLine": 936,
+        "startChar": 4,
+        "endLine": 936,
+        "endChar": 24
+      },
+      "revId": "cfaae4cbcaf55c129b76d6428d7ddbaeade45132",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
