@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b5fcdfc_396b403f",
+        "filename": "test/utils/regen-test-files",
+        "patchSetId": 3
+      },
+      "lineNbr": 591,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2023-10-17T14:09:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "94245623_21fe5303",
+      "range": {
+        "startLine": 590,
+        "startChar": 70,
+        "endLine": 591,
+        "endChar": 41
+      },
+      "revId": "cfaae4cbcaf55c129b76d6428d7ddbaeade45132",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c8028b31_e716d36d",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-10-16T19:17:47Z",
       "side": 1,
       "message": "Don\u0027t the postsubmit tests include all the presubmit tests? From the way it\u0027s constructed this should be called `postsubmit_only_run_tests`, but I think it\u0027d be more useful to report all the postsubmit tests.",
+      "range": {
+        "startLine": 936,
+        "startChar": 4,
+        "endLine": 936,
+        "endChar": 24
+      },
+      "revId": "cfaae4cbcaf55c129b76d6428d7ddbaeade45132",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "532ced7a_ab6598e3",
+        "filename": "test/utils/regen-test-files",
+        "patchSetId": 3
+      },
+      "lineNbr": 936,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2023-10-17T14:09:43Z",
+      "side": 1,
+      "message": "I\u0027m just following the `TEST_MAPPING` test group terminology (https://source.android.com/docs/core/tests/development/test-mapping) here:\n* tests declared in the `presubmit` test group (and the `mainline-presubmit` test group) are executed both in pre- and post-submit runs;\n* tests declared in the `postsubmit` test group are executed in post-submit runs only.\n\nOur current strategy is to have as many tests as possible in the `presubmit` test group, making tests in the `postsubmit` group a \"transitory\" step.",
+      "parentUuid": "c8028b31_e716d36d",
       "range": {
         "startLine": 936,
         "startChar": 4,
