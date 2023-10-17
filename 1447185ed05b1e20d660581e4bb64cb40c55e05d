@@ -22,6 +22,30 @@
       },
       "revId": "1447185ed05b1e20d660581e4bb64cb40c55e05d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e8442980_8881e06f",
+        "filename": "dex2oat/linker/image_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-10-17T14:47:24Z",
+      "side": 1,
+      "message": "Good catch! Fix here: https://android-review.git.corp.google.com/c/platform/art/+/2793293",
+      "parentUuid": "f13856c4_74db3177",
+      "range": {
+        "startLine": 221,
+        "startChar": 43,
+        "endLine": 221,
+        "endChar": 52
+      },
+      "revId": "1447185ed05b1e20d660581e4bb64cb40c55e05d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
