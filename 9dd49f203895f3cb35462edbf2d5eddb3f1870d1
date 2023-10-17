@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aee4b148_18f2ea49",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-10-17T22:02:08Z",
+      "side": 1,
+      "message": "FYI, I got clarification from tedbauer@ and dbogadi@ that flags are not supported for mainline, even on `main`. https://chat.google.com/room/AAAAWc5iiZU/nElBthoEiCU\n\nOriginally I heard from the Rb team that flags are supported on `main`. My understanding is that the Rb team probably have some misunderstanding because they haven\u0027t started using aconfig flags.\n\nSo we are not going to use flags for now. Sorry for going round and round in circles. I got a green light to add @SuppressLint to work around the metalava error.",
+      "revId": "9dd49f203895f3cb35462edbf2d5eddb3f1870d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

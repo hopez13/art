@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a934853_21047562",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-10-17T22:02:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "001fdbfd_29b06355",
+      "revId": "268d9ced64252cc9e786208a2d6daea57fe24593",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "40f385e6_c29b0bb3",
@@ -31,6 +49,30 @@
       "writtenOn": "2023-10-17T16:15:36Z",
       "side": 1,
       "message": "Is it correct to return here? If the target filter is \"speed\" then the conditions below should be allowed to downgrade it, and arguably it shouldn\u0027t matter what the profile ignore flag is then.\n\n(The returns above are fine in this regard, given the fact that `isOptimizedCompilerFilter` only returns false for \"assumed-verified\" and \"verify\".)",
+      "range": {
+        "startLine": 321,
+        "startChar": 22,
+        "endLine": 321,
+        "endChar": 42
+      },
+      "revId": "268d9ced64252cc9e786208a2d6daea57fe24593",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "673b3c87_7a733bb6",
+        "filename": "libartservice/service/java/com/android/server/art/Dexopter.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-10-17T22:02:08Z",
+      "side": 1,
+      "message": "Thanks for bringing this up. Now I feel unnecessary to keep this early returning style. I think the fall through style is better.\n\nYour original point against the fall through style was that \"one has to consider more branches for the different cases\", but as you can see, with the early returning style, you still have to consider other branches for different cases, and the logic is even harder to reason about because one can easily introduce a tricky bug like this.\n\nMoreover, the early returning style requires assumptions on the compiler filter values, to order the branches. For example, we are assuming that `DexFile.getSafeModeCompilerFilter` downgrades the filter to \"verify\", and `getSystemUiCompilerFilter()` returns \"speed\" or empty string. What if we have a compiler filter \"x\" that is lower than \"verify\", and `DexFile.getSafeModeCompilerFilter` and `getSystemUiCompilerFilter` returns \"x\"? Then the current order will no longer make sense.\n\nI reverted the code to the fall through style.",
+      "parentUuid": "40f385e6_c29b0bb3",
       "range": {
         "startLine": 321,
         "startChar": 22,
