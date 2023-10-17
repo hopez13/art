@@ -299,28 +299,6 @@ public abstract class Dexopter<DexInfoType extends DetailedDexInfo> {
     @NonNull
     private String adjustCompilerFilter(
             @NonNull String targetCompilerFilter, @NonNull DexInfoType dexInfo) {
-        if (mInjector.isSystemUiPackage(mPkgState.getPackageName())) {
-            String systemUiCompilerFilter = getSystemUiCompilerFilter();
-            if (!systemUiCompilerFilter.isEmpty()) {
-                return systemUiCompilerFilter;
-            }
-        }
-
-        if (mInjector.isLauncherPackage(mPkgState.getPackageName())) {
-            return "speed-profile";
-        }
-
-        // We force vmSafeMode on debuggable apps as well:
-        //  - the runtime ignores their compiled code
-        //  - they generally have lots of methods that could make the compiler used run out of
-        //    memory (b/130828957)
-        // Note that forcing the compiler filter here applies to all compilations (even if they
-        // are done via adb shell commands). This is okay because the runtime will ignore the
-        // compiled code anyway.
-        if (mPkg.isVmSafeMode() || mPkg.isDebuggable()) {
-            return DexFile.getSafeModeCompilerFilter(targetCompilerFilter);
-        }
-
         // We cannot do AOT compilation if we don't have a valid class loader context.
         if (dexInfo.classLoaderContext() == null) {
             return DexFile.isOptimizedCompilerFilter(targetCompilerFilter) ? "verify"
@@ -335,6 +313,34 @@ public abstract class Dexopter<DexInfoType extends DetailedDexInfo> {
         if (mPkg.isUseEmbeddedDex()) {
             return DexFile.isOptimizedCompilerFilter(targetCompilerFilter) ? "verify"
                                                                            : targetCompilerFilter;
+        }
+
+        if ((mParams.getFlags() & ArtFlags.FLAG_IGNORE_PROFILE) != 0) {
+            return DexFile.isProfileGuidedCompilerFilter(targetCompilerFilter)
+                    ? "verify"
+                    : targetCompilerFilter;
+        }
+
+        // We force vmSafeMode on debuggable apps as well:
+        //  - the runtime ignores their compiled code
+        //  - they generally have lots of methods that could make the compiler used run out of
+        //    memory (b/130828957)
+        // Note that forcing the compiler filter here applies to all compilations (even if they
+        // are done via adb shell commands). This is okay because the runtime will ignore the
+        // compiled code anyway.
+        if (mPkg.isVmSafeMode() || mPkg.isDebuggable()) {
+            return DexFile.getSafeModeCompilerFilter(targetCompilerFilter);
+        }
+
+        if (mInjector.isSystemUiPackage(mPkgState.getPackageName())) {
+            String systemUiCompilerFilter = getSystemUiCompilerFilter();
+            if (!systemUiCompilerFilter.isEmpty()) {
+                return systemUiCompilerFilter;
+            }
+        }
+
+        if (mInjector.isLauncherPackage(mPkgState.getPackageName())) {
+            return "speed-profile";
         }
 
         return targetCompilerFilter;
