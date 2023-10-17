@@ -70,6 +70,24 @@
       "parentUuid": "fcadec3d_b6859dbb",
       "revId": "372fb31b7fcde47c6b8d364eebf3d0ecf3574462",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48632d6e_4bfb7137",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-10-17T01:09:42Z",
+      "side": 1,
+      "message": "That doesn\u0027t work either. \n\nCan we express \"how to get CFA\" in terms of SP, after SP is incremented by the statically-unknown nterp frame size? Or define \"how to get SP\" in terms of CFA? \n\nLike: instead of INCREASE_FRAME\u0027s .cfi_adjust_cfa_offset,\n.cfi_escape 0x16, 0x2, 6, 0x72, 0x0, 0x1c, 0x9c, 0x16, 0x1c\n\u003d CFI_VAL_EXPRESSION with SP: push SP+0, CFA-(SP+0) is offset, SP is defined as CFA-offset\n\nbut the .cfi_rel_offset statements after that don\u0027t seem to take that into account, despite being defined against SP. \n\nI could try state SP, A0, A1, etc in terms of an xREFS dwarf expression, would that be best?",
+      "parentUuid": "f8b27666_57e072b1",
+      "revId": "372fb31b7fcde47c6b8d364eebf3d0ecf3574462",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
