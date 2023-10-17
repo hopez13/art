@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d309faac_def29666",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-10-17T17:07:44Z",
+      "side": 1,
+      "message": "I was looking for a better way to run updated run tests in the chroot than to build and reinitialise the whole thing from scratch, but I couldn\u0027t find any instructions for that.",
+      "revId": "05637a44c972648662b22a01466fcd7a1567771c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7de4e6f0_5ff1b4c2",
+        "filename": "test/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-10-17T17:07:44Z",
+      "side": 1,
+      "message": "Right?",
+      "range": {
+        "startLine": 202,
+        "startChar": 8,
+        "endLine": 203,
+        "endChar": 33
+      },
+      "revId": "05637a44c972648662b22a01466fcd7a1567771c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
