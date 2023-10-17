@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "001fdbfd_29b06355",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-10-17T16:15:36Z",
+      "side": 1,
+      "message": "Worth mentioning here that the logic in adjustCompilerFilter is changing a little for the system UI and launcher special cases.",
+      "revId": "268d9ced64252cc9e786208a2d6daea57fe24593",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "40f385e6_c29b0bb3",
+        "filename": "libartservice/service/java/com/android/server/art/Dexopter.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-10-17T16:15:36Z",
+      "side": 1,
+      "message": "Is it correct to return here? If the target filter is \"speed\" then the conditions below should be allowed to downgrade it, and arguably it shouldn\u0027t matter what the profile ignore flag is then.\n\n(The returns above are fine in this regard, given the fact that `isOptimizedCompilerFilter` only returns false for \"assumed-verified\" and \"verify\".)",
+      "range": {
+        "startLine": 321,
+        "startChar": 22,
+        "endLine": 321,
+        "endChar": 42
+      },
+      "revId": "268d9ced64252cc9e786208a2d6daea57fe24593",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
