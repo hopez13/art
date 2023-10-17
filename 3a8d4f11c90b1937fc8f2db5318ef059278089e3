@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "7ef2fa8f_69f7e076",
+        "filename": "libartservice/service/java/com/android/server/art/Dexopter.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-10-17T10:48:36Z",
+      "side": 1,
+      "message": "That\u0027s a good point. I changed the code to fall through on every condition.",
+      "parentUuid": "f1d5699b_589aa925",
+      "range": {
+        "startLine": 340,
+        "startChar": 0,
+        "endLine": 344,
+        "endChar": 9
+      },
+      "revId": "3a8d4f11c90b1937fc8f2db5318ef059278089e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "283fc765_ed07f030",
         "filename": "libartservice/service/java/com/android/server/art/model/ArtFlags.java",
         "patchSetId": 1
@@ -49,6 +73,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "9c954dcb_2230baeb",
+        "filename": "libartservice/service/java/com/android/server/art/model/ArtFlags.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-10-17T10:48:36Z",
+      "side": 1,
+      "message": "\"I.e.,\" is American English style. I found [this doc](https://developers.google.com/style/spelling), which applies to \"Google-related developer documentation\", which I believe includes Android API documentation, and it prefers American English.",
+      "parentUuid": "283fc765_ed07f030",
+      "range": {
+        "startLine": 82,
+        "startChar": 54,
+        "endLine": 82,
+        "endChar": 55
+      },
+      "revId": "3a8d4f11c90b1937fc8f2db5318ef059278089e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "d42f89ff_8c940586",
         "filename": "libartservice/service/java/com/android/server/art/model/DexoptResult.java",
         "patchSetId": 1
@@ -60,6 +108,30 @@
       "writtenOn": "2023-10-16T19:57:12Z",
       "side": 1,
       "message": "Nit: I\u0027d say error messages are for logging almost by definition. However, the errors as a whole may or may not be.",
+      "range": {
+        "startLine": 338,
+        "startChar": 21,
+        "endLine": 338,
+        "endChar": 29
+      },
+      "revId": "3a8d4f11c90b1937fc8f2db5318ef059278089e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "99a19d94_18fa20fd",
+        "filename": "libartservice/service/java/com/android/server/art/model/DexoptResult.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-10-17T10:48:36Z",
+      "side": 1,
+      "message": "Here, the point is that no automatic processing should be done to the messages. Alex was worried that these messages will be used by some automatic processing that generates localized messages. I told him that the messages are only for adb, so localization isn\u0027t a concern. Then Alex suggested to add a comment to call them \"logging only\". Therefore, I\u0027m adding this line here.",
+      "parentUuid": "d42f89ff_8c940586",
       "range": {
         "startLine": 338,
         "startChar": 21,
