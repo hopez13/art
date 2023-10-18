@@ -82,7 +82,22 @@
 // the string factory call, so we disable thread-caching the resolution of string init, and skip
 // fast paths out to managed ABI calls.
 %def op_invoke_direct(range=""):
-   unimp
+   EXPORT_PC
+   FETCH_FROM_THREAD_CACHE a0, /*slow path*/2f, t0, t1
+                                   // a0 := ArtMethod*, never String.<init>
+1:
+%  fetch_receiver("t0", range)
+   GET_VREG_OBJECT a1, t0          // a1 := fp[C] (this)
+   beqz a1, 3f                     // throw if null
+   tail NterpInvokeDirect${range}  // args a0, a1
+2:
+%  resolve_method_into_a0()        #  a0 := ArtMethod* or String.<init>
+   and t0, a0, 0x1                 // t0 := string-init bit
+   beqz t0, 1b                     // not string init
+   and a0, a0, ~0x1                // clear string-init bit
+   tail NterpInvokeStringInit      // args a0, a1
+3:
+   tail common_errNullObject
 
 
 // invoke-static {vC, vD, vE, vF, vG}, meth@BBBB
@@ -254,6 +269,14 @@
    call nterp_get_method
 
 
+%def fetch_receiver(reg="", range=""):
+%  if range == 'Range':
+     FETCH $reg, count=2                   // reg := CCCC
+%  else:
+     FETCH $reg, count=2, width=8, byte=0  // reg := D|C
+     andi $reg, $reg, 0xF                  // reg := C
+
+
 //
 // These asm blocks are positioned in main.S for visibility to stack walking.
 //
@@ -276,14 +299,69 @@
 // a0: ArtMethod*
 // a1: this
 %def nterp_invoke_direct(uniq="invoke_direct"):
-   unimp
+   ld s7, ART_METHOD_QUICK_CODE_OFFSET_64(a0)
+                                 // s7 := quick code
+%  try_nterp(quick="s7", z0="t0", skip=f".L{uniq}_simple")
+   call NterpToNterpInstance     // args a0, a1
+   j .L${uniq}_next_op
+
+.L${uniq}_simple:
+   srliw t0, xINST, 12           // t0 := A
+%  try_simple_args(ins="t0", z0="t1", z1="t2", skip=f".L{uniq}_01", uniq=uniq)
+                                 // a2, a3, a4, a5 := D, E, F, G
+   jalr s7                       // args a0 - a5
+   j .L${uniq}_next_op
+
+.L${uniq}_01:
+   mv s8, zero                   // initialize shorty reg
+%  try_01_args(ins="t0", z0="t1", z1="t2", skip=f".L{uniq}_slow", call=f".L{uniq}_01_call", uniq=uniq)
+   // Return value expected. Get shorty, stash in callee-save to be available on return.
+   // When getting shorty, stash this fast path's arg registers then restore.
+   // Unconditionally restores a2/fa0, even if extra arg not found.
+   mv s11, a2                    // skip fa0, bitwise equiv to a2
+%  get_shorty_save_a0_a1(shorty="s8", y0="s9", y1="s10")
+   mv a2, s11
+   fmv.w.x fa0, a2
+.L${uniq}_01_call:
+   jalr s7                       // args a0, a1, and maybe a2, fa0
+   beqz s8, .L${uniq}_next_op    // no shorty, no return value
+%  maybe_float_returned(shorty="s8", z0="t0", z1="t1", uniq=f"{uniq}_0")
+                                 // a0 := fa0 if float return
+   j .L${uniq}_next_op
+
+.L${uniq}_slow:
+%  get_shorty_save_a0_a1(shorty="s8", y0="s9", y1="s10")
+%  slow_setup_args(shorty="s8", z0="t0", z1="t1", z2="t2", z3="t3", z4="t4", uniq=uniq)
+   jalr s7                       // args in a0-a5, fa0-fa4
+%  maybe_float_returned(shorty="s8", z0="t0", z1="t1", uniq=f"{uniq}_1")
+                                 // a0 := fa0 if float return
+.L${uniq}_next_op:
+   FETCH_ADVANCE_INST 3
+   GET_INST_OPCODE t0
+   GOTO_OPCODE t0
 
 
 // NterpInvokeStringInit
 // a0: ArtMethod*
 // a1: this
 %def nterp_invoke_string_init(uniq="invoke_string_init"):
-   unimp
+   ld s7, ART_METHOD_QUICK_CODE_OFFSET_64(a0)
+                                 // s7 := quick code
+%  try_nterp(quick="s7", z0="t0", skip=f".L{uniq}_slow")
+   call NterpToNterpStringInit   // args a0, a1
+   j .L${uniq}_next_op
+
+.L${uniq}_slow:
+%  get_shorty_save_a0_a1(shorty="s8", y0="s9", y1="s10")
+%  slow_setup_args(shorty="s8", z0="t0", z1="t1", z2="t2", z3="t3", z4="t4", uniq=uniq)
+   mv s8, a1                     // save "this" in callee-save for return-time fixup
+   jalr s7                       // args in a0-a5, fa0-fa4
+
+.L${uniq}_next_op:
+%  subst_vreg_references(old="s8", new="a1", z0="t0", z1="t1", z2="t2", uniq=uniq)
+   FETCH_ADVANCE_INST 3
+   GET_INST_OPCODE t0
+   GOTO_OPCODE t0
 
 
 // NterpInvokeStatic
@@ -307,12 +385,11 @@
 %  try_01_args_static(ins="t0", z0="t1", z1="t2", skip=f".L{uniq}_slow", call=f".L{uniq}_01_call", uniq=uniq)
    // Return value expected. Get shorty, stash in callee-save to be available on return.
    // When getting shorty, stash this fast path's arg registers then restore.
-   // Unconditionally stores a1/fa0, even if extra arg not found.
-   fmv.s fs0, fa0
-   mv s10, a1
-%  get_shorty_preserve_a0(shorty="s8", y0="s9")
+   // Unconditionally restores a1/fa0, even if extra arg not found.
+   mv s10, a1                    // skip fa0, bitwise equiv to a1
+%  get_shorty_save_a0(shorty="s8", y0="s9")
    mv a1, s10
-   fmv.s fa0, fs0
+   fmv.w.x fa0, a1
 .L${uniq}_01_call:
    jalr s7                       // args a0, and maybe a1, fa0
    beqz s8, .L${uniq}_next_op    // no shorty, no return value
@@ -321,7 +398,7 @@
    j .L${uniq}_next_op
 
 .L${uniq}_slow:
-%  get_shorty_preserve_a0(shorty="s8", y0="s9")
+%  get_shorty_save_a0(shorty="s8", y0="s9")
 %  slow_setup_args(shorty="s8", z0="t0", z1="t1", z2="t2", z3="t3", z4="t4", arg_start="0", uniq=uniq)
    jalr s7                       // args in a0-a5, fa0-fa4
 %  maybe_float_returned(shorty="s8", z0="t0", z1="t1", uniq=f"{uniq}_1")
@@ -407,6 +484,43 @@
    lla $z0, ExecuteNterpImpl
    bne $z0, $quick, $skip
 
+
+// Hardcoded
+// - a0: ArtMethod*
+// Input
+// - ins: arg count
+// Temporaries: z0, z1
+%def try_simple_args(ins="", z0="", z1="", skip="", uniq=""):
+   lwu $z0, ART_METHOD_ACCESS_FLAGS_OFFSET(a0)
+   bexti $z0, $z0, ART_METHOD_NTERP_INVOKE_FAST_PATH_FLAG_BIT
+   beqz $z0, $skip
+   li $z0, 1
+   beq $ins, $z0, .L${uniq}_simple_done  // A = 1: no further args.
+   FETCH $z1, count=2                 // z1 := F|E|D|C
+   li $z0, 2
+   beq $ins, $z0, .L${uniq}_simple_2  // A = 2
+   li $z0, 4
+   blt $ins, $z0, .L${uniq}_simple_3  // A = 3
+   beq $ins, $z0, .L${uniq}_simple_4  // A = 4
+   // A = 5
+   srliw $z0, xINST, 8                // z0 := A|G
+   andi $z0, $z0, 0xF                 // z0 := G
+   GET_VREG a5, $z0
+.L${uniq}_simple_4:
+   srliw $z0, $z1, 12                 // z0 := F
+   GET_VREG a4, $z0
+.L${uniq}_simple_3:
+   srliw $z0, $z1, 8                  // z0 := F|E
+   andi $z0, $z0, 0xF                 // z0 := E
+   GET_VREG a3, $z0
+.L${uniq}_simple_2:
+   srliw $z0, $z1, 4                  // z0 := F|E|D
+   andi $z0, $z0, 0xF                 // z0 := D
+   GET_VREG a2, $z0
+.L${uniq}_simple_done:
+   // a1 already set to "this"
+
+
 // Static variant.
 %def try_simple_args_static(ins="", z0="", z1="", skip="", uniq=""):
    lwu $z0, ART_METHOD_ACCESS_FLAGS_OFFSET(a0)
@@ -439,6 +553,25 @@
    andi $z0, $z1, 0xF                 // z0 := C
    GET_VREG a1, $z0
 .L${uniq}_simple_done:
+
+
+// Check if a 0/1 arg invoke form is possible, set up a2 and fa0 if needed.
+// If a return value expected, move possible float return to a0.
+// zN are temporaries
+// yN are callee-saved
+%def try_01_args(ins="", z0="", z1="", skip="", call="", uniq=""):
+   li $z0, 2                    // z0 := 2
+   blt $ins, $z0, .L${uniq}_01_peek_next  // A = 1
+   bgt $ins, $z0, $skip         // A >= 3
+   // A = 2: this, plus one arg
+   FETCH $z1, count=2, width=8, byte=0
+                                // z1 := D|C
+   srliw $z1, $z1, 4            // z1 := D
+   GET_VREG a2, $z1
+   fmv.w.x fa0, a2
+.L${uniq}_01_peek_next:
+%  try_01_args_peek_next(z0=z0)  # z0 is zero if invoke has return value
+   bnez $z0, $call
 
 
 // Static variant.
@@ -481,12 +614,42 @@
 .L${uniq}_float_return_done:
 
 
-// Static variant.
-%def get_shorty_preserve_a0(shorty="", y0=""):
+// Hardcoded:
+// - a0: ArtMethod*
+// - a1: this
+// y0, y1 - callee-save
+%def get_shorty_save_a0_a1(shorty="", y0="", y1=""):
+   mv $y1, a1
    mv $y0, a0
    call NterpGetShorty  // arg a0
    mv $shorty, a0
    mv a0, $y0
+   mv a1, $y1
+
+
+// Static variant.
+// y0 - callee-save
+%def get_shorty_save_a0(shorty="", y0=""):
+   mv $y0, a0
+   call NterpGetShorty  // arg a0
+   mv $shorty, a0
+   mv a0, $y0
+
+
+// Hardcoded: xFP, xREFS
+// Starting with vreg index 0, replace any old reference with new reference.
+%def subst_vreg_references(old="", new="", z0="", z1="", z2="", uniq=""):
+   mv $z0, xFP               // z0 := &fp[0]
+   mv $z1, xREFS             // z1 := &refs[0]
+.L${uniq}_subst_try:
+   lwu $z2, ($z1)
+   bne $z2, $old, .L${uniq}_subst_next
+   sw $new, ($z0)
+   sw $new, ($z1)
+.L${uniq}_subst_next:
+   addi $z0, $z0, 4
+   addi $z1, $z1, 4
+   bne $z1, xFP, .L${uniq}_subst_try
 
 
 // Hardcoded
@@ -593,18 +756,14 @@
 // a0: ArtMethod*
 // a1: this
 %def nterp_to_nterp_instance():
-   .cfi_startproc
-   unimp
-   .cfi_endproc
+%  nterp_to_nterp(how_vC="in_a1", uniq="n2n_instance")
 
 
 // NterpToNterpStringInit
 // a0: ArtMethod*
 // a1: this
 %def nterp_to_nterp_string_init():
-   .cfi_startproc
-   unimp
-   .cfi_endproc
+%  nterp_to_nterp(how_vC="in_a1", uniq="n2n_string_init")
 
 
 // NterpToNterpStatic
