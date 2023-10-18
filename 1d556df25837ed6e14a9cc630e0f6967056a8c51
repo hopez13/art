@@ -1,5 +1,23 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e6a2ed6_b3d81ae9",
+        "filename": "runtime/base/gc_visited_arena_pool.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1096713
+      },
+      "writtenOn": "2023-10-18T13:53:34Z",
+      "side": 1,
+      "message": "I think we should initialize `waiting_for_deletion_` to `false` here.  We initialize it in the implementation of the other constructor, but not this one.  And I think if we use this constructor, then there\u0027s no flow that sets `waiting_for_deletion_` before we read from it (SetupForDeferredDeletion() sets the value, but after it\u0027s read it in a DCHECK)",
+      "revId": "1d556df25837ed6e14a9cc630e0f6967056a8c51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
