@@ -34,6 +34,24 @@
       "parentUuid": "4e6a2ed6_b3d81ae9",
       "revId": "1d556df25837ed6e14a9cc630e0f6967056a8c51",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f27c3303_d2042a5a",
+        "filename": "runtime/base/gc_visited_arena_pool.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1096713
+      },
+      "writtenOn": "2023-10-18T18:27:00Z",
+      "side": 1,
+      "message": "And presumably IsWaitingForDeletion() isn\u0027t (currently) invoked on those instances either.\n\nIt\u0027s good to know it\u0027s not impacting the current code.  Should we add the initialization so it wouldn\u0027t possibly impact future code.  It seems like leaving fields intentionally uninitialized based on kind of non-obvious usage restrictions is unnecessarily dangerous.  I presume the initialization of this field is quite cheap.",
+      "parentUuid": "57d701d3_63b99338",
+      "revId": "1d556df25837ed6e14a9cc630e0f6967056a8c51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
