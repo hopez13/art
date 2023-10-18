@@ -558,7 +558,12 @@ OAT_ENTRY ExecuteNterpImpl
 
    // Fast path: instance with zero args.
 .Lentry_a1:
+#ifdef __riscv_zbs
    bexti s10, s10, ART_METHOD_IS_STATIC_FLAG_BIT
+#else
+   srli s10, s10, ART_METHOD_IS_STATIC_FLAG_BIT
+   andi s10, s10, 1
+#endif
                             // s10 := 1 if static, 0 if instance
    bnez s10, .Lentry_shorty
    sw a1, (t0)
