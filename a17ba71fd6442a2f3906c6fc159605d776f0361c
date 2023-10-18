@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ad7b6dd_57203146",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-10-18T20:07:13Z",
+      "side": 1,
+      "message": "Spello: \"true\"",
+      "range": {
+        "startLine": 11,
+        "startChar": 28,
+        "endLine": 11,
+        "endChar": 32
+      },
+      "revId": "a17ba71fd6442a2f3906c6fc159605d776f0361c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "f00ca6f4_9f893e20",
@@ -14,6 +37,121 @@
       "writtenOn": "2023-10-18T11:59:47Z",
       "side": 1,
       "message": "Failed test triggered with latest change : https://android-build.corp.google.com/builds/abtd/run/L70000000963562446",
+      "revId": "a17ba71fd6442a2f3906c6fc159605d776f0361c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1da3a9bf_ab9327da",
+        "filename": "libnativeloader/native_loader_test.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-10-18T20:07:13Z",
+      "side": 1,
+      "message": "Why is this different from the revert of https://r.android.com/2760305?",
+      "range": {
+        "startLine": 351,
+        "startChar": 6,
+        "endLine": 351,
+        "endChar": 61
+      },
+      "revId": "a17ba71fd6442a2f3906c6fc159605d776f0361c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b95f4a1d_5b077b60",
+        "filename": "libnativeloader/public_libraries.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-10-18T20:07:13Z",
+      "side": 1,
+      "message": "Not directly related to this CL, but why is both `GetProperty` and `android::sysprop::VndkProperties::xxx_vndk_version()` used in this code? Can they be unified, or is there some subtle difference between them?",
+      "range": {
+        "startLine": 239,
+        "startChar": 9,
+        "endLine": 239,
+        "endChar": 66
+      },
+      "revId": "a17ba71fd6442a2f3906c6fc159605d776f0361c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "170f48bc_8a05edc8",
+        "filename": "libnativeloader/public_libraries.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-10-18T20:07:13Z",
+      "side": 1,
+      "message": "This is still different from before https://r.android.com/2760305. We don\u0027t need compat handling here?",
+      "range": {
+        "startLine": 286,
+        "startChar": 0,
+        "endLine": 288,
+        "endChar": 14
+      },
+      "revId": "a17ba71fd6442a2f3906c6fc159605d776f0361c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "73dfcb13_2631fa58",
+        "filename": "libnativeloader/public_libraries.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-10-18T20:07:13Z",
+      "side": 1,
+      "message": "Simplify this to `android::base::GetIntProperty(\"ro.product.first_api_level\", 0) \u003e\u003d __ANDROID_API_R__ ||\nandroid::sysprop::VndkProperties::product_vndk_version().has_value())`?",
+      "range": {
+        "startLine": 433,
+        "startChar": 6,
+        "endLine": 434,
+        "endChar": 78
+      },
+      "revId": "a17ba71fd6442a2f3906c6fc159605d776f0361c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b36bcb33_ad5c5d70",
+        "filename": "libnativeloader/public_libraries.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-10-18T20:07:13Z",
+      "side": 1,
+      "message": "Is it safe to drop this at some point? Iiuc we need it for devices that shipped with Q or older, but do we know how long devices may take OTAs to newer desserts?\n\nIf we know, it\u0027d be nice with a TODO here saying when it\u0027s safe to delete it.",
+      "range": {
+        "startLine": 54,
+        "startChar": 5,
+        "endLine": 54,
+        "endChar": 27
+      },
       "revId": "a17ba71fd6442a2f3906c6fc159605d776f0361c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
