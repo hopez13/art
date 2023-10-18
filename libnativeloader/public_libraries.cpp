@@ -256,6 +256,10 @@ static std::string InitLlndkLibrariesVendor() {
 }
 
 static std::string InitLlndkLibrariesProduct() {
+  if (!is_product_treblelized()) {
+    ALOGD("InitLlndkLibrariesProduct: Product is not treblelized");
+    return "";
+  }
   std::string config_file;
   if (IsProductVndkEnabled()) {
     config_file = kLlndkLibrariesFile;
@@ -414,6 +418,17 @@ const std::string& apex_jni_libraries(const std::string& apex_ns_name) {
 const std::map<std::string, std::string>& apex_public_libraries() {
   static std::map<std::string, std::string> public_libraries = InitApexLibraries("public");
   return public_libraries;
+}
+
+bool is_product_treblelized() {
+#if defined(ART_TARGET_ANDROID)
+  static bool product_treblelized =
+      !(android::base::GetIntProperty("ro.product.first_api_level", 10000) < __ANDROID_API_R__ &&
+        android::base::GetProperty("ro.product.version", "") == "");
+  return product_treblelized;
+#else
+  return false;
+#endif
 }
 
 std::string get_vndk_version(bool is_product_vndk) {
