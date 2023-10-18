@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b57b0ac3_40720662",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 4906,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-10-18T13:53:21Z",
+      "side": 1,
+      "message": "Consider removing these two variables when doing the follow up CL. They can be merged with the next two lines if changed to `... \u003d\u003d nullptr`.\n\nAlternatively, remove `..._value_in_register` variables.",
+      "range": {
+        "startLine": 4905,
+        "startChar": 0,
+        "endLine": 4906,
+        "endChar": 62
+      },
+      "revId": "2b8ce96f2c19fab33626495fe6a2aae47d26849d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "47f225d3_f44782aa",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 4990,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-10-18T13:53:21Z",
+      "side": 1,
+      "message": "I don\u0027t see how this replaces a conditional select. Is this a common way of writing this pattern?\n\nAlso, what\u0027s `cond` supposed to be? `0`/`1` only?",
+      "range": {
+        "startLine": 4986,
+        "startChar": 0,
+        "endLine": 4990,
+        "endChar": 27
+      },
+      "revId": "2b8ce96f2c19fab33626495fe6a2aae47d26849d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
