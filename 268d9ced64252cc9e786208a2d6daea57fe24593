@@ -81,6 +81,30 @@
       },
       "revId": "268d9ced64252cc9e786208a2d6daea57fe24593",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "417570d9_d17a44c2",
+        "filename": "libartservice/service/java/com/android/server/art/Dexopter.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-10-18T20:33:43Z",
+      "side": 1,
+      "message": "Ok, that\u0027s a fair point. Note though it\u0027s still not free from assumptions on the DexFile methods.\n\n```\n// Code below should only downgrade the compiler filter. Don\u0027t upgrade the compiler filter\n// beyond this point!\n```\n\nThis makes the assumption that `isOptimizedCompilerFilter` and `isProfileGuidedCompilerFilter` don\u0027t return true for a filter lesser than \"verify\". The only clause that\u0027s safe is the one calling `getSafeModeCompilerFilter`, because then then replacement is delegated to the native code.",
+      "parentUuid": "673b3c87_7a733bb6",
+      "range": {
+        "startLine": 321,
+        "startChar": 22,
+        "endLine": 321,
+        "endChar": 42
+      },
+      "revId": "268d9ced64252cc9e786208a2d6daea57fe24593",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
