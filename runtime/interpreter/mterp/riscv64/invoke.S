@@ -397,7 +397,12 @@
 // Static variant.
 %def try_simple_args_static(ins="", z0="", z1="", skip="", uniq=""):
    lwu $z0, ART_METHOD_ACCESS_FLAGS_OFFSET(a0)
+#ifdef __riscv_zbs
    bexti $z0, $z0, ART_METHOD_NTERP_INVOKE_FAST_PATH_FLAG_BIT
+#else
+   srli $z0, $z0, ART_METHOD_NTERP_INVOKE_FAST_PATH_FLAG_BIT
+   andi $z0, $z0, 0x1
+#endif
    beqz $z0, $skip
    beqz $ins, .L${uniq}_simple_done   // A = 0: no further args.
    FETCH $z1, count=2                 // z1 := F|E|D|C
