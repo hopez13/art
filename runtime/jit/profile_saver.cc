@@ -542,9 +542,6 @@ void ProfileSaver::GetClassesAndMethodsHelper::CollectInternal(
     dex::TypeIndex type_index = k->GetDexTypeIndex();
     uint32_t copied_methods_start = klass->GetCopiedMethodsStartOffset();
     LengthPrefixedArray<ArtMethod>* methods = klass->GetMethodsPtr();
-    if (methods != nullptr) {
-      CHECK_LE(copied_methods_start, methods->size()) << k->PrettyClass();
-    }
 
     DexFileRecords* dex_file_records;
     auto it = dex_file_records_map_.find(&dex_file);
@@ -596,13 +593,11 @@ void ProfileSaver::GetClassesAndMethodsHelper::CollectClasses(Thread* self) {
         continue;
       }
       const size_t methods_size = methods->size();
-      CHECK_LE(class_record.copied_methods_start, methods_size)
-          << dex_file->PrettyType(class_record.type_index);
       for (size_t index = class_record.copied_methods_start; index != methods_size; ++index) {
         // Note: Using `ArtMethod` array with implicit `kRuntimePointerSize`.
         ArtMethod& method = methods->At(index);
-        CHECK(method.IsCopied()) << dex_file->PrettyType(class_record.type_index);
-        CHECK(!method.IsNative()) << dex_file->PrettyType(class_record.type_index);
+        DCHECK(method.IsCopied());
+        DCHECK(!method.IsNative());
         if (method.IsInvokable()) {
           const DexFile* method_dex_file = method.GetDexFile();
           DexFileRecords* method_dex_file_records = dex_file_records;
