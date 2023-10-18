@@ -46,6 +46,30 @@
       },
       "revId": "94879633983d536cd4018b9b2c3a7d9cc1f97465",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df4ec91a_7c4e2386",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4939,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-18T15:53:03Z",
+      "side": 1,
+      "message": "To simplify the code, I\u0027ve changed this (and previously some other instructions) to take only zeros as constants. We can consider bringing back some explicit constant materialization in codegen on a case-by-case basis.",
+      "parentUuid": "7f185430_3d9d65a7",
+      "range": {
+        "startLine": 4939,
+        "startChar": 26,
+        "endLine": 4939,
+        "endChar": 58
+      },
+      "revId": "94879633983d536cd4018b9b2c3a7d9cc1f97465",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
