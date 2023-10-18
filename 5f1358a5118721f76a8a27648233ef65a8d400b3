@@ -46,6 +46,30 @@
       },
       "revId": "5f1358a5118721f76a8a27648233ef65a8d400b3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "30a37367_03154dca",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.S",
+        "patchSetId": 9
+      },
+      "lineNbr": 600,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-18T15:27:31Z",
+      "side": 1,
+      "message": "With this information, if you stop in `NterpGetShorty()` (crash or otherwise), the debugger can use it to tell you the values of these registers in the caller. But they are just arguments passed to a call, so they are not even tied to any local variables. In the unlikely case that you need to decode and interpret these values (the debugger will not really help you here), it\u0027s not that difficult to just grab them from the stack anyway.\n\nDropping this information has no impact on unwinding.\n\nI have been advocating for avoiding CFI for args, see for example `PUSH_ARG`, `POP_ARG` on x86/x86-64.",
+      "parentUuid": "8686c0fa_8ab338df",
+      "range": {
+        "startLine": 600,
+        "startChar": 4,
+        "endLine": 600,
+        "endChar": 36
+      },
+      "revId": "5f1358a5118721f76a8a27648233ef65a8d400b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
