@@ -34,6 +34,52 @@
       "parentUuid": "2e20121e_82a1df00",
       "revId": "e3c61e7f5e6c76b19c6d0f456becc6ac9598ed26",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "baf72fae_0346aeae",
+        "filename": "libnativeloader/public_libraries.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1146974
+      },
+      "writtenOn": "2023-10-18T11:02:37Z",
+      "side": 1,
+      "message": "As commented, product public libraries can be loaded either product or system namespace depending on the product treblize state. Shouldn\u0027t this also need to be fixed?",
+      "range": {
+        "startLine": 199,
+        "startChar": 0,
+        "endLine": 223,
+        "endChar": 0
+      },
+      "revId": "e3c61e7f5e6c76b19c6d0f456becc6ac9598ed26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "80683e86_ddf29e00",
+        "filename": "libnativeloader/public_libraries.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 1146974
+      },
+      "writtenOn": "2023-10-18T11:02:37Z",
+      "side": 1,
+      "message": "!has_value()",
+      "range": {
+        "startLine": 429,
+        "startChar": 65,
+        "endLine": 429,
+        "endChar": 83
+      },
+      "revId": "e3c61e7f5e6c76b19c6d0f456becc6ac9598ed26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
