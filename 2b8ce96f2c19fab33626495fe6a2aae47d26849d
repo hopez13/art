@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "abea8ee6_0776136d",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 4906,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-18T15:09:18Z",
+      "side": 1,
+      "message": "I\u0027m rewriting this in the next CL, https://android-review.googlesource.com/2796074 .",
+      "parentUuid": "b57b0ac3_40720662",
+      "range": {
+        "startLine": 4905,
+        "startChar": 0,
+        "endLine": 4906,
+        "endChar": 62
+      },
+      "revId": "2b8ce96f2c19fab33626495fe6a2aae47d26849d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "47f225d3_f44782aa",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-10-18T13:53:21Z",
       "side": 1,
       "message": "I don\u0027t see how this replaces a conditional select. Is this a common way of writing this pattern?\n\nAlso, what\u0027s `cond` supposed to be? `0`/`1` only?",
+      "range": {
+        "startLine": 4986,
+        "startChar": 0,
+        "endLine": 4990,
+        "endChar": 27
+      },
+      "revId": "2b8ce96f2c19fab33626495fe6a2aae47d26849d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "606184b8_09678734",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 4990,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-18T15:09:18Z",
+      "side": 1,
+      "message": "Yes, `cond` is supposed to be 0 or 1. But please see the rewrite CL, https://android-review.googlesource.com/2796074 .",
+      "parentUuid": "47f225d3_f44782aa",
       "range": {
         "startLine": 4986,
         "startChar": 0,
