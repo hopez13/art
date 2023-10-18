@@ -106,6 +106,24 @@
       "parentUuid": "48632d6e_4bfb7137",
       "revId": "372fb31b7fcde47c6b8d364eebf3d0ecf3574462",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "876d9890_5a4e58a6",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-10-18T01:37:01Z",
+      "side": 1,
+      "message": "Made some adjustments. All tests pass.",
+      "parentUuid": "01202f6f_756d6b52",
+      "revId": "372fb31b7fcde47c6b8d364eebf3d0ecf3574462",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
