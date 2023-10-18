@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "672e8658_7b27a77e",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.S",
+        "patchSetId": 9
+      },
+      "lineNbr": 600,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-18T06:58:16Z",
+      "side": 1,
+      "message": "In my opinion, it\u0027s not very useful to record this information. I\u0027d prefer to drop these directives (and replace `RESTORE_{G,F}PR` in `RESTORE_ALL_ARGUMENTS` with plain loads).",
+      "range": {
+        "startLine": 600,
+        "startChar": 4,
+        "endLine": 600,
+        "endChar": 36
+      },
+      "revId": "5f1358a5118721f76a8a27648233ef65a8d400b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
