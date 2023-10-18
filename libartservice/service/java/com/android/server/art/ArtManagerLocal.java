@@ -32,7 +32,6 @@ import static com.android.server.art.model.DexoptStatus.DexContainerFileDexoptSt
 import android.annotation.CallbackExecutor;
 import android.annotation.NonNull;
 import android.annotation.Nullable;
-import android.annotation.SuppressLint;
 import android.annotation.SystemApi;
 import android.annotation.SystemService;
 import android.app.job.JobInfo;
@@ -56,6 +55,7 @@ import android.util.Pair;
 import androidx.annotation.RequiresApi;
 
 import com.android.internal.annotations.VisibleForTesting;
+import com.android.modules.utils.build.SdkLevel;
 import com.android.server.LocalManagerRegistry;
 import com.android.server.art.model.ArtFlags;
 import com.android.server.art.model.BatchDexoptParams;
@@ -1267,10 +1267,12 @@ public final class ArtManagerLocal {
         @Nullable private final Config mConfig;
         @Nullable private BackgroundDexoptJob mBgDexoptJob = null;
 
-        // TODO(jiakaiz): Remove @SuppressLint and check `Build.VERSION.SDK_INT >=
-        // Build.VERSION_CODES.UPSIDE_DOWN_CAKE` once the SDK is finalized.
-        @SuppressLint("NewApi")
         Injector(@NonNull ArtManagerLocal artManagerLocal, @Nullable Context context) {
+            if (!SdkLevel.isAtLeastU()) {
+                // This cannot happen.
+                throw new IllegalStateException("Wrong SDK level");
+            }
+
             mArtManagerLocal = artManagerLocal;
             mContext = context;
             if (context != null) {
