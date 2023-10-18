@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a56ce5de_6cebd3f5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-10-18T14:54:00Z",
+      "side": 1,
+      "message": "It is a bundled build. Made that more clear.",
+      "parentUuid": "d0fe7d07_d016c084",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 30
+      },
+      "revId": "861353207ea58c9c023e1a1e8507e27141baaedc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6de30fb6_ebe5eaaf",
@@ -37,6 +61,24 @@
       "writtenOn": "2023-10-18T10:32:30Z",
       "side": 1,
       "message": "Please change the occurrences of `enable_uffd_gc_2` in the E2E test:\n\nhttps://cs.android.com/search?q\u003denable_uffd_gc_2\u0026ss\u003dandroid%2Fplatform%2Fsuperproject%2Fmain:art%2Ftest%2Fodsign%2Ftest-src%2Fcom%2Fandroid%2Ftests%2Fodsign%2F\n\nSince the test only tests change detection and isn\u0027t uffd-specific,\nI would add a test-only property to `kSystemProperties` and use that in the test. It can also make the test more stable because we know that the server will never push the test-only property.\n\nPlease run `atest odsign_e2e_tests_full`. It\u0027s in postsubmit only because it takes too long, so you have to run it manually.",
+      "revId": "861353207ea58c9c023e1a1e8507e27141baaedc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "18ff4234_dff18c6b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-10-18T14:54:00Z",
+      "side": 1,
+      "message": "Done in the parent CL.",
+      "parentUuid": "6de30fb6_ebe5eaaf",
       "revId": "861353207ea58c9c023e1a1e8507e27141baaedc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
