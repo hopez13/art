@@ -59,6 +59,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "29a7b67b_1821c694",
+        "filename": "libnativeloader/public_libraries.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1413436
+      },
+      "writtenOn": "2023-10-18T11:57:35Z",
+      "side": 1,
+      "message": "Oh I missed that. Thanks.",
+      "parentUuid": "baf72fae_0346aeae",
+      "range": {
+        "startLine": 199,
+        "startChar": 0,
+        "endLine": 223,
+        "endChar": 0
+      },
+      "revId": "e3c61e7f5e6c76b19c6d0f456becc6ac9598ed26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "80683e86_ddf29e00",
@@ -72,6 +96,30 @@
       "writtenOn": "2023-10-18T11:02:37Z",
       "side": 1,
       "message": "!has_value()",
+      "range": {
+        "startLine": 429,
+        "startChar": 65,
+        "endLine": 429,
+        "endChar": 83
+      },
+      "revId": "e3c61e7f5e6c76b19c6d0f456becc6ac9598ed26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d978937_2de38fca",
+        "filename": "libnativeloader/public_libraries.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 1413436
+      },
+      "writtenOn": "2023-10-18T11:57:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "80683e86_ddf29e00",
       "range": {
         "startLine": 429,
         "startChar": 65,
