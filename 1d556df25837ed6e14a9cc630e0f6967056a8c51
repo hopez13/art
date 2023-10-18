@@ -52,6 +52,24 @@
       "parentUuid": "57d701d3_63b99338",
       "revId": "1d556df25837ed6e14a9cc630e0f6967056a8c51",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ad6e473_9faa7421",
+        "filename": "runtime/base/gc_visited_arena_pool.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-10-18T20:10:30Z",
+      "side": 1,
+      "message": "\u003eAnd presumably IsWaitingForDeletion() isn\u0027t (currently) invoked on those instances either\n\nThat\u0027s right!\n\n\nI\u0027ll make it explicitly clear in the comment above that this constructor may not be used other than for searching in STL data structures. The thing is that many other fields of TrackedArena should be initialized here as well for the same reason. Please also note that this constructor, as is, can\u0027t be used for anything meaningful for the same reason. Even the initialization of `pre_zygote_fork_` isn\u0027t required and can be removed.\nI want to avoid too many initializations as it\u0027s used in a performance critical code path.",
+      "parentUuid": "f27c3303_d2042a5a",
+      "revId": "1d556df25837ed6e14a9cc630e0f6967056a8c51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
