@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "90b700b1_26f7b514",
+        "filename": "libartservice/service/java/com/android/server/art/ArtManagerLocal.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 1275,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-10-18T17:06:01Z",
+      "side": 1,
+      "message": "What I meant was more why we\u0027re adding this check on `isAtLeastU` in the first place, not why it cannot fail.",
+      "range": {
+        "startLine": 1275,
+        "startChar": 43,
+        "endLine": 1275,
+        "endChar": 83
+      },
+      "revId": "09dc9c887c8132b69e6a1259d880627ee515c710",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
