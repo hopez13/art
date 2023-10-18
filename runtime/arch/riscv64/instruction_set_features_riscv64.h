@@ -67,6 +67,16 @@ class Riscv64InstructionSetFeatures final : public InstructionSetFeatures {
 
   std::string GetFeatureString() const override;
 
+  bool HasCompressed() const { return bits_ & kExtCompressed; }
+
+  bool HasVector() const { return bits_ & kExtVector; }
+
+  bool HasZba() const { return bits_ & kExtZba; }
+
+  bool HasZbb() const { return bits_ & kExtZbb; }
+
+  bool HasZbs() const { return bits_ & kExtZbs; }
+
   virtual ~Riscv64InstructionSetFeatures() {}
 
  protected:
