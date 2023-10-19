@@ -2142,6 +2142,14 @@ DEFINE_FUNCTION art_quick_compile_optimized
     ret
 END_FUNCTION art_quick_compile_optimized
 
+DEFINE_FUNCTION art_quick_record_entry_trace_event
+    ret
+END_FUNCTION art_quick_record_entry_trace_event
+
+DEFINE_FUNCTION art_quick_record_exit_trace_event
+    ret
+END_FUNCTION art_quick_record_exit_trace_event
+
 DEFINE_FUNCTION art_quick_method_entry_hook
     SETUP_SAVE_EVERYTHING_FRAME edx
     mov FRAME_SIZE_SAVE_EVERYTHING(%esp), %eax // Fetch ArtMethod
