@@ -2044,6 +2044,10 @@ DEFINE_FUNCTION art_quick_compile_optimized
     ret
 END_FUNCTION art_quick_compile_optimized
 
+DEFINE_FUNCTION art_quick_record_trace_event
+    ret
+END_FUNCTION art_quick_record_trace_event
+
 // On entry, method is at the bottom of the stack.
 DEFINE_FUNCTION art_quick_method_entry_hook
     SETUP_SAVE_EVERYTHING_FRAME
