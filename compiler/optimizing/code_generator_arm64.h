@@ -1029,6 +1029,7 @@ class CodeGeneratorARM64 : public CodeGenerator {
 
   void MaybeGenerateInlineCacheCheck(HInstruction* instruction, vixl::aarch64::Register klass);
   void MaybeIncrementHotness(bool is_frame_entry);
+  void RecordTraceEvent(bool method_entry);
 
   bool CanUseImplicitSuspendCheck() const;
 
@@ -1172,6 +1173,11 @@ class CodeGeneratorARM64 : public CodeGenerator {
   ArenaDeque<BakerReadBarrierPatchInfo> baker_read_barrier_patches_;
 
   JitPatchesARM64 jit_patches_;
+
+  vixl::aarch64::Label record_trace_entry;
+  vixl::aarch64::Label record_trace_entry_end;
+  vixl::aarch64::Label record_trace_exit;
+  vixl::aarch64::Label record_trace_exit_end;
 
   // Baker read barrier slow paths, mapping custom data (uint32_t) to label.
   // Wrap the label to work around vixl::aarch64::Label being non-copyable
