@@ -958,18 +958,36 @@ void InstructionCodeGeneratorRISCV64::ShNAdd(
     case DataType::Type::kUint16:
     case DataType::Type::kInt16:
       DCHECK_EQ(DataType::SizeShift(type), 1u);
-      __ Sh1Add(rd, rs1, rs2);
+      if (codegen_->GetInstructionSetFeatures().HasZba()) {
+        __ Sh1Add(rd, rs1, rs2);
+      } else {
+        DCHECK_NE(rd, rs2);
+        __ Slli(rd, rs1, 1);
+        __ Add(rd, rd, rs2);
+      }
       break;
     case DataType::Type::kInt32:
     case DataType::Type::kReference:
     case DataType::Type::kFloat32:
       DCHECK_EQ(DataType::SizeShift(type), 2u);
-      __ Sh2Add(rd, rs1, rs2);
+      if (codegen_->GetInstructionSetFeatures().HasZba()) {
+        __ Sh2Add(rd, rs1, rs2);
+      } else {
+        DCHECK_NE(rd, rs2);
+        __ Slli(rd, rs1, 2);
+        __ Add(rd, rd, rs2);
+      }
       break;
     case DataType::Type::kInt64:
     case DataType::Type::kFloat64:
       DCHECK_EQ(DataType::SizeShift(type), 3u);
-      __ Sh3Add(rd, rs1, rs2);
+      if (codegen_->GetInstructionSetFeatures().HasZba()) {
+        __ Sh3Add(rd, rs1, rs2);
+      } else {
+        DCHECK_NE(rd, rs2);
+        __ Slli(rd, rs1, 3);
+        __ Add(rd, rd, rs2);
+      }
       break;
     case DataType::Type::kUint32:
     case DataType::Type::kUint64:
@@ -2551,7 +2569,12 @@ void InstructionCodeGeneratorRISCV64::GenerateMethodEntryExitHook(HInstruction* 
   // Calculate the entry address in the buffer.
   // /*addr*/ tmp = TR->GetMethodTraceBuffer() + sizeof(void*) * /*index*/ tmp;
   __ Loadd(tmp2, TR, Thread::TraceBufferPtrOffset<kArm64PointerSize>().SizeValue());
-  __ Sh3Add(tmp, tmp, tmp2);
+  if (codegen_->GetInstructionSetFeatures().HasZba()) {
+    __ Sh3Add(tmp, tmp, tmp2);
+  } else {
+    __ Slli(tmp, tmp, 3);
+    __ Add(tmp, tmp, tmp2);
+  }
 
   // Record method pointer and trace action.
   __ Ld(tmp2, SP, 0);
