@@ -2486,6 +2486,10 @@ ENTRY art_quick_compile_optimized
     blx lr
 END art_quick_compile_optimized
 
+ENTRY art_quick_record_trace_event
+    blx lr
+END art_quick_record_trace_event
+
 // On entry, method is at the bottom of the stack.
 ENTRY art_quick_method_entry_hook
     SETUP_SAVE_EVERYTHING_FRAME r0
