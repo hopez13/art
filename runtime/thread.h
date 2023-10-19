@@ -1211,7 +1211,7 @@ class Thread {
 
   uintptr_t* GetMethodTraceBuffer() { return tlsPtr_.method_trace_buffer; }
 
-  size_t* GetMethodTraceIndexPtr() { return &tlsPtr_.method_trace_buffer_index; }
+  uintptr_t** GetMethodTraceIndexPtr() { return &tlsPtr_.method_trace_buffer_index; }
 
   uintptr_t* SetMethodTraceBuffer(uintptr_t* buffer) {
     return tlsPtr_.method_trace_buffer = buffer;
@@ -1969,7 +1969,7 @@ class Thread {
                                async_exception(nullptr),
                                top_reflective_handle_scope(nullptr),
                                method_trace_buffer(nullptr),
-                               method_trace_buffer_index(0) {
+                               method_trace_buffer_index(nullptr) {
       std::fill(held_mutexes, held_mutexes + kLockLevelCount, nullptr);
     }
 
@@ -2130,7 +2130,7 @@ class Thread {
     uintptr_t* method_trace_buffer;
 
     // The index of the next free entry in method_trace_buffer.
-    size_t method_trace_buffer_index;
+    uintptr_t* method_trace_buffer_index;
   } tlsPtr_;
 
   // Small thread-local cache to be used from the interpreter.
@@ -2176,6 +2176,9 @@ class Thread {
   // Set during execution of JNI methods that get field and method id's as part of determining if
   // the caller is allowed to access all fields and methods in the Core Platform API.
   uint32_t core_platform_api_cookie_ = 0;
+
+  // TODO(mythria): Change this later
+  uintptr_t trace_buffer[2048 + 1];
 
   friend class gc::collector::SemiSpace;  // For getting stack traces.
   friend class Runtime;  // For CreatePeer.

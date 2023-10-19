@@ -135,6 +135,8 @@ static void DefaultInitEntryPoints(JniEntryPoints* jpoints,
   // Tracing hooks
   qpoints->SetMethodEntryHook(art_quick_method_entry_hook);
   qpoints->SetMethodExitHook(art_quick_method_exit_hook);
+  qpoints->SetRecordEntryTraceEvent(art_quick_record_entry_trace_event);
+  qpoints->SetRecordExitTraceEvent(art_quick_record_exit_trace_event);
 
   if (monitor_jni_entry_exit) {
     qpoints->SetJniMethodStart(art_jni_monitored_method_start);

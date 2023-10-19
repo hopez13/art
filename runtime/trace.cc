@@ -729,11 +729,6 @@ TracingMode Trace::GetMethodTracingMode() {
   }
 }
 
-static constexpr size_t kMinBufSize = 18U;  // Trace header is up to 18B.
-// Size of per-thread buffer size. The value is chosen arbitrarily. This value
-// should be greater than kMinBufSize.
-static constexpr size_t kPerThreadBufSize = 512 * 1024;
-static_assert(kPerThreadBufSize > kMinBufSize);
 
 namespace {
 
@@ -1173,7 +1168,8 @@ uintptr_t* TraceWriter::PrepareBufferForNewEntries(Thread* thread) {
   return thread->GetMethodTraceBuffer();
 }
 
-void TraceWriter::FlushBuffer(Thread* thread, bool is_sync) {
+void TraceWriter::FlushBuffer(Thread* thread ATTRIBUTE_UNUSED, bool is_sync ATTRIBUTE_UNUSED) {
+#if 0
   uintptr_t* method_trace_entries = thread->GetMethodTraceBuffer();
   size_t* current_offset = thread->GetMethodTraceIndexPtr();
   size_t tid = thread->GetTid();
@@ -1200,6 +1196,7 @@ void TraceWriter::FlushBuffer(Thread* thread, bool is_sync) {
     thread->SetMethodTraceBuffer(method_trace_buffer);
     *current_offset = kPerThreadBufSize;
   }
+#endif
 
   return;
 }
@@ -1301,7 +1298,9 @@ void Trace::LogMethodTraceEvent(Thread* thread,
   }
 
   uintptr_t* method_trace_buffer = thread->GetMethodTraceBuffer();
-  size_t* current_index = thread->GetMethodTraceIndexPtr();
+  size_t cur_ind = kPerThreadBufSize;
+  // thread->GetMethodTraceIndexPtr();
+  size_t* current_index = &cur_ind;
   // Initialize the buffer lazily. It's just simpler to keep the creation at one place.
   if (method_trace_buffer == nullptr) {
     method_trace_buffer = new uintptr_t[std::max(kMinBufSize, kPerThreadBufSize)]();
