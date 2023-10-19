@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b5f80a3_a915d137",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-10-19T10:55:58Z",
+      "side": 1,
+      "message": "There are some failing tests. You can see them if you run `m test-art-host-gtest-art_runtime_tests64` or `m test-art-host-gtest-art_runtime_tests32`. The failing test is simple to fix: Just update these lines to contain `kExtVector` too https://cs.android.com/android/platform/superproject/main/+/main:art/runtime/arch/riscv64/instruction_set_features_riscv64_test.cc;l\u003d33-35;drc\u003d910c95fe2dd57bc0d70c78bdc0c6cdf4d21ce700",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 7
+      },
+      "revId": "6369cd2504d96ef0b6a045e05ddda8def977814e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "dcb5b761_4d59521e",
