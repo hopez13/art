@@ -1005,6 +1005,11 @@ bool Thread::Init(ThreadList* thread_list, JavaVMExt* java_vm, JNIEnvExt* jni_en
     }
   }
 
+  if (kAlwaysOnProfile && kEnableProfile && (tls32_.thin_lock_thread_id == ThreadList::kMainThreadId)) {
+    tlsPtr_.method_trace_buffer = trace_buffer;
+    tlsPtr_.method_trace_buffer_index = trace_buffer + (kPerThreadBufSize - 1);
+  }
+
   ScopedTrace trace3("ThreadList::Register");
   thread_list->Register(this);
   return true;
@@ -2601,8 +2606,8 @@ void Thread::Destroy(bool should_run_callbacks) {
     }
 
     if (UNLIKELY(self->GetMethodTraceBuffer() != nullptr)) {
-      Trace::FlushThreadBuffer(self);
-      self->ResetMethodTraceBuffer();
+      // Trace::FlushThreadBuffer(self);
+      // self->ResetMethodTraceBuffer();
     }
 
     // this.nativePeer = 0;
@@ -2672,9 +2677,9 @@ Thread::~Thread() {
   SetCachedThreadName(nullptr);  // Deallocate name.
   delete tlsPtr_.deps_or_stack_trace_sample.stack_trace_sample;
 
-  if (tlsPtr_.method_trace_buffer != nullptr) {
+  /*if (tlsPtr_.method_trace_buffer != nullptr) {
     delete[] tlsPtr_.method_trace_buffer;
-  }
+  }*/
 
   Runtime::Current()->GetHeap()->AssertThreadLocalBuffersAreRevoked(this);
 
