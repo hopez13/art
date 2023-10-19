@@ -2491,6 +2491,24 @@ ENTRY art_quick_compile_optimized
     ret
 END art_quick_compile_optimized
 
+ENTRY art_quick_record_trace_event
+    str xIP0, [sp, #-8]
+    str xIP1, [sp, #-16]
+    ldr xIP0, [xSELF, #TRACE_BUFFER_INIT_OFFSET]
+    ldr xIP1, [xSELF, #TRACE_BUFFER_CURRENT_OFFSET]
+    cmp xIP1, xIP0
+    bhs .Lupdate_entry
+    add xIP1, xIP0, #TRACE_BUFFER_SIZE
+.Lupdate_entry:
+    mrs xIP0, cntvct_el0
+    str xIP0, [xIP1]
+    sub xIP1, xIP1, 8
+    str xIP1, [xSELF, #TRACE_BUFFER_CURRENT_OFFSET]
+    ldr xIP0, [sp, #-8]
+    ldr xIP1, [sp, #-16]
+    ret
+END art_quick_record_trace_event
+
     .extern artMethodEntryHook
 ENTRY art_quick_method_entry_hook
     SETUP_SAVE_EVERYTHING_FRAME
