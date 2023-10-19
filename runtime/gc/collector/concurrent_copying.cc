@@ -915,9 +915,11 @@ class ConcurrentCopying::ImmuneSpaceScanObjVisitor {
       // Only need to scan gray objects.
       if (obj->GetReadBarrierState() == ReadBarrier::GrayState()) {
         collector_->ScanImmuneObject(obj);
-        // Done scanning the object, go back to black (non-gray).
-        bool success = obj->AtomicSetReadBarrierState(ReadBarrier::GrayState(),
-                                                      ReadBarrier::NonGrayState());
+        // Done scanning the object, go back to black (non-gray). Release order
+        // required to ensure that stores of to-space references done by
+        // ScanImmuneObject() are visible before state change.
+        bool success = obj->AtomicSetReadBarrierState<std::memory_order_release>(
+            ReadBarrier::GrayState(), ReadBarrier::NonGrayState());
         CHECK(success)
             << Runtime::Current()->GetHeap()->GetVerification()->DumpObjectInfo(obj, "failed CAS");
       }
