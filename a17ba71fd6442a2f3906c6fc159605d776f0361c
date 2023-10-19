@@ -114,6 +114,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "ee34b46f_233fc6e6",
+        "filename": "libnativeloader/native_loader_test.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1413436
+      },
+      "writtenOn": "2023-10-19T01:56:29Z",
+      "side": 1,
+      "message": "Mark as resolved.",
+      "parentUuid": "a483b99e_d17c5d6a",
+      "range": {
+        "startLine": 351,
+        "startChar": 6,
+        "endLine": 351,
+        "endChar": 61
+      },
+      "revId": "a17ba71fd6442a2f3906c6fc159605d776f0361c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "b95f4a1d_5b077b60",
         "filename": "libnativeloader/public_libraries.cpp",
         "patchSetId": 5
