@@ -277,6 +277,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "281d62a3_2c5a5711",
+        "filename": "libnativeloader/public_libraries.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-10-19T12:29:48Z",
+      "side": 1,
+      "message": "Fair enough, the comment explains that train of thought after all.",
+      "parentUuid": "77b32375_fc372000",
+      "range": {
+        "startLine": 433,
+        "startChar": 6,
+        "endLine": 434,
+        "endChar": 78
+      },
+      "revId": "a17ba71fd6442a2f3906c6fc159605d776f0361c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b36bcb33_ad5c5d70",
@@ -314,6 +338,30 @@
       "side": 1,
       "message": "Yes. It can be set as default true once all devices we support is launched from Android R. Let me add TODO on this one.",
       "parentUuid": "b36bcb33_ad5c5d70",
+      "range": {
+        "startLine": 54,
+        "startChar": 5,
+        "endLine": 54,
+        "endChar": 27
+      },
+      "revId": "a17ba71fd6442a2f3906c6fc159605d776f0361c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "28c7e831_1506e59d",
+        "filename": "libnativeloader/public_libraries.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-10-19T12:29:48Z",
+      "side": 1,
+      "message": "Thanks.",
+      "parentUuid": "f0da7a4d_8dcc86ce",
       "range": {
         "startLine": 54,
         "startChar": 5,
