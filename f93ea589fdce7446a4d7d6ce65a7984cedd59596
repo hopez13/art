@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6cd8762_665c4d95",
+        "filename": "runtime/arch/riscv64/instruction_set_features_riscv64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-10-19T14:19:00Z",
+      "side": 1,
+      "message": "```suggestion\n  return Riscv64InstructionSetFeatures::kExtGeneric |\n         Riscv64InstructionSetFeatures::kExtCompressed |\n         Riscv64InstructionSetFeatures::kExtVector |\n         Riscv64InstructionSetFeatures::kExtZba |\n         Riscv64InstructionSetFeatures::kExtZbb |\n         Riscv64InstructionSetFeatures::kExtZbs;\n```",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 48
+      },
+      "revId": "f93ea589fdce7446a4d7d6ce65a7984cedd59596",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
