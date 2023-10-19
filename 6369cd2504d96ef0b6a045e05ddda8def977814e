@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "0ce7a689_ddb880f2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 2009035
+      },
+      "writtenOn": "2023-10-19T18:17:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4b5f80a3_a915d137",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 7
+      },
+      "revId": "6369cd2504d96ef0b6a045e05ddda8def977814e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "dcb5b761_4d59521e",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -54,6 +78,30 @@
       "writtenOn": "2023-10-19T09:35:29Z",
       "side": 1,
       "message": "```suggestion\n  return Riscv64InstructionSetFeatures::kExtGeneric |\n         Riscv64InstructionSetFeatures::kExtCompressed |\n         Riscv64InstructionSetFeatures::kExtVector;\n```",
+      "range": {
+        "startLine": 29,
+        "startChar": 2,
+        "endLine": 30,
+        "endChar": 99
+      },
+      "revId": "6369cd2504d96ef0b6a045e05ddda8def977814e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc367551_b7254b55",
+        "filename": "runtime/arch/riscv64/instruction_set_features_riscv64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 2009035
+      },
+      "writtenOn": "2023-10-19T18:17:12Z",
+      "side": 1,
+      "message": "I am happy to make this change if you can tall me how to appease clang-format.",
+      "parentUuid": "62e616fe_ed941956",
       "range": {
         "startLine": 29,
         "startChar": 2,
