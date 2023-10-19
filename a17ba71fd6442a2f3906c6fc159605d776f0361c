@@ -87,6 +87,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d47c487d_cdce80a0",
+        "filename": "libnativeloader/public_libraries.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1146974
+      },
+      "writtenOn": "2023-10-19T00:51:56Z",
+      "side": 1,
+      "message": "They can be unified. The sysprop of `ro.vndk.version` and `ro.product.vndk.version` were defined after we have this code here. We may replace all of them with VndkProperties.sysprop.",
+      "parentUuid": "b95f4a1d_5b077b60",
+      "range": {
+        "startLine": 239,
+        "startChar": 9,
+        "endLine": 239,
+        "endChar": 66
+      },
+      "revId": "a17ba71fd6442a2f3906c6fc159605d776f0361c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "170f48bc_8a05edc8",
