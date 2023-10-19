@@ -1306,6 +1306,37 @@ void CodeGeneratorARM64::MaybeIncrementHotness(bool is_frame_entry) {
   }
 }
 
+void CodeGeneratorARM64::RecordTraceEvent(bool method_entry) {
+  if (!kAlwaysOnProfile) {
+    return;
+  }
+
+  MacroAssembler* masm = GetVIXLAssembler();
+  UseScratchRegisterScope temps(masm);
+  Register addr = temps.AcquireX();
+  Register index = temps.AcquireX();
+  size_t trace_buffer_ptr_offset =
+    Thread::TraceBufferPtrOffset<kArm64PointerSize>().SizeValue();
+  size_t trace_buffer_index_offset =
+      Thread::TraceBufferIndexOffset<kArm64PointerSize>().SizeValue();
+  vixl::aarch64::Label update_entry, done;
+  __ Cmp(mr, 0x100);
+  __ B(ne, &done);
+  __ Ldr(addr, MemOperand(tr, trace_buffer_ptr_offset));
+  __ Ldr(index, MemOperand(tr, trace_buffer_index_offset));
+  __ Cmp(index, addr);
+  __ B(gt, &update_entry);
+  __ ComputeAddress(index, MemOperand(addr, (kPerThreadBufSize - 1) << TIMES_8));
+  __ Bind(&update_entry);
+  if (method_entry) {
+    __ Str(kArtMethodRegister, MemOperand(index, -8, PostIndex));
+  } else {
+    __ Str(xzr, MemOperand(index, -8, PostIndex));
+  }
+  __ Str(index, MemOperand(tr, trace_buffer_index_offset));
+  __ Bind(&done);
+}
+
 void CodeGeneratorARM64::GenerateFrameEntry() {
   MacroAssembler* masm = GetVIXLAssembler();
 
@@ -1419,6 +1450,7 @@ void CodeGeneratorARM64::GenerateFrameEntry() {
       __ Str(wzr, MemOperand(sp, GetStackOffsetOfShouldDeoptimizeFlag()));
     }
   }
+  RecordTraceEvent(true);
   MaybeIncrementHotness(/* is_frame_entry= */ true);
   MaybeGenerateMarkingRegisterCheck(/* code= */ __LINE__);
 }
@@ -1452,6 +1484,7 @@ void CodeGeneratorARM64::GenerateFrameExit() {
     }
     GetAssembler()->cfi().AdjustCFAOffset(-frame_size);
   }
+  RecordTraceEvent(false);
   __ Ret();
   GetAssembler()->cfi().RestoreState();
   GetAssembler()->cfi().DefCFAOffset(GetFrameSize());
