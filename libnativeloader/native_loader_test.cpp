@@ -348,7 +348,9 @@ TEST_P(NativeLoaderTest_Create, UnbundledVendorApp) {
   expected_permitted_path = expected_permitted_path + ":/vendor/" LIB_DIR;
   expected_shared_libs_to_platform_ns =
       default_public_libraries() + ":" + llndk_libraries_vendor();
-  expected_link_with_vndk_ns = true;
+  if (android::base::GetProperty("ro.vndk.version", "") != "") {
+    expected_link_with_vndk_ns = true;
+  }
   SetExpectations();
   RunTest();
 }
