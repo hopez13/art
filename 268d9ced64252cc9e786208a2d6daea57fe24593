@@ -105,6 +105,30 @@
       },
       "revId": "268d9ced64252cc9e786208a2d6daea57fe24593",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9a861c6_f332069c",
+        "filename": "libartservice/service/java/com/android/server/art/Dexopter.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-10-19T12:03:55Z",
+      "side": 1,
+      "message": "That\u0027s true, but at least this style requires less assumptions than the other.",
+      "parentUuid": "417570d9_d17a44c2",
+      "range": {
+        "startLine": 321,
+        "startChar": 22,
+        "endLine": 321,
+        "endChar": 42
+      },
+      "revId": "268d9ced64252cc9e786208a2d6daea57fe24593",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
