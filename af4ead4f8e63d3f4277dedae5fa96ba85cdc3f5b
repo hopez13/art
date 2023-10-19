@@ -22,6 +22,30 @@
       },
       "revId": "af4ead4f8e63d3f4277dedae5fa96ba85cdc3f5b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7b026ae_2c3e4f7e",
+        "filename": "libnativeloader/native_loader_test.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 389,
+      "author": {
+        "id": 1413436
+      },
+      "writtenOn": "2023-10-19T14:15:06Z",
+      "side": 1,
+      "message": "Thanks. I was confused about this logic, but seems like you are correct. I moved this part to a splited CL.",
+      "parentUuid": "bf4498ea_157b9774",
+      "range": {
+        "startLine": 389,
+        "startChar": 4,
+        "endLine": 389,
+        "endChar": 74
+      },
+      "revId": "af4ead4f8e63d3f4277dedae5fa96ba85cdc3f5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
