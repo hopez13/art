@@ -1306,6 +1306,22 @@ void CodeGeneratorARM64::MaybeIncrementHotness(bool is_frame_entry) {
   }
 }
 
+void CodeGeneratorARM64::RecordTraceEvent(bool method_entry) {
+  if (!kAlwaysOnProfile) {
+    return;
+  }
+
+  if (method_entry) {
+    __ Cmp(mr, 0x1100);
+    __ B(eq, record_trace_entry);
+    __ Bind(record_trace_entry_end);
+  } else {
+    __ Cmp(mr, 0x1100);
+    __ B(eq, record_trace_exit);
+    __ Bind(record_trace_exit_end);
+  }
+}
+
 void CodeGeneratorARM64::GenerateFrameEntry() {
   MacroAssembler* masm = GetVIXLAssembler();
 
@@ -1419,6 +1435,7 @@ void CodeGeneratorARM64::GenerateFrameEntry() {
       __ Str(wzr, MemOperand(sp, GetStackOffsetOfShouldDeoptimizeFlag()));
     }
   }
+  RecordTraceEvent(true);
   MaybeIncrementHotness(/* is_frame_entry= */ true);
   MaybeGenerateMarkingRegisterCheck(/* code= */ __LINE__);
 }
@@ -1452,7 +1469,19 @@ void CodeGeneratorARM64::GenerateFrameExit() {
     }
     GetAssembler()->cfi().AdjustCFAOffset(-frame_size);
   }
+  RecordTraceEvent(false);
   __ Ret();
+
+  ThreadOffset64 entrypoint_offset = GetThreadOffset<kArm64PointerSize>(kQuickRecordTraceEvent);
+  __ Bind(record_trace_entry);
+  __ Ldr(lr, MemOperand(tr, entrypoint_offset.Int32Value()));
+  __ Blr(lr);
+  __ B(record_trace_entry_end);
+
+  __ Bind(record_trace_exit);
+  __ Ldr(lr, MemOperand(tr, entrypoint_offset.Int32Value()));
+  __ Blr(lr);
+  __ B(record_trace_exit_end);
   GetAssembler()->cfi().RestoreState();
   GetAssembler()->cfi().DefCFAOffset(GetFrameSize());
 }
