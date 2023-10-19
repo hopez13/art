@@ -447,7 +447,7 @@
 %def try_01_args_peek_next(z0=""):
    FETCH $z0, count=3, width=8, byte=0
                                 // z0 := next op
-   bclri $z0, $z0, 0            // clear bit #0
+   andi $z0, $z0, ~1            // clear bit #0
    addi $z0, $z0, -0x0A         // z0 := zero if op is 0x0A or 0x0B
 
 
