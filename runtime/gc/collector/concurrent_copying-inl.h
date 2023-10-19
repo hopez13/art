@@ -91,39 +91,7 @@ inline mirror::Object* ConcurrentCopying::MarkUnevacFromSpaceRegion(
   return ref;
 }
 
-template<bool kGrayImmuneObject>
-inline mirror::Object* ConcurrentCopying::MarkImmuneSpace(Thread* const self,
-                                                          mirror::Object* ref) {
-  if (kUseBakerReadBarrier) {
-    // The GC-running thread doesn't (need to) gray immune objects except when updating thread roots
-    // in the thread flip on behalf of suspended threads (when gc_grays_immune_objects_ is
-    // true). Also, a mutator doesn't (need to) gray an immune object after GC has updated all
-    // immune space objects (when updated_all_immune_objects_ is true).
-    if (kIsDebugBuild) {
-      if (self == thread_running_gc_) {
-        DCHECK(!kGrayImmuneObject ||
-               updated_all_immune_objects_.load(std::memory_order_relaxed) ||
-               gc_grays_immune_objects_);
-      } else {
-        DCHECK(kGrayImmuneObject);
-      }
-    }
-    if (!kGrayImmuneObject || updated_all_immune_objects_.load(std::memory_order_relaxed)) {
-      return ref;
-    }
-    // This may or may not succeed, which is ok because the object may already be gray.
-    bool success =
-        ref->AtomicSetReadBarrierState(/* expected_rb_state= */ ReadBarrier::NonGrayState(),
-                                       /* rb_state= */ ReadBarrier::GrayState());
-    if (success) {
-      MutexLock mu(self, immune_gray_stack_lock_);
-      immune_gray_stack_.push_back(ref);
-    }
-  }
-  return ref;
-}
-
-template<bool kGrayImmuneObject, bool kNoUnEvac, bool kFromGCThread>
+template <bool kNoUnEvac, bool kFromGCThread>
 inline mirror::Object* ConcurrentCopying::Mark(Thread* const self,
                                                mirror::Object* from_ref,
                                                mirror::Object* holder,
@@ -189,7 +157,7 @@ inline mirror::Object* ConcurrentCopying::Mark(Thread* const self,
     }
   } else {
     if (immune_spaces_.ContainsObject(from_ref)) {
-      return MarkImmuneSpace<kGrayImmuneObject>(self, from_ref);
+      return from_ref;
     } else {
       return MarkNonMoving(self, from_ref, holder, offset);
     }
@@ -207,8 +175,7 @@ inline mirror::Object* ConcurrentCopying::MarkFromReadBarrier(mirror::Object* fr
   if (UNLIKELY(mark_from_read_barrier_measurements_)) {
     ret = MarkFromReadBarrierWithMeasurements(self, from_ref);
   } else {
-    ret = Mark</*kGrayImmuneObject=*/true, /*kNoUnEvac=*/false, /*kFromGCThread=*/false>(self,
-                                                                                         from_ref);
+    ret = Mark</*kNoUnEvac=*/false, /*kFromGCThread=*/false>(self, from_ref);
   }
   // Only set the mark bit for baker barrier.
   if (kUseBakerReadBarrier && LIKELY(!rb_mark_bit_stack_full_ && ret->AtomicSetMarkBit(0, 1))) {

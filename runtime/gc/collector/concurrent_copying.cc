@@ -72,19 +72,15 @@ ConcurrentCopying::ConcurrentCopying(Heap* heap,
                                      bool use_generational_cc,
                                      const std::string& name_prefix,
                                      bool measure_read_barrier_slow_path)
-    : GarbageCollector(heap,
-                       name_prefix + (name_prefix.empty() ? "" : " ") +
-                       "concurrent copying"),
+    : GarbageCollector(heap, name_prefix + (name_prefix.empty() ? "" : " ") + "concurrent copying"),
       region_space_(nullptr),
       gc_barrier_(new Barrier(0)),
-      gc_mark_stack_(accounting::ObjectStack::Create("concurrent copying gc mark stack",
-                                                     kDefaultGcMarkStackSize,
-                                                     kDefaultGcMarkStackSize)),
+      gc_mark_stack_(accounting::ObjectStack::Create(
+          "concurrent copying gc mark stack", kDefaultGcMarkStackSize, kDefaultGcMarkStackSize)),
       use_generational_cc_(use_generational_cc),
       young_gen_(young_gen),
-      rb_mark_bit_stack_(accounting::ObjectStack::Create("rb copying gc mark stack",
-                                                         kReadBarrierMarkStackSize,
-                                                         kReadBarrierMarkStackSize)),
+      rb_mark_bit_stack_(accounting::ObjectStack::Create(
+          "rb copying gc mark stack", kReadBarrierMarkStackSize, kReadBarrierMarkStackSize)),
       rb_mark_bit_stack_full_(false),
       mark_stack_lock_("concurrent copying mark stack lock", kMarkSweepMarkStackLock),
       thread_running_gc_(nullptr),
@@ -114,9 +110,6 @@ ConcurrentCopying::ConcurrentCopying(Heap* heap,
       rb_slow_path_count_gc_total_(0),
       rb_table_(heap_->GetReadBarrierTable()),
       force_evacuate_all_(false),
-      gc_grays_immune_objects_(false),
-      immune_gray_stack_lock_("concurrent copying immune gray stack lock",
-                              kMarkSweepMarkStackLock),
       num_bytes_allocated_before_gc_(0) {
   static_assert(space::RegionSpace::kRegionSize == accounting::ReadBarrierTable::kRegionSize,
                 "The region space size and the read barrier table region size must match");
@@ -439,15 +432,6 @@ void ConcurrentCopying::InitializePhase() {
         gc_cause == kGcCauseCollectorTransition ||
         GetCurrentIteration()->GetClearSoftReferences()) {
       force_evacuate_all_ = true;
-    }
-  }
-  if (kUseBakerReadBarrier) {
-    updated_all_immune_objects_.store(false, std::memory_order_relaxed);
-    // GC may gray immune objects in the thread flip.
-    gc_grays_immune_objects_ = true;
-    if (kIsDebugBuild) {
-      MutexLock mu(Thread::Current(), immune_gray_stack_lock_);
-      DCHECK(immune_gray_stack_.empty());
     }
   }
   if (use_generational_cc_) {
@@ -877,9 +861,6 @@ void ConcurrentCopying::GrayAllNewlyDirtyImmuneObjects() {
                                  AlignDown(space->End(), accounting::CardTable::kCardSize));
     }
   }
-  // Since all of the objects that may point to other spaces are gray, we can avoid all the read
-  // barriers in the immune spaces.
-  updated_all_immune_objects_.store(true, std::memory_order_relaxed);
 }
 
 void ConcurrentCopying::SwapStacks() {
@@ -1463,13 +1444,6 @@ void ConcurrentCopying::CopyingPhase() {
     CHECK(weak_ref_access_enabled_);
   }
 
-  // Scan immune spaces.
-  // Update all the fields in the immune spaces first without graying the objects so that we
-  // minimize dirty pages in the immune spaces. Note mutators can concurrently access and gray some
-  // of the objects.
-  if (kUseBakerReadBarrier) {
-    gc_grays_immune_objects_ = false;
-  }
   if (use_generational_cc_) {
     if (kVerboseMode) {
       LOG(INFO) << "GC ScanCardsForSpace";
@@ -1562,6 +1536,7 @@ void ConcurrentCopying::CopyingPhase() {
       LOG(INFO) << "GC end of ScanCardsForSpace";
     }
   }
+  // Scan immune spaces.
   {
     // For a sticky-bit collection, this phase needs to be after the card scanning since the
     // mutator may read an unevac space object out of an image object. If the image object is no
@@ -1584,31 +1559,6 @@ void ConcurrentCopying::CopyingPhase() {
             accounting::CardTable::kCardDirty - 1);
       }
     }
-  }
-  if (kUseBakerReadBarrier) {
-    // This release fence makes the field updates in the above loop visible before allowing mutator
-    // getting access to immune objects without graying it first.
-    updated_all_immune_objects_.store(true, std::memory_order_release);
-    // Now "un-gray" (conceptually blacken) immune objects concurrently accessed and grayed by
-    // mutators. We can't do this in the above loop because we would incorrectly disable the read
-    // barrier by un-graying (conceptually blackening) an object which may point to an unscanned,
-    // white object, breaking the to-space invariant (a mutator shall never observe a from-space
-    // (white) object).
-    //
-    // Make sure no mutators are in the middle of marking an immune object before un-graying
-    // (blackening) immune objects.
-    IssueEmptyCheckpoint();
-    MutexLock mu(Thread::Current(), immune_gray_stack_lock_);
-    if (kVerboseMode) {
-      LOG(INFO) << "immune gray stack size=" << immune_gray_stack_.size();
-    }
-    for (mirror::Object* obj : immune_gray_stack_) {
-      DCHECK_EQ(obj->GetReadBarrierState(), ReadBarrier::GrayState());
-      bool success = obj->AtomicSetReadBarrierState(ReadBarrier::GrayState(),
-                                                    ReadBarrier::NonGrayState());
-      DCHECK(success);
-    }
-    immune_gray_stack_.clear();
   }
 
   {
@@ -2739,9 +2689,6 @@ void ConcurrentCopying::ReclaimPhase() {
     IssueEmptyCheckpoint();
     // Disable the check.
     is_mark_stack_push_disallowed_.store(0, std::memory_order_seq_cst);
-    if (kUseBakerReadBarrier) {
-      updated_all_immune_objects_.store(false, std::memory_order_seq_cst);
-    }
     CheckEmptyMarkStack();
   }
 
@@ -3131,19 +3078,8 @@ void ConcurrentCopying::AssertToSpaceInvariantInNonMovingSpace(mirror::Object* o
   CHECK(!region_space_->HasAddress(ref)) << "obj=" << obj << " ref=" << ref;
   // In a non-moving space. Check that the ref is marked.
   if (immune_spaces_.ContainsObject(ref)) {
-    // Immune space case.
-    if (kUseBakerReadBarrier) {
-      // Immune object may not be gray if called from the GC.
-      if (Thread::Current() == thread_running_gc_ && !gc_grays_immune_objects_) {
-        return;
-      }
-      bool updated_all_immune_objects = updated_all_immune_objects_.load(std::memory_order_seq_cst);
-      CHECK(updated_all_immune_objects || ref->GetReadBarrierState() == ReadBarrier::GrayState())
-          << "Unmarked immune space ref. obj=" << obj << " rb_state="
-          << (obj != nullptr ? obj->GetReadBarrierState() : 0U)
-          << " ref=" << ref << " ref rb_state=" << ref->GetReadBarrierState()
-          << " updated_all_immune_objects=" << updated_all_immune_objects;
-    }
+    // Immune object may not be gray if called from the GC.
+    return;
   } else {
     // Non-moving space and large-object space (LOS) cases.
     // If `ref` is on the allocation stack, then it may not be
@@ -3236,11 +3172,8 @@ inline void ConcurrentCopying::Process(mirror::Object* obj, MemberOffset offset)
   DCHECK_EQ(Thread::Current(), thread_running_gc_);
   mirror::Object* ref = obj->GetFieldObject<
       mirror::Object, kVerifyNone, kWithoutReadBarrier, false>(offset);
-  mirror::Object* to_ref = Mark</*kGrayImmuneObject=*/false, kNoUnEvac, /*kFromGCThread=*/true>(
-      thread_running_gc_,
-      ref,
-      /*holder=*/ obj,
-      offset);
+  mirror::Object* to_ref =
+      Mark<kNoUnEvac, /*kFromGCThread=*/true>(thread_running_gc_, ref, /*holder=*/obj, offset);
   if (to_ref == ref) {
     return;
   }
@@ -3319,42 +3252,11 @@ inline void ConcurrentCopying::VisitRoots(mirror::CompressedReference<mirror::Ob
   }
 }
 
-// Temporary set gc_grays_immune_objects_ to true in a scope if the current thread is GC.
-class ConcurrentCopying::ScopedGcGraysImmuneObjects {
- public:
-  explicit ScopedGcGraysImmuneObjects(ConcurrentCopying* collector)
-      : collector_(collector), enabled_(false) {
-    if (kUseBakerReadBarrier &&
-        collector_->thread_running_gc_ == Thread::Current() &&
-        !collector_->gc_grays_immune_objects_) {
-      collector_->gc_grays_immune_objects_ = true;
-      enabled_ = true;
-    }
-  }
-
-  ~ScopedGcGraysImmuneObjects() {
-    if (kUseBakerReadBarrier &&
-        collector_->thread_running_gc_ == Thread::Current() &&
-        enabled_) {
-      DCHECK(collector_->gc_grays_immune_objects_);
-      collector_->gc_grays_immune_objects_ = false;
-    }
-  }
-
- private:
-  ConcurrentCopying* const collector_;
-  bool enabled_;
-};
-
 // Fill the given memory block with a fake object. Used to fill in a
 // copy of objects that was lost in race.
 void ConcurrentCopying::FillWithFakeObject(Thread* const self,
                                            mirror::Object* fake_obj,
                                            size_t byte_size) {
-  // GC doesn't gray immune objects while scanning immune objects. But we need to trigger the read
-  // barriers here because we need the updated reference to the int array class, etc. Temporary set
-  // gc_grays_immune_objects_ to true so that we won't cause a DCHECK failure in MarkImmuneSpace().
-  ScopedGcGraysImmuneObjects scoped_gc_gray_immune_objects(this);
   CHECK_ALIGNED(byte_size, kObjectAlignment);
   memset(fake_obj, 0, byte_size);
   // Avoid going through read barrier for since kDisallowReadBarrierDuringScan may be enabled.
@@ -3878,9 +3780,7 @@ mirror::Object* ConcurrentCopying::MarkFromReadBarrierWithMeasurements(Thread* c
   }
   ScopedTrace tr(__FUNCTION__);
   const uint64_t start_time = measure_read_barrier_slow_path_ ? NanoTime() : 0u;
-  mirror::Object* ret =
-      Mark</*kGrayImmuneObject=*/true, /*kNoUnEvac=*/false, /*kFromGCThread=*/false>(self,
-                                                                                     from_ref);
+  mirror::Object* ret = Mark</*kNoUnEvac=*/false, /*kFromGCThread=*/false>(self, from_ref);
   if (measure_read_barrier_slow_path_) {
     rb_slow_path_ns_.fetch_add(NanoTime() - start_time, std::memory_order_relaxed);
   }
