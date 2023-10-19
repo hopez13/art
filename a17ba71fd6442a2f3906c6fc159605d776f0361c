@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "4c69e5db_a66bb6ee",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1413436
+      },
+      "writtenOn": "2023-10-19T01:12:41Z",
+      "side": 1,
+      "message": "Thanks! Done!",
+      "parentUuid": "9ad7b6dd_57203146",
+      "range": {
+        "startLine": 11,
+        "startChar": 28,
+        "endLine": 11,
+        "endChar": 32
+      },
+      "revId": "a17ba71fd6442a2f3906c6fc159605d776f0361c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "f00ca6f4_9f893e20",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 5
@@ -54,6 +78,30 @@
       "writtenOn": "2023-10-18T20:07:13Z",
       "side": 1,
       "message": "Why is this different from the revert of https://r.android.com/2760305?",
+      "range": {
+        "startLine": 351,
+        "startChar": 6,
+        "endLine": 351,
+        "endChar": 61
+      },
+      "revId": "a17ba71fd6442a2f3906c6fc159605d776f0361c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a483b99e_d17c5d6a",
+        "filename": "libnativeloader/native_loader_test.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1413436
+      },
+      "writtenOn": "2023-10-19T01:12:41Z",
+      "side": 1,
+      "message": "This is a bug I found while working on this - not to expect VNDK namespace when VNDK is deprecated. Let me move this as a separated CL for clear logs.",
+      "parentUuid": "1da3a9bf_ab9327da",
       "range": {
         "startLine": 351,
         "startChar": 6,
@@ -136,6 +184,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bb5c4254_5ca8ce6c",
+        "filename": "libnativeloader/public_libraries.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1413436
+      },
+      "writtenOn": "2023-10-19T01:12:41Z",
+      "side": 1,
+      "message": "No. Any previous versions which runs mainline always define ro.vndk.version, until we deprecate VNDK. So we don\u0027t need to handle any compat from here.",
+      "parentUuid": "170f48bc_8a05edc8",
+      "range": {
+        "startLine": 286,
+        "startChar": 0,
+        "endLine": 288,
+        "endChar": 14
+      },
+      "revId": "a17ba71fd6442a2f3906c6fc159605d776f0361c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "73dfcb13_2631fa58",
         "filename": "libnativeloader/public_libraries.cpp",
         "patchSetId": 5
@@ -159,6 +231,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "77b32375_fc372000",
+        "filename": "libnativeloader/public_libraries.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1413436
+      },
+      "writtenOn": "2023-10-19T01:12:41Z",
+      "side": 1,
+      "message": "I also thought about this, but I expected current implementation is easier to check what was the corner case. Please let me know if you still prefer simplified one, so I can update.",
+      "parentUuid": "73dfcb13_2631fa58",
+      "range": {
+        "startLine": 433,
+        "startChar": 6,
+        "endLine": 434,
+        "endChar": 78
+      },
+      "revId": "a17ba71fd6442a2f3906c6fc159605d776f0361c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b36bcb33_ad5c5d70",
         "filename": "libnativeloader/public_libraries.h",
         "patchSetId": 5
@@ -170,6 +266,30 @@
       "writtenOn": "2023-10-18T20:07:13Z",
       "side": 1,
       "message": "Is it safe to drop this at some point? Iiuc we need it for devices that shipped with Q or older, but do we know how long devices may take OTAs to newer desserts?\n\nIf we know, it\u0027d be nice with a TODO here saying when it\u0027s safe to delete it.",
+      "range": {
+        "startLine": 54,
+        "startChar": 5,
+        "endLine": 54,
+        "endChar": 27
+      },
+      "revId": "a17ba71fd6442a2f3906c6fc159605d776f0361c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0da7a4d_8dcc86ce",
+        "filename": "libnativeloader/public_libraries.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1413436
+      },
+      "writtenOn": "2023-10-19T01:12:41Z",
+      "side": 1,
+      "message": "Yes. It can be set as default true once all devices we support is launched from Android R. Let me add TODO on this one.",
+      "parentUuid": "b36bcb33_ad5c5d70",
       "range": {
         "startLine": 54,
         "startChar": 5,
