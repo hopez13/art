@@ -1769,20 +1769,20 @@ END \name
 
 .macro COMPUTE_ARRAY_SIZE_16 class, count, temp0, temp1, temp2
     // Add array data offset and alignment adjustment to the shifted `\count`.
-    li     \temp1, (MIRROR_INT_ARRAY_DATA_OFFSET + OBJECT_ALIGNMENT_MASK)
-    sh1add \temp1, \count, \temp1
+    slli   \temp1, \count, 1
+    addi   \temp1, \temp1, (MIRROR_INT_ARRAY_DATA_OFFSET + OBJECT_ALIGNMENT_MASK)
 .endm
 
 .macro COMPUTE_ARRAY_SIZE_32 class, count, temp0, temp1, temp2
     // Add array data offset and alignment adjustment to the shifted `\count`.
-    li     \temp1, (MIRROR_INT_ARRAY_DATA_OFFSET + OBJECT_ALIGNMENT_MASK)
-    sh2add \temp1, \count, \temp1
+    slli   \temp1, \count, 2
+    addi   \temp1, \temp1, (MIRROR_INT_ARRAY_DATA_OFFSET + OBJECT_ALIGNMENT_MASK)
 .endm
 
 .macro COMPUTE_ARRAY_SIZE_64 class, count, temp0, temp1, temp2
     // Add array data offset and alignment adjustment to the shifted `\count`.
-    li     \temp1, (MIRROR_WIDE_ARRAY_DATA_OFFSET + OBJECT_ALIGNMENT_MASK)
-    sh3add \temp1, \count, \temp1
+    slli   \temp1, \count, 3
+    addi   \temp1, \temp1, (MIRROR_WIDE_ARRAY_DATA_OFFSET + OBJECT_ALIGNMENT_MASK)
 .endm
 
 // TODO(ngeoffray): art_quick_alloc_array_resolved_region_tlab is not used for arm64, remove
