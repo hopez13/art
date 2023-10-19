@@ -16,6 +16,24 @@
       "message": "Add `unimp` for now. (Same several times below.)",
       "revId": "fa768ef88de1841370c6ebee1459fdb61bd41885",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7fc63535_bed4b648",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 11
+      },
+      "lineNbr": 595,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-10-19T23:13:14Z",
+      "side": 1,
+      "message": "ack",
+      "parentUuid": "aae5be62_2b9a3295",
+      "revId": "fa768ef88de1841370c6ebee1459fdb61bd41885",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
