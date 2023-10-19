@@ -22,6 +22,30 @@
       },
       "revId": "f93ea589fdce7446a4d7d6ce65a7984cedd59596",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0f03f9f_ec10e4b4",
+        "filename": "runtime/arch/riscv64/instruction_set_features_riscv64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 2009035
+      },
+      "writtenOn": "2023-10-19T16:42:44Z",
+      "side": 1,
+      "message": "I did this originally, but clang-format complains about it when uploading the patch.",
+      "parentUuid": "c6cd8762_665c4d95",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 48
+      },
+      "revId": "f93ea589fdce7446a4d7d6ce65a7984cedd59596",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
