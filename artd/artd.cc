@@ -36,6 +36,7 @@
 #include <mutex>
 #include <optional>
 #include <ostream>
+#include <regex>
 #include <string>
 #include <string_view>
 #include <system_error>
@@ -74,10 +75,12 @@
 #include "fstab/fstab.h"
 #include "oat_file_assistant.h"
 #include "oat_file_assistant_context.h"
+#include "odrefresh/odrefresh.h"
 #include "path_utils.h"
 #include "profman/profman_result.h"
 #include "selinux/android.h"
 #include "service.h"
+#include "tools/binder_utils.h"
 #include "tools/cmdline_builder.h"
 #include "tools/tools.h"
 
@@ -115,14 +118,19 @@ using ::android::base::Split;
 using ::android::base::StringReplace;
 using ::android::base::WriteStringToFd;
 using ::android::fs_mgr::FstabEntry;
+using ::art::service::ValidateClassLoaderContext;
 using ::art::service::ValidateDexPath;
 using ::art::tools::CmdlineBuilder;
+using ::art::tools::Fatal;
+using ::art::tools::GetProcMountsAncestorsOfPath;
+using ::art::tools::NonFatal;
 using ::ndk::ScopedAStatus;
 
 using ArtifactsLocation = GetDexoptNeededResult::ArtifactsLocation;
 using TmpProfilePath = ProfilePath::TmpProfilePath;
 
 constexpr const char* kServiceName = "artd";
+constexpr const char* kPreRebootServiceName = "artd_pre_reboot";
 constexpr const char* kArtdCancellationSignalType = "ArtdCancellationSignal";
 
 // Timeout for short operations, such as merging profiles.
@@ -162,29 +170,6 @@ int64_t GetSizeAndDeleteFile(const std::string& path) {
   }
 
   return size.value();
-}
-
-std::string EscapeErrorMessage(const std::string& message) {
-  return StringReplace(message, std::string("\0", /*n=*/1), "\\0", /*all=*/true);
-}
-
-// Indicates an error that should never happen (e.g., illegal arguments passed by service-art
-// internally). System server should crash if this kind of error happens.
-ScopedAStatus Fatal(const std::string& message) {
-  return ScopedAStatus::fromExceptionCodeWithMessage(EX_ILLEGAL_STATE,
-                                                     EscapeErrorMessage(message).c_str());
-}
-
-// Indicates an error that service-art should handle (e.g., I/O errors, sub-process crashes).
-// The scope of the error depends on the function that throws it, so service-art should catch the
-// error at every call site and take different actions.
-// Ideally, this should be a checked exception or an additional return value that forces service-art
-// to handle it, but `ServiceSpecificException` (a separate runtime exception type) is the best
-// approximate we have given the limitation of Java and Binder.
-ScopedAStatus NonFatal(const std::string& message) {
-  constexpr int32_t kArtdNonFatalErrorCode = 1;
-  return ScopedAStatus::fromServiceSpecificErrorWithMessage(kArtdNonFatalErrorCode,
-                                                            EscapeErrorMessage(message).c_str());
 }
 
 Result<CompilerFilter::Filter> ParseCompilerFilter(const std::string& compiler_filter_str) {
@@ -231,15 +216,21 @@ ArtifactsLocation ArtifactsLocationToAidl(OatFileAssistant::Location location) {
   LOG(FATAL) << "Unexpected Location " << location;
 }
 
-Result<void> PrepareArtifactsDir(const std::string& path, const FsPermission& fs_permission) {
+Result<bool> CreateDir(const std::string& path) {
   std::error_code ec;
   bool created = std::filesystem::create_directory(path, ec);
   if (ec) {
     return Errorf("Failed to create directory '{}': {}", path, ec.message());
   }
+  return created;
+}
+
+Result<void> PrepareArtifactsDir(const std::string& path, const FsPermission& fs_permission) {
+  bool created = OR_RETURN(CreateDir(path));
 
   auto cleanup = make_scope_guard([&] {
     if (created) {
+      std::error_code ec;
       std::filesystem::remove(path, ec);
     }
   });
@@ -259,7 +250,9 @@ Result<void> PrepareArtifactsDirs(const OutputArtifacts& output_artifacts,
     return {};
   }
 
-  std::filesystem::path oat_path(OR_RETURN(BuildOatPath(output_artifacts.artifactsPath)));
+  std::filesystem::path oat_path(
+      OR_RETURN(BuildArtifactsPath(output_artifacts.artifactsPath, /*is_pre_reboot=*/false))
+          .oat_path);
   std::filesystem::path isa_dir = oat_path.parent_path();
   std::filesystem::path oat_dir = isa_dir.parent_path();
   DCHECK_EQ(oat_dir.filename(), "oat");
@@ -506,30 +499,19 @@ std::ostream& operator<<(std::ostream& os, const FdLogger& fd_logger) {
 
 }  // namespace
 
-#define OR_RETURN_ERROR(func, expr)         \
-  ({                                        \
-    decltype(expr)&& tmp = (expr);          \
-    if (!tmp.ok()) {                        \
-      return (func)(tmp.error().message()); \
-    }                                       \
-    std::move(tmp).value();                 \
-  })
-
-#define OR_RETURN_FATAL(expr)     OR_RETURN_ERROR(Fatal, expr)
-#define OR_RETURN_NON_FATAL(expr) OR_RETURN_ERROR(NonFatal, expr)
-
 ScopedAStatus Artd::isAlive(bool* _aidl_return) {
   *_aidl_return = true;
   return ScopedAStatus::ok();
 }
 
 ScopedAStatus Artd::deleteArtifacts(const ArtifactsPath& in_artifactsPath, int64_t* _aidl_return) {
-  std::string oat_path = OR_RETURN_FATAL(BuildOatPath(in_artifactsPath));
+  RawArtifactsPath path =
+      OR_RETURN_FATAL(BuildArtifactsPath(in_artifactsPath, /*is_pre_reboot=*/false));
 
   *_aidl_return = 0;
-  *_aidl_return += GetSizeAndDeleteFile(oat_path);
-  *_aidl_return += GetSizeAndDeleteFile(OatPathToVdexPath(oat_path));
-  *_aidl_return += GetSizeAndDeleteFile(OatPathToArtPath(oat_path));
+  *_aidl_return += GetSizeAndDeleteFile(path.oat_path);
+  *_aidl_return += GetSizeAndDeleteFile(path.vdex_path);
+  *_aidl_return += GetSizeAndDeleteFile(path.art_path);
 
   return ScopedAStatus::ok();
 }
@@ -628,7 +610,8 @@ ndk::ScopedAStatus Artd::CopyAndRewriteProfileImpl(File src,
                                                    OutputProfile* dst_aidl,
                                                    const std::string& dex_path,
                                                    CopyAndRewriteProfileResult* aidl_return) {
-  std::string dst_path = OR_RETURN_FATAL(BuildFinalProfilePath(dst_aidl->profilePath));
+  std::string dst_path =
+      OR_RETURN_FATAL(BuildFinalProfilePath(dst_aidl->profilePath, options_.is_pre_reboot));
   OR_RETURN_FATAL(ValidateDexPath(dex_path));
 
   FdLogger fd_logger;
@@ -678,6 +661,7 @@ ndk::ScopedAStatus Artd::CopyAndRewriteProfileImpl(File src,
   aidl_return->status = CopyAndRewriteProfileResult::Status::SUCCESS;
   dst_aidl->profilePath.id = dst->TempId();
   dst_aidl->profilePath.tmpPath = dst->TempPath();
+  dst_aidl->profilePath.isPreReboot = options_.is_pre_reboot;
   return ScopedAStatus::ok();
 }
 
@@ -719,8 +703,13 @@ ndk::ScopedAStatus Artd::copyAndRewriteEmbeddedProfile(OutputProfile* in_dst,
 }
 
 ndk::ScopedAStatus Artd::commitTmpProfile(const TmpProfilePath& in_profile) {
+  if (in_profile.isPreReboot != options_.is_pre_reboot) {
+    return Fatal("in_profile.isPreReboot != options_.is_pre_reboot");
+  }
+
   std::string tmp_profile_path = OR_RETURN_FATAL(BuildTmpProfilePath(in_profile));
-  std::string ref_profile_path = OR_RETURN_FATAL(BuildFinalProfilePath(in_profile));
+  std::string ref_profile_path =
+      OR_RETURN_FATAL(BuildFinalProfilePath(in_profile, in_profile.isPreReboot));
 
   std::error_code ec;
   std::filesystem::rename(tmp_profile_path, ref_profile_path, ec);
@@ -753,7 +742,8 @@ ndk::ScopedAStatus Artd::getProfileVisibility(const ProfilePath& in_profile,
 
 ndk::ScopedAStatus Artd::getArtifactsVisibility(const ArtifactsPath& in_artifactsPath,
                                                 FileVisibility* _aidl_return) {
-  std::string oat_path = OR_RETURN_FATAL(BuildOatPath(in_artifactsPath));
+  std::string oat_path =
+      OR_RETURN_FATAL(BuildArtifactsPath(in_artifactsPath, /*is_pre_reboot=*/false)).oat_path;
   *_aidl_return = OR_RETURN_NON_FATAL(GetFileVisibility(oat_path));
   return ScopedAStatus::ok();
 }
@@ -787,7 +777,7 @@ ndk::ScopedAStatus Artd::mergeProfiles(const std::vector<ProfilePath>& in_profil
     profile_paths.push_back(std::move(profile_path));
   }
   std::string output_profile_path =
-      OR_RETURN_FATAL(BuildFinalProfilePath(in_outputProfile->profilePath));
+      OR_RETURN_FATAL(BuildFinalProfilePath(in_outputProfile->profilePath, options_.is_pre_reboot));
   for (const std::string& dex_file : in_dexFiles) {
     OR_RETURN_FATAL(ValidateDexPath(dex_file));
   }
@@ -899,6 +889,7 @@ ndk::ScopedAStatus Artd::mergeProfiles(const std::vector<ProfilePath>& in_profil
   *_aidl_return = true;
   in_outputProfile->profilePath.id = output_profile_file->TempId();
   in_outputProfile->profilePath.tmpPath = output_profile_file->TempPath();
+  in_outputProfile->profilePath.isPreReboot = options_.is_pre_reboot;
   return ScopedAStatus::ok();
 }
 
@@ -959,9 +950,8 @@ ndk::ScopedAStatus Artd::dexopt(
     ArtdDexoptResult* _aidl_return) {
   _aidl_return->cancelled = false;
 
-  std::string oat_path = OR_RETURN_FATAL(BuildOatPath(in_outputArtifacts.artifactsPath));
-  std::string vdex_path = OatPathToVdexPath(oat_path);
-  std::string art_path = OatPathToArtPath(oat_path);
+  RawArtifactsPath artifacts_path =
+      OR_RETURN_FATAL(BuildArtifactsPath(in_outputArtifacts.artifactsPath, options_.is_pre_reboot));
   OR_RETURN_FATAL(ValidateDexPath(in_dexFile));
   std::optional<std::string> profile_path =
       in_profile.has_value() ?
@@ -1026,12 +1016,13 @@ ndk::ScopedAStatus Artd::dexopt(
     }
   }
 
-  std::unique_ptr<NewFile> oat_file = OR_RETURN_NON_FATAL(NewFile::Create(oat_path, fs_permission));
-  args.Add("--oat-fd=%d", oat_file->Fd()).Add("--oat-location=%s", oat_path);
+  std::unique_ptr<NewFile> oat_file =
+      OR_RETURN_NON_FATAL(NewFile::Create(artifacts_path.oat_path, fs_permission));
+  args.Add("--oat-fd=%d", oat_file->Fd()).Add("--oat-location=%s", artifacts_path.oat_path);
   fd_logger.Add(*oat_file);
 
   std::unique_ptr<NewFile> vdex_file =
-      OR_RETURN_NON_FATAL(NewFile::Create(vdex_path, fs_permission));
+      OR_RETURN_NON_FATAL(NewFile::Create(artifacts_path.vdex_path, fs_permission));
   args.Add("--output-vdex-fd=%d", vdex_file->Fd());
   fd_logger.Add(*vdex_file);
 
@@ -1040,18 +1031,18 @@ ndk::ScopedAStatus Artd::dexopt(
 
   std::unique_ptr<NewFile> art_file = nullptr;
   if (in_dexoptOptions.generateAppImage) {
-    art_file = OR_RETURN_NON_FATAL(NewFile::Create(art_path, fs_permission));
+    art_file = OR_RETURN_NON_FATAL(NewFile::Create(artifacts_path.art_path, fs_permission));
     args.Add("--app-image-fd=%d", art_file->Fd());
     args.AddIfNonEmpty("--image-format=%s", props_->GetOrEmpty("dalvik.vm.appimageformat"));
     fd_logger.Add(*art_file);
     files_to_commit.push_back(art_file.get());
   } else {
-    files_to_delete.push_back(art_path);
+    files_to_delete.push_back(artifacts_path.art_path);
   }
 
   std::unique_ptr<NewFile> swap_file = nullptr;
   if (ShouldCreateSwapFileForDexopt()) {
-    std::string swap_file_path = ART_FORMAT("{}.swap", oat_path);
+    std::string swap_file_path = ART_FORMAT("{}.swap", artifacts_path.oat_path);
     swap_file =
         OR_RETURN_NON_FATAL(NewFile::Create(swap_file_path, FsPermission{.uid = -1, .gid = -1}));
     args.Add("--swap-fd=%d", swap_file->Fd());
@@ -1216,10 +1207,10 @@ ScopedAStatus Artd::cleanup(const std::vector<ProfilePath>& in_profilesToKeep,
     files_to_keep.insert(OR_RETURN_FATAL(BuildProfileOrDmPath(profile)));
   }
   for (const ArtifactsPath& artifacts : in_artifactsToKeep) {
-    std::string oat_path = OR_RETURN_FATAL(BuildOatPath(artifacts));
-    files_to_keep.insert(OatPathToVdexPath(oat_path));
-    files_to_keep.insert(OatPathToArtPath(oat_path));
-    files_to_keep.insert(std::move(oat_path));
+    RawArtifactsPath path = OR_RETURN_FATAL(BuildArtifactsPath(artifacts, /*is_pre_reboot=*/false));
+    files_to_keep.insert(std::move(path.oat_path));
+    files_to_keep.insert(std::move(path.vdex_path));
+    files_to_keep.insert(std::move(path.art_path));
   }
   for (const VdexPath& vdex : in_vdexFilesToKeep) {
     files_to_keep.insert(OR_RETURN_FATAL(BuildVdexPath(vdex)));
@@ -1257,7 +1248,7 @@ ScopedAStatus Artd::isInDalvikCache(const std::string& in_dexFile, bool* _aidl_r
 
   OR_RETURN_FATAL(ValidateDexPath(in_dexFile));
 
-  std::vector<FstabEntry> entries = OR_RETURN_NON_FATAL(GetProcMountsEntriesForPath(in_dexFile));
+  std::vector<FstabEntry> entries = OR_RETURN_NON_FATAL(GetProcMountsAncestorsOfPath(in_dexFile));
   // The last one controls because `/proc/mounts` reflects the sequence of `mount`.
   for (auto it = entries.rbegin(); it != entries.rend(); it++) {
     if (it->fs_type == "overlay") {
@@ -1289,8 +1280,8 @@ Result<void> Artd::Start() {
   OR_RETURN(SetLogVerbosity());
   MemMap::Init();
 
-  ScopedAStatus status = ScopedAStatus::fromStatus(
-      AServiceManager_registerLazyService(this->asBinder().get(), kServiceName));
+  ScopedAStatus status = ScopedAStatus::fromStatus(AServiceManager_registerLazyService(
+      this->asBinder().get(), options_.is_pre_reboot ? kPreRebootServiceName : kServiceName));
   if (!status.isOk()) {
     return Error() << status.getDescription();
   }
@@ -1525,6 +1516,117 @@ Result<struct stat> Artd::Fstat(const File& file) const {
     return Errorf("Unable to fstat file '{}'", file.GetPath());
   }
   return st;
+}
+
+ScopedAStatus Artd::PreRebootInit() {
+  if (!options_.is_pre_reboot) {
+    return Fatal("Unexpected call to PreRebootInit");
+  }
+
+  OR_RETURN_NON_FATAL(PreRebootInitEnvVar());
+  OR_RETURN_NON_FATAL(PreRebootInitBootImage());
+
+  return ScopedAStatus::ok();
+}
+
+Result<void> Artd::PreRebootInitEnvVar() {
+  std::regex pattern("\\s*export\\s+(.+?)\\s+(.+)");
+  auto set_env_from_file = [&](const std::string& path) -> Result<void> {
+    std::string content;
+    if (!ReadFileToString(path, &content)) {
+      return ErrnoErrorf("Failed to read '{}'", path);
+    }
+    bool found = false;
+    for (const std::string& line : Split(content, "\n")) {
+      std::smatch match;
+      if (!std::regex_match(line, match, pattern)) {
+        continue;
+      }
+      LOG(INFO) << ART_FORMAT("Setting environment variable {} {}", match[1].str(), match[2].str());
+      setenv(match[1].str().c_str(), match[2].str().c_str(), /*replace=*/1);
+      found = true;
+    }
+    if (!found) {
+      return Errorf("Malformed env var file '{}': {}", path, content);
+    }
+    return {};
+  };
+
+  OR_RETURN(set_env_from_file("/init.environ.rc"));
+
+  CmdlineBuilder args;
+  args.Add("/apex/com.android.sdkext/bin/derive_classpath").Add("/mnt/artd_tmp/classpath");
+
+  LOG(INFO) << "Running derive_classpath: " << Join(args.Get(), /*separator=*/" ");
+
+  Result<int> result = ExecAndReturnCode(args.Get(), kShortTimeoutSec);
+  if (!result.ok()) {
+    return Errorf("Failed to run derive_classpath: {}", result.error().message());
+  }
+
+  LOG(INFO) << ART_FORMAT("derive_classpath returned code {}", result.value());
+
+  if (result.value() != 0) {
+    return Errorf("derive_classpath returned an unexpected code: {}", result.value());
+  }
+
+  OR_RETURN(set_env_from_file("/mnt/artd_tmp/classpath"));
+
+  return {};
+}
+
+Result<void> Artd::PreRebootInitBootImage() {
+  std::string art_apex_data_dir = "/mnt/artd_tmp/art_apex_data";
+  OR_RETURN(CreateDir(art_apex_data_dir));
+  if (mount(art_apex_data_dir.c_str(),
+            GetArtApexData().c_str(),
+            /*fs_type=*/nullptr,
+            MS_BIND,
+            /*data=*/nullptr) != 0) {
+    return ErrnoErrorf(
+        "Failed to bind-mount '{}' at '{}'", art_apex_data_dir, GetArtApexData().c_str());
+  }
+
+  CmdlineBuilder args;
+  args.Add("/apex/com.android.art/bin/odrefresh").Add("--only-boot-image").Add("--compile");
+
+  LOG(INFO) << "Running odrefresh: " << Join(args.Get(), /*separator=*/" ");
+
+  Result<int> result = ExecAndReturnCode(args.Get(), kLongTimeoutSec);
+  if (!result.ok()) {
+    return Errorf("Failed to run odrefresh: {}", result.error().message());
+  }
+
+  LOG(INFO) << ART_FORMAT("odrefresh returned code {}", result.value());
+
+  if (result.value() != odrefresh::ExitCode::kCompilationSuccess &&
+      result.value() != odrefresh::ExitCode::kOkay) {
+    return Errorf("odrefresh returned an unexpected code: {}", result.value());
+  }
+
+  return {};
+}
+
+ScopedAStatus Artd::validateDexPath(const std::string& in_dexFile,
+                                    std::optional<std::string>* _aidl_return) {
+  if (Result<void> result = ValidateDexPath(in_dexFile); !result.ok()) {
+    *_aidl_return = result.error().message();
+  } else {
+    *_aidl_return = std::nullopt;
+  }
+  return ScopedAStatus::ok();
+}
+
+ScopedAStatus Artd::validateClassLoaderContext(const std::string& in_dexFile,
+                                               const std::string& in_classLoaderContext,
+                                               std::optional<std::string>* _aidl_return) {
+  if (Result<void> result = ValidateClassLoaderContext(in_dexFile, in_classLoaderContext);
+      !result.ok()) {
+    *_aidl_return = result.error().message();
+  } else {
+    *_aidl_return = std::nullopt;
+  }
+  return ScopedAStatus::ok();
 }
 
 }  // namespace artd
