@@ -67,7 +67,7 @@ compiler. They are identified by their name, which match the
 Checker assertions are annotations in a run-test's (Java and Smali) source files
 verifying the behavior of the ART compiler when compiling the corresponding Dex
 code. They are checked by the `checker` tool (see [directory
-`art/tools/checker`](https://cs.android.com/android/platform/superproject/+/master:art/tools/checker/))
+`art/tools/checker`](https://cs.android.com/android/platform/superproject/+/main:art/tools/checker/))
 against a c1visualizer-style (`.cfg`) file emitted by `dex2oat`, containing
 control-flow graphs (CFGs) for compiled methods at each step (pass) in the
 compiler's pipeline, as well as the emitted assembly code.
@@ -87,7 +87,8 @@ with the suffix `_test.cc`. The construction logic of these tests is implemented
 in ART's build system (`Android.bp` and `Android*.mk` files). On host, these
 gtests can be run by executing `m test-art-host-gtest`. On device, the
 recommended approach is to run these tests in a chroot environment (see
-`README.chroot.md` in this directory).
+[`README.chroot.md`](https://cs.android.com/android/platform/superproject/main/+/main:art/test/README.chroot.md)
+in this directory).
 
 
 # Test execution
@@ -98,7 +99,8 @@ run on the build host, on a USB-attached device, or using the build host
 "reference implementation".
 
 ART also supports running target (device) tests in a chroot environment (see
-`README.chroot.md` in this directory). This is currently the recommended way to
+[`README.chroot.md`](https://cs.android.com/android/platform/superproject/main/+/main:art/test/README.chroot.md)
+in this directory). This is currently the recommended way to
 run tests on target (rather than using `art/test.py --target`).
 
 To see command flags run:
@@ -145,6 +147,9 @@ Or:
 $ art/test.py -b --target
 ```
 
+Note that this will not run any gtests for the target. If you want to do that,
+follow the [chroot environment README](https://cs.android.com/android/platform/superproject/main/+/main:art/test/README.chroot.md).
+
 ## Running all gtests on the build host
 
 ```sh
@@ -153,9 +158,7 @@ $ art/test.py --host -g
 
 ## Running all gtests on the target device
 
-```sh
-$ art/test.py --target -g
-```
+Follow the [chroot environment README](https://cs.android.com/android/platform/superproject/main/+/main:art/test/README.chroot.md).
 
 ## Running all run-tests on the build host
 
