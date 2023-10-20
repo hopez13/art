@@ -688,7 +688,7 @@ public abstract class Dexopter<DexInfoType extends DetailedDexInfo> {
             getUserManager();
             getDexUseManager();
             getStorageManager();
-            ArtModuleServiceInitializer.getArtModuleServiceManager();
+            GlobalInjector.getInstance().checkArtd();
         }
 
         public boolean isSystemUiPackage(@NonNull String packageName) {
@@ -706,13 +706,12 @@ public abstract class Dexopter<DexInfoType extends DetailedDexInfo> {
 
         @NonNull
         public DexUseManagerLocal getDexUseManager() {
-            return Objects.requireNonNull(
-                    LocalManagerRegistry.getManager(DexUseManagerLocal.class));
+            return GlobalInjector.getInstance().getDexUseManager();
         }
 
         @NonNull
         public IArtd getArtd() {
-            return Utils.getArtd();
+            return GlobalInjector.getInstance().getArtd();
         }
 
         @NonNull

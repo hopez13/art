@@ -84,6 +84,8 @@ cc_library_headers {
     sdk_version: "minimum", // The minimum sdk version required by users of this module.
     apex_available: [
         "//apex_available:platform", // For odsign.
+        "com.android.art",
+        "com.android.art.debug",
     ],
     visibility: ["//visibility:public"],
 }

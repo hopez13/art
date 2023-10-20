@@ -36,6 +36,7 @@
 #include <mutex>
 #include <optional>
 #include <ostream>
+#include <regex>
 #include <string>
 #include <string_view>
 #include <system_error>
@@ -74,6 +75,7 @@
 #include "fstab/fstab.h"
 #include "oat_file_assistant.h"
 #include "oat_file_assistant_context.h"
+#include "odrefresh/odrefresh.h"
 #include "path_utils.h"
 #include "profman/profman_result.h"
 #include "selinux/android.h"
@@ -117,12 +119,16 @@ using ::android::base::WriteStringToFd;
 using ::android::fs_mgr::FstabEntry;
 using ::art::service::ValidateDexPath;
 using ::art::tools::CmdlineBuilder;
+using ::art::tools::Fatal;
+using ::art::tools::GetProcMountsAncestorsOfPath;
+using ::art::tools::NonFatal;
 using ::ndk::ScopedAStatus;
 
 using ArtifactsLocation = GetDexoptNeededResult::ArtifactsLocation;
 using TmpProfilePath = ProfilePath::TmpProfilePath;
 
 constexpr const char* kServiceName = "artd";
+constexpr const char* kPreRebootServiceName = "artd_pre_reboot";
 constexpr const char* kArtdCancellationSignalType = "ArtdCancellationSignal";
 
 // Timeout for short operations, such as merging profiles.
@@ -162,29 +168,6 @@ int64_t GetSizeAndDeleteFile(const std::string& path) {
   }
 
   return size.value();
-}
-
-std::string EscapeErrorMessage(const std::string& message) {
-  return StringReplace(message, std::string("\0", /*n=*/1), "\\0", /*all=*/true);
-}
-
-// Indicates an error that should never happen (e.g., illegal arguments passed by service-art
-// internally). System server should crash if this kind of error happens.
-ScopedAStatus Fatal(const std::string& message) {
-  return ScopedAStatus::fromExceptionCodeWithMessage(EX_ILLEGAL_STATE,
-                                                     EscapeErrorMessage(message).c_str());
-}
-
-// Indicates an error that service-art should handle (e.g., I/O errors, sub-process crashes).
-// The scope of the error depends on the function that throws it, so service-art should catch the
-// error at every call site and take different actions.
-// Ideally, this should be a checked exception or an additional return value that forces service-art
-// to handle it, but `ServiceSpecificException` (a separate runtime exception type) is the best
-// approximate we have given the limitation of Java and Binder.
-ScopedAStatus NonFatal(const std::string& message) {
-  constexpr int32_t kArtdNonFatalErrorCode = 1;
-  return ScopedAStatus::fromServiceSpecificErrorWithMessage(kArtdNonFatalErrorCode,
-                                                            EscapeErrorMessage(message).c_str());
 }
 
 Result<CompilerFilter::Filter> ParseCompilerFilter(const std::string& compiler_filter_str) {
@@ -231,15 +214,21 @@ ArtifactsLocation ArtifactsLocationToAidl(OatFileAssistant::Location location) {
   LOG(FATAL) << "Unexpected Location " << location;
 }
 
-Result<void> PrepareArtifactsDir(const std::string& path, const FsPermission& fs_permission) {
+Result<bool> CreateDir(const std::string& path) {
   std::error_code ec;
   bool created = std::filesystem::create_directory(path, ec);
   if (ec) {
     return Errorf("Failed to create directory '{}': {}", path, ec.message());
   }
+  return created;
+}
+
+Result<void> PrepareArtifactsDir(const std::string& path, const FsPermission& fs_permission) {
+  bool created = OR_RETURN(CreateDir(path));
 
   auto cleanup = make_scope_guard([&] {
     if (created) {
+      std::error_code ec;
       std::filesystem::remove(path, ec);
     }
   });
@@ -505,18 +494,6 @@ std::ostream& operator<<(std::ostream& os, const FdLogger& fd_logger) {
 }
 
 }  // namespace
-
-#define OR_RETURN_ERROR(func, expr)         \
-  ({                                        \
-    decltype(expr)&& tmp = (expr);          \
-    if (!tmp.ok()) {                        \
-      return (func)(tmp.error().message()); \
-    }                                       \
-    std::move(tmp).value();                 \
-  })
-
-#define OR_RETURN_FATAL(expr)     OR_RETURN_ERROR(Fatal, expr)
-#define OR_RETURN_NON_FATAL(expr) OR_RETURN_ERROR(NonFatal, expr)
 
 ScopedAStatus Artd::isAlive(bool* _aidl_return) {
   *_aidl_return = true;
@@ -1257,7 +1234,7 @@ ScopedAStatus Artd::isInDalvikCache(const std::string& in_dexFile, bool* _aidl_r
 
   OR_RETURN_FATAL(ValidateDexPath(in_dexFile));
 
-  std::vector<FstabEntry> entries = OR_RETURN_NON_FATAL(GetProcMountsEntriesForPath(in_dexFile));
+  std::vector<FstabEntry> entries = OR_RETURN_NON_FATAL(GetProcMountsAncestorsOfPath(in_dexFile));
   // The last one controls because `/proc/mounts` reflects the sequence of `mount`.
   for (auto it = entries.rbegin(); it != entries.rend(); it++) {
     if (it->fs_type == "overlay") {
@@ -1289,8 +1266,8 @@ Result<void> Artd::Start() {
   OR_RETURN(SetLogVerbosity());
   MemMap::Init();
 
-  ScopedAStatus status = ScopedAStatus::fromStatus(
-      AServiceManager_registerLazyService(this->asBinder().get(), kServiceName));
+  ScopedAStatus status = ScopedAStatus::fromStatus(AServiceManager_registerLazyService(
+      this->asBinder().get(), options_.is_pre_reboot ? kPreRebootServiceName : kServiceName));
   if (!status.isOk()) {
     return Error() << status.getDescription();
   }
@@ -1525,6 +1502,95 @@ Result<struct stat> Artd::Fstat(const File& file) const {
     return Errorf("Unable to fstat file '{}'", file.GetPath());
   }
   return st;
+}
+
+ScopedAStatus Artd::PreRebootInit() {
+  if (!options_.is_pre_reboot) {
+    return Fatal("Unexpected call to PreRebootInit");
+  }
+
+  OR_RETURN_NON_FATAL(PreRebootInitEnvVar());
+  OR_RETURN_NON_FATAL(PreRebootInitBootImage());
+
+  return ScopedAStatus::ok();
+}
+
+Result<void> Artd::PreRebootInitEnvVar() {
+  std::regex pattern("\\s*export\\s+(.+?)\\s+(.+)");
+  auto set_env_from_file = [&](const std::string& path) -> Result<void> {
+    std::string content;
+    if (!ReadFileToString(path, &content)) {
+      return ErrnoErrorf("Failed to read '{}'", path);
+    }
+    bool found = false;
+    for (const std::string& line : Split(content, "\n")) {
+      std::smatch match;
+      if (!std::regex_match(line, match, pattern)) {
+        continue;
+      }
+      LOG(INFO) << ART_FORMAT("Setting environment variable {} {}", match[1].str(), match[2].str());
+      setenv(match[1].str().c_str(), match[2].str().c_str(), /*replace=*/1);
+      found = true;
+    }
+    if (!found) {
+      return Errorf("Malformed env var file '{}': {}", path, content);
+    }
+    return {};
+  };
+
+  OR_RETURN(set_env_from_file("/init.environ.rc"));
+
+  CmdlineBuilder args;
+  args.Add("/apex/com.android.sdkext/bin/derive_classpath").Add("/artd_tmp/classpath");
+
+  LOG(INFO) << "Running derive_classpath: " << Join(args.Get(), /*separator=*/" ");
+
+  Result<int> result = ExecAndReturnCode(args.Get(), kShortTimeoutSec);
+  if (!result.ok()) {
+    return Errorf("Failed to run derive_classpath: {}", result.error().message());
+  }
+
+  LOG(INFO) << ART_FORMAT("derive_classpath returned code {}", result.value());
+
+  if (result.value() != 0) {
+    return Errorf("derive_classpath returned an unexpected code: {}", result.value());
+  }
+
+  OR_RETURN(set_env_from_file("/artd_tmp/classpath"));
+
+  return {};
+}
+
+Result<void> Artd::PreRebootInitBootImage() {
+  std::string art_apex_data_dir = "/artd_tmp/art_apex_data";
+  OR_RETURN(CreateDir(art_apex_data_dir));
+  if (mount(art_apex_data_dir.c_str(),
+            GetArtApexData().c_str(),
+            /*fs_type=*/nullptr,
+            MS_BIND,
+            /*data=*/nullptr) != 0) {
+    return ErrnoErrorf(
+        "Failed to bind-mount '{}' at '{}'", art_apex_data_dir, GetArtApexData().c_str());
+  }
+
+  CmdlineBuilder args;
+  args.Add("/apex/com.android.art/bin/odrefresh").Add("--only-boot-image").Add("--compile");
+
+  LOG(INFO) << "Running odrefresh: " << Join(args.Get(), /*separator=*/" ");
+
+  Result<int> result = ExecAndReturnCode(args.Get(), kLongTimeoutSec);
+  if (!result.ok()) {
+    return Errorf("Failed to run odrefresh: {}", result.error().message());
+  }
+
+  LOG(INFO) << ART_FORMAT("odrefresh returned code {}", result.value());
+
+  if (result.value() != odrefresh::ExitCode::kCompilationSuccess &&
+      result.value() != odrefresh::ExitCode::kOkay) {
+    return Errorf("odrefresh returned an unexpected code: {}", result.value());
+  }
+
+  return {};
 }
 
 }  // namespace artd

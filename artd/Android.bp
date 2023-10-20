@@ -32,6 +32,7 @@ cc_defaults {
     ],
     header_libs: [
         "art_cmdlineparser_headers",
+        "odrefresh_headers",
         "profman_headers",
     ],
     shared_libs: [
