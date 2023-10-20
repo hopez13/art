@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "52e71cd1_5ffac88d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-10-20T08:59:17Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "c7090915_34435655",
+      "range": {
+        "startLine": 10,
+        "startChar": 60,
+        "endLine": 11,
+        "endChar": 32
+      },
+      "revId": "83cc37978a7926445a63599a7e47ae6d6395cb22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "07e1cff0_8e0a4d6c",
@@ -132,6 +156,30 @@
       "side": 1,
       "message": "Because the ISA string includes the complete set of features we want. The way Riscv64InstructionSetFeatures::GetFeatureString works today is by generating an ISA string, not a comma-separated list of features. So I kept that behavior. We could use a comma-separated list of ISA extensions like other architectures if we want to change how GetFeatureString works.",
       "parentUuid": "cacdf49e_5991c090",
+      "range": {
+        "startLine": 113,
+        "startChar": 4,
+        "endLine": 113,
+        "endChar": 13
+      },
+      "revId": "83cc37978a7926445a63599a7e47ae6d6395cb22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b26ac97_988101f9",
+        "filename": "runtime/arch/riscv64/instruction_set_features_riscv64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-10-20T08:59:17Z",
+      "side": 1,
+      "message": "Can you make a comment on the .h file stating what this method does? I would have expected to add features and not remove them (like the other archs do). Something on the lines of:\n```\n// If `features` is empty, this method doesn\u0027t add/remove anything from the\n// existing set of features.\n// If `features` is not empty, this method expects it to have exactly one value\n// which is assumed to be a complete and valid features string. In this case, the\n// new features will override the old ones. For example, if the existing set of\n// features were `rv64gcv_zba_zbb_zbs` but `features` is `{\"rv64gcv\"}`, then the\n// new features will have the bits set for `zba`, `zbb`, or `zbs`.\n```",
+      "parentUuid": "5640c034_9cad6e52",
       "range": {
         "startLine": 113,
         "startChar": 4,
