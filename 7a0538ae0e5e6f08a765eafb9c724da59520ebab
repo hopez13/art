@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1018e717_d58c719d",
+        "filename": "runtime/arch/riscv64/instruction_set_features_riscv64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 2009035
+      },
+      "writtenOn": "2023-10-20T20:52:18Z",
+      "side": 1,
+      "message": "Yes, that works, though I can only apply one fix at a time that way.",
+      "parentUuid": "a69b5970_726da9df",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 48
+      },
+      "revId": "7a0538ae0e5e6f08a765eafb9c724da59520ebab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6fa650bd_60ff23df",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b9c1d653_c6e61f90",
+        "filename": "runtime/arch/riscv64/instruction_set_features_riscv64_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 2009035
+      },
+      "writtenOn": "2023-10-20T20:52:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6fa650bd_60ff23df",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 86
+      },
+      "revId": "7a0538ae0e5e6f08a765eafb9c724da59520ebab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b8a70393_57a0e730",
@@ -60,6 +108,30 @@
       "writtenOn": "2023-10-20T08:45:02Z",
       "side": 1,
       "message": "```suggestion\n      Riscv64InstructionSetFeatures::kExtGeneric |\n      Riscv64InstructionSetFeatures::kExtCompressed |\n      Riscv64InstructionSetFeatures::kExtZba |\n      Riscv64InstructionSetFeatures::kExtZbb;\n```",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 86
+      },
+      "revId": "7a0538ae0e5e6f08a765eafb9c724da59520ebab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b00cf4b5_e5ca9b80",
+        "filename": "runtime/arch/riscv64/instruction_set_features_riscv64_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 2009035
+      },
+      "writtenOn": "2023-10-20T20:52:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b8a70393_57a0e730",
       "range": {
         "startLine": 64,
         "startChar": 0,
