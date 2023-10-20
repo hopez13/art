@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c97f3aa_91794bea",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-20T15:13:23Z",
+      "side": 1,
+      "message": "Please fetch the full `F|E|D|C`.\n\nWe should load that to a register that can be reused instead of reloading it during the args setup. You may want to add a `TODO`.",
+      "range": {
+        "startLine": 276,
+        "startChar": 24,
+        "endLine": 276,
+        "endChar": 41
+      },
+      "revId": "220ea53f6ea32a0e6625164a5f7f2cdd9eca68ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16015b55_e02104ca",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-20T15:13:23Z",
+      "side": 1,
+      "message": "We could drop this and and the restore `fmv.s` if we move the `fmv.w.x` from `try_01_args` to the `.L${uniq}_01_call:`. But that would be one more instruction executed for A\u003d1.\n\nAlternatively, drop just this `fmv.s` and replace the restore `fmv.s` with `fmv.w.x fa0, s11`.\n\n(Similar for static.)",
+      "range": {
+        "startLine": 321,
+        "startChar": 3,
+        "endLine": 321,
+        "endChar": 17
+      },
+      "revId": "220ea53f6ea32a0e6625164a5f7f2cdd9eca68ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a92a5944_84b80c3d",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-20T15:13:23Z",
+      "side": 1,
+      "message": "For string-init, we need to fill A1 as well but we need to ignore \"C\". The `slow_setup_args` currently does not allow this.\n\nBut without the `new-instance`, you\u0027re not testing this path, so you do not hit the bug.",
+      "range": {
+        "startLine": 357,
+        "startChar": 3,
+        "endLine": 357,
+        "endChar": 18
+      },
+      "revId": "220ea53f6ea32a0e6625164a5f7f2cdd9eca68ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a19c294_205fae45",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-20T15:13:23Z",
+      "side": 1,
+      "message": "a0",
+      "range": {
+        "startLine": 362,
+        "startChar": 40,
+        "endLine": 362,
+        "endChar": 42
+      },
+      "revId": "220ea53f6ea32a0e6625164a5f7f2cdd9eca68ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b60d565f_1209c282",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 499,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-20T15:13:23Z",
+      "side": 1,
+      "message": "Load 2 and use BLT. Then you can drop the next LI.",
+      "range": {
+        "startLine": 499,
+        "startChar": 11,
+        "endLine": 499,
+        "endChar": 12
+      },
+      "revId": "220ea53f6ea32a0e6625164a5f7f2cdd9eca68ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
