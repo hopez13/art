@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "33eacb6b_f49f3a67",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 747,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-10-20T13:33:09Z",
+      "side": 1,
+      "message": "I\u0027m surprised this method was created but unused until now.",
+      "range": {
+        "startLine": 747,
+        "startChar": 16,
+        "endLine": 747,
+        "endChar": 29
+      },
+      "revId": "34bb36268a22fbd09b6306b9e754612c446ca532",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1037d311_1e6f0615",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 756,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-10-20T13:33:09Z",
+      "side": 1,
+      "message": "nit: double new line",
+      "range": {
+        "startLine": 756,
+        "startChar": 0,
+        "endLine": 756,
+        "endChar": 0
+      },
+      "revId": "34bb36268a22fbd09b6306b9e754612c446ca532",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
