@@ -266,10 +266,9 @@
                         "suppressed when tracing."]
     },
     {
-        "tests": ["638-checker-inline-cache-intrinsic",
-                  "850-checker-branches"],
+        "tests": "638-checker-inline-cache-intrinsic",
         "variant": "interpreter | interp-ac",
-        "description": ["Tests expect JIT compilation"]
+        "description": ["Test expects JIT compilation"]
     },
     {
         "tests": "597-deopt-invoke-stub",
@@ -1024,7 +1023,6 @@
           "819-verification-runtime",
           "823-cha-inlining",
           "842-vdex-hard-failure",
-          "850-checker-branches",
           "900-hello-plugin",
           "901-hello-ti-agent",
           "903-hello-tagging",
