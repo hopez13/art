@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "92daf55f_fbd1f62c",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 400,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-20T14:02:49Z",
+      "side": 1,
+      "message": "Google does not plan to support Android on devices without Zbs.\n\nBut if you want to minimize the number of patches you need to carry to test on such devices, you should create macros similar to arm64 instructions TBZ/TBNZ (maybe BRANCH_IF_BIT_CLEAR/BRANCH_IF_BIT_SET?) to replace the BEXTI+BEQZ/BNEZ with SLLI+BGEZ/BLTZ (shift the tested bit to the sign bit). For example, the code here would be\n\n    slli $z0, $z0, (63 - ART_METHOD_NTERP_INVOKE_FAST_PATH_FLAG_BIT)\n    bgez $z0, $skip",
+      "range": {
+        "startLine": 400,
+        "startChar": 7,
+        "endLine": 400,
+        "endChar": 18
+      },
+      "revId": "d3bb383c6eb853ac0c00ee8a8183f7c297532ddf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
