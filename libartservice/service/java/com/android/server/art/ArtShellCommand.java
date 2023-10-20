@@ -34,6 +34,7 @@ import android.os.Build;
 import android.os.CancellationSignal;
 import android.os.ParcelFileDescriptor;
 import android.os.Process;
+import android.os.RemoteException;
 import android.system.ErrnoException;
 import android.system.Os;
 import android.system.StructStat;
@@ -43,6 +44,7 @@ import androidx.annotation.RequiresApi;
 
 import com.android.internal.annotations.GuardedBy;
 import com.android.modules.utils.BasicShellCommandHandler;
+import com.android.modules.utils.build.SdkLevel;
 import com.android.server.art.model.ArtFlags;
 import com.android.server.art.model.DeleteResult;
 import com.android.server.art.model.DexoptParams;
@@ -175,6 +177,9 @@ public final class ArtShellCommand extends BasicShellCommandHandler {
                 mArtManagerLocal.clearAppProfiles(snapshot, getNextArgRequired());
                 pw.println("Profiles cleared");
                 return 0;
+            }
+            case "pre-reboot-dexopt-job": {
+                return handlePreRebootDexoptJob(pw);
             }
             default:
                 pw.printf("Error: Unknown 'art' sub-command '%s'\n", subcmd);
@@ -599,6 +604,40 @@ public final class ArtShellCommand extends BasicShellCommandHandler {
             progressCallbackExecutor.shutdown();
         }
         return 0;
+    }
+
+    private int handlePreRebootDexoptJob(@NonNull PrintWriter pw) {
+        if (!SdkLevel.isAtLeastV()) {
+            pw.println("Error: Unsupported command 'pre-reboot-dexopt-job'");
+            return 1;
+        }
+
+        String opt = getNextOption();
+        if (opt == null) {
+            mArtManagerLocal.getPreRebootDexoptJob().run();
+            return 0;
+        }
+        try {
+            switch (opt) {
+                case "--set-up": {
+                    mArtManagerLocal.getPreRebootDexoptJob().setUp();
+                    return 0;
+                }
+                case "--tear-down": {
+                    mArtManagerLocal.getPreRebootDexoptJob().tearDown();
+                    return 0;
+                }
+                case "--run": {
+                    mArtManagerLocal.getPreRebootDexoptJob().runImpl();
+                    return 0;
+                }
+                default:
+                    pw.println("Error: Unknown option: " + opt);
+                    return 1;
+            }
+        } catch (RemoteException | ReflectiveOperationException | InterruptedException e) {
+            throw new IllegalStateException(e);
+        }
     }
 
     @Override

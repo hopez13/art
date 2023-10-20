@@ -39,6 +39,7 @@ import com.android.internal.annotations.GuardedBy;
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.server.LocalManagerRegistry;
 import com.android.server.art.model.ArtFlags;
+import com.android.server.art.model.ArtServiceJobInterface;
 import com.android.server.art.model.Config;
 import com.android.server.art.model.DexoptResult;
 import com.android.server.pm.PackageManagerLocal;
@@ -52,7 +53,7 @@ import java.util.concurrent.TimeUnit;
 
 /** @hide */
 @RequiresApi(Build.VERSION_CODES.UPSIDE_DOWN_CAKE)
-public class BackgroundDexoptJob {
+public class BackgroundDexoptJob implements ArtServiceJobInterface {
     private static final String TAG = ArtManagerLocal.TAG;
 
     /**
@@ -61,7 +62,7 @@ public class BackgroundDexoptJob {
      */
     private static final String JOB_PKG_NAME = Utils.PLATFORM_PACKAGE_NAME;
     /** An arbitrary number. Must be unique among all jobs owned by the system uid. */
-    private static final int JOB_ID = 27873780;
+    public static final int JOB_ID = 27873780;
 
     @VisibleForTesting public static final long JOB_INTERVAL_MS = TimeUnit.DAYS.toMillis(1);
 
@@ -82,6 +83,7 @@ public class BackgroundDexoptJob {
     }
 
     /** Handles {@link BackgroundDexoptJobService#onStartJob(JobParameters)}. */
+    @Override
     public boolean onStartJob(
             @NonNull BackgroundDexoptJobService jobService, @NonNull JobParameters params) {
         start().thenAcceptAsync(result -> {
@@ -101,6 +103,7 @@ public class BackgroundDexoptJob {
     }
 
     /** Handles {@link BackgroundDexoptJobService#onStopJob(JobParameters)}. */
+    @Override
     public boolean onStopJob(@NonNull JobParameters params) {
         synchronized (this) {
             mLastStopReason = Optional.of(params.getStopReason());
@@ -112,7 +115,7 @@ public class BackgroundDexoptJob {
 
     /** Handles {@link ArtManagerLocal#scheduleBackgroundDexoptJob()}. */
     public @ScheduleStatus int schedule() {
-        if (this != BackgroundDexoptJobService.getJob()) {
+        if (this != BackgroundDexoptJobService.getJob(JOB_ID)) {
             throw new IllegalStateException("This job cannot be scheduled");
         }
 
@@ -152,7 +155,7 @@ public class BackgroundDexoptJob {
 
     /** Handles {@link ArtManagerLocal#unscheduleBackgroundDexoptJob()}. */
     public void unschedule() {
-        if (this != BackgroundDexoptJobService.getJob()) {
+        if (this != BackgroundDexoptJobService.getJob(JOB_ID)) {
             throw new IllegalStateException("This job cannot be unscheduled");
         }
 

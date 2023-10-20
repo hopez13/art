@@ -1031,6 +1031,12 @@ public final class ArtManagerLocal {
         return mInjector.getBackgroundDexoptJob();
     }
 
+    @RequiresApi(Build.VERSION_CODES.VANILLA_ICE_CREAM)
+    @NonNull
+    PreRebootDexoptJob getPreRebootDexoptJob() {
+        return mInjector.getPreRebootDexoptJob();
+    }
+
     @RequiresApi(Build.VERSION_CODES.UPSIDE_DOWN_CAKE)
     private void maybeDowngradePackages(@NonNull PackageManagerLocal.FilteredSnapshot snapshot,
             @NonNull Set<String> excludedPackages, @NonNull CancellationSignal cancellationSignal,
@@ -1265,6 +1271,7 @@ public final class ArtManagerLocal {
         @Nullable private final PackageManagerLocal mPackageManagerLocal;
         @Nullable private final Config mConfig;
         @Nullable private BackgroundDexoptJob mBgDexoptJob = null;
+        @Nullable private PreRebootDexoptJob mPrDexoptJob = null;
 
         /** For compatibility with S and T. New code should not use this. */
         @Deprecated
@@ -1290,7 +1297,7 @@ public final class ArtManagerLocal {
             getUserManager();
             getDexUseManager();
             getStorageManager();
-            ArtModuleServiceInitializer.getArtModuleServiceManager();
+            GlobalInjector.getInstance().checkArtd();
         }
 
         @RequiresApi(Build.VERSION_CODES.UPSIDE_DOWN_CAKE)
@@ -1308,7 +1315,7 @@ public final class ArtManagerLocal {
         @RequiresApi(Build.VERSION_CODES.UPSIDE_DOWN_CAKE)
         @NonNull
         public IArtd getArtd() {
-            return Utils.getArtd();
+            return GlobalInjector.getInstance().getArtd();
         }
 
         /** Returns a new {@link DexoptHelper} instance. */
@@ -1346,6 +1353,15 @@ public final class ArtManagerLocal {
             return mBgDexoptJob;
         }
 
+        @RequiresApi(Build.VERSION_CODES.VANILLA_ICE_CREAM)
+        @NonNull
+        public synchronized PreRebootDexoptJob getPreRebootDexoptJob() {
+            if (mPrDexoptJob == null) {
+                mPrDexoptJob = new PreRebootDexoptJob(mContext);
+            }
+            return mPrDexoptJob;
+        }
+
         @RequiresApi(Build.VERSION_CODES.UPSIDE_DOWN_CAKE)
         @NonNull
         public UserManager getUserManager() {
@@ -1355,8 +1371,7 @@ public final class ArtManagerLocal {
         @RequiresApi(Build.VERSION_CODES.UPSIDE_DOWN_CAKE)
         @NonNull
         public DexUseManagerLocal getDexUseManager() {
-            return Objects.requireNonNull(
-                    LocalManagerRegistry.getManager(DexUseManagerLocal.class));
+            return GlobalInjector.getInstance().getDexUseManager();
         }
 
         @RequiresApi(Build.VERSION_CODES.UPSIDE_DOWN_CAKE)
