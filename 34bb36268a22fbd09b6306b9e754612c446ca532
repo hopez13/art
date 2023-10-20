@@ -37,6 +37,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "0505371d_a56ceffb",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 731,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-10-20T14:00:24Z",
+      "side": 1,
+      "message": "It\u0027d be a bit of a fragile test. We do have a benchmark that was exposing the issue, so go/lem would report if we regressed there.",
+      "parentUuid": "d04667b7_f44d1e57",
+      "revId": "34bb36268a22fbd09b6306b9e754612c446ca532",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "33eacb6b_f49f3a67",
         "filename": "runtime/quick_exception_handler.cc",
         "patchSetId": 1
@@ -48,6 +66,30 @@
       "writtenOn": "2023-10-20T13:33:09Z",
       "side": 1,
       "message": "I\u0027m surprised this method was created but unused until now.",
+      "range": {
+        "startLine": 747,
+        "startChar": 16,
+        "endLine": 747,
+        "endChar": 29
+      },
+      "revId": "34bb36268a22fbd09b6306b9e754612c446ca532",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c33e41a_6243e0df",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 747,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-10-20T14:00:24Z",
+      "side": 1,
+      "message": "It was used by the switch interpreter, but we removed that use after moving the profiling to the baseline compiler. We forgot to remove the definition back then.",
+      "parentUuid": "33eacb6b_f49f3a67",
       "range": {
         "startLine": 747,
         "startChar": 16,
@@ -71,6 +113,30 @@
       "writtenOn": "2023-10-20T13:33:09Z",
       "side": 1,
       "message": "nit: double new line",
+      "range": {
+        "startLine": 756,
+        "startChar": 0,
+        "endLine": 756,
+        "endChar": 0
+      },
+      "revId": "34bb36268a22fbd09b6306b9e754612c446ca532",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d2eefcf4_225b7e4b",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 756,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-10-20T14:00:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1037d311_1e6f0615",
       "range": {
         "startLine": 756,
         "startChar": 0,
