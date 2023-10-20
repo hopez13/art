@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b8a8a3d9_bb9d6f99",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1773,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-20T13:47:44Z",
+      "side": 1,
+      "message": "Google does not plan to support Android on devices without Zba. If you need to test on such devices, you\u0027ll need to carry your own patches.\n\nNote that the code you\u0027re rewriting has a bug. These `shNadd` instructions have been replaced by `shNadd.uw` in https://android-review.googlesource.com/2796182 . So you would need 3 instructions here (SLLI+SRLI+ADD), otherwise `new-array` with a negative number of elements could succeed.",
+      "range": {
+        "startLine": 1772,
+        "startChar": 4,
+        "endLine": 1773,
+        "endChar": 81
+      },
+      "revId": "8775abee910b439c776cf42e690cecc1f9da58e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
