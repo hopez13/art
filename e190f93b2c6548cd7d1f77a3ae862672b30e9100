@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ecc8558_3a209baf",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1319,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-10-20T14:32:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "00bf16ea_7a244ca9",
+      "range": {
+        "startLine": 1319,
+        "startChar": 19,
+        "endLine": 1319,
+        "endChar": 36
+      },
+      "revId": "e190f93b2c6548cd7d1f77a3ae862672b30e9100",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "16ac4820_0a376693",
@@ -58,6 +82,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a16b975_137085c0",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1329,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-10-20T14:32:09Z",
+      "side": 1,
+      "message": "Yeah, that\u0027s the reason I moved the logic in jit_code_cache in that one shouldn\u0027t handle ProfilingInfo outside the lock.",
+      "parentUuid": "16ac4820_0a376693",
+      "revId": "e190f93b2c6548cd7d1f77a3ae862672b30e9100",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "257453c8_03009ade",
@@ -71,6 +113,30 @@
       "writtenOn": "2023-10-20T14:26:50Z",
       "side": 1,
       "message": "nit: `dex_pc`",
+      "range": {
+        "startLine": 745,
+        "startChar": 12,
+        "endLine": 745,
+        "endChar": 36
+      },
+      "revId": "e190f93b2c6548cd7d1f77a3ae862672b30e9100",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "236e732f_5ca8a707",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 745,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-10-20T14:32:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "257453c8_03009ade",
       "range": {
         "startLine": 745,
         "startChar": 12,
