@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b07af1ea_32fd49c6",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-10-20T23:07:13Z",
+      "side": 1,
+      "message": "I like the idea, since we have many regs at our disposal. And it\u0027s the same situation with the Range variants.",
+      "parentUuid": "4c97f3aa_91794bea",
+      "range": {
+        "startLine": 276,
+        "startChar": 24,
+        "endLine": 276,
+        "endChar": 41
+      },
+      "revId": "220ea53f6ea32a0e6625164a5f7f2cdd9eca68ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "16015b55_e02104ca",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-10-20T15:13:23Z",
       "side": 1,
       "message": "We could drop this and and the restore `fmv.s` if we move the `fmv.w.x` from `try_01_args` to the `.L${uniq}_01_call:`. But that would be one more instruction executed for A\u003d1.\n\nAlternatively, drop just this `fmv.s` and replace the restore `fmv.s` with `fmv.w.x fa0, s11`.\n\n(Similar for static.)",
+      "range": {
+        "startLine": 321,
+        "startChar": 3,
+        "endLine": 321,
+        "endChar": 17
+      },
+      "revId": "220ea53f6ea32a0e6625164a5f7f2cdd9eca68ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "463e62b5_8eede931",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-10-20T23:07:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "16015b55_e02104ca",
       "range": {
         "startLine": 321,
         "startChar": 3,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d7729868_a1654390",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-10-20T23:07:13Z",
+      "side": 1,
+      "message": "ugh. now I can see it in the arm64 code ...",
+      "parentUuid": "a92a5944_84b80c3d",
+      "range": {
+        "startLine": 357,
+        "startChar": 3,
+        "endLine": 357,
+        "endChar": 18
+      },
+      "revId": "220ea53f6ea32a0e6625164a5f7f2cdd9eca68ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9a19c294_205fae45",
@@ -93,6 +165,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "57e4854a_a749ee32",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-10-20T23:07:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9a19c294_205fae45",
+      "range": {
+        "startLine": 362,
+        "startChar": 40,
+        "endLine": 362,
+        "endChar": 42
+      },
+      "revId": "220ea53f6ea32a0e6625164a5f7f2cdd9eca68ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b60d565f_1209c282",
@@ -106,6 +202,30 @@
       "writtenOn": "2023-10-20T15:13:23Z",
       "side": 1,
       "message": "Load 2 and use BLT. Then you can drop the next LI.",
+      "range": {
+        "startLine": 499,
+        "startChar": 11,
+        "endLine": 499,
+        "endChar": 12
+      },
+      "revId": "220ea53f6ea32a0e6625164a5f7f2cdd9eca68ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1dc40491_92a5505b",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 499,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-10-20T23:07:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b60d565f_1209c282",
       "range": {
         "startLine": 499,
         "startChar": 11,
