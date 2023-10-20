@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "208f795b_5a9748f6",
+        "filename": "tools/libcore_gcstress_failures.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-10-20T10:10:32Z",
+      "side": 1,
+      "message": "It doesn\u0027t seem to be timeouting often. Do we want to add it here? If so, do we want to also add `MethodHandleCombinersTest#testPermuteArgumentsMultiThreaded`? It timeouted in https://ci.chromium.org/ui/p/art/builders/ci/bullhead-armv8-gcstress-ndebug/3008/overview",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 89
+      },
+      "revId": "85a8799fb94741abb8218bd33c2f5eccce216535",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
