@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a69b5970_726da9df",
+        "filename": "runtime/arch/riscv64/instruction_set_features_riscv64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-10-20T08:45:02Z",
+      "side": 1,
+      "message": "```suggestion\n  return Riscv64InstructionSetFeatures::kExtGeneric |\n         Riscv64InstructionSetFeatures::kExtCompressed |\n         Riscv64InstructionSetFeatures::kExtVector |\n         Riscv64InstructionSetFeatures::kExtZba |\n         Riscv64InstructionSetFeatures::kExtZbb |\n         Riscv64InstructionSetFeatures::kExtZbs;\n```\n\nIf you click \"SHOW EDIT\", do you see an \"APPLY FIX\" button? Are you able to click it?",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 48
+      },
+      "revId": "7a0538ae0e5e6f08a765eafb9c724da59520ebab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6fa650bd_60ff23df",
+        "filename": "runtime/arch/riscv64/instruction_set_features_riscv64_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-10-20T08:45:02Z",
+      "side": 1,
+      "message": "```suggestion\n      Riscv64InstructionSetFeatures::kExtGeneric |\n      Riscv64InstructionSetFeatures::kExtCompressed |\n      Riscv64InstructionSetFeatures::kExtVector |\n      Riscv64InstructionSetFeatures::kExtZba |\n      Riscv64InstructionSetFeatures::kExtZbb |\n      Riscv64InstructionSetFeatures::kExtZbs;\n```",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 86
+      },
+      "revId": "7a0538ae0e5e6f08a765eafb9c724da59520ebab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b8a70393_57a0e730",
+        "filename": "runtime/arch/riscv64/instruction_set_features_riscv64_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-10-20T08:45:02Z",
+      "side": 1,
+      "message": "```suggestion\n      Riscv64InstructionSetFeatures::kExtGeneric |\n      Riscv64InstructionSetFeatures::kExtCompressed |\n      Riscv64InstructionSetFeatures::kExtZba |\n      Riscv64InstructionSetFeatures::kExtZbb;\n```",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 86
+      },
+      "revId": "7a0538ae0e5e6f08a765eafb9c724da59520ebab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
