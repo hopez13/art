@@ -16,6 +16,69 @@
       "message": "Thank you both. PTAL.",
       "revId": "e190f93b2c6548cd7d1f77a3ae862672b30e9100",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "00bf16ea_7a244ca9",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1319,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-10-20T14:26:50Z",
+      "side": 1,
+      "message": "Suggestion: Rename to MaybeUpdateInlineCache as it is not guaranteed to be updated",
+      "range": {
+        "startLine": 1319,
+        "startChar": 19,
+        "endLine": 1319,
+        "endChar": 36
+      },
+      "revId": "e190f93b2c6548cd7d1f77a3ae862672b30e9100",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16ac4820_0a376693",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1329,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-10-20T14:26:50Z",
+      "side": 1,
+      "message": "Do we need `jit_lock_` after this line? If not, we could use `JitCodeCache::GetProfilingInfo(...)` to reuse part of the code",
+      "revId": "e190f93b2c6548cd7d1f77a3ae862672b30e9100",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "257453c8_03009ade",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 745,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-10-20T14:26:50Z",
+      "side": 1,
+      "message": "nit: `dex_pc`",
+      "range": {
+        "startLine": 745,
+        "startChar": 12,
+        "endLine": 745,
+        "endChar": 36
+      },
+      "revId": "e190f93b2c6548cd7d1f77a3ae862672b30e9100",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
