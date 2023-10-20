@@ -231,6 +231,18 @@ public final class Utils {
         return artd;
     }
 
+    @NonNull
+    public static IArtdChroot getArtdChroot() {
+        IArtdChroot artdChroot = IArtdChroot.Stub.asInterface(
+                ArtModuleServiceInitializer.getArtModuleServiceManager()
+                        .getArtdChrootServiceRegisterer()
+                        .waitForService());
+        if (artdChroot == null) {
+            throw new IllegalStateException("Unable to connect to artd_chroot");
+        }
+        return artdChroot;
+    }
+
     public static boolean implies(boolean cond1, boolean cond2) {
         return cond1 ? cond2 : true;
     }

@@ -21,6 +21,10 @@
 #include <string_view>
 #include <vector>
 
+#include "android-base/result.h"
+#include "android/binder_auto_utils.h"
+#include "fstab/fstab.h"
+
 namespace art {
 namespace tools {
 
@@ -40,7 +44,42 @@ std::vector<std::string> Glob(const std::vector<std::string>& patterns,
 // Escapes a string so that it's not recognized as a wildcard pattern for `Glob`.
 std::string EscapeGlob(const std::string& str);
 
+// Returns true if `path` starts with `prefix` (i.e., if `prefix` represents a directory that
+// contains a file/directory at `path`, or if `prefix` and `path` represents the same
+// file/directory). Only supports absolute paths.
+bool PathStartsWith(std::string_view path, std::string_view prefix);
+
+// Returns the fstab entries in /proc/mounts for the given path.
+android::base::Result<std::vector<android::fs_mgr::FstabEntry>> GetProcMountsAncestorsOfPath(
+    std::string_view path);
+android::base::Result<std::vector<android::fs_mgr::FstabEntry>> GetProcMountsDescendantsOfPath(
+    std::string_view path);
+
+// Indicates an error that should never happen (e.g., illegal arguments passed by service-art
+// internally). System server should crash if this kind of error happens.
+ndk::ScopedAStatus Fatal(const std::string& message);
+
+// Indicates an error that service-art should handle (e.g., I/O errors, sub-process crashes).
+// The scope of the error depends on the function that throws it, so service-art should catch the
+// error at every call site and take different actions.
+// Ideally, this should be a checked exception or an additional return value that forces service-art
+// to handle it, but `ServiceSpecificException` (a separate runtime exception type) is the best
+// approximate we have given the limitation of Java and Binder.
+ndk::ScopedAStatus NonFatal(const std::string& message);
+
 }  // namespace tools
 }  // namespace art
+
+#define OR_RETURN_ERROR(func, expr)                            \
+  ({                                                           \
+    decltype(expr)&& __or_return_error_expr = (expr);          \
+    if (!__or_return_error_expr.ok()) {                        \
+      return (func)(__or_return_error_expr.error().message()); \
+    }                                                          \
+    std::move(__or_return_error_expr).value();                 \
+  })
+
+#define OR_RETURN_FATAL(expr)     OR_RETURN_ERROR(art::tools::Fatal, expr)
+#define OR_RETURN_NON_FATAL(expr) OR_RETURN_ERROR(art::tools::NonFatal, expr)
 
 #endif  // ART_LIBARTTOOLS_TOOLS_TOOLS_H_

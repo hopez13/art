@@ -22,6 +22,16 @@ service artd /apex/com.android.art/bin/artd
     group artd
     capabilities DAC_OVERRIDE DAC_READ_SEARCH FOWNER CHOWN
 
+# A lazy service that is started and stopped dynamically as needed.
+service artd_chroot /apex/com.android.art/bin/artd_chroot
+    interface aidl artd_chroot
+    disabled  # Prevents the service from automatically starting at boot.
+    oneshot  # Prevents the service from automatically restarting each time it is stopped.
+    class core
+    user artd
+    group artd
+    capabilities DAC_OVERRIDE DAC_READ_SEARCH SYS_ADMIN SYS_CHROOT
+
 # Run at boot in Android U and later.
 service art_boot /apex/com.android.art/bin/art_boot
     disabled  # Started explicitly from system/core/rootdir/init.rc

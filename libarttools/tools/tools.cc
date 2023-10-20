@@ -29,13 +29,25 @@
 #include <vector>
 
 #include "android-base/logging.h"
+#include "android-base/result.h"
+#include "android-base/strings.h"
+#include "android/binder_auto_utils.h"
 #include "base/macros.h"
+#include "fstab/fstab.h"
 
 namespace art {
 namespace tools {
 
 namespace {
 
+using ::android::base::ConsumeSuffix;
+using ::android::base::Result;
+using ::android::base::StartsWith;
+using ::android::base::StringReplace;
+using ::android::fs_mgr::Fstab;
+using ::android::fs_mgr::FstabEntry;
+using ::android::fs_mgr::ReadFstabFromProcMounts;
+using ::ndk::ScopedAStatus;
 using ::std::placeholders::_1;
 
 // Returns true if `path_prefix` matches `pattern` or can be a prefix of a path that matches
@@ -126,6 +138,25 @@ void MatchGlobRecursive(const std::vector<std::filesystem::path>& patterns,
   }
 }
 
+std::string EscapeErrorMessage(const std::string& message) {
+  return StringReplace(message, std::string("\0", /*n=*/1), "\\0", /*all=*/true);
+}
+
+Result<std::vector<FstabEntry>> GetProcMountsMatches(
+    const std::function<bool(std::string_view)>& predicate) {
+  Fstab fstab;
+  if (!ReadFstabFromProcMounts(&fstab)) {
+    return Errorf("Failed to read fstab from /proc/mounts");
+  }
+  std::vector<FstabEntry> entries;
+  for (FstabEntry& entry : fstab) {
+    if (predicate(entry.mount_point)) {
+      entries.push_back(std::move(entry));
+    }
+  }
+  return entries;
+}
+
 }  // namespace
 
 std::vector<std::string> Glob(const std::vector<std::string>& patterns, std::string_view root_dir) {
@@ -141,6 +172,34 @@ std::vector<std::string> Glob(const std::vector<std::string>& patterns, std::str
 
 std::string EscapeGlob(const std::string& str) {
   return std::regex_replace(str, std::regex(R"re(\*|\?|\[)re"), "[$&]");
+}
+
+bool PathStartsWith(std::string_view path, std::string_view prefix) {
+  CHECK(!prefix.empty() && !path.empty() && prefix[0] == '/' && path[0] == '/');
+  ConsumeSuffix(&prefix, "/");
+  return StartsWith(path, prefix) &&
+         (path.length() == prefix.length() || path[prefix.length()] == '/');
+}
+
+Result<std::vector<FstabEntry>> GetProcMountsAncestorsOfPath(std::string_view path) {
+  return GetProcMountsMatches(
+      [&](std::string_view mount_point) { return PathStartsWith(path, mount_point); });
+}
+
+Result<std::vector<FstabEntry>> GetProcMountsDescendantsOfPath(std::string_view path) {
+  return GetProcMountsMatches(
+      [&](std::string_view mount_point) { return PathStartsWith(mount_point, path); });
+}
+
+ScopedAStatus Fatal(const std::string& message) {
+  return ScopedAStatus::fromExceptionCodeWithMessage(EX_ILLEGAL_STATE,
+                                                     EscapeErrorMessage(message).c_str());
+}
+
+ScopedAStatus NonFatal(const std::string& message) {
+  constexpr int32_t kServiceArtNonFatalErrorCode = 1;
+  return ScopedAStatus::fromServiceSpecificErrorWithMessage(kServiceArtNonFatalErrorCode,
+                                                            EscapeErrorMessage(message).c_str());
 }
 
 }  // namespace tools
