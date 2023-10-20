@@ -22,6 +22,30 @@
       },
       "revId": "8775abee910b439c776cf42e690cecc1f9da58e4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "03323b2e_180afd4f",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1773,
+      "author": {
+        "id": 2009035
+      },
+      "writtenOn": "2023-10-20T19:55:48Z",
+      "side": 1,
+      "message": "Thanks for the pointer!\n\nI\u0027m aware of the support policy, which is why I did not ask for review of the patches adding conditional fallback code (and thus maintenance overhead). Since these changes now have a cost, I\u0027m abandoning this.",
+      "parentUuid": "b8a8a3d9_bb9d6f99",
+      "range": {
+        "startLine": 1772,
+        "startChar": 4,
+        "endLine": 1773,
+        "endChar": 81
+      },
+      "revId": "8775abee910b439c776cf42e690cecc1f9da58e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
