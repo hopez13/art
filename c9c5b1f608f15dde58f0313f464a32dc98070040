@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1de94c7d_78a1b81d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-20T11:56:18Z",
+      "side": 1,
+      "message": "Changing the commit message and doing a rebase in one go loses the code review flags. Doing this in two steps would have retained the Code-Review+2.",
+      "revId": "c9c5b1f608f15dde58f0313f464a32dc98070040",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
