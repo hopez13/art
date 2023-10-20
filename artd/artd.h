@@ -46,6 +46,10 @@
 namespace art {
 namespace artd {
 
+struct Options {
+  bool is_pre_reboot = false;
+};
+
 class ArtdCancellationSignal : public aidl::com::android::server::art::BnArtdCancellationSignal {
  public:
   explicit ArtdCancellationSignal(std::function<int(pid_t, int)> kill_func)
@@ -69,12 +73,14 @@ class ArtdCancellationSignal : public aidl::com::android::server::art::BnArtdCan
 
 class Artd : public aidl::com::android::server::art::BnArtd {
  public:
-  explicit Artd(std::unique_ptr<art::tools::SystemProperties> props =
+  explicit Artd(Options&& options,
+                std::unique_ptr<art::tools::SystemProperties> props =
                     std::make_unique<art::tools::SystemProperties>(),
                 std::unique_ptr<ExecUtils> exec_utils = std::make_unique<ExecUtils>(),
                 std::function<int(pid_t, int)> kill_func = kill,
                 std::function<int(int, struct stat*)> fstat_func = fstat)
-      : props_(std::move(props)),
+      : options_(std::move(options)),
+        props_(std::move(props)),
         exec_utils_(std::move(exec_utils)),
         kill_(std::move(kill_func)),
         fstat_(std::move(fstat_func)) {}
@@ -242,6 +248,7 @@ class Artd : public aidl::com::android::server::art::BnArtd {
   std::mutex ofa_context_mu_;
   std::unique_ptr<OatFileAssistantContext> ofa_context_ GUARDED_BY(ofa_context_mu_);
 
+  const Options options_;
   const std::unique_ptr<art::tools::SystemProperties> props_;
   const std::unique_ptr<ExecUtils> exec_utils_;
   const std::function<int(pid_t, int)> kill_;

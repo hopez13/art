@@ -18,6 +18,7 @@ package com.android.server.art;
 
 import android.annotation.NonNull;
 import android.annotation.Nullable;
+import android.util.Log;
 
 import dalvik.system.VMRuntime;
 
@@ -29,10 +30,12 @@ import dalvik.system.VMRuntime;
  */
 public class ArtJni {
     static {
-        if (VMRuntime.getRuntime().vmLibrary().equals("libartd.so")) {
-            System.loadLibrary("artserviced");
-        } else {
-            System.loadLibrary("artservice");
+        if (!GlobalInjector.getInstance().isPreReboot()) {
+            if (VMRuntime.getRuntime().vmLibrary().equals("libartd.so")) {
+                System.loadLibrary("artserviced");
+            } else {
+                System.loadLibrary("artservice");
+            }
         }
     }
 
@@ -43,6 +46,10 @@ public class ArtJni {
      */
     @Nullable
     public static String validateDexPath(@NonNull String dexPath) {
+        if (GlobalInjector.getInstance().isPreReboot()) {
+            // TODO: Call artd.
+            return null;
+        }
         return validateDexPathNative(dexPath);
     }
 
@@ -53,6 +60,10 @@ public class ArtJni {
     @Nullable
     public static String validateClassLoaderContext(
             @NonNull String dexPath, @NonNull String classLoaderContext) {
+        if (GlobalInjector.getInstance().isPreReboot()) {
+            // TODO: Call artd.
+            return null;
+        }
         return validateClassLoaderContextNative(dexPath, classLoaderContext);
     }
 

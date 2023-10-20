@@ -37,8 +37,18 @@ cc_defaults {
     header_libs: ["art_libartbase_headers"],
     shared_libs: [
         "libbase",
+        "libbinder_ndk",
     ],
-    export_shared_lib_headers: ["libbase"],
+    export_shared_lib_headers: [
+        "libbase",
+        "libbinder_ndk",
+    ],
+    static_libs: [
+        "libfstab",
+    ],
+    export_static_lib_headers: [
+        "libfstab",
+    ],
 }
 
 cc_library {
