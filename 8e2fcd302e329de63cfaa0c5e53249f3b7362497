@@ -16,6 +16,24 @@
       "message": "Is `Riscv64InstructionSetFeatures::kExtGeneric` assumed to be set? i.e. would it be valid for me to use `features` as `{\"cv\"}`?\n\nIf we are expecting it to be set, can you add a DCHECK for that?",
       "revId": "8e2fcd302e329de63cfaa0c5e53249f3b7362497",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "014afc78_8d476497",
+        "filename": "runtime/arch/riscv64/instruction_set_features_riscv64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 2009035
+      },
+      "writtenOn": "2023-10-20T20:50:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e03a6551_c59eccf2",
+      "revId": "8e2fcd302e329de63cfaa0c5e53249f3b7362497",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
