@@ -3,6 +3,40 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "94a85c88_4138304f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-10-20T13:35:16Z",
+      "side": 1,
+      "message": "Thanks!",
+      "revId": "34bb36268a22fbd09b6306b9e754612c446ca532",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d04667b7_f44d1e57",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 731,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-10-20T13:35:16Z",
+      "side": 1,
+      "message": "Should we add a test for this one? Maybe in a followup CL.",
+      "revId": "34bb36268a22fbd09b6306b9e754612c446ca532",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "33eacb6b_f49f3a67",
         "filename": "runtime/quick_exception_handler.cc",
         "patchSetId": 1
