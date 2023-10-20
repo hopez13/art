@@ -199,4 +199,6 @@ interface IArtd {
      */
     long deleteRuntimeArtifacts(
             in com.android.server.art.RuntimeArtifactsPath runtimeArtifactsPath);
+
+    void PreRebootInit();
 }

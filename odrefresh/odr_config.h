@@ -137,6 +137,7 @@ class OdrConfig final {
   std::string standalone_system_server_jars_;
   bool compilation_os_mode_ = false;
   bool minimal_ = false;
+  bool only_boot_image_ = false;
 
   // The current values of system properties listed in `kSystemProperties`.
   std::unordered_map<std::string, std::string> system_properties_;
@@ -238,6 +239,7 @@ class OdrConfig final {
   }
   bool GetCompilationOsMode() const { return compilation_os_mode_; }
   bool GetMinimal() const { return minimal_; }
+  bool GetOnlyBootImage() const { return only_boot_image_; }
   const OdrSystemProperties& GetSystemProperties() const { return odr_system_properties_; }
 
   void SetApexInfoListFile(const std::string& file_path) { apex_info_list_file_ = file_path; }
@@ -292,6 +294,8 @@ class OdrConfig final {
   void SetCompilationOsMode(bool value) { compilation_os_mode_ = value; }
 
   void SetMinimal(bool value) { minimal_ = value; }
+
+  void SetOnlyBootImage(bool value) { only_boot_image_ = value; }
 
   std::unordered_map<std::string, std::string>* MutableSystemProperties() {
     return &system_properties_;

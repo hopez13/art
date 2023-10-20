@@ -28,7 +28,6 @@
 #include "base/file_utils.h"
 #include "base/macros.h"
 #include "file_utils.h"
-#include "fstab/fstab.h"
 #include "oat_file_assistant.h"
 #include "runtime_image.h"
 #include "service.h"
@@ -47,9 +46,6 @@ using ::aidl::com::android::server::art::VdexPath;
 using ::android::base::Error;
 using ::android::base::Result;
 using ::android::base::StartsWith;
-using ::android::fs_mgr::Fstab;
-using ::android::fs_mgr::FstabEntry;
-using ::android::fs_mgr::ReadFstabFromProcMounts;
 using ::art::service::ValidateDexPath;
 using ::art::service::ValidatePathElement;
 using ::art::service::ValidatePathElementSubstring;
@@ -61,6 +57,8 @@ using SecondaryCurProfilePath = ProfilePath::SecondaryCurProfilePath;
 using SecondaryRefProfilePath = ProfilePath::SecondaryRefProfilePath;
 using TmpProfilePath = ProfilePath::TmpProfilePath;
 using WritableProfilePath = ProfilePath::WritableProfilePath;
+
+constexpr const char* kPreRebootSuffix = ".staged";
 
 // Only to be changed for testing.
 std::string_view gListRootDir = "/";
@@ -159,7 +157,8 @@ Result<std::string> BuildArtBinPath(const std::string& binary_name) {
   return ART_FORMAT("{}/bin/{}", OR_RETURN(GetArtRootOrError()), binary_name);
 }
 
-Result<std::string> BuildOatPath(const ArtifactsPath& artifacts_path) {
+Result<RawArtifactsPath> BuildArtifactsPath(const ArtifactsPath& artifacts_path,
+                                            bool is_pre_reboot) {
   OR_RETURN(ValidateDexPath(artifacts_path.dexPath));
 
   InstructionSet isa = GetInstructionSetFromString(artifacts_path.isa.c_str());
@@ -168,21 +167,33 @@ Result<std::string> BuildOatPath(const ArtifactsPath& artifacts_path) {
   }
 
   std::string error_msg;
-  std::string path;
+  RawArtifactsPath path;
   if (artifacts_path.isInDalvikCache) {
     // Apps' OAT files are never in ART APEX data.
-    if (!OatFileAssistant::DexLocationToOatFilename(
-            artifacts_path.dexPath, isa, /*deny_art_apex_data_files=*/true, &path, &error_msg)) {
+    if (!OatFileAssistant::DexLocationToOatFilename(artifacts_path.dexPath,
+                                                    isa,
+                                                    /*deny_art_apex_data_files=*/true,
+                                                    &path.oat_path,
+                                                    &error_msg)) {
       return Error() << error_msg;
     }
-    return path;
   } else {
     if (!OatFileAssistant::DexLocationToOdexFilename(
-            artifacts_path.dexPath, isa, &path, &error_msg)) {
+            artifacts_path.dexPath, isa, &path.oat_path, &error_msg)) {
       return Error() << error_msg;
     }
-    return path;
   }
+
+  path.vdex_path = ReplaceFileExtension(path.oat_path, "vdex");
+  path.art_path = ReplaceFileExtension(path.oat_path, "art");
+
+  if (is_pre_reboot) {
+    path.oat_path += kPreRebootSuffix;
+    path.vdex_path += kPreRebootSuffix;
+    path.art_path += kPreRebootSuffix;
+  }
+
+  return path;
 }
 
 Result<std::string> BuildPrimaryRefProfilePath(
@@ -227,7 +238,7 @@ Result<std::string> BuildSecondaryCurProfilePath(
       "{}/oat/{}.cur.prof", dex_path.parent_path().string(), dex_path.filename().string());
 }
 
-Result<std::string> BuildFinalProfilePath(const TmpProfilePath& tmp_profile_path) {
+static Result<std::string> BuildFinalProfilePathImpl(const TmpProfilePath& tmp_profile_path) {
   const WritableProfilePath& final_path = tmp_profile_path.finalPath;
   switch (final_path.getTag()) {
     case WritableProfilePath::forPrimary:
@@ -240,10 +251,20 @@ Result<std::string> BuildFinalProfilePath(const TmpProfilePath& tmp_profile_path
   LOG(FATAL) << ART_FORMAT("Unexpected writable profile path type {}", final_path.getTag());
 }
 
+Result<std::string> BuildFinalProfilePath(const TmpProfilePath& tmp_profile_path,
+                                          bool is_pre_reboot) {
+  std::string path = OR_RETURN(BuildFinalProfilePathImpl(tmp_profile_path));
+  if (is_pre_reboot) {
+    path += kPreRebootSuffix;
+  }
+  return path;
+}
+
 Result<std::string> BuildTmpProfilePath(const TmpProfilePath& tmp_profile_path) {
   OR_RETURN(ValidatePathElementSubstring(tmp_profile_path.id, "id"));
-  return NewFile::BuildTempPath(OR_RETURN(BuildFinalProfilePath(tmp_profile_path)),
-                                tmp_profile_path.id);
+  return NewFile::BuildTempPath(
+      OR_RETURN(BuildFinalProfilePath(tmp_profile_path, tmp_profile_path.isPreReboot)),
+      tmp_profile_path.id);
 }
 
 Result<std::string> BuildDexMetadataPath(const DexMetadataPath& dex_metadata_path) {
@@ -275,28 +296,9 @@ Result<std::string> BuildProfileOrDmPath(const ProfilePath& profile_path) {
 
 Result<std::string> BuildVdexPath(const VdexPath& vdex_path) {
   DCHECK(vdex_path.getTag() == VdexPath::artifactsPath);
-  return OatPathToVdexPath(OR_RETURN(BuildOatPath(vdex_path.get<VdexPath::artifactsPath>())));
-}
-
-bool PathStartsWith(std::string_view path, std::string_view prefix) {
-  CHECK(!prefix.empty() && !path.empty() && prefix[0] == '/' && path[0] == '/');
-  android::base::ConsumeSuffix(&prefix, "/");
-  return StartsWith(path, prefix) &&
-         (path.length() == prefix.length() || path[prefix.length()] == '/');
-}
-
-Result<std::vector<FstabEntry>> GetProcMountsEntriesForPath(const std::string& path) {
-  Fstab fstab;
-  if (!ReadFstabFromProcMounts(&fstab)) {
-    return Errorf("Failed to read fstab from /proc/mounts");
-  }
-  std::vector<FstabEntry> entries;
-  for (FstabEntry& entry : fstab) {
-    if (PathStartsWith(path, entry.mount_point)) {
-      entries.push_back(std::move(entry));
-    }
-  }
-  return entries;
+  return OR_RETURN(BuildArtifactsPath(vdex_path.get<VdexPath::artifactsPath>(),
+                                      /*is_pre_reboot=*/false))
+      .vdex_path;
 }
 
 void TestOnlySetListRootDir(std::string_view root_dir) { gListRootDir = root_dir; }
