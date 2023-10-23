@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce15e236_2ac76a27",
+        "filename": "libartservice/service/java/com/android/server/art/ReasonMapping.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2023-10-23T10:49:33Z",
+      "side": 1,
+      "message": "Minor: Is this needed anymore? The default is handled within the `SystemProperties.getInt(\"pm.dexopt.\" + reason + \".concurrency\", 1 /* def */)` call.\n```suggestion\n                        \"pm.dexopt.\" + reason + \".concurrency\", 1 /* def */));\n```",
+      "range": {
+        "startLine": 199,
+        "startChar": 77,
+        "endLine": 199,
+        "endChar": 86
+      },
+      "revId": "3daa9ea3d6e43d163448e2e4e7ed58ad4f64b548",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
