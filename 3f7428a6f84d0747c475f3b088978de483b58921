@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "75d0729a_90eb81aa",
+        "filename": "build/art.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-10-23T20:48:48Z",
+      "side": 1,
+      "message": "This now seems inconsistent with the rest of the changes. Though we may want to leave this and fix the rest.\n\nAlso, there are a bunch of comments around thread.cc:1347 that seem to be invalidated by the changes in this file.",
+      "range": {
+        "startLine": 96,
+        "startChar": 36,
+        "endLine": 96,
+        "endChar": 41
+      },
+      "revId": "3f7428a6f84d0747c475f3b088978de483b58921",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "52515c5e_4ce0e32d",
         "filename": "build/art.go",
         "patchSetId": 3
@@ -62,6 +85,30 @@
       "side": 1,
       "message": "Assertions at instruction_set.cc (https://cs.android.com/android/platform/superproject/main/+/main:art/libartbase/arch/instruction_set.cc;drc\u003d4184f23701a64e9902ffced803968fcc5601764b;l\u003d125) appear to require that the value is page-aligned.\n\nAnalyzing the code base, I\u0027ve not been able to convince myself it is indeed required by anything other than these assertions.\n\nIf there is no requirement for these values to be page-aligned, possibly the original values can be used for page size agnostic builds.",
       "parentUuid": "aad63353_c8900143",
+      "range": {
+        "startLine": 101,
+        "startChar": 6,
+        "endLine": 101,
+        "endChar": 40
+      },
+      "revId": "3f7428a6f84d0747c475f3b088978de483b58921",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "49a22407_08bc2577",
+        "filename": "build/art.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-10-23T20:48:48Z",
+      "side": 1,
+      "message": "Amplifying earlier comments, it seems to me all changes here should be ARM64-only. AFAICT, x86 doesn\u0027t even support 16K pages.",
+      "parentUuid": "379b2d09_415822ed",
       "range": {
         "startLine": 101,
         "startChar": 6,
