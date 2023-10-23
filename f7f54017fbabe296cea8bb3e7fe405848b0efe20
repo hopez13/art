@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d52d6cfb_a339fd77",
+        "filename": "libartservice/service/javatests/com/android/server/art/ReasonMappingTest.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-10-23T14:32:51Z",
+      "side": 1,
+      "message": "FYI, it\u0027s not supported to have multiple `when()`s, and `doReturn()`/`doAnswer()` don\u0027t support static classes, so I have to use `lenient()` here.",
+      "range": {
+        "startLine": 87,
+        "startChar": 8,
+        "endLine": 87,
+        "endChar": 17
+      },
+      "revId": "f7f54017fbabe296cea8bb3e7fe405848b0efe20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
