@@ -117,6 +117,30 @@
       },
       "revId": "3f7428a6f84d0747c475f3b088978de483b58921",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ea87dc9_51665fcd",
+        "filename": "build/art.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1280281
+      },
+      "writtenOn": "2023-10-23T21:02:41Z",
+      "side": 1,
+      "message": "I agree - if changed, it should be just for ARM64. I will update this.\n\nHowever, it appears possible that all the changes in the stack overflow gap aren\u0027t needed at all and can be removed - if indeed there is no requirement for the gap size to be aligned to page size - I\u0027m looking into confirming this.",
+      "parentUuid": "49a22407_08bc2577",
+      "range": {
+        "startLine": 101,
+        "startChar": 6,
+        "endLine": 101,
+        "endChar": 40
+      },
+      "revId": "3f7428a6f84d0747c475f3b088978de483b58921",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
