@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a70cb1e_44788dff",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 903,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-10-23T08:59:53Z",
+      "side": 1,
+      "message": "We have the same problem for the other archs right?",
+      "range": {
+        "startLine": 903,
+        "startChar": 0,
+        "endLine": 903,
+        "endChar": 85
+      },
+      "revId": "d989dd88a6730ebfdf139ff0d0a5082d39e2a15d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
