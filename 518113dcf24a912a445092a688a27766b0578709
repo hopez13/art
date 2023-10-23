@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca3fe79f_ec2f01d4",
+        "filename": "libartservice/service/javatests/com/android/server/art/ReasonMappingTest.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2023-10-23T12:44:02Z",
+      "side": 1,
+      "message": "Tests are failing for a missing import on `ArgumentCaptor` - also it might be slightly better to use `ArgumentCaptor\u003cInteger\u003e` in this case.",
+      "range": {
+        "startLine": 84,
+        "startChar": 8,
+        "endLine": 84,
+        "endChar": 22
+      },
+      "revId": "518113dcf24a912a445092a688a27766b0578709",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
