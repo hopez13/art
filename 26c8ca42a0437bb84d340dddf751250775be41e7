@@ -46,6 +46,30 @@
       },
       "revId": "26c8ca42a0437bb84d340dddf751250775be41e7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f64def8_835df9d2",
+        "filename": "libartservice/service/javatests/com/android/server/art/ArtManagerLocalTest.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-10-23T14:10:56Z",
+      "side": 0,
+      "message": "Sorry, I dropped it accidentally. Added it back. I created this CL with Cider-G, but it\u0027s taking forever to build on Cider-G, so I still can\u0027t test it locally.",
+      "parentUuid": "5371e228_b3ffe866",
+      "range": {
+        "startLine": 178,
+        "startChar": 8,
+        "endLine": 181,
+        "endChar": 43
+      },
+      "revId": "26c8ca42a0437bb84d340dddf751250775be41e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
