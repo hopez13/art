@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7a4a6124_4832f6c9",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-23T08:00:35Z",
+      "side": 1,
+      "message": "This is an unnecessary load for static-invoke with no args. But the data is next to the opcode and \"B\u0027 and therefore most likely in the cache, so I don\u0027t mind. Feel free to acknowledge and move on.",
+      "range": {
+        "startLine": 111,
+        "startChar": 3,
+        "endLine": 111,
+        "endChar": 20
+      },
+      "revId": "d84662c761311adbafb98173aeb8126e9591e2f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "30f65eca_9f121e35",
         "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
         "patchSetId": 5
@@ -14,6 +37,47 @@
       "writtenOn": "2023-10-20T23:25:27Z",
       "side": 1,
       "message": "here and below - guidance please",
+      "revId": "d84662c761311adbafb98173aeb8126e9591e2f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f17e92a_5a23885f",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 703,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-23T08:00:35Z",
+      "side": 1,
+      "message": "I see `NewStringFromBytes_BII{I,String,Charset}` in `quick_entrypoints_list.h`. That\u0027s 3 entrypoints that actually need the \"G\".",
+      "parentUuid": "30f65eca_9f121e35",
+      "revId": "d84662c761311adbafb98173aeb8126e9591e2f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96a3ff93_c6ec487f",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 718,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-23T08:00:35Z",
+      "side": 1,
+      "message": "That\u0027s true but I\u0027d just leave a TODO here. (The full optimization would also use a specialized `load_vreg_in_gpr` that does not handle \"F\" and \"D\".)",
+      "range": {
+        "startLine": 718,
+        "startChar": 3,
+        "endLine": 718,
+        "endChar": 67
+      },
       "revId": "d84662c761311adbafb98173aeb8126e9591e2f4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
