@@ -46,6 +46,30 @@
       },
       "revId": "3f7428a6f84d0747c475f3b088978de483b58921",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "379b2d09_415822ed",
+        "filename": "build/art.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1280281
+      },
+      "writtenOn": "2023-10-23T19:13:05Z",
+      "side": 1,
+      "message": "Assertions at instruction_set.cc (https://cs.android.com/android/platform/superproject/main/+/main:art/libartbase/arch/instruction_set.cc;drc\u003d4184f23701a64e9902ffced803968fcc5601764b;l\u003d125) appear to require that the value is page-aligned.\n\nAnalyzing the code base, I\u0027ve not been able to convince myself it is indeed required by anything other than these assertions.\n\nIf there is no requirement for these values to be page-aligned, possibly the original values can be used for page size agnostic builds.",
+      "parentUuid": "aad63353_c8900143",
+      "range": {
+        "startLine": 101,
+        "startChar": 6,
+        "endLine": 101,
+        "endChar": 40
+      },
+      "revId": "3f7428a6f84d0747c475f3b088978de483b58921",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
