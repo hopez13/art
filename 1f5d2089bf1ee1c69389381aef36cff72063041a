@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa66ce78_8d92356a",
+        "filename": "runtime/arch/riscv64/instruction_set_features_riscv64.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-23T08:41:54Z",
+      "side": 1,
+      "message": "Style: avoid implicit conversion to bool - use explicit comparison with 0. (Same for other functions below.",
+      "range": {
+        "startLine": 70,
+        "startChar": 38,
+        "endLine": 70,
+        "endChar": 60
+      },
+      "revId": "1f5d2089bf1ee1c69389381aef36cff72063041a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
