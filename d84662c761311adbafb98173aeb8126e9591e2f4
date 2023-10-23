@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "776a3108_59415bd6",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-10-23T18:16:22Z",
+      "side": 1,
+      "message": "Oh you\u0027re right ... I left a note to myself. When refactoring, can fit the nterp-to-nterp fastpath into this handler too.",
+      "parentUuid": "7a4a6124_4832f6c9",
+      "range": {
+        "startLine": 111,
+        "startChar": 3,
+        "endLine": 111,
+        "endChar": 20
+      },
+      "revId": "d84662c761311adbafb98173aeb8126e9591e2f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "30f65eca_9f121e35",
@@ -59,6 +83,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e73d519b_9afff21d",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 703,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-10-23T18:16:22Z",
+      "side": 1,
+      "message": "Ah, it\u0027s not just newStringFromChars. Okay.",
+      "parentUuid": "9f17e92a_5a23885f",
+      "revId": "d84662c761311adbafb98173aeb8126e9591e2f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "96a3ff93_c6ec487f",
@@ -72,6 +114,30 @@
       "writtenOn": "2023-10-23T08:00:35Z",
       "side": 1,
       "message": "That\u0027s true but I\u0027d just leave a TODO here. (The full optimization would also use a specialized `load_vreg_in_gpr` that does not handle \"F\" and \"D\".)",
+      "range": {
+        "startLine": 718,
+        "startChar": 3,
+        "endLine": 718,
+        "endChar": 67
+      },
+      "revId": "d84662c761311adbafb98173aeb8126e9591e2f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8288a585_981022b7",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 718,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-10-23T18:16:22Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "96a3ff93_c6ec487f",
       "range": {
         "startLine": 718,
         "startChar": 3,
