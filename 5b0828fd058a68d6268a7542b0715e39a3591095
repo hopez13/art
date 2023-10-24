@@ -72,6 +72,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "adf5cfea_8700ebd7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1896186
+      },
+      "writtenOn": "2023-10-24T15:00:09Z",
+      "side": 1,
+      "message": "\u003e So a device with a new ART module on it may require the user to install an updated Perfetto package on host?\n\nIn general, that\u0027s the expectation. Most users use http://ui.perfetto.dev (which is automatically updated by us). The other use cases we support in our doc (https://perfetto.dev/docs/quickstart/trace-analysis) (trace_processor CLI and python trace processor) download an updated package on every run.\n\nAs I was saying earlier, this particular patch will not cause any change to the generated flamechart for trace_processor built after Feb 2021 (which is before S was released, right?).",
+      "parentUuid": "e4238b81_0b79011e",
+      "range": {
+        "startLine": 9,
+        "startChar": 20,
+        "endLine": 9,
+        "endChar": 30
+      },
+      "revId": "5b0828fd058a68d6268a7542b0715e39a3591095",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "ec9af140_94a9628b",
