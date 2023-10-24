@@ -367,7 +367,9 @@ class InductionVarRange {
                     HGraph* graph,
                     HBasicBlock* block,
                     bool is_min,
-                    /*out*/ HInstruction** result) const;
+                    /*out*/ HInstruction** result,
+                    // TODO(solanes): Remove default value when all cases have been assessed.
+                    bool allow_potential_overflow = true) const;
 
   void ReplaceInduction(HInductionVarAnalysis::InductionInfo* info,
                         HInstruction* fetch,
