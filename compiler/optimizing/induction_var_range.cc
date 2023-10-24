@@ -255,8 +255,8 @@ bool InductionVarRange::CanGenerateRange(const HBasicBlock* context,
                                   nullptr,  // nothing generated yet
                                   &stride_value,
                                   needs_finite_test,
-                                  needs_taken_test)
-      && (stride_value == -1 ||
+                                  needs_taken_test) &&
+         (stride_value == -1 ||
           stride_value == 0 ||
           stride_value == 1);  // avoid arithmetic wrap-around anomalies.
 }
@@ -280,7 +280,10 @@ void InductionVarRange::GenerateRange(const HBasicBlock* context,
                                 nullptr,
                                 &stride_value,
                                 &b1,
-                                &b2)) {
+                                &b2) ||
+      (stride_value != -1 &&
+       stride_value != 0 &&
+       stride_value != 1)) {
     LOG(FATAL) << "Failed precondition: CanGenerateRange()";
   }
 }
@@ -303,7 +306,10 @@ HInstruction* InductionVarRange::GenerateTakenTest(HInstruction* loop_control,
                                 &taken_test,
                                 &stride_value,
                                 &b1,
-                                &b2)) {
+                                &b2) ||
+      (stride_value != -1 &&
+       stride_value != 0 &&
+       stride_value != 1)) {
     LOG(FATAL) << "Failed precondition: CanGenerateRange()";
   }
   return taken_test;
@@ -336,7 +342,8 @@ HInstruction* InductionVarRange::GenerateLastValue(HInstruction* instruction,
   HInstruction* last_value = nullptr;
   bool is_last_value = true;
   int64_t stride_value = 0;
-  bool b1, b2;  // unused
+  bool needs_finite_test = false;
+  bool needs_taken_test = false;
   if (!GenerateRangeOrLastValue(context,
                                 instruction,
                                 is_last_value,
@@ -346,8 +353,10 @@ HInstruction* InductionVarRange::GenerateLastValue(HInstruction* instruction,
                                 &last_value,
                                 nullptr,
                                 &stride_value,
-                                &b1,
-                                &b2)) {
+                                &needs_finite_test,
+                                &needs_taken_test) ||
+      needs_finite_test ||
+      needs_taken_test) {
     LOG(FATAL) << "Failed precondition: CanGenerateLastValue()";
   }
   return last_value;
@@ -1066,11 +1075,11 @@ bool InductionVarRange::GenerateRangeOrLastValue(const HBasicBlock* context,
         if (*stride_value > 0) {
           lower = nullptr;
           return GenerateLastValueLinear(
-              context, loop, info, trip, graph, block, /*is_min=*/false, upper);
+              context, loop, info, trip, graph, block, /*is_min=*/false, upper, needs_taken_test);
         } else {
           upper = nullptr;
           return GenerateLastValueLinear(
-              context, loop, info, trip, graph, block, /*is_min=*/true, lower);
+              context, loop, info, trip, graph, block, /*is_min=*/true, lower, needs_taken_test);
         }
       case HInductionVarAnalysis::kPolynomial:
         return GenerateLastValuePolynomial(context, loop, info, trip, graph, block, lower);
@@ -1124,7 +1133,8 @@ bool InductionVarRange::GenerateLastValueLinear(const HBasicBlock* context,
                                                 HGraph* graph,
                                                 HBasicBlock* block,
                                                 bool is_min,
-                                                /*out*/ HInstruction** result) const {
+                                                /*out*/ HInstruction** result,
+                                                /*inout*/ bool* needs_taken_test) const {
   DataType::Type type = info->type;
   // Avoid any narrowing linear induction or any type mismatch between the linear induction and the
   // trip count expression.
@@ -1132,18 +1142,27 @@ bool InductionVarRange::GenerateLastValueLinear(const HBasicBlock* context,
     return false;
   }
 
-  // Stride value must be a known constant that fits into int32.
+  // Stride value must be a known constant that fits into int32. The stride will be the `i` in `a *
+  // i + b`.
   int64_t stride_value = 0;
   if (!IsConstant(context, loop, info->op_a, kExact, &stride_value) ||
       !CanLongValueFitIntoInt(stride_value)) {
     return false;
   }
 
-  // We require `a` to be a constant value that didn't overflow.
+  // We require the calculation of `a` to not overflow.
   const bool is_min_a = stride_value >= 0 ? is_min : !is_min;
-  Value val_a = GetVal(context, loop, trip, trip, is_min_a);
+  HInstruction* opa;
   HInstruction* opb;
-  if (!IsConstantValue(val_a) ||
+  if (!GenerateCode(context,
+                    loop,
+                    trip,
+                    trip,
+                    graph,
+                    block,
+                    is_min_a,
+                    &opa,
+                    /*allow_potential_overflow=*/false) ||
       !GenerateCode(context, loop, info->op_b, trip, graph, block, is_min, &opb)) {
     return false;
   }
@@ -1151,7 +1170,8 @@ bool InductionVarRange::GenerateLastValueLinear(const HBasicBlock* context,
   if (graph != nullptr) {
     ArenaAllocator* allocator = graph->GetAllocator();
     HInstruction* oper;
-    HInstruction* opa = graph->GetConstant(type, val_a.b_constant);
+    // Emit instructions for `a * i + b`. These are fine to overflow as they would have overflown
+    // also if we had kept the loop.
     if (stride_value == 1) {
       oper = new (allocator) HAdd(type, opa, opb);
     } else if (stride_value == -1) {
@@ -1162,6 +1182,15 @@ bool InductionVarRange::GenerateLastValueLinear(const HBasicBlock* context,
     }
     *result = Insert(block, oper);
   }
+
+  if (*needs_taken_test) {
+    if (TryGenerateTakenTest(context, loop, trip->op_b, graph, block, result, opb)) {
+      *needs_taken_test = false;  // taken care of
+    } else {
+      return false;
+    }
+  }
+
   return true;
 }
 
@@ -1298,8 +1327,8 @@ bool InductionVarRange::GenerateLastValuePeriodic(const HBasicBlock* context,
                                                   HInductionVarAnalysis::InductionInfo* trip,
                                                   HGraph* graph,
                                                   HBasicBlock* block,
-                                                  /*out*/HInstruction** result,
-                                                  /*out*/bool* needs_taken_test) const {
+                                                  /*out*/ HInstruction** result,
+                                                  /*inout*/ bool* needs_taken_test) const {
   DCHECK(info != nullptr);
   DCHECK_EQ(info->induction_class, HInductionVarAnalysis::kPeriodic);
   // Count period and detect all-invariants.
@@ -1363,7 +1392,8 @@ bool InductionVarRange::GenerateLastValuePeriodic(const HBasicBlock* context,
                    graph,
                    block,
                    /*is_min=*/ false,
-                   graph ? &t : nullptr)) {
+                   graph ? &t : nullptr,
+                   /*allow_potential_overflow=*/false)) {
     // During actual code generation (graph != nullptr), generate is_even ? x : y.
     if (graph != nullptr) {
       DataType::Type type = trip->type;
@@ -1374,21 +1404,9 @@ bool InductionVarRange::GenerateLastValuePeriodic(const HBasicBlock* context,
           Insert(block, new (allocator) HEqual(msk, graph->GetConstant(type, 0), kNoDexPc));
       *result = Insert(block, new (graph->GetAllocator()) HSelect(is_even, x, y, kNoDexPc));
     }
-    // Guard select with taken test if needed.
+
     if (*needs_taken_test) {
-      HInstruction* is_taken = nullptr;
-      if (GenerateCode(context,
-                       loop,
-                       trip->op_b,
-                       /*trip=*/ nullptr,
-                       graph,
-                       block,
-                       /*is_min=*/ false,
-                       graph ? &is_taken : nullptr)) {
-        if (graph != nullptr) {
-          ArenaAllocator* allocator = graph->GetAllocator();
-          *result = Insert(block, new (allocator) HSelect(is_taken, *result, x, kNoDexPc));
-        }
+      if (TryGenerateTakenTest(context, loop, trip->op_b, graph, block, result, x)) {
         *needs_taken_test = false;  // taken care of
       } else {
         return false;
@@ -1406,7 +1424,8 @@ bool InductionVarRange::GenerateCode(const HBasicBlock* context,
                                      HGraph* graph,  // when set, code is generated
                                      HBasicBlock* block,
                                      bool is_min,
-                                     /*out*/HInstruction** result) const {
+                                     /*out*/ HInstruction** result,
+                                     bool allow_potential_overflow) const {
   if (info != nullptr) {
     // If during codegen, the result is not needed (nullptr), simply return success.
     if (graph != nullptr && result == nullptr) {
@@ -1431,41 +1450,190 @@ bool InductionVarRange::GenerateCode(const HBasicBlock* context,
           case HInductionVarAnalysis::kLE:
           case HInductionVarAnalysis::kGT:
           case HInductionVarAnalysis::kGE:
-            if (GenerateCode(context, loop, info->op_a, trip, graph, block, is_min, &opa) &&
-                GenerateCode(context, loop, info->op_b, trip, graph, block, is_min, &opb)) {
-              if (graph != nullptr) {
-                HInstruction* operation = nullptr;
-                switch (info->operation) {
-                  case HInductionVarAnalysis::kAdd:
-                    operation = new (graph->GetAllocator()) HAdd(type, opa, opb); break;
-                  case HInductionVarAnalysis::kSub:
-                    operation = new (graph->GetAllocator()) HSub(type, opa, opb); break;
-                  case HInductionVarAnalysis::kMul:
-                    operation = new (graph->GetAllocator()) HMul(type, opa, opb, kNoDexPc); break;
-                  case HInductionVarAnalysis::kDiv:
-                    operation = new (graph->GetAllocator()) HDiv(type, opa, opb, kNoDexPc); break;
-                  case HInductionVarAnalysis::kRem:
-                    operation = new (graph->GetAllocator()) HRem(type, opa, opb, kNoDexPc); break;
-                  case HInductionVarAnalysis::kXor:
-                    operation = new (graph->GetAllocator()) HXor(type, opa, opb); break;
-                  case HInductionVarAnalysis::kLT:
-                    operation = new (graph->GetAllocator()) HLessThan(opa, opb); break;
-                  case HInductionVarAnalysis::kLE:
-                    operation = new (graph->GetAllocator()) HLessThanOrEqual(opa, opb); break;
-                  case HInductionVarAnalysis::kGT:
-                    operation = new (graph->GetAllocator()) HGreaterThan(opa, opb); break;
-                  case HInductionVarAnalysis::kGE:
-                    operation = new (graph->GetAllocator()) HGreaterThanOrEqual(opa, opb); break;
-                  default:
-                    LOG(FATAL) << "unknown operation";
+            if (GenerateCode(context,
+                             loop,
+                             info->op_a,
+                             trip,
+                             graph,
+                             block,
+                             is_min,
+                             &opa,
+                             allow_potential_overflow) &&
+                GenerateCode(context,
+                             loop,
+                             info->op_b,
+                             trip,
+                             graph,
+                             block,
+                             is_min,
+                             &opb,
+                             allow_potential_overflow)) {
+              HInstruction* operation = nullptr;
+              switch (info->operation) {
+                case HInductionVarAnalysis::kAdd: {
+                  if (allow_potential_overflow) {
+                    if (graph != nullptr) {
+                      operation = new (graph->GetAllocator()) HAdd(type, opa, opb);
+                    }
+                    break;
+                  }
+
+                  // Calculate `a + b` making sure we can't overflow.
+                  int64_t val_a;
+                  const bool a_is_const = IsConstant(context, loop, info->op_a, kExact, &val_a);
+                  int64_t val_b;
+                  const bool b_is_const = IsConstant(context, loop, info->op_b, kExact, &val_b);
+                  if (a_is_const && b_is_const) {
+                    // Calculate `a + b` and use that. Note that even when the values are known,
+                    // their addition can still overflow.
+                    Value sub_val = AddValue(Value(val_a), Value(val_b));
+                    if (sub_val.is_known) {
+                      DCHECK(IsConstantValue(sub_val));
+                      // Known value not overflowing.
+                      if (graph != nullptr) {
+                        operation = graph->GetConstant(type, sub_val.b_constant);
+                      }
+                      break;
+                    }
+                  }
+
+                  // TODO(solanes): Should we add code blocks like these to `AddValue`? We could
+                  // calculate the addition for more cases safely when e.g. `a` is `0` for `a + b`.
+                  // Same for other operations e.g. SubValue.
+
+                  // When `a` is `0`, we can just use `b`.
+                  if (a_is_const && val_a == 0) {
+                    if (graph != nullptr) {
+                      operation = opb;
+                    }
+                    break;
+                  }
+
+                  // When `b` is `0`, we can just use `a`.
+                  if (b_is_const && val_b == 0) {
+                    if (graph != nullptr) {
+                      operation = opa;
+                    }
+                    break;
+                  }
+
+                  // Couldn't safely calculate the addition.
+                  return false;
                 }
-                *result = Insert(block, operation);
+                case HInductionVarAnalysis::kSub: {
+                  if (allow_potential_overflow) {
+                    if (graph != nullptr) {
+                      operation = new (graph->GetAllocator()) HSub(type, opa, opb);
+                    }
+                    break;
+                  }
+
+                  // Calculate `a - b` making sure we can't overflow.
+                  int64_t val_b;
+                  if (!IsConstant(context, loop, info->op_b, kExact, &val_b)) {
+                    // If b is unknown, a - b can potentially overflow for any value of a since b
+                    // can be Integer.MIN_VALUE.
+                    return false;
+                  }
+
+                  int64_t val_a;
+                  if (IsConstant(context, loop, info->op_a, kExact, &val_a)) {
+                    // Calculate `a - b` and use that. Note that even when the values are known,
+                    // their subtraction can still overflow.
+                    Value sub_val = SubValue(Value(val_a), Value(val_b));
+                    if (sub_val.is_known) {
+                      DCHECK(IsConstantValue(sub_val));
+                      // Known value not overflowing.
+                      if (graph != nullptr) {
+                        operation = graph->GetConstant(type, sub_val.b_constant);
+                      }
+                      break;
+                    }
+                  }
+
+                  // When `b` is `0`, we can just use `a`.
+                  if (val_b == 0) {
+                    if (graph != nullptr) {
+                      operation = opa;
+                    }
+                    break;
+                  }
+
+                  // Couldn't safely calculate the subtraction.
+                  return false;
+                }
+                case HInductionVarAnalysis::kMul: {
+                  if (graph != nullptr) {
+                    operation = new (graph->GetAllocator()) HMul(type, opa, opb, kNoDexPc);
+                  }
+                  break;
+                }
+                case HInductionVarAnalysis::kDiv: {
+                  if (graph != nullptr) {
+                    operation = new (graph->GetAllocator()) HDiv(type, opa, opb, kNoDexPc);
+                  }
+                  break;
+                }
+                case HInductionVarAnalysis::kRem: {
+                  if (graph != nullptr) {
+                    operation = new (graph->GetAllocator()) HRem(type, opa, opb, kNoDexPc);
+                  }
+                  break;
+                }
+                case HInductionVarAnalysis::kXor: {
+                  if (graph != nullptr) {
+                    operation = new (graph->GetAllocator()) HXor(type, opa, opb);
+                  }
+                  break;
+                }
+                case HInductionVarAnalysis::kLT: {
+                  if (graph != nullptr) {
+                    operation = new (graph->GetAllocator()) HLessThan(opa, opb);
+                  }
+                  break;
+                }
+                case HInductionVarAnalysis::kLE: {
+                  if (graph != nullptr) {
+                    operation = new (graph->GetAllocator()) HLessThanOrEqual(opa, opb);
+                  }
+                  break;
+                }
+                case HInductionVarAnalysis::kGT: {
+                  if (graph != nullptr) {
+                    operation = new (graph->GetAllocator()) HGreaterThan(opa, opb);
+                  }
+                  break;
+                }
+                case HInductionVarAnalysis::kGE: {
+                  if (graph != nullptr) {
+                    operation = new (graph->GetAllocator()) HGreaterThanOrEqual(opa, opb);
+                  }
+                  break;
+                }
+                default:
+                  LOG(FATAL) << "unknown operation";
+              }
+              if (graph != nullptr) {
+                if (operation->GetId() != -1) {
+                  // Already inserted in the graph.
+                  *result = operation;
+                } else {
+                  *result = Insert(block, operation);
+                }
               }
               return true;
             }
             break;
           case HInductionVarAnalysis::kNeg:
-            if (GenerateCode(context, loop, info->op_b, trip, graph, block, !is_min, &opb)) {
+            if (GenerateCode(context,
+                             loop,
+                             info->op_b,
+                             trip,
+                             graph,
+                             block,
+                             !is_min,
+                             &opb,
+                             allow_potential_overflow)) {
               if (graph != nullptr) {
                 *result = Insert(block, new (graph->GetAllocator()) HNeg(type, opb));
               }
@@ -1481,8 +1649,15 @@ bool InductionVarRange::GenerateCode(const HBasicBlock* context,
           case HInductionVarAnalysis::kTripCountInLoopUnsafe:
             if (UseFullTripCount(context, loop, is_min)) {
               // Generate the full trip count (do not subtract 1 as we do in loop body).
-              return GenerateCode(
-                  context, loop, info->op_a, trip, graph, block, /*is_min=*/ false, result);
+              return GenerateCode(context,
+                                  loop,
+                                  info->op_a,
+                                  trip,
+                                  graph,
+                                  block,
+                                  /*is_min=*/false,
+                                  result,
+                                  allow_potential_overflow);
             }
             FALLTHROUGH_INTENDED;
           case HInductionVarAnalysis::kTripCountInBody:
@@ -1492,12 +1667,36 @@ bool InductionVarRange::GenerateCode(const HBasicBlock* context,
                 *result = graph->GetConstant(type, 0);
               }
               return true;
-            } else if (IsContextInBody(context, loop)) {
-              if (GenerateCode(context, loop, info->op_a, trip, graph, block, is_min, &opb)) {
+            } else if (IsContextInBody(context, loop) ||
+                       (context == loop->GetHeader() && !allow_potential_overflow)) {
+              if (GenerateCode(context,
+                               loop,
+                               info->op_a,
+                               trip,
+                               graph,
+                               block,
+                               is_min,
+                               &opb,
+                               allow_potential_overflow)) {
                 if (graph != nullptr) {
-                  ArenaAllocator* allocator = graph->GetAllocator();
-                  *result =
-                      Insert(block, new (allocator) HSub(type, opb, graph->GetConstant(type, 1)));
+                  if (IsContextInBody(context, loop)) {
+                    ArenaAllocator* allocator = graph->GetAllocator();
+                    *result =
+                        Insert(block, new (allocator) HSub(type, opb, graph->GetConstant(type, 1)));
+                  } else {
+                    // We want to generate the full trip count since we want the last value. This
+                    // will be combined with a is_taken test so we don't want to substract one.
+                    DCHECK(context == loop->GetHeader());
+                    // TODO(solanes): Remove the !allow_potential_overflow restriction and allow
+                    // other parts e.g. BCE to take advantage of this.
+                    DCHECK(!allow_potential_overflow);
+                    if (opb->GetId() != -1) {
+                      // Already inserted in the graph.
+                      *result = opb;
+                    } else {
+                      *result = Insert(block, opb);
+                    }
+                  }
                 }
                 return true;
               }
@@ -1519,8 +1718,24 @@ bool InductionVarRange::GenerateCode(const HBasicBlock* context,
           if (IsConstant(context, loop, info->op_a, kExact, &stride_value) &&
               CanLongValueFitIntoInt(stride_value)) {
             const bool is_min_a = stride_value >= 0 ? is_min : !is_min;
-            if (GenerateCode(context, loop, trip,       trip, graph, block, is_min_a, &opa) &&
-                GenerateCode(context, loop, info->op_b, trip, graph, block, is_min,   &opb)) {
+            if (GenerateCode(context,
+                             loop,
+                             trip,
+                             trip,
+                             graph,
+                             block,
+                             is_min_a,
+                             &opa,
+                             allow_potential_overflow) &&
+                GenerateCode(context,
+                             loop,
+                             info->op_b,
+                             trip,
+                             graph,
+                             block,
+                             is_min,
+                             &opb,
+                             allow_potential_overflow)) {
               if (graph != nullptr) {
                 ArenaAllocator* allocator = graph->GetAllocator();
                 HInstruction* oper;
@@ -1560,6 +1775,33 @@ bool InductionVarRange::GenerateCode(const HBasicBlock* context,
     }  // switch induction class
   }
   return false;
+}
+
+bool InductionVarRange::TryGenerateTakenTest(const HBasicBlock* context,
+                                             const HLoopInformation* loop,
+                                             HInductionVarAnalysis::InductionInfo* info,
+                                             HGraph* graph,
+                                             HBasicBlock* block,
+                                             /*inout*/ HInstruction** result,
+                                             /*in*/ HInstruction* not_taken_result) const {
+  HInstruction* is_taken = nullptr;
+  if (GenerateCode(context,
+                   loop,
+                   info,
+                   /*trip=*/nullptr,
+                   graph,
+                   block,
+                   /*is_min=*/false,
+                   graph != nullptr ? &is_taken : nullptr)) {
+    if (graph != nullptr) {
+      ArenaAllocator* allocator = graph->GetAllocator();
+      *result =
+          Insert(block, new (allocator) HSelect(is_taken, *result, not_taken_result, kNoDexPc));
+    }
+    return true;
+  } else {
+    return false;
+  }
 }
 
 void InductionVarRange::ReplaceInduction(HInductionVarAnalysis::InductionInfo* info,
