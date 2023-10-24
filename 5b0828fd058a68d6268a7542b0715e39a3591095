@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4238b81_0b79011e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-10-24T14:25:53Z",
+      "side": 1,
+      "message": "Just to be clear, the trace processor and those SQL tables are all off device?\n\n\u003e The idea is that tracing exposes internal system details which are allowed to change in a backwards incompatible way.\n\nSo a device with a new ART module on it may require the user to install an updated Perfetto package on host?",
+      "parentUuid": "590f0bf8_a15cc8e4",
+      "range": {
+        "startLine": 9,
+        "startChar": 20,
+        "endLine": 9,
+        "endChar": 30
+      },
+      "revId": "5b0828fd058a68d6268a7542b0715e39a3591095",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "ec9af140_94a9628b",
