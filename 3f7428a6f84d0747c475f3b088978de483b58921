@@ -141,6 +141,30 @@
       },
       "revId": "3f7428a6f84d0747c475f3b088978de483b58921",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8752a84f_dde096ed",
+        "filename": "build/art.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1280281
+      },
+      "writtenOn": "2023-10-24T10:28:55Z",
+      "side": 1,
+      "message": "From the https://cs.android.com/android/platform/superproject/main/+/main:art/runtime/thread.h;l\u003d206;drc\u003d92b8f273fa2232015494e1fb15317ea1db38c587 the stack_begin would be page size aligned as the end of protected region (since the region is protected via page permissions).\n\nThe protection happens at https://cs.android.com/android/platform/superproject/main/+/main:art/runtime/thread.cc;l\u003d4621?q\u003dthread.cc and the kStackOverflowProtectedSize appears unrelated to the kArm64StackOverflowReservedBytes.\n\nstack_end according to https://cs.android.com/android/platform/superproject/main/+/main:art/runtime/thread.h;l\u003d202;drc\u003d92b8f273fa2232015494e1fb15317ea1db38c587 appears to be (stack_begin + kArm64StackOverflowReservedBytes)\n\nIn case of implicit stack overflow checks (e.g. via ldr at https://cs.android.com/android/platform/superproject/main/+/main:art/compiler/optimizing/code_generator_arm64.cc;l\u003d1373;drc\u003d92b8f273fa2232015494e1fb15317ea1db38c587;bpv\u003d1;bpt\u003d1) the gap size doesn\u0027t have to be page size aligned as far as I see: it is used as an offset below from the current stack pointer - to check if the load address will fall into the protection region.\n\nI\u0027m slightly unsure about the explicit stack overflow checks - however it appears that in this mode the stack overflow gap is meant to be used in a way similar to the implicit stack overflow checks case; in which case page size alignment for the gap size isn\u0027t required as well. In any case, explicit stack overflow checks aren\u0027t supported for arm64.\n\nTests including 018-stack-overflow on a 16K system, with the stack overflow gap change reverted, appear to pass without issues.\n\nI\u0027d remove the stack overflow gap changes - the original values will be used. I\u0027d also remove the corresponding assertions in instruction_set.cc.",
+      "parentUuid": "1ea87dc9_51665fcd",
+      "range": {
+        "startLine": 101,
+        "startChar": 6,
+        "endLine": 101,
+        "endChar": 40
+      },
+      "revId": "3f7428a6f84d0747c475f3b088978de483b58921",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
