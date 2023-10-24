@@ -367,7 +367,32 @@ class InductionVarRange {
                     HGraph* graph,
                     HBasicBlock* block,
                     bool is_min,
-                    /*out*/ HInstruction** result) const;
+                    /*out*/ HInstruction** result,
+                    // TODO(solanes): Remove default value when all cases have been assessed.
+                    bool allow_potential_overflow = true) const;
+
+  bool TryGenerateAddWithoutOverflow(const HBasicBlock* context,
+                                     const HLoopInformation* loop,
+                                     HInductionVarAnalysis::InductionInfo* info,
+                                     HGraph* graph,
+                                     HBasicBlock* block,
+                                     /*in*/ HInstruction* opa,
+                                     /*in*/ HInstruction* opb,
+                                     /*out*/ HInstruction** result) const;
+
+  bool TryGenerateSubWithoutOverflow(const HBasicBlock* context,
+                                     const HLoopInformation* loop,
+                                     HInductionVarAnalysis::InductionInfo* info,
+                                     HGraph* graph,
+                                     HBasicBlock* block,
+                                     /*in*/ HInstruction* opa,
+                                     /*out*/ HInstruction** result) const;
+
+  // Inserts `instruction` if not already in the graph. Result will point to instruction.
+  static void MaybeInsertInstruction(HGraph* graph,
+                                     HBasicBlock* block,
+                                     /*in*/ HInstruction* instruction,
+                                     /*out*/ HInstruction** result);
 
   void ReplaceInduction(HInductionVarAnalysis::InductionInfo* info,
                         HInstruction* fetch,
