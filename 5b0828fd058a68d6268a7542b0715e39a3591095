@@ -152,6 +152,24 @@
       "message": "Thanks for the review Martin! I guess I just need OWNER approval, do you think there\u0027s someone else in OWNERS that can do that?",
       "revId": "5b0828fd058a68d6268a7542b0715e39a3591095",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c03cba83_ede4386d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-10-24T15:53:12Z",
+      "side": 1,
+      "message": "It looks like my CR+1 counts as Code-Owners vote, because it\u0027s green. What you need is a CR+2, and I hope dsrbecky@ can do that review.",
+      "parentUuid": "1811389a_207d9098",
+      "revId": "5b0828fd058a68d6268a7542b0715e39a3591095",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
