@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "590f0bf8_a15cc8e4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1896186
+      },
+      "writtenOn": "2023-10-24T13:30:36Z",
+      "side": 1,
+      "message": "Good question\n\nThe code on device will not do anything with these, S, T and U don\u0027t matter much here. These protos are supposed to be parsed by perfetto trace processor offline (as part of the trace_processor_shell CLI or as a WASM module inside ui.perfetto.dev).\n\nThe trace processor code will record these new references in the SQL tables. Users, issuing queries to objects and classes will find these references (this is what we want, as explained in the commit message).\n\nThe trace processor code also summarizes the graph into a flamechart. That code has always ignored weak references since https://r.android.com/1595339 (Feb 2021).\n\nIn general the idea is that the trace processor code should always be kept up to date. For example, in the past (https://r.android.com/1650690), we changed the format in a way that would have prevented an old trace_processor to fully understand the trace. The idea is that tracing exposes internal system details which are allowed to change in a backwards incompatible way.",
+      "parentUuid": "32f8e8f6_afd03f7d",
+      "range": {
+        "startLine": 9,
+        "startChar": 20,
+        "endLine": 9,
+        "endChar": 30
+      },
+      "revId": "5b0828fd058a68d6268a7542b0715e39a3591095",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "ec9af140_94a9628b",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
