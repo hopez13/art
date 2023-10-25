@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "31473600_0b01652d",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 2025,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-10-25T09:03:07Z",
+      "side": 1,
+      "message": "Are we skipping data by going in the loop two at a time?",
+      "range": {
+        "startLine": 2025,
+        "startChar": 18,
+        "endLine": 2025,
+        "endChar": 19
+      },
+      "revId": "ba400c45e4adfc3771a9c0f19f877cf220ef7b52",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
