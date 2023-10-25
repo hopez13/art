@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "9ce0942f_44d1ab21",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-10-25T16:36:53Z",
+      "side": 1,
+      "message": "Nope, the automerger problem is with this CL, not the other one. Weird - just a few days ago I got a PV+2 on it. Conflict resolution in http://ag/25166821 needs to go in first.",
+      "parentUuid": "d32e8043_0e2b473d",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 33
+      },
+      "revId": "27c09bed3bbda943f47e869b00b8b627c4c8402b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "a4568a59_7f732ecf",
         "filename": "libartpalette/apex/palette_test.cc",
         "patchSetId": 6
