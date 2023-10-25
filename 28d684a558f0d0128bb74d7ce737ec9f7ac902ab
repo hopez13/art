@@ -67,6 +67,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e3041bf2_89055ee7",
+        "filename": "libartbase/base/mem_map.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 658,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-25T07:36:21Z",
+      "side": 1,
+      "message": "That sounds like a reason to take `MemMap::Shutdown()` out of the `Runtime::~Runtime()` (and `MemMap::Init()` out of the `Runtime::Init()`).\n\nAdd a TODO?",
+      "parentUuid": "3072c997_7aced5f0",
+      "range": {
+        "startLine": 658,
+        "startChar": 2,
+        "endLine": 658,
+        "endChar": 60
+      },
+      "revId": "28d684a558f0d0128bb74d7ce737ec9f7ac902ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bfc2fa10_7b95e20e",
         "filename": "libdexfile/dex/dex_file_loader.cc",
         "patchSetId": 7
@@ -102,6 +126,30 @@
       "side": 1,
       "message": "Technically the `size` argument is not needed anymore since implied by the container.\n\nI need to preserve it for app compat.  I restructured it to that effect.",
       "parentUuid": "bfc2fa10_7b95e20e",
+      "range": {
+        "startLine": 439,
+        "startChar": 2,
+        "endLine": 439,
+        "endChar": 11
+      },
+      "revId": "28d684a558f0d0128bb74d7ce737ec9f7ac902ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8f3f12eb_5337690b",
+        "filename": "libdexfile/dex/dex_file_loader.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 439,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-25T07:36:21Z",
+      "side": 1,
+      "message": "Oh, the size is just to check that we have a whole header, it\u0027s not used to define the extent of the dex file. Then my original question is moot.",
+      "parentUuid": "c6e663a5_f90b81da",
       "range": {
         "startLine": 439,
         "startChar": 2,
