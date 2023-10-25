@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d32e8043_0e2b473d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-10-25T14:51:00Z",
+      "side": 1,
+      "message": "Done in https://r.android.com/2801873, but I\u0027m doing that separately because it has automerger issues.",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 33
+      },
+      "revId": "27c09bed3bbda943f47e869b00b8b627c4c8402b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a4568a59_7f732ecf",
+        "filename": "libartpalette/apex/palette_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-10-25T14:51:00Z",
+      "side": 1,
+      "message": "Had to add this when I stopped using `art_standalone_gtest_defaults`. I couldn\u0027t figure out exactly how this is solved in those dependendencies, but somehow it is.\n\nThis depends on JniInvocationInit and JniInvocationDestroy, which isn\u0027t perfect but I think it\u0027s good enough.",
+      "range": {
+        "startLine": 85,
+        "startChar": 14,
+        "endLine": 85,
+        "endChar": 42
+      },
+      "revId": "27c09bed3bbda943f47e869b00b8b627c4c8402b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
