@@ -22,6 +22,30 @@
       },
       "revId": "ba400c45e4adfc3771a9c0f19f877cf220ef7b52",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "583a5c0c_961c2538",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 2025,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-25T11:20:51Z",
+      "side": 1,
+      "message": "We\u0027re comparing 16-bit chars here, so we need to adjust the data address by 2 bytes. See also LHU above.",
+      "parentUuid": "31473600_0b01652d",
+      "range": {
+        "startLine": 2025,
+        "startChar": 18,
+        "endLine": 2025,
+        "endChar": 19
+      },
+      "revId": "ba400c45e4adfc3771a9c0f19f877cf220ef7b52",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
