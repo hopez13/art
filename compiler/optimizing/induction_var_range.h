@@ -325,7 +325,8 @@ class InductionVarRange {
                                HGraph* graph,
                                HBasicBlock* block,
                                bool is_min,
-                               /*out*/ HInstruction** result) const;
+                               /*out*/ HInstruction** result,
+                               /*inout*/bool* needs_taken_test) const;
 
   bool GenerateLastValuePolynomial(const HBasicBlock* context,
                                    const HLoopInformation* loop,
@@ -358,7 +359,7 @@ class InductionVarRange {
                                  HGraph* graph,
                                  HBasicBlock* block,
                                  /*out*/HInstruction** result,
-                                 /*out*/ bool* needs_taken_test) const;
+                                 /*inout*/ bool* needs_taken_test) const;
 
   bool GenerateCode(const HBasicBlock* context,
                     const HLoopInformation* loop,
@@ -370,6 +371,16 @@ class InductionVarRange {
                     /*out*/ HInstruction** result,
                     // TODO(solanes): Remove default value when all cases have been assessed.
                     bool allow_potential_overflow = true) const;
+
+  // Try to guard the taken test with an HSelect instruction. Returns true if it can generate the
+  // code, or false otherwise. The caller is responsible of updating `needs_taken_test`.
+  bool TryGenerateTakenTest(const HBasicBlock* context,
+                            const HLoopInformation* loop,
+                            HInductionVarAnalysis::InductionInfo* info,
+                            HGraph* graph,
+                            HBasicBlock* block,
+                            /*inout*/ HInstruction** result,
+                            /*in*/ HInstruction* not_taken_result) const;
 
   void ReplaceInduction(HInductionVarAnalysis::InductionInfo* info,
                         HInstruction* fetch,
