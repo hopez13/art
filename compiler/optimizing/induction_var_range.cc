@@ -1359,31 +1359,37 @@ bool InductionVarRange::GenerateLastValuePeriodic(const HBasicBlock* context,
   HInstruction* x = nullptr;
   HInstruction* y = nullptr;
   HInstruction* t = nullptr;
+  int64_t stride_value = 0;
   if (period == 2 &&
       GenerateCode(context,
                    loop,
                    info->op_a,
-                   /*trip=*/ nullptr,
+                   /*trip=*/nullptr,
                    graph,
                    block,
-                   /*is_min=*/ false,
+                   /*is_min=*/false,
                    graph ? &x : nullptr) &&
       GenerateCode(context,
                    loop,
                    info->op_b,
-                   /*trip=*/ nullptr,
+                   /*trip=*/nullptr,
                    graph,
                    block,
-                   /*is_min=*/ false,
+                   /*is_min=*/false,
                    graph ? &y : nullptr) &&
       GenerateCode(context,
                    loop,
                    trip->op_a,
-                   /*trip=*/ nullptr,
+                   /*trip=*/nullptr,
                    graph,
                    block,
-                   /*is_min=*/ false,
-                   graph ? &t : nullptr)) {
+                   /*is_min=*/false,
+                   graph ? &t : nullptr,
+                   // Overflows when the stride is equal to `1` are fine since the periodicity is
+                   // `2` and the lowest bit is the same. Similar with `-1`.
+                   /*allow_potential_overflow=*/
+                   IsConstant(context, loop, trip->op_a->op_b, kExact, &stride_value) &&
+                       (stride_value == 1 || stride_value == -1))) {
     // During actual code generation (graph != nullptr), generate is_even ? x : y.
     if (graph != nullptr) {
       DataType::Type type = trip->type;
