@@ -1383,7 +1383,8 @@ bool InductionVarRange::GenerateLastValuePeriodic(const HBasicBlock* context,
                    graph,
                    block,
                    /*is_min=*/ false,
-                   graph ? &t : nullptr)) {
+                   graph ? &t : nullptr,
+                   /*allow_potential_overflow=*/false)) {
     // During actual code generation (graph != nullptr), generate is_even ? x : y.
     if (graph != nullptr) {
       DataType::Type type = trip->type;
