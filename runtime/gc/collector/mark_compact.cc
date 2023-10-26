@@ -86,7 +86,6 @@
 #ifdef ART_TARGET_ANDROID
 namespace {
 
-using ::android::base::GetBoolProperty;
 using ::android::base::ParseBool;
 using ::android::base::ParseBoolResult;
 
