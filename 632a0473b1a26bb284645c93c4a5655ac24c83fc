@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "63b21fc0_729827a7",
+        "filename": "libdexfile/dex/dex_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-10-26T14:37:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "826cadaf_e0430b33",
+      "range": {
+        "startLine": 103,
+        "startChar": 41,
+        "endLine": 103,
+        "endChar": 55
+      },
+      "revId": "632a0473b1a26bb284645c93c4a5655ac24c83fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0f702c8e_8a6b5165",
@@ -37,6 +61,24 @@
       "writtenOn": "2023-10-26T11:59:04Z",
       "side": 1,
       "message": "Shall we check here that `string_ids_` and the like are not `nullptr`? Previously they were guaranteed to be non-null.",
+      "revId": "632a0473b1a26bb284645c93c4a5655ac24c83fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f323db2_28a6ce5d",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 600,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-10-26T14:37:42Z",
+      "side": 1,
+      "message": "The verifier generally access the fields on its own rather than relying on the DexFile API.\n\nAlso, if the verifier passes the header check, then the helpers will be valid.\n\nAlso, the fields were previously invalid memory, and they are now invalid memory.  So kind of the same?",
+      "parentUuid": "0f702c8e_8a6b5165",
       "revId": "632a0473b1a26bb284645c93c4a5655ac24c83fc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
