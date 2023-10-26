@@ -16,6 +16,46 @@
       "message": "Friendly ping",
       "revId": "273c54e7db06162331abfe4aec7b3f7b6d4c3a34",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "734ddc3d_981a9cff",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 797,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-26T10:21:06Z",
+      "side": 1,
+      "message": "I think this optimization is a lot more complicated than it needs to be. After `ConnectSuccessiveBlocks()`, we should just look for a simple diamond pattern (though the bottom block can have more than two predecessors).",
+      "range": {
+        "startLine": 797,
+        "startChar": 4,
+        "endLine": 797,
+        "endChar": 38
+      },
+      "revId": "273c54e7db06162331abfe4aec7b3f7b6d4c3a34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3af45a19_d485faf2",
+        "filename": "test/2266-checker-remove-empty-ifs/info.txt",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-26T10:21:06Z",
+      "side": 1,
+      "message": "Add new-line.",
+      "revId": "273c54e7db06162331abfe4aec7b3f7b6d4c3a34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
