@@ -149,9 +149,8 @@
     },
     {
         "tests": "154-gc-loop",
-        "variant": "gcstress | jit & debug",
-        "description": ["154-gc-loop depends GC not happening too often"],
-        "bug": "http://b/35917229"
+        "variant": "continuous-gc | gcstress | jit & debug",
+        "description": ["154-gc-loop depends GC not happening too often"]
     },
     {
         "tests": "115-native-bridge",
@@ -728,7 +727,7 @@
     },
     {
         "tests": ["2040-huge-native-alloc"],
-        "variant": "debuggable | gcstress | interpreter | interp-ac | trace",
+        "variant": "debuggable | gcstress | interpreter | interp-ac | trace | continuous-gc",
         "bug": "b/190148586",
         "description": [ "Checks exact GC timing; fails for many variants that alter that dramatically." ]
     },

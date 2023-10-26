@@ -69,8 +69,8 @@ TEST_F(TaskProcessorTest, Interrupt) {
   static constexpr size_t kRecursion = 10;
   Atomic<bool> done_running(false);
   Atomic<size_t> counter(0);
-  task_processor.AddTask(self, new RecursiveTask(&task_processor, &counter, kRecursion));
   task_processor.Start(self);
+  task_processor.AddTask(self, new RecursiveTask(&task_processor, &counter, kRecursion));
   // Add a task which will wait until interrupted to the thread pool.
   thread_pool.AddTask(self, new WorkUntilDoneTask(&task_processor, &done_running));
   thread_pool.StartWorkers(self);
@@ -91,10 +91,11 @@ TEST_F(TaskProcessorTest, Interrupt) {
   done_running.store(false, std::memory_order_seq_cst);
   // Self interrupt before any of the other tasks run, but since we added them we should keep on
   // working until all the tasks are completed.
-  task_processor.Stop(self);
+  task_processor.Start(self);
   task_processor.AddTask(self, new RecursiveTask(&task_processor, &counter, kRecursion));
   thread_pool.AddTask(self, new WorkUntilDoneTask(&task_processor, &done_running));
   thread_pool.StartWorkers(self);
+  task_processor.Stop(self);
   thread_pool.Wait(self, true, false);
   ASSERT_TRUE(done_running.load(std::memory_order_seq_cst));
   ASSERT_EQ(counter.load(std::memory_order_seq_cst), kRecursion);
@@ -120,7 +121,7 @@ TEST_F(TaskProcessorTest, Ordering) {
   const uint64_t current_time = NanoTime();
   Thread* const self = Thread::Current();
   TaskProcessor task_processor;
-  task_processor.Stop(self);
+  task_processor.Start(self);
   size_t counter = 0;
   std::vector<std::pair<uint64_t, size_t>> orderings;
   for (size_t i = 0; i < kNumTasks; ++i) {
