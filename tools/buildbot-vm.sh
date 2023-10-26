@@ -85,9 +85,12 @@ chpasswd:
       password: ubuntu
       type: text
 users:
+  - default
   - name: $ART_TEST_SSH_USER
     ssh-authorized-keys:
       - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCOYmwd9qoYd7rfYI6Q8zzqoZ3BtLC/SQo0WCvBFoJT6JzwU8F7nkN57KBQPLtvX2OBeDnFbtEY8uLtuNEp1Z19VcDbRd3LhyAMYFz6Ox/vWtPfl0hv0kUMQMAne1Bg0tawlNxawP2HXrLOh/FaXdSBSRUHNqMTQEnkIYw4faArDS/zKjVDs0/+e9mhtjL0akLcK04crlk2KD8Q2csya5givdAD7fVNOx7DtckRR47FLM1bERe0t0FlUESx/x7oLjNEmNUrPXV6GSkCoskmKSZC1vwgAf0VrxFADv1EywQXmlNaa4+rzqS4jMYuwi5QCtQXFFZl5qQ1Sh1rnliTRJvJzjXCeq3QPsPzUJInfVGzrPClfHG7whlJE/Uwv8UOF7WHzUt5OBOsW6nZrplldvfYif/qz6dR+RX2G0zi8tC/2Mzahr6toAqtsqbdp3coYvpi/OjHIV3RhyJxG1FtyGYQRnmGPs8R9ic3pupjLFWM9qIilUCjFrUoiw7QAgfUrUc= ubuntu_user@example.com
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    groups: users, admin
 EOF
     # meta-data is necessary, even if empty.
     cat >meta-data <<EOF
