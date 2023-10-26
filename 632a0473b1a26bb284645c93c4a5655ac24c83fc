@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "826cadaf_e0430b33",
+        "filename": "libdexfile/dex/dex_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-10-26T11:59:04Z",
+      "side": 1,
+      "message": "Remove this part. Only fuzzer test which invalid dex files will end up here, so it is included in the `Invalid dex file` comment. A good-built fuzzer test DEX file shouldn\u0027t hit this case.",
+      "range": {
+        "startLine": 103,
+        "startChar": 41,
+        "endLine": 103,
+        "endChar": 55
+      },
+      "revId": "632a0473b1a26bb284645c93c4a5655ac24c83fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f702c8e_8a6b5165",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 600,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-10-26T11:59:04Z",
+      "side": 1,
+      "message": "Shall we check here that `string_ids_` and the like are not `nullptr`? Previously they were guaranteed to be non-null.",
+      "revId": "632a0473b1a26bb284645c93c4a5655ac24c83fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
