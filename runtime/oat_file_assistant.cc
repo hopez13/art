@@ -1131,7 +1131,7 @@ const OatFile* OatFileAssistant::OatFileInfo::GetFile() {
                                   executable,
                                   /*low_4gb=*/false,
                                   dex_locations,
-                                  /*dex_fds=*/{},
+                                  /*dex_files=*/{},
                                   /*reservation=*/nullptr,
                                   &error_msg));
       }
