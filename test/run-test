@@ -204,6 +204,7 @@ if True:
   basic_verify = "false"
   gc_verify = "false"
   gc_stress = "false"
+  continuous_gc = "false"
   jvmti_trace_stress = "false"
   jvmti_field_stress = "false"
   jvmti_step_stress = "false"
@@ -309,6 +310,9 @@ if True:
     elif arg == "--gcstress":
       basic_verify = "true"
       gc_stress = "true"
+      shift()
+    elif arg == "--continuous-gc":
+      continuous_gc = "true"
       shift()
     elif arg == "--jvmti-step-stress":
       jvmti_step_stress = "true"
@@ -615,6 +619,10 @@ if True:
         "--gc-stress --runtime-option -Xgc:gcstress --runtime-option -Xms2m "
         "--runtime-option -Xmx16m"
     ]
+  if continuous_gc == "true":
+    run_args += [
+        "--runtime-option -Xgc:continuous_gc"
+    ]
   if jvmti_redefine_stress == "true":
     run_args += ["--no-app-image --jvmti-redefine-stress"]
   if jvmti_step_stress == "true":
@@ -831,6 +839,7 @@ if True:
         "    --stream              Run method tracing in streaming mode (requires --trace)\n"
         "    --gcstress            Run with gc stress testing\n"
         "    --gcverify            Run with gc verification\n"
+        "    --continuous-gc        Run with continous background GCs\n"
         "    --jvmti-trace-stress  Run with jvmti method tracing stress testing\n"
         "    --jvmti-step-stress   Run with jvmti single step stress testing\n"
         "    --jvmti-redefine-stress\n"

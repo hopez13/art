@@ -41,7 +41,9 @@ TaskProcessor::~TaskProcessor() {
 void TaskProcessor::AddTask(Thread* self, HeapTask* task) {
   ScopedThreadStateChange tsc(self, ThreadState::kWaitingForTaskProcessor);
   MutexLock mu(self, lock_);
-  tasks_.insert(task);
+  if (is_running_) {
+    tasks_.insert(task);
+  }
   cond_.Signal(self);
 }
 

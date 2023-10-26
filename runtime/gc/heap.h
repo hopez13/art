@@ -228,6 +228,7 @@ class Heap {
        bool verify_pre_sweeping_rosalloc,
        bool verify_post_gc_rosalloc,
        bool gc_stress_mode,
+       bool continuous_gc_mode,
        bool measure_gc_performance,
        bool use_homogeneous_space_compaction,
        bool use_generational_cc,
@@ -987,6 +988,8 @@ class Heap {
   GcPauseListener* GetGcPauseListener() {
     return gc_pause_listener_.load(std::memory_order_acquire);
   }
+
+  bool InContinuousGCMode() const { return continuous_gc_mode_; }
   // Remove a gc pause listener. Note: the listener must not be deleted, as for performance
   // reasons, we assume it stays valid when we read it (so that we don't require a lock).
   void RemoveGcPauseListener();
@@ -1515,6 +1518,7 @@ class Heap {
   bool verify_pre_sweeping_rosalloc_;
   bool verify_post_gc_rosalloc_;
   const bool gc_stress_mode_;
+  bool continuous_gc_mode_;
 
   // RAII that temporarily disables the rosalloc verification during
   // the zygote fork.

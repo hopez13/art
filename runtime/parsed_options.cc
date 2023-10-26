@@ -795,8 +795,8 @@ bool ParsedOptions::DoParse(const RuntimeOptions& options,
     args.Set(M::HeapGrowthLimit, args.GetOrDefault(M::MemoryMaximumSize));
   }
 
-  // Increase log thresholds for GC stress mode to avoid excessive log spam.
-  if (args.GetOrDefault(M::GcOption).gcstress_) {
+  // Increase log thresholds for GC in stress/continuous mode to avoid excessive log spam.
+  if (args.GetOrDefault(M::GcOption).gcstress_ || args.GetOrDefault(M::GcOption).continuous_gc_) {
     args.SetIfMissing(M::AlwaysLogExplicitGcs, false);
     args.SetIfMissing(M::LongPauseLogThreshold, gc::Heap::kDefaultLongPauseLogThresholdGcStress);
     args.SetIfMissing(M::LongGCLogThreshold, gc::Heap::kDefaultLongGCLogThresholdGcStress);
