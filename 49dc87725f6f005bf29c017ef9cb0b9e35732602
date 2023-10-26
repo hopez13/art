@@ -39,6 +39,30 @@
       },
       "revId": "49dc87725f6f005bf29c017ef9cb0b9e35732602",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ceeec12_3e54d07e",
+        "filename": "test/ti-agent/redefinition_helper.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-10-26T09:54:59Z",
+      "side": 1,
+      "message": "Thanks! I deallocate it now. Haven\u0027t used UniqueCPtr because it\u0027s allocated by jvmti_env and needs to be deallocated there since it keeps track of the number of bytes allocated.",
+      "parentUuid": "1f6ceb5a_b2323189",
+      "range": {
+        "startLine": 54,
+        "startChar": 31,
+        "endLine": 54,
+        "endChar": 40
+      },
+      "revId": "49dc87725f6f005bf29c017ef9cb0b9e35732602",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
