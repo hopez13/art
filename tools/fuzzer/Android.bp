@@ -44,10 +44,7 @@ cc_defaults {
         },
     },
 
-    corpus: [
-        ":art_runtest_corpus",
-        "corpus/*",
-    ],
+    corpus: ["corpus/*"],
     dictionary: "dex.dict",
     fuzz_config: {
         triage_assignee: "art-perf-team@google.com",
@@ -67,14 +64,6 @@ cc_fuzz {
     defaults: [
         "libart_verify_dex_fuzzer-defaults",
         "libart_static_defaults",
-    ],
-}
-
-cc_fuzz {
-    name: "libart_verify_dex_fuzzerd",
-    defaults: [
-        "libart_verify_dex_fuzzer-defaults",
-        "libartd_static_defaults",
     ],
 }
 
