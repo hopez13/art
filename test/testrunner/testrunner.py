@@ -233,7 +233,7 @@ def gather_test_info():
   VARIANT_TYPE_DICT['trace'] = {'trace', 'ntrace', 'stream'}
   VARIANT_TYPE_DICT['image'] = {'picimage', 'no-image'}
   VARIANT_TYPE_DICT['debuggable'] = {'ndebuggable', 'debuggable'}
-  VARIANT_TYPE_DICT['gc'] = {'gcstress', 'gcverify', 'cms'}
+  VARIANT_TYPE_DICT['gc'] = {'gcstress', 'gcverify', 'cms', 'continuous-gc'}
   VARIANT_TYPE_DICT['prebuild'] = {'no-prebuild', 'prebuild'}
   VARIANT_TYPE_DICT['cdex_level'] = {'cdex-none', 'cdex-fast'}
   VARIANT_TYPE_DICT['relocate'] = {'relocate', 'no-relocate'}
@@ -557,6 +557,8 @@ def run_tests(tests):
         args_test += ['--gcverify']
       elif gc == 'gcstress':
         args_test += ['--gcstress']
+      elif gc == 'continuous-gc':
+        args_test += ['--continuous-gc']
 
       if jni == 'forcecopy':
         args_test += ['--runtime-option', '-Xjniopts:forcecopy']

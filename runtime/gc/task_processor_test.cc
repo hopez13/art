@@ -62,21 +62,34 @@ class WorkUntilDoneTask : public SelfDeletingTask {
   Atomic<bool>* done_running_;
 };
 
+class IncrementCounterTask : public HeapTask {
+ public:
+  explicit IncrementCounterTask(Atomic<size_t>* counter)
+      : HeapTask(NanoTime()), counter_(counter) {}
+
+  void Run(Thread* self [[maybe_unused]]) override {
+    counter_->fetch_add(1U, std::memory_order_seq_cst);
+  }
+
+ private:
+  Atomic<size_t>* const counter_;
+};
+
 TEST_F(TaskProcessorTest, Interrupt) {
   ThreadPool thread_pool("task processor test", 1U);
   Thread* const self = Thread::Current();
   TaskProcessor task_processor;
-  static constexpr size_t kRecursion = 10;
+  static constexpr size_t kCount = 10;
   Atomic<bool> done_running(false);
   Atomic<size_t> counter(0);
-  task_processor.AddTask(self, new RecursiveTask(&task_processor, &counter, kRecursion));
   task_processor.Start(self);
+  task_processor.AddTask(self, new RecursiveTask(&task_processor, &counter, kCount));
   // Add a task which will wait until interrupted to the thread pool.
   thread_pool.AddTask(self, new WorkUntilDoneTask(&task_processor, &done_running));
   thread_pool.StartWorkers(self);
   ASSERT_FALSE(done_running);
   // Wait until all the tasks are done, but since we didn't interrupt, done_running should be 0.
-  while (counter.load(std::memory_order_seq_cst) != kRecursion) {
+  while (counter.load(std::memory_order_seq_cst) != kCount) {
     usleep(10);
   }
   ASSERT_FALSE(done_running);
@@ -89,15 +102,18 @@ TEST_F(TaskProcessorTest, Interrupt) {
   // Test that we finish remaining tasks before returning from RunTasksUntilInterrupted.
   counter.store(0, std::memory_order_seq_cst);
   done_running.store(false, std::memory_order_seq_cst);
+  task_processor.Start(self);
+  for (size_t i = 0; i < kCount; i++) {
+    task_processor.AddTask(self, new IncrementCounterTask(&counter));
+  }
   // Self interrupt before any of the other tasks run, but since we added them we should keep on
   // working until all the tasks are completed.
   task_processor.Stop(self);
-  task_processor.AddTask(self, new RecursiveTask(&task_processor, &counter, kRecursion));
   thread_pool.AddTask(self, new WorkUntilDoneTask(&task_processor, &done_running));
   thread_pool.StartWorkers(self);
   thread_pool.Wait(self, true, false);
   ASSERT_TRUE(done_running.load(std::memory_order_seq_cst));
-  ASSERT_EQ(counter.load(std::memory_order_seq_cst), kRecursion);
+  ASSERT_EQ(counter.load(std::memory_order_seq_cst), kCount);
 }
 
 class TestOrderTask : public HeapTask {
@@ -120,7 +136,7 @@ TEST_F(TaskProcessorTest, Ordering) {
   const uint64_t current_time = NanoTime();
   Thread* const self = Thread::Current();
   TaskProcessor task_processor;
-  task_processor.Stop(self);
+  task_processor.Start(self);
   size_t counter = 0;
   std::vector<std::pair<uint64_t, size_t>> orderings;
   for (size_t i = 0; i < kNumTasks; ++i) {
@@ -139,6 +155,7 @@ TEST_F(TaskProcessorTest, Ordering) {
   thread_pool.AddTask(self, new WorkUntilDoneTask(&task_processor, &done_running));
   ASSERT_FALSE(done_running.load(std::memory_order_seq_cst));
   thread_pool.StartWorkers(self);
+  task_processor.Stop(self);
   thread_pool.Wait(self, true, false);
   ASSERT_TRUE(done_running.load(std::memory_order_seq_cst));
   ASSERT_EQ(counter, kNumTasks);
