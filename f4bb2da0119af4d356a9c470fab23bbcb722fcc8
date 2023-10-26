@@ -16,6 +16,29 @@
       "message": "PTAL. Thanks!",
       "revId": "f4bb2da0119af4d356a9c470fab23bbcb722fcc8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7316420_a641c2f9",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1910,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-26T13:53:20Z",
+      "side": 1,
+      "message": "This can be null for methods with pending JIT compilation.",
+      "range": {
+        "startLine": 1910,
+        "startChar": 16,
+        "endLine": 1910,
+        "endChar": 24
+      },
+      "revId": "f4bb2da0119af4d356a9c470fab23bbcb722fcc8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
