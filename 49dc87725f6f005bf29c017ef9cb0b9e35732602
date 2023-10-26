@@ -16,6 +16,29 @@
       "message": "PTAL. Thanks!",
       "revId": "49dc87725f6f005bf29c017ef9cb0b9e35732602",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1f6ceb5a_b2323189",
+        "filename": "test/ti-agent/redefinition_helper.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-26T09:04:36Z",
+      "side": 1,
+      "message": "Do we need to `free()` or otherwise deallocate the error message?\n\n(Note: I see that we have a lot of `UniqueCPtr\u003cchar\u003e` in ART which should really be `UniqueCPtr\u003cchar[]\u003e` or `UniqueCPtr\u003cconst char[]\u003e`.)",
+      "range": {
+        "startLine": 54,
+        "startChar": 31,
+        "endLine": 54,
+        "endChar": 40
+      },
+      "revId": "49dc87725f6f005bf29c017ef9cb0b9e35732602",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
