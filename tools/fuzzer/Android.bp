@@ -44,10 +44,7 @@ cc_defaults {
         },
     },
 
-    corpus: [
-        ":art_runtest_corpus",
-        "corpus/*",
-    ],
+    corpus: ["corpus/*"],
     dictionary: "dex.dict",
     fuzz_config: {
         triage_assignee: "art-perf-team@google.com",
@@ -61,6 +58,8 @@ cc_defaults {
         ],
     },
 }
+<<<<<<< PATCH SET (d5be8f Revert "Dex fuzzer: Bootstrap the fuzzing with run-test dex )
+=======
 
 cc_fuzz {
     name: "libart_verify_dex_fuzzer",
@@ -1176,3 +1175,4 @@ genrule {
         "host_999-redefine-hiddenapi_classes.dex",
     ],
 }
+>>>>>>> BASE      (cc92e5 Dex verifier: Add debug version (in addition to release vers)
