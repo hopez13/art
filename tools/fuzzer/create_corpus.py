@@ -20,12 +20,15 @@ import zipfile
 
 """ Extract dex files into flat directory with unique names """
 
-assert len(sys.argv) == 3, "Usage: " + __file__ + " input.zip output_dir"
-src = pathlib.Path(sys.argv[1])
-dst = pathlib.Path(sys.argv[2])
+assert len(sys.argv) >= 3, "Usage: " + __file__ + " output_dir input_zip+"
+dst = pathlib.Path(sys.argv[1])
+assert dst.exists()
+srcs = [pathlib.Path(f) for f in sys.argv[2:]]
+assert all(src.exists() for src in srcs)
 
-with zipfile.ZipFile(src, 'r') as zip:
-  for name in zip.namelist():
-    if name.endswith(".dex"):
-      with zip.open(name) as f:
-        (dst / name.replace("/", "_")).write_bytes(f.read())
+for src in srcs:
+  with zipfile.ZipFile(src, 'r') as zip:
+    for name in zip.namelist():
+      if name.endswith(".dex"):
+        with zip.open(name) as f:
+          (dst / name.replace("/", "_")).write_bytes(f.read())
