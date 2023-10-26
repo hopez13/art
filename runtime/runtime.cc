@@ -1159,7 +1159,10 @@ bool Runtime::Start() {
         /*ref_profile_filename=*/ "",
         kVMRuntimePrimaryApk);
   }
-
+  // Add a concurrent-gc task after runtime has started if we are in continuous-gc mode.
+  if (heap_->InContinuousGCMode()) {
+    heap_->RequestConcurrentGC(self, gc::kGcCauseBackground, false, heap_->GetCurrentGcNum());
+  }
   return true;
 }
 
@@ -1749,6 +1752,7 @@ bool Runtime::Init(RuntimeArgumentMap&& runtime_options_in) {
                        xgc_option.verify_pre_sweeping_rosalloc_,
                        xgc_option.verify_post_gc_rosalloc_,
                        xgc_option.gcstress_,
+                       xgc_option.continuous_gc_,
                        xgc_option.measure_,
                        runtime_options.GetOrDefault(Opt::EnableHSpaceCompactForOOM),
                        use_generational_cc,
