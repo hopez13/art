@@ -1057,6 +1057,8 @@ void MarkCompact::PrepareForCompaction() {
   post_compact_end_ = AlignUp(space_begin + total, kPageSize);
   CHECK_EQ(post_compact_end_, space_begin + moving_first_objs_count_ * kPageSize);
   black_objs_slide_diff_ = black_allocations_begin_ - post_compact_end_;
+  // We shouldn't be consuming more space after compaction than pre-compaction.
+  CHECK_GE(black_objs_slide_diff_, 0);
   // How do we handle compaction of heap portion used for allocations after the
   // marking-pause?
   // All allocations after the marking-pause are considered black (reachable)
@@ -1406,11 +1408,11 @@ void MarkCompact::Sweep(bool swap_bitmaps) {
     DCHECK(mark_stack_->IsEmpty());
   }
   for (const auto& space : GetHeap()->GetContinuousSpaces()) {
-    if (space->IsContinuousMemMapAllocSpace() && space != bump_pointer_space_) {
+    if (space->IsContinuousMemMapAllocSpace() && space != bump_pointer_space_ &&
+        !immune_spaces_.ContainsSpace(space)) {
       space::ContinuousMemMapAllocSpace* alloc_space = space->AsContinuousMemMapAllocSpace();
       TimingLogger::ScopedTiming split(
-          alloc_space->IsZygoteSpace() ? "SweepZygoteSpace" : "SweepMallocSpace",
-          GetTimings());
+          alloc_space->IsZygoteSpace() ? "SweepZygoteSpace" : "SweepMallocSpace", GetTimings());
       RecordFree(alloc_space->Sweep(swap_bitmaps));
     }
   }
