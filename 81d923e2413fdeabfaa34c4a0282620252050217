@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4081983a_84552055",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-10-27T09:31:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "382ea578_875f9aaf",
+      "revId": "81d923e2413fdeabfaa34c4a0282620252050217",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5b74a355_a922f022",
@@ -67,6 +85,24 @@
       "side": 1,
       "message": "As long as it is tested in presubmit it is fine by me. Either adding it to an existing gtest, or creating a new one with the corpus.\n\nThe other tests were added to `libdexfile/dex/dex_file_loader_test.cc` since we were using DexFileLoader in the fuzzer. Since we are now using StandardDexFile directly, up to you where you think it would be best to add these regression tests.",
       "parentUuid": "6a2780d3_8e7f02e2",
+      "revId": "81d923e2413fdeabfaa34c4a0282620252050217",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f89dd7d9_1b61175b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-10-27T09:31:03Z",
+      "side": 1,
+      "message": "Followup: b/308096666",
+      "parentUuid": "09ab9e3a_b170a068",
       "revId": "81d923e2413fdeabfaa34c4a0282620252050217",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
