@@ -2481,6 +2481,11 @@ bool ProfileCompilationInfo::IsProfileFile(int fd) {
 
 bool ProfileCompilationInfo::UpdateProfileKeys(
     const std::vector<std::unique_ptr<const DexFile>>& dex_files, /*out*/ bool* matched) {
+  if (IsEmpty()) {
+    *matched = false;
+    return true;
+  }
+
   *matched = true;
 
   // A map from the old base key to the new base key.
