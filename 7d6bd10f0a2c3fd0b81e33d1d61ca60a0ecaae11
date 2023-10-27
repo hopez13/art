@@ -22,6 +22,30 @@
       },
       "revId": "7d6bd10f0a2c3fd0b81e33d1d61ca60a0ecaae11",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b7b85d9_dd1d3db4",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1414,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-10-27T18:21:42Z",
+      "side": 1,
+      "message": "I think either should be fine. This has the advantage that we do the notification after decrementing unregistering_count, and it waits until the end of Unregister(). In reality none of this should matter, since we wait for the OS-level threads to disappear. But I was trying to be as safe as possible in ensuring that the previously joined daemons have finished.",
+      "parentUuid": "e1546ae9_b58bd7c5",
+      "range": {
+        "startLine": 1414,
+        "startChar": 0,
+        "endLine": 1414,
+        "endChar": 37
+      },
+      "revId": "7d6bd10f0a2c3fd0b81e33d1d61ca60a0ecaae11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
