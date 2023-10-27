@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ba05ce57_0056407d",
+        "filename": "libartbase/base/bit_utils.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1280281
+      },
+      "writtenOn": "2023-10-27T14:37:51Z",
+      "side": 1,
+      "message": "I\u0027m keeping this as is for now as the version with `constexpr` was approved with Code-Review+2 earlier. The approval flag was cleared due to an update following changes in another patch.\n\nThe `constexpr` was initially added as an additional step to ensure the conditional statement is optimized out, however given that it only depends on template parameter I\u0027d certainly expect compiler to optimize this anyway.",
+      "parentUuid": "6fb2e485_8b0f7a01",
+      "range": {
+        "startLine": 180,
+        "startChar": 5,
+        "endLine": 180,
+        "endChar": 14
+      },
+      "revId": "378e5bf8401834547e09482bc4b4e4db2106688f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3aa9c54f_85ae9e90",
         "filename": "libartbase/base/globals.h",
         "patchSetId": 3
