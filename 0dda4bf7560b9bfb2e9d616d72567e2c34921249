@@ -22,6 +22,29 @@
       },
       "revId": "0dda4bf7560b9bfb2e9d616d72567e2c34921249",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6967526_6c9e0a59",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1280281
+      },
+      "writtenOn": "2023-10-27T15:06:46Z",
+      "side": 1,
+      "message": "Since the file written here isn\u0027t an ELF file, and this still needs to be rounded up to ensure compatibility with the loader which can be using another page size, maybe the `kElfSegmentAlignment` identifier name can be clarified.\n\nWould `kFileMaxPageSize` or `kCrossCompilePageSize` be more suitable?",
+      "range": {
+        "startLine": 130,
+        "startChar": 57,
+        "endLine": 130,
+        "endChar": 77
+      },
+      "revId": "0dda4bf7560b9bfb2e9d616d72567e2c34921249",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
