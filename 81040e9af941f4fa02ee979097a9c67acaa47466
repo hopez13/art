@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f46ded36_f72862ef",
+        "filename": "runtime/gc/space/bump_pointer_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-10-27T22:39:44Z",
+      "side": 0,
+      "message": "Why didn\u0027t this break before?",
+      "range": {
+        "startLine": 271,
+        "startChar": 9,
+        "endLine": 271,
+        "endChar": 12
+      },
+      "revId": "81040e9af941f4fa02ee979097a9c67acaa47466",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
