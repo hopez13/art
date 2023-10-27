@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cad14b6c_8c2d9a41",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1879,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-10-27T10:00:36Z",
+      "side": 1,
+      "message": "Not for this CL but it could be useful to add\n```\nDCHECK(gUseReadBarrier);\nDCHECK(kUseBakerReadBarrier);\n```\nto avoid potential developer errors.",
+      "revId": "5a0a41dee2b3585f7bbb5c4bd3d158657513a4af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "794ced32_5fac1028",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 6498,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-10-27T10:00:36Z",
+      "side": 1,
+      "message": "type? It\u0027s in a similar manner but not exactly the same (type vs class)",
+      "range": {
+        "startLine": 6498,
+        "startChar": 14,
+        "endLine": 6498,
+        "endChar": 19
+      },
+      "revId": "5a0a41dee2b3585f7bbb5c4bd3d158657513a4af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08149af0_f598c11b",
+        "filename": "compiler/optimizing/intrinsics_riscv64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 587,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-10-27T10:00:36Z",
+      "side": 1,
+      "message": "We could add a DCHECK for this if we wanted. On V8 there is a Label::Distance (https://source.chromium.org/chromium/chromium/src/+/main:v8/src/codegen/label.h;l\u003d21-24;drc\u003d88d87ae50728261cfdbf77ae493a8d506eaf42e6) that does something like this.",
+      "range": {
+        "startLine": 586,
+        "startChar": 36,
+        "endLine": 587,
+        "endChar": 11
+      },
+      "revId": "5a0a41dee2b3585f7bbb5c4bd3d158657513a4af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "837bbbfe_8ea07550",
+        "filename": "compiler/optimizing/intrinsics_riscv64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1028,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-10-27T10:00:36Z",
+      "side": 1,
+      "message": "Are we okay with this because temp is unused in `GenerateReferenceLoadWithBakerReadBarrier`?",
+      "range": {
+        "startLine": 1027,
+        "startChar": 55,
+        "endLine": 1028,
+        "endChar": 73
+      },
+      "revId": "5a0a41dee2b3585f7bbb5c4bd3d158657513a4af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
