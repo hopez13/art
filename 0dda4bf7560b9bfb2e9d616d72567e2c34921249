@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba7e9b0b_8031ecc4",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1280281
+      },
+      "writtenOn": "2023-10-27T15:01:06Z",
+      "side": 1,
+      "message": "This comment might need to be updated too.\nI\u0027d also like to extend it with a hint on why the object_section_size_ should be rounded up to page size in this expression, however I\u0027ve not found an obvious answer to that yet.\n\nThe Init function (which seems to be the loader for images written by this function) at https://cs.android.com/android/platform/superproject/main/+/main:art/runtime/gc/space/image_space.cc;l\u003d794;drc\u003dcb81a814f6dc46987678e658a42cb4e1547186d6 rounds the value to kCardSize which is 1024 at the moment.\n\nI\u0027d appreciate any hints on this.",
+      "range": {
+        "startLine": 115,
+        "startChar": 4,
+        "endLine": 116,
+        "endChar": 55
+      },
+      "revId": "0dda4bf7560b9bfb2e9d616d72567e2c34921249",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
