@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b3335817_45b9d3cf",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1879,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-27T14:15:03Z",
+      "side": 1,
+      "message": "Added to https://android-review.googlesource.com/2808053 .",
+      "parentUuid": "cad14b6c_8c2d9a41",
+      "revId": "5a0a41dee2b3585f7bbb5c4bd3d158657513a4af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "794ced32_5fac1028",
@@ -31,6 +49,30 @@
       "writtenOn": "2023-10-27T10:00:36Z",
       "side": 1,
       "message": "type? It\u0027s in a similar manner but not exactly the same (type vs class)",
+      "range": {
+        "startLine": 6498,
+        "startChar": 14,
+        "endLine": 6498,
+        "endChar": 19
+      },
+      "revId": "5a0a41dee2b3585f7bbb5c4bd3d158657513a4af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "081b93bb_75f93ad6",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 6498,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-27T14:15:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "794ced32_5fac1028",
       "range": {
         "startLine": 6498,
         "startChar": 14,
@@ -64,6 +106,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "35af0af6_b12db1c8",
+        "filename": "compiler/optimizing/intrinsics_riscv64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 587,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-27T14:15:03Z",
+      "side": 1,
+      "message": "Added a FIXME. I\u0027ll address this soon.",
+      "parentUuid": "08149af0_f598c11b",
+      "range": {
+        "startLine": 586,
+        "startChar": 36,
+        "endLine": 587,
+        "endChar": 11
+      },
+      "revId": "5a0a41dee2b3585f7bbb5c4bd3d158657513a4af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "837bbbfe_8ea07550",
@@ -77,6 +143,30 @@
       "writtenOn": "2023-10-27T10:00:36Z",
       "side": 1,
       "message": "Are we okay with this because temp is unused in `GenerateReferenceLoadWithBakerReadBarrier`?",
+      "range": {
+        "startLine": 1027,
+        "startChar": 55,
+        "endLine": 1028,
+        "endChar": 73
+      },
+      "revId": "5a0a41dee2b3585f7bbb5c4bd3d158657513a4af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "840af6f1_f47327bb",
+        "filename": "compiler/optimizing/intrinsics_riscv64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1028,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-10-27T14:15:03Z",
+      "side": 1,
+      "message": "Added a TODO.",
+      "parentUuid": "837bbbfe_8ea07550",
       "range": {
         "startLine": 1027,
         "startChar": 55,
