@@ -89,6 +89,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce6c6242_7a134665",
+        "filename": "runtime/jit/jit_code_cache.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1280281
+      },
+      "writtenOn": "2023-10-27T14:23:14Z",
+      "side": 1,
+      "message": "Updated and moved to the separate patch: https://android-review.googlesource.com/c/platform/art/+/2807814/1/runtime/jit/jit_code_cache.h#188",
+      "parentUuid": "477cfc1b_8c19f04f",
+      "range": {
+        "startLine": 188,
+        "startChar": 78,
+        "endLine": 188,
+        "endChar": 86
+      },
+      "revId": "802c04dc70171fb14a1ba4926af24be8d8ccc55d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5cc85873_21311251",
@@ -102,6 +126,30 @@
       "writtenOn": "2023-10-12T22:51:46Z",
       "side": 1,
       "message": "If we decide to make initial-capacity in terms of page-size, then we should re-word this as well.",
+      "range": {
+        "startLine": 190,
+        "startChar": 42,
+        "endLine": 190,
+        "endChar": 47
+      },
+      "revId": "802c04dc70171fb14a1ba4926af24be8d8ccc55d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0cf80944_58147352",
+        "filename": "runtime/jit/jit_code_cache.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1280281
+      },
+      "writtenOn": "2023-10-27T14:23:14Z",
+      "side": 1,
+      "message": "Updated and moved to the separate patch: https://android-review.googlesource.com/c/platform/art/+/2807814/1/runtime/jit/jit_code_cache.h#191",
+      "parentUuid": "5cc85873_21311251",
       "range": {
         "startLine": 190,
         "startChar": 42,
