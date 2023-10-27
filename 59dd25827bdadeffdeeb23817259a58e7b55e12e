@@ -22,6 +22,30 @@
       },
       "revId": "59dd25827bdadeffdeeb23817259a58e7b55e12e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e81156f1_fb650c76",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 940,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-10-27T14:28:00Z",
+      "side": 0,
+      "message": "Alright, let\u0027s decouple this question from this change. I\u0027m debugging otapreopt, and I need this change to be submitted to simplify the logic so that it\u0027s easier to debug.",
+      "parentUuid": "631c96b8_317f21e1",
+      "range": {
+        "startLine": 940,
+        "startChar": 2,
+        "endLine": 940,
+        "endChar": 46
+      },
+      "revId": "59dd25827bdadeffdeeb23817259a58e7b55e12e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
