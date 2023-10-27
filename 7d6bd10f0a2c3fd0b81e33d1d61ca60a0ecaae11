@@ -1,5 +1,29 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1546ae9_b58bd7c5",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1414,
+      "author": {
+        "id": 1838859
+      },
+      "writtenOn": "2023-10-27T13:46:30Z",
+      "side": 1,
+      "message": "\u0027while (Size() !\u003d 1)\u0027 look better.",
+      "range": {
+        "startLine": 1414,
+        "startChar": 0,
+        "endLine": 1414,
+        "endChar": 37
+      },
+      "revId": "7d6bd10f0a2c3fd0b81e33d1d61ca60a0ecaae11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
