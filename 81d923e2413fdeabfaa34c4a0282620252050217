@@ -33,6 +33,24 @@
       "message": "CL LGTM. Please add the DEX file as a regression test to dex_file_verifier_test.cc",
       "revId": "81d923e2413fdeabfaa34c4a0282620252050217",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a2780d3_8e7f02e2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-10-27T08:38:35Z",
+      "side": 1,
+      "message": "What about just adding the file to the checked in corpus?\n\n(you could also write a gtest to run all of those (outside fuzzer))",
+      "parentUuid": "5b74a355_a922f022",
+      "revId": "81d923e2413fdeabfaa34c4a0282620252050217",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
