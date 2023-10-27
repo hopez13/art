@@ -63,6 +63,30 @@
       },
       "revId": "3551f766a6fa2663ea7016594f914c256b84c9a1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "36975de0_0af890b0",
+        "filename": "runtime/gc/accounting/space_bitmap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1280281
+      },
+      "writtenOn": "2023-10-27T14:26:39Z",
+      "side": 1,
+      "message": "Updated: the rounding is now done conditionally depends on the optional `is_image_part` parameter which is specified in image_writer.cc and runtime_image.cc",
+      "parentUuid": "70b9743f_b29b2554",
+      "range": {
+        "startLine": 93,
+        "startChar": 40,
+        "endLine": 93,
+        "endChar": 82
+      },
+      "revId": "3551f766a6fa2663ea7016594f914c256b84c9a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
