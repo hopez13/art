@@ -91,6 +91,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "21dc5dad_21b5599d",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 797,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-10-30T16:38:32Z",
+      "side": 1,
+      "message": "\u003e If `4` is a single-goto block with multiple predecessors and `5` has multiple predecessors and no Phis, edges from `7` and `8` should be redirected to `5`. This can be done independently of the current optimization. (Even if `4` and `5` had Phis, I\u0027d argue that duplicating inputs for Phis in `5` is a cost worth paying for removing the block `4`.)\n\nThis is trickier than it looks due to the handling of edge cases like loops/backedges, avoiding critical edges, etc.\n\n\u003e If `5` is also a single-goto block, this loop shall proceed to the next block and the `merge_true !\u003d merge_false` check below shall trigger even though we could actually do the optimization. Maybe that check should be replaced with `visited_blocks.find(merge_false) \u003d\u003d visited_blocks.end()` and the `AddSuccessor()` below should use `false_successor` instead of `true_successor`.\n\nDone.",
+      "parentUuid": "734f650c_7cdabb24",
+      "range": {
+        "startLine": 797,
+        "startChar": 4,
+        "endLine": 797,
+        "endChar": 38
+      },
+      "revId": "273c54e7db06162331abfe4aec7b3f7b6d4c3a34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3af45a19_d485faf2",
         "filename": "test/2266-checker-remove-empty-ifs/info.txt",
         "patchSetId": 4
