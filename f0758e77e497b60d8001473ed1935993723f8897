@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e5b42067_35049677",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-10-30T10:06:56Z",
+      "side": 1,
+      "message": "Thanks!",
+      "revId": "f0758e77e497b60d8001473ed1935993723f8897",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bb449b58_0decd867",
@@ -14,6 +31,30 @@
       "writtenOn": "2023-10-27T18:09:28Z",
       "side": 1,
       "message": "+mythria to verify these, from https://r.android.com/2723675.",
+      "range": {
+        "startLine": 189,
+        "startChar": 28,
+        "endLine": 189,
+        "endChar": 46
+      },
+      "revId": "f0758e77e497b60d8001473ed1935993723f8897",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab8b26ab_e4108b02",
+        "filename": "runtime/trace.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-10-30T10:06:56Z",
+      "side": 1,
+      "message": "Thanks for fixing these! lgtm.",
+      "parentUuid": "bb449b58_0decd867",
       "range": {
         "startLine": 189,
         "startChar": 28,
