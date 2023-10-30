@@ -1958,7 +1958,12 @@ ENTRY art_quick_indexof
 #endif
     /* Clamp start to [0..count) */
     sraiw a5, a2, 31
+#ifdef __riscv_zbb
     andn  a2, a2, a5
+#else
+    xori  a5, a5, -1
+    and   a2, a2, a5
+#endif
     bge   a2, a3, .Lstring_indexof_nomatch
 
 #if (STRING_COMPRESSION_FEATURE)
