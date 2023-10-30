@@ -22,6 +22,30 @@
       },
       "revId": "fa81e8789b8bec1e5db7598b5663280e42057bfc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec361a13_096a0760",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1350,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-10-30T23:10:40Z",
+      "side": 1,
+      "message": "Actually, I\u0027m not sure I don\u0027t see a reason the actual values here matter a lot, since presumably only the actual stack region will typically end up with physical memory. I would like to see the comment be clearer on what\u0027s actually required vs. a discretionary choice.",
+      "parentUuid": "85fbd72b_6d1acfaa",
+      "range": {
+        "startLine": 1350,
+        "startChar": 5,
+        "endLine": 1350,
+        "endChar": 96
+      },
+      "revId": "fa81e8789b8bec1e5db7598b5663280e42057bfc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
