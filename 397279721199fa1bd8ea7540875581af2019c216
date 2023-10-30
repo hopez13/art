@@ -46,6 +46,30 @@
       },
       "revId": "397279721199fa1bd8ea7540875581af2019c216",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4047512_835091b4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-10-30T11:49:46Z",
+      "side": 1,
+      "message": "I don\u0027t think we can have any checks in a pre-upload hook that require building (or invoking Soong at all), so I think presubmit is the right way. Maybe an AyeAye check but that\u0027s probably a bit more work to set up.\n\nIt\u0027s only run with `m tidy-art`, and not in an ordinary platform (or module) build, right? I can\u0027t find \"tidy-art\" in the CI configuration, so if it\u0027s not executed in a normal build it\u0027s probably not run in CI at all, and we need to fix that.",
+      "parentUuid": "1547caa6_2a71478f",
+      "range": {
+        "startLine": 7,
+        "startChar": 4,
+        "endLine": 7,
+        "endChar": 29
+      },
+      "revId": "397279721199fa1bd8ea7540875581af2019c216",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
