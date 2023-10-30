@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85fbd72b_6d1acfaa",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1350,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-10-30T23:02:21Z",
+      "side": 1,
+      "message": "Why should this depend on page size? Isn\u0027t this just the amount of available stack space we are still guaranteed to have available without faulting right after we pass an overflow check? I.e. this the amount of stack space the runtime can use without overflow checks, more-or-less.\n\nThe same seems to apply to the actual usable stack size. I would have assumed that GetStackOverflowReservedBytes(kRuntimeISA) + \u003cactual usable stack size\u003e must be a multiple of the page size, and no less than GetStackOverflowReservedBytes(kRuntimeISA) + 4K. Only the protected area needs to be page-aligned by itself?",
+      "range": {
+        "startLine": 1350,
+        "startChar": 5,
+        "endLine": 1350,
+        "endChar": 96
+      },
+      "revId": "fa81e8789b8bec1e5db7598b5663280e42057bfc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
