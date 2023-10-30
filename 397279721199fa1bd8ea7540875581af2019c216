@@ -22,6 +22,30 @@
       },
       "revId": "397279721199fa1bd8ea7540875581af2019c216",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1547caa6_2a71478f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2023-10-30T10:19:49Z",
+      "side": 1,
+      "message": "You\u0027re right this is a déjà vu, I have fixed this issue (and the ones in the following CLs) already, but we had a regression while adding some new code. I was fairly sure we were running clang-tidy as part of the build process (because I remember it failing a few times, and the clang-tidy checks are stated in art/build/Android.bp) but I can\u0027t find any proof of that in the build.log files, so I\u0027m having seconds thoughts now - do you recommend having an explicit target like art-cpplint for the master-art manifest? I was also thinking having a pre-upload hook that runs only on the changed files (similarly to what you have implemented for clang-format), do you think it would be good to have?",
+      "parentUuid": "c8de2d98_a5523fdd",
+      "range": {
+        "startLine": 7,
+        "startChar": 4,
+        "endLine": 7,
+        "endChar": 29
+      },
+      "revId": "397279721199fa1bd8ea7540875581af2019c216",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
