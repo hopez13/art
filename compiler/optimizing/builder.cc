@@ -84,14 +84,16 @@ bool HGraphBuilder::SkipCompilation(size_t number_of_branches) {
     return true;
   }
 
+  UNUSED(number_of_branches);
+
   // If it's large and contains no branches, it's likely to be machine generated initialization.
-  if (compiler_options.IsLargeMethod(code_units) && (number_of_branches == 0)) {
-    VLOG(compiler) << "Skip compilation of large method with no branch "
-                   << dex_file_->PrettyMethod(dex_compilation_unit_->GetDexMethodIndex())
-                   << ": " << code_units << " code units";
-    MaybeRecordStat(compilation_stats_, MethodCompilationStat::kNotCompiledLargeMethodNoBranches);
-    return true;
-  }
+  // if (compiler_options.IsLargeMethod(code_units) && (number_of_branches == 0)) {
+  //   VLOG(compiler) << "Skip compilation of large method with no branch "
+  //                  << dex_file_->PrettyMethod(dex_compilation_unit_->GetDexMethodIndex())
+  //                  << ": " << code_units << " code units";
+  //   MaybeRecordStat(compilation_stats_, MethodCompilationStat::kNotCompiledLargeMethodNoBranches);
+  //   return true;
+  // }
 
   return false;
 }
