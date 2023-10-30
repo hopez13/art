@@ -70,6 +70,30 @@
       },
       "revId": "397279721199fa1bd8ea7540875581af2019c216",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7bdad370_734d5095",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2023-10-30T14:43:07Z",
+      "side": 1,
+      "message": "That\u0027s correct, it seems `clang-tidy` only runs when running `m tidy-art` (I was fairly convinced it also ran as part of the usual build target, but I have build ART locally with a known clang-tidy issues and it wasn\u0027t spotted).\n\nWhere\u0027s the CI configuration?",
+      "parentUuid": "d4047512_835091b4",
+      "range": {
+        "startLine": 7,
+        "startChar": 4,
+        "endLine": 7,
+        "endChar": 29
+      },
+      "revId": "397279721199fa1bd8ea7540875581af2019c216",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
