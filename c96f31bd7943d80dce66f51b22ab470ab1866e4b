@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b91250b1_860e32b2",
+        "filename": "runtime/jit/jit_code_cache.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-10-30T22:34:06Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be kCodeAndDataCapacityDivider?\n\nActually, I don\u0027t see how jit_memory_region.cc could work if that\u0027s not 2. Maybe change the TODO comment above the definition of kCodeAndDataCapacityDivider to:\n\n// TODO: Make this adjustable. Currently must be 2. JitCodeCache relies on that.\n\nand leave this code as you have it.",
+      "range": {
+        "startLine": 189,
+        "startChar": 54,
+        "endLine": 189,
+        "endChar": 55
+      },
+      "revId": "c96f31bd7943d80dce66f51b22ab470ab1866e4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
