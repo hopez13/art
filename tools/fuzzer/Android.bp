@@ -1274,3 +1274,18 @@ genrule {
         "host_998-redefine-use-after-free_classes.dex",
     ],
 }
+
+genrule {
+    name: "art-gtest-jars-DexFuzzerFolder",
+    cmd: "cp $(in) $(genDir)",
+    srcs: ["corpus/*.dex"],
+    // The outputs must have unique names and we have to list them manually.
+    out: [
+        "code_item_padding.dex",
+        "empty.dex",
+        "encoded_array_value2.dex",
+        "encoded_array_value.dex",
+        "hello_world.dex",
+        "Main.dex",
+    ],
+}

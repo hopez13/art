@@ -31,6 +31,12 @@
         <option name="push" value="art-gtest-jars-MultiDex.jar->/data/local/tmp/art_standalone_libdexfile_tests/art-gtest-jars-MultiDex.jar" />
         <option name="push" value="art-gtest-jars-Nested.jar->/data/local/tmp/art_standalone_libdexfile_tests/art-gtest-jars-Nested.jar" />
         <option name="push" value="art-gtest-jars-VerifierDeps.dex->/data/local/tmp/art_standalone_libdexfile_tests/art-gtest-jars-VerifierDeps.dex" />
+        <option name="push" value="code_item_padding.dex->/data/local/tmp/art_standalone_libdexfile_tests/code_item_padding.dex" />
+        <option name="push" value="empty.dex->/data/local/tmp/art_standalone_libdexfile_tests/empty.dex" />
+        <option name="push" value="encoded_array_value2.dex->/data/local/tmp/art_standalone_libdexfile_tests/encoded_array_value2.dex" />
+        <option name="push" value="encoded_array_value.dex->/data/local/tmp/art_standalone_libdexfile_tests/encoded_array_value.dex" />
+        <option name="push" value="hello_world.dex->/data/local/tmp/art_standalone_libdexfile_tests/hello_world.dex" />
+        <option name="push" value="Main.dex->/data/local/tmp/art_standalone_libdexfile_tests/Main.dex" />
     </target_preparer>
 
     <test class="com.android.tradefed.testtype.GTest" >
