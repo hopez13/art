@@ -94,6 +94,30 @@
       },
       "revId": "397279721199fa1bd8ea7540875581af2019c216",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c4b72586_15660b4b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-10-31T14:31:11Z",
+      "side": 1,
+      "message": "I see we already have the `cpplint` target on both [aosp-master-art](http://google3/configs/wireless/android/busytown/platform/aosp/aosp-master-art.gcl;l\u003d81;rcl\u003d577218535) and [git_master-art](http://google3/configs/wireless/android/busytown/platform/git_master/git_master-art.gcl;l\u003d80;rcl\u003d577172931), and both are in [presubmit](http://cs/rule_art_cpplint). So it\u0027s just a matter of making sure `clang-tidy` is built there? Apparently it\u0027s not part of `cpplint-art-all`.",
+      "parentUuid": "7bdad370_734d5095",
+      "range": {
+        "startLine": 7,
+        "startChar": 4,
+        "endLine": 7,
+        "endChar": 29
+      },
+      "revId": "397279721199fa1bd8ea7540875581af2019c216",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
