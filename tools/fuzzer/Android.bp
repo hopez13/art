@@ -1274,3 +1274,12 @@ genrule {
         "host_998-redefine-use-after-free_classes.dex",
     ],
 }
+
+genrule {
+    name: "art-gtest-jars-DexFuzzerFolder",
+    cmd: "FIRST_FILE=$$(echo '$(in)' | cut -d ' ' -f1) &&" +
+         "$(location soong_zip) -j -L 0 -o $(out) -D $$(dirname $${FIRST_FILE})",
+    srcs: ["corpus/*"],
+    out: ["fuzzer_corpus.zip"],
+    tools: ["soong_zip"],
+}
