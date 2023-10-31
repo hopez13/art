@@ -1274,3 +1274,10 @@ genrule {
         "host_998-redefine-use-after-free_classes.dex",
     ],
 }
+
+genrule {
+    name: "art-gtest-jars-DexFuzzerFolderIn",
+    cmd: " echo 'cp -p $(in) $(genDir)/art-gtest-jars-DexFuzzerFolder $(out)'; cp -p $(in) $(genDir)/art-gtest-jars-DexFuzzerFolder",
+    srcs: ["corpus/*.dex"],
+    out: ["art-gtest-jars-DexFuzzerFolder/Main.dex", "art-gtest-jars-DexFuzzerFolder/empty.dex", "art-gtest-jars-DexFuzzerFolder/hello_world.dex"],
+}
