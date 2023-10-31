@@ -60,3 +60,14 @@ cc_fuzz {
         ],
     },
 }
+
+genrule {
+    name: "art-gtest-jars-DexFuzzerFolderIn",
+    defaults: [
+        // To allow the ART module to build correctly.
+        "art_module_source_build_defaults",
+    ],
+    cmd: " echo 'cp -p $(in) $(genDir)/art-gtest-jars-DexFuzzerFolder $(out)'; cp -p $(in) $(genDir)/art-gtest-jars-DexFuzzerFolder",
+    srcs: ["corpus/*.dex"],
+    out: ["art-gtest-jars-DexFuzzerFolder/Main.dex", "art-gtest-jars-DexFuzzerFolder/empty.dex", "art-gtest-jars-DexFuzzerFolder/hello_world.dex"],
+}

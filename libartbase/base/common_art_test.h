@@ -276,6 +276,8 @@ class CommonArtTestImpl {
   static std::string GetCoreFileLocation(const char* suffix);
 
   std::vector<std::unique_ptr<const DexFile>> loaded_dex_files_;
+
+  friend class FuzzerCorpusTest;  // for GetAndroidBuildTop();
 };
 
 template <typename TestType>
