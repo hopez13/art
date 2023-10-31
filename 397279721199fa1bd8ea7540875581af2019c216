@@ -118,6 +118,30 @@
       },
       "revId": "397279721199fa1bd8ea7540875581af2019c216",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "71306e63_fa15bb15",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2023-10-31T15:56:54Z",
+      "side": 1,
+      "message": "I have created a separate CL for running clang-tidy in post-submits - in the meantime shall I go ahead and submit the approved changes?",
+      "parentUuid": "c4b72586_15660b4b",
+      "range": {
+        "startLine": 7,
+        "startChar": 4,
+        "endLine": 7,
+        "endChar": 29
+      },
+      "revId": "397279721199fa1bd8ea7540875581af2019c216",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
