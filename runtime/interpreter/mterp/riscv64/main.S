@@ -613,10 +613,10 @@ NterpToNterpStatic:
 %  nterp_to_nterp_static()
 NterpToNterpInstanceRange:
 %  nterp_to_nterp_instance_range()
-NterpToNterpStaticRange:
-%  nterp_to_nterp_static_range()
 NterpToNterpStringInitRange:
 %  nterp_to_nterp_string_init_range()
+NterpToNterpStaticRange:
+%  nterp_to_nterp_static_range()
 
 NAME_END nterp_helper
 
