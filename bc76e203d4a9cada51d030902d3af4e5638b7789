@@ -16,6 +16,24 @@
       "message": "The second part of this is interesting. I wonder what effect that bug had.",
       "revId": "bc76e203d4a9cada51d030902d3af4e5638b7789",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "09321169_d7b22e2b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-11-01T19:40:57Z",
+      "side": 1,
+      "message": "Yeah. Luckily in this case the `TrimLocals` is asking for mutator-lock merely for satisfying the compiler, but we should probably look for all cases where this mistake is being repeated in the runtime.",
+      "parentUuid": "e3ca3636_94e7b434",
+      "revId": "bc76e203d4a9cada51d030902d3af4e5638b7789",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
