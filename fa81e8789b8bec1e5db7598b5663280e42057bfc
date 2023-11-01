@@ -46,6 +46,30 @@
       },
       "revId": "fa81e8789b8bec1e5db7598b5663280e42057bfc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d6f3feb_1825ff0f",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1350,
+      "author": {
+        "id": 1280281
+      },
+      "writtenOn": "2023-11-01T21:04:21Z",
+      "side": 1,
+      "message": "The overflow reserved bytes indeed doesn\u0027t depend on page size. Another patch in the chain - where the value was updated to match page size on 16K systems - has been removed, and this part of the comment should\u0027ve been removed as well.\n\nThe comment is now updated to describe requirements and typical values for the components.\n\nAlso, a DCHECK_ALIGNED is added to check against the requirement for kStackOverflowProtectedSize.\n\nThe expression computing minimum stack size is updated accordingly - to round up the overall stack region size to page size matching the described requirement.",
+      "parentUuid": "ec361a13_096a0760",
+      "range": {
+        "startLine": 1350,
+        "startChar": 5,
+        "endLine": 1350,
+        "endChar": 96
+      },
+      "revId": "fa81e8789b8bec1e5db7598b5663280e42057bfc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
