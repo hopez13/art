@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9fde2628_6c7f240b",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 774,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-11-01T13:40:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "63cddd55_a0660a81",
+      "revId": "fb1ccc8a5156ca248e726519d85a4d66f0ec70bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2123a02d_8ef72d86",
@@ -35,6 +53,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c74c32e7_09dd2a89",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 851,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-11-01T13:40:09Z",
+      "side": 1,
+      "message": "Nice catch! I guess the graph is consistent because `RemoveDeadBlocks` will later recompute the graph so it\u0027s fine. Fix in aosp/2812475",
+      "parentUuid": "2123a02d_8ef72d86",
+      "revId": "fb1ccc8a5156ca248e726519d85a4d66f0ec70bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9808a7aa_6debb79e",
@@ -48,6 +84,30 @@
       "writtenOn": "2023-11-01T13:18:54Z",
       "side": 1,
       "message": "...somewhat ironically, that leaves us with dead code here which we can eliminate (although it seems a good chance we intended to set `did_opt` somewhere).",
+      "range": {
+        "startLine": 852,
+        "startChar": 0,
+        "endLine": 854,
+        "endChar": 33
+      },
+      "revId": "fb1ccc8a5156ca248e726519d85a4d66f0ec70bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "13319c3d_fd769173",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 854,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-11-01T13:40:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9808a7aa_6debb79e",
       "range": {
         "startLine": 852,
         "startChar": 0,
