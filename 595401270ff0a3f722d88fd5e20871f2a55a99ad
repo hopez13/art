@@ -39,6 +39,30 @@
       },
       "revId": "595401270ff0a3f722d88fd5e20871f2a55a99ad",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa83d50d_1db46d0e",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2484,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-11-01T20:17:01Z",
+      "side": 1,
+      "message": "Thanks for bringing this up. I did thought about it. I have to use `IsEmpty()` here to align with [how dex2oat falls back from \"speed-profile\" to \"verify\"](https://cs.android.com/android/platform/superproject/main/+/main:art/dex2oat/dex2oat.cc;l\u003d2436;drc\u003d6dd439cfd52b7080aef8e4e579a3b4c07b05622f).\n\nTo your concern, the DCHECK below is exactly for that.",
+      "parentUuid": "a612bde8_a7dbf6de",
+      "range": {
+        "startLine": 2484,
+        "startChar": 6,
+        "endLine": 2484,
+        "endChar": 13
+      },
+      "revId": "595401270ff0a3f722d88fd5e20871f2a55a99ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
