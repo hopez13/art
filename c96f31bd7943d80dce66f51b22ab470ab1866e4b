@@ -22,6 +22,30 @@
       },
       "revId": "c96f31bd7943d80dce66f51b22ab470ab1866e4b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c7d9ae3_925216ea",
+        "filename": "runtime/jit/jit_code_cache.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1280281
+      },
+      "writtenOn": "2023-11-01T21:15:12Z",
+      "side": 1,
+      "message": "I agree, it should match kCodeAndDataCapacityDivider. The comment for the kCodeAndDataCapacityDivider definition has been updated.\n\nAlternatively, I could move the kCodeAndDataCapacityDivider definition to jit_memory_region.h and use it here, if that\u0027s preferable at the moment.",
+      "parentUuid": "b91250b1_860e32b2",
+      "range": {
+        "startLine": 189,
+        "startChar": 54,
+        "endLine": 189,
+        "endChar": 55
+      },
+      "revId": "c96f31bd7943d80dce66f51b22ab470ab1866e4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
