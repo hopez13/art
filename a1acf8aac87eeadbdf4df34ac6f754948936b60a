@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0bf6cbc3_8d7586b2",
+        "filename": "test/knownfailures.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-11-01T09:27:07Z",
+      "side": 1,
+      "message": "We should drop , I think. JSON parser is complaining about this I think.",
+      "range": {
+        "startLine": 10,
+        "startChar": 81,
+        "endLine": 10,
+        "endChar": 82
+      },
+      "revId": "a1acf8aac87eeadbdf4df34ac6f754948936b60a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
