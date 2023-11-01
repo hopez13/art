@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d9ff533a_1e96c8ba",
+        "filename": "tools/fuzzer/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 1280,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-11-01T13:40:46Z",
+      "side": 1,
+      "message": "Replace `cp` with `soong_zip` to create zip file.\nThen adding new dex will require no manual changes.",
+      "revId": "e3387e55c7cd6c1b0bd3e7da35073772dbe22993",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
