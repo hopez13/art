@@ -16,6 +16,29 @@
       "message": "Friendly ping",
       "revId": "595401270ff0a3f722d88fd5e20871f2a55a99ad",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a612bde8_a7dbf6de",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2484,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-11-01T20:04:18Z",
+      "side": 1,
+      "message": "If the for loop on line 2499 skips the loop entirely because `info_` is empty, we\u0027ll still reach the end of this function with `*matched \u003d true` and return value `true`. It\u0027s not obvious that this ensures that cannot happen.\n\nIf it shouldn\u0027t happen then I suggest using `info_.empty()` here instead. If it can happen then I\u0027d like to understand that case better to verify that this is DTRT then.",
+      "range": {
+        "startLine": 2484,
+        "startChar": 6,
+        "endLine": 2484,
+        "endChar": 13
+      },
+      "revId": "595401270ff0a3f722d88fd5e20871f2a55a99ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
