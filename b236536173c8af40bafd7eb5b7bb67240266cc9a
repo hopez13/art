@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bbaa01c6_017a4edd",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1420,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-11-01T19:38:56Z",
+      "side": 1,
+      "message": "Thanks for noticing. Fixed",
+      "parentUuid": "4935f1d5_1ec4ff9f",
+      "range": {
+        "startLine": 1420,
+        "startChar": 23,
+        "endLine": 1420,
+        "endChar": 36
+      },
+      "revId": "b236536173c8af40bafd7eb5b7bb67240266cc9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4aab6fc1_3d7d2973",
@@ -54,6 +78,30 @@
       "writtenOn": "2023-11-01T19:06:14Z",
       "side": 1,
       "message": "Maybe add a \"debug only\" comment? Hopefully the compiler otherwise gets rid of it.",
+      "range": {
+        "startLine": 2437,
+        "startChar": 4,
+        "endLine": 2437,
+        "endChar": 37
+      },
+      "revId": "b236536173c8af40bafd7eb5b7bb67240266cc9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc1465bb_862f55ee",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2437,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-11-01T19:38:56Z",
+      "side": 1,
+      "message": "Yeah, I added it with the hope that since there is no read on non-debug builds, the compiler will get rid of it.\n\nAdded the comment.",
+      "parentUuid": "4aab6fc1_3d7d2973",
       "range": {
         "startLine": 2437,
         "startChar": 4,
@@ -87,6 +135,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "76d7574d_674287ce",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 1739,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-11-01T19:38:56Z",
+      "side": 1,
+      "message": "I have added a `AddBytesAllocated` function and using that instead to avoid friending BumpPointerSpace here. I didn\u0027t want to move it to the caller to avoid duplication of page alignment and few other things.",
+      "parentUuid": "ec0ce600_7c6d1b40",
+      "range": {
+        "startLine": 1739,
+        "startChar": 2,
+        "endLine": 1739,
+        "endChar": 40
+      },
+      "revId": "b236536173c8af40bafd7eb5b7bb67240266cc9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b9226c2e_aa0e1d09",
@@ -100,6 +172,30 @@
       "writtenOn": "2023-11-01T19:06:14Z",
       "side": 1,
       "message": "Please add a comment along the lines of \"Adjust heap\u0027s allocated byte count accordingly.\" Otherwise the added parameter seems very mysterious. Another alternative is to have the caller make the adjustment.",
+      "range": {
+        "startLine": 216,
+        "startChar": 2,
+        "endLine": 216,
+        "endChar": 35
+      },
+      "revId": "b236536173c8af40bafd7eb5b7bb67240266cc9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "728ef773_9e1c17e0",
+        "filename": "runtime/gc/space/bump_pointer_space.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-11-01T19:38:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b9226c2e_aa0e1d09",
       "range": {
         "startLine": 216,
         "startChar": 2,
