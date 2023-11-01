@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fadcb73e_02b3f58f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2023-11-01T11:38:10Z",
+      "side": 1,
+      "message": "I have tried as much as possible to avoid the NOLINT at 103, but I haven\u0027t found a way to make both the compiler and clang-tidy happy at the same time - do you have any ideas (or are you happy to have a warning suppression in this case)?",
+      "revId": "7d4151d105d600e4eb131fa5b81bfcc0233a1d5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
