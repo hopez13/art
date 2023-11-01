@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63cddd55_a0660a81",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 774,
+      "author": {
+        "id": 1096713
+      },
+      "writtenOn": "2023-11-01T13:18:54Z",
+      "side": 1,
+      "message": "We initialize `did_opt` here...",
+      "revId": "fb1ccc8a5156ca248e726519d85a4d66f0ec70bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2123a02d_8ef72d86",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 851,
+      "author": {
+        "id": 1096713
+      },
+      "writtenOn": "2023-11-01T13:18:54Z",
+      "side": 1,
+      "message": "...but never appear to set it to another value.  So I think it\u0027s always `false` here, and...",
+      "revId": "fb1ccc8a5156ca248e726519d85a4d66f0ec70bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9808a7aa_6debb79e",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 854,
+      "author": {
+        "id": 1096713
+      },
+      "writtenOn": "2023-11-01T13:18:54Z",
+      "side": 1,
+      "message": "...somewhat ironically, that leaves us with dead code here which we can eliminate (although it seems a good chance we intended to set `did_opt` somewhere).",
+      "range": {
+        "startLine": 852,
+        "startChar": 0,
+        "endLine": 854,
+        "endChar": 33
+      },
+      "revId": "fb1ccc8a5156ca248e726519d85a4d66f0ec70bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
