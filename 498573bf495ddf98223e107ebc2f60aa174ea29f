@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cfda9a1b_dfbaa90c",
+        "filename": "test/449-checker-bce/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-11-02T09:49:39Z",
+      "side": 1,
+      "message": "The test added in 449- was added because I originally planned to use this CL for BoundsCheck elimination too. After that, I realized that making changes to both loop optimization and BCE was too much for one CL. I kept the test because it was already written and it shows where we can improve.",
+      "revId": "498573bf495ddf98223e107ebc2f60aa174ea29f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
