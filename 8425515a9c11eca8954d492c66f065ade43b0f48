@@ -16,6 +16,24 @@
       "message": "Not sure why this formatting is here but I am fine with keeping it since it is something we wanted to do anyway.",
       "revId": "8425515a9c11eca8954d492c66f065ade43b0f48",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0214e3ab_ef0f384e",
+        "filename": "test/160-read-barrier-stress/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 457,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-11-02T09:39:49Z",
+      "side": 1,
+      "message": "I\u0027m just fixing indentation on a closely related test.",
+      "parentUuid": "dfd07ad9_78bb8e0b",
+      "revId": "8425515a9c11eca8954d492c66f065ade43b0f48",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
