@@ -39,6 +39,30 @@
       },
       "revId": "edd68afda016361dc2af59e3397f8324d4048cdb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c7a1889a_61135833",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1350,
+      "author": {
+        "id": 1280281
+      },
+      "writtenOn": "2023-11-02T09:53:09Z",
+      "side": 1,
+      "message": "Clarified that it is the lowest address of the region.",
+      "parentUuid": "e048635c_b62c5cf4",
+      "range": {
+        "startLine": 1350,
+        "startChar": 49,
+        "endLine": 1350,
+        "endChar": 63
+      },
+      "revId": "edd68afda016361dc2af59e3397f8324d4048cdb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
