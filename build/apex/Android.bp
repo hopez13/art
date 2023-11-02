@@ -284,6 +284,7 @@ apex_test {
     // overwrite `libart-broken`. Maybe consider creating "broken"
     // variants of binaries (and other artifacts)?
     native_shared_libs: art_runtime_base_broken_native_shared_libs,
+    unwanted_transitive_deps: ["libart"],
     compile_multilib: "both",
 
     key: "com.android.art.key",
