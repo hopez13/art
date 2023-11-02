@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e96de8f_bf7226c3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-11-02T14:06:32Z",
+      "side": 1,
+      "message": "(also keep the bug open to convert existing gtests back to file?)",
+      "revId": "8cb019b5403934c2de28d5c0792fe2df1b088f7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c812ee7e_24b4e8c5",
@@ -32,6 +49,41 @@
       "side": 1,
       "message": "WDYT about leaving that as a follow-up? I\u0027d rather get the missing regression tests merged so we don\u0027t miss on coverage.\n\nI don\u0027t expect to be adding more \u0027passing\u0027 DEX files into the corpus folder in the near future",
       "parentUuid": "c812ee7e_24b4e8c5",
+      "revId": "8cb019b5403934c2de28d5c0792fe2df1b088f7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b9c28a63_2451f7e5",
+        "filename": "libdexfile/dex/fuzzer_corpus_test.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-11-02T14:06:32Z",
+      "side": 1,
+      "message": "Acknowledged.  Seems reasonable to do it when needed next time.",
+      "parentUuid": "2bdb10dd_f701c65a",
+      "revId": "8cb019b5403934c2de28d5c0792fe2df1b088f7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "55203bd3_a7a9711e",
+        "filename": "tools/fuzzer/Android.bp",
+        "patchSetId": 8
+      },
+      "lineNbr": 1280,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-11-02T14:06:32Z",
+      "side": 1,
+      "message": "Ouch, that is ugly.  What do other people do?",
       "revId": "8cb019b5403934c2de28d5c0792fe2df1b088f7f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
