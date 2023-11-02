@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b0ed053c_1393cd03",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2023-11-02T14:39:36Z",
+      "side": 1,
+      "message": "Fired ABTD.",
+      "parentUuid": "dfb73585_ce18a17b",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 35
+      },
+      "revId": "8cadb7fee481d0b65cfe182e84e9e6b9c5877196",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "948055b1_dfc1b497",
@@ -61,6 +85,30 @@
       "side": 1,
       "message": "+1",
       "parentUuid": "948055b1_dfc1b497",
+      "range": {
+        "startLine": 281,
+        "startChar": 0,
+        "endLine": 285,
+        "endChar": 50
+      },
+      "revId": "8cadb7fee481d0b65cfe182e84e9e6b9c5877196",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c9cfe23_6ca07113",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2023-11-02T14:39:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3d147f38_d8f12b9f",
       "range": {
         "startLine": 281,
         "startChar": 0,
