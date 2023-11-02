@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6713c58c_e9d21922",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-11-02T00:17:07Z",
+      "side": 1,
+      "message": "Looks good to me aside from the nits about the comment.",
+      "revId": "edd68afda016361dc2af59e3397f8324d4048cdb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e048635c_b62c5cf4",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1350,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-11-02T00:17:07Z",
+      "side": 1,
+      "message": "I always find that ambiguous. Consider something like \"beginning (hot end)\".\n\nNit: since this is formatted to 100 character width, please adjust your editor and reformat the comment.",
+      "range": {
+        "startLine": 1350,
+        "startChar": 49,
+        "endLine": 1350,
+        "endChar": 63
+      },
+      "revId": "edd68afda016361dc2af59e3397f8324d4048cdb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
