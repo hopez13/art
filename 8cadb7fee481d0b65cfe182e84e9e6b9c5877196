@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "dfb73585_ce18a17b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2023-11-02T14:10:38Z",
+      "side": 1,
+      "message": "Could you also add (or replace this `Test:` stanza with):\n\n```\nTest: atest art-apex-update-rollback\n```\n\n(Note that this does not currently work on AOSP – see Bug 293581880 – but it should work on internal branches.)",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 35
+      },
+      "revId": "8cadb7fee481d0b65cfe182e84e9e6b9c5877196",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "948055b1_dfc1b497",
         "filename": "build/apex/Android.bp",
         "patchSetId": 2
@@ -14,6 +37,30 @@
       "writtenOn": "2023-11-02T13:57:42Z",
       "side": 1,
       "message": "Looks like the thought here was to avoid the libart dependency, but it has crept in anyway. Your fix is much better, and it makes the comment stale. I suggest this (provided I understand the problem correctly):\n\n    // Only include native libraries in this test APEX. The intention\n    // was to not include binaries (and maybe other artifacts) for now,\n    // as they\u0027d pull the \"non-broken\" `libart` module into this test\n    // APEX and overwrite `libart-broken`. However, with\n    // unwanted_transitive_deps we can ensure `libart` gets excluded\n    // anyway.\n    // TODO(mast): Add back the binaries and clean this up.",
+      "range": {
+        "startLine": 281,
+        "startChar": 0,
+        "endLine": 285,
+        "endChar": 50
+      },
+      "revId": "8cadb7fee481d0b65cfe182e84e9e6b9c5877196",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3d147f38_d8f12b9f",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2023-11-02T14:10:38Z",
+      "side": 1,
+      "message": "+1",
+      "parentUuid": "948055b1_dfc1b497",
       "range": {
         "startLine": 281,
         "startChar": 0,
