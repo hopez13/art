@@ -86,6 +86,24 @@
       "message": "Ouch, that is ugly.  What do other people do?",
       "revId": "8cb019b5403934c2de28d5c0792fe2df1b088f7f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "832643af_21ffade3",
+        "filename": "tools/fuzzer/Android.bp",
+        "patchSetId": 8
+      },
+      "lineNbr": 1280,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-11-02T14:25:57Z",
+      "side": 1,
+      "message": "Most people have some path relative to $(genDir). I\u0027ve also seen \n```\nFILES\u003d($(in)) \u0026\u0026\n$(location soong_zip) -j -L 0 -o $(out) -D $$(dirname $${FILES[0]})\n```\nDo you prefer this alternative?",
+      "parentUuid": "55203bd3_a7a9711e",
+      "revId": "8cb019b5403934c2de28d5c0792fe2df1b088f7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
