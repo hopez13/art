@@ -16,6 +16,24 @@
       "message": "Another alternative would be to have two `pass` and `fail` subdirectories in the corpus.",
       "revId": "8cb019b5403934c2de28d5c0792fe2df1b088f7f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2bdb10dd_f701c65a",
+        "filename": "libdexfile/dex/fuzzer_corpus_test.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-11-02T13:13:37Z",
+      "side": 1,
+      "message": "WDYT about leaving that as a follow-up? I\u0027d rather get the missing regression tests merged so we don\u0027t miss on coverage.\n\nI don\u0027t expect to be adding more \u0027passing\u0027 DEX files into the corpus folder in the near future",
+      "parentUuid": "c812ee7e_24b4e8c5",
+      "revId": "8cb019b5403934c2de28d5c0792fe2df1b088f7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
