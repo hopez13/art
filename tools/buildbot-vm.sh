@@ -46,7 +46,7 @@ if [[ $action = create ]]; then
     # sudo apt install qemu-system-<arch> qemu-efi cloud-image-utils
 
     # Get the cloud image for Ubunty 22.04 (Jammy)
-    wget "http://cloud-images.ubuntu.com/releases/22.04/release/$ART_TEST_VM_IMG"
+    wget "http://cloud-images.ubuntu.com/releases/23.10/release/$ART_TEST_VM_IMG"
 
     if [[ "$TARGET_ARCH" = "riscv64" ]]; then
         # Get U-Boot for Ubuntu 22.04 (Jammy)
@@ -56,7 +56,7 @@ if [[ $action = create ]]; then
 
         # Get OpenSBI for Ubuntu 22.04 (Jammy)
         get_stable_binary \
-            o/opensbi/opensbi_1.3-1ubuntu0.22.04.1_all.deb \
+            o/opensbi/opensbi_1.3-1ubuntu0.23.04.1_all.deb \
             usr/lib/riscv64-linux-gnu/opensbi/generic/fw_jump.elf
 
     elif [[ "$TARGET_ARCH" = "arm64" ]]; then
@@ -107,6 +107,7 @@ elif [[ $action = boot ]]; then
         (qemu-system-riscv64 \
             -m 16G \
             -smp 8 \
+            -cpu rv64,v=true \
             -M virt \
             -nographic \
             -bios fw_jump.elf \
