@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e1956d5d_738e9f36",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1500,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-11-03T20:10:46Z",
+      "side": 1,
+      "message": "An interesting suggestion. But I think that code is trickier than the current code, so I\u0027ll just put in a TODO for now.\n\nWe need to be careful to read the next field before the fetch_sub, since the node can disappear once we do the fetch_sub. Recall that the nodes are on the stacks of the waiting threads. I don\u0027t think a normal iteration over IntrusiveFrowardList would work; the next_hook pointer would be gone when you try to advance to the next node.",
+      "parentUuid": "e93dbd8f_1f35d49b",
+      "range": {
+        "startLine": 1498,
+        "startChar": 4,
+        "endLine": 1500,
+        "endChar": 5
+      },
+      "revId": "ab9f454ce9a0592339be626de46085af8370472a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fe8ff55e_d6f49381",
@@ -64,6 +88,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b8cbd344_03905a46",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1554,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-11-03T20:10:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fe8ff55e_d6f49381",
+      "range": {
+        "startLine": 1554,
+        "startChar": 2,
+        "endLine": 1554,
+        "endChar": 89
+      },
+      "revId": "ab9f454ce9a0592339be626de46085af8370472a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "18172989_2c85b9e4",
@@ -77,6 +125,30 @@
       "writtenOn": "2023-10-12T10:25:50Z",
       "side": 1,
       "message": "Note: We could use `IntrusiveForwardList\u003cWrappedSuspend1Barrier\u003e`.",
+      "range": {
+        "startLine": 2196,
+        "startChar": 4,
+        "endLine": 2196,
+        "endChar": 27
+      },
+      "revId": "ab9f454ce9a0592339be626de46085af8370472a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ccf08c2_d189cbb6",
+        "filename": "runtime/thread.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 2196,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-11-03T20:10:46Z",
+      "side": 1,
+      "message": "As the code stands now, that\u0027s probably OK. But I would rather defer this. See the response to the other comment.",
+      "parentUuid": "18172989_2c85b9e4",
       "range": {
         "startLine": 2196,
         "startChar": 4,
