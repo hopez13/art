@@ -106,6 +106,13 @@ class AdbConnectionState {
 
   void HandleDataWithoutAgent(art::Thread* self);
 
+  void HandleAgentControlReadable();
+  void HandleControlReadable();
+  void HandleControlWritable();
+  void HandleAdbSocketReadable(art::Thread* self);
+  void HandleAdbSocketWritable();
+
+
   void PerformHandshake();
 
   void AttachJdwpAgent(art::Thread* self);

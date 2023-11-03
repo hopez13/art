@@ -98,6 +98,7 @@ static bool IsDebuggingPossible() {
 
 // Begin running the debugger.
 void AdbConnectionDebuggerController::StartDebugger() {
+  VLOG(jdwp) << "StartDebugger";
   // The debugger thread is started for a debuggable or profileable-from-shell process.
   // The pid will be send to adbd for adb's "track-jdwp" and "track-app" services.
   // The thread will also set up the jdwp tunnel if the process is debuggable.
@@ -114,6 +115,7 @@ void AdbConnectionDebuggerController::StartDebugger() {
 // to do it since the runtime is still able to handle all the normal state
 // transitions.
 void AdbConnectionDebuggerController::StopDebugger() {
+  VLOG(jdwp) << "StopDebugger";
   // Stop our threads.
   gState->StopDebuggerThreads();
   // Wait for our threads to actually return and cleanup the pthread.
@@ -185,6 +187,7 @@ AdbConnectionState::~AdbConnectionState() {
 
 static art::ObjPtr<art::mirror::Object> CreateAdbConnectionThread(art::Thread* self)
     REQUIRES_SHARED(art::Locks::mutator_lock_) {
+        VLOG(jdwp) << "CreateAdbConnectionThread";
   art::StackHandleScope<3u> hs(self);
   art::Handle<art::mirror::String> thr_name =
       hs.NewHandle(art::mirror::String::AllocFromModifiedUtf8(self, kAdbConnectionThreadName));
@@ -210,6 +213,7 @@ struct CallbackData {
 };
 
 static void* CallbackFunction(void* vdata) {
+  VLOG(jdwp) << "CallbackFunction";
   std::unique_ptr<CallbackData> data(reinterpret_cast<CallbackData*>(vdata));
   art::Thread* self = art::Thread::Attach(kAdbConnectionThreadName,
                                           true,
@@ -240,6 +244,7 @@ static void* CallbackFunction(void* vdata) {
 }
 
 void AdbConnectionState::StartDebuggerThreads() {
+  VLOG(jdwp) << "StartDebuggerThreads";
   // First do all the final setup we need.
   CHECK_EQ(adb_write_event_fd_.get(), -1);
   CHECK_EQ(sleep_event_fd_.get(), -1);
@@ -314,6 +319,7 @@ static bool FlagsSet(int16_t data, int16_t flags) {
 }
 
 void AdbConnectionState::CloseFds() {
+  VLOG(jdwp) << "CloseFds";
   {
     // Lock the write_event_fd so that concurrent PublishDdms will see that the connection is
     // closed.
@@ -355,6 +361,7 @@ void AdbConnectionState::SendDdmPacket(uint32_t id,
                                        DdmPacketType packet_type,
                                        uint32_t type,
                                        art::ArrayRef<const uint8_t> data) {
+  VLOG(jdwp) << "SendDdmPacket";
   // Get the write_event early to fail fast.
   ScopedEventFdLock lk(adb_write_event_fd_);
   if (adb_connection_socket_ == -1 || !performed_handshake_) {
@@ -439,6 +446,7 @@ void AdbConnectionState::SendDdmPacket(uint32_t id,
 }
 
 void AdbConnectionState::SendAgentFds(bool require_handshake) {
+  VLOG(jdwp) << "SendAgentFds";
   DCHECK(!sent_agent_fds_);
   const char* message = require_handshake ? kPerformHandshakeMessage : kSkipHandshakeMessage;
   union {
@@ -485,6 +493,7 @@ void AdbConnectionState::SendAgentFds(bool require_handshake) {
 }
 
 bool AdbConnectionState::SetupAdbConnection() {
+  VLOG(jdwp) << "SetupAdbConnection";
   int sleep_ms = 500;
   const int sleep_max_ms = 2 * 1000;
 
@@ -532,52 +541,14 @@ bool AdbConnectionState::SetupAdbConnection() {
   return false;
 }
 
-void AdbConnectionState::RunPollLoop(art::Thread* self) {
-  DCHECK(IsDebuggingPossible() || art::Runtime::Current()->IsProfileableFromShell());
-  CHECK_NE(agent_name_, "");
-  CHECK_EQ(self->GetState(), art::ThreadState::kNative);
-  art::Locks::mutator_lock_->AssertNotHeld(self);
-  self->SetState(art::ThreadState::kWaitingInMainDebuggerLoop);
-  // shutting_down_ set by StopDebuggerThreads
-  while (!shutting_down_) {
-    // First, connect to adbd if we haven't already.
-    if (!control_ctx_ && !SetupAdbConnection()) {
-      LOG(ERROR) << "Failed to setup adb connection.";
-      return;
-    }
-    while (!shutting_down_ && control_ctx_) {
-      bool should_listen_on_connection = !agent_has_socket_ && !sent_agent_fds_;
-      struct pollfd pollfds[4] = {
-        { sleep_event_fd_, POLLIN, 0 },
-        // -1 as an fd causes it to be ignored by poll
-        { (agent_loaded_ ? local_agent_control_sock_ : -1), POLLIN, 0 },
-        // Check for the control_sock_ actually going away. Only do this if we don't have an active
-        // connection.
-        { (adb_connection_socket_ == -1 ? adbconnection_client_pollfd(control_ctx_.get()) : -1),
-          POLLIN | POLLRDHUP, 0 },
-        // if we have not loaded the agent either the adb_connection_socket_ is -1 meaning we don't
-        // have a real connection yet or the socket through adb needs to be listened to for incoming
-        // data that the agent or this plugin can handle.
-        { should_listen_on_connection ? adb_connection_socket_ : -1, POLLIN | POLLRDHUP, 0 }
-      };
-      int res = TEMP_FAILURE_RETRY(poll(pollfds, 4, -1));
-      if (res < 0) {
-        PLOG(ERROR) << "Failed to poll!";
-        return;
-      }
-      // We don't actually care about doing this we just use it to wake us up.
-      // const struct pollfd& sleep_event_poll     = pollfds[0];
-      const struct pollfd& agent_control_sock_poll = pollfds[1];
-      const struct pollfd& control_sock_poll       = pollfds[2];
-      const struct pollfd& adb_socket_poll         = pollfds[3];
-      if (FlagsSet(agent_control_sock_poll.revents, POLLIN)) {
-        CHECK(IsDebuggingPossible());  // This path is unexpected for a profileable process.
+void AdbConnectionState::HandleAgentControlReadable() {
+ CHECK(IsDebuggingPossible());  // This path is unexpected for a profileable process.
         DCHECK(agent_loaded_);
         char buf[257];
-        res = TEMP_FAILURE_RETRY(recv(local_agent_control_sock_, buf, sizeof(buf) - 1, 0));
+        int res = TEMP_FAILURE_RETRY(recv(local_agent_control_sock_, buf, sizeof(buf) - 1, 0));
         if (res < 0) {
           PLOG(ERROR) << "Failed to read message from agent control socket! Retrying";
-          continue;
+          return;
         } else {
           buf[res + 1] = '\0';
           VLOG(jdwp) << "Local agent control sock has data: " << static_cast<const char*>(buf);
@@ -604,11 +575,15 @@ void AdbConnectionState::RunPollLoop(art::Thread* self) {
         } else {
           LOG(ERROR) << "Unknown message received from debugger! '" << std::string(buf) << "'";
         }
-      } else if (FlagsSet(control_sock_poll.revents, POLLIN)) {
-        if (!IsDebuggingPossible()) {
+}
+
+void AdbConnectionState::HandleControlReadable() {
+  VLOG(jdwp) << "HandleControlReadable";
+    if (!IsDebuggingPossible()) {
             // For a profielable process, this path can execute when the adbd restarts.
             control_ctx_.reset();
-            break;
+            VLOG(jdwp) << "HandleControlReadable Not debuggable, return";
+            return;
         }
         bool maybe_send_fds = false;
         {
@@ -616,9 +591,10 @@ void AdbConnectionState::RunPollLoop(art::Thread* self) {
           ScopedEventFdLock sefdl(adb_write_event_fd_);
           android::base::unique_fd new_fd(adbconnection_client_receive_jdwp_fd(control_ctx_.get()));
           if (new_fd == -1) {
+            VLOG(jdwp) << "HandleControlReadable: Something went wrong";
             // Something went wrong. We need to retry getting the control socket.
             control_ctx_.reset();
-            break;
+            return;
           } else if (adb_connection_socket_ != -1) {
             // We already have a connection.
             VLOG(jdwp) << "Ignoring second debugger. Accept then drop!";
@@ -626,7 +602,7 @@ void AdbConnectionState::RunPollLoop(art::Thread* self) {
               new_fd.reset();
             }
           } else {
-            VLOG(jdwp) << "Adb connection established with fd " << new_fd;
+            VLOG(jdwp) << "HandleControlReadable Adb connection established with fd " << new_fd;
             adb_connection_socket_ = std::move(new_fd);
             maybe_send_fds = true;
           }
@@ -637,15 +613,19 @@ void AdbConnectionState::RunPollLoop(art::Thread* self) {
           // transport perform the handshake.
           SendAgentFds(/*require_handshake=*/ true);
         }
-      } else if (FlagsSet(control_sock_poll.revents, POLLRDHUP)) {
-        // The other end of the adb connection just dropped it.
+}
+
+void AdbConnectionState::HandleControlWritable() {
+         // The other end of the adb connection just dropped it.
         // Reset the connection since we don't have an active socket through the adb server.
         // Note this path is expected for either debuggable or profileable processes.
         DCHECK(!agent_has_socket_) << "We shouldn't be doing anything if there is already a "
                                    << "connection active";
         control_ctx_.reset();
-        break;
-      } else if (FlagsSet(adb_socket_poll.revents, POLLIN)) {
+        shutting_down_ = true;
+}
+
+void AdbConnectionState::HandleAdbSocketReadable(art::Thread* self) {
         CHECK(IsDebuggingPossible());  // This path is unexpected for a profileable process.
         DCHECK(!agent_has_socket_);
         if (!agent_loaded_) {
@@ -653,17 +633,70 @@ void AdbConnectionState::RunPollLoop(art::Thread* self) {
         } else if (agent_listening_ && !sent_agent_fds_) {
           VLOG(jdwp) << "Sending agent fds again on data.";
           // Agent was already loaded so it can deal with the handshake.
-          SendAgentFds(/*require_handshake=*/ true);
+          SendAgentFds(/*require_handshake=*/true);
         }
-      } else if (FlagsSet(adb_socket_poll.revents, POLLRDHUP)) {
+}
+
+void AdbConnectionState::HandleAdbSocketWritable() {
         CHECK(IsDebuggingPossible());  // This path is unexpected for a profileable process.
         DCHECK(!agent_has_socket_);
         CloseFds();
+}
+
+void AdbConnectionState::RunPollLoop(art::Thread* self) {
+  DCHECK(IsDebuggingPossible() || art::Runtime::Current()->IsProfileableFromShell());
+  CHECK_NE(agent_name_, "");
+  CHECK_EQ(self->GetState(), art::ThreadState::kNative);
+  art::Locks::mutator_lock_->AssertNotHeld(self);
+  self->SetState(art::ThreadState::kWaitingInMainDebuggerLoop);
+  // shutting_down_ set by StopDebuggerThreads
+  while (!shutting_down_) {
+    VLOG(jdwp) << "Start of Runloop";
+    // First, connect to adbd if we haven't already.
+    if (!control_ctx_ && !SetupAdbConnection()) {
+      LOG(ERROR) << "Failed to setup adb connection.";
+      return;
+    }
+    while (!shutting_down_ && control_ctx_) {
+      bool should_listen_on_connection = !agent_has_socket_ && !sent_agent_fds_;
+      struct pollfd pollfds[4] = {
+        { sleep_event_fd_, POLLIN, 0 },
+        // -1 as an fd causes it to be ignored by poll
+        { (agent_loaded_ ? local_agent_control_sock_ : -1), POLLIN, 0 },
+        // Check for the control_sock_ actually going away. But also for a second debugger attempting
+        // to connect (which we should reject).
+        { adbconnection_client_pollfd(control_ctx_.get()), POLLIN | POLLRDHUP, 0 },
+        // if we have not loaded the agent either the adb_connection_socket_ is -1 meaning we don't
+        // have a real connection yet or the socket through adb needs to be listened to for incoming
+        // data that the agent or this plugin can handle.
+        { should_listen_on_connection ? adb_connection_socket_ : -1, POLLIN | POLLRDHUP, 0 }
+      };
+      int res = TEMP_FAILURE_RETRY(poll(pollfds, 4, -1));
+      if (res < 0) {
+        PLOG(ERROR) << "Failed to poll!";
+        return;
+      }
+      // We don't actually care about doing this we just use it to wake us up.
+      // const struct pollfd& sleep_event_poll     = pollfds[0];
+      const struct pollfd& agent_control_sock_poll = pollfds[1];
+      const struct pollfd& control_sock_poll       = pollfds[2];
+      const struct pollfd& adb_socket_poll         = pollfds[3];
+      if (FlagsSet(agent_control_sock_poll.revents, POLLIN)) {
+        HandleAgentControlReadable();
+      } else if (FlagsSet(control_sock_poll.revents, POLLIN)) {
+        HandleControlReadable();
+      } else if (FlagsSet(control_sock_poll.revents, POLLRDHUP)) {
+        HandleControlWritable();
+      } else if (FlagsSet(adb_socket_poll.revents, POLLIN)) {
+        HandleAdbSocketReadable(self);
+      } else if (FlagsSet(adb_socket_poll.revents, POLLRDHUP)) {
+        HandleAdbSocketWritable();
       } else {
         VLOG(jdwp) << "Woke up poll without anything to do!";
       }
     }
   }
+  VLOG(jdwp) << "End of Runloop";
 }
 
 static uint32_t ReadUint32AndAdvance(/*in-out*/uint8_t** in) {
@@ -815,6 +848,8 @@ void AdbConnectionState::PerformHandshake() {
 }
 
 void AdbConnectionState::AttachJdwpAgent(art::Thread* self) {
+  uint64_t now = art::MilliTime();
+  VLOG(jdwp) << "AttachingJDWP start";
   art::Runtime* runtime = art::Runtime::Current();
   self->AssertNoPendingException();
 
@@ -824,6 +859,7 @@ void AdbConnectionState::AttachJdwpAgent(art::Thread* self) {
   runtime->AttachAgent(/* env= */ nullptr,
                        args,
                        /* class_loader= */ nullptr);
+  VLOG(jdwp) << "AttachingJDWP end in " << (art::MilliTime() - now) << "ms";
   if (self->IsExceptionPending()) {
     LOG(ERROR) << "Failed to load agent " << agent_name_;
     art::ScopedObjectAccess soa(self);
