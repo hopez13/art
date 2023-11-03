@@ -85,6 +85,23 @@
       },
       "revId": "7b4bb8a75e9ba993c41e2945401ab482a1109266",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9bb48414_c5852909",
+        "filename": "tools/buildbot-vm.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1279898
+      },
+      "writtenOn": "2023-11-03T14:26:39Z",
+      "side": 1,
+      "message": "Do we want to match the QEMU launch cpu exactly here? (This is not rhetorical, I\u0027m genuinely unsure if there may be a good reason to limit the CPU definition here to v\u003dtrue.)\n\nIf you check out \u0027host/libs/vm_manager/qemu_manager.cpp\u0027 in \u0027device/google/cuttlefish\u0027, you\u0027ll see that we\u0027ve currently defined the launch command as:\n\n`v\u003dtrue,elen\u003d64,vlen\u003d128,zba\u003dtrue,zbb\u003dtrue,zbs\u003dtrue`\n\nThere may be more that we need to add down the line, so if these ought to be aligned, can we also leave a comment here and in qemu_manager.cpp that editors will need to remember to update both flags at the same time?",
+      "revId": "7b4bb8a75e9ba993c41e2945401ab482a1109266",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
