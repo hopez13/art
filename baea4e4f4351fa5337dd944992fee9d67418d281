@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6900e173_3635fb3b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-11-03T23:30:00Z",
+      "side": 1,
+      "message": "Note that this patch doesn\u0027t quite work yet. I\u0027m getting this crash during image generation:\n\nGenerating the primary boot image (64-bit)...\nlibc: Fatal signal 11 (SIGSEGV), code 2 (SEGV_ACCERR), fault addr 0x7fffaaa53dd8 in tid 8509 (generate-boot-i), pid 8509 (generate-boot-i)",
+      "revId": "baea4e4f4351fa5337dd944992fee9d67418d281",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

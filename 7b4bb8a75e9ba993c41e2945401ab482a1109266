@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "da26d46c_b2de85f8",
+        "filename": "tools/buildbot-vm.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-11-03T23:30:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "be1225ea_78097147",
+      "range": {
+        "startLine": 48,
+        "startChar": 37,
+        "endLine": 48,
+        "endChar": 50
+      },
+      "revId": "7b4bb8a75e9ba993c41e2945401ab482a1109266",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "806ec211_bf58771b",
@@ -54,6 +78,30 @@
       "writtenOn": "2023-11-03T09:01:49Z",
       "side": 1,
       "message": "Do we need more recent u-boot?",
+      "range": {
+        "startLine": 52,
+        "startChar": 25,
+        "endLine": 52,
+        "endChar": 45
+      },
+      "revId": "7b4bb8a75e9ba993c41e2945401ab482a1109266",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c5fe3a6_9e349c6d",
+        "filename": "tools/buildbot-vm.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-11-03T23:30:00Z",
+      "side": 1,
+      "message": "Sure. Doesn\u0027t seem to help though.",
+      "parentUuid": "806ec211_bf58771b",
       "range": {
         "startLine": 52,
         "startChar": 25,
@@ -87,6 +135,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0cf4b94d_3cf75a88",
+        "filename": "tools/buildbot-vm.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-11-03T23:30:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "26a2220f_7b12d853",
+      "range": {
+        "startLine": 57,
+        "startChar": 26,
+        "endLine": 57,
+        "endChar": 46
+      },
+      "revId": "7b4bb8a75e9ba993c41e2945401ab482a1109266",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9bb48414_c5852909",
@@ -100,6 +172,24 @@
       "writtenOn": "2023-11-03T14:26:39Z",
       "side": 1,
       "message": "Do we want to match the QEMU launch cpu exactly here? (This is not rhetorical, I\u0027m genuinely unsure if there may be a good reason to limit the CPU definition here to v\u003dtrue.)\n\nIf you check out \u0027host/libs/vm_manager/qemu_manager.cpp\u0027 in \u0027device/google/cuttlefish\u0027, you\u0027ll see that we\u0027ve currently defined the launch command as:\n\n`v\u003dtrue,elen\u003d64,vlen\u003d128,zba\u003dtrue,zbb\u003dtrue,zbs\u003dtrue`\n\nThere may be more that we need to add down the line, so if these ought to be aligned, can we also leave a comment here and in qemu_manager.cpp that editors will need to remember to update both flags at the same time?",
+      "revId": "7b4bb8a75e9ba993c41e2945401ab482a1109266",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "442f9db2_5dc5b144",
+        "filename": "tools/buildbot-vm.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-11-03T23:30:00Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "9bb48414_c5852909",
       "revId": "7b4bb8a75e9ba993c41e2945401ab482a1109266",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
