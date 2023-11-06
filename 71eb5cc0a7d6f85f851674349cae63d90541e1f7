@@ -20,6 +20,121 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a2a88d60_6b7e8184",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 730,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-11-06T15:55:33Z",
+      "side": 1,
+      "message": "7 (same below)",
+      "range": {
+        "startLine": 730,
+        "startChar": 57,
+        "endLine": 730,
+        "endChar": 58
+      },
+      "revId": "71eb5cc0a7d6f85f851674349cae63d90541e1f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c88a856_8a5d798d",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 731,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-11-06T15:55:33Z",
+      "side": 1,
+      "message": "Should we use `__POINTER_SIZE__`? (`ArtMethod*` slot)",
+      "range": {
+        "startLine": 731,
+        "startChar": 17,
+        "endLine": 731,
+        "endChar": 18
+      },
+      "revId": "71eb5cc0a7d6f85f851674349cae63d90541e1f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69525450_e73fd517",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 732,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-11-06T15:55:33Z",
+      "side": 1,
+      "message": "We could use the `BRANCH_IF_BIT_SET`.",
+      "range": {
+        "startLine": 732,
+        "startChar": 3,
+        "endLine": 732,
+        "endChar": 39
+      },
+      "revId": "71eb5cc0a7d6f85f851674349cae63d90541e1f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "41be9d8d_1a65be3c",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 741,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-11-06T15:55:33Z",
+      "side": 1,
+      "message": "For even \"A\", these stores shall be unaligned. Should we instead start with a 32-bit copy, then (A-8)/2 64-bit copies and finish with a 32-bit copy if (A\u00261)?\n\n(Maybe we don\u0027t care. Methods with many args should be pretty rare. Furthermore, we cannot control alignment for both loads and stores anyway.)",
+      "range": {
+        "startLine": 741,
+        "startChar": 3,
+        "endLine": 741,
+        "endChar": 16
+      },
+      "revId": "71eb5cc0a7d6f85f851674349cae63d90541e1f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5ab103a_f601cce6",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1022,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-11-06T15:55:33Z",
+      "side": 1,
+      "message": "Use `TODO` instead of `XXX`.\n\n(Note that the \"string init\" methods do not take a `J` either, so we could just use code similar to `try_simple_args/_range`.)",
+      "range": {
+        "startLine": 1022,
+        "startChar": 69,
+        "endLine": 1022,
+        "endChar": 72
+      },
+      "revId": "71eb5cc0a7d6f85f851674349cae63d90541e1f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "625bda78_754f62f1",
         "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
         "patchSetId": 2
@@ -31,6 +146,29 @@
       "writtenOn": "2023-11-03T23:57:03Z",
       "side": 1,
       "message": "oops. i\u0027ll replace bexti/beqz with the new macro on next upload.",
+      "revId": "71eb5cc0a7d6f85f851674349cae63d90541e1f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "74bc56f5_e82202a2",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1460,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-11-06T15:55:33Z",
+      "side": 1,
+      "message": "Reorder? (Both loads before stores.)",
+      "range": {
+        "startLine": 1459,
+        "startChar": 3,
+        "endLine": 1460,
+        "endChar": 16
+      },
       "revId": "71eb5cc0a7d6f85f851674349cae63d90541e1f7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }

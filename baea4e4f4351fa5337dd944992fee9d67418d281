@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9fd00625_55659349",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 535,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-11-06T15:55:33Z",
+      "side": 0,
+      "message": "Is this a bug in the old code where we clobber T0?",
+      "range": {
+        "startLine": 535,
+        "startChar": 3,
+        "endLine": 535,
+        "endChar": 38
+      },
+      "revId": "baea4e4f4351fa5337dd944992fee9d67418d281",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
