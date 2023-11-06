@@ -16,6 +16,24 @@
       "message": "nit: extra space",
       "revId": "98220b3a01d5134c2c8dcb7541926302e52654ae",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ddd66114_9e74c0c8",
+        "filename": "compiler/optimizing/intrinsics_riscv64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1312,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-11-06T15:58:17Z",
+      "side": 1,
+      "message": "I\u0027ll edit https://android-review.googlesource.com/2816022 for style. I\u0027ll remove the blank line there.",
+      "parentUuid": "f4792c19_c57e9521",
+      "revId": "98220b3a01d5134c2c8dcb7541926302e52654ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
