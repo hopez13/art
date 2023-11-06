@@ -16,6 +16,24 @@
       "message": "Note: This does not remove dead Phi cycles.",
       "revId": "303167554b56ceb7bed8ee57d23173a04d8babc5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8972ad3b_a82cfd79",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 931,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-11-06T13:12:58Z",
+      "side": 1,
+      "message": "That\u0027s true. We might address that in a future CL. We need full graph analysis for that one though.",
+      "parentUuid": "399a9369_ae2def64",
+      "revId": "303167554b56ceb7bed8ee57d23173a04d8babc5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
