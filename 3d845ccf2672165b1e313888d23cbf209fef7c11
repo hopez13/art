@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb96be74_2f2cdf18",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2023-11-07T13:59:58Z",
+      "side": 1,
+      "message": "Could you copy the `Bug:` and `Test:` stanzas from https://android-review.git.corp.google.com/c/platform/art/+/2756388 here:\n\n```\nBug: 300070371\nTest: art/test/testrunner/run_build_test_target.py -j80 art-gtest-ss-gc\n\n```\n\n?",
+      "revId": "3d845ccf2672165b1e313888d23cbf209fef7c11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6785942b_a21eb454",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2023-11-07T13:59:58Z",
+      "side": 1,
+      "message": "Thanks for this follow-up!",
+      "revId": "3d845ccf2672165b1e313888d23cbf209fef7c11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
