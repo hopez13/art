@@ -16,6 +16,47 @@
       "message": "I have tried as much as possible to avoid the NOLINT at 103, but I haven\u0027t found a way to make both the compiler and clang-tidy happy at the same time - do you have any ideas (or are you happy to have a warning suppression in this case)?",
       "revId": "7d4151d105d600e4eb131fa5b81bfcc0233a1d5d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b02db3d_29d915d6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-11-07T16:14:46Z",
+      "side": 1,
+      "message": "I don\u0027t think it\u0027s possible in this case, so a suppression is in order.",
+      "parentUuid": "fadcb73e_02b3f58f",
+      "revId": "7d4151d105d600e4eb131fa5b81bfcc0233a1d5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d8c733a_26ddc70a",
+        "filename": "runtime/jit/small_pattern_matcher.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-11-07T16:14:46Z",
+      "side": 1,
+      "message": "I\u0027d\u0027ve thought cases like this should have parens too (i.e. if P expands to something with a `,`), but I suppose the clang-tidy devs know cpp expansion rules better than I do.",
+      "range": {
+        "startLine": 131,
+        "startChar": 31,
+        "endLine": 131,
+        "endChar": 32
+      },
+      "revId": "7d4151d105d600e4eb131fa5b81bfcc0233a1d5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
