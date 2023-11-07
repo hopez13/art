@@ -56,6 +56,11 @@ public class DumpedStuff extends SuperDumpedStuff {
     registry.registerNativeAllocation(anObject, 0xABCDABCD);
 
     {
+      Runnable cleanerCallback = registry.registerNativeAllocation(aCleanedObject, 0xBCDABCDA);
+      cleanerCallback.run();
+    }
+
+    {
       Object object = new Object();
       aLongStrongPathToSamplePathObject = new Reference(new Reference(new Reference(object)));
       aShortWeakPathToSamplePathObject = new WeakReference(new Reference(object));
@@ -171,6 +176,7 @@ public class DumpedStuff extends SuperDumpedStuff {
   public char[] charArray = "char thing".toCharArray();
   public String nullString = null;
   public Object anObject = new Object();
+  public Object aCleanedObject = new Object();
   public Reference aReference = new Reference(anObject);
   public ReferenceQueue<Object> referenceQueue = new ReferenceQueue<Object>();
   public PhantomReference aPhantomReference = new PhantomReference(anObject, referenceQueue);
