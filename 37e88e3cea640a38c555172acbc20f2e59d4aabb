@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "71dd0410_c54c9094",
+        "filename": "openjdkjvmti/ti_object.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-11-07T17:24:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "42feccfb_b6d09c51",
+      "revId": "37e88e3cea640a38c555172acbc20f2e59d4aabb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7b657f11_08f38378",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-11-07T09:43:19Z",
       "side": 1,
       "message": "ditto about moving thois to another CL.",
+      "revId": "37e88e3cea640a38c555172acbc20f2e59d4aabb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c4409fe_3bdbe283",
+        "filename": "openjdkjvmti/ti_thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-11-07T17:24:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7b657f11_08f38378",
       "revId": "37e88e3cea640a38c555172acbc20f2e59d4aabb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -52,6 +88,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f667937c_212389b6",
+        "filename": "openjdkjvmti/ti_threadgroup.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-11-07T17:24:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f61b71fa_7d43f362",
+      "revId": "37e88e3cea640a38c555172acbc20f2e59d4aabb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8d768122_fde7362f",
@@ -65,6 +119,24 @@
       "writtenOn": "2023-11-07T09:43:19Z",
       "side": 1,
       "message": "Other CL?",
+      "revId": "37e88e3cea640a38c555172acbc20f2e59d4aabb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e18f65b_01d3fc83",
+        "filename": "runtime/thread.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 525,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-11-07T17:24:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8d768122_fde7362f",
       "revId": "37e88e3cea640a38c555172acbc20f2e59d4aabb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
