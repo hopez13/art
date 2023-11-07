@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "abf16ed1_08032a38",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1958325
+      },
+      "writtenOn": "2023-11-07T12:54:35Z",
+      "side": 1,
+      "message": "Hi,\n\nWhile studying ART, I found it useful to be able to collect atrace using perfetto for workloads running inside the chroot, this CL allows it by mounting tracefs using a bind mount.\n\nI realised after doing this that Ruben had done a similar patch here for simpleperf, https://android-review.googlesource.com/c/platform/art/+/2611169, so this should help this use-case too.\n\nOne thing I noticed though is that I had to use a bind mount. If instead we mount tracefs with `mount -t tracefs`, it confuses the atrace service like so, over and over:\n\n    10-25 15:43:46.091     1     1 W init    : Killed 2 additional processes from a oneshot process group for service \u0027vendor.atrace-hal-1-0\u0027. This is new behavior, previously child processes would not be killed in this case.\n    ...\n    10-25 15:43:47.106     1     1 W init    : Killed 2 additional processes from a oneshot process group for service \u0027vendor.atrace-hal-1-0\u0027. This is new behavior, previously child processes would not be killed in this case.\n    \nAfter this, tracing no longer works, even outside of the chroot.\n\nI added a comment to that effect, but I\u0027m afraid I\u0027m not sure what\u0027s going on.\n\nThanks!\nPierre",
+      "revId": "02fa55d9b52f5c1dc065e3f8fd63966d3bc5a83b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
