@@ -63,6 +63,30 @@
       },
       "revId": "3e42a7ea9e5f727d910a01eb36294b594f739d55",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ae287d8_72f214bb",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1280281
+      },
+      "writtenOn": "2023-11-07T14:34:41Z",
+      "side": 1,
+      "message": "It appears to me that on 4K systems this would result in using a bit more virtual memory usage but shouldn\u0027t affect physical memory consumption.\n\nThis is zero-initialized memory so shouldn\u0027t need to be mapped from file - it would be located in .bss section which is zero-filled by the kernel. If no access is performed into the 4K virtual pages added here, then kernel shouldn\u0027t allocate physical memory for them: instead they should be read-only mapping to the zero page.",
+      "parentUuid": "3734c3a5_8f9bf12c",
+      "range": {
+        "startLine": 52,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 84
+      },
+      "revId": "3e42a7ea9e5f727d910a01eb36294b594f739d55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
