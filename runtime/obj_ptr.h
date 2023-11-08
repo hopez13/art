@@ -33,7 +33,7 @@ constexpr bool kObjPtrPoisoning = kIsDebugBuild;
 
 // It turns out that most of the performance overhead comes from copying. Don't validate for now.
 // This defers finding stale ObjPtr objects until they are used.
-constexpr bool kObjPtrPoisoningValidateOnCopy = false;
+constexpr bool kObjPtrPoisoningValidateOnCopy = kObjPtrPoisoning;
 
 // Value type representing a pointer to a mirror::Object of type MirrorType
 // Since the cookie is thread based, it is not safe to share an ObjPtr between threads.
