@@ -87,6 +87,30 @@
       },
       "revId": "3e42a7ea9e5f727d910a01eb36294b594f739d55",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b2681a1_f976468c",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-11-08T06:32:11Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "1ae287d8_72f214bb",
+      "range": {
+        "startLine": 52,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 84
+      },
+      "revId": "3e42a7ea9e5f727d910a01eb36294b594f739d55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
