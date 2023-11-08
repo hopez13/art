@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1747fa7a_f457750b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-11-08T00:27:51Z",
+      "side": 1,
+      "message": "set to wip - not ready due to linker64 segv even with prebuilt qemu. can try again in a month.",
+      "revId": "bcbda90404087ff83c7b817f199e95ae8de36f0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "940e138d_38ef437c",
