@@ -242,11 +242,8 @@ def gather_test_info():
   VARIANT_TYPE_DICT['jvmti'] = {'no-jvmti', 'jvmti-stress', 'redefine-stress', 'trace-stress',
                                 'field-stress', 'step-stress'}
   VARIANT_TYPE_DICT['compiler'] = {'interp-ac', 'interpreter', 'jit', 'jit-on-first-use',
-                                   'optimizing', 'regalloc_gc',
+                                   'optimizing',
                                    'speed-profile', 'baseline'}
-
-  # Regalloc_GC cannot work with prebuild.
-  NONFUNCTIONAL_VARIANT_SETS.add(frozenset({'regalloc_gc', 'prebuild'}))
 
   for v_type in VARIANT_TYPE_DICT:
     TOTAL_VARIANTS_SET = TOTAL_VARIANTS_SET.union(VARIANT_TYPE_DICT.get(v_type))
@@ -526,10 +523,6 @@ def run_tests(tests):
 
       if compiler == 'optimizing':
         args_test += ['--optimizing']
-      elif compiler == 'regalloc_gc':
-        args_test += ['--optimizing',
-                '-Xcompiler-option',
-                '--register-allocation-strategy=graph-color']
       elif compiler == 'interpreter':
         args_test += ['--interpreter']
       elif compiler == 'interp-ac':
