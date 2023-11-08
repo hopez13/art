@@ -22,6 +22,30 @@
       },
       "revId": "6985808e79ea3dfb0d0a8371b0fbaf0dbf68a2ff",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5986ae3b_2ef8dc4d",
+        "filename": "build/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2023-11-08T07:57:51Z",
+      "side": 1,
+      "message": "After reading your comment I tried re-running `m tidy-art` locally and indeed it did not flag any issues of this type - either the check is not working properly or we are actually free from this issue. I\u0027m going to submit this anyway, so that if/when we manage to enable to run clang-tidy as presubmit this will be caught going forward.",
+      "parentUuid": "2823b442_afdecc38",
+      "range": {
+        "startLine": 37,
+        "startChar": 5,
+        "endLine": 37,
+        "endChar": 41
+      },
+      "revId": "6985808e79ea3dfb0d0a8371b0fbaf0dbf68a2ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
