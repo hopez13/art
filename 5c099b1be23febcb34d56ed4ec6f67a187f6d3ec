@@ -22,6 +22,30 @@
       },
       "revId": "5c099b1be23febcb34d56ed4ec6f67a187f6d3ec",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e5eaaec8_0135612d",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-11-08T15:07:13Z",
+      "side": 1,
+      "message": "Done\n\nNo other method in the verifier has `Maybe` prefix.  But at least I enforced that the return value must be used.",
+      "parentUuid": "d75adb1e_600fdab1",
+      "range": {
+        "startLine": 163,
+        "startChar": 21,
+        "endLine": 163,
+        "endChar": 32
+      },
+      "revId": "5c099b1be23febcb34d56ed4ec6f67a187f6d3ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
