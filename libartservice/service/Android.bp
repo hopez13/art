@@ -256,3 +256,14 @@ android_test {
     test_suites: ["general-tests"],
     test_config: "ArtServiceTests.xml",
 }
+
+filegroup {
+    name: "art_dex_use_proto",
+    srcs: [
+        "proto/dex_use.proto",
+        "proto/common.proto",
+    ],
+    visibility: [
+        "//cts/hostsidetests/compilation",
+    ],
+}
