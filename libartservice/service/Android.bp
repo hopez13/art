@@ -146,7 +146,7 @@ java_library {
         type: "lite",
     },
     srcs: [
-        "proto/**/*.proto",
+        ":libartservice_protos",
     ],
     sdk_version: "system_server_current",
     min_sdk_version: "31",
@@ -255,4 +255,24 @@ android_test {
 
     test_suites: ["general-tests"],
     test_config: "ArtServiceTests.xml",
+}
+
+filegroup {
+    name: "libartservice_protos",
+    srcs: [
+        "proto/**/*.proto",
+    ],
+    visibility: [
+        "//cts/hostsidetests/compilation",
+    ],
+}
+
+filegroup {
+    name: "libartservice_dex_use_proto",
+    srcs: [
+        "proto/dex_use.proto",
+    ],
+    visibility: [
+        "//cts/hostsidetests/compilation",
+    ],
 }
