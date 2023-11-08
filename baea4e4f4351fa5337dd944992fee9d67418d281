@@ -22,6 +22,30 @@
       },
       "revId": "baea4e4f4351fa5337dd944992fee9d67418d281",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed016c3e_350b24ce",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 535,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-11-08T01:12:51Z",
+      "side": 0,
+      "message": "Yes and no - remarkably NterpGetShortyFromMethodId avoided clobbering t0 so we didn\u0027t notice, but if the compiler made different choices we\u0027d be exposed.",
+      "parentUuid": "9fd00625_55659349",
+      "range": {
+        "startLine": 535,
+        "startChar": 3,
+        "endLine": 535,
+        "endChar": 38
+      },
+      "revId": "baea4e4f4351fa5337dd944992fee9d67418d281",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

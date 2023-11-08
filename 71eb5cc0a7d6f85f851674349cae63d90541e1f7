@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d29c7bed_a2296ef9",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 730,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-11-08T01:12:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a2a88d60_6b7e8184",
+      "range": {
+        "startLine": 730,
+        "startChar": 57,
+        "endLine": 730,
+        "endChar": 58
+      },
+      "revId": "71eb5cc0a7d6f85f851674349cae63d90541e1f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5c88a856_8a5d798d",
@@ -54,6 +78,30 @@
       "writtenOn": "2023-11-06T15:55:33Z",
       "side": 1,
       "message": "Should we use `__POINTER_SIZE__`? (`ArtMethod*` slot)",
+      "range": {
+        "startLine": 731,
+        "startChar": 17,
+        "endLine": 731,
+        "endChar": 18
+      },
+      "revId": "71eb5cc0a7d6f85f851674349cae63d90541e1f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5a93e0b_f3ec6bba",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 731,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-11-08T01:12:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c88a856_8a5d798d",
       "range": {
         "startLine": 731,
         "startChar": 17,
@@ -87,6 +135,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "767e3503_f7adfdef",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 732,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-11-08T01:12:51Z",
+      "side": 1,
+      "message": "Replaced BEXTI",
+      "parentUuid": "69525450_e73fd517",
+      "range": {
+        "startLine": 732,
+        "startChar": 3,
+        "endLine": 732,
+        "endChar": 39
+      },
+      "revId": "71eb5cc0a7d6f85f851674349cae63d90541e1f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "41be9d8d_1a65be3c",
@@ -100,6 +172,30 @@
       "writtenOn": "2023-11-06T15:55:33Z",
       "side": 1,
       "message": "For even \"A\", these stores shall be unaligned. Should we instead start with a 32-bit copy, then (A-8)/2 64-bit copies and finish with a 32-bit copy if (A\u00261)?\n\n(Maybe we don\u0027t care. Methods with many args should be pretty rare. Furthermore, we cannot control alignment for both loads and stores anyway.)",
+      "range": {
+        "startLine": 741,
+        "startChar": 3,
+        "endLine": 741,
+        "endChar": 16
+      },
+      "revId": "71eb5cc0a7d6f85f851674349cae63d90541e1f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b52bb1b2_93bd023b",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 741,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-11-08T01:12:51Z",
+      "side": 1,
+      "message": "Inclined to leave as-is, but will leave a note.",
+      "parentUuid": "41be9d8d_1a65be3c",
       "range": {
         "startLine": 741,
         "startChar": 3,
@@ -135,6 +231,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1693e875_c25893b2",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1022,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-11-08T01:12:51Z",
+      "side": 1,
+      "message": "What do you think of just simplifying both string_init variants right now? Any reason not to?",
+      "parentUuid": "a5ab103a_f601cce6",
+      "range": {
+        "startLine": 1022,
+        "startChar": 69,
+        "endLine": 1022,
+        "endChar": 72
+      },
+      "revId": "71eb5cc0a7d6f85f851674349cae63d90541e1f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "625bda78_754f62f1",
         "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
         "patchSetId": 2
@@ -146,6 +266,24 @@
       "writtenOn": "2023-11-03T23:57:03Z",
       "side": 1,
       "message": "oops. i\u0027ll replace bexti/beqz with the new macro on next upload.",
+      "revId": "71eb5cc0a7d6f85f851674349cae63d90541e1f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "75a8cd64_6ff9319c",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1202,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-11-08T01:12:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "625bda78_754f62f1",
       "revId": "71eb5cc0a7d6f85f851674349cae63d90541e1f7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -163,6 +301,30 @@
       "writtenOn": "2023-11-06T15:55:33Z",
       "side": 1,
       "message": "Reorder? (Both loads before stores.)",
+      "range": {
+        "startLine": 1459,
+        "startChar": 3,
+        "endLine": 1460,
+        "endChar": 16
+      },
+      "revId": "71eb5cc0a7d6f85f851674349cae63d90541e1f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "92a88234_68577994",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1460,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-11-08T01:12:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "74bc56f5_e82202a2",
       "range": {
         "startLine": 1459,
         "startChar": 3,
