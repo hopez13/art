@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d75adb1e_600fdab1",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-11-08T13:43:23Z",
+      "side": 1,
+      "message": "Can you add some comments on this method explaining what it does? i.e. something like ```Converts the pointer `ptr` into `offset`. Returns `true` if the offset is within the bounds of the container.```\n\nbikeshed: WDYT about `MaybePointerToOffset`? To differentiate from the other one. Maybe name the other one `PtrToOffsetChecked`?",
+      "range": {
+        "startLine": 163,
+        "startChar": 21,
+        "endLine": 163,
+        "endChar": 32
+      },
+      "revId": "5c099b1be23febcb34d56ed4ec6f67a187f6d3ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
