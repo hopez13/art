@@ -148,7 +148,6 @@ static constexpr size_t kRuntimeParameterFpuRegistersLength =
   V(ReferenceGetReferent)                       \
   V(ReferenceRefersTo)                          \
   V(IntegerValueOf)                             \
-  V(ThreadInterrupted)                          \
   V(CRC32Update)                                \
   V(CRC32UpdateBytes)                           \
   V(CRC32UpdateByteBuffer)                      \
