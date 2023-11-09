@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3186f6cf_d0d1d06f",
+        "filename": "libartbase/base/globals.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1280281
+      },
+      "writtenOn": "2023-11-09T17:00:20Z",
+      "side": 1,
+      "message": "This patch is indeed an intermediate step preparing for the subsequent dependent patches. I could move these temporarily to a .cc file and then to remove in the next patches if that\u0027s preferable.",
+      "parentUuid": "7451087a_58751a65",
+      "range": {
+        "startLine": 67,
+        "startChar": 20,
+        "endLine": 67,
+        "endChar": 28
+      },
+      "revId": "3c505cf168abd1c844b8a6ec946e521237e7c3e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c3fce3b0_46bc4856",
         "filename": "libartbase/base/mem_map_test.cc",
         "patchSetId": 5
@@ -37,6 +61,30 @@
       "writtenOn": "2023-10-13T21:51:44Z",
       "side": 1,
       "message": "Now that this is a normal local variable, please rename like one. For instance `map_size`. The same applies to other changes in this file.",
+      "range": {
+        "startLine": 385,
+        "startChar": 15,
+        "endLine": 385,
+        "endChar": 23
+      },
+      "revId": "3c505cf168abd1c844b8a6ec946e521237e7c3e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e736e56_49673dd6",
+        "filename": "libartbase/base/mem_map_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 1280281
+      },
+      "writtenOn": "2023-11-09T17:00:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c3fce3b0_46bc4856",
       "range": {
         "startLine": 385,
         "startChar": 15,
@@ -60,6 +108,30 @@
       "writtenOn": "2023-10-13T21:51:44Z",
       "side": 1,
       "message": "Rename to `max_buffer_size`",
+      "range": {
+        "startLine": 501,
+        "startChar": 15,
+        "endLine": 501,
+        "endChar": 29
+      },
+      "revId": "3c505cf168abd1c844b8a6ec946e521237e7c3e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc6c5cb8_6f57ac07",
+        "filename": "libartbase/base/unix_file/fd_file.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 501,
+      "author": {
+        "id": 1280281
+      },
+      "writtenOn": "2023-11-09T17:00:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2283bf86_ec597aea",
       "range": {
         "startLine": 501,
         "startChar": 15,
@@ -95,6 +167,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "04e80cb8_d19cd798",
+        "filename": "runtime/jni/local_reference_table.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1280281
+      },
+      "writtenOn": "2023-11-09T17:00:20Z",
+      "side": 1,
+      "message": "This is currently done as part of the https://android-review.googlesource.com/c/platform/art/+/2767955 (the next patch) - would it be suitable to keep the renaming separate?",
+      "parentUuid": "9550a6c5_66660289",
+      "range": {
+        "startLine": 44,
+        "startChar": 20,
+        "endLine": 44,
+        "endChar": 32
+      },
+      "revId": "3c505cf168abd1c844b8a6ec946e521237e7c3e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0910083a_8bfb7679",
         "filename": "runtime/jni/local_reference_table_test.cc",
         "patchSetId": 5
@@ -106,6 +202,24 @@
       "writtenOn": "2023-10-13T21:51:44Z",
       "side": 1,
       "message": "Rename to `refs_per_page`",
+      "revId": "3c505cf168abd1c844b8a6ec946e521237e7c3e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6caad309_4e780d89",
+        "filename": "runtime/jni/local_reference_table_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 833,
+      "author": {
+        "id": 1280281
+      },
+      "writtenOn": "2023-11-09T17:00:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0910083a_8bfb7679",
       "revId": "3c505cf168abd1c844b8a6ec946e521237e7c3e7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -133,6 +247,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e661f5da_3baf2f62",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1456,
+      "author": {
+        "id": 1280281
+      },
+      "writtenOn": "2023-11-09T17:00:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f1574072_184cb6e3",
+      "range": {
+        "startLine": 1456,
+        "startChar": 20,
+        "endLine": 1456,
+        "endChar": 33
+      },
+      "revId": "3c505cf168abd1c844b8a6ec946e521237e7c3e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2aca7580_2b5a4ee8",
@@ -146,6 +284,30 @@
       "writtenOn": "2023-10-13T21:51:44Z",
       "side": 1,
       "message": "Rename to `gStackOverflowProtectedSize`",
+      "range": {
+        "startLine": 155,
+        "startChar": 20,
+        "endLine": 155,
+        "endChar": 47
+      },
+      "revId": "3c505cf168abd1c844b8a6ec946e521237e7c3e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b2e96073_4c0a36bd",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1280281
+      },
+      "writtenOn": "2023-11-09T17:00:20Z",
+      "side": 1,
+      "message": "This is currently done as part of the https://android-review.googlesource.com/c/platform/art/+/2767955 - the next patch.\nI could split that commit and move the related part here and the rest into https://android-review.googlesource.com/c/platform/art/+/2735628 that makes gPageSize dynamic, if that\u0027s preferable.",
+      "parentUuid": "2aca7580_2b5a4ee8",
       "range": {
         "startLine": 155,
         "startChar": 20,
