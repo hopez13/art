@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e9a0aabf_1f47a775",
+        "filename": "compiler/optimizing/intrinsics_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1685,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-11-09T12:24:07Z",
+      "side": 1,
+      "message": "This should be RNE. I uploaded a fixed patch set with some additional cleanup.",
+      "range": {
+        "startLine": 1685,
+        "startChar": 56,
+        "endLine": 1685,
+        "endChar": 59
+      },
+      "revId": "86efab5323a92c23d1cfe4b77f58d83f8d59ccb6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
