@@ -22,6 +22,30 @@
       },
       "revId": "b3e22a075129ec3c3ef4d1be14d53659dce0a426",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c6fa17a_0cc1070f",
+        "filename": "compiler/optimizing/intrinsics_riscv64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 605,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-11-09T15:19:23Z",
+      "side": 1,
+      "message": "The comment points out that the `old_value` register does not need to be preserved. Should I make it more explicit?\n\nThe old value we need to return is `static_cast\u003cT\u003e((*ptr) \u003e\u003e shift)` where `ptr` is `int32_t*`. The `static_cast\u003cT\u003e(.)` requires a sign-/zero-extension. Using the `((*ptr) \u0026 mask) \u003e\u003e shift`, that is `masked \u003e\u003e shift`, means that we already have a zero-extended old value, so only sign-extension needs to be handled explicitly.\n\nThe value we need to store back to `*ptr` is `((*ptr) \u0026 ~mask) | new_value` and we calculate that in the register `old_value`.",
+      "parentUuid": "a0225fff_ac9e2c37",
+      "range": {
+        "startLine": 605,
+        "startChar": 4,
+        "endLine": 605,
+        "endChar": 12
+      },
+      "revId": "b3e22a075129ec3c3ef4d1be14d53659dce0a426",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
