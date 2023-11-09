@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b8b636f7_3f082bc2",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2776,
+      "author": {
+        "id": 1280281
+      },
+      "writtenOn": "2023-11-09T16:47:05Z",
+      "side": 1,
+      "message": "This part is now updated - with https://android-review.googlesource.com/c/platform/art/+/2816536/1 the size alignment isn\u0027t needed at all.",
+      "parentUuid": "a339fc30_4e6f0f8c",
+      "range": {
+        "startLine": 2775,
+        "startChar": 1,
+        "endLine": 2776,
+        "endChar": 89
+      },
+      "revId": "0dda4bf7560b9bfb2e9d616d72567e2c34921249",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ba7e9b0b_8031ecc4",
         "filename": "runtime/runtime_image.cc",
         "patchSetId": 4
@@ -54,6 +78,30 @@
       "writtenOn": "2023-10-27T15:01:06Z",
       "side": 1,
       "message": "This comment might need to be updated too.\nI\u0027d also like to extend it with a hint on why the object_section_size_ should be rounded up to page size in this expression, however I\u0027ve not found an obvious answer to that yet.\n\nThe Init function (which seems to be the loader for images written by this function) at https://cs.android.com/android/platform/superproject/main/+/main:art/runtime/gc/space/image_space.cc;l\u003d794;drc\u003dcb81a814f6dc46987678e658a42cb4e1547186d6 rounds the value to kCardSize which is 1024 at the moment.\n\nI\u0027d appreciate any hints on this.",
+      "range": {
+        "startLine": 115,
+        "startChar": 4,
+        "endLine": 116,
+        "endChar": 55
+      },
+      "revId": "0dda4bf7560b9bfb2e9d616d72567e2c34921249",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd874f8c_b3fff836",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1280281
+      },
+      "writtenOn": "2023-11-09T16:47:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ba7e9b0b_8031ecc4",
       "range": {
         "startLine": 115,
         "startChar": 4,
@@ -101,6 +149,30 @@
       "side": 1,
       "message": "To me it seems that turning the statement above into a code comment would be more helpful than renaming.",
       "parentUuid": "f6967526_6c9e0a59",
+      "range": {
+        "startLine": 130,
+        "startChar": 57,
+        "endLine": 130,
+        "endChar": 77
+      },
+      "revId": "0dda4bf7560b9bfb2e9d616d72567e2c34921249",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "652025ff_87439b0a",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1280281
+      },
+      "writtenOn": "2023-11-09T16:47:05Z",
+      "side": 1,
+      "message": "Done - added a comment.",
+      "parentUuid": "9da40394_216508f8",
       "range": {
         "startLine": 130,
         "startChar": 57,

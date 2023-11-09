@@ -87,6 +87,30 @@
       },
       "revId": "3551f766a6fa2663ea7016594f914c256b84c9a1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2dbe09b9_6e1eb5af",
+        "filename": "runtime/gc/accounting/space_bitmap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1280281
+      },
+      "writtenOn": "2023-11-09T16:47:05Z",
+      "side": 1,
+      "message": "Updated further: the rounding of the bitmap size has been removed.",
+      "parentUuid": "36975de0_0af890b0",
+      "range": {
+        "startLine": 93,
+        "startChar": 40,
+        "endLine": 93,
+        "endChar": 82
+      },
+      "revId": "3551f766a6fa2663ea7016594f914c256b84c9a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
