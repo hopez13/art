@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9b9e7803_2685f1b4",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1463,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-11-09T09:40:29Z",
+      "side": 1,
+      "message": "I meant `if (!allow_potential_overflow) { ... }` instead of `if (allow_potential_overflow) { ... }`.\n\nIf you want to keep these optimizations, we could still restructure the code:\n\n    HInstruction* operation \u003d nullptr;\n    if (!allow_potential_overflow) {\n      // Checks for kAdd/kSub, including setting an optimized `operation`\n      [...]\n    }\n    if (graph !\u003d nullptr \u0026\u0026 operation \u003d\u003d nullptr) {\n      switch (info-\u003eoperation) {\n        // Old terse operation creation.\n        [...]\n      }\n    }",
+      "parentUuid": "6f8f6494_1582866d",
+      "range": {
+        "startLine": 1463,
+        "startChar": 14,
+        "endLine": 1463,
+        "endChar": 48
+      },
+      "revId": "0d6d666be0ad7c5cc3c8a5ebd5acaea6487d859a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "54698f2d_5ae6cfbf",
         "filename": "compiler/optimizing/induction_var_range.cc",
         "patchSetId": 3
