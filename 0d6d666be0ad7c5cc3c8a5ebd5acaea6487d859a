@@ -20,6 +20,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6f8f6494_1582866d",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1463,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-11-09T09:33:58Z",
+      "side": 1,
+      "message": "The code below is quite complex. I\u0027d prefer to have a filtering `if (allow_potential_overflow) { ... }` block first, followed by the old terse `if (graph !\u003d nullptr) { ... switch ... }` generation code.\n\nI would hope that the above `GenerateCode()` calls can return constants if corresponding `IsConstant()` would return true. Therefore the optimizations below where we use a pre-calculated constant or a simplified expression as `operation` can be left to a subsequent constant folding and instruction simplification passes. (Waste a bit of memory and time in order to keep the code simple.)",
+      "range": {
+        "startLine": 1463,
+        "startChar": 14,
+        "endLine": 1463,
+        "endChar": 48
+      },
+      "revId": "0d6d666be0ad7c5cc3c8a5ebd5acaea6487d859a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "54698f2d_5ae6cfbf",
         "filename": "compiler/optimizing/induction_var_range.cc",
         "patchSetId": 3
