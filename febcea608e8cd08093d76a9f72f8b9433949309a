@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": false,
       "key": {
         "uuid": "29dba003_ede2e9ff",
         "filename": "/PATCHSET_LEVEL",
@@ -14,10 +15,10 @@
       "side": 1,
       "message": "Carmen, this is the final patch (hopefully). Can you please run one more test to confirm that it is working as intended?",
       "revId": "febcea608e8cd08093d76a9f72f8b9433949309a",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "5be1e92f_bd714b3a",
         "filename": "runtime/gc/heap-inl.h",
@@ -37,10 +38,10 @@
         "endChar": 73
       },
       "revId": "febcea608e8cd08093d76a9f72f8b9433949309a",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "1cd89507_0abc080f",
         "filename": "runtime/gc/heap-inl.h",
@@ -61,10 +62,10 @@
         "endChar": 73
       },
       "revId": "febcea608e8cd08093d76a9f72f8b9433949309a",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "d63f1255_71b89879",
         "filename": "runtime/gc/heap-inl.h",
@@ -85,10 +86,34 @@
         "endChar": 73
       },
       "revId": "febcea608e8cd08093d76a9f72f8b9433949309a",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "8236f36e_87acceea",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-11-09T18:08:42Z",
+      "side": 1,
+      "message": "\u0027Yes\u0027 to both your questions.\n\nFor your last question: we just skip updating last_reported_heap_size_ and instead wait for gc-thread to update it. In case if gc-thread happens to update it with num_bytes_allocated before it was added into, then eventually the next allocation will make value consistent.",
+      "parentUuid": "d63f1255_71b89879",
+      "range": {
+        "startLine": 201,
+        "startChar": 48,
+        "endLine": 201,
+        "endChar": 73
+      },
+      "revId": "febcea608e8cd08093d76a9f72f8b9433949309a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "d9c2d558_91509286",
         "filename": "runtime/gc/heap-inl.h",
@@ -108,10 +133,10 @@
         "endChar": 28
       },
       "revId": "febcea608e8cd08093d76a9f72f8b9433949309a",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "8bc5dcc2_31351f25",
         "filename": "runtime/gc/heap-inl.h",
@@ -132,10 +157,10 @@
         "endChar": 28
       },
       "revId": "febcea608e8cd08093d76a9f72f8b9433949309a",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "c0448784_e3c02715",
         "filename": "runtime/gc/heap-inl.h",
@@ -156,10 +181,34 @@
         "endChar": 28
       },
       "revId": "febcea608e8cd08093d76a9f72f8b9433949309a",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "444db466_150a494f",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-11-09T18:08:42Z",
+      "side": 1,
+      "message": "That can certainly happen, but will fail the while loop\u0027s condition itself and hence we won\u0027t even attempt the CAS.",
+      "parentUuid": "c0448784_e3c02715",
+      "range": {
+        "startLine": 228,
+        "startChar": 17,
+        "endLine": 229,
+        "endChar": 28
+      },
+      "revId": "febcea608e8cd08093d76a9f72f8b9433949309a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "4352ab0d_eb423362",
         "filename": "runtime/gc/heap.h",
@@ -179,10 +228,10 @@
         "endChar": 22
       },
       "revId": "febcea608e8cd08093d76a9f72f8b9433949309a",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "a19429ff_493a3719",
         "filename": "runtime/gc/heap.h",
@@ -203,10 +252,10 @@
         "endChar": 22
       },
       "revId": "febcea608e8cd08093d76a9f72f8b9433949309a",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "d0771c01_86f67847",
         "filename": "runtime/gc/heap.h",
@@ -227,8 +276,7 @@
         "endChar": 22
       },
       "revId": "febcea608e8cd08093d76a9f72f8b9433949309a",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

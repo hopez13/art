@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": true,
       "key": {
         "uuid": "21ef1b5f_57a02dd0",
         "filename": "runtime/gc/heap-inl.h",
@@ -14,10 +15,10 @@
       "side": 0,
       "message": "We also want to trace when we see this delta in the negative direction - just want to confirm that\u0027s the case as well? In the example you posted in the linked bug, the heap size only increases.",
       "revId": "e74df4c3f269f2f624fa6f093c48f901fe971002",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "16343608_479c1ea2",
         "filename": "runtime/gc/heap-inl.h",
@@ -32,10 +33,10 @@
       "message": "The heap size decrease is captured somewhere else in the code (right after GC).\n\nThe heap size does decrease (towards the end) in the trace that I added in the bug.",
       "parentUuid": "21ef1b5f_57a02dd0",
       "revId": "e74df4c3f269f2f624fa6f093c48f901fe971002",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "f4352a4f_4c4be2ab",
         "filename": "runtime/gc/heap-inl.h",
@@ -50,10 +51,10 @@
       "message": "It looks like it\u0027s called from GrowForUtilization, that should happen after each GC.",
       "parentUuid": "16343608_479c1ea2",
       "revId": "e74df4c3f269f2f624fa6f093c48f901fe971002",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "8579b75c_7b7b7c04",
         "filename": "runtime/gc/heap-inl.h",
@@ -68,10 +69,10 @@
       "message": "Isn\u0027t GrowForUtilization called after every GC?",
       "parentUuid": "f4352a4f_4c4be2ab",
       "revId": "e74df4c3f269f2f624fa6f093c48f901fe971002",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "b0f09d40_c86f3609",
         "filename": "runtime/gc/heap-inl.h",
@@ -86,8 +87,25 @@
       "message": "Oh great, thanks for confirming - I must have misread the snippet in the bug.",
       "parentUuid": "8579b75c_7b7b7c04",
       "revId": "e74df4c3f269f2f624fa6f093c48f901fe971002",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d8e6d97_edcb92a5",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-11-09T18:08:42Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "b0f09d40_c86f3609",
+      "revId": "e74df4c3f269f2f624fa6f093c48f901fe971002",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

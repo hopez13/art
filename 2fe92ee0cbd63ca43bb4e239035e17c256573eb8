@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": true,
       "key": {
         "uuid": "15670f46_9e70bd34",
         "filename": "runtime/gc/heap-inl.h",
@@ -20,10 +21,10 @@
         "endChar": 62
       },
       "revId": "2fe92ee0cbd63ca43bb4e239035e17c256573eb8",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "9885ab7b_daaf19ba",
         "filename": "runtime/gc/heap-inl.h",
@@ -44,10 +45,34 @@
         "endChar": 62
       },
       "revId": "2fe92ee0cbd63ca43bb4e239035e17c256573eb8",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "72b04ed6_95a88051",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-11-09T18:08:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9885ab7b_daaf19ba",
+      "range": {
+        "startLine": 200,
+        "startChar": 38,
+        "endLine": 200,
+        "endChar": 62
+      },
+      "revId": "2fe92ee0cbd63ca43bb4e239035e17c256573eb8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "c57c3c54_06967661",
         "filename": "runtime/gc/heap.cc",
@@ -67,10 +92,10 @@
         "endChar": 79
       },
       "revId": "2fe92ee0cbd63ca43bb4e239035e17c256573eb8",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "e3af94b5_15bd59df",
         "filename": "runtime/gc/heap.cc",
@@ -91,8 +116,7 @@
         "endChar": 79
       },
       "revId": "2fe92ee0cbd63ca43bb4e239035e17c256573eb8",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

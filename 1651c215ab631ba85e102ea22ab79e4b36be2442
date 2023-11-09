@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": false,
       "key": {
         "uuid": "abd38c40_e1ab55bf",
         "filename": "/PATCHSET_LEVEL",
@@ -14,10 +15,10 @@
       "side": 1,
       "message": "Hans/Mathieu, PTAL at the latest patch. I have simplified and fixed the memory order issue that Hans raised earlier.",
       "revId": "1651c215ab631ba85e102ea22ab79e4b36be2442",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "9ca6459e_6feb8bf6",
         "filename": "/PATCHSET_LEVEL",
@@ -31,10 +32,10 @@
       "side": 1,
       "message": "+1 until Hans comments regarding the acquire load",
       "revId": "1651c215ab631ba85e102ea22ab79e4b36be2442",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "f9bace28_6a63ec73",
         "filename": "runtime/gc/heap.cc",
@@ -54,8 +55,31 @@
         "endChar": 49
       },
       "revId": "1651c215ab631ba85e102ea22ab79e4b36be2442",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0fef3638_90ded5bc",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 3530,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-11-09T18:08:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f9bace28_6a63ec73",
+      "range": {
+        "startLine": 3530,
+        "startChar": 40,
+        "endLine": 3530,
+        "endChar": 49
+      },
+      "revId": "1651c215ab631ba85e102ea22ab79e4b36be2442",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
