@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "40124c92_4f2cd92a",
+        "filename": "libartbase/base/global_const.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1280281
+      },
+      "writtenOn": "2023-11-09T17:31:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1eb9fbdb_bc437959",
+      "range": {
+        "startLine": 17,
+        "startChar": 8,
+        "endLine": 17,
+        "endChar": 43
+      },
+      "revId": "1ed59d9e4b42e38f55ee300e044b44c9161ef268",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2745d1bc_85279fb4",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-10-17T21:30:56Z",
       "side": 1,
       "message": "I see that this solves the initialization ordering issues. But any idea of how further more expensive is this as compared to a simple global variable? I\u0027m guessing at the least compiler will have to check on every invocation if the initialization is already done or not.",
+      "range": {
+        "startLine": 31,
+        "startChar": 2,
+        "endLine": 31,
+        "endChar": 22
+      },
+      "revId": "1ed59d9e4b42e38f55ee300e044b44c9161ef268",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c85a62a3_a3422118",
+        "filename": "libartbase/base/global_const.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1280281
+      },
+      "writtenOn": "2023-11-09T17:31:13Z",
+      "side": 1,
+      "message": "In the current implementation it is fairly expensive. We\u0027re working on optimizing this - both the accessor implementation and the places from where accesses are performed. The current version isn\u0027t expected to affect the fixed 4K configuration where the value is still a constexpr. There is b/309032504 summarizing the optimizations planned to be implemented.",
+      "parentUuid": "2745d1bc_85279fb4",
       "range": {
         "startLine": 31,
         "startChar": 2,
@@ -119,6 +167,54 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6d3b6e63_bc5eab17",
+        "filename": "libartbase/base/page_size_agnostic_globals.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1280281
+      },
+      "writtenOn": "2023-11-09T17:31:13Z",
+      "side": 1,
+      "message": "It would appear the other variables can also be subject to static initialization order issue - especially following a refactoring such an issue might appear and be undetected for some time; unless the implementation uses an approach which guarantees correct order of initialization.\n\nFollowing a suggestion in another comment, the patch was updated to ensure implementation itself guarantees correct order of initialization.\n\nIf this is reverted, then some alternative for verification would likely be needed to ensure the same e.g. based on AddressSanitizer.",
+      "parentUuid": "59552c11_bb9592ef",
+      "range": {
+        "startLine": 87,
+        "startChar": 0,
+        "endLine": 87,
+        "endChar": 30
+      },
+      "revId": "1ed59d9e4b42e38f55ee300e044b44c9161ef268",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42842f18_a3ab331a",
+        "filename": "libartbase/base/page_size_agnostic_globals.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1280281
+      },
+      "writtenOn": "2023-11-09T17:31:13Z",
+      "side": 1,
+      "message": "I could describe these cases in the comment if needed.",
+      "parentUuid": "bf66fed4_ec30e8a3",
+      "range": {
+        "startLine": 87,
+        "startChar": 49,
+        "endLine": 87,
+        "endChar": 91
+      },
+      "revId": "1ed59d9e4b42e38f55ee300e044b44c9161ef268",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "008f8cd2_a7ff5322",
         "filename": "runtime/jni/local_reference_table.cc",
         "patchSetId": 5
@@ -130,6 +226,30 @@
       "writtenOn": "2023-10-17T21:30:56Z",
       "side": 1,
       "message": "Not a compiler expert so asking: isn\u0027t it a a problem to declare something `extern` in a source file? That would happen here if page-agnosticism is enabled, right? \n\nIn fact, why is this required at all? Current code should suffice. I have observed in the past that if the initialization is a compile-time constant, then even if something is defined `const`, compiler implicitly converts it into a compile-time const.\n\nThe comment applies to `thread.cc` file change as well.",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 41
+      },
+      "revId": "1ed59d9e4b42e38f55ee300e044b44c9161ef268",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2695eab0_0921e521",
+        "filename": "runtime/jni/local_reference_table.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1280281
+      },
+      "writtenOn": "2023-11-09T17:31:13Z",
+      "side": 1,
+      "message": "`extern` in a source file should be alright - this happens during compilation when header files are integrated into module\u0027s source code.\n\nThis is needed to ensure the variable isn\u0027t subject to static initialization order issue - for the case when gPageSize is a variable and correspondingly gNumLrtSlots is also a statically initialized variable. For example, if an `SmallLrtAllocator` global is declared in another module then it\u0027s constructor would access gNumLrtSlots and that can be subject to the order issue.",
+      "parentUuid": "008f8cd2_a7ff5322",
       "range": {
         "startLine": 45,
         "startChar": 0,

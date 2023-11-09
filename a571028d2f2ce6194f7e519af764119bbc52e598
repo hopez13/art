@@ -166,6 +166,30 @@
       },
       "revId": "a571028d2f2ce6194f7e519af764119bbc52e598",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af18aefb_3abd4ac4",
+        "filename": "libartbase/base/globals.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1280281
+      },
+      "writtenOn": "2023-11-09T17:31:13Z",
+      "side": 1,
+      "message": "Some preliminary experiments suggested it doesn\u0027t generate optimal code for this. There is a plan to optimize the implementation along with other optimizations summarized at b/309032504. Would it be suitable if this is implemented in the subsequent chain of patches? This implementation isn\u0027t expected to affect the fixed 4K configuration where the value should still be a `constexpr`.",
+      "parentUuid": "041c3eeb_60329ae1",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 46
+      },
+      "revId": "a571028d2f2ce6194f7e519af764119bbc52e598",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
