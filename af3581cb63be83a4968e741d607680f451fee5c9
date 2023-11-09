@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4dc55b7_296ed060",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1649,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-11-09T12:30:47Z",
+      "side": 1,
+      "message": "Isn\u0027t this unnecessary? AFAICT, all calls have the instruction (constant, `opa` or `opb`) already in the graph.",
+      "range": {
+        "startLine": 1649,
+        "startChar": 24,
+        "endLine": 1649,
+        "endChar": 46
+      },
+      "revId": "af3581cb63be83a4968e741d607680f451fee5c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
