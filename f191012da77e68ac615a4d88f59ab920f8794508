@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc136b71_9ccd96b9",
+        "filename": "compiler/optimizing/intrinsics.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-11-09T15:51:29Z",
+      "side": 1,
+      "message": "We could define `WellKnownClasses` members\n\n    static constexpr ClassFromField\u003c\u0026java_lang_Integer_IntegerCache_cache\u003e\n        java_lang_Integer_IntegerCache;\n    static constexpr ClassFromMethod\u003c\u0026java_lang_Integer_valueOf\u003e\n        java_lang_Integer;",
+      "range": {
+        "startLine": 95,
+        "startChar": 54,
+        "endLine": 95,
+        "endChar": 81
+      },
+      "revId": "f191012da77e68ac615a4d88f59ab920f8794508",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "484c9c3f_0e9aa538",
+        "filename": "runtime/well_known_classes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-11-09T15:51:29Z",
+      "side": 1,
+      "message": "We have the other fields sorted by name and even the `*_valueOf` methods are interspersed with other methods. But if you want to keep this group apart, that\u0027s fine with me.",
+      "revId": "f191012da77e68ac615a4d88f59ab920f8794508",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
