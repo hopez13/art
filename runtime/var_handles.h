@@ -21,10 +21,21 @@
 
 namespace art {
 
+class VariableSizedHandleScope;
+
 bool VarHandleInvokeAccessor(Thread* self,
                              ShadowFrame& shadow_frame,
                              Handle<mirror::VarHandle> var_handle,
                              Handle<mirror::MethodType> callsite_type,
+                             const mirror::VarHandle::AccessMode access_mode,
+                             const InstructionOperands* const operands,
+                             JValue* result)
+    REQUIRES_SHARED(Locks::mutator_lock_);
+
+bool VarHandleInvokeAccessor(Thread* self,
+                             ShadowFrame& shadow_frame,
+                             Handle<mirror::VarHandle> var_handle,
+                             VariableSizedHandleScope* callsite_type_hs,
                              const mirror::VarHandle::AccessMode access_mode,
                              const InstructionOperands* const operands,
                              JValue* result)

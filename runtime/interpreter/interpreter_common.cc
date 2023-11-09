@@ -452,44 +452,67 @@ static bool DoVarHandleInvokeCommon(Thread* self,
     return false;
   }
 
-  StackHandleScope<2> hs(self);
   bool is_var_args = inst->HasVarArgs();
+  const uint32_t vRegC = is_var_args ? inst->VRegC_45cc() : inst->VRegC_4rcc();
   const uint16_t vRegH = is_var_args ? inst->VRegH_45cc() : inst->VRegH_4rcc();
+  StackHandleScope<4> hs(self);
+  Handle<mirror::VarHandle> var_handle = hs.NewHandle(
+      ObjPtr<mirror::VarHandle>::DownCast(shadow_frame.GetVRegReference(vRegC)));
+  ArtMethod* method = shadow_frame.GetMethod();
+  Handle<mirror::DexCache> dex_cache = hs.NewHandle(method->GetDexCache());
+  Handle<mirror::ClassLoader> class_loader = hs.NewHandle(method->GetClassLoader());
+  uint32_t var_args[Instruction::kMaxVarArgRegs];
+  std::optional<VarArgsInstructionOperands> var_args_operands(std::nullopt);
+  std::optional<RangeInstructionOperands> range_operands(std::nullopt);
+  InstructionOperands* all_operands;
+  if (is_var_args) {
+    inst->GetVarArgs(var_args, inst_data);
+    var_args_operands.emplace(var_args, inst->VRegA_45cc());
+    all_operands = &var_args_operands.value();
+  } else {
+    range_operands.emplace(inst->VRegC_4rcc(), inst->VRegA_4rcc());
+    all_operands = &range_operands.value();
+  }
+  NoReceiverInstructionOperands operands(all_operands);
+
   ClassLinker* const class_linker = Runtime::Current()->GetClassLinker();
+  // TODO: Find the right thing to gate this on. ClassLinker::init_done_ is not right.
+  if ((true) || UNLIKELY(!class_linker->IsInitialized())) {
+    // Do the `VarHandle` operation without creating a managed `MethodType` object.
+    // TODO: Explain why.
+    VariableSizedHandleScope callsite_type_hs(self);
+    if (!class_linker->ResolveProtoIdTypes(self,
+                                           dex::ProtoIndex(vRegH),
+                                           dex_cache,
+                                           class_loader,
+                                           &callsite_type_hs)) {
+      CHECK(self->IsExceptionPending());
+      return false;
+    }
+    return VarHandleInvokeAccessor(self,
+                                   shadow_frame,
+                                   var_handle,
+                                   &callsite_type_hs,
+                                   access_mode,
+                                   &operands,
+                                   result);
+  }
+
   Handle<mirror::MethodType> callsite_type(hs.NewHandle(
-      class_linker->ResolveMethodType(self, dex::ProtoIndex(vRegH), shadow_frame.GetMethod())));
+      class_linker->ResolveMethodType(self, dex::ProtoIndex(vRegH), dex_cache, class_loader)));
   // This implies we couldn't resolve one or more types in this VarHandle.
   if (UNLIKELY(callsite_type == nullptr)) {
     CHECK(self->IsExceptionPending());
     return false;
   }
 
-  const uint32_t vRegC = is_var_args ? inst->VRegC_45cc() : inst->VRegC_4rcc();
-  ObjPtr<mirror::Object> receiver(shadow_frame.GetVRegReference(vRegC));
-  Handle<mirror::VarHandle> var_handle(hs.NewHandle(ObjPtr<mirror::VarHandle>::DownCast(receiver)));
-  if (is_var_args) {
-    uint32_t args[Instruction::kMaxVarArgRegs];
-    inst->GetVarArgs(args, inst_data);
-    VarArgsInstructionOperands all_operands(args, inst->VRegA_45cc());
-    NoReceiverInstructionOperands operands(&all_operands);
-    return VarHandleInvokeAccessor(self,
-                                   shadow_frame,
-                                   var_handle,
-                                   callsite_type,
-                                   access_mode,
-                                   &operands,
-                                   result);
-  } else {
-    RangeInstructionOperands all_operands(inst->VRegC_4rcc(), inst->VRegA_4rcc());
-    NoReceiverInstructionOperands operands(&all_operands);
-    return VarHandleInvokeAccessor(self,
-                                   shadow_frame,
-                                   var_handle,
-                                   callsite_type,
-                                   access_mode,
-                                   &operands,
-                                   result);
-  }
+  return VarHandleInvokeAccessor(self,
+                                 shadow_frame,
+                                 var_handle,
+                                 callsite_type,
+                                 access_mode,
+                                 &operands,
+                                 result);
 }
 
 #define DO_VAR_HANDLE_ACCESSOR(_access_mode)                                                \

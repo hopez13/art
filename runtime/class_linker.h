@@ -66,6 +66,7 @@ class ScopedObjectAccessAlreadyRunnable;
 class SdkChecker;
 template<size_t kNumReferences> class PACKED(4) StackHandleScope;
 class Thread;
+class VariableSizedHandleScope;
 
 enum VisitRootFlags : uint8_t;
 
@@ -447,6 +448,16 @@ class ClassLinker {
                                                dex::ProtoIndex proto_idx,
                                                ArtMethod* referrer)
       REQUIRES_SHARED(Locks::mutator_lock_);
+
+  // Resolve the types from the `ProtoId` referenced by the `proto_idx` and store them
+  // in a `VariableSizedHandleScope`, first the return type and then the parameter types.
+  bool ResolveProtoIdTypes(Thread* self,
+                           dex::ProtoIndex proto_idx,
+                           Handle<mirror::DexCache> dex_cache,
+                           Handle<mirror::ClassLoader> class_loader,
+                           VariableSizedHandleScope* hs)
+      REQUIRES_SHARED(Locks::mutator_lock_)
+      REQUIRES(!Locks::dex_lock_, !Roles::uninterruptible_);
 
   // Resolve a method handle with a given ID from the DexFile. The
   // result is not cached in the DexCache as the instance will only be

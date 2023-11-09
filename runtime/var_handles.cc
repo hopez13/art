@@ -27,44 +27,98 @@ namespace art {
 
 namespace {
 
+template <typename MethodTypeType>
+class ThrowWrongMethodTypeFunctionImpl final : public ThrowWrongMethodTypeFunction {
+ public:
+  // The `VariableSizedHandleScope` must contain the return type followed
+  // by argument types and no other handles.
+  ThrowWrongMethodTypeFunctionImpl(MethodTypeType callsite_type, MethodTypeType callee_type)
+      : callsite_type_(callsite_type),
+        callee_type_(callee_type) {}
+
+  ~ThrowWrongMethodTypeFunctionImpl() {}
+
+  void operator()() const override REQUIRES_SHARED(Locks::mutator_lock_) {
+    ThrowWrongMethodTypeException(mirror::MethodType::PrettyDescriptor(callee_type_),
+                                  mirror::MethodType::PrettyDescriptor(callsite_type_));
+  }
+
+ private:
+  MethodTypeType callsite_type_;
+  MethodTypeType callee_type_;
+};
+
+Handle<mirror::MethodType> GetMethodTypeForAccessType(Thread* self,
+                                                      Handle<mirror::VarHandle> var_handle,
+                                                      mirror::VarHandle::AccessMode access_mode,
+                                                      StackHandleScope<3>* hs)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  return hs->NewHandle(var_handle->GetMethodTypeForAccessMode(self, access_mode));
+}
+
+VariableSizedHandleScope* GetMethodTypeForAccessType([[maybe_unused]] Thread* self,
+                                                     Handle<mirror::VarHandle> var_handle,
+                                                     mirror::VarHandle::AccessMode access_mode,
+                                                     VariableSizedHandleScope* hs)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  var_handle->GetMethodTypeForAccessMode(access_mode, hs);
+  return hs;
+}
+
+template <typename CallSiteType>
 bool VarHandleInvokeAccessorWithConversions(Thread* self,
                                             ShadowFrame& shadow_frame,
                                             Handle<mirror::VarHandle> var_handle,
-                                            Handle<mirror::MethodType> callsite_type,
-                                            const mirror::VarHandle::AccessMode access_mode,
-                                            const InstructionOperands* const operands,
+                                            CallSiteType callsite_type,
+                                            mirror::VarHandle::AccessMode access_mode,
+                                            const InstructionOperands* operands,
                                             JValue* result)
     REQUIRES_SHARED(Locks::mutator_lock_) {
-  StackHandleScope<1> hs(self);
-  Handle<mirror::MethodType> accessor_type(hs.NewHandle(
-      var_handle->GetMethodTypeForAccessMode(self, access_mode)));
-  const size_t num_vregs = accessor_type->NumberOfVRegs();
-  const int num_params = accessor_type->GetPTypes()->GetLength();
+  // For `VariableSizedHandleScope*`, we shall have a handle scope to contain the raw
+  // accessor type. Otherwise, we shall have a handle scope for managed object handles.
+  using HandleScopeType = std::conditional_t<
+      std::is_same_v<VariableSizedHandleScope*, CallSiteType>,
+      VariableSizedHandleScope,
+      StackHandleScope<3>>;
+  HandleScopeType hs(self);
+  auto accessor_type = GetMethodTypeForAccessType(self, var_handle, access_mode, &hs);
+  ThrowWrongMethodTypeFunctionImpl<CallSiteType> throw_wmt(callsite_type, accessor_type);
+  auto from_types = mirror::MethodType::NewHandlePTypes(callsite_type, &hs);
+  auto to_types = mirror::MethodType::NewHandlePTypes(accessor_type, &hs);
+  const size_t num_vregs = mirror::MethodType::NumberOfVRegs(accessor_type);
   ShadowFrameAllocaUniquePtr accessor_frame =
       CREATE_SHADOW_FRAME(num_vregs, shadow_frame.GetMethod(), shadow_frame.GetDexPC());
   ShadowFrameGetter getter(shadow_frame, operands);
   static const uint32_t kFirstDestinationReg = 0;
   ShadowFrameSetter setter(accessor_frame.get(), kFirstDestinationReg);
-  if (!PerformConversions(self, callsite_type, accessor_type, &getter, &setter, num_params)) {
+  if (!PerformConversions(throw_wmt, from_types, to_types, &getter, &setter)) {
+    DCHECK(self->IsExceptionPending());
     return false;
   }
   RangeInstructionOperands accessor_operands(kFirstDestinationReg,
                                              kFirstDestinationReg + num_vregs);
   if (!var_handle->Access(access_mode, accessor_frame.get(), &accessor_operands, result)) {
+    DCHECK(self->IsExceptionPending());
     return false;
   }
-  return ConvertReturnValue(callsite_type, accessor_type, result);
+  if (!ConvertReturnValue(throw_wmt,
+                          mirror::MethodType::GetRType(accessor_type),
+                          mirror::MethodType::GetRType(callsite_type),
+                          result)) {
+    DCHECK(self->IsExceptionPending());
+    return false;
+  }
+  return true;
 }
 
-}  // namespace
-
-bool VarHandleInvokeAccessor(Thread* self,
-                             ShadowFrame& shadow_frame,
-                             Handle<mirror::VarHandle> var_handle,
-                             Handle<mirror::MethodType> callsite_type,
-                             const mirror::VarHandle::AccessMode access_mode,
-                             const InstructionOperands* const operands,
-                             JValue* result) {
+template <typename CallSiteType>
+bool VarHandleInvokeAccessorImpl(Thread* self,
+                                 ShadowFrame& shadow_frame,
+                                 Handle<mirror::VarHandle> var_handle,
+                                 CallSiteType callsite_type,
+                                 const mirror::VarHandle::AccessMode access_mode,
+                                 const InstructionOperands* const operands,
+                                 JValue* result) REQUIRES_SHARED(Locks::mutator_lock_) {
   if (var_handle.IsNull()) {
     ThrowNullPointerExceptionFromDexPC();
     return false;
@@ -76,7 +130,7 @@ bool VarHandleInvokeAccessor(Thread* self,
   }
 
   mirror::VarHandle::MatchKind match_kind =
-      var_handle->GetMethodTypeMatchForAccessMode(access_mode, callsite_type.Get());
+      var_handle->GetMethodTypeMatchForAccessMode(access_mode, callsite_type);
   if (LIKELY(match_kind == mirror::VarHandle::MatchKind::kExact)) {
     return var_handle->Access(access_mode, &shadow_frame, operands, result);
   } else if (match_kind == mirror::VarHandle::MatchKind::kWithConversions) {
@@ -90,9 +144,33 @@ bool VarHandleInvokeAccessor(Thread* self,
   } else {
     DCHECK_EQ(match_kind, mirror::VarHandle::MatchKind::kNone);
     ThrowWrongMethodTypeException(var_handle->PrettyDescriptorForAccessMode(access_mode),
-                                  callsite_type->PrettyDescriptor());
+                                  mirror::MethodType::PrettyDescriptor(callsite_type));
     return false;
   }
+}
+
+}  // namespace
+
+bool VarHandleInvokeAccessor(Thread* self,
+                             ShadowFrame& shadow_frame,
+                             Handle<mirror::VarHandle> var_handle,
+                             Handle<mirror::MethodType> callsite_type,
+                             const mirror::VarHandle::AccessMode access_mode,
+                             const InstructionOperands* const operands,
+                             JValue* result) {
+  return VarHandleInvokeAccessorImpl(
+      self, shadow_frame, var_handle, callsite_type, access_mode, operands, result);
+}
+
+bool VarHandleInvokeAccessor(Thread* self,
+                             ShadowFrame& shadow_frame,
+                             Handle<mirror::VarHandle> var_handle,
+                             VariableSizedHandleScope* callsite_type,
+                             const mirror::VarHandle::AccessMode access_mode,
+                             const InstructionOperands* const operands,
+                             JValue* result) {
+  return VarHandleInvokeAccessorImpl(
+      self, shadow_frame, var_handle, callsite_type, access_mode, operands, result);
 }
 
 }  // namespace art
