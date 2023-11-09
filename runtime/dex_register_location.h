@@ -21,9 +21,10 @@
 #include <cstdint>
 
 #include "base/dchecked_vector.h"
+#include "base/macros.h"
 #include "base/memory_region.h"
 
-namespace art {
+namespace art HIDDEN {
 
 // Dex register location container used by DexRegisterMap and StackMapStream.
 class DexRegisterLocation {

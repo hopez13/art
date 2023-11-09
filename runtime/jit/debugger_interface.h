@@ -25,7 +25,7 @@
 #include "base/array_ref.h"
 #include "base/locks.h"
 
-namespace art {
+namespace art HIDDEN {
 
 class DexFile;
 class Mutex;

@@ -25,7 +25,7 @@
 #include "interpreter/mterp/nterp.h"
 #include "offsets.h"
 
-namespace art {
+namespace art HIDDEN {
 
 class ArtMethod;
 class ProfilingInfo;

@@ -26,7 +26,7 @@
 #include "quick/quick_method_frame_info.h"
 #include "stack_map.h"
 
-namespace art {
+namespace art HIDDEN {
 
 class ArtMethod;
 
@@ -43,8 +43,8 @@ class PACKED(4) OatQuickMethodHeader {
   }
 
   static OatQuickMethodHeader* NterpMethodHeader;
-  static ArrayRef<const uint8_t> NterpWithClinitImpl;
-  static ArrayRef<const uint8_t> NterpImpl;
+  EXPORT static ArrayRef<const uint8_t> NterpWithClinitImpl;
+  EXPORT static ArrayRef<const uint8_t> NterpImpl;
 
   bool IsNterpMethodHeader() const;
 

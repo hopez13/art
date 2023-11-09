@@ -20,9 +20,10 @@
 #include <string_view>
 
 #include "base/locks.h"
+#include "base/macros.h"
 #include "obj_ptr.h"
 
-namespace art {
+namespace art HIDDEN {
 namespace mirror {
 class Class;
 class Object;
@@ -83,7 +84,7 @@ void ThrowClassCastException(const char* msg)
 
 // ClassFormatError
 
-void ThrowClassFormatError(ObjPtr<mirror::Class> referrer, const char* fmt, ...)
+EXPORT void ThrowClassFormatError(ObjPtr<mirror::Class> referrer, const char* fmt, ...)
     __attribute__((__format__(__printf__, 2, 3)))
     REQUIRES_SHARED(Locks::mutator_lock_) COLD_ATTR;
 
@@ -229,7 +230,7 @@ void ThrowNullPointerExceptionForMethodAccess(ArtMethod* method,
 void ThrowNullPointerExceptionFromDexPC(bool check_address = false, uintptr_t addr = 0)
     REQUIRES_SHARED(Locks::mutator_lock_) COLD_ATTR;
 
-void ThrowNullPointerException(const char* msg)
+EXPORT void ThrowNullPointerException(const char* msg)
     REQUIRES_SHARED(Locks::mutator_lock_) COLD_ATTR;
 
 void ThrowNullPointerException()

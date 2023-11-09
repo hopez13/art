@@ -26,12 +26,13 @@
 #include "base/bit_utils.h"
 #include "base/globals.h"
 #include "base/logging.h"
+#include "base/macros.h"
 #include "base/memory_region.h"
 #include "dex/dex_file_types.h"
 #include "dex_register_location.h"
 #include "quick/quick_method_frame_info.h"
 
-namespace art {
+namespace art HIDDEN {
 
 namespace linker {
 class CodeInfoTableDeduper;
@@ -166,7 +167,7 @@ class StackMap : public BitTableAccessor<8> {
     return native_pc;
   }
 
-  void Dump(VariableIndentationOutputStream* vios,
+  EXPORT void Dump(VariableIndentationOutputStream* vios,
             const CodeInfo& code_info,
             uint32_t code_offset,
             InstructionSet instruction_set) const;
@@ -287,7 +288,7 @@ class MethodInfo : public BitTableAccessor<3> {
 class CodeInfo {
  public:
   ALWAYS_INLINE CodeInfo() {}
-  ALWAYS_INLINE explicit CodeInfo(const uint8_t* data, size_t* num_read_bits = nullptr);
+  EXPORT ALWAYS_INLINE explicit CodeInfo(const uint8_t* data, size_t* num_read_bits = nullptr);
   ALWAYS_INLINE explicit CodeInfo(const OatQuickMethodHeader* header);
 
   // The following methods decode only part of the data.
@@ -471,13 +472,13 @@ class CodeInfo {
 
   // Dump this CodeInfo object on `vios`.
   // `code_offset` is the (absolute) native PC of the compiled method.
-  void Dump(VariableIndentationOutputStream* vios,
+  EXPORT void Dump(VariableIndentationOutputStream* vios,
             uint32_t code_offset,
             bool verbose,
             InstructionSet instruction_set) const;
 
   // Accumulate code info size statistics into the given Stats tree.
-  static void CollectSizeStats(const uint8_t* code_info, /*out*/ Stats& parent);
+  EXPORT static void CollectSizeStats(const uint8_t* code_info, /*out*/ Stats& parent);
 
   template <uint32_t kFlag>
   ALWAYS_INLINE static bool HasFlag(const uint8_t* code_info_data) {

@@ -19,6 +19,7 @@
 
 #include "heap.h"
 
+#include "base/macros.h"
 #include "base/mutex-inl.h"
 #include "gc/accounting/heap_bitmap-inl.h"
 #include "gc/space/bump_pointer_space-walk-inl.h"
@@ -29,7 +30,7 @@
 #include "thread-current-inl.h"
 #include "thread_list.h"
 
-namespace art {
+namespace art HIDDEN {
 namespace gc {
 
 // Visit objects when threads aren't suspended. If concurrent moving

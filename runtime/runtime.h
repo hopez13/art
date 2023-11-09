@@ -53,6 +53,7 @@
 #include "reflective_value_visitor.h"
 #include "runtime_stats.h"
 
+// TODO: figure out instance_ export and add HIDDEN here
 namespace art {
 
 namespace gc {
@@ -126,12 +127,12 @@ using RuntimeOptions = std::vector<std::pair<std::string, const void*>>;
 class Runtime {
  public:
   // Parse raw runtime options.
-  static bool ParseOptions(const RuntimeOptions& raw_options,
+  EXPORT static bool ParseOptions(const RuntimeOptions& raw_options,
                            bool ignore_unrecognized,
                            RuntimeArgumentMap* runtime_options);
 
   // Creates and initializes a new runtime.
-  static bool Create(RuntimeArgumentMap&& runtime_options)
+  EXPORT static bool Create(RuntimeArgumentMap&& runtime_options)
       SHARED_TRYLOCK_FUNCTION(true, Locks::mutator_lock_);
 
   // Creates and initializes a new runtime.
@@ -273,7 +274,7 @@ class Runtime {
     return finished_starting_;
   }
 
-  void RunRootClinits(Thread* self) REQUIRES_SHARED(Locks::mutator_lock_);
+  EXPORT void RunRootClinits(Thread* self) REQUIRES_SHARED(Locks::mutator_lock_);
 
   static Runtime* Current() {
     return instance_;
@@ -288,7 +289,7 @@ class Runtime {
 
   // Aborts semi-cleanly. Used in the implementation of LOG(FATAL), which most
   // callers should prefer.
-  NO_RETURN static void Abort(const char* msg) REQUIRES(!Locks::abort_lock_);
+  NO_RETURN EXPORT static void Abort(const char* msg) REQUIRES(!Locks::abort_lock_);
 
   // Returns the "main" ThreadGroup, used when attaching user threads.
   jobject GetMainThreadGroup() const;
@@ -315,7 +316,7 @@ class Runtime {
   void DumpForSigQuit(std::ostream& os);
   void DumpLockHolders(std::ostream& os);
 
-  ~Runtime();
+  EXPORT ~Runtime();
 
   const std::vector<std::string>& GetBootClassPath() const {
     return boot_class_path_;
@@ -420,14 +421,14 @@ class Runtime {
   // Get the special object used to mark a cleared JNI weak global.
   mirror::Object* GetClearedJniWeakGlobal() REQUIRES_SHARED(Locks::mutator_lock_);
 
-  mirror::Throwable* GetPreAllocatedOutOfMemoryErrorWhenThrowingException()
+  EXPORT mirror::Throwable* GetPreAllocatedOutOfMemoryErrorWhenThrowingException()
       REQUIRES_SHARED(Locks::mutator_lock_);
-  mirror::Throwable* GetPreAllocatedOutOfMemoryErrorWhenThrowingOOME()
+  EXPORT mirror::Throwable* GetPreAllocatedOutOfMemoryErrorWhenThrowingOOME()
       REQUIRES_SHARED(Locks::mutator_lock_);
-  mirror::Throwable* GetPreAllocatedOutOfMemoryErrorWhenHandlingStackOverflow()
+  EXPORT mirror::Throwable* GetPreAllocatedOutOfMemoryErrorWhenHandlingStackOverflow()
       REQUIRES_SHARED(Locks::mutator_lock_);
 
-  mirror::Throwable* GetPreAllocatedNoClassDefFoundError()
+  EXPORT mirror::Throwable* GetPreAllocatedNoClassDefFoundError()
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   const std::vector<std::string>& GetProperties() const {
@@ -553,13 +554,13 @@ class Runtime {
     return instruction_set_;
   }
 
-  void SetInstructionSet(InstructionSet instruction_set);
+  EXPORT void SetInstructionSet(InstructionSet instruction_set);
   void ClearInstructionSet();
 
-  void SetCalleeSaveMethod(ArtMethod* method, CalleeSaveType type);
+  EXPORT void SetCalleeSaveMethod(ArtMethod* method, CalleeSaveType type);
   void ClearCalleeSaveMethods();
 
-  ArtMethod* CreateCalleeSaveMethod() REQUIRES_SHARED(Locks::mutator_lock_);
+  EXPORT ArtMethod* CreateCalleeSaveMethod() REQUIRES_SHARED(Locks::mutator_lock_);
 
   uint64_t GetStat(int kind);
 
@@ -590,7 +591,7 @@ class Runtime {
   }
 
   // Returns true if JIT compilations are enabled. GetJit() will be not null in this case.
-  bool UseJitCompilation() const;
+  EXPORT bool UseJitCompilation() const;
 
   void PreZygoteFork();
   void PostZygoteFork();
@@ -617,11 +618,11 @@ class Runtime {
                        int32_t code_type);
 
   // Transaction support.
-  bool IsActiveTransaction() const;
+  EXPORT bool IsActiveTransaction() const;
   // EnterTransactionMode may suspend.
-  void EnterTransactionMode(bool strict, mirror::Class* root) REQUIRES_SHARED(Locks::mutator_lock_);
-  void ExitTransactionMode();
-  void RollbackAllTransactions() REQUIRES_SHARED(Locks::mutator_lock_);
+  EXPORT void EnterTransactionMode(bool strict, mirror::Class* root) REQUIRES_SHARED(Locks::mutator_lock_);
+  EXPORT void ExitTransactionMode();
+  EXPORT void RollbackAllTransactions() REQUIRES_SHARED(Locks::mutator_lock_);
   // Transaction rollback and exit transaction are always done together, it's convenience to
   // do them in one function.
   void RollbackAndExitTransactionMode() REQUIRES_SHARED(Locks::mutator_lock_);
@@ -651,7 +652,7 @@ class Runtime {
                              MemberOffset field_offset,
                              int16_t value,
                              bool is_volatile);
-  void RecordWriteField32(mirror::Object* obj,
+  EXPORT void RecordWriteField32(mirror::Object* obj,
                           MemberOffset field_offset,
                           uint32_t value,
                           bool is_volatile);
@@ -659,7 +660,7 @@ class Runtime {
                           MemberOffset field_offset,
                           uint64_t value,
                           bool is_volatile);
-  void RecordWriteFieldReference(mirror::Object* obj,
+  EXPORT void RecordWriteFieldReference(mirror::Object* obj,
                                  MemberOffset field_offset,
                                  ObjPtr<mirror::Object> value,
                                  bool is_volatile)
@@ -817,7 +818,7 @@ class Runtime {
     return jit_arena_pool_.get();
   }
 
-  void ReclaimArenaPoolMemory();
+  EXPORT void ReclaimArenaPoolMemory();
 
   LinearAlloc* GetLinearAlloc() {
     return linear_alloc_.get();
@@ -896,7 +897,7 @@ class Runtime {
   void SetSentinel(ObjPtr<mirror::Object> sentinel) REQUIRES_SHARED(Locks::mutator_lock_);
   // For testing purpose only.
   // TODO: Remove this when this is no longer needed (b/116087961).
-  GcRoot<mirror::Object> GetSentinel() REQUIRES_SHARED(Locks::mutator_lock_);
+  EXPORT GcRoot<mirror::Object> GetSentinel() REQUIRES_SHARED(Locks::mutator_lock_);
 
 
   // Use a sentinel for marking entries in a table that have been cleared.
@@ -1227,6 +1228,11 @@ class Runtime {
 
   // A pointer to the active runtime or null.
   static Runtime* instance_;
+
+  // ld.lld: error: undefined protected symbol: art::Runtime::instance_
+  // __attribute__((visibility("protected"))) static Runtime* instance_;
+  // ld.lld: error: relocation R_386_PC32 cannot be used against symbol 'art::Runtime::instance_'; recompile with -fPIC
+  // EXPORT static Runtime* instance_;
 
   // NOTE: these must match the gc::ProcessState values as they come directly from the framework.
   static constexpr int kProfileForground = 0;

@@ -24,7 +24,7 @@
 #include "profile/profile_compilation_info.h"
 #include "profile_saver_options.h"
 
-namespace art {
+namespace art HIDDEN {
 
 class ProfileSaver {
  public:

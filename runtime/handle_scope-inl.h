@@ -20,6 +20,7 @@
 #include "handle_scope.h"
 
 #include "base/mutex.h"
+#include "base/macros.h"
 #include "handle.h"
 #include "handle_wrapper.h"
 #include "mirror/object_reference-inl.h"
@@ -27,7 +28,7 @@
 #include "thread-current-inl.h"
 #include "verify_object.h"
 
-namespace art {
+namespace art HIDDEN {
 
 template<size_t kNumReferences>
 inline FixedSizeHandleScope<kNumReferences>::FixedSizeHandleScope(BaseHandleScope* link,

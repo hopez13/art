@@ -19,7 +19,9 @@
 
 #include <iosfwd>
 
-namespace art {
+#include "base/macros.h"
+
+namespace art HIDDEN {
 
 enum class JniIdType {
   // All Jni method/field IDs are pointers to the corresponding Art{Field,Method} type

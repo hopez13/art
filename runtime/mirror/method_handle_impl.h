@@ -19,12 +19,13 @@
 
 #include "art_field.h"
 #include "art_method.h"
+#include "base/macros.h"
 #include "class.h"
 #include "method_type.h"
 #include "obj_ptr.h"
 #include "object.h"
 
-namespace art {
+namespace art HIDDEN {
 
 struct MethodHandleOffsets;
 struct MethodHandleImplOffsets;
