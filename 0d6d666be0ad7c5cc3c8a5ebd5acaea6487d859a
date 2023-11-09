@@ -67,6 +67,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1575d57c_204beed4",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1463,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-11-09T11:23:49Z",
+      "side": 1,
+      "message": "Done with the code restructuring.\n\n\u003e I would hope that the above `GenerateCode()` calls can return constants if corresponding `IsConstant()` would return true. Therefore the optimizations below where we use a pre-calculated constant or a simplified expression as `operation` can be left to a subsequent constant folding and instruction simplification passes. (Waste a bit of memory and time in order to keep the code simple.)\n\nSadly, it is not that smart. The code generated might not fold into a constant as it only calculates one end of the range (the `is_min`). Note that in `IsConstant` we calculate both `min_value` and `max_value` and can fold into a constant iff they are equal.",
+      "parentUuid": "6f8f6494_1582866d",
+      "range": {
+        "startLine": 1463,
+        "startChar": 14,
+        "endLine": 1463,
+        "endChar": 48
+      },
+      "revId": "0d6d666be0ad7c5cc3c8a5ebd5acaea6487d859a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "54698f2d_5ae6cfbf",
         "filename": "compiler/optimizing/induction_var_range.cc",
         "patchSetId": 3
@@ -78,6 +102,30 @@
       "writtenOn": "2023-11-02T13:51:43Z",
       "side": 1,
       "message": "This should be named `add_val`, it\u0027s a typo",
+      "range": {
+        "startLine": 1481,
+        "startChar": 26,
+        "endLine": 1481,
+        "endChar": 33
+      },
+      "revId": "0d6d666be0ad7c5cc3c8a5ebd5acaea6487d859a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "33cdd31e_dfaf03c3",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1481,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-11-09T11:23:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "54698f2d_5ae6cfbf",
       "range": {
         "startLine": 1481,
         "startChar": 26,
