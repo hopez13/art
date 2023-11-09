@@ -63,6 +63,30 @@
       },
       "revId": "20ede490bf51b9c89b2599d60e489d22cfe294e1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a7cec608_43014027",
+        "filename": "libartservice/service/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1535516
+      },
+      "writtenOn": "2023-11-09T19:37:48Z",
+      "side": 1,
+      "message": "Actually, referencing it on line 149 leads to build errors, I think because soong checks if there are any .proto files in the srcs list before deciding to link against libprotobuf, but using a filegroup disguises that fact.",
+      "parentUuid": "76cf18e4_d84ccc86",
+      "range": {
+        "startLine": 263,
+        "startChar": 8,
+        "endLine": 264,
+        "endChar": 29
+      },
+      "revId": "20ede490bf51b9c89b2599d60e489d22cfe294e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
