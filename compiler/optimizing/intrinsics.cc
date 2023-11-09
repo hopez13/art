@@ -53,7 +53,6 @@ std::ostream& operator<<(std::ostream& os, const Intrinsics& intrinsic) {
 
 static const char kIntegerCacheDescriptor[] = "Ljava/lang/Integer$IntegerCache;";
 static const char kIntegerDescriptor[] = "Ljava/lang/Integer;";
-static const char kIntegerArrayDescriptor[] = "[Ljava/lang/Integer;";
 static const char kLowFieldName[] = "low";
 static const char kHighFieldName[] = "high";
 static const char kValueFieldName[] = "value";
@@ -85,8 +84,7 @@ static ObjPtr<mirror::Class> LookupInitializedClass(Thread* self,
 
 static ObjPtr<mirror::ObjectArray<mirror::Object>> GetIntegerCacheArray(
     ObjPtr<mirror::Class> cache_class) REQUIRES_SHARED(Locks::mutator_lock_) {
-  ArtField* cache_field = cache_class->FindDeclaredStaticField("cache", kIntegerArrayDescriptor);
-  DCHECK(cache_field != nullptr);
+  ArtField* cache_field = WellKnownClasses::java_lang_Integer_IntegerCache_cache;
   return ObjPtr<mirror::ObjectArray<mirror::Object>>::DownCast(cache_field->GetObject(cache_class));
 }
 
@@ -107,9 +105,11 @@ static bool CheckIntegerCache(Thread* self,
   // Since we have a cache in the boot image, both java.lang.Integer and
   // java.lang.Integer$IntegerCache must be initialized in the boot image.
   ObjPtr<mirror::Class> cache_class =
-      LookupInitializedClass(self, class_linker, kIntegerCacheDescriptor);
+      WellKnownClasses::java_lang_Integer_IntegerCache_cache->GetDeclaringClass();
+  DCHECK(cache_class->IsInitialized());
   ObjPtr<mirror::Class> integer_class =
-      LookupInitializedClass(self, class_linker, kIntegerDescriptor);
+      WellKnownClasses::java_lang_Integer_Integer_valueOf->GetDeclaringClass();
+  DCHECK(integer_class->IsInitialized());
 
   // Check that the current cache is the same as the `boot_image_cache`.
   ObjPtr<mirror::ObjectArray<mirror::Object>> current_cache = GetIntegerCacheArray(cache_class);
@@ -179,20 +179,12 @@ void IntrinsicVisitor::ComputeIntegerValueOfLocations(HInvoke* invoke,
     ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
     Thread* self = Thread::Current();
     ScopedObjectAccess soa(self);
-    ObjPtr<mirror::Class> cache_class = class_linker->LookupClass(
-        self, kIntegerCacheDescriptor, /* class_loader= */ nullptr);
-    DCHECK(cache_class != nullptr);
-    if (UNLIKELY(!cache_class->IsInitialized())) {
-      LOG(WARNING) << "Image class " << cache_class->PrettyDescriptor() << " is uninitialized.";
-      return;
-    }
+    ObjPtr<mirror::Class> cache_class =
+        WellKnownClasses::java_lang_Integer_IntegerCache_cache->GetDeclaringClass();
+    DCHECK(cache_class->IsInitialized());
     ObjPtr<mirror::Class> integer_class =
-        class_linker->LookupClass(self, kIntegerDescriptor, /* class_loader= */ nullptr);
-    DCHECK(integer_class != nullptr);
-    if (UNLIKELY(!integer_class->IsInitialized())) {
-      LOG(WARNING) << "Image class " << integer_class->PrettyDescriptor() << " is uninitialized.";
-      return;
-    }
+        WellKnownClasses::java_lang_Integer_Integer_valueOf->GetDeclaringClass();
+    DCHECK(integer_class->IsInitialized());
     int32_t low = GetIntegerCacheField(cache_class, kLowFieldName);
     int32_t high = GetIntegerCacheField(cache_class, kHighFieldName);
     if (kIsDebugBuild) {
@@ -267,7 +259,8 @@ void IntrinsicVisitor::ComputeIntegerValueOfLocations(HInvoke* invoke,
 static int32_t GetIntegerCacheLowFromIntegerCache(Thread* self, ClassLinker* class_linker)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   ObjPtr<mirror::Class> cache_class =
-      LookupInitializedClass(self, class_linker, kIntegerCacheDescriptor);
+      WellKnownClasses::java_lang_Integer_IntegerCache_cache->GetDeclaringClass();
+  DCHECK(cache_class->IsInitialized());
   return GetIntegerCacheField(cache_class, kLowFieldName);
 }
 
@@ -301,7 +294,7 @@ IntrinsicVisitor::IntegerValueOfInfo IntrinsicVisitor::ComputeIntegerValueOfInfo
     DCHECK(value_field != nullptr);
     info.value_offset = value_field->GetOffset().Uint32Value();
     ObjPtr<mirror::Class> cache_class =
-        LookupInitializedClass(self, class_linker, kIntegerCacheDescriptor);
+        WellKnownClasses::java_lang_Integer_IntegerCache_cache->GetDeclaringClass();
     info.low = GetIntegerCacheField(cache_class, kLowFieldName);
     int32_t high = GetIntegerCacheField(cache_class, kHighFieldName);
     info.length = dchecked_integral_cast<uint32_t>(high - info.low + 1);

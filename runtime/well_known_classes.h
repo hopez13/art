@@ -207,6 +207,12 @@ struct WellKnownClasses {
   static ArtField* org_apache_harmony_dalvik_ddmc_Chunk_offset;
   static ArtField* org_apache_harmony_dalvik_ddmc_Chunk_type;
 
+  static ArtField* java_lang_Byte_ByteCache_cache;
+  static ArtField* java_lang_Character_CharacterCache_cache;
+  static ArtField* java_lang_Short_ShortCache_cache;
+  static ArtField* java_lang_Integer_IntegerCache_cache;
+  static ArtField* java_lang_Long_LongCache_cache;
+
   static constexpr ClassFromField<&dalvik_system_BaseDexClassLoader_pathList>
       dalvik_system_BaseDexClassLoader;
   static constexpr ClassFromMethod<&dalvik_system_DelegateLastClassLoader_init>
