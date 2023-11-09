@@ -51,7 +51,9 @@ public class ProductAppTest {
     @Test
     public void testLoadExtendedPublicLibrariesViaSystemSharedLib() {
         SystemSharedLib.loadLibrary("system_extpub2.oem1");
-        SystemSharedLib.loadLibrary("product_extpub2.product1");
+        if (!TestUtils.skipProductLibTests()) {
+            SystemSharedLib.loadLibrary("product_extpub2.product1");
+        }
     }
 
     @Test
