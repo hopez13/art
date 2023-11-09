@@ -2452,6 +2452,25 @@ void IntrinsicCodeGeneratorRISCV64::VisitMathMultiplyHigh(HInvoke* invoke) {
   __ Mulh(out, x, y);
 }
 
+void IntrinsicLocationsBuilderRISCV64::VisitThreadInterrupted(HInvoke* invoke) {
+  LocationSummary* locations =
+      new (allocator_) LocationSummary(invoke, LocationSummary::kNoCall, kIntrinsified);
+  locations->SetOut(Location::RequiresRegister());
+}
+
+void IntrinsicCodeGeneratorRISCV64::VisitThreadInterrupted(HInvoke* invoke) {
+  LocationSummary* locations = invoke->GetLocations();
+  Riscv64Assembler* assembler = GetAssembler();
+  XRegister out = locations->Out().AsRegister<XRegister>();
+  Riscv64Label done;
+
+  __ Loadw(out, TR, Thread::InterruptedOffset<kRiscv64PointerSize>().Int32Value());
+  __ Beqz(out, &done);
+  __ Storew(Zero, TR, Thread::InterruptedOffset<kRiscv64PointerSize>().Int32Value());
+  __ Fence();
+  __ Bind(&done);
+}
+
 #define MARK_UNIMPLEMENTED(Name) UNIMPLEMENTED_INTRINSIC(RISCV64, Name)
 UNIMPLEMENTED_INTRINSIC_LIST_RISCV64(MARK_UNIMPLEMENTED);
 #undef MARK_UNIMPLEMENTED
