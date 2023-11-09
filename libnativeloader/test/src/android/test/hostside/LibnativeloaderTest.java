@@ -140,7 +140,16 @@ public class LibnativeloaderTest extends BaseHostJUnit4Test {
 
     @Test
     public void testProductApp() throws Exception {
-        runTests("android.test.app.product", "android.test.app.ProductAppTest");
+        String pkgName = "android.test.app.product";
+        String testClassName = "android.test.app.ProductAppTest";
+
+        DeviceContext ctx = new DeviceContext(getTestInformation());
+        if (ctx.getSdkLevel() >= 33 /* TIRAMISU */) {
+            var options = new DeviceTestRunOptions(pkgName)
+                                  .setTestClassName(testClassName)
+                                  .addInstrumentationArg("libDirName", ctx.libDirName());
+            runDeviceTests(options);
+        }
     }
 
     @Test
@@ -361,6 +370,16 @@ public class LibnativeloaderTest extends BaseHostJUnit4Test {
 
             mCleanup.addPath(destPath);
             assertThat(mDevice.pushFile(libraryTempFile, destPath)).isTrue();
+        }
+
+        int getSdkLevel() throws DeviceNotAvailableException {
+            String res = assertCommandSucceeds("getprop ro.build.version.sdk");
+            try {
+                return Integer.parseInt(res.trim());
+            } catch (NumberFormatException e) {
+                CLog.e("Cannot parse device build sdk level: " + res);
+                return -1;
+            }
         }
 
         void installPackage(String apkBaseName) throws Exception {
