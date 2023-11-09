@@ -1,0 +1,257 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "75c79998_dffc64c8",
+        "filename": "libdexfile/dex/dex_file.cc",
+        "patchSetId": 29
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-11-09T12:10:58Z",
+      "side": 1,
+      "message": "Move the cast down to the then-block and else-block. Use the old `Header` in the else-block.",
+      "range": {
+        "startLine": 247,
+        "startChar": 18,
+        "endLine": 247,
+        "endChar": 67
+      },
+      "revId": "93a0d32e482822b9f65852fad805f31027d7cdee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8cd8308c_7f9be355",
+        "filename": "libdexfile/dex/dex_file.h",
+        "patchSetId": 29
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-11-09T12:10:58Z",
+      "side": 1,
+      "message": "This is not a good name. I would interpret it as the offset _of_ a container (in the dex file?). Maybe something like `offset_in_container_` would be better.\n\nOr maybe just add more comments on `Get/SetDexContainer()`.",
+      "range": {
+        "startLine": 182,
+        "startChar": 13,
+        "endLine": 182,
+        "endChar": 30
+      },
+      "revId": "93a0d32e482822b9f65852fad805f31027d7cdee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "30f28df3_d3937a3c",
+        "filename": "libdexfile/dex/dex_file_loader.cc",
+        "patchSetId": 29
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-11-09T12:10:58Z",
+      "side": 1,
+      "message": "Two variables in the `for` are difficult to read. And the condition here is actually always true, we terminate the loop with the `break` below.",
+      "range": {
+        "startLine": 406,
+        "startChar": 4,
+        "endLine": 406,
+        "endChar": 87
+      },
+      "revId": "93a0d32e482822b9f65852fad805f31027d7cdee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71829637_5ea51c73",
+        "filename": "libdexfile/dex/dex_file_loader.cc",
+        "patchSetId": 29
+      },
+      "lineNbr": 426,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-11-09T12:10:58Z",
+      "side": 1,
+      "message": "First `DCHECK_LE(dex_files-\u003eback()-\u003eGetHeader().file_size_, container-\u003eSize() - header_offset);`. Maybe even before the `IsDexConainerLastEntry()` check.",
+      "range": {
+        "startLine": 426,
+        "startChar": 6,
+        "endLine": 426,
+        "endChar": 65
+      },
+      "revId": "93a0d32e482822b9f65852fad805f31027d7cdee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c966397e_dfa0b6f0",
+        "filename": "libdexfile/dex/dex_file_loader.cc",
+        "patchSetId": 29
+      },
+      "lineNbr": 553,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-11-09T12:10:58Z",
+      "side": 1,
+      "message": "The two comments above apply to this loop as well.",
+      "range": {
+        "startLine": 553,
+        "startChar": 2,
+        "endLine": 553,
+        "endChar": 79
+      },
+      "revId": "93a0d32e482822b9f65852fad805f31027d7cdee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b3264d3_c8dc2842",
+        "filename": "libdexfile/dex/dex_file_loader.h",
+        "patchSetId": 29
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-11-09T12:10:58Z",
+      "side": 1,
+      "message": "We should change `IsMultiDexLocation()` to take `std::string_view` instead of `const char*`.",
+      "range": {
+        "startLine": 96,
+        "startChar": 71,
+        "endLine": 96,
+        "endChar": 79
+      },
+      "revId": "93a0d32e482822b9f65852fad805f31027d7cdee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23c7977d_236941f4",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 29
+      },
+      "lineNbr": 969,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-11-09T12:10:58Z",
+      "side": 1,
+      "message": "Is there a good reason to enable non-zero padding? (If yes, then the dex version check should be pulled out of the loop.)\n\nCan the \"padding\" actually contain other dex file headers and/or contents now? Does that apply to all calls of `CheckPadding()` or just the first one?",
+      "range": {
+        "startLine": 969,
+        "startChar": 33,
+        "endLine": 969,
+        "endChar": 54
+      },
+      "revId": "93a0d32e482822b9f65852fad805f31027d7cdee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "47e6d930_8a3c8b5f",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 29
+      },
+      "lineNbr": 2298,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-11-09T12:10:58Z",
+      "side": 1,
+      "message": "`CheckPadding()` updates `ptr_`.",
+      "range": {
+        "startLine": 2298,
+        "startChar": 4,
+        "endLine": 2298,
+        "endChar": 8
+      },
+      "revId": "93a0d32e482822b9f65852fad805f31027d7cdee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0329510a_47581cd4",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 29
+      },
+      "lineNbr": 2215,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-11-09T12:10:58Z",
+      "side": 1,
+      "message": "Only cast to `HeaderV41` after checking the version or size.",
+      "range": {
+        "startLine": 2215,
+        "startChar": 23,
+        "endLine": 2215,
+        "endChar": 66
+      },
+      "revId": "93a0d32e482822b9f65852fad805f31027d7cdee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c2ae597_d9d8ef16",
+        "filename": "test/MultiDex/Second.java",
+        "patchSetId": 29
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-11-09T12:10:58Z",
+      "side": 1,
+      "message": "Why are you changing this?",
+      "range": {
+        "startLine": 19,
+        "startChar": 4,
+        "endLine": 19,
+        "endChar": 22
+      },
+      "revId": "93a0d32e482822b9f65852fad805f31027d7cdee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2dce9866_f5f9fe5c",
+        "filename": "test/MultiDexModifiedSecondary/Second.java",
+        "patchSetId": 29
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-11-09T12:10:58Z",
+      "side": 1,
+      "message": "Why are you changing this?",
+      "range": {
+        "startLine": 19,
+        "startChar": 11,
+        "endLine": 19,
+        "endChar": 22
+      },
+      "revId": "93a0d32e482822b9f65852fad805f31027d7cdee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
