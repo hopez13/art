@@ -19,6 +19,7 @@
 
 #include "method_handles.h"
 
+#include "base/macros.h"
 #include "common_throws.h"
 #include "dex/dex_instruction.h"
 #include "interpreter/interpreter_common.h"
@@ -30,7 +31,7 @@
 #include "reflection.h"
 #include "stack.h"
 
-namespace art {
+namespace art HIDDEN {
 
 // A convenience class that allows for iteration through a list of
 // input argument registers. This is used to iterate over input

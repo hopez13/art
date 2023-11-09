@@ -28,7 +28,7 @@
 #include "gc/collector/object_byte_pair.h"
 #include "runtime_globals.h"
 
-namespace art {
+namespace art HIDDEN {
 namespace mirror {
 class Object;
 }  // namespace mirror
@@ -188,7 +188,7 @@ class Space {
   friend class art::gc::Heap;
   DISALLOW_IMPLICIT_CONSTRUCTORS(Space);
 };
-std::ostream& operator<<(std::ostream& os, const Space& space);
+EXPORT std::ostream& operator<<(std::ostream& os, const Space& space);
 
 // AllocSpace interface.
 class AllocSpace {

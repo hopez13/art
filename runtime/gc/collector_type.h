@@ -19,7 +19,9 @@
 
 #include <iosfwd>
 
-namespace art {
+#include "base/macros.h"
+
+namespace art HIDDEN {
 namespace gc {
 
 // Which types of collections are able to be performed.
@@ -64,7 +66,7 @@ enum CollectorType {
   // Fake collector type for ScopedGCCriticalSection
   kCollectorTypeCriticalSection,
 };
-std::ostream& operator<<(std::ostream& os, CollectorType collector_type);
+EXPORT std::ostream& operator<<(std::ostream& os, CollectorType collector_type);
 
 static constexpr CollectorType kCollectorTypeDefault =
 #if ART_DEFAULT_GC_TYPE_IS_CMC

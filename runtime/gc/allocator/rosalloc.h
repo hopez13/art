@@ -30,12 +30,13 @@
 
 #include "base/allocator.h"
 #include "base/bit_utils.h"
+#include "base/macros.h"
 #include "base/mem_map.h"
 #include "base/mutex.h"
 #include "runtime_globals.h"
 #include "thread.h"
 
-namespace art {
+namespace art HIDDEN {
 
 namespace gc {
 namespace allocator {
@@ -496,11 +497,11 @@ class RosAlloc {
   // The number of size brackets.
   static constexpr size_t kNumOfSizeBrackets = 42;
   // The sizes (the slot sizes, in bytes) of the size brackets.
-  static size_t bracketSizes[kNumOfSizeBrackets];
+  EXPORT static size_t bracketSizes[kNumOfSizeBrackets];
   // The numbers of pages that are used for runs for each size bracket.
   static size_t numOfPages[kNumOfSizeBrackets];
   // The numbers of slots of the runs for each size bracket.
-  static size_t numOfSlots[kNumOfSizeBrackets];
+  EXPORT static size_t numOfSlots[kNumOfSizeBrackets];
   // The header sizes in bytes of the runs for each size bracket.
   static size_t headerSizes[kNumOfSizeBrackets];
 
@@ -783,7 +784,7 @@ class RosAlloc {
   size_t FreePages(Thread* self, void* ptr, bool already_zero) REQUIRES(lock_);
 
   // Allocate/free a run slot.
-  void* AllocFromRun(Thread* self, size_t size, size_t* bytes_allocated, size_t* usable_size,
+  EXPORT void* AllocFromRun(Thread* self, size_t size, size_t* bytes_allocated, size_t* usable_size,
                      size_t* bytes_tl_bulk_allocated)
       REQUIRES(!lock_);
   // Allocate/free a run slot without acquiring locks.
@@ -808,7 +809,7 @@ class RosAlloc {
   size_t FreeInternal(Thread* self, void* ptr) REQUIRES(!lock_);
 
   // Allocates large objects.
-  void* AllocLargeObject(Thread* self, size_t size, size_t* bytes_allocated,
+  EXPORT void* AllocLargeObject(Thread* self, size_t size, size_t* bytes_allocated,
                          size_t* usable_size, size_t* bytes_tl_bulk_allocated)
       REQUIRES(!lock_);
 
@@ -868,7 +869,7 @@ class RosAlloc {
   ALWAYS_INLINE size_t MaxBytesBulkAllocatedFor(size_t size);
 
   // Returns the size of the allocated slot for a given allocated memory chunk.
-  size_t UsableSize(const void* ptr) REQUIRES(!lock_);
+  EXPORT size_t UsableSize(const void* ptr) REQUIRES(!lock_);
   // Returns the size of the allocated slot for a given size.
   size_t UsableSize(size_t bytes) {
     if (UNLIKELY(bytes > kLargeSizeThreshold)) {

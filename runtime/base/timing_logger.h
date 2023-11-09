@@ -26,7 +26,7 @@
 #include <string>
 #include <vector>
 
-namespace art {
+namespace art HIDDEN {
 class TimingLogger;
 
 class CumulativeLogger {
@@ -153,29 +153,29 @@ class TimingLogger {
     friend class TimingLogger;
   };
 
-  TimingLogger(const char* name,
+  EXPORT TimingLogger(const char* name,
                bool precise,
                bool verbose,
                TimingKind kind = TimingKind::kMonotonic);
-  ~TimingLogger();
+  EXPORT ~TimingLogger();
   // Verify that all open timings have related closed timings.
   void Verify();
   // Clears current timings and labels.
   void Reset();
   // Starts a timing.
-  void StartTiming(const char* new_split_label);
+  EXPORT void StartTiming(const char* new_split_label);
   // Ends the current timing.
-  void EndTiming();
+  EXPORT void EndTiming();
   // End the current timing and start a new timing. Usage not recommended.
   void NewTiming(const char* new_split_label) {
     EndTiming();
     StartTiming(new_split_label);
   }
   // Returns the total duration of the timings (sum of total times).
-  uint64_t GetTotalNs() const;
+  EXPORT uint64_t GetTotalNs() const;
   // Find the index of a timing by name.
   size_t FindTimingIndex(const char* name, size_t start_idx) const;
-  void Dump(std::ostream& os, const char* indent_string = "  ") const;
+  EXPORT void Dump(std::ostream& os, const char* indent_string = "  ") const;
 
   // Scoped timing splits that can be nested and composed with the explicit split
   // starts and ends.

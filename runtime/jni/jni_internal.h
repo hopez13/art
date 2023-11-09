@@ -27,7 +27,7 @@
 #include "runtime.h"
 #include "thread.h"
 
-namespace art {
+namespace art HIDDEN {
 
 class ArtField;
 class ArtMethod;

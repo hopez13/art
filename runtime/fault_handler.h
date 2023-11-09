@@ -25,10 +25,11 @@
 #include <vector>
 
 #include "base/locks.h"  // For annotalysis.
+#include "base/macros.h"
 #include "base/mutex.h"
 #include "runtime_globals.h"  // For CanDoImplicitNullCheckOn.
 
-namespace art {
+namespace art HIDDEN {
 
 class ArtMethod;
 class FaultHandler;

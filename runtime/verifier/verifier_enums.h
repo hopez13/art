@@ -19,7 +19,9 @@
 
 #include <stdint.h>
 
-namespace art {
+#include "base/macros.h"
+
+namespace art HIDDEN {
 namespace verifier {
 
 // The mode that the verifier should run as.
@@ -37,7 +39,7 @@ enum class FailureKind {
   kSoftFailure,
   kHardFailure,
 };
-std::ostream& operator<<(std::ostream& os, FailureKind rhs);
+EXPORT std::ostream& operator<<(std::ostream& os, FailureKind rhs);
 
 // How to log hard failures during verification.
 enum class HardFailLogMode {

@@ -21,6 +21,7 @@
 
 #include "android-base/stringprintf.h"
 
+#include "base/macros.h"
 #include "common_throws.h"
 #include "dex/descriptors_names.h"
 #include "dex/primitive.h"
@@ -28,7 +29,7 @@
 #include "mirror/object-inl.h"
 #include "obj_ptr-inl.h"
 
-namespace art {
+namespace art HIDDEN {
 
 inline bool ConvertPrimitiveValueNoThrow(Primitive::Type srcType,
                                          Primitive::Type dstType,

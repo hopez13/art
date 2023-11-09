@@ -28,14 +28,15 @@
 #include "offsets.h"
 #include "read_barrier_config.h"
 
-namespace art {
+namespace art HIDDEN {
 namespace mirror {
 class Object;
 template<typename MirrorType> class HeapReference;
 }  // namespace mirror
 class ArtMethod;
 
-class ReadBarrier {
+// TODO: EXPORT for kEnableToSpaceInvariantChecks
+class EXPORT ReadBarrier {
  public:
   // Enable the to-space invariant checks. This is slow and happens very often. Do not enable in
   // fast-debug environment.
