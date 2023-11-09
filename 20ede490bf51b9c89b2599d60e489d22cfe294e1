@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a6dd5d9c_6b49f6d7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-11-09T18:29:39Z",
+      "side": 1,
+      "message": "Thank you!",
+      "revId": "20ede490bf51b9c89b2599d60e489d22cfe294e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b80765f_5bb0f5fd",
+        "filename": "libartservice/service/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-11-09T18:29:39Z",
+      "side": 1,
+      "message": "Use a glob (`\"proto/**/*.proto\"`) and reference it on line 149.",
+      "range": {
+        "startLine": 263,
+        "startChar": 8,
+        "endLine": 264,
+        "endChar": 29
+      },
+      "revId": "20ede490bf51b9c89b2599d60e489d22cfe294e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
