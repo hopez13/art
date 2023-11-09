@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3593ea2d_b351d641",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1280281
+      },
+      "writtenOn": "2023-11-09T16:32:32Z",
+      "side": 1,
+      "message": "@lokeshgidra@google.com, @hboehm@google.com, could you please suggest if the understanding is correct that this isn\u0027t longer expected to be the case for non-4K page size as well as for 4K and the TODO should be removed?",
+      "range": {
+        "startLine": 154,
+        "startChar": 0,
+        "endLine": 155,
+        "endChar": 57
+      },
+      "revId": "148d346eb312b06d8b3d60885f3ccf5ba23956f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
