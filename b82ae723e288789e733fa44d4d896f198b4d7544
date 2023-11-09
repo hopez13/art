@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1ed0463e_0b694184",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 1280281
+      },
+      "writtenOn": "2023-11-09T17:12:03Z",
+      "side": 1,
+      "message": "There is a plan to prepare a subsequent chain of patches focusing on the optimizations as summarized at b/309032504. The current version isn\u0027t expected to affect performance of the fixed 4K configuration. Would it be alright to make this and other optimization-related changes separately?",
+      "parentUuid": "095ffe3c_5e745c1e",
+      "range": {
+        "startLine": 301,
+        "startChar": 41,
+        "endLine": 301,
+        "endChar": 50
+      },
+      "revId": "b82ae723e288789e733fa44d4d896f198b4d7544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "85f556ac_6d4c31b7",
         "filename": "imgdiag/imgdiag.cc",
         "patchSetId": 3
@@ -192,6 +216,30 @@
       "writtenOn": "2023-10-14T00:17:04Z",
       "side": 1,
       "message": "rename to `map_size`",
+      "range": {
+        "startLine": 464,
+        "startChar": 15,
+        "endLine": 464,
+        "endChar": 23
+      },
+      "revId": "b82ae723e288789e733fa44d4d896f198b4d7544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d20044cc_2162d877",
+        "filename": "libartbase/base/mem_map_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 464,
+      "author": {
+        "id": 1280281
+      },
+      "writtenOn": "2023-11-09T17:12:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cfae35ea_d178f0e3",
       "range": {
         "startLine": 464,
         "startChar": 15,
