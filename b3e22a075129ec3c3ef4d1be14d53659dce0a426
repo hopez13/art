@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0225fff_ac9e2c37",
+        "filename": "compiler/optimizing/intrinsics_riscv64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 605,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-11-09T15:07:59Z",
+      "side": 1,
+      "message": "Should this be `masked` instead of `to_store`? The comment next to this suggests that.",
+      "range": {
+        "startLine": 605,
+        "startChar": 4,
+        "endLine": 605,
+        "endChar": 12
+      },
+      "revId": "b3e22a075129ec3c3ef4d1be14d53659dce0a426",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
