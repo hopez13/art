@@ -18,8 +18,9 @@
 #define ART_RUNTIME_RUNTIME_GLOBALS_H_
 
 #include "base/globals.h"
+#include "base/macros.h"
 
-namespace art {
+namespace art HIDDEN {
 
 // Size of Dex virtual registers.
 static constexpr size_t kVRegSize = 4;

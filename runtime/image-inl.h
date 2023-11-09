@@ -20,13 +20,14 @@
 #include "image.h"
 
 #include "art_method.h"
+#include "base/macros.h"
 #include "imt_conflict_table.h"
 #include "imtable.h"
 #include "mirror/object_array-inl.h"
 #include "obj_ptr-inl.h"
 #include "read_barrier-inl.h"
 
-namespace art {
+namespace art HIDDEN {
 
 template <ReadBarrierOption kReadBarrierOption>
 inline ObjPtr<mirror::Object> ImageHeader::GetImageRoot(ImageRoot image_root) const {

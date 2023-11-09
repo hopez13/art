@@ -33,7 +33,7 @@
 #include "obj_ptr.h"
 #include "thread_pool.h"
 
-namespace art {
+namespace art HIDDEN {
 
 class ArtMethod;
 class ClassLinker;
@@ -472,7 +472,7 @@ class Jit {
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   // JIT compiler
-  static JitCompilerInterface* jit_compiler_;
+  EXPORT static JitCompilerInterface* jit_compiler_;
 
   // JIT resources owned by runtime.
   jit::JitCodeCache* const code_cache_;
@@ -522,8 +522,8 @@ class Jit {
 // Helper class to stop the JIT for a given scope. This will wait for the JIT to quiesce.
 class ScopedJitSuspend {
  public:
-  ScopedJitSuspend();
-  ~ScopedJitSuspend();
+  EXPORT ScopedJitSuspend();
+  EXPORT ~ScopedJitSuspend();
 
  private:
   bool was_on_;

@@ -36,7 +36,7 @@
 #include "jit_memory_region.h"
 #include "profiling_info.h"
 
-namespace art {
+namespace art HIDDEN {
 
 class ArtMethod;
 template<class T> class Handle;
@@ -203,7 +203,7 @@ class JitCodeCache {
       REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!Locks::jit_lock_);
 
-  void NotifyMethodRedefined(ArtMethod* method)
+  EXPORT void NotifyMethodRedefined(ArtMethod* method)
       REQUIRES(Locks::mutator_lock_)
       REQUIRES(!Locks::jit_lock_);
 
@@ -333,7 +333,7 @@ class JitCodeCache {
       REQUIRES(!Locks::jit_lock_)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
-  void InvalidateAllCompiledCode()
+  EXPORT void InvalidateAllCompiledCode()
       REQUIRES(!Locks::jit_lock_)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
@@ -360,7 +360,7 @@ class JitCodeCache {
 
   // Notify the code cache that the method at the pointer 'old_method' is being moved to the pointer
   // 'new_method' since it is being made obsolete.
-  void MoveObsoleteMethod(ArtMethod* old_method, ArtMethod* new_method)
+  EXPORT void MoveObsoleteMethod(ArtMethod* old_method, ArtMethod* new_method)
       REQUIRES(!Locks::jit_lock_) REQUIRES(Locks::mutator_lock_);
 
   // Dynamically change whether we want to garbage collect code.
@@ -388,7 +388,7 @@ class JitCodeCache {
   // This is used for removing non-debuggable JIT code at the point we realize the runtime
   // is debuggable. Also clear the Precompiled flag from all methods so the non-debuggable code
   // doesn't come back.
-  void TransitionToDebuggable() REQUIRES(!Locks::jit_lock_) REQUIRES(Locks::mutator_lock_);
+  EXPORT void TransitionToDebuggable() REQUIRES(!Locks::jit_lock_) REQUIRES(Locks::mutator_lock_);
 
   JitMemoryRegion* GetCurrentRegion();
   bool IsSharedRegion(const JitMemoryRegion& region) const { return &region == &shared_region_; }
