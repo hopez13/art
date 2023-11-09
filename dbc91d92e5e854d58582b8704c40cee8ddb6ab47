@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d654b016_6400c501",
+        "filename": "runtime/jni/local_reference_table.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1280281
+      },
+      "writtenOn": "2023-11-09T16:57:00Z",
+      "side": 1,
+      "message": "Given that kPageSize is a multiple of kMinPageSize i.e. kPageSize \u003d N * kMinPageSize, the check can be for:\n   kMinPageSize % kInitialLrtBytes \u003d\u003d 0\nwhich should always be true as well, while N % kInitialLrtBytes is irrelevant.\nThat would be sufficient to guarantee the original requirement is fulfilled.",
+      "range": {
+        "startLine": 215,
+        "startChar": 0,
+        "endLine": 215,
+        "endChar": 52
+      },
+      "revId": "dbc91d92e5e854d58582b8704c40cee8ddb6ab47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
