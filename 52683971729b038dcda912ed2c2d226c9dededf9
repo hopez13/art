@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e10c966_8eea304f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-11-10T14:50:49Z",
+      "side": 1,
+      "message": "Hanks and Lokesh, this is the CL I was mentioning in our meeting yesterday. If it makes sense I will land this just to document why we need it there. There was discussion about a stress test for this. I will try to take a look and add a test. I guess if we no longer release mutator lock in GC this may not happen but IIUC, I think we still release it in some cases even if it is for a short period right.",
+      "revId": "52683971729b038dcda912ed2c2d226c9dededf9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "155edafc_1022efef",
