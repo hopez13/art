@@ -419,7 +419,7 @@
 %  if range == 'Range':
 %    slow_setup_args_range(shorty="s9", vC="s7", z0="t0", z1="t1", z2="t2", z3="t3", z4="t4", z5="t5", z6="t6", uniq=uniq)
 %  else:
-%    slow_setup_args(shorty="s9", vregs="s7", z0="t0", z1="t1", z2="t2", z3="t3", uniq=uniq)
+%    slow_setup_args(shorty="s9", vregs="s7", z0="t0", z1="t1", z2="t2", z3="t3", z4="t4", z5="t5", uniq=uniq)
 %#:
    jalr s8                       // args in a0-a5, fa0-fa4
 %  maybe_float_returned(shorty="s9", z0="t0", z1="t1", uniq=f"{uniq}_1")
@@ -497,7 +497,7 @@
 %  if range == 'Range':
 %    slow_setup_args_range(shorty="s9", vC="s7", z0="t0", z1="t1", z2="t2", z3="t3", z4="t4", z5="t5", z6="t6", arg_start="0", uniq=uniq)
 %  else:
-%    slow_setup_args(shorty="s9", vregs="s7", z0="t0", z1="t1", z2="t2", z3="t3", arg_start="0", uniq=uniq)
+%    slow_setup_args(shorty="s9", vregs="s7", z0="t0", z1="t1", z2="t2", z3="t3", z4="t4", z5="t5", arg_start="0", uniq=uniq)
 %#:
    jalr s8                     // args (regular) a0 - a5 and fa0 - fa4, (range) a0 - a7 and fa0 - fa7 and maybe stack
 %  maybe_float_returned(shorty="s9", z0="t0", z1="t1", uniq=f"{uniq}_1")
@@ -559,7 +559,7 @@
 %  if range == 'Range':
 %    slow_setup_args_range(shorty="s9", vC="s7", z0="s10", z1="t1", z2="t2", z3="t3", z4="t4", z5="t5", z6="t6", uniq=uniq)
 %  else:
-%    slow_setup_args(shorty="s9", vregs="s7", z0="t1", z1="t2", z2="t3", z3="t4", uniq=uniq)
+%    slow_setup_args(shorty="s9", vregs="s7", z0="t1", z1="t2", z2="t3", z3="t4", z4="t5", z5="t6", uniq=uniq)
 %#:
    jalr s8                     // args (regular) a0 - a5, fa0 - fa4, t0, (range) a0 - a7, fa0 - fa7, t0
 %  maybe_float_returned(shorty="s9", z0="t0", z1="t1", uniq=f"{uniq}_1")
@@ -900,7 +900,7 @@
 // - a1: this
 // Input
 // - vregs: F|E|D|C from dex
-%def slow_setup_args(shorty="", vregs="", z0="", z1="", z2="", z3="", arg_start="1", uniq=""):
+%def slow_setup_args(shorty="", vregs="", z0="", z1="", z2="", z3="", z4="", z5="", arg_start="1", uniq=""):
    srliw $z0, xINST, 12     // z0 := A
    li $z1, 5
    blt $z0, $z1, .L${uniq}_slow_gpr
@@ -914,25 +914,28 @@
    addi $z0, $shorty, 1     // z0 := first arg of shorty
    srliw $z1, $vregs, 4*$arg_start
                             // z1 := (instance) F|E|D or G|F|E|D, (static) F|E|D|C or G|F|E|D|C
+   li $z2, 'D'              // double
+   li $z3, 'F'              // float
+   li $z4, 'J'              // long
    // linear scan through shorty: extract non-float vregs
 %  if arg_start == "0":  # static can place vC into a1; instance already loaded "this" into a1.
-%    load_vreg_in_gpr(gpr="a1", shorty=z0, vregs=z1, z0=z2, z1=z3, done=f".L{uniq}_slow_fpr", uniq=f"{uniq}_0")
-%  load_vreg_in_gpr(gpr="a2", shorty=z0, vregs=z1, z0=z2, z1=z3, done=f".L{uniq}_slow_fpr", uniq=f"{uniq}_1")
-%  load_vreg_in_gpr(gpr="a3", shorty=z0, vregs=z1, z0=z2, z1=z3, done=f".L{uniq}_slow_fpr", uniq=f"{uniq}_2")
-%  load_vreg_in_gpr(gpr="a4", shorty=z0, vregs=z1, z0=z2, z1=z3, done=f".L{uniq}_slow_fpr", uniq=f"{uniq}_3")
-%  load_vreg_in_gpr(gpr="a5", shorty=z0, vregs=z1, z0=z2, z1=z3, done=f".L{uniq}_slow_fpr", uniq=f"{uniq}_4")
+%    load_vreg_in_gpr(gpr="a1", shorty=z0, vregs=z1, D=z2, F=z3, J=z4, z0=z5, done=f".L{uniq}_slow_fpr", uniq=f"{uniq}_0")
+%  load_vreg_in_gpr(gpr="a2", shorty=z0, vregs=z1, D=z2, F=z3, J=z4, z0=z5, done=f".L{uniq}_slow_fpr", uniq=f"{uniq}_1")
+%  load_vreg_in_gpr(gpr="a3", shorty=z0, vregs=z1, D=z2, F=z3, J=z4, z0=z5, done=f".L{uniq}_slow_fpr", uniq=f"{uniq}_2")
+%  load_vreg_in_gpr(gpr="a4", shorty=z0, vregs=z1, D=z2, F=z3, J=z4, z0=z5, done=f".L{uniq}_slow_fpr", uniq=f"{uniq}_3")
+%  load_vreg_in_gpr(gpr="a5", shorty=z0, vregs=z1, D=z2, F=z3, J=z4, z0=z5, done=f".L{uniq}_slow_fpr", uniq=f"{uniq}_4")
 
 .L${uniq}_slow_fpr:
    addi $z0, $shorty, 1     // z0 := first arg of shorty
    srliw $z1, $vregs, 4*$arg_start
                             // z1 := (instance) F|E|D or G|F|E|D, (static) F|E|D|C or G|F|E|D|C
    // linear scan through shorty: extract float/double vregs
-%  load_vreg_in_fpr(fpr="fa0", shorty=z0, vregs=z1, z0=z2, z1=z3, done=f".L{uniq}_slow_done", uniq=f"{uniq}_0")
-%  load_vreg_in_fpr(fpr="fa1", shorty=z0, vregs=z1, z0=z2, z1=z3, done=f".L{uniq}_slow_done", uniq=f"{uniq}_1")
-%  load_vreg_in_fpr(fpr="fa2", shorty=z0, vregs=z1, z0=z2, z1=z3, done=f".L{uniq}_slow_done", uniq=f"{uniq}_2")
-%  load_vreg_in_fpr(fpr="fa3", shorty=z0, vregs=z1, z0=z2, z1=z3, done=f".L{uniq}_slow_done", uniq=f"{uniq}_3")
+%  load_vreg_in_fpr(fpr="fa0", shorty=z0, vregs=z1, D=z2, F=z3, J=z4, z0=z5, done=f".L{uniq}_slow_done", uniq=f"{uniq}_0")
+%  load_vreg_in_fpr(fpr="fa1", shorty=z0, vregs=z1, D=z2, F=z3, J=z4, z0=z5, done=f".L{uniq}_slow_done", uniq=f"{uniq}_1")
+%  load_vreg_in_fpr(fpr="fa2", shorty=z0, vregs=z1, D=z2, F=z3, J=z4, z0=z5, done=f".L{uniq}_slow_done", uniq=f"{uniq}_2")
+%  load_vreg_in_fpr(fpr="fa3", shorty=z0, vregs=z1, D=z2, F=z3, J=z4, z0=z5, done=f".L{uniq}_slow_done", uniq=f"{uniq}_3")
 %  if arg_start == "0":  # static can place G into fa4; instance has only 4 args.
-%    load_vreg_in_fpr(fpr="fa4", shorty=z0, vregs=z1, z0=z2, z1=z3, done=f".L{uniq}_slow_done", uniq=f"{uniq}_4")
+%    load_vreg_in_fpr(fpr="fa4", shorty=z0, vregs=z1, D=z2, F=z3, J=z4, z0=z5, done=f".L{uniq}_slow_done", uniq=f"{uniq}_4")
 %#:
 .L${uniq}_slow_done:
 
@@ -1042,19 +1045,16 @@
 
 // Iterate through 4-bit vreg ids in the "vregs" register, load a non-FP value
 // into one argument register.
-%def load_vreg_in_gpr(gpr="", shorty="", vregs="", z0="", z1="", done="", uniq=""):
+%def load_vreg_in_gpr(gpr="", shorty="", vregs="", z0="", D="", F="", J="", done="", uniq=""):
 .L${uniq}_gpr_find:
     lb $z0, ($shorty)         // z0 := next shorty arg spec
     addi $shorty, $shorty, 1  // increment char ptr
     beqz $z0, $done           // z0 == \0
-    li $z1, 'F'               // float
-    beq $z0, $z1, .L${uniq}_gpr_skip_4_bytes
-    li $z1, 'D'               // double
-    beq $z0, $z1, .L${uniq}_gpr_skip_8_bytes
+    beq $z0, $F, .L${uniq}_gpr_skip_4_bytes
+    beq $z0, $D, .L${uniq}_gpr_skip_8_bytes
 
-    li $z1, 'J'               // long
     andi $gpr, $vregs, 0xF    // gpr := vreg id
-    beq $z0, $z1, .L${uniq}_gpr_load_8_bytes
+    beq $z0, $J, .L${uniq}_gpr_load_8_bytes
     GET_VREG $gpr, $gpr       // gpr := 32-bit load
     srliw $vregs, $vregs, 4   // shift out the processed arg, one vreg
     j .L${uniq}_gpr_set       // and exit
@@ -1073,30 +1073,27 @@
 
 // Iterate through 4-bit vreg ids in the "vregs" register, load a float or double
 // value into one floating point argument register.
-%def load_vreg_in_fpr(fpr="", shorty="", vregs="", z0="", z1="", done="", uniq=""):
+%def load_vreg_in_fpr(fpr="", shorty="", vregs="", z0="", D="", F="", J="", done="", uniq=""):
 .L${uniq}_fpr_find:
     lb $z0, ($shorty)         // z0 := next shorty arg spec
     addi $shorty, $shorty, 1  // increment char ptr
     beqz $z0, $done           // z0 == \0
-    li $z1, 'F'               // float
-    beq $z0, $z1, .L${uniq}_fpr_load_4_bytes
-    li $z1, 'D'               // double
-    beq $z0, $z1, .L${uniq}_fpr_load_8_bytes
+    beq $z0, $F, .L${uniq}_fpr_load_4_bytes
+    beq $z0, $D, .L${uniq}_fpr_load_8_bytes
 
-    li $z1, 'J'               // long
     srliw $vregs, $vregs, 4   // shift out a skipped arg, one vreg
-    bne $z0, $z1, .L${uniq}_fpr_find
+    bne $z0, $J, .L${uniq}_fpr_find
     srliw $vregs, $vregs, 4   // shift out one more skipped arg, for J
     j .L${uniq}_fpr_find
 
 .L${uniq}_fpr_load_4_bytes:
-    andi $z1, $vregs, 0xF
-    GET_VREG_FLOAT $fpr, $z1
+    andi $z0, $vregs, 0xF
+    GET_VREG_FLOAT $fpr, $z0
     srliw $vregs, $vregs, 4   // shift out the processed arg, one vreg
     j .L${uniq}_fpr_set
 .L${uniq}_fpr_load_8_bytes:
-    andi $z1, $vregs, 0xF
-    GET_VREG_DOUBLE $fpr, $z1
+    andi $z0, $vregs, 0xF
+    GET_VREG_DOUBLE $fpr, $z0
     srliw $vregs, $vregs, 8   // shift out the processed arg, a vreg pair
 .L${uniq}_fpr_set:
 
