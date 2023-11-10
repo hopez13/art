@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e94a1588_3b49e122",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 941,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-11-10T09:07:14Z",
+      "side": 1,
+      "message": "We actually need the shorty. I keep fogetting that references need LWU instead of LW. Sorry!\n\nCan we just go back to the unoptimized version of string_init arg setup and get this CL merged?",
+      "revId": "842e8d158d86529458fbf29e392d59135ef7504b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
