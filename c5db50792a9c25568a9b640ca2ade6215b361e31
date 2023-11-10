@@ -22,6 +22,30 @@
       },
       "revId": "c5db50792a9c25568a9b640ca2ade6215b361e31",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a0d61b1_cbe1566a",
+        "filename": "compiler/optimizing/intrinsics_riscv64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2376,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-11-10T09:36:00Z",
+      "side": 1,
+      "message": "We should use RNE instead of the current DYN for normal arithmethic operations (`HAdd`, `HSub`, ...) but this intrinsic is correctly using RDN.",
+      "parentUuid": "9ecc0b0e_22a98823",
+      "range": {
+        "startLine": 2376,
+        "startChar": 36,
+        "endLine": 2376,
+        "endChar": 56
+      },
+      "revId": "c5db50792a9c25568a9b640ca2ade6215b361e31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
