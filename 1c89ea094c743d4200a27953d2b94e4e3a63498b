@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b42bb4f_03100772",
+        "filename": "libartservice/service/java/com/android/server/art/Dexopter.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-11-10T09:07:04Z",
+      "side": 1,
+      "message": "Please fix this WARNING reported by AndroidLint: Implicitly using the default locale is a common source of bugs: Use `String.format(Locale, ...)` instead\n\nAnalyzer Description: Reports AndroidLint warnings.\nOwner: colefaust@google.com\n\nImplicitly using the default locale is a common source of bugs: Use `String.format(Locale, ...)` instead\n\n                    String.format(\"app-name:%s,app-version-name:%s,app-version-code:%d,art-version:%d\",\n                    ^\n\nCalling `String#toLowerCase()` or `#toUpperCase()` **without specifying an explicit locale** is a common source of bugs. The reason for that is that those methods will use the current locale on the user\u0027s device, and even though the code appears to work correctly when you are developing the app, it will fail in some locales. For example, in the Turkish locale, the uppercase replacement for `i` is **not** `I`.\n\nIf you want the methods to just perform ASCII replacement, for example to convert an enum name, call `String#toUpperCase(Locale.US)` instead. If you really want to use the current locale, call `String#toUpperCase(Locale.getDefault())` instead.\n\nLocal repro steps at go/ayeaye-android-lint\n\nThis warning was found on the git_main branch\n\n---\n\nMaybe we should use Locale.US?",
+      "range": {
+        "startLine": 386,
+        "startChar": 17,
+        "endLine": 386,
+        "endChar": 99
+      },
+      "revId": "1c89ea094c743d4200a27953d2b94e4e3a63498b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
