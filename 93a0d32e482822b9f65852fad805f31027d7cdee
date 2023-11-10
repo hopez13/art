@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7fb6c519_bedcddb9",
+        "filename": "libdexfile/dex/dex_file.cc",
+        "patchSetId": 29
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-11-10T15:23:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "75c79998_dffc64c8",
+      "range": {
+        "startLine": 247,
+        "startChar": 18,
+        "endLine": 247,
+        "endChar": 67
+      },
+      "revId": "93a0d32e482822b9f65852fad805f31027d7cdee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8cd8308c_7f9be355",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-11-09T12:10:58Z",
       "side": 1,
       "message": "This is not a good name. I would interpret it as the offset _of_ a container (in the dex file?). Maybe something like `offset_in_container_` would be better.\n\nOr maybe just add more comments on `Get/SetDexContainer()`.",
+      "range": {
+        "startLine": 182,
+        "startChar": 13,
+        "endLine": 182,
+        "endChar": 30
+      },
+      "revId": "93a0d32e482822b9f65852fad805f31027d7cdee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad06aca0_87e6893b",
+        "filename": "libdexfile/dex/dex_file.h",
+        "patchSetId": 29
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-11-10T15:23:35Z",
+      "side": 1,
+      "message": "What about `header_offset_` (within in the container) ?",
+      "parentUuid": "8cd8308c_7f9be355",
       "range": {
         "startLine": 182,
         "startChar": 13,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1dac8f77_eaf20a0d",
+        "filename": "libdexfile/dex/dex_file_loader.cc",
+        "patchSetId": 29
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-11-10T15:23:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30f28df3_d3937a3c",
+      "range": {
+        "startLine": 406,
+        "startChar": 4,
+        "endLine": 406,
+        "endChar": 87
+      },
+      "revId": "93a0d32e482822b9f65852fad805f31027d7cdee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "71829637_5ea51c73",
@@ -93,6 +165,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7770e684_742483f8",
+        "filename": "libdexfile/dex/dex_file_loader.cc",
+        "patchSetId": 29
+      },
+      "lineNbr": 426,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-11-10T15:23:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "71829637_5ea51c73",
+      "range": {
+        "startLine": 426,
+        "startChar": 6,
+        "endLine": 426,
+        "endChar": 65
+      },
+      "revId": "93a0d32e482822b9f65852fad805f31027d7cdee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c966397e_dfa0b6f0",
@@ -106,6 +202,30 @@
       "writtenOn": "2023-11-09T12:10:58Z",
       "side": 1,
       "message": "The two comments above apply to this loop as well.",
+      "range": {
+        "startLine": 553,
+        "startChar": 2,
+        "endLine": 553,
+        "endChar": 79
+      },
+      "revId": "93a0d32e482822b9f65852fad805f31027d7cdee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7eb2c43e_85bc0bf6",
+        "filename": "libdexfile/dex/dex_file_loader.cc",
+        "patchSetId": 29
+      },
+      "lineNbr": 553,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-11-10T15:23:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c966397e_dfa0b6f0",
       "range": {
         "startLine": 553,
         "startChar": 2,
@@ -162,6 +282,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "28fff9a9_ad677c6e",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 29
+      },
+      "lineNbr": 969,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-11-10T15:23:35Z",
+      "side": 1,
+      "message": "This disables that padding check,\n\nbecause it can indeed contain other content now.",
+      "parentUuid": "23c7977d_236941f4",
+      "range": {
+        "startLine": 969,
+        "startChar": 33,
+        "endLine": 969,
+        "endChar": 54
+      },
+      "revId": "93a0d32e482822b9f65852fad805f31027d7cdee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "47e6d930_8a3c8b5f",
@@ -175,6 +319,30 @@
       "writtenOn": "2023-11-09T12:10:58Z",
       "side": 1,
       "message": "`CheckPadding()` updates `ptr_`.",
+      "range": {
+        "startLine": 2298,
+        "startChar": 4,
+        "endLine": 2298,
+        "endChar": 8
+      },
+      "revId": "93a0d32e482822b9f65852fad805f31027d7cdee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c536694b_120e1ae0",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 29
+      },
+      "lineNbr": 2298,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-11-10T15:23:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "47e6d930_8a3c8b5f",
       "range": {
         "startLine": 2298,
         "startChar": 4,
@@ -208,6 +376,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "95e0381b_fa088089",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 29
+      },
+      "lineNbr": 2215,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-11-10T15:23:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0329510a_47581cd4",
+      "range": {
+        "startLine": 2215,
+        "startChar": 23,
+        "endLine": 2215,
+        "endChar": 66
+      },
+      "revId": "93a0d32e482822b9f65852fad805f31027d7cdee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8c2ae597_d9d8ef16",
@@ -231,6 +423,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "90529b96_39f74d9d",
+        "filename": "test/MultiDex/Second.java",
+        "patchSetId": 29
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-11-10T15:23:35Z",
+      "side": 1,
+      "message": "See below",
+      "parentUuid": "8c2ae597_d9d8ef16",
+      "range": {
+        "startLine": 19,
+        "startChar": 4,
+        "endLine": 19,
+        "endChar": 22
+      },
+      "revId": "93a0d32e482822b9f65852fad805f31027d7cdee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2dce9866_f5f9fe5c",
@@ -244,6 +460,30 @@
       "writtenOn": "2023-11-09T12:10:58Z",
       "side": 1,
       "message": "Why are you changing this?",
+      "range": {
+        "startLine": 19,
+        "startChar": 11,
+        "endLine": 19,
+        "endChar": 22
+      },
+      "revId": "93a0d32e482822b9f65852fad805f31027d7cdee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9e2c296_fbf87f16",
+        "filename": "test/MultiDexModifiedSecondary/Second.java",
+        "patchSetId": 29
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-11-10T15:23:35Z",
+      "side": 1,
+      "message": "As per comment - the two strings must have the same length.\n\nIt is for the checksums tests... if the size of the second dex file changes, the container size of the dex file changes.  We want to avoid that.",
+      "parentUuid": "2dce9866_f5f9fe5c",
       "range": {
         "startLine": 19,
         "startChar": 11,
