@@ -16,6 +16,190 @@
       "message": "For older comments/discussions, please look at the previous version on master branch",
       "revId": "527f453ba4da7780b633c2178bdb9cc95fd05b99",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63178f9f_eeff3a7f",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-11-10T01:33:51Z",
+      "side": 1,
+      "message": "I would do this as a single assignment, so the value of new_num_bytes_allocated is always what the name says. Also below.\nActually, having AddBytesAllocate just return the new value probably makes more sense. That better reflects what the name implies, anyway.",
+      "range": {
+        "startLine": 197,
+        "startChar": 8,
+        "endLine": 198,
+        "endChar": 59
+      },
+      "revId": "527f453ba4da7780b633c2178bdb9cc95fd05b99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8482bd2c_25e866ba",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-11-10T01:33:51Z",
+      "side": 1,
+      "message": "We don\u0027t add to num_bytes_allocated while copying? I thought we did, but I may misremember, and didn\u0027t check now.",
+      "range": {
+        "startLine": 220,
+        "startChar": 7,
+        "endLine": 222,
+        "endChar": 11
+      },
+      "revId": "527f453ba4da7780b633c2178bdb9cc95fd05b99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4aedc15c_664d558f",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-11-10T01:33:51Z",
+      "side": 1,
+      "message": "UnsignedDifference(size_to_report, curr_reported_size) \u003e\u003d kMinHeapSizeToReport\n\nis more concise and easier to read, I think.",
+      "range": {
+        "startLine": 234,
+        "startChar": 15,
+        "endLine": 235,
+        "endChar": 51
+      },
+      "revId": "527f453ba4da7780b633c2178bdb9cc95fd05b99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7af05910_cf382e07",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-11-10T01:33:51Z",
+      "side": 1,
+      "message": "Don\u0027t we want to set last_reported_size to curr_reported_size here? Otherwise we could theoretically fail repeatedly, and then miss a GC adjustment.",
+      "range": {
+        "startLine": 247,
+        "startChar": 10,
+        "endLine": 247,
+        "endChar": 11
+      },
+      "revId": "527f453ba4da7780b633c2178bdb9cc95fd05b99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "927e7b70_117d7ac1",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2658,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-11-10T01:33:51Z",
+      "side": 1,
+      "message": "Is there a reason we can\u0027t just  call ATraceEanbled() directly? I\u0027m pretty sure I\u0027ve done that in the monitor code.",
+      "range": {
+        "startLine": 2658,
+        "startChar": 0,
+        "endLine": 2658,
+        "endChar": 53
+      },
+      "revId": "527f453ba4da7780b633c2178bdb9cc95fd05b99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de4e867e_2b9a56b6",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3718,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-11-10T01:33:51Z",
+      "side": 1,
+      "message": "Again, 100 columns would save a line. I\u0027m probably feeling extra-picky about this, since I\u0027m currently stuck using a laptop.",
+      "range": {
+        "startLine": 3716,
+        "startChar": 3,
+        "endLine": 3718,
+        "endChar": 13
+      },
+      "revId": "527f453ba4da7780b633c2178bdb9cc95fd05b99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8073bc8f_8220f244",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1490,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-11-10T01:33:51Z",
+      "side": 1,
+      "message": "Please reformat to 100 columns.",
+      "range": {
+        "startLine": 1487,
+        "startChar": 3,
+        "endLine": 1490,
+        "endChar": 0
+      },
+      "revId": "527f453ba4da7780b633c2178bdb9cc95fd05b99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a4475d0_c756aabf",
+        "filename": "runtime/gc/space/region_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1039,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-11-10T01:33:51Z",
+      "side": 1,
+      "message": "I guess this suggests I was wrong, and we do need to add EvacBytes. But do we really want to change this? Is there a plan to have TraceEnabled to do more?",
+      "range": {
+        "startLine": 1039,
+        "startChar": 24,
+        "endLine": 1039,
+        "endChar": 63
+      },
+      "revId": "527f453ba4da7780b633c2178bdb9cc95fd05b99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
