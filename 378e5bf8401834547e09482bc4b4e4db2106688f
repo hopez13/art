@@ -74,6 +74,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "32155773_78c16556",
+        "filename": "libartbase/base/bit_utils.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-11-10T23:53:35Z",
+      "side": 1,
+      "message": "I think the constexpr is just noise here, and I would prefer to see it without that. IIUC, this is intended to be used in cases in which the then and else branches don\u0027t return the same type, so type checking would fail without the constexpr. In the bad old days, you could probably do this with template specialization. Since both branches have the same type, I don\u0027t see a point. We already know that the conditional will be evaluated at compile time.\n\n(Unfortunately, none of the WG21 papers introducing this seem to have a clear statement of the rationale. And I wasn\u0027t in the room for the discussions. The best I could find is wg21.link/n3329, which is significantly different from the final approved version.)\n\nThis is admittedly not of high importance. But please don\u0027t go through and start adding these.",
+      "parentUuid": "ba05ce57_0056407d",
+      "range": {
+        "startLine": 180,
+        "startChar": 5,
+        "endLine": 180,
+        "endChar": 14
+      },
+      "revId": "378e5bf8401834547e09482bc4b4e4db2106688f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3aa9c54f_85ae9e90",
         "filename": "libartbase/base/globals.h",
         "patchSetId": 3
