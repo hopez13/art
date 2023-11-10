@@ -22,6 +22,30 @@
       },
       "revId": "1c89ea094c743d4200a27953d2b94e4e3a63498b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "91bc4d3f_bfaf4fad",
+        "filename": "libartservice/service/java/com/android/server/art/Dexopter.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-11-10T15:15:47Z",
+      "side": 1,
+      "message": "Our strings are not presented to end users. Specifically, this string is only passed to dex2oat. Therefore, it\u0027s safe to ignore this warning as there is no i18n concerns.",
+      "parentUuid": "8b42bb4f_03100772",
+      "range": {
+        "startLine": 386,
+        "startChar": 17,
+        "endLine": 386,
+        "endChar": 99
+      },
+      "revId": "1c89ea094c743d4200a27953d2b94e4e3a63498b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
