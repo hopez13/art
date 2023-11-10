@@ -22,6 +22,30 @@
       },
       "revId": "4a40bda664f823e3b63e6c9018b4eb2a5f9b79af",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bebc60df_3e07425f",
+        "filename": "libartbase/base/globals.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1280281
+      },
+      "writtenOn": "2023-11-10T18:39:10Z",
+      "side": 1,
+      "message": "Sure, I will change this.\nUnfortunately, however, that is likely to clear most or all Code-Review+2 flags in the patches as most of the patch groups depend on this patch and they will have to be reuploaded on top of the updated version.",
+      "parentUuid": "312bacf6_c506a920",
+      "range": {
+        "startLine": 49,
+        "startChar": 39,
+        "endLine": 49,
+        "endChar": 43
+      },
+      "revId": "4a40bda664f823e3b63e6c9018b4eb2a5f9b79af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
