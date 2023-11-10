@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ecc0b0e_22a98823",
+        "filename": "compiler/optimizing/intrinsics_riscv64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2376,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-11-10T09:23:32Z",
+      "side": 1,
+      "message": "Vladimir I though we were going to do `kRNE` (i.e. ties to Even) for rounding.\n\nWith this CL `2.5` would go to `3` instead of `2`.",
+      "range": {
+        "startLine": 2376,
+        "startChar": 36,
+        "endLine": 2376,
+        "endChar": 56
+      },
+      "revId": "c5db50792a9c25568a9b640ca2ade6215b361e31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
