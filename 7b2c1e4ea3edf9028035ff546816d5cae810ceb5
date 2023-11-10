@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "00ef6421_795dfdba",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 941,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-11-10T08:25:38Z",
+      "side": 1,
+      "message": "This is loading A1 A2, A3 unconditionally even though we may not have that many args. We should either check the number of arguments as in `try_simple_args` (but actually loading only `A-1` args), or add comments that we are willing to load bogus values from the stack (either vregs, or spilled register values).",
+      "revId": "7b2c1e4ea3edf9028035ff546816d5cae810ceb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22880e41_0e0a64f9",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 1010,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-11-10T08:25:38Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "7b2c1e4ea3edf9028035ff546816d5cae810ceb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
