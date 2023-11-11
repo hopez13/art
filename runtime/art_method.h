@@ -39,7 +39,7 @@
 #include "offsets.h"
 #include "read_barrier_option.h"
 
-namespace art {
+namespace art HIDDEN {
 
 class CodeItemDataAccessor;
 class CodeItemDebugInfoAccessor;
@@ -84,7 +84,8 @@ template <char Shorty> struct HandleShortyTraits;
 template <> struct HandleShortyTraits<'L'>;
 }  // namespace detail
 
-class ArtMethod final {
+// TODO: ClassLinker::DoResolveType<art::ArtMethod*>
+class EXPORT ArtMethod final {
  public:
   // Should the class state be checked on sensitive operations?
   DECLARE_RUNTIME_DEBUG_FLAG(kCheckDeclaringClassState);
@@ -673,8 +674,11 @@ class ArtMethod final {
                                             uint32_t name_and_signature_idx)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
-  void Invoke(Thread* self, uint32_t* args, uint32_t args_size, JValue* result, const char* shorty)
-      REQUIRES_SHARED(Locks::mutator_lock_);
+  EXPORT void Invoke(Thread* self,
+                     uint32_t* args,
+                     uint32_t args_size,
+                     JValue* result,
+                     const char* shorty) REQUIRES_SHARED(Locks::mutator_lock_);
 
   template <char ReturnType, char... ArgType>
   typename detail::ShortyTraits<ReturnType>::Type
@@ -960,7 +964,7 @@ class ArtMethod final {
   template <ReadBarrierOption kReadBarrierOption = kWithReadBarrier>
   ObjPtr<mirror::DexCache> GetDexCache() REQUIRES_SHARED(Locks::mutator_lock_);
   template <ReadBarrierOption kReadBarrierOption>
-  ObjPtr<mirror::DexCache> GetObsoleteDexCache() REQUIRES_SHARED(Locks::mutator_lock_);
+  EXPORT ObjPtr<mirror::DexCache> GetObsoleteDexCache() REQUIRES_SHARED(Locks::mutator_lock_);
 
   ALWAYS_INLINE ArtMethod* GetInterfaceMethodForProxyUnchecked(PointerSize pointer_size)
       REQUIRES_SHARED(Locks::mutator_lock_);
@@ -1023,10 +1027,9 @@ class ArtMethod final {
 
   // Returns a human-readable signature for 'm'. Something like "a.b.C.m" or
   // "a.b.C.m(II)V" (depending on the value of 'with_signature').
-  static std::string PrettyMethod(ArtMethod* m, bool with_signature = true)
+  EXPORT static std::string PrettyMethod(ArtMethod* m, bool with_signature = true)
       REQUIRES_SHARED(Locks::mutator_lock_);
-  std::string PrettyMethod(bool with_signature = true)
-      REQUIRES_SHARED(Locks::mutator_lock_);
+  EXPORT std::string PrettyMethod(bool with_signature = true) REQUIRES_SHARED(Locks::mutator_lock_);
   // Returns the JNI native function name for the non-overloaded method 'm'.
   std::string JniShortName()
       REQUIRES_SHARED(Locks::mutator_lock_);
@@ -1136,7 +1139,7 @@ class ArtMethod final {
   }
 
   // Compare given pointer size to the image pointer size.
-  static bool IsImagePointerSize(PointerSize pointer_size);
+  EXPORT static bool IsImagePointerSize(PointerSize pointer_size);
 
   dex::TypeIndex GetReturnTypeIndex() REQUIRES_SHARED(Locks::mutator_lock_);
 
