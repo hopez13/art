@@ -23,6 +23,7 @@
 #include "art_method-inl.h"
 #include "base/enums.h"
 #include "base/globals.h"
+#include "base/macros.h"
 #include "class_linker.h"
 #include "handle_scope.h"
 #include "jni/jni_internal.h"
@@ -33,7 +34,7 @@
 #include "verify_object.h"
 #include "well_known_classes.h"
 
-namespace art {
+namespace art HIDDEN {
 namespace mirror {
 
 template <VerifyObjectFlags kVerifyFlags, ReadBarrierOption kReadBarrierOption>

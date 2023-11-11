@@ -65,7 +65,7 @@
 #include "verifier/method_verifier.h"
 #include "well_known_classes.h"
 
-namespace art {
+namespace art HIDDEN {
 namespace interpreter {
 
 void ThrowNullPointerExceptionFromInterpreter()

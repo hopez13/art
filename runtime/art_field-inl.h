@@ -21,6 +21,7 @@
 
 #include <android-base/logging.h>
 
+#include "base/macros.h"
 #include "class_linker-inl.h"
 #include "dex/dex_file-inl.h"
 #include "dex/primitive.h"
@@ -32,7 +33,7 @@
 #include "obj_ptr-inl.h"
 #include "thread-current-inl.h"
 
-namespace art {
+namespace art HIDDEN {
 
 inline bool ArtField::IsProxyField() {
   // No read barrier needed, we're reading the constant declaring class only to read
