@@ -20,8 +20,9 @@
 #include <android-base/logging.h>
 
 #include "base/globals.h"
+#include "base/macros.h"
 
-namespace art {
+namespace art HIDDEN {
 
 // Size of Dex virtual registers.
 static constexpr size_t kVRegSize = 4;
