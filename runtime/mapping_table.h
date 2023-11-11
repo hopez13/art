@@ -19,8 +19,9 @@
 
 #include "base/leb128.h"
 #include "base/logging.h"
+#include "base/macros.h"
 
-namespace art {
+namespace art HIDDEN {
 
 // A utility for processing the raw uleb128 encoded mapping table created by the quick compiler.
 class MappingTable {

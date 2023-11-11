@@ -19,10 +19,11 @@
 
 #include "base/bit_utils.h"
 #include "base/enums.h"
+#include "base/macros.h"
 #include "obj_ptr.h"
 #include "object.h"
 
-namespace art {
+namespace art HIDDEN {
 
 namespace gc {
 enum AllocatorType : char;
@@ -127,15 +128,15 @@ class MANAGED Array : public Object {
   template<VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags>
   ALWAYS_INLINE bool CheckIsValidIndex(int32_t index) REQUIRES_SHARED(Locks::mutator_lock_);
 
-  static ObjPtr<Array> CopyOf(Handle<Array> h_this, Thread* self, int32_t new_length)
+  EXPORT static ObjPtr<Array> CopyOf(Handle<Array> h_this, Thread* self, int32_t new_length)
       REQUIRES_SHARED(Locks::mutator_lock_) REQUIRES(!Roles::uninterruptible_);
 
  protected:
-  void ThrowArrayStoreException(ObjPtr<Object> object) REQUIRES_SHARED(Locks::mutator_lock_)
+  EXPORT void ThrowArrayStoreException(ObjPtr<Object> object) REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!Roles::uninterruptible_);
 
  private:
-  void ThrowArrayIndexOutOfBoundsException(int32_t index)
+  EXPORT void ThrowArrayIndexOutOfBoundsException(int32_t index)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   // The number of array elements.
@@ -162,7 +163,7 @@ class MANAGED PrimitiveArray : public Array {
 
   using ElementType = T;
 
-  static ObjPtr<PrimitiveArray<T>> Alloc(Thread* self, size_t length)
+  EXPORT static ObjPtr<PrimitiveArray<T>> Alloc(Thread* self, size_t length)
       REQUIRES_SHARED(Locks::mutator_lock_) REQUIRES(!Roles::uninterruptible_);
 
   static ObjPtr<PrimitiveArray<T>> AllocateAndFill(Thread* self, const T* data, size_t length)
