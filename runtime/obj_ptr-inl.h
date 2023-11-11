@@ -20,10 +20,11 @@
 #include <ostream>
 
 #include "base/bit_utils.h"
+#include "base/macros.h"
 #include "obj_ptr.h"
 #include "thread-current-inl.h"
 
-namespace art {
+namespace art HIDDEN {
 
 template<class MirrorType>
 inline uintptr_t ObjPtr<MirrorType>::GetCurrentTrimedCookie() {
