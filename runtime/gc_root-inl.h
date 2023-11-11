@@ -21,10 +21,11 @@
 
 #include <sstream>
 
+#include "base/macros.h"
 #include "obj_ptr-inl.h"
 #include "read_barrier-inl.h"
 
-namespace art {
+namespace art HIDDEN {
 
 template<class MirrorType>
 template<ReadBarrierOption kReadBarrierOption>

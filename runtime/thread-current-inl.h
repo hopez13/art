@@ -25,7 +25,9 @@
 
 #include <pthread.h>
 
-namespace art {
+#include "base/macros.h"
+
+namespace art HIDDEN {
 
 inline Thread* Thread::Current() {
   // We rely on Thread::Current returning null for a detached thread, so it's not obvious
