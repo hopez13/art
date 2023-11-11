@@ -93,7 +93,7 @@ using ::android::base::ParseBoolResult;
 }  // namespace
 #endif
 
-namespace art {
+namespace art HIDDEN {
 
 static bool HaveMremapDontunmap() {
   void* old = mmap(nullptr, gPageSize, PROT_READ | PROT_WRITE, MAP_ANONYMOUS | MAP_SHARED, -1, 0);
