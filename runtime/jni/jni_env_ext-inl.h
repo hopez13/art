@@ -22,7 +22,7 @@
 #include "local_reference_table-inl.h"
 #include "mirror/object.h"
 
-namespace art {
+namespace art HIDDEN {
 
 template<typename T>
 inline T JNIEnvExt::AddLocalReference(ObjPtr<mirror::Object> obj) {

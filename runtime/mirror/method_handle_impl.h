@@ -19,12 +19,13 @@
 
 #include "art_field.h"
 #include "art_method.h"
+#include "base/macros.h"
 #include "class.h"
 #include "method_type.h"
 #include "obj_ptr.h"
 #include "object.h"
 
-namespace art {
+namespace art HIDDEN {
 
 struct MethodHandleOffsets;
 struct MethodHandleImplOffsets;
@@ -117,7 +118,7 @@ class MANAGED MethodHandleImpl : public MethodHandle {
  public:
   MIRROR_CLASS("Ljava/lang/invoke/MethodHandleImpl;");
 
-  static ObjPtr<mirror::MethodHandleImpl> Create(Thread* const self,
+  EXPORT static ObjPtr<mirror::MethodHandleImpl> Create(Thread* const self,
                                                  uintptr_t art_field_or_method,
                                                  MethodHandle::Kind kind,
                                                  Handle<MethodType> method_type)

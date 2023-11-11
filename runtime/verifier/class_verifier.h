@@ -23,13 +23,14 @@
 #include <android-base/thread_annotations.h>
 
 #include "base/locks.h"
+#include "base/macros.h"
 #include "handle.h"
 #include "obj_ptr.h"
 #include "verifier/method_verifier.h"
 #include "verifier/reg_type_cache.h"
 #include "verifier_enums.h"
 
-namespace art {
+namespace art HIDDEN {
 
 class ClassLinker;
 class CompilerCallbacks;
@@ -55,7 +56,7 @@ class ClassVerifier {
  public:
   // The main entrypoint for class verification. During AOT, `klass` can be
   // null.
-  static FailureKind VerifyClass(Thread* self,
+  EXPORT static FailureKind VerifyClass(Thread* self,
                                  VerifierDeps* verifier_deps,
                                  const DexFile* dex_file,
                                  Handle<mirror::Class> klass,

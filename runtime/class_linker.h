@@ -44,7 +44,7 @@
 #include "oat_file.h"
 #include "verifier/verifier_enums.h"
 
-namespace art {
+namespace art HIDDEN {
 
 class ArtField;
 class ArtMethod;
@@ -157,7 +157,7 @@ class AllocatorVisitor {
       REQUIRES_SHARED(Locks::classlinker_classes_lock_, Locks::mutator_lock_) = 0;
 };
 
-class ClassLinker {
+class EXPORT ClassLinker {
  public:
   static constexpr bool kAppImageMayContainStrings = true;
 
@@ -1118,10 +1118,10 @@ class ClassLinker {
   // Implementation of ResolveType() called when the type was not found in the dex cache. May be
   // used with ArtField*, ArtMethod* or ObjPtr<Class>.
   template <typename RefType>
-  ObjPtr<mirror::Class> DoResolveType(dex::TypeIndex type_idx, RefType referrer)
+  EXPORT ObjPtr<mirror::Class> DoResolveType(dex::TypeIndex type_idx, RefType referrer)
       REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!Locks::dex_lock_, !Roles::uninterruptible_);
-  ObjPtr<mirror::Class> DoResolveType(dex::TypeIndex type_idx,
+  EXPORT ObjPtr<mirror::Class> DoResolveType(dex::TypeIndex type_idx,
                                       Handle<mirror::DexCache> dex_cache,
                                       Handle<mirror::ClassLoader> class_loader)
       REQUIRES_SHARED(Locks::mutator_lock_)

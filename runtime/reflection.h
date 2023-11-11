@@ -19,11 +19,12 @@
 
 #include "base/enums.h"
 #include "base/locks.h"
+#include "base/macros.h"
 #include "dex/primitive.h"
 #include "jni.h"
 #include "obj_ptr.h"
 
-namespace art {
+namespace art HIDDEN {
 namespace mirror {
 class Class;
 class Object;
@@ -34,16 +35,16 @@ union JValue;
 class ScopedObjectAccessAlreadyRunnable;
 class ShadowFrame;
 
-ObjPtr<mirror::Object> BoxPrimitive(Primitive::Type src_class, const JValue& value)
+EXPORT ObjPtr<mirror::Object> BoxPrimitive(Primitive::Type src_class, const JValue& value)
     REQUIRES_SHARED(Locks::mutator_lock_);
 
-bool UnboxPrimitiveForField(ObjPtr<mirror::Object> o,
+EXPORT bool UnboxPrimitiveForField(ObjPtr<mirror::Object> o,
                             ObjPtr<mirror::Class> dst_class,
                             ArtField* f,
                             JValue* unboxed_value)
     REQUIRES_SHARED(Locks::mutator_lock_);
 
-bool UnboxPrimitiveForResult(ObjPtr<mirror::Object> o,
+EXPORT bool UnboxPrimitiveForResult(ObjPtr<mirror::Object> o,
                              ObjPtr<mirror::Class> dst_class,
                              JValue* unboxed_value)
     REQUIRES_SHARED(Locks::mutator_lock_);
