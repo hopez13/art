@@ -20,6 +20,8 @@
 #include <cstddef>
 #include <cstdint>
 
+#include "base/macros.h"
+
 // memcmp16 support.
 //
 // This can either be optimized assembly code, in which case we expect a function __memcmp16,
@@ -50,7 +52,7 @@ static inline int32_t MemCmp16(const uint16_t* s0, const uint16_t* s1, size_t co
 extern "C" int32_t memcmp16_generic_static(const uint16_t* s0, const uint16_t* s1, size_t count);
 #endif
 
-namespace art {
+namespace art HIDDEN {
 
 namespace testing {
 
