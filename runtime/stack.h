@@ -29,7 +29,7 @@
 #include "quick/quick_method_frame_info.h"
 #include "stack_map.h"
 
-namespace art {
+namespace art HIDDEN {
 
 namespace mirror {
 class Object;
@@ -118,7 +118,7 @@ class StackVisitor {
   };
 
  protected:
-  StackVisitor(Thread* thread,
+  EXPORT StackVisitor(Thread* thread,
                Context* context,
                StackWalkKind walk_kind,
                bool check_suspended = true);
@@ -134,13 +134,13 @@ class StackVisitor {
   // Return 'true' if we should continue to visit more frames, 'false' to stop.
   virtual bool VisitFrame() REQUIRES_SHARED(Locks::mutator_lock_) = 0;
 
-  enum class CountTransitions {
+  enum class EXPORT CountTransitions {
     kYes,
     kNo,
   };
 
   template <CountTransitions kCount = CountTransitions::kYes>
-  void WalkStack(bool include_transitions = false) REQUIRES_SHARED(Locks::mutator_lock_);
+  EXPORT void WalkStack(bool include_transitions = false) REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Convenience helper function to walk the stack with a lambda as a visitor.
   template <CountTransitions kCountTransitions = CountTransitions::kYes,
@@ -176,11 +176,11 @@ class StackVisitor {
     return thread_;
   }
 
-  ArtMethod* GetMethod() const REQUIRES_SHARED(Locks::mutator_lock_);
+  EXPORT ArtMethod* GetMethod() const REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Sets this stack frame's method pointer. This requires a full lock of the MutatorLock. This
   // doesn't work with inlined methods.
-  void SetMethod(ArtMethod* method) REQUIRES(Locks::mutator_lock_);
+  EXPORT void SetMethod(ArtMethod* method) REQUIRES(Locks::mutator_lock_);
 
   ArtMethod* GetOuterMethod() const {
     return *GetCurrentQuickFrame();
@@ -190,7 +190,7 @@ class StackVisitor {
     return cur_shadow_frame_ != nullptr;
   }
 
-  uint32_t GetDexPc(bool abort_on_failure = true) const REQUIRES_SHARED(Locks::mutator_lock_);
+  EXPORT uint32_t GetDexPc(bool abort_on_failure = true) const REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Returns a vector of the inlined dex pcs, in order from outermost to innermost but it replaces
   // the innermost one with `handler_dex_pc`. In essence, (outermost dex pc, mid dex pc #1, ..., mid
@@ -198,9 +198,9 @@ class StackVisitor {
   std::vector<uint32_t> ComputeDexPcList(uint32_t handler_dex_pc) const
       REQUIRES_SHARED(Locks::mutator_lock_);
 
-  ObjPtr<mirror::Object> GetThisObject() const REQUIRES_SHARED(Locks::mutator_lock_);
+  EXPORT ObjPtr<mirror::Object> GetThisObject() const REQUIRES_SHARED(Locks::mutator_lock_);
 
-  size_t GetNativePcOffset() const REQUIRES_SHARED(Locks::mutator_lock_);
+  EXPORT size_t GetNativePcOffset() const REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Returns the height of the stack in the managed stack frames, including transitions.
   size_t GetFrameHeight() REQUIRES_SHARED(Locks::mutator_lock_) {
@@ -227,30 +227,30 @@ class StackVisitor {
   bool GetNextMethodAndDexPc(ArtMethod** next_method, uint32_t* next_dex_pc)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
-  bool GetVReg(ArtMethod* m,
+  EXPORT bool GetVReg(ArtMethod* m,
                uint16_t vreg,
                VRegKind kind,
                uint32_t* val,
                std::optional<DexRegisterLocation> location = std::optional<DexRegisterLocation>(),
                bool need_full_register_list = false) const REQUIRES_SHARED(Locks::mutator_lock_);
 
-  bool GetVRegPair(ArtMethod* m, uint16_t vreg, VRegKind kind_lo, VRegKind kind_hi,
+  EXPORT bool GetVRegPair(ArtMethod* m, uint16_t vreg, VRegKind kind_lo, VRegKind kind_hi,
                    uint64_t* val) const
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Values will be set in debugger shadow frames. Debugger will make sure deoptimization
   // is triggered to make the values effective.
-  bool SetVReg(ArtMethod* m, uint16_t vreg, uint32_t new_value, VRegKind kind)
+  EXPORT bool SetVReg(ArtMethod* m, uint16_t vreg, uint32_t new_value, VRegKind kind)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Values will be set in debugger shadow frames. Debugger will make sure deoptimization
   // is triggered to make the values effective.
-  bool SetVRegReference(ArtMethod* m, uint16_t vreg, ObjPtr<mirror::Object> new_value)
+  EXPORT bool SetVRegReference(ArtMethod* m, uint16_t vreg, ObjPtr<mirror::Object> new_value)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Values will be set in debugger shadow frames. Debugger will make sure deoptimization
   // is triggered to make the values effective.
-  bool SetVRegPair(ArtMethod* m,
+  EXPORT bool SetVRegPair(ArtMethod* m,
                    uint16_t vreg,
                    uint64_t new_value,
                    VRegKind kind_lo,
@@ -292,7 +292,7 @@ class StackVisitor {
 
   std::string DescribeLocation() const REQUIRES_SHARED(Locks::mutator_lock_);
 
-  static size_t ComputeNumFrames(Thread* thread, StackWalkKind walk_kind)
+  EXPORT static size_t ComputeNumFrames(Thread* thread, StackWalkKind walk_kind)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   static void DescribeStack(Thread* thread) REQUIRES_SHARED(Locks::mutator_lock_);
@@ -330,7 +330,7 @@ class StackVisitor {
 
  private:
   // Private constructor known in the case that num_frames_ has already been computed.
-  StackVisitor(Thread* thread,
+  EXPORT StackVisitor(Thread* thread,
                Context* context,
                StackWalkKind walk_kind,
                size_t num_frames,

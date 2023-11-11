@@ -20,9 +20,10 @@
 #include "linear_alloc.h"
 
 #include "base/gc_visited_arena_pool.h"
+#include "base/macros.h"
 #include "thread-current-inl.h"
 
-namespace art {
+namespace art HIDDEN {
 
 inline void LinearAlloc::SetFirstObject(void* begin, size_t bytes) const {
   DCHECK(track_allocations_);

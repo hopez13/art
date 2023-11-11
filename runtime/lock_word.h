@@ -23,9 +23,10 @@
 #include <android-base/logging.h>
 
 #include "base/bit_utils.h"
+#include "base/macros.h"
 #include "read_barrier.h"
 
-namespace art {
+namespace art HIDDEN {
 namespace mirror {
 class Object;
 }  // namespace mirror
@@ -318,7 +319,7 @@ class LockWord {
   // The encoded value holding all the state.
   uint32_t value_;
 };
-std::ostream& operator<<(std::ostream& os, LockWord::LockState code);
+EXPORT std::ostream& operator<<(std::ostream& os, LockWord::LockState code);
 
 }  // namespace art
 

@@ -21,6 +21,7 @@
 
 #include "art_field.h"
 #include "base/callee_save_type.h"
+#include "base/macros.h"
 #include "class_linker-inl.h"
 #include "common_throws.h"
 #include "dex/code_item_accessors-inl.h"
@@ -46,7 +47,7 @@
 #include "runtime-inl.h"
 #include "thread-current-inl.h"
 
-namespace art {
+namespace art HIDDEN {
 
 namespace detail {
 

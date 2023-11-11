@@ -32,8 +32,8 @@ Barrier::Barrier(int count, bool verify_count_on_shutdown)
       verify_count_on_shutdown_(verify_count_on_shutdown) {
 }
 
-template void Barrier::Increment<Barrier::kAllowHoldingLocks>(Thread* self, int delta);
-template void Barrier::Increment<Barrier::kDisallowHoldingLocks>(Thread* self, int delta);
+template EXPORT void Barrier::Increment<Barrier::kAllowHoldingLocks>(Thread* self, int delta);
+template EXPORT void Barrier::Increment<Barrier::kDisallowHoldingLocks>(Thread* self, int delta);
 
 void Barrier::Pass(Thread* self) {
   MutexLock mu(self, *GetLock());

@@ -20,6 +20,7 @@
 #include "heap.h"
 
 #include "allocation_listener.h"
+#include "base/macros.h"
 #include "base/quasi_atomic.h"
 #include "base/time_utils.h"
 #include "gc/accounting/atomic_stack.h"
@@ -38,7 +39,7 @@
 #include "verify_object.h"
 #include "write_barrier-inl.h"
 
-namespace art {
+namespace art HIDDEN {
 namespace gc {
 
 template <bool kInstrumented, bool kCheckLargeObject, typename PreFenceVisitor>
