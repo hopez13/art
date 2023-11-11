@@ -29,7 +29,7 @@
 #include "base/mem_map.h"
 #include "base/systrace.h"
 
-namespace art {
+namespace art HIDDEN {
 
 class MemMapArena final : public Arena {
  public:

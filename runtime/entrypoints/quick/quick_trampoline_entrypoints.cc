@@ -58,7 +58,7 @@
 #include "var_handles.h"
 #include "well_known_classes.h"
 
-namespace art {
+namespace art HIDDEN {
 
 extern "C" NO_RETURN void artDeoptimizeFromCompiledCode(DeoptimizationKind kind, Thread* self);
 extern "C" NO_RETURN void artDeoptimize(Thread* self, bool skip_method_exit_callbacks);
