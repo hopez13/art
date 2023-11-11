@@ -25,7 +25,7 @@
 #include <functional>
 #include <map>
 
-namespace art {
+namespace art HIDDEN {
 namespace gc {
 
 namespace accounting {
@@ -44,7 +44,7 @@ namespace space {
 static constexpr bool kCyclicRegionAllocation = kIsDebugBuild;
 
 // A space that consists of equal-sized regions.
-class RegionSpace final : public ContinuousMemMapAllocSpace {
+class EXPORT RegionSpace final : public ContinuousMemMapAllocSpace {
  public:
   using WalkCallback = void (*)(void *start, void *end, size_t num_bytes, void* callback_arg);
 
@@ -128,7 +128,7 @@ class RegionSpace final : public ContinuousMemMapAllocSpace {
   // pages backing the region area readable and writable. This method is useful
   // to avoid page protection faults when dumping information about an invalid
   // reference.
-  void Unprotect();
+  EXPORT void Unprotect();
 
   // Change the non growth limit capacity to new capacity by shrinking or expanding the map.
   // Currently, only shrinking is supported.
@@ -141,7 +141,7 @@ class RegionSpace final : public ContinuousMemMapAllocSpace {
   void DumpRegions(std::ostream& os) REQUIRES(!region_lock_);
   // Dump region containing object `obj`. Precondition: `obj` is in the region space.
   void DumpRegionForObject(std::ostream& os, mirror::Object* obj) REQUIRES(!region_lock_);
-  void DumpNonFreeRegions(std::ostream& os) REQUIRES(!region_lock_);
+  EXPORT void DumpNonFreeRegions(std::ostream& os) REQUIRES(!region_lock_);
 
   size_t RevokeThreadLocalBuffers(Thread* thread) override REQUIRES(!region_lock_);
   size_t RevokeThreadLocalBuffers(Thread* thread, const bool reuse) REQUIRES(!region_lock_);
@@ -453,11 +453,11 @@ class RegionSpace final : public ContinuousMemMapAllocSpace {
         REQUIRES(region_space->region_lock_);
 
     // Given a free region, declare it non-free (allocated) and large.
-    void UnfreeLarge(RegionSpace* region_space, uint32_t alloc_time)
+    EXPORT void UnfreeLarge(RegionSpace* region_space, uint32_t alloc_time)
         REQUIRES(region_space->region_lock_);
 
     // Given a free region, declare it non-free (allocated) and large tail.
-    void UnfreeLargeTail(RegionSpace* region_space, uint32_t alloc_time)
+    EXPORT void UnfreeLargeTail(RegionSpace* region_space, uint32_t alloc_time)
         REQUIRES(region_space->region_lock_);
 
     void MarkAsAllocated(RegionSpace* region_space, uint32_t alloc_time)
@@ -715,7 +715,7 @@ class RegionSpace final : public ContinuousMemMapAllocSpace {
     }
   }
 
-  Region* AllocateRegion(bool for_evac) REQUIRES(region_lock_);
+  EXPORT Region* AllocateRegion(bool for_evac) REQUIRES(region_lock_);
   void RevokeThreadLocalBuffersLocked(Thread* thread, bool reuse) REQUIRES(region_lock_);
 
   // Scan region range [`begin`, `end`) in increasing order to try to

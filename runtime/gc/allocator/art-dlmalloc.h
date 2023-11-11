@@ -19,6 +19,8 @@
 
 #include <cstdint>
 
+#include "base/macros.h"
+
 // Configure dlmalloc for mspaces.
 // Avoid a collision with one used in llvm.
 #undef HAVE_MMAP
@@ -46,7 +48,7 @@ extern "C" void DlmallocMadviseCallback(void* start, void* end, size_t used_byte
 extern "C" void DlmallocBytesAllocatedCallback(void* start, void* end, size_t used_bytes, void* arg);
 extern "C" void DlmallocObjectsAllocatedCallback(void* start, void* end, size_t used_bytes, void* arg);
 
-namespace art {
+namespace art HIDDEN {
 namespace gc {
 namespace allocator {
 

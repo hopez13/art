@@ -19,11 +19,12 @@
 
 #include "art_method-inl.h"
 
+#include "base/macros.h"
 #include "handle.h"
 #include "handle_scope.h"
 #include "mirror/class-alloc-inl.h"
 
-namespace art {
+namespace art HIDDEN {
 
 namespace detail {
 

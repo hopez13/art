@@ -17,10 +17,11 @@
 #ifndef ART_RUNTIME_LOCK_WORD_INL_H_
 #define ART_RUNTIME_LOCK_WORD_INL_H_
 
+#include "base/macros.h"
 #include "lock_word.h"
 #include "monitor_pool.h"
 
-namespace art {
+namespace art HIDDEN {
 
 inline uint32_t LockWord::ThinLockOwner() const {
   DCHECK_EQ(GetState(), kThinLocked);
