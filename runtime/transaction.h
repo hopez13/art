@@ -20,6 +20,7 @@
 #include "base/scoped_arena_containers.h"
 #include "base/macros.h"
 #include "base/mutex.h"
+#include "base/macros.h"
 #include "base/safe_map.h"
 #include "base/value_object.h"
 #include "dex/dex_file_types.h"
@@ -30,7 +31,7 @@
 #include <list>
 #include <map>
 
-namespace art {
+namespace art HIDDEN {
 namespace gc {
 class Heap;
 }  // namespace gc
