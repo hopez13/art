@@ -19,9 +19,10 @@
 
 #include "verification.h"
 
+#include "base/macros.h"
 #include "mirror/class-inl.h"
 
-namespace art {
+namespace art HIDDEN {
 namespace gc {
 
 template <ReadBarrierOption kReadBarrierOption>
