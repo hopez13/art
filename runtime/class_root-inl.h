@@ -19,13 +19,14 @@
 
 #include "class_root.h"
 
+#include "base/macros.h"
 #include "class_linker-inl.h"
 #include "mirror/class.h"
 #include "mirror/object_array-inl.h"
 #include "obj_ptr-inl.h"
 #include "runtime.h"
 
-namespace art {
+namespace art HIDDEN {
 
 template <ReadBarrierOption kReadBarrierOption>
 inline ObjPtr<mirror::Class> GetClassRoot(ClassRoot class_root,
