@@ -22,6 +22,7 @@
 #include "android-base/thread_annotations.h"
 #include "art_field-inl.h"
 #include "art_method-inl.h"
+#include "base/macros.h"
 #include "base/mutex.h"
 #include "class_linker.h"
 #include "class_table-inl.h"
@@ -37,7 +38,7 @@
 #include "obj_ptr-inl.h"
 #include "scoped_thread_state_change-inl.h"
 
-namespace art {
+namespace art HIDDEN {
 
 inline ObjPtr<mirror::Class> ClassLinker::FindArrayClass(Thread* self,
                                                          ObjPtr<mirror::Class> element_class) {
