@@ -22,7 +22,7 @@
 
 #include <deque>
 
-namespace art {
+namespace art HIDDEN {
 
 namespace mirror {
 class Object;
@@ -39,7 +39,7 @@ namespace space {
 
 // A bump pointer space allocates by incrementing a pointer, it doesn't provide a free
 // implementation as its intended to be evacuated.
-class BumpPointerSpace final : public ContinuousMemMapAllocSpace {
+class EXPORT BumpPointerSpace final : public ContinuousMemMapAllocSpace {
  public:
   using WalkCallback = void (*)(void *, void *, int, void *);
 
@@ -178,7 +178,7 @@ class BumpPointerSpace final : public ContinuousMemMapAllocSpace {
   // The main block is an unbounded block where objects go when there are no other blocks. This
   // enables us to maintain tightly packed objects when you are not using thread local buffers for
   // allocation. The main block starts at the space Begin().
-  void UpdateMainBlock() REQUIRES(lock_);
+  EXPORT void UpdateMainBlock() REQUIRES(lock_);
 
   uint8_t* growth_end_;
   AtomicInteger objects_allocated_;  // Accumulated from revoked thread local regions.
