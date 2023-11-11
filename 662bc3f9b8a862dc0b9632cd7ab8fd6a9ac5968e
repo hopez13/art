@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce8a0e01_08cc526a",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 10
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-11-11T00:41:44Z",
+      "side": 1,
+      "message": "Since we need to look at the shorty for loading any arg into a GPR, the 1-arg case is wrong. I\u0027ll disable the 01 fastpaths in this CL (PS 11) and put up a follow-on CL (probably 0-arg+void-return and allow 1-arg load if return detected too).",
+      "range": {
+        "startLine": 23,
+        "startChar": 39,
+        "endLine": 23,
+        "endChar": 80
+      },
+      "revId": "662bc3f9b8a862dc0b9632cd7ab8fd6a9ac5968e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "97510c96_638388b7",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 10
+      },
+      "lineNbr": 1394,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-11-11T00:41:44Z",
+      "side": 1,
+      "message": "This appears safe from sext addr bugs because the following SW will drop the hi bits anyway. Yes?",
+      "range": {
+        "startLine": 1393,
+        "startChar": 0,
+        "endLine": 1394,
+        "endChar": 44
+      },
+      "revId": "662bc3f9b8a862dc0b9632cd7ab8fd6a9ac5968e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
