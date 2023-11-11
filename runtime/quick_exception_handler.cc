@@ -45,7 +45,7 @@
 #include "stack.h"
 #include "stack_map.h"
 
-namespace art {
+namespace art HIDDEN {
 
 static constexpr bool kDebugExceptionDelivery = false;
 static constexpr size_t kInvalidFrameDepth = 0xffffffff;

@@ -93,7 +93,7 @@
 //     attempting to run TSAN on this code.
 //
 
-namespace art {
+namespace art HIDDEN {
 
 static Mutex g_jit_debug_lock("JIT native debug entries", kNativeDebugInterfaceLock);
 static Mutex g_dex_debug_lock("DEX native debug entries", kNativeDebugInterfaceLock);
@@ -181,7 +181,7 @@ extern "C" {
   static_assert(std::atomic<void*>::is_always_lock_free, "Expected to be lock free");
 
   // GDB may set breakpoint here. We must ensure it is not removed or deduplicated.
-  void __attribute__((noinline)) __jit_debug_register_code() {
+  EXPORT void __attribute__((noinline)) __jit_debug_register_code() {
     __asm__("");
   }
 
@@ -192,7 +192,7 @@ extern "C" {
   JITDescriptor __jit_debug_descriptor GUARDED_BY(g_jit_debug_lock) {};
 
   // The following globals mirror the ones above, but are used to register dex files.
-  void __attribute__((noinline)) __dex_debug_register_code() {
+  EXPORT void __attribute__((noinline)) __dex_debug_register_code() {
     __asm__("");
   }
   void (*__dex_debug_register_code_ptr)() = __dex_debug_register_code;
