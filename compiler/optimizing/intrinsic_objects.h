@@ -21,11 +21,12 @@
 #include "base/bit_utils.h"
 #include "base/macros.h"
 #include "base/mutex.h"
+#include "obj_ptr.h"
+#include "offsets.h"
 
 namespace art HIDDEN {
 
 class ClassLinker;
-template <class MirrorType> class ObjPtr;
 class MemberOffset;
 class Thread;
 
@@ -56,18 +57,43 @@ class IntrinsicObjects {
     return IndexField::Decode(intrinsic_data);
   }
 
-  // Functions for retrieving data for Integer.valueOf().
-  EXPORT static ObjPtr<mirror::ObjectArray<mirror::Object>> LookupIntegerCache()
+#define BOXED_TYPES(V) \
+  V(Byte, -128, 127, 0) \
+  V(Short, -128, 127, kByteCacheLastIndex) \
+  V(Character, 0, 127, kShortCacheLastIndex) \
+  V(Integer, -128, 127, kCharacterCacheLastIndex) \
+  V(Long, -128, 127, kIntegerCacheLastIndex) \
+
+#define DEFINE_BOXED_CONSTANTS(name, low, high, start_index) \
+  static constexpr size_t k ##name ##CacheLastIndex = start_index + (high - low + 1); \
+  static constexpr size_t k ##name ##CacheFirstIndex = start_index;
+  BOXED_TYPES(DEFINE_BOXED_CONSTANTS)
+
+  static constexpr size_t kNumberOfBoxedCaches = kLongCacheLastIndex;
+#undef DEFINE_BOXED_CONSTANTS
+
+  // Helpers returning addresses of objects, suitable for embedding in generated code.
+#define DEFINE_BOXED_ACCESSES(name, _, __, start_index) \
+  EXPORT static ObjPtr<mirror::Object> Get ##name ##ValueOfObject( \
+      ObjPtr<mirror::ObjectArray<mirror::Object>> boot_image_live_objects, \
+      uint32_t index) REQUIRES_SHARED(Locks::mutator_lock_) { \
+    return GetValueOfObject(boot_image_live_objects, k ##name ##CacheFirstIndex, index); \
+  } \
+  EXPORT static MemberOffset Get ##name ##ValueOfArrayDataOffset( \
+      ObjPtr<mirror::ObjectArray<mirror::Object>> boot_image_live_objects) \
+      REQUIRES_SHARED(Locks::mutator_lock_) { \
+    return GetValueOfArrayDataOffset(boot_image_live_objects, k ##name ##CacheFirstIndex); \
+  }
+  BOXED_TYPES(DEFINE_BOXED_ACCESSES)
+#undef DEFINED_BOXED_ACCESSES
+
+  static void FillIntrinsicObjects(
+      ObjPtr<mirror::ObjectArray<mirror::Object>> boot_image_live_objects, size_t start_index)
       REQUIRES_SHARED(Locks::mutator_lock_);
-  EXPORT static ObjPtr<mirror::ObjectArray<mirror::Object>> GetIntegerValueOfCache(
-      ObjPtr<mirror::ObjectArray<mirror::Object>> boot_image_live_objects)
-      REQUIRES_SHARED(Locks::mutator_lock_);
-  EXPORT static ObjPtr<mirror::Object> GetIntegerValueOfObject(
-      ObjPtr<mirror::ObjectArray<mirror::Object>> boot_image_live_objects,
-      uint32_t index) REQUIRES_SHARED(Locks::mutator_lock_);
-  EXPORT static MemberOffset GetIntegerValueOfArrayDataOffset(
-      ObjPtr<mirror::ObjectArray<mirror::Object>> boot_image_live_objects)
-      REQUIRES_SHARED(Locks::mutator_lock_);
+
+  static size_t GetNumberOfIntrinsicObjects() {
+    return kNumberOfBoxedCaches;
+  }
 
  private:
   static constexpr size_t kPatchTypeBits =
@@ -75,6 +101,15 @@ class IntrinsicObjects {
   static constexpr size_t kIndexBits = BitSizeOf<uint32_t>() - kPatchTypeBits;
   using PatchTypeField = BitField<uint32_t, 0u, kPatchTypeBits>;
   using IndexField = BitField<uint32_t, kPatchTypeBits, kIndexBits>;
+
+  static ObjPtr<mirror::Object> GetValueOfObject(
+      ObjPtr<mirror::ObjectArray<mirror::Object>> boot_image_live_objects,
+      size_t start_index,
+      uint32_t index) REQUIRES_SHARED(Locks::mutator_lock_);
+
+  static MemberOffset GetValueOfArrayDataOffset(
+      ObjPtr<mirror::ObjectArray<mirror::Object>> boot_image_live_objects,
+      size_t start_index) REQUIRES_SHARED(Locks::mutator_lock_);
 };
 
 }  // namespace art
