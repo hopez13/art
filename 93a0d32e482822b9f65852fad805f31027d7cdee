@@ -95,6 +95,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "095a58b2_b942d615",
+        "filename": "libdexfile/dex/dex_file.h",
+        "patchSetId": 29
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-11-13T09:40:12Z",
+      "side": 1,
+      "message": "LGTM",
+      "parentUuid": "ad06aca0_87e6893b",
+      "range": {
+        "startLine": 182,
+        "startChar": 13,
+        "endLine": 182,
+        "endChar": 30
+      },
+      "revId": "93a0d32e482822b9f65852fad805f31027d7cdee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "30f28df3_d3937a3c",
@@ -489,6 +513,29 @@
         "startChar": 11,
         "endLine": 19,
         "endChar": 22
+      },
+      "revId": "93a0d32e482822b9f65852fad805f31027d7cdee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa908bcb_85dd9b59",
+        "filename": "tools/hiddenapi/hiddenapi.cc",
+        "patchSetId": 29
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-11-13T09:40:12Z",
+      "side": 1,
+      "message": "The old condition seems to be wrong. It should have been\n\n    !success \u0026\u0026 (!ignore_empty || error_msg !\u003d \"Entry not found\")\n\n. The new code has that effect, right?",
+      "range": {
+        "startLine": 307,
+        "startChar": 6,
+        "endLine": 307,
+        "endChar": 71
       },
       "revId": "93a0d32e482822b9f65852fad805f31027d7cdee",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
