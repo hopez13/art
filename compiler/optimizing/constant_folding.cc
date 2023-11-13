@@ -56,6 +56,8 @@ class HConstantFoldingVisitor final : public HGraphDelegateVisitor {
   void PropagateValue(HBasicBlock* starting_block, HInstruction* variable, HConstant* constant);
 
   // Intrinsics foldings
+  void FoldReverseIntrinsic(HInvoke* invoke);
+  void FoldReverseBytesIntrinsic(HInvoke* invoke);
   void FoldHighestOneBitIntrinsic(HInvoke* invoke);
   void FoldLowestOneBitIntrinsic(HInvoke* invoke);
   void FoldNumberOfLeadingZerosIntrinsic(HInvoke* invoke);
@@ -362,6 +364,14 @@ void HConstantFoldingVisitor::VisitIf(HIf* inst) {
 
 void HConstantFoldingVisitor::VisitInvoke(HInvoke* inst) {
   switch (inst->GetIntrinsic()) {
+    case Intrinsics::kIntegerReverse:
+    case Intrinsics::kLongReverse:
+      FoldReverseIntrinsic(inst);
+      break;
+    case Intrinsics::kIntegerReverseBytes:
+    case Intrinsics::kLongReverseBytes:
+      FoldReverseBytesIntrinsic(inst);
+      break;
     case Intrinsics::kIntegerHighestOneBit:
     case Intrinsics::kLongHighestOneBit:
       FoldHighestOneBitIntrinsic(inst);
@@ -381,6 +391,48 @@ void HConstantFoldingVisitor::VisitInvoke(HInvoke* inst) {
     default:
       break;
   }
+}
+
+void HConstantFoldingVisitor::FoldReverseIntrinsic(HInvoke* inst) {
+  DCHECK(inst->GetIntrinsic() == Intrinsics::kIntegerReverse ||
+         inst->GetIntrinsic() == Intrinsics::kLongReverse);
+
+  HInstruction* input = inst->InputAt(0);
+  if (!input->IsConstant()) {
+    return;
+  }
+
+  // Integer and Long intrinsics have different return types.
+  if (inst->GetIntrinsic() == Intrinsics::kIntegerReverse) {
+    DCHECK(input->IsIntConstant());
+    inst->ReplaceWith(
+        GetGraph()->GetIntConstant(ReverseBits32(input->AsIntConstant()->GetValue())));
+  } else {
+    DCHECK(input->IsLongConstant());
+    inst->ReplaceWith(
+        GetGraph()->GetLongConstant(ReverseBits64(input->AsLongConstant()->GetValue())));
+  }
+  inst->GetBlock()->RemoveInstruction(inst);
+}
+
+void HConstantFoldingVisitor::FoldReverseBytesIntrinsic(HInvoke* inst) {
+  DCHECK(inst->GetIntrinsic() == Intrinsics::kIntegerReverseBytes ||
+         inst->GetIntrinsic() == Intrinsics::kLongReverseBytes);
+
+  HInstruction* input = inst->InputAt(0);
+  if (!input->IsConstant()) {
+    return;
+  }
+
+  // Integer and Long intrinsics have different return types.
+  if (inst->GetIntrinsic() == Intrinsics::kIntegerReverseBytes) {
+    DCHECK(input->IsIntConstant());
+    inst->ReplaceWith(GetGraph()->GetIntConstant(BSWAP(input->AsIntConstant()->GetValue())));
+  } else {
+    DCHECK(input->IsLongConstant());
+    inst->ReplaceWith(GetGraph()->GetLongConstant(BSWAP(input->AsLongConstant()->GetValue())));
+  }
+  inst->GetBlock()->RemoveInstruction(inst);
 }
 
 void HConstantFoldingVisitor::FoldHighestOneBitIntrinsic(HInvoke* inst) {
