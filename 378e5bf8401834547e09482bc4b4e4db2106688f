@@ -96,6 +96,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed24a3fe_0a401962",
+        "filename": "libartbase/base/bit_utils.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1280281
+      },
+      "writtenOn": "2023-11-13T12:18:39Z",
+      "side": 1,
+      "message": "Thank you for the comprehensive feedback, Hans. I agree it should be removed in this case and generally shouldn\u0027t be used unnecessarily.",
+      "parentUuid": "32155773_78c16556",
+      "range": {
+        "startLine": 180,
+        "startChar": 5,
+        "endLine": 180,
+        "endChar": 14
+      },
+      "revId": "378e5bf8401834547e09482bc4b4e4db2106688f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3aa9c54f_85ae9e90",
