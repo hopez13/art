@@ -70,6 +70,9 @@ art_cc_binary {
         "libart",
         "libartbase",
     ],
+    static_libs: [
+        "libartbase_constglobals",
+    ],
     apex_available: [
         "com.android.art",
         "com.android.art.debug",
@@ -86,6 +89,9 @@ art_cc_binary {
         "libartd",
         "libartbased",
         "libdexfiled",
+    ],
+    static_libs: [
+        "libartbase_constglobals",
     ],
     apex_available: [
         "com.android.art.debug",
@@ -142,6 +148,9 @@ art_cc_binary {
     shared_libs: [
         "libart",
         "libartbase",
+    ],
+    static_libs: [
+        "libartbase_constglobals",
     ],
     apex_available: [
         "com.android.art",

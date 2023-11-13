@@ -17,6 +17,7 @@
 #ifndef ART_LIBARTBASE_BASE_GLOBALS_H_
 #define ART_LIBARTBASE_BASE_GLOBALS_H_
 
+#include <android-base/logging.h>
 #include <stddef.h>
 #include <stdint.h>
 
@@ -130,29 +131,239 @@ static constexpr bool kHostStaticBuildEnabled = false;
 static constexpr char kPhDisableCompactDex[] =
     "persist.device_config.runtime_native_boot.disable_compact_dex";
 
-// Helper class that acts as a global constant which can be initialized with
-// a dynamically computed value while not being subject to static initialization
-// order issues via gating access to the value through a function which ensures
-// the value is initialized before being accessed.
+// This is a helper class intended to support declaring dynamically initialized global constants
+// in a way that ensures no static initialization order issues while not introducing a dynamic
+// check on each access to the constant.
 //
-// The Initialize function should return T type. It shouldn't have side effects
-// and should always return the same value.
-template<typename T, auto Initialize>
-struct GlobalConst {
-  operator T() const {
-    static T data = Initialize();
-    return data;
+// An alternative implementation would have been implementing access to the constants via
+// a function that would check if the initialization was complete, and if it wasn't then the
+// initialization would be performed before the function returns.
+//
+// However, with the implemented approach, the initialization happens early when the DSO (or static
+// binary) is loaded into the process - via the init_array. This way the conditional can be removed
+// everywhere the constants are accessed.
+//
+// Potential issue with the approach is connected with static initialization order being
+// unspecified. Where a global constant depends on another one for initialization, it is important
+// to ensure that dependent global constant is initialized after the constant it needs. However, by
+// default the order isn't guaranteed if the values are defined in different compilation units. The
+// `init_priority` compiler attribute allows to specify particular priority of initialization for
+// each value, therefore ensuring the values are initialized in the correct order. This attribute
+// is used in these changes to prevent the static initialization order issues.
+//
+// However, the `init_priority` attribute only allows to specify priorities within a DSO (or a
+// static binary) but not across libraries. To ensure there is no initialization order issues
+// between libraries, we duplicate the GlobalConst values into each library requiring it.
+// Specifically, for gPageSize, gPMDSize, gPUDSize that's accomplished via introducing
+// libartbase_constglobals helper static library which is linked into every library or binary
+// requiring these values. This is a valid approach because the values are constants and are always
+// the same for each of the libraries, so duplicating them isn't going to cause any issue unless
+// some component would attempt relying on a particular address of the constant values being always
+// the same.
+//
+// It is worth noting that the initialiation with this approach is accomplished in a
+// single-threaded mode so there is no need to handle multiple threads attempting to initialize
+// values at the same time.
+//
+// The GlobalConstManager isn't strictly speaking required as its only function is to help
+// asserting that the requested order of initialization is followed at run time.
+class GlobalConstManager {
+public:
+  friend class GlobalConst;
+  friend class InitializeStart;
+  friend class InitializeFinal;
+
+  // Helper class that acts as a global constant which can be initialized with
+  // a dynamically computed value while not being subject to static initialization
+  // order issues via gating access to the value through a function which ensures
+  // the value is initialized before being accessed.
+  //
+  // The Initialize function should return T type. It shouldn't have side effects
+  // and should always return the same value.
+  //
+  // It can also implement the value as constexpr if the Initialize function is constexpr.
+  // This can be requested via IsConstExpr.
+  template<typename T, auto Initialize, int Priority, bool IsConstExpr>
+  class GlobalConst {};
+
+  // The dynamic version works with the GlobalConstManager to ensure it is
+  // initialized when expected according to the priority requested.
+  //
+  // The Priority should match the "init_priority" attribute's value at the
+  // definition of the corresponding global constant value.
+  template<typename T, auto Initialize, int Priority>
+  class GlobalConst<T, Initialize, Priority, false> {
+    // Wrapper over the Initialize function which communicates to GlobalConstManager that
+    // initialization is happening, from which compilation unit and with which priority.
+    static const T InitializeInternal(const char *compilation_unit) {
+      GlobalConstManager::SetModuleAndPriority(Priority, compilation_unit);
+      T value = Initialize();
+      GlobalConstManager::ResetModuleAndPriority();
+
+      return value;
+    }
+
+    public:
+      // Constructor of the constant object.
+      // Initializes the object with the expected value as per the Initialize function and saves
+      // the name of the compilation unit where it is defined for subsequent checks.
+      GlobalConst(const char *compilation_unit)
+          : data_(InitializeInternal(compilation_unit)), compilation_unit_(compilation_unit) {}
+
+      // Normal accessor of the value of the constant - available once the
+      // overall constants initialization is complete as decided by the
+      // GlobalConstManager.
+      operator T() const {
+        GlobalConstManager::AssertInitializationComplete();
+        DCHECK(IsInitialized());
+
+        return data_;
+      }
+
+      // "Early" accessor of the value of the constant - available during the
+      // constants initialization process as decided by the GlobalConstManager.
+      T getEarly() const {
+        GlobalConstManager::EnsureAllowedOrder(Priority, compilation_unit_);
+        CHECK(IsInitialized());
+
+        return data_;
+      }
+
+    private:
+      // If the value is initialized, the compilation unit name is set.
+      bool IsInitialized() const {
+        return compilation_unit_ != nullptr;
+      }
+
+      const T data_; // value of the constant
+      const char *compilation_unit_; // name of the compilation unit defining it
+  };
+
+  // The constexpr version reflects interfaces of the dynamic version, however
+  // doesn't do any checks as it is supposed to declare constexpr versions only
+  // where the initialization is happening at compile-time.
+  template<typename T, auto Initialize, int Priority>
+  class GlobalConst<T, Initialize, Priority, true> {
+    public:
+      constexpr GlobalConst() : data_(Initialize()) {}
+
+      constexpr operator T() const {
+        return data_;
+      }
+
+      constexpr T getEarly() const {
+        return data_;
+      }
+
+    private:
+      const T data_;
+  };
+
+  // init_priority attribute allows to choose priority for initialization each global within a DSO
+  // or static binary. The lower the value the higher the priority is. Range of values available
+  // for general software is 101 to 65535, where 101 corresponds to the highest priority and 65535
+  // corresponds to the lowest priority which is also default for any variables defined without
+  // using the init_priority attribute.
+  //
+  // kInitStartPriority is the priority chosen for the GlobalConstManager to declare that the
+  // constants initialization is started.
+  //
+  // kPriority1 is the first priority available for assigning to GlobalConst objects.
+  //
+  // Subsequent kPriority2 etc. can be used for constants which should be initialized later. Choice
+  // of the priorities should be based on dependencies between the values of the constants and
+  // generally speaking priority chosen for a constant should be the maximum of priority values
+  // among constants it depends on for initialization.
+  //
+  // However, within the same compilation unit, the priority can be the same as the order will be
+  // defined according to the order of definition of the constants.
+  //
+  // kInitFinalPriority is the priority chosen for the GlobalConstManager to
+  // declare that the constants initialization is finished.
+  static constexpr int kInitStartPriority = 101;
+  enum {
+    kPriority1 = kInitStartPriority + 1,
+    kPriority2,
+    kInitFinalPriority,
+  };
+  static constexpr int kLowestPriority = 65535;
+  static_assert(kInitFinalPriority < kLowestPriority);
+
+  // Helper class declaring the initialization is started - defined with
+  // kInitStartPriority.
+  class InitializeStart {
+    public:
+      InitializeStart() {
+        GlobalConstManager::current_priority = kLowestPriority;
+        GlobalConstManager::current_compilation_unit = nullptr;
+        GlobalConstManager::initialization_complete = false;
+      }
+  };
+
+  // Helper class declaring the initialization is finished - defined with
+  // kInitFinalPriority.
+  class InitializeFinal {
+    public:
+      InitializeFinal() {
+        DCHECK(GlobalConstManager::current_priority == kLowestPriority);
+        DCHECK(GlobalConstManager::current_compilation_unit == nullptr);
+        GlobalConstManager::initialization_complete = true;
+      }
+  };
+
+private:
+  // Helper to check that no other GlobalConst is currently being initialized,
+  // and then to declare initialization of a GlobalConst from specified compilation unit
+  // with specified priority.
+  static void SetModuleAndPriority(int priority, const char *compilation_unit) {
+    CHECK(!initialization_complete) << compilation_unit;
+    // No nested initialization is supported (and it isn't required).
+    CHECK(current_priority == kLowestPriority);
+    CHECK(current_compilation_unit == nullptr);
+
+    current_priority = priority;
+    current_compilation_unit = compilation_unit;
   }
+
+  // Helper to reset the state declaring that initialization of a GlobalConst is finished.
+  static void ResetModuleAndPriority() {
+    CHECK(!initialization_complete);
+    CHECK(current_priority < kLowestPriority);
+    CHECK(current_compilation_unit != nullptr);
+
+    current_priority = kLowestPriority;
+    current_compilation_unit = nullptr;
+  }
+
+  // Helper to ensure that accesses to global values are accomplished according to declared
+  // priorities i.e. either priority of accessed global is higher than of the currently initialized
+  // one or they're defined in the same compilation unit.
+  static void EnsureAllowedOrder(int accessed_priority, const char *accessed_compilation_unit) {
+    CHECK(!initialization_complete);
+    CHECK(current_compilation_unit != nullptr);
+    CHECK(accessed_priority < current_priority
+          || (accessed_priority == current_priority
+              && !strcmp(accessed_compilation_unit, current_compilation_unit)))
+            << accessed_compilation_unit << current_compilation_unit
+            << accessed_priority << current_priority;
+  }
+
+  // Assert that overall constants initialization is complete according to GlobalConstManager.
+  static void AssertInitializationComplete() {
+    DCHECK(initialization_complete);
+  }
+
+  static int current_priority;
+  static const char* current_compilation_unit;
+  static bool initialization_complete;
 };
 
-// Helper macros for declaring and defining page size agnostic global values
-// which are constants in page size agnostic configuration and constexpr
-// in non page size agnostic configuration.
+// Helper macros for declaring and defining page size agnostic global values which are constants
+// in page size agnostic configuration and constexpr in non page size agnostic configuration.
 //
-// For the former case, this uses the GlobalConst class initializing it with given expression
-// which should be the same as for the non page size agnostic configuration.
-// kPageSizeAgnostic can be used as a conditional in the expression to distinguish between the two
-// modes.
+// For both cases, this uses the GlobalConst class initializing it with given expression which
+// should be the same as for both configurations. kPageSizeAgnostic can be used as a conditional
+// in the expression to distinguish between the two modes.
 //
 // The motivation behind these helpers is mainly to provide a way to declare / define / initialize
 // the global constants protected from static initialization order issues.
@@ -160,8 +371,8 @@ struct GlobalConst {
 // Adding a new value e.g. `const uint32_t gNewVal = function(gPageSize);` can be done,
 // for example, via:
 //  - declaring it using ART_PAGE_SIZE_AGNOSTIC_DECLARE in this header;
-//  - and defining it with ART_PAGE_SIZE_AGNOSTIC_DEFINE in the globals_unix.cc
-//    or another suitable module.
+//  - and defining it with ART_PAGE_SIZE_AGNOSTIC_DEFINE in the const_globals.cc
+//    or another suitable compilation unit.
 // The statements might look as follows:
 //  ART_PAGE_SIZE_AGNOSTIC_DECLARE(uint32_t, gNewVal, function(gPageSize));
 //  ART_PAGE_SIZE_AGNOSTIC_DEFINE(uint32_t, gNewVal);
@@ -172,39 +383,47 @@ struct GlobalConst {
 
 #ifdef ART_PAGE_SIZE_AGNOSTIC
 // Declaration (page size agnostic version).
-#define ART_PAGE_SIZE_AGNOSTIC_DECLARE(type, name, expr) \
-  inline type EXPORT \
-  name ## _Initializer(void) { \
-    return (expr); \
-  } \
-  extern GlobalConst<type, name ## _Initializer> name
+#define ART_PAGE_SIZE_AGNOSTIC_DECLARE(type, name, expr, initialization_order) \
+  inline type HIDDEN name ## _Initializer(void) { return (expr); } \
+  static constexpr int name ## _Priority = initialization_order; \
+  static_assert(name ## _Priority < GlobalConstManager::kInitFinalPriority, ""); \
+  extern const \
+    GlobalConstManager::GlobalConst<type, name ## _Initializer, name ## _Priority, false> name
 // Definition (page size agnostic version).
-#define ART_PAGE_SIZE_AGNOSTIC_DEFINE(type, name) GlobalConst<type, name ## _Initializer> name
+#define ART_PAGE_SIZE_AGNOSTIC_DEFINE(type, name) \
+    const GlobalConstManager::GlobalConst<type, name ## _Initializer, name ## _Priority, false> \
+    name HIDDEN INIT_PRIORITY(name ## _Priority) (__builtin_FILE())
 #else
 // Declaration (non page size agnostic version).
-#define ART_PAGE_SIZE_AGNOSTIC_DECLARE(type, name, expr) \
-  static constexpr type name = (expr)
+#define ART_PAGE_SIZE_AGNOSTIC_DECLARE(type, name, expr, initialization_order) \
+  constexpr type name ## _Initializer(void) { return (expr); } \
+  static constexpr GlobalConstManager::GlobalConst<type, name ## _Initializer, 0, true> name
 // Definition (non page size agnostic version).
 #define ART_PAGE_SIZE_AGNOSTIC_DEFINE(type, name)
 #endif  // ART_PAGE_SIZE_AGNOSTIC
 
 // Declaration and definition combined.
-#define ART_PAGE_SIZE_AGNOSTIC_DECLARE_AND_DEFINE(type, name, expr) \
-  ART_PAGE_SIZE_AGNOSTIC_DECLARE(type, name, expr); \
+#define ART_PAGE_SIZE_AGNOSTIC_DECLARE_AND_DEFINE(type, name, expr, initialization_order) \
+  ART_PAGE_SIZE_AGNOSTIC_DECLARE(type, name, expr, initialization_order); \
   ART_PAGE_SIZE_AGNOSTIC_DEFINE(type, name)
 
 // System page size. We check this against sysconf(_SC_PAGE_SIZE) at runtime,
 // but for non page size agnostic configuration we use a simple compile-time
 // constant so the compiler can generate better code.
 ART_PAGE_SIZE_AGNOSTIC_DECLARE(size_t, gPageSize,
-                               kPageSizeAgnostic ? sysconf(_SC_PAGE_SIZE) : kMinPageSize);
+                               kPageSizeAgnostic ? sysconf(_SC_PAGE_SIZE) : kMinPageSize,
+                               GlobalConstManager::kPriority1);
 
 // TODO: Kernels for arm and x86 in both, 32-bit and 64-bit modes use 512 entries per page-table
 // page. Find a way to confirm that in userspace.
 // Address range covered by 1 Page Middle Directory (PMD) entry in the page table
-ART_PAGE_SIZE_AGNOSTIC_DECLARE(size_t, gPMDSize, (gPageSize / sizeof(uint64_t)) * gPageSize);
+ART_PAGE_SIZE_AGNOSTIC_DECLARE(size_t, gPMDSize,
+                               (gPageSize.getEarly() / sizeof(uint64_t)) * gPageSize.getEarly(),
+                               GlobalConstManager::kPriority1);
 // Address range covered by 1 Page Upper Directory (PUD) entry in the page table
-ART_PAGE_SIZE_AGNOSTIC_DECLARE(size_t, gPUDSize, (gPageSize / sizeof(uint64_t)) * gPMDSize);
+ART_PAGE_SIZE_AGNOSTIC_DECLARE(size_t, gPUDSize,
+                               (gPageSize.getEarly() / sizeof(uint64_t)) * gPMDSize.getEarly(),
+                               GlobalConstManager::kPriority1);
 
 // Returns the ideal alignment corresponding to page-table levels for the
 // given size.

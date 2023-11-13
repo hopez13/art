@@ -1955,7 +1955,7 @@ void MarkCompact::MapProcessedPages(uint8_t* to_space_start,
   // so in a single ioctl. This helps avoid the overhead of invoking syscall
   // several times and also maps the already-processed pages, avoiding
   // unnecessary faults on them.
-  size_t length = kFirstPageMapping ? gPageSize : 0;
+  size_t length = kFirstPageMapping ? gPageSize : (size_t) 0;
   if (kFirstPageMapping) {
     arr_idx++;
   }
@@ -4433,7 +4433,7 @@ void MarkCompact::FinishPhase() {
   // userfault, which maps a special zero-page.
   if (use_uffd_sigbus_ || !minor_fault_initialized_ || !shadow_to_space_map_.IsValid() ||
       shadow_to_space_map_.Size() < (moving_first_objs_count_ + black_page_count_) * gPageSize) {
-    size_t adjustment = use_uffd_sigbus_ ? 0 : gPageSize;
+    size_t adjustment = use_uffd_sigbus_ ? (size_t) 0 : gPageSize;
     ZeroAndReleaseMemory(compaction_buffers_map_.Begin() + adjustment,
                          compaction_buffers_map_.Size() - adjustment);
   } else if (shadow_to_space_map_.Size() == bump_pointer_space_->Capacity()) {

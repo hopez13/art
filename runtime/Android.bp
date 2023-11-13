@@ -155,6 +155,11 @@ cc_defaults {
         "libunwindstack",
     ],
     static_libs: ["libodrstatslog"],
+    shared: {
+        static_libs: [
+            "libartbase_constglobals",
+        ],
+    },
 }
 
 cc_defaults {

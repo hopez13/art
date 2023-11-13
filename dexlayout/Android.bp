@@ -41,12 +41,22 @@ art_cc_defaults {
                 "libartpalette",
                 "libbase",
             ],
+            shared: {
+                static_libs: [
+                    "libartbase_constglobals",
+                ],
+            },
         },
         not_windows: {
             shared_libs: [
                 "libartpalette",
                 "libbase",
             ],
+            shared: {
+                static_libs: [
+                    "libartbase_constglobals",
+                ],
+            },
         },
         windows: {
             cflags: ["-Wno-thread-safety"],
@@ -54,6 +64,11 @@ art_cc_defaults {
                 "libartpalette",
                 "libbase",
             ],
+            shared: {
+                static_libs: [
+                    "libartbase_constglobals",
+                ],
+            },
         },
     },
     shared_libs: ["libz"],
@@ -269,6 +284,9 @@ art_cc_binary {
         "libartbase",
         "libart-dexlayout",
         "libbase",
+    ],
+    static_libs: [
+        "libartbase_constglobals",
     ],
     target: {
         android: {

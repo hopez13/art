@@ -123,4 +123,6 @@ template<typename T> ART_FRIEND_TEST(test_set_name, individual_test)
 #define EXPORT
 #endif
 
+#define INIT_PRIORITY(priority) __attribute__((init_priority(priority)))
+
 #endif  // ART_LIBARTBASE_BASE_MACROS_H_

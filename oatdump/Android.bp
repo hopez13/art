@@ -69,6 +69,7 @@ art_cc_binary {
                 "libprofile",
             ],
             static_libs: [
+                "libartbase_constglobals",
                 "libelffile",
             ],
         },
@@ -125,6 +126,7 @@ art_cc_binary {
                 "libprofiled",
             ],
             static_libs: [
+                "libartbase_constglobals",
                 "libelffiled",
             ],
         },

@@ -259,6 +259,7 @@ art_cc_binary {
                 "libprofile",
             ],
             static_libs: [
+                "libartbase_constglobals",
                 "libart-dex2oat",
                 "libelffile",
             ],
@@ -319,6 +320,7 @@ art_cc_binary {
                 "libprofiled",
             ],
             static_libs: [
+                "libartbase_constglobals",
                 "libartd-dex2oat",
                 "libelffiled",
             ],

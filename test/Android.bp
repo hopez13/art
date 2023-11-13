@@ -488,6 +488,9 @@ art_cc_test_library {
         "libprofile",
         "libartbase",
     ],
+    static_libs: [
+        "libartbase_constglobals",
+    ],
 }
 
 art_cc_test_library {
@@ -501,6 +504,9 @@ art_cc_test_library {
         "libdexfiled",
         "libprofiled",
         "libartbased",
+    ],
+    static_libs: [
+        "libartbase_constglobals",
     ],
 }
 
@@ -550,6 +556,9 @@ art_cc_test_library {
         "libprofile",
         "libartbase",
     ],
+    static_libs: [
+        "libartbase_constglobals",
+    ],
 }
 
 art_cc_test_library {
@@ -564,6 +573,9 @@ art_cc_test_library {
         "libdexfiled",
         "libprofiled",
         "libartbased",
+    ],
+    static_libs: [
+        "libartbase_constglobals",
     ],
 }
 
@@ -716,6 +728,9 @@ art_cc_test_library {
         "libprofile",
         "libartbase",
     ],
+    static_libs: [
+        "libartbase_constglobals",
+    ],
 }
 
 art_cc_test_library {
@@ -729,6 +744,9 @@ art_cc_test_library {
         "libdexfiled",
         "libprofiled",
         "libartbased",
+    ],
+    static_libs: [
+        "libartbase_constglobals",
     ],
 }
 
@@ -790,6 +808,9 @@ art_cc_test_library {
         "libartbase",
         "libz",
     ],
+    static_libs: [
+        "libartbase_constglobals",
+    ],
 }
 
 art_cc_test_library {
@@ -801,6 +822,9 @@ art_cc_test_library {
     shared_libs: [
         "libartbased",
         "libz",
+    ],
+    static_libs: [
+        "libartbase_constglobals",
     ],
 }
 
@@ -819,6 +843,9 @@ art_cc_test_library {
         "libartbase",
         "libz",
     ],
+    static_libs: [
+        "libartbase_constglobals",
+    ],
 }
 
 art_cc_test_library {
@@ -829,6 +856,9 @@ art_cc_test_library {
     shared_libs: [
         "libartbased",
         "libz",
+    ],
+    static_libs: [
+        "libartbase_constglobals",
     ],
 }
 

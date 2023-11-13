@@ -58,6 +58,9 @@ cc_defaults {
         "base/utils.cc",
         "base/zip_archive.cc",
     ],
+    static_libs: [
+       "libartbase_constglobals",
+    ],
     target: {
         android: {
             srcs: [
@@ -147,6 +150,7 @@ cc_defaults {
     whole_static_libs: [
         "libbase",
         "libartpalette",
+        "libartbase_constglobals",
         "liblog",
         "libz",
         "libziparchive",
@@ -187,6 +191,28 @@ gensrcs {
         "base/unix_file/fd_file.h",
     ],
     output_extension: "operator_out.cc",
+}
+
+art_cc_library_static {
+    name: "libartbase_constglobals",
+    defaults: ["art_defaults"],
+    host_supported: true,
+    srcs: [ "base/const_globals.cc" ],
+    shared_libs: [
+        "libbase",
+    ],
+    apex_available: [
+        "com.android.art",
+        "com.android.art.debug",
+    ],
+    target: {
+        windows: {
+            // Control the enabled property here rather than in
+            // libartbase_defaults, to ensure it overrides properties inherited
+            // from other defaults.
+            enabled: true,
+        },
+    },
 }
 
 art_cc_library {

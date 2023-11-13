@@ -107,6 +107,11 @@ art_cc_library {
         "libprofile_defaults",
         "libart_nativeunwind_defaults",
     ],
+    shared: {
+        static_libs: [
+            "libartbase_constglobals",
+        ],
+    },
     target: {
         android: {
             shared_libs: [
@@ -144,6 +149,11 @@ art_cc_library {
         "art_debug_defaults",
         "libprofile_defaults",
     ],
+    shared: {
+        static_libs: [
+            "libartbase_constglobals",
+        ],
+    },
     target: {
         android: {
             shared_libs: [

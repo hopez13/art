@@ -154,7 +154,8 @@ static constexpr size_t kSuspendTimeDuringFlip = 5'000;
 // is protected against reads and the lower is available for use while
 // throwing the StackOverflow exception.
 ART_PAGE_SIZE_AGNOSTIC_DECLARE_AND_DEFINE(size_t, gStackOverflowProtectedSize,
-                                          kMemoryToolStackGuardSizeScale * gPageSize);
+                                          kMemoryToolStackGuardSizeScale * gPageSize.getEarly(),
+                                          GlobalConstManager::kPriority2);
 
 static const char* kThreadNameDuringStartup = "<native thread without managed peer>";
 
