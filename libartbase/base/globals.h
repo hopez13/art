@@ -150,9 +150,9 @@ struct GlobalConst {
 // in non page size agnostic configuration.
 //
 // For the former case, this uses the GlobalConst class initializing it with given expression
-// which might be the same as for the non page size agnostic configuration (then
-// ART_PAGE_SIZE_AGNOSTIC_DECLARE is most suitable to avoid duplication) or might be different
-// (in which case ART_PAGE_SIZE_AGNOSTIC_DECLARE_ALT should be used).
+// which should be the same as for the non page size agnostic configuration.
+// kPageSizeAgnostic can be used as a conditional in the expression to distinguish between the two
+// modes.
 //
 // The motivation behind these helpers is mainly to provide a way to declare / define / initialize
 // the global constants protected from static initialization order issues.
@@ -172,26 +172,21 @@ struct GlobalConst {
 
 #ifdef ART_PAGE_SIZE_AGNOSTIC
 // Declaration (page size agnostic version).
-#define ART_PAGE_SIZE_AGNOSTIC_DECLARE_ALT(type, name, page_size_agnostic_expr, const_expr) \
+#define ART_PAGE_SIZE_AGNOSTIC_DECLARE(type, name, expr) \
   inline type EXPORT \
   name ## _Initializer(void) { \
-    return (page_size_agnostic_expr); \
+    return (expr); \
   } \
   extern GlobalConst<type, name ## _Initializer> name
 // Definition (page size agnostic version).
 #define ART_PAGE_SIZE_AGNOSTIC_DEFINE(type, name) GlobalConst<type, name ## _Initializer> name
 #else
 // Declaration (non page size agnostic version).
-#define ART_PAGE_SIZE_AGNOSTIC_DECLARE_ALT(type, name, page_size_agnostic_expr, const_expr) \
-  static constexpr type name = (const_expr)
+#define ART_PAGE_SIZE_AGNOSTIC_DECLARE(type, name, expr) \
+  static constexpr type name = (expr)
 // Definition (non page size agnostic version).
 #define ART_PAGE_SIZE_AGNOSTIC_DEFINE(type, name)
 #endif  // ART_PAGE_SIZE_AGNOSTIC
-
-// ART_PAGE_SIZE_AGNOSTIC_DECLARE is same as ART_PAGE_SIZE_AGNOSTIC_DECLARE_ALT
-// for the case when the initializer expressions are the same.
-#define ART_PAGE_SIZE_AGNOSTIC_DECLARE(type, name, expr) \
-    ART_PAGE_SIZE_AGNOSTIC_DECLARE_ALT(type, name, expr, expr)
 
 // Declaration and definition combined.
 #define ART_PAGE_SIZE_AGNOSTIC_DECLARE_AND_DEFINE(type, name, expr) \
@@ -201,7 +196,8 @@ struct GlobalConst {
 // System page size. We check this against sysconf(_SC_PAGE_SIZE) at runtime,
 // but for non page size agnostic configuration we use a simple compile-time
 // constant so the compiler can generate better code.
-ART_PAGE_SIZE_AGNOSTIC_DECLARE_ALT(size_t, gPageSize, sysconf(_SC_PAGE_SIZE), 4096);
+ART_PAGE_SIZE_AGNOSTIC_DECLARE(size_t, gPageSize,
+                               kPageSizeAgnostic ? sysconf(_SC_PAGE_SIZE) : kMinPageSize);
 
 // TODO: Kernels for arm and x86 in both, 32-bit and 64-bit modes use 512 entries per page-table
 // page. Find a way to confirm that in userspace.
