@@ -22,6 +22,30 @@
       },
       "revId": "ddb860419f249d39fd696edceeec680157223e9c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9b70197_a3e57433",
+        "filename": "artd/path_utils.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-11-14T12:03:00Z",
+      "side": 1,
+      "message": "As I mentioned in the CL description of aosp/2827970, there are also some implementations on the Internet that uses an arbitrary string for this field for swap areas. It\u0027s better to ignore it.",
+      "parentUuid": "f6f49c50_71195a92",
+      "range": {
+        "startLine": 296,
+        "startChar": 68,
+        "endLine": 296,
+        "endChar": 75
+      },
+      "revId": "ddb860419f249d39fd696edceeec680157223e9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
