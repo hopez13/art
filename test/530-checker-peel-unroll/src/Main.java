@@ -558,7 +558,7 @@ public class Main {
   /// CHECK-DAG:                  ArraySet [<<Array>>,<<PhiI>>,<<AddArr>>]  loop:<<Loop>>      outer_loop:none
   //
   /// CHECK-DAG: <<STAdd:i\d+>>   Add [<<PhiS>>,<<PhiT>>]                   loop:none
-  /// CHECK-DAG: <<ZCheck:i\d+>>  DivZeroCheck [<<STAdd>>] env:[[<<PhiS>>,<<PhiT>>,<<STAdd>>,<<Const1>>,_,<<Array>>]] loop:none
+  /// CHECK-DAG: <<ZCheck:i\d+>>  DivZeroCheck [<<STAdd>>] env:[[<<Const1>>,<<PhiS>>,<<PhiT>>,<<STAdd>>,<<Limit>>,_,<<Array>>]] loop:none
   /// CHECK-DAG: <<Div:i\d+>>     Div [<<Const1>>,<<ZCheck>>]               loop:none
   /// CHECK-DAG:                  Return [<<Div>>]                          loop:none
 
