@@ -293,6 +293,8 @@ Result<std::vector<FstabEntry>> GetProcMountsEntriesForPath(const std::string& p
   }
   std::vector<FstabEntry> entries;
   for (FstabEntry& entry : fstab) {
+    // A swap area doesn't have a meaningful `mount_point` (a.k.a, `fs_file`) field, according to
+    // fstab(5).
     if (entry.fs_type == "swap") {
       continue;
     }
