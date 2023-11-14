@@ -70,6 +70,30 @@
       },
       "revId": "ddb860419f249d39fd696edceeec680157223e9c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b750e6e_3cdc31b7",
+        "filename": "artd/path_utils.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-11-14T12:53:06Z",
+      "side": 1,
+      "message": "According to fstab(5), `fs_vfstype` of a swap area is exactly \"swap\" (https://screenshot.googleplex.com/8U9YVEg59Hr3QQ9). In contrast, `fs_file` of a swap area *should be* \"none\" (https://screenshot.googleplex.com/A34nrPb9j9QFLDF), which in my understanding is a weaker statement. Therefore, checking `fs_vfstype` is less fragile than checking `fs_file`.\n\nIIUC, adding a swap area can be done by adding an entry to fstab. An OEM can put any string in the `fs_file` field. For example, a blogpost suggests putting \"swap\" rather than \"none\", mentioned in https://serverfault.com/q/967852, though it\u0027s against the recommendation in the Linux man page.",
+      "parentUuid": "f0d7c38d_8951b452",
+      "range": {
+        "startLine": 296,
+        "startChar": 68,
+        "endLine": 296,
+        "endChar": 75
+      },
+      "revId": "ddb860419f249d39fd696edceeec680157223e9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
