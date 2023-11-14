@@ -46,6 +46,30 @@
       },
       "revId": "ddb860419f249d39fd696edceeec680157223e9c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0d7c38d_8951b452",
+        "filename": "artd/path_utils.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-11-14T12:27:27Z",
+      "side": 1,
+      "message": "What implementation are those? Are they relevant to Android devices? And can those arbitrary string begin with \"/\" (because I highly doubt real mount points don\u0027t)? The fragility here is that there may be more fs_types that don\u0027t have a mount points. Maybe some OEM has invented a `gzswap` (tm)(pat pend) or something.",
+      "parentUuid": "a9b70197_a3e57433",
+      "range": {
+        "startLine": 296,
+        "startChar": 68,
+        "endLine": 296,
+        "endChar": 75
+      },
+      "revId": "ddb860419f249d39fd696edceeec680157223e9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
