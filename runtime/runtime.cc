@@ -958,7 +958,8 @@ static jobject CreateSystemClassLoader(Runtime* runtime) {
   CHECK(getSystemClassLoader->IsStatic());
 
   ObjPtr<mirror::Object> system_class_loader = getSystemClassLoader->InvokeStatic<'L'>(soa.Self());
-  CHECK(system_class_loader != nullptr);
+  CHECK(system_class_loader != nullptr)
+      << (soa.Self()->IsExceptionPending() ? "<null>" : soa.Self()->GetException()->Dump());
 
   ScopedAssertNoThreadSuspension sants(__FUNCTION__);
   jobject g_system_class_loader =
