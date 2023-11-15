@@ -39,6 +39,30 @@
       },
       "revId": "5798553533dab18c2a4641a823baf09b011af4ff",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9eed1746_163994d5",
+        "filename": "test/646-checker-simd-hadd/src/HaddShort.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1241761
+      },
+      "writtenOn": "2023-11-15T11:37:24Z",
+      "side": 1,
+      "message": "Thank you! I missed the line!\n\nI don\u0027t have a local test set up right now. What would be the best repro set up?",
+      "parentUuid": "78b838ff_b4cf5097",
+      "range": {
+        "startLine": 334,
+        "startChar": 0,
+        "endLine": 334,
+        "endChar": 100
+      },
+      "revId": "5798553533dab18c2a4641a823baf09b011af4ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
