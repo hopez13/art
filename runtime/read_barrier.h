@@ -39,11 +39,11 @@ class ReadBarrier {
  public:
   // Enable the to-space invariant checks. This is slow and happens very often. Do not enable in
   // fast-debug environment.
-  DECLARE_RUNTIME_DEBUG_FLAG(kEnableToSpaceInvariantChecks);
+  static constexpr bool kEnableToSpaceInvariantChecks = true;
 
   // Enable the read barrier checks. This is slow and happens very often. Do not enable in
   // fast-debug environment.
-  DECLARE_RUNTIME_DEBUG_FLAG(kEnableReadBarrierInvariantChecks);
+  static constexpr bool kEnableReadBarrierInvariantChecks = true;
 
   // Return the reference at ref_addr, invoking read barrier as appropriate.
   // Ref_addr is an address within obj.
