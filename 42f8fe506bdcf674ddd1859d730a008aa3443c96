@@ -16,6 +16,24 @@
       "message": "\u003e Presubmit-Verified -2\n\nUnfortunately I don\u0027t have access to the failure logs.\nWould it be possible to clarify which test failed and error message if possible?",
       "revId": "42f8fe506bdcf674ddd1859d730a008aa3443c96",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "93daf833_46526a26",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-11-15T19:13:14Z",
+      "side": 1,
+      "message": "It\u0027s a messy compilation error in mem_map_windows.cc, probably related to a new mingw32 prebuilt, which seems to let a #define ERROR 0 escape?. It seems completely unrelated. Let me try again.",
+      "parentUuid": "f128a825_0eedee2f",
+      "revId": "42f8fe506bdcf674ddd1859d730a008aa3443c96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
