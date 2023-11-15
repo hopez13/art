@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4894c421_1f438aa2",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 453,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-11-15T16:55:16Z",
+      "side": 1,
+      "message": "How about adding an abstraction for this, with helpers like `GetReturnType` and `GetParameterType(i)`?",
+      "range": {
+        "startLine": 453,
+        "startChar": 10,
+        "endLine": 453,
+        "endChar": 89
+      },
+      "revId": "de2c1183396f04dc94a74a64d3365b767bfb0f87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "edea6357_96493e61",
+        "filename": "runtime/mirror/method_type.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-11-15T16:55:16Z",
+      "side": 1,
+      "message": "Can this be const\u0026 ?",
+      "range": {
+        "startLine": 46,
+        "startChar": 49,
+        "endLine": 46,
+        "endChar": 74
+      },
+      "revId": "de2c1183396f04dc94a74a64d3365b767bfb0f87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "712b5eff_ea6ff7b1",
+        "filename": "runtime/var_handles.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-11-15T16:55:16Z",
+      "side": 1,
+      "message": "nit: add a comment what is the difference with the version above.",
+      "revId": "de2c1183396f04dc94a74a64d3365b767bfb0f87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
