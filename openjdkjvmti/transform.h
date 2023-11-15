@@ -52,13 +52,13 @@ class Transformer {
   static void Register(EventHandler* eh);
 
   template<ArtJvmtiEvent kEvent>
-  static void TransformSingleClassDirect(
+  static void CallClassFileLoadHooksSingleClass(
       EventHandler* event_handler,
       art::Thread* self,
       /*in-out*/ArtClassDefinition* def);
 
   template<RedefinitionType kType>
-  static void RetransformClassesDirect(
+  static void CallClassFileLoadHooks(
       art::Thread* self,
       /*in-out*/std::vector<ArtClassDefinition>* definitions);
 

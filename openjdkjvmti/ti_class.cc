@@ -192,7 +192,7 @@ struct ClassCallback : public art::ClassLoadCallback {
     def.InitFirstLoad(descriptor, class_loader, initial_dex_file);
 
     // Call all non-retransformable agents.
-    Transformer::TransformSingleClassDirect<ArtJvmtiEvent::kClassFileLoadHookNonRetransformable>(
+    Transformer::CallClassFileLoadHooksSingleClass<ArtJvmtiEvent::kClassFileLoadHookNonRetransformable>(
         event_handler, self, &def);
 
     std::vector<unsigned char> post_non_retransform;
@@ -203,10 +203,10 @@ struct ClassCallback : public art::ClassLoadCallback {
     }
 
     // Call all structural transformation agents.
-    Transformer::TransformSingleClassDirect<ArtJvmtiEvent::kStructuralDexFileLoadHook>(
+    Transformer::CallClassFileLoadHooksSingleClass<ArtJvmtiEvent::kStructuralDexFileLoadHook>(
         event_handler, self, &def);
     // Call all retransformable agents.
-    Transformer::TransformSingleClassDirect<ArtJvmtiEvent::kClassFileLoadHookRetransformable>(
+    Transformer::CallClassFileLoadHooksSingleClass<ArtJvmtiEvent::kClassFileLoadHookRetransformable>(
         event_handler, self, &def);
 
     if (def.IsModified()) {

@@ -104,7 +104,7 @@ class Redefiner {
 
   // Helper for checking if redefinition/retransformation is allowed.
   template<RedefinitionType kType = RedefinitionType::kNormal>
-  static jvmtiError GetClassRedefinitionError(jclass klass, /*out*/std::string* error_msg)
+  static jvmtiError CanRedefineClass(jclass klass, /*out*/std::string* error_msg)
       REQUIRES(!art::Locks::mutator_lock_);
 
   static jvmtiError StructurallyRedefineClassDirect(jvmtiEnv* env,
@@ -323,8 +323,7 @@ class Redefiner {
   static jvmtiError IsModifiableClassGeneric(jvmtiEnv* env, jclass klass, jboolean* is_redefinable);
 
   template<RedefinitionType kType = RedefinitionType::kNormal>
-  static jvmtiError GetClassRedefinitionError(art::Handle<art::mirror::Class> klass,
-                                              /*out*/std::string* error_msg)
+  static jvmtiError CanRedefineClass(art::Handle<art::mirror::Class> klass, /*out*/std::string* error_msg)
       REQUIRES_SHARED(art::Locks::mutator_lock_);
 
   jvmtiError Run() REQUIRES_SHARED(art::Locks::mutator_lock_);
