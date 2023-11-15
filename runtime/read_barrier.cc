@@ -18,7 +18,5 @@
 
 namespace art {
 
-DEFINE_RUNTIME_DEBUG_FLAG(ReadBarrier, kEnableToSpaceInvariantChecks);
-DEFINE_RUNTIME_DEBUG_FLAG(ReadBarrier, kEnableReadBarrierInvariantChecks);
 
 }  // namespace art

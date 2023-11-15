@@ -65,7 +65,7 @@ static constexpr size_t kReadBarrierMarkStackSize = 512 * KB;
 // Size (in the number of objects) of the sweep array free buffer.
 static constexpr size_t kSweepArrayChunkFreeSize = 1024;
 // Verify that there are no missing card marks.
-static constexpr bool kVerifyNoMissingCardMarks = kIsDebugBuild;
+static constexpr bool kVerifyNoMissingCardMarks = true;
 
 ConcurrentCopying::ConcurrentCopying(Heap* heap,
                                      bool young_gen,
@@ -1998,14 +1998,16 @@ void ConcurrentCopying::VerifyNoFromSpaceReferences() {
       REQUIRES_SHARED(Locks::mutator_lock_) {
     CHECK(obj != nullptr);
     space::RegionSpace* region_space = RegionSpace();
-    CHECK(!region_space->IsInFromSpace(obj)) << "Scanning object " << obj << " in from space";
+    CHECK(!region_space->IsInFromSpace(obj))
+        << "Scanning object " << obj->PrettyTypeOf() << "(" << obj << ") in from space";
     VerifyNoFromSpaceRefsFieldVisitor visitor(this);
     obj->VisitReferences</*kVisitNativeRoots=*/true, kDefaultVerifyFlags, kWithoutReadBarrier>(
         visitor,
         visitor);
     if (kUseBakerReadBarrier) {
       CHECK_EQ(obj->GetReadBarrierState(), ReadBarrier::NonGrayState())
-          << "obj=" << obj << " has gray rb_state " << obj->GetReadBarrierState();
+          << "obj=" << obj->PrettyTypeOf() << "(" << obj << ") has gray rb_state "
+          << obj->GetReadBarrierState();
     }
   };
   // Roots.
@@ -2393,7 +2395,8 @@ inline void ConcurrentCopying::ProcessMarkStackRef(mirror::Object* to_ref) {
   if (ReadBarrier::kEnableToSpaceInvariantChecks) {
     CHECK(to_ref != nullptr);
     space::RegionSpace* region_space = RegionSpace();
-    CHECK(!region_space->IsInFromSpace(to_ref)) << "Scanning object " << to_ref << " in from space";
+    CHECK(!region_space->IsInFromSpace(to_ref))
+        << "Scanning object " << to_ref->PrettyTypeOf() << "(" << to_ref << ") in from space";
     AssertToSpaceInvariant(nullptr, MemberOffset(0), to_ref);
     AssertToSpaceInvariantFieldVisitor visitor(this);
     to_ref->VisitReferences</*kVisitNativeRoots=*/true, kDefaultVerifyFlags, kWithoutReadBarrier>(
@@ -2899,24 +2902,19 @@ void ConcurrentCopying::AssertToSpaceInvariant(mirror::Object* obj,
         // OK.
         return;
       } else if (type == RegionType::kRegionTypeUnevacFromSpace) {
-        if (!IsMarkedInUnevacFromSpace(ref)) {
-          LOG(FATAL_WITHOUT_ABORT) << "Found unmarked reference in unevac from-space:";
-          // Remove memory protection from the region space and log debugging information.
-          region_space_->Unprotect();
-          LOG(FATAL_WITHOUT_ABORT) << DumpHeapReference(obj, offset, ref);
-          Thread::Current()->DumpJavaStack(LOG_STREAM(FATAL_WITHOUT_ABORT));
-        }
-        CHECK(IsMarkedInUnevacFromSpace(ref)) << ref;
+        CHECK(IsMarkedInUnevacFromSpace(ref)) << "Found unmarked reference in unevac from-space:"
+                                              << DumpHeapReference(obj, offset, ref);
      } else {
         // Not OK: either a from-space ref or a reference in an unused region.
         if (type == RegionType::kRegionTypeFromSpace) {
-          LOG(FATAL_WITHOUT_ABORT) << "Found from-space reference:";
+          LOG(FATAL_WITHOUT_ABORT)
+              << "Found from-space reference:" << DumpHeapReference(obj, offset, ref);
         } else {
-          LOG(FATAL_WITHOUT_ABORT) << "Found reference in region with type " << type << ":";
+          LOG(FATAL_WITHOUT_ABORT) << "Found reference in region with type " << type << ":"
+                                   << DumpHeapReference(obj, offset, ref);
         }
         // Remove memory protection from the region space and log debugging information.
         region_space_->Unprotect();
-        LOG(FATAL_WITHOUT_ABORT) << DumpHeapReference(obj, offset, ref);
         if (obj != nullptr) {
           LogFromSpaceRefHolder(obj, offset);
           LOG(FATAL_WITHOUT_ABORT) << "UNEVAC " << region_space_->IsInUnevacFromSpace(obj) << " "
@@ -3005,23 +3003,18 @@ void ConcurrentCopying::AssertToSpaceInvariant(GcRootSource* gc_root_source,
         // OK.
         return;
       } else if (type == RegionType::kRegionTypeUnevacFromSpace) {
-        if (!IsMarkedInUnevacFromSpace(ref)) {
-          LOG(FATAL_WITHOUT_ABORT) << "Found unmarked reference in unevac from-space:";
-          // Remove memory protection from the region space and log debugging information.
-          region_space_->Unprotect();
-          LOG(FATAL_WITHOUT_ABORT) << DumpGcRoot(ref);
-        }
-        CHECK(IsMarkedInUnevacFromSpace(ref)) << ref;
+        CHECK(IsMarkedInUnevacFromSpace(ref))
+            << "Found unmarked reference in unevac from-space:" << DumpGcRoot(ref);
       } else {
         // Not OK: either a from-space ref or a reference in an unused region.
         if (type == RegionType::kRegionTypeFromSpace) {
-          LOG(FATAL_WITHOUT_ABORT) << "Found from-space reference:";
+          LOG(FATAL_WITHOUT_ABORT) << "Found from-space reference:" << DumpGcRoot(ref);
         } else {
-          LOG(FATAL_WITHOUT_ABORT) << "Found reference in region with type " << type << ":";
+          LOG(FATAL_WITHOUT_ABORT)
+              << "Found reference in region with type " << type << ":" << DumpGcRoot(ref);
         }
         // Remove memory protection from the region space and log debugging information.
         region_space_->Unprotect();
-        LOG(FATAL_WITHOUT_ABORT) << DumpGcRoot(ref);
         if (gc_root_source == nullptr) {
           // No info.
         } else if (gc_root_source->HasArtField()) {
