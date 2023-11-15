@@ -3,6 +3,132 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "eb0e088f_9cff2c00",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-11-15T16:05:16Z",
+      "side": 1,
+      "message": "Partial review for now (without tests).",
+      "revId": "906da232ac53271436909ce1737329cd3b1231e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9f72bc1_f16f0380",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1026,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-11-15T16:05:16Z",
+      "side": 1,
+      "message": "Should we also clear the volatile flag in order to emit a non-volatile operation if it\u0027s not removed?",
+      "range": {
+        "startLine": 1026,
+        "startChar": 6,
+        "endLine": 1026,
+        "endChar": 66
+      },
+      "revId": "906da232ac53271436909ce1737329cd3b1231e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4b7dc88_09425c2d",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1056,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-11-15T16:05:16Z",
+      "side": 1,
+      "message": "Always true? (How can a class be a singleton?)",
+      "range": {
+        "startLine": 1056,
+        "startChar": 9,
+        "endLine": 1056,
+        "endChar": 47
+      },
+      "revId": "906da232ac53271436909ce1737329cd3b1231e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d14eb0cf_1abe160c",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1090,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-11-15T16:05:16Z",
+      "side": 1,
+      "message": "know",
+      "range": {
+        "startLine": 1090,
+        "startChar": 52,
+        "endLine": 1090,
+        "endChar": 62
+      },
+      "revId": "906da232ac53271436909ce1737329cd3b1231e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2031c83_82bd5398",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1095,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-11-15T16:05:16Z",
+      "side": 1,
+      "message": "Update `kRemovedMonitorOp` stat?",
+      "revId": "906da232ac53271436909ce1737329cd3b1231e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a29f2332_dbd43397",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1099,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-11-15T16:05:16Z",
+      "side": 1,
+      "message": "\"Related to\" or \"See also\".",
+      "range": {
+        "startLine": 1099,
+        "startChar": 64,
+        "endLine": 1099,
+        "endChar": 71
+      },
+      "revId": "906da232ac53271436909ce1737329cd3b1231e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "873e866b_b93c9192",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 4
