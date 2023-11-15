@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cffdadea_09f33cf4",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1026,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-11-15T16:39:32Z",
+      "side": 1,
+      "message": "If we do that, we need to create a new instruction that doesn\u0027t have the `is_volatile` set and replace the old one. It is not a packed flag.",
+      "parentUuid": "b9f72bc1_f16f0380",
+      "range": {
+        "startLine": 1026,
+        "startChar": 6,
+        "endLine": 1026,
+        "endChar": 66
+      },
+      "revId": "906da232ac53271436909ce1737329cd3b1231e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a4b7dc88_09425c2d",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 4
@@ -54,6 +78,30 @@
       "writtenOn": "2023-11-15T16:05:16Z",
       "side": 1,
       "message": "Always true? (How can a class be a singleton?)",
+      "range": {
+        "startLine": 1056,
+        "startChar": 9,
+        "endLine": 1056,
+        "endChar": 47
+      },
+      "revId": "906da232ac53271436909ce1737329cd3b1231e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1b65137a_f5b2d41a",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1056,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-11-15T16:39:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a4b7dc88_09425c2d",
       "range": {
         "startLine": 1056,
         "startChar": 9,
@@ -87,6 +135,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "554ac683_9da72f00",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1090,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-11-15T16:39:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d14eb0cf_1abe160c",
+      "range": {
+        "startLine": 1090,
+        "startChar": 52,
+        "endLine": 1090,
+        "endChar": 62
+      },
+      "revId": "906da232ac53271436909ce1737329cd3b1231e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e2031c83_82bd5398",
@@ -104,6 +176,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e418c976_b8e65f0a",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1095,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-11-15T16:39:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e2031c83_82bd5398",
+      "revId": "906da232ac53271436909ce1737329cd3b1231e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a29f2332_dbd43397",
@@ -117,6 +207,30 @@
       "writtenOn": "2023-11-15T16:05:16Z",
       "side": 1,
       "message": "\"Related to\" or \"See also\".",
+      "range": {
+        "startLine": 1099,
+        "startChar": 64,
+        "endLine": 1099,
+        "endChar": 71
+      },
+      "revId": "906da232ac53271436909ce1737329cd3b1231e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "39fb97e0_1cccb0bf",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1099,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-11-15T16:39:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a29f2332_dbd43397",
       "range": {
         "startLine": 1099,
         "startChar": 64,
