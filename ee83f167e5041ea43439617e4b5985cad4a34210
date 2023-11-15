@@ -1,5 +1,40 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1fd6b6e4_478effcb",
+        "filename": "runtime/transaction_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 547,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-11-15T15:55:26Z",
+      "side": 1,
+      "message": "When relanding, you will need to initialize the class \"Ljava/util/concurrent/ConcurrentHashMap$Node;\" here.\n\nIf you run into any additional issues with this test, you shall also want to initialize `Transaction::kAbortExceptionDescriptor` (see also `testTransactionAbort()` in this file; we may want to move that initialization to `SetUp()`) and add `LOG(ERROR) \u003c\u003c new_exception-\u003eDump()` to `Thread::SetException()` for debugging.",
+      "revId": "ee83f167e5041ea43439617e4b5985cad4a34210",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b7f100a_2830c157",
+        "filename": "runtime/well_known_classes.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 859,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-11-15T15:55:26Z",
+      "side": 1,
+      "message": "When relanding, please add\n\n    java_lang_invoke_MethodType_makeImpl \u003d nullptr;",
+      "revId": "ee83f167e5041ea43439617e4b5985cad4a34210",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
