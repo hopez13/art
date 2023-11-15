@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "37460a44_c12369db",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1241761
+      },
+      "writtenOn": "2023-11-15T09:37:44Z",
+      "side": 1,
+      "message": "Santiago: It appears that our next -dev cut of R8/D8 is causing some changes to the CFGs in some ART tests. I\u0027m not sure why the CFG changes as the D8 code change did not have any change in the instructions, just a constant that moved so it is now consistent with the placement in the ART CFG (so less diff from the DEX to your IR).\n\nI\u0027ve tried to update the CFG checks for the failing tests, but even with the updates the tests are still failing as if checking against the non-updated test expectations. Do you know what is up?",
+      "revId": "5798553533dab18c2a4641a823baf09b011af4ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
