@@ -63,6 +63,30 @@
       },
       "revId": "5798553533dab18c2a4641a823baf09b011af4ff",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "28b03a84_8c7e1fd8",
+        "filename": "test/646-checker-simd-hadd/src/HaddShort.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1241761
+      },
+      "writtenOn": "2023-11-15T12:16:54Z",
+      "side": 1,
+      "message": "Running as specified in the README I\u0027m getting this locally:\n```\n$ m -j32 test-art-host-run-test-dependencies\n$ art/test.py --host -r -t 646-checker-simd-hadd\n\u003csnip\u003e\n/usr/local/google/home/zerny/android/aosp/prebuilts/build-tools/path/linux-x86/python3 /usr/local/google/home/zerny/android/aosp/art/test/run-test --temp-path /tmp/test-art-461qafxe/tmp976a8hvl --always-clean --host --prebuild --compact-dex-level fast --optimizing --no-relocate --runtime-option -Xcheck:jni 646-checker-simd-hadd\nTraceback (most recent call last):\n  File \"/usr/local/google/home/zerny/android/aosp/art/test/run-test\", line 917, in \u003cmodule\u003e\n    zip \u003d ZipFile(zip_file, \"r\")\n          ^^^^^^^^^^^^^^^^^^^^^^\n  File \"internal/python3.11/zipfile.py\", line 1284, in __init__\nFileNotFoundError: [Errno 2] No such file or directory: \u0027/usr/local/google/home/zerny/android/aosp/out/host/linux-x86/etc/art/art-run-test-host-data-shard46.zip\u0027\n```",
+      "parentUuid": "9eed1746_163994d5",
+      "range": {
+        "startLine": 334,
+        "startChar": 0,
+        "endLine": 334,
+        "endChar": 100
+      },
+      "revId": "5798553533dab18c2a4641a823baf09b011af4ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
