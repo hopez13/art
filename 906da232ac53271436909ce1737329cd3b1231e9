@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "873e866b_b93c9192",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2682,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-11-15T14:00:36Z",
+      "side": 1,
+      "message": "We have to use `IsStore`. Otherwise we would consider volatile loads as stores.\nhttps://cs.android.com/android/platform/superproject/main/+/main:art/compiler/optimizing/nodes.h;l\u003d1900-1904;drc\u003df7bd87edf3b80ce3bbd6e571fd119c878cb79992",
+      "range": {
+        "startLine": 2682,
+        "startChar": 6,
+        "endLine": 2682,
+        "endChar": 51
+      },
+      "revId": "906da232ac53271436909ce1737329cd3b1231e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "80197e43_1e811abe",
+        "filename": "test/2242-checker-lse-acquire-release-operations/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-11-15T14:00:36Z",
+      "side": 1,
+      "message": "`assertEquals` parameters (expected and result) were incorrectly swapped for this test.",
+      "range": {
+        "startLine": 27,
+        "startChar": 4,
+        "endLine": 27,
+        "endChar": 16
+      },
+      "revId": "906da232ac53271436909ce1737329cd3b1231e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd360bc0_f73d23d8",
+        "filename": "test/2242-checker-lse-acquire-release-operations/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 834,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-11-15T14:00:36Z",
+      "side": 1,
+      "message": "Changed to use non-singletons here and below.",
+      "range": {
+        "startLine": 834,
+        "startChar": 18,
+        "endLine": 834,
+        "endChar": 30
+      },
+      "revId": "906da232ac53271436909ce1737329cd3b1231e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
