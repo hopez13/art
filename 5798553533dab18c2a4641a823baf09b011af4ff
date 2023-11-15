@@ -87,6 +87,30 @@
       },
       "revId": "5798553533dab18c2a4641a823baf09b011af4ff",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2e8e9db_bea8bb6f",
+        "filename": "test/646-checker-simd-hadd/src/HaddShort.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-11-15T13:58:59Z",
+      "side": 1,
+      "message": "On host, you can run `art/test/testrunner/testrunner.py --host --64 --optimizing -b` to build and run all the tests. You can use `-t` to specify a subset of tests to run e.g. `art/test/testrunner/testrunner.py --host --64 --optimizing -b -t 646-checker-simd-hadd`.\n\nFor device, you can use the chroot method (https://cs.android.com/android/platform/superproject/main/+/main:art/test/README.chroot.md). Note that if you run `testrunner` for device you don\u0027t need the `-b` flag as you already built and synced the tests. Running on device (after building and syncing) would be `art/test/testrunner/testrunner.py --target --64 --optimizing -t 646-checker-simd-hadd`",
+      "parentUuid": "28b03a84_8c7e1fd8",
+      "range": {
+        "startLine": 334,
+        "startChar": 0,
+        "endLine": 334,
+        "endChar": 100
+      },
+      "revId": "5798553533dab18c2a4641a823baf09b011af4ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
