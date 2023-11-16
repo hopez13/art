@@ -153,8 +153,6 @@ class WBEVisitor final : public HGraphVisitor {
 };
 
 bool WriteBarrierElimination::Run() {
-  WBEVisitor wbe_visitor(graph_, stats_);
-  wbe_visitor.VisitReversePostOrder();
   return true;
 }
 

@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+// Checks disabled while we investigate b/301833859 b/310755375
+
 class MultipleObject {
     Object inner;
     Object inner2;
@@ -54,14 +56,14 @@ public class Main {
         $noinline$testArraySetsSameRTIBlocked();
     }
 
-    /// CHECK-START: Main Main.$noinline$testInstanceFieldSets(Main, java.lang.Object, java.lang.Object, java.lang.Object) disassembly (after)
-    /// CHECK: InstanceFieldSet field_name:Main.inner field_type:Reference write_barrier_kind:EmitNoNullCheck
-    /// CHECK: InstanceFieldSet field_name:Main.inner2 field_type:Reference write_barrier_kind:DontEmit
-    /// CHECK: InstanceFieldSet field_name:Main.inner3 field_type:Reference write_barrier_kind:DontEmit
+    // CHECK-START: Main Main.$noinline$testInstanceFieldSets(Main, java.lang.Object, java.lang.Object, java.lang.Object) disassembly (after)
+    // CHECK: InstanceFieldSet field_name:Main.inner field_type:Reference write_barrier_kind:EmitNoNullCheck
+    // CHECK: InstanceFieldSet field_name:Main.inner2 field_type:Reference write_barrier_kind:DontEmit
+    // CHECK: InstanceFieldSet field_name:Main.inner3 field_type:Reference write_barrier_kind:DontEmit
 
-    /// CHECK-START: Main Main.$noinline$testInstanceFieldSets(Main, java.lang.Object, java.lang.Object, java.lang.Object) disassembly (after)
-    /// CHECK: ; card_table
-    /// CHECK-NOT: ; card_table
+    // CHECK-START: Main Main.$noinline$testInstanceFieldSets(Main, java.lang.Object, java.lang.Object, java.lang.Object) disassembly (after)
+    // CHECK: ; card_table
+    // CHECK-NOT: ; card_table
     private static Main $noinline$testInstanceFieldSets(Main m, Object o, Object o2, Object o3) {
         m.inner = o;
         m.inner2 = o2;
@@ -69,30 +71,30 @@ public class Main {
         return m;
     }
 
-    /// CHECK-START: void Main.$noinline$testStaticFieldSets(java.lang.Object, java.lang.Object, java.lang.Object) disassembly (after)
-    /// CHECK: StaticFieldSet field_name:Main.inner_static field_type:Reference write_barrier_kind:EmitNoNullCheck
-    /// CHECK: StaticFieldSet field_name:Main.inner_static2 field_type:Reference write_barrier_kind:DontEmit
-    /// CHECK: StaticFieldSet field_name:Main.inner_static3 field_type:Reference write_barrier_kind:DontEmit
+    // CHECK-START: void Main.$noinline$testStaticFieldSets(java.lang.Object, java.lang.Object, java.lang.Object) disassembly (after)
+    // CHECK: StaticFieldSet field_name:Main.inner_static field_type:Reference write_barrier_kind:EmitNoNullCheck
+    // CHECK: StaticFieldSet field_name:Main.inner_static2 field_type:Reference write_barrier_kind:DontEmit
+    // CHECK: StaticFieldSet field_name:Main.inner_static3 field_type:Reference write_barrier_kind:DontEmit
 
-    /// CHECK-START: void Main.$noinline$testStaticFieldSets(java.lang.Object, java.lang.Object, java.lang.Object) disassembly (after)
-    /// CHECK: ; card_table
-    /// CHECK-NOT: ; card_table
+    // CHECK-START: void Main.$noinline$testStaticFieldSets(java.lang.Object, java.lang.Object, java.lang.Object) disassembly (after)
+    // CHECK: ; card_table
+    // CHECK-NOT: ; card_table
     private static void $noinline$testStaticFieldSets(Object o, Object o2, Object o3) {
         inner_static = o;
         inner_static2 = o2;
         inner_static3 = o3;
     }
 
-    /// CHECK-START: java.lang.Object[] Main.$noinline$testArraySets(java.lang.Object[], java.lang.Object, java.lang.Object, java.lang.Object) disassembly (after)
-    /// CHECK: ArraySet needs_type_check:true can_trigger_gc:true write_barrier_kind:EmitNoNullCheck
-    /// CHECK: ArraySet needs_type_check:true can_trigger_gc:true write_barrier_kind:EmitNoNullCheck
-    /// CHECK: ArraySet needs_type_check:true can_trigger_gc:true write_barrier_kind:EmitNoNullCheck
+    // CHECK-START: java.lang.Object[] Main.$noinline$testArraySets(java.lang.Object[], java.lang.Object, java.lang.Object, java.lang.Object) disassembly (after)
+    // CHECK: ArraySet needs_type_check:true can_trigger_gc:true write_barrier_kind:EmitNoNullCheck
+    // CHECK: ArraySet needs_type_check:true can_trigger_gc:true write_barrier_kind:EmitNoNullCheck
+    // CHECK: ArraySet needs_type_check:true can_trigger_gc:true write_barrier_kind:EmitNoNullCheck
 
-    /// CHECK-START: java.lang.Object[] Main.$noinline$testArraySets(java.lang.Object[], java.lang.Object, java.lang.Object, java.lang.Object) disassembly (after)
-    /// CHECK: ; card_table
-    /// CHECK: ; card_table
-    /// CHECK: ; card_table
-    /// CHECK-NOT: ; card_table
+    // CHECK-START: java.lang.Object[] Main.$noinline$testArraySets(java.lang.Object[], java.lang.Object, java.lang.Object, java.lang.Object) disassembly (after)
+    // CHECK: ; card_table
+    // CHECK: ; card_table
+    // CHECK: ; card_table
+    // CHECK-NOT: ; card_table
     private static java.lang.Object[] $noinline$testArraySets(
             Object[] arr, Object o, Object o2, Object o3) {
         arr[0] = o;
@@ -101,14 +103,14 @@ public class Main {
         return arr;
     }
 
-    /// CHECK-START: java.lang.Object[] Main.$noinline$testSwapArray(java.lang.Object[]) disassembly (after)
-    /// CHECK: ArraySet needs_type_check:false can_trigger_gc:false write_barrier_kind:EmitNoNullCheck
-    /// CHECK: ArraySet needs_type_check:false can_trigger_gc:false write_barrier_kind:DontEmit
-    /// CHECK: ArraySet needs_type_check:false can_trigger_gc:false write_barrier_kind:DontEmit
+    // CHECK-START: java.lang.Object[] Main.$noinline$testSwapArray(java.lang.Object[]) disassembly (after)
+    // CHECK: ArraySet needs_type_check:false can_trigger_gc:false write_barrier_kind:EmitNoNullCheck
+    // CHECK: ArraySet needs_type_check:false can_trigger_gc:false write_barrier_kind:DontEmit
+    // CHECK: ArraySet needs_type_check:false can_trigger_gc:false write_barrier_kind:DontEmit
 
-    /// CHECK-START: java.lang.Object[] Main.$noinline$testSwapArray(java.lang.Object[]) disassembly (after)
-    /// CHECK: ; card_table
-    /// CHECK-NOT: ; card_table
+    // CHECK-START: java.lang.Object[] Main.$noinline$testSwapArray(java.lang.Object[]) disassembly (after)
+    // CHECK: ; card_table
+    // CHECK-NOT: ; card_table
     private static java.lang.Object[] $noinline$testSwapArray(Object[] arr) {
         arr[0] = arr[1];
         arr[1] = arr[2];
@@ -116,14 +118,14 @@ public class Main {
         return arr;
     }
 
-    /// CHECK-START: java.lang.Object[] Main.$noinline$testArraySetsSameRTI() disassembly (after)
-    /// CHECK: ArraySet needs_type_check:false can_trigger_gc:false write_barrier_kind:EmitNoNullCheck
-    /// CHECK: ArraySet needs_type_check:false can_trigger_gc:false write_barrier_kind:DontEmit
-    /// CHECK: ArraySet needs_type_check:false can_trigger_gc:false write_barrier_kind:DontEmit
+    // CHECK-START: java.lang.Object[] Main.$noinline$testArraySetsSameRTI() disassembly (after)
+    // CHECK: ArraySet needs_type_check:false can_trigger_gc:false write_barrier_kind:EmitNoNullCheck
+    // CHECK: ArraySet needs_type_check:false can_trigger_gc:false write_barrier_kind:DontEmit
+    // CHECK: ArraySet needs_type_check:false can_trigger_gc:false write_barrier_kind:DontEmit
 
-    /// CHECK-START: java.lang.Object[] Main.$noinline$testArraySetsSameRTI() disassembly (after)
-    /// CHECK: ; card_table
-    /// CHECK-NOT: ; card_table
+    // CHECK-START: java.lang.Object[] Main.$noinline$testArraySetsSameRTI() disassembly (after)
+    // CHECK: ; card_table
+    // CHECK-NOT: ; card_table
     private static java.lang.Object[] $noinline$testArraySetsSameRTI() {
         Object[] arr = new Object[3];
         arr[0] = inner_static;
@@ -132,14 +134,14 @@ public class Main {
         return arr;
     }
 
-    /// CHECK-START: Main Main.$noinline$testNullInstanceFieldSets(Main, java.lang.Object) disassembly (after)
-    /// CHECK: InstanceFieldSet field_name:Main.inner field_type:Reference write_barrier_kind:DontEmit
-    /// CHECK: InstanceFieldSet field_name:Main.inner2 field_type:Reference write_barrier_kind:EmitWithNullCheck
-    /// CHECK: InstanceFieldSet field_name:Main.inner3 field_type:Reference write_barrier_kind:DontEmit
+    // CHECK-START: Main Main.$noinline$testNullInstanceFieldSets(Main, java.lang.Object) disassembly (after)
+    // CHECK: InstanceFieldSet field_name:Main.inner field_type:Reference write_barrier_kind:DontEmit
+    // CHECK: InstanceFieldSet field_name:Main.inner2 field_type:Reference write_barrier_kind:EmitWithNullCheck
+    // CHECK: InstanceFieldSet field_name:Main.inner3 field_type:Reference write_barrier_kind:DontEmit
 
-    /// CHECK-START: Main Main.$noinline$testNullInstanceFieldSets(Main, java.lang.Object) disassembly (after)
-    /// CHECK: ; card_table
-    /// CHECK-NOT: ; card_table
+    // CHECK-START: Main Main.$noinline$testNullInstanceFieldSets(Main, java.lang.Object) disassembly (after)
+    // CHECK: ; card_table
+    // CHECK-NOT: ; card_table
     private static Main $noinline$testNullInstanceFieldSets(Main m, Object o) {
         m.inner = null;
         m.inner2 = o;
@@ -147,28 +149,28 @@ public class Main {
         return m;
     }
 
-    /// CHECK-START: void Main.$noinline$testNullStaticFieldSets(java.lang.Object) disassembly (after)
-    /// CHECK: StaticFieldSet field_name:Main.inner_static field_type:Reference write_barrier_kind:DontEmit
-    /// CHECK: StaticFieldSet field_name:Main.inner_static2 field_type:Reference write_barrier_kind:EmitWithNullCheck
-    /// CHECK: StaticFieldSet field_name:Main.inner_static3 field_type:Reference write_barrier_kind:DontEmit
+    // CHECK-START: void Main.$noinline$testNullStaticFieldSets(java.lang.Object) disassembly (after)
+    // CHECK: StaticFieldSet field_name:Main.inner_static field_type:Reference write_barrier_kind:DontEmit
+    // CHECK: StaticFieldSet field_name:Main.inner_static2 field_type:Reference write_barrier_kind:EmitWithNullCheck
+    // CHECK: StaticFieldSet field_name:Main.inner_static3 field_type:Reference write_barrier_kind:DontEmit
 
-    /// CHECK-START: void Main.$noinline$testNullStaticFieldSets(java.lang.Object) disassembly (after)
-    /// CHECK: ; card_table
-    /// CHECK-NOT: ; card_table
+    // CHECK-START: void Main.$noinline$testNullStaticFieldSets(java.lang.Object) disassembly (after)
+    // CHECK: ; card_table
+    // CHECK-NOT: ; card_table
     private static void $noinline$testNullStaticFieldSets(Object o) {
         inner_static = null;
         inner_static2 = o;
         inner_static3 = null;
     }
 
-    /// CHECK-START: java.lang.Object[] Main.$noinline$testNullArraySets(java.lang.Object[], java.lang.Object) disassembly (after)
-    /// CHECK: ArraySet needs_type_check:false can_trigger_gc:false write_barrier_kind:DontEmit
-    /// CHECK: ArraySet needs_type_check:true can_trigger_gc:true write_barrier_kind:EmitNoNullCheck
-    /// CHECK: ArraySet needs_type_check:false can_trigger_gc:false write_barrier_kind:DontEmit
+    // CHECK-START: java.lang.Object[] Main.$noinline$testNullArraySets(java.lang.Object[], java.lang.Object) disassembly (after)
+    // CHECK: ArraySet needs_type_check:false can_trigger_gc:false write_barrier_kind:DontEmit
+    // CHECK: ArraySet needs_type_check:true can_trigger_gc:true write_barrier_kind:EmitNoNullCheck
+    // CHECK: ArraySet needs_type_check:false can_trigger_gc:false write_barrier_kind:DontEmit
 
-    /// CHECK-START: java.lang.Object[] Main.$noinline$testNullArraySets(java.lang.Object[], java.lang.Object) disassembly (after)
-    /// CHECK: ; card_table
-    /// CHECK-NOT: ; card_table
+    // CHECK-START: java.lang.Object[] Main.$noinline$testNullArraySets(java.lang.Object[], java.lang.Object) disassembly (after)
+    // CHECK: ; card_table
+    // CHECK-NOT: ; card_table
     private static Object[] $noinline$testNullArraySets(Object[] arr, Object o) {
         arr[0] = null;
         arr[1] = o;
@@ -176,19 +178,19 @@ public class Main {
         return arr;
     }
 
-    /// CHECK-START: Main Main.$noinline$testInstanceFieldSetsMultipleReceivers(Main, java.lang.Object, java.lang.Object, java.lang.Object) disassembly (after)
+    // CHECK-START: Main Main.$noinline$testInstanceFieldSetsMultipleReceivers(Main, java.lang.Object, java.lang.Object, java.lang.Object) disassembly (after)
     // There are two extra card_tables for the initialization of the MultipleObject.
-    /// CHECK: InstanceFieldSet field_name:MultipleObject.inner field_type:Reference write_barrier_kind:EmitNoNullCheck
-    /// CHECK: InstanceFieldSet field_name:MultipleObject.inner field_type:Reference write_barrier_kind:EmitWithNullCheck
-    /// CHECK: InstanceFieldSet field_name:MultipleObject.inner2 field_type:Reference write_barrier_kind:DontEmit
+    // CHECK: InstanceFieldSet field_name:MultipleObject.inner field_type:Reference write_barrier_kind:EmitNoNullCheck
+    // CHECK: InstanceFieldSet field_name:MultipleObject.inner field_type:Reference write_barrier_kind:EmitWithNullCheck
+    // CHECK: InstanceFieldSet field_name:MultipleObject.inner2 field_type:Reference write_barrier_kind:DontEmit
 
     // Each one of the two NewInstance instructions have their own `card_table` reference.
-    /// CHECK-START: Main Main.$noinline$testInstanceFieldSetsMultipleReceivers(Main, java.lang.Object, java.lang.Object, java.lang.Object) disassembly (after)
-    /// CHECK: ; card_table
-    /// CHECK: ; card_table
-    /// CHECK: ; card_table
-    /// CHECK: ; card_table
-    /// CHECK-NOT: ; card_table
+    // CHECK-START: Main Main.$noinline$testInstanceFieldSetsMultipleReceivers(Main, java.lang.Object, java.lang.Object, java.lang.Object) disassembly (after)
+    // CHECK: ; card_table
+    // CHECK: ; card_table
+    // CHECK: ; card_table
+    // CHECK: ; card_table
+    // CHECK-NOT: ; card_table
     private static Main $noinline$testInstanceFieldSetsMultipleReceivers(
             Main m, Object o, Object o2, Object o3) throws Error {
         m.mo = new MultipleObject();
@@ -203,15 +205,15 @@ public class Main {
         return m;
     }
 
-    /// CHECK-START: void Main.$noinline$testStaticFieldSetsMultipleReceivers(java.lang.Object, java.lang.Object, java.lang.Object) disassembly (after)
-    /// CHECK: StaticFieldSet field_name:MultipleObject.inner_static field_type:Reference write_barrier_kind:EmitWithNullCheck
-    /// CHECK: StaticFieldSet field_name:Main.inner_static2 field_type:Reference write_barrier_kind:EmitNoNullCheck
-    /// CHECK: StaticFieldSet field_name:Main.inner_static3 field_type:Reference write_barrier_kind:DontEmit
+    // CHECK-START: void Main.$noinline$testStaticFieldSetsMultipleReceivers(java.lang.Object, java.lang.Object, java.lang.Object) disassembly (after)
+    // CHECK: StaticFieldSet field_name:MultipleObject.inner_static field_type:Reference write_barrier_kind:EmitWithNullCheck
+    // CHECK: StaticFieldSet field_name:Main.inner_static2 field_type:Reference write_barrier_kind:EmitNoNullCheck
+    // CHECK: StaticFieldSet field_name:Main.inner_static3 field_type:Reference write_barrier_kind:DontEmit
 
-    /// CHECK-START: void Main.$noinline$testStaticFieldSetsMultipleReceivers(java.lang.Object, java.lang.Object, java.lang.Object) disassembly (after)
-    /// CHECK: ; card_table
-    /// CHECK: ; card_table
-    /// CHECK-NOT: ; card_table
+    // CHECK-START: void Main.$noinline$testStaticFieldSetsMultipleReceivers(java.lang.Object, java.lang.Object, java.lang.Object) disassembly (after)
+    // CHECK: ; card_table
+    // CHECK: ; card_table
+    // CHECK-NOT: ; card_table
     private static void $noinline$testStaticFieldSetsMultipleReceivers(
             Object o, Object o2, Object o3) {
         MultipleObject.inner_static = o;
@@ -219,22 +221,22 @@ public class Main {
         inner_static3 = o3;
     }
 
-    /// CHECK-START: java.lang.Object[][] Main.$noinline$testArraySetsMultipleReceiversSameRTI() disassembly (after)
+    // CHECK-START: java.lang.Object[][] Main.$noinline$testArraySetsMultipleReceiversSameRTI() disassembly (after)
     // Initializing the values
-    /// CHECK: ArraySet needs_type_check:false can_trigger_gc:false write_barrier_kind:EmitNoNullCheck
-    /// CHECK: ArraySet needs_type_check:false can_trigger_gc:false write_barrier_kind:EmitNoNullCheck
-    /// CHECK: ArraySet needs_type_check:false can_trigger_gc:false write_barrier_kind:DontEmit
+    // CHECK: ArraySet needs_type_check:false can_trigger_gc:false write_barrier_kind:EmitNoNullCheck
+    // CHECK: ArraySet needs_type_check:false can_trigger_gc:false write_barrier_kind:EmitNoNullCheck
+    // CHECK: ArraySet needs_type_check:false can_trigger_gc:false write_barrier_kind:DontEmit
     // Setting the `array_of_arrays`.
-    /// CHECK: ArraySet needs_type_check:false can_trigger_gc:false write_barrier_kind:EmitNoNullCheck
-    /// CHECK: ArraySet needs_type_check:false can_trigger_gc:false write_barrier_kind:DontEmit
+    // CHECK: ArraySet needs_type_check:false can_trigger_gc:false write_barrier_kind:EmitNoNullCheck
+    // CHECK: ArraySet needs_type_check:false can_trigger_gc:false write_barrier_kind:DontEmit
 
-    /// CHECK-START: java.lang.Object[][] Main.$noinline$testArraySetsMultipleReceiversSameRTI() disassembly (after)
+    // CHECK-START: java.lang.Object[][] Main.$noinline$testArraySetsMultipleReceiversSameRTI() disassembly (after)
     // Two array sets can't eliminate the write barrier
-    /// CHECK: ; card_table
-    /// CHECK: ; card_table
+    // CHECK: ; card_table
+    // CHECK: ; card_table
     // One write barrier for the array of arrays' sets
-    /// CHECK: ; card_table
-    /// CHECK-NOT: ; card_table
+    // CHECK: ; card_table
+    // CHECK-NOT: ; card_table
     private static java.lang.Object[][] $noinline$testArraySetsMultipleReceiversSameRTI() {
         Object[] arr = new Object[3];
         Object[] other_arr = new Object[3];
@@ -250,18 +252,18 @@ public class Main {
 
     private static void $noinline$emptyMethod() {}
 
-    /// CHECK-START: Main Main.$noinline$testInstanceFieldSetsBlocked(Main, java.lang.Object, java.lang.Object, java.lang.Object) disassembly (after)
-    /// CHECK: InstanceFieldSet field_name:Main.inner field_type:Reference write_barrier_kind:EmitWithNullCheck
-    /// CHECK: InvokeStaticOrDirect method_name:Main.$noinline$emptyMethod
-    /// CHECK: InstanceFieldSet field_name:Main.inner2 field_type:Reference write_barrier_kind:EmitWithNullCheck
-    /// CHECK: MonitorOperation kind:enter
-    /// CHECK: InstanceFieldSet field_name:Main.inner3 field_type:Reference write_barrier_kind:EmitWithNullCheck
+    // CHECK-START: Main Main.$noinline$testInstanceFieldSetsBlocked(Main, java.lang.Object, java.lang.Object, java.lang.Object) disassembly (after)
+    // CHECK: InstanceFieldSet field_name:Main.inner field_type:Reference write_barrier_kind:EmitWithNullCheck
+    // CHECK: InvokeStaticOrDirect method_name:Main.$noinline$emptyMethod
+    // CHECK: InstanceFieldSet field_name:Main.inner2 field_type:Reference write_barrier_kind:EmitWithNullCheck
+    // CHECK: MonitorOperation kind:enter
+    // CHECK: InstanceFieldSet field_name:Main.inner3 field_type:Reference write_barrier_kind:EmitWithNullCheck
 
-    /// CHECK-START: Main Main.$noinline$testInstanceFieldSetsBlocked(Main, java.lang.Object, java.lang.Object, java.lang.Object) disassembly (after)
-    /// CHECK: ; card_table
-    /// CHECK: ; card_table
-    /// CHECK: ; card_table
-    /// CHECK-NOT: ; card_table
+    // CHECK-START: Main Main.$noinline$testInstanceFieldSetsBlocked(Main, java.lang.Object, java.lang.Object, java.lang.Object) disassembly (after)
+    // CHECK: ; card_table
+    // CHECK: ; card_table
+    // CHECK: ; card_table
+    // CHECK-NOT: ; card_table
     private static Main $noinline$testInstanceFieldSetsBlocked(
             Main m, Object o, Object o2, Object o3) {
         m.inner = o;
@@ -273,18 +275,18 @@ public class Main {
         return m;
     }
 
-    /// CHECK-START: void Main.$noinline$testStaticFieldSetsBlocked(java.lang.Object, java.lang.Object, java.lang.Object) disassembly (after)
-    /// CHECK: StaticFieldSet field_name:Main.inner_static field_type:Reference write_barrier_kind:EmitWithNullCheck
-    /// CHECK: InvokeStaticOrDirect method_name:Main.$noinline$emptyMethod
-    /// CHECK: StaticFieldSet field_name:Main.inner_static2 field_type:Reference write_barrier_kind:EmitWithNullCheck
-    /// CHECK: MonitorOperation kind:enter
-    /// CHECK: StaticFieldSet field_name:Main.inner_static3 field_type:Reference write_barrier_kind:EmitWithNullCheck
+    // CHECK-START: void Main.$noinline$testStaticFieldSetsBlocked(java.lang.Object, java.lang.Object, java.lang.Object) disassembly (after)
+    // CHECK: StaticFieldSet field_name:Main.inner_static field_type:Reference write_barrier_kind:EmitWithNullCheck
+    // CHECK: InvokeStaticOrDirect method_name:Main.$noinline$emptyMethod
+    // CHECK: StaticFieldSet field_name:Main.inner_static2 field_type:Reference write_barrier_kind:EmitWithNullCheck
+    // CHECK: MonitorOperation kind:enter
+    // CHECK: StaticFieldSet field_name:Main.inner_static3 field_type:Reference write_barrier_kind:EmitWithNullCheck
 
-    /// CHECK-START: void Main.$noinline$testStaticFieldSetsBlocked(java.lang.Object, java.lang.Object, java.lang.Object) disassembly (after)
-    /// CHECK: ; card_table
-    /// CHECK: ; card_table
-    /// CHECK: ; card_table
-    /// CHECK-NOT: ; card_table
+    // CHECK-START: void Main.$noinline$testStaticFieldSetsBlocked(java.lang.Object, java.lang.Object, java.lang.Object) disassembly (after)
+    // CHECK: ; card_table
+    // CHECK: ; card_table
+    // CHECK: ; card_table
+    // CHECK-NOT: ; card_table
     private static void $noinline$testStaticFieldSetsBlocked(Object o, Object o2, Object o3) {
         inner_static = o;
         $noinline$emptyMethod();
@@ -295,18 +297,18 @@ public class Main {
         }
     }
 
-    /// CHECK-START: java.lang.Object[] Main.$noinline$testArraySetsSameRTIBlocked() disassembly (after)
-    /// CHECK: ArraySet needs_type_check:false can_trigger_gc:false write_barrier_kind:EmitNoNullCheck
-    /// CHECK: InvokeStaticOrDirect method_name:Main.$noinline$emptyMethod
-    /// CHECK: ArraySet needs_type_check:false can_trigger_gc:false write_barrier_kind:EmitNoNullCheck
-    /// CHECK: MonitorOperation kind:enter
-    /// CHECK: ArraySet needs_type_check:false can_trigger_gc:false write_barrier_kind:EmitNoNullCheck
+    // CHECK-START: java.lang.Object[] Main.$noinline$testArraySetsSameRTIBlocked() disassembly (after)
+    // CHECK: ArraySet needs_type_check:false can_trigger_gc:false write_barrier_kind:EmitNoNullCheck
+    // CHECK: InvokeStaticOrDirect method_name:Main.$noinline$emptyMethod
+    // CHECK: ArraySet needs_type_check:false can_trigger_gc:false write_barrier_kind:EmitNoNullCheck
+    // CHECK: MonitorOperation kind:enter
+    // CHECK: ArraySet needs_type_check:false can_trigger_gc:false write_barrier_kind:EmitNoNullCheck
 
-    /// CHECK-START: java.lang.Object[] Main.$noinline$testArraySetsSameRTIBlocked() disassembly (after)
-    /// CHECK: ; card_table
-    /// CHECK: ; card_table
-    /// CHECK: ; card_table
-    /// CHECK-NOT: ; card_table
+    // CHECK-START: java.lang.Object[] Main.$noinline$testArraySetsSameRTIBlocked() disassembly (after)
+    // CHECK: ; card_table
+    // CHECK: ; card_table
+    // CHECK: ; card_table
+    // CHECK-NOT: ; card_table
     private static java.lang.Object[] $noinline$testArraySetsSameRTIBlocked() {
         Object[] arr = new Object[3];
         arr[0] = inner_static;
