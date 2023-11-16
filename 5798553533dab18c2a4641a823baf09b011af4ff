@@ -111,6 +111,30 @@
       },
       "revId": "5798553533dab18c2a4641a823baf09b011af4ff",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3283e05f_804adfed",
+        "filename": "test/646-checker-simd-hadd/src/HaddShort.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1241761
+      },
+      "writtenOn": "2023-11-16T08:20:23Z",
+      "side": 1,
+      "message": "Thanks. That worked. Tests should pass now so this is ready for review. Rerunning presubmit now.",
+      "parentUuid": "e2e8e9db_bea8bb6f",
+      "range": {
+        "startLine": 334,
+        "startChar": 0,
+        "endLine": 334,
+        "endChar": 100
+      },
+      "revId": "5798553533dab18c2a4641a823baf09b011af4ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
