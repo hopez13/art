@@ -52,6 +52,24 @@
       "parentUuid": "93daf833_46526a26",
       "revId": "42f8fe506bdcf674ddd1859d730a008aa3443c96",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "983378be_d83e7d19",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-11-16T07:16:36Z",
+      "side": 1,
+      "message": "\u003e Or, alternatively, maybe the problem is with adding \"bit_utils.h\" or \"globals.h\" header to the mem_map.h; however, I\u0027ve not yet figured out how exactly that might cause the issue.\n\nI think that\u0027s the case. Did you try \u0027mma\u0027 in art (see child CL)? It seems like a Windows specific issue",
+      "parentUuid": "540a88a0_484945fa",
+      "revId": "42f8fe506bdcf674ddd1859d730a008aa3443c96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
