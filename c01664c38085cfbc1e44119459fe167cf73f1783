@@ -68,6 +68,24 @@
       "message": "hmmm! maybe related?\n\nNote the fastest way to reproduce this specific build: Reproduce locally with `m out/soong/.intermediates/art/libartbase/libartbase/windows_x86_static/e4694d05f1cb76fefd10c9c37c092ec4/obj/art/libartbase/base/mem_map_windows.o` (though the has is probably different locally - I think there is an internal issue for this, so you might not be able to use this exact command)\n\nIf you have cd\u0027d into the art directory, I\u0027d recommend running `mma` to build all targets and all variants that are applicable to your lunch target.",
       "revId": "c01664c38085cfbc1e44119459fe167cf73f1783",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a8ba9e66_a2591e42",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1280281
+      },
+      "writtenOn": "2023-11-16T11:37:20Z",
+      "side": 1,
+      "message": "Thank you, Steven,\n\nI can confirm it is related to\nhttps://cs.android.com/android/platform/superproject/main/+/main:system/libbase/include/android-base/logging.h;l\u003d56?q\u003dsystem%2Flibbase%2Finclude%2Fandroid-base%2Flogging.h",
+      "parentUuid": "3434ad0b_c4ed2abf",
+      "revId": "c01664c38085cfbc1e44119459fe167cf73f1783",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
