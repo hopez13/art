@@ -20,6 +20,7 @@ import static com.android.server.art.DexUseManagerLocal.DetailedSecondaryDexInfo
 import static com.android.server.art.DexUseManagerLocal.SecondaryDexInfo;
 import static com.android.server.art.PrimaryDexUtils.DetailedPrimaryDexInfo;
 import static com.android.server.art.PrimaryDexUtils.PrimaryDexInfo;
+import static com.android.server.art.ProfilePath.WritableProfilePath;
 import static com.android.server.art.ReasonMapping.BatchDexoptReason;
 import static com.android.server.art.ReasonMapping.BootReason;
 import static com.android.server.art.Utils.Abi;
@@ -55,6 +56,7 @@ import android.util.Pair;
 import androidx.annotation.RequiresApi;
 
 import com.android.internal.annotations.VisibleForTesting;
+import com.android.modules.utils.build.SdkLevel;
 import com.android.server.LocalManagerRegistry;
 import com.android.server.art.model.ArtFlags;
 import com.android.server.art.model.BatchDexoptParams;
@@ -864,6 +866,11 @@ public final class ArtManagerLocal {
             @Nullable @CallbackExecutor Executor progressCallbackExecutor,
             @Nullable Consumer<OperationProgress> progressCallback) {
         try (var snapshot = mInjector.getPackageManagerLocal().withFilteredSnapshot()) {
+            if ((bootReason.equals(ReasonMapping.REASON_BOOT_AFTER_OTA)
+                        || bootReason.equals(ReasonMapping.REASON_BOOT_AFTER_MAINLINE_UPDATE))
+                    && SdkLevel.isAtLeastV()) {
+                commitPreRebootStagedFiles(snapshot);
+            }
             dexoptPackages(snapshot, bootReason, new CancellationSignal(), progressCallbackExecutor,
                     progressCallback);
         }
@@ -1020,6 +1027,49 @@ public final class ArtManagerLocal {
         }
     }
 
+    /** @hide */
+    @RequiresApi(Build.VERSION_CODES.VANILLA_ICE_CREAM)
+    public void commitPreRebootStagedFiles(@NonNull PackageManagerLocal.FilteredSnapshot snapshot) {
+        try {
+            for (PackageState pkgState : snapshot.getPackageStates().values()) {
+                if (!Utils.canDexoptPackage(pkgState, null /* appHibernationManager */)) {
+                    continue;
+                }
+                AndroidPackage pkg = Utils.getPackageOrThrow(pkgState);
+                boolean isInDalvikCache = Utils.isInDalvikCache(pkgState, mInjector.getArtd());
+                for (DetailedPrimaryDexInfo dexInfo :
+                        PrimaryDexUtils.getDetailedDexInfo(pkgState, pkg)) {
+                    if (!dexInfo.hasCode()) {
+                        continue;
+                    }
+                    WritableProfilePath profile = WritableProfilePath.forPrimary(
+                            AidlUtils.buildPrimaryRefProfilePath(pkgState.getPackageName(),
+                                    PrimaryDexUtils.getProfileName(dexInfo.splitName())));
+                    List<ArtifactsPath> artifacts = new ArrayList<>();
+                    for (Abi abi : Utils.getAllAbis(pkgState)) {
+                        artifacts.add(AidlUtils.buildArtifactsPath(
+                                dexInfo.dexPath(), abi.isa(), isInDalvikCache));
+                    }
+                    mInjector.getArtd().commitPreRebootStagedFiles(artifacts, profile);
+                }
+                for (DetailedSecondaryDexInfo dexInfo :
+                        mInjector.getDexUseManager().getFilteredDetailedSecondaryDexInfo(
+                                pkgState.getPackageName())) {
+                    WritableProfilePath profile = WritableProfilePath.forSecondary(
+                            AidlUtils.buildSecondaryRefProfilePath(dexInfo.dexPath()));
+                    List<ArtifactsPath> artifacts = new ArrayList<>();
+                    for (Abi abi : Utils.getAllAbisForNames(dexInfo.abiNames(), pkgState)) {
+                        artifacts.add(AidlUtils.buildArtifactsPath(
+                                dexInfo.dexPath(), abi.isa(), false /* isInDalvikCache */));
+                    }
+                    mInjector.getArtd().commitPreRebootStagedFiles(artifacts, profile);
+                }
+            }
+        } catch (RemoteException e) {
+            Utils.logArtdException(e);
+        }
+    }
+
     /**
      * Should be used by {@link BackgroundDexoptJobService} ONLY.
      *
@@ -1029,6 +1079,12 @@ public final class ArtManagerLocal {
     @NonNull
     BackgroundDexoptJob getBackgroundDexoptJob() {
         return mInjector.getBackgroundDexoptJob();
+    }
+
+    @RequiresApi(Build.VERSION_CODES.VANILLA_ICE_CREAM)
+    @NonNull
+    PreRebootDexoptJob getPreRebootDexoptJob() {
+        return mInjector.getPreRebootDexoptJob();
     }
 
     @RequiresApi(Build.VERSION_CODES.UPSIDE_DOWN_CAKE)
@@ -1265,6 +1321,7 @@ public final class ArtManagerLocal {
         @Nullable private final PackageManagerLocal mPackageManagerLocal;
         @Nullable private final Config mConfig;
         @Nullable private BackgroundDexoptJob mBgDexoptJob = null;
+        @Nullable private PreRebootDexoptJob mPrDexoptJob = null;
 
         /** For compatibility with S and T. New code should not use this. */
         @Deprecated
@@ -1290,7 +1347,7 @@ public final class ArtManagerLocal {
             getUserManager();
             getDexUseManager();
             getStorageManager();
-            ArtModuleServiceInitializer.getArtModuleServiceManager();
+            GlobalInjector.getInstance().checkArtd();
         }
 
         @RequiresApi(Build.VERSION_CODES.UPSIDE_DOWN_CAKE)
@@ -1308,7 +1365,7 @@ public final class ArtManagerLocal {
         @RequiresApi(Build.VERSION_CODES.UPSIDE_DOWN_CAKE)
         @NonNull
         public IArtd getArtd() {
-            return Utils.getArtd();
+            return GlobalInjector.getInstance().getArtd();
         }
 
         /** Returns a new {@link DexoptHelper} instance. */
@@ -1346,6 +1403,15 @@ public final class ArtManagerLocal {
             return mBgDexoptJob;
         }
 
+        @RequiresApi(Build.VERSION_CODES.VANILLA_ICE_CREAM)
+        @NonNull
+        public synchronized PreRebootDexoptJob getPreRebootDexoptJob() {
+            if (mPrDexoptJob == null) {
+                mPrDexoptJob = new PreRebootDexoptJob(mContext);
+            }
+            return mPrDexoptJob;
+        }
+
         @RequiresApi(Build.VERSION_CODES.UPSIDE_DOWN_CAKE)
         @NonNull
         public UserManager getUserManager() {
@@ -1355,8 +1421,7 @@ public final class ArtManagerLocal {
         @RequiresApi(Build.VERSION_CODES.UPSIDE_DOWN_CAKE)
         @NonNull
         public DexUseManagerLocal getDexUseManager() {
-            return Objects.requireNonNull(
-                    LocalManagerRegistry.getManager(DexUseManagerLocal.class));
+            return GlobalInjector.getInstance().getDexUseManager();
         }
 
         @RequiresApi(Build.VERSION_CODES.UPSIDE_DOWN_CAKE)
