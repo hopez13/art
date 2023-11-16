@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b63ed67d_f4800635",
+        "filename": "compiler/optimizing/intrinsics_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2470,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-11-16T16:59:30Z",
+      "side": 1,
+      "message": "The default includes `kFenceOutput` and `kFenceInput`. I don\u0027t think this is necessary.\n\nHans, should we use `codegen_-\u003eGenerateMemoryBarrier(MemBarrierKind::kAnyAny)` here? Do we need an extra barrier before the store as we have on arm (32-bit)?",
+      "range": {
+        "startLine": 2470,
+        "startChar": 2,
+        "endLine": 2470,
+        "endChar": 13
+      },
+      "revId": "ad5a02e7a7530009177fc6a5619889439897a229",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
