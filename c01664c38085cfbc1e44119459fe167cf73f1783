@@ -86,6 +86,24 @@
       "parentUuid": "3434ad0b_c4ed2abf",
       "revId": "c01664c38085cfbc1e44119459fe167cf73f1783",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b53e99e_48632a99",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1280281
+      },
+      "writtenOn": "2023-11-16T11:45:11Z",
+      "side": 1,
+      "message": "Similarly to the base/utils.cc, I will add #undef of the ERROR macro in mem_map_windows.cc.",
+      "parentUuid": "a8ba9e66_a2591e42",
+      "revId": "c01664c38085cfbc1e44119459fe167cf73f1783",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
