@@ -16,6 +16,24 @@
       "message": "So the changes otherwise look reasonable?",
       "revId": "86432a82c588f5738b2d3054acbcfc24cca28fce",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9130f8c_9adfaf67",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-11-16T09:50:31Z",
+      "side": 1,
+      "message": "CFG changes looks good thanks! There seems to be other failures for host though.\n\n```\ntest-art-host-run-test-debug-prebuild-interp-ac-no-relocate-ntrace-cms-checkjni-picimage-ndebuggable-no-jvmti-cdex-fast-913-heaps32\ntest-art-host-run-test-debug-prebuild-interp-ac-no-relocate-ntrace-cms-checkjni-picimage-ndebuggable-no-jvmti-cdex-fast-913-heaps64\ntest-art-host-run-test-debug-prebuild-interpreter-no-relocate-ntrace-cms-checkjni-picimage-ndebuggable-no-jvmti-cdex-fast-913-heaps32\ntest-art-host-run-test-debug-prebuild-interpreter-no-relocate-ntrace-cms-checkjni-picimage-ndebuggable-no-jvmti-cdex-fast-913-heaps64\ntest-art-host-run-test-debug-prebuild-jit-no-relocate-ntrace-cms-checkjni-picimage-ndebuggable-no-jvmti-cdex-fast-913-heaps32\ntest-art-host-run-test-debug-prebuild-jit-no-relocate-ntrace-cms-checkjni-picimage-ndebuggable-no-jvmti-cdex-fast-913-heaps64\ntest-art-host-run-test-debug-prebuild-optimizing-no-relocate-ntrace-cms-checkjni-picimage-ndebuggable-no-jvmti-cdex-fast-530-checker-peel-unroll32\ntest-art-host-run-test-debug-prebuild-optimizing-no-relocate-ntrace-cms-checkjni-picimage-ndebuggable-no-jvmti-cdex-fast-530-checker-peel-unroll64\ntest-art-host-run-test-debug-prebuild-optimizing-no-relocate-ntrace-cms-checkjni-picimage-ndebuggable-no-jvmti-cdex-fast-913-heaps32\ntest-art-host-run-test-debug-prebuild-optimizing-no-relocate-ntrace-cms-checkjni-picimage-ndebuggable-no-jvmti-cdex-fast-913-heaps64\ntest-art-host-run-test-debug-prebuild-speed-profile-no-relocate-ntrace-cms-checkjni-picimage-ndebuggable-no-jvmti-cdex-fast-913-heaps32\ntest-art-host-run-test-debug-prebuild-speed-profile-no-relocate-ntrace-cms-checkjni-picimage-ndebuggable-no-jvmti-cdex-fast-913-heaps64\n```\n\nIn `530-checker-peel-unroll` it looks like another CFG CHECKER change is needed, and on `913-heaps` a stdout change. You should hit both of those failures with `art/test/testrunner/testrunner.py --host --64 --optimizing -b` (Or you can use the `-t` flag to be faster)",
+      "parentUuid": "1cc18feb_8da3a042",
+      "revId": "86432a82c588f5738b2d3054acbcfc24cca28fce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
