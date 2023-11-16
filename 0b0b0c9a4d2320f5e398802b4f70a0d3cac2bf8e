@@ -39,6 +39,30 @@
       },
       "revId": "0b0b0c9a4d2320f5e398802b4f70a0d3cac2bf8e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "547321c0_4133f21c",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1079,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-11-16T11:54:49Z",
+      "side": 1,
+      "message": "\u003e There is no concern about MonitorEnter and MonitorExit operating on different copies of the same reference in different registers, and only being able to remove one of them due to less complete information about the other?\n\u003e \n\u003e As in (pseudocode, since this can\u0027t be written in Java):\n\u003e x.MonitorEnter();\n\u003e y \u003d (unanalyzable expression that always yields true) ? x : z;\n\u003e y.MonitorExit();\n\u003e I think we may still be able to prove that x doesn\u0027t escape, but we won\u0027t know that the MonitorExit() can be eliminated?\n\nIs that valid DEX? I don\u0027t think you could do that from a Java program for example.\n\n\u003e Related question: Do we do enough analysis to preclude an IllegalMonitorStateException on MonitorExit?\n\nNot in the optimizing compiler as far as I could see.\n\n\u003e Monitor operations can presumably still be eliminated even if there is a fairly arbitrary function call inside a synchronized block. So this potentially visibly affects monitor information in stack traces. Do we care? I\u0027m not sure either way. But I wouldn\u0027t be surprised if this caused some test failures.\n\nI think it would be fine since the synchronization was not used in the first place.",
+      "parentUuid": "821d69a4_841df4ce",
+      "range": {
+        "startLine": 1079,
+        "startChar": 8,
+        "endLine": 1079,
+        "endChar": 43
+      },
+      "revId": "0b0b0c9a4d2320f5e398802b4f70a0d3cac2bf8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
