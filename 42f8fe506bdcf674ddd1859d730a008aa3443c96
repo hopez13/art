@@ -70,6 +70,24 @@
       "parentUuid": "540a88a0_484945fa",
       "revId": "42f8fe506bdcf674ddd1859d730a008aa3443c96",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "96ab43c9_708cfd1f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1280281
+      },
+      "writtenOn": "2023-11-16T13:01:01Z",
+      "side": 1,
+      "message": "Thank you, Steven,\nI\u0027ve tried it now, and indeed this was the case. I added #undef similarly to base/utils.cc which resolved the issue.",
+      "parentUuid": "983378be_d83e7d19",
+      "revId": "42f8fe506bdcf674ddd1859d730a008aa3443c96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
