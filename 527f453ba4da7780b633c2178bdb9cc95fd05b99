@@ -303,6 +303,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "80cd0d92_1a7b0a62",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2658,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-11-16T23:53:45Z",
+      "side": 1,
+      "message": "I had to add shared-lib dependecy on libartpalette in Android.bp files to make it work. Are we ok with that? I remember Nicolas mentioning sometime back in another CL to minimize that.",
+      "parentUuid": "a730d286_427c9313",
+      "range": {
+        "startLine": 2658,
+        "startChar": 0,
+        "endLine": 2658,
+        "endChar": 53
+      },
+      "revId": "527f453ba4da7780b633c2178bdb9cc95fd05b99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "de4e867e_2b9a56b6",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 1
@@ -456,6 +480,30 @@
       "side": 1,
       "message": "I was really asking about adding the conditional. I don\u0027t think that TraceHeapSize actually does anything if tracing is disable. I agree that it\u0027s probably a slower no-op than not executing it at all.",
       "parentUuid": "8b667b0d_90c7aa29",
+      "range": {
+        "startLine": 1039,
+        "startChar": 24,
+        "endLine": 1039,
+        "endChar": 63
+      },
+      "revId": "527f453ba4da7780b633c2178bdb9cc95fd05b99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1857dab0_a903f02f",
+        "filename": "runtime/gc/space/region_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1039,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-11-16T23:53:45Z",
+      "side": 1,
+      "message": "Removed the condition.\nYou are right that TraceHeapSize also checks if atrace is enabled. I guess the only thing the check here was avoiding was num_bytes_allocated load and addition.",
+      "parentUuid": "f8ef542d_a26c893c",
       "range": {
         "startLine": 1039,
         "startChar": 24,
