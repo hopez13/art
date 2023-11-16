@@ -33,6 +33,24 @@
       "message": "\u003e Presubmit-Verified -2\n\nUnfortunately I don\u0027t have access to the failure logs.\nWould it be possible to clarify which test failed and error message if possible?",
       "revId": "c01664c38085cfbc1e44119459fe167cf73f1783",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "420287c5_03bc3b69",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-11-16T05:10:32Z",
+      "side": 1,
+      "message": "uh ? seems unrelated?\n\n```\nart/libartbase/base/mem_map_windows.cc:52:5: error: expected unqualified-id\nPLOG(ERROR) \u003c\u003c \"Protection or flag error was not supported.\";\n^\nsystem/libbase/include/android-base/logging.h:234:3: note: expanded from macro \u0027PLOG\u0027\nLOGGING_PREAMBLE(severity) \u0026\u0026                                                  \\\n^\nsystem/libbase/include/android-base/logging.h:227:4: note: expanded from macro \u0027LOGGING_PREAMBLE\u0027\n(WOULD_LOG(severity) \u0026\u0026                                                                  \\\n^\nsystem/libbase/include/android-base/logging.h:202:40: note: expanded from macro \u0027WOULD_LOG\u0027\n(UNLIKELY(::android::base::ShouldLog(SEVERITY_LAMBDA(severity), _LOG_TAG_INTERNAL)) || \\\n^\nsystem/libbase/include/android-base/logging.h:174:26: note: expanded from macro \u0027SEVERITY_LAMBDA\u0027\nusing ::android::base::ERROR;               \\\n^\nprebuilts/gcc/linux-x86/host/x86_64-w64-mingw32-4.8/x86_64-w64-mingw32/include/wingdi.h:75:15: note: expanded from macro \u0027ERROR\u0027\n#define ERROR 0\n^\nart/libartbase/base/mem_map_windows.cc:52:5: error: cannot initialize a parameter of type \u0027LogSeverity\u0027 with an rvalue of type \u0027int\u0027\nPLOG(ERROR) \u003c\u003c \"Protection or flag error was not supported.\";\n^~~~~~~~~~~\nsystem/libbase/include/android-base/logging.h:234:3: note: expanded from macro \u0027PLOG\u0027\nLOGGING_PREAMBLE(severity) \u0026\u0026                                                  \\\n^~~~~~~~~~~~~~~~~~~~~~~~~~\nsystem/libbase/include/android-base/logging.h:227:4: note: expanded from macro \u0027LOGGING_PREAMBLE\u0027\n(WOULD_LOG(severity) \u0026\u0026                                                                  \\\n^~~~~~~~~~~~~~~~~~~\nsystem/libbase/include/android-base/logging.h:202:40: note: expanded from macro \u0027WOULD_LOG\u0027\n(UNLIKELY(::android::base::ShouldLog(SEVERITY_LAMBDA(severity), _LOG_TAG_INTERNAL)) || \\\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nsystem/libbase/include/android-base/logging.h:169:35: note: expanded from macro \u0027SEVERITY_LAMBDA\u0027\n#define SEVERITY_LAMBDA(severity) ([\u0026]() {    \\\n^\nsystem/libbase/include/android-base/macros.h:84:49: note: expanded from macro \u0027UNLIKELY\u0027\n#define UNLIKELY( exp )     (__builtin_expect( (exp) !\u003d 0, false ))\n^~~\nsystem/libbase/include/android-base/logging.h:447:28: note: passing argument to parameter \u0027severity\u0027 here\nbool ShouldLog(LogSeverity severity, const char* tag);\n^\n```",
+      "parentUuid": "e27f12e2_2d424ddb",
+      "revId": "c01664c38085cfbc1e44119459fe167cf73f1783",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
