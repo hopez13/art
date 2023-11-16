@@ -98,6 +98,30 @@
       },
       "revId": "230a2ee57fb692c7b7acd47a61b83679709f65f7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f8cadeb0_481e15fb",
+        "filename": "test/913-heaps/expected-stdout.txt",
+        "patchSetId": 5
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1241761
+      },
+      "writtenOn": "2023-11-16T15:35:26Z",
+      "side": 1,
+      "message": "Thanks for checking. D8 changed to not shorten the live live range of constants in debug mode, so that aligns with an expected difference.",
+      "parentUuid": "787f6267_f850d8e6",
+      "range": {
+        "startLine": 195,
+        "startChar": 12,
+        "endLine": 195,
+        "endChar": 137
+      },
+      "revId": "230a2ee57fb692c7b7acd47a61b83679709f65f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
