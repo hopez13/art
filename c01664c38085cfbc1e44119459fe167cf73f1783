@@ -51,6 +51,23 @@
       "parentUuid": "e27f12e2_2d424ddb",
       "revId": "c01664c38085cfbc1e44119459fe167cf73f1783",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3434ad0b_c4ed2abf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-11-16T06:07:53Z",
+      "side": 1,
+      "message": "hmmm! maybe related?\n\nNote the fastest way to reproduce this specific build: Reproduce locally with `m out/soong/.intermediates/art/libartbase/libartbase/windows_x86_static/e4694d05f1cb76fefd10c9c37c092ec4/obj/art/libartbase/base/mem_map_windows.o` (though the has is probably different locally - I think there is an internal issue for this, so you might not be able to use this exact command)\n\nIf you have cd\u0027d into the art directory, I\u0027d recommend running `mma` to build all targets and all variants that are applicable to your lunch target.",
+      "revId": "c01664c38085cfbc1e44119459fe167cf73f1783",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
