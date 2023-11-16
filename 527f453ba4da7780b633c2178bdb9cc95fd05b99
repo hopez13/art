@@ -112,6 +112,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "37277151_9f9f1d1a",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-11-16T00:43:25Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "fa495fa8_a9a5efe1",
+      "range": {
+        "startLine": 220,
+        "startChar": 7,
+        "endLine": 222,
+        "endChar": 11
+      },
+      "revId": "527f453ba4da7780b633c2178bdb9cc95fd05b99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4aedc15c_664d558f",
@@ -255,6 +279,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a730d286_427c9313",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2658,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-11-16T00:43:25Z",
+      "side": 1,
+      "message": "So including base/systrace.h doesn\u0027t work? Heap-inl.h is include someplace where the include path does not include libartpalette/include? Is it possible to just fix that instead? We directly call ATraceEnabled in a bunch of places, e.g. thread_list.cc, so this looks weird.",
+      "parentUuid": "4fb07e17_3f29cf54",
+      "range": {
+        "startLine": 2658,
+        "startChar": 0,
+        "endLine": 2658,
+        "endChar": 53
+      },
+      "revId": "527f453ba4da7780b633c2178bdb9cc95fd05b99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "de4e867e_2b9a56b6",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 1
@@ -384,6 +432,30 @@
       "side": 1,
       "message": "Didn\u0027t understand your question. The idea is to basically bring heap-size in sync with RSS in perfetto traces. Without taking into account evac-bytes, the temporary spikes in RSS during GC aren\u0027t accounted for in heap-size.",
       "parentUuid": "4a4475d0_c756aabf",
+      "range": {
+        "startLine": 1039,
+        "startChar": 24,
+        "endLine": 1039,
+        "endChar": 63
+      },
+      "revId": "527f453ba4da7780b633c2178bdb9cc95fd05b99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8ef542d_a26c893c",
+        "filename": "runtime/gc/space/region_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1039,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-11-16T00:43:25Z",
+      "side": 1,
+      "message": "I was really asking about adding the conditional. I don\u0027t think that TraceHeapSize actually does anything if tracing is disable. I agree that it\u0027s probably a slower no-op than not executing it at all.",
+      "parentUuid": "8b667b0d_90c7aa29",
       "range": {
         "startLine": 1039,
         "startChar": 24,
