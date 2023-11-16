@@ -67,6 +67,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "97e86c9d_f4a5e869",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1026,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-11-16T13:06:48Z",
+      "side": 1,
+      "message": "Unless we change `FieldInfo::is_volatile_` to non-const and I don\u0027t really like that. We can leave this as is for now.",
+      "parentUuid": "cffdadea_09f33cf4",
+      "range": {
+        "startLine": 1026,
+        "startChar": 6,
+        "endLine": 1026,
+        "endChar": 66
+      },
+      "revId": "906da232ac53271436909ce1737329cd3b1231e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a4b7dc88_09425c2d",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 4

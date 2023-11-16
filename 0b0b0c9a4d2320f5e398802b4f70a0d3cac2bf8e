@@ -63,6 +63,30 @@
       },
       "revId": "0b0b0c9a4d2320f5e398802b4f70a0d3cac2bf8e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1530f953_cad79fe0",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1079,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-11-16T13:06:48Z",
+      "side": 1,
+      "message": "We have a `VERIFY_ERROR_LOCKING` and a related flag `kAccMustCountLocks`. I think it prevents method compilation, but I\u0027m not really sure.",
+      "parentUuid": "547321c0_4133f21c",
+      "range": {
+        "startLine": 1079,
+        "startChar": 8,
+        "endLine": 1079,
+        "endChar": 43
+      },
+      "revId": "0b0b0c9a4d2320f5e398802b4f70a0d3cac2bf8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
