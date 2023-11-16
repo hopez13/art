@@ -22,6 +22,30 @@
       },
       "revId": "ad5a02e7a7530009177fc6a5619889439897a229",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc6fcb45_7cc10c32",
+        "filename": "compiler/optimizing/intrinsics_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2470,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-11-16T19:54:16Z",
+      "side": 1,
+      "message": "The other architectures basically use a sequentially consistent load followed by a conditional sequentially consistent store. I think that\u0027s correct.\n\nI do think that to fully meet spec, we can\u0027t avoid having a full fence before the fast-path load. I think we don\u0027t need another fence on the false branch, since the flag is never cleared by another thread, and hence the \"acquire\" behavior of the load is not visible, And I don\u0027t think a fence in the middle would do anything.\n\nSo just adding a Fence at the beginning is probably good enough for now. Once we have Zalasr, we should use load-acquire and store-release, as on ARM64.\n\nAnother alternative would be to uunconditionally do an AMOSWAPaqrl for now. But that probably slows down the potentially important fast path a bit. In tyhe absence of false sharing, probably not that much, since no other thread should be touching this bit in normal operation.\n\nI would just fix kFenceDefault to always exclude IO. I don\u0027t see why ART would ever want to generate a fence that includes those bits. Gcc was generating them, but I think they fixed that, too. Clang never did. The kernel probably needs them occasionally.",
+      "parentUuid": "b63ed67d_f4800635",
+      "range": {
+        "startLine": 2470,
+        "startChar": 2,
+        "endLine": 2470,
+        "endChar": 13
+      },
+      "revId": "ad5a02e7a7530009177fc6a5619889439897a229",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
