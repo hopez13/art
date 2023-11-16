@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d690c3a1_4463c780",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 453,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-11-16T07:38:16Z",
+      "side": 1,
+      "message": "The abstraction is there with the static helpers `MethodType::GetPTypes()` and `MethodType::GetRType()`. These static methods were convenient when they were used separately but I have now refactored the code so that they are always used together.\n\nMaybe we could rename `MethodType::GetPTypes()` -\u003e `MethodType::GetAccessor()`,  `*PTypesAccessor` -\u003e `*MethodTypeAccessor` and their `Get(i)` -\u003e `GetPType(i)` and `GetLength()` -\u003e `GetPTypesLength()` and move the `GetRType()` to these accessors. What do you think?",
+      "parentUuid": "4894c421_1f438aa2",
+      "range": {
+        "startLine": 453,
+        "startChar": 10,
+        "endLine": 453,
+        "endChar": 89
+      },
+      "revId": "de2c1183396f04dc94a74a64d3365b767bfb0f87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "edea6357_96493e61",
         "filename": "runtime/mirror/method_type.h",
         "patchSetId": 4
@@ -37,6 +61,30 @@
       "writtenOn": "2023-11-15T16:55:16Z",
       "side": 1,
       "message": "Can this be const\u0026 ?",
+      "range": {
+        "startLine": 46,
+        "startChar": 49,
+        "endLine": 46,
+        "endChar": 74
+      },
+      "revId": "de2c1183396f04dc94a74a64d3365b767bfb0f87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cdd113f1_546f2f24",
+        "filename": "runtime/mirror/method_type.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-11-16T07:38:16Z",
+      "side": 1,
+      "message": "We need to get handles from the handle scope and those technically allow mutation of the handle scope\u0027s content, so I\u0027d rather keep it non-const. (And keep the `VariableHandleScope::GetHandle()` non-const just like `HandleScope::GetHandle()`.)\n\nWe\u0027re passing pointers to the `MethodType` around (`ObjPtr\u003c\u003e` and `Handle\u003c\u003e` are smart pointers), so it\u0027s convenient to pass the raw method type around the same way.",
+      "parentUuid": "edea6357_96493e61",
       "range": {
         "startLine": 46,
         "startChar": 49,
@@ -60,6 +108,24 @@
       "writtenOn": "2023-11-15T16:55:16Z",
       "side": 1,
       "message": "nit: add a comment what is the difference with the version above.",
+      "revId": "de2c1183396f04dc94a74a64d3365b767bfb0f87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e396f651_a0fef534",
+        "filename": "runtime/var_handles.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-11-16T07:38:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "712b5eff_ea6ff7b1",
       "revId": "de2c1183396f04dc94a74a64d3365b767bfb0f87",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
