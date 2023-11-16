@@ -199,4 +199,15 @@ interface IArtd {
      */
     long deleteRuntimeArtifacts(
             in com.android.server.art.RuntimeArtifactsPath runtimeArtifactsPath);
+
+    void commitPreRebootStagedFiles(
+            in List<com.android.server.art.ArtifactsPath> artifacts,
+            in com.android.server.art.ProfilePath.WritableProfilePath profile);
+
+    void preRebootInit();
+
+    @nullable @utf8InCpp String validateDexPath(@utf8InCpp String dexFile);
+
+    @nullable @utf8InCpp String validateClassLoaderContext(
+            @utf8InCpp String dexFile, @utf8InCpp String classLoaderContext);
 }
