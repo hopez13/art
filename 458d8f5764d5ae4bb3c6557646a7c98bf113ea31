@@ -34,6 +34,24 @@
       "parentUuid": "1bb9767c_39aa882f",
       "revId": "458d8f5764d5ae4bb3c6557646a7c98bf113ea31",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6aec1b20_af207589",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-11-17T16:49:42Z",
+      "side": 1,
+      "message": "After looking libadbconnection.so.rsp, it seems like Soong doesn\u0027t transitively propagate library dependencies. In this case we have:\n`libadbconnection.so --depends--\u003e libart.so --depends--\u003e libartpalette.so`\nBut `libadbconnection` doesn\u0027t list `libartpalette` dependency explicitly, hence the error about missing headers.\n\nI\u0027ve checked some discussions around this topic and the consensus is that it\u0027s WAI.\nSo the only way to make it build with such dependency is adding `libartpalette` wherever it is required.",
+      "parentUuid": "3bee3e90_fde7a5d3",
+      "revId": "458d8f5764d5ae4bb3c6557646a7c98bf113ea31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
