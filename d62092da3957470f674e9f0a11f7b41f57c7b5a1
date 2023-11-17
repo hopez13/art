@@ -302,6 +302,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "abd15166_d95a7148",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 2183,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-11-17T14:29:00Z",
+      "side": 1,
+      "message": "Yeah, I think ClassLinker::LinkClass could be a good place. And then we could get rid of all these new handlified methods, right?",
+      "parentUuid": "517c09d5_aa223aaa",
+      "range": {
+        "startLine": 2183,
+        "startChar": 44,
+        "endLine": 2183,
+        "endChar": 77
+      },
+      "revId": "d62092da3957470f674e9f0a11f7b41f57c7b5a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cf49b077_62c2afdb",
         "filename": "runtime/mirror/class.h",
         "patchSetId": 18
