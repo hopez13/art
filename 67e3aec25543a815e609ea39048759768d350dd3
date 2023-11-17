@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "37a61158_5ff70e09",
+        "filename": "compiler/optimizing/intrinsics.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-11-17T17:19:14Z",
+      "side": 1,
+      "message": "suggestion: Rename to `base`?",
+      "range": {
+        "startLine": 128,
+        "startChar": 11,
+        "endLine": 128,
+        "endChar": 23
+      },
+      "revId": "67e3aec25543a815e609ea39048759768d350dd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85f4fd15_9dd77ddd",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3146,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-11-17T17:19:14Z",
+      "side": 1,
+      "message": "nit: `boxed`",
+      "range": {
+        "startLine": 3146,
+        "startChar": 51,
+        "endLine": 3146,
+        "endChar": 54
+      },
+      "revId": "67e3aec25543a815e609ea39048759768d350dd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
