@@ -33,6 +33,24 @@
       "message": "Instead of deleting this Blueprint file, could you add `\"2247-checker-write-barrier-elimination\"` to [`known_failing_tests` in `art/test/utils/regen-test-files`](https://cs.android.com/android/platform/superproject/main/+/main:art/test/utils/regen-test-files;l\u003d117-219;drc\u003dc6f67fc0436b916db713723ee67813075b8bb3e5) and regenerate test files with `art/test/utils/regen-test-files -m`?",
       "revId": "17fa6c80d433efa96e3b0f8b6478720ff71f3b9a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d0c9102d_5f2592fb",
+        "filename": "test/2247-checker-write-barrier-elimination/Android.bp",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-11-17T16:22:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fe302f4b_95317f27",
+      "revId": "17fa6c80d433efa96e3b0f8b6478720ff71f3b9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
