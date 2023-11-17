@@ -164,7 +164,7 @@ class PassObserver : public ValueObject {
     }
 
     // Validate the HGraph if running in debug mode.
-    if (kIsDebugBuild) {
+    if (true) {
       if (!graph_in_bad_state_) {
         GraphChecker checker(graph_, codegen_);
         last_seen_graph_size_ = checker.Run(pass_change, last_seen_graph_size_);
