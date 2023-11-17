@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8dfcb8e_d4f2f623",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2023-11-17T12:05:56Z",
+      "side": 1,
+      "message": "It\u0027d be nice to have a test scenario that can be run as part of continuous testing, even if it does not always manage to trigger the issue; maybe in a follow-up CL?",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 27
+      },
+      "revId": "20047e46825379295e4d5fdb8ec1070f5161663d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "fd92f022_c6486acf",
@@ -14,6 +37,52 @@
       "writtenOn": "2023-11-17T11:52:12Z",
       "side": 1,
       "message": "Nicolas PTAL. I updated the CL that Lokesh created so someone else should review it",
+      "revId": "20047e46825379295e4d5fdb8ec1070f5161663d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "def91aa7_2f141186",
+        "filename": "compiler/optimizing/write_barrier_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2023-11-17T12:05:56Z",
+      "side": 1,
+      "message": "Suggestion:\n\n```\nbool WriteBarrierElimination::Run() {\n  // TODO(b/311607333): Fix this optimization or remove it.\n#if 0\n  WBEVisitor wbe_visitor(graph_, stats_);\n  wbe_visitor.VisitReversePostOrder();\n#endif\n  return true;\n}\n```\n\nThis makes it easier to 1. track as an action item; and 2. re-enable in local testing.",
+      "range": {
+        "startLine": 155,
+        "startChar": 0,
+        "endLine": 157,
+        "endChar": 1
+      },
+      "revId": "20047e46825379295e4d5fdb8ec1070f5161663d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af2a2024_12f92953",
+        "filename": "test/2247-checker-write-barrier-elimination/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2023-11-17T12:05:56Z",
+      "side": 1,
+      "message": "Can you wrap this in a TODO?",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 63
+      },
       "revId": "20047e46825379295e4d5fdb8ec1070f5161663d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
