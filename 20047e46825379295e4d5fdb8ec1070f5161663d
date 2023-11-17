@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "1269ef4f_d0e7209c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-11-17T14:16:06Z",
+      "side": 1,
+      "message": "Note we don\u0027t know what the issue is yet.",
+      "parentUuid": "f8dfcb8e_d4f2f623",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 27
+      },
+      "revId": "20047e46825379295e4d5fdb8ec1070f5161663d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "fd92f022_c6486acf",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 4
@@ -66,6 +90,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "27739e92_25642365",
+        "filename": "compiler/optimizing/write_barrier_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-11-17T14:16:06Z",
+      "side": 1,
+      "message": "+1, but with a `if (kWriteBarrierEliminationIsEnabled) ` check instead of `#if 0`.",
+      "parentUuid": "def91aa7_2f141186",
+      "range": {
+        "startLine": 155,
+        "startChar": 0,
+        "endLine": 157,
+        "endChar": 1
+      },
+      "revId": "20047e46825379295e4d5fdb8ec1070f5161663d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "af2a2024_12f92953",
         "filename": "test/2247-checker-write-barrier-elimination/src/Main.java",
         "patchSetId": 4
@@ -77,6 +125,30 @@
       "writtenOn": "2023-11-17T12:05:56Z",
       "side": 1,
       "message": "Can you wrap this in a TODO?",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 63
+      },
+      "revId": "20047e46825379295e4d5fdb8ec1070f5161663d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88ddba84_d9232f5a",
+        "filename": "test/2247-checker-write-barrier-elimination/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-11-17T14:16:06Z",
+      "side": 1,
+      "message": "Or should you update knownfailures.json instead? Is there value in still running this test if checker assumptions are disabled?",
+      "parentUuid": "af2a2024_12f92953",
       "range": {
         "startLine": 17,
         "startChar": 0,
