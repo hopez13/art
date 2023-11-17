@@ -112,6 +112,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "966c281d_a1da870e",
+        "filename": "compiler/optimizing/write_barrier_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-11-17T14:54:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "27739e92_25642365",
+      "range": {
+        "startLine": 155,
+        "startChar": 0,
+        "endLine": 157,
+        "endChar": 1
+      },
+      "revId": "20047e46825379295e4d5fdb8ec1070f5161663d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "af2a2024_12f92953",
@@ -149,6 +173,30 @@
       "side": 1,
       "message": "Or should you update knownfailures.json instead? Is there value in still running this test if checker assumptions are disabled?",
       "parentUuid": "af2a2024_12f92953",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 63
+      },
+      "revId": "20047e46825379295e4d5fdb8ec1070f5161663d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "70429054_751b3466",
+        "filename": "test/2247-checker-write-barrier-elimination/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-11-17T14:54:16Z",
+      "side": 1,
+      "message": "Added to knownfailures.json",
+      "parentUuid": "88ddba84_d9232f5a",
       "range": {
         "startLine": 17,
         "startChar": 0,
