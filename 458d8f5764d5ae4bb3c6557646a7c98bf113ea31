@@ -16,6 +16,24 @@
       "message": "Maybe Dmitrii has an idea how to do this correctly? We want to include base/systrace.h (which includes libartpalette stuff) in heap-inl.h without generating lots of compile errors as in the latest TreeHugger run.",
       "revId": "458d8f5764d5ae4bb3c6557646a7c98bf113ea31",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3bee3e90_fde7a5d3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-11-17T11:00:57Z",
+      "side": 1,
+      "message": "The issue is that `adbconnection` includes heap-inl.h. Could we limit the use of palette.h in heap.cc?",
+      "parentUuid": "1bb9767c_39aa882f",
+      "revId": "458d8f5764d5ae4bb3c6557646a7c98bf113ea31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
