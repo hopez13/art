@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1bb9767c_39aa882f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-11-17T01:43:24Z",
+      "side": 1,
+      "message": "Maybe Dmitrii has an idea how to do this correctly? We want to include base/systrace.h (which includes libartpalette stuff) in heap-inl.h without generating lots of compile errors as in the latest TreeHugger run.",
+      "revId": "458d8f5764d5ae4bb3c6557646a7c98bf113ea31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
