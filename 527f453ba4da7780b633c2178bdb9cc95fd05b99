@@ -327,6 +327,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0f2e6fe0_281b142d",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2658,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-11-17T06:02:00Z",
+      "side": 1,
+      "message": "Given the number of places where the dependency on libartpalette has to be added (based on tree hugger failures), it seems like a no-go.",
+      "parentUuid": "80cd0d92_1a7b0a62",
+      "range": {
+        "startLine": 2658,
+        "startChar": 0,
+        "endLine": 2658,
+        "endChar": 53
+      },
+      "revId": "527f453ba4da7780b633c2178bdb9cc95fd05b99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "de4e867e_2b9a56b6",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 1
