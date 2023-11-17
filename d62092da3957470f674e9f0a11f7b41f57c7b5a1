@@ -326,6 +326,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3f239b06_e6919e6b",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 2183,
+      "author": {
+        "id": 1863710
+      },
+      "writtenOn": "2023-11-17T14:48:08Z",
+      "side": 1,
+      "message": "Yes, that\u0027s the plan. This will be done in the follow-up CL.",
+      "parentUuid": "abd15166_d95a7148",
+      "range": {
+        "startLine": 2183,
+        "startChar": 44,
+        "endLine": 2183,
+        "endChar": 77
+      },
+      "revId": "d62092da3957470f674e9f0a11f7b41f57c7b5a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cf49b077_62c2afdb",
         "filename": "runtime/mirror/class.h",
         "patchSetId": 18
