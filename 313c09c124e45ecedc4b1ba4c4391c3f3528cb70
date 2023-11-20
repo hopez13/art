@@ -57,6 +57,30 @@
       },
       "revId": "313c09c124e45ecedc4b1ba4c4391c3f3528cb70",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0494f3da_b4119a9d",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-11-20T19:02:18Z",
+      "side": 1,
+      "message": "I commented on this somewhere else. Even for 16K pages, it should not be 16K. The goal of large object space is to avoid moving large objects in the GC by allocating them on whole pages, provided that doesn\u0027t introduce large amounts of fragmantation. A 16K + 1 byte object will (unavoidably?) waste 16k-1 bytes. So refusing to allocate a 15.9K object on its own page because it wastes 400 bytes makes no sense to me. Thus the threshold should be somewhat smaller than an integral number of pages.I was suggesting making it 10K or 11K, so it kind of has that property for both 4K and 16K pages. But leaving it at 12K for now seems fine.\n\nI think any change here, especially an increase, may adversely affect performance of some app. So I wouldn\u0027t do it as part of another CL.",
+      "parentUuid": "e80e633d_ecb6cb07",
+      "range": {
+        "startLine": 156,
+        "startChar": 53,
+        "endLine": 156,
+        "endChar": 55
+      },
+      "revId": "313c09c124e45ecedc4b1ba4c4391c3f3528cb70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
