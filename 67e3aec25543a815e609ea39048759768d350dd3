@@ -140,6 +140,30 @@
       },
       "revId": "67e3aec25543a815e609ea39048759768d350dd3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4486a528_cd5b0d71",
+        "filename": "runtime/intrinsics_list.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-11-20T12:09:22Z",
+      "side": 1,
+      "message": "In particular [here](https://cs.android.com/android/platform/superproject/main/+/main:art/compiler/optimizing/nodes.cc;l\u003d3322-3327;drc\u003d8db7a4e310631166a5e0e5a9023b026b0b835581) in `HInvoke::SetIntrinsic`",
+      "parentUuid": "bbb483c8_f581b746",
+      "range": {
+        "startLine": 291,
+        "startChar": 48,
+        "endLine": 291,
+        "endChar": 62
+      },
+      "revId": "67e3aec25543a815e609ea39048759768d350dd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
