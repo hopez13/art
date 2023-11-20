@@ -22,6 +22,30 @@
       },
       "revId": "cac08ecc868cc9b0b378cf380b1a18185708f4ca",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac540197_2d9cb72e",
+        "filename": "compiler/optimizing/intrinsic_objects.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-11-20T10:09:17Z",
+      "side": 0,
+      "message": "Yeah, but that does limit the ranges of both if we do that, and I don\u0027t think the DCHECK makes it worth it.",
+      "parentUuid": "44eae35a_237270db",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 62,
+        "endChar": 74
+      },
+      "revId": "cac08ecc868cc9b0b378cf380b1a18185708f4ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
