@@ -70,6 +70,30 @@
       },
       "revId": "ad5a02e7a7530009177fc6a5619889439897a229",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "718e0810_279794ec",
+        "filename": "compiler/optimizing/intrinsics_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2470,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-11-20T04:31:52Z",
+      "side": 1,
+      "message": "The new instructions would replace Loadw, Storew, and the Fence()s. For now, please just add another Fence() before the Loadw.\n\nAnd somebody should ensure that Fence() generates a fence without the IO bits.\n\nIn general Java volatile loads and stores will often perform suboptimally before we get Zalasr. Including the IO bits here makes that even worse. This is another instance of that.",
+      "parentUuid": "57eca90d_e83956b7",
+      "range": {
+        "startLine": 2470,
+        "startChar": 2,
+        "endLine": 2470,
+        "endChar": 13
+      },
+      "revId": "ad5a02e7a7530009177fc6a5619889439897a229",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
