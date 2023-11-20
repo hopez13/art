@@ -43,6 +43,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "45f2e1de_db08d0f1",
+        "filename": "libartbase/base/mem_map.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-11-20T18:48:11Z",
+      "side": 1,
+      "message": "Please make this kAlignment. That convention is not consistently followed, but I think it makes it much clearer why you are repeating the test here.\n\nBut why does this wrapper actually make sense? You are wrapping a fairly heavy-weight system call. And all this seems to do is sometimes save you a dynamic comparions?",
+      "range": {
+        "startLine": 187,
+        "startChar": 18,
+        "endLine": 187,
+        "endChar": 27
+      },
+      "revId": "1a33851a87f4ea73bdc16d43ef95a536190ccbac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1ec29c52_43202475",
         "filename": "libartbase/base/mem_map.h",
         "patchSetId": 13
@@ -54,6 +77,30 @@
       "writtenOn": "2023-11-20T16:19:52Z",
       "side": 1,
       "message": "why not \u0026 instead of *?",
+      "range": {
+        "startLine": 192,
+        "startChar": 54,
+        "endLine": 192,
+        "endChar": 55
+      },
+      "revId": "1a33851a87f4ea73bdc16d43ef95a536190ccbac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b2fd5ee_9ac73f3f",
+        "filename": "libartbase/base/mem_map.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-11-20T18:48:11Z",
+      "side": 1,
+      "message": "We currently use pointers elsewhere here, and that seems to be the usual coding style here, perhaps now for historical reasons. I would leave it.",
+      "parentUuid": "1ec29c52_43202475",
       "range": {
         "startLine": 192,
         "startChar": 54,
