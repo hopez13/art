@@ -22,6 +22,30 @@
       },
       "revId": "d92f1fb64fb6b5ea81f396cc68a6c320e00a41d4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a9feeb9_81a55326",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 456,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-11-20T08:13:07Z",
+      "side": 1,
+      "message": "The `RawMethodType` is already a pointer wrapper. I don\u0027t want to add an unnecessary indirection.",
+      "parentUuid": "a0ef0776_e882eea4",
+      "range": {
+        "startLine": 456,
+        "startChar": 25,
+        "endLine": 456,
+        "endChar": 66
+      },
+      "revId": "d92f1fb64fb6b5ea81f396cc68a6c320e00a41d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

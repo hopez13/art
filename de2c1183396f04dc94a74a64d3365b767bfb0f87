@@ -266,6 +266,24 @@
       "parentUuid": "e396f651_a0fef534",
       "revId": "de2c1183396f04dc94a74a64d3365b767bfb0f87",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c916f341_a9349b6e",
+        "filename": "runtime/var_handles.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-11-20T08:13:07Z",
+      "side": 1,
+      "message": "I find that comment really unnecessary when the overload specifies a `RawMethodType` instead of a `VariableSizedHandleScope`. Having overloads for two different \"method type\" classes is quite natural.",
+      "parentUuid": "e6765d46_a68c9999",
+      "revId": "de2c1183396f04dc94a74a64d3365b767bfb0f87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
