@@ -48,7 +48,7 @@ struct SpaceBitmapTestPageSizeType {
 };
 
 template <typename T>
-const size_t SpaceBitmapTestPageSizeType<T>::gObjectAlignment = gPageSize;
+const size_t SpaceBitmapTestPageSizeType<T>::gObjectAlignment = GetPageSizeSlow();
 
 using SpaceBitmapTestTypes =
     ::testing::Types<SpaceBitmapTestType<ContinuousSpaceBitmap, kObjectAlignment>,
@@ -120,6 +120,7 @@ TYPED_TEST(SpaceBitmapTest, ScanRange) {
 }
 
 TYPED_TEST(SpaceBitmapTest, ClearRange) {
+  const size_t page_size = MemMap::GetPageSize();
   uint8_t* heap_begin = reinterpret_cast<uint8_t*>(0x10000000);
   size_t heap_capacity = 16 * MB;
   const size_t gObjectAlignment = TypeParam::gObjectAlignment;
@@ -150,7 +151,7 @@ TYPED_TEST(SpaceBitmapTest, ClearRange) {
     for (uintptr_t i = 0; i < range.first; i += gObjectAlignment) {
       EXPECT_TRUE(bitmap.Test(reinterpret_cast<mirror::Object*>(heap_begin + i)));
     }
-    for (uintptr_t i = range.second; i < range.second + gPageSize; i += gObjectAlignment) {
+    for (uintptr_t i = range.second; i < range.second + page_size; i += gObjectAlignment) {
       EXPECT_TRUE(bitmap.Test(reinterpret_cast<mirror::Object*>(heap_begin + i)));
     }
     // Everything inside should be cleared.

@@ -124,6 +124,20 @@ static constexpr bool kHostStaticBuildEnabled = true;
 static constexpr bool kHostStaticBuildEnabled = false;
 #endif
 
+<<<<<<< PATCH SET (c5cc72 Optimize access to gPageSize)
+// System property for phenotype flag to test disabling compact dex and in
+// particular dexlayout.
+// TODO(b/256664509): Clean this up.
+static constexpr char kPhDisableCompactDex[] =
+    "persist.device_config.runtime_native_boot.disable_compact_dex";
+
+// Within libart, gPageSize should be used to get the page size value once Runtime is initialized.
+// For most other cases MemMap::GetPageSize() should be used instead. However, where MemMap is
+// unavailable e.g. during static initialization or another stage when MemMap isn't yet initialized,
+// or in a component which might operate without MemMap being initialized, the GetPageSizeSlow()
+// would be generally suitable. For performance-sensitive code, GetPageSizeSlow() shouldn't be used
+// without caching the value to remove repeated calls of the function.
+=======
 // Helper class that acts as a global constant which can be initialized with
 // a dynamically computed value while not being subject to static initialization
 // order issues via gating access to the value through a function which ensures
@@ -164,51 +178,19 @@ struct GlobalConst {
 //      The initializer expressions shouldn't have side effects
 //      and should always return the same value.
 
+>>>>>>> BASE      (34023f Use runtime page size for large object alignment)
 #ifdef ART_PAGE_SIZE_AGNOSTIC
-// Declaration (page size agnostic version).
-#define ART_PAGE_SIZE_AGNOSTIC_DECLARE_ALT(type, name, page_size_agnostic_expr, const_expr) \
-  inline type __attribute__((visibility("default"))) \
-  name ## _Initializer(void) { \
-    return (page_size_agnostic_expr); \
-  } \
-  extern GlobalConst<type, name ## _Initializer> name
-// Definition (page size agnostic version).
-#define ART_PAGE_SIZE_AGNOSTIC_DEFINE(type, name) GlobalConst<type, name ## _Initializer> name
-#else
-// Declaration (non page size agnostic version).
-#define ART_PAGE_SIZE_AGNOSTIC_DECLARE_ALT(type, name, page_size_agnostic_expr, const_expr) \
-  static constexpr type name = (const_expr)
-// Definition (non page size agnostic version).
-#define ART_PAGE_SIZE_AGNOSTIC_DEFINE(type, name)
-#endif  // ART_PAGE_SIZE_AGNOSTIC
-
-// ART_PAGE_SIZE_AGNOSTIC_DECLARE is same as ART_PAGE_SIZE_AGNOSTIC_DECLARE_ALT
-// for the case when the initializer expressions are the same.
-#define ART_PAGE_SIZE_AGNOSTIC_DECLARE(type, name, expr) \
-    ART_PAGE_SIZE_AGNOSTIC_DECLARE_ALT(type, name, expr, expr)
-
-// Declaration and definition combined.
-#define ART_PAGE_SIZE_AGNOSTIC_DECLARE_AND_DEFINE(type, name, expr) \
-  ART_PAGE_SIZE_AGNOSTIC_DECLARE(type, name, expr); \
-  ART_PAGE_SIZE_AGNOSTIC_DEFINE(type, name)
-
-// System page size. We check this against sysconf(_SC_PAGE_SIZE) at runtime,
-// but for non page size agnostic configuration we use a simple compile-time
-// constant so the compiler can generate better code.
-ART_PAGE_SIZE_AGNOSTIC_DECLARE_ALT(size_t, gPageSize, sysconf(_SC_PAGE_SIZE), 4096);
-
-// TODO: Kernels for arm and x86 in both, 32-bit and 64-bit modes use 512 entries per page-table
-// page. Find a way to confirm that in userspace.
-// Address range covered by 1 Page Middle Directory (PMD) entry in the page table
-ART_PAGE_SIZE_AGNOSTIC_DECLARE(size_t, gPMDSize, (gPageSize / sizeof(uint64_t)) * gPageSize);
-// Address range covered by 1 Page Upper Directory (PUD) entry in the page table
-ART_PAGE_SIZE_AGNOSTIC_DECLARE(size_t, gPUDSize, (gPageSize / sizeof(uint64_t)) * gPMDSize);
-
-// Returns the ideal alignment corresponding to page-table levels for the
-// given size.
-static inline size_t BestPageTableAlignment(size_t size) {
-  return size < gPUDSize ? gPMDSize : gPUDSize;
+inline ALWAYS_INLINE size_t GetPageSizeSlow() {
+  static_assert(kPageSizeAgnostic, "The dynamic version is only for page size agnostic build");
+  static const size_t page_size = sysconf(_SC_PAGE_SIZE);
+  return page_size;
 }
+#else
+constexpr size_t GetPageSizeSlow() {
+  static_assert(!kPageSizeAgnostic, "The constexpr version is only for page size agnostic build");
+  return kMinPageSize;
+}
+#endif
 
 }  // namespace art
 
