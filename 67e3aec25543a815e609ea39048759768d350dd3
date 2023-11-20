@@ -116,6 +116,30 @@
       },
       "revId": "67e3aec25543a815e609ea39048759768d350dd3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bbb483c8_f581b746",
+        "filename": "runtime/intrinsics_list.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-11-20T12:06:44Z",
+      "side": 1,
+      "message": "We just looked at it with Santiago. The presence of kNeedsEnvironment actually puts  the GC dependency (all a bit obscure I admit, would need some cleanups).",
+      "parentUuid": "559f8244_6cec1e10",
+      "range": {
+        "startLine": 291,
+        "startChar": 48,
+        "endLine": 291,
+        "endChar": 62
+      },
+      "revId": "67e3aec25543a815e609ea39048759768d350dd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
