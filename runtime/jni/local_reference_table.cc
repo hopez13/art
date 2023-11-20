@@ -41,8 +41,23 @@ static constexpr bool kDumpStackOnNonLocalReference = false;
 static constexpr bool kDebugLRT = false;
 
 // Number of free lists in the allocator.
-ART_PAGE_SIZE_AGNOSTIC_DECLARE_AND_DEFINE(size_t, gNumLrtSlots,
-                                          WhichPowerOf2(gPageSize / kInitialLrtBytes));
+#ifdef ART_PAGE_SIZE_AGNOSTIC
+const struct NumLrtSlots {
+  NumLrtSlots()
+    : value_(WhichPowerOf2(gPageSize / kInitialLrtBytes)), is_initialized_(true) {}
+
+  ALWAYS_INLINE operator size_t() const {
+    DCHECK(is_initialized_);
+    return value_;
+  }
+
+ private:
+  const size_t value_;
+  const bool is_initialized_;
+} gNumLrtSlots ALWAYS_HIDDEN INIT_PRIORITY(INIT_PRIORITY_2);
+#else
+static constexpr size_t gNumLrtSlots = WhichPowerOf2(gPageSize / kInitialLrtBytes);
+#endif
 
 // Mmap an "indirect ref table region. Table_bytes is a multiple of a page size.
 static inline MemMap NewLRTMap(size_t table_bytes, std::string* error_msg) {

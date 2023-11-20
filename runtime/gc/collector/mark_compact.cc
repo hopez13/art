@@ -473,7 +473,7 @@ MarkCompact::MarkCompact(Heap* heap)
     DCHECK_EQ(total, info_map_.Size());
   }
 
-  size_t moving_space_alignment = BestPageTableAlignment(moving_space_size);
+  size_t moving_space_alignment = Heap::BestPageTableAlignment(moving_space_size);
   // The moving space is created at a fixed address, which is expected to be
   // PMD-size aligned.
   if (!IsAlignedParam(bump_pointer_space_->Begin(), moving_space_alignment)) {
@@ -556,8 +556,8 @@ MarkCompact::MarkCompact(Heap* heap)
 void MarkCompact::AddLinearAllocSpaceData(uint8_t* begin, size_t len) {
   DCHECK_ALIGNED_PARAM(begin, gPageSize);
   DCHECK_ALIGNED_PARAM(len, gPageSize);
-  DCHECK_GE(len, gPMDSize);
-  size_t alignment = BestPageTableAlignment(len);
+  DCHECK_GE(len, Heap::GetPMDSize());
+  size_t alignment = Heap::BestPageTableAlignment(len);
   bool is_shared = false;
   // We use MAP_SHARED on non-zygote processes for leveraging userfaultfd's minor-fault feature.
   if (map_linear_alloc_shared_) {
@@ -3703,7 +3703,7 @@ void MarkCompact::ProcessLinearAlloc() {
     // processing any pages in this arena, then we can madvise the shadow size.
     // Otherwise, we will double the memory use for linear-alloc.
     if (!minor_fault_initialized_ && !others_processing) {
-      ZeroAndReleaseMemory(arena_begin + diff, arena_size);
+      MemMap::ZeroAndReleaseMemory(arena_begin + diff, arena_size);
     }
   }
 }
@@ -3846,7 +3846,7 @@ void MarkCompact::CompactionPhase() {
     // We will only iterate once if gKernelHasFaultRetry is true.
     do {
       // madvise the page so that we can get userfaults on it.
-      ZeroAndReleaseMemory(conc_compaction_termination_page_, gPageSize);
+      MemMap::ZeroAndReleaseMemory(conc_compaction_termination_page_, gPageSize);
       // The following load triggers 'special' userfaults. When received by the
       // thread-pool workers, they will exit out of the compaction task. This fault
       // happens because we madvised the page.
@@ -4434,8 +4434,8 @@ void MarkCompact::FinishPhase() {
   if (use_uffd_sigbus_ || !minor_fault_initialized_ || !shadow_to_space_map_.IsValid() ||
       shadow_to_space_map_.Size() < (moving_first_objs_count_ + black_page_count_) * gPageSize) {
     size_t adjustment = use_uffd_sigbus_ ? 0 : gPageSize;
-    ZeroAndReleaseMemory(compaction_buffers_map_.Begin() + adjustment,
-                         compaction_buffers_map_.Size() - adjustment);
+    MemMap::ZeroAndReleaseMemory(compaction_buffers_map_.Begin() + adjustment,
+                                 compaction_buffers_map_.Size() - adjustment);
   } else if (shadow_to_space_map_.Size() == bump_pointer_space_->Capacity()) {
     // Now that we are going to use minor-faults from next GC cycle, we can
     // unmap the buffers used by worker threads.

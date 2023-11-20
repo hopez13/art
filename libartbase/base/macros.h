@@ -123,4 +123,17 @@ template<typename T> ART_FRIEND_TEST(test_set_name, individual_test)
 #define EXPORT
 #endif
 
+// Some globals variables shouldn't be visible outside libraries declaring them.
+// The attribute allows to hide them, so preventing direct access.
+#define ALWAYS_HIDDEN __attribute__((visibility("hidden")))
+
+// The init_priority attribute can be used to determine priority of initialization for global
+// values. The available range is 101 to 65535 where 101 corresponds to the highest priority and
+// 65535 corresponds to the default priority used when the attribute isn't applied.
+#define INIT_PRIORITY(priority) __attribute__((init_priority(priority)))
+
+// Utilised init_priority values
+#define INIT_PRIORITY_1 101
+#define INIT_PRIORITY_2 102
+
 #endif  // ART_LIBARTBASE_BASE_MACROS_H_

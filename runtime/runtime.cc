@@ -206,6 +206,12 @@ static constexpr double kLowMemoryMaxLoadFactor = 0.8;
 static constexpr double kNormalMinLoadFactor = 0.4;
 static constexpr double kNormalMaxLoadFactor = 0.7;
 
+#ifdef ART_PAGE_SIZE_AGNOSTIC
+// Declare the constant as ALWAYS_HIDDEN to ensure it isn't visible from outside libart.so.
+// The init_priority is specified so that it is initialized before anything else in libart.so.
+const PageSize gPageSize ALWAYS_HIDDEN INIT_PRIORITY(INIT_PRIORITY_1);
+#endif
+
 Runtime* Runtime::instance_ = nullptr;
 
 struct TraceConfig {

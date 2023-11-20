@@ -153,8 +153,23 @@ static constexpr size_t kSuspendTimeDuringFlip = 5'000;
 // of the stack (lowest memory).  The higher portion of the memory
 // is protected against reads and the lower is available for use while
 // throwing the StackOverflow exception.
-ART_PAGE_SIZE_AGNOSTIC_DECLARE_AND_DEFINE(size_t, gStackOverflowProtectedSize,
-                                          kMemoryToolStackGuardSizeScale * gPageSize);
+#ifdef ART_PAGE_SIZE_AGNOSTIC
+const struct StackOverflowProtectedSize {
+  StackOverflowProtectedSize()
+    : value_(kMemoryToolStackGuardSizeScale * gPageSize), is_initialized_(true) {}
+
+  ALWAYS_INLINE operator size_t() const {
+    DCHECK(is_initialized_);
+    return value_;
+  }
+
+ private:
+  const size_t value_;
+  const bool is_initialized_;
+} gStackOverflowProtectedSize ALWAYS_HIDDEN INIT_PRIORITY(INIT_PRIORITY_2);
+#else
+static constexpr size_t gStackOverflowProtectedSize = kMemoryToolStackGuardSizeScale * gPageSize;
+#endif
 
 static const char* kThreadNameDuringStartup = "<native thread without managed peer>";
 
