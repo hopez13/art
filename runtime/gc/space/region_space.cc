@@ -394,7 +394,7 @@ void RegionSpace::SetFromSpace(accounting::ReadBarrierTable* rb_table,
 }
 
 static void ZeroAndProtectRegion(uint8_t* begin, uint8_t* end, bool release_eagerly) {
-  ZeroMemory(begin, end - begin, release_eagerly);
+  MemMap::ZeroMemory(begin, end - begin, release_eagerly);
   if (kProtectClearedRegions) {
     CheckedCall(mprotect, __FUNCTION__, begin, end - begin, PROT_NONE);
   }
