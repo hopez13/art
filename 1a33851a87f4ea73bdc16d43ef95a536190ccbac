@@ -16,6 +16,75 @@
       "message": "old windows.h ERROR got you this time 😊",
       "revId": "1a33851a87f4ea73bdc16d43ef95a536190ccbac",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee0f5659_6126d28f",
+        "filename": "libartbase/base/mem_map.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1889140
+      },
+      "writtenOn": "2023-11-20T16:19:52Z",
+      "side": 1,
+      "message": "nit: let\u0027s add a comma after \"This is a wrapper\" so the next sentence is clear.",
+      "range": {
+        "startLine": 185,
+        "startChar": 5,
+        "endLine": 185,
+        "endChar": 22
+      },
+      "revId": "1a33851a87f4ea73bdc16d43ef95a536190ccbac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ec29c52_43202475",
+        "filename": "libartbase/base/mem_map.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1889140
+      },
+      "writtenOn": "2023-11-20T16:19:52Z",
+      "side": 1,
+      "message": "why not \u0026 instead of *?",
+      "range": {
+        "startLine": 192,
+        "startChar": 54,
+        "endLine": 192,
+        "endChar": 55
+      },
+      "revId": "1a33851a87f4ea73bdc16d43ef95a536190ccbac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4c59b38_74065e3d",
+        "filename": "libartbase/base/mem_map.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1889140
+      },
+      "writtenOn": "2023-11-20T16:19:52Z",
+      "side": 1,
+      "message": "We can get rid of the else clause.\n\n```\nif (alignment \u003c\u003d kMinPageSize) {\n      return MapAnonymous(name, byte_count, prot, low_4gb, error_msg);\n}\n    \nreturn MapAnonymousAligned(name, byte_count, prot, low_4gb, alignment, error_msg);\n```",
+      "range": {
+        "startLine": 195,
+        "startChar": 4,
+        "endLine": 199,
+        "endChar": 5
+      },
+      "revId": "1a33851a87f4ea73bdc16d43ef95a536190ccbac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
