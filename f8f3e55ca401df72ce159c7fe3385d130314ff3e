@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a47bbe0_ead38c11",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889140
+      },
+      "writtenOn": "2023-11-20T16:29:41Z",
+      "side": 1,
+      "message": "Hi Ruben, you can test all the changes in the cf agnostic target `aosp_cf_arm64_phone_pgagnostic`.\n\n```\nmkdir main \u0026\u0026 cd main\nREPO_ALLOW_SHALLOW\u003d0 repo init -c -u sso://android/platform/manifest -b main --use-superproject \\\n         --partial-clone --partial-clone-exclude\u003dplatform/frameworks/base \\\n         --clone-filter\u003dblob:limit\u003d10M\nrepo sync -c -j32\n\n# Build cf agnostic target.\nsource build/envsetup.sh\nlunch aosp_cf_arm64_phone_pgagnostic\nm\n\n# Launch cf with a kernel with 16k page size support.\nlaunch_cvd -userdata_format\u003dext4\n```",
+      "revId": "f8f3e55ca401df72ce159c7fe3385d130314ff3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
