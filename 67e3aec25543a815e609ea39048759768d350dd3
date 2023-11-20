@@ -93,6 +93,29 @@
       },
       "revId": "67e3aec25543a815e609ea39048759768d350dd3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "559f8244_6cec1e10",
+        "filename": "runtime/intrinsics_list.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-11-20T11:28:08Z",
+      "side": 1,
+      "message": "Could this be the culprit behind https://android-review.googlesource.com/2832980 ?\n\n(We should answer that before adding more intrinsics with such side effects.)",
+      "range": {
+        "startLine": 291,
+        "startChar": 48,
+        "endLine": 291,
+        "endChar": 62
+      },
+      "revId": "67e3aec25543a815e609ea39048759768d350dd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
