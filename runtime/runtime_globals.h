@@ -17,12 +17,33 @@
 #ifndef ART_RUNTIME_RUNTIME_GLOBALS_H_
 #define ART_RUNTIME_RUNTIME_GLOBALS_H_
 
+#include <android-base/logging.h>
+
 #include "base/globals.h"
 
 namespace art {
 
 // Size of Dex virtual registers.
 static constexpr size_t kVRegSize = 4;
+
+#ifdef ART_PAGE_SIZE_AGNOSTIC
+struct PageSize {
+  PageSize()
+    : value_(GetPageSizeSlow()), is_initialized_(true) {}
+
+  ALWAYS_INLINE operator size_t() const {
+    DCHECK(is_initialized_);
+    return value_;
+  }
+
+ private:
+  const size_t value_;
+  const bool is_initialized_;
+};
+extern const PageSize gPageSize ALWAYS_HIDDEN;
+#else
+static constexpr size_t gPageSize = kMinPageSize;
+#endif
 
 // Returns whether the given memory offset can be used for generating
 // an implicit null check.
