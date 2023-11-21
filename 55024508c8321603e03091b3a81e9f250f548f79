@@ -63,6 +63,30 @@
       },
       "revId": "55024508c8321603e03091b3a81e9f250f548f79",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1b53ba75_9937396d",
+        "filename": "dex2oat/linker/image_test.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-11-21T22:49:33Z",
+      "side": 1,
+      "message": "I also don\u0027t fully understand what\u0027s going on here. Maybe Vladimir can check? But I now like this better with your comment than without it.",
+      "parentUuid": "0e8ee561_525e9ca7",
+      "range": {
+        "startLine": 68,
+        "startChar": 2,
+        "endLine": 68,
+        "endChar": 84
+      },
+      "revId": "55024508c8321603e03091b3a81e9f250f548f79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
