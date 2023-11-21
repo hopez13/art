@@ -15,11 +15,15 @@
  */
 
 #include "write_barrier_elimination.h"
+#include <sstream>
 
 #include "base/arena_allocator.h"
 #include "base/scoped_arena_allocator.h"
 #include "base/scoped_arena_containers.h"
 #include "optimizing/nodes.h"
+#include "scoped_thread_state_change-inl.h"
+#include "scoped_thread_state_change.h"
+#include "thread.h"
 
 namespace art HIDDEN {
 
@@ -30,6 +34,8 @@ class WBEVisitor final : public HGraphVisitor {
         scoped_allocator_(graph->GetArenaStack()),
         current_write_barriers_(scoped_allocator_.Adapter(kArenaAllocWBE)),
         stats_(stats) {}
+
+  bool did_opt = false;
 
   void VisitBasicBlock(HBasicBlock* block) override {
     // We clear the map to perform this optimization only in the same block. Doing it across blocks
@@ -58,6 +64,14 @@ class WBEVisitor final : public HGraphVisitor {
       it->second->AsInstanceFieldSet()->SetWriteBarrierKind(WriteBarrierKind::kEmitNoNullCheck);
       instruction->SetWriteBarrierKind(WriteBarrierKind::kDontEmit);
       MaybeRecordStat(stats_, MethodCompilationStat::kRemovedWriteBarrier);
+      if (!did_opt) {
+        did_opt = true;
+        ScopedObjectAccess soa(Thread::Current());
+        std::string method_name = GetGraph()->GetArtMethod() != nullptr ?
+                                      GetGraph()->GetArtMethod()->PrettyMethod() :
+                                      "NO_NAME";
+        LOG(ERROR) << method_name << " eliminated a write barrier";
+      }
     } else {
       const bool inserted = current_write_barriers_.insert({obj, instruction}).second;
       DCHECK(inserted);
@@ -84,6 +98,14 @@ class WBEVisitor final : public HGraphVisitor {
       it->second->AsStaticFieldSet()->SetWriteBarrierKind(WriteBarrierKind::kEmitNoNullCheck);
       instruction->SetWriteBarrierKind(WriteBarrierKind::kDontEmit);
       MaybeRecordStat(stats_, MethodCompilationStat::kRemovedWriteBarrier);
+      if (!did_opt) {
+        did_opt = true;
+        ScopedObjectAccess soa(Thread::Current());
+        std::string method_name = GetGraph()->GetArtMethod() != nullptr ?
+                                      GetGraph()->GetArtMethod()->PrettyMethod() :
+                                      "NO_NAME";
+        LOG(ERROR) << method_name << " eliminated a write barrier";
+      }
     } else {
       const bool inserted = current_write_barriers_.insert({cls, instruction}).second;
       DCHECK(inserted);
@@ -113,6 +135,14 @@ class WBEVisitor final : public HGraphVisitor {
       DCHECK(it->second->AsArraySet()->GetWriteBarrierKind() == WriteBarrierKind::kEmitNoNullCheck);
       instruction->SetWriteBarrierKind(WriteBarrierKind::kDontEmit);
       MaybeRecordStat(stats_, MethodCompilationStat::kRemovedWriteBarrier);
+      if (!did_opt) {
+        did_opt = true;
+        ScopedObjectAccess soa(Thread::Current());
+        std::string method_name = GetGraph()->GetArtMethod() != nullptr ?
+                                      GetGraph()->GetArtMethod()->PrettyMethod() :
+                                      "NO_NAME";
+        LOG(ERROR) << method_name << " eliminated a write barrier";
+      }
     } else {
       const bool inserted = current_write_barriers_.insert({arr, instruction}).second;
       DCHECK(inserted);
@@ -153,8 +183,21 @@ class WBEVisitor final : public HGraphVisitor {
 };
 
 bool WriteBarrierElimination::Run() {
+  std::stringstream ssBefore;
+  graph_->Dump(ssBefore, nullptr);
   WBEVisitor wbe_visitor(graph_, stats_);
   wbe_visitor.VisitReversePostOrder();
+  if (wbe_visitor.did_opt) {
+    std::stringstream ssAfter;
+    graph_->Dump(ssAfter, nullptr);
+    ScopedObjectAccess soa(Thread::Current());
+    std::string method_name =
+        graph_->GetArtMethod() != nullptr ? graph_->GetArtMethod()->PrettyMethod() : "NO_NAME";
+    LOG(ERROR) << method_name << "before:\n"
+               << ssBefore.str() << "\n"
+               << method_name << "after:\n"
+               << ssAfter.str();
+  }
   return true;
 }
 
