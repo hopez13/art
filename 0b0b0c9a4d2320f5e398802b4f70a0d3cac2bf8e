@@ -87,6 +87,30 @@
       },
       "revId": "0b0b0c9a4d2320f5e398802b4f70a0d3cac2bf8e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b8a16082_1c354d0e",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1079,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-11-21T14:52:33Z",
+      "side": 1,
+      "message": "Looks like `VERIFY_ERROR_LOCKING` during class verification would check that the locks are balanced. Such methods would not run through the optimized pipeline",
+      "parentUuid": "1530f953_cad79fe0",
+      "range": {
+        "startLine": 1079,
+        "startChar": 8,
+        "endLine": 1079,
+        "endChar": 43
+      },
+      "revId": "0b0b0c9a4d2320f5e398802b4f70a0d3cac2bf8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
