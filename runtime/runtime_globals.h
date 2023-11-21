@@ -19,6 +19,7 @@
 
 #include <android-base/logging.h>
 
+#include "base/bit_utils.h"
 #include "base/globals.h"
 
 namespace art {
@@ -27,9 +28,9 @@ namespace art {
 static constexpr size_t kVRegSize = 4;
 
 #ifdef ART_PAGE_SIZE_AGNOSTIC
-struct PageSize {
-  PageSize()
-    : value_(GetPageSizeSlow()), is_initialized_(true) {}
+struct PageSizeLog2 {
+  PageSizeLog2()
+    : value_(WhichPowerOf2(GetPageSizeSlow())), is_initialized_(true) {}
 
   ALWAYS_INLINE operator size_t() const {
     DCHECK(is_initialized_);
@@ -40,9 +41,21 @@ struct PageSize {
   const size_t value_;
   const bool is_initialized_;
 };
-extern const PageSize gPageSize ALWAYS_HIDDEN;
+
+extern const PageSizeLog2 gPageSizeLog2 ALWAYS_HIDDEN;
+
+// Wrapper over gPageSizeLog2 returning the page size value.
+// There is no data in the struct, so it can be just a static const local in each module using it.
+struct PageSize {
+  ALWAYS_INLINE operator size_t() const {
+    return (1u << gPageSizeLog2);
+  }
+};
+
+static const PageSize gPageSize;
 #else
 static constexpr size_t gPageSize = kMinPageSize;
+static constexpr size_t gPageSizeLog2 = WhichPowerOf2(gPageSize);
 #endif
 
 // Returns whether the given memory offset can be used for generating
