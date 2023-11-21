@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4533851_17133b82",
+        "filename": "libartbase/base/mem_map.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-11-21T00:12:09Z",
+      "side": 1,
+      "message": "There shouldn\u0027t be a comma here.",
+      "parentUuid": "ee0f5659_6126d28f",
+      "range": {
+        "startLine": 185,
+        "startChar": 5,
+        "endLine": 185,
+        "endChar": 22
+      },
+      "revId": "1a33851a87f4ea73bdc16d43ef95a536190ccbac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "45f2e1de_db08d0f1",
@@ -54,6 +78,30 @@
       "writtenOn": "2023-11-20T18:48:11Z",
       "side": 1,
       "message": "Please make this kAlignment. That convention is not consistently followed, but I think it makes it much clearer why you are repeating the test here.\n\nBut why does this wrapper actually make sense? You are wrapping a fairly heavy-weight system call. And all this seems to do is sometimes save you a dynamic comparions?",
+      "range": {
+        "startLine": 187,
+        "startChar": 18,
+        "endLine": 187,
+        "endChar": 27
+      },
+      "revId": "1a33851a87f4ea73bdc16d43ef95a536190ccbac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1bb92cd7_0018f4dd",
+        "filename": "libartbase/base/mem_map.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-11-21T00:12:09Z",
+      "side": 1,
+      "message": "Hans - if you are okay +2\u0027ing to avoid a few more days of delays here, and Artem can follow-up (or my team), I\u0027d really appreciate it. I filed a bug b/312296894 to make sure we don\u0027t lose this bit.",
+      "parentUuid": "45f2e1de_db08d0f1",
       "range": {
         "startLine": 187,
         "startChar": 18,
@@ -111,6 +159,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f9cef583_1ed48fdf",
+        "filename": "libartbase/base/mem_map.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-11-21T00:12:09Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "9b2fd5ee_9ac73f3f",
+      "range": {
+        "startLine": 192,
+        "startChar": 54,
+        "endLine": 192,
+        "endChar": 55
+      },
+      "revId": "1a33851a87f4ea73bdc16d43ef95a536190ccbac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e4c59b38_74065e3d",
@@ -124,6 +196,30 @@
       "writtenOn": "2023-11-20T16:19:52Z",
       "side": 1,
       "message": "We can get rid of the else clause.\n\n```\nif (alignment \u003c\u003d kMinPageSize) {\n      return MapAnonymous(name, byte_count, prot, low_4gb, error_msg);\n}\n    \nreturn MapAnonymousAligned(name, byte_count, prot, low_4gb, alignment, error_msg);\n```",
+      "range": {
+        "startLine": 195,
+        "startChar": 4,
+        "endLine": 199,
+        "endChar": 5
+      },
+      "revId": "1a33851a87f4ea73bdc16d43ef95a536190ccbac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d33784c_efd07981",
+        "filename": "libartbase/base/mem_map.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-11-21T00:12:09Z",
+      "side": 1,
+      "message": "We really need to merge these patches 😊",
+      "parentUuid": "e4c59b38_74065e3d",
       "range": {
         "startLine": 195,
         "startChar": 4,
