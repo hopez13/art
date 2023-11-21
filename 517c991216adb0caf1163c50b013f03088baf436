@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9ecd7f3_486e78f4",
+        "filename": "libdexfile/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-11-21T12:15:39Z",
+      "side": 1,
+      "message": "This is fine since ag/24553347 only adds libdexfile as a runtime_libs dependency.",
+      "range": {
+        "startLine": 176,
+        "startChar": 8,
+        "endLine": 176,
+        "endChar": 45
+      },
+      "revId": "517c991216adb0caf1163c50b013f03088baf436",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
