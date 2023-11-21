@@ -19,6 +19,7 @@
 
 #include <android-base/logging.h>
 
+#include "base/bit_utils.h"
 #include "base/globals.h"
 
 namespace art {
@@ -27,14 +28,13 @@ namespace art {
 static constexpr size_t kVRegSize = 4;
 
 #ifdef ART_PAGE_SIZE_AGNOSTIC
-// Accessor for the page size constant local to the libart.
+// Accessor for the page size (represented as a log2) constant local to the libart.
 //
 // The value is only available after the Runtime initialization started - to ensure there is no
 // static initialization order issues where initialization of other values is dependent on the page
 // size. In those cases, GetPageSizeSlow() should be used.
-struct PageSize {
-  PageSize()
-    : is_initialized_(true), is_access_allowed_(false) {}
+struct PageSizeLog2 {
+  PageSizeLog2() : is_initialized_(true), is_access_allowed_(false) {}
 
   ALWAYS_INLINE operator size_t() const {
     DCHECK(is_initialized_ && is_access_allowed_);
@@ -60,7 +60,7 @@ struct PageSize {
     is_access_allowed_ = is_allowed;
   }
 
-  // The page size value.
+  // The log2 of the page size value.
   //
   // It is declared as a static constant value to ensure compiler recognizes that it doesn't change
   // once it is initialized.
@@ -84,11 +84,21 @@ struct PageSize {
   bool is_access_allowed_;
 };
 
+extern PageSizeLog2 gPageSizeLog2 ALWAYS_HIDDEN;
+
+// Wrapper over gPageSizeLog2 returning the page size value.
+// There is no data in the struct, so it can be just a static const local in each module using it.
+//
 // gPageSize should only be used within libart. For most of the other cases MemMap::GetPageSize()
 // or GetPageSizeSlow() should be used. See also the comment for GetPageSizeSlow().
-extern PageSize gPageSize ALWAYS_HIDDEN;
+static const struct {
+  ALWAYS_INLINE operator size_t() const {
+    return (1u << gPageSizeLog2);
+  }
+} gPageSize;
 #else
 static constexpr size_t gPageSize = kMinPageSize;
+static constexpr size_t gPageSizeLog2 = WhichPowerOf2(gPageSize);
 #endif
 
 // Returns whether the given memory offset can be used for generating

@@ -208,8 +208,8 @@ static constexpr double kNormalMaxLoadFactor = 0.7;
 
 #ifdef ART_PAGE_SIZE_AGNOSTIC
 // Declare the constant as ALWAYS_HIDDEN to ensure it isn't visible from outside libart.so.
-const size_t PageSize::value_ ALWAYS_HIDDEN = GetPageSizeSlow();
-PageSize gPageSize ALWAYS_HIDDEN;
+const size_t PageSizeLog2::value_ ALWAYS_HIDDEN = WhichPowerOf2(GetPageSizeSlow());
+PageSizeLog2 gPageSizeLog2 ALWAYS_HIDDEN;
 #endif
 
 Runtime* Runtime::instance_ = nullptr;
@@ -556,9 +556,9 @@ Runtime::~Runtime() {
   WellKnownClasses::Clear();
 
 #ifdef ART_PAGE_SIZE_AGNOSTIC
-  // This is added to ensure no test is able to access gPageSize prior to initializing Runtime just
-  // because a Runtime instance was created (and subsequently destroyed) by another test.
-  gPageSize.DisallowAccess();
+  // This is added to ensure no test is able to access gPageSizeLog2 prior to initializing Runtime
+  // just because a Runtime instance was created (and subsequently destroyed) by another test.
+  gPageSizeLog2.DisallowAccess();
 #endif
 }
 
@@ -1505,7 +1505,7 @@ bool Runtime::Init(RuntimeArgumentMap&& runtime_options_in) {
   env_snapshot_.TakeSnapshot();
 
 #ifdef ART_PAGE_SIZE_AGNOSTIC
-  gPageSize.AllowAccess();
+  gPageSizeLog2.AllowAccess();
 #endif
 
   using Opt = RuntimeArgumentMap;
