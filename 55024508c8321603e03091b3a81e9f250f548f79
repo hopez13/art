@@ -39,6 +39,30 @@
       },
       "revId": "55024508c8321603e03091b3a81e9f250f548f79",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e8ee561_525e9ca7",
+        "filename": "dex2oat/linker/image_test.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1280281
+      },
+      "writtenOn": "2023-11-21T20:08:56Z",
+      "side": 1,
+      "message": "This is related to the assertion on the !image_header.IsAppImage() condition below.\nI\u0027ve clarified and moved the comment.\n\nLooking at this code again now, I\u0027m not totally sure why this test checks the condition. As far as I can see, the IsAppImage function was implemented as `return boot_image_size !\u003d 0;` when this check was introduced - https://android-review.googlesource.com/c/platform/art/+/182119. At some point (https://android-review.googlesource.com/c/platform/art/+/1159627) the condition was updated however this test wasn\u0027t.",
+      "parentUuid": "56df2e42_8ef152f8",
+      "range": {
+        "startLine": 68,
+        "startChar": 2,
+        "endLine": 68,
+        "endChar": 84
+      },
+      "revId": "55024508c8321603e03091b3a81e9f250f548f79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
