@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a346a590_059de123",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-11-21T01:05:19Z",
+      "side": 1,
+      "message": "Aside from one comment that I don\u0027t understand, this looks fine to me.\n\nChanges will be required if we undo the MapAnonymousAligned\u003cK\u003e wrapper.",
+      "revId": "55024508c8321603e03091b3a81e9f250f548f79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "56df2e42_8ef152f8",
+        "filename": "dex2oat/linker/image_test.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-11-21T01:05:19Z",
+      "side": 1,
+      "message": "What does this comment mean? I couldn\u0027t reconcile it with the code. Does it mean \"please note that ...\" As it stands, it sounds like we\u0027re testing for that property, which I think we\u0027re not?",
+      "range": {
+        "startLine": 68,
+        "startChar": 2,
+        "endLine": 68,
+        "endChar": 84
+      },
+      "revId": "55024508c8321603e03091b3a81e9f250f548f79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
