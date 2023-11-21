@@ -112,6 +112,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "498e440c_eb2177a7",
+        "filename": "libartbase/base/mem_map.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-11-21T00:21:56Z",
+      "side": 1,
+      "message": "Works for me. IIUC, we should probably just get rid of this wrapper. But I\u0027m fine with doing that in a later CL, if that interpretation turns out to be correct.",
+      "parentUuid": "1bb92cd7_0018f4dd",
+      "range": {
+        "startLine": 187,
+        "startChar": 18,
+        "endLine": 187,
+        "endChar": 27
+      },
+      "revId": "1a33851a87f4ea73bdc16d43ef95a536190ccbac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1ec29c52_43202475",
