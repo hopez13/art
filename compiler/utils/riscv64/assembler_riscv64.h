@@ -86,6 +86,20 @@ enum FPClassMaskType {
   kQuietNaN          = 0x200,
 };
 
+enum class CSRAddress : uint32_t {
+  kCSRVstart = 0x008,  // Vector start position, URW
+  kCSRVxstat = 0x009,  // Fixed-Point Saturate Flag, URW
+  kCSRVxrm = 0x00A,    // Fixed-Point Rounding Mode, URW
+  kCSRRes1 = 0x00B,    // Reserved for future vector CSRs
+  kCSRRes2 = 0x00C,
+  kCSRRes3 = 0x00D,
+  kCSRRes4 = 0x00E,
+  kCSRVcsr = 0x00F,   // Vector control and status register, URW
+  kCSRVl = 0xC20,     // Vector length, URO
+  kCSRVtype = 0xC21,  // Vector data type register, URO
+  kCSRVlenb = 0xC22,  // VLEN/8 (vector register length in bytes), URO
+};
+
 class Riscv64Label : public Label {
  public:
   Riscv64Label() : prev_branch_id_(kNoPrevBranchId) {}
@@ -511,6 +525,767 @@ class Riscv64Assembler final : public Assembler {
   void OrcB(XRegister rd, XRegister rs1);
   void Rev8(XRegister rd, XRegister rs1);
 
+  ////////////////////////////// RISC-V Vector Instructions  START ///////////////////////////////
+  enum class LMUL : uint32_t {
+    kLMULmf8 = 0b101,
+    kLMULmf4 = 0b110,
+    kLMULmf2 = 0b111,
+    kLMULm1 = 0b000,
+    kLMULm2 = 0b001,
+    kLMULm4 = 0b010,
+    kLMULm8 = 0b011,
+
+    kLMUL_BW = 3
+  };
+
+  enum class SEW : uint32_t {
+    kSEWe8 = 0b000,
+    kSEWe16 = 0b001,
+    kSEWe32 = 0b010,
+    kSEWe64 = 0b011,
+    kSEW_RESERVED,
+
+    kSEW_BW = 3
+  };
+
+  enum class VMA : uint32_t {
+    kVMAmu = 0,  // undisturbed
+    kVMAma = 1,  // agnostic
+
+    kVMA_BW = 1
+  };
+
+  enum class VTA : uint32_t {
+    kVTAtu = 0,  // undisturbed
+    kVTAta = 1,  // agnostic
+
+    kVTA_BW = 1
+  };
+
+  enum class VM : uint32_t {  // Vector mask
+    kVMv0_t = 0b0,
+    kVMunmasked = 0b1
+  };
+
+  // Vector Conguration-Setting Instructions, opcode = 0x57, funct3 = 0x3
+  void VSetvli(XRegister rd, XRegister rs1, uint32_t vtypei);
+  void VSetivli(XRegister rd, uint32_t uimm, uint32_t vtypei);
+  void VSetvl(XRegister rd, XRegister rs1, XRegister rs2);
+
+  static uint32_t VTypeiValue(enum VMA vma, enum VTA vta, enum SEW sew, enum LMUL lmul) {
+    return static_cast<uint32_t>(vma) << 7 | static_cast<uint32_t>(vta) << 6 |
+           static_cast<uint32_t>(sew) << 3 | static_cast<uint32_t>(lmul);
+  }
+
+  enum class MemAddressMode : uint32_t {
+    kMopUnitStride = 0b00,
+    kMopIndexedUnordered = 0b01,
+    kMopStrided = 0b10,
+    kMopIndexedOrdered = 0b11,
+
+    kMop_BW = 2
+  };
+
+  enum class VectorWidth : uint32_t {
+    kVW8 = 0b000,
+    kVW16 = 0b101,
+    kVW32 = 0b110,
+    kVW64 = 0b111,
+
+    kVWMasked = 0b000,
+    kVWWholeR = 0b000,
+
+    kVW_BW = 3
+  };
+
+  // Vector Unit-Stride Load/Store Instructions
+  void VLe8(VRegister vd, XRegister rs1);
+  void VLe16(VRegister vd, XRegister rs1);
+  void VLe32(VRegister vd, XRegister rs1);
+  void VLe64(VRegister vd, XRegister rs1);
+  void VLm(VRegister vd, XRegister rs1);
+
+  void VSe8(VRegister vs3, XRegister rs1);
+  void VSe16(VRegister vs3, XRegister rs1);
+  void VSe32(VRegister vs3, XRegister rs1);
+  void VSe64(VRegister vs3, XRegister rs1);
+  void VSm(VRegister vs3, XRegister rs1);
+
+  // Vector unit-stride fault-only-first Instructions
+  void VLe8ff(VRegister vd, XRegister rs1);
+  void VLe16ff(VRegister vd, XRegister rs1);
+  void VLe32ff(VRegister vd, XRegister rs1);
+  void VLe64ff(VRegister vd, XRegister rs1);
+
+  // Vector Strided Load/Store Instructions
+  void VLse8(VRegister vd, XRegister rs1, XRegister rs2, enum VM vm = VM::kVMunmasked);
+  void VLse16(VRegister vd, XRegister rs1, XRegister rs2, enum VM vm = VM::kVMunmasked);
+  void VLse32(VRegister vd, XRegister rs1, XRegister rs2, enum VM vm = VM::kVMunmasked);
+  void VLse64(VRegister vd, XRegister rs1, XRegister rs2, enum VM vm = VM::kVMunmasked);
+
+  void VSse8(VRegister vs3, XRegister rs1, XRegister rs2, enum VM vm = VM::kVMunmasked);
+  void VSse16(VRegister vs3, XRegister rs1, XRegister rs2, enum VM vm = VM::kVMunmasked);
+  void VSse32(VRegister vs3, XRegister rs1, XRegister rs2, enum VM vm = VM::kVMunmasked);
+  void VSse64(VRegister vs3, XRegister rs1, XRegister rs2, enum VM vm = VM::kVMunmasked);
+
+  // Vector Indexed Load/Store Instructions
+  void VLoxe8(VRegister vd, XRegister rs1, VRegister vs2, enum VM vm = VM::kVMunmasked);
+  void VLoxe16(VRegister vd, XRegister rs1, VRegister vs2, enum VM vm = VM::kVMunmasked);
+  void VLoxe32(VRegister vd, XRegister rs1, VRegister vs2, enum VM vm = VM::kVMunmasked);
+  void VLoxe64(VRegister vd, XRegister rs1, VRegister vs2, enum VM vm = VM::kVMunmasked);
+
+  void VLuxe8(VRegister vd, XRegister rs1, VRegister vs2, enum VM vm = VM::kVMunmasked);
+  void VLuxe16(VRegister vd, XRegister rs1, VRegister vs2, enum VM vm = VM::kVMunmasked);
+  void VLuxe32(VRegister vd, XRegister rs1, VRegister vs2, enum VM vm = VM::kVMunmasked);
+  void VLuxe64(VRegister vd, XRegister rs1, VRegister vs2, enum VM vm = VM::kVMunmasked);
+
+  void VSoxe8(VRegister vs3, XRegister rs1, VRegister vs2, enum VM vm = VM::kVMunmasked);
+  void VSoxe16(VRegister vs3, XRegister rs1, VRegister vs2, enum VM vm = VM::kVMunmasked);
+  void VSoxe32(VRegister vs3, XRegister rs1, VRegister vs2, enum VM vm = VM::kVMunmasked);
+  void VSoxe64(VRegister vs3, XRegister rs1, VRegister vs2, enum VM vm = VM::kVMunmasked);
+
+  void VSuxe8(VRegister vs3, XRegister rs1, VRegister vs2, enum VM vm = VM::kVMunmasked);
+  void VSuxe16(VRegister vs3, XRegister rs1, VRegister vs2, enum VM vm = VM::kVMunmasked);
+  void VSuxe32(VRegister vs3, XRegister rs1, VRegister vs2, enum VM vm = VM::kVMunmasked);
+  void VSuxe64(VRegister vs3, XRegister rs1, VRegister vs2, enum VM vm = VM::kVMunmasked);
+
+  // Vector Whole Register Load/Store Instructions
+
+  void VL1re8(VRegister vd, XRegister rs1);
+  void VL1re16(VRegister vd, XRegister rs1);
+  void VL1re32(VRegister vd, XRegister rs1);
+  void VL1re64(VRegister vd, XRegister rs1);
+
+  void VL2re8(VRegister vd, XRegister rs1);
+  void VL2re16(VRegister vd, XRegister rs1);
+  void VL2re32(VRegister vd, XRegister rs1);
+  void VL2re64(VRegister vd, XRegister rs1);
+
+  void VL4re8(VRegister vd, XRegister rs1);
+  void VL4re16(VRegister vd, XRegister rs1);
+  void VL4re32(VRegister vd, XRegister rs1);
+  void VL4re64(VRegister vd, XRegister rs1);
+
+  void VL8re8(VRegister vd, XRegister rs1);
+  void VL8re16(VRegister vd, XRegister rs1);
+  void VL8re32(VRegister vd, XRegister rs1);
+  void VL8re64(VRegister vd, XRegister rs1);
+
+  void VL1r(VRegister vd, XRegister rs1);  // Pseudoinstruction equal to VL1re8
+  void VL2r(VRegister vd, XRegister rs1);  // Pseudoinstruction equal to VL2re8
+  void VL4r(VRegister vd, XRegister rs1);  // Pseudoinstruction equal to VL4re8
+  void VL8r(VRegister vd, XRegister rs1);  // Pseudoinstruction equal to VL8re8
+
+  void VS1r(VRegister vs3, XRegister rs1);  // Store {vs3} to address in a1
+  void VS2r(VRegister vs3, XRegister rs1);  // Store {vs3}-{vs3 + 1} to address in a1
+  void VS4r(VRegister vs3, XRegister rs1);  // Store {vs3}-{vs3 + 3} to address in a1
+  void VS8r(VRegister vs3, XRegister rs1);  // Store {vs3}-{vs3 + 7} to address in a1
+
+  // Vector Arithmetic Instruction
+
+  // Vector vadd instructions, funct6 = 0b000000
+  void VAdd_vv(VRegister vd, VRegister vs2, VRegister vs1, enum VM vm = VM::kVMunmasked);
+  void VAdd_vx(VRegister vd, VRegister vs2, XRegister rs1, enum VM vm = VM::kVMunmasked);
+  void VAdd_vi(VRegister vd, VRegister vs2, uint32_t imm1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vsub instructions, funct6 = 0b000010
+  void VSub_vv(VRegister vd, VRegister vs2, VRegister vs1, enum VM vm = VM::kVMunmasked);
+  void VSub_vx(VRegister vd, VRegister vs2, XRegister rs1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vrsub instructions, funct6 = 0b000011
+  void VRsub_vx(VRegister vd, VRegister vs2, XRegister rs1, enum VM vm = VM::kVMunmasked);
+  void VRsub_vi(VRegister vd, VRegister vs2, uint32_t imm1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vminu instructions, funct6 = 0b000100
+  void VMinu_vv(VRegister vd, VRegister vs2, VRegister vs1, enum VM vm = VM::kVMunmasked);
+  void VMinu_vx(VRegister vd, VRegister vs2, XRegister rs1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vmin instructions, funct6 = 0b000101
+  void VMin_vv(VRegister vd, VRegister vs2, VRegister vs1, enum VM vm = VM::kVMunmasked);
+  void VMin_vx(VRegister vd, VRegister vs2, XRegister rs1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vmaxu instructions, funct6 = 0b000110
+  void VMaxu_vv(VRegister vd, VRegister vs2, VRegister vs1, enum VM vm = VM::kVMunmasked);
+  void VMaxu_vx(VRegister vd, VRegister vs2, XRegister rs1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vmax instructions, funct6 = 0b000111
+  void VMax_vv(VRegister vd, VRegister vs2, VRegister vs1, enum VM vm = VM::kVMunmasked);
+  void VMax_vx(VRegister vd, VRegister vs2, XRegister rs1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vand instructions, funct6 = 0b001001
+  void VAnd_vv(VRegister vd, VRegister vs2, VRegister vs1, enum VM vm = VM::kVMunmasked);
+  void VAnd_vx(VRegister vd, VRegister vs2, XRegister rs1, enum VM vm = VM::kVMunmasked);
+  void VAnd_vi(VRegister vd, VRegister vs2, uint32_t imm1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vor instructions, funct6 = 0b001010
+  void VOr_vv(VRegister vd, VRegister vs2, VRegister vs1, enum VM vm = VM::kVMunmasked);
+  void VOr_vx(VRegister vd, VRegister vs2, XRegister rs1, enum VM vm = VM::kVMunmasked);
+  void VOr_vi(VRegister vd, VRegister vs2, uint32_t imm1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vxor instructions, funct6 = 0b001011
+  void VXor_vv(VRegister vd, VRegister vs2, VRegister vs1, enum VM vm = VM::kVMunmasked);
+  void VXor_vx(VRegister vd, VRegister vs2, XRegister rs1, enum VM vm = VM::kVMunmasked);
+  void VXor_vi(VRegister vd, VRegister vs2, uint32_t imm1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vrgather instructions, funct6 = 0b001100
+  void VRgather_vv(VRegister vd, VRegister vs2, VRegister vs1, enum VM vm = VM::kVMunmasked);
+  void VRgather_vx(VRegister vd, VRegister vs2, XRegister rs1, enum VM vm = VM::kVMunmasked);
+  void VRgather_vi(VRegister vd, VRegister vs2, uint32_t imm1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vslideup instructions, funct6 = 0b001110
+  void VSlideup_vx(VRegister vd, VRegister vs2, XRegister rs1, enum VM vm = VM::kVMunmasked);
+  void VSlideup_vi(VRegister vd, VRegister vs2, uint32_t imm1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vrgatherei16 instructions, funct6 = 0b001110
+  void VRgatherei16_vv(VRegister vd, VRegister vs2, VRegister vs1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vslidedown instructions, funct6 = 0b001111
+  void VSlidedown_vx(VRegister vd, VRegister vs2, XRegister rs1, enum VM vm = VM::kVMunmasked);
+  void VSlidedown_vi(VRegister vd, VRegister vs2, uint32_t imm1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vadc instructions, funct6 = 0b010000
+  void VAdc_vvm(VRegister vd, VRegister vs2, VRegister vs1);
+  void VAdc_vxm(VRegister vd, VRegister vs2, XRegister rs1);
+  void VAdc_vim(VRegister vd, VRegister vs2, uint32_t imm1);
+
+  // Vector vmadc instructions, funct6 = 0b010001
+  void VMadc_vvm(VRegister vd, VRegister vs2, VRegister vs1);
+  void VMadc_vxm(VRegister vd, VRegister vs2, XRegister rs1);
+  void VMadc_vim(VRegister vd, VRegister vs2, uint32_t imm1);
+
+  // Vector vmadc instructions, funct6 = 0b010001
+  void VMadc_vv(VRegister vd, VRegister vs2, VRegister vs1);
+  void VMadc_vx(VRegister vd, VRegister vs2, XRegister rs1);
+  void VMadc_vi(VRegister vd, VRegister vs2, uint32_t imm1);
+
+  // Vector vsbc instructions, funct6 = 0b010010
+  void VSbc_vvm(VRegister vd, VRegister vs2, VRegister vs1);
+  void VSbc_vxm(VRegister vd, VRegister vs2, XRegister rs1);
+
+  // Vector vmsbc instructions, funct6 = 0b010011
+  void VMsbc_vvm(VRegister vd, VRegister vs2, VRegister vs1);
+  void VMsbc_vxm(VRegister vd, VRegister vs2, XRegister rs1);
+  void VMsbc_vv(VRegister vd, VRegister vs2, VRegister vs1);
+  void VMsbc_vx(VRegister vd, VRegister vs2, XRegister rs1);
+
+  // Vector vmerge instructions, funct6 = 0b010111, vm = 0
+  void VMerge_vvm(VRegister vd, VRegister vs2, VRegister vs1);
+  void VMerge_vxm(VRegister vd, VRegister vs2, XRegister rs1);
+  void VMerge_vim(VRegister vd, VRegister vs2, uint32_t imm1);
+
+  // Vector vmv instructions, funct6 = 0b010111, vm = 1, vs2 = v0
+  void VMv_vv(VRegister vd, VRegister vs1);
+  void VMv_vx(VRegister vd, XRegister rs1);
+  void VMv_vi(VRegister vd, uint32_t imm1);
+
+  // Vector vmseq instructions, funct6 = 0b011000
+  void VMseq_vv(VRegister vd, VRegister vs2, VRegister vs1, enum VM vm = VM::kVMunmasked);
+  void VMseq_vx(VRegister vd, VRegister vs2, XRegister rs1, enum VM vm = VM::kVMunmasked);
+  void VMseq_vi(VRegister vd, VRegister vs2, uint32_t imm1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vmsne instructions, funct6 = 0b011001
+  void VMsne_vv(VRegister vd, VRegister vs2, VRegister vs1, enum VM vm = VM::kVMunmasked);
+  void VMsne_vx(VRegister vd, VRegister vs2, XRegister rs1, enum VM vm = VM::kVMunmasked);
+  void VMsne_vi(VRegister vd, VRegister vs2, uint32_t imm1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vmsltu instructions, funct6 = 0b011010
+  void VMsltu_vv(VRegister vd, VRegister vs2, VRegister vs1, enum VM vm = VM::kVMunmasked);
+  void VMsltu_vx(VRegister vd, VRegister vs2, XRegister rs1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vmslt instructions, funct6 = 0b011011
+  void VMslt_vv(VRegister vd, VRegister vs2, VRegister vs1, enum VM vm = VM::kVMunmasked);
+  void VMslt_vx(VRegister vd, VRegister vs2, XRegister rs1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vmsleu instructions, funct6 = 0b011100
+  void VMsleu_vv(VRegister vd, VRegister vs2, VRegister vs1, enum VM vm = VM::kVMunmasked);
+  void VMsleu_vx(VRegister vd, VRegister vs2, XRegister rs1, enum VM vm = VM::kVMunmasked);
+  void VMsleu_vi(VRegister vd, VRegister vs2, uint32_t imm1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vmsle instructions, funct6 = 0b011101
+  void VMsle_vv(VRegister vd, VRegister vs2, VRegister vs1, enum VM vm = VM::kVMunmasked);
+  void VMsle_vx(VRegister vd, VRegister vs2, XRegister rs1, enum VM vm = VM::kVMunmasked);
+  void VMsle_vi(VRegister vd, VRegister vs2, uint32_t imm1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vmsgtu instructions, funct6 = 0b011110
+  void VMsgtu_vx(VRegister vd, VRegister vs2, XRegister rs1, enum VM vm = VM::kVMunmasked);
+  void VMsgtu_vi(VRegister vd, VRegister vs2, uint32_t imm1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vmsgt instructions, funct6 = 0b011111
+  void VMsgt_vx(VRegister vd, VRegister vs2, XRegister rs1, enum VM vm = VM::kVMunmasked);
+  void VMsgt_vi(VRegister vd, VRegister vs2, uint32_t imm1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vsaddu instructions, funct6 = 0b100000
+  void VSaddu_vv(VRegister vd, VRegister vs2, VRegister vs1, enum VM vm = VM::kVMunmasked);
+  void VSaddu_vx(VRegister vd, VRegister vs2, XRegister rs1, enum VM vm = VM::kVMunmasked);
+  void VSaddu_vi(VRegister vd, VRegister vs2, uint32_t imm1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vsadd instructions, funct6 = 0b100001
+  void VSadd_vv(VRegister vd, VRegister vs2, VRegister vs1, enum VM vm = VM::kVMunmasked);
+  void VSadd_vx(VRegister vd, VRegister vs2, XRegister rs1, enum VM vm = VM::kVMunmasked);
+  void VSadd_vi(VRegister vd, VRegister vs2, uint32_t imm1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vssubu instructions, funct6 = 0b100010
+  void VSsubu_vv(VRegister vd, VRegister vs2, VRegister vs1, enum VM vm = VM::kVMunmasked);
+  void VSsubu_vx(VRegister vd, VRegister vs2, XRegister rs1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vssub instructions, funct6 = 0b100011
+  void VSsub_vv(VRegister vd, VRegister vs2, VRegister vs1, enum VM vm = VM::kVMunmasked);
+  void VSsub_vx(VRegister vd, VRegister vs2, XRegister rs1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vsll instructions, funct6 = 0b100101
+  void VSll_vv(VRegister vd, VRegister vs2, VRegister vs1, enum VM vm = VM::kVMunmasked);
+  void VSll_vx(VRegister vd, VRegister vs2, XRegister rs1, enum VM vm = VM::kVMunmasked);
+  void VSll_vi(VRegister vd, VRegister vs2, uint32_t imm1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vsmul instructions, funct6 = 0b100111
+  void VSmul_vv(VRegister vd, VRegister vs2, VRegister vs1, enum VM vm = VM::kVMunmasked);
+  void VSmul_vx(VRegister vd, VRegister vs2, XRegister rs1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vsrl instructions, funct6 = 0b101000
+  void VSrl_vv(VRegister vd, VRegister vs2, VRegister vs1, enum VM vm = VM::kVMunmasked);
+  void VSrl_vx(VRegister vd, VRegister vs2, XRegister rs1, enum VM vm = VM::kVMunmasked);
+  void VSrl_vi(VRegister vd, VRegister vs2, uint32_t imm1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vsra instructions, funct6 = 0b101001
+  void VSra_vv(VRegister vd, VRegister vs2, VRegister vs1, enum VM vm = VM::kVMunmasked);
+  void VSra_vx(VRegister vd, VRegister vs2, XRegister rs1, enum VM vm = VM::kVMunmasked);
+  void VSra_vi(VRegister vd, VRegister vs2, uint32_t imm1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vssrl instructions, funct6 = 0b101010
+  void VSsrl_vv(VRegister vd, VRegister vs2, VRegister vs1, enum VM vm = VM::kVMunmasked);
+  void VSsrl_vx(VRegister vd, VRegister vs2, XRegister rs1, enum VM vm = VM::kVMunmasked);
+  void VSsrl_vi(VRegister vd, VRegister vs2, uint32_t imm1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vssra instructions, funct6 = 0b101011
+  void VSsra_vv(VRegister vd, VRegister vs2, VRegister vs1, enum VM vm = VM::kVMunmasked);
+  void VSsra_vx(VRegister vd, VRegister vs2, XRegister rs1, enum VM vm = VM::kVMunmasked);
+  void VSsra_vi(VRegister vd, VRegister vs2, uint32_t imm1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vnsrl instructions, funct6 = 0b101100
+  void VNsrl_wv(VRegister vd, VRegister vs2, VRegister vs1, enum VM vm = VM::kVMunmasked);
+  void VNsrl_wx(VRegister vd, VRegister vs2, XRegister rs1, enum VM vm = VM::kVMunmasked);
+  void VNsrl_wi(VRegister vd, VRegister vs2, uint32_t imm1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vnsra instructions, funct6 = 0b101101
+  void VNsra_wv(VRegister vd, VRegister vs2, VRegister vs1, enum VM vm = VM::kVMunmasked);
+  void VNsra_wx(VRegister vd, VRegister vs2, XRegister rs1, enum VM vm = VM::kVMunmasked);
+  void VNsra_wi(VRegister vd, VRegister vs2, uint32_t imm1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vnclipu instructions, funct6 = 0b101110
+  void VNclipu_wv(VRegister vd, VRegister vs2, VRegister vs1, enum VM vm = VM::kVMunmasked);
+  void VNclipu_wx(VRegister vd, VRegister vs2, XRegister rs1, enum VM vm = VM::kVMunmasked);
+  void VNclipu_wi(VRegister vd, VRegister vs2, uint32_t imm1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vnclip instructions, funct6 = 0b101111
+  void VNclip_wv(VRegister vd, VRegister vs2, VRegister vs1, enum VM vm = VM::kVMunmasked);
+  void VNclip_wx(VRegister vd, VRegister vs2, XRegister rs1, enum VM vm = VM::kVMunmasked);
+  void VNclip_wi(VRegister vd, VRegister vs2, uint32_t imm1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vwredsumu instructions, funct6 = 0b110000
+  void VWredsumu_vs(VRegister vd, VRegister vs2, VRegister vs1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vwredsum instructions, funct6 = 0b110001
+  void VWredsum_vs(VRegister vd, VRegister vs2, VRegister vs1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vredsum instructions, funct6 = 0b000000
+  void VRedsum_vs(VRegister vd, VRegister vs2, VRegister vs1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vredand instructions, funct6 = 0b000001
+  void VRedand_vs(VRegister vd, VRegister vs2, VRegister vs1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vredor instructions, funct6 = 0b000010
+  void VRedor_vs(VRegister vd, VRegister vs2, VRegister vs1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vredxor instructions, funct6 = 0b000011
+  void VRedxor_vs(VRegister vd, VRegister vs2, VRegister vs1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vredminu instructions, funct6 = 0b000100
+  void VRedminu_vs(VRegister vd, VRegister vs2, VRegister vs1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vredmin instructions, funct6 = 0b000101
+  void VRedmin_vs(VRegister vd, VRegister vs2, VRegister vs1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vredmaxu instructions, funct6 = 0b000110
+  void VRedmaxu_vs(VRegister vd, VRegister vs2, VRegister vs1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vredmax instructions, funct6 = 0b000111
+  void VRedmax_vs(VRegister vd, VRegister vs2, VRegister vs1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vaaddu instructions, funct6 = 0b001000
+  void VAaddu_vv(VRegister vd, VRegister vs2, VRegister vs1, enum VM vm = VM::kVMunmasked);
+  void VAaddu_vx(VRegister vd, VRegister vs2, XRegister rs1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vaadd instructions, funct6 = 0b001001
+  void VAadd_vv(VRegister vd, VRegister vs2, VRegister vs1, enum VM vm = VM::kVMunmasked);
+  void VAadd_vx(VRegister vd, VRegister vs2, XRegister rs1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vasubu instructions, funct6 = 0b001010
+  void VAsubu_vv(VRegister vd, VRegister vs2, VRegister vs1, enum VM vm = VM::kVMunmasked);
+  void VAsubu_vx(VRegister vd, VRegister vs2, XRegister rs1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vasub instructions, funct6 = 0b001011
+  void VAsub_vv(VRegister vd, VRegister vs2, VRegister vs1, enum VM vm = VM::kVMunmasked);
+  void VAsub_vx(VRegister vd, VRegister vs2, XRegister rs1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vslide1up instructions, funct6 = 0b001110
+  void VSlide1up_vx(VRegister vd, VRegister vs2, XRegister rs1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vslide1down instructions, funct6 = 0b001111
+  void VSlide1down_vx(VRegister vd, VRegister vs2, XRegister rs1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vcompress instructions, funct6 = 0b010111
+  void VCompress_vm(VRegister vd, VRegister vs2, VRegister vs1);
+
+  // Vector vmandn instructions, funct6 = 0b011000
+  void VMandn_mm(VRegister vd, VRegister vs2, VRegister vs1);
+
+  // Vector vmand instructions, funct6 = 0b011001
+  void VMand_mm(VRegister vd, VRegister vs2, VRegister vs1);
+
+  // Vector vmor instructions, funct6 = 0b011010
+  void VMor_mm(VRegister vd, VRegister vs2, VRegister vs1);
+
+  // Vector vmxor instructions, funct6 = 0b011011
+  void VMxor_mm(VRegister vd, VRegister vs2, VRegister vs1d);
+
+  // Vector vmorn instructions, funct6 = 0b011100
+  void VMorn_mm(VRegister vd, VRegister vs2, VRegister vs1);
+
+  // Vector vmnand instructions, funct6 = 0b011101
+  void VMnand_mm(VRegister vd, VRegister vs2, VRegister vs1);
+
+  // Vector vmnor instructions, funct6 = 0b011110
+  void VMnor_mm(VRegister vd, VRegister vs2, VRegister vs1);
+
+  // Vector vmxnor instructions, funct6 = 0b011111
+  void VMxnor_mm(VRegister vd, VRegister vs2, VRegister vs1);
+
+  // Vector vdivu instructions, funct6 = 0b100000
+  void VDivu_vv(VRegister vd, VRegister vs2, VRegister vs1, enum VM vm = VM::kVMunmasked);
+  void VDivu_vx(VRegister vd, VRegister vs2, XRegister rs1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vdiv instructions, funct6 = 0b100001
+  void VDiv_vv(VRegister vd, VRegister vs2, VRegister vs1, enum VM vm = VM::kVMunmasked);
+  void VDiv_vx(VRegister vd, VRegister vs2, XRegister rs1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vremu instructions, funct6 = 0b100010
+  void VRemu_vv(VRegister vd, VRegister vs2, VRegister vs1, enum VM vm = VM::kVMunmasked);
+  void VRemu_vx(VRegister vd, VRegister vs2, XRegister rs1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vrem instructions, funct6 = 0b100011
+  void VRem_vv(VRegister vd, VRegister vs2, VRegister vs1, enum VM vm = VM::kVMunmasked);
+  void VRem_vx(VRegister vd, VRegister vs2, XRegister rs1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vmulhu instructions, funct6 = 0b100100
+  void VMulhu_vv(VRegister vd, VRegister vs2, VRegister vs1, enum VM vm = VM::kVMunmasked);
+  void VMulhu_vx(VRegister vd, VRegister vs2, XRegister rs1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vmul instructions, funct6 = 0b100101
+  void VMul_vv(VRegister vd, VRegister vs2, VRegister vs1, enum VM vm = VM::kVMunmasked);
+  void VMul_vx(VRegister vd, VRegister vs2, XRegister rs1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vmulhsu instructions, funct6 = 0b100110
+  void VMulhsu_vv(VRegister vd, VRegister vs2, VRegister vs1, enum VM vm = VM::kVMunmasked);
+  void VMulhsu_vx(VRegister vd, VRegister vs2, XRegister rs1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vmulh instructions, funct6 = 0b100111
+  void VMulh_vv(VRegister vd, VRegister vs2, VRegister vs1, enum VM vm = VM::kVMunmasked);
+  void VMulh_vx(VRegister vd, VRegister vs2, XRegister rs1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vmadd instructions, funct6 = 0b101001
+  void VMadd_vv(VRegister vd, VRegister vs1, VRegister vs2, enum VM vm = VM::kVMunmasked);
+  void VMadd_vx(VRegister vd, XRegister rs1, VRegister vs2, enum VM vm = VM::kVMunmasked);
+
+  // Vector vnmsub instructions, funct6 = 0b101011
+  void VNmsub_vv(VRegister vd, VRegister vs1, VRegister vs2, enum VM vm = VM::kVMunmasked);
+  void VNmsub_vx(VRegister vd, XRegister rs1, VRegister vs2, enum VM vm = VM::kVMunmasked);
+
+  // Vector vmacc instructions, funct6 = 0b101101
+  void VMacc_vv(VRegister vd, VRegister vs1, VRegister vs2, enum VM vm = VM::kVMunmasked);
+  void VMacc_vx(VRegister vd, XRegister rs1, VRegister vs2, enum VM vm = VM::kVMunmasked);
+
+  // Vector vnmsac instructions, funct6 = 0b101111
+  void VNmsac_vv(VRegister vd, VRegister vs1, VRegister vs2, enum VM vm = VM::kVMunmasked);
+  void VNmsac_vx(VRegister vd, XRegister rs1, VRegister vs2, enum VM vm = VM::kVMunmasked);
+
+  // Vector vwaddu instructions, funct6 = 0b110000
+  void VWaddu_vv(VRegister vd, VRegister vs2, VRegister vs1, enum VM vm = VM::kVMunmasked);
+  void VWaddu_vx(VRegister vd, VRegister vs2, XRegister rs1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vwadd instructions, funct6 = 0b110001
+  void VWadd_vv(VRegister vd, VRegister vs2, VRegister vs1, enum VM vm = VM::kVMunmasked);
+  void VWadd_vx(VRegister vd, VRegister vs2, XRegister rs1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vwsubu instructions, funct6 = 0b110010
+  void VWsubu_vv(VRegister vd, VRegister vs2, VRegister vs1, enum VM vm = VM::kVMunmasked);
+  void VWsubu_vx(VRegister vd, VRegister vs2, XRegister rs1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vwsub instructions, funct6 = 0b110011
+  void VWsub_vv(VRegister vd, VRegister vs2, VRegister vs1, enum VM vm = VM::kVMunmasked);
+  void VWsub_vx(VRegister vd, VRegister vs2, XRegister rs1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vwaddu.w instructions, funct6 = 0b110100
+  void VWaddu_wv(VRegister vd, VRegister vs2, VRegister vs1, enum VM vm = VM::kVMunmasked);
+  void VWaddu_wx(VRegister vd, VRegister vs2, XRegister rs1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vwadd.w instructions, funct6 = 0b110101
+  void VWadd_wv(VRegister vd, VRegister vs2, VRegister vs1, enum VM vm = VM::kVMunmasked);
+  void VWadd_wx(VRegister vd, VRegister vs2, XRegister rs1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vwsubu.w instructions, funct6 = 0b110110
+  void VWsubu_wv(VRegister vd, VRegister vs2, VRegister vs1, enum VM vm = VM::kVMunmasked);
+  void VWsubu_wx(VRegister vd, VRegister vs2, XRegister rs1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vwsub.w instructions, funct6 = 0b110111
+  void VWsub_wv(VRegister vd, VRegister vs2, VRegister vs1, enum VM vm = VM::kVMunmasked);
+  void VWsub_wx(VRegister vd, VRegister vs2, XRegister rs1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vwmulu instructions, funct6 = 0b111000
+  void VWmulu_vv(VRegister vd, VRegister vs2, VRegister vs1, enum VM vm = VM::kVMunmasked);
+  void VWmulu_vx(VRegister vd, VRegister vs2, XRegister rs1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vwmulsu instructions, funct6 = 0b111010
+  void VWmulsu_vv(VRegister vd, VRegister vsw, VRegister vs1, enum VM vm = VM::kVMunmasked);
+  void VWmulsu_vx(VRegister vd, VRegister vs2, XRegister rs1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vwmul instructions, funct6 = 0b111011
+  void VWmul_vv(VRegister vd, VRegister vs1, VRegister vs2, enum VM vm = VM::kVMunmasked);
+  void VWmul_vx(VRegister vd, VRegister vs1, XRegister rs2, enum VM vm = VM::kVMunmasked);
+
+  // Vector vwmaccu instructions, funct6 = 0b111100
+  void VWmaccu_vv(VRegister vd, VRegister vs1, VRegister vs2, enum VM vm = VM::kVMunmasked);
+  void VWmaccu_vx(VRegister vd, XRegister rs1, VRegister vs2, enum VM vm = VM::kVMunmasked);
+
+  // Vector vwmacc instructions, funct6 = 0b111101
+  void VWmacc_vv(VRegister vd, VRegister vs1, VRegister vs2, enum VM vm = VM::kVMunmasked);
+  void VWmacc_vx(VRegister vd, XRegister rs1, VRegister vs2, enum VM vm = VM::kVMunmasked);
+
+  // Vector vwmaccus instructions, funct6 = 0b111110
+  void VWmaccus_vx(VRegister vd, XRegister rs1, VRegister vs2, enum VM vm = VM::kVMunmasked);
+
+  // Vector vwmaccsu instructions, funct6 = 0b111111
+  void VWmaccsu_vv(VRegister vd, VRegister vs1, VRegister vs2, enum VM vm = VM::kVMunmasked);
+  void VWmaccsu_vx(VRegister vd, XRegister rs1, VRegister vs2, enum VM vm = VM::kVMunmasked);
+
+  // Vector vfadd instructions, funct6 = 0b000000
+  void VFadd_vv(VRegister vd, VRegister vs2, VRegister vs1, enum VM vm = VM::kVMunmasked);
+  void VFadd_vf(VRegister vd, VRegister vs2, FRegister fs1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vfredusum instructions, funct6 = 0b000001
+  void VFredusum_vs(VRegister vd, VRegister vs2, VRegister vs1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vfsub instructions, funct6 = 0b000010
+  void VFsub_vv(VRegister vd, VRegister vs2, VRegister vs1, enum VM vm = VM::kVMunmasked);
+  void VFsub_vf(VRegister vd, VRegister vs2, FRegister fs1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vfredosum instructions, funct6 = 0b000011
+  void VFredosum_vs(VRegister vd, VRegister vs2, VRegister vs1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vfmin instructions, funct6 = 0b000100
+  void VFmin_vv(VRegister vd, VRegister vs2, VRegister vs1, enum VM vm = VM::kVMunmasked);
+  void VFmin_vf(VRegister vd, VRegister vs2, FRegister fs1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vfredmin instructions, funct6 = 0b000101
+  void VFredmin_vs(VRegister vd, VRegister vs2, VRegister vs1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vfmax instructions, funct6 = 0b000110
+  void VFmax_vv(VRegister vd, VRegister vs2, VRegister vs1, enum VM vm = VM::kVMunmasked);
+  void VFmax_vf(VRegister vd, VRegister vs2, FRegister fs1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vfredmax instructions, funct6 = 0b000111
+  void VFredmax_vv(VRegister vd, VRegister vs2, VRegister vs1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vfsgnj instructions, funct6 = 0b001000
+  void VFsgnj_vv(VRegister vd, VRegister vs2, VRegister vs1, enum VM vm = VM::kVMunmasked);
+  void VFsgnj_vf(VRegister vd, VRegister vs2, FRegister fs1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vfsgnjn instructions, funct6 = 0b001001
+  void VFsgnjn_vv(VRegister vd, VRegister vs2, VRegister vs1, enum VM vm = VM::kVMunmasked);
+  void VFsgnjn_vf(VRegister vd, VRegister vs2, FRegister fs1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vfsgnjx instructions, funct6 = 0b001010
+  void VFsgnjx_vv(VRegister vd, VRegister vs2, VRegister vs1, enum VM vm = VM::kVMunmasked);
+  void VFsgnjx_vf(VRegister vd, VRegister vs2, FRegister fs1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vfslide1up instructions, funct6 = 0b001110
+  void VFslide1up_vf(VRegister vd, VRegister vs2, FRegister fs1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vfslide1down instructions, funct6 = 0b001111
+  void VFslide1down_vf(VRegister vd, VRegister vs2, FRegister fs1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vfmerge.vfm instructions, funct6 = 0b010111
+  void VFmerge_vfm(VRegister vd, VRegister vs2, FRegister fs1);
+
+  // Vector vmfeq instructions, funct6 = 0b011000
+  void VMfeq_vv(VRegister vd, VRegister vs2, VRegister vs1, enum VM vm = VM::kVMunmasked);
+  void VMfeq_vf(VRegister vd, VRegister vs2, FRegister fs1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vmfle instructions, funct6 = 0b011001
+  void VMfle_vv(VRegister vd, VRegister vs2, VRegister vs1, enum VM vm = VM::kVMunmasked);
+  void VMfle_vf(VRegister vd, VRegister vs2, FRegister fs1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vmflt instructions, funct6 = 0b011011
+  void VMflt_vv(VRegister vd, VRegister vs2, VRegister vs1, enum VM vm = VM::kVMunmasked);
+  void VMflt_vf(VRegister vd, VRegister vs2, FRegister fs1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vmfne instructions, funct6 = 0b011100
+  void VMfne_vv(VRegister vd, VRegister vs2, VRegister vs1, enum VM vm = VM::kVMunmasked);
+  void VMfne_vf(VRegister vd, VRegister vs2, FRegister fs1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vmfgt instructions, funct6 = 0b011101
+  void VMfgt_vf(VRegister vd, VRegister vs2, FRegister fs1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vmfge instructions, funct6 = 0b011111
+  void VMfge_vf(VRegister vd, VRegister vs2, FRegister fs1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vfdiv instructions, funct6 = 0b100000
+  void VFdiv_vv(VRegister vd, VRegister vs2, VRegister vs1, enum VM vm = VM::kVMunmasked);
+  void VFdiv_vf(VRegister vd, VRegister vs2, FRegister fs1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vfrdiv instructions, funct6 = 0b100001
+  void VFrdiv_vf(VRegister vd, VRegister vs2, FRegister fs1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vfmul instructions, funct6 = 0b100100
+  void VFmul_vv(VRegister vd, VRegister vs2, VRegister vs1, enum VM vm = VM::kVMunmasked);
+  void VFmul_vf(VRegister vd, VRegister vs2, FRegister fs1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vfrsub instructions, funct6 = 0b100111
+  void VFrsub_vf(VRegister vd, VRegister vs2, FRegister fs1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vfmadd instructions, funct6 = 0b101000
+  void VFmadd_vv(VRegister vd, VRegister vs1, VRegister vs2, enum VM vm = VM::kVMunmasked);
+  void VFmadd_vf(VRegister vd, FRegister fs1, VRegister vs2, enum VM vm = VM::kVMunmasked);
+
+  // Vector vfnmadd instructions, funct6 = 0b101001
+  void VFnmadd_vv(VRegister vd, VRegister vs1, VRegister vs2, enum VM vm = VM::kVMunmasked);
+  void VFnmadd_vf(VRegister vd, FRegister fs1, VRegister vs2, enum VM vm = VM::kVMunmasked);
+
+  // Vector vfmsub instructions, funct6 = 0b101010
+  void VFmsub_vv(VRegister vd, VRegister vs1, VRegister vs2, enum VM vm = VM::kVMunmasked);
+  void VFmsub_vf(VRegister vd, FRegister fs1, VRegister vs2, enum VM vm = VM::kVMunmasked);
+
+  // Vector vfnmsub instructions, funct6 = 0b101011
+  void VFnmsub_vv(VRegister vd, VRegister vs1, VRegister vs2, enum VM vm = VM::kVMunmasked);
+  void VFnmsub_vf(VRegister vd, FRegister fs1, VRegister vs2, enum VM vm = VM::kVMunmasked);
+
+  // Vector vfmacc instructions, funct6 = 0b101100
+  void VFmacc_vv(VRegister vd, VRegister vs1, VRegister vs2, enum VM vm = VM::kVMunmasked);
+  void VFmacc_vf(VRegister vd, FRegister fs1, VRegister vs2, enum VM vm = VM::kVMunmasked);
+
+  // Vector vfnmacc instructions, funct6 = 0b101101
+  void VFnmacc_vv(VRegister vd, VRegister vs1, VRegister vs2, enum VM vm = VM::kVMunmasked);
+  void VFnmacc_vf(VRegister vd, FRegister fs1, VRegister vs2, enum VM vm = VM::kVMunmasked);
+
+  // Vector vfmsac instructions, funct6 = 0b101110
+  void VFmsac_vv(VRegister vd, VRegister vs1, VRegister vs2, enum VM vm = VM::kVMunmasked);
+  void VFmsac_vf(VRegister vd, FRegister fs1, VRegister vs2, enum VM vm = VM::kVMunmasked);
+
+  // Vector vfnmsac instructions, funct6 = 0b101111
+  void VFnmsac_vv(VRegister vd, VRegister vs1, VRegister vs2, enum VM vm = VM::kVMunmasked);
+  void VFnmsac_vf(VRegister vd, FRegister fs1, VRegister vs2, enum VM vm = VM::kVMunmasked);
+
+  // Vector vfwadd instructions, funct6 = 0b110000
+  void VFwadd_vv(VRegister vd, VRegister vs2, VRegister vs1, enum VM vm = VM::kVMunmasked);
+  void VFwadd_vf(VRegister vd, VRegister vs2, FRegister fs1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vfwredusum instructions, funct6 = 0b110001
+  void VFwredusum_vs(VRegister vd, VRegister vs2, VRegister vs1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vfwsub instructions, funct6 = 0b110010
+  void VFwsub_vv(VRegister vd, VRegister vs2, VRegister vs1, enum VM vm = VM::kVMunmasked);
+  void VFwsub_vf(VRegister vd, VRegister vs2, FRegister fs1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vfwredosum instructions, funct6 = 0b110011
+  void VFwredosum_vs(VRegister vd, VRegister vs2, VRegister vs1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vfwadd.w instructions, funct6 = 0b110100
+  void VFwadd_wv(VRegister vd, VRegister vs2, VRegister vs1, enum VM vm = VM::kVMunmasked);
+  void VFwadd_wf(VRegister vd, VRegister vs2, FRegister fs1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vfwsub.w instructions, funct6 = 0b110110
+  void VFwsub_wv(VRegister vd, VRegister vs2, VRegister vs1, enum VM vm = VM::kVMunmasked);
+  void VFwsub_wf(VRegister vd, VRegister vs2, FRegister fs1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vfwmul instructions, funct6 = 0b111000
+  void VFwmul_vv(VRegister vd, VRegister vs2, VRegister vs1, enum VM vm = VM::kVMunmasked);
+  void VFwmul_vf(VRegister vd, VRegister vs2, FRegister fs1, enum VM vm = VM::kVMunmasked);
+
+  // Vector vfwmacc instructions, funct6 = 0b111100
+  void VFwmacc_vv(VRegister vd, VRegister vs1, VRegister vs2, enum VM vm = VM::kVMunmasked);
+  void VFwmacc_vf(VRegister vd, FRegister fs1, VRegister vs2, enum VM vm = VM::kVMunmasked);
+
+  // Vector vfwnmacc instructions, funct6 = 0b111101
+  void VFwnmacc_vv(VRegister vd, VRegister vs1, VRegister vs2, enum VM vm = VM::kVMunmasked);
+  void VFwnmacc_vf(VRegister vd, FRegister fs1, VRegister vs2, enum VM vm = VM::kVMunmasked);
+
+  // Vector vfwmsac instructions, funct6 = 0b111110
+  void VFwmsac_vv(VRegister vd, VRegister vs1, VRegister vs2, enum VM vm = VM::kVMunmasked);
+  void VFwmsac_vf(VRegister vd, FRegister fs1, VRegister vs2, enum VM vm = VM::kVMunmasked);
+
+  // Vector vfwnmsac instructions, funct6 = 0b111111
+  void VFwnmsac_vv(VRegister vd, VRegister vs1, VRegister vs2, enum VM vm = VM::kVMunmasked);
+  void VFwnmsac_vf(VRegister vd, FRegister fs1, VRegister vs2, enum VM vm = VM::kVMunmasked);
+
+  // Vector .VRXUNARY0 kind instructions, funct6 = 0b010000
+  void VMv_s_x(VRegister vd, XRegister rs1);
+
+  // Vector .VWXUNARY0 kind instructions, funct6 = 0b010000
+  void VMv_x_s(XRegister vd, VRegister vs2);
+  void VPopc_m(XRegister vd, VRegister vs2, enum VM vm = VM::kVMunmasked);
+  void VFirst_m(XRegister vd, VRegister vs2, enum VM vm = VM::kVMunmasked);
+
+  // Vector .VXUNARY0 kind instructions, funct6 = 0b010010
+  void VZext_vf8(VRegister vd, VRegister vs2, enum VM vm = VM::kVMunmasked);
+  void VSext_vf8(VRegister vd, VRegister vs2, enum VM vm = VM::kVMunmasked);
+  void VZext_vf4(VRegister vd, VRegister vs2, enum VM vm = VM::kVMunmasked);
+  void VSext_vf4(VRegister vd, VRegister vs2, enum VM vm = VM::kVMunmasked);
+  void VZext_vf2(VRegister vd, VRegister vs2, enum VM vm = VM::kVMunmasked);
+  void VSext_vf2(VRegister vd, VRegister vs2, enum VM vm = VM::kVMunmasked);
+
+  // Vector .VRFUNARY0 kind instructions, funct6 = 0b010000
+  void VFmv_s_f(VRegister vd, FRegister fs1);
+
+  // Vector .VWFUNARY0 kind instructions, funct6 = 0b010000
+  void VFmv_f_s(FRegister vd, VRegister vs2);
+
+  // Vector .VFUNARY0 kind instructions, funct6 = 0b010010
+  void VFcvt_xu_f_v(VRegister vd, VRegister vs2, enum VM vm = VM::kVMunmasked);
+  void VFcvt_x_f_v(VRegister vd, VRegister vs2, enum VM vm = VM::kVMunmasked);
+  void VFcvt_f_xu_v(VRegister vd, VRegister vs2, enum VM vm = VM::kVMunmasked);
+  void VFcvt_f_x_v(VRegister vd, VRegister vs2, enum VM vm = VM::kVMunmasked);
+  void VFcvt_rtz_xu_f_v(VRegister vd, VRegister vs2, enum VM vm = VM::kVMunmasked);
+  void VFcvt_rtz_x_f_v(VRegister vd, VRegister vs2, enum VM vm = VM::kVMunmasked);
+  void VFwcvt_xu_f_v(VRegister vd, VRegister vs2, enum VM vm = VM::kVMunmasked);
+  void VFwcvt_x_f_v(VRegister vd, VRegister vs2, enum VM vm = VM::kVMunmasked);
+  void VFwcvt_f_xu_v(VRegister vd, VRegister vs2, enum VM vm = VM::kVMunmasked);
+  void VFwcvt_f_x_v(VRegister vd, VRegister vs2, enum VM vm = VM::kVMunmasked);
+  void VFwcvt_f_f_v(VRegister vd, VRegister vs2, enum VM vm = VM::kVMunmasked);
+  void VFwcvt_rtz_xu_f_v(VRegister vd, VRegister vs2, enum VM vm = VM::kVMunmasked);
+  void VFwcvt_rtz_x_f_v(VRegister vd, VRegister vs2, enum VM vm = VM::kVMunmasked);
+  void VFncvt_xu_f_w(VRegister vd, VRegister vs2, enum VM vm = VM::kVMunmasked);
+  void VFncvt_x_f_w(VRegister vd, VRegister vs2, enum VM vm = VM::kVMunmasked);
+  void VFncvt_f_xu_w(VRegister vd, VRegister vs2, enum VM vm = VM::kVMunmasked);
+  void VFncvt_f_x_w(VRegister vd, VRegister vs2, enum VM vm = VM::kVMunmasked);
+  void VFncvt_f_f_w(VRegister vd, VRegister vs2, enum VM vm = VM::kVMunmasked);
+  void VFncvt_rod_f_f_w(VRegister vd, VRegister vs2, enum VM vm = VM::kVMunmasked);
+  void VFncvt_rtz_xu_f_w(VRegister vd, VRegister vs2, enum VM vm = VM::kVMunmasked);
+  void VFncvt_rtz_x_f_w(VRegister vd, VRegister vs2, enum VM vm = VM::kVMunmasked);
+
+  // Vector .VFUNARY1 kind instructions, funct6 = 0b010011
+  void VFsqrt_v(VRegister vd, VRegister vs2, enum VM vm = VM::kVMunmasked);
+  void VFrsqrt7_v(VRegister vd, VRegister vs2, enum VM vm = VM::kVMunmasked);
+  void VFrec7_v(VRegister vd, VRegister vs2, enum VM vm = VM::kVMunmasked);
+  void VFclass_v(VRegister vd, VRegister vs2, enum VM vm = VM::kVMunmasked);
+
+  // Vector .VMUNARY0 kind instructions, funct6 = 0b010100
+  void VMsbf_m(VRegister vd, VRegister vs2, enum VM vm = VM::kVMunmasked);
+  void VMsof_m(VRegister vd, VRegister vs2, enum VM vm = VM::kVMunmasked);
+  void VMsif_m(VRegister vd, VRegister vs2, enum VM vm = VM::kVMunmasked);
+  void VIota_m(VRegister vd, VRegister vs2, enum VM vm = VM::kVMunmasked);
+  void VId_v(VRegister vd, enum VM vm = VM::kVMunmasked);
+
+  ////////////////////////////// RISC-V Vector Instructions  END //////////////////////////////
+
   ////////////////////////////// RV64 MACRO Instructions  START ///////////////////////////////
   // These pseudo instructions are from "RISC-V Assembly Programmer's Manual".
 
@@ -878,6 +1653,126 @@ class Riscv64Assembler final : public Assembler {
 
   // Emit helpers.
 
+  enum class Nf : uint32_t {
+    kNfg1 = 0b000,
+    kNfg2 = 0b001,
+    kNfg3 = 0b010,
+    kNfg4 = 0b011,
+    kNfg5 = 0b100,
+    kNfg6 = 0b101,
+    kNfg7 = 0b110,
+    kNfg8 = 0b111,
+
+    kNf_BW = 3
+  };
+
+  static uint32_t NfParity(enum Nf nf) {
+    switch (nf) {
+      case Nf::kNfg1:
+        return 1;
+      case Nf::kNfg2:
+        return 2;
+      case Nf::kNfg4:
+        return 4;
+      case Nf::kNfg8:
+        return 8;
+      default:
+        DCHECK(0);
+        return 0;
+    }
+  }
+
+  enum class VAIEncodings : uint32_t {
+    // ----Operands---- | Type of Scalar                | instruction type
+    kVAI_OPIVV = 0b000,  // vector-vector    | --                            | R-type
+    kVAI_OPFVV = 0b001,  // vector-vector    | --                            | R-type
+    kVAI_OPMVV = 0b010,  // vector-vector    | --                            | R-type
+    kVAI_OPIVI = 0b011,  // vector-immediate | imm[4:0]                      | RVV-type
+    kVAI_OPIVX = 0b100,  // vector-scalar    | GPR x register rs1            | R-type
+    kVAI_OPFVF = 0b101,  // vector-scalar    | FP f register rs1             | R-type
+    kVAI_OPMVX = 0b110,  // vector-scalar    | GPR x register rs1            | R-type
+    kVAI_OPCFG = 0b111,  // scalars-imms     | GPR x register rs1 & rs2/imm  | R/I/U-type
+  };
+
+  // Unit-Stride Vector Load/Store
+  void EmitVLoadStoreUS(enum Nf nf,
+                        uint32_t mew,
+                        enum MemAddressMode mop,
+                        enum VM vm,
+                        uint32_t umop,
+                        XRegister rs1,
+                        enum VectorWidth width,
+                        VRegister rd,
+                        uint32_t opcode) {
+    DCHECK(IsUint<3>(static_cast<uint32_t>(nf)));
+    DCHECK(IsUint<1>(mew));
+    DCHECK(IsUint<2>(static_cast<uint32_t>(mop)));
+    DCHECK(IsUint<1>(static_cast<uint32_t>(vm)));
+    DCHECK(IsUint<5>(umop));
+    DCHECK_EQ((static_cast<uint32_t>(rd) % NfParity(nf)), 0U);
+
+    uint32_t uimm12 = static_cast<uint32_t>(nf) << 9 | mew << 8 | static_cast<uint32_t>(mop) << 6 |
+                      static_cast<uint32_t>(vm) << 5 | umop;
+
+    DCHECK(IsUint<12>(uimm12));
+    DCHECK(IsUint<5>(static_cast<uint32_t>(rs1)));
+    DCHECK(IsUint<3>(static_cast<uint32_t>(width)));
+    DCHECK(IsUint<5>(static_cast<uint32_t>(rd)));
+    DCHECK(IsUint<7>(opcode));
+    uint32_t encoding = static_cast<uint32_t>(uimm12) << 20 | static_cast<uint32_t>(rs1) << 15 |
+                        static_cast<uint32_t>(width) << 12 | static_cast<uint32_t>(rd) << 7 |
+                        opcode;
+    Emit(encoding);
+  }
+
+  // Strided Vector Load/Store
+  void EmitVLoadStoreS(enum Nf nf,
+                       uint32_t mew,
+                       enum MemAddressMode mop,
+                       enum VM vm,
+                       XRegister rs2,
+                       XRegister rs1,
+                       enum VectorWidth width,
+                       VRegister vd,
+                       uint32_t opcode) {
+    DCHECK(IsUint<3>(static_cast<uint32_t>(nf)));
+    DCHECK(IsUint<1>(mew));
+    DCHECK(IsUint<2>(static_cast<uint32_t>(mop)));
+    DCHECK(IsUint<1>(static_cast<uint32_t>(vm)));
+
+    uint32_t funct7 = static_cast<uint32_t>(nf) << 4 | mew << 3 | static_cast<uint32_t>(mop) << 1 |
+                      static_cast<uint32_t>(vm);
+    EmitR(funct7, rs2, rs1, static_cast<uint32_t>(width), vd, opcode);
+  }
+
+  // Indexed Vector Load/Store
+  void EmitVLoadStoreI(enum Nf nf,
+                       uint32_t mew,
+                       enum MemAddressMode mop,
+                       enum VM vm,
+                       VRegister vs2,
+                       XRegister rs1,
+                       enum VectorWidth width,
+                       VRegister vd,
+                       uint32_t opcode) {
+    DCHECK(IsUint<1>(mew));
+
+    uint32_t funct7 = static_cast<uint32_t>(nf) << 4 | mew << 3 | static_cast<uint32_t>(mop) << 1 |
+                      static_cast<uint32_t>(vm);
+    EmitR(funct7, vs2, rs1, static_cast<uint32_t>(width), vd, opcode);
+  }
+
+  static uint32_t computeRVVF7(uint32_t opc, enum VM vm) {
+    DCHECK(IsUint<6>(opc));
+    return opc << 1 | static_cast<uint32_t>(vm);
+  }
+
+  static uint32_t computeRVVImm12(uint32_t opc, uint32_t vs2, enum VM vm) {
+    DCHECK(IsUint<6>(opc));
+    DCHECK(IsUint<5>(vs2));
+    return opc << 6 | static_cast<uint32_t>(vm) << 5 | vs2;
+  }
+
   // I-type instruction:
   //
   //    31                   20 19     15 14 12 11      7 6           0
@@ -1040,6 +1935,38 @@ class Riscv64Assembler final : public Assembler {
     uint32_t imm20 = (static_cast<uint32_t>(offset) >> 1) & 0xfffffu;
     uint32_t encoding = (imm20 & 0x80000u) << (31 - 19) | (imm20 & 0x03ffu) << 21 |
                         (imm20 & 0x400u) << (20 - 10) | (imm20 & 0x7f800u) << (12 - 11) |
+                        static_cast<uint32_t>(rd) << 7 | opcode;
+    Emit(encoding);
+  }
+
+  // NOTE: probably this is not the best name for this type of instruction, use is due to lack of
+  // documentation RVV-type instruction:
+  //
+  //    31         25 24     20 19     15 14 12 11      7 6           0
+  //   -----------------------------------------------------------------
+  //   [ . . . . . . | . . . . | . . . . | . . | . . . . | . . . . . . ]
+  //   [   funct7        rs2       imm5  funct3     rd        opcode   ]
+  //   -----------------------------------------------------------------
+  template <typename Reg1, typename Reg2>
+  void EmitRVV(uint32_t funct7,
+               Reg1 rs2,
+               int32_t imm5,
+               uint32_t funct3,
+               Reg2 rd,
+               uint32_t opcode,
+               bool isU = false) {
+    DCHECK(IsUint<7>(funct7));
+    DCHECK(IsUint<5>(static_cast<uint32_t>(rs2)));
+    if (isU) {
+      DCHECK(IsUint<5>(imm5));
+    } else {
+      DCHECK(IsInt<5>(imm5));
+    }
+    DCHECK(IsUint<3>(funct3));
+    DCHECK(IsUint<5>(static_cast<uint32_t>(rd)));
+    DCHECK(IsUint<7>(opcode));
+    uint32_t encoding = funct7 << 25 | static_cast<uint32_t>(rs2) << 20 |
+                        (static_cast<uint32_t>(imm5) & 0b11111U) << 15 | funct3 << 12 |
                         static_cast<uint32_t>(rd) << 7 | opcode;
     Emit(encoding);
   }
