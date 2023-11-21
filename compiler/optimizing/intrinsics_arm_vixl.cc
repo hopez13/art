@@ -3778,6 +3778,9 @@ void IntrinsicLocationsBuilderARMVIXL::VisitJdkUnsafeCompareAndSetObject(HInvoke
 
   CreateUnsafeCASLocations(allocator_, invoke, codegen_);
 }
+void IntrinsicLocationsBuilderARMVIXL::VisitJdkUnsafeCompareAndSetReference(HInvoke* invoke) {
+  VisitJdkUnsafeCompareAndSetObject(invoke);
+}
 
 void IntrinsicCodeGeneratorARMVIXL::VisitUnsafeCASInt(HInvoke* invoke) {
   VisitJdkUnsafeCASInt(invoke);
@@ -3803,6 +3806,9 @@ void IntrinsicCodeGeneratorARMVIXL::VisitJdkUnsafeCompareAndSetObject(HInvoke* i
   DCHECK_IMPLIES(codegen_->EmitReadBarrier(), kUseBakerReadBarrier);
 
   GenUnsafeCas(invoke, DataType::Type::kReference, codegen_);
+}
+void IntrinsicCodeGeneratorARMVIXL::VisitJdkUnsafeCompareAndSetReference(HInvoke* invoke) {
+  VisitJdkUnsafeCompareAndSetObject(invoke);
 }
 
 enum class GetAndUpdateOp {

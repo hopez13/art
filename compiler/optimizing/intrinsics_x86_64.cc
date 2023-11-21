@@ -2305,6 +2305,9 @@ void IntrinsicLocationsBuilderX86_64::VisitJdkUnsafeCompareAndSetObject(HInvoke*
 
   CreateUnsafeCASLocations(allocator_, invoke, codegen_, DataType::Type::kReference);
 }
+void IntrinsicLocationsBuilderX86_64::VisitJdkUnsafeCompareAndSetReference(HInvoke* invoke) {
+  VisitJdkUnsafeCompareAndSetObject(invoke);
+}
 
 // Convert ZF into the Boolean result.
 static inline void GenZFlagToResult(X86_64Assembler* assembler, CpuRegister out) {
@@ -2628,6 +2631,10 @@ void IntrinsicCodeGeneratorX86_64::VisitJdkUnsafeCompareAndSetObject(HInvoke* in
   DCHECK_IMPLIES(codegen_->EmitReadBarrier(), kUseBakerReadBarrier);
 
   GenCAS(DataType::Type::kReference, invoke, codegen_);
+}
+
+void IntrinsicCodeGeneratorX86_64::VisitJdkUnsafeCompareAndSetReference(HInvoke* invoke) {
+  VisitJdkUnsafeCompareAndSetObject(invoke);
 }
 
 void IntrinsicLocationsBuilderX86_64::VisitIntegerReverse(HInvoke* invoke) {
