@@ -33,7 +33,7 @@ class BitMemoryRegion final : public ValueObject {
   BitMemoryRegion() = default;
   ALWAYS_INLINE BitMemoryRegion(uint8_t* data, ssize_t bit_start, size_t bit_size) {
     // Normalize the data pointer. Note that bit_start may be negative.
-    data_ = AlignDown(data + (bit_start >> kBitsPerByteLog2), gPageSize);
+    data_ = AlignDown(data + (bit_start >> kBitsPerByteLog2), kMaxPageSize);
     bit_start_ = bit_start + kBitsPerByte * (data - data_);
     bit_size_ = bit_size;
   }
@@ -316,7 +316,8 @@ class BitMemoryRegion final : public ValueObject {
     }
   }
 
-  uint8_t* data_ = nullptr;  // The pointer is page aligned.
+  uint8_t* data_ = nullptr;  // The pointer is page aligned (set to the prior
+                             // kMaxPageSize boundary).
   size_t bit_start_ = 0;
   size_t bit_size_ = 0;
 };
