@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "75488eb7_bcd6ff29",
+        "filename": "tools/run-libcore-tests.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 464,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-11-22T12:47:42Z",
+      "side": 1,
+      "message": "We wouldn\u0027t need to do this if it\u0027s a full platform tree, would we? In several other places we check if `frameworks/base` is absent to detect a thin manifest.",
+      "range": {
+        "startLine": 464,
+        "startChar": 2,
+        "endLine": 464,
+        "endChar": 63
+      },
+      "revId": "c8b3adcd047bd20f73e2fae2d1e544c33e5b33ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
