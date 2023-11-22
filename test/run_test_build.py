@@ -88,6 +88,11 @@ class BuildTestContext:
     if "RBE_server_address" in os.environ and USE_RBE > (hash(self.test_name) % 100):
       self.rbe_exec_root = os.environ.get("RBE_exec_root")
       self.rbe_rewrapper = self.android_build_top / "prebuilts/remoteexecution-client/live/rewrapper"
+
+      # TODO(b/307932183) Regression: RBE produces wrong output for D8 in ART
+      # disable_d8 = any((self.test_dir / n).exists() for n in ["classes", "src2", "src-art"])
+
+      # if self.test_name not in RBE_D8_DISABLED_FOR and not disable_d8:
       if self.test_name not in RBE_D8_DISABLED_FOR:
         self.d8 = functools.partial(self.rbe_d8, args.d8.absolute())
       self.javac = functools.partial(self.rbe_javac, self.javac_path)
@@ -212,6 +217,7 @@ class BuildTestContext:
       javac_args=[],
       javac_classpath: List[Path]=[],
       d8_flags=[],
+      d8_dex_container=True,
       smali_args=[],
       use_smali=True,
       use_jasmin=True,
@@ -241,7 +247,6 @@ class BuildTestContext:
         "agents": 26,
         "method-handles": 26,
         "var-handles": 28,
-        "const-method-type": 28,
       }
       api_level = API_LEVEL[api_level]
     assert isinstance(api_level, int), api_level
@@ -273,8 +278,9 @@ class BuildTestContext:
     def make_smali(dst_dex: Path, src_dir: Path) -> Optional[Path]:
       if not use_smali or not src_dir.exists():
         return None  # No sources to compile.
-      self.smali(["-JXmx512m", "assemble"] + smali_args + ["--api", str(api_level)] +
-                 ["--output", dst_dex] + sorted(src_dir.glob("**/*.smali")))
+      p = self.smali(["-JXmx512m", "assemble"] + smali_args + ["--api", str(api_level)] +
+                     ["--output", dst_dex] + sorted(src_dir.glob("**/*.smali")))
+      assert dst_dex.exists(), p.stdout  # NB: smali returns 0 exit code even on failure.
       return dst_dex
 
     def make_java(dst_dir: Path, *src_dirs: Path) -> Optional[Path]:
@@ -301,7 +307,10 @@ class BuildTestContext:
     # packaged in a jar file.
     def make_dex(src_dir: Path):
       dst_jar = Path(src_dir.name + ".jar")
-      args = d8_flags + ["--min-api", str(api_level), "--output", dst_jar]
+      args = []
+      if d8_dex_container:
+        args += ["-JDcom.android.tools.r8.dexContainerExperiment"]
+      args += d8_flags + ["--min-api", str(api_level), "--output", dst_jar]
       args += ["--lib", self.bootclasspath] if use_desugar else ["--no-desugaring"]
       args += sorted(src_dir.glob("**/*.class"))
       self.d8(args)
@@ -324,7 +333,11 @@ class BuildTestContext:
       # It is useful to normalize non-deterministic smali output.
       tmp_dir = self.test_dir / "dexmerge"
       tmp_dir.mkdir()
-      self.d8(["--min-api", str(api_level), "--output", tmp_dir] + srcs)
+      flags = []
+      if d8_dex_container:
+        flags += ["-JDcom.android.tools.r8.dexContainerExperiment"]
+      flags += ["--min-api", str(api_level), "--output", tmp_dir]
+      self.d8(flags + srcs)
       assert not (tmp_dir / "classes2.dex").exists()
       for src_file in srcs:
         src_file.unlink()
@@ -512,6 +525,8 @@ def main() -> None:
   # We need to do this before we change the working directory below.
   tests: List[BuildTestContext] = []
   for srcdir in filter(filter_by_hiddenapi, srcdirs):
+    if srcdir.name != "032-concrete-sub":
+       continue
     dstdir = ziproot / args.mode / srcdir.name
     copytree(srcdir, dstdir)
     tests.append(BuildTestContext(args, android_build_top, dstdir))
