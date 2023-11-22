@@ -135,6 +135,30 @@
       },
       "revId": "3551f766a6fa2663ea7016594f914c256b84c9a1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d7ef62d_cc803527",
+        "filename": "runtime/gc/accounting/space_bitmap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-11-22T23:54:03Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "e32cf0d8_c69dd408",
+      "range": {
+        "startLine": 93,
+        "startChar": 40,
+        "endLine": 93,
+        "endChar": 82
+      },
+      "revId": "3551f766a6fa2663ea7016594f914c256b84c9a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
