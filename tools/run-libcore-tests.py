@@ -460,8 +460,10 @@ def get_vogar_command(test_name):
   cmd.extend("--classpath " + get_jar_filename(cp) for cp in CLASSPATH)
   cmd.append(test_name)
 
-  cmd.append("--")
-  cmd.append("--exclude-filter libcore.test.annotation.NonMts")
+  # vogar target options
+  if not os.path.exists('frameworks/base'):
+    cmd.append("--")
+    cmd.append("--exclude-filter libcore.test.annotation.NonMts")
   return cmd
 
 def get_target_cpu_count():
