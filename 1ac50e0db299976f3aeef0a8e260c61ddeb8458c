@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b7881e6d_65697681",
+        "filename": "tools/run-libcore-tests.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 464,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2023-11-22T19:14:41Z",
+      "side": 1,
+      "message": "Right; I think it\u0027s probably fine for most use case. Maybe we can amend these occurrences in a later CL.",
+      "parentUuid": "72cf4342_90200907",
+      "range": {
+        "startLine": 464,
+        "startChar": 0,
+        "endLine": 464,
+        "endChar": 43
+      },
+      "revId": "1ac50e0db299976f3aeef0a8e260c61ddeb8458c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "658fd3d0_977a8d8f",
