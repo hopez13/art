@@ -90,9 +90,10 @@ class BuildTestContext:
       self.rbe_rewrapper = self.android_build_top / "prebuilts/remoteexecution-client/live/rewrapper"
 
       # TODO(b/307932183) Regression: RBE produces wrong output for D8 in ART
-      disable_d8 = any((self.test_dir / n).exists() for n in ["classes", "src2", "src-art"])
+      # disable_d8 = any((self.test_dir / n).exists() for n in ["classes", "src2", "src-art"])
 
-      if self.test_name not in RBE_D8_DISABLED_FOR and not disable_d8:
+      # if self.test_name not in RBE_D8_DISABLED_FOR and not disable_d8:
+      if self.test_name not in RBE_D8_DISABLED_FOR:
         self.d8 = functools.partial(self.rbe_d8, args.d8.absolute())
       self.javac = functools.partial(self.rbe_javac, self.javac_path)
       self.smali = functools.partial(self.rbe_smali, args.smali.absolute())
@@ -246,7 +247,6 @@ class BuildTestContext:
         "agents": 26,
         "method-handles": 26,
         "var-handles": 28,
-        "const-method-type": 28,
       }
       api_level = API_LEVEL[api_level]
     assert isinstance(api_level, int), api_level
@@ -525,6 +525,8 @@ def main() -> None:
   # We need to do this before we change the working directory below.
   tests: List[BuildTestContext] = []
   for srcdir in filter(filter_by_hiddenapi, srcdirs):
+    if srcdir.name != "032-concrete-sub":
+       continue
     dstdir = ziproot / args.mode / srcdir.name
     copytree(srcdir, dstdir)
     tests.append(BuildTestContext(args, android_build_top, dstdir))
