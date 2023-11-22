@@ -16,6 +16,24 @@
       "message": "Wonderful!\nCould you please share a link to a trace that you captured with this?",
       "revId": "fe0d780b0fd1494747b1838f7143c83fc309c502",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "adb98003_6db64047",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2023-11-22T18:23:23Z",
+      "side": 1,
+      "message": "Hey, sure; here\u0027s a trace I captured on a Cuttlefish instance:\n\nhttps://ui.perfetto.dev/#!/?s\u003d1f087812f08072cb81c8328e9f05d512372355e24db874ae335d7c9dae5fe074",
+      "parentUuid": "a372fb15_1913a86c",
+      "revId": "fe0d780b0fd1494747b1838f7143c83fc309c502",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
