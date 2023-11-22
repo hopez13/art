@@ -1,0 +1,251 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0fad0939_d076715f",
+        "filename": "compiler/optimizing/intrinsics.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-11-22T10:27:00Z",
+      "side": 1,
+      "message": "This should be `IsIntConstant()` for now in line with the `AsIntConstant()` below.\n\nBut if we add `Long.valueOf()` intrinsic, this should indeed be `IsConstant()` and the calculation below should be 64-bit, using `GetInt64ValueOf()`.",
+      "range": {
+        "startLine": 96,
+        "startChar": 13,
+        "endLine": 96,
+        "endChar": 25
+      },
+      "revId": "be953220a759a67179fb9462d72003d2f53e3e65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c99edc3_f0f4dfcc",
+        "filename": "compiler/optimizing/intrinsics.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-11-22T10:27:00Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 134,
+        "startChar": 28,
+        "endLine": 134,
+        "endChar": 38
+      },
+      "revId": "be953220a759a67179fb9462d72003d2f53e3e65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a29cd54f_0619c2cb",
+        "filename": "compiler/optimizing/intrinsics.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-11-22T10:27:00Z",
+      "side": 1,
+      "message": "Update comment.",
+      "range": {
+        "startLine": 111,
+        "startChar": 21,
+        "endLine": 111,
+        "endChar": 28
+      },
+      "revId": "be953220a759a67179fb9462d72003d2f53e3e65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c0b4a574_f4a34102",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 3517,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-11-22T10:27:00Z",
+      "side": 1,
+      "message": "Update comment.",
+      "range": {
+        "startLine": 3517,
+        "startChar": 24,
+        "endLine": 3517,
+        "endChar": 35
+      },
+      "revId": "be953220a759a67179fb9462d72003d2f53e3e65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9833bfd3_2e29b109",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2450,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-11-22T10:27:00Z",
+      "side": 1,
+      "message": "Indentation: +2 spaces. (Or move `IntrinsicVisitor::ComputeValueOfInfo(` to previous line and -2 spaces for args.)\n\nSame on other architectures.",
+      "range": {
+        "startLine": 2450,
+        "startChar": 6,
+        "endLine": 2450,
+        "endChar": 43
+      },
+      "revId": "be953220a759a67179fb9462d72003d2f53e3e65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0da68ec5_27d76d47",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2478,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-11-22T10:27:00Z",
+      "side": 1,
+      "message": "Also `IntConstant()` for now. Same on other architectures. (The old code was inconsistent in `IsConstant()`/`IsIntConstant()` use.)",
+      "range": {
+        "startLine": 2478,
+        "startChar": 26,
+        "endLine": 2478,
+        "endChar": 36
+      },
+      "revId": "be953220a759a67179fb9462d72003d2f53e3e65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1c5d5a31_5b101548",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-11-22T10:27:00Z",
+      "side": 1,
+      "message": "I\u0027d prefer `type` (stay clear of `PrimitiveType`). Same on other architectures.",
+      "range": {
+        "startLine": 74,
+        "startChar": 36,
+        "endLine": 74,
+        "endChar": 50
+      },
+      "revId": "be953220a759a67179fb9462d72003d2f53e3e65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a61e5636_471155b8",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 3336,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-11-22T10:27:00Z",
+      "side": 1,
+      "message": "Update comment.",
+      "range": {
+        "startLine": 3336,
+        "startChar": 39,
+        "endLine": 3336,
+        "endChar": 50
+      },
+      "revId": "be953220a759a67179fb9462d72003d2f53e3e65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2775ce04_2058c314",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 3127,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-11-22T10:27:00Z",
+      "side": 1,
+      "message": "Update comment.",
+      "range": {
+        "startLine": 3127,
+        "startChar": 24,
+        "endLine": 3127,
+        "endChar": 35
+      },
+      "revId": "be953220a759a67179fb9462d72003d2f53e3e65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "758ee585_6dc79b92",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 3132,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-11-22T10:27:00Z",
+      "side": 1,
+      "message": "Update comment.",
+      "range": {
+        "startLine": 3132,
+        "startChar": 39,
+        "endLine": 3132,
+        "endChar": 50
+      },
+      "revId": "be953220a759a67179fb9462d72003d2f53e3e65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4a92dd0_04b68a5f",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2824,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-11-22T10:27:00Z",
+      "side": 1,
+      "message": "Line too long.",
+      "revId": "be953220a759a67179fb9462d72003d2f53e3e65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
