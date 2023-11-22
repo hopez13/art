@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "72cf4342_90200907",
+        "filename": "tools/run-libcore-tests.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 464,
+      "author": {
+        "id": 1047684
+      },
+      "writtenOn": "2023-11-22T16:57:26Z",
+      "side": 1,
+      "message": "but line 487 does \n\n```\n  if not os.path.exists(\u0027build/envsetup.sh\u0027):\n    raise AssertionError(\"Script needs to be run at the root of the android tree\")\n```\n\nIs it not sufficient?",
+      "parentUuid": "5bcd5ff9_01b59ea8",
+      "range": {
+        "startLine": 464,
+        "startChar": 0,
+        "endLine": 464,
+        "endChar": 43
+      },
+      "revId": "1ac50e0db299976f3aeef0a8e260c61ddeb8458c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "658fd3d0_977a8d8f",
