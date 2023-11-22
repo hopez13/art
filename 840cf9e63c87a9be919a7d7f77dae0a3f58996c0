@@ -52,6 +52,75 @@
       "parentUuid": "2e0944cc_f67dd585",
       "revId": "840cf9e63c87a9be919a7d7f77dae0a3f58996c0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d1f45b53_7d2f62ba",
+        "filename": "runtime/gc/collector/immune_spaces_test.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-11-22T09:12:46Z",
+      "side": 1,
+      "message": "One arg per line, please. (If necessary, pass `--no-verify` to `repo upload`.)\n\nOr define a constant for the size, so that all args fit on one line.",
+      "range": {
+        "startLine": 198,
+        "startChar": 6,
+        "endLine": 199,
+        "endChar": 35
+      },
+      "revId": "840cf9e63c87a9be919a7d7f77dae0a3f58996c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e537396_ec82929e",
+        "filename": "runtime/gc/collector/immune_spaces_test.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-11-22T09:12:46Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 330,
+        "startChar": 6,
+        "endLine": 331,
+        "endChar": 35
+      },
+      "revId": "840cf9e63c87a9be919a7d7f77dae0a3f58996c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f8aa5eb_c63815a9",
+        "filename": "runtime/gc/collector/immune_spaces_test.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-11-22T09:12:46Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 367,
+        "startChar": 6,
+        "endLine": 368,
+        "endChar": 35
+      },
+      "revId": "840cf9e63c87a9be919a7d7f77dae0a3f58996c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
