@@ -49,6 +49,7 @@ class DisassemblerRiscv64::Printer {
 
   static const char* XRegName(uint32_t regno);
   static const char* FRegName(uint32_t regno);
+  static const char* VRegName(uint32_t regno);
   static const char* RoundingModeName(uint32_t rm);
 
   static int32_t Decode32Imm12(uint32_t insn32) {
@@ -56,6 +57,10 @@ class DisassemblerRiscv64::Printer {
     uint32_t imm12 = (insn32 >> 20);
     return static_cast<int32_t>(imm12) - static_cast<int32_t>(sign << 12);  // Sign-extend.
   }
+
+  static uint32_t Decode32UImm7(uint32_t insn32) { return (insn32 >> 25) & 0x7FU; }
+
+  static uint32_t Decode32UImm12(uint32_t insn32) { return (insn32 >> 20) & 0x7FU; }
 
   static int32_t Decode32StoreOffset(uint32_t insn32) {
     uint32_t bit11 = insn32 >> 31;
@@ -87,9 +92,12 @@ class DisassemblerRiscv64::Printer {
   void Print32BinOp(uint32_t insn32);
   void Print32Atomic(uint32_t insn32);
   void Print32FpOp(uint32_t insn32);
+  void Print32RVVOp(uint32_t insn32);
   void Print32FpFma(uint32_t insn32);
   void Print32Zicsr(uint32_t insn32);
   void Print32Fence(uint32_t insn32);
+
+  static const char* decodeRVVMemInstr(const uint32_t insn32, const char*& rs2, bool isLoad);
 
   DisassemblerRiscv64* const disassembler_;
   std::ostream& os_;
@@ -173,6 +181,16 @@ const char* DisassemblerRiscv64::Printer::FRegName(uint32_t regno) {
   static_assert(std::size(kFRegisterNames) == 32);
   DCHECK_LT(regno, 32u);
   return kFRegisterNames[regno];
+}
+
+const char* DisassemblerRiscv64::Printer::VRegName(uint32_t regno) {
+  static const char* const kVRegisterNames[] = {
+      "v0",  "v1",  "v2",  "v3",  "v4",  "v5",  "v6",  "v7",  "v8",  "v9",  "v10",
+      "v11", "v12", "v13", "v14", "v15", "v16", "v17", "v18", "v19", "v20", "v21",
+      "v22", "v23", "v24", "v25", "v26", "v27", "v28", "v29", "v30", "v31"};
+  static_assert(std::size(kVRegisterNames) == 32);
+  DCHECK_LT(regno, 32u);
+  return kVRegisterNames[regno];
 }
 
 const char* DisassemblerRiscv64::Printer::RoundingModeName(uint32_t rm) {
@@ -335,20 +353,197 @@ void DisassemblerRiscv64::Printer::Print32Store(uint32_t insn32) {
   PrintLoadStoreAddress(GetRs1(insn32), Decode32StoreOffset(insn32));
 }
 
+enum class MemoryAddressMode : uint32_t {
+  kMOP_UnitStride = 0b00,
+  kMOP_IndexedUnordered = 0b01,
+  kMOP_Strided = 0b10,
+  kMOP_IndexedOrdered = 0b11,
+};
+
+enum class Nf : uint32_t {
+  kNfg1 = 0b000,
+  kNfg2 = 0b001,
+  kNfg3 = 0b010,
+  kNfg4 = 0b011,
+  kNfg5 = 0b100,
+  kNfg6 = 0b101,
+  kNfg7 = 0b110,
+  kNfg8 = 0b111,
+};
+
+const char* DisassemblerRiscv64::Printer::decodeRVVMemInstr(const uint32_t insn32,
+                                                            const char*& rs2,
+                                                            bool isLoad) {
+  const uint32_t funct3 = (insn32 >> 12) & 7u;
+  const uint32_t imm7 = Decode32UImm7(insn32);
+  const enum MemoryAddressMode mop = static_cast<enum MemoryAddressMode>((imm7 >> 1) & 0x3U);
+
+  switch (mop) {
+    case MemoryAddressMode::kMOP_UnitStride: {
+      const uint32_t umop = GetRs2(insn32);
+      switch (umop) {
+        case 0b00000:  // Vector Unit-Stride Load
+          static const char* const VUSL_Opcodes[] = {
+              "vle8.v", nullptr, nullptr, nullptr, nullptr, "vle16.v", "vle32.v", "vle64.v"};
+          static const char* const VUSS_Opcodes[] = {
+              "vse8.v", nullptr, nullptr, nullptr, nullptr, "vse16.v", "vse32.v", "vse64.v"};
+          return isLoad ? VUSL_Opcodes[funct3] : VUSS_Opcodes[funct3];
+        case 0b01000: {  // Vector Whole Register Load
+          const enum Nf nf = static_cast<enum Nf>((imm7 >> 4) & 0x7U);
+          switch (nf) {
+            case Nf::kNfg1:
+              static const char* const VWHL1_Opcodes[] = {"vl1re8.v",
+                                                          nullptr,
+                                                          nullptr,
+                                                          nullptr,
+                                                          nullptr,
+                                                          "vl1re16.v",
+                                                          "vl1re32.v",
+                                                          "vl1re64.v"};
+              static const char* const VWHS1_Opcodes[] = {
+                  "vs1r.v", nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr};
+              return isLoad ? VWHL1_Opcodes[funct3] : VWHS1_Opcodes[funct3];
+            case Nf::kNfg2:
+              static const char* const VWHL2_Opcodes[] = {"vl2re8.v",
+                                                          nullptr,
+                                                          nullptr,
+                                                          nullptr,
+                                                          nullptr,
+                                                          "vl2re16.v",
+                                                          "vl2re32.v",
+                                                          "vl2re64.v"};
+              static const char* const VWHS2_Opcodes[] = {
+                  "vs2r.v", nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr};
+              return isLoad ? VWHL2_Opcodes[funct3] : VWHS2_Opcodes[funct3];
+            case Nf::kNfg4:
+              static const char* const VWHL4_Opcodes[] = {"vl4re8.v",
+                                                          nullptr,
+                                                          nullptr,
+                                                          nullptr,
+                                                          nullptr,
+                                                          "vl4re16.v",
+                                                          "vl4re32.v",
+                                                          "vl4re64.v"};
+              static const char* const VWHS4_Opcodes[] = {
+                  "vs4r.v", nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr};
+              return isLoad ? VWHL4_Opcodes[funct3] : VWHS4_Opcodes[funct3];
+            case Nf::kNfg8:
+              static const char* const VWHL8_Opcodes[] = {"vl8re8.v",
+                                                          nullptr,
+                                                          nullptr,
+                                                          nullptr,
+                                                          nullptr,
+                                                          "vl8re16.v",
+                                                          "vl8re32.v",
+                                                          "vl8re64.v"};
+              static const char* const VWHS8_Opcodes[] = {
+                  "vs8r.v", nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr};
+              return isLoad ? VWHL8_Opcodes[funct3] : VWHS8_Opcodes[funct3];
+            default:
+              return nullptr;
+          }
+        }
+        case 0b01011:  // Vector Unit-Stride Mask Load
+          return isLoad ? "vlm.v" : "vsm.v";
+        case 0b10000:  // Vector Unit-Stride Fault-Only-First Load
+          static const char* const VUSFFL_Opcodes[] = {"vle8ff.v",
+                                                       nullptr,
+                                                       nullptr,
+                                                       nullptr,
+                                                       nullptr,
+                                                       "vle16ff.v",
+                                                       "vle32ff.v",
+                                                       "vle64ff.v"};
+          return isLoad ? VUSFFL_Opcodes[funct3] : nullptr;  // only loads are possible
+        default:                                             // Unknown
+          return nullptr;
+      }
+    }
+    case MemoryAddressMode::kMOP_IndexedUnordered: {
+      static const char* const VIUL_Opcodes[] = {"vluxei8.v",
+                                                 nullptr,
+                                                 nullptr,
+                                                 nullptr,
+                                                 nullptr,
+                                                 "vluxei16.v",
+                                                 "vluxei32.v",
+                                                 "vluxei64.v"};
+      static const char* const VIUS_Opcodes[] = {"vsuxei8.v",
+                                                 nullptr,
+                                                 nullptr,
+                                                 nullptr,
+                                                 nullptr,
+                                                 "vsuxei16.v",
+                                                 "vsuxei32.v",
+                                                 "vsuxei64.v"};
+      rs2 = VRegName(GetRs2(insn32));
+      return isLoad ? VIUL_Opcodes[funct3] : VIUS_Opcodes[funct3];
+    }
+    case MemoryAddressMode::kMOP_Strided: {
+      static const char* const VSL_Opcodes[] = {
+          "vlse8.v", nullptr, nullptr, nullptr, nullptr, "vlse16.v", "vlse32.v", "vlse64.v"};
+      static const char* const VSS_Opcodes[] = {
+          "vsse8.v", nullptr, nullptr, nullptr, nullptr, "vsse16.v", "vsse32.v", "vsse64.v"};
+      rs2 = XRegName(GetRs2(insn32));
+      return isLoad ? VSL_Opcodes[funct3] : VSS_Opcodes[funct3];
+    }
+    case MemoryAddressMode::kMOP_IndexedOrdered: {
+      static const char* const VIOL_Opcodes[] = {"vloxei8.v",
+                                                 nullptr,
+                                                 nullptr,
+                                                 nullptr,
+                                                 nullptr,
+                                                 "vloxei16.v",
+                                                 "vloxei32.v",
+                                                 "vloxei64.v"};
+      static const char* const VIOS_Opcodes[] = {"vsoxei8.v",
+                                                 nullptr,
+                                                 nullptr,
+                                                 nullptr,
+                                                 nullptr,
+                                                 "vsoxei16.v",
+                                                 "vsoxei32.v",
+                                                 "vsoxei64.v"};
+      rs2 = VRegName(GetRs2(insn32));
+      return isLoad ? VIOL_Opcodes[funct3] : VIOS_Opcodes[funct3];
+    }
+  }
+}
+
 void DisassemblerRiscv64::Printer::Print32FLoad(uint32_t insn32) {
   DCHECK_EQ(insn32 & 0x7fu, 0x07u);
   static const char* const kOpcodes[] = {
-      nullptr, nullptr, "flw", "fld", nullptr, nullptr, nullptr, nullptr
-  };
-  uint32_t funct3 = (insn32 >> 12) & 7u;
+      nullptr, "flh", "flw", "fld", "flq", nullptr, nullptr, nullptr};
+  int32_t offset = 0;
+  const char *rd = nullptr, *rs2 = nullptr, *vm = "";
+  const uint32_t funct3 = (insn32 >> 12) & 7u;
   const char* opcode = kOpcodes[funct3];
+  if (opcode == nullptr) {
+    // Vector Loads
+    opcode = decodeRVVMemInstr(insn32, rs2, true);
+    rd = VRegName(GetRd(insn32));
+
+    if ((Decode32UImm7(insn32) & 0x1U) == 0) {
+      vm = ", vm";
+    }
+  } else {
+    rd = FRegName(GetRd(insn32));
+    offset = Decode32Imm12(insn32);
+  }
+
   if (opcode == nullptr) {
     os_ << "<unknown32>";
     return;
   }
 
-  os_ << opcode << " " << FRegName(GetRd(insn32)) << ", ";
-  PrintLoadStoreAddress(GetRs1(insn32), Decode32Imm12(insn32));
+  os_ << opcode << " " << rd << ", ";
+  PrintLoadStoreAddress(GetRs1(insn32), offset);
+
+  if (rs2) {
+    os_ << ", " << rs2;
+  }
+
+  os_ << vm;
 
   // TODO(riscv64): If previous instruction is AUIPC for current `rs1` and we load
   // from the range specified by assembler options, print the loaded literal.
@@ -357,17 +552,35 @@ void DisassemblerRiscv64::Printer::Print32FLoad(uint32_t insn32) {
 void DisassemblerRiscv64::Printer::Print32FStore(uint32_t insn32) {
   DCHECK_EQ(insn32 & 0x7fu, 0x27u);
   static const char* const kOpcodes[] = {
-      nullptr, nullptr, "fsw", "fsd", nullptr, nullptr, nullptr, nullptr
-  };
+      nullptr, "fsh", "fsw", "fsd", "fsq", nullptr, nullptr, nullptr};
+
   uint32_t funct3 = (insn32 >> 12) & 7u;
   const char* opcode = kOpcodes[funct3];
-  if (opcode == nullptr) {
-    os_ << "<unknown32>";
-    return;
-  }
 
-  os_ << opcode << " " << FRegName(GetRs2(insn32)) << ", ";
-  PrintLoadStoreAddress(GetRs1(insn32), Decode32StoreOffset(insn32));
+  if (opcode == nullptr) {
+    // Vector Stores
+    const char* rs2 = nullptr;
+    opcode = decodeRVVMemInstr(insn32, rs2, false);
+
+    if (opcode == nullptr) {
+      os_ << "<unknown32>";
+      return;
+    }
+
+    os_ << opcode << " " << VRegName(GetRd(insn32)) << ", ";
+    PrintLoadStoreAddress(GetRs1(insn32), 0);
+
+    if (rs2) {
+      os_ << ", " << rs2;
+    }
+
+    if ((Decode32UImm7(insn32) & 0x1U) == 0) {
+      os_ << ", vm";
+    }
+  } else {
+    os_ << opcode << " " << FRegName(GetRs2(insn32)) << ", ";
+    PrintLoadStoreAddress(GetRs1(insn32), Decode32StoreOffset(insn32));
+  }
 }
 
 void DisassemblerRiscv64::Printer::Print32BinOpImm(uint32_t insn32) {
@@ -641,6 +854,455 @@ void DisassemblerRiscv64::Printer::Print32FpOp(uint32_t insn32) {
   os_ << "<unknown32>";
 }
 
+static bool decodeVType(const uint32_t vtype,
+                        const char*& vma,
+                        const char*& vta,
+                        const char*& vsew,
+                        const char*& lmul) {
+  const uint32_t lmul_v = vtype & 0x7U;
+  const uint32_t vsew_v = (vtype >> 3) & 0x7U;
+  const uint32_t vta_v = (vtype >> 6) & 0x1U;
+  const uint32_t vma_v = (vtype >> 7) & 0x1U;
+
+  if (vsew_v & 0x4U)
+    return false;
+
+  if (lmul_v == 0b100)
+    return false;
+
+  vta = vta_v ? "ta" : "tu";
+  vma = vma_v ? "ma" : "mu";
+
+  static const char* const vsews[] = {"e8", "e16", "e32", "e64"};
+
+  static const char* const lmuls[] = {"m1", "m2", "m4", "m8", nullptr, "mf8", "mf4", "mf2"};
+
+  vsew = vsews[vsew_v & 0x3];
+  lmul = lmuls[lmul_v];
+
+  return true;
+}
+
+enum class VAIEncodings : uint32_t {
+  // ----Operands---- | Type of Scalar                | instruction type
+  kVAI_OPIVV = 0b000,  // vector-vector    | --                            | R-type
+  kVAI_OPFVV = 0b001,  // vector-vector    | --                            | R-type
+  kVAI_OPMVV = 0b010,  // vector-vector    | --                            | R-type
+  kVAI_OPIVI = 0b011,  // vector-immediate | imm[4:0]                      | RVV-type
+  kVAI_OPIVX = 0b100,  // vector-scalar    | GPR x register rs1            | R-type
+  kVAI_OPFVF = 0b101,  // vector-scalar    | FP f register rs1             | R-type
+  kVAI_OPMVX = 0b110,  // vector-scalar    | GPR x register rs1            | R-type
+  kVAI_OPCFG = 0b111,  // scalars-imms     | GPR x register rs1 & rs2/imm  | R/I/U-type
+};
+
+static const uint32_t VWXUNARY0 = 0b010000;  // OPMVV 4
+static const uint32_t VRXUNARY0 = 0b010000;  // OPMVX 5
+static const uint32_t VXUNARY0 = 0b010010;   // OPMVV 4
+static const uint32_t VMUNARY0 = 0b010100;   // OPMVV 4
+
+static const uint32_t VWFUNARY0 = 0b010000;  // OPFVV 6
+static const uint32_t VRFUNARY0 = 0b010000;  // OPFVF 7
+static const uint32_t VFUNARY0 = 0b010010;   // OPFVV 6
+static const uint32_t VFUNARY1 = 0b010011;   // OPFVV 6
+
+void DisassemblerRiscv64::Printer::Print32RVVOp(uint32_t insn32) {
+  DCHECK_EQ(insn32 & 0x7fu, 0x57u);
+  const enum VAIEncodings via = static_cast<enum VAIEncodings>((insn32 >> 12) & 7u);
+  const uint32_t funct7 = Decode32UImm7(insn32);
+  const uint32_t funct6 = funct7 >> 1;
+  const char* vm = funct7 & 1 ? "" : ", vm";
+  const char *opcode = nullptr, *rd = nullptr, *rs1 = nullptr, *rs2 = nullptr;
+
+  switch (via) {
+    case VAIEncodings::kVAI_OPIVV: {  // 1, vv, R VVV
+      static const char* const OPIVVOpcodes[64] = {
+          "vadd.vv",  nullptr,      "vsub.vv",     nullptr,        "vminu.vv",
+          "vmin.vv",  "vmaxu.vv",   "vmax.vv",     nullptr,        "vand.vv",
+          "vor.vv",   "vxor.vv",    "vrgather.vv", nullptr,        "vrgatherei16.vv",
+          nullptr,    "vadc.vvm",   "vmadc.vvm",   "vsbc.vvm",     "vmsbc.vvm",
+          nullptr,    nullptr,      nullptr,       "<vmerge/vmv>", "vmseq.vv",
+          "vmsne.vv", "vmsltu.vv",  "vmslt.vv",    "vmsleu.vv",    "vmsle.vv",
+          nullptr,    nullptr,      "vsaddu.vv",   "vsadd.vv",     "vssubu.vv",
+          "vssub.vv", nullptr,      "vsll.vv",     nullptr,        "vsmul.vv",
+          "vsrl.vv",  "vsra.vv",    "vssrl.vv",    "vssra.vv",     "vnsrl.wv",
+          "vnsra.wv", "vnclipu.wv", "vnclip.wv",   "vwredsumu.vs", "vwredsum.vs",
+          nullptr,    nullptr,      nullptr,       nullptr,        nullptr,
+          nullptr,    nullptr,      nullptr,       nullptr,        nullptr,
+          nullptr,    nullptr,      nullptr,       nullptr};
+
+      rs2 = VRegName(GetRs2(insn32));
+      if (funct6 == 0b010111) {
+        // vmerge/vmv
+        if ((funct7 & 1) && GetRs2(insn32) == 0) {
+          // Note: The vector integer move instructions share the encoding with the vector merge
+          // instructions, but with vm=1 and vs2=v0
+          opcode = "vmv.v.v";
+          rs2 = nullptr;
+        } else {
+          opcode = "vmerge.vvm";
+          vm = ", v0";
+        }
+        vm = "";
+      } else {
+        opcode = OPIVVOpcodes[funct6];
+      }
+
+      rd = VRegName(GetRd(insn32));
+      rs1 = VRegName(GetRs1(insn32));
+      break;
+    }
+    case VAIEncodings::kVAI_OPIVX: {  // 2, vx, R VXV
+      static const char* const OPIVXOpcodes[64] = {
+          "vadd.vx",     nullptr,     "vsub.vx",     "vrsub.vx",      "vminu.vx",   "vmin.vx",
+          "vmaxu.vx",    "vmax.vx",   nullptr,       "vand.vx",       "vor.vx",     "vxor.vx",
+          "vrgather.vx", nullptr,     "vslideup.vx", "vslidedown.vx", "vadc.vxm",   "vmadc.vxm",
+          "vsbc.vxm",    "vmsbc.vxm", nullptr,       nullptr,         nullptr,      "<vmerge/vmv>",
+          "vmseq.vx",    "vmsne.vx",  "vmsltu.vx",   "vmslt.vx",      "vmsleu.vx",  "vmsle.vx",
+          "vmsgtu.vx",   "vmsgt.vx",  "vsaddu.vx",   "vsadd.vx",      "vssubu.vx",  "vssub.vx",
+          nullptr,       "vsll.vx",   nullptr,       "vsmul.vx",      "vsrl.vx",    "vsra.vx",
+          "vssrl.vx",    "vssra.vx",  "vnsrl.wx",    "vnsra.wx",      "vnclipu.wx", "vnclip.wx",
+          nullptr,       nullptr,     nullptr,       nullptr,         nullptr,      nullptr,
+          nullptr,       nullptr,     nullptr,       nullptr,         nullptr,      nullptr,
+          nullptr,       nullptr,     nullptr,       nullptr};
+
+      rs2 = VRegName(GetRs2(insn32));
+      if (funct6 == 0b010111) {
+        // vmerge/vmv
+        if ((funct7 & 1) && GetRs2(insn32) == 0) {
+          // Note: The vector integer move instructions share the encoding with the vector merge
+          // instructions, but with vm=1 and vs2=v0
+          opcode = "vmv.v.x";
+          rs2 = nullptr;
+        } else {
+          opcode = "vmerge.vxm";
+          vm = ", v0";
+        }
+        vm = "";
+      } else {
+        opcode = OPIVXOpcodes[funct6];
+      }
+
+      opcode = OPIVXOpcodes[funct6];
+      rd = VRegName(GetRd(insn32));
+      rs1 = XRegName(GetRs1(insn32));
+      break;
+    }
+    case VAIEncodings::kVAI_OPIVI: {  // 3, vi, RVV VIV
+      static const char* const OPIVIOpcodes[64] = {
+          "vadd.vi",     nullptr,    nullptr,       "vrsub.vi",      nullptr,      nullptr,
+          nullptr,       nullptr,    nullptr,       "vand.vi",       "vor.vi",     "vxor.vi",
+          "vrgather.vi", nullptr,    "vslideup.vi", "vslidedown.vi", "vadc.vim",   "vmadc.vim",
+          nullptr,       nullptr,    nullptr,       nullptr,         nullptr,      "<vmerge/vmv>",
+          "vmseq.vi",    "vmsne.vi", nullptr,       nullptr,         "vmsleu.vi",  "vmsle.vi",
+          "vmsgtu.vi",   "vmsgt.vi", "vsaddu.vi",   "vsadd.vi",      nullptr,      nullptr,
+          nullptr,       "vsll.vi",  nullptr,       nullptr,         "vsrl.vi",    "vsra.vi",
+          "vssrl.vi",    "vssra.vi", "vnsrl.wi",    "vnsra.wi",      "vnclipu.wi", "vnclip.wi",
+          nullptr,       nullptr,    nullptr,       nullptr,         nullptr,      nullptr,
+          nullptr,       nullptr,    nullptr,       nullptr,         nullptr,      nullptr,
+          nullptr,       nullptr,    nullptr,       nullptr};
+
+      rs2 = VRegName(GetRs2(insn32));
+
+      if (funct6 == 0b010111) {
+        // vmerge/vmv
+        if ((funct7 & 1) && GetRs2(insn32) == 0) {
+          // Note: The vector integer move instructions share the encoding with the vector merge
+          // instructions, but with vm=1 and vs2=v0
+          opcode = "vmv.v.i";
+          rs2 = nullptr;
+        } else {
+          opcode = "vmerge.vim";
+          vm = ", v0";
+        }
+        vm = "";
+      } else {
+        opcode = OPIVIOpcodes[funct6];
+      }
+
+      opcode = OPIVIOpcodes[funct6];
+      rd = VRegName(GetRd(insn32));
+      break;
+    }
+    case VAIEncodings::kVAI_OPMVV: {  // 4, vs, R
+      switch (funct6) {
+        case VWXUNARY0: {
+          static const char* const VWXUNARY0Opcodes[32] = {
+              "vmv.x.s", nullptr,    nullptr, nullptr, nullptr, nullptr, nullptr, nullptr,
+              nullptr,   nullptr,    nullptr, nullptr, nullptr, nullptr, nullptr, nullptr,
+              "vpopc.m", "vfirst.m", nullptr, nullptr, nullptr, nullptr, nullptr, nullptr,
+              nullptr,   nullptr,    nullptr, nullptr, nullptr, nullptr, nullptr, nullptr};
+          opcode = VWXUNARY0Opcodes[GetRs1(insn32)];
+          rd = XRegName(GetRd(insn32));
+          rs2 = VRegName(GetRs2(insn32));
+          break;
+        }
+        case VXUNARY0: {
+          static const char* const VXUNARY0Opcodes[32] = {
+              nullptr,     nullptr, "vzext.vf8", "vsext.vf8", "vzext.vf4", "vsext.vf4", "vzext.vf2",
+              "vsext.vf2", nullptr, nullptr,     nullptr,     nullptr,     nullptr,     nullptr,
+              nullptr,     nullptr, nullptr,     nullptr,     nullptr,     nullptr,     nullptr,
+              nullptr,     nullptr, nullptr,     nullptr,     nullptr,     nullptr,     nullptr,
+              nullptr,     nullptr, nullptr,     nullptr};
+          opcode = VXUNARY0Opcodes[GetRs1(insn32)];
+          rd = VRegName(GetRd(insn32));
+          rs2 = VRegName(GetRs2(insn32));
+          break;
+        }
+        case VMUNARY0: {
+          static const char* const VMUNARY0Opcodes[32] = {
+              nullptr,   "vmsbf.m", "vmsof.m", "vmsif.m", nullptr, nullptr, nullptr, nullptr,
+              nullptr,   nullptr,   nullptr,   nullptr,   nullptr, nullptr, nullptr, nullptr,
+              "viota.m", "vid.v",   nullptr,   nullptr,   nullptr, nullptr, nullptr, nullptr,
+              nullptr,   nullptr,   nullptr,   nullptr,   nullptr, nullptr, nullptr, nullptr};
+          opcode = VMUNARY0Opcodes[GetRs1(insn32)];
+          rd = VRegName(GetRd(insn32));
+          rs2 = VRegName(GetRs2(insn32));
+          break;
+        }
+        default: {
+          static const char* const OPMVVOpcodes[64] = {
+              "vredsum.vs", "vredand.vs",  "vredor.vs",  "vredxor.vs",   "vredminu.vs",
+              "vredmin.vs", "vredmaxu.vs", "vredmax.vs", "vaaddu.vv",    "vaadd.vv",
+              "vasubu.vv",  "vasub.vv",    nullptr,      nullptr,        nullptr,
+              nullptr,      nullptr,       nullptr,      nullptr,        nullptr,
+              nullptr,      nullptr,       nullptr,      "vcompress.vm", "vmandn.mm",
+              "vmand.mm",   "vmor.mm",     "vmxor.mm",   "vmorn.mm",     "vmnand.mm",
+              "vmnor.mm",   "vmxnor.mm",   "vdivu.vv",   "vdiv.vv",      "vremu.vv",
+              "vrem.vv",    "vmulhu.vv",   "vmul.vv",    "vmulhsu.vv",   "vmulh.vv",
+              nullptr,      "vmadd.vv",    nullptr,      "vnmsub.vv",    nullptr,
+              "vmacc.vv",   nullptr,       "vnmsac.vv",  "vwaddu.vv",    "vwadd.vv",
+              "vwsubu.vv",  "vwsub.vv",    "vwaddu.wv",  "vwadd.wv",     "vwsubu.wv",
+              "vwsub.wv",   "vwmulu.vv",   nullptr,      "vwmulsu.vv",   "vwmul.vv",
+              "vwmaccu.vv", "vwmacc.vv",   nullptr,      "vwmaccsu.vv"};
+          opcode = OPMVVOpcodes[funct6];
+          rd = VRegName(GetRd(insn32));
+          rs1 = VRegName(GetRs1(insn32));
+          rs2 = VRegName(GetRs2(insn32));
+          break;
+        }
+      }
+      break;
+    }
+    case VAIEncodings::kVAI_OPMVX: {  // 5, vx, R
+      switch (funct6) {
+        case VRXUNARY0: {
+          static const char* const VRXUNARY0Opcodes[32] = {
+              "vmv.s.x", nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr,
+              nullptr,   nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr,
+              nullptr,   nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr,
+              nullptr,   nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr};
+          opcode = VRXUNARY0Opcodes[GetRs2(insn32)];
+          rd = VRegName(GetRd(insn32));
+          rs1 = XRegName(GetRs1(insn32));
+          break;
+        }
+        default: {
+          static const char* const OPMVXOpcodes[64] = {
+              nullptr,          nullptr,     nullptr,       nullptr,      nullptr,
+              nullptr,          nullptr,     nullptr,       "vaaddu.vx",  "vaadd.vx",
+              "vasubu.vx",      "vasub.vx",  nullptr,       nullptr,      "vslide1up.vx",
+              "vslide1down.vx", nullptr,     nullptr,       nullptr,      nullptr,
+              nullptr,          nullptr,     nullptr,       nullptr,      nullptr,
+              nullptr,          nullptr,     nullptr,       nullptr,      nullptr,
+              nullptr,          nullptr,     "vdivu.vx",    "vdiv.vx",    "vremu.vx",
+              "vrem.vx",        "vmulhu.vx", "vmul.vx",     "vmulhsu.vx", "vmulh.vx",
+              nullptr,          "vmadd.vx",  nullptr,       "vnmsub.vx",  nullptr,
+              "vmacc.vx",       nullptr,     "vnmsac.vx",   "vwaddu.vx",  "vwadd.vx",
+              "vwsubu.vx",      "vwsub.vx",  "vwaddu.wv",   "vwadd.wv",   "vwsubu.wv",
+              "vwsub.wv",       "vwmulu.vx", nullptr,       "vwmulsu.vx", "vwmul.vx",
+              "vwmaccu.vx",     "vwmacc.vx", "vwmaccus.vx", "vwmaccsu.vx"};
+          opcode = OPMVXOpcodes[funct6];
+          rd = VRegName(GetRd(insn32));
+          rs1 = XRegName(GetRs1(insn32));
+          rs2 = VRegName(GetRs2(insn32));
+          break;
+        }
+      }
+      break;
+    }
+    case VAIEncodings::kVAI_OPFVV: {  // 6, vv, R
+      switch (funct6) {
+        case VWFUNARY0: {
+          static const char* const VWFUNARY0Opcodes[32] = {
+              "vfmv.f.s", nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr,
+              nullptr,    nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr,
+              nullptr,    nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr,
+              nullptr,    nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr};
+          opcode = VWFUNARY0Opcodes[GetRs1(insn32)];
+          rd = XRegName(GetRd(insn32));
+          rs2 = VRegName(GetRs2(insn32));
+          break;
+        }
+        case VFUNARY0: {
+          static const char* const VFUNARY0Opcodes[32] = {"vfcvt.xu.f.v",
+                                                          "vfcvt.x.f.v",
+                                                          "vfcvt.f.xu.v",
+                                                          "vfcvt.f.x.v",
+                                                          nullptr,
+                                                          nullptr,
+                                                          "vfcvt.rtz.xu.f.v",
+                                                          "vfcvt.rtz.x.f.v",
+                                                          "vfwcvt.xu.f.v",
+                                                          "vfwcvt.x.f.v",
+                                                          "vfwcvt.f.xu.v",
+                                                          "vfwcvt.f.x.v",
+                                                          "vfwcvt.f.f.v",
+                                                          nullptr,
+                                                          "vfwcvt.rtz.xu.f.v",
+                                                          "vfwcvt.rtz.x.f.v",
+                                                          "vfncvt.xu.f.w",
+                                                          "vfncvt.x.f.w",
+                                                          "vfncvt.f.xu.w",
+                                                          "vfncvt.f.x.w",
+                                                          "vfncvt.f.f.w",
+                                                          "vfncvt.rod.f.f.w",
+                                                          "vfncvt.rtz.xu.f.w",
+                                                          "vfncvt.rtz.x.f.w",
+                                                          nullptr,
+                                                          nullptr,
+                                                          nullptr,
+                                                          nullptr,
+                                                          nullptr,
+                                                          nullptr,
+                                                          nullptr,
+                                                          nullptr};
+          opcode = VFUNARY0Opcodes[GetRs1(insn32)];
+          rd = VRegName(GetRd(insn32));
+          rs2 = VRegName(GetRs2(insn32));
+          break;
+        }
+        case VFUNARY1: {
+          static const char* const VFUNARY1Opcodes[32] = {
+              "vfsqrt.v",  nullptr, nullptr, nullptr, "vfrsqrt7.v", "vfrec7.v", nullptr, nullptr,
+              nullptr,     nullptr, nullptr, nullptr, nullptr,      nullptr,    nullptr, nullptr,
+              "vfclass.v", nullptr, nullptr, nullptr, nullptr,      nullptr,    nullptr, nullptr,
+              nullptr,     nullptr, nullptr, nullptr, nullptr,      nullptr,    nullptr, nullptr};
+          opcode = VFUNARY1Opcodes[GetRs1(insn32)];
+          rd = VRegName(GetRd(insn32));
+          rs2 = VRegName(GetRs2(insn32));
+          break;
+        }
+        default: {
+          static const char* const OPFVVOpcodes[64] = {
+              "vfadd.vv",    "vfredusum.vs",  "vfsub.vv",    "vfredosum.vs", "vfmin.vv",
+              "vfredmin.vs", "vfmax.vv",      "vfredmax.vs", "vfsgnj.vv",    "vfsgnjn.vv",
+              "vfsgnjx.vv",  nullptr,         nullptr,       nullptr,        nullptr,
+              nullptr,       nullptr,         nullptr,       nullptr,        nullptr,
+              nullptr,       nullptr,         nullptr,       nullptr,        "vmfeq.vv",
+              "vmfle.vv",    nullptr,         "vmflt.vv",    "vmfne.vv",     nullptr,
+              nullptr,       nullptr,         "vfdiv.vv",    nullptr,        nullptr,
+              nullptr,       "vfmul.vv",      nullptr,       nullptr,        nullptr,
+              "vfmadd.vv",   "vfnmadd.vv",    "vfmsub.vv",   "vfnmsub.vv",   "vfmacc.vv",
+              "vfnmacc.vv",  "vfmsac.vv",     "vfnmsac.vv",  "vfwadd.vv",    "vfwredusum.vs",
+              "vfwsub.vv",   "vfwredosum.vs", "vfwadd.wv",   nullptr,        "vfwsub.wv",
+              nullptr,       "vfwmul.vv",     nullptr,       nullptr,        nullptr,
+              "vfwmacc.vv",  "vfwnmacc.vv",   "vfwmsac.vv",  "vfwnmsac.vv"};
+          opcode = OPFVVOpcodes[funct6];
+          rd = VRegName(GetRd(insn32));
+          rs1 = VRegName(GetRs1(insn32));
+          rs2 = VRegName(GetRs2(insn32));
+          break;
+        }
+      }
+      break;
+    }
+    case VAIEncodings::kVAI_OPFVF: {  // 7, vf, R
+      switch (funct6) {
+        case VRFUNARY0: {
+          static const char* const VRFUNARY0Opcodes[32] = {
+              "vfmv.s.f", nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr,
+              nullptr,    nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr,
+              nullptr,    nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr,
+              nullptr,    nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr};
+          opcode = VRFUNARY0Opcodes[GetRs2(insn32)];
+          rd = VRegName(GetRd(insn32));
+          rs1 = FRegName(GetRs1(insn32));
+          break;
+        }
+        default: {
+          static const char* const OPFVFOpcodes[64] = {
+              "vfadd.vf",        nullptr,       "vfsub.vf",   nullptr,        "vfmin.vf",
+              nullptr,           "vfmax.vf",    nullptr,      "vfsgnj.vf",    "vfsgnjn.vf",
+              "vfsgnjx.vf",      nullptr,       nullptr,      nullptr,        "vfslide1up.vf",
+              "vfslide1down.vf", nullptr,       nullptr,      nullptr,        nullptr,
+              nullptr,           nullptr,       nullptr,      "vfmerge.vfmv", "vmfeq.vf",
+              "vmfle.vf",        nullptr,       "vmflt.vf",   "vmfne.vf",     "vmfgt.vf",
+              nullptr,           "vmfge.vf",    "vfdiv.vf",   "vfrdiv.vf",    nullptr,
+              nullptr,           "vfmul.vf",    nullptr,      nullptr,        "vfrsub.vf",
+              "vfmadd.vf",       "vfnmadd.vf",  "vfmsub.vf",  "vfnmsub.vf",   "vfmacc.vf",
+              "vfnmacc.vf",      "vfmsac.vf",   "vfnmsac.vf", "vfwadd.vf",    nullptr,
+              "vfwsub.vf",       nullptr,       "vfwadd.wf",  nullptr,        "vfwsub.wf",
+              nullptr,           "vfwmul.vf",   nullptr,      nullptr,        nullptr,
+              "vfwmacc.vf",      "vfwnmacc.vf", "vfwmsac.vf", "vfwnmsac.vf"};
+
+          if (funct6 == 0b010111) {
+            // vfmerge.vfmv
+            vm = ", v0";
+          }
+
+          opcode = OPFVFOpcodes[funct6];
+          rd = VRegName(GetRd(insn32));
+          rs1 = FRegName(GetRs1(insn32));
+          rs2 = VRegName(GetRs2(insn32));
+          break;
+        }
+      }
+      break;
+    }
+    case VAIEncodings::kVAI_OPCFG: {  // vector ALU control instructions
+      const char *vma = nullptr, *vta = nullptr, *vsew = nullptr, *lmul = nullptr;
+      if (insn32 >> 31) {
+        if ((insn32 >> 30) & 0x1U) {  // vsetivli
+          const uint32_t zimm = Decode32UImm12(insn32) & ~0xC00U;
+          const uint32_t imm5 = GetRs1(insn32);
+          os_ << "vsetivli " << XRegName(GetRd(insn32)) << ", " << StringPrintf("0x%08x", imm5)
+              << ", ";
+          if (decodeVType(zimm, vma, vta, vsew, lmul)) {
+            os_ << vsew << ", " << lmul << ", " << vta << ", " << vma;
+          } else {
+            os_ << StringPrintf("0x%08x", zimm) << "\t# incorrect VType literal";
+          }
+        } else {  // vsetvl
+          os_ << "vsetvl " << XRegName(GetRd(insn32)) << ", " << XRegName(GetRs1(insn32)) << ", "
+              << XRegName(GetRs2(insn32));
+          if ((Decode32UImm7(insn32) & 0x40)) {  // should be zeros
+            os_ << "\t# incorrect funct7 literal : "
+                << StringPrintf("0x%08x", Decode32UImm7(insn32));
+          }
+        }
+      } else {  // vsetvli
+        const uint32_t zimm = Decode32UImm12(insn32) & ~0x800U;
+        os_ << "vsetvli " << XRegName(GetRd(insn32)) << ", " << XRegName(GetRs1(insn32)) << ", ";
+        if (decodeVType(zimm, vma, vta, vsew, lmul)) {
+          os_ << vsew << ", " << lmul << ", " << vta << ", " << vma;
+        } else {
+          os_ << StringPrintf("0x%08x", zimm) << "\t# incorrect VType literal";
+        }
+      }
+      return;
+    }
+  }
+
+  if (opcode == nullptr) {
+    os_ << "<unknown32>";
+    return;
+  }
+
+  os_ << opcode << " " << rd;
+
+  if (rs1) {
+    os_ << ", " << rs1;
+  } else if (via == VAIEncodings::kVAI_OPIVI) {
+    os_ << StringPrintf(", 0x%08x", GetRs1(insn32));
+  }
+
+  if (rs2) {
+    os_ << ", " << rs2;
+  }
+
+  os_ << vm;
+}
+
 void DisassemblerRiscv64::Printer::Print32FpFma(uint32_t insn32) {
   DCHECK_EQ(insn32 & 0x73u, 0x43u);  // Note: Bits 0xc select the FMA opcode.
   uint32_t funct2 = (insn32 >> 25) & 3u;
@@ -786,6 +1448,9 @@ void DisassemblerRiscv64::Printer::Dump32(const uint8_t* insn) {
       break;
     case 0x53u:
       Print32FpOp(insn32);
+      break;
+    case 0x57u:
+      Print32RVVOp(insn32);
       break;
     case 0x43u:
     case 0x47u:
