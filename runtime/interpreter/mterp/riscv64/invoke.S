@@ -679,22 +679,22 @@
    // A = 5
    srliw $z1, xINST, 8               // z1 := A|G
    andi $z1, $z1, 0xF                // z1 := G
-   GET_VREG_OBJECT a5, $z1
+   GET_VREG a5, $z1
 .L${uniq}_simple_4:
    srliw $z1, $v_fedc, 12            // z1 := F
-   GET_VREG_OBJECT a4, $z1
+   GET_VREG a4, $z1
 .L${uniq}_simple_3:
    srliw $z1, $v_fedc, 8             // z1 := F|E
    andi $z1, $z1, 0xF                // z1 := E
-   GET_VREG_OBJECT a3, $z1
+   GET_VREG a3, $z1
 .L${uniq}_simple_2:
    srliw $z1, $v_fedc, 4             // z1 := F|E|D
    andi $z1, $z1, 0xF                // z1 := D
-   GET_VREG_OBJECT a2, $z1
+   GET_VREG a2, $z1
 .L${uniq}_simple_1:
 %  if arg_start == "0":
      andi $z1, $v_fedc, 0xF          // z1 := C
-     GET_VREG_OBJECT a1, $z1
+     GET_VREG a1, $z1
    // instance: a1 already set to "this"
 .L${uniq}_simple_done:
 
@@ -735,7 +735,7 @@
                                      // z4 := &OUT[CCCC + 7]
    bltz $z2, .L${uniq}_simple_loop_wide
                                      // if AA odd, branch to wide-copy
-   lwu $z2, ($z3)
+   lw $z2, ($z3)
    sw $z2, ($z4)
    addi $z3, $z3, 4
    addi $z4, $z4, 4
@@ -751,20 +751,20 @@
 
    // Bottom 7 slots of OUT array never written; first args are passed with a1-a7.
 .L${uniq}_simple_7:
-   lwu a7, 6*4($z1)
+   lw a7, 6*4($z1)
 .L${uniq}_simple_6:
-   lwu a6, 5*4($z1)
+   lw a6, 5*4($z1)
 .L${uniq}_simple_5:
-   lwu a5, 4*4($z1)
+   lw a5, 4*4($z1)
 .L${uniq}_simple_4:
-   lwu a4, 3*4($z1)
+   lw a4, 3*4($z1)
 .L${uniq}_simple_3:
-   lwu a3, 2*4($z1)
+   lw a3, 2*4($z1)
 .L${uniq}_simple_2:
-   lwu a2, 1*4($z1)
+   lw a2, 1*4($z1)
 .L${uniq}_simple_1:
 %  if arg_start == "0":  # static:
-     lwu a1, 0*4($z1)
+     lw a1, 0*4($z1)
 %#:
 .L${uniq}_simple_done:
 
