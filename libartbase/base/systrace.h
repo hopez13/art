@@ -47,6 +47,39 @@ inline void ATraceIntegerValue(const char* name, int32_t value) {
   PaletteTraceIntegerValue(name, value);
 }
 
+// Try reporting the value as a 64-bit (signed) integer, if the platform's
+// `libartpalette` supports it. Otherwise, and if the value fits in a (signed)
+// 32-bit integer, report it as such (ignore underflows/overflows, but warn
+// about their first occurrences).
+//
+// TODO: Replace this implementation with an unconditional call to
+// `PaletteTraceInteger64Value()` when all platforms supported by the updatable
+// ART Module have a `libartpalette` implementation providing that function.
+inline void ATraceInteger64ValueBestEffort(const char* name, int64_t value) {
+  if (PaletteTraceInteger64Value(name, value) == PALETTE_STATUS_OK) {
+    return;
+  }
+  if (value < std::numeric_limits<int32_t>::min()) {
+    static int32_underflow_reported = false;
+    if (!int32_underflow_reported) {
+      LOG(WARNING) << "Cannot trace \"" << name << "\" with value " << value
+                   << " causing a 32-bit integer underflow";
+      int32_underflow_reported = true;
+    }
+    return;
+  }
+  if (value > std::numeric_limits<int32_t>::max()) {
+    static int32_overflow_reported = false;
+    if (!int32_overflow_reported) {
+      LOG(WARNING) << "Cannot trace \"" << name << "\" with value " << value
+                   << " causing a 32-bit integer overflow";
+      int32_overflow_reported = true;
+    }
+    return;
+  }
+  PaletteTraceIntegerValue(name, value);
+}
+
 class ScopedTrace {
  public:
   explicit ScopedTrace(const char* name) {
