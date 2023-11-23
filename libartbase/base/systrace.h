@@ -47,6 +47,47 @@ inline void ATraceIntegerValue(const char* name, int32_t value) {
   PaletteTraceIntegerValue(name, value);
 }
 
+// Try reporting the value as a 64-bit (signed) integer, if the platform's
+// `libartpalette` supports it. Otherwise, and if the value fits in a (signed)
+// 32-bit integer, report it as such (upon underflows/overflows, clamp metric
+// values at `int32_t` min/max limits and report these events via a
+// corresponding underflow/overflow counter; also log a warning about the first
+// underflow/overflow occurrence).
+//
+// TODO: Replace this implementation with an unconditional call to
+// `PaletteTraceInteger64Value()` when all platforms supported by the updatable
+// ART Module have a `libartpalette` implementation providing that function.
+inline void ATraceInteger64ValueBestEffort(const char* name, int64_t value) {
+  if (PaletteTraceInteger64Value(name, value) == PALETTE_STATUS_OK) {
+    return;
+  }
+  if (UNLIKELY(value < std::numeric_limits<int32_t>::min())) {
+    ATraceIntegerValue(name, std::numeric_limits<int32_t>::min());
+    std::string underflow_counter_name = std::string(name) + " int32_t underflow";
+    ATraceIntegerValue(underflow_counter_name.c_str(), 1);
+    static bool int32_underflow_reported = false;
+    if (!int32_underflow_reported) {
+      LOG(WARNING) << "GC Metric \"" << name << "\" with value " << value
+                   << " causing a 32-bit integer underflow";
+      int32_underflow_reported = true;
+    }
+    return;
+  }
+  if (UNLIKELY(value > std::numeric_limits<int32_t>::max())) {
+    ATraceIntegerValue(name, std::numeric_limits<int32_t>::max());
+    std::string overflow_counter_name = std::string(name) + " int32_t overflow";
+    ATraceIntegerValue(overflow_counter_name.c_str(), 1);
+    static bool int32_overflow_reported = false;
+    if (!int32_overflow_reported) {
+      LOG(WARNING) << "GC Metric \"" << name << "\" with value " << value
+                   << " causing a 32-bit integer overflow";
+      int32_overflow_reported = true;
+    }
+    return;
+  }
+  PaletteTraceIntegerValue(name, value);
+}
+
 class ScopedTrace {
  public:
   explicit ScopedTrace(const char* name) {
