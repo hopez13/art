@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1133fff1_87bcdeef",
+        "filename": "runtime/intrinsics_list.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-11-23T13:10:29Z",
+      "side": 1,
+      "message": "This should have been removed. I\u0027m taking that approach in https://android-review.googlesource.com/2843694 . (I\u0027ll need to resolve the conflict with this CL now.)",
+      "range": {
+        "startLine": 246,
+        "startChar": 4,
+        "endLine": 246,
+        "endChar": 32
+      },
+      "revId": "8740b1b17254c3927b77d292bed8c2c3ec4e9c43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
