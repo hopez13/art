@@ -46,27 +46,15 @@ namespace {
 
 // Report a GC metric via the ATrace interface.
 void TraceGCMetric(const char* name, int64_t value) {
-  // ART's interface with systrace (through libartpalette) only supports
-  // reporting 32-bit (signed) integer values at the moment.
+  // ART's interface with systrace (through `libartpalette`) does not support
+  // reporting 64-bit (signed) integer values on all platforms at the moment,
+  // and may attempt to report this value as a 32-bit (signed) integer
+  // otherwise.
   //
-  // TODO(b/300015145): Consider extending libarpalette to allow reporting this
-  // value as a 64-bit (signed) integer (instead of a 32-bit (signed) integer).
-  // Note that this is likely unnecessary at the moment (November 2023) for any
-  // size-related GC metric, given the maximum theoretical size of a managed
+  // Note that this is unlikely to be an issue at the moment (November 2023) for
+  // any size-related GC metric, given the maximum theoretical size of a managed
   // heap (4 GiB).
-  if (value < std::numeric_limits<int32_t>::min()) {
-    LOG(WARNING) << "Cannot trace 32-bit integer value \"" << name << "\" (" << value
-                 << "), as it is lower than std::numeric_limits<int32_t>::min() ("
-                 << std::numeric_limits<int32_t>::min() << ")";
-    return;
-  }
-  if (value > std::numeric_limits<int32_t>::max()) {
-    LOG(WARNING) << "Cannot trace 32-bit integer value \"" << name << "\" (" << value
-                 << "), as it is greater than std::numeric_limits<int32_t>::max() ("
-                 << std::numeric_limits<int32_t>::max() << ")";
-    return;
-  }
-  ATraceIntegerValue(name, value);
+  ATraceInteger64ValueBestEffort(name, value);
 }
 
 }  // namespace

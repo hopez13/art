@@ -47,6 +47,32 @@ inline void ATraceIntegerValue(const char* name, int32_t value) {
   PaletteTraceIntegerValue(name, value);
 }
 
+// Try reporting the value as a 64-bit (signed) integer, if the platform's
+// `libartpalette` supports it. Otherwise, and if the value fits in a (signed)
+// 32-bit integer, report it as such.
+//
+// TODO: Replace this implementation with an unconditional call to
+// `PaletteTraceInteger64Value()` when all platforms supported by the updatable
+// ART Module have a `libartpalette` implementation providing that function.
+inline void ATraceInteger64ValueBestEffort(const char* name, int64_t value) {
+  if (PaletteTraceInteger64Value(name, value) == PALETTE_STATUS_OK) {
+    return;
+  }
+  if (value < std::numeric_limits<int32_t>::min()) {
+    LOG(WARNING) << "Cannot trace 32-bit integer value \"" << name << "\" (" << value
+                 << "), as it is lower than std::numeric_limits<int32_t>::min() ("
+                 << std::numeric_limits<int32_t>::min() << ")";
+    return;
+  }
+  if (value > std::numeric_limits<int32_t>::max()) {
+    LOG(WARNING) << "Cannot trace 32-bit integer value \"" << name << "\" (" << value
+                 << "), as it is greater than std::numeric_limits<int32_t>::max() ("
+                 << std::numeric_limits<int32_t>::max() << ")";
+    return;
+  }
+  PaletteTraceIntegerValue(name, value);
+}
+
 class ScopedTrace {
  public:
   explicit ScopedTrace(const char* name) {
