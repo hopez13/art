@@ -149,6 +149,13 @@ palette_status_t PaletteTraceIntegerValue(/*in*/const char* name, int32_t value)
   return m(name, value);
 }
 
+// Introduced in version 4 API, corresponding to SDK level VanillaIceCream.
+palette_status_t PaletteTraceInteger64Value(/*in*/ const char* name, int64_t value) {
+  PaletteTraceInteger64ValueMethod m =
+      PaletteLoader::Instance().GetPaletteTraceInteger64ValueMethod();
+  return m(name, value);
+}
+
 palette_status_t PaletteAshmemCreateRegion(const char* name, size_t size, int* fd) {
   PaletteAshmemCreateRegionMethod m =
       PaletteLoader::Instance().GetPaletteAshmemCreateRegionMethod();
