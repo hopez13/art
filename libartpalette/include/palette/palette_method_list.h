@@ -32,7 +32,14 @@
   M(PaletteTraceEnabled, /*out*/ bool* enabled)                                               \
   M(PaletteTraceBegin, const char* name)                                                      \
   M(PaletteTraceEnd)                                                                          \
+                                                                                              \
+  /* Trace a 32-bit (signed) integer counter value via the ATrace interface. */               \
   M(PaletteTraceIntegerValue, const char* name, int32_t value)                                \
+                                                                                              \
+  /* Introduced in version 4 API, corresponding to SDK level VanillaIceCream. */              \
+  /* Trace a 64-bit (signed) integer counter value via the ATrace interface. */               \
+  M(PaletteTraceInteger64Value, const char* name, int64_t value)                              \
+                                                                                              \
   M(PaletteAshmemCreateRegion, const char* name, size_t size, int* fd)                        \
   M(PaletteAshmemSetProtRegion, int, int)                                                     \
   /* Create the staging directory for on-device signing.           */                         \
