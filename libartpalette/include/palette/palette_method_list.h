@@ -31,6 +31,7 @@
   M(PaletteTraceEnabled, /*out*/ bool* enabled)                                               \
   M(PaletteTraceBegin, const char* name)                                                      \
   M(PaletteTraceEnd)                                                                          \
+  /* Trace a 32-bit (signed) integer counter value via the ATrace interface. */               \
   M(PaletteTraceIntegerValue, const char* name, int32_t value)                                \
   M(PaletteAshmemCreateRegion, const char* name, size_t size, int* fd)                        \
   M(PaletteAshmemSetProtRegion, int, int)                                                     \
@@ -75,6 +76,11 @@
   /*         PALETTE_STATUS_NOT_SUPPORTED if the implementation no longer supports this */    \
   /*         call. This can happen at any future SDK level since this function wraps an */    \
   /*         internal unstable API. */                                                        \
-  M(PaletteSetTaskProfiles, int32_t tid, const char* const profiles[], size_t profiles_len)
+  M(PaletteSetTaskProfiles, int32_t tid, const char* const profiles[], size_t profiles_len)   \
+                                                                                              \
+  /* Methods in version 4 API, corresponding to SDK level VanillaIceCream. */                 \
+                                                                                              \
+  /* Trace a 64-bit (signed) integer counter value via the ATrace interface. */               \
+  M(PaletteTraceInteger64Value, const char* name, int64_t value)
 
 #endif  // ART_LIBARTPALETTE_INCLUDE_PALETTE_PALETTE_METHOD_LIST_H_

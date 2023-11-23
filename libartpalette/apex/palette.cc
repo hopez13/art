@@ -255,4 +255,12 @@ palette_status_t PaletteSetTaskProfiles(int32_t tid,
   return m(tid, profiles, profiles_len);
 }
 
+// Methods in version 4 API, corresponding to SDK level VanillaIceCream.
+
+palette_status_t PaletteTraceInteger64Value(/*in*/ const char* name, int64_t value) {
+  PaletteTraceInteger64ValueMethod m =
+      PaletteLoader::Instance().GetPaletteTraceInteger64ValueMethod();
+  return m(name, value);
+}
+
 }  // extern "C"
