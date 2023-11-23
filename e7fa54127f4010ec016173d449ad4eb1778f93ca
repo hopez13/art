@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5687b694_5502f0f6",
+        "filename": "libnativeloader/test/src/android/test/app/ProductAppTest.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-11-23T12:30:57Z",
+      "side": 1,
+      "message": "I found this out from logs on S, and all the tests below guarded with this fail there. I\u0027m not sure why the namespace becomes shared though - I\u0027d\u0027ve thought that https://r.android.com/924814 would make it non-shared, and it\u0027s certainly old enough to be in S. For reference, here\u0027s the logcat from this app in the penultimate patchset: http://gpaste/6040879874179072\n\n@kiyoungkim@google.com, any thoughts?",
+      "range": {
+        "startLine": 35,
+        "startChar": 7,
+        "endLine": 37,
+        "endChar": 22
+      },
+      "revId": "e7fa54127f4010ec016173d449ad4eb1778f93ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
