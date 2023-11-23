@@ -81,6 +81,7 @@ TEST_F(PaletteClientTest, Trace) {
   EXPECT_EQ(PALETTE_STATUS_OK, PaletteTraceBegin("Hello world!"));
   EXPECT_EQ(PALETTE_STATUS_OK, PaletteTraceEnd());
   EXPECT_EQ(PALETTE_STATUS_OK, PaletteTraceIntegerValue("Beans", /*value=*/ 3));
+  EXPECT_EQ(PALETTE_STATUS_OK, PaletteTraceInteger64Value("The Numbers", /*value=*/4815162342));
 }
 
 TEST_F(PaletteClientTest, Ashmem) {
