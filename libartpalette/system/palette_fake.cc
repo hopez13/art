@@ -71,6 +71,12 @@ palette_status_t PaletteTraceIntegerValue([[maybe_unused]] const char* name,
   return PALETTE_STATUS_OK;
 }
 
+// Introduced in version 4 API, corresponding to SDK level VanillaIceCream.
+palette_status_t PaletteTraceInteger64Value([[maybe_unused]] const char* name,
+                                            [[maybe_unused]] int64_t value) {
+  return PALETTE_STATUS_OK;
+}
+
 palette_status_t PaletteAshmemCreateRegion([[maybe_unused]] const char* name,
                                            [[maybe_unused]] size_t size,
                                            int* fd) {
