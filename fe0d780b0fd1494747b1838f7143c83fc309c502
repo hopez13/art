@@ -34,6 +34,52 @@
       "parentUuid": "a372fb15_1913a86c",
       "revId": "fe0d780b0fd1494747b1838f7143c83fc309c502",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2f6dd8e_73b86a4c",
+        "filename": "runtime/gc/collector/garbage_collector.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-11-23T21:00:24Z",
+      "side": 1,
+      "message": "Yet you\u0027re taking the effort to plumb through `ATRACE_INT64` in the child CLs. Why?\n\nI worry a little that the max value warning below can become very spammy if we\u0027re actually starting to get large values. Even though logd has some log spam protection, there\u0027s the risk that this function becomes many orders of magnitude slower on older devices, which we\u0027re likely to test less thoroughly.",
+      "range": {
+        "startLine": 54,
+        "startChar": 5,
+        "endLine": 56,
+        "endChar": 18
+      },
+      "revId": "fe0d780b0fd1494747b1838f7143c83fc309c502",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3dea85a5_df342ab5",
+        "filename": "runtime/gc/collector/garbage_collector.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-11-23T21:00:24Z",
+      "side": 1,
+      "message": "Suggest just `INT32_MIN`, for brevity (cf. http://go/cppref/cpp/types/integer).",
+      "range": {
+        "startLine": 59,
+        "startChar": 44,
+        "endLine": 60,
+        "endChar": 61
+      },
+      "revId": "fe0d780b0fd1494747b1838f7143c83fc309c502",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
