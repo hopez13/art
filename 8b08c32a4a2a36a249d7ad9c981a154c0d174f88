@@ -16,6 +16,184 @@
       "message": "Friendly ping",
       "revId": "8b08c32a4a2a36a249d7ad9c981a154c0d174f88",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd6a19b3_dc13163e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-11-23T15:41:32Z",
+      "side": 1,
+      "message": "ct",
+      "revId": "8b08c32a4a2a36a249d7ad9c981a154c0d174f88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63dbd42b_92e0489b",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1570,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-11-23T15:41:32Z",
+      "side": 1,
+      "message": "subtract",
+      "range": {
+        "startLine": 1570,
+        "startChar": 81,
+        "endLine": 1570,
+        "endChar": 90
+      },
+      "revId": "8b08c32a4a2a36a249d7ad9c981a154c0d174f88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb2fc922_8dae7d76",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1570,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-11-23T15:41:32Z",
+      "side": 1,
+      "message": "an",
+      "range": {
+        "startLine": 1570,
+        "startChar": 45,
+        "endLine": 1570,
+        "endChar": 46
+      },
+      "revId": "8b08c32a4a2a36a249d7ad9c981a154c0d174f88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b65759b_3483b7ff",
+        "filename": "compiler/optimizing/induction_var_range.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 398,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-11-23T15:41:32Z",
+      "side": 1,
+      "message": "Input argument should be before \"inout\".",
+      "range": {
+        "startLine": 398,
+        "startChar": 28,
+        "endLine": 398,
+        "endChar": 34
+      },
+      "revId": "8b08c32a4a2a36a249d7ad9c981a154c0d174f88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9e3c80b_faf3d876",
+        "filename": "test/618-checker-induction/src/Main.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 454,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-11-23T15:41:32Z",
+      "side": 1,
+      "message": "Maybe it would be easier to optimize if instead of\n\n    Select(b, a * loop_count + b, cond)\n\nwe generated\n\n    a * Select(0, loop_count, cond) + b\n\ngiven that `a` and `Select(0, loop_count, cond)` are invariants in the outer loop.\n\nNote that this would also yield better opportunities for other optimizations as the `Select(0, n, 0 \u003c n)` can be simplified as `Max(0, n)` but it\u0027s not easily simplified if the `+` feeds the `Select` (even if `a \u003d\u003d 1` as in this particular test).\n\nBut feel free to leave this improvement for later.",
+      "range": {
+        "startLine": 453,
+        "startChar": 7,
+        "endLine": 454,
+        "endChar": 26
+      },
+      "revId": "8b08c32a4a2a36a249d7ad9c981a154c0d174f88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ebe8dd89_07c9ffc9",
+        "filename": "test/618-checker-induction/src/Main.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 626,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-11-23T15:41:32Z",
+      "side": 1,
+      "message": "I guess the instruction simplifier replaces the `Select` with a `Max(0, n)`. That has nothing to do with DCE.",
+      "range": {
+        "startLine": 625,
+        "startChar": 4,
+        "endLine": 626,
+        "endChar": 25
+      },
+      "revId": "8b08c32a4a2a36a249d7ad9c981a154c0d174f88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b53514a_1a9fd9e5",
+        "filename": "test/618-checker-induction/src/Main.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 644,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-11-23T15:41:32Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 643,
+        "startChar": 4,
+        "endLine": 644,
+        "endChar": 25
+      },
+      "revId": "8b08c32a4a2a36a249d7ad9c981a154c0d174f88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "34bc86f5_72f4f3d0",
+        "filename": "test/618-checker-induction/src/Main.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 662,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-11-23T15:41:32Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 661,
+        "startChar": 4,
+        "endLine": 662,
+        "endChar": 25
+      },
+      "revId": "8b08c32a4a2a36a249d7ad9c981a154c0d174f88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
