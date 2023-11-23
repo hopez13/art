@@ -46,34 +46,15 @@ namespace {
 
 // Report a GC metric via the ATrace interface.
 void TraceGCMetric(const char* name, int64_t value) {
-  // ART's interface with systrace (through libartpalette) only supports
-  // reporting 32-bit (signed) integer values at the moment. Ignore
-  // underflowing/overflowing values, but warn about their first occurrences.
+  // ART's interface with systrace (through `libartpalette`) does not support
+  // reporting 64-bit (signed) integer values on all platforms at the moment,
+  // and may attempt to report this value as a 32-bit (signed) integer
+  // otherwise.
   //
-  // TODO(b/300015145): Consider extending libarpalette to allow reporting this
-  // value as a 64-bit (signed) integer (instead of a 32-bit (signed) integer).
-  // Note that this is likely unnecessary at the moment (November 2023) for any
-  // size-related GC metric, given the maximum theoretical size of a managed
+  // Note that this is unlikely to be an issue at the moment (November 2023) for
+  // any size-related GC metric, given the maximum theoretical size of a managed
   // heap (4 GiB).
-  if (value < std::numeric_limits<int32_t>::min()) {
-    static bool int32_underflow_reported = false;
-    if (!int32_underflow_reported) {
-      LOG(WARNING) << "Cannot trace GC Metric \"" << name << "\" with value " << value
-                   << " causing a 32-bit integer underflow";
-      int32_underflow_reported = true;
-    }
-    return;
-  }
-  if (value > std::numeric_limits<int32_t>::max()) {
-    static bool int32_overflow_reported = false;
-    if (!int32_overflow_reported) {
-      LOG(WARNING) << "Cannot trace GC Metric \"" << name << "\" with value " << value
-                   << " causing a 32-bit integer overflow";
-      int32_overflow_reported = true;
-    }
-    return;
-  }
-  ATraceIntegerValue(name, value);
+  ATraceInteger64ValueBestEffort(name, value);
 }
 
 }  // namespace
