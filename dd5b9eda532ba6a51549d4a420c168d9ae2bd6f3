@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e324644_8f3b9f5d",
+        "filename": "compiler/optimizing/intrinsics_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 879,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-11-23T01:14:21Z",
+      "side": 1,
+      "message": "Can you document the assumptons here? Presumably ptr is originally only eligned to the field size. e.g 16 bits. The plain A extension, which I believe is all we can assume here, requires W or D alignment for the atomic instruction. (I don\u0027t think Zam is in the standard profiles, and I would expect it to be hard to implement. But I\u0027ll start a discussion to confirm.) So we need to suitably align ptr amd shift arg for this to work. Is the caller responsible for that?",
+      "range": {
+        "startLine": 879,
+        "startChar": 33,
+        "endLine": 879,
+        "endChar": 47
+      },
+      "revId": "dd5b9eda532ba6a51549d4a420c168d9ae2bd6f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d99077bb_3862a7f4",
+        "filename": "compiler/optimizing/intrinsics_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 928,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-11-23T01:14:21Z",
+      "side": 1,
+      "message": "I think this works, but I didn\u0027t find it easy to understand why. Is there an easy correctness argument we could put in a comment? Or is there an xor-less sequence wih similar performance?\n\nI don\u0027t know how fast this sequence actually is, since every instruction depends on the preceding one. How does it compare to \"and the sum with mask and or with the original value anded with inverse mask\". The sequence may be slightly longer, but schedules better? And I would have found ut easier to understand.",
+      "range": {
+        "startLine": 922,
+        "startChar": 8,
+        "endLine": 928,
+        "endChar": 89
+      },
+      "revId": "dd5b9eda532ba6a51549d4a420c168d9ae2bd6f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dcc05a51_0239de56",
+        "filename": "compiler/optimizing/intrinsics_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2252,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-11-23T01:14:21Z",
+      "side": 1,
+      "message": "be",
+      "range": {
+        "startLine": 2252,
+        "startChar": 41,
+        "endLine": 2252,
+        "endChar": 43
+      },
+      "revId": "dd5b9eda532ba6a51549d4a420c168d9ae2bd6f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
