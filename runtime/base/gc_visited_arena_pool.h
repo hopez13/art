@@ -114,8 +114,11 @@ class TrackedArena final : public Arena {
   // aligned.
   // TODO: Remove this once we remove the shmem (minor-fault) code in
   // userfaultfd GC and directly use ZeroAndReleaseMemory().
-  static void ReleasePages(uint8_t* begin, size_t size, bool pre_zygote_fork);
-  void Release() override;
+  static void ReleasePages(uint8_t* begin,
+                           size_t size,
+                           bool pre_zygote_fork,
+                           bool release_eagerly = true);
+  void Release(bool release_eagerly = true) override;
   bool IsPreZygoteForkArena() const { return pre_zygote_fork_; }
   bool IsSingleObjectArena() const { return first_obj_array_.get() == nullptr; }
 
@@ -156,7 +159,7 @@ class GcVisitedArenaPool final : public ArenaPool {
   size_t GetBytesAllocated() const override REQUIRES(!lock_);
   void ReclaimMemory() override {}
   void LockReclaimMemory() override {}
-  void TrimMaps() override {}
+  void TrimMaps([[maybe_unused]] bool release_eagerly = true) override {}
 
   uint8_t* AllocSingleObjArena(size_t size) REQUIRES(!lock_);
   void FreeSingleObjArena(uint8_t* addr) REQUIRES(!lock_);

@@ -864,6 +864,16 @@ void MemMap::FillWithZero(bool release_eagerly) {
   }
 }
 
+void MemMap::MadviseFree() {
+#if defined(__linux__)
+#ifdef MADV_FREE
+  if (base_begin_ != nullptr || base_size_ != 0) {
+    madvise(base_begin_, base_size_, MADV_FREE);
+  }
+#endif  // MADV_FREE
+#endif
+}
+
 int MemMap::MadviseDontFork() {
 #if defined(__linux__)
   if (base_begin_ != nullptr || base_size_ != 0) {

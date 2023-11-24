@@ -35,7 +35,7 @@ class MemMapArena final : public Arena {
  public:
   MemMapArena(size_t size, bool low_4gb, const char* name);
   virtual ~MemMapArena();
-  void Release() override;
+  void Release(bool release_eagerly) override;
 
  private:
   static MemMap Allocate(size_t size, bool low_4gb, const char* name);
@@ -81,10 +81,14 @@ MemMapArena::~MemMapArena() {
   // Destroys MemMap via std::unique_ptr<>.
 }
 
-void MemMapArena::Release() {
+void MemMapArena::Release(bool release_eagerly) {
   if (bytes_allocated_ > 0) {
-    map_.MadviseDontNeedAndZero();
-    bytes_allocated_ = 0;
+    if (release_eagerly) {
+      map_.MadviseDontNeedAndZero();
+      bytes_allocated_ = 0;
+    } else {
+      map_.MadviseFree();
+    }
   }
 }
 
@@ -128,11 +132,11 @@ Arena* MemMapArenaPool::AllocArena(size_t size) {
   return ret;
 }
 
-void MemMapArenaPool::TrimMaps() {
+void MemMapArenaPool::TrimMaps(bool release_eagerly) {
   ScopedTrace trace(__PRETTY_FUNCTION__);
   std::lock_guard<std::mutex> lock(lock_);
   for (Arena* arena = free_arenas_; arena != nullptr; arena = arena->next_) {
-    arena->Release();
+    arena->Release(release_eagerly);
   }
 }
 

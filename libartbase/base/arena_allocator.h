@@ -185,7 +185,7 @@ class Arena {
   // Reset is for pre-use and uses memset for performance.
   void Reset();
   // Release is used inbetween uses and uses madvise for memory usage.
-  virtual void Release() { }
+  virtual void Release([[maybe_unused]] bool release_eagerly = true) { }
   uint8_t* Begin() const {
     return memory_;
   }
@@ -236,8 +236,8 @@ class ArenaPool {
   virtual size_t GetBytesAllocated() const = 0;
   virtual void ReclaimMemory() = 0;
   virtual void LockReclaimMemory() = 0;
-  // Trim the maps in arenas by madvising, used by JIT to reduce memory usage.
-  virtual void TrimMaps() = 0;
+  // Trim the maps in arenas by releasing to the OS the free memory.
+  virtual void TrimMaps(bool release_eagerly = true) = 0;
 
  protected:
   ArenaPool() = default;

@@ -33,7 +33,7 @@ class MallocArenaPool final : public ArenaPool {
   void ReclaimMemory() override;
   void LockReclaimMemory() override;
   // Is a nop for malloc pools.
-  void TrimMaps() override;
+  void TrimMaps(bool release_eagerly = true) override;
 
  private:
   Arena* free_arenas_;

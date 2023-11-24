@@ -118,7 +118,7 @@ Arena* MallocArenaPool::AllocArena(size_t size) {
   return ret;
 }
 
-void MallocArenaPool::TrimMaps() {
+void MallocArenaPool::TrimMaps([[maybe_unused]] bool release_eagerly) {
   // Nop, because there is no way to do madvise here.
 }
 

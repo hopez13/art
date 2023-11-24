@@ -214,7 +214,7 @@ bool JitCompiler::CompileMethod(
   // TODO: move this to an idle phase.
   {
     TimingLogger::ScopedTiming t2("TrimMaps", &logger);
-    runtime->GetJitArenaPool()->TrimMaps();
+    runtime->GetJitArenaPool()->TrimMaps(/* release_eagerly= */ false);
   }
 
   runtime->GetJit()->AddTimingLogger(logger);

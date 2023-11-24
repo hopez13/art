@@ -266,6 +266,7 @@ class MemMap {
   void MadviseDontNeedAndZero() {
     FillWithZero(/* release_eagerly= */ true);
   }
+  void MadviseFree();
   int MadviseDontFork();
 
   int GetProtect() const {

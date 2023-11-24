@@ -30,8 +30,7 @@ class MemMapArenaPool final : public ArenaPool {
   size_t GetBytesAllocated() const override;
   void ReclaimMemory() override;
   void LockReclaimMemory() override;
-  // Trim the maps in arenas by madvising, used by JIT to reduce memory usage.
-  void TrimMaps() override;
+  void TrimMaps(bool release_eagerly = true) override;
 
  private:
   const bool low_4gb_;

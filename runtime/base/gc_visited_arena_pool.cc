@@ -49,7 +49,10 @@ TrackedArena::TrackedArena(uint8_t* start, size_t size, bool pre_zygote_fork, bo
   }
 }
 
-void TrackedArena::ReleasePages(uint8_t* begin, size_t size, bool pre_zygote_fork) {
+void TrackedArena::ReleasePages(uint8_t* begin,
+                                size_t size,
+                                bool pre_zygote_fork,
+                                bool release_eagerly) {
   DCHECK_ALIGNED(begin, kPageSize);
   // Userfaultfd GC uses MAP_SHARED mappings for linear-alloc and therefore
   // MADV_DONTNEED will not free the pages from page cache. Therefore use
@@ -61,13 +64,13 @@ void TrackedArena::ReleasePages(uint8_t* begin, size_t size, bool pre_zygote_for
     // MADV_REMOVE fails if invoked on anonymous mapping, which could happen
     // if the arena is released before userfaultfd-GC starts using memfd. So
     // use MADV_DONTNEED.
-    ZeroAndReleaseMemory(begin, size);
+    ZeroMemory(begin, size, release_eagerly);
   }
 }
 
-void TrackedArena::Release() {
+void TrackedArena::Release(bool release_eagerly) {
   if (bytes_allocated_ > 0) {
-    ReleasePages(Begin(), Size(), pre_zygote_fork_);
+    ReleasePages(Begin(), Size(), pre_zygote_fork_, release_eagerly);
     if (first_obj_array_.get() != nullptr) {
       std::fill_n(first_obj_array_.get(), Size() / kPageSize, nullptr);
     }
