@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b50cf6c_a04ce470",
+        "filename": "compiler/optimizing/intrinsics_riscv64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2192,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-11-24T11:23:15Z",
+      "side": 1,
+      "message": "not `VIXL`",
+      "range": {
+        "startLine": 2192,
+        "startChar": 68,
+        "endLine": 2192,
+        "endChar": 83
+      },
+      "revId": "cdcfe6e7e1b6a18286117b5a85d43410a029a0e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de13bd3c_f0225778",
+        "filename": "compiler/optimizing/intrinsics_riscv64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2297,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-11-24T11:23:15Z",
+      "side": 1,
+      "message": "Should we DCHECK that we will hit it? i.e. `DCHECK(arg_reg \u003d\u003d kNoXRegister \u0026\u0026 !use_cas)`?",
+      "range": {
+        "startLine": 2297,
+        "startChar": 14,
+        "endLine": 2297,
+        "endChar": 56
+      },
+      "revId": "cdcfe6e7e1b6a18286117b5a85d43410a029a0e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
