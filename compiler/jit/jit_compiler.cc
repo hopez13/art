@@ -210,9 +210,9 @@ bool JitCompiler::CompileMethod(
     runtime->GetMetrics()->JitMethodCompileCountDelta()->AddOne();
   }
 
-  // Trim maps to reduce memory usage.
-  // TODO: move this to an idle phase.
-  {
+  // If we don't have a new task following this compile,
+  // trim maps to reduce memory usage.
+  if (runtime->GetJit()->GetThreadPool()->GetTaskCount(self) == 0) {
     TimingLogger::ScopedTiming t2("TrimMaps", &logger);
     runtime->GetJitArenaPool()->TrimMaps();
   }
