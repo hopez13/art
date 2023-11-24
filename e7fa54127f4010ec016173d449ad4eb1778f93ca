@@ -22,6 +22,30 @@
       },
       "revId": "e7fa54127f4010ec016173d449ad4eb1778f93ca",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8e347d25_80c2f3ec",
+        "filename": "libnativeloader/test/src/android/test/app/ProductAppTest.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1146974
+      },
+      "writtenOn": "2023-11-24T04:57:56Z",
+      "side": 1,
+      "message": "https://r.android.com/1191698 is merged in S. But there must be devices in the presubmit that have not set `ro.product.vndk.version`, although I confirm `aosp_cf_x86_64_phone` in sc-dev has set `ro.product.vndk.version`.\n\nCould you please try using the condition to read `ro.product.vndk.version` for `productAppsAreShared()`? As we removed `ro.product.vndk.version` recently, the function could be:\n```\n    private static boolean productAppsAreShared() {\n        return Build.VERSION.SDK_INT \u003c\u003d Build.VERSION_CODES.UPSIDE_DOWN_CAKE \u0026\u0026\n               SystemProperties.get(\"ro.product.vndk.version\").isEmpty();\n    }\n```",
+      "parentUuid": "5687b694_5502f0f6",
+      "range": {
+        "startLine": 35,
+        "startChar": 7,
+        "endLine": 37,
+        "endChar": 22
+      },
+      "revId": "e7fa54127f4010ec016173d449ad4eb1778f93ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
