@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a77c8d2_113cd701",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-11-24T16:09:47Z",
+      "side": 1,
+      "message": "Heh, you\u0027re stealing my plan all along. I had this WIP in my tree for a few weeks now 😊",
+      "revId": "dfde5f5f16e1e552e6064b2d945c8b3b2a1a20d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35c4200b_efcbca05",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2420,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-11-24T16:09:47Z",
+      "side": 1,
+      "message": "The visitor will already be seeing the uses, so my first approach was to do the logic below with VisitInstanceFieldGet and avoided going over uses. I think this fits better how instruction simplifier works, but could be convinced otherwise.",
+      "range": {
+        "startLine": 2420,
+        "startChar": 2,
+        "endLine": 2420,
+        "endChar": 62
+      },
+      "revId": "dfde5f5f16e1e552e6064b2d945c8b3b2a1a20d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "835ec296_09db492e",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3101,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-11-24T16:09:47Z",
+      "side": 1,
+      "message": "Use the macro, so when we introduce long, we don\u0027t need to update this.",
+      "range": {
+        "startLine": 3087,
+        "startChar": 0,
+        "endLine": 3101,
+        "endChar": 12
+      },
+      "revId": "dfde5f5f16e1e552e6064b2d945c8b3b2a1a20d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
