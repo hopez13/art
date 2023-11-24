@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f73c56b0_04d5de3f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-11-24T16:39:50Z",
+      "side": 1,
+      "message": "I though Santiago was more likely to have started that work. But I think I was the right one to implement this. Were you aware of the potential type mismatch for `InstanceFieldGet`?",
+      "parentUuid": "7a77c8d2_113cd701",
+      "revId": "dfde5f5f16e1e552e6064b2d945c8b3b2a1a20d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "35c4200b_efcbca05",
         "filename": "compiler/optimizing/instruction_simplifier.cc",
         "patchSetId": 2
@@ -43,6 +61,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a0f141ae_1ebce425",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2420,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-11-24T16:39:50Z",
+      "side": 1,
+      "message": "I was thinking about that but there are many many field gets, compared to the `valueOf()` invokes, so this approach should be better for compiler performance. But I did not measure, so that\u0027s just a guess and my other guess is that the performance difference is probably in the noise anyway.\n\nDo you want me to add a `VisitInstanceFieldGet()` and do it there?",
+      "parentUuid": "35c4200b_efcbca05",
+      "range": {
+        "startLine": 2420,
+        "startChar": 2,
+        "endLine": 2420,
+        "endChar": 62
+      },
+      "revId": "dfde5f5f16e1e552e6064b2d945c8b3b2a1a20d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "835ec296_09db492e",
         "filename": "compiler/optimizing/instruction_simplifier.cc",
         "patchSetId": 2
@@ -54,6 +96,30 @@
       "writtenOn": "2023-11-24T16:09:47Z",
       "side": 1,
       "message": "Use the macro, so when we introduce long, we don\u0027t need to update this.",
+      "range": {
+        "startLine": 3087,
+        "startChar": 0,
+        "endLine": 3101,
+        "endChar": 12
+      },
+      "revId": "dfde5f5f16e1e552e6064b2d945c8b3b2a1a20d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "72cb76dc_3b2b036b",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3101,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-11-24T16:39:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "835ec296_09db492e",
       "range": {
         "startLine": 3087,
         "startChar": 0,
