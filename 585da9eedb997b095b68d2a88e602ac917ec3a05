@@ -3,6 +3,46 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "65ee7427_e3127051",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-11-24T17:35:56Z",
+      "side": 1,
+      "message": "Could other instructions be in the middle too? I tried quickly with a couple of simple examples and I always saw them next to each other (except for NullCheck without this CL).\n\nIf there are, we can handle them on follow-ups",
+      "range": {
+        "startLine": 10,
+        "startChar": 31,
+        "endLine": 10,
+        "endChar": 41
+      },
+      "revId": "585da9eedb997b095b68d2a88e602ac917ec3a05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b616e95_704b595c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-11-24T17:35:56Z",
+      "side": 1,
+      "message": "I\u0027d be curious to know if you\u0027ve done local testing to see the code size improvements",
+      "revId": "585da9eedb997b095b68d2a88e602ac917ec3a05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "38562df8_bb136880",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 3
@@ -19,6 +59,29 @@
         "startChar": 0,
         "endLine": 3375,
         "endChar": 19
+      },
+      "revId": "585da9eedb997b095b68d2a88e602ac917ec3a05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe43d8aa_e68837b7",
+        "filename": "test/640-checker-integer-valueof/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-11-24T17:35:56Z",
+      "side": 1,
+      "message": "Can more arguments appear in this call of `ByteValueOf`? I would have expected only one input.\nSame for the others",
+      "range": {
+        "startLine": 53,
+        "startChar": 65,
+        "endLine": 53,
+        "endChar": 80
       },
       "revId": "585da9eedb997b095b68d2a88e602ac917ec3a05",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
