@@ -300,12 +300,12 @@ bool PrepareForRegisterAllocation::CanMoveClinitCheck(HInstruction* input,
     return false;
   }
 
-  // If there's a instruction between them that can throw or it has side effects, we cannot move the
-  // responsibility.
+  // If there's a instruction between them that can throw or it has any side effects (read, write,
+  // or depend on), we cannot move the responsibility.
   for (HInstruction* between = input->GetNext(); between != user; between = between->GetNext()) {
     DCHECK(between != nullptr) << " User must be after input in the same block. input: " << *input
                                << ", user: " << *user;
-    if (between->CanThrow() || between->HasSideEffects()) {
+    if (between->CanThrow() || !between->GetSideEffects().DoesNothing()) {
       return false;
     }
   }
