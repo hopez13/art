@@ -99,6 +99,54 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "99fce509_043c3f21",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1570,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-11-24T10:04:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "63dbd42b_92e0489b",
+      "range": {
+        "startLine": 1570,
+        "startChar": 81,
+        "endLine": 1570,
+        "endChar": 90
+      },
+      "revId": "8b08c32a4a2a36a249d7ad9c981a154c0d174f88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5056bfb8_37d940bb",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1570,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-11-24T10:04:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bb2fc922_8dae7d76",
+      "range": {
+        "startLine": 1570,
+        "startChar": 45,
+        "endLine": 1570,
+        "endChar": 46
+      },
+      "revId": "8b08c32a4a2a36a249d7ad9c981a154c0d174f88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9b65759b_3483b7ff",
@@ -112,6 +160,30 @@
       "writtenOn": "2023-11-23T15:41:32Z",
       "side": 1,
       "message": "Input argument should be before \"inout\".",
+      "range": {
+        "startLine": 398,
+        "startChar": 28,
+        "endLine": 398,
+        "endChar": 34
+      },
+      "revId": "8b08c32a4a2a36a249d7ad9c981a154c0d174f88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8826bd2_163abfe8",
+        "filename": "compiler/optimizing/induction_var_range.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 398,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-11-24T10:04:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9b65759b_3483b7ff",
       "range": {
         "startLine": 398,
         "startChar": 28,
@@ -145,6 +217,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f48c374_07beae21",
+        "filename": "test/618-checker-induction/src/Main.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 454,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-11-24T10:04:06Z",
+      "side": 1,
+      "message": "This could be tricky as the taken test generation is reused for periodic loops too. We could have two different generations though (one for linear and one for periodic) to further optimize the linear case.\n\nLeaving it as a follow-up",
+      "parentUuid": "e9e3c80b_faf3d876",
+      "range": {
+        "startLine": 453,
+        "startChar": 7,
+        "endLine": 454,
+        "endChar": 26
+      },
+      "revId": "8b08c32a4a2a36a249d7ad9c981a154c0d174f88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ebe8dd89_07c9ffc9",
@@ -158,6 +254,30 @@
       "writtenOn": "2023-11-23T15:41:32Z",
       "side": 1,
       "message": "I guess the instruction simplifier replaces the `Select` with a `Max(0, n)`. That has nothing to do with DCE.",
+      "range": {
+        "startLine": 625,
+        "startChar": 4,
+        "endLine": 626,
+        "endChar": 25
+      },
+      "revId": "8b08c32a4a2a36a249d7ad9c981a154c0d174f88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cbef1951_6f091ba9",
+        "filename": "test/618-checker-induction/src/Main.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 626,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-11-24T10:04:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ebe8dd89_07c9ffc9",
       "range": {
         "startLine": 625,
         "startChar": 4,
@@ -191,6 +311,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "33ef8579_8fb3fc01",
+        "filename": "test/618-checker-induction/src/Main.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 644,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-11-24T10:04:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3b53514a_1a9fd9e5",
+      "range": {
+        "startLine": 643,
+        "startChar": 4,
+        "endLine": 644,
+        "endChar": 25
+      },
+      "revId": "8b08c32a4a2a36a249d7ad9c981a154c0d174f88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "34bc86f5_72f4f3d0",
@@ -204,6 +348,30 @@
       "writtenOn": "2023-11-23T15:41:32Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 661,
+        "startChar": 4,
+        "endLine": 662,
+        "endChar": 25
+      },
+      "revId": "8b08c32a4a2a36a249d7ad9c981a154c0d174f88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0bdf205a_8887663f",
+        "filename": "test/618-checker-induction/src/Main.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 662,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-11-24T10:04:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "34bc86f5_72f4f3d0",
       "range": {
         "startLine": 661,
         "startChar": 4,
