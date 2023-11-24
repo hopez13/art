@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4da3724b_1c727f9f",
+        "filename": "compiler/optimizing/intrinsics_riscv64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2192,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-11-24T11:52:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4b50cf6c_a04ce470",
+      "range": {
+        "startLine": 2192,
+        "startChar": 68,
+        "endLine": 2192,
+        "endChar": 83
+      },
+      "revId": "cdcfe6e7e1b6a18286117b5a85d43410a029a0e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "de13bd3c_f0225778",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-11-24T11:23:15Z",
       "side": 1,
       "message": "Should we DCHECK that we will hit it? i.e. `DCHECK(arg_reg \u003d\u003d kNoXRegister \u0026\u0026 !use_cas)`?",
+      "range": {
+        "startLine": 2297,
+        "startChar": 14,
+        "endLine": 2297,
+        "endChar": 56
+      },
+      "revId": "cdcfe6e7e1b6a18286117b5a85d43410a029a0e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c351c68_44dbd495",
+        "filename": "compiler/optimizing/intrinsics_riscv64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2297,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-11-24T11:52:28Z",
+      "side": 1,
+      "message": "The `PrepareXRegister()` is the main path and here we\u0027re handling only the cases that cannot use it for some reason. Asserting that we\u0027ll take the main path does not make much sense to me.\n\nBesides, the CAS path is only for `kAdd` and the `arg_reg` is obviously `kNoXRegister` in this path.",
+      "parentUuid": "de13bd3c_f0225778",
       "range": {
         "startLine": 2297,
         "startChar": 14,
