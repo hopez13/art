@@ -3363,6 +3363,24 @@ std::ostream& operator<<(std::ostream& os, HInvokeStaticOrDirect::ClinitCheckReq
   }
 }
 
+bool HInvokeStaticOrDirect::CanBeNull() const {
+  if (GetType() != DataType::Type::kReference) {
+    return false;
+  }
+  if (IsStringInit()) {
+    return true;
+  }
+  switch (GetIntrinsic()) {
+    case Intrinsics::kByteValueOf:
+    case Intrinsics::kShortValueOf:
+    case Intrinsics::kCharacterValueOf:
+    case Intrinsics::kIntegerValueOf:
+      return false;
+    default:
+      return true;
+  }
+}
+
 bool HInvokeVirtual::CanDoImplicitNullCheckOn(HInstruction* obj) const {
   if (obj != InputAt(0)) {
     return false;
