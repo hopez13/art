@@ -61,6 +61,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b0a04857_c3d35872",
+        "filename": "runtime/gc/collector/garbage_collector.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2023-11-24T14:48:54Z",
+      "side": 1,
+      "message": "\u003e Yet you\u0027re taking the effort to plumb through `ATRACE_INT64` in the child CLs. Why?\n\nBecause:\n1. these metrics are currently computed and reported as a 64-bit integers (in ART and in our metrics pipelines);\n2. we may consider managed heaps larger than 4 GiB in the future (or even just larger than 2 GiB; see below).\n\nI\u0027m trying to plan ahead here, but at the same time stay compatible with the system `libartpalette` implementations shipped with Android 12 – 14.\n\n\u003e I worry a little that the max value warning below can become very spammy if we\u0027re actually starting to get large values. Even though logd has some log spam protection, there\u0027s the risk that this function becomes many orders of magnitude slower on older devices, which we\u0027re likely to test less thoroughly.\n\nI\u0027ll let Lokesh (@lokeshgidra@google.com) comment on this, but in practice I think we\u0027ll never reach this code path. If we do, it would mean a single GC cycle collected 2 GiB of objects, which is improbable and probably fine to ignore as a one-off (I\u0027m not even sure 2 GiB *heaps* are used anywhere).",
+      "parentUuid": "e2f6dd8e_73b86a4c",
+      "range": {
+        "startLine": 54,
+        "startChar": 5,
+        "endLine": 56,
+        "endChar": 18
+      },
+      "revId": "fe0d780b0fd1494747b1838f7143c83fc309c502",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3dea85a5_df342ab5",
         "filename": "runtime/gc/collector/garbage_collector.cc",
         "patchSetId": 2
@@ -72,6 +96,30 @@
       "writtenOn": "2023-11-23T21:00:24Z",
       "side": 1,
       "message": "Suggest just `INT32_MIN`, for brevity (cf. http://go/cppref/cpp/types/integer).",
+      "range": {
+        "startLine": 59,
+        "startChar": 44,
+        "endLine": 60,
+        "endChar": 61
+      },
+      "revId": "fe0d780b0fd1494747b1838f7143c83fc309c502",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bbb3b8a7_ef73116a",
+        "filename": "runtime/gc/collector/garbage_collector.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2023-11-24T14:48:54Z",
+      "side": 1,
+      "message": "Thanks for the suggestion, but I tend to prefer non-preprocessor-based options whenever it is possible.",
+      "parentUuid": "3dea85a5_df342ab5",
       "range": {
         "startLine": 59,
         "startChar": 44,
@@ -95,6 +143,24 @@
       "writtenOn": "2023-11-24T02:20:35Z",
       "side": 1,
       "message": "Thank you for doing this!\nCould you also add metrics for how many bytes were scanned? Or any other way that we can see GC throughput in traces.",
+      "revId": "fe0d780b0fd1494747b1838f7143c83fc309c502",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a634893_37e65d1e",
+        "filename": "runtime/gc/collector/garbage_collector.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2023-11-24T14:48:54Z",
+      "side": 1,
+      "message": "Sure, will do.",
+      "parentUuid": "1cd2ec1d_e5613eb0",
       "revId": "fe0d780b0fd1494747b1838f7143c83fc309c502",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
