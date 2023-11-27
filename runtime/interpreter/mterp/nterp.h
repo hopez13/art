@@ -17,6 +17,7 @@
 #ifndef ART_RUNTIME_INTERPRETER_MTERP_NTERP_H_
 #define ART_RUNTIME_INTERPRETER_MTERP_NTERP_H_
 
+#include "arch/instruction_set.h"
 #include "base/array_ref.h"
 #include "base/globals.h"
 
