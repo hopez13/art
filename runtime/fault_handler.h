@@ -211,6 +211,16 @@ class NullPointerHandlerSimulator final : public FaultHandler {
  private:
   DISALLOW_COPY_AND_ASSIGN(NullPointerHandlerSimulator);
 };
+
+class StackOverflowHandlerSimulator final : public FaultHandler {
+ public:
+  explicit StackOverflowHandlerSimulator(FaultManager* manager);
+
+  bool Action(int sig, siginfo_t* siginfo, void* context) override;
+
+ private:
+  DISALLOW_COPY_AND_ASSIGN(StackOverflowHandlerSimulator);
+};
 #endif  // ART_USE_SIMULATOR
 
 // Statically allocated so the the signal handler can Get access to it.
