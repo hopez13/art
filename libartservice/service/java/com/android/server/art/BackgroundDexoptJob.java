@@ -17,6 +17,7 @@
 package com.android.server.art;
 
 import static com.android.server.art.ArtManagerLocal.ScheduleBackgroundDexoptJobCallback;
+import static com.android.server.art.model.ArtFlags.BatchDexoptPass;
 import static com.android.server.art.model.ArtFlags.ScheduleStatus;
 import static com.android.server.art.model.Config.Callback;
 
@@ -41,14 +42,18 @@ import com.android.server.LocalManagerRegistry;
 import com.android.server.art.model.ArtFlags;
 import com.android.server.art.model.Config;
 import com.android.server.art.model.DexoptResult;
+import com.android.server.art.model.OperationProgress;
 import com.android.server.pm.PackageManagerLocal;
 
 import com.google.auto.value.AutoValue;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.TimeUnit;
+import java.util.function.Consumer;
 
 /** @hide */
 @RequiresApi(Build.VERSION_CODES.UPSIDE_DOWN_CAKE)
@@ -91,9 +96,8 @@ public class BackgroundDexoptJob {
             // "false" means not to execute again in the same interval but to execute again in the
             // next interval.
             // This call will be ignored if `onStopJob` is called.
-            boolean wantsReschedule = result instanceof CompletedResult
-                    && ((CompletedResult) result).dexoptResult().getFinalStatus()
-                            == DexoptResult.DEXOPT_CANCELLED;
+            boolean wantsReschedule =
+                    result instanceof CompletedResult && ((CompletedResult) result).isCancelled();
             jobService.jobFinished(params, wantsReschedule);
         });
         // "true" means the job will continue running until `jobFinished` is called.
@@ -201,12 +205,27 @@ public class BackgroundDexoptJob {
 
     @NonNull
     private CompletedResult run(@NonNull CancellationSignal cancellationSignal) {
-        long startTimeMs = SystemClock.uptimeMillis();
-        DexoptResult dexoptResult;
+        Map<Integer, Long> startTimeMsByPass = new HashMap<>();
+        Map<Integer, Long> durationMsByPass = new HashMap<>();
+        Map<Integer, Consumer<OperationProgress>> progressCallbacks = new HashMap<>();
+        for (@BatchDexoptPass int pass : ArtFlags.BATCH_DEXOPT_PASSES) {
+            progressCallbacks.put(pass, progress -> {
+                if (progress.getTotal() == 0) {
+                    durationMsByPass.put(pass, 0l);
+                } else if (progress.getCurrent() == 0) {
+                    startTimeMsByPass.put(pass, SystemClock.uptimeMillis());
+                } else if (progress.getCurrent() == progress.getTotal()) {
+                    durationMsByPass.put(
+                            pass, SystemClock.uptimeMillis() - startTimeMsByPass.get(pass));
+                }
+            });
+        }
+
+        Map<Integer, DexoptResult> dexoptResults;
         try (var snapshot = mInjector.getPackageManagerLocal().withFilteredSnapshot()) {
-            dexoptResult = mInjector.getArtManagerLocal().dexoptPackages(snapshot,
-                    ReasonMapping.REASON_BG_DEXOPT, cancellationSignal,
-                    null /* processCallbackExecutor */, null /* processCallback */);
+            dexoptResults = mInjector.getArtManagerLocal().dexoptPackages(snapshot,
+                    ReasonMapping.REASON_BG_DEXOPT, cancellationSignal, Runnable::run,
+                    progressCallbacks);
 
             // For simplicity, we don't support cancelling the following operation in the middle.
             // This is fine because it typically takes only a few seconds.
@@ -219,7 +238,7 @@ public class BackgroundDexoptJob {
                 Log.i(TAG, String.format("Freed %d bytes", freedBytes));
             }
         }
-        return CompletedResult.create(dexoptResult, SystemClock.uptimeMillis() - startTimeMs);
+        return CompletedResult.create(dexoptResults, durationMsByPass);
     }
 
     private void writeStats(@NonNull Result result) {
@@ -239,12 +258,19 @@ public class BackgroundDexoptJob {
 
     @AutoValue
     static abstract class CompletedResult extends Result {
-        abstract @NonNull DexoptResult dexoptResult();
-        abstract long durationMs();
+        abstract @NonNull Map<Integer, DexoptResult> dexoptResults();
+        abstract @NonNull Map<Integer, Long> durationMsByPass();
 
         @NonNull
-        static CompletedResult create(@NonNull DexoptResult dexoptResult, long durationMs) {
-            return new AutoValue_BackgroundDexoptJob_CompletedResult(dexoptResult, durationMs);
+        static CompletedResult create(@NonNull Map<Integer, DexoptResult> dexoptResults,
+                @NonNull Map<Integer, Long> durationMsByPass) {
+            return new AutoValue_BackgroundDexoptJob_CompletedResult(
+                    dexoptResults, durationMsByPass);
+        }
+
+        public boolean isCancelled() {
+            return dexoptResults().values().stream().anyMatch(
+                    result -> result.getFinalStatus() == DexoptResult.DEXOPT_CANCELLED);
         }
     }
 
