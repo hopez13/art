@@ -660,6 +660,18 @@ NullPointerHandlerSimulator::NullPointerHandlerSimulator(FaultManager* manager)
 bool NullPointerHandlerSimulator::Action(int sig, siginfo_t* info, void* context) {
   return Thread::Current()->GetSimExecutor()->HandleNullPointer(sig, info, context);
 }
+
+//
+// Stack overflow fault handler for the simulator.
+//
+StackOverflowHandlerSimulator::StackOverflowHandlerSimulator(FaultManager* manager)
+    : FaultHandler(manager) {
+  manager_->AddHandler(this, /* generated_code= */ true);
+}
+
+bool StackOverflowHandlerSimulator::Action(int sig, siginfo_t* info, void* context) {
+  return Thread::Current()->GetSimExecutor()->HandleStackOverflow(sig, info, context);
+}
 #endif  // ART_USE_SIMULATOR
 
 }   // namespace art

@@ -86,6 +86,7 @@ class CodeSimulatorArm64 : public CodeSimulator, public BasicCodeSimulatorArm64 
 
   bool HandleNullPointer(int sig, siginfo_t* siginfo, void* context) override
       NO_THREAD_SAFETY_ANALYSIS;
+  bool HandleStackOverflow(int sig, siginfo_t* siginfo, void* context) override;
 
  private:
   CodeSimulatorArm64();

@@ -2235,6 +2235,12 @@ extern "C" const void* GetQuickThrowNullPointerExceptionFromSignal() {
   return reinterpret_cast<void*>(art_quick_throw_null_pointer_exception_from_signal);
 }
 
+// Return the address of quick stub code for throwing a stack overflow error.
+extern "C" void art_quick_throw_stack_overflow();
+extern "C" const void* GetQuickThrowStackOverflow() {
+  return reinterpret_cast<void*>(art_quick_throw_stack_overflow);
+}
+
 // We use TwoWordReturn to optimize scalar returns. We use the hi value for code, and the lo value
 // for the method pointer.
 //
