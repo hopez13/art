@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e5ba72d_98c45970",
+        "filename": "libartservice/service/java/com/android/server/art/ArtManagerLocal.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 882,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-11-27T22:49:20Z",
+      "side": 1,
+      "message": "I assume this is in practice the only pass at boot, so the reported progress will still reflect the overall progress. However, it\u0027s prone to problems if we extend the passes further.\n\nCan\u0027t you add another @hide field to `OperationProgress` for the current pass instead?\n\nI think that should be fine as long as it\u0027s not part of the API, but if we can\u0027t do that due to API guidelines, we may be better off with a separate internal progress callback that\u0027s not conflated with the exposed one (except we could have an internal wrapper for this external `progressCallback` that implements the internal API).",
+      "range": {
+        "startLine": 882,
+        "startChar": 27,
+        "endLine": 882,
+        "endChar": 45
+      },
+      "revId": "549c5a3280918d21bbce9dee10765260a492d06f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
