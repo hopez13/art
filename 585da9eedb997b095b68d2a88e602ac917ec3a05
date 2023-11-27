@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "3770179f_1bf82a22",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-11-27T09:39:05Z",
+      "side": 1,
+      "message": "The change to `HInvokeStaticOrDirect::CanBeNull()` has two effects.\n\nFirst, as shown by the `builder (after)` tests, we can avoid generating the `NullCheck` when building the graph, so we don\u0027t even waste memory for that.\n\nSecond, as shown by the complicated `$noinline$boxUnboxByteAsUint8()` test, a NullCheck can sometimes come from a different point and it can be eliminated in one of the instruction simplifier passes.\n\nIn both cases, there could be other instructions between the boxing and the null check (whether not created at all or eliminated later).",
+      "parentUuid": "65ee7427_e3127051",
+      "range": {
+        "startLine": 10,
+        "startChar": 31,
+        "endLine": 10,
+        "endChar": 41
+      },
+      "revId": "585da9eedb997b095b68d2a88e602ac917ec3a05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "7b616e95_704b595c",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 3
@@ -37,6 +61,24 @@
       "writtenOn": "2023-11-24T17:35:56Z",
       "side": 1,
       "message": "I\u0027d be curious to know if you\u0027ve done local testing to see the code size improvements",
+      "revId": "585da9eedb997b095b68d2a88e602ac917ec3a05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d48dd5f1_23769083",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-11-27T09:39:05Z",
+      "side": 1,
+      "message": "I just logged uses of `\u003cBoxedType\u003e.valueOf()` intrinsics before register allocation for the testing boot image compilation and there was just one NullCheck to remove and nothing else. I would not expect this optimization to help much with the full boot image either.\n\nThis is really aimed at Kotlin (assuming we do enough inlining) and I didn\u0027t look for a Kotlin app to check how many times this optimization hits.",
+      "parentUuid": "7b616e95_704b595c",
       "revId": "585da9eedb997b095b68d2a88e602ac917ec3a05",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -64,6 +106,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d6b82fde_514bd4a0",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3375,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-11-27T09:39:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "38562df8_bb136880",
+      "range": {
+        "startLine": 3371,
+        "startChar": 0,
+        "endLine": 3375,
+        "endChar": 19
+      },
+      "revId": "585da9eedb997b095b68d2a88e602ac917ec3a05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fe43d8aa_e68837b7",
@@ -77,6 +143,30 @@
       "writtenOn": "2023-11-24T17:35:56Z",
       "side": 1,
       "message": "Can more arguments appear in this call of `ByteValueOf`? I would have expected only one input.\nSame for the others",
+      "range": {
+        "startLine": 53,
+        "startChar": 65,
+        "endLine": 53,
+        "endChar": 80
+      },
+      "revId": "585da9eedb997b095b68d2a88e602ac917ec3a05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0185df0_c15d9f61",
+        "filename": "test/640-checker-integer-valueof/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-11-27T09:39:05Z",
+      "side": 1,
+      "message": "The `InvokeStaticOrDirect` can have one additional special argument, either the current method or an architecture-specific argument. This actually came up for x86 in the `disassembly (after)` test below where we added a special argument in the `pc_relative_fixups_x86` phase, so I added this to all the static invokes here.",
+      "parentUuid": "fe43d8aa_e68837b7",
       "range": {
         "startLine": 53,
         "startChar": 65,
