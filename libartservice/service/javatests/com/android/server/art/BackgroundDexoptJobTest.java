@@ -25,6 +25,7 @@ import static org.mockito.Mockito.anyBoolean;
 import static org.mockito.Mockito.anyInt;
 import static org.mockito.Mockito.eq;
 import static org.mockito.Mockito.lenient;
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.same;
 import static org.mockito.Mockito.times;
@@ -56,6 +57,8 @@ import org.junit.runner.RunWith;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.Future;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
@@ -74,12 +77,12 @@ public class BackgroundDexoptJobTest {
     @Mock private PackageManagerLocal mPackageManagerLocal;
     @Mock private PackageManagerLocal.FilteredSnapshot mSnapshot;
     @Mock private JobScheduler mJobScheduler;
-    @Mock private DexoptResult mDexoptResult;
     @Mock private BackgroundDexoptJobService mJobService;
     @Mock private JobParameters mJobParameters;
     private Config mConfig;
     private BackgroundDexoptJob mBackgroundDexoptJob;
     private Semaphore mJobFinishedCalled = new Semaphore(0);
+    private Map<Integer, DexoptResult> mDexoptResults;
 
     @Before
     public void setUp() throws Exception {
@@ -110,17 +113,19 @@ public class BackgroundDexoptJobTest {
         lenient()
                 .when(mJobParameters.getStopReason())
                 .thenReturn(JobParameters.STOP_REASON_UNDEFINED);
+
+        mDexoptResults = new HashMap<>();
     }
 
     @Test
     public void testStart() {
         when(mArtManagerLocal.dexoptPackages(
                      same(mSnapshot), eq(ReasonMapping.REASON_BG_DEXOPT), any(), any(), any()))
-                .thenReturn(mDexoptResult);
+                .thenReturn(mDexoptResults);
 
         Result result = Utils.getFuture(mBackgroundDexoptJob.start());
         assertThat(result).isInstanceOf(CompletedResult.class);
-        assertThat(((CompletedResult) result).dexoptResult()).isSameInstanceAs(mDexoptResult);
+        assertThat(((CompletedResult) result).dexoptResults()).isSameInstanceAs(mDexoptResults);
 
         verify(mArtManagerLocal).cleanup(same(mSnapshot));
     }
@@ -131,7 +136,7 @@ public class BackgroundDexoptJobTest {
         when(mArtManagerLocal.dexoptPackages(any(), any(), any(), any(), any()))
                 .thenAnswer(invocation -> {
                     assertThat(dexoptDone.tryAcquire(TIMEOUT_SEC, TimeUnit.SECONDS)).isTrue();
-                    return mDexoptResult;
+                    return mDexoptResults;
                 });
 
         Future<Result> future1 = mBackgroundDexoptJob.start();
@@ -147,7 +152,7 @@ public class BackgroundDexoptJobTest {
     @Test
     public void testStartAnother() {
         when(mArtManagerLocal.dexoptPackages(any(), any(), any(), any(), any()))
-                .thenReturn(mDexoptResult);
+                .thenReturn(mDexoptResults);
 
         Future<Result> future1 = mBackgroundDexoptJob.start();
         Utils.getFuture(future1);
@@ -172,7 +177,7 @@ public class BackgroundDexoptJobTest {
                 .thenReturn(true);
 
         when(mArtManagerLocal.dexoptPackages(any(), any(), any(), any(), any()))
-                .thenReturn(mDexoptResult);
+                .thenReturn(mDexoptResults);
 
         // The `start` method should ignore the system property. The system property is for
         // `schedule`.
@@ -187,7 +192,7 @@ public class BackgroundDexoptJobTest {
                     assertThat(dexoptCancelled.tryAcquire(TIMEOUT_SEC, TimeUnit.SECONDS)).isTrue();
                     var cancellationSignal = invocation.<CancellationSignal>getArgument(2);
                     assertThat(cancellationSignal.isCanceled()).isTrue();
-                    return mDexoptResult;
+                    return mDexoptResults;
                 });
 
         Future<Result> future = mBackgroundDexoptJob.start();
@@ -273,9 +278,14 @@ public class BackgroundDexoptJobTest {
 
     @Test
     public void testWantsRescheduleFalsePerformed() throws Exception {
-        when(mDexoptResult.getFinalStatus()).thenReturn(DexoptResult.DEXOPT_PERFORMED);
+        DexoptResult downgradeResult = mock(DexoptResult.class);
+        when(downgradeResult.getFinalStatus()).thenReturn(DexoptResult.DEXOPT_PERFORMED);
+        mDexoptResults.put(ArtFlags.PASS_DOWNGRADE, downgradeResult);
+        DexoptResult mainResult = mock(DexoptResult.class);
+        when(mainResult.getFinalStatus()).thenReturn(DexoptResult.DEXOPT_PERFORMED);
+        mDexoptResults.put(ArtFlags.PASS_MAIN, mainResult);
         when(mArtManagerLocal.dexoptPackages(any(), any(), any(), any(), any()))
-                .thenReturn(mDexoptResult);
+                .thenReturn(mDexoptResults);
 
         mBackgroundDexoptJob.onStartJob(mJobService, mJobParameters);
         assertThat(mJobFinishedCalled.tryAcquire(TIMEOUT_SEC, TimeUnit.SECONDS)).isTrue();
@@ -296,9 +306,14 @@ public class BackgroundDexoptJobTest {
 
     @Test
     public void testWantsRescheduleTrue() throws Exception {
-        when(mDexoptResult.getFinalStatus()).thenReturn(DexoptResult.DEXOPT_CANCELLED);
+        DexoptResult downgradeResult = mock(DexoptResult.class);
+        when(downgradeResult.getFinalStatus()).thenReturn(DexoptResult.DEXOPT_PERFORMED);
+        mDexoptResults.put(ArtFlags.PASS_DOWNGRADE, downgradeResult);
+        DexoptResult mainResult = mock(DexoptResult.class);
+        when(mainResult.getFinalStatus()).thenReturn(DexoptResult.DEXOPT_CANCELLED);
+        mDexoptResults.put(ArtFlags.PASS_MAIN, mainResult);
         when(mArtManagerLocal.dexoptPackages(any(), any(), any(), any(), any()))
-                .thenReturn(mDexoptResult);
+                .thenReturn(mDexoptResults);
 
         mBackgroundDexoptJob.onStartJob(mJobService, mJobParameters);
         assertThat(mJobFinishedCalled.tryAcquire(TIMEOUT_SEC, TimeUnit.SECONDS)).isTrue();
