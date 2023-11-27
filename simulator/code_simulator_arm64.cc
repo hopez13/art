@@ -41,6 +41,7 @@ class OsrData;
 extern "C" const void* GetQuickInvokeStub();
 extern "C" const void* GetQuickInvokeStaticStub();
 extern "C" const void* GetQuickThrowNullPointerExceptionFromSignal();
+extern "C" const void* GetQuickThrowStackOverflow();
 
 extern "C" const char* NterpGetShorty(ArtMethod* method)
     REQUIRES_SHARED(Locks::mutator_lock_);
@@ -251,6 +252,7 @@ class CustomSimulator final: public Simulator {
     RegisterBranchInterception(artHandleFillArrayDataFromCode);
     RegisterBranchInterception(artIsAssignableFromCode);
     RegisterBranchInterception(artThrowArrayStoreException);
+    RegisterBranchInterception(artThrowStackOverflowFromCode);
 
     // ART has a number of math entrypoints which operate on double type (see
     // quick_entrypoints_list.h, entrypoints_init_arm64.cc); we need to intercept C functions
@@ -518,10 +520,72 @@ bool CodeSimulatorArm64::HandleNullPointer([[maybe_unused]] int sig,
   VLOG(signals) << "Generating null pointer exception";
   return true;
 }
+
+// This handler is based on the Arm64 StackOverflowHandler::Action and should remain aligned with
+// that function.
+bool CodeSimulatorArm64::HandleStackOverflow([[maybe_unused]] int sig,
+                                             siginfo_t* siginfo,
+                                             void* context) {
+  CustomSimulator* sim = GetSimulator();
+
+  ucontext_t* uc = reinterpret_cast<ucontext_t*>(context);
+  mcontext_t* mc = reinterpret_cast<mcontext_t*>(&uc->uc_mcontext);
+  VLOG(signals) << "stack overflow handler with sp at " << std::hex << &uc;
+  VLOG(signals) << "sigcontext: " << std::hex << mc;
+
+  uintptr_t fault_pc = uc->uc_mcontext.gregs[REG_RIP];
+  if (!sim->IsSimulatedMemoryAccess(fault_pc)) {
+    return false;
+  }
+
+  uintptr_t sp = sim->get_sp();
+  VLOG(signals) << "sp: " << std::hex << sp;
+
+  // If we use siginfo->si_addr we need to ensure it is at the correct address as the address
+  // reported by the kernel could be wrong due to how VIXL probes memory for implicit checks.
+  sim->ReplaceFaultAddress(siginfo, context);
+  uintptr_t fault_addr = reinterpret_cast<uintptr_t>(siginfo->si_addr);
+  VLOG(signals) << "fault_addr: " << std::hex << fault_addr;
+  VLOG(signals) << "checking for stack overflow, sp: " << std::hex << sp <<
+      ", fault_addr: " << fault_addr;
+
+  uintptr_t overflow_addr = sp - GetStackOverflowReservedBytes(InstructionSet::kArm64);
+
+  // Check that the fault address is the value expected for a stack overflow.
+  if (fault_addr != overflow_addr) {
+    VLOG(signals) << "Not a stack overflow";
+    return false;
+  }
+
+  VLOG(signals) << "Stack overflow found";
+
+  // Return to the VIXL memory access continuation point, which is also the next instruction, after
+  // this handler.
+  uc->uc_mcontext.gregs[REG_RIP] = sim->GetSignalReturnAddress();
+  // Return that the memory access failed.
+  uc->uc_mcontext.gregs[REG_RAX] = static_cast<greg_t>(MemoryAccessResult::Failure);
+
+  // Now arrange for the signal handler to return to art_quick_throw_stack_overflow.
+  // The value of LR must be the same as it was when we entered the code that
+  // caused this fault. This will be inserted into a callee save frame by
+  // the function to which this handler returns (art_quick_throw_stack_overflow).
+  sim->WritePc(reinterpret_cast<const vixl::aarch64::Instruction*>(
+      GetQuickThrowStackOverflow()));
+
+  // The kernel will now return to the simulator.
+  return true;
+}
 #else
 bool CodeSimulatorArm64::HandleNullPointer([[maybe_unused]] int sig,
                                            [[maybe_unused]] siginfo_t* siginfo,
                                            [[maybe_unused]] void* context) {
+  LOG(FATAL) << "Unreachable";
+  UNREACHABLE();
+}
+
+bool CodeSimulatorArm64::HandleStackOverflow([[maybe_unused]] int sig,
+                                             [[maybe_unused]] siginfo_t* siginfo,
+                                             [[maybe_unused]] void* context) {
   LOG(FATAL) << "Unreachable";
   UNREACHABLE();
 }

@@ -1597,13 +1597,6 @@
                         "force JIT compilation even in --optimizing mode."]
     },
     {
-        "tests": ["107-int-math2",
-                  "018-stack-overflow",
-                  "004-SignalTest"],
-        "env_vars": {"ART_USE_SIMULATOR": "true"},
-        "description": ["TODO: Implement implicit stack overflow checks for the ART simulator."]
-    },
-    {
         "tests": ["151-OpenFileLimit"],
         "env_vars": {"ART_USE_SIMULATOR": "true"},
         "description": ["The simulator requires a temporary file to be opened when creating a new",

@@ -86,6 +86,7 @@ class CodeSimulator {
 
   // Try to handle an implicit check that occured during simulation.
   virtual bool HandleNullPointer(int sig, siginfo_t* siginfo, void* context) = 0;
+  virtual bool HandleStackOverflow(int sig, siginfo_t* siginfo, void* context) = 0;
 
  private:
   DISALLOW_COPY_AND_ASSIGN(CodeSimulator);

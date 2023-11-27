@@ -1894,7 +1894,13 @@ bool Runtime::Init(RuntimeArgumentMap&& runtime_options_in) {
       }
 
       if (implicit_so_checks_) {
+#ifdef ART_USE_SIMULATOR
+        // Implicit stack overflows can only occur from quick code therefore only the simulator
+        // specific fault handler is needed.
+        new StackOverflowHandlerSimulator(&fault_manager);
+#else
         new StackOverflowHandler(&fault_manager);
+#endif
       }
 
       if (implicit_null_checks_) {
