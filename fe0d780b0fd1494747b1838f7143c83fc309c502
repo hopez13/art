@@ -85,6 +85,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "427749d7_ee11b4fa",
+        "filename": "runtime/gc/collector/garbage_collector.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-11-27T23:23:01Z",
+      "side": 1,
+      "message": "I\u0027m more concerned that this function start to get used for other metrics in the future, which appears to be the intention. What about guarding the log with a simple static boolean flag so that it\u0027s logged just once per process?\n\nThen I also wonder if we may be better off sending something like 0 or -1 to ATrace instead of just skipping it if it\u0027s outside the limit, so we get some kind of indication that samples were lost when they\u0027re outside the range. But if that\u0027s a good idea or not depends on the pipeline in ATrace and perfetto etc, which I don\u0027t know much about.",
+      "parentUuid": "b0a04857_c3d35872",
+      "range": {
+        "startLine": 54,
+        "startChar": 5,
+        "endLine": 56,
+        "endChar": 18
+      },
+      "revId": "fe0d780b0fd1494747b1838f7143c83fc309c502",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3dea85a5_df342ab5",
         "filename": "runtime/gc/collector/garbage_collector.cc",
         "patchSetId": 2
@@ -120,6 +144,30 @@
       "side": 1,
       "message": "Thanks for the suggestion, but I tend to prefer non-preprocessor-based options whenever it is possible.",
       "parentUuid": "3dea85a5_df342ab5",
+      "range": {
+        "startLine": 59,
+        "startChar": 44,
+        "endLine": 60,
+        "endChar": 61
+      },
+      "revId": "fe0d780b0fd1494747b1838f7143c83fc309c502",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "03238e0e_e04b9026",
+        "filename": "runtime/gc/collector/garbage_collector.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-11-27T23:23:01Z",
+      "side": 1,
+      "message": "This was about the message, not the comparison used in the code. It\u0027s arguably a more concise way to convey the limit to a human reader than this template laden boilerplate. It also seems a bit unnecessary to show the literal constant.",
+      "parentUuid": "bbb3b8a7_ef73116a",
       "range": {
         "startLine": 59,
         "startChar": 44,
