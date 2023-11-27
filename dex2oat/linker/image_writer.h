@@ -596,6 +596,10 @@ class ImageWriter final {
   void CopyAndFixupPointer(void* object, MemberOffset offset, ValueType src_value)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
+  // Target method sometimes needs adjustment to access flags.
+  void MaybeAdjustAccessFlags(ArtMethod* copy, ArtMethod* orig)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
   ALWAYS_INLINE
   static bool IsStronglyInternedString(ObjPtr<mirror::String> str)
       REQUIRES_SHARED(Locks::mutator_lock_);

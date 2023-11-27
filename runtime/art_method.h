@@ -588,6 +588,10 @@ class ArtMethod final {
     AddAccessFlags(kAccNterpInvokeFastPathFlag);
   }
 
+  void ClearNterpInvokeFastPathFlag() REQUIRES_SHARED(Locks::mutator_lock_) {
+    ClearAccessFlags(kAccNterpInvokeFastPathFlag);
+  }
+
   // Returns whether the method is a string constructor. The method must not
   // be a class initializer. (Class initializers are called from a different
   // context where we do not need to check for string constructors.)

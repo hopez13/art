@@ -3459,6 +3459,7 @@ void ImageWriter::CopyAndFixupMethod(ArtMethod* orig,
 
   CopyAndFixupReference(copy->GetDeclaringClassAddressWithoutBarrier(),
                         orig->GetDeclaringClassUnchecked<kWithoutReadBarrier>());
+  MaybeAdjustAccessFlags(copy, orig);
 
   // OatWriter replaces the code_ with an offset value. Here we re-adjust to a pointer relative to
   // oat_begin_
@@ -3750,6 +3751,28 @@ void ImageWriter::CopyAndFixupPointer(
 template <typename ValueType>
 void ImageWriter::CopyAndFixupPointer(void* object, MemberOffset offset, ValueType src_value) {
   return CopyAndFixupPointer(object, offset, src_value, target_ptr_size_);
+}
+
+void ImageWriter::MaybeAdjustAccessFlags(ArtMethod* copy, ArtMethod* orig) {
+  DCHECK(copy != nullptr);
+  // RISC-V 64 target interprets kAccNterpInvokeFastPathFlag more narrowly than other ISAs.
+  // The other ISAs accept a wider set of methods for this invoke fastpath, and this adjustment
+  // reduces the set to just 'L'-type args.
+  if (compiler_options_.GetInstructionSet() == InstructionSet::kRiscv64 &&
+      (copy->GetAccessFlags() & kAccNterpInvokeFastPathFlag)) {
+    // If shorty args have non-'L' type, clear the flag.
+    std::string_view shorty = orig->GetShortyView();  // Use orig, copy's class not yet ready.
+    bool all_parameters_are_reference = true;
+    for (size_t i = 1; i < shorty.length(); ++i) {
+      if (shorty[i] != 'L') {
+        all_parameters_are_reference = false;
+        break;
+      }
+    }
+    if (!all_parameters_are_reference) {
+      copy->ClearNterpInvokeFastPathFlag();
+    }
+  }
 }
 
 }  // namespace linker
