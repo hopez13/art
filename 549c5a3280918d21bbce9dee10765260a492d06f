@@ -70,6 +70,30 @@
       },
       "revId": "549c5a3280918d21bbce9dee10765260a492d06f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f76a62c_fafa8b21",
+        "filename": "libartservice/service/java/com/android/server/art/ArtManagerLocal.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 882,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-11-28T12:10:08Z",
+      "side": 1,
+      "message": "1. The progress callback is called by `DexoptHelper`, who\u0027s agnostic of the current pass. Adding the current pass as a field in `OperationProgress` means we\u0027ll have to pass the current pass to `DexoptHelper`. That seems clunky to me.\n\n2. Adding the current pass as a field in `OperationProgress` makes it error-prone. After the change, the class is used for two different purposes: (1) reporting the overall progress to API users; (2) reporting pass-specific progress to internal users. If one mixes up the usage of those two, the API users will see a non-monotonic overall progress.\n\n3. To avoid 2, we have to add a separate internal progress callback, but that\u0027s over-engineering. For now, I don\u0027t foresee the need to have multiple passes on boot, so I prefer not to over-engineer it.",
+      "parentUuid": "b6f05336_55060ae1",
+      "range": {
+        "startLine": 882,
+        "startChar": 27,
+        "endLine": 882,
+        "endChar": 45
+      },
+      "revId": "549c5a3280918d21bbce9dee10765260a492d06f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
