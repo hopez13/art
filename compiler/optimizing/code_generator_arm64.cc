@@ -1227,6 +1227,7 @@ void InstructionCodeGeneratorARM64::GenerateMethodEntryExitHook(HInstruction* in
   __ Subs(index, index, kNumEntriesForWallClock);
   __ B(lt, slow_path->GetEntryLabel());
 
+#if 0
   // Update the index in the `Thread`.
   __ Str(index, MemOperand(tr, trace_buffer_index_offset));
   // Calculate the entry address in the buffer.
@@ -1247,8 +1248,9 @@ void InstructionCodeGeneratorARM64::GenerateMethodEntryExitHook(HInstruction* in
   }
   __ Str(tmp, MemOperand(addr, kMethodOffsetInBytes));
   // Record the timestamp.
-  __ Mrs(tmp, (SystemRegister)SYS_CNTVCT_EL0);
+  // __ Mrs(tmp, (SystemRegister)SYS_CNTVCT_EL0);
   __ Str(tmp, MemOperand(addr, kTimestampOffsetInBytes));
+#endif
   __ Bind(slow_path->GetExitLabel());
 }
 

@@ -1292,7 +1292,7 @@ void InstructionCodeGeneratorX86::GenerateMethodEntryExitHook(HInstruction* inst
   }
   __ movl(Address(entry_addr, kMethodOffsetInBytes), method);
   // Get the timestamp. rdtsc returns timestamp in EAX + EDX.
-  __ rdtsc();
+  // __ rdtsc();
   __ movl(Address(entry_addr, kTimestampOffsetInBytes), EAX);
   __ movl(Address(entry_addr, kHighTimestampOffsetInBytes), EDX);
   __ Bind(slow_path->GetExitLabel());

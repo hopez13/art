@@ -2234,11 +2234,11 @@ void InstructionCodeGeneratorARMVIXL::GenerateMethodEntryExitHook(HInstruction* 
 
   vixl32::Register tmp1 = index;
   // See Architecture Reference Manual ARMv7-A and ARMv7-R edition section B4.1.34.
-  __ Mrrc(/* lower 32-bit */ tmp,
-          /* higher 32-bit */ tmp1,
-          /* coproc= */ 15,
-          /* opc1= */ 1,
-          /* crm= */ 14);
+  // __ Mrrc(/* lower 32-bit */ tmp,
+  //         /* higher 32-bit */ tmp1,
+  //         /* coproc= */ 15,
+  //         /* opc1= */ 1,
+  //         /* crm= */ 14);
   static_assert(kHighTimestampOffsetInBytes ==
                 kTimestampOffsetInBytes + static_cast<uint32_t>(kRuntimePointerSize));
   __ Strd(tmp, tmp1, MemOperand(addr, kTimestampOffsetInBytes));
