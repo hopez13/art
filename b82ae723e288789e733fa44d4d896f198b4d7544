@@ -159,6 +159,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc42cabc_f30dfc68",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1558,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-11-28T23:34:16Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "99f84dc1_1831b55f",
+      "range": {
+        "startLine": 1558,
+        "startChar": 73,
+        "endLine": 1558,
+        "endChar": 82
+      },
+      "revId": "b82ae723e288789e733fa44d4d896f198b4d7544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c5492481_a07af1a5",
@@ -219,6 +243,30 @@
       "writtenOn": "2023-10-14T00:17:04Z",
       "side": 1,
       "message": "Cache it please.",
+      "range": {
+        "startLine": 562,
+        "startChar": 28,
+        "endLine": 562,
+        "endChar": 37
+      },
+      "revId": "b82ae723e288789e733fa44d4d896f198b4d7544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a25f8fb6_300d248b",
+        "filename": "libartbase/base/mem_map.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 562,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-11-28T23:34:16Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "ce7694e5_c69c3c28",
       "range": {
         "startLine": 562,
         "startChar": 28,
@@ -853,6 +901,30 @@
       "writtenOn": "2023-10-14T00:17:04Z",
       "side": 1,
       "message": "Cache it please.",
+      "range": {
+        "startLine": 127,
+        "startChar": 41,
+        "endLine": 127,
+        "endChar": 50
+      },
+      "revId": "b82ae723e288789e733fa44d4d896f198b4d7544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "578a2879_e9157443",
+        "filename": "runtime/gc/collector/garbage_collector.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-11-28T23:34:16Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "29a62fab_94f7bb13",
       "range": {
         "startLine": 127,
         "startChar": 41,
