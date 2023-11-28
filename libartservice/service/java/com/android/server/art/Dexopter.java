@@ -107,6 +107,11 @@ public abstract class Dexopter<DexInfoType extends DetailedDexInfo> {
             boolean succeeded = true;
             List<String> externalProfileErrors = List.of();
             try {
+                if (SystemProperties.getBoolean(
+                            "dalvik.vm.disable-art-service-dexopt", false /* def */)) {
+                    Log.i(TAG, "Dexopt skipped because it's disabled by system property");
+                    continue;
+                }
                 if (!isDexoptable(dexInfo)) {
                     continue;
                 }
