@@ -2623,6 +2623,13 @@ static void CreateVarHandleGetAndUpdateLocations(HInvoke* invoke,
     return;
   }
 
+  if ((true)) {
+    // FIXME(riscv64): Fix the register allocation for strong CAS (SC failure sets the result
+    // to success, so comparison failure on retry returns "true" for a failed CAS).
+    // Review register allocation for weak CAS to make sure it's OK.
+    return;
+  }
+
   LocationSummary* locations = CreateVarHandleCommonLocations(invoke, codegen);
   uint32_t arg_index = invoke->GetNumberOfArguments() - 1;
   DCHECK_EQ(arg_index, 1u + GetExpectedVarHandleCoordinatesCount(invoke));
