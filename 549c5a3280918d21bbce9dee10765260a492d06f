@@ -22,6 +22,30 @@
       },
       "revId": "549c5a3280918d21bbce9dee10765260a492d06f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1626f318_3801cf0f",
+        "filename": "libartservice/service/java/com/android/server/art/ArtManagerLocal.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 882,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-11-28T11:23:24Z",
+      "side": 1,
+      "message": "If there are multiple passes taking place on boot, I will create callbacks to listen to the progress of each pass, blend the progresses into an overall progress, and report it through the progress callback passed by the user. It can be done without changing the data structure.",
+      "parentUuid": "6e5ba72d_98c45970",
+      "range": {
+        "startLine": 882,
+        "startChar": 27,
+        "endLine": 882,
+        "endChar": 45
+      },
+      "revId": "549c5a3280918d21bbce9dee10765260a492d06f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
