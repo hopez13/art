@@ -22,6 +22,30 @@
       },
       "revId": "93db1b85fad1e20049ccd9de2fef37d92eabd0bf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "75a48130_2ad58e43",
+        "filename": "compiler/optimizing/intrinsics_riscv64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2219,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-11-28T18:41:26Z",
+      "side": 1,
+      "message": "All this work is covered by bug 283082089 listed in the commit message. I don\u0027t think we need a specific bug for this.",
+      "parentUuid": "57fa278c_d218ae89",
+      "range": {
+        "startLine": 2219,
+        "startChar": 13,
+        "endLine": 2219,
+        "endChar": 20
+      },
+      "revId": "93db1b85fad1e20049ccd9de2fef37d92eabd0bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
