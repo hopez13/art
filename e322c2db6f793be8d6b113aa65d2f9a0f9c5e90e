@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1fb0f961_aa6cc806",
+        "filename": "libnativeloader/test/Android.bp",
+        "patchSetId": 10
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-11-28T21:44:06Z",
+      "side": 1,
+      "message": "I expected it to work with just `min_sdk_version: \"31\"`, but that [isn\u0027t the case](http://screen/oBcpYSq6FcnZP4K). Put out a question about it: http://yaqs/5482152881463230464\n\n+rpl FYI on this bit, in case you didn\u0027t notice it already.",
+      "range": {
+        "startLine": 117,
+        "startChar": 0,
+        "endLine": 121,
+        "endChar": 31
+      },
+      "revId": "e322c2db6f793be8d6b113aa65d2f9a0f9c5e90e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

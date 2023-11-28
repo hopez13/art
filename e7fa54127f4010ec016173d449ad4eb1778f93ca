@@ -94,6 +94,30 @@
       },
       "revId": "e7fa54127f4010ec016173d449ad4eb1778f93ca",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4abbea2_264d4448",
+        "filename": "libnativeloader/test/src/android/test/app/ProductAppTest.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-11-28T21:44:06Z",
+      "side": 1,
+      "message": "Ok, I\u0027ll do some local runs with cuttlefish images to verify this works there too. You\u0027re right it works nicely on sargo, sunfish and redfin on S (http://android-build/abtd/run/L33400030000514738/ - the errors are in other tests).\n\n\u003e The failure of sunfish in b/308228277 is caused by a different reason\n\nNot sure what sunfish failure you mean, I can\u0027t see any in that ticket. It\u0027s only sargo. But yes, there are two unrelated failures at play here.\n\n\u003e I think it is required to use skipPublicProductLibTests() for all product related tests\n\nPublic libraries in /product is one thing, apps and shared libs in /product are other things. This test tries to cover many combinations of these aspects, so if some checks don\u0027t work I prefer to disable them individually and only when necessary.\n\nIf this works in cuttlefish from sc-dev and sc-v2-dev I\u0027m inclined to leave it like this.",
+      "parentUuid": "7dd432b7_880fd149",
+      "range": {
+        "startLine": 35,
+        "startChar": 7,
+        "endLine": 37,
+        "endChar": 22
+      },
+      "revId": "e7fa54127f4010ec016173d449ad4eb1778f93ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
