@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "041e6361_d6662503",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-11-28T15:48:42Z",
+      "side": 1,
+      "message": "Add `(`, `)` around this expression.",
+      "range": {
+        "startLine": 10,
+        "startChar": 4,
+        "endLine": 10,
+        "endChar": 30
+      },
+      "revId": "e6cbe0428e5120775dceb092a0f4b47bd88de639",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "b5bef97a_6bf51b6f",
@@ -14,6 +37,29 @@
       "writtenOn": "2023-11-28T14:44:46Z",
       "side": 1,
       "message": "Friendly ping",
+      "revId": "e6cbe0428e5120775dceb092a0f4b47bd88de639",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3063080b_93ef3688",
+        "filename": "test/654-checker-periodic/src/Main.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-11-28T15:48:42Z",
+      "side": 1,
+      "message": "The expression `n - 1` is calculated before the loop, so an overflow in that expression should not matter. It\u0027s more about `Integer.MAX_VALUE - 0 + 1` (where `Integer.MAX_VALUE` is the maximum value of the input expression `n - 1`) does not fit into `int32_t`.\n\nBut, for the period 2 specifically, any `int32_t` overflow does not matter (as long as the loop is known to terminate) because the lowest bit is the same whether calculated in `int32_t` or some larger type which could hold the number of iterations without overflowing.",
+      "range": {
+        "startLine": 50,
+        "startChar": 18,
+        "endLine": 50,
+        "endChar": 23
+      },
       "revId": "e6cbe0428e5120775dceb092a0f4b47bd88de639",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
