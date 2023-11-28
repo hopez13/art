@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b4437e44_727c4207",
+        "filename": "libartbase/base/globals.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-11-28T18:28:29Z",
+      "side": 1,
+      "message": "Usually, it\u0027s preferred if individual CLs are correct within itself. Imagine, for some reason, if we have to keep the code at this CL and no subsequent CL makes it. Then whatever state we would like the code be in, that we should strive for. And since it is not just naming convention issue, I think it would be better to fix it here.\n\nYou suggestion is good. Kindly do that please.",
+      "parentUuid": "3186f6cf_d0d1d06f",
+      "range": {
+        "startLine": 67,
+        "startChar": 20,
+        "endLine": 67,
+        "endChar": 28
+      },
+      "revId": "3c505cf168abd1c844b8a6ec946e521237e7c3e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c3fce3b0_46bc4856",
         "filename": "libartbase/base/mem_map_test.cc",
         "patchSetId": 5
@@ -189,6 +213,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b5c62741_fae75f4a",
+        "filename": "runtime/jni/local_reference_table.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-11-28T18:28:29Z",
+      "side": 1,
+      "message": "It\u0027s ok to rename in next CL.",
+      "parentUuid": "04e80cb8_d19cd798",
+      "range": {
+        "startLine": 44,
+        "startChar": 20,
+        "endLine": 44,
+        "endChar": 32
+      },
+      "revId": "3c505cf168abd1c844b8a6ec946e521237e7c3e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0910083a_8bfb7679",
@@ -308,6 +356,30 @@
       "side": 1,
       "message": "This is currently done as part of the https://android-review.googlesource.com/c/platform/art/+/2767955 - the next patch.\nI could split that commit and move the related part here and the rest into https://android-review.googlesource.com/c/platform/art/+/2735628 that makes gPageSize dynamic, if that\u0027s preferable.",
       "parentUuid": "2aca7580_2b5a4ee8",
+      "range": {
+        "startLine": 155,
+        "startChar": 20,
+        "endLine": 155,
+        "endChar": 47
+      },
+      "revId": "3c505cf168abd1c844b8a6ec946e521237e7c3e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee9ace4f_53ddf542",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-11-28T18:28:29Z",
+      "side": 1,
+      "message": "It\u0027s ok to rename in subsequent CL.",
+      "parentUuid": "b2e96073_4c0a36bd",
       "range": {
         "startLine": 155,
         "startChar": 20,
