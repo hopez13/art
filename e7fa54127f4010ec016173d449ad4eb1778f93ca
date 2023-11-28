@@ -70,6 +70,30 @@
       },
       "revId": "e7fa54127f4010ec016173d449ad4eb1778f93ca",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7dd432b7_880fd149",
+        "filename": "libnativeloader/test/src/android/test/app/ProductAppTest.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1146974
+      },
+      "writtenOn": "2023-11-28T08:27:09Z",
+      "side": 1,
+      "message": "Thanks Martin.\n\nChecking `ro.product.vndk.version` works for the `productAppsAreShared()` function. Only sargo of S test targets did not set `ro.product.vndk.version`. So I can see `clns-shared` namespace problem from the test with only the sargo target in b/308228277.\n\nBut still `productAppsAreShared()` is not the only reason. The failure of sunfish in b/308228277 is caused by a different reason. I think S does not have all the patches in b/186055799, especially for aosp/1789089 that causes dlopen failure for product public libs.\n\nI think it is required to use `skipPublicProductLibTests()` for all product related tests instead of using `productAppsAreShared()` because not all test failures in `ProductAppTest` are caused by `productAppsAreShared()`. If it were the case, sunfish must not fail on `ProductAppTest`.",
+      "parentUuid": "62661f2c_153cd642",
+      "range": {
+        "startLine": 35,
+        "startChar": 7,
+        "endLine": 37,
+        "endChar": 22
+      },
+      "revId": "e7fa54127f4010ec016173d449ad4eb1778f93ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
