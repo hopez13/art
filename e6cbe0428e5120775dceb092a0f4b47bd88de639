@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "a039e780_3dd2ab8e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-11-28T18:02:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "041e6361_d6662503",
+      "range": {
+        "startLine": 10,
+        "startChar": 4,
+        "endLine": 10,
+        "endChar": 30
+      },
+      "revId": "e6cbe0428e5120775dceb092a0f4b47bd88de639",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "b5bef97a_6bf51b6f",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 9
@@ -54,6 +78,30 @@
       "writtenOn": "2023-11-28T15:48:42Z",
       "side": 1,
       "message": "The expression `n - 1` is calculated before the loop, so an overflow in that expression should not matter. It\u0027s more about `Integer.MAX_VALUE - 0 + 1` (where `Integer.MAX_VALUE` is the maximum value of the input expression `n - 1`) does not fit into `int32_t`.\n\nBut, for the period 2 specifically, any `int32_t` overflow does not matter (as long as the loop is known to terminate) because the lowest bit is the same whether calculated in `int32_t` or some larger type which could hold the number of iterations without overflowing.",
+      "range": {
+        "startLine": 50,
+        "startChar": 18,
+        "endLine": 50,
+        "endChar": 23
+      },
+      "revId": "e6cbe0428e5120775dceb092a0f4b47bd88de639",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f0d86ac8_267269f2",
+        "filename": "test/654-checker-periodic/src/Main.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-11-28T18:02:52Z",
+      "side": 1,
+      "message": "The overflow that we want to prevent happens during the trip calculation. It may not matter for this specific case but it definitely matters for the new tests in `618-` included in this CL. In that test, `step` is not equal to `1` so it does matter.\n\nOn the `induction_var_range` side of things, we take a look at the operations one by one. We can add a special case for when step is `1` (or `-1`) and the periodicity is `2`.",
+      "parentUuid": "3063080b_93ef3688",
       "range": {
         "startLine": 50,
         "startChar": 18,
