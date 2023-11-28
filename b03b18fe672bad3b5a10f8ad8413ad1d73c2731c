@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2e0ffaf_8d147d77",
+        "filename": "compiler/optimizing/intrinsics_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1129,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-11-28T12:56:25Z",
+      "side": 1,
+      "message": "The `Load()` takes an `int32_t offset` but we have the offset in a register.",
+      "parentUuid": "a9037b5c_4636e0b5",
+      "range": {
+        "startLine": 1129,
+        "startChar": 52,
+        "endLine": 1129,
+        "endChar": 70
+      },
+      "revId": "b03b18fe672bad3b5a10f8ad8413ad1d73c2731c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c020ab20_328f6613",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-11-28T12:36:42Z",
       "side": 1,
       "message": "same as above. Can we use `base, offset` here?",
+      "range": {
+        "startLine": 1303,
+        "startChar": 39,
+        "endLine": 1303,
+        "endChar": 61
+      },
+      "revId": "b03b18fe672bad3b5a10f8ad8413ad1d73c2731c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "db18f9ea_d9c4b125",
+        "filename": "compiler/optimizing/intrinsics_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1303,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-11-28T12:56:25Z",
+      "side": 1,
+      "message": "`GenerateSet()` takes an `int32_t offset`. I could move that addition inside `GenerateSet()` but I\u0027d rather get this in as is for now. I may restructure this later. (I\u0027m thinking about a `VarHandle.get/set()` optimization where we take a compile-time offset from a `VarHandle` in a static final field in the boot image.)",
+      "parentUuid": "c020ab20_328f6613",
       "range": {
         "startLine": 1303,
         "startChar": 39,
