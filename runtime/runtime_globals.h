@@ -76,7 +76,7 @@ enum class TraceClockSource {
 };
 
 #if defined(__linux__)
-static constexpr TraceClockSource kDefaultTraceClockSource = TraceClockSource::kDual;
+static constexpr TraceClockSource kDefaultTraceClockSource = TraceClockSource::kWall;
 #else
 static constexpr TraceClockSource kDefaultTraceClockSource = TraceClockSource::kWall;
 #endif
