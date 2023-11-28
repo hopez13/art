@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9752d21a_f8ddb67c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-11-28T23:33:23Z",
+      "side": 1,
+      "message": "I generally ACKed Lokesh\u0027s comments to cache things. I entirely agree, except that I have some concerns about initialization ordering if we cache things in a file scope or class scope static. Clearly caching locally during a function invocation wins. It also seems easy to cache gPageSize in a field of the Collector data structure, initializing on construction, and in some other places.\n\nBut, as discussed before, these CL\u0027s should initially proceed without those changes. But please don\u0027t lose track of the comments.\n\nPlease also look at and ACK my comments before submitting. They do not need action now.",
+      "revId": "f86df1476e9f13b94c2725db8b5590f2e5869bbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ffabcd27_a2ce17e5",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-11-28T23:33:23Z",
+      "side": 1,
+      "message": "I\u0027m not sure why this wasn\u0027t previously declared constexpr. This presumably still gets initialized at compile time, so there is no ordering issue. But removing the constexpr from gPageSize could break things here.",
+      "range": {
+        "startLine": 156,
+        "startChar": 20,
+        "endLine": 156,
+        "endChar": 47
+      },
+      "revId": "f86df1476e9f13b94c2725db8b5590f2e5869bbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
