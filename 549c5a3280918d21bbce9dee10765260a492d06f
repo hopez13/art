@@ -46,6 +46,30 @@
       },
       "revId": "549c5a3280918d21bbce9dee10765260a492d06f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b6f05336_55060ae1",
+        "filename": "libartservice/service/java/com/android/server/art/ArtManagerLocal.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 882,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-11-28T11:51:12Z",
+      "side": 1,
+      "message": "Why then is there one callback per pass, instead of just having the pass in `OperationProgress` or as an argument to the callback? It seems clunky to me to encode a data parameter in the entry point, and the for loops over `BATCH_DEXOPT_PASSES` building lambdas below are examples of it - the callback code is the same for all passes and the pass is just used as data in it, so there seems to be no benefit.",
+      "parentUuid": "1626f318_3801cf0f",
+      "range": {
+        "startLine": 882,
+        "startChar": 27,
+        "endLine": 882,
+        "endChar": 45
+      },
+      "revId": "549c5a3280918d21bbce9dee10765260a492d06f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
