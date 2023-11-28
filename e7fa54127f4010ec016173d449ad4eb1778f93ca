@@ -46,6 +46,30 @@
       },
       "revId": "e7fa54127f4010ec016173d449ad4eb1778f93ca",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "62661f2c_153cd642",
+        "filename": "libnativeloader/test/src/android/test/app/ProductAppTest.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-11-28T00:58:27Z",
+      "side": 1,
+      "message": "Ok, I can do that for some presubmit runs, but since we already determined that `ro.product.vndk.version` is set in (at least) the sc-v2-dev cuttlefish images I\u0027m hesitant to check in that condition.\n\nStarted heavy presubmit runs on all the devices we have with S images: http://android-build/abtd/run/L80800030000514708/",
+      "parentUuid": "8e347d25_80c2f3ec",
+      "range": {
+        "startLine": 35,
+        "startChar": 7,
+        "endLine": 37,
+        "endChar": 22
+      },
+      "revId": "e7fa54127f4010ec016173d449ad4eb1778f93ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
