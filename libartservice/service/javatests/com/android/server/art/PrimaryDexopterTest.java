@@ -374,6 +374,29 @@ public class PrimaryDexopterTest extends PrimaryDexopterTestBase {
     }
 
     @Test
+    public void testDexoptMergesProfilesForceMerge() throws Exception {
+        mDexoptParams = mDexoptParams.toBuilder()
+                                .setFlags(ArtFlags.FLAG_FORCE_MERGE_PROFILE,
+                                        ArtFlags.FLAG_FORCE_MERGE_PROFILE)
+                                .build();
+        mPrimaryDexopter =
+                new PrimaryDexopter(mInjector, mPkgState, mPkg, mDexoptParams, mCancellationSignal);
+
+        when(mPkgState.getStateForUser(eq(UserHandle.of(0)))).thenReturn(mPkgUserStateInstalled);
+        when(mPkgState.getStateForUser(eq(UserHandle.of(2)))).thenReturn(mPkgUserStateInstalled);
+
+        mMergeProfileOptions.forceMerge = true;
+        when(mArtd.mergeProfiles(any(), any(), any(), any(), deepEq(mMergeProfileOptions)))
+                .thenReturn(true);
+
+        makeProfileUsable(mRefProfile);
+        when(mArtd.getProfileVisibility(deepEq(mRefProfile)))
+                .thenReturn(FileVisibility.OTHER_READABLE);
+
+        mPrimaryDexopter.dexopt();
+    }
+
+    @Test
     public void testDexoptUsesDmProfile() throws Exception {
         makeProfileUsable(mDmProfile);
         makeEmbeddedProfileUsable(mDexPath);
