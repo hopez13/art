@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2404f920_0b7476e0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 18
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-11-29T01:15:52Z",
+      "side": 1,
+      "message": "LGTM, except I\u0027m not sure about the one comment I left in globals.h. Dmitrii?",
+      "revId": "b861ec79e45ff8795e0c70f3f04913d17fee2c10",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "253e2c8c_42f45b47",
+        "filename": "libartbase/base/globals.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-11-29T01:15:52Z",
+      "side": 1,
+      "message": "I\u0027m not sure whether this is OK. This presumably ends up making these visible to users of libart.so. Will that cause problems?",
+      "range": {
+        "startLine": 176,
+        "startChar": 0,
+        "endLine": 176,
+        "endChar": 54
+      },
+      "revId": "b861ec79e45ff8795e0c70f3f04913d17fee2c10",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
