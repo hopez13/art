@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "73c29894_59d741b7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-11-29T19:30:57Z",
+      "side": 1,
+      "message": "No. Feel free to file one.",
+      "parentUuid": "7bd01a4e_7a0e9cc1",
+      "revId": "3fe7eea886cbe4b87d6936ac9808b5f0b0f25d10",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "da2d3e65_154617fe",
@@ -31,6 +49,30 @@
       "writtenOn": "2023-11-29T17:48:36Z",
       "side": 1,
       "message": "Nit: Streams with nested streams starts to become a readability issue imo. I\u0027d prefer if the top level stream was converted to an ordinary loop.",
+      "range": {
+        "startLine": 1119,
+        "startChar": 43,
+        "endLine": 1119,
+        "endChar": 52
+      },
+      "revId": "3fe7eea886cbe4b87d6936ac9808b5f0b0f25d10",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d9b21ef2_56aeee84",
+        "filename": "libartservice/service/java/com/android/server/art/ArtManagerLocal.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 1119,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-11-29T19:30:57Z",
+      "side": 1,
+      "message": "I think it\u0027s just a matter of taste. Personally I found it readable.",
+      "parentUuid": "da2d3e65_154617fe",
       "range": {
         "startLine": 1119,
         "startChar": 43,
@@ -64,6 +106,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "07cd2cda_564a4f8b",
+        "filename": "libartservice/service/javatests/com/android/server/art/ArtManagerLocalTest.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 759,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-11-29T19:30:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8d3fa45a_653b6a0c",
+      "range": {
+        "startLine": 759,
+        "startChar": 8,
+        "endLine": 759,
+        "endChar": 39
+      },
+      "revId": "3fe7eea886cbe4b87d6936ac9808b5f0b0f25d10",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "02c6c251_f935ec3a",
@@ -77,6 +143,30 @@
       "writtenOn": "2023-11-29T17:48:36Z",
       "side": 1,
       "message": "Nit: This is starting to repeat a couple of times, and it\u0027s also somewhat non-sequitur for what the test is about. Consider a helper function, which\u0027d put a name on it too.",
+      "range": {
+        "startLine": 385,
+        "startChar": 0,
+        "endLine": 386,
+        "endChar": 97
+      },
+      "revId": "3fe7eea886cbe4b87d6936ac9808b5f0b0f25d10",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "058803ee_24a4ad83",
+        "filename": "libartservice/service/javatests/com/android/server/art/PrimaryDexopterTest.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-11-29T19:30:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "02c6c251_f935ec3a",
       "range": {
         "startLine": 385,
         "startChar": 0,
