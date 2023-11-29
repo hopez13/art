@@ -140,6 +140,30 @@
       },
       "revId": "c624186ccc5ffe365ea07950a893e5bf2ec68ab5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "08005c8e_7d2285b9",
+        "filename": "profman/profile_assistant_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2154,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-11-29T17:58:32Z",
+      "side": 1,
+      "message": "Ok, so if we want to start shrinking profiles in the future then profman would need to change there. Fair enough.",
+      "parentUuid": "b13a56b6_27bdd5b6",
+      "range": {
+        "startLine": 2154,
+        "startChar": 48,
+        "endLine": 2154,
+        "endChar": 51
+      },
+      "revId": "c624186ccc5ffe365ea07950a893e5bf2ec68ab5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
