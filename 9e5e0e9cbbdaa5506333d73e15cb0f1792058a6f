@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0970ead_067c6ff7",
+        "filename": "libartservice/service/java/com/android/server/art/model/ArtFlags.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-11-29T17:48:36Z",
+      "side": 1,
+      "message": "It\u0027d be nice with a little more info about this pass, like what its purpose is. Not going into too much details about thresholds and so on, because that kind of info can get stale easily.\n\nOne thing worth pointing out is that it sticks to the same packages as the main pass (so BatchDexoptStartCallback controls the packages here too).",
+      "range": {
+        "startLine": 255,
+        "startChar": 11,
+        "endLine": 255,
+        "endChar": 29
+      },
+      "revId": "9e5e0e9cbbdaa5506333d73e15cb0f1792058a6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b8e60b3e_bd234a1b",
+        "filename": "libartservice/service/java/com/android/server/art/model/DexoptParams.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-11-29T17:48:36Z",
+      "side": 1,
+      "message": "Please add a unit test for this. The reason is to make it less likely that new attributes get missed.",
+      "range": {
+        "startLine": 229,
+        "startChar": 0,
+        "endLine": 232,
+        "endChar": 42
+      },
+      "revId": "f17ffc957648418e785c74b97c79ba3abde22993",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
