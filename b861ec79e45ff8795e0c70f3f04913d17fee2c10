@@ -87,6 +87,30 @@
       },
       "revId": "b861ec79e45ff8795e0c70f3f04913d17fee2c10",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c13f2ed9_757fa6ba",
+        "filename": "libartbase/base/globals.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-11-29T13:02:04Z",
+      "side": 1,
+      "message": "Thanks! I was building it wrong.\n\nIt does seem like a good reason to use default visibility.",
+      "parentUuid": "25ee67b2_85a3e367",
+      "range": {
+        "startLine": 176,
+        "startChar": 0,
+        "endLine": 176,
+        "endChar": 54
+      },
+      "revId": "b861ec79e45ff8795e0c70f3f04913d17fee2c10",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
