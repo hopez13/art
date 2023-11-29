@@ -16,6 +16,24 @@
       "message": "Is there a follow-up to this? I don\u0027t see the codegen being used (except to get the assembler)",
       "revId": "124e221efdfb9342e906fa30e57c7b215b326398",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dcb97a52_3cbc4694",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-11-29T13:31:50Z",
+      "side": 1,
+      "message": "I assume that the follow-up shall not be upstreamed. They are testing on devices (HiFive Unmatched) that do not support all instructions that Google wants as the minimum required for Android.\n\nI find this minor refactoring reasonable and I\u0027m fine with merging it to let them carry fewer patches on top of Android, even if we shall not accept the alternative implementation that this is preparing for.",
+      "parentUuid": "44d8a0f6_9f71fcc2",
+      "revId": "124e221efdfb9342e906fa30e57c7b215b326398",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
