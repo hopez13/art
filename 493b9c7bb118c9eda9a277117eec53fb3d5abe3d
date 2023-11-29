@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2e2ac957_6c8487f4",
+        "filename": "test/run_test_build.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-11-29T16:42:02Z",
+      "side": 1,
+      "message": "Won\u0027t d8 re-order and change the dex? Maybe it\u0027s making deterministic, but that may break our checker tests which expect a given order of dex instructions.",
+      "range": {
+        "startLine": 194,
+        "startChar": 0,
+        "endLine": 195,
+        "endChar": 50
+      },
+      "revId": "493b9c7bb118c9eda9a277117eec53fb3d5abe3d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
