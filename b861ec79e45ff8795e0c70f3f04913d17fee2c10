@@ -63,6 +63,30 @@
       },
       "revId": "b861ec79e45ff8795e0c70f3f04913d17fee2c10",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "25ee67b2_85a3e367",
+        "filename": "libartbase/base/globals.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1280281
+      },
+      "writtenOn": "2023-11-29T12:54:51Z",
+      "side": 1,
+      "message": "By default the inline functions are hidden due to the -fvisibility-inlines-hidden. That consequently leads to the dependent symbols being hidden - gPageSize etc. are not available to other libraries like libart.so if this is removed. This results in the following linkage error:\n ld.lld: error: undefined symbol: _ZN3art9gPageSizeE\nwhen I build `m -j32 libart` with `aosp_cf_arm64_phone_pgagnostic` lunch target.\n\nHowever, when this attribute is added, the name ## _Initializer function is still reported as a \"local\" function symbol by readelf (in .symtab) and it doesn\u0027t appear in .dynsym; this suggests to me that even with the attribute the function isn\u0027t exported.",
+      "parentUuid": "a5b11da0_01703b3a",
+      "range": {
+        "startLine": 176,
+        "startChar": 0,
+        "endLine": 176,
+        "endChar": 54
+      },
+      "revId": "b861ec79e45ff8795e0c70f3f04913d17fee2c10",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
