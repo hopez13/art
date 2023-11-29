@@ -23,6 +23,7 @@
 #include <string.h>
 
 #if defined(__BIONIC__)
+#include "android-base/properties.h"
 #include <bionic/macros.h>
 #endif
 
@@ -279,6 +280,8 @@ class SignalChain {
     linked_sigaction(signo, nullptr, &handler_action);
 #endif
 
+    log("DBG_MSG SignalChain::Register #%d %p (old %p)", signo, handler_action.sa_sigaction, action_.sa_sigaction);
+
     // Newer kernels clear unknown flags from sigaction.sa_flags in order to
     // allow userspace to determine which flag bits are supported. We use this
     // behavior in turn to implement the same flag bit support detection
@@ -429,6 +432,12 @@ void SignalChain::Handler(int signo, siginfo_t* siginfo, void* ucontext_raw) {
     }
   }
 
+  std::string prop = "N/A";
+#if defined(__BIONIC__)
+  prop = android::base::GetProperty("debug.debuggerd.disable", "");
+#endif
+  log("DBG_MSG SignalChain::Handler #%d (debug.debuggerd.disable=%s)", signo, prop.c_str());
+
   // In Android 14, there's a special feature called "recoverable" GWP-ASan. GWP-ASan is a tool that
   // finds heap-buffer-overflow and heap-use-after-free on native heap allocations (e.g. malloc()
   // inside of JNI, not the ART heap). The way it catches buffer overflow (roughly) is by rounding
@@ -532,7 +541,14 @@ static int __sigaction(int signal, const SigactionType* new_action,
 
   // Will only get here if the signal chain has not been claimed.  We want
   // to pass the sigaction on to the kernel via the real sigaction in libc.
-  return linked(signal, new_action, old_action);
+  auto res = linked(signal, new_action, old_action);
+  log("DBG_MSG SignalChain::__sigaction #%d %d %p (was %d %p)",
+      signal,
+      new_action != nullptr ? 1 : 0,
+      new_action != nullptr ? new_action->sa_sigaction : 0,
+      old_action != nullptr ? 1 : 0,
+      old_action != nullptr ? old_action->sa_sigaction : 0);
+  return res;
 }
 
 extern "C" int sigaction(int signal, const struct sigaction* new_action,
@@ -577,6 +593,7 @@ extern "C" sighandler_t signal(int signo, sighandler_t handler) {
   if (linked_sigaction(signo, &sa, &sa) == -1) {
     return SIG_ERR;
   }
+  log("DBG_MSG SignalChain::signal #%d (handler %p)", signo, sa.sa_sigaction);
 
   return reinterpret_cast<sighandler_t>(sa.sa_handler);
 }
@@ -668,6 +685,7 @@ extern "C" void EnsureFrontOfChain(int signal) {
   struct sigaction current_action;
   linked_sigaction(signal, nullptr, &current_action);
 #endif
+  log("DBG_MSG SignalChain::EnsureFrontOfChain #%d (handler %p)", signal, current_action.sa_sigaction);
 
   // If the sigactions don't match then we put the current action on the chain and make ourself as
   // the main action.
