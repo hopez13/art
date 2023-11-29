@@ -74,6 +74,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a3e15c64_10d84b6b",
+        "filename": "libartbase/base/globals.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1499410
+      },
+      "writtenOn": "2023-11-29T02:04:56Z",
+      "side": 1,
+      "message": "Hi Ruben, Lokesh was ok  to leave as is this with the 2 subsequent patches added in a topic (atomically merge) to avoid the churn. I added `art16k_11-28-2023` for the 3",
+      "parentUuid": "b4437e44_727c4207",
+      "range": {
+        "startLine": 67,
+        "startChar": 20,
+        "endLine": 67,
+        "endChar": 28
+      },
+      "revId": "3c505cf168abd1c844b8a6ec946e521237e7c3e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c3fce3b0_46bc4856",
         "filename": "libartbase/base/mem_map_test.cc",
         "patchSetId": 5
