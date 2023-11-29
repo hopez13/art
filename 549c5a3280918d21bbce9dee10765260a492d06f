@@ -94,6 +94,30 @@
       },
       "revId": "549c5a3280918d21bbce9dee10765260a492d06f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a6edb816_98d962e3",
+        "filename": "libartservice/service/java/com/android/server/art/ArtManagerLocal.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 882,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-11-29T14:17:50Z",
+      "side": 1,
+      "message": "I see, it\u0027d require a refactoring to pass around some kind of progress object instead of the bare callback. This isn\u0027t pretty, but I agree that\u0027d be more work than it\u0027s worth.",
+      "parentUuid": "5f76a62c_fafa8b21",
+      "range": {
+        "startLine": 882,
+        "startChar": 27,
+        "endLine": 882,
+        "endChar": 45
+      },
+      "revId": "549c5a3280918d21bbce9dee10765260a492d06f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

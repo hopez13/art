@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "afcddeaf_b65e3b6d",
+        "filename": "libartservice/service/java/com/android/server/art/ArtShellCommand.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 613,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-11-29T14:17:50Z",
+      "side": 1,
+      "message": "Why not just inline this? Maybe it\u0027ll make sense in the child CL.",
+      "range": {
+        "startLine": 613,
+        "startChar": 35,
+        "endLine": 613,
+        "endChar": 88
+      },
+      "revId": "bfe9fe5ea9f417d0e98022222506b3bb3f4a2628",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a37de27_4d320871",
+        "filename": "libartservice/service/java/com/android/server/art/BackgroundDexoptJob.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-11-29T14:17:50Z",
+      "side": 1,
+      "message": "`dexoptResultByPass`? Or it\u0027s at least worth a comment here what the indexes are.",
+      "range": {
+        "startLine": 271,
+        "startChar": 53,
+        "endLine": 271,
+        "endChar": 66
+      },
+      "revId": "bfe9fe5ea9f417d0e98022222506b3bb3f4a2628",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94e4dcd0_1d6c53da",
+        "filename": "libartservice/service/java/com/android/server/art/BackgroundDexoptJobStatsReporter.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-11-29T14:17:50Z",
+      "side": 1,
+      "message": "Does this fix a real issue, or is it just a \"drive-by fix\"? In any case, it\u0027s worth a comment.",
+      "range": {
+        "startLine": 54,
+        "startChar": 16,
+        "endLine": 54,
+        "endChar": 78
+      },
+      "revId": "bfe9fe5ea9f417d0e98022222506b3bb3f4a2628",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
