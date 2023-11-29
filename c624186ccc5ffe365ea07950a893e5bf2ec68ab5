@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d695b61f_b1b42a39",
+        "filename": "artd/artd.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 871,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-11-29T16:28:01Z",
+      "side": 1,
+      "message": "I think the intention of this flag is to force merge, so `forceMerge` is explanatory enough. We have to use a separate flag just because we can\u0027t change the behavior of the existing `--force-merge` flag due to compatibility reasons, and I think that\u0027s an implementation detail that the binder caller shouldn\u0027t be concerned about.\n\nThanks for catching the outdated comment in the aidl file. I updated it.",
+      "parentUuid": "9f2e9478_36314820",
+      "range": {
+        "startLine": 871,
+        "startChar": 26,
+        "endLine": 871,
+        "endChar": 36
+      },
+      "revId": "c624186ccc5ffe365ea07950a893e5bf2ec68ab5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "11ca4c12_b34c71f7",
@@ -49,6 +73,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "35362225_c6dc5cf5",
+        "filename": "profman/profile_assistant_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2094,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-11-29T16:28:01Z",
+      "side": 1,
+      "message": "Good idea! Done here and at the bottom of this file.",
+      "parentUuid": "11ca4c12_b34c71f7",
+      "range": {
+        "startLine": 2083,
+        "startChar": 0,
+        "endLine": 2094,
+        "endChar": 36
+      },
+      "revId": "c624186ccc5ffe365ea07950a893e5bf2ec68ab5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "295660ed_fee9579e",
         "filename": "profman/profile_assistant_test.cc",
         "patchSetId": 5
@@ -60,6 +108,30 @@
       "writtenOn": "2023-11-29T14:45:24Z",
       "side": 1,
       "message": "I\u0027m curious, what happens if the profile shrinks? I gather the premise is it doesn\u0027t, but what if?",
+      "range": {
+        "startLine": 2154,
+        "startChar": 48,
+        "endLine": 2154,
+        "endChar": 51
+      },
+      "revId": "c624186ccc5ffe365ea07950a893e5bf2ec68ab5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b13a56b6_27bdd5b6",
+        "filename": "profman/profile_assistant_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2154,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-11-29T16:28:01Z",
+      "side": 1,
+      "message": "It\u0027s covered by `ForceMergeAndAnalyzeNoDelta` below. If the cur profile is a subset of or is equal to the ref profile, profman should return `kSkipCompilationSmallDelta` and the reference profile should be left unchanged. I picked 600 in that test because 600 is on the boundary. If profman works fine for 600, then it should also work fine for 599 and below.",
+      "parentUuid": "295660ed_fee9579e",
       "range": {
         "startLine": 2154,
         "startChar": 48,
