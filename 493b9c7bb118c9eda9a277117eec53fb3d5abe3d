@@ -46,6 +46,30 @@
       },
       "revId": "493b9c7bb118c9eda9a277117eec53fb3d5abe3d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f486875a_d4e13a8b",
+        "filename": "test/run_test_build.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-11-29T16:50:21Z",
+      "side": 1,
+      "message": "\u003e 1) The checker shouldn\u0027t be affected - if we happy to receive different random permutation each time, then presumably it should also be happy to be pinned to one of those permutation.\n\nThe non-determinism of smali may not be at the dex instruction level.\n\n\u003e \n\u003e 2) We generally merge smali with java code later on, so the final output gets re-ordered by D8 anyway (which is possibly the reason we have not seen checker issues; or the randomness in such way that it wouldn\u0027t effect it anyway)\n\nSo this would seem to indicate d8 doesn\u0027t re-order dex instructions when invoked with a dex file?",
+      "parentUuid": "79c575eb_aa4bc4c4",
+      "range": {
+        "startLine": 194,
+        "startChar": 0,
+        "endLine": 195,
+        "endChar": 50
+      },
+      "revId": "493b9c7bb118c9eda9a277117eec53fb3d5abe3d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
