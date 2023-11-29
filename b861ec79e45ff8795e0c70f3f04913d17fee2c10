@@ -39,6 +39,30 @@
       },
       "revId": "b861ec79e45ff8795e0c70f3f04913d17fee2c10",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5b11da0_01703b3a",
+        "filename": "libartbase/base/globals.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2023-11-29T12:42:55Z",
+      "side": 1,
+      "message": "All `libartbase.so` symbols are visible by default (with `-fvisibility\u003dprotected` from `art_defaults`), so there shouldn\u0027t be any problems with that.\nThough I don\u0027t see the reason to explicitly mark it with default visibility. I tried to build the topic locally with visibility\u003dhidden and without the attribute altogether -- both seem to work.",
+      "parentUuid": "253e2c8c_42f45b47",
+      "range": {
+        "startLine": 176,
+        "startChar": 0,
+        "endLine": 176,
+        "endChar": 54
+      },
+      "revId": "b861ec79e45ff8795e0c70f3f04913d17fee2c10",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
