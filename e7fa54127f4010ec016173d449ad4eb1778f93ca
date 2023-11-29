@@ -118,6 +118,30 @@
       },
       "revId": "e7fa54127f4010ec016173d449ad4eb1778f93ca",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6f1f9ae1_a302ac96",
+        "filename": "libnativeloader/test/src/android/test/app/ProductAppTest.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1146974
+      },
+      "writtenOn": "2023-11-29T07:09:03Z",
+      "side": 1,
+      "message": "\u003e Not sure what sunfish failure you mean, I can\u0027t see any in that ticket. \n\nI was referring to `testProductApp` in http://android-build/test_investigate/?testResultId\u003dTR19929019824997472\u0026invocationId\u003dI20200010211127356\nIn case of sunfish, the test will not be disabled even with the current `skipPublicProductLibTests()` guard.\n\n\u003e if some checks don\u0027t work I prefer to disable them individually and only when necessary.\nIf this works in cuttlefish from sc-dev and sc-v2-dev I\u0027m inclined to leave it like this.\n\nLGTM",
+      "parentUuid": "a4abbea2_264d4448",
+      "range": {
+        "startLine": 35,
+        "startChar": 7,
+        "endLine": 37,
+        "endChar": 22
+      },
+      "revId": "e7fa54127f4010ec016173d449ad4eb1778f93ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
