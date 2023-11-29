@@ -16,6 +16,24 @@
       "message": "Marking this as work-in-progress as the change depends on a patch which is in a separate merge group - shouldn\u0027t be merged until those other groups are merged.",
       "revId": "48902c8a81928105d7f6be47e2809ebeab79031c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d5f1ddd_75ab29f2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1280281
+      },
+      "writtenOn": "2023-11-29T23:23:33Z",
+      "side": 1,
+      "message": "The patch https://android-review.googlesource.com/c/platform/art/+/2807815?usp\u003dsearch has been added to the group https://android-review.googlesource.com/q/topic:%22art16k_11-28-2023%22",
+      "parentUuid": "fccba7aa_79d23f03",
+      "revId": "48902c8a81928105d7f6be47e2809ebeab79031c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
