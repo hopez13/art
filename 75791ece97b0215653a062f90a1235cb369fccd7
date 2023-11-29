@@ -22,6 +22,30 @@
       },
       "revId": "75791ece97b0215653a062f90a1235cb369fccd7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "37a89ca4_13d07a79",
+        "filename": "profman/profile_assistant.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-11-29T10:58:25Z",
+      "side": 1,
+      "message": "Background dexopt will iterate over apps twice. In the first pass, it invokes profman without `--force-merge-and-analyze`. In the second pass, it invokes profman with `--force-merge-and-analyze`.\n\nThe `else` block below handles the first pass: it tells ART Service not to re-compile if the difference does not meet the thresholds. The `if` block here handles the second pass: it tells ART Service not to re-compile if there is no any difference.",
+      "parentUuid": "dbf03994_0d8e7efd",
+      "range": {
+        "startLine": 84,
+        "startChar": 0,
+        "endLine": 86,
+        "endChar": 36
+      },
+      "revId": "75791ece97b0215653a062f90a1235cb369fccd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
