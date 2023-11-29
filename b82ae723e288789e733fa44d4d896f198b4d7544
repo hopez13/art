@@ -1384,6 +1384,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "39df7140_400f6361",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2035,
+      "author": {
+        "id": 1280281
+      },
+      "writtenOn": "2023-11-29T08:37:39Z",
+      "side": 1,
+      "message": "There is a patch prepared for this (planned to be published soon) - caching the value in the MarkCompact as a data member.",
+      "parentUuid": "62925fc8_3d71d1da",
+      "range": {
+        "startLine": 2035,
+        "startChar": 30,
+        "endLine": 2035,
+        "endChar": 39
+      },
+      "revId": "b82ae723e288789e733fa44d4d896f198b4d7544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "844d5608_afd12734",
         "filename": "runtime/gc/collector/mark_compact.cc",
         "patchSetId": 3
