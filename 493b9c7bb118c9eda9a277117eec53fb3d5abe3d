@@ -70,6 +70,30 @@
       },
       "revId": "493b9c7bb118c9eda9a277117eec53fb3d5abe3d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c5957190_5ed277df",
+        "filename": "test/run_test_build.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-11-29T16:53:22Z",
+      "side": 1,
+      "message": "I wouldn\u0027t expect that order of dex instructions is the issue.  Hopefully that should strictly reflect the source.\n\nI would expect some string list in smali is deduped using unordered map, or something like that.",
+      "parentUuid": "f486875a_d4e13a8b",
+      "range": {
+        "startLine": 194,
+        "startChar": 0,
+        "endLine": 195,
+        "endChar": 50
+      },
+      "revId": "493b9c7bb118c9eda9a277117eec53fb3d5abe3d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
