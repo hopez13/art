@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cf83edf3_d10b80f2",
+        "filename": "libartservice/service/java/com/android/server/art/ArtShellCommand.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 613,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-11-29T16:25:15Z",
+      "side": 1,
+      "message": "Inlined.",
+      "parentUuid": "afcddeaf_b65e3b6d",
+      "range": {
+        "startLine": 613,
+        "startChar": 35,
+        "endLine": 613,
+        "endChar": 88
+      },
+      "revId": "bfe9fe5ea9f417d0e98022222506b3bb3f4a2628",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9a37de27_4d320871",
@@ -47,6 +71,54 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "85e7ee3c_a8bc4383",
+        "filename": "libartservice/service/java/com/android/server/art/BackgroundDexoptJob.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-11-29T16:25:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9a37de27_4d320871",
+      "range": {
+        "startLine": 271,
+        "startChar": 53,
+        "endLine": 271,
+        "endChar": 66
+      },
+      "revId": "bfe9fe5ea9f417d0e98022222506b3bb3f4a2628",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6e81949_a3925b3c",
+        "filename": "libartservice/service/java/com/android/server/art/BackgroundDexoptJob.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-11-29T16:25:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9a37de27_4d320871",
+      "range": {
+        "startLine": 271,
+        "startChar": 53,
+        "endLine": 271,
+        "endChar": 66
+      },
+      "revId": "bfe9fe5ea9f417d0e98022222506b3bb3f4a2628",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "94e4dcd0_1d6c53da",
@@ -60,6 +132,30 @@
       "writtenOn": "2023-11-29T14:17:50Z",
       "side": 1,
       "message": "Does this fix a real issue, or is it just a \"drive-by fix\"? In any case, it\u0027s worth a comment.",
+      "range": {
+        "startLine": 54,
+        "startChar": 16,
+        "endLine": 54,
+        "endChar": 78
+      },
+      "revId": "bfe9fe5ea9f417d0e98022222506b3bb3f4a2628",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0ce66fc_111c50ca",
+        "filename": "libartservice/service/java/com/android/server/art/BackgroundDexoptJobStatsReporter.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-11-29T16:25:15Z",
+      "side": 1,
+      "message": "This is not a fix of an existing issue. It\u0027s a change that I have to make after having multiple passes. Before, we had only one pass to report, and the stop reason must be for that pass. Now we have multiple passes. If the job is cancelled during the second pass, then we shouldn\u0027t report the stop reason for the first pass. Added a comment.",
+      "parentUuid": "94e4dcd0_1d6c53da",
       "range": {
         "startLine": 54,
         "startChar": 16,
