@@ -87,6 +87,30 @@
       },
       "revId": "f86df1476e9f13b94c2725db8b5590f2e5869bbf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b012dba_f67b4182",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-11-29T19:30:26Z",
+      "side": 1,
+      "message": "Hans/Lokesh, do you consider this blocking?",
+      "parentUuid": "36358562_e8882997",
+      "range": {
+        "startLine": 156,
+        "startChar": 20,
+        "endLine": 156,
+        "endChar": 47
+      },
+      "revId": "f86df1476e9f13b94c2725db8b5590f2e5869bbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
