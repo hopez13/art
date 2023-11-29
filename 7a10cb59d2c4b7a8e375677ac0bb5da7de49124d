@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2ab4bf4_992e895f",
+        "filename": "profman/profile_assistant.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-11-29T10:09:11Z",
+      "side": 1,
+      "message": "I don\u0027t understand this, can you add a comment? This reads as if the merge didn\u0027t change things.",
+      "range": {
+        "startLine": 84,
+        "startChar": 0,
+        "endLine": 86,
+        "endChar": 57
+      },
+      "revId": "7a10cb59d2c4b7a8e375677ac0bb5da7de49124d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3de8aa2b_48a8df09",
+        "filename": "profman/profile_assistant.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-11-29T10:09:11Z",
+      "side": 1,
+      "message": "This is an obscure notion in ART code. Maybe say it\u0027s only for S and T uses. Should you add a DCHECK that we don\u0027t use this on U+ ?",
+      "range": {
+        "startLine": 47,
+        "startChar": 4,
+        "endLine": 47,
+        "endChar": 19
+      },
+      "revId": "7a10cb59d2c4b7a8e375677ac0bb5da7de49124d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2b5043d_6f21db05",
+        "filename": "profman/profman.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 476,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-11-29T10:09:11Z",
+      "side": 1,
+      "message": "And S? Add the DCHECK here?",
+      "range": {
+        "startLine": 476,
+        "startChar": 44,
+        "endLine": 476,
+        "endChar": 45
+      },
+      "revId": "7a10cb59d2c4b7a8e375677ac0bb5da7de49124d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
