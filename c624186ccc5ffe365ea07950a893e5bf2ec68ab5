@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f2e9478_36314820",
+        "filename": "artd/artd.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 871,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-11-29T14:45:24Z",
+      "side": 1,
+      "message": "What about changing this to `forceMergeAndAnalyze`?\n\nAt the very least, the comment at https://cs.android.com/android/platform/superproject/main/+/main:art/artd/binder/com/android/server/art/MergeProfileOptions.aidl;l\u003d31;drc\u003dd46824b955bc8e01346d225fb28ef4e0ab78e7da should be updated.",
+      "range": {
+        "startLine": 871,
+        "startChar": 26,
+        "endLine": 871,
+        "endChar": 36
+      },
+      "revId": "c624186ccc5ffe365ea07950a893e5bf2ec68ab5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "11ca4c12_b34c71f7",
+        "filename": "profman/profile_assistant_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2094,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-11-29T14:45:24Z",
+      "side": 1,
+      "message": "Nit: Could put this in a block and the largely repeated code below in another one. Then the variables can stay the same and it\u0027s still more clear that they don\u0027t leak between the tests.",
+      "range": {
+        "startLine": 2083,
+        "startChar": 0,
+        "endLine": 2094,
+        "endChar": 36
+      },
+      "revId": "c624186ccc5ffe365ea07950a893e5bf2ec68ab5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "295660ed_fee9579e",
+        "filename": "profman/profile_assistant_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2154,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-11-29T14:45:24Z",
+      "side": 1,
+      "message": "I\u0027m curious, what happens if the profile shrinks? I gather the premise is it doesn\u0027t, but what if?",
+      "range": {
+        "startLine": 2154,
+        "startChar": 48,
+        "endLine": 2154,
+        "endChar": 51
+      },
+      "revId": "c624186ccc5ffe365ea07950a893e5bf2ec68ab5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
