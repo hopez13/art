@@ -95,6 +95,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "50a72dcd_b15eb8ea",
+        "filename": "libartbase/base/global_const.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-11-29T00:04:46Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "c85a62a3_a3422118",
+      "range": {
+        "startLine": 31,
+        "startChar": 2,
+        "endLine": 31,
+        "endChar": 22
+      },
+      "revId": "1ed59d9e4b42e38f55ee300e044b44c9161ef268",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "77a80ec0_18089fe7",
@@ -213,6 +237,54 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0858187b_f51c9943",
+        "filename": "libartbase/base/page_size_agnostic_globals.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-11-29T00:04:46Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "6d3b6e63_bc5eab17",
+      "range": {
+        "startLine": 87,
+        "startChar": 0,
+        "endLine": 87,
+        "endChar": 30
+      },
+      "revId": "1ed59d9e4b42e38f55ee300e044b44c9161ef268",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9c6a7db_ad423ab6",
+        "filename": "libartbase/base/page_size_agnostic_globals.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-11-29T00:04:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "42842f18_a3ab331a",
+      "range": {
+        "startLine": 87,
+        "startChar": 49,
+        "endLine": 87,
+        "endChar": 91
+      },
+      "revId": "1ed59d9e4b42e38f55ee300e044b44c9161ef268",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "008f8cd2_a7ff5322",
@@ -250,6 +322,30 @@
       "side": 1,
       "message": "`extern` in a source file should be alright - this happens during compilation when header files are integrated into module\u0027s source code.\n\nThis is needed to ensure the variable isn\u0027t subject to static initialization order issue - for the case when gPageSize is a variable and correspondingly gNumLrtSlots is also a statically initialized variable. For example, if an `SmallLrtAllocator` global is declared in another module then it\u0027s constructor would access gNumLrtSlots and that can be subject to the order issue.",
       "parentUuid": "008f8cd2_a7ff5322",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 41
+      },
+      "revId": "1ed59d9e4b42e38f55ee300e044b44c9161ef268",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "198106a3_a36fc250",
+        "filename": "runtime/jni/local_reference_table.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-11-29T00:04:46Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "2695eab0_0921e521",
       "range": {
         "startLine": 45,
         "startChar": 0,
