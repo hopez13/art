@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26d69b45_2e3f3a82",
+        "filename": "profman/profile_assistant.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1096713
+      },
+      "writtenOn": "2023-11-30T14:28:45Z",
+      "side": 1,
+      "message": "With `force_merge_`, we gave it a default value in the constructor, assuring it would never used uninitialized.  Should we do the same with the new `force_merge_and_analyze_`?",
+      "revId": "610a5839080aebefc9de95fdc90cdc3d847848b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
