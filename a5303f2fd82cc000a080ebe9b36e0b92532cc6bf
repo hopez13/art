@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d418eab1_27e3216a",
+        "filename": "compiler/optimizing/constant_folding.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 510,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-11-30T13:53:53Z",
+      "side": 1,
+      "message": "Done. Also added a `-1 / 1` test to make sure we are covering the case where `0xFFFFFFFF` is the result.",
+      "parentUuid": "e6225352_eeee3971",
+      "range": {
+        "startLine": 510,
+        "startChar": 49,
+        "endLine": 510,
+        "endChar": 75
+      },
+      "revId": "a5303f2fd82cc000a080ebe9b36e0b92532cc6bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8fac7319_c9b20974",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-11-30T08:36:09Z",
       "side": 1,
       "message": "ditto but `uint64_t` -\u003e `int64_t`.",
+      "range": {
+        "startLine": 514,
+        "startChar": 50,
+        "endLine": 514,
+        "endChar": 76
+      },
+      "revId": "a5303f2fd82cc000a080ebe9b36e0b92532cc6bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "049b096b_fc0e3e07",
+        "filename": "compiler/optimizing/constant_folding.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 514,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-11-30T13:53:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8fac7319_c9b20974",
       "range": {
         "startLine": 514,
         "startChar": 50,
