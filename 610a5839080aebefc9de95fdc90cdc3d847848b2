@@ -16,6 +16,24 @@
       "message": "With `force_merge_`, we gave it a default value in the constructor, assuring it would never used uninitialized.  Should we do the same with the new `force_merge_and_analyze_`?",
       "revId": "610a5839080aebefc9de95fdc90cdc3d847848b2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "01663cab_93dfa3be",
+        "filename": "profman/profile_assistant.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-11-30T14:34:22Z",
+      "side": 1,
+      "message": "Oops. Thanks for catching this! I created aosp/2854132.",
+      "parentUuid": "26d69b45_2e3f3a82",
+      "revId": "610a5839080aebefc9de95fdc90cdc3d847848b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
