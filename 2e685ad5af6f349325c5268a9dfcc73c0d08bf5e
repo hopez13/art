@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "96befd83_d32e602d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-11-30T00:17:16Z",
+      "side": 1,
+      "message": "I can\u0027t say I love the INIT_PRIORITY stuff, but I\u0027m OK with it.",
+      "revId": "2e685ad5af6f349325c5268a9dfcc73c0d08bf5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e03a845e_8292a0ff",
+        "filename": "runtime/runtime_globals.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-11-30T00:17:16Z",
+      "side": 1,
+      "message": "PageSize is unused elsewhere, right? Can you combine these into one declaration, and not name the struct?",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 32
+      },
+      "revId": "2e685ad5af6f349325c5268a9dfcc73c0d08bf5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
