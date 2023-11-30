@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb3cf7f0_66f806d4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-11-30T20:56:07Z",
+      "side": 1,
+      "message": "FYI, the issue b/314162498 seems to be an infra issue where the build is timing out. It\u0027s likely any other CL (including this revert) would not trigger the timeout again.",
+      "revId": "69a5ec4d6c3bf0d6f5dce098fc609e453d46b8a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
