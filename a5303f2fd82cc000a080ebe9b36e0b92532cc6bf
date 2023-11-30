@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e6225352_eeee3971",
+        "filename": "compiler/optimizing/constant_folding.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 510,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-11-30T08:36:09Z",
+      "side": 1,
+      "message": "This is `uint32_t`. Do you want to add an explicit `static_cast\u003cint32_t\u003e`? (Not `dchecked_integral_cast` in this case.)",
+      "range": {
+        "startLine": 510,
+        "startChar": 49,
+        "endLine": 510,
+        "endChar": 75
+      },
+      "revId": "a5303f2fd82cc000a080ebe9b36e0b92532cc6bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8fac7319_c9b20974",
+        "filename": "compiler/optimizing/constant_folding.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 514,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-11-30T08:36:09Z",
+      "side": 1,
+      "message": "ditto but `uint64_t` -\u003e `int64_t`.",
+      "range": {
+        "startLine": 514,
+        "startChar": 50,
+        "endLine": 514,
+        "endChar": 76
+      },
+      "revId": "a5303f2fd82cc000a080ebe9b36e0b92532cc6bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
