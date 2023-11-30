@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7b6293c_54c7405d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 12
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-11-30T19:28:31Z",
+      "side": 1,
+      "message": "Sorry, missed correcting this before submit. It should say that not all devices running S supports VNDK on the product partition, and those that don\u0027t get shared classloader namespaces for the product app.",
+      "range": {
+        "startLine": 14,
+        "startChar": 3,
+        "endLine": 15,
+        "endChar": 4
+      },
+      "revId": "502d277b38adb65d65ec9c88e8d5317303dc4035",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
