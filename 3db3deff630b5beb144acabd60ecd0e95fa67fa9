@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "724dd5fd_ac8f3eb7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2023-11-30T18:20:51Z",
+      "side": 1,
+      "message": "Mythri, maybe we could reconsider using symlinks in ART run-tests? It seems test `2263-method-trace-jit` is the only one using them (at least for golden outputs). Historically some ART run-tests used (fairly) common code but used duplication for simplicity and to maintain independence between tests. What do you think?",
+      "revId": "3db3deff630b5beb144acabd60ecd0e95fa67fa9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
