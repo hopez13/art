@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "52f8534c_3ba927af",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-12-01T10:23:12Z",
+      "side": 1,
+      "message": "Thanks! lgtm with a minor suggestion.",
+      "revId": "3cbdbec97970bb3bc033edb0bfbf9a737c42e515",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c44c3f80_5e3d668a",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1072,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-12-01T10:23:12Z",
+      "side": 1,
+      "message": "It seems strange that we use an \u0026\u0026 here. If result is false it should have certainly failed right? If we always expect error_msg to be set when result is false then should this be:\nif (!result) {\n  DCHECK_NE(error_msg, nullptr);\n  ...\n}",
+      "range": {
+        "startLine": 1072,
+        "startChar": 16,
+        "endLine": 1072,
+        "endChar": 47
+      },
+      "revId": "3cbdbec97970bb3bc033edb0bfbf9a737c42e515",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
