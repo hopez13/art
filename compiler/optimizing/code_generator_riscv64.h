@@ -61,7 +61,6 @@ static constexpr int32_t kFClassNaNMinValue = 0x100;
   V(SystemArrayCopyByte)                        \
   V(SystemArrayCopyChar)                        \
   V(SystemArrayCopyInt)                         \
-  V(SystemArrayCopy)                            \
   V(FP16Ceil)                                   \
   V(FP16Compare)                                \
   V(FP16Floor)                                  \
@@ -114,7 +113,7 @@ static constexpr int32_t kFClassNaNMinValue = 0x100;
   V(CRC32UpdateBytes)                           \
   V(CRC32UpdateByteBuffer)                      \
   V(MethodHandleInvokeExact)                    \
-  V(MethodHandleInvoke)                         \
+  V(MethodHandleInvoke)
 
 // Method register on invoke.
 static const XRegister kArtMethodRegister = A0;
