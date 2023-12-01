@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "305d3b90_764cf2b5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-12-01T16:36:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f945a707_cb2bc655",
+      "revId": "ebf73dca74f92685fe8a153585c3638d82c0201e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c7e080c5_b84db0a4",
@@ -31,6 +49,30 @@
       "writtenOn": "2023-12-01T15:48:02Z",
       "side": 1,
       "message": "Here (and x86_64) we might want `!(cond-\u003eGetBlock()-\u003eGetGraph()-\u003eIsCompilingBaseline() \u0026\u0026 codegen_-\u003eGetCompilerOptions().ProfileBranches()`. We can either pass `codegen_` or make this method non-static",
+      "range": {
+        "startLine": 2120,
+        "startChar": 0,
+        "endLine": 2120,
+        "endChar": 62
+      },
+      "revId": "ebf73dca74f92685fe8a153585c3638d82c0201e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7eda19f4_fe5b5503",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2120,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-12-01T16:36:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c7e080c5_b84db0a4",
       "range": {
         "startLine": 2120,
         "startChar": 0,
