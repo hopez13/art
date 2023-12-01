@@ -16,6 +16,29 @@
       "message": "Thanks Santiago, PTAL.",
       "revId": "4686ea086cd5c7d663ee3aa28a00dea75a110d98",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f5b5e62_d7cfdc1d",
+        "filename": "test/850-checker-branches/run.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-12-01T17:40:58Z",
+      "side": 1,
+      "message": "Did you see CHECK failures without this flag? If not, we might have missed something.",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 31
+      },
+      "revId": "4686ea086cd5c7d663ee3aa28a00dea75a110d98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
