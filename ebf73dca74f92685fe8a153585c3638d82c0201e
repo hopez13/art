@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f945a707_cb2bc655",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-12-01T15:48:02Z",
+      "side": 1,
+      "message": "There might be other files to modify too:\n\nI\u0027m surprised `850-checker-branches` didn\u0027t fail in your test.py run. Don\u0027t we need to modify it? Maybe we can change it to use the new flag you set (being set as true)\n\nPrepareForRegisterAllocation::CanEmitConditionAt (https://cs.android.com/android/platform/superproject/main/+/main:art/compiler/optimizing/prepare_for_register_allocation.cc;l\u003d183-186;drc\u003df7bd87edf3b80ce3bbd6e571fd119c878cb79992) to use the new flag. Related to that, there\u0027s this DCHECK (https://cs.android.com/android/platform/superproject/main/+/main:art/compiler/optimizing/nodes.h;l\u003d2669;drc\u003d7f515181fdbe88a139d973d3481964d9cb7ed118)",
+      "revId": "ebf73dca74f92685fe8a153585c3638d82c0201e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c7e080c5_b84db0a4",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2120,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-12-01T15:48:02Z",
+      "side": 1,
+      "message": "Here (and x86_64) we might want `!(cond-\u003eGetBlock()-\u003eGetGraph()-\u003eIsCompilingBaseline() \u0026\u0026 codegen_-\u003eGetCompilerOptions().ProfileBranches()`. We can either pass `codegen_` or make this method non-static",
+      "range": {
+        "startLine": 2120,
+        "startChar": 0,
+        "endLine": 2120,
+        "endChar": 62
+      },
+      "revId": "ebf73dca74f92685fe8a153585c3638d82c0201e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
