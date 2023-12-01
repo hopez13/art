@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6749cf97_26fc58f8",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2708,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-12-01T18:02:53Z",
+      "side": 1,
+      "message": "Should this be `DCHECK_IMPLIES(codegen_-\u003eEmitReadBarrier(), codegen_-\u003eEmitBakerReadBarrier());`?",
+      "range": {
+        "startLine": 2705,
+        "startChar": 0,
+        "endLine": 2708,
+        "endChar": 3
+      },
+      "revId": "8e12458fb3e50d7da49816e1891beb1412ebe12c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08ab7eff_c7eee694",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2781,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-12-01T18:02:53Z",
+      "side": 1,
+      "message": "We poison `temp1`, and then exchange `temp1` and `field_address`. Do we want to unpoison `field_address` instead then?",
+      "range": {
+        "startLine": 2777,
+        "startChar": 0,
+        "endLine": 2781,
+        "endChar": 26
+      },
+      "revId": "8e12458fb3e50d7da49816e1891beb1412ebe12c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
