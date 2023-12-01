@@ -39,6 +39,30 @@
       },
       "revId": "3cbdbec97970bb3bc033edb0bfbf9a737c42e515",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d34d17b_3bc2e456",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1072,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-12-01T10:52:33Z",
+      "side": 1,
+      "message": "Ah good catch. Looks like how this method has been implemented, it wants to accept error_msg being null. Fixed.",
+      "parentUuid": "c44c3f80_5e3d668a",
+      "range": {
+        "startLine": 1072,
+        "startChar": 16,
+        "endLine": 1072,
+        "endChar": 47
+      },
+      "revId": "3cbdbec97970bb3bc033edb0bfbf9a737c42e515",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
