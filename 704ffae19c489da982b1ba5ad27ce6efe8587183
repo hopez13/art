@@ -22,6 +22,30 @@
       },
       "revId": "704ffae19c489da982b1ba5ad27ce6efe8587183",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c4df80cc_1f9e3117",
+        "filename": "compiler/optimizing/intrinsics_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1739,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-12-04T08:10:52Z",
+      "side": 1,
+      "message": "References are 32-bit and riscv64 does not have a LR.wu on riscv64. Therefore we load as Int32 and zero-extend below.",
+      "parentUuid": "ca0fd8d7_8f2e7bbb",
+      "range": {
+        "startLine": 1739,
+        "startChar": 78,
+        "endLine": 1739,
+        "endChar": 84
+      },
+      "revId": "704ffae19c489da982b1ba5ad27ce6efe8587183",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
