@@ -117,6 +117,30 @@
       },
       "revId": "8e12458fb3e50d7da49816e1891beb1412ebe12c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fac04457_74f7a910",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2781,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-12-04T13:12:50Z",
+      "side": 1,
+      "message": "Yes, that\u0027s right. We need to poison the new value, exchange it with the poisoned reference in memory and unpoison the retrieved reference.",
+      "parentUuid": "4c4206d6_547890c0",
+      "range": {
+        "startLine": 2777,
+        "startChar": 0,
+        "endLine": 2781,
+        "endChar": 26
+      },
+      "revId": "8e12458fb3e50d7da49816e1891beb1412ebe12c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
