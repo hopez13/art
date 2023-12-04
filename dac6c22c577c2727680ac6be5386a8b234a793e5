@@ -58,6 +58,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3dea6181_91314577",
+        "filename": "openjdkjvmti/ti_heap.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 980,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-12-04T17:17:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c90701a8_ef033ca9",
+      "range": {
+        "startLine": 980,
+        "startChar": 19,
+        "endLine": 980,
+        "endChar": 50
+      },
+      "revId": "dac6c22c577c2727680ac6be5386a8b234a793e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d5f05495_a8e2fc4c",
@@ -81,6 +105,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "474149ce_0adfdbad",
+        "filename": "openjdkjvmti/ti_heap.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 983,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-12-04T17:17:27Z",
+      "side": 1,
+      "message": "That generally works, but might involve major code restructuring.\n\nThe \"fix this\" is rather ambitious, and too strong. I think it\u0027s not easy. I toned down the comment to make that clearer. I mostly just wanted to leave a note that the code structure here is not great, and the next time we touch this, we should see if we can do better. I don\u0027t think it\u0027s actually broken, but the locking discipline is not at all clean.",
+      "parentUuid": "d5f05495_a8e2fc4c",
+      "range": {
+        "startLine": 983,
+        "startChar": 65,
+        "endLine": 983,
+        "endChar": 79
+      },
+      "revId": "dac6c22c577c2727680ac6be5386a8b234a793e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d0566946_48d511b2",
@@ -94,6 +142,30 @@
       "writtenOn": "2023-12-04T15:45:05Z",
       "side": 1,
       "message": "Is there a way to add DCHECK to make sure we are in suspend all scope? Does adding a DCHECK that we hold mutator lock exclusively help here? I am just trying to see if we can catch any changes to this assumption in our tests.",
+      "range": {
+        "startLine": 111,
+        "startChar": 6,
+        "endLine": 111,
+        "endChar": 72
+      },
+      "revId": "dac6c22c577c2727680ac6be5386a8b234a793e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3804b2bb_e4450b2d",
+        "filename": "openjdkjvmti/ti_object.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-12-04T17:17:27Z",
+      "side": 1,
+      "message": "Asserting that we hold the mutator lock exclusively should basically do it. But since the ScopedSuspendAll is only 16 lines above, I think it\u0027s fine not to do that here. If it were in a separate function, I would do that.",
+      "parentUuid": "d0566946_48d511b2",
       "range": {
         "startLine": 111,
         "startChar": 6,
@@ -129,6 +201,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1438a840_99785117",
+        "filename": "openjdkjvmti/ti_thread.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-12-04T17:17:27Z",
+      "side": 1,
+      "message": "I like it. Done.\n\nI think peer should be OK, since it\u0027s a Java object, and hence can\u0027t disappear until we give up the mutator lock, which I don\u0027t think we do in EnsureFlipFunctionStarted. Lokesh may want to double-check this reasoning. It\u0027s only the native Thread structure that\u0027s the problem here.",
+      "parentUuid": "289d6a88_3a8796cc",
+      "range": {
+        "startLine": 293,
+        "startChar": 7,
+        "endLine": 293,
+        "endChar": 35
+      },
+      "revId": "dac6c22c577c2727680ac6be5386a8b234a793e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "84bc7ec6_dd626caa",
         "filename": "openjdkjvmti/ti_thread.cc",
         "patchSetId": 12
@@ -140,6 +236,30 @@
       "writtenOn": "2023-12-04T15:45:05Z",
       "side": 1,
       "message": "Minor nit: Update the comment.",
+      "range": {
+        "startLine": 658,
+        "startChar": 4,
+        "endLine": 658,
+        "endChar": 43
+      },
+      "revId": "dac6c22c577c2727680ac6be5386a8b234a793e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "00666d38_e50776d2",
+        "filename": "openjdkjvmti/ti_thread.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 658,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-12-04T17:17:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "84bc7ec6_dd626caa",
       "range": {
         "startLine": 658,
         "startChar": 4,
