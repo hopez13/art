@@ -93,6 +93,30 @@
       },
       "revId": "8e12458fb3e50d7da49816e1891beb1412ebe12c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c4206d6_547890c0",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2781,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-12-04T12:02:11Z",
+      "side": 1,
+      "message": "Am I understanding the (un)poisoning correctly?\n```\n// temp1 \u003d out\n      __ movl(temp1, out);\n// temp1 \u003d out_poison\n      __ PoisonHeapReference(temp1);\n// temp1 \u003d field_address; field_address \u003d out_poison (atomically)\n      __ xchgl(temp1, field_address);\n// temp1 \u003d field_address_unpoison\n      __ UnpoisonHeapReference(temp1);\n// out \u003d field_address_unpoison\n      __ movl(out, temp1);\n```",
+      "parentUuid": "27496237_1fcc472e",
+      "range": {
+        "startLine": 2777,
+        "startChar": 0,
+        "endLine": 2781,
+        "endChar": 26
+      },
+      "revId": "8e12458fb3e50d7da49816e1891beb1412ebe12c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
