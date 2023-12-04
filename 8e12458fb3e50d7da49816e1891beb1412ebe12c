@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "56bd026d_f14b2924",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2708,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-12-04T08:03:25Z",
+      "side": 1,
+      "message": "I\u0027m not removing the non-Baker RB yet. When I do, this shall be a reasonable way to do it here. But for now, this just says that we do not create intrinsic locations for non-Baker RB (in other words, we do not intrinsify).",
+      "parentUuid": "6749cf97_26fc58f8",
+      "range": {
+        "startLine": 2705,
+        "startChar": 0,
+        "endLine": 2708,
+        "endChar": 3
+      },
+      "revId": "8e12458fb3e50d7da49816e1891beb1412ebe12c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "08ab7eff_c7eee694",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-12-01T18:02:53Z",
       "side": 1,
       "message": "We poison `temp1`, and then exchange `temp1` and `field_address`. Do we want to unpoison `field_address` instead then?",
+      "range": {
+        "startLine": 2777,
+        "startChar": 0,
+        "endLine": 2781,
+        "endChar": 26
+      },
+      "revId": "8e12458fb3e50d7da49816e1891beb1412ebe12c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "27496237_1fcc472e",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2781,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-12-04T08:03:25Z",
+      "side": 1,
+      "message": "We cannot unpoison the reference in memory. Some other thread could read that unpoisoned value and then \"unpoison\" it and crash when using that bad pointer.",
+      "parentUuid": "08ab7eff_c7eee694",
       "range": {
         "startLine": 2777,
         "startChar": 0,
