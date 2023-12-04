@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "d4ce6c5d_df1aed0b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-12-04T10:35:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2ea1f97c_7ca7c28f",
+      "revId": "4686ea086cd5c7d663ee3aa28a00dea75a110d98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "defb316b_6d7150c2",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
@@ -48,6 +66,30 @@
       "writtenOn": "2023-12-01T17:40:58Z",
       "side": 1,
       "message": "Did you see CHECK failures without this flag? If not, we might have missed something.",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 31
+      },
+      "revId": "4686ea086cd5c7d663ee3aa28a00dea75a110d98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "79086ed3_c0fd3f4d",
+        "filename": "test/850-checker-branches/run.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-12-04T10:35:11Z",
+      "side": 1,
+      "message": "Yes, I relied on presubmit to find the issue (which looks like it did). I now have locally verified it does hit the CHECK without the flag.",
+      "parentUuid": "0f5b5e62_d7cfdc1d",
       "range": {
         "startLine": 28,
         "startChar": 0,
