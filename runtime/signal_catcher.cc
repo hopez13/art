@@ -16,8 +16,8 @@
 
 #include "signal_catcher.h"
 
-#include <csignal>
-#include <cstdlib>
+#include <android-base/file.h>
+#include <android-base/stringprintf.h>
 #include <fcntl.h>
 #include <pthread.h>
 #include <sys/stat.h>
@@ -25,12 +25,12 @@
 #include <sys/types.h>
 #include <unistd.h>
 
+#include <csignal>
+#include <cstdlib>
 #include <sstream>
 
-#include <android-base/file.h>
-#include <android-base/stringprintf.h>
-
 #include "arch/instruction_set.h"
+#include "base/debugstore.h"
 #include "base/logging.h"  // For GetCmdLine.
 #include "base/os.h"
 #include "base/time_utils.h"
@@ -129,6 +129,11 @@ void SignalCatcher::HandleSigQuit() {
   os << "ABI: '" << GetInstructionSetString(runtime->GetInstructionSet()) << "'\n";
 
   os << "Build type: " << (kIsDebugBuild ? "debug" : "optimized") << "\n";
+
+  if (DebugStoreEnabled()) {
+    LOG(INFO) << "Debug store enabled, Dumping contents";
+    os << "Debug Store: " << DebugStoreGetString() << "\n";
+  }
 
   runtime->DumpForSigQuit(os);
 
