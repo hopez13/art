@@ -355,9 +355,14 @@ void RegisterAllocatorLinearScan::CheckForFixedInputs(HInstruction* instruction)
     Location input = locations->InAt(i);
     if (input.IsRegister() || input.IsFpuRegister()) {
       BlockRegister(input, position, position + 1);
+      // Ensure that an explicit input register is marked as being allocated.
+      codegen_->AddAllocatedRegister(input);
     } else if (input.IsPair()) {
       BlockRegister(input.ToLow(), position, position + 1);
       BlockRegister(input.ToHigh(), position, position + 1);
+      // Ensure that an explicit input register pair is marked as being allocated.
+      codegen_->AddAllocatedRegister(input.ToLow());
+      codegen_->AddAllocatedRegister(input.ToHigh());
     }
   }
 }
