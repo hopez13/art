@@ -34,6 +34,24 @@
       "parentUuid": "fe888a02_47f518f8",
       "revId": "87f2fc441d91315de50d4cbab4452c3b51020402",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "85604a16_415cec51",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-12-04T10:36:05Z",
+      "side": 1,
+      "message": "\u003e \u003e Are we regularly running this with targetSDK \u003e 34? If so, the new failure makes sense, but I thought we weren\u0027t doing that yet?\n\u003e \n\u003e Good question I am not really sure how the SDK version is checked. I can confirm though that we are triggering GCs now and we weren\u0027t triggering them earlier. I will try to check locally what\u0027s happening here.\n\nFor run-tests, we don\u0027t set an SDK Version (so the default applies I think, which is something like 10000).\n\n\u003e \n\u003e \u003e I suspect the fixed version will still never trigger GC from ForceGCTracer with older targetAPIs. Is that WAI? If not, I suggest replacing System.gc() with Runtime.getRuntime.gc(), in which case we should get consistent behavior everywhere.\n\u003e \n\u003e Thanks! I think Runtime.getRuntime.gc() would be better. Though that would change the existing behaviour but I guess the existing behaviour is not expected. So having consistent behaviour sounds better. I will upload a Cl for this. Thanks!",
+      "parentUuid": "5a815b0b_9b91858a",
+      "revId": "87f2fc441d91315de50d4cbab4452c3b51020402",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
