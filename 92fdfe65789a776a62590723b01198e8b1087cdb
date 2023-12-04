@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c17fea9c_0cc6cb0c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-12-04T18:41:34Z",
+      "side": 1,
+      "message": "The `004-checker-UnsafeTest18` failure looks unrelated to me since it looks like it is failing for interpreter too, but it may be worth it to take a second look since it is related to `Unsafe.getAndSetLong`",
+      "revId": "92fdfe65789a776a62590723b01198e8b1087cdb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
