@@ -16,6 +16,138 @@
       "message": "Please review. I\u0027m not sure the last bug was fixed. But there should be enough additional checking for me to get more information.\n\nMythri - Could you look at the jvmti changes in PS8-PS11? You will probably need to understand the new ThreadExitFlag API in thread.h.\n\nI suspect the existing Treehugger failures are bogus. I filed b/314530563 for that. The problem may go away this time.",
       "revId": "dac6c22c577c2727680ac6be5386a8b234a793e5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "082e7b80_5269ffd8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-12-04T15:45:05Z",
+      "side": 1,
+      "message": "Thanks Hans! Just a few minor comments and questions to understand better.",
+      "revId": "dac6c22c577c2727680ac6be5386a8b234a793e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c90701a8_ef033ca9",
+        "filename": "openjdkjvmti/ti_heap.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 980,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-12-04T15:45:05Z",
+      "side": 1,
+      "message": "typo: was acquired in ThreadList::VisitRoots",
+      "range": {
+        "startLine": 980,
+        "startChar": 19,
+        "endLine": 980,
+        "endChar": 50
+      },
+      "revId": "dac6c22c577c2727680ac6be5386a8b234a793e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d5f05495_a8e2fc4c",
+        "filename": "openjdkjvmti/ti_heap.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 983,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-12-04T15:45:05Z",
+      "side": 1,
+      "message": "Just curious, how do we fix this? Is it something similar to:\n1. Get a snapshot of thread_list (art::Runtime::Current()-\u003eGetThreadList()-\u003eGetList()) then registering the thread exit flag while holding the thread_list_lock_. \n2. Release the thread_list_lock_\n3. iterate over the thread_list after checking for threadExitFlag.",
+      "range": {
+        "startLine": 983,
+        "startChar": 65,
+        "endLine": 983,
+        "endChar": 79
+      },
+      "revId": "dac6c22c577c2727680ac6be5386a8b234a793e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0566946_48d511b2",
+        "filename": "openjdkjvmti/ti_object.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-12-04T15:45:05Z",
+      "side": 1,
+      "message": "Is there a way to add DCHECK to make sure we are in suspend all scope? Does adding a DCHECK that we hold mutator lock exclusively help here? I am just trying to see if we can catch any changes to this assumption in our tests.",
+      "range": {
+        "startLine": 111,
+        "startChar": 6,
+        "endLine": 111,
+        "endChar": 72
+      },
+      "revId": "dac6c22c577c2727680ac6be5386a8b234a793e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "289d6a88_3a8796cc",
+        "filename": "openjdkjvmti/ti_thread.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-12-04T15:45:05Z",
+      "side": 1,
+      "message": "Should we just set target \u003d nullptr here, to prevent any accidental usages of target?\n\nOne question for my understanding, is it safe to use peer then? If we are the only one holding reference to peer here is it okay to use ObjPtr for peer here?",
+      "range": {
+        "startLine": 293,
+        "startChar": 7,
+        "endLine": 293,
+        "endChar": 35
+      },
+      "revId": "dac6c22c577c2727680ac6be5386a8b234a793e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "84bc7ec6_dd626caa",
+        "filename": "openjdkjvmti/ti_thread.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 658,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-12-04T15:45:05Z",
+      "side": 1,
+      "message": "Minor nit: Update the comment.",
+      "range": {
+        "startLine": 658,
+        "startChar": 4,
+        "endLine": 658,
+        "endChar": 43
+      },
+      "revId": "dac6c22c577c2727680ac6be5386a8b234a793e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
