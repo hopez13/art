@@ -103,8 +103,8 @@ func globalFlags(ctx android.LoadHookContext) ([]string, []string) {
 			"-DART_STACK_OVERFLOW_GAP_x86_64=8192")
 	}
 
-	if (ctx.Config().PageSizeAgnostic()) {
-		cflags = append(cflags, "-DART_PAGE_SIZE_AGNOSTIC=1")
+	if (ctx.Config().NoBionicPageSizeMacro()) {
+		cflags = append(cflags, "-DART_NO_BIONIC_PAGE_SIZE_MACRO=1")
 	}
 
 	if ctx.Config().IsEnvTrue("ART_ENABLE_ADDRESS_SANITIZER") {

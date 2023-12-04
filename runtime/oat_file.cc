@@ -1424,7 +1424,7 @@ bool DlOpenOatFile::Dlopen(const std::string& elf_filename,
       // The reserved memory size is aligned up to kElfSegmentAlignment to ensure
       // that the next reserved area will be aligned to the value.
       dlopen_mmaps_.push_back(reservation->TakeReservedMemory(
-          CondRoundUp<kPageSizeAgnostic>(context.max_size, kElfSegmentAlignment)));
+          CondRoundUp<kNoBionicPageSizeMacro>(context.max_size, kElfSegmentAlignment)));
     }
 #else
     static_assert(!kIsTargetBuild || kIsTargetLinux || kIsTargetFuchsia,
