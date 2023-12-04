@@ -52,6 +52,24 @@
       "parentUuid": "5a815b0b_9b91858a",
       "revId": "87f2fc441d91315de50d4cbab4452c3b51020402",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "146c0962_9f83f659",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-12-04T10:50:59Z",
+      "side": 1,
+      "message": "\u003e For run-tests, we don\u0027t set an SDK Version (so the default applies I think, which is something like 10000).\n\nYes, I verified locally that the SDK version is 10000. So I guess this is WAI.",
+      "parentUuid": "85604a16_415cec51",
+      "revId": "87f2fc441d91315de50d4cbab4452c3b51020402",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
