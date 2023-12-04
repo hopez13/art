@@ -211,6 +211,24 @@
       "parentUuid": "1cd2ec1d_e5613eb0",
       "revId": "fe0d780b0fd1494747b1838f7143c83fc309c502",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "388b5aa4_3f313cc3",
+        "filename": "runtime/gc/collector/garbage_collector.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1651277
+      },
+      "writtenOn": "2023-12-04T19:44:13Z",
+      "side": 1,
+      "message": "Yes, please do add live bytes scanned as well per b/300015145. Thanks.",
+      "parentUuid": "5a634893_37e65d1e",
+      "revId": "fe0d780b0fd1494747b1838f7143c83fc309c502",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
