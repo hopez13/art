@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5e001239_b69a1f1a",
+        "filename": "sigchainlib/log.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-12-05T15:58:11Z",
+      "side": 1,
+      "message": "Good point.  But as it is not regression, we can follow up later.",
+      "parentUuid": "de646d63_7b42e00f",
+      "revId": "b63bcb86390d2ddeada31293502c0f518d93a295",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fdd9ae05_38380b89",
         "filename": "sigchainlib/sigchain.cc",
         "patchSetId": 1
@@ -48,6 +66,30 @@
       "writtenOn": "2023-12-04T16:01:10Z",
       "side": 1,
       "message": "stray \\n",
+      "range": {
+        "startLine": 705,
+        "startChar": 59,
+        "endLine": 705,
+        "endChar": 61
+      },
+      "revId": "b63bcb86390d2ddeada31293502c0f518d93a295",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "09ac3a6d_019836bf",
+        "filename": "sigchainlib/sigchain.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 705,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-12-05T15:58:11Z",
+      "side": 1,
+      "message": "Good catch.  (but also not a regression)",
+      "parentUuid": "b3685ffc_c6f6d70c",
       "range": {
         "startLine": 705,
         "startChar": 59,
