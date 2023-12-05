@@ -223,6 +223,10 @@ ConcurrentCopying::~ConcurrentCopying() {
 }
 
 void ConcurrentCopying::RunPhases() {
+  int thread_tid = GetTid();
+  PerfUtil::setCpuAffinity(thread_tid);
+  PerfUtil::setUclampMax(thread_tid);
+
   CHECK(kUseBakerReadBarrier || kUseTableLookupReadBarrier);
   CHECK(!is_active_);
   is_active_ = true;
@@ -274,6 +278,9 @@ void ConcurrentCopying::RunPhases() {
   CHECK(is_active_);
   is_active_ = false;
   thread_running_gc_ = nullptr;
+
+  PerfUtil::restoreUclampMax(thread_tid);
+  PerfUtil::restoreCpuAffinity(thread_tid);
 }
 
 class ConcurrentCopying::ActivateReadBarrierEntrypointsCheckpoint : public Closure {
