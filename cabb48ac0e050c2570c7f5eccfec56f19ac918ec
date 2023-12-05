@@ -46,6 +46,30 @@
       },
       "revId": "cabb48ac0e050c2570c7f5eccfec56f19ac918ec",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "00982b0f_92530d67",
+        "filename": "libdexfile/dex/dex_file_loader.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-12-05T14:15:58Z",
+      "side": 1,
+      "message": "Ok, but my point is that it\u0027s not clear this is safe to ignore when it\u0027s used from `ADexFile_create`, where we (if I\u0027m not mistaken) can\u0027t guarantee that the caller will explicitly open the other files. Iow, when I look at `ADexFile_create` in a year from now and follow the call to read this, I may very well think the use there violates an assumption.",
+      "parentUuid": "8c831dae_4bbf0abc",
+      "range": {
+        "startLine": 192,
+        "startChar": 5,
+        "endLine": 192,
+        "endChar": 72
+      },
+      "revId": "cabb48ac0e050c2570c7f5eccfec56f19ac918ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
