@@ -16,6 +16,24 @@
       "message": "The `004-checker-UnsafeTest18` failure looks unrelated to me since it looks like it is failing for interpreter too, but it may be worth it to take a second look since it is related to `Unsafe.getAndSetLong`",
       "revId": "92fdfe65789a776a62590723b01198e8b1087cdb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6cb79a48_8d0d8aa0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-12-05T16:21:06Z",
+      "side": 1,
+      "message": "It is indeed caused by this CL.\n\nI experimented with `--jit-on-first-use` and it was crashing. When I allowed only the second occurrence of GetAndSetLong to be compiled, I managed to hit the following code in gdb:\n\n    \u003d\u003e 0x703bc830:      sub    $0x1c,%esp\n       0x703bc833:      mov    %eax,(%esp)\n       0x703bc836:      mov    %edx,%ebp\n       0x703bc838:      mov    0x2c(%esp),%esi\n       0x703bc83c:      mov    0x30(%esp),%edi\n       0x703bc840:      mov    0x34(%esp),%ebx\n       0x703bc844:      mov    0x38(%esp),%ecx\n       0x703bc848:      mov    0x0(%ebp,%esi,1),%eax\n       0x703bc84c:      mov    0x4(%ebp,%esi,1),%edx\n       0x703bc850:      lock cmpxchg8b 0x0(%ebp,%esi,1)\n       0x703bc856:      jne    0x703bc848\n       0x703bc858:      add    $0x1c,%esp\n       0x703bc85b:      ret\n\nIt seems that the register allocator does not apply explicitly allocated registers to the core spill mask, so the callee-save registers EBP, EDI and EDI are clobbered. I guess I can either fix the register allocator, or disable the 64-bit itrinsics for now.",
+      "parentUuid": "c17fea9c_0cc6cb0c",
+      "revId": "92fdfe65789a776a62590723b01198e8b1087cdb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
