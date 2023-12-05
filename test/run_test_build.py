@@ -545,7 +545,19 @@ def main() -> None:
 
   android_build_top = Path(getcwd()).absolute()
   ziproot = args.out.absolute().parent / "zip"
-  srcdirs = set(s.parents[-4].absolute() for s in args.srcs)
+
+  match = re.search("^art/test/[0-9]?[0-9]?([0-9][0-9])-", str(args.srcs[0]))
+  if not match:
+    sys.exit('First source file must be part of the test shard')
+  test_dir_regex = re.compile(f"^art/test/[0-9]?[0-9]?{match.group(1)}")
+
+  # Other files are added to srcs so that they're included in the build sandbox, but they're not
+  # actual tests
+  srcdirs = set(
+    s.parents[-4].absolute()
+    for s in args.srcs
+    if test_dir_regex.search(str(s))
+  )
 
   # Special hidden-api shard: If the --hiddenapi flag is provided, build only
   # hiddenapi tests. Otherwise exclude all hiddenapi tests from normal shards.

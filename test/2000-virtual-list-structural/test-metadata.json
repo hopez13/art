@@ -1,0 +1,6 @@
+{
+  "test_build_srcs": [
+    ":ojluni-AbstractCollection",
+    "jvmti-common/*.java"
+  ]
+}
