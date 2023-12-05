@@ -82,6 +82,7 @@ class BuildTestContext:
     self.jasmin = functools.partial(self.run, args.jasmin.absolute())
     self.javac = functools.partial(self.run, self.javac_path)
     self.smali_path = args.smali.absolute()
+    self.rbe_rewrapper = args.rewrapper.absolute()
     self.smali = functools.partial(self.run, args.smali.absolute())
     self.soong_zip = functools.partial(self.run, args.soong_zip.absolute())
     self.zipalign = functools.partial(self.run, args.zipalign.absolute())
@@ -91,7 +92,6 @@ class BuildTestContext:
     # RBE wrapper for some of the tools.
     if "RBE_server_address" in os.environ and USE_RBE > (hash(self.test_name) % 100):
       self.rbe_exec_root = os.environ.get("RBE_exec_root")
-      self.rbe_rewrapper = self.android_build_top / "prebuilts/remoteexecution-client/live/rewrapper"
 
       # TODO(b/307932183) Regression: RBE produces wrong output for D8 in ART
       disable_d8 = any((self.test_dir / n).exists() for n in ["classes", "src2", "src-art"])
@@ -539,6 +539,7 @@ def main() -> None:
   parser.add_argument("--d8", type=Path)
   parser.add_argument("--hiddenapi", type=Path)
   parser.add_argument("--jasmin", type=Path)
+  parser.add_argument("--rewrapper", type=Path)
   parser.add_argument("--smali", type=Path)
   parser.add_argument("--soong_zip", type=Path)
   parser.add_argument("--zipalign", type=Path)
@@ -547,7 +548,19 @@ def main() -> None:
 
   android_build_top = Path(getcwd()).absolute()
   ziproot = args.out.absolute().parent / "zip"
-  srcdirs = set(s.parents[-4].absolute() for s in args.srcs)
+
+  match = re.search("^art/test/[0-9]?[0-9]?([0-9][0-9])-", str(args.srcs[0]))
+  if not match:
+    sys.exit('First source file must be part of the test shard')
+  test_dir_regex = re.compile(f"^art/test/[0-9]?[0-9]?{match.group(1)}")
+
+  # Other files are added to srcs so that they're included in the build sandbox, but they're not
+  # actual tests
+  srcdirs = set(
+    s.parents[-4].absolute()
+    for s in args.srcs
+    if test_dir_regex.search(str(s))
+  )
 
   # Special hidden-api shard: If the --hiddenapi flag is provided, build only
   # hiddenapi tests. Otherwise exclude all hiddenapi tests from normal shards.
