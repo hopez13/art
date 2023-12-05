@@ -58,6 +58,7 @@
 #include "imt_conflict_table.h"
 #include "indirect_reference_table-inl.h"
 #include "intern_table-inl.h"
+#include "interpreter/mterp/nterp-inl.h"
 #include "jni/java_vm_ext-inl.h"
 #include "jni/jni_internal.h"
 #include "linear_alloc.h"
@@ -3459,7 +3460,7 @@ void ImageWriter::CopyAndFixupMethod(ArtMethod* orig,
 
   CopyAndFixupReference(copy->GetDeclaringClassAddressWithoutBarrier(),
                         orig->GetDeclaringClassUnchecked<kWithoutReadBarrier>());
-  MaybeAdjustAccessFlags(copy, orig);
+  ResetNterpFastPathFlags(copy, orig);
 
   // OatWriter replaces the code_ with an offset value. Here we re-adjust to a pointer relative to
   // oat_begin_
@@ -3753,25 +3754,30 @@ void ImageWriter::CopyAndFixupPointer(void* object, MemberOffset offset, ValueTy
   return CopyAndFixupPointer(object, offset, src_value, target_ptr_size_);
 }
 
-void ImageWriter::MaybeAdjustAccessFlags(ArtMethod* copy, ArtMethod* orig) {
+void ImageWriter::ResetNterpFastPathFlags(ArtMethod* copy, ArtMethod* orig) {
   DCHECK(copy != nullptr);
-  // RISC-V 64 target interprets kAccNterpInvokeFastPathFlag more narrowly than other ISAs.
-  // The other ISAs accept a wider set of methods for this invoke fastpath, and this adjustment
-  // reduces the set to just 'L'-type args.
-  if (compiler_options_.GetInstructionSet() == InstructionSet::kRiscv64 &&
-      (copy->GetAccessFlags() & kAccNterpInvokeFastPathFlag)) {
-    // If shorty args have non-'L' type, clear the flag.
-    std::string_view shorty = orig->GetShortyView();  // Use orig, copy's class not yet ready.
-    bool all_parameters_are_reference = true;
-    for (size_t i = 1; i < shorty.length(); ++i) {
-      if (shorty[i] != 'L') {
-        all_parameters_are_reference = false;
-        break;
-      }
-    }
-    if (!all_parameters_are_reference) {
-      copy->ClearNterpInvokeFastPathFlag();
-    }
+  DCHECK(orig != nullptr);
+  if (orig->IsRuntimeMethod() || orig->IsProxyMethod()) {
+    return;  // !IsRuntimeMethod() and !IsProxyMethod() for GetShortyView()
+  }
+
+  // Clear old nterp fast path flags.
+  if (copy->HasNterpEntryPointFastPathFlag()) {
+    copy->ClearNterpEntryPointFastPathFlag();  // Flag has other uses, clear it conditionally.
+  }
+  copy->ClearNterpInvokeFastPathFlag();
+
+  // Check if nterp fast paths available on target ISA.
+  std::string_view shorty = orig->GetShortyView();  // Use orig, copy's class not yet ready.
+  uint32_t new_nterp_flags = interpreter::GetNterpFastPathFlags(
+      shorty, copy->GetAccessFlags(), compiler_options_.GetInstructionSet());
+
+  // Set new nterp fast path flags, if approporiate.
+  if ((new_nterp_flags & kAccNterpEntryPointFastPathFlag) != 0) {
+    copy->SetNterpEntryPointFastPathFlag();
+  }
+  if ((new_nterp_flags & kAccNterpInvokeFastPathFlag) != 0) {
+    copy->SetNterpInvokeFastPathFlag();
   }
 }
 

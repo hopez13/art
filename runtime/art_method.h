@@ -584,6 +584,11 @@ class ArtMethod final {
     AddAccessFlags(kAccNterpEntryPointFastPathFlag);
   }
 
+  void ClearNterpEntryPointFastPathFlag() REQUIRES_SHARED(Locks::mutator_lock_) {
+    DCHECK(!IsNative());
+    ClearAccessFlags(kAccNterpEntryPointFastPathFlag);
+  }
+
   void SetNterpInvokeFastPathFlag() REQUIRES_SHARED(Locks::mutator_lock_) {
     AddAccessFlags(kAccNterpInvokeFastPathFlag);
   }

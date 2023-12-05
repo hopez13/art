@@ -17,6 +17,7 @@
 #ifndef ART_RUNTIME_INTERPRETER_MTERP_NTERP_H_
 #define ART_RUNTIME_INTERPRETER_MTERP_NTERP_H_
 
+#include "arch/instruction_set.h"
 #include "base/array_ref.h"
 #include "base/globals.h"
 
@@ -32,6 +33,8 @@ namespace interpreter {
 void CheckNterpAsmConstants();
 bool IsNterpSupported();
 bool CanRuntimeUseNterp();
+// Returns kAccNterpInvokeFastPathFlag and/or kAccNterpEntryPointFastPathFlag, if appropriate.
+uint32_t GetNterpFastPathFlags(std::string_view shorty, uint32_t access_flags, InstructionSet isa);
 const void* GetNterpEntryPoint();
 const void* GetNterpWithClinitEntryPoint();
 ArrayRef<const uint8_t> NterpWithClinitImpl();

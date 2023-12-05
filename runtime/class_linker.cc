@@ -39,7 +39,6 @@
 #include "barrier.h"
 #include "base/arena_allocator.h"
 #include "base/arena_bit_vector.h"
-#include "base/membarrier.h"
 #include "base/casts.h"
 #include "base/file_utils.h"
 #include "base/hash_map.h"
@@ -47,6 +46,7 @@
 #include "base/leb128.h"
 #include "base/logging.h"
 #include "base/mem_map_arena_pool.h"
+#include "base/membarrier.h"
 #include "base/metrics/metrics.h"
 #include "base/mutex-inl.h"
 #include "base/os.h"
@@ -95,6 +95,7 @@
 #include "imtable-inl.h"
 #include "intern_table-inl.h"
 #include "interpreter/interpreter.h"
+#include "interpreter/mterp/nterp-inl.h"
 #include "interpreter/mterp/nterp.h"
 #include "jit/debugger_interface.h"
 #include "jit/jit.h"
@@ -3994,25 +3995,7 @@ void ClassLinker::LoadMethod(const DexFile& dex_file,
     }
   }
 
-  // Check for nterp invoke fast-path based on shorty.
-  bool all_parameters_are_reference = true;
-  bool all_parameters_are_reference_or_int = true;
-  for (size_t i = 1; i < shorty.length(); ++i) {
-    if (shorty[i] != 'L') {
-      all_parameters_are_reference = false;
-      if (shorty[i] == 'F' || shorty[i] == 'D' || shorty[i] == 'J') {
-        all_parameters_are_reference_or_int = false;
-        break;
-      }
-    }
-  }
-  if (kRuntimeISA != InstructionSet::kRiscv64 && all_parameters_are_reference_or_int &&
-      shorty[0] != 'F' && shorty[0] != 'D') {
-    access_flags |= kAccNterpInvokeFastPathFlag;
-  } else if (kRuntimeISA == InstructionSet::kRiscv64 && all_parameters_are_reference &&
-             shorty[0] != 'F' && shorty[0] != 'D') {
-    access_flags |= kAccNterpInvokeFastPathFlag;
-  }
+  access_flags |= interpreter::GetNterpFastPathFlags(shorty, access_flags, kRuntimeISA);
 
   if (UNLIKELY((access_flags & kAccNative) != 0u)) {
     // Check if the native method is annotated with @FastNative or @CriticalNative.
@@ -4035,10 +4018,6 @@ void ClassLinker::LoadMethod(const DexFile& dex_file,
     DCHECK_EQ(method.GetCodeItemOffset(), 0u);
     dst->SetDataPtrSize(nullptr, image_pointer_size_);  // Single implementation not set yet.
   } else {
-    // Check for nterp entry fast-path based on shorty.
-    if (all_parameters_are_reference) {
-      access_flags |= kAccNterpEntryPointFastPathFlag;
-    }
     const dex::ClassDef& class_def = dex_file.GetClassDef(klass->GetDexClassDefIndex());
     if (annotations::MethodIsNeverCompile(dex_file, class_def, dex_method_idx)) {
       access_flags |= kAccCompileDontBother;
