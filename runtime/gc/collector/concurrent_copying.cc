@@ -41,6 +41,7 @@
 #include "mirror/object-inl.h"
 #include "mirror/object-refvisitor-inl.h"
 #include "mirror/object_reference.h"
+#include "perf_util.h"
 #include "oat/image-inl.h"
 #include "scoped_thread_state_change-inl.h"
 #include "thread-inl.h"
@@ -223,6 +224,9 @@ ConcurrentCopying::~ConcurrentCopying() {
 }
 
 void ConcurrentCopying::RunPhases() {
+  int thread_tid = GetTid();
+  PerfUtil::SetTaskAffinity(thread_tid);
+
   CHECK(kUseBakerReadBarrier || kUseTableLookupReadBarrier);
   CHECK(!is_active_);
   is_active_ = true;
@@ -274,6 +278,8 @@ void ConcurrentCopying::RunPhases() {
   CHECK(is_active_);
   is_active_ = false;
   thread_running_gc_ = nullptr;
+
+  PerfUtil::RestoreTaskAffinity(thread_tid);
 }
 
 class ConcurrentCopying::ActivateReadBarrierEntrypointsCheckpoint : public Closure {
