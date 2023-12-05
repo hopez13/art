@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "839813a6_7bc0a7dc",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4015,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-12-05T16:52:26Z",
+      "side": 1,
+      "message": "Can we move this all (lines 3998-4015 and 4038-4041) to a helper nterp function?\n\n    uint32_t GetNterpFastPathFlags(std::string_view shorty,\n                                   uint32_t access_flags,\n                                   InstructionSet isa) ALWAYS_INLINE;\n\nThis should return `kAccNterpInvokeFastPathFlag` and/or `kAccNterpEntryPointFastPathFlag` if appropriate (the latter needs to check for `kAccNative` in `access_flags`).\n\nI\u0027d prefer this in a new file `nterp-inl.h` (with declaration in `nterp.h`).\n\nThe `ImageWriter` should pass the target ISA and unconditionally replace the two nterp flags.",
+      "revId": "f5867ef46917a9e99d8e16f4ada29a0d7ea8d78b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
