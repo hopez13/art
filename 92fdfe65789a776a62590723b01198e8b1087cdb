@@ -34,6 +34,24 @@
       "parentUuid": "c17fea9c_0cc6cb0c",
       "revId": "92fdfe65789a776a62590723b01198e8b1087cdb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f468e752_c610f30d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-12-05T16:26:26Z",
+      "side": 1,
+      "message": "In the build.log from the presubmit I see `(0:00:00.831731)[ 25% 2555/10190 ] test-art-host-run-test-debug-prebuild-interpreter-no-relocate-ntrace-cms-checkjni-picimage-ndebuggable-no-jvmti-cdex-fast-004-checker-UnsafeTest1832 FAIL` Does the `interpreter` tier up? I would have expected to just run on interpreter mode (and thus never hit your CL)\n\n\u003e It seems that the register allocator does not apply explicitly allocated registers to the core spill mask, so the callee-save registers EBP, EDI and EDI are clobbered. I guess I can either fix the register allocator, or disable the 64-bit itrinsics for now.\n\nFixing the register allocator sounds like the best choice, but if you don\u0027t have cycles we can disable the 64bit ones and create a bug to fix it up later.",
+      "parentUuid": "6cb79a48_8d0d8aa0",
+      "revId": "92fdfe65789a776a62590723b01198e8b1087cdb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
