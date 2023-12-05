@@ -22,6 +22,30 @@
       },
       "revId": "cabb48ac0e050c2570c7f5eccfec56f19ac918ec",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c831dae_4bbf0abc",
+        "filename": "libdexfile/dex/dex_file_loader.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-12-05T14:04:51Z",
+      "side": 1,
+      "message": "It is always safe to open just one dex file (it is equivalent to opening just one dex file form zip)\n\nThe reason for the CHECK in the other overload is that it might be unexpected from the caller (i.e. the other dex files might have java code that is used by this dex file).\n\nIt is there to make debugging of issues such as this CTS test more explicit / easier.",
+      "parentUuid": "f8576331_dbd85c8b",
+      "range": {
+        "startLine": 192,
+        "startChar": 5,
+        "endLine": 192,
+        "endChar": 72
+      },
+      "revId": "cabb48ac0e050c2570c7f5eccfec56f19ac918ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
