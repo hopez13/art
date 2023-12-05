@@ -547,6 +547,9 @@ static int __sigaction(int signal, const SigactionType* new_action,
   if (signal == SIGSEGV && new_action != nullptr && new_action->sa_handler == SIG_DFL) {
     LogError("Setting SIGSEGV to SIG_DFL");
     LogStack();
+    // (b/314729187) This is unexpected and happens only very rarely.
+    // Abort so that we find repro in dogfood and we can investigate further.
+    abort();
   }
 
   if (chains[signal].IsClaimed()) {
