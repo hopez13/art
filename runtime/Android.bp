@@ -266,6 +266,7 @@ cc_defaults {
         "gc/allocator/art-dlmalloc.cc",
         "gc/allocator/rosalloc.cc",
         "gc/collector/concurrent_copying.cc",
+        "gc/collector/utils/perf_hint.cc",
         "gc/collector/garbage_collector.cc",
         "gc/collector/immune_region.cc",
         "gc/collector/immune_spaces.cc",
