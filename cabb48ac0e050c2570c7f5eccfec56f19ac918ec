@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8576331_dbd85c8b",
+        "filename": "libdexfile/dex/dex_file_loader.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-12-05T13:56:16Z",
+      "side": 1,
+      "message": "Is it possible to be a bit more explicit about what works and what doesn\u0027t when this function is used and the other dex files aren\u0027t opened? Given the use in `ADexFile_create` I take it that it\u0027s ok to not open all of them if the dex file is only used for stack unwinding, but presumably it\u0027s not safe in some other situations?",
+      "range": {
+        "startLine": 192,
+        "startChar": 5,
+        "endLine": 192,
+        "endChar": 72
+      },
+      "revId": "cabb48ac0e050c2570c7f5eccfec56f19ac918ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
