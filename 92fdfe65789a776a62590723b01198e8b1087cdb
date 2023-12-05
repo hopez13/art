@@ -52,6 +52,24 @@
       "parentUuid": "6cb79a48_8d0d8aa0",
       "revId": "92fdfe65789a776a62590723b01198e8b1087cdb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a363a6ec_46969177",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-12-05T16:51:08Z",
+      "side": 1,
+      "message": "Even interpreter tests are (oddly) using the boot image with the `Unsafe.getAndSetLong()` compiled like this (this time using `oatdump`):\n\n    CODE: (code_offset\u003d0x0011fc40 size\u003d44)...\n      0x0011fc40:                 83EC1C               sub esp, 28\n      0x0011fc43:                 890424               mov [esp], eax\n      0x0011fc46:                   89D5               mov ebp, edx\n      0x0011fc48:               8B74242C               mov esi, [esp + 44]\n      0x0011fc4c:               8B7C2430               mov edi, [esp + 48]\n      0x0011fc50:               8B5C2434               mov ebx, [esp + 52]\n      0x0011fc54:               8B4C2438               mov ecx, [esp + 56]\n      0x0011fc58:               8B443500               mov eax, [ebp + esi + 0]\n      0x0011fc5c:               8B543504               mov edx, [ebp + esi + 4]\n      0x0011fc60:           F00FC74C3500        lock   cmpxchg8b [ebp + esi + 0]\n      0x0011fc66:                   75F0               jnz/ne -16 (0x0011fc58)\n      0x0011fc68:                 83C41C               add esp, 28\n      0x0011fc6b:                     C3               ret\n\nI was able to set and hit a breakpoint here for `--interpreter`.",
+      "parentUuid": "f468e752_c610f30d",
+      "revId": "92fdfe65789a776a62590723b01198e8b1087cdb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
