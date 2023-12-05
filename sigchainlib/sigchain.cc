@@ -547,6 +547,7 @@ static int __sigaction(int signal, const SigactionType* new_action,
   if (signal == SIGSEGV && new_action != nullptr && new_action->sa_handler == SIG_DFL) {
     LogError("Setting SIGSEGV to SIG_DFL");
     LogStack();
+    abort();
   }
 
   if (chains[signal].IsClaimed()) {
