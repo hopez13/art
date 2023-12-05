@@ -542,7 +542,14 @@ def main() -> None:
 
   android_build_top = Path(getcwd()).absolute()
   ziproot = args.out.absolute().parent / "zip"
-  srcdirs = set(s.parents[-4].absolute() for s in args.srcs)
+
+  # Other files are added to srcs so that they're included in the build sandbox, but they're not
+  # actual tests
+  srcdirs = set(
+    s.parents[-4].absolute()
+    for s in args.srcs
+    if s.parents[-3] == Path('art/test') and s.parents[-4] != Path('art/test/utils')
+  )
 
   # Special hidden-api shard: If the --hiddenapi flag is provided, build only
   # hiddenapi tests. Otherwise exclude all hiddenapi tests from normal shards.

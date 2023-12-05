@@ -1,0 +1,6 @@
+{
+    "srcs_for_test_data_shard": [
+        "utils/python/**/*.py",
+        ":development_docs"
+    ]
+}
