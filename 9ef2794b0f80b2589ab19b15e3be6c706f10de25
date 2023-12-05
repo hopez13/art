@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f037bd99_ed2d605b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889140
+      },
+      "writtenOn": "2023-12-05T21:26:20Z",
+      "side": 1,
+      "message": "We can verify this change by running:\n\n```\n $ source build/envsetup.sh\n $ lunch aosp_cf_arm64_phone_pgagnostic-trunk-userdebug\n $ m\n # Launch cf with a kernel with 16k page size support.\n $ launch_cvd --resume\u003dfalse --userdata_format\u003dext4 \\\n             --data_policy\u003dalways_create --blank_data_image_mb\u003d8000\n             \n # In another shell\n $ adb shell\n getconf PAGE_SIZE\n 16384\n\n # Check that boot completed with 1\n getprop | grep completed\n```",
+      "revId": "9ef2794b0f80b2589ab19b15e3be6c706f10de25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
