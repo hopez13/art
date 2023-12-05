@@ -1,0 +1,10 @@
+{
+  "test_build_srcs": [
+    "jvmti-common/*.java",
+    "988-method-trace/expected-stdout.txt",
+    "988-method-trace/expected-stderr.txt",
+    "988-method-trace/src/art/Test988Intrinsics.java",
+    "988-method-trace/src/art/Test988.java",
+    "988-method-trace/trace_fib.cc"
+  ]
+}

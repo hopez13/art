@@ -1,0 +1,6 @@
+{
+    "test_build_srcs": [
+        "utils/python/**/*.py",
+        ":development_docs"
+    ]
+}

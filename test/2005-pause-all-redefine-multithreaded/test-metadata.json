@@ -1,5 +1,6 @@
 {
   "build-param": {
     "jvm-supported": "false"
-  }
+  },
+  "test_build_srcs": ["jvmti-common/*.java"]
 }
