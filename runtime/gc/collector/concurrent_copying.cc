@@ -41,7 +41,11 @@
 #include "mirror/object-inl.h"
 #include "mirror/object-refvisitor-inl.h"
 #include "mirror/object_reference.h"
+<<<<<<< PATCH SET (71f23a Set CpuAffinity and UclampMax for CC GC)
+#include "perf_util.h"
+=======
 #include "oat/image-inl.h"
+>>>>>>> BASE      (6d9187 Define InstructionDataEquals for HBitwiseNegatedRight)
 #include "scoped_thread_state_change-inl.h"
 #include "thread-inl.h"
 #include "thread_list.h"
@@ -223,6 +227,10 @@ ConcurrentCopying::~ConcurrentCopying() {
 }
 
 void ConcurrentCopying::RunPhases() {
+  int thread_tid = GetTid();
+  PerfUtil::setCpuAffinity(thread_tid);
+  PerfUtil::setUclampMax(thread_tid);
+
   CHECK(kUseBakerReadBarrier || kUseTableLookupReadBarrier);
   CHECK(!is_active_);
   is_active_ = true;
@@ -274,6 +282,9 @@ void ConcurrentCopying::RunPhases() {
   CHECK(is_active_);
   is_active_ = false;
   thread_running_gc_ = nullptr;
+
+  PerfUtil::restoreUclampMax(thread_tid);
+  PerfUtil::restoreCpuAffinity(thread_tid);
 }
 
 class ConcurrentCopying::ActivateReadBarrierEntrypointsCheckpoint : public Closure {
