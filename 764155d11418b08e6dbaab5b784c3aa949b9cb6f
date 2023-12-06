@@ -16,6 +16,23 @@
       "message": "Actually, also adding Chris if he thinks it\u0027s safe to deploy.",
       "revId": "764155d11418b08e6dbaab5b784c3aa949b9cb6f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2c2a1fd_9f95ffe5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1019050
+      },
+      "writtenOn": "2023-12-06T21:47:19Z",
+      "side": 1,
+      "message": "I\u0027m pretty sure this will cause valid program to abort.\n\nHow about aborting in the other case where LogStack occurs? That is the case that is already causing a crash.",
+      "revId": "764155d11418b08e6dbaab5b784c3aa949b9cb6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
