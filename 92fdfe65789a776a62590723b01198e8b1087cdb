@@ -106,6 +106,24 @@
       "parentUuid": "d9074ed3_eacb48f2",
       "revId": "92fdfe65789a776a62590723b01198e8b1087cdb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c3ac5f11_1ee702c9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-12-06T15:36:49Z",
+      "side": 1,
+      "message": "We already have that in `CheckForTempLiveIntervals()`, that\u0027s where I copied it from. I don\u0027t think `BlockRegisters()` needs it and I added it to the `CheckForFixedOutput()`.",
+      "parentUuid": "07da8040_8f9edd8e",
+      "revId": "92fdfe65789a776a62590723b01198e8b1087cdb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
