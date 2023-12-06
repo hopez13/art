@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46475b6e_529b9e78",
+        "filename": "compiler/optimizing/intrinsics_riscv64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 763,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-12-06T18:34:54Z",
+      "side": 1,
+      "message": "Hans, do we really need this after the barrier above?\n\nI copied this from arm64 and even there I don\u0027t know why it\u0027s needed after a load-acquire.",
+      "range": {
+        "startLine": 762,
+        "startChar": 4,
+        "endLine": 763,
+        "endChar": 62
+      },
+      "revId": "0e72558d7130cf033dcfdd612ada3efd48a1b300",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
