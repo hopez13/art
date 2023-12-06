@@ -88,6 +88,24 @@
       "parentUuid": "a363a6ec_46969177",
       "revId": "92fdfe65789a776a62590723b01198e8b1087cdb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "07da8040_8f9edd8e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-12-06T12:08:27Z",
+      "side": 1,
+      "message": "Nice! Do we need to do the same for other `BlockRegister` calls? namely:\n * RegisterAllocatorLinearScan::BlockRegisters\n * RegisterAllocatorLinearScan::CheckForTempLiveIntervals\n * RegisterAllocatorLinearScan::CheckForFixedOutput\n \nIf so, it might be better to do it in `BlockRegister` itself",
+      "parentUuid": "d9074ed3_eacb48f2",
+      "revId": "92fdfe65789a776a62590723b01198e8b1087cdb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
