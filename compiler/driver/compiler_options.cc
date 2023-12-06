@@ -64,7 +64,6 @@ CompilerOptions::CompilerOptions()
       dump_timings_(false),
       dump_pass_timings_(false),
       dump_stats_(false),
-      profile_branches_(false),
       profile_compilation_info_(nullptr),
       verbose_methods_(),
       abort_on_hard_verifier_failure_(false),

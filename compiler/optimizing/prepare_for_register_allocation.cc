@@ -180,7 +180,7 @@ bool PrepareForRegisterAllocation::CanEmitConditionAt(HCondition* condition,
     return false;
   }
 
-  if (GetGraph()->IsCompilingBaseline() && compiler_options_.ProfileBranches()) {
+  if (GetGraph()->IsCompilingBaseline()) {
     // To do branch profiling, we cannot emit conditions at use site.
     return false;
   }

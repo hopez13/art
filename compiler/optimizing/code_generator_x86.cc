@@ -2109,9 +2109,7 @@ void InstructionCodeGeneratorX86::GenerateCompareTestAndBranch(HCondition* condi
   }
 }
 
-static bool AreEflagsSetFrom(HInstruction* cond,
-                             HInstruction* branch,
-                             const CompilerOptions& compiler_options) {
+static bool AreEflagsSetFrom(HInstruction* cond, HInstruction* branch) {
   // Moves may affect the eflags register (move zero uses xorl), so the EFLAGS
   // are set only strictly before `branch`. We can't use the eflags on long/FP
   // conditions if they are materialized due to the complex branching.
@@ -2119,8 +2117,7 @@ static bool AreEflagsSetFrom(HInstruction* cond,
          cond->GetNext() == branch &&
          cond->InputAt(0)->GetType() != DataType::Type::kInt64 &&
          !DataType::IsFloatingPointType(cond->InputAt(0)->GetType()) &&
-         !(cond->GetBlock()->GetGraph()->IsCompilingBaseline() &&
-           compiler_options.ProfileBranches());
+         !cond->GetBlock()->GetGraph()->IsCompilingBaseline();
 }
 
 template<class LabelType>
@@ -2157,7 +2154,7 @@ void InstructionCodeGeneratorX86::GenerateTestAndBranch(HInstruction* instructio
   //        - condition true => branch to true_target
   //        - branch to false_target
   if (IsBooleanValueOrMaterializedCondition(cond)) {
-    if (AreEflagsSetFrom(cond, instruction, codegen_->GetCompilerOptions())) {
+    if (AreEflagsSetFrom(cond, instruction)) {
       if (true_target == nullptr) {
         __ j(X86Condition(cond->AsCondition()->GetOppositeCondition()), false_target);
       } else {
@@ -2211,9 +2208,7 @@ void InstructionCodeGeneratorX86::GenerateTestAndBranch(HInstruction* instructio
 void LocationsBuilderX86::VisitIf(HIf* if_instr) {
   LocationSummary* locations = new (GetGraph()->GetAllocator()) LocationSummary(if_instr);
   if (IsBooleanValueOrMaterializedCondition(if_instr->InputAt(0))) {
-    if (GetGraph()->IsCompilingBaseline() &&
-        codegen_->GetCompilerOptions().ProfileBranches() &&
-        !Runtime::Current()->IsAotCompiler()) {
+    if (GetGraph()->IsCompilingBaseline() && !Runtime::Current()->IsAotCompiler()) {
       locations->SetInAt(0, Location::RequiresRegister());
       locations->AddTemp(Location::RequiresRegister());
       locations->AddTemp(Location::RequiresRegister());
@@ -2231,9 +2226,7 @@ void InstructionCodeGeneratorX86::VisitIf(HIf* if_instr) {
   Label* false_target = codegen_->GoesToNextBlock(if_instr->GetBlock(), false_successor) ?
       nullptr : codegen_->GetLabelOf(false_successor);
   if (IsBooleanValueOrMaterializedCondition(if_instr->InputAt(0))) {
-    if (GetGraph()->IsCompilingBaseline() &&
-        codegen_->GetCompilerOptions().ProfileBranches() &&
-        !Runtime::Current()->IsAotCompiler()) {
+    if (GetGraph()->IsCompilingBaseline() && !Runtime::Current()->IsAotCompiler()) {
       DCHECK(if_instr->InputAt(0)->IsCondition());
       Register temp = if_instr->GetLocations()->GetTemp(0).AsRegister<Register>();
       Register counter = if_instr->GetLocations()->GetTemp(1).AsRegister<Register>();
@@ -2257,6 +2250,8 @@ void InstructionCodeGeneratorX86::VisitIf(HIf* if_instr) {
         __ Bind(&done);
       }
     }
+  } else {
+    DCHECK(!GetGraph()->IsCompilingBaseline()) << if_instr->InputAt(0)->DebugName();
   }
   GenerateTestAndBranch(if_instr, /* condition_input_index= */ 0, true_target, false_target);
 }
@@ -2353,7 +2348,7 @@ void InstructionCodeGeneratorX86::VisitSelect(HSelect* select) {
       if (!condition->IsEmittedAtUseSite()) {
         // This was a previously materialized condition.
         // Can we use the existing condition code?
-        if (AreEflagsSetFrom(condition, select, codegen_->GetCompilerOptions())) {
+        if (AreEflagsSetFrom(condition, select)) {
           // Materialization was the previous instruction. Condition codes are right.
           cond = X86Condition(condition->GetCondition());
         } else {

@@ -25,6 +25,5 @@ def run(ctx, args):
       jit=True,
       runtime_option=["-Xjitinitialsize:32M"],
       Xcompiler_option=[
-          "--profile-branches",
           "--verbose-methods=withBranch"
       ])
