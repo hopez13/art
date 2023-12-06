@@ -33,6 +33,24 @@
       "message": "The other two paths get me to CF boot, but not this one. I\u0027m working on it.",
       "revId": "57e8e362b02db6eed086d16771b872342172be33",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec83507a_73241ae2",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 527,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-12-06T23:04:18Z",
+      "side": 1,
+      "message": "Forgot that interface invokes have a special shorty routine. Spinning a fix.",
+      "parentUuid": "304c717a_5173e5d6",
+      "revId": "57e8e362b02db6eed086d16771b872342172be33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
