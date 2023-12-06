@@ -24,6 +24,7 @@
 #include "class_linker.h"
 #include "monitor.h"
 #include "thread-current-inl.h"
+#include "trace.h"
 
 namespace art {
 
@@ -203,6 +204,7 @@ void RuntimeCallbacks::RemoveClassLoadCallback(ClassLoadCallback* cb) {
 }
 
 void RuntimeCallbacks::ClassLoad(Handle<mirror::Class> klass) {
+  Trace::ClassLoad(klass);
   for (ClassLoadCallback* cb : COPY(class_callbacks_)) {
     cb->ClassLoad(klass);
   }

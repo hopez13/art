@@ -174,6 +174,8 @@ class TraceWriter {
   TraceOutputMode GetOutputMode() { return trace_output_mode_; }
   size_t GetBufferSize() { return buffer_size_; }
 
+  void RecordMethodInfo(mirror::Class* klass) REQUIRES_SHARED(Locks::mutator_lock_);
+
  private:
   // Get a 32-bit id for the method and specify if the method hasn't been seen before. If this is
   // the first time we see this method record information (like method name, declaring class etc.,)
@@ -393,6 +395,10 @@ class Trace final : public instrumentation::InstrumentationListener {
 
   // Used by class linker to prevent class unloading.
   static bool IsTracingEnabled() REQUIRES(!Locks::trace_lock_);
+
+  static void ClassLoad(Handle<mirror::Class> klass) REQUIRES_SHARED(Locks::mutator_lock_);
+
+  TraceWriter* GetTraceWriter() { return trace_writer_.get(); }
 
  private:
   Trace(File* trace_file,
