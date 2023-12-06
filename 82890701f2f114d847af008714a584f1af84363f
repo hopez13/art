@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "951858b6_70a9f875",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 5924,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-12-06T15:58:18Z",
+      "side": 1,
+      "message": "I prefer breaking the line before the `?`.",
+      "range": {
+        "startLine": 5924,
+        "startChar": 96,
+        "endLine": 5924,
+        "endChar": 98
+      },
+      "revId": "82890701f2f114d847af008714a584f1af84363f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "38414b49_ea2c6a39",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1066,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-12-06T15:58:18Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 1066,
+        "startChar": 25,
+        "endLine": 1066,
+        "endChar": 31
+      },
+      "revId": "82890701f2f114d847af008714a584f1af84363f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "75f64882_a7561693",
+        "filename": "compiler/optimizing/load_store_elimination.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-12-06T15:58:18Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 37,
+        "startChar": 2,
+        "endLine": 37,
+        "endChar": 25
+      },
+      "revId": "82890701f2f114d847af008714a584f1af84363f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
