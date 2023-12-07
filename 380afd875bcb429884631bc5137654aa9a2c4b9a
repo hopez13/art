@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d7adc095_bc7b9d86",
+        "filename": "runtime/interpreter/mterp/nterp.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-12-07T08:12:47Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 33
+      },
+      "revId": "380afd875bcb429884631bc5137654aa9a2c4b9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45217300_bf7e62ec",
+        "filename": "runtime/nterp_helpers-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-12-07T08:12:47Z",
+      "side": 1,
+      "message": "This is not a compile-time constant, so it should be `no_float_return`.",
+      "range": {
+        "startLine": 46,
+        "startChar": 13,
+        "endLine": 46,
+        "endChar": 27
+      },
+      "revId": "380afd875bcb429884631bc5137654aa9a2c4b9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
