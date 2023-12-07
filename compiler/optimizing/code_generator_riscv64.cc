@@ -265,7 +265,9 @@ void LocationsBuilderRISCV64::HandleInvoke(HInvoke* instruction) {
 
 class CompileOptimizedSlowPathRISCV64 : public SlowPathCodeRISCV64 {
  public:
-  CompileOptimizedSlowPathRISCV64() : SlowPathCodeRISCV64(/*instruction=*/ nullptr) {}
+  explicit CompileOptimizedSlowPathRISCV64(XRegister counter)
+      : SlowPathCodeRISCV64(/*instruction=*/ nullptr),
+        counter_(counter) {}
 
   void EmitNativeCode(CodeGenerator* codegen) override {
     uint32_t entrypoint_offset =
@@ -275,12 +277,15 @@ class CompileOptimizedSlowPathRISCV64 : public SlowPathCodeRISCV64 {
     // Note: we don't record the call here (and therefore don't generate a stack
     // map), as the entrypoint should never be suspended.
     __ Jalr(RA);
+    __ LoadConst32(counter_, ProfilingInfo::GetOptimizeThreshold());
     __ J(GetExitLabel());
   }
 
   const char* GetDescription() const override { return "CompileOptimizedSlowPath"; }
 
  private:
+  XRegister counter_;
+
   DISALLOW_COPY_AND_ASSIGN(CompileOptimizedSlowPathRISCV64);
 };
 
@@ -5693,8 +5698,6 @@ void CodeGeneratorRISCV64::MaybeIncrementHotness(bool is_frame_entry) {
   }
 
   if (GetGraph()->IsCompilingBaseline() && !Runtime::Current()->IsAotCompiler()) {
-    SlowPathCodeRISCV64* slow_path = new (GetScopedAllocator()) CompileOptimizedSlowPathRISCV64();
-    AddSlowPath(slow_path);
     ProfilingInfo* info = GetGraph()->GetProfilingInfo();
     DCHECK(info != nullptr);
     DCHECK(!HasEmptyFrame());
@@ -5705,11 +5708,14 @@ void CodeGeneratorRISCV64::MaybeIncrementHotness(bool is_frame_entry) {
     XRegister tmp = srs.AllocateXRegister();
     __ LoadConst64(tmp, base_address);
     XRegister counter = srs.AllocateXRegister();
+    SlowPathCodeRISCV64* slow_path =
+        new (GetScopedAllocator()) CompileOptimizedSlowPathRISCV64(counter);
+    AddSlowPath(slow_path);
     __ Lhu(counter, tmp, imm12);
     __ Beqz(counter, slow_path->GetEntryLabel());  // Can clobber `TMP` if taken.
     __ Addi(counter, counter, -1);
-    __ Sh(counter, tmp, imm12);
     __ Bind(slow_path->GetExitLabel());
+    __ Sh(counter, tmp, imm12);
   }
 }
 
