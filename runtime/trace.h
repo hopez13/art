@@ -153,22 +153,16 @@ class TraceWriter {
   void FinishTracing(int flags, bool flush_entries) REQUIRES(!tracing_lock_)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
-  void PreProcessTraceForMethodInfos(uintptr_t* buffer,
-                                     size_t num_entries,
-                                     std::unordered_map<ArtMethod*, std::string>& method_infos)
-      REQUIRES_SHARED(Locks::mutator_lock_) REQUIRES(!tracing_lock_);
-
   // Flush buffer to the file (for streaming) or to the common buffer (for non-streaming). In
   // non-streaming case it returns false if all the contents couldn't be flushed.
-  void FlushBuffer(uintptr_t* buffer,
-                   size_t num_entries,
-                   size_t tid,
-                   const std::unordered_map<ArtMethod*, std::string>& method_infos)
-      REQUIRES(!tracing_lock_);
+  void FlushBuffer(uintptr_t* buffer, size_t num_entries, size_t tid) REQUIRES(!tracing_lock_);
 
   // This is called when we see the first entry from the thread to record the information about the
   // thread.
   void RecordThreadInfo(Thread* thread) REQUIRES(!tracing_lock_);
+
+  // Records information about all methods in the newly loaded class.
+  void RecordMethodInfo(mirror::Class* klass) REQUIRES_SHARED(Locks::mutator_lock_);
 
   bool HasOverflow() { return overflow_; }
   TraceOutputMode GetOutputMode() { return trace_output_mode_; }
@@ -393,6 +387,11 @@ class Trace final : public instrumentation::InstrumentationListener {
 
   // Used by class linker to prevent class unloading.
   static bool IsTracingEnabled() REQUIRES(!Locks::trace_lock_);
+
+  // Callback for each class prepare event to record information about the newly created methods.
+  static void ClassPrepare(Handle<mirror::Class> klass) REQUIRES_SHARED(Locks::mutator_lock_);
+
+  TraceWriter* GetTraceWriter() { return trace_writer_.get(); }
 
  private:
   Trace(File* trace_file,
