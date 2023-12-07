@@ -2177,6 +2177,11 @@ class Thread {
   // the caller is allowed to access all fields and methods in the Core Platform API.
   uint32_t core_platform_api_cookie_ = 0;
 
+  // For implicit overflow checks we reserve an extra piece of memory at the bottom of the stack
+  // (lowest memory). The higher portion of the memory is protected against reads and the lower is
+  // available for use while throwing the StackOverflow exception.
+  const size_t stack_overflow_protected_size_;
+
   friend class gc::collector::SemiSpace;  // For getting stack traces.
   friend class Runtime;  // For CreatePeer.
   friend class QuickExceptionHandler;  // For dumping the stack.
