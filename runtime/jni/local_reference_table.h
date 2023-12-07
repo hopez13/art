@@ -227,6 +227,18 @@ class SmallLrtAllocator {
   void Deallocate(LrtEntry* unneeded, size_t size) REQUIRES(!lock_);
 
  private:
+  // Number of free lists in the allocator.
+#define ART_NUM_LRT_SLOTS (WhichPowerOf2(gPageSize / kInitialLrtBytes))
+  static size_t ComputeNumLrtSlots() {
+    return ART_NUM_LRT_SLOTS;
+  }
+#ifdef ART_PAGE_SIZE_AGNOSTIC
+  const size_t num_lrt_slots_ = ART_NUM_LRT_SLOTS;
+#else
+  static constexpr size_t num_lrt_slots_ = ART_NUM_LRT_SLOTS;
+#endif
+#undef ART_NUM_LRT_SLOTS
+
   static size_t GetIndex(size_t size);
 
   // Free lists of small chunks linked through the first word.
