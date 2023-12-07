@@ -16,6 +16,29 @@
       "message": "Thanks Mythri.",
       "revId": "8f816396085eff436b2581eb07722c739fcbc945",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4bc571e_3a94799d",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1383,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-12-07T16:03:17Z",
+      "side": 1,
+      "message": "We should handle `it !\u003d method_code_map_.begin()` without crashing. (Maybe the first compiled method was native and we\u0027re wrongly passing a PC for that native method to a lookup for another non-native method.)",
+      "range": {
+        "startLine": 1383,
+        "startChar": 6,
+        "endLine": 1383,
+        "endChar": 45
+      },
+      "revId": "8f816396085eff436b2581eb07722c739fcbc945",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
