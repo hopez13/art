@@ -846,7 +846,9 @@ class MethodEntryExitHooksSlowPathARM64 : public SlowPathCodeARM64 {
 
 class CompileOptimizedSlowPathARM64 : public SlowPathCodeARM64 {
  public:
-  CompileOptimizedSlowPathARM64() : SlowPathCodeARM64(/* instruction= */ nullptr) {}
+  CompileOptimizedSlowPathARM64(Register counter)
+      : SlowPathCodeARM64(/* instruction= */ nullptr),
+        counter_(counter) {}
 
   void EmitNativeCode(CodeGenerator* codegen) override {
     uint32_t entrypoint_offset =
@@ -856,6 +858,7 @@ class CompileOptimizedSlowPathARM64 : public SlowPathCodeARM64 {
     // Note: we don't record the call here (and therefore don't generate a stack
     // map), as the entrypoint should never be suspended.
     __ Blr(lr);
+    __ Mov(counter_, ProfilingInfo::GetOptimizeThreshold());
     __ B(GetExitLabel());
   }
 
@@ -864,6 +867,8 @@ class CompileOptimizedSlowPathARM64 : public SlowPathCodeARM64 {
   }
 
  private:
+  Register counter_;
+
   DISALLOW_COPY_AND_ASSIGN(CompileOptimizedSlowPathARM64);
 };
 
@@ -1286,8 +1291,6 @@ void CodeGeneratorARM64::MaybeIncrementHotness(bool is_frame_entry) {
   }
 
   if (GetGraph()->IsCompilingBaseline() && !Runtime::Current()->IsAotCompiler()) {
-    SlowPathCodeARM64* slow_path = new (GetScopedAllocator()) CompileOptimizedSlowPathARM64();
-    AddSlowPath(slow_path);
     ProfilingInfo* info = GetGraph()->GetProfilingInfo();
     DCHECK(info != nullptr);
     DCHECK(!HasEmptyFrame());
@@ -1296,12 +1299,14 @@ void CodeGeneratorARM64::MaybeIncrementHotness(bool is_frame_entry) {
     UseScratchRegisterScope temps(masm);
     Register temp = temps.AcquireX();
     Register counter = temps.AcquireW();
+    SlowPathCodeARM64* slow_path = new (GetScopedAllocator()) CompileOptimizedSlowPathARM64(counter);
+    AddSlowPath(slow_path);
     __ Ldr(temp, jit_patches_.DeduplicateUint64Literal(address));
     __ Ldrh(counter, MemOperand(temp, ProfilingInfo::BaselineHotnessCountOffset().Int32Value()));
     __ Cbz(counter, slow_path->GetEntryLabel());
     __ Add(counter, counter, -1);
-    __ Strh(counter, MemOperand(temp, ProfilingInfo::BaselineHotnessCountOffset().Int32Value()));
     __ Bind(slow_path->GetExitLabel());
+    __ Strh(counter, MemOperand(temp, ProfilingInfo::BaselineHotnessCountOffset().Int32Value()));
   }
 }
 
