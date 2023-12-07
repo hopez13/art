@@ -304,6 +304,40 @@ class AssemblerTest : public AssemblerTestBase {
     return str;
   }
 
+  template <typename Reg1, typename ImmType, typename Reg2>
+  std::string RepeatTemplatedImmBitsRegisters(void (Ass::*f)(Reg1, ImmType, Reg2),
+                                              ArrayRef<const Reg1> reg1_registers,
+                                              ArrayRef<const Reg2> reg2_registers,
+                                              std::string (AssemblerTest::*GetName1)(const Reg1&),
+                                              std::string (AssemblerTest::*GetName2)(const Reg2&),
+                                              int imm_bits,
+                                              const std::string& fmt) {
+    std::vector<int64_t> imms = CreateImmediateValuesBits(abs(imm_bits), (imm_bits > 0));
+
+    WarnOnCombinations(reg1_registers.size() * reg2_registers.size() * imms.size());
+
+    std::string str;
+    for (auto reg1 : reg1_registers) {
+      for (auto reg2 : reg2_registers) {
+        for (int64_t imm : imms) {
+          ImmType new_imm = CreateImmediate(imm);
+          if (f != nullptr) {
+            (assembler_.get()->*f)(reg1, new_imm, reg2);
+          }
+          std::string base = fmt;
+
+          ReplaceReg(REG1_TOKEN, (this->*GetName1)(reg1), &base);
+          ReplaceReg(REG2_TOKEN, (this->*GetName2)(reg2), &base);
+          ReplaceImm(imm, /*bias=*/0, /*multiplier=*/1, &base);
+
+          str += base;
+          str += "\n";
+        }
+      }
+    }
+    return str;
+  }
+
   template <typename RegType, typename ImmType>
   std::string RepeatTemplatedRegisterImmBits(void (Ass::*f)(RegType, ImmType),
                                              int imm_bits,
@@ -705,6 +739,30 @@ class AssemblerTest : public AssemblerTestBase {
                                                             fmt);
   }
 
+  std::string RepeatVRV(void (Ass::*f)(VecReg, Reg, VecReg), const std::string& fmt) {
+    return RepeatTemplatedRegisters<VecReg, Reg, VecReg>(
+        f,
+        GetVectorRegisters(),
+        GetRegisters(),
+        GetVectorRegisters(),
+        &AssemblerTest::GetVecRegName,
+        &AssemblerTest::GetRegName<RegisterView::kUsePrimaryName>,
+        &AssemblerTest::GetVecRegName,
+        fmt);
+  }
+
+  std::string RepeatVVR(void (Ass::*f)(VecReg, VecReg, Reg), const std::string& fmt) {
+    return RepeatTemplatedRegisters<VecReg, VecReg, Reg>(
+        f,
+        GetVectorRegisters(),
+        GetVectorRegisters(),
+        GetRegisters(),
+        &AssemblerTest::GetVecRegName,
+        &AssemblerTest::GetVecRegName,
+        &AssemblerTest::GetRegName<RegisterView::kUsePrimaryName>,
+        fmt);
+  }
+
   std::string RepeatVR(void (Ass::*f)(VecReg, Reg), const std::string& fmt) {
     return RepeatTemplatedRegisters<VecReg, Reg>(
         f,
@@ -712,6 +770,34 @@ class AssemblerTest : public AssemblerTestBase {
         GetRegisters(),
         &AssemblerTest::GetVecRegName,
         &AssemblerTest::GetRegName<RegisterView::kUsePrimaryName>,
+        fmt);
+  }
+
+  std::string RepeatVF(void (Ass::*f)(VecReg, FPReg), const std::string& fmt) {
+    return RepeatTemplatedRegisters<VecReg, FPReg>(f,
+                                                   GetVectorRegisters(),
+                                                   GetFPRegisters(),
+                                                   &AssemblerTest::GetVecRegName,
+                                                   &AssemblerTest::GetFPRegName,
+                                                   fmt);
+  }
+
+  std::string RepeatFV(void (Ass::*f)(FPReg, VecReg), const std::string& fmt) {
+    return RepeatTemplatedRegisters<FPReg, VecReg>(f,
+                                                   GetFPRegisters(),
+                                                   GetVectorRegisters(),
+                                                   &AssemblerTest::GetFPRegName,
+                                                   &AssemblerTest::GetVecRegName,
+                                                   fmt);
+  }
+
+  std::string RepeatRV(void (Ass::*f)(Reg, VecReg), const std::string& fmt) {
+    return RepeatTemplatedRegisters<Reg, VecReg>(
+        f,
+        GetRegisters(),
+        GetVectorRegisters(),
+        &AssemblerTest::GetRegName<RegisterView::kUsePrimaryName>,
+        &AssemblerTest::GetVecRegName,
         fmt);
   }
 
@@ -777,6 +863,19 @@ class AssemblerTest : public AssemblerTestBase {
                                                                     &AssemblerTest::GetVecRegName,
                                                                     fmt,
                                                                     bias);
+  }
+
+  template <typename ImmType>
+  std::string RepeatVIV(void (Ass::*f)(VecReg, ImmType, VecReg),
+                        int imm_bits,
+                        const std::string& fmt) {
+    return RepeatTemplatedImmBitsRegisters<VecReg, ImmType, VecReg>(f,
+                                                                    GetVectorRegisters(),
+                                                                    GetVectorRegisters(),
+                                                                    &AssemblerTest::GetVecRegName,
+                                                                    &AssemblerTest::GetVecRegName,
+                                                                    imm_bits,
+                                                                    fmt);
   }
 
   // The following functions are public so that TestFn can use them...

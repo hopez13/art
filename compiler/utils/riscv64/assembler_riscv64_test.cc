@@ -36,16 +36,14 @@ class AssemblerRISCV64Test : public AssemblerTest<Riscv64Assembler,
                                                   Riscv64Label,
                                                   XRegister,
                                                   FRegister,
-                                                  int32_t> {
+                                                  int32_t,
+                                                  VRegister> {
  public:
-  using Base = AssemblerTest<Riscv64Assembler,
-                             Riscv64Label,
-                             XRegister,
-                             FRegister,
-                             int32_t>;
+  using Base =
+      AssemblerTest<Riscv64Assembler, Riscv64Label, XRegister, FRegister, int32_t, VRegister>;
 
   AssemblerRISCV64Test()
-      : instruction_set_features_(Riscv64InstructionSetFeatures::FromVariant("default", nullptr)) {}
+      : instruction_set_features_(Riscv64InstructionSetFeatures::FromVariant("generic", nullptr)) {}
 
  protected:
   Riscv64Assembler* CreateAssembler(ArenaAllocator* allocator) override {
@@ -68,7 +66,7 @@ class AssemblerRISCV64Test : public AssemblerTest<Riscv64Assembler,
                              result.end(),
                              [](const std::string& s) { return StartsWith(s, "-march="); });
       CHECK(it != result.end());
-      *it = "-march=rv64imafd";
+      *it = "-march=rv64imafdv";
     }
     return result;
   }
@@ -80,7 +78,7 @@ class AssemblerRISCV64Test : public AssemblerTest<Riscv64Assembler,
                              result.end(),
                              [](const std::string& s) { return StartsWith(s, "--mattr="); });
       CHECK(it != result.end());
-      *it = "--mattr=+F,+D,+A";
+      *it = "--mattr=+F,+D,+A,+V";
     }
     return result;
   }
@@ -205,6 +203,13 @@ class AssemblerRISCV64Test : public AssemblerTest<Riscv64Assembler,
         FT11,
     };
     return ArrayRef<const FRegister>(kFRegisters);
+  }
+
+  ArrayRef<const VRegister> GetVectorRegisters() override {
+    static constexpr VRegister kVRegisters[] = {
+        V0,  V1,  V2,  V3,  V4,  V5,  V6,  V7,  V8,  V9,  V10, V11, V12, V13, V14, V15,
+        V16, V17, V18, V19, V20, V21, V22, V23, V24, V25, V26, V27, V28, V29, V30, V31};
+    return ArrayRef<const VRegister>(kVRegisters);
   }
 
   std::string GetSecondaryRegisterName(const XRegister& reg) override {
@@ -1114,6 +1119,458 @@ class AssemblerRISCV64Test : public AssemblerTest<Riscv64Assembler,
     return str;
   }
 
+  std::string RepeatUSMem(void (Riscv64Assembler::*f)(VRegister, XRegister),
+                          uint32_t aligner,
+                          const std::string& fmt) {
+    WarnOnCombinations(GetVectorRegisters().size() * GetRegisters().size());
+    CHECK(f != nullptr);
+
+    std::string str;
+    for (auto reg1 : GetVectorRegisters()) {
+      for (auto reg2 : GetRegisters()) {
+        if ((static_cast<uint32_t>(reg1) % aligner) != 0)
+          continue;
+
+        (GetAssembler()->*f)(reg1, reg2);
+        std::string base = fmt;
+
+        ReplaceReg(REG1_TOKEN, GetVecRegName(reg1), &base);
+        ReplaceReg(REG2_TOKEN, GetRegName<RegisterView::kUsePrimaryName>(reg2), &base);
+
+        str += base;
+        str += "\n";
+      }
+    }
+    return str;
+  }
+
+  template <typename Reg1, typename Reg2, typename Reg3, typename Predicate>
+  std::string RepeatTemplatedRegistersVM(
+      void (Riscv64Assembler::*f)(Reg1, Reg2, Reg3, enum Riscv64Assembler::VM vm),
+      ArrayRef<const Reg1> reg1_registers,
+      ArrayRef<const Reg2> reg2_registers,
+      ArrayRef<const Reg3> reg3_registers,
+      std::string (AssemblerTest::*GetName1)(const Reg1&),
+      std::string (AssemblerTest::*GetName2)(const Reg2&),
+      std::string (AssemblerTest::*GetName3)(const Reg3&),
+      Predicate&& pred,
+      const std::string& fmt) {
+    CHECK(f != nullptr);
+
+    std::string str;
+    for (auto reg1 : reg1_registers) {
+      for (auto reg2 : reg2_registers) {
+        for (auto reg3 : reg3_registers) {
+          for (Riscv64Assembler::VM vm : kVMs) {
+            if (!pred(reg1, reg2, reg3, vm))
+              continue;
+
+            (GetAssembler()->*f)(reg1, reg2, reg3, vm);
+            std::string base = fmt;
+
+            ReplaceReg(REG1_TOKEN, (this->*GetName1)(reg1), &base);
+            ReplaceReg(REG2_TOKEN, (this->*GetName2)(reg2), &base);
+            ReplaceReg(REG3_TOKEN, (this->*GetName3)(reg3), &base);
+            ReplaceVM(vm, &base);
+
+            str += base;
+            str += "\n";
+          }
+        }
+      }
+    }
+    return str;
+  }
+
+  std::string RepeatVRRVm(
+      void (Riscv64Assembler::*f)(VRegister, XRegister, XRegister, enum Riscv64Assembler::VM vm),
+      const std::string& fmt) {
+    auto predicate = [](VRegister reg1, XRegister, XRegister, enum Riscv64Assembler::VM vm) {
+      return vm != Riscv64Assembler::VM ::kVMv0_t || reg1 != V0;
+    };
+
+    return RepeatTemplatedRegistersVM(f,
+                                      GetVectorRegisters(),
+                                      GetRegisters(),
+                                      GetRegisters(),
+                                      &AssemblerRISCV64Test::GetVecRegName,
+                                      &AssemblerRISCV64Test::GetRegisterName,
+                                      &AssemblerRISCV64Test::GetRegisterName,
+                                      predicate,
+                                      fmt);
+  }
+
+  std::string RepeatVVRVm(
+      void (Riscv64Assembler::*f)(VRegister, VRegister, XRegister, enum Riscv64Assembler::VM vm),
+      const std::string& fmt,
+      bool noDupl = false) {
+    auto predicate = [=](VRegister reg1, VRegister reg2, XRegister, enum Riscv64Assembler::VM vm) {
+      if (reg1 == V0 && vm == Riscv64Assembler::VM ::kVMv0_t)
+        return false;
+
+      if (noDupl && reg1 == reg2)
+        return false;
+
+      return true;
+    };
+
+    return RepeatTemplatedRegistersVM(f,
+                                      GetVectorRegisters(),
+                                      GetVectorRegisters(),
+                                      GetRegisters(),
+                                      &AssemblerRISCV64Test::GetVecRegName,
+                                      &AssemblerRISCV64Test::GetVecRegName,
+                                      &AssemblerRISCV64Test::GetRegisterName,
+                                      predicate,
+                                      fmt);
+  }
+
+  std::string RepeatVRVVm(
+      void (Riscv64Assembler::*f)(VRegister, XRegister, VRegister, enum Riscv64Assembler::VM vm),
+      const std::string& fmt,
+      bool noDupl = false) {
+    auto predicate = [=](VRegister reg1, XRegister, VRegister reg3, enum Riscv64Assembler::VM vm) {
+      if (reg1 == V0 && vm == Riscv64Assembler::VM ::kVMv0_t)
+        return false;
+
+      if (noDupl && reg1 == reg3)
+        return false;
+
+      return true;
+    };
+
+    return RepeatTemplatedRegistersVM(f,
+                                      GetVectorRegisters(),
+                                      GetRegisters(),
+                                      GetVectorRegisters(),
+                                      &AssemblerRISCV64Test::GetVecRegName,
+                                      &AssemblerRISCV64Test::GetRegisterName,
+                                      &AssemblerRISCV64Test::GetVecRegName,
+                                      predicate,
+                                      fmt);
+  }
+
+  std::string RepeatVVVVm(
+      void (Riscv64Assembler::*f)(VRegister, VRegister, VRegister, enum Riscv64Assembler::VM vm),
+      const std::string& fmt,
+      bool noDupl = false) {
+    auto predicate =
+        [=](VRegister reg1, VRegister reg2, VRegister reg3, enum Riscv64Assembler::VM vm) {
+          if (reg1 == V0 && vm == Riscv64Assembler::VM ::kVMv0_t)
+            return false;
+
+          if (noDupl && (reg1 == reg2 || reg1 == reg3))
+            return false;
+
+          return true;
+        };
+
+    return RepeatTemplatedRegistersVM(f,
+                                      GetVectorRegisters(),
+                                      GetVectorRegisters(),
+                                      GetVectorRegisters(),
+                                      &AssemblerRISCV64Test::GetVecRegName,
+                                      &AssemblerRISCV64Test::GetVecRegName,
+                                      &AssemblerRISCV64Test::GetVecRegName,
+                                      predicate,
+                                      fmt);
+  }
+
+  std::string RepeatVVFVm(
+      void (Riscv64Assembler::*f)(VRegister, VRegister, FRegister, enum Riscv64Assembler::VM vm),
+      const std::string& fmt,
+      bool noDupl = false) {
+    auto predicate = [=](VRegister reg1, VRegister reg2, FRegister, enum Riscv64Assembler::VM vm) {
+      if (reg1 == V0 && vm == Riscv64Assembler::VM ::kVMv0_t)
+        return false;
+
+      if (noDupl && reg1 == reg2)
+        return false;
+
+      return true;
+    };
+
+    return RepeatTemplatedRegistersVM(f,
+                                      GetVectorRegisters(),
+                                      GetVectorRegisters(),
+                                      GetFPRegisters(),
+                                      &AssemblerRISCV64Test::GetVecRegName,
+                                      &AssemblerRISCV64Test::GetVecRegName,
+                                      &AssemblerRISCV64Test::GetFPRegName,
+                                      predicate,
+                                      fmt);
+  }
+
+  std::string RepeatVFVVm(
+      void (Riscv64Assembler::*f)(VRegister, FRegister, VRegister, enum Riscv64Assembler::VM vm),
+      const std::string& fmt,
+      bool noDupl = false) {
+    auto predicate = [=](VRegister reg1, FRegister, VRegister reg3, enum Riscv64Assembler::VM vm) {
+      if (reg1 == V0 && vm == Riscv64Assembler::VM ::kVMv0_t)
+        return false;
+
+      if (noDupl && reg1 == reg3)
+        return false;
+
+      return true;
+    };
+
+    return RepeatTemplatedRegistersVM(f,
+                                      GetVectorRegisters(),
+                                      GetFPRegisters(),
+                                      GetVectorRegisters(),
+                                      &AssemblerRISCV64Test::GetVecRegName,
+                                      &AssemblerRISCV64Test::GetFPRegName,
+                                      &AssemblerRISCV64Test::GetVecRegName,
+                                      predicate,
+                                      fmt);
+  }
+
+  template <typename Reg1, typename Reg2, typename Reg3, typename Predicate>
+  std::string RepeatTemplatedRegistersPred(void (Riscv64Assembler::*f)(Reg1, Reg2, Reg3),
+                                           ArrayRef<const Reg1> reg1_registers,
+                                           ArrayRef<const Reg2> reg2_registers,
+                                           ArrayRef<const Reg3> reg3_registers,
+                                           std::string (AssemblerTest::*GetName1)(const Reg1&),
+                                           std::string (AssemblerTest::*GetName2)(const Reg2&),
+                                           std::string (AssemblerTest::*GetName3)(const Reg3&),
+                                           Predicate&& pred,
+                                           const std::string& fmt) {
+    CHECK(f != nullptr);
+
+    std::string str;
+    for (auto reg1 : reg1_registers) {
+      for (auto reg2 : reg2_registers) {
+        for (auto reg3 : reg3_registers) {
+          if (!pred(reg1, reg2, reg3))
+            continue;
+
+          (GetAssembler()->*f)(reg1, reg2, reg3);
+          std::string base = fmt;
+
+          ReplaceReg(REG1_TOKEN, (this->*GetName1)(reg1), &base);
+          ReplaceReg(REG2_TOKEN, (this->*GetName2)(reg2), &base);
+          ReplaceReg(REG3_TOKEN, (this->*GetName3)(reg3), &base);
+
+          str += base;
+          str += "\n";
+        }
+      }
+    }
+    return str;
+  }
+
+  std::string RepeatVVRNoOverlap(void (Riscv64Assembler::*f)(VRegister, VRegister, XRegister),
+                                 const std::string& fmt,
+                                 bool skipV0 = false) {
+    auto predicate = [=](VRegister reg1, VRegister reg2, XRegister) {
+      if (reg1 == reg2)
+        return false;
+
+      if (skipV0 && reg1 == V0)
+        return false;
+
+      return true;
+    };
+
+    return RepeatTemplatedRegistersPred(f,
+                                        GetVectorRegisters(),
+                                        GetVectorRegisters(),
+                                        GetRegisters(),
+                                        &AssemblerRISCV64Test::GetVecRegName,
+                                        &AssemblerRISCV64Test::GetVecRegName,
+                                        &AssemblerRISCV64Test::GetRegisterName,
+                                        predicate,
+                                        fmt);
+  }
+
+  std::string RepeatVVVNoOverlap(void (Riscv64Assembler::*f)(VRegister, VRegister, VRegister),
+                                 const std::string& fmt,
+                                 bool skipV0 = false) {
+    auto predicate = [=](VRegister reg1, VRegister reg2, VRegister reg3) {
+      if (reg1 == reg2 || reg1 == reg3)
+        return false;
+
+      if (skipV0 && reg1 == V0)
+        return false;
+
+      return true;
+    };
+
+    return RepeatTemplatedRegistersPred(f,
+                                        GetVectorRegisters(),
+                                        GetVectorRegisters(),
+                                        GetVectorRegisters(),
+                                        &AssemblerRISCV64Test::GetVecRegName,
+                                        &AssemblerRISCV64Test::GetVecRegName,
+                                        &AssemblerRISCV64Test::GetVecRegName,
+                                        predicate,
+                                        fmt);
+  }
+
+  std::string RepeatVVFNoOverlap(void (Riscv64Assembler::*f)(VRegister, VRegister, FRegister),
+                                 const std::string& fmt,
+                                 bool skipV0 = false) {
+    auto predicate = [=](VRegister reg1, VRegister reg2, FRegister) {
+      if (reg1 == reg2)
+        return false;
+
+      if (skipV0 && reg1 == V0)
+        return false;
+
+      return true;
+    };
+
+    return RepeatTemplatedRegistersPred(f,
+                                        GetVectorRegisters(),
+                                        GetVectorRegisters(),
+                                        GetFPRegisters(),
+                                        &AssemblerRISCV64Test::GetVecRegName,
+                                        &AssemblerRISCV64Test::GetVecRegName,
+                                        &AssemblerRISCV64Test::GetFPRegName,
+                                        predicate,
+                                        fmt);
+  }
+
+  template <typename ImmType>
+  std::string RepeatVVIbNoOverlap(void (Riscv64Assembler::*f)(VRegister, VRegister, ImmType),
+                                  int imm_bits,
+                                  const std::string& fmt,
+                                  bool skipV0 = false) {
+    CHECK(f != nullptr);
+    std::string str;
+    std::vector<int64_t> imms = CreateImmediateValuesBits(abs(imm_bits), (imm_bits > 0));
+    for (VRegister reg1 : GetVectorRegisters()) {
+      for (VRegister reg2 : GetVectorRegisters()) {
+        if (reg1 == reg2 || (skipV0 && reg1 == V0))
+          continue;
+
+        for (int64_t imm : imms) {
+          ImmType new_imm = CreateImmediate(imm);
+
+          (GetAssembler()->*f)(reg1, reg2, new_imm);
+
+          std::string base = fmt;
+          ReplaceReg(REG1_TOKEN, GetVecRegName(reg1), &base);
+          ReplaceReg(REG2_TOKEN, GetVecRegName(reg2), &base);
+          ReplaceImm(imm, 0, /*multiplier=*/1, &base);
+          str += base;
+          str += "\n";
+        }
+      }
+    }
+    return str;
+  }
+
+  template <typename ImmType>
+  std::string RepeatVVIVm(
+      void (Riscv64Assembler::*f)(VRegister, VRegister, ImmType, enum Riscv64Assembler::VM vm),
+      int imm_bits,
+      const std::string& fmt) {
+    CHECK(f != nullptr);
+    std::string str;
+    std::vector<int64_t> imms = CreateImmediateValuesBits(abs(imm_bits), (imm_bits > 0));
+    for (VRegister reg1 : GetVectorRegisters()) {
+      for (int64_t imm : imms) {
+        for (VRegister reg2 : GetVectorRegisters()) {
+          for (Riscv64Assembler::VM vm : kVMs) {
+            if (reg1 == reg2)
+              continue;
+
+            if (reg1 == V0 && vm == Riscv64Assembler::VM ::kVMv0_t)
+              continue;
+
+            ImmType new_imm = CreateImmediate(imm);
+            (GetAssembler()->*f)(reg1, reg2, new_imm, vm);
+
+            std::string base = fmt;
+            ReplaceReg(REG1_TOKEN, GetVecRegName(reg1), &base);
+            ReplaceImm(imm, 0, 1, &base);
+            ReplaceReg(REG2_TOKEN, GetVecRegName(reg2), &base);
+            ReplaceVM(vm, &base);
+            str += base;
+            str += "\n";
+          }
+        }
+      }
+    }
+    return str;
+  }
+
+  std::string RepeatRVVm(void (Riscv64Assembler::*f)(XRegister,
+                                                     VRegister,
+                                                     enum Riscv64Assembler::VM vm),
+                         const std::string& fmt) {
+    CHECK(f != nullptr);
+    std::string str;
+    for (XRegister reg1 : GetRegisters()) {
+      for (VRegister reg2 : GetVectorRegisters()) {
+        for (Riscv64Assembler::VM vm : kVMs) {
+          (GetAssembler()->*f)(reg1, reg2, vm);
+
+          std::string base = fmt;
+          ReplaceReg(REG1_TOKEN, GetRegisterName(reg1), &base);
+          ReplaceReg(REG2_TOKEN, GetVecRegName(reg2), &base);
+          ReplaceVM(vm, &base);
+          str += base;
+          str += "\n";
+        }
+      }
+    }
+    return str;
+  }
+
+  std::string RepeatVVVm(void (Riscv64Assembler::*f)(VRegister,
+                                                     VRegister,
+                                                     enum Riscv64Assembler::VM vm),
+                         const std::string& fmt,
+                         bool noDupl = false) {
+    CHECK(f != nullptr);
+    std::string str;
+    for (VRegister reg1 : GetVectorRegisters()) {
+      for (VRegister reg2 : GetVectorRegisters()) {
+        for (Riscv64Assembler::VM vm : kVMs) {
+          if (noDupl && reg1 == reg2)
+            continue;
+
+          if (reg1 == V0 && vm == Riscv64Assembler::VM::kVMv0_t)
+            continue;
+
+          (GetAssembler()->*f)(reg1, reg2, vm);
+
+          std::string base = fmt;
+          ReplaceReg(REG1_TOKEN, GetVecRegName(reg1), &base);
+          ReplaceReg(REG2_TOKEN, GetVecRegName(reg2), &base);
+          ReplaceVM(vm, &base);
+          str += base;
+          str += "\n";
+        }
+      }
+    }
+    return str;
+  }
+
+  std::string RepeatVVm(void (Riscv64Assembler::*f)(VRegister, enum Riscv64Assembler::VM vm),
+                        const std::string& fmt) {
+    CHECK(f != nullptr);
+    std::string str;
+    for (VRegister reg1 : GetVectorRegisters()) {
+      for (Riscv64Assembler::VM vm : kVMs) {
+        if (reg1 == V0 && vm == Riscv64Assembler::VM::kVMv0_t)
+          continue;
+
+        (GetAssembler()->*f)(reg1, vm);
+
+        std::string base = fmt;
+        ReplaceReg(REG_TOKEN, GetVecRegName(reg1), &base);
+        ReplaceVM(vm, &base);
+        str += base;
+        str += "\n";
+      }
+    }
+    return str;
+  }
+
   template <typename EmitCssrX>
   void TestCsrrXMacro(const std::string& test_name,
                       const std::string& fmt,
@@ -1160,8 +1617,12 @@ class AssemblerRISCV64Test : public AssemblerTest<Riscv64Assembler,
   static constexpr const char* AQRL_TOKEN = "{aqrl}";
   static constexpr const char* CSR_TOKEN = "{csr}";
   static constexpr const char* UIMM_TOKEN = "{uimm}";
+  static constexpr const char* VM_TOKEN = "{vm}";
 
   static constexpr AqRl kAqRls[] = { AqRl::kNone, AqRl::kRelease, AqRl::kAcquire, AqRl::kAqRl };
+
+  static constexpr Riscv64Assembler::VM kVMs[] = {Riscv64Assembler::VM::kVMunmasked,
+                                                  Riscv64Assembler::VM::kVMv0_t};
 
   static constexpr FPRoundingMode kRoundingModes[] = {
       FPRoundingMode::kRNE,
@@ -1227,6 +1688,26 @@ class AssemblerRISCV64Test : public AssemblerTest<Riscv64Assembler,
     EXPECT_NE(aqrl_index, std::string::npos);
     if (aqrl_index != std::string::npos) {
       str->replace(aqrl_index, ConstexprStrLen(AQRL_TOKEN), replacement);
+    }
+  }
+
+  void ReplaceVM(Riscv64Assembler::VM vm, /*inout*/ std::string* str) {
+    const char* replacement;
+    switch (vm) {
+      case Riscv64Assembler::VM::kVMunmasked:
+        replacement = "";
+        break;
+      case Riscv64Assembler::VM::kVMv0_t:
+        replacement = ", v0.t";
+        break;
+      default:
+        LOG(FATAL) << "Unexpected value for `VM`: " << enum_cast<uint32_t>(vm);
+        UNREACHABLE();
+    }
+    size_t vm_index = str->find(VM_TOKEN);
+    EXPECT_NE(vm_index, std::string::npos);
+    if (vm_index != std::string::npos) {
+      str->replace(vm_index, ConstexprStrLen(VM_TOKEN), replacement);
     }
   }
 
@@ -2255,6 +2736,1814 @@ TEST_F(AssemblerRISCV64Test, OrcB) {
 
 TEST_F(AssemblerRISCV64Test, Rev8) {
   DriverStr(RepeatRR(&Riscv64Assembler::Rev8, "rev8 {reg1}, {reg2}"), "Rev8");
+}
+
+// Vector Instructions
+
+TEST_F(AssemblerRISCV64Test, VLe8) {
+  DriverStr(RepeatVR(&Riscv64Assembler::VLe8, "vle8.v {reg1}, ({reg2})"), "VLe8");
+}
+
+TEST_F(AssemblerRISCV64Test, VLe16) {
+  DriverStr(RepeatVR(&Riscv64Assembler::VLe16, "vle16.v {reg1}, ({reg2})"), "VLe16");
+}
+
+TEST_F(AssemblerRISCV64Test, VLe32) {
+  DriverStr(RepeatVR(&Riscv64Assembler::VLe32, "vle32.v {reg1}, ({reg2})"), "VLe32");
+}
+
+TEST_F(AssemblerRISCV64Test, VLe64) {
+  DriverStr(RepeatVR(&Riscv64Assembler::VLe64, "vle64.v {reg1}, ({reg2})"), "VLe64");
+}
+
+TEST_F(AssemblerRISCV64Test, VLm) {
+  DriverStr(RepeatVR(&Riscv64Assembler::VLm, "vlm.v {reg1}, ({reg2})"), "VLm");
+}
+
+TEST_F(AssemblerRISCV64Test, VSe8) {
+  DriverStr(RepeatVR(&Riscv64Assembler::VSe8, "vse8.v {reg1}, ({reg2})"), "VSe8");
+}
+
+TEST_F(AssemblerRISCV64Test, VSe16) {
+  DriverStr(RepeatVR(&Riscv64Assembler::VSe16, "vse16.v {reg1}, ({reg2})"), "VSe16");
+}
+
+TEST_F(AssemblerRISCV64Test, VSe32) {
+  DriverStr(RepeatVR(&Riscv64Assembler::VSe32, "vse32.v {reg1}, ({reg2})"), "VSe32");
+}
+
+TEST_F(AssemblerRISCV64Test, VSe64) {
+  DriverStr(RepeatVR(&Riscv64Assembler::VSe64, "vse64.v {reg1}, ({reg2})"), "VSe64");
+}
+
+TEST_F(AssemblerRISCV64Test, VSm) {
+  DriverStr(RepeatVR(&Riscv64Assembler::VSm, "vsm.v {reg1}, ({reg2})"), "VSm");
+}
+
+TEST_F(AssemblerRISCV64Test, VLe8ff) {
+  DriverStr(RepeatVR(&Riscv64Assembler::VLe8ff, "vle8ff.v {reg1}, ({reg2})"), "VLe8ff");
+}
+
+TEST_F(AssemblerRISCV64Test, VLe16ff) {
+  DriverStr(RepeatVR(&Riscv64Assembler::VLe16ff, "vle16ff.v {reg1}, ({reg2})"), "VLe16ff");
+}
+
+TEST_F(AssemblerRISCV64Test, VLe32ff) {
+  DriverStr(RepeatVR(&Riscv64Assembler::VLe32ff, "vle32ff.v {reg1}, ({reg2})"), "VLe32ff");
+}
+
+TEST_F(AssemblerRISCV64Test, VLe64ff) {
+  DriverStr(RepeatVR(&Riscv64Assembler::VLe64ff, "vle64ff.v {reg1}, ({reg2})"), "VLe64ff");
+}
+
+TEST_F(AssemblerRISCV64Test, VLse8) {
+  DriverStr(RepeatVRRVm(&Riscv64Assembler::VLse8, "vlse8.v {reg1}, ({reg2}), {reg3}{vm}"), "VLse8");
+}
+
+TEST_F(AssemblerRISCV64Test, VLse16) {
+  DriverStr(RepeatVRRVm(&Riscv64Assembler::VLse16, "vlse16.v {reg1}, ({reg2}), {reg3}{vm}"),
+            "VLse16");
+}
+
+TEST_F(AssemblerRISCV64Test, VLse32) {
+  DriverStr(RepeatVRRVm(&Riscv64Assembler::VLse32, "vlse32.v {reg1}, ({reg2}), {reg3}{vm}"),
+            "VLse32");
+}
+
+TEST_F(AssemblerRISCV64Test, VLse64) {
+  DriverStr(RepeatVRRVm(&Riscv64Assembler::VLse64, "vlse64.v {reg1}, ({reg2}), {reg3}{vm}"),
+            "VLse64");
+}
+
+TEST_F(AssemblerRISCV64Test, VSse8) {
+  DriverStr(RepeatVRRVm(&Riscv64Assembler::VSse8, "vsse8.v {reg1}, ({reg2}), {reg3}{vm}"), "VSse8");
+}
+
+TEST_F(AssemblerRISCV64Test, VSse16) {
+  DriverStr(RepeatVRRVm(&Riscv64Assembler::VSse16, "vsse16.v {reg1}, ({reg2}), {reg3}{vm}"),
+            "VSse16");
+}
+
+TEST_F(AssemblerRISCV64Test, VSse32) {
+  DriverStr(RepeatVRRVm(&Riscv64Assembler::VSse32, "vsse32.v {reg1}, ({reg2}), {reg3}{vm}"),
+            "VSse32");
+}
+
+TEST_F(AssemblerRISCV64Test, VSse64) {
+  DriverStr(RepeatVRRVm(&Riscv64Assembler::VSse64, "vsse64.v {reg1}, ({reg2}), {reg3}{vm}"),
+            "VSse64");
+}
+
+TEST_F(AssemblerRISCV64Test, VLoxe8) {
+  DriverStr(RepeatVRVVm(&Riscv64Assembler::VLoxe8, "vloxei8.v {reg1}, ({reg2}), {reg3}{vm}"),
+            "VLoxe8");
+}
+
+TEST_F(AssemblerRISCV64Test, VLoxe16) {
+  DriverStr(RepeatVRVVm(&Riscv64Assembler::VLoxe16, "vloxei16.v {reg1}, ({reg2}), {reg3}{vm}"),
+            "VLoxe16");
+}
+
+TEST_F(AssemblerRISCV64Test, VLoxe32) {
+  DriverStr(RepeatVRVVm(&Riscv64Assembler::VLoxe32, "vloxei32.v {reg1}, ({reg2}), {reg3}{vm}"),
+            "VLoxe32");
+}
+
+TEST_F(AssemblerRISCV64Test, VLoxe64) {
+  DriverStr(RepeatVRVVm(&Riscv64Assembler::VLoxe64, "vloxei64.v {reg1}, ({reg2}), {reg3}{vm}"),
+            "VLoxe64");
+}
+
+TEST_F(AssemblerRISCV64Test, VLuxe8) {
+  DriverStr(RepeatVRVVm(&Riscv64Assembler::VLuxe8, "vluxei8.v {reg1}, ({reg2}), {reg3}{vm}"),
+            "VLuxe8");
+}
+
+TEST_F(AssemblerRISCV64Test, VLuxe16) {
+  DriverStr(RepeatVRVVm(&Riscv64Assembler::VLuxe16, "vluxei16.v {reg1}, ({reg2}), {reg3}{vm}"),
+            "VLuxe16");
+}
+
+TEST_F(AssemblerRISCV64Test, VLuxe32) {
+  DriverStr(RepeatVRVVm(&Riscv64Assembler::VLuxe32, "vluxei32.v {reg1}, ({reg2}), {reg3}{vm}"),
+            "VLuxe32");
+}
+
+TEST_F(AssemblerRISCV64Test, VLuxe64) {
+  DriverStr(RepeatVRVVm(&Riscv64Assembler::VLuxe64, "vluxei64.v {reg1}, ({reg2}), {reg3}{vm}"),
+            "VLuxe64");
+}
+
+TEST_F(AssemblerRISCV64Test, VSoxe8) {
+  DriverStr(RepeatVRVVm(&Riscv64Assembler::VSoxe8, "vsoxei8.v {reg1}, ({reg2}), {reg3}{vm}"),
+            "VSoxe8");
+}
+
+TEST_F(AssemblerRISCV64Test, VSoxe16) {
+  DriverStr(RepeatVRVVm(&Riscv64Assembler::VSoxe16, "vsoxei16.v {reg1}, ({reg2}), {reg3}{vm}"),
+            "VSoxe16");
+}
+
+TEST_F(AssemblerRISCV64Test, VSoxe32) {
+  DriverStr(RepeatVRVVm(&Riscv64Assembler::VSoxe32, "vsoxei32.v {reg1}, ({reg2}), {reg3}{vm}"),
+            "VSoxe32");
+}
+
+TEST_F(AssemblerRISCV64Test, VSoxe64) {
+  DriverStr(RepeatVRVVm(&Riscv64Assembler::VSoxe64, "vsoxei64.v {reg1}, ({reg2}), {reg3}{vm}"),
+            "VSoxe64");
+}
+
+TEST_F(AssemblerRISCV64Test, VSuxe8) {
+  DriverStr(RepeatVRVVm(&Riscv64Assembler::VSuxe8, "vsuxei8.v {reg1}, ({reg2}), {reg3}{vm}"),
+            "VSuxe8");
+}
+
+TEST_F(AssemblerRISCV64Test, VSuxe16) {
+  DriverStr(RepeatVRVVm(&Riscv64Assembler::VSuxe16, "vsuxei16.v {reg1}, ({reg2}), {reg3}{vm}"),
+            "VSuxe16");
+}
+
+TEST_F(AssemblerRISCV64Test, VSuxe32) {
+  DriverStr(RepeatVRVVm(&Riscv64Assembler::VSuxe32, "vsuxei32.v {reg1}, ({reg2}), {reg3}{vm}"),
+            "VSuxe32");
+}
+
+TEST_F(AssemblerRISCV64Test, VSuxe64) {
+  DriverStr(RepeatVRVVm(&Riscv64Assembler::VSuxe64, "vsuxei64.v {reg1}, ({reg2}), {reg3}{vm}"),
+            "VSuxe64");
+}
+
+TEST_F(AssemblerRISCV64Test, VL1re8) {
+  DriverStr(RepeatUSMem(&Riscv64Assembler::VL1re8, 1, "vl1re8.v {reg1}, ({reg2})"), "VL1re8");
+}
+
+TEST_F(AssemblerRISCV64Test, VL1re16) {
+  DriverStr(RepeatUSMem(&Riscv64Assembler::VL1re16, 1, "vl1re16.v {reg1}, ({reg2})"), "VL1re16");
+}
+
+TEST_F(AssemblerRISCV64Test, VL1re32) {
+  DriverStr(RepeatUSMem(&Riscv64Assembler::VL1re32, 1, "vl1re32.v {reg1}, ({reg2})"), "VL1re32");
+}
+
+TEST_F(AssemblerRISCV64Test, VL1re64) {
+  DriverStr(RepeatUSMem(&Riscv64Assembler::VL1re64, 1, "vl1re64.v {reg1}, ({reg2})"), "VL1re64");
+}
+
+TEST_F(AssemblerRISCV64Test, VL2re8) {
+  DriverStr(RepeatUSMem(&Riscv64Assembler::VL2re8, 2, "vl2re8.v {reg1}, ({reg2})"), "VL2re8");
+}
+
+TEST_F(AssemblerRISCV64Test, VL2re16) {
+  DriverStr(RepeatUSMem(&Riscv64Assembler::VL2re16, 2, "vl2re16.v {reg1}, ({reg2})"), "VL2re16");
+}
+
+TEST_F(AssemblerRISCV64Test, VL2re32) {
+  DriverStr(RepeatUSMem(&Riscv64Assembler::VL2re32, 2, "vl2re32.v {reg1}, ({reg2})"), "VL2re32");
+}
+
+TEST_F(AssemblerRISCV64Test, VL2re64) {
+  DriverStr(RepeatUSMem(&Riscv64Assembler::VL2re64, 2, "vl2re64.v {reg1}, ({reg2})"), "VL2re64");
+}
+
+TEST_F(AssemblerRISCV64Test, VL4re8) {
+  DriverStr(RepeatUSMem(&Riscv64Assembler::VL4re8, 4, "vl4re8.v {reg1}, ({reg2})"), "VL4re8");
+}
+
+TEST_F(AssemblerRISCV64Test, VL4re16) {
+  DriverStr(RepeatUSMem(&Riscv64Assembler::VL4re16, 4, "vl4re16.v {reg1}, ({reg2})"), "VL4re16");
+}
+
+TEST_F(AssemblerRISCV64Test, VL4re32) {
+  DriverStr(RepeatUSMem(&Riscv64Assembler::VL4re32, 4, "vl4re32.v {reg1}, ({reg2})"), "VL4re32");
+}
+
+TEST_F(AssemblerRISCV64Test, VL4re64) {
+  DriverStr(RepeatUSMem(&Riscv64Assembler::VL4re64, 4, "vl4re64.v {reg1}, ({reg2})"), "VL4re64");
+}
+
+TEST_F(AssemblerRISCV64Test, VL8re8) {
+  DriverStr(RepeatUSMem(&Riscv64Assembler::VL8re8, 8, "vl8re8.v {reg1}, ({reg2})"), "VL8re8");
+}
+
+TEST_F(AssemblerRISCV64Test, VL8re16) {
+  DriverStr(RepeatUSMem(&Riscv64Assembler::VL8re16, 8, "vl8re16.v {reg1}, ({reg2})"), "VL8re16");
+}
+
+TEST_F(AssemblerRISCV64Test, VL8re32) {
+  DriverStr(RepeatUSMem(&Riscv64Assembler::VL8re32, 8, "vl8re32.v {reg1}, ({reg2})"), "VL8re32");
+}
+
+TEST_F(AssemblerRISCV64Test, VL8re64) {
+  DriverStr(RepeatUSMem(&Riscv64Assembler::VL8re64, 8, "vl8re64.v {reg1}, ({reg2})"), "VL8re64");
+}
+
+TEST_F(AssemblerRISCV64Test, VS1r) {
+  DriverStr(RepeatUSMem(&Riscv64Assembler::VS1r, 1, "vs1r.v {reg1}, ({reg2})"), "VS1r");
+}
+
+TEST_F(AssemblerRISCV64Test, VS2r) {
+  DriverStr(RepeatUSMem(&Riscv64Assembler::VS2r, 2, "vs2r.v {reg1}, ({reg2})"), "VS2r");
+}
+
+TEST_F(AssemblerRISCV64Test, VS4r) {
+  DriverStr(RepeatUSMem(&Riscv64Assembler::VS4r, 4, "vs4r.v {reg1}, ({reg2})"), "VS4r");
+}
+
+TEST_F(AssemblerRISCV64Test, VS8r) {
+  DriverStr(RepeatUSMem(&Riscv64Assembler::VS8r, 8, "vs8r.v {reg1}, ({reg2})"), "VS8r");
+}
+
+TEST_F(AssemblerRISCV64Test, VAdd_vv) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VAdd_vv, "vadd.vv {reg1}, {reg2}, {reg3}{vm}"),
+            "VAdd_vv");
+}
+
+TEST_F(AssemblerRISCV64Test, VAdd_vx) {
+  DriverStr(RepeatVVRVm(&Riscv64Assembler::VAdd_vx, "vadd.vx {reg1}, {reg2}, {reg3}{vm}"),
+            "VAdd_vx");
+}
+
+TEST_F(AssemblerRISCV64Test, VAdd_vi) {
+  DriverStr(RepeatVVIVm(&Riscv64Assembler::VAdd_vi, -5, "vadd.vi {reg1}, {reg2}, {imm}{vm}"),
+            "VAdd_vi");
+}
+
+TEST_F(AssemblerRISCV64Test, VSub_vv) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VSub_vv, "vsub.vv {reg1}, {reg2}, {reg3}{vm}"),
+            "VSub_vv");
+}
+
+TEST_F(AssemblerRISCV64Test, VSub_vx) {
+  DriverStr(RepeatVVRVm(&Riscv64Assembler::VSub_vx, "vsub.vx {reg1}, {reg2}, {reg3}{vm}"),
+            "VSub_vx");
+}
+
+TEST_F(AssemblerRISCV64Test, VRsub_vx) {
+  DriverStr(RepeatVVRVm(&Riscv64Assembler::VRsub_vx, "vrsub.vx {reg1}, {reg2}, {reg3}{vm}"),
+            "VRsub_vx");
+}
+
+TEST_F(AssemblerRISCV64Test, VRsub_vi) {
+  DriverStr(RepeatVVIVm(&Riscv64Assembler::VRsub_vi, -5, "vrsub.vi {reg1}, {reg2}, {imm}{vm}"),
+            "VRsub_vi");
+}
+
+TEST_F(AssemblerRISCV64Test, VMinu_vv) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VMinu_vv, "vminu.vv {reg1}, {reg2}, {reg3}{vm}"),
+            "VMinu_vv");
+}
+
+TEST_F(AssemblerRISCV64Test, VMinu_vx) {
+  DriverStr(RepeatVVRVm(&Riscv64Assembler::VMinu_vx, "vminu.vx {reg1}, {reg2}, {reg3}{vm}"),
+            "VMinu_vx");
+}
+
+TEST_F(AssemblerRISCV64Test, VMin_vv) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VMin_vv, "vmin.vv {reg1}, {reg2}, {reg3}{vm}"),
+            "VMin_vv");
+}
+
+TEST_F(AssemblerRISCV64Test, VMin_vx) {
+  DriverStr(RepeatVVRVm(&Riscv64Assembler::VMin_vx, "vmin.vx {reg1}, {reg2}, {reg3}{vm}"),
+            "VMin_vx");
+}
+
+TEST_F(AssemblerRISCV64Test, VMaxu_vv) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VMaxu_vv, "vmaxu.vv {reg1}, {reg2}, {reg3}{vm}"),
+            "VMaxu_vv");
+}
+
+TEST_F(AssemblerRISCV64Test, VMaxu_vx) {
+  DriverStr(RepeatVVRVm(&Riscv64Assembler::VMaxu_vx, "vmaxu.vx {reg1}, {reg2}, {reg3}{vm}"),
+            "VMaxu_vx");
+}
+
+TEST_F(AssemblerRISCV64Test, VMax_vv) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VMax_vv, "vmax.vv {reg1}, {reg2}, {reg3}{vm}"),
+            "VMax_vv");
+}
+
+TEST_F(AssemblerRISCV64Test, VMax_vx) {
+  DriverStr(RepeatVVRVm(&Riscv64Assembler::VMax_vx, "vmax.vx {reg1}, {reg2}, {reg3}{vm}"),
+            "VMax_vx");
+}
+
+TEST_F(AssemblerRISCV64Test, VAnd_vv) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VAnd_vv, "vand.vv {reg1}, {reg2}, {reg3}{vm}"),
+            "VAnd_vv");
+}
+
+TEST_F(AssemblerRISCV64Test, VAnd_vx) {
+  DriverStr(RepeatVVRVm(&Riscv64Assembler::VAnd_vx, "vand.vx {reg1}, {reg2}, {reg3}{vm}"),
+            "VAnd_vx");
+}
+
+TEST_F(AssemblerRISCV64Test, VAnd_vi) {
+  DriverStr(RepeatVVIVm(&Riscv64Assembler::VAnd_vi, -5, "vand.vi {reg1}, {reg2}, {imm}{vm}"),
+            "VAnd_vi");
+}
+
+TEST_F(AssemblerRISCV64Test, VOr_vv) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VOr_vv, "vor.vv {reg1}, {reg2}, {reg3}{vm}"), "VOr_vv");
+}
+
+TEST_F(AssemblerRISCV64Test, VOr_vx) {
+  DriverStr(RepeatVVRVm(&Riscv64Assembler::VOr_vx, "vor.vx {reg1}, {reg2}, {reg3}{vm}"), "VOr_vx");
+}
+
+TEST_F(AssemblerRISCV64Test, VOr_vi) {
+  DriverStr(RepeatVVIVm(&Riscv64Assembler::VOr_vi, -5, "vor.vi {reg1}, {reg2}, {imm}{vm}"),
+            "VOr_vi");
+}
+
+TEST_F(AssemblerRISCV64Test, VXor_vv) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VXor_vv, "vxor.vv {reg1}, {reg2}, {reg3}{vm}"),
+            "VXor_vv");
+}
+
+TEST_F(AssemblerRISCV64Test, VXor_vx) {
+  DriverStr(RepeatVVRVm(&Riscv64Assembler::VXor_vx, "vxor.vx {reg1}, {reg2}, {reg3}{vm}"),
+            "VXor_vx");
+}
+
+TEST_F(AssemblerRISCV64Test, VXor_vi) {
+  DriverStr(RepeatVVIVm(&Riscv64Assembler::VXor_vi, -5, "vxor.vi {reg1}, {reg2}, {imm}{vm}"),
+            "VXor_vi");
+}
+
+TEST_F(AssemblerRISCV64Test, VRgather_vv) {
+  DriverStr(
+      RepeatVVVVm(&Riscv64Assembler::VRgather_vv, "vrgather.vv {reg1}, {reg2}, {reg3}{vm}", true),
+      "VRgather_vv");
+}
+
+TEST_F(AssemblerRISCV64Test, VRgather_vx) {
+  DriverStr(
+      RepeatVVRVm(&Riscv64Assembler::VRgather_vx, "vrgather.vx {reg1}, {reg2}, {reg3}{vm}", true),
+      "VRgather_vx");
+}
+
+TEST_F(AssemblerRISCV64Test, VRgather_vi) {
+  DriverStr(RepeatVVIVm(&Riscv64Assembler::VRgather_vi, 5, "vrgather.vi {reg1}, {reg2}, {imm}{vm}"),
+            "VRgather_vi");
+}
+
+TEST_F(AssemblerRISCV64Test, VSlideup_vx) {
+  DriverStr(
+      RepeatVVRVm(&Riscv64Assembler::VSlideup_vx, "vslideup.vx {reg1}, {reg2}, {reg3}{vm}", true),
+      "VSlideup_vx");
+}
+
+TEST_F(AssemblerRISCV64Test, VSlideup_vi) {
+  DriverStr(RepeatVVIVm(&Riscv64Assembler::VSlideup_vi, 5, "vslideup.vi {reg1}, {reg2}, {imm}{vm}"),
+            "VSlideup_vi");
+}
+
+TEST_F(AssemblerRISCV64Test, VRgatherei16_vv) {
+  DriverStr(
+      RepeatVVVVm(
+          &Riscv64Assembler::VRgatherei16_vv, "vrgatherei16.vv {reg1}, {reg2}, {reg3}{vm}", true),
+      "VRgatherei16_vv");
+}
+
+TEST_F(AssemblerRISCV64Test, VSlidedown_vx) {
+  DriverStr(RepeatVVRVm(
+                &Riscv64Assembler::VSlidedown_vx, "vslidedown.vx {reg1}, {reg2}, {reg3}{vm}", true),
+            "VSlidedown_vx");
+}
+
+TEST_F(AssemblerRISCV64Test, VSlidedown_vi) {
+  DriverStr(
+      RepeatVVIVm(&Riscv64Assembler::VSlidedown_vi, 5, "vslidedown.vi {reg1}, {reg2}, {imm}{vm}"),
+      "VSlidedown_vi");
+}
+
+TEST_F(AssemblerRISCV64Test, VAdc_vvm) {
+  DriverStr(
+      RepeatVVVNoOverlap(&Riscv64Assembler::VAdc_vvm, "vadc.vvm {reg1}, {reg2}, {reg3}, v0", true),
+      "VAdc_vvm");
+}
+
+TEST_F(AssemblerRISCV64Test, VAdc_vxm) {
+  DriverStr(
+      RepeatVVRNoOverlap(&Riscv64Assembler::VAdc_vxm, "vadc.vxm {reg1}, {reg2}, {reg3}, v0", true),
+      "VAdc_vxm");
+}
+
+TEST_F(AssemblerRISCV64Test, VAdc_vim) {
+  DriverStr(RepeatVVIbNoOverlap(
+                &Riscv64Assembler::VAdc_vim, -5, "vadc.vim {reg1}, {reg2}, {imm}, v0", true),
+            "VAdc_vim");
+}
+
+TEST_F(AssemblerRISCV64Test, VMadc_vvm) {
+  DriverStr(RepeatVVV(&Riscv64Assembler::VMadc_vvm, "vmadc.vvm {reg1}, {reg2}, {reg3}, v0"),
+            "VMadc_vvm");
+}
+
+TEST_F(AssemblerRISCV64Test, VMadc_vxm) {
+  DriverStr(RepeatVVR(&Riscv64Assembler::VMadc_vxm, "vmadc.vxm {reg1}, {reg2}, {reg3}, v0"),
+            "VMadc_vxm");
+}
+
+TEST_F(AssemblerRISCV64Test, VMadc_vim) {
+  DriverStr(RepeatVVIb(&Riscv64Assembler::VMadc_vim, -5, "vmadc.vim {reg1}, {reg2}, {imm}, v0"),
+            "VMadc_vim");
+}
+
+TEST_F(AssemblerRISCV64Test, VMadc_vv) {
+  DriverStr(RepeatVVV(&Riscv64Assembler::VMadc_vv, "vmadc.vv {reg1}, {reg2}, {reg3}"), "VMadc_vv");
+}
+
+TEST_F(AssemblerRISCV64Test, VMadc_vx) {
+  DriverStr(RepeatVVR(&Riscv64Assembler::VMadc_vx, "vmadc.vx {reg1}, {reg2}, {reg3}"), "VMadc_vx");
+}
+
+TEST_F(AssemblerRISCV64Test, VMadc_vi) {
+  DriverStr(RepeatVVIb(&Riscv64Assembler::VMadc_vi, -5, "vmadc.vi {reg1}, {reg2}, {imm}"),
+            "VMadc_vi");
+}
+
+TEST_F(AssemblerRISCV64Test, VSbc_vvm) {
+  DriverStr(
+      RepeatVVVNoOverlap(&Riscv64Assembler::VSbc_vvm, "vsbc.vvm {reg1}, {reg2}, {reg3}, v0", true),
+      "VSbc_vvm");
+}
+
+TEST_F(AssemblerRISCV64Test, VSbc_vxm) {
+  DriverStr(
+      RepeatVVRNoOverlap(&Riscv64Assembler::VSbc_vxm, "vsbc.vxm {reg1}, {reg2}, {reg3}, v0", true),
+      "VSbc_vxm");
+}
+
+TEST_F(AssemblerRISCV64Test, VMsbc_vvm) {
+  DriverStr(RepeatVVV(&Riscv64Assembler::VMsbc_vvm, "vmsbc.vvm {reg1}, {reg2}, {reg3}, v0"),
+            "VMsbc_vvm");
+}
+
+TEST_F(AssemblerRISCV64Test, VMsbc_vxm) {
+  DriverStr(RepeatVVR(&Riscv64Assembler::VMsbc_vxm, "vmsbc.vxm {reg1}, {reg2}, {reg3}, v0"),
+            "VMsbc_vxm");
+}
+
+TEST_F(AssemblerRISCV64Test, VMsbc_vv) {
+  DriverStr(RepeatVVV(&Riscv64Assembler::VMsbc_vv, "vmsbc.vv {reg1}, {reg2}, {reg3}"), "VMsbc_vvm");
+}
+
+TEST_F(AssemblerRISCV64Test, VMsbc_vx) {
+  DriverStr(RepeatVVR(&Riscv64Assembler::VMsbc_vx, "vmsbc.vx {reg1}, {reg2}, {reg3}"), "VMsbc_vxm");
+}
+
+TEST_F(AssemblerRISCV64Test, VMerge_vvm) {
+  DriverStr(RepeatVVVNoOverlap(
+                &Riscv64Assembler::VMerge_vvm, "vmerge.vvm {reg1}, {reg2}, {reg3}, v0", true),
+            "VMerge_vvm");
+}
+
+TEST_F(AssemblerRISCV64Test, VMerge_vxm) {
+  DriverStr(RepeatVVRNoOverlap(
+                &Riscv64Assembler::VMerge_vxm, "vmerge.vxm {reg1}, {reg2}, {reg3}, v0", true),
+            "VMerge_vxm");
+}
+
+TEST_F(AssemblerRISCV64Test, VMerge_vim) {
+  DriverStr(RepeatVVIbNoOverlap(
+                &Riscv64Assembler::VMerge_vim, -5, "vmerge.vim {reg1}, {reg2}, {imm}, v0", true),
+            "VMerge_vim");
+}
+
+TEST_F(AssemblerRISCV64Test, VMv_vv) {
+  DriverStr(RepeatVV(&Riscv64Assembler::VMv_vv, "vmv.v.v {reg1}, {reg2}"), "VMmv_vv");
+}
+
+TEST_F(AssemblerRISCV64Test, VMv_vx) {
+  DriverStr(RepeatVR(&Riscv64Assembler::VMv_vx, "vmv.v.x {reg1}, {reg2}"), "VMv_vx");
+}
+
+TEST_F(AssemblerRISCV64Test, VMv_vi) {
+  DriverStr(RepeatVIb(&Riscv64Assembler::VMv_vi, -5, "vmv.v.i {reg}, {imm}"), "VMv_vi");
+}
+
+TEST_F(AssemblerRISCV64Test, VMseq_vv) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VMseq_vv, "vmseq.vv {reg1}, {reg2}, {reg3}{vm}"),
+            "VMseq_vv");
+}
+
+TEST_F(AssemblerRISCV64Test, VMseq_vx) {
+  DriverStr(RepeatVVRVm(&Riscv64Assembler::VMseq_vx, "vmseq.vx {reg1}, {reg2}, {reg3}{vm}"),
+            "VMseq_vx");
+}
+
+TEST_F(AssemblerRISCV64Test, VMseq_vi) {
+  DriverStr(RepeatVVIVm(&Riscv64Assembler::VMseq_vi, -5, "vmseq.vi {reg1}, {reg2}, {imm}{vm}"),
+            "VMseq_vi");
+}
+
+TEST_F(AssemblerRISCV64Test, VMsne_vv) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VMsne_vv, "vmsne.vv {reg1}, {reg2}, {reg3}{vm}"),
+            "VMsne_vv");
+}
+
+TEST_F(AssemblerRISCV64Test, VMsne_vx) {
+  DriverStr(RepeatVVRVm(&Riscv64Assembler::VMsne_vx, "vmsne.vx {reg1}, {reg2}, {reg3}{vm}"),
+            "VMsne_vx");
+}
+
+TEST_F(AssemblerRISCV64Test, VMsne_vi) {
+  DriverStr(RepeatVVIVm(&Riscv64Assembler::VMsne_vi, -5, "vmsne.vi {reg1}, {reg2}, {imm}{vm}"),
+            "VMsne_vi");
+}
+
+TEST_F(AssemblerRISCV64Test, VMsltu_vv) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VMsltu_vv, "vmsltu.vv {reg1}, {reg2}, {reg3}{vm}"),
+            "VMsltu_vv");
+}
+
+TEST_F(AssemblerRISCV64Test, VMsltu_vx) {
+  DriverStr(RepeatVVRVm(&Riscv64Assembler::VMsltu_vx, "vmsltu.vx {reg1}, {reg2}, {reg3}{vm}"),
+            "VMsltu_vx");
+}
+
+TEST_F(AssemblerRISCV64Test, VMslt_vv) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VMslt_vv, "vmslt.vv {reg1}, {reg2}, {reg3}{vm}"),
+            "VMslt_vv");
+}
+
+TEST_F(AssemblerRISCV64Test, VMslt_vx) {
+  DriverStr(RepeatVVRVm(&Riscv64Assembler::VMslt_vx, "vmslt.vx {reg1}, {reg2}, {reg3}{vm}"),
+            "VMslt_vx");
+}
+
+TEST_F(AssemblerRISCV64Test, VMsleu_vv) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VMsleu_vv, "vmsleu.vv {reg1}, {reg2}, {reg3}{vm}"),
+            "VMsleu_vv");
+}
+
+TEST_F(AssemblerRISCV64Test, VMsleu_vx) {
+  DriverStr(RepeatVVRVm(&Riscv64Assembler::VMsleu_vx, "vmsleu.vx {reg1}, {reg2}, {reg3}{vm}"),
+            "VMsleu_vx");
+}
+
+TEST_F(AssemblerRISCV64Test, VMsleu_vi) {
+  DriverStr(RepeatVVIVm(&Riscv64Assembler::VMsleu_vi, -5, "vmsleu.vi {reg1}, {reg2}, {imm}{vm}"),
+            "VMsleu_vi");
+}
+
+TEST_F(AssemblerRISCV64Test, VMsle_vv) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VMsle_vv, "vmsle.vv {reg1}, {reg2}, {reg3}{vm}"),
+            "VMsle_vv");
+}
+
+TEST_F(AssemblerRISCV64Test, VMsle_vx) {
+  DriverStr(RepeatVVRVm(&Riscv64Assembler::VMsle_vx, "vmsle.vx {reg1}, {reg2}, {reg3}{vm}"),
+            "VMsle_vx");
+}
+
+TEST_F(AssemblerRISCV64Test, VMsle_vi) {
+  DriverStr(RepeatVVIVm(&Riscv64Assembler::VMsle_vi, -5, "vmsle.vi {reg1}, {reg2}, {imm}{vm}"),
+            "VMsle_vi");
+}
+
+TEST_F(AssemblerRISCV64Test, VMsgtu_vx) {
+  DriverStr(RepeatVVRVm(&Riscv64Assembler::VMsgtu_vx, "vmsgtu.vx {reg1}, {reg2}, {reg3}{vm}"),
+            "VMsgtu_vx");
+}
+
+TEST_F(AssemblerRISCV64Test, VMsgtu_vi) {
+  DriverStr(RepeatVVIVm(&Riscv64Assembler::VMsgtu_vi, -5, "vmsgtu.vi {reg1}, {reg2}, {imm}{vm}"),
+            "VMsgtu_vi");
+}
+
+TEST_F(AssemblerRISCV64Test, VMsgt_vx) {
+  DriverStr(RepeatVVRVm(&Riscv64Assembler::VMsgt_vx, "vmsgt.vx {reg1}, {reg2}, {reg3}{vm}"),
+            "VMsgt_vx");
+}
+
+TEST_F(AssemblerRISCV64Test, VMsgt_vi) {
+  DriverStr(RepeatVVIVm(&Riscv64Assembler::VMsgt_vi, -5, "vmsgt.vi {reg1}, {reg2}, {imm}{vm}"),
+            "VMsgt_vi");
+}
+
+TEST_F(AssemblerRISCV64Test, VSaddu_vv) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VSaddu_vv, "vsaddu.vv {reg1}, {reg2}, {reg3}{vm}"),
+            "VSaddu_vv");
+}
+
+TEST_F(AssemblerRISCV64Test, VSaddu_vx) {
+  DriverStr(RepeatVVRVm(&Riscv64Assembler::VSaddu_vx, "vsaddu.vx {reg1}, {reg2}, {reg3}{vm}"),
+            "VSaddu_vx");
+}
+
+TEST_F(AssemblerRISCV64Test, VSaddu_vi) {
+  DriverStr(RepeatVVIVm(&Riscv64Assembler::VSaddu_vi, -5, "vsaddu.vi {reg1}, {reg2}, {imm}{vm}"),
+            "VSaddu_vi");
+}
+
+TEST_F(AssemblerRISCV64Test, VSadd_vv) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VSadd_vv, "vsadd.vv {reg1}, {reg2}, {reg3}{vm}"),
+            "VSadd_vv");
+}
+
+TEST_F(AssemblerRISCV64Test, VSadd_vx) {
+  DriverStr(RepeatVVRVm(&Riscv64Assembler::VSadd_vx, "vsadd.vx {reg1}, {reg2}, {reg3}{vm}"),
+            "VSadd_vx");
+}
+
+TEST_F(AssemblerRISCV64Test, VSadd_vi) {
+  DriverStr(RepeatVVIVm(&Riscv64Assembler::VSadd_vi, -5, "vsadd.vi {reg1}, {reg2}, {imm}{vm}"),
+            "VSadd_vi");
+}
+
+TEST_F(AssemblerRISCV64Test, VSsubu_vv) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VSsubu_vv, "vssubu.vv {reg1}, {reg2}, {reg3}{vm}"),
+            "VSsubu_vv");
+}
+
+TEST_F(AssemblerRISCV64Test, VSsubu_vx) {
+  DriverStr(RepeatVVRVm(&Riscv64Assembler::VSsubu_vx, "vssubu.vx {reg1}, {reg2}, {reg3}{vm}"),
+            "VSsubu_vx");
+}
+
+TEST_F(AssemblerRISCV64Test, VSsub_vv) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VSsub_vv, "vssub.vv {reg1}, {reg2}, {reg3}{vm}"),
+            "VSsub_vv");
+}
+
+TEST_F(AssemblerRISCV64Test, VSsub_vx) {
+  DriverStr(RepeatVVRVm(&Riscv64Assembler::VSsub_vx, "vssub.vx {reg1}, {reg2}, {reg3}{vm}"),
+            "VSsub_vx");
+}
+
+TEST_F(AssemblerRISCV64Test, VSll_vv) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VSll_vv, "vsll.vv {reg1}, {reg2}, {reg3}{vm}"),
+            "VSll_vv");
+}
+
+TEST_F(AssemblerRISCV64Test, VSll_vx) {
+  DriverStr(RepeatVVRVm(&Riscv64Assembler::VSll_vx, "vsll.vx {reg1}, {reg2}, {reg3}{vm}"),
+            "VSll_vx");
+}
+
+TEST_F(AssemblerRISCV64Test, VSll_vi) {
+  DriverStr(RepeatVVIVm(&Riscv64Assembler::VSll_vi, 5, "vsll.vi {reg1}, {reg2}, {imm}{vm}"),
+            "VSll_vi");
+}
+
+TEST_F(AssemblerRISCV64Test, VSmul_vv) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VSmul_vv, "vsmul.vv {reg1}, {reg2}, {reg3}{vm}"),
+            "VSmul_vv");
+}
+
+TEST_F(AssemblerRISCV64Test, VSmul_vx) {
+  DriverStr(RepeatVVRVm(&Riscv64Assembler::VSmul_vx, "vsmul.vx {reg1}, {reg2}, {reg3}{vm}"),
+            "VSmul_vx");
+}
+
+TEST_F(AssemblerRISCV64Test, VSrl_vv) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VSrl_vv, "vsrl.vv {reg1}, {reg2}, {reg3}{vm}"),
+            "VSrl_vv");
+}
+
+TEST_F(AssemblerRISCV64Test, VSrl_vx) {
+  DriverStr(RepeatVVRVm(&Riscv64Assembler::VSrl_vx, "vsrl.vx {reg1}, {reg2}, {reg3}{vm}"),
+            "VSrl_vx");
+}
+
+TEST_F(AssemblerRISCV64Test, VSrl_vi) {
+  DriverStr(RepeatVVIVm(&Riscv64Assembler::VSrl_vi, 5, "vsrl.vi {reg1}, {reg2}, {imm}{vm}"),
+            "VSrl_vi");
+}
+
+TEST_F(AssemblerRISCV64Test, VSra_vv) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VSra_vv, "vsra.vv {reg1}, {reg2}, {reg3}{vm}"),
+            "VSra_vv");
+}
+
+TEST_F(AssemblerRISCV64Test, VSra_vx) {
+  DriverStr(RepeatVVRVm(&Riscv64Assembler::VSra_vx, "vsra.vx {reg1}, {reg2}, {reg3}{vm}"),
+            "VSra_vx");
+}
+
+TEST_F(AssemblerRISCV64Test, VSra_vi) {
+  DriverStr(RepeatVVIVm(&Riscv64Assembler::VSra_vi, 5, "vsra.vi {reg1}, {reg2}, {imm}{vm}"),
+            "VSra_vi");
+}
+
+TEST_F(AssemblerRISCV64Test, VSsrl_vv) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VSsrl_vv, "vssrl.vv {reg1}, {reg2}, {reg3}{vm}"),
+            "VSsrl_vv");
+}
+
+TEST_F(AssemblerRISCV64Test, VSsrl_vx) {
+  DriverStr(RepeatVVRVm(&Riscv64Assembler::VSsrl_vx, "vssrl.vx {reg1}, {reg2}, {reg3}{vm}"),
+            "VSsrl_vx");
+}
+
+TEST_F(AssemblerRISCV64Test, VSsrl_vi) {
+  DriverStr(RepeatVVIVm(&Riscv64Assembler::VSsrl_vi, 5, "vssrl.vi {reg1}, {reg2}, {imm}{vm}"),
+            "VSsrl_vi");
+}
+
+TEST_F(AssemblerRISCV64Test, VSsra_vv) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VSsra_vv, "vssra.vv {reg1}, {reg2}, {reg3}{vm}"),
+            "VSsra_vv");
+}
+
+TEST_F(AssemblerRISCV64Test, VSsra_vx) {
+  DriverStr(RepeatVVRVm(&Riscv64Assembler::VSsra_vx, "vssra.vx {reg1}, {reg2}, {reg3}{vm}"),
+            "VSsra_vx");
+}
+
+TEST_F(AssemblerRISCV64Test, VSsra_vi) {
+  DriverStr(RepeatVVIVm(&Riscv64Assembler::VSsra_vi, 5, "vssra.vi {reg1}, {reg2}, {imm}{vm}"),
+            "VSsra_vi");
+}
+
+TEST_F(AssemblerRISCV64Test, VNsrl_wv) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VNsrl_wv, "vnsrl.wv {reg1}, {reg2}, {reg3}{vm}"),
+            "VNsrl_wv");
+}
+
+TEST_F(AssemblerRISCV64Test, VNsrl_wx) {
+  DriverStr(RepeatVVRVm(&Riscv64Assembler::VNsrl_wx, "vnsrl.wx {reg1}, {reg2}, {reg3}{vm}"),
+            "VNsrl_wx");
+}
+
+TEST_F(AssemblerRISCV64Test, VNsrl_wi) {
+  DriverStr(RepeatVVIVm(&Riscv64Assembler::VNsrl_wi, 5, "vnsrl.wi {reg1}, {reg2}, {imm}{vm}"),
+            "VNsrl_wi");
+}
+
+TEST_F(AssemblerRISCV64Test, VNsra_wv) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VNsra_wv, "vnsra.wv {reg1}, {reg2}, {reg3}{vm}"),
+            "VNsra_wv");
+}
+
+TEST_F(AssemblerRISCV64Test, VNsra_wx) {
+  DriverStr(RepeatVVRVm(&Riscv64Assembler::VNsra_wx, "vnsra.wx {reg1}, {reg2}, {reg3}{vm}"),
+            "VNsra_wx");
+}
+
+TEST_F(AssemblerRISCV64Test, VNsra_wi) {
+  DriverStr(RepeatVVIVm(&Riscv64Assembler::VNsra_wi, 5, "vnsra.wi {reg1}, {reg2}, {imm}{vm}"),
+            "VNsra_wi");
+}
+
+TEST_F(AssemblerRISCV64Test, VNclipu_wv) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VNclipu_wv, "vnclipu.wv {reg1}, {reg2}, {reg3}{vm}"),
+            "VNclipu_wv");
+}
+
+TEST_F(AssemblerRISCV64Test, VNclipu_wx) {
+  DriverStr(RepeatVVRVm(&Riscv64Assembler::VNclipu_wx, "vnclipu.wx {reg1}, {reg2}, {reg3}{vm}"),
+            "VNclipu_wx");
+}
+
+TEST_F(AssemblerRISCV64Test, VNclipu_wi) {
+  DriverStr(RepeatVVIVm(&Riscv64Assembler::VNclipu_wi, 5, "vnclipu.wi {reg1}, {reg2}, {imm}{vm}"),
+            "VNclipu_wi");
+}
+
+TEST_F(AssemblerRISCV64Test, VNclip_wv) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VNclip_wv, "vnclip.wv {reg1}, {reg2}, {reg3}{vm}"),
+            "VNclip_wv");
+}
+
+TEST_F(AssemblerRISCV64Test, VNclip_wx) {
+  DriverStr(RepeatVVRVm(&Riscv64Assembler::VNclip_wx, "vnclip.wx {reg1}, {reg2}, {reg3}{vm}"),
+            "VNclip_wx");
+}
+
+TEST_F(AssemblerRISCV64Test, VNclip_wi) {
+  DriverStr(RepeatVVIVm(&Riscv64Assembler::VNclip_wi, 5, "vnclip.wi {reg1}, {reg2}, {imm}{vm}"),
+            "VNclip_wi");
+}
+
+TEST_F(AssemblerRISCV64Test, VWredsumu_vs) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VWredsumu_vs, "vwredsumu.vs {reg1}, {reg2}, {reg3}{vm}"),
+            "VWredsumu_vs");
+}
+
+TEST_F(AssemblerRISCV64Test, VWredsum_vs) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VWredsum_vs, "vwredsum.vs {reg1}, {reg2}, {reg3}{vm}"),
+            "VWredsum_vs");
+}
+
+TEST_F(AssemblerRISCV64Test, VRedsum_vs) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VRedsum_vs, "vredsum.vs {reg1}, {reg2}, {reg3}{vm}"),
+            "VRedsum_vs");
+}
+
+TEST_F(AssemblerRISCV64Test, VRedand_vs) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VRedand_vs, "vredand.vs {reg1}, {reg2}, {reg3}{vm}"),
+            "VRedand_vs");
+}
+
+TEST_F(AssemblerRISCV64Test, VRedor_vs) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VRedor_vs, "vredor.vs {reg1}, {reg2}, {reg3}{vm}"),
+            "VRedor_vs");
+}
+
+TEST_F(AssemblerRISCV64Test, VRedxor_vs) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VRedxor_vs, "vredxor.vs {reg1}, {reg2}, {reg3}{vm}"),
+            "VRedxor_vs");
+}
+
+TEST_F(AssemblerRISCV64Test, VRedminu_vs) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VRedminu_vs, "vredminu.vs {reg1}, {reg2}, {reg3}{vm}"),
+            "VRedminu_vs");
+}
+
+TEST_F(AssemblerRISCV64Test, VRedmin_vs) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VRedmin_vs, "vredmin.vs {reg1}, {reg2}, {reg3}{vm}"),
+            "VRedmin_vs");
+}
+
+TEST_F(AssemblerRISCV64Test, VRedmaxu_vs) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VRedmaxu_vs, "vredmaxu.vs {reg1}, {reg2}, {reg3}{vm}"),
+            "VRedmaxu_vs");
+}
+
+TEST_F(AssemblerRISCV64Test, VRedmax_vs) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VRedmax_vs, "vredmax.vs {reg1}, {reg2}, {reg3}{vm}"),
+            "VRedmax_vs");
+}
+
+TEST_F(AssemblerRISCV64Test, VAaddu_vv) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VAaddu_vv, "vaaddu.vv {reg1}, {reg2}, {reg3}{vm}"),
+            "VAaddu_vv");
+}
+
+TEST_F(AssemblerRISCV64Test, VAaddu_vx) {
+  DriverStr(RepeatVVRVm(&Riscv64Assembler::VAaddu_vx, "vaaddu.vx {reg1}, {reg2}, {reg3}{vm}"),
+            "VAaddu_vx");
+}
+
+TEST_F(AssemblerRISCV64Test, VAadd_vv) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VAadd_vv, "vaadd.vv {reg1}, {reg2}, {reg3}{vm}"),
+            "VAadd_vv");
+}
+
+TEST_F(AssemblerRISCV64Test, VAadd_vx) {
+  DriverStr(RepeatVVRVm(&Riscv64Assembler::VAadd_vx, "vaadd.vx {reg1}, {reg2}, {reg3}{vm}"),
+            "VAadd_vx");
+}
+
+TEST_F(AssemblerRISCV64Test, VAsubu_vv) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VAsubu_vv, "vasubu.vv {reg1}, {reg2}, {reg3}{vm}"),
+            "VAsubu_vv");
+}
+
+TEST_F(AssemblerRISCV64Test, VAsubu_vx) {
+  DriverStr(RepeatVVRVm(&Riscv64Assembler::VAsubu_vx, "vasubu.vx {reg1}, {reg2}, {reg3}{vm}"),
+            "VAsubu_vx");
+}
+
+TEST_F(AssemblerRISCV64Test, VAsub_vv) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VAsub_vv, "vasub.vv {reg1}, {reg2}, {reg3}{vm}"),
+            "VAsub_vv");
+}
+
+TEST_F(AssemblerRISCV64Test, VAsub_vx) {
+  DriverStr(RepeatVVRVm(&Riscv64Assembler::VAsub_vx, "vasub.vx {reg1}, {reg2}, {reg3}{vm}"),
+            "VAsub_vx");
+}
+
+TEST_F(AssemblerRISCV64Test, VSlide1up_vx) {
+  DriverStr(
+      RepeatVVRVm(&Riscv64Assembler::VSlide1up_vx, "vslide1up.vx {reg1}, {reg2}, {reg3}{vm}", true),
+      "VSlide1up_vx");
+}
+
+TEST_F(AssemblerRISCV64Test, VSlide1down_vx) {
+  DriverStr(
+      RepeatVVRVm(&Riscv64Assembler::VSlide1down_vx, "vslide1down.vx {reg1}, {reg2}, {reg3}{vm}"),
+      "VSlide1down_vx");
+}
+
+TEST_F(AssemblerRISCV64Test, VCompress_vm) {
+  DriverStr(
+      RepeatVVVNoOverlap(&Riscv64Assembler::VCompress_vm, "vcompress.vm {reg1}, {reg2}, {reg3}"),
+      "VCompress_vm");
+}
+
+TEST_F(AssemblerRISCV64Test, VMandn_mm) {
+  DriverStr(RepeatVVV(&Riscv64Assembler::VMandn_mm, "vmandn.mm {reg1}, {reg2}, {reg3}"),
+            "VMandn_mm");
+}
+
+TEST_F(AssemblerRISCV64Test, VMand_mm) {
+  DriverStr(RepeatVVV(&Riscv64Assembler::VMand_mm, "vmand.mm {reg1}, {reg2}, {reg3}"), "VMand_mm");
+}
+
+TEST_F(AssemblerRISCV64Test, VMor_mm) {
+  DriverStr(RepeatVVV(&Riscv64Assembler::VMor_mm, "vmor.mm {reg1}, {reg2}, {reg3}"), "VMor_mm");
+}
+
+TEST_F(AssemblerRISCV64Test, VMxor_mm) {
+  DriverStr(RepeatVVV(&Riscv64Assembler::VMxor_mm, "vmxor.mm {reg1}, {reg2}, {reg3}"), "VMxor_mm");
+}
+
+TEST_F(AssemblerRISCV64Test, VMorn_mm) {
+  DriverStr(RepeatVVV(&Riscv64Assembler::VMorn_mm, "vmorn.mm {reg1}, {reg2}, {reg3}"), "VMorn_mm");
+}
+
+TEST_F(AssemblerRISCV64Test, VMnand_mm) {
+  DriverStr(RepeatVVV(&Riscv64Assembler::VMnand_mm, "vmnand.mm {reg1}, {reg2}, {reg3}"),
+            "VMnand_m");
+}
+
+TEST_F(AssemblerRISCV64Test, VMnor_mm) {
+  DriverStr(RepeatVVV(&Riscv64Assembler::VMnor_mm, "vmnor.mm {reg1}, {reg2}, {reg3}"), "VMnor_mm");
+}
+
+TEST_F(AssemblerRISCV64Test, VMxnor_mm) {
+  DriverStr(RepeatVVV(&Riscv64Assembler::VMxnor_mm, "vmxnor.mm {reg1}, {reg2}, {reg3}"),
+            "VMxnor_mm");
+}
+
+TEST_F(AssemblerRISCV64Test, VDivu_vv) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VDivu_vv, "vdivu.vv {reg1}, {reg2}, {reg3}{vm}"),
+            "VDivu_vv");
+}
+
+TEST_F(AssemblerRISCV64Test, VDivu_vx) {
+  DriverStr(RepeatVVRVm(&Riscv64Assembler::VDivu_vx, "vdivu.vx {reg1}, {reg2}, {reg3}{vm}"),
+            "VDivu_vx");
+}
+
+TEST_F(AssemblerRISCV64Test, VDiv_vv) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VDiv_vv, "vdiv.vv {reg1}, {reg2}, {reg3}{vm}"),
+            "VDiv_vv");
+}
+
+TEST_F(AssemblerRISCV64Test, VDiv_vx) {
+  DriverStr(RepeatVVRVm(&Riscv64Assembler::VDiv_vx, "vdiv.vx {reg1}, {reg2}, {reg3}{vm}"),
+            "VDiv_vx");
+}
+
+TEST_F(AssemblerRISCV64Test, VRemu_vv) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VRemu_vv, "vremu.vv {reg1}, {reg2}, {reg3}{vm}"),
+            "VRemu_vv");
+}
+
+TEST_F(AssemblerRISCV64Test, VRemu_vx) {
+  DriverStr(RepeatVVRVm(&Riscv64Assembler::VRemu_vx, "vremu.vx {reg1}, {reg2}, {reg3}{vm}"),
+            "VRemu_vx");
+}
+
+TEST_F(AssemblerRISCV64Test, VRem_vv) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VRem_vv, "vrem.vv {reg1}, {reg2}, {reg3}{vm}"),
+            "VRem_vv");
+}
+
+TEST_F(AssemblerRISCV64Test, VRem_vx) {
+  DriverStr(RepeatVVRVm(&Riscv64Assembler::VRem_vx, "vrem.vx {reg1}, {reg2}, {reg3}{vm}"),
+            "VRem_vx");
+}
+
+TEST_F(AssemblerRISCV64Test, VMulhu_vv) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VMulhu_vv, "vmulhu.vv {reg1}, {reg2}, {reg3}{vm}"),
+            "VMulhu_vv");
+}
+
+TEST_F(AssemblerRISCV64Test, VMulhu_vx) {
+  DriverStr(RepeatVVRVm(&Riscv64Assembler::VMulhu_vx, "vmulhu.vx {reg1}, {reg2}, {reg3}{vm}"),
+            "VMulhu_vx");
+}
+
+TEST_F(AssemblerRISCV64Test, VMul_vv) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VMul_vv, "vmul.vv {reg1}, {reg2}, {reg3}{vm}"),
+            "VMul_vv");
+}
+
+TEST_F(AssemblerRISCV64Test, VMul_vx) {
+  DriverStr(RepeatVVRVm(&Riscv64Assembler::VMul_vx, "vmul.vx {reg1}, {reg2}, {reg3}{vm}"),
+            "VMul_vx");
+}
+
+TEST_F(AssemblerRISCV64Test, VMulhsu_vv) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VMulhsu_vv, "vmulhsu.vv {reg1}, {reg2}, {reg3}{vm}"),
+            "VMulhsu_vv");
+}
+
+TEST_F(AssemblerRISCV64Test, VMulhsu_vx) {
+  DriverStr(RepeatVVRVm(&Riscv64Assembler::VMulhsu_vx, "vmulhsu.vx {reg1}, {reg2}, {reg3}{vm}"),
+            "VMulhsu_vx");
+}
+
+TEST_F(AssemblerRISCV64Test, VMulh_vv) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VMulh_vv, "vmulh.vv {reg1}, {reg2}, {reg3}{vm}"),
+            "VMulh_vv");
+}
+
+TEST_F(AssemblerRISCV64Test, VMulh_vx) {
+  DriverStr(RepeatVVRVm(&Riscv64Assembler::VMulh_vx, "vmulh.vx {reg1}, {reg2}, {reg3}{vm}"),
+            "VMulh_vx");
+}
+
+TEST_F(AssemblerRISCV64Test, VMadd_vv) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VMadd_vv, "vmadd.vv {reg1}, {reg2}, {reg3}{vm}"),
+            "VMadd_vv");
+}
+
+TEST_F(AssemblerRISCV64Test, VMadd_vx) {
+  DriverStr(RepeatVRVVm(&Riscv64Assembler::VMadd_vx, "vmadd.vx {reg1}, {reg2}, {reg3}{vm}"),
+            "VMadd_vx");
+}
+
+TEST_F(AssemblerRISCV64Test, VNmsub_vv) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VNmsub_vv, "vnmsub.vv {reg1}, {reg2}, {reg3}{vm}"),
+            "VNmsub_vv");
+}
+
+TEST_F(AssemblerRISCV64Test, VNmsub_vx) {
+  DriverStr(RepeatVRVVm(&Riscv64Assembler::VNmsub_vx, "vnmsub.vx {reg1}, {reg2}, {reg3}{vm}"),
+            "VNmsub_vx");
+}
+
+TEST_F(AssemblerRISCV64Test, VMacc_vv) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VMacc_vv, "vmacc.vv {reg1}, {reg2}, {reg3}{vm}"),
+            "VMacc_vv");
+}
+
+TEST_F(AssemblerRISCV64Test, VMacc_vx) {
+  DriverStr(RepeatVRVVm(&Riscv64Assembler::VMacc_vx, "vmacc.vx {reg1}, {reg2}, {reg3}{vm}"),
+            "VMacc_vx");
+}
+
+TEST_F(AssemblerRISCV64Test, VNmsac_vv) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VNmsac_vv, "vnmsac.vv {reg1}, {reg2}, {reg3}{vm}", true),
+            "VNmsac_vv");
+}
+
+TEST_F(AssemblerRISCV64Test, VNmsac_vx) {
+  DriverStr(RepeatVRVVm(&Riscv64Assembler::VNmsac_vx, "vnmsac.vx {reg1}, {reg2}, {reg3}{vm}"),
+            "VNmsac_vx");
+}
+
+TEST_F(AssemblerRISCV64Test, VWaddu_vv) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VWaddu_vv, "vwaddu.vv {reg1}, {reg2}, {reg3}{vm}", true),
+            "VWaddu_vv");
+}
+
+TEST_F(AssemblerRISCV64Test, VWaddu_vx) {
+  DriverStr(RepeatVVRVm(&Riscv64Assembler::VWaddu_vx, "vwaddu.vx {reg1}, {reg2}, {reg3}{vm}", true),
+            "VWaddu_vx");
+}
+
+TEST_F(AssemblerRISCV64Test, VWadd_vv) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VWadd_vv, "vwadd.vv {reg1}, {reg2}, {reg3}{vm}", true),
+            "VWadd_vv");
+}
+
+TEST_F(AssemblerRISCV64Test, VWadd_vx) {
+  DriverStr(RepeatVVRVm(&Riscv64Assembler::VWadd_vx, "vwadd.vx {reg1}, {reg2}, {reg3}{vm}", true),
+            "VWadd_vx");
+}
+
+TEST_F(AssemblerRISCV64Test, VWsubu_vv) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VWsubu_vv, "vwsubu.vv {reg1}, {reg2}, {reg3}{vm}", true),
+            "VWsubu_vv");
+}
+
+TEST_F(AssemblerRISCV64Test, VWsubu_vx) {
+  DriverStr(RepeatVVRVm(&Riscv64Assembler::VWsubu_vx, "vwsubu.vx {reg1}, {reg2}, {reg3}{vm}", true),
+            "VWsubu_vx");
+}
+
+TEST_F(AssemblerRISCV64Test, VWsub_vv) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VWsub_vv, "vwsub.vv {reg1}, {reg2}, {reg3}{vm}", true),
+            "VWsub_vv");
+}
+
+TEST_F(AssemblerRISCV64Test, VWsub_vx) {
+  DriverStr(RepeatVVRVm(&Riscv64Assembler::VWsub_vx, "vwsub.vx {reg1}, {reg2}, {reg3}{vm}", true),
+            "VWsub_vx");
+}
+
+TEST_F(AssemblerRISCV64Test, VWaddu_wv) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VWaddu_wv, "vwaddu.wv {reg1}, {reg2}, {reg3}{vm}", true),
+            "VWaddu_wv");
+}
+
+TEST_F(AssemblerRISCV64Test, VWaddu_wx) {
+  DriverStr(RepeatVVRVm(&Riscv64Assembler::VWaddu_wx, "vwaddu.wx {reg1}, {reg2}, {reg3}{vm}"),
+            "VWaddu_wx");
+}
+
+TEST_F(AssemblerRISCV64Test, VWadd_wv) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VWadd_wv, "vwadd.wv {reg1}, {reg2}, {reg3}{vm}", true),
+            "VWadd_wv");
+}
+
+TEST_F(AssemblerRISCV64Test, VWadd_wx) {
+  DriverStr(RepeatVVRVm(&Riscv64Assembler::VWadd_wx, "vwadd.wx {reg1}, {reg2}, {reg3}{vm}"),
+            "VWadd_wx");
+}
+
+TEST_F(AssemblerRISCV64Test, VWsubu_wv) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VWsubu_wv, "vwsubu.wv {reg1}, {reg2}, {reg3}{vm}", true),
+            "VWsubu_wv");
+}
+
+TEST_F(AssemblerRISCV64Test, VWsubu_wx) {
+  DriverStr(RepeatVVRVm(&Riscv64Assembler::VWsubu_wx, "vwsubu.wx {reg1}, {reg2}, {reg3}{vm}"),
+            "VWsubu_wx");
+}
+
+TEST_F(AssemblerRISCV64Test, VWsub_wv) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VWsub_wv, "vwsub.wv {reg1}, {reg2}, {reg3}{vm}", true),
+            "VWsub_wv");
+}
+
+TEST_F(AssemblerRISCV64Test, VWsub_wx) {
+  DriverStr(RepeatVVRVm(&Riscv64Assembler::VWsub_wx, "vwsub.wx {reg1}, {reg2}, {reg3}{vm}"),
+            "VWsub_wx");
+}
+
+TEST_F(AssemblerRISCV64Test, VWmulu_vv) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VWmulu_vv, "vwmulu.vv {reg1}, {reg2}, {reg3}{vm}", true),
+            "VWmulu_vv");
+}
+
+TEST_F(AssemblerRISCV64Test, VWmulu_vx) {
+  DriverStr(RepeatVVRVm(&Riscv64Assembler::VWmulu_vx, "vwmulu.vx {reg1}, {reg2}, {reg3}{vm}", true),
+            "VWmulu_vx");
+}
+
+TEST_F(AssemblerRISCV64Test, VWmulsu_vv) {
+  DriverStr(
+      RepeatVVVVm(&Riscv64Assembler::VWmulsu_vv, "vwmulsu.vv {reg1}, {reg2}, {reg3}{vm}", true),
+      "VWmulsu_vv");
+}
+
+TEST_F(AssemblerRISCV64Test, VWmulsu_vx) {
+  DriverStr(
+      RepeatVVRVm(&Riscv64Assembler::VWmulsu_vx, "vwmulsu.vx {reg1}, {reg2}, {reg3}{vm}", true),
+      "VWmulsu_vx");
+}
+
+TEST_F(AssemblerRISCV64Test, VWmul_vv) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VWmul_vv, "vwmul.vv {reg1}, {reg2}, {reg3}{vm}", true),
+            "VWmul_vv");
+}
+
+TEST_F(AssemblerRISCV64Test, VWmul_vx) {
+  DriverStr(RepeatVVRVm(&Riscv64Assembler::VWmul_vx, "vwmul.vx {reg1}, {reg2}, {reg3}{vm}", true),
+            "VWmul_vx");
+}
+
+TEST_F(AssemblerRISCV64Test, VWmaccu_vv) {
+  DriverStr(
+      RepeatVVVVm(&Riscv64Assembler::VWmaccu_vv, "vwmaccu.vv {reg1}, {reg2}, {reg3}{vm}", true),
+      "VWmaccu_vv");
+}
+
+TEST_F(AssemblerRISCV64Test, VWmaccu_vx) {
+  DriverStr(
+      RepeatVRVVm(&Riscv64Assembler::VWmaccu_vx, "vwmaccu.vx {reg1}, {reg2}, {reg3}{vm}", true),
+      "VWmaccu_vx");
+}
+
+TEST_F(AssemblerRISCV64Test, VWmacc_vv) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VWmacc_vv, "vwmacc.vv {reg1}, {reg2}, {reg3}{vm}", true),
+            "VWmacc_vv");
+}
+
+TEST_F(AssemblerRISCV64Test, VWmacc_vx) {
+  DriverStr(RepeatVRVVm(&Riscv64Assembler::VWmacc_vx, "vwmacc.vx {reg1}, {reg2}, {reg3}{vm}", true),
+            "VWmacc_vx");
+}
+
+TEST_F(AssemblerRISCV64Test, VWmaccus_vx) {
+  DriverStr(
+      RepeatVRVVm(&Riscv64Assembler::VWmaccus_vx, "vwmaccus.vx {reg1}, {reg2}, {reg3}{vm}", true),
+      "VWmaccus_vx");
+}
+
+TEST_F(AssemblerRISCV64Test, VWmaccsu_vv) {
+  DriverStr(
+      RepeatVVVVm(&Riscv64Assembler::VWmaccsu_vv, "vwmaccsu.vv {reg1}, {reg2}, {reg3}{vm}", true),
+      "VWmaccsu_vv");
+}
+
+TEST_F(AssemblerRISCV64Test, VWmaccsu_vx) {
+  DriverStr(
+      RepeatVRVVm(&Riscv64Assembler::VWmaccsu_vx, "vwmaccsu.vx {reg1}, {reg2}, {reg3}{vm}", true),
+      "VWmaccsu_vx");
+}
+
+TEST_F(AssemblerRISCV64Test, VFadd_vv) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VFadd_vv, "vfadd.vv {reg1}, {reg2}, {reg3}{vm}"),
+            "VFadd_vv");
+}
+
+TEST_F(AssemblerRISCV64Test, VFadd_vf) {
+  DriverStr(RepeatVVFVm(&Riscv64Assembler::VFadd_vf, "vfadd.vf {reg1}, {reg2}, {reg3}{vm}"),
+            "VFadd_vf");
+}
+
+TEST_F(AssemblerRISCV64Test, VFredusum_vs) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VFredusum_vs, "vfredusum.vs {reg1}, {reg2}, {reg3}{vm}"),
+            "VFredusum_vs");
+}
+
+TEST_F(AssemblerRISCV64Test, VFsub_vv) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VFsub_vv, "vfsub.vv {reg1}, {reg2}, {reg3}{vm}"),
+            "VFsub_vv");
+}
+
+TEST_F(AssemblerRISCV64Test, VFsub_vf) {
+  DriverStr(RepeatVVFVm(&Riscv64Assembler::VFsub_vf, "vfsub.vf {reg1}, {reg2}, {reg3}{vm}"),
+            "VFsub_vf");
+}
+
+TEST_F(AssemblerRISCV64Test, VFredosum_vs) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VFredosum_vs, "vfredosum.vs {reg1}, {reg2}, {reg3}{vm}"),
+            "VFredosum_vs");
+}
+
+TEST_F(AssemblerRISCV64Test, VFmin_vv) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VFmin_vv, "vfmin.vv {reg1}, {reg2}, {reg3}{vm}"),
+            "VFmin_vv");
+}
+
+TEST_F(AssemblerRISCV64Test, VFmin_vf) {
+  DriverStr(RepeatVVFVm(&Riscv64Assembler::VFmin_vf, "vfmin.vf {reg1}, {reg2}, {reg3}{vm}"),
+            "VFmin_vf");
+}
+
+TEST_F(AssemblerRISCV64Test, VFredmin_vs) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VFredmin_vs, "vfredmin.vs {reg1}, {reg2}, {reg3}{vm}"),
+            "VFredmin_vs");
+}
+
+TEST_F(AssemblerRISCV64Test, VFmax_vv) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VFmax_vv, "vfmax.vv {reg1}, {reg2}, {reg3}{vm}"),
+            "VFmax_vv");
+}
+
+TEST_F(AssemblerRISCV64Test, VFmax_vf) {
+  DriverStr(RepeatVVFVm(&Riscv64Assembler::VFmax_vf, "vfmax.vf {reg1}, {reg2}, {reg3}{vm}"),
+            "VFmax_vf");
+}
+
+TEST_F(AssemblerRISCV64Test, VFredmax_vv) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VFredmax_vv, "vfredmax.vs {reg1}, {reg2}, {reg3}{vm}"),
+            "VFredmax_vv");
+}
+
+TEST_F(AssemblerRISCV64Test, VFsgnj_vv) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VFsgnj_vv, "vfsgnj.vv {reg1}, {reg2}, {reg3}{vm}"),
+            "VFsgnj_vv");
+}
+
+TEST_F(AssemblerRISCV64Test, VFsgnj_vf) {
+  DriverStr(RepeatVVFVm(&Riscv64Assembler::VFsgnj_vf, "vfsgnj.vf {reg1}, {reg2}, {reg3}{vm}"),
+            "VFsgnj_vf");
+}
+
+TEST_F(AssemblerRISCV64Test, VFsgnjn_vv) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VFsgnjn_vv, "vfsgnjn.vv {reg1}, {reg2}, {reg3}{vm}"),
+            "VFsgnjn_vv");
+}
+
+TEST_F(AssemblerRISCV64Test, VFsgnjn_vf) {
+  DriverStr(RepeatVVFVm(&Riscv64Assembler::VFsgnjn_vf, "vfsgnjn.vf {reg1}, {reg2}, {reg3}{vm}"),
+            "VFsgnjn_vf");
+}
+
+TEST_F(AssemblerRISCV64Test, VFsgnjx_vv) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VFsgnjx_vv, "vfsgnjx.vv {reg1}, {reg2}, {reg3}{vm}"),
+            "VFsgnjx_vv");
+}
+
+TEST_F(AssemblerRISCV64Test, VFsgnjx_vf) {
+  DriverStr(RepeatVVFVm(&Riscv64Assembler::VFsgnjx_vf, "vfsgnjx.vf {reg1}, {reg2}, {reg3}{vm}"),
+            "VFsgnjx_vf");
+}
+
+TEST_F(AssemblerRISCV64Test, VFslide1up_vf) {
+  DriverStr(RepeatVVFVm(
+                &Riscv64Assembler::VFslide1up_vf, "vfslide1up.vf {reg1}, {reg2}, {reg3}{vm}", true),
+            "VFslide1up_vf");
+}
+
+TEST_F(AssemblerRISCV64Test, VFslide1down_vf) {
+  DriverStr(
+      RepeatVVFVm(&Riscv64Assembler::VFslide1down_vf, "vfslide1down.vf {reg1}, {reg2}, {reg3}{vm}"),
+      "VFslide1down_vf");
+}
+
+TEST_F(AssemblerRISCV64Test, VFmerge_vfm) {
+  DriverStr(RepeatVVFNoOverlap(
+                &Riscv64Assembler::VFmerge_vfm, "vfmerge.vfm {reg1}, {reg2}, {reg3}, v0", true),
+            "VFmerge_vfm");
+}
+
+TEST_F(AssemblerRISCV64Test, VMfeq_vv) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VMfeq_vv, "vmfeq.vv {reg1}, {reg2}, {reg3}{vm}"),
+            "VMfeq_vv");
+}
+
+TEST_F(AssemblerRISCV64Test, VMfeq_vf) {
+  DriverStr(RepeatVVFVm(&Riscv64Assembler::VMfeq_vf, "vmfeq.vf {reg1}, {reg2}, {reg3}{vm}"),
+            "VMfeq_vf");
+}
+
+TEST_F(AssemblerRISCV64Test, VMfle_vv) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VMfle_vv, "vmfle.vv {reg1}, {reg2}, {reg3}{vm}"),
+            "VMfle_vv");
+}
+
+TEST_F(AssemblerRISCV64Test, VMfle_vf) {
+  DriverStr(RepeatVVFVm(&Riscv64Assembler::VMfle_vf, "vmfle.vf {reg1}, {reg2}, {reg3}{vm}"),
+            "VMfle_vf");
+}
+
+TEST_F(AssemblerRISCV64Test, VMflt_vv) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VMflt_vv, "vmflt.vv {reg1}, {reg2}, {reg3}{vm}"),
+            "VMflt_vv");
+}
+
+TEST_F(AssemblerRISCV64Test, VMflt_vf) {
+  DriverStr(RepeatVVFVm(&Riscv64Assembler::VMflt_vf, "vmflt.vf {reg1}, {reg2}, {reg3}{vm}"),
+            "VMflt_vf");
+}
+
+TEST_F(AssemblerRISCV64Test, VMfne_vv) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VMfne_vv, "vmfne.vv {reg1}, {reg2}, {reg3}{vm}"),
+            "VMfne_vv");
+}
+
+TEST_F(AssemblerRISCV64Test, VMfne_vf) {
+  DriverStr(RepeatVVFVm(&Riscv64Assembler::VMfne_vf, "vmfne.vf {reg1}, {reg2}, {reg3}{vm}"),
+            "VMfne_vf");
+}
+
+TEST_F(AssemblerRISCV64Test, VMfgt_vf) {
+  DriverStr(RepeatVVFVm(&Riscv64Assembler::VMfgt_vf, "vmfgt.vf {reg1}, {reg2}, {reg3}{vm}"),
+            "VMfgt_vf");
+}
+
+TEST_F(AssemblerRISCV64Test, VMfge_vf) {
+  DriverStr(RepeatVVFVm(&Riscv64Assembler::VMfge_vf, "vmfge.vf {reg1}, {reg2}, {reg3}{vm}"),
+            "VMfge_vf");
+}
+
+TEST_F(AssemblerRISCV64Test, VFdiv_vv) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VFdiv_vv, "vfdiv.vv {reg1}, {reg2}, {reg3}{vm}"),
+            "VFdiv_vv");
+}
+
+TEST_F(AssemblerRISCV64Test, VFdiv_vf) {
+  DriverStr(RepeatVVFVm(&Riscv64Assembler::VFdiv_vf, "vfdiv.vf {reg1}, {reg2}, {reg3}{vm}"),
+            "VFdiv_vf");
+}
+
+TEST_F(AssemblerRISCV64Test, VFrdiv_vf) {
+  DriverStr(RepeatVVFVm(&Riscv64Assembler::VFrdiv_vf, "vfrdiv.vf {reg1}, {reg2}, {reg3}{vm}"),
+            "VFrdiv_vf");
+}
+
+TEST_F(AssemblerRISCV64Test, VFmul_vv) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VFmul_vv, "vfmul.vv {reg1}, {reg2}, {reg3}{vm}"),
+            "VFmul_vv");
+}
+
+TEST_F(AssemblerRISCV64Test, VFmul_vf) {
+  DriverStr(RepeatVVFVm(&Riscv64Assembler::VFmul_vf, "vfmul.vf {reg1}, {reg2}, {reg3}{vm}"),
+            "VFmul_vf");
+}
+
+TEST_F(AssemblerRISCV64Test, VFrsub_vf) {
+  DriverStr(RepeatVVFVm(&Riscv64Assembler::VFrsub_vf, "vfrsub.vf {reg1}, {reg2}, {reg3}{vm}"),
+            "VFrsub_vf");
+}
+
+TEST_F(AssemblerRISCV64Test, VFmadd_vv) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VFmadd_vv, "vfmadd.vv {reg1}, {reg2}, {reg3}{vm}"),
+            "VFmadd_vv");
+}
+
+TEST_F(AssemblerRISCV64Test, VFmadd_vf) {
+  DriverStr(RepeatVFVVm(&Riscv64Assembler::VFmadd_vf, "vfmadd.vf {reg1}, {reg2}, {reg3}{vm}"),
+            "VFmadd_vf");
+}
+
+TEST_F(AssemblerRISCV64Test, VFnmadd_vv) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VFnmadd_vv, "vfnmadd.vv {reg1}, {reg2}, {reg3}{vm}"),
+            "VFnmadd_vv");
+}
+
+TEST_F(AssemblerRISCV64Test, VFnmadd_vf) {
+  DriverStr(RepeatVFVVm(&Riscv64Assembler::VFnmadd_vf, "vfnmadd.vf {reg1}, {reg2}, {reg3}{vm}"),
+            "VFnmadd_vf");
+}
+
+TEST_F(AssemblerRISCV64Test, VFmsub_vv) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VFmsub_vv, "vfmsub.vv {reg1}, {reg2}, {reg3}{vm}"),
+            "VFmsub_vv");
+}
+
+TEST_F(AssemblerRISCV64Test, VFmsub_vf) {
+  DriverStr(RepeatVFVVm(&Riscv64Assembler::VFmsub_vf, "vfmsub.vf {reg1}, {reg2}, {reg3}{vm}"),
+            "VFmsub_vf");
+}
+
+TEST_F(AssemblerRISCV64Test, VFnmsub_vv) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VFnmsub_vv, "vfnmsub.vv {reg1}, {reg2}, {reg3}{vm}"),
+            "VFnmsub_vv");
+}
+
+TEST_F(AssemblerRISCV64Test, VFnmsub_vf) {
+  DriverStr(RepeatVFVVm(&Riscv64Assembler::VFnmsub_vf, "vfnmsub.vf {reg1}, {reg2}, {reg3}{vm}"),
+            "VFnmsub_vf");
+}
+
+TEST_F(AssemblerRISCV64Test, VFmacc_vv) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VFmacc_vv, "vfmacc.vv {reg1}, {reg2}, {reg3}{vm}"),
+            "VFmacc_vv");
+}
+
+TEST_F(AssemblerRISCV64Test, VFmacc_vf) {
+  DriverStr(RepeatVFVVm(&Riscv64Assembler::VFmacc_vf, "vfmacc.vf {reg1}, {reg2}, {reg3}{vm}"),
+            "VFmacc_vf");
+}
+
+TEST_F(AssemblerRISCV64Test, VFnmacc_vv) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VFnmacc_vv, "vfnmacc.vv {reg1}, {reg2}, {reg3}{vm}"),
+            "VFnmacc_vv");
+}
+
+TEST_F(AssemblerRISCV64Test, VFnmacc_vf) {
+  DriverStr(RepeatVFVVm(&Riscv64Assembler::VFnmacc_vf, "vfnmacc.vf {reg1}, {reg2}, {reg3}{vm}"),
+            "VFnmacc_vf");
+}
+
+TEST_F(AssemblerRISCV64Test, VFmsac_vv) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VFmsac_vv, "vfmsac.vv {reg1}, {reg2}, {reg3}{vm}"),
+            "VFmsac_vv");
+}
+
+TEST_F(AssemblerRISCV64Test, VFmsac_vf) {
+  DriverStr(RepeatVFVVm(&Riscv64Assembler::VFmsac_vf, "vfmsac.vf {reg1}, {reg2}, {reg3}{vm}"),
+            "VFmsac_vf");
+}
+
+TEST_F(AssemblerRISCV64Test, VFnmsac_vv) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VFnmsac_vv, "vfnmsac.vv {reg1}, {reg2}, {reg3}{vm}"),
+            "VFnmsac_vv");
+}
+
+TEST_F(AssemblerRISCV64Test, VFnmsac_vf) {
+  DriverStr(RepeatVFVVm(&Riscv64Assembler::VFnmsac_vf, "vfnmsac.vf {reg1}, {reg2}, {reg3}{vm}"),
+            "VFnmsac_vf");
+}
+
+TEST_F(AssemblerRISCV64Test, VFwadd_vv) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VFwadd_vv, "vfwadd.vv {reg1}, {reg2}, {reg3}{vm}", true),
+            "VFwadd_vv");
+}
+
+TEST_F(AssemblerRISCV64Test, VFwadd_vf) {
+  DriverStr(RepeatVVFVm(&Riscv64Assembler::VFwadd_vf, "vfwadd.vf {reg1}, {reg2}, {reg3}{vm}", true),
+            "VFwadd_vf");
+}
+
+TEST_F(AssemblerRISCV64Test, VFwredusum_vs) {
+  DriverStr(
+      RepeatVVVVm(&Riscv64Assembler::VFwredusum_vs, "vfwredusum.vs {reg1}, {reg2}, {reg3}{vm}"),
+      "VFwredusum_vs");
+}
+
+TEST_F(AssemblerRISCV64Test, VFwsub_vv) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VFwsub_vv, "vfwsub.vv {reg1}, {reg2}, {reg3}{vm}", true),
+            "VFwsub_vv");
+}
+
+TEST_F(AssemblerRISCV64Test, VFwsub_vf) {
+  DriverStr(RepeatVVFVm(&Riscv64Assembler::VFwsub_vf, "vfwsub.vf {reg1}, {reg2}, {reg3}{vm}", true),
+            "VFwsub_vf");
+}
+
+TEST_F(AssemblerRISCV64Test, VFwredosum_vs) {
+  DriverStr(
+      RepeatVVVVm(&Riscv64Assembler::VFwredosum_vs, "vfwredosum.vs {reg1}, {reg2}, {reg3}{vm}"),
+      "VFwredosum_vs");
+}
+
+TEST_F(AssemblerRISCV64Test, VFwadd_wv) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VFwadd_wv, "vfwadd.wv {reg1}, {reg2}, {reg3}{vm}", true),
+            "VFwadd_wv");
+}
+
+TEST_F(AssemblerRISCV64Test, VFwadd_wf) {
+  DriverStr(RepeatVVFVm(&Riscv64Assembler::VFwadd_wf, "vfwadd.wf {reg1}, {reg2}, {reg3}{vm}", true),
+            "VFwadd_wf");
+}
+
+TEST_F(AssemblerRISCV64Test, VFwsub_wv) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VFwsub_wv, "vfwsub.wv {reg1}, {reg2}, {reg3}{vm}", true),
+            "VFwsub_wv");
+}
+
+TEST_F(AssemblerRISCV64Test, VFwsub_wf) {
+  DriverStr(RepeatVVFVm(&Riscv64Assembler::VFwsub_wf, "vfwsub.wf {reg1}, {reg2}, {reg3}{vm}", true),
+            "VFwsub_wf");
+}
+
+TEST_F(AssemblerRISCV64Test, VFwmul_vv) {
+  DriverStr(RepeatVVVVm(&Riscv64Assembler::VFwmul_vv, "vfwmul.vv {reg1}, {reg2}, {reg3}{vm}", true),
+            "VFwmul_vv");
+}
+
+TEST_F(AssemblerRISCV64Test, VFwmul_vf) {
+  DriverStr(RepeatVVFVm(&Riscv64Assembler::VFwmul_vf, "vfwmul.vf {reg1}, {reg2}, {reg3}{vm}", true),
+            "VFwmul_vf");
+}
+
+TEST_F(AssemblerRISCV64Test, VFwmacc_vv) {
+  DriverStr(
+      RepeatVVVVm(&Riscv64Assembler::VFwmacc_vv, "vfwmacc.vv {reg1}, {reg2}, {reg3}{vm}", true),
+      "VFwmacc_vv");
+}
+
+TEST_F(AssemblerRISCV64Test, VFwmacc_vf) {
+  DriverStr(
+      RepeatVFVVm(&Riscv64Assembler::VFwmacc_vf, "vfwmacc.vf {reg1}, {reg2}, {reg3}{vm}", true),
+      "VFwmacc_vf");
+}
+
+TEST_F(AssemblerRISCV64Test, VFwnmacc_vv) {
+  DriverStr(
+      RepeatVVVVm(&Riscv64Assembler::VFwnmacc_vv, "vfwnmacc.vv {reg1}, {reg2}, {reg3}{vm}", true),
+      "VFwnmacc_vv");
+}
+
+TEST_F(AssemblerRISCV64Test, VFwnmacc_vf) {
+  DriverStr(
+      RepeatVFVVm(&Riscv64Assembler::VFwnmacc_vf, "vfwnmacc.vf {reg1}, {reg2}, {reg3}{vm}", true),
+      "VFwnmacc_vf");
+}
+
+TEST_F(AssemblerRISCV64Test, VFwmsac_vv) {
+  DriverStr(
+      RepeatVVVVm(&Riscv64Assembler::VFwmsac_vv, "vfwmsac.vv {reg1}, {reg2}, {reg3}{vm}", true),
+      "VFwmsac_vv");
+}
+
+TEST_F(AssemblerRISCV64Test, VFwmsac_vf) {
+  DriverStr(
+      RepeatVFVVm(&Riscv64Assembler::VFwmsac_vf, "vfwmsac.vf {reg1}, {reg2}, {reg3}{vm}", true),
+      "VFwmsac_vf");
+}
+
+TEST_F(AssemblerRISCV64Test, VFwnmsac_vv) {
+  DriverStr(
+      RepeatVVVVm(&Riscv64Assembler::VFwnmsac_vv, "vfwnmsac.vv {reg1}, {reg2}, {reg3}{vm}", true),
+      "VFwnmsac_vv");
+}
+
+TEST_F(AssemblerRISCV64Test, VFwnmsac_vf) {
+  DriverStr(
+      RepeatVFVVm(&Riscv64Assembler::VFwnmsac_vf, "vfwnmsac.vf {reg1}, {reg2}, {reg3}{vm}", true),
+      "VFwnmsac_vf");
+}
+
+TEST_F(AssemblerRISCV64Test, VMv_s_x) {
+  DriverStr(RepeatVR(&Riscv64Assembler::VMv_s_x, "vmv.s.x {reg1}, {reg2}"), "VMv_s_x");
+}
+
+TEST_F(AssemblerRISCV64Test, VMv_x_s) {
+  DriverStr(RepeatRV(&Riscv64Assembler::VMv_x_s, "vmv.x.s {reg1}, {reg2}"), "VMv_x_s");
+}
+
+TEST_F(AssemblerRISCV64Test, VPopc_m) {
+  DriverStr(RepeatRVVm(&Riscv64Assembler::VPopc_m, "vpopc.m {reg1}, {reg2}{vm}"), "VPopc_m");
+}
+
+TEST_F(AssemblerRISCV64Test, VFirst_m) {
+  DriverStr(RepeatRVVm(&Riscv64Assembler::VFirst_m, "vfirst.m {reg1}, {reg2}{vm}"), "VFirst_m");
+}
+
+TEST_F(AssemblerRISCV64Test, VZext_vf8) {
+  DriverStr(RepeatVVVm(&Riscv64Assembler::VZext_vf8, "vzext.vf8 {reg1}, {reg2}{vm}"), "VZext_vf8");
+}
+
+TEST_F(AssemblerRISCV64Test, VSext_vf8) {
+  DriverStr(RepeatVVVm(&Riscv64Assembler::VSext_vf8, "vsext.vf8 {reg1}, {reg2}{vm}"), "VSext_vf8");
+}
+
+TEST_F(AssemblerRISCV64Test, VZext_vf4) {
+  DriverStr(RepeatVVVm(&Riscv64Assembler::VZext_vf4, "vzext.vf4 {reg1}, {reg2}{vm}"), "VZext_vf4");
+}
+
+TEST_F(AssemblerRISCV64Test, VSext_vf4) {
+  DriverStr(RepeatVVVm(&Riscv64Assembler::VSext_vf4, "vsext.vf4 {reg1}, {reg2}{vm}"), "VSext_vf4");
+}
+
+TEST_F(AssemblerRISCV64Test, VZext_vf2) {
+  DriverStr(RepeatVVVm(&Riscv64Assembler::VZext_vf2, "vzext.vf2 {reg1}, {reg2}{vm}"), "VZext_vf2");
+}
+
+TEST_F(AssemblerRISCV64Test, VSext_vf2) {
+  DriverStr(RepeatVVVm(&Riscv64Assembler::VSext_vf2, "vsext.vf2 {reg1}, {reg2}{vm}"), "VSext_vf2");
+}
+
+TEST_F(AssemblerRISCV64Test, VFmv_s_f) {
+  DriverStr(RepeatVF(&Riscv64Assembler::VFmv_s_f, "vfmv.s.f {reg1}, {reg2}"), "VFmv_s_f");
+}
+
+TEST_F(AssemblerRISCV64Test, VFmv_f_s) {
+  DriverStr(RepeatFV(&Riscv64Assembler::VFmv_f_s, "vfmv.f.s {reg1}, {reg2}"), "VFmv_f_s");
+}
+
+TEST_F(AssemblerRISCV64Test, VFcvt_xu_f_v) {
+  DriverStr(RepeatVVVm(&Riscv64Assembler::VFcvt_xu_f_v, "vfcvt.xu.f.v {reg1}, {reg2}{vm}"),
+            "VFcvt_xu_f_v");
+}
+
+TEST_F(AssemblerRISCV64Test, VFcvt_x_f_v) {
+  DriverStr(RepeatVVVm(&Riscv64Assembler::VFcvt_x_f_v, "vfcvt.x.f.v {reg1}, {reg2}{vm}"),
+            "VFcvt_x_f_v");
+}
+
+TEST_F(AssemblerRISCV64Test, VFcvt_f_xu_v) {
+  DriverStr(RepeatVVVm(&Riscv64Assembler::VFcvt_f_xu_v, "vfcvt.f.xu.v {reg1}, {reg2}{vm}"),
+            "VFcvt_f_xu_v");
+}
+
+TEST_F(AssemblerRISCV64Test, VFcvt_f_x_v) {
+  DriverStr(RepeatVVVm(&Riscv64Assembler::VFcvt_f_x_v, "vfcvt.f.x.v {reg1}, {reg2}{vm}"),
+            "VFcvt_f_x_v");
+}
+
+TEST_F(AssemblerRISCV64Test, VFcvt_rtz_xu_f_v) {
+  DriverStr(RepeatVVVm(&Riscv64Assembler::VFcvt_rtz_xu_f_v, "vfcvt.rtz.xu.f.v {reg1}, {reg2}{vm}"),
+            "VFcvt_rtz_xu_f_v");
+}
+
+TEST_F(AssemblerRISCV64Test, VFcvt_rtz_x_f_v) {
+  DriverStr(RepeatVVVm(&Riscv64Assembler::VFcvt_rtz_x_f_v, "vfcvt.rtz.x.f.v {reg1}, {reg2}{vm}"),
+            "VFcvt_rtz_x_f_v");
+}
+
+TEST_F(AssemblerRISCV64Test, VFwcvt_xu_f_v) {
+  DriverStr(RepeatVVVm(&Riscv64Assembler::VFwcvt_xu_f_v, "vfwcvt.xu.f.v {reg1}, {reg2}{vm}", true),
+            "VFwcvt_xu_f_v");
+}
+
+TEST_F(AssemblerRISCV64Test, VFwcvt_x_f_v) {
+  DriverStr(RepeatVVVm(&Riscv64Assembler::VFwcvt_x_f_v, "vfwcvt.x.f.v {reg1}, {reg2}{vm}", true),
+            "VFwcvt_x_f_v");
+}
+
+TEST_F(AssemblerRISCV64Test, VFwcvt_f_xu_v) {
+  DriverStr(RepeatVVVm(&Riscv64Assembler::VFwcvt_f_xu_v, "vfwcvt.f.xu.v {reg1}, {reg2}{vm}", true),
+            "VFwcvt_f_xu_v");
+}
+
+TEST_F(AssemblerRISCV64Test, VFwcvt_f_x_v) {
+  DriverStr(RepeatVVVm(&Riscv64Assembler::VFwcvt_f_x_v, "vfwcvt.f.x.v {reg1}, {reg2}{vm}", true),
+            "VFwcvt_f_x_v");
+}
+
+TEST_F(AssemblerRISCV64Test, VFwcvt_f_f_v) {
+  DriverStr(RepeatVVVm(&Riscv64Assembler::VFwcvt_f_f_v, "vfwcvt.f.f.v {reg1}, {reg2}{vm}", true),
+            "VFwcvt_f_f_v");
+}
+
+TEST_F(AssemblerRISCV64Test, VFwcvt_rtz_xu_f_v) {
+  DriverStr(RepeatVVVm(
+                &Riscv64Assembler::VFwcvt_rtz_xu_f_v, "vfwcvt.rtz.xu.f.v {reg1}, {reg2}{vm}", true),
+            "VFwcvt_rtz_xu_f_v");
+}
+
+TEST_F(AssemblerRISCV64Test, VFwcvt_rtz_x_f_v) {
+  DriverStr(
+      RepeatVVVm(&Riscv64Assembler::VFwcvt_rtz_x_f_v, "vfwcvt.rtz.x.f.v {reg1}, {reg2}{vm}", true),
+      "VFwcvt_rtz_x_f_v");
+}
+
+TEST_F(AssemblerRISCV64Test, VFncvt_xu_f_w) {
+  DriverStr(RepeatVVVm(&Riscv64Assembler::VFncvt_xu_f_w, "vfncvt.xu.f.w {reg1}, {reg2}{vm}"),
+            "VFncvt_xu_f_w");
+}
+
+TEST_F(AssemblerRISCV64Test, VFncvt_x_f_w) {
+  DriverStr(RepeatVVVm(&Riscv64Assembler::VFncvt_x_f_w, "vfncvt.x.f.w {reg1}, {reg2}{vm}"),
+            "VFncvt_x_f_w");
+}
+
+TEST_F(AssemblerRISCV64Test, VFncvt_f_xu_w) {
+  DriverStr(RepeatVVVm(&Riscv64Assembler::VFncvt_f_xu_w, "vfncvt.f.xu.w {reg1}, {reg2}{vm}"),
+            "VFncvt_f_xu_w");
+}
+
+TEST_F(AssemblerRISCV64Test, VFncvt_f_x_w) {
+  DriverStr(RepeatVVVm(&Riscv64Assembler::VFncvt_f_x_w, "vfncvt.f.x.w {reg1}, {reg2}{vm}"),
+            "VFncvt_f_x_w");
+}
+
+TEST_F(AssemblerRISCV64Test, VFncvt_f_f_w) {
+  DriverStr(RepeatVVVm(&Riscv64Assembler::VFncvt_f_f_w, "vfncvt.f.f.w {reg1}, {reg2}{vm}"),
+            "VFncvt_f_f_w");
+}
+
+TEST_F(AssemblerRISCV64Test, VFncvt_rod_f_f_w) {
+  DriverStr(RepeatVVVm(&Riscv64Assembler::VFncvt_rod_f_f_w, "vfncvt.rod.f.f.w {reg1}, {reg2}{vm}"),
+            "VFncvt_rod_f_f_w");
+}
+
+TEST_F(AssemblerRISCV64Test, VFncvt_rtz_xu_f_w) {
+  DriverStr(
+      RepeatVVVm(&Riscv64Assembler::VFncvt_rtz_xu_f_w, "vfncvt.rtz.xu.f.w {reg1}, {reg2}{vm}"),
+      "VFncvt_rtz_xu_f_w");
+}
+
+TEST_F(AssemblerRISCV64Test, VFncvt_rtz_x_f_w) {
+  DriverStr(RepeatVVVm(&Riscv64Assembler::VFncvt_rtz_x_f_w, "vfncvt.rtz.x.f.w {reg1}, {reg2}{vm}"),
+            "VFncvt_rtz_x_f_w");
+}
+
+TEST_F(AssemblerRISCV64Test, VFsqrt_v) {
+  DriverStr(RepeatVVVm(&Riscv64Assembler::VFsqrt_v, "vfsqrt.v {reg1}, {reg2}{vm}"), "VFsqrt_v");
+}
+
+TEST_F(AssemblerRISCV64Test, VFrsqrt7_v) {
+  DriverStr(RepeatVVVm(&Riscv64Assembler::VFrsqrt7_v, "vfrsqrt7.v {reg1}, {reg2}{vm}"),
+            "VFrsqrt7_v");
+}
+
+TEST_F(AssemblerRISCV64Test, VFrec7_v) {
+  DriverStr(RepeatVVVm(&Riscv64Assembler::VFrec7_v, "vfrec7.v {reg1}, {reg2}{vm}"), "VFrec7_v");
+}
+
+TEST_F(AssemblerRISCV64Test, VFclass_v) {
+  DriverStr(RepeatVVVm(&Riscv64Assembler::VFclass_v, "vfclass.v {reg1}, {reg2}{vm}"), "VFclass_v");
+}
+
+TEST_F(AssemblerRISCV64Test, VMsbf_m) {
+  DriverStr(RepeatVVVm(&Riscv64Assembler::VMsbf_m, "vmsbf.m {reg1}, {reg2}{vm}", true), "VMsbf_m");
+}
+
+TEST_F(AssemblerRISCV64Test, VMsof_m) {
+  DriverStr(RepeatVVVm(&Riscv64Assembler::VMsof_m, "vmsof.m {reg1}, {reg2}{vm}", true), "VMsof_m");
+}
+
+TEST_F(AssemblerRISCV64Test, VMsif_m) {
+  DriverStr(RepeatVVVm(&Riscv64Assembler::VMsif_m, "vmsif.m {reg1}, {reg2}{vm}", true), "VMsif_m");
+}
+
+TEST_F(AssemblerRISCV64Test, VIota_m) {
+  DriverStr(RepeatVVVm(&Riscv64Assembler::VIota_m, "viota.m {reg1}, {reg2}{vm}", true), "VIota_m");
+}
+
+TEST_F(AssemblerRISCV64Test, VId_v) {
+  DriverStr(RepeatVVm(&Riscv64Assembler::VId_v, "vid.v {reg} {vm}"), "VId_v");
 }
 
 // Pseudo instructions.
