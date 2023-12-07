@@ -16,6 +16,24 @@
       "message": "Thanks a lot Cole for your help!\n\nI would prefer to try to preserve the property that the .bp file does not need to be regenerated.  I will take a look and try to make the changes myself.\n\nIn the meantime, would you like to land the CLs that this CL depends on separately?",
       "revId": "9f866f6467c6b19179c1d64c9fd26a1d26b17df2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7659eb42_849d36c8",
+        "filename": "test/Android.run-test.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1535516
+      },
+      "writtenOn": "2023-12-07T19:42:46Z",
+      "side": 1,
+      "message": "I could preserve that property if we add all the dependency files to all of the genrules (or their defaults module). This makes the build slightly slower as it needs to copy more files to the sandbox. But I\u0027m not opposed to doing it if that sounds good to you.",
+      "parentUuid": "46762558_db4c7f1d",
+      "revId": "9f866f6467c6b19179c1d64c9fd26a1d26b17df2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
