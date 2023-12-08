@@ -4095,7 +4095,7 @@ static void GenerateVarHandleSet(HInvoke* invoke, CodeGeneratorX86* codegen) {
       is_volatile,
       /* value_can_be_null */ true,
       // Value can be null, and this write barrier is not being relied on for other sets.
-      WriteBarrierKind::kEmitWithNullCheck);
+      WriteBarrierKind::kEmitNotBeingReliedOn);
 
   __ Bind(slow_path->GetExitLabel());
 }
