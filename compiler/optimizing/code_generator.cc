@@ -158,6 +158,11 @@ ReadBarrierOption CodeGenerator::GetCompilerReadBarrierOption() const {
   return EmitReadBarrier() ? kWithReadBarrier : kWithoutReadBarrier;
 }
 
+bool CodeGenerator::CheckGCCard() const {
+  const CompilerOptions& options = GetCompilerOptions();
+  return options.EmitRunTimeChecksInDebugMode() && options.EmitReadBarrier();
+}
+
 ScopedArenaAllocator* CodeGenerator::GetScopedAllocator() {
   DCHECK(code_generation_data_ != nullptr);
   return code_generation_data_->GetScopedAllocator();
