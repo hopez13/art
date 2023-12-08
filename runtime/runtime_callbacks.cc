@@ -24,6 +24,7 @@
 #include "class_linker.h"
 #include "monitor.h"
 #include "thread-current-inl.h"
+#include "trace.h"
 
 namespace art {
 
@@ -252,6 +253,8 @@ void RuntimeCallbacks::ClassPreDefine(const char* descriptor,
 }
 
 void RuntimeCallbacks::ClassPrepare(Handle<mirror::Class> temp_klass, Handle<mirror::Class> klass) {
+  // Register all the methods of the newly loaded class if tracing is active.
+  Trace::ClassPrepare(klass);
   for (ClassLoadCallback* cb : COPY(class_callbacks_)) {
     cb->ClassPrepare(temp_klass, klass);
   }

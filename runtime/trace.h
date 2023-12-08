@@ -124,6 +124,8 @@ static constexpr uintptr_t kMaskTraceAction = ~0b11;
 class TraceWriter {
  public:
   TraceWriter(File* trace_file,
+              File* tmp_file,
+              File* tmp_file_rd,
               TraceOutputMode output_mode,
               TraceClockSource clock_source,
               size_t buffer_size,
@@ -153,18 +155,10 @@ class TraceWriter {
   void FinishTracing(int flags, bool flush_entries) REQUIRES(!tracing_lock_)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
-  void PreProcessTraceForMethodInfos(uintptr_t* buffer,
-                                     size_t num_entries,
-                                     std::unordered_map<ArtMethod*, std::string>& method_infos)
-      REQUIRES_SHARED(Locks::mutator_lock_) REQUIRES(!tracing_lock_);
-
   // Flush buffer to the file (for streaming) or to the common buffer (for non-streaming). In
   // non-streaming case it returns false if all the contents couldn't be flushed.
-  void FlushBuffer(uintptr_t* buffer,
-                   size_t num_entries,
-                   size_t tid,
-                   const std::unordered_map<ArtMethod*, std::string>& method_infos)
-      REQUIRES(!tracing_lock_);
+  void FlushBuffer(size_t num_entries, size_t tid) REQUIRES(!tracing_lock_);
+  void FlushBuffer(uintptr_t* method_trace_entries, size_t num_entries, size_t tid) REQUIRES(!tracing_lock_);
 
   // This is called when we see the first entry from the thread to record the information about the
   // thread.
@@ -173,6 +167,8 @@ class TraceWriter {
   bool HasOverflow() { return overflow_; }
   TraceOutputMode GetOutputMode() { return trace_output_mode_; }
   size_t GetBufferSize() { return buffer_size_; }
+
+  void RecordMethodInfo(mirror::Class* klass) REQUIRES_SHARED(Locks::mutator_lock_);
 
  private:
   // Get a 32-bit id for the method and specify if the method hasn't been seen before. If this is
@@ -226,6 +222,11 @@ class TraceWriter {
 
   // File to write trace data out to, null if direct to ddms.
   std::unique_ptr<File> trace_file_;
+
+  std::unique_ptr<File> tmp_file_;
+  std::unique_ptr<File> tmp_file_rd_;
+  std::unique_ptr<uintptr_t[]> method_trace_buffer_;
+  std::unique_ptr<uint8_t[]> buffer_;
 
   // The kind of output for this tracing.
   const TraceOutputMode trace_output_mode_;
@@ -394,8 +395,15 @@ class Trace final : public instrumentation::InstrumentationListener {
   // Used by class linker to prevent class unloading.
   static bool IsTracingEnabled() REQUIRES(!Locks::trace_lock_);
 
+  // Callback for each class prepare event to record information about the newly created methods.
+  static void ClassPrepare(Handle<mirror::Class> klass) REQUIRES_SHARED(Locks::mutator_lock_);
+
+  TraceWriter* GetTraceWriter() { return trace_writer_.get(); }
+
  private:
   Trace(File* trace_file,
+        File* tmp_file,
+        File* tmp_file_rd,
         size_t buffer_size,
         int flags,
         TraceOutputMode output_mode,
