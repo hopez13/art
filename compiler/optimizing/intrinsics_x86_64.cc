@@ -32,6 +32,7 @@
 #include "mirror/object_array-inl.h"
 #include "mirror/reference.h"
 #include "mirror/string.h"
+#include "optimizing/data_type.h"
 #include "scoped_thread_state_change-inl.h"
 #include "thread-current-inl.h"
 #include "utils/x86_64/assembler_x86_64.h"
@@ -1224,7 +1225,7 @@ void IntrinsicCodeGeneratorX86_64::VisitSystemArrayCopy(HInvoke* invoke) {
   }
 
   // We only need one card marking on the destination array.
-  codegen_->MarkGCCard(temp1, temp2, dest, CpuRegister(kNoRegister), /* emit_null_check= */ false);
+  codegen_->MarkGCCard(temp1, temp2, dest);
 
   __ Bind(intrinsic_slow_path->GetExitLabel());
 }
@@ -2158,11 +2159,11 @@ static void GenUnsafePut(LocationSummary* locations, DataType::Type type, bool i
 
   if (type == DataType::Type::kReference) {
     bool value_can_be_null = true;  // TODO: Worth finding out this information?
-    codegen->MarkGCCard(locations->GetTemp(0).AsRegister<CpuRegister>(),
-                        locations->GetTemp(1).AsRegister<CpuRegister>(),
-                        base,
-                        value,
-                        value_can_be_null);
+    codegen->MaybeMarkGCCard(locations->GetTemp(0).AsRegister<CpuRegister>(),
+                             locations->GetTemp(1).AsRegister<CpuRegister>(),
+                             base,
+                             value,
+                             value_can_be_null);
   }
 }
 
@@ -2457,7 +2458,7 @@ static void GenCompareAndSetOrExchangeRef(CodeGeneratorX86_64* codegen,
 
   // Mark card for object assuming new value is stored.
   bool value_can_be_null = true;  // TODO: Worth finding out this information?
-  codegen->MarkGCCard(temp1, temp2, base, value, value_can_be_null);
+  codegen->MaybeMarkGCCard(temp1, temp2, base, value, value_can_be_null);
 
   Address field_addr(base, offset, TIMES_1, 0);
   if (codegen->EmitBakerReadBarrier()) {
@@ -2768,7 +2769,7 @@ static void GenUnsafeGetAndUpdate(HInvoke* invoke,
 
     // Mark card for object as a new value shall be stored.
     bool new_value_can_be_null = true;  // TODO: Worth finding out this information?
-    codegen->MarkGCCard(temp1, temp2, base, /*value=*/ out, new_value_can_be_null);
+    codegen->MaybeMarkGCCard(temp1, temp2, base, /*value=*/out, new_value_can_be_null);
 
     if (kPoisonHeapReferences) {
       // Use a temp to avoid poisoning base of the field address, which might happen if `out`
@@ -4226,7 +4227,8 @@ static void GenerateVarHandleSet(HInvoke* invoke,
       /*value_can_be_null=*/true,
       byte_swap,
       // Value can be null, and this write barrier is not being relied on for other sets.
-      WriteBarrierKind::kEmitWithNullCheck);
+      value_type == DataType::Type::kReference ? WriteBarrierKind::kEmitNotBeingReliedOn :
+                                                 WriteBarrierKind::kDontEmit);
 
   // setVolatile needs kAnyAny barrier, but HandleFieldSet takes care of that.
 
@@ -4511,7 +4513,7 @@ static void GenerateVarHandleGetAndSet(HInvoke* invoke,
           &temp1,
           &temp2);
     }
-    codegen->MarkGCCard(temp1, temp2, ref, valreg, /* emit_null_check= */ false);
+    codegen->MarkGCCard(temp1, temp2, ref);
 
     DCHECK_EQ(valreg, out.AsRegister<CpuRegister>());
     if (kPoisonHeapReferences) {
