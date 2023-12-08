@@ -1308,6 +1308,18 @@ void GraphChecker::VisitNeg(HNeg* instruction) {
   }
 }
 
+HInstruction* HuntForOriginalReference(HInstruction* ref) {
+  // An original reference can be transformed by instructions like:
+  //   i0 NewArray
+  //   i1 HInstruction(i0)  <-- NullCheck, BoundType, IntermediateAddress.
+  //   i2 ArraySet(i1, index, value)
+  DCHECK(ref != nullptr);
+  while (ref->IsNullCheck() || ref->IsBoundType() || ref->IsIntermediateAddress()) {
+    ref = ref->InputAt(0);
+  }
+  return ref;
+}
+
 void GraphChecker::VisitArraySet(HArraySet* instruction) {
   VisitInstruction(instruction);
 
@@ -1320,6 +1332,215 @@ void GraphChecker::VisitArraySet(HArraySet* instruction) {
                      instruction->GetId(),
                      StrBool(instruction->NeedsTypeCheck()),
                      StrBool(instruction->GetSideEffects().Includes(SideEffects::CanTriggerGC()))));
+  }
+
+  if (instruction->GetWriteBarrierKind() == WriteBarrierKind::kDontEmit) {
+    // Storing null or a non-reference.
+    if (instruction->GetComponentType() != DataType::Type::kReference ||
+        instruction->GetValue()->IsNullConstant()) {
+      return;
+    }
+
+    // For removed write barriers, we expect that the write barrier they are relying on is:
+    // A) In the same block, and
+    // B) There's no instruction between them that can trigger a GC.
+    HInstruction* arr = HuntForOriginalReference(instruction->InputAt(0));
+    HBackwardInstructionIterator it(instruction->GetBlock()->GetInstructions());
+    bool found = false;
+    for (; !it.Done(); it.Advance()) {
+      if (it.Current() == instruction) {
+        found = true;
+        it.Advance();
+        break;
+      }
+    }
+
+    if (!found) {
+      AddError(StringPrintf("%s %d was not found in block %d",
+                            instruction->DebugName(),
+                            instruction->GetId(),
+                            instruction->GetBlock()->GetBlockId()));
+    }
+
+    // Reuse `found` for the other check
+    found = false;
+    for (; !it.Done(); it.Advance()) {
+      if (!it.Current()->IsArraySet()) {
+        if (it.Current()->GetSideEffects().Includes(SideEffects::CanTriggerGC())) {
+          AddError(
+              StringPrintf("%s %d from block %d was expecting a write barrier and it didn't find "
+                           "any. %s %d can trigger GC",
+                           instruction->DebugName(),
+                           instruction->GetId(),
+                           instruction->GetBlock()->GetBlockId(),
+                           it.Current()->DebugName(),
+                           it.Current()->GetId()));
+        }
+        continue;
+      }
+
+      if (arr == HuntForOriginalReference(it.Current()->AsArraySet()->InputAt(0)) &&
+          it.Current()->AsArraySet()->GetWriteBarrierKind() ==
+              WriteBarrierKind::kEmitBeingReliedOn) {
+        // Found the write barrier we are relying on.
+        found = true;
+        break;
+      }
+
+      // If the array set we are relying on can trigger GC, that's fine since we dirty the card
+      // after the GC happened. All other array sets that can trigger GC are not fine.
+      if (it.Current()->GetSideEffects().Includes(SideEffects::CanTriggerGC())) {
+        AddError(
+            StringPrintf("%s %d from block %d was expecting a write barrier and it didn't find "
+                         "any. %s %d can trigger GC",
+                         instruction->DebugName(),
+                         instruction->GetId(),
+                         instruction->GetBlock()->GetBlockId(),
+                         it.Current()->DebugName(),
+                         it.Current()->GetId()));
+      }
+    }
+
+    if (!found) {
+      AddError(StringPrintf("%s %d in block %d didn't find a write barrier to latch onto",
+                            instruction->DebugName(),
+                            instruction->GetId(),
+                            instruction->GetBlock()->GetBlockId()));
+    }
+  }
+}
+
+void GraphChecker::VisitInstanceFieldSet(HInstanceFieldSet* instruction) {
+  VisitInstruction(instruction);
+
+  if (instruction->GetWriteBarrierKind() == WriteBarrierKind::kDontEmit) {
+    if (instruction->GetFieldType() != DataType::Type::kReference ||
+        instruction->GetValue()->IsNullConstant()) {
+      instruction->SetWriteBarrierKind(WriteBarrierKind::kDontEmit);
+      return;
+    }
+
+    // For removed write barriers, we expect that the write barrier they are relying on is:
+    // A) In the same block, and
+    // B) There's no instruction between them that can trigger a GC.
+    HInstruction* obj = HuntForOriginalReference(instruction->InputAt(0));
+    HBackwardInstructionIterator it(instruction->GetBlock()->GetInstructions());
+    bool found = false;
+    for (; !it.Done(); it.Advance()) {
+      if (it.Current() == instruction) {
+        found = true;
+        it.Advance();
+        break;
+      }
+    }
+
+    if (!found) {
+      AddError(StringPrintf("%s %d was not found in block %d",
+                            instruction->DebugName(),
+                            instruction->GetId(),
+                            instruction->GetBlock()->GetBlockId()));
+    }
+
+    // Reuse `found` for the other check
+    found = false;
+    for (; !it.Done(); it.Advance()) {
+      if (it.Current()->GetSideEffects().Includes(SideEffects::CanTriggerGC())) {
+        AddError(
+            StringPrintf("%s %d from block %d was expecting a write barrier and it didn't find "
+                         "any. %s %d can trigger GC",
+                         instruction->DebugName(),
+                         instruction->GetId(),
+                         instruction->GetBlock()->GetBlockId(),
+                         it.Current()->DebugName(),
+                         it.Current()->GetId()));
+      }
+
+      if (!it.Current()->IsInstanceFieldSet()) {
+        continue;
+      }
+
+      if (obj == HuntForOriginalReference(it.Current()->AsInstanceFieldSet()->InputAt(0)) &&
+          it.Current()->AsInstanceFieldSet()->GetWriteBarrierKind() ==
+              WriteBarrierKind::kEmitBeingReliedOn) {
+        // Found the write barrier we are relying on.
+        found = true;
+        break;
+      }
+    }
+
+    if (!found) {
+      AddError(StringPrintf("%s %d in block %d didn't find a write barrier to latch onto",
+                            instruction->DebugName(),
+                            instruction->GetId(),
+                            instruction->GetBlock()->GetBlockId()));
+    }
+  }
+}
+
+void GraphChecker::VisitStaticFieldSet(HStaticFieldSet* instruction) {
+  VisitInstruction(instruction);
+
+  if (instruction->GetWriteBarrierKind() == WriteBarrierKind::kDontEmit) {
+    if (instruction->GetFieldType() != DataType::Type::kReference ||
+        instruction->GetValue()->IsNullConstant()) {
+      instruction->SetWriteBarrierKind(WriteBarrierKind::kDontEmit);
+      return;
+    }
+
+    // For removed write barriers, we expect that the write barrier they are relying on is:
+    // A) In the same block, and
+    // B) There's no instruction between them that can trigger a GC.
+    HInstruction* cls = HuntForOriginalReference(instruction->InputAt(0));
+    HBackwardInstructionIterator it(instruction->GetBlock()->GetInstructions());
+    bool found = false;
+    for (; !it.Done(); it.Advance()) {
+      if (it.Current() == instruction) {
+        found = true;
+        it.Advance();
+        break;
+      }
+    }
+
+    if (!found) {
+      AddError(StringPrintf("%s %d was not found in block %d",
+                            instruction->DebugName(),
+                            instruction->GetId(),
+                            instruction->GetBlock()->GetBlockId()));
+    }
+
+    // Reuse `found` for the other check
+    found = false;
+    for (; !it.Done(); it.Advance()) {
+      if (it.Current()->GetSideEffects().Includes(SideEffects::CanTriggerGC())) {
+        AddError(
+            StringPrintf("%s %d from block %d was expecting a write barrier and it didn't find "
+                         "any. %s %d can trigger GC",
+                         instruction->DebugName(),
+                         instruction->GetId(),
+                         instruction->GetBlock()->GetBlockId(),
+                         it.Current()->DebugName(),
+                         it.Current()->GetId()));
+      }
+
+      if (!it.Current()->IsStaticFieldSet()) {
+        continue;
+      }
+
+      if (cls == HuntForOriginalReference(it.Current()->AsStaticFieldSet()->InputAt(0)) &&
+          it.Current()->AsStaticFieldSet()->GetWriteBarrierKind() ==
+              WriteBarrierKind::kEmitBeingReliedOn) {
+        // Found the write barrier we are relying on.
+        found = true;
+        break;
+      }
+    }
+
+    if (!found) {
+      AddError(StringPrintf("%s %d in block %d didn't find a write barrier to latch onto",
+                            instruction->DebugName(),
+                            instruction->GetId(),
+                            instruction->GetBlock()->GetBlockId()));
+    }
   }
 }
 
