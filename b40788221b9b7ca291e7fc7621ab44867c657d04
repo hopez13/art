@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9781a456_ed6b0c2e",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 751,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-12-08T09:13:11Z",
+      "side": 1,
+      "message": "I would not mention SP as hard-coded.",
+      "range": {
+        "startLine": 751,
+        "startChar": 31,
+        "endLine": 751,
+        "endChar": 33
+      },
+      "revId": "b40788221b9b7ca291e7fc7621ab44867c657d04",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be7383db_90d73945",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 762,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-12-08T09:13:11Z",
+      "side": 1,
+      "message": "We\u0027re missing on optimizing \"Non-scalar return, args `this` and one extra vreg\".\n\nWe should reorder the checks:\n\n       srliw $yN, xINST, 8/12 // AA/A\n       addi $yN, -2        // Avoid re-materializing the constant after get_shorty\n       bgtz $yN, $skip     // Scalar return, 2+ args: slow path.\n       beqz $yN, .L${uniq}_01_shorty\n       %  try_01_args_peek_next(z0\u003dz0)  # z0 is zero if invoke has scalar return\n       bnez $z0, $call\n    .L${uniq}_01_shorty:\n       %  get_shorty...\n       bltz $yN, $call",
+      "range": {
+        "startLine": 762,
+        "startChar": 3,
+        "endLine": 762,
+        "endChar": 68
+      },
+      "revId": "b40788221b9b7ca291e7fc7621ab44867c657d04",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1f6cfe14_77ce56b2",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 809,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-12-08T09:13:11Z",
+      "side": 1,
+      "message": "ditto (without `this`)",
+      "range": {
+        "startLine": 809,
+        "startChar": 3,
+        "endLine": 809,
+        "endChar": 70
+      },
+      "revId": "b40788221b9b7ca291e7fc7621ab44867c657d04",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
