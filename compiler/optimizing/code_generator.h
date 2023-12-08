@@ -69,6 +69,8 @@ constexpr uint32_t shifted_initializing_value =
 constexpr uint32_t shifted_initialized_value =
     enum_cast<uint32_t>(ClassStatus::kInitialized) << (status_lsb_position % kBitsPerByte);
 
+static constexpr bool kEnableRuntimeGCCardChecks = kIsDebugBuild;
+
 class Assembler;
 class CodeGenerationData;
 class CodeGenerator;
@@ -379,6 +381,7 @@ class CodeGenerator : public DeletableArenaObject<kArenaAllocCodeGenerator> {
   bool EmitBakerReadBarrier() const;
   bool EmitNonBakerReadBarrier() const;
   ReadBarrierOption GetCompilerReadBarrierOption() const;
+  bool CheckGCCard() const;
 
   // Get the ScopedArenaAllocator used for codegen memory allocation.
   ScopedArenaAllocator* GetScopedAllocator();
