@@ -658,10 +658,18 @@ class CodeGeneratorARM64 : public CodeGenerator {
   const Arm64Assembler& GetAssembler() const override { return assembler_; }
   vixl::aarch64::MacroAssembler* GetVIXLAssembler() { return GetAssembler()->GetVIXLAssembler(); }
 
-  // Emit a write barrier.
-  void MarkGCCard(vixl::aarch64::Register object,
-                  vixl::aarch64::Register value,
-                  bool emit_null_check);
+  // Emit a write barrier if:
+  // A) emit_null_check is false
+  // B) emit_null_check is true, and value is not null.
+  void MaybeMarkGCCard(vixl::aarch64::Register object,
+                       vixl::aarch64::Register value,
+                       bool emit_null_check);
+
+  // Emit a write barrier unconditionally.
+  void MarkGCCard(vixl::aarch64::Register object);
+
+  // If `value` is non-null, crash if the write barrier in `object` is not set.
+  void CheckGCCardIsSet(vixl::aarch64::Register object, vixl::aarch64::Register value);
 
   void GenerateMemoryBarrier(MemBarrierKind kind);
 
