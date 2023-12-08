@@ -34,6 +34,24 @@
       "parentUuid": "78e1138f_9ad909d0",
       "revId": "d66470ed5e12157cd99d3a9dcb99640cfedf3278",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2935ac50_636fd3e2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-12-08T20:15:24Z",
+      "side": 1,
+      "message": "The `char[]` version on arm64 was optimized early this year, so it should be fairly good. (And there are no read barriers at all.)\n\nI tested locally and I saw some test failures with PS2, so I checked PS1 and saw them too. I\u0027ll debug that next week.",
+      "parentUuid": "8064bd3f_51d10e09",
+      "revId": "d66470ed5e12157cd99d3a9dcb99640cfedf3278",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
