@@ -567,9 +567,17 @@ class CodeGeneratorX86 : public CodeGenerator {
                        uint64_t index_in_table) const;
   void EmitJitRootPatches(uint8_t* code, const uint8_t* roots_data) override;
 
-  // Emit a write barrier.
-  void MarkGCCard(
+  // Emit a write barrier if:
+  // A) emit_null_check is false
+  // B) emit_null_check is true, and value is not null.
+  void MaybeMarkGCCard(
       Register temp, Register card, Register object, Register value, bool emit_null_check);
+
+  // Emit a write barrier unconditionally.
+  void MarkGCCard(Register temp, Register card, Register object);
+
+  // If `value` is non-null, crash if the write barrier in `object` is not set.
+  void CheckGCCardIsSet(Register temp, Register card, Register object, Register value);
 
   void GenerateMemoryBarrier(MemBarrierKind kind);
 
