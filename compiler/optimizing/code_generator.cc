@@ -158,6 +158,20 @@ ReadBarrierOption CodeGenerator::GetCompilerReadBarrierOption() const {
   return EmitReadBarrier() ? kWithReadBarrier : kWithoutReadBarrier;
 }
 
+bool CodeGenerator::ShouldCheckGCCard(bool needs_write_barrier,
+                                      DataType::Type type,
+                                      HInstruction* value) const {
+  const CompilerOptions& options = GetCompilerOptions();
+  return
+      // Check the GC card in debug mode,
+      options.EmitRunTimeChecksInDebugMode() &&
+      // only for CC GC,
+      options.EmitReadBarrier() &&
+      // and if we eliminated the write barrier in WBE.
+      !needs_write_barrier &&
+      CodeGenerator::StoreNeedsWriteBarrier(type, value);
+}
+
 ScopedArenaAllocator* CodeGenerator::GetScopedAllocator() {
   DCHECK(code_generation_data_ != nullptr);
   return code_generation_data_->GetScopedAllocator();
@@ -1606,6 +1620,18 @@ void CodeGenerator::EmitParallelMoves(Location from1,
   parallel_move.AddMove(from1, to1, type1, nullptr);
   parallel_move.AddMove(from2, to2, type2, nullptr);
   GetMoveResolver()->EmitNativeCode(&parallel_move);
+}
+
+bool CodeGenerator::StoreNeedsWriteBarrier(DataType::Type type,
+                                           HInstruction* value,
+                                           HGraph* graph,
+                                           WriteBarrierKind write_barrier_kind) {
+  // Check that null value is not represented as an integer constant.
+  DCHECK_IMPLIES(type == DataType::Type::kReference, !value->IsIntConstant());
+  // Branch profiling currently doesn't support running optimizations.
+  return (graph->IsCompilingBaseline() && compiler_options_.ProfileBranches()) ?
+             CodeGenerator::StoreNeedsWriteBarrier(type, value) :
+             write_barrier_kind != WriteBarrierKind::kDontEmit;
 }
 
 void CodeGenerator::ValidateInvokeRuntime(QuickEntrypointEnum entrypoint,
