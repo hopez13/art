@@ -202,12 +202,9 @@ ALWAYS_INLINE uint64_t GetMicroTime(uint64_t counter) {
 
 }  // namespace
 
-bool TraceWriter::HasMethodEncoding(ArtMethod* method) {
-  return art_method_id_map_.find(method) != art_method_id_map_.end();
-}
-
-std::pair<uint32_t, bool> TraceWriter::GetMethodEncoding(ArtMethod* method) {
-  auto it = art_method_id_map_.find(method);
+std::pair<uint32_t, bool> TraceWriter::GetMethodEncoding(ArtMethod* method ATTRIBUTE_UNUSED) {
+  return std::pair<uint32_t, bool>(0, false);
+  /*auto it = art_method_id_map_.find(method);
   if (it != art_method_id_map_.end()) {
     return std::pair<uint32_t, bool>(it->second, false);
   } else {
@@ -215,7 +212,7 @@ std::pair<uint32_t, bool> TraceWriter::GetMethodEncoding(ArtMethod* method) {
     art_method_id_map_.emplace(method, idx);
     current_method_index_++;
     return std::pair<uint32_t, bool>(idx, true);
-  }
+  }*/
 }
 
 uint16_t TraceWriter::GetThreadEncoding(pid_t thread_id) {
@@ -233,25 +230,17 @@ uint16_t TraceWriter::GetThreadEncoding(pid_t thread_id) {
 
 class TraceWriterTask final : public Task {
  public:
-  TraceWriterTask(TraceWriter* trace_writer, uintptr_t* buffer, size_t cur_offset, size_t thread_id)
+  TraceWriterTask(TraceWriter* trace_writer, size_t cur_offset, size_t thread_id)
       : trace_writer_(trace_writer),
-        buffer_(buffer),
         cur_offset_(cur_offset),
         thread_id_(thread_id) {}
 
   void Run(Thread* self ATTRIBUTE_UNUSED) override {
-    std::unordered_map<ArtMethod*, std::string> method_infos;
-    {
-      ScopedObjectAccess soa(Thread::Current());
-      trace_writer_->PreProcessTraceForMethodInfos(buffer_, cur_offset_, method_infos);
-    }
-    trace_writer_->FlushBuffer(buffer_, cur_offset_, thread_id_, method_infos);
-    delete[] buffer_;
+    trace_writer_->FlushBuffer(cur_offset_, thread_id_);
   }
 
  private:
   TraceWriter* trace_writer_;
-  uintptr_t* buffer_;
   size_t cur_offset_;
   size_t thread_id_;
 };
@@ -454,6 +443,57 @@ void* Trace::RunSamplingThread(void* arg) {
   return nullptr;
 }
 
+// Visitor used to record all methods currently loaded in the runtime. This is done at the start of
+// method tracing.
+class RecordMethodInfoClassVisitor : public ClassVisitor {
+ public:
+  explicit RecordMethodInfoClassVisitor(Trace* trace)
+      : trace_(trace) {}
+
+  bool operator()(ObjPtr<mirror::Class> klass) override REQUIRES(Locks::mutator_lock_) {
+    trace_->GetTraceWriter()->RecordMethodInfo(klass.Ptr());
+    return true;  // Visit all classes.
+  }
+
+ private:
+  Trace* const trace_;
+};
+
+void Trace::ClassPrepare(Handle<mirror::Class> klass) {
+  MutexLock mu(Thread::Current(), *Locks::trace_lock_);
+  if (the_trace_ == nullptr) {
+    return;
+  }
+  the_trace_->GetTraceWriter()->RecordMethodInfo(klass.Get());
+}
+
+void TraceWriter::RecordMethodInfo(mirror::Class* klass) {
+  MutexLock mu(Thread::Current(), tracing_lock_);
+  for (ArtMethod& method : klass->GetMethods(kRuntimePointerSize)) {
+    if (!method.IsInvokable()) {
+      continue;
+    }
+
+    auto [method_id, is_new_method] = GetMethodEncoding(&method);
+    CHECK(!is_new_method) << &method << " " << method.PrettyMethod();
+    std::string method_line(GetMethodLine(GetMethodInfoLine(&method), method_id));
+    // Write a special block with the name.
+    static constexpr size_t kMethodNameHeaderSize = 5;
+    uint8_t method_header[kMethodNameHeaderSize];
+    Append2LE(method_header, 0);
+    method_header[2] = kOpNewMethod;
+
+    uint16_t method_line_length = static_cast<uint16_t>(method_line.length());
+    DCHECK(method_line.length() < (1 << 16));
+    Append2LE(method_header + 3, method_line_length);
+
+    if (!trace_file_->WriteFully(method_header, kMethodNameHeaderSize) ||
+        !trace_file_->WriteFully(reinterpret_cast<const uint8_t*>(method_line.c_str()), method_line_length)) {
+        PLOG(WARNING) << "Failed streaming a tracing event.";
+    }
+  }
+}
+
 void Trace::Start(const char* trace_filename,
                   size_t buffer_size,
                   int flags,
@@ -519,6 +559,23 @@ void Trace::Start(std::unique_ptr<File>&& trace_file_in,
   };
   std::unique_ptr<File, decltype(deleter)> trace_file(trace_file_in.release(), deleter);
 
+  std::unique_ptr<File> tmp_file(OS::CreateEmptyFileWriteOnly("/tmp/test.tmp"));
+  if (tmp_file == nullptr) {
+    LOG(ERROR) << "error opening file";
+  }
+
+  std::unique_ptr<File> tmp_file_rd(OS::OpenFileForReading("/tmp/test.tmp"));
+  if (tmp_file_rd == nullptr) {
+    LOG(ERROR) << "error opening file";
+  }
+  /*std::string tmp_name = "/data/local/tmp/XXXXX.tmp";
+  int fd = mkstemps(tmp_name.data(), 4);
+  if (fd < 0) {
+    printf("couldn't open file %s", tmp_name.c_str());
+  }
+  File* tmp_file_ptr = new File(fd, tmp_name, false);
+  std::unique_ptr<File, decltype(deleter)> tmp_file(tmp_file_ptr, deleter);*/
+
   Thread* self = Thread::Current();
   {
     MutexLock mu(self, *Locks::trace_lock_);
@@ -561,7 +618,11 @@ void Trace::Start(std::unique_ptr<File>&& trace_file_in,
       LOG(ERROR) << "Trace already in progress, ignoring this request";
     } else {
       enable_stats = (flags & kTraceCountAllocs) != 0;
-      the_trace_ = new Trace(trace_file.release(), buffer_size, flags, output_mode, trace_mode);
+      the_trace_ = new Trace(trace_file.release(), tmp_file.release(), tmp_file_rd.release(), buffer_size, flags, output_mode, trace_mode);
+      // Log all the methods that are currently loaded. We log all methods when any new class is
+      // loaded. This will allow us to process the trace entries entirely on the background thread.
+      RecordMethodInfoClassVisitor visitor(the_trace_);
+      runtime->GetClassLinker()->VisitClasses(&visitor);
       if (trace_mode == TraceMode::kSampling) {
         CHECK_PTHREAD_CALL(pthread_create, (&sampling_pthread_, nullptr, &RunSamplingThread,
                                             reinterpret_cast<void*>(interval_us)),
@@ -754,11 +815,15 @@ TraceClockSource GetClockSourceFromFlags(int flags) {
 }  // namespace
 
 TraceWriter::TraceWriter(File* trace_file,
+                         File* tmp_file,
+                         File* tmp_file_rd,
                          TraceOutputMode output_mode,
                          TraceClockSource clock_source,
                          size_t buffer_size,
                          uint32_t clock_overhead_ns)
     : trace_file_(trace_file),
+      tmp_file_(tmp_file),
+      tmp_file_rd_(tmp_file_rd),
       trace_output_mode_(output_mode),
       clock_source_(clock_source),
       buf_(new uint8_t[std::max(kMinBufSize, buffer_size)]()),
@@ -797,6 +862,9 @@ TraceWriter::TraceWriter(File* trace_file,
   // event entries and thread / method info entries.
   current_thread_index_ = 1;
 
+  buffer_.reset(new uint8_t[kPerThreadBufSize]);
+  method_trace_buffer_.reset(new uintptr_t[kPerThreadBufSize]);
+
   // Don't create threadpool for a zygote. This would cause slowdown when forking because we need
   // to stop and start this thread pool. Method tracing on zygote isn't a frequent use case and
   // it is okay to flush on the main thread in such cases.
@@ -807,6 +875,8 @@ TraceWriter::TraceWriter(File* trace_file,
 }
 
 Trace::Trace(File* trace_file,
+             File* tmp_file,
+             File* tmp_file_rd,
              size_t buffer_size,
              int flags,
              TraceOutputMode output_mode,
@@ -819,7 +889,7 @@ Trace::Trace(File* trace_file,
   CHECK_IMPLIES(trace_file == nullptr, output_mode == TraceOutputMode::kDDMS);
 
   trace_writer_.reset(new TraceWriter(
-      trace_file, output_mode, clock_source_, buffer_size, GetClockOverheadNanoSeconds()));
+      trace_file, tmp_file, tmp_file_rd, output_mode, clock_source_, buffer_size, GetClockOverheadNanoSeconds()));
 }
 
 void TraceWriter::FinishTracing(int flags, bool flush_entries) {
@@ -1079,31 +1149,6 @@ void TraceWriter::RecordThreadInfo(Thread* thread) {
   }
 }
 
-void TraceWriter::PreProcessTraceForMethodInfos(
-    uintptr_t* method_trace_entries,
-    size_t current_offset,
-    std::unordered_map<ArtMethod*, std::string>& method_infos) {
-  // Compute the method infos before we process the entries. We don't want to assign an encoding
-  // for the method here. The expectation is that once we assign a method id we write it to the
-  // file before any other thread can see the method id. So we should assign method encoding while
-  // holding the tracing_lock_ and not release it till we flush the method info to the file. We
-  // don't want to flush entries to file while holding the mutator lock. We need the mutator lock to
-  // get method info. So we just precompute method infos without assigning a method encoding here.
-  // There may be a race and multiple threads computing the method info but only one of them would
-  // actually put into the method_id_map_.
-  MutexLock mu(Thread::Current(), tracing_lock_);
-  size_t num_entries = GetNumEntries(clock_source_);
-  DCHECK_EQ((kPerThreadBufSize - current_offset) % num_entries, 0u);
-  for (size_t entry_index = kPerThreadBufSize; entry_index != current_offset;) {
-    entry_index -= num_entries;
-    uintptr_t method_and_action = method_trace_entries[entry_index];
-    ArtMethod* method = reinterpret_cast<ArtMethod*>(method_and_action & kMaskTraceAction);
-    if (!HasMethodEncoding(method) && method_infos.find(method) == method_infos.end()) {
-      method_infos.emplace(method, std::move(GetMethodInfoLine(method)));
-    }
-  }
-}
-
 void TraceWriter::RecordMethodInfo(const std::string& method_info_line,
                                    uint32_t method_id,
                                    size_t* current_index,
@@ -1180,34 +1225,45 @@ void TraceWriter::FlushBuffer(Thread* thread, bool is_sync) {
   DCHECK(method_trace_entries != nullptr);
 
   if (is_sync || thread_pool_ == nullptr) {
-    std::unordered_map<ArtMethod*, std::string> method_infos;
-    PreProcessTraceForMethodInfos(method_trace_entries, *current_offset, method_infos);
-    FlushBuffer(method_trace_entries, *current_offset, tid, method_infos);
+    FlushBuffer(method_trace_entries, *current_offset, tid);
 
     // This is a synchronous flush, so no need to allocate a new buffer. This is used either
     // when the tracing has finished or in non-streaming mode.
     // Just reset the buffer pointer to the initial value, so we can reuse the same buffer.
     *current_offset = kPerThreadBufSize;
   } else {
+    if (!tmp_file_->WriteFully(method_trace_entries, kPerThreadBufSize * sizeof(uintptr_t))) {
+      printf("Cannot write fully\n");
+    }
     // The TraceWriterTask takes the ownership of the buffer and delets the buffer once the
     // entries are flushed.
     thread_pool_->AddTask(Thread::Current(),
-                          new TraceWriterTask(this, method_trace_entries, *current_offset, tid));
+                          new TraceWriterTask(this, *current_offset, tid));
 
     // Create a new buffer and update the per-thread buffer so we don't have to wait for the
     // flushing to finish.
-    uintptr_t* method_trace_buffer = new uintptr_t[std::max(kMinBufSize, kPerThreadBufSize)]();
-    thread->SetMethodTraceBuffer(method_trace_buffer);
+    // uintptr_t* method_trace_buffer = new uintptr_t[std::max(kMinBufSize, kPerThreadBufSize)]();
+    // thread->SetMethodTraceBuffer(method_trace_buffer);
     *current_offset = kPerThreadBufSize;
   }
 
   return;
 }
 
-void TraceWriter::FlushBuffer(uintptr_t* method_trace_entries,
-                              size_t current_offset,
-                              size_t tid,
-                              const std::unordered_map<ArtMethod*, std::string>& method_infos) {
+void TraceWriter::FlushBuffer(size_t current_offset, size_t tid) {
+  // Read into method_trace_buffer
+  /*if (!tmp_file_->Flush()) {
+    printf("Unable to flush\n");
+  }*/
+  if (!tmp_file_rd_->ReadFully(method_trace_buffer_.get(), kPerThreadBufSize * sizeof(uintptr_t))) {
+    printf("Unable to read fully\n");
+    return;
+  }
+  uintptr_t* method_trace_entries = method_trace_buffer_.get();
+  FlushBuffer(method_trace_entries, current_offset, tid);
+}
+
+void TraceWriter::FlushBuffer(uintptr_t* method_trace_entries, size_t current_offset, size_t tid) {
   // Take a tracing_lock_ to serialize writes across threads. We also need to allocate a unique
   // method id for each method. We do that by maintaining a map from id to method for each newly
   // seen method. tracing_lock_ is required to serialize these.
@@ -1217,9 +1273,7 @@ void TraceWriter::FlushBuffer(uintptr_t* method_trace_entries,
   size_t buffer_size;
   std::unique_ptr<uint8_t[]> buffer;
   if (trace_output_mode_ == TraceOutputMode::kStreaming) {
-    buffer_size = std::max(kMinBufSize, kPerThreadBufSize);
-    buffer.reset(new uint8_t[buffer_size]);
-    buffer_ptr = buffer.get();
+    buffer_ptr = buffer_.get();
     current_index = 0;
   } else {
     buffer_size = buffer_size_;
@@ -1253,10 +1307,7 @@ void TraceWriter::FlushBuffer(uintptr_t* method_trace_entries,
     }
 
     auto [method_id, is_new_method] = GetMethodEncoding(method);
-    if (is_new_method && trace_output_mode_ == TraceOutputMode::kStreaming) {
-      RecordMethodInfo(
-          method_infos.find(method)->second, method_id, &current_index, buffer_ptr, buffer_size);
-    }
+    CHECK(!is_new_method) << " Missed recording the method on class load?" << method;
 
     const size_t record_size = GetRecordSize(clock_source_);
     DCHECK_LT(record_size, kPerThreadBufSize);
