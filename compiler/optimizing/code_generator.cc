@@ -158,6 +158,20 @@ ReadBarrierOption CodeGenerator::GetCompilerReadBarrierOption() const {
   return EmitReadBarrier() ? kWithReadBarrier : kWithoutReadBarrier;
 }
 
+bool CodeGenerator::ShouldCheckGCCard(bool needs_write_barrier,
+                                      DataType::Type type,
+                                      HInstruction* value) const {
+  const CompilerOptions& options = GetCompilerOptions();
+  return
+         // Check the GC card in debug mode,
+        options.EmitRunTimeChecksInDebugMode() &&
+         // only for CC GC,
+         options.EmitReadBarrier() &&
+         // and if we eliminated the write barrier in WBE.
+         !needs_write_barrier &&
+         CodeGenerator::StoreNeedsWriteBarrier(type, value);
+}
+
 ScopedArenaAllocator* CodeGenerator::GetScopedAllocator() {
   DCHECK(code_generation_data_ != nullptr);
   return code_generation_data_->GetScopedAllocator();
