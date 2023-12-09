@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ca26323_567635d0",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 751,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-12-09T04:56:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9781a456_ed6b0c2e",
+      "range": {
+        "startLine": 751,
+        "startChar": 31,
+        "endLine": 751,
+        "endChar": 33
+      },
+      "revId": "b40788221b9b7ca291e7fc7621ab44867c657d04",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "be7383db_90d73945",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "69372764_f6ccd577",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 762,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-12-09T04:56:26Z",
+      "side": 1,
+      "message": "Ah, so we want to include that case here. Okay.\n\nFyi interface requires an extra callee-save, so I reused xINST here. I could have recomputed y0 :\u003d A-2 only in the interface case but clobbering xINST seemed easier.",
+      "parentUuid": "be7383db_90d73945",
+      "range": {
+        "startLine": 762,
+        "startChar": 3,
+        "endLine": 762,
+        "endChar": 68
+      },
+      "revId": "b40788221b9b7ca291e7fc7621ab44867c657d04",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1f6cfe14_77ce56b2",
@@ -60,6 +108,30 @@
       "writtenOn": "2023-12-08T09:13:11Z",
       "side": 1,
       "message": "ditto (without `this`)",
+      "range": {
+        "startLine": 809,
+        "startChar": 3,
+        "endLine": 809,
+        "endChar": 70
+      },
+      "revId": "b40788221b9b7ca291e7fc7621ab44867c657d04",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e477de83_19cb0d48",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 809,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-12-09T04:56:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1f6cfe14_77ce56b2",
       "range": {
         "startLine": 809,
         "startChar": 3,
