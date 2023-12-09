@@ -52,6 +52,24 @@
       "parentUuid": "8064bd3f_51d10e09",
       "revId": "d66470ed5e12157cd99d3a9dcb99640cfedf3278",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd12597e_1a907ddc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 3163676
+      },
+      "writtenOn": "2023-12-09T17:20:43Z",
+      "side": 1,
+      "message": "I\u0027ve observed some amount of flaky tests, even w/o my change, they exit with code 124 (timeout?). But they passed if called separetely.\n\nPlease let me know if see different picture, i will check.",
+      "parentUuid": "2935ac50_636fd3e2",
+      "revId": "d66470ed5e12157cd99d3a9dcb99640cfedf3278",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
