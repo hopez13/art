@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "19cebb71_84e2ec6b",
+        "filename": "compiler/optimizing/intrinsics_riscv64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 702,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-12-09T00:47:37Z",
+      "side": 1,
+      "message": "We seem to be doing this test even in the EmitReadBarrier() case? ReferenceProcessor::GetReferent() performs one or the other test, depending on gUseReadBarrier. It also sets the Java field only if !gUseReadBarrier\n\nThe issue here is that we might be imitting read barriers even of gUseReadBarrier is eventually false? In the JIT readbarrier case, do we need to generate this?",
+      "range": {
+        "startLine": 690,
+        "startChar": 1,
+        "endLine": 702,
+        "endChar": 3
+      },
+      "revId": "0e72558d7130cf033dcfdd612ada3efd48a1b300",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "46475b6e_529b9e78",
         "filename": "compiler/optimizing/intrinsics_riscv64.cc",
         "patchSetId": 2
@@ -14,6 +37,30 @@
       "writtenOn": "2023-12-06T18:34:54Z",
       "side": 1,
       "message": "Hans, do we really need this after the barrier above?\n\nI copied this from arm64 and even there I don\u0027t know why it\u0027s needed after a load-acquire.",
+      "range": {
+        "startLine": 762,
+        "startChar": 4,
+        "endLine": 763,
+        "endChar": 62
+      },
+      "revId": "0e72558d7130cf033dcfdd612ada3efd48a1b300",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b579d0c0_174f5858",
+        "filename": "compiler/optimizing/intrinsics_riscv64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 763,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-12-09T00:47:37Z",
+      "side": 1,
+      "message": "It took me a while to reconstruct the rationale. Uploaded aosp/2866754 to make that a bit easier the next time.\n\nWe\u0027re just trying to order the access that generated other with respect to the lockword load below. So indeed, the barrier above should be sufficient.",
+      "parentUuid": "46475b6e_529b9e78",
       "range": {
         "startLine": 762,
         "startChar": 4,
