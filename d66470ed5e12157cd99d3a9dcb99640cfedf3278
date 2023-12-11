@@ -70,6 +70,24 @@
       "parentUuid": "2935ac50_636fd3e2",
       "revId": "d66470ed5e12157cd99d3a9dcb99640cfedf3278",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "583c472b_d97bb003",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-12-11T12:22:07Z",
+      "side": 1,
+      "message": "I found the bug in the intrinsic slow path. And I actually found another one in the marking entrypoint. Fixes in PS3.\n\n(I find riscv64 cuttlefish unstable and even more so since the \"V\" extension was enabled. I\u0027m using an Ubuntu VM for testing but I would not recommend that to anyone else. It does not support \"V\", so I didn\u0027t sync for several weeks and I\u0027m just cherry-picking what I need to support my development, currently at 44 ART changes from the last proper sync.)",
+      "parentUuid": "bd12597e_1a907ddc",
+      "revId": "d66470ed5e12157cd99d3a9dcb99640cfedf3278",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
