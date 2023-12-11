@@ -22,6 +22,29 @@
       },
       "revId": "641160819be5863d112c955db54ea19baff9f2c9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "97d013f9_96bffcd5",
+        "filename": "runtime/native/java_lang_ref_Reference.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-12-11T09:31:35Z",
+      "side": 1,
+      "message": "\\`other\\`\n\n(same in other references to local variables)",
+      "range": {
+        "startLine": 58,
+        "startChar": 37,
+        "endLine": 58,
+        "endChar": 42
+      },
+      "revId": "641160819be5863d112c955db54ea19baff9f2c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
