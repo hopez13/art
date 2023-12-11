@@ -17,6 +17,7 @@
 #include "oat_file.h"
 
 #include <dlfcn.h>
+#include "index_bss_mapping.h"
 
 #ifndef __APPLE__
 #include <link.h>  // for dl_iterate_phdr.
@@ -1016,6 +1017,7 @@ bool OatFileBase::Setup(int zip_fd,
     const IndexBssMapping* public_type_bss_mapping;
     const IndexBssMapping* package_type_bss_mapping;
     const IndexBssMapping* string_bss_mapping;
+    const IndexBssMapping* method_type_bss_mapping = nullptr;
     auto read_index_bss_mapping = [&](const char* tag, /*out*/const IndexBssMapping** mapping) {
       return ReadIndexBssMapping(this, &oat, i, dex_file_location, tag, mapping, error_msg);
     };
@@ -1023,7 +1025,8 @@ bool OatFileBase::Setup(int zip_fd,
         !read_index_bss_mapping("type", &type_bss_mapping) ||
         !read_index_bss_mapping("public type", &public_type_bss_mapping) ||
         !read_index_bss_mapping("package type", &package_type_bss_mapping) ||
-        !read_index_bss_mapping("string", &string_bss_mapping)) {
+        !read_index_bss_mapping("string", &string_bss_mapping)
+        /*|| !read_index_bss_mapping("method type", &method_type_bss_mapping)*/) {
       return false;
     }
 
@@ -1043,6 +1046,7 @@ bool OatFileBase::Setup(int zip_fd,
                        public_type_bss_mapping,
                        package_type_bss_mapping,
                        string_bss_mapping,
+                       method_type_bss_mapping,
                        class_offsets_pointer,
                        dex_layout_sections);
     oat_dex_files_storage_.push_back(oat_dex_file);
@@ -2192,6 +2196,7 @@ OatDexFile::OatDexFile(const OatFile* oat_file,
                        const IndexBssMapping* public_type_bss_mapping_data,
                        const IndexBssMapping* package_type_bss_mapping_data,
                        const IndexBssMapping* string_bss_mapping_data,
+                       const IndexBssMapping* method_type_bss_mapping_data,
                        const uint32_t* oat_class_offsets_pointer,
                        const DexLayoutSections* dex_layout_sections)
     : oat_file_(oat_file),
@@ -2208,6 +2213,7 @@ OatDexFile::OatDexFile(const OatFile* oat_file,
       public_type_bss_mapping_(public_type_bss_mapping_data),
       package_type_bss_mapping_(package_type_bss_mapping_data),
       string_bss_mapping_(string_bss_mapping_data),
+      method_type_bss_mapping_(method_type_bss_mapping_data),
       oat_class_offsets_pointer_(oat_class_offsets_pointer),
       lookup_table_(),
       dex_layout_sections_(dex_layout_sections) {

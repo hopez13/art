@@ -17,6 +17,7 @@
 #ifndef ART_RUNTIME_OAT_FILE_H_
 #define ART_RUNTIME_OAT_FILE_H_
 
+#include <cstddef>
 #include <list>
 #include <memory>
 #include <string>
@@ -392,6 +393,7 @@ class OatFile {
     const IndexBssMapping* public_type_bss_mapping = nullptr;
     const IndexBssMapping* package_type_bss_mapping = nullptr;
     const IndexBssMapping* string_bss_mapping = nullptr;
+    const IndexBssMapping* method_type_bss_mapping = nullptr;
   };
 
   ArrayRef<const BssMappingInfo> GetBcpBssInfo() const {
@@ -570,6 +572,10 @@ class OatDexFile final {
     return string_bss_mapping_;
   }
 
+  const IndexBssMapping* GetMethodTypeBssMapping() const {
+    return method_type_bss_mapping_;
+  }
+
   const uint8_t* GetDexFilePointer() const {
     return dex_file_pointer_;
   }
@@ -609,6 +615,7 @@ class OatDexFile final {
              const IndexBssMapping* public_type_bss_mapping,
              const IndexBssMapping* package_type_bss_mapping,
              const IndexBssMapping* string_bss_mapping,
+             const IndexBssMapping* method_type_bss_mapping,
              const uint32_t* oat_class_offsets_pointer,
              const DexLayoutSections* dex_layout_sections);
 
@@ -643,6 +650,7 @@ class OatDexFile final {
   const IndexBssMapping* const public_type_bss_mapping_ = nullptr;
   const IndexBssMapping* const package_type_bss_mapping_ = nullptr;
   const IndexBssMapping* const string_bss_mapping_ = nullptr;
+  const IndexBssMapping* const method_type_bss_mapping_ = nullptr;
   const uint32_t* const oat_class_offsets_pointer_ = nullptr;
   TypeLookupTable lookup_table_;
   const DexLayoutSections* const dex_layout_sections_ = nullptr;
