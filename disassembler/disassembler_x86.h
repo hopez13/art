@@ -22,7 +22,9 @@
 namespace art {
 namespace x86 {
 
-enum RegFile { GPR, MMX, SSE };
+static constexpr uint8_t MAX_INSTRUCTION_LENGTH = 15;
+
+enum RegFile { GPR, MMX, SSE, AVX };
 
 class DisassemblerX86 final : public Disassembler {
  public:
@@ -33,6 +35,28 @@ class DisassemblerX86 final : public Disassembler {
   void Dump(std::ostream& os, const uint8_t* begin, const uint8_t* end) override;
 
  private:
+  struct InstructionContext {
+    DisassemblerX86* disassembler;
+    bool hasVex;
+    const uint8_t* origInstr;
+    const uint8_t* shadowInstr;
+    uint8_t shadowInstrBuffer[MAX_INSTRUCTION_LENGTH + 1];
+
+    struct VexPrefix {
+      uint8_t prefix_length;
+      uint8_t shadow_prefix_length;
+      uint8_t vector_length;
+      uint8_t operand;
+
+      bool ConvertToRex(const uint8_t* instr,
+                        uint8_t* const decodeBuffer,
+                        const uint8_t* instr_end);
+    };
+    struct VexPrefix Vex;
+
+    InstructionContext(DisassemblerX86* disass, const uint8_t* instr);
+  };
+
   size_t DumpNops(std::ostream& os, const uint8_t* instr);
   size_t DumpInstruction(std::ostream& os, const uint8_t* instr);
 
