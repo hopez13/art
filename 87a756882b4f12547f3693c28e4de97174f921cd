@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b26c5e54_20a69fee",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 582,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-12-11T10:34:18Z",
+      "side": 1,
+      "message": "a2-a7, fa0-fa7 and stack can also contain args.",
+      "range": {
+        "startLine": 582,
+        "startChar": 45,
+        "endLine": 582,
+        "endChar": 47
+      },
+      "revId": "87a756882b4f12547f3693c28e4de97174f921cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42482c29_d9ad57b2",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 600,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-12-11T10:34:18Z",
+      "side": 1,
+      "message": "ditto (including a1)",
+      "range": {
+        "startLine": 600,
+        "startChar": 40,
+        "endLine": 600,
+        "endChar": 42
+      },
+      "revId": "87a756882b4f12547f3693c28e4de97174f921cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
