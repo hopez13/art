@@ -24,6 +24,7 @@
 
 #include "base/bit_utils.h"
 #include "base/macros.h"
+#include "dex/dex_file_types.h"
 #include "dex/method_reference.h"
 
 namespace art HIDDEN {
@@ -58,6 +59,7 @@ class LinkerPatch {
     kStringBssEntry,
     kCallEntrypoint,
     kBakerReadBarrierBranch,
+    kMethodTypeBssEntry,
   };
 
   static LinkerPatch IntrinsicReferencePatch(size_t literal_offset,
@@ -176,6 +178,16 @@ class LinkerPatch {
     return patch;
   }
 
+  static LinkerPatch MethodTypeBssEntryPatch(size_t literal_offset,
+                                             const DexFile* target_dex_file,
+                                             uint32_t pc_insn_offset,
+                                             uint32_t target_proto_idx) {
+    LinkerPatch patch(literal_offset, Type::kMethodTypeBssEntry, target_dex_file);
+    patch.proto_idx_ = target_proto_idx;
+    patch.pc_insn_offset_ = pc_insn_offset;
+    return patch;
+  }
+
   static LinkerPatch CallEntrypointPatch(size_t literal_offset,
                                          uint32_t entrypoint_offset) {
     LinkerPatch patch(literal_offset,
@@ -283,6 +295,16 @@ class LinkerPatch {
     return baker_custom_value2_;
   }
 
+  const DexFile* TargetProtoDexFile() const {
+    DCHECK(patch_type_ == Type::kMethodTypeBssEntry);
+    return target_dex_file_;
+  }
+
+  dex::ProtoIndex TargetProtoIndex() const {
+    DCHECK(patch_type_ == Type::kMethodTypeBssEntry);
+    return dex::ProtoIndex(proto_idx_);
+  }
+
  private:
   LinkerPatch(size_t literal_offset, Type patch_type, const DexFile* target_dex_file)
       : target_dex_file_(target_dex_file),
@@ -308,6 +330,7 @@ class LinkerPatch {
     uint32_t intrinsic_data_;     // Data for IntrinsicObjects.
     uint32_t entrypoint_offset_;  // Entrypoint offset in the Thread object.
     uint32_t baker_custom_value1_;
+    uint32_t proto_idx_;          // Proto index for MethodType patches.
     static_assert(sizeof(method_idx_) == sizeof(cmp1_), "needed by relational operators");
     static_assert(sizeof(type_idx_) == sizeof(cmp1_), "needed by relational operators");
     static_assert(sizeof(string_idx_) == sizeof(cmp1_), "needed by relational operators");
