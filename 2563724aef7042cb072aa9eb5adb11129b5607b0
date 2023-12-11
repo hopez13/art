@@ -1,0 +1,521 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "18f4b7c0_15e16c7e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-12-11T16:24:36Z",
+      "side": 1,
+      "message": "Partial review - enums and VSET*. (I just started to read the spec.)\n\nFeel free to push back on my rename requests if you feel the current naming is better than my suggestions.",
+      "revId": "2563724aef7042cb072aa9eb5adb11129b5607b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "65c2bf75_b9ad8af3",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 925,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-12-11T16:24:36Z",
+      "side": 1,
+      "message": "`enum_cast` (from \"base/cast.h\")",
+      "range": {
+        "startLine": 925,
+        "startChar": 21,
+        "endLine": 925,
+        "endChar": 32
+      },
+      "revId": "2563724aef7042cb072aa9eb5adb11129b5607b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "793c25a8_cc597d6e",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 935,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-12-11T16:24:36Z",
+      "side": 1,
+      "message": "I\u0027d prefer `EmitI()`. That template can take the `uimm` as `rs1`.",
+      "range": {
+        "startLine": 932,
+        "startChar": 2,
+        "endLine": 935,
+        "endChar": 24
+      },
+      "revId": "2563724aef7042cb072aa9eb5adb11129b5607b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bfd2edd7_0a32a04b",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1600,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-12-11T16:24:36Z",
+      "side": 1,
+      "message": "Typo: Should be \"Arithmetic\" (one less \"h\").",
+      "range": {
+        "startLine": 1600,
+        "startChar": 36,
+        "endLine": 1600,
+        "endChar": 47
+      },
+      "revId": "2563724aef7042cb072aa9eb5adb11129b5607b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f319a83_eb55e792",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3482,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-12-11T16:24:36Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 3482,
+        "startChar": 36,
+        "endLine": 3482,
+        "endChar": 47
+      },
+      "revId": "2563724aef7042cb072aa9eb5adb11129b5607b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3011cc1_7b2ecf3d",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-12-11T16:24:36Z",
+      "side": 1,
+      "message": "Does \"URW\" stand for \"unprivileged, read/write\"?",
+      "range": {
+        "startLine": 90,
+        "startChar": 49,
+        "endLine": 90,
+        "endChar": 52
+      },
+      "revId": "2563724aef7042cb072aa9eb5adb11129b5607b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ad6f62f_b3552a21",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-12-11T16:24:36Z",
+      "side": 1,
+      "message": "Typo",
+      "range": {
+        "startLine": 91,
+        "startChar": 9,
+        "endLine": 91,
+        "endChar": 10
+      },
+      "revId": "2563724aef7042cb072aa9eb5adb11129b5607b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "04e97693_9072d654",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-12-11T16:24:36Z",
+      "side": 1,
+      "message": "I\u0027d prefer the full word \"Reserved\".",
+      "range": {
+        "startLine": 93,
+        "startChar": 6,
+        "endLine": 93,
+        "endChar": 9
+      },
+      "revId": "2563724aef7042cb072aa9eb5adb11129b5607b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "829f63fd_5133ca1e",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-12-11T16:24:36Z",
+      "side": 1,
+      "message": "I find the \"CSR\" prefix unnecessary for an `enum class`.",
+      "range": {
+        "startLine": 100,
+        "startChar": 3,
+        "endLine": 100,
+        "endChar": 6
+      },
+      "revId": "2563724aef7042cb072aa9eb5adb11129b5607b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f50c79c_8a7a2c2c",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 529,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-12-11T16:24:36Z",
+      "side": 1,
+      "message": "Do we really want all caps `LMUL`? I\u0027d prefer `LMul`, or `LengthMultiplier`.",
+      "range": {
+        "startLine": 529,
+        "startChar": 13,
+        "endLine": 529,
+        "endChar": 17
+      },
+      "revId": "2563724aef7042cb072aa9eb5adb11129b5607b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eadda965_5e40e825",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 530,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-12-11T16:24:36Z",
+      "side": 1,
+      "message": "What about `k1Over8`?",
+      "range": {
+        "startLine": 530,
+        "startChar": 4,
+        "endLine": 530,
+        "endChar": 12
+      },
+      "revId": "2563724aef7042cb072aa9eb5adb11129b5607b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14cf22e4_96d7e2f5",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 536,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-12-11T16:24:36Z",
+      "side": 1,
+      "message": "Add `kReserved \u003d 0x100`. (Maybe sort by the unsigned value?)",
+      "revId": "2563724aef7042cb072aa9eb5adb11129b5607b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "24ce8661_7ce1fc80",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 538,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-12-11T16:24:36Z",
+      "side": 1,
+      "message": "I\u0027d prefer `static constexpr size_t kLMulBitSize \u003d 3;` outside the `enum class`.\nDo we actually need this constant somewhere?\n(Same for other bit-width constants.)",
+      "range": {
+        "startLine": 538,
+        "startChar": 4,
+        "endLine": 538,
+        "endChar": 12
+      },
+      "revId": "2563724aef7042cb072aa9eb5adb11129b5607b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8b8bbab_034b5d87",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 541,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-12-11T16:24:36Z",
+      "side": 1,
+      "message": "`Sew` or `SelectedElementWidth`?",
+      "range": {
+        "startLine": 541,
+        "startChar": 13,
+        "endLine": 541,
+        "endChar": 16
+      },
+      "revId": "2563724aef7042cb072aa9eb5adb11129b5607b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f20c40f3_f50b2237",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 546,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-12-11T16:24:36Z",
+      "side": 1,
+      "message": "Specify all four reserved values explicitly.",
+      "range": {
+        "startLine": 546,
+        "startChar": 4,
+        "endLine": 546,
+        "endChar": 17
+      },
+      "revId": "2563724aef7042cb072aa9eb5adb11129b5607b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32c90c95_20ec50d6",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 551,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-12-11T16:24:36Z",
+      "side": 1,
+      "message": "`Vma` or `VectorMaskAgnostic`?",
+      "range": {
+        "startLine": 551,
+        "startChar": 13,
+        "endLine": 551,
+        "endChar": 16
+      },
+      "revId": "2563724aef7042cb072aa9eb5adb11129b5607b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5823141_52630875",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 553,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-12-11T16:24:36Z",
+      "side": 1,
+      "message": "`kUndistubed`/`kAgnostic` (and remove the comments)",
+      "range": {
+        "startLine": 552,
+        "startChar": 4,
+        "endLine": 553,
+        "endChar": 10
+      },
+      "revId": "2563724aef7042cb072aa9eb5adb11129b5607b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc46ed52_2292f205",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 560,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-12-11T16:24:36Z",
+      "side": 1,
+      "message": "`Vta` or `VectorTailAgnostic`?\n`kUndisturbed` and `kAgnostic`?",
+      "range": {
+        "startLine": 558,
+        "startChar": 2,
+        "endLine": 560,
+        "endChar": 10
+      },
+      "revId": "2563724aef7042cb072aa9eb5adb11129b5607b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d5cb118_8af4089b",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 575,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-12-11T16:24:36Z",
+      "side": 1,
+      "message": "The `enum` is unnecessary (this is C++, not C).",
+      "range": {
+        "startLine": 575,
+        "startChar": 30,
+        "endLine": 575,
+        "endChar": 34
+      },
+      "revId": "2563724aef7042cb072aa9eb5adb11129b5607b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08c7808f_83bb4870",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 581,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-12-11T16:24:36Z",
+      "side": 1,
+      "message": "Remove the \"Mop\" prefix.",
+      "range": {
+        "startLine": 581,
+        "startChar": 5,
+        "endLine": 581,
+        "endChar": 8
+      },
+      "revId": "2563724aef7042cb072aa9eb5adb11129b5607b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79f00188_b47c778b",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 590,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-12-11T16:24:36Z",
+      "side": 1,
+      "message": "Remove the \"VW\" prefix.",
+      "range": {
+        "startLine": 590,
+        "startChar": 5,
+        "endLine": 590,
+        "endChar": 7
+      },
+      "revId": "2563724aef7042cb072aa9eb5adb11129b5607b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2c602ef_d92f3e0a",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1685,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-12-11T16:24:36Z",
+      "side": 1,
+      "message": "What does \"VAI\" stand for?",
+      "range": {
+        "startLine": 1685,
+        "startChar": 13,
+        "endLine": 1685,
+        "endChar": 16
+      },
+      "revId": "2563724aef7042cb072aa9eb5adb11129b5607b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eda9a9c5_7991d1bd",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1687,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-12-11T16:24:36Z",
+      "side": 1,
+      "message": "What about `kOpIVV` or simply `kIVV`?",
+      "range": {
+        "startLine": 1687,
+        "startChar": 4,
+        "endLine": 1687,
+        "endChar": 14
+      },
+      "revId": "2563724aef7042cb072aa9eb5adb11129b5607b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
