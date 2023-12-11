@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a7e6844a_43f8c0ec",
+        "filename": "compiler/optimizing/intrinsics_riscv64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 702,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-12-11T11:25:33Z",
+      "side": 1,
+      "message": "I don\u0027t really know what\u0027s the use case for the \"disableIntrinsic\" field and while we\u0027re testing that we can as well unconditionally test the other one.\n\nFor now, I\u0027d prefer to keep this in sync with other architectures.",
+      "parentUuid": "19cebb71_84e2ec6b",
+      "range": {
+        "startLine": 690,
+        "startChar": 1,
+        "endLine": 702,
+        "endChar": 3
+      },
+      "revId": "0e72558d7130cf033dcfdd612ada3efd48a1b300",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "46475b6e_529b9e78",
@@ -61,6 +85,30 @@
       "side": 1,
       "message": "It took me a while to reconstruct the rationale. Uploaded aosp/2866754 to make that a bit easier the next time.\n\nWe\u0027re just trying to order the access that generated other with respect to the lockword load below. So indeed, the barrier above should be sufficient.",
       "parentUuid": "46475b6e_529b9e78",
+      "range": {
+        "startLine": 762,
+        "startChar": 4,
+        "endLine": 763,
+        "endChar": 62
+      },
+      "revId": "0e72558d7130cf033dcfdd612ada3efd48a1b300",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5e51235_0b03cb92",
+        "filename": "compiler/optimizing/intrinsics_riscv64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 763,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-12-11T11:25:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b579d0c0_174f5858",
       "range": {
         "startLine": 762,
         "startChar": 4,
