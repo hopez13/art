@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc507ef9_c7b7fd71",
+        "filename": "compiler/optimizing/intrinsics_riscv64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 702,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-12-11T16:25:36Z",
+      "side": 1,
+      "message": "Good point. Agreed. It really only seems to be used by libcore\u0027s RefrenceGetBenchmark.java, and that seems a bit suspect. We should probably eventually get rid of it, but not now.",
+      "parentUuid": "a7e6844a_43f8c0ec",
+      "range": {
+        "startLine": 690,
+        "startChar": 1,
+        "endLine": 702,
+        "endChar": 3
+      },
+      "revId": "0e72558d7130cf033dcfdd612ada3efd48a1b300",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "46475b6e_529b9e78",
