@@ -88,6 +88,24 @@
       "parentUuid": "bd12597e_1a907ddc",
       "revId": "d66470ed5e12157cd99d3a9dcb99640cfedf3278",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5564d2e7_d3e0a5cf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-12-11T17:32:43Z",
+      "side": 1,
+      "message": "Can we do something to prevent developers from introducing the bug? Looks like it could be a common developer error when porting intrinsics from other archs (or creating new ones)",
+      "parentUuid": "583c472b_d97bb003",
+      "revId": "d66470ed5e12157cd99d3a9dcb99640cfedf3278",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
