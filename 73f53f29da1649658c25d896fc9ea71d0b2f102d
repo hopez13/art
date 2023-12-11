@@ -1,5 +1,29 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a939551e_964a4775",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-12-11T12:11:30Z",
+      "side": 1,
+      "message": "Needed relating to `TODO` in https://android-review.git.corp.google.com/c/platform/art/+/2732518/2/compiler/optimizing/load_store_elimination.cc#3434",
+      "range": {
+        "startLine": 15,
+        "startChar": 2,
+        "endLine": 15,
+        "endChar": 59
+      },
+      "revId": "73f53f29da1649658c25d896fc9ea71d0b2f102d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
