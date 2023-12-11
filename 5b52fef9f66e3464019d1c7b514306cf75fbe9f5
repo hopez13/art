@@ -16,6 +16,161 @@
       "message": "Thanks Hans! lgtm from my side. I will let Lokesh / Nicolas +2 this one.",
       "revId": "5b52fef9f66e3464019d1c7b514306cf75fbe9f5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ee01ebf_c2c2a0c1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-12-11T07:06:50Z",
+      "side": 1,
+      "message": "Mostly looks fine, except for few minor nits and clarifications.",
+      "revId": "5b52fef9f66e3464019d1c7b514306cf75fbe9f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "abf2b73a_c2687235",
+        "filename": "openjdkjvmti/ti_heap.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 980,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-12-11T07:06:50Z",
+      "side": 1,
+      "message": "nit: extra space. Also in above line.",
+      "range": {
+        "startLine": 980,
+        "startChar": 72,
+        "endLine": 980,
+        "endChar": 73
+      },
+      "revId": "5b52fef9f66e3464019d1c7b514306cf75fbe9f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7062c921_93f7104e",
+        "filename": "openjdkjvmti/ti_threadgroup.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-12-11T07:06:50Z",
+      "side": 1,
+      "message": "reuse already read `thread_list` here?",
+      "range": {
+        "startLine": 184,
+        "startChar": 24,
+        "endLine": 184,
+        "endChar": 75
+      },
+      "revId": "5b52fef9f66e3464019d1c7b514306cf75fbe9f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "373e2b96_9e45fbd6",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 4759,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-12-11T07:06:50Z",
+      "side": 1,
+      "message": "I\u0027m a bit confused. The declaration in thread.h says it requires that this is not held for this function. But here you say it can be in any state. So shouldn\u0027t you remove the `REQUIRES` there for `thread_list_lock_`?",
+      "range": {
+        "startLine": 4759,
+        "startChar": 41,
+        "endLine": 4759,
+        "endChar": 58
+      },
+      "revId": "5b52fef9f66e3464019d1c7b514306cf75fbe9f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46fd8bb9_36f7db86",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 4760,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-12-11T07:06:50Z",
+      "side": 1,
+      "message": "Shouldn\u0027t you also assert this in the if condition below?",
+      "range": {
+        "startLine": 4760,
+        "startChar": 5,
+        "endLine": 4760,
+        "endChar": 12
+      },
+      "revId": "5b52fef9f66e3464019d1c7b514306cf75fbe9f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "671773d1_a65b7d4f",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 4760,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-12-11T07:06:50Z",
+      "side": 1,
+      "message": "Please move this comment right before the following if condition.",
+      "range": {
+        "startLine": 4759,
+        "startChar": 3,
+        "endLine": 4760,
+        "endChar": 84
+      },
+      "revId": "5b52fef9f66e3464019d1c7b514306cf75fbe9f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a145efbf_a68f503e",
+        "filename": "runtime/thread.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 875,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-12-11T07:06:50Z",
+      "side": 1,
+      "message": "Isn\u0027t that a problem? I mean wouldn\u0027t that cause failures?",
+      "range": {
+        "startLine": 875,
+        "startChar": 5,
+        "endLine": 875,
+        "endChar": 88
+      },
+      "revId": "5b52fef9f66e3464019d1c7b514306cf75fbe9f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

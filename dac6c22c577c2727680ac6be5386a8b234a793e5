@@ -225,6 +225,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ce5cd71f_31d1a613",
+        "filename": "openjdkjvmti/ti_thread.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-12-11T07:06:50Z",
+      "side": 1,
+      "message": "I agree. Since we have scoped-object-access around the call to LockedGetPeerFromOtherThread(), peer couldn\u0027t have disappeared even if target thread exits.\n\nThe thread calling EnsureFlipFunctionStarted() isn\u0027t modified to become suspended. Only the target thread\u0027s state could be changed. But that also can only go in one direction: suspended-\u003erunnable, and never in the other direction. So the calling thread\u0027s scoped-object-access (runnable status) will not be changed by EnsureFlipFunctionStarted.",
+      "parentUuid": "1438a840_99785117",
+      "range": {
+        "startLine": 293,
+        "startChar": 7,
+        "endLine": 293,
+        "endChar": 35
+      },
+      "revId": "dac6c22c577c2727680ac6be5386a8b234a793e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "84bc7ec6_dd626caa",
         "filename": "openjdkjvmti/ti_thread.cc",
         "patchSetId": 12
