@@ -23,6 +23,8 @@ public class Main {
     public static void main(String... args) throws Throwable {
         testEquality();
         testNonEquality();
+        testEquality();
+        testNonEquality();
     }
 
     private static void unreachable() {
@@ -64,6 +66,7 @@ public class Main {
             int[].class);
 
         assertSame(expected, actual);
+        assertSame(takesEverythingReturnsVoid(), takesEverythingReturnsVoid());
     }
 
     public static void testNonEquality() throws Throwable {
