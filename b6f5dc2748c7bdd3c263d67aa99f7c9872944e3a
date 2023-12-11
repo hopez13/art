@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d8f08ee3_ccec4a1f",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1310,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-12-11T14:00:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "16b39d88_0d08fdc7",
+      "range": {
+        "startLine": 1310,
+        "startChar": 32,
+        "endLine": 1310,
+        "endChar": 36
+      },
+      "revId": "b6f5dc2748c7bdd3c263d67aa99f7c9872944e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "63e91436_4a70c7c6",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-12-11T12:09:28Z",
       "side": 1,
       "message": "LR clobbered in slow-path.",
+      "range": {
+        "startLine": 2311,
+        "startChar": 28,
+        "endLine": 2311,
+        "endChar": 30
+      },
+      "revId": "b6f5dc2748c7bdd3c263d67aa99f7c9872944e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "162ee971_2914a4e3",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2311,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-12-11T14:00:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "63e91436_4a70c7c6",
       "range": {
         "startLine": 2311,
         "startChar": 28,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "24ecc8ac_17821be5",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 5718,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-12-11T14:00:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "52ba036d_402129d1",
+      "range": {
+        "startLine": 5718,
+        "startChar": 19,
+        "endLine": 5718,
+        "endChar": 22
+      },
+      "revId": "b6f5dc2748c7bdd3c263d67aa99f7c9872944e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "38b9e03e_c374d907",
@@ -83,6 +155,30 @@
       "writtenOn": "2023-12-11T12:09:28Z",
       "side": 1,
       "message": "Why don\u0027t we add this to the `address`?",
+      "range": {
+        "startLine": 1753,
+        "startChar": 38,
+        "endLine": 1753,
+        "endChar": 94
+      },
+      "revId": "b6f5dc2748c7bdd3c263d67aa99f7c9872944e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e8a07e2_db9c1306",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1753,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-12-11T14:00:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "38b9e03e_c374d907",
       "range": {
         "startLine": 1753,
         "startChar": 38,
