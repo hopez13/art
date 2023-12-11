@@ -51,8 +51,10 @@ std::ostream& operator<<(std::ostream& os, const CpuRegister& reg);
 
 class XmmRegister {
  public:
-  explicit constexpr XmmRegister(FloatRegister r) : reg_(r) {}
-  explicit constexpr XmmRegister(int r) : reg_(FloatRegister(r)) {}
+  explicit constexpr XmmRegister(FloatRegister r) : reg_(r), vecLen_(0) {}
+  explicit constexpr XmmRegister(int r) : reg_(FloatRegister(r)), vecLen_(0) {}
+  explicit constexpr XmmRegister(FloatRegister r, size_t vecLen) : reg_(r), vecLen_(vecLen) {}
+  explicit constexpr XmmRegister(int r, size_t vecLen) : reg_(FloatRegister(r)), vecLen_(vecLen) {}
   constexpr FloatRegister AsFloatRegister() const {
     return reg_;
   }
@@ -65,8 +67,17 @@ class XmmRegister {
   bool operator==(const XmmRegister& other) const {
     return reg_ == other.reg_;
   }
+  size_t GetVecLen() const { return vecLen_; }
+  bool IsYMM() const {
+    return vecLen_ == 32;  // 256-bit
+  }
+  bool IsZMM() const {
+    return vecLen_ == 64;  // 512-bit
+  }
+
  private:
   const FloatRegister reg_;
+  size_t vecLen_;
 };
 std::ostream& operator<<(std::ostream& os, const XmmRegister& reg);
 
