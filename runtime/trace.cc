@@ -25,6 +25,7 @@
 #include "art_method-inl.h"
 #include "base/casts.h"
 #include "base/enums.h"
+#include "base/leb128.h"
 #include "base/os.h"
 #include "base/stl_util.h"
 #include "base/systrace.h"
@@ -241,10 +242,10 @@ class TraceWriterTask final : public Task {
 
   void Run(Thread* self ATTRIBUTE_UNUSED) override {
     std::unordered_map<ArtMethod*, std::string> method_infos;
-    {
+    /*{
       ScopedObjectAccess soa(Thread::Current());
       trace_writer_->PreProcessTraceForMethodInfos(buffer_, cur_offset_, method_infos);
-    }
+    }*/
     trace_writer_->FlushBuffer(buffer_, cur_offset_, thread_id_, method_infos);
     delete[] buffer_;
   }
@@ -1181,7 +1182,7 @@ void TraceWriter::FlushBuffer(Thread* thread, bool is_sync) {
 
   if (is_sync || thread_pool_ == nullptr) {
     std::unordered_map<ArtMethod*, std::string> method_infos;
-    PreProcessTraceForMethodInfos(method_trace_entries, *current_offset, method_infos);
+    // PreProcessTraceForMethodInfos(method_trace_entries, *current_offset, method_infos);
     FlushBuffer(method_trace_entries, *current_offset, tid, method_infos);
 
     // This is a synchronous flush, so no need to allocate a new buffer. This is used either
@@ -1207,7 +1208,7 @@ void TraceWriter::FlushBuffer(Thread* thread, bool is_sync) {
 void TraceWriter::FlushBuffer(uintptr_t* method_trace_entries,
                               size_t current_offset,
                               size_t tid,
-                              const std::unordered_map<ArtMethod*, std::string>& method_infos) {
+                              const std::unordered_map<ArtMethod*, std::string>& method_infos ATTRIBUTE_UNUSED) {
   // Take a tracing_lock_ to serialize writes across threads. We also need to allocate a unique
   // method id for each method. We do that by maintaining a map from id to method for each newly
   // seen method. tracing_lock_ is required to serialize these.
@@ -1230,6 +1231,10 @@ void TraceWriter::FlushBuffer(uintptr_t* method_trace_entries,
 
   size_t num_entries = GetNumEntries(clock_source_);
   DCHECK_EQ((kPerThreadBufSize - current_offset) % num_entries, 0u);
+  uint32_t init_wall_timestamp = 0;
+  uint32_t init_thread_timestamp = 0;
+  uint32_t init_method_id = 0;
+  bool is_first_entry = true;
   for (size_t entry_index = kPerThreadBufSize; entry_index != current_offset;) {
     entry_index -= num_entries;
     size_t record_index = entry_index;
@@ -1252,11 +1257,12 @@ void TraceWriter::FlushBuffer(uintptr_t* method_trace_entries,
       wall_time = GetMicroTime(timestamp) - start_time_;
     }
 
-    auto [method_id, is_new_method] = GetMethodEncoding(method);
+    /*auto [method_id, is_new_method] = GetMethodEncoding(method);
     if (is_new_method && trace_output_mode_ == TraceOutputMode::kStreaming) {
       RecordMethodInfo(
           method_infos.find(method)->second, method_id, &current_index, buffer_ptr, buffer_size);
-    }
+    }*/
+    uint32_t method_id = 0;
 
     const size_t record_size = GetRecordSize(clock_source_);
     DCHECK_LT(record_size, kPerThreadBufSize);
@@ -1268,9 +1274,23 @@ void TraceWriter::FlushBuffer(uintptr_t* method_trace_entries,
     }
 
     EnsureSpace(buffer_ptr, &current_index, buffer_size, record_size);
-    EncodeEventEntry(
-        buffer_ptr + current_index, thread_id, method_id, action, thread_time, wall_time);
-    current_index += record_size;
+    if (is_first_entry) {
+      init_wall_timestamp = wall_time;
+      init_thread_timestamp = thread_time;
+      init_method_id = method_id;
+
+      EncodeEventEntry(
+          buffer_ptr + current_index, thread_id, method_id, action, thread_time, wall_time);
+      current_index += record_size;
+    } else {
+      current_index = EncodeSignedLeb128(buffer_ptr + current_index, (method_id - init_method_id)) - buffer_ptr;
+      if (UseWallClock(clock_source_)) {
+        current_index = EncodeUnsignedLeb128(buffer_ptr + current_index, (wall_time - init_wall_timestamp)) - buffer_ptr;
+      }
+      if (UseThreadCpuClock(clock_source_)) {
+        current_index = EncodeUnsignedLeb128(buffer_ptr + current_index, (thread_time - init_thread_timestamp)) - buffer_ptr;
+      }
+    }
   }
 
   if (trace_output_mode_ == TraceOutputMode::kStreaming) {
