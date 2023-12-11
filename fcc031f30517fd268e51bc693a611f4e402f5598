@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d4ac18d_9525d033",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 528,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-12-11T19:55:01Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "0e24e275_5fc45418",
+      "range": {
+        "startLine": 528,
+        "startChar": 41,
+        "endLine": 528,
+        "endChar": 50
+      },
+      "revId": "fcc031f30517fd268e51bc693a611f4e402f5598",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fbe0dde8_0e26c084",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0254aa6e_607f39d4",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 751,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-12-11T19:55:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fbe0dde8_0e26c084",
+      "range": {
+        "startLine": 751,
+        "startChar": 27,
+        "endLine": 751,
+        "endChar": 41
+      },
+      "revId": "fcc031f30517fd268e51bc693a611f4e402f5598",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1cb07404_1254e711",
@@ -60,6 +108,30 @@
       "writtenOn": "2023-12-11T08:39:45Z",
       "side": 1,
       "message": "We could load 1 to $z0 and compare with that here. Unlike the non-static version where doing that would result in an extra instruction because we need to distinguish between 1 and 2 after clobbering $z0, the static version would not need the extra instruction because we can distinguish between 0 and 1 without reloading 1 to $z0.\n\nBut feel free to keep this as is.",
+      "range": {
+        "startLine": 804,
+        "startChar": 3,
+        "endLine": 804,
+        "endChar": 20
+      },
+      "revId": "fcc031f30517fd268e51bc693a611f4e402f5598",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f02cba49_37e12b6a",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 804,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-12-11T19:55:01Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "1cb07404_1254e711",
       "range": {
         "startLine": 804,
         "startChar": 3,
