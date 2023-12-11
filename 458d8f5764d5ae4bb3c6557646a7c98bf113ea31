@@ -52,6 +52,24 @@
       "parentUuid": "3bee3e90_fde7a5d3",
       "revId": "458d8f5764d5ae4bb3c6557646a7c98bf113ea31",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "afe932ae_0ebedb10",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-12-11T15:33:13Z",
+      "side": 1,
+      "message": "Hans, in the interest of getting it merged, is it ok if I go back to having TraceEnabled() defined in heap.cc? I don\u0027t think we want to create so many dependencies for the library.",
+      "parentUuid": "6aec1b20_af207589",
+      "revId": "458d8f5764d5ae4bb3c6557646a7c98bf113ea31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
