@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d8a163d_38d7919e",
+        "filename": "libartpalette/apex/palette_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-12-12T16:56:38Z",
+      "side": 1,
+      "message": "I\u0027d prefer to not use single quotes here, since many editors and formatters still don\u0027t deal well with this syntax. However if you think it\u0027s really valuable, then shouldn\u0027t it be grouped in triplets?",
+      "range": {
+        "startLine": 85,
+        "startChar": 65,
+        "endLine": 85,
+        "endChar": 66
+      },
+      "revId": "80ab9b386f501f3f24a475ee6ccc9525ad418204",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
