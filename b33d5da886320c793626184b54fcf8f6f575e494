@@ -16,6 +16,29 @@
       "message": "Thanks all.",
       "revId": "b33d5da886320c793626184b54fcf8f6f575e494",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac127fcd_8b1b49dc",
+        "filename": "runtime/gc/collector/garbage_collector.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-12-12T16:29:54Z",
+      "side": 1,
+      "message": "Mainly a question for Wassam/Shai: can\u0027t this be calculated by perfetto based on the above two values? Asking this in the interest of keeping the perfetto trace size minimal.",
+      "range": {
+        "startLine": 268,
+        "startChar": 31,
+        "endLine": 268,
+        "endChar": 42
+      },
+      "revId": "b33d5da886320c793626184b54fcf8f6f575e494",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
