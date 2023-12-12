@@ -16,6 +16,24 @@
       "message": "The comment on https://r.android.com/2845856 applies here too.",
       "revId": "ede08db19d9ae2599209a69792567f5b2d9c2b28",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "128d88bb_d5a41024",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2023-12-12T16:14:59Z",
+      "side": 1,
+      "message": "Thanks for the suggestions; I\u0027ve implemented the proposed refactoring in a separate CL (https://android-review.git.corp.google.com/c/platform/art/+/2871034) for clarity.",
+      "parentUuid": "d1f2f3ed_c11fc918",
+      "revId": "ede08db19d9ae2599209a69792567f5b2d9c2b28",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
