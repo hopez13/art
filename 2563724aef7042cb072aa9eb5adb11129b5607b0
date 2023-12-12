@@ -135,6 +135,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fa45da33_bfc4c4a2",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2023-12-12T11:04:39Z",
+      "side": 1,
+      "message": "As far as I understand URW stands for \u0027unprivileged read/write\u0027 and URO for \u0027unprivileged read only\u0027",
+      "parentUuid": "d3011cc1_7b2ecf3d",
+      "range": {
+        "startLine": 90,
+        "startChar": 49,
+        "endLine": 90,
+        "endChar": 52
+      },
+      "revId": "2563724aef7042cb072aa9eb5adb11129b5607b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8ad6f62f_b3552a21",
         "filename": "compiler/utils/riscv64/assembler_riscv64.h",
         "patchSetId": 1
@@ -485,6 +509,30 @@
       "writtenOn": "2023-12-11T16:24:36Z",
       "side": 1,
       "message": "What does \"VAI\" stand for?",
+      "range": {
+        "startLine": 1685,
+        "startChar": 13,
+        "endLine": 1685,
+        "endChar": 16
+      },
+      "revId": "2563724aef7042cb072aa9eb5adb11129b5607b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cbe60698_a9a4da06",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1685,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2023-12-12T11:04:39Z",
+      "side": 1,
+      "message": "`Vector Arithmetic Instruction`",
+      "parentUuid": "d2c602ef_d92f3e0a",
       "range": {
         "startLine": 1685,
         "startChar": 13,
