@@ -277,6 +277,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "94490eb8_81cf34e4",
+        "filename": "runtime/gc/collector/garbage_collector.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2023-12-12T20:12:27Z",
+      "side": 1,
+      "message": "Another option would be to make sure overflows/underflows are reported as truncated values (i.e. `INT_MAX`/`INT32_MIN`), which was suggested by Martin before. These values would presumably be very rare and easy to filter.",
+      "parentUuid": "9cf56fdd_623cb3b1",
+      "range": {
+        "startLine": 54,
+        "startChar": 5,
+        "endLine": 56,
+        "endChar": 18
+      },
+      "revId": "fe0d780b0fd1494747b1838f7143c83fc309c502",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3dea85a5_df342ab5",
         "filename": "runtime/gc/collector/garbage_collector.cc",
         "patchSetId": 2
