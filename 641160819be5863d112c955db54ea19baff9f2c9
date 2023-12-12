@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "49a0b7ea_fce86ab9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-12-12T18:56:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c898110b_4c9aa3b6",
+      "range": {
+        "startLine": 9,
+        "startChar": 9,
+        "endLine": 9,
+        "endChar": 21
+      },
+      "revId": "641160819be5863d112c955db54ea19baff9f2c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "97d013f9_96bffcd5",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-12-11T09:31:35Z",
       "side": 1,
       "message": "\\`other\\`\n\n(same in other references to local variables)",
+      "range": {
+        "startLine": 58,
+        "startChar": 37,
+        "endLine": 58,
+        "endChar": 42
+      },
+      "revId": "641160819be5863d112c955db54ea19baff9f2c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e486a2ca_9c269812",
+        "filename": "runtime/native/java_lang_ref_Reference.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-12-12T18:56:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "97d013f9_96bffcd5",
       "range": {
         "startLine": 58,
         "startChar": 37,
