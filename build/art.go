@@ -283,7 +283,7 @@ func testInstall(ctx android.InstallHookContext) {
 
 	tests := testMap[name]
 	tests = append(tests, ctx.Path().String())
-	testMap[name] = tests
+	testMap[name] = android.FirstUniqueStrings(tests)
 }
 
 var testcasesContentKey = android.NewOnceKey("artTestcasesContent")
