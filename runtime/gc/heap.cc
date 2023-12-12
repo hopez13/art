@@ -2651,7 +2651,7 @@ collector::GarbageCollector* Heap::Compact(space::ContinuousMemMapAllocSpace* ta
 }
 
 void Heap::TraceHeapSize(size_t heap_size) {
-  ATraceIntegerValue("Heap size (KB)", heap_size / KB);
+  ATraceInteger64ValueBestEffort("Heap size (KB)", heap_size / KB);
 }
 
 #if defined(__GLIBC__)
