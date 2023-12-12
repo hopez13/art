@@ -133,6 +133,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c59e3642_18f37fd7",
+        "filename": "runtime/gc/collector/garbage_collector.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-12-12T16:28:49Z",
+      "side": 1,
+      "message": "Thanks.\n\n\u003e but again this is expected to almost never happen\n\nWhich I argue only accentuates that we should consider reporting a special value that clearly cannot be a real sample, so that we won\u0027t fly blind if it starts to occur in some new use case in the future. I think it\u0027s more a question on how the perf reporting pipeline would handle a value like 0 or -1 (or perhaps `INT32_MIN`/`INT32_MAX`?). Maybe @wessam@google.com can chime in on this?",
+      "parentUuid": "bdc08e37_990a2d86",
+      "range": {
+        "startLine": 54,
+        "startChar": 5,
+        "endLine": 56,
+        "endChar": 18
+      },
+      "revId": "fe0d780b0fd1494747b1838f7143c83fc309c502",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3dea85a5_df342ab5",
         "filename": "runtime/gc/collector/garbage_collector.cc",
         "patchSetId": 2
