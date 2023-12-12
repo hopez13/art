@@ -16,6 +16,24 @@
       "message": "Thanks Roland for this change. Can you please include the current usages (like TraceHeapSize) to use this 64-bit version.",
       "revId": "b9daf8432e0533ef850dfe1bb46c47fc4fe47292",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c7a679f_4ba339bd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2023-12-12T19:41:03Z",
+      "side": 1,
+      "message": "Sure; done in https://android-review.git.corp.google.com/c/platform/art/+/2871036. \n\nBTW, looking at the ART code base, it seems `TraceHeapSize` was the only other use of ATrace in the ART code base that would benefit from reporting the value as a 64-bit integer.",
+      "parentUuid": "cfacceb1_ac6e5624",
+      "revId": "b9daf8432e0533ef850dfe1bb46c47fc4fe47292",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
