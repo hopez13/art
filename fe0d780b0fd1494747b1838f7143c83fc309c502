@@ -253,6 +253,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9cf56fdd_623cb3b1",
+        "filename": "runtime/gc/collector/garbage_collector.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2023-12-12T19:58:18Z",
+      "side": 1,
+      "message": "Note that negative values can still be reported as valid freed bytes values (see https://cs.android.com/android/platform/superproject/main/+/main:art/runtime/gc/collector/iteration.h;l\u003d95-96;drc\u003d7f0473851d9a8d5644fde8c483390a985c238433 and https://cs.android.com/android/platform/superproject/main/+/main:art/runtime/gc/collector/object_byte_pair.h;l\u003d35-37;drc\u003dd49012909625c3bf87bf51138fe79315ce1b1bdc), so we cannot use `-1` as an indicator of overflow/underflow for these metrics.\n\nPerhaps we could report this differently? Ideally, it seems we should use [`ATRACE_INSTANT`](https://cs.android.com/android/platform/superproject/main/+/main:system/core/libcutils/include/cutils/trace.h;l\u003d267-281;drc\u003d0c44d8d68d56c7aecb828d8d87fba7dcb114f3d9), but this call is currently not plumbed through `libartpalette`, so we could not use it on platforms with SDK level 34 and below. Maybe we could use another \"fake\" call to `ATRACE_INT` (e.g. via `ATraceIntegerValue(\"32-bit integer overflow\", 0)`) for this purpose?",
+      "parentUuid": "c762d9bb_3012205b",
+      "range": {
+        "startLine": 54,
+        "startChar": 5,
+        "endLine": 56,
+        "endChar": 18
+      },
+      "revId": "fe0d780b0fd1494747b1838f7143c83fc309c502",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3dea85a5_df342ab5",
         "filename": "runtime/gc/collector/garbage_collector.cc",
         "patchSetId": 2
