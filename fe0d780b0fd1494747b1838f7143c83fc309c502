@@ -107,6 +107,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bdc08e37_990a2d86",
+        "filename": "runtime/gc/collector/garbage_collector.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2023-12-12T16:01:46Z",
+      "side": 1,
+      "message": "Thanks for the suggestions; I\u0027ve implemented your suggestion about reporting overflows/underflows once per process in PS3.\n\nNote sure whether we can use a special value in ATrace to report exceptions, but again this is expected to almost never happen in current circumstances. @lokeshgidra@google.com, please correct me if I\u0027m wrong.",
+      "parentUuid": "427749d7_ee11b4fa",
+      "range": {
+        "startLine": 54,
+        "startChar": 5,
+        "endLine": 56,
+        "endChar": 18
+      },
+      "revId": "fe0d780b0fd1494747b1838f7143c83fc309c502",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3dea85a5_df342ab5",
@@ -178,6 +202,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d82a8bec_30295bf7",
+        "filename": "runtime/gc/collector/garbage_collector.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2023-12-12T16:01:46Z",
+      "side": 1,
+      "message": "I amended the warning message to make it more concise.",
+      "parentUuid": "03238e0e_e04b9026",
+      "range": {
+        "startLine": 59,
+        "startChar": 44,
+        "endLine": 60,
+        "endChar": 61
+      },
+      "revId": "fe0d780b0fd1494747b1838f7143c83fc309c502",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1cd2ec1d_e5613eb0",
@@ -227,6 +275,24 @@
       "side": 1,
       "message": "Yes, please do add live bytes scanned as well per b/300015145. Thanks.",
       "parentUuid": "5a634893_37e65d1e",
+      "revId": "fe0d780b0fd1494747b1838f7143c83fc309c502",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "031cccde_531cf52c",
+        "filename": "runtime/gc/collector/garbage_collector.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2023-12-12T16:01:46Z",
+      "side": 1,
+      "message": "Will do in a follow-up CL.",
+      "parentUuid": "388b5aa4_3f313cc3",
       "revId": "fe0d780b0fd1494747b1838f7143c83fc309c502",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
