@@ -314,6 +314,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7289d7cf_7bacb166",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 538,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2023-12-12T20:50:50Z",
+      "side": 1,
+      "message": "Those constants are not used anywhere yet so I drop them",
+      "parentUuid": "24ce8661_7ce1fc80",
+      "range": {
+        "startLine": 538,
+        "startChar": 4,
+        "endLine": 538,
+        "endChar": 12
+      },
+      "revId": "2563724aef7042cb072aa9eb5adb11129b5607b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f8b8bbab_034b5d87",
         "filename": "compiler/utils/riscv64/assembler_riscv64.h",
         "patchSetId": 1
