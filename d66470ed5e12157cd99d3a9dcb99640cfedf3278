@@ -106,6 +106,24 @@
       "parentUuid": "583c472b_d97bb003",
       "revId": "d66470ed5e12157cd99d3a9dcb99640cfedf3278",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e2d36c8_dcecf1e0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-12-12T12:45:22Z",
+      "side": 1,
+      "message": "No, not really. This is architecture-specific assembly where the developer can easily introduce bugs without noticing.\n\nBut I\u0027m really thinking about making the T5 and T6 reserved (not available for marking) and clobber them in the marking stubs. If new architectures follow that pattern, such bugs are less likely.",
+      "parentUuid": "5564d2e7_d3e0a5cf",
+      "revId": "d66470ed5e12157cd99d3a9dcb99640cfedf3278",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

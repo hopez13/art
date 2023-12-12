@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8953aee0_c87ea164",
+        "filename": "compiler/optimizing/intrinsics_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1254,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-12-12T12:45:22Z",
+      "side": 1,
+      "message": "This copy-pasted typo needs to be fixed on all architectures. For riscv64, I\u0027m doing that in https://android-review.googlesource.com/2869995 .",
+      "parentUuid": "2d043e0e_bdd7949c",
+      "range": {
+        "startLine": 1254,
+        "startChar": 55,
+        "endLine": 1254,
+        "endChar": 58
+      },
+      "revId": "ce871a4f96fb0ac5feb5ff48d2213cf0890b0607",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "27f85c67_e958b72c",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-12-11T17:32:43Z",
       "side": 1,
       "message": "Are these cases supposed to `ret` flow into `.Lrb_tmp_restore_\\name:`? Aren\u0027t we doing extra work with e.g. `sd t5, (8*0)(sp)` and `RESTORE_GPR t5, (8*0)`?",
+      "range": {
+        "startLine": 1395,
+        "startChar": 0,
+        "endLine": 1400,
+        "endChar": 10
+      },
+      "revId": "ce871a4f96fb0ac5feb5ff48d2213cf0890b0607",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "11f6a41c_49dc0756",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 1400,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-12-12T12:45:22Z",
+      "side": 1,
+      "message": "The `.Lrb_tmp_restore_\\name` has an incoming edge from line 1386 for which we need to restore both T5 and T6. I could either provide a separate return path, or store the new value in the stack slot from which it shall be restored and I chose the latter.\n\nI\u0027m thinking about making the T5 and T6 reserved and not available for marking. But that would be a separate change.",
+      "parentUuid": "27f85c67_e958b72c",
       "range": {
         "startLine": 1395,
         "startChar": 0,
