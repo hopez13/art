@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ceb788b_6289945f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-12-12T16:42:12Z",
+      "side": 1,
+      "message": "Thanks, Roland.",
+      "revId": "7457156e13cfb327af7fd376db65fe3d920b7156",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd12c4b4_bd41c0b8",
+        "filename": "libartpalette/system/palette_fake.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-12-12T16:42:12Z",
+      "side": 1,
+      "message": "Personally I\u0027d do away with this completely in this file - it\u0027s not here anyone would look for API guidance anyway. But it\u0027s optional.",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 62
+      },
+      "revId": "7457156e13cfb327af7fd376db65fe3d920b7156",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
