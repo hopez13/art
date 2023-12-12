@@ -229,6 +229,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c762d9bb_3012205b",
+        "filename": "runtime/gc/collector/garbage_collector.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1080238
+      },
+      "writtenOn": "2023-12-12T19:14:58Z",
+      "side": 1,
+      "message": "\u003e can we still filter them out so we can gather metrics from the remaining values?\n\nYes\n\n\u003e Is that up to the dashboards and PLX queries?\n\nYou\u0027ll probably be doing that in the PerfettoSQL queries but the principle is the same.",
+      "parentUuid": "3ba5c39b_7b19fcdf",
+      "range": {
+        "startLine": 54,
+        "startChar": 5,
+        "endLine": 56,
+        "endChar": 18
+      },
+      "revId": "fe0d780b0fd1494747b1838f7143c83fc309c502",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3dea85a5_df342ab5",
         "filename": "runtime/gc/collector/garbage_collector.cc",
         "patchSetId": 2
