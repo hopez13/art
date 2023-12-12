@@ -39,6 +39,30 @@
       },
       "revId": "b33d5da886320c793626184b54fcf8f6f575e494",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e80147a_607e784c",
+        "filename": "runtime/gc/collector/garbage_collector.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1651277
+      },
+      "writtenOn": "2023-12-12T17:57:54Z",
+      "side": 1,
+      "message": "You can sum metrics in the trace but the user or perfetto post processing needs to do an extra step. Also maybe freed_bytes (sum) is better reported automatically and one of the other 2 removed instead, since freed_bytes is important directly to use. I think the question becomes what comes with the trace automatically and whether we will add a postprocessing step. Adding @hjd@google.com and @lalitm@google.com to comment whether perfetto can add a post-processing step to calculate some of the metrics so as to appear in the trace directly.",
+      "parentUuid": "ac127fcd_8b1b49dc",
+      "range": {
+        "startLine": 268,
+        "startChar": 31,
+        "endLine": 268,
+        "endChar": 42
+      },
+      "revId": "b33d5da886320c793626184b54fcf8f6f575e494",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
