@@ -50,9 +50,14 @@ class InlineCache {
     return MemberOffset(OFFSETOF_MEMBER(InlineCache, classes_));
   }
 
+  static constexpr MemberOffset TimingOffset() {
+    return MemberOffset(OFFSETOF_MEMBER(InlineCache, timing_));
+  }
+
  private:
   uint32_t dex_pc_;
   GcRoot<mirror::Class> classes_[kIndividualCacheSize];
+  int timing_[kIndividualCacheSize];
 
   friend class jit::JitCodeCache;
   friend class ProfilingInfo;

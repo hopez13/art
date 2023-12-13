@@ -16,18 +16,19 @@
 
 #include "jit_code_cache.h"
 
-#include <sstream>
-
 #include <android-base/logging.h>
+
+#include <sstream>
 
 #include "arch/context.h"
 #include "art_method-inl.h"
 #include "base/enums.h"
 #include "base/histogram-inl.h"
 #include "base/logging.h"  // For VLOG.
+#include "base/macros.h"
+#include "base/mem_map.h"
 #include "base/membarrier.h"
 #include "base/memfd.h"
-#include "base/mem_map.h"
 #include "base/quasi_atomic.h"
 #include "base/stl_util.h"
 #include "base/systrace.h"
@@ -47,8 +48,8 @@
 #include "instrumentation.h"
 #include "intern_table.h"
 #include "jit/jit.h"
-#include "jit/profiling_info.h"
 #include "jit/jit_scoped_code_cache_write.h"
+#include "jit/profiling_info.h"
 #include "linear_alloc.h"
 #include "oat_file-inl.h"
 #include "oat_quick_method_header.h"
@@ -1477,6 +1478,7 @@ void JitCodeCache::GetProfiledMethods(const std::set<std::string>& dex_base_loca
   // ScopedDebugDisallowReadBarriers sddrb(self);
   MutexLock mu(self, *Locks::jit_lock_);
   ScopedTrace trace(__FUNCTION__);
+  LOG(INFO) << "!! start";
   for (const auto& entry : profiling_infos_) {
     ArtMethod* method = entry.first;
     ProfilingInfo* info = entry.second;
@@ -1505,12 +1507,22 @@ void JitCodeCache::GetProfiledMethods(const std::set<std::string>& dex_base_loca
       std::vector<TypeReference> profile_classes;
       const InlineCache& cache = info->GetInlineCaches()[i];
       ArtMethod* caller = info->GetMethod();
+      std::string log = ART_FORMAT("{}->{}{} {:#x} ",
+                                   caller->GetDeclaringClassDescriptor(),
+                                   caller->GetName(),
+                                   caller->GetSignature().ToString(),
+                                   cache.dex_pc_);
       bool is_missing_types = false;
       for (size_t k = 0; k < InlineCache::kIndividualCacheSize; k++) {
         mirror::Class* cls = cache.classes_[k].Read();
         if (cls == nullptr) {
           break;
         }
+        std::string tmp;
+        log +=
+            ART_FORMAT("{} {} ",
+                       cls->GetDescriptor(&tmp),
+                       static_cast<int>(ProfilingInfo::GetOptimizeThreshold()) - cache.timing_[k]);
 
         // Check if the receiver is in the boot class path or if it's in the
         // same class loader as the caller. If not, skip it, as there is not
@@ -1550,6 +1562,7 @@ void JitCodeCache::GetProfiledMethods(const std::set<std::string>& dex_base_loca
         }
       }
       if (!profile_classes.empty()) {
+        LOG(INFO) << "!! inline cache " << log;
         inline_caches.emplace_back(/*ProfileMethodInfo::ProfileInlineCache*/
             cache.dex_pc_, is_missing_types, profile_classes);
       }
@@ -1557,6 +1570,7 @@ void JitCodeCache::GetProfiledMethods(const std::set<std::string>& dex_base_loca
     methods.emplace_back(/*ProfileMethodInfo*/
         MethodReference(dex_file, method->GetDexMethodIndex()), inline_caches);
   }
+  LOG(INFO) << "!! end";
 }
 
 bool JitCodeCache::IsOsrCompiled(ArtMethod* method) {

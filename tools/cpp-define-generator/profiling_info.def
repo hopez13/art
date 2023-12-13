@@ -20,3 +20,4 @@
 
 ASM_DEFINE(INLINE_CACHE_SIZE, art::InlineCache::kIndividualCacheSize);
 ASM_DEFINE(INLINE_CACHE_CLASSES_OFFSET, art::InlineCache::ClassesOffset().Int32Value());
+ASM_DEFINE(INLINE_CACHE_TIMING_OFFSET, art::InlineCache::TimingOffset().Int32Value());

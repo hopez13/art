@@ -16,6 +16,8 @@
 
 #include "code_generator_arm64.h"
 
+#include <cstdint>
+
 #include "aarch64/assembler-aarch64.h"
 #include "aarch64/registers-aarch64.h"
 #include "arch/arm64/asm_support_arm64.h"
@@ -24,6 +26,7 @@
 #include "art_method-inl.h"
 #include "base/bit_utils.h"
 #include "base/bit_utils_iterator.h"
+#include "base/casts.h"
 #include "class_root-inl.h"
 #include "class_table.h"
 #include "code_generator_utils.h"
@@ -4591,8 +4594,11 @@ void CodeGeneratorARM64::MaybeGenerateInlineCacheCheck(HInstruction* instruction
     DCHECK(info != nullptr);
     InlineCache* cache = info->GetInlineCache(instruction->GetDexPc());
     uint64_t address = reinterpret_cast64<uint64_t>(cache);
+    uint64_t address2 = reinterpret_cast64<uint64_t>(info) +
+                        ProfilingInfo::BaselineHotnessCountOffset().Int32Value();
     vixl::aarch64::Label done;
     __ Mov(x8, address);
+    __ Mov(x11, address2);
     __ Ldr(w9, MemOperand(x8, InlineCache::ClassesOffset().Int32Value()));
     // Fast path for a monomorphic cache.
     __ Cmp(klass.W(), w9);

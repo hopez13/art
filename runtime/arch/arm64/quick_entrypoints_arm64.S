@@ -2419,7 +2419,7 @@ ENTRY ExecuteSwitchImplAsm
     ret
 END ExecuteSwitchImplAsm
 
-// x0 contains the class, x8 contains the inline cache. x9-x15 can be used.
+// x0 contains the class, x8 contains the inline cache, x11 contains the hotness counter. x9,x10,x12-x15 can be used.
 ENTRY art_quick_update_inline_cache
 #if (INLINE_CACHE_SIZE != 5)
 #error "INLINE_CACHE_SIZE not as expected."
@@ -2428,6 +2428,7 @@ ENTRY art_quick_update_inline_cache
     // Don't update the cache if we are marking.
     cbnz wMR, .Ldone
 #endif
+    ldrh w12, [x11]
 .Lentry1:
     ldr w9, [x8, #INLINE_CACHE_CLASSES_OFFSET]
     cmp w9, w0
@@ -2437,8 +2438,9 @@ ENTRY art_quick_update_inline_cache
     ldxr w9, [x10]
     cbnz w9, .Lentry1
     stxr  w9, w0, [x10]
-    cbz   w9, .Ldone
-    b .Lentry1
+    cbnz w9, .Lentry1
+    str w12, [x8, #INLINE_CACHE_TIMING_OFFSET]
+    b .Ldone
 .Lentry2:
     ldr w9, [x8, #INLINE_CACHE_CLASSES_OFFSET+4]
     cmp w9, w0
@@ -2448,8 +2450,9 @@ ENTRY art_quick_update_inline_cache
     ldxr w9, [x10]
     cbnz w9, .Lentry2
     stxr  w9, w0, [x10]
-    cbz   w9, .Ldone
-    b .Lentry2
+    cbnz w9, .Lentry2
+    str w12, [x8, #INLINE_CACHE_TIMING_OFFSET+4]
+    b .Ldone
 .Lentry3:
     ldr w9, [x8, #INLINE_CACHE_CLASSES_OFFSET+8]
     cmp w9, w0
@@ -2459,8 +2462,9 @@ ENTRY art_quick_update_inline_cache
     ldxr w9, [x10]
     cbnz w9, .Lentry3
     stxr  w9, w0, [x10]
-    cbz   w9, .Ldone
-    b .Lentry3
+    cbnz w9, .Lentry3
+    str w12, [x8, #INLINE_CACHE_TIMING_OFFSET+8]
+    b .Ldone
 .Lentry4:
     ldr w9, [x8, #INLINE_CACHE_CLASSES_OFFSET+12]
     cmp w9, w0
@@ -2470,11 +2474,20 @@ ENTRY art_quick_update_inline_cache
     ldxr w9, [x10]
     cbnz w9, .Lentry4
     stxr  w9, w0, [x10]
-    cbz   w9, .Ldone
-    b .Lentry4
+    cbnz w9, .Lentry4
+    str w12, [x8, #INLINE_CACHE_TIMING_OFFSET+12]
+    b .Ldone
 .Lentry5:
-    // Unconditionally store, the inline cache is megamorphic.
-    str  w0, [x8, #INLINE_CACHE_CLASSES_OFFSET+16]
+    ldr w9, [x8, #INLINE_CACHE_CLASSES_OFFSET+16]
+    cmp w9, w0
+    beq .Ldone
+    cbnz w9, .Ldone
+    add x10, x8, #INLINE_CACHE_CLASSES_OFFSET+16
+    ldxr w9, [x10]
+    cbnz w9, .Lentry5
+    stxr  w9, w0, [x10]
+    cbnz w9, .Lentry5
+    str w12, [x8, #INLINE_CACHE_TIMING_OFFSET+16]
 .Ldone:
     ret
 END art_quick_update_inline_cache
