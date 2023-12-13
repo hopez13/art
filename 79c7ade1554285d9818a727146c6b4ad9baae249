@@ -1,0 +1,319 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "40dc06a0_1201870a",
+        "filename": "compiler/linker/linker_patch.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-12-13T17:20:18Z",
+      "side": 1,
+      "message": "I\u0027d group this with other references (type/string). You already did that for the `MethodTypeBssEntryPatch()` function.",
+      "range": {
+        "startLine": 61,
+        "startChar": 4,
+        "endLine": 61,
+        "endChar": 24
+      },
+      "revId": "79c7ade1554285d9818a727146c6b4ad9baae249",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bdb32018_2f5e918a",
+        "filename": "compiler/linker/linker_patch.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-12-13T17:20:18Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "79c7ade1554285d9818a727146c6b4ad9baae249",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a356ea50_835c9c8c",
+        "filename": "compiler/linker/linker_patch.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-12-13T17:20:18Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 332,
+        "startChar": 13,
+        "endLine": 332,
+        "endChar": 23
+      },
+      "revId": "79c7ade1554285d9818a727146c6b4ad9baae249",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d072c4a7_e3764469",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-12-13T17:20:18Z",
+      "side": 1,
+      "message": "Indentation: +2 spaces.",
+      "range": {
+        "startLine": 288,
+        "startChar": 32,
+        "endLine": 288,
+        "endChar": 34
+      },
+      "revId": "79c7ade1554285d9818a727146c6b4ad9baae249",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d8046fc9_72ed1654",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1475,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-12-13T17:20:18Z",
+      "side": 1,
+      "message": "Indentation",
+      "range": {
+        "startLine": 1475,
+        "startChar": 4,
+        "endLine": 1475,
+        "endChar": 6
+      },
+      "revId": "79c7ade1554285d9818a727146c6b4ad9baae249",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "397bf3de_8c804782",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 6710,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-12-13T17:20:18Z",
+      "side": 1,
+      "message": "Indentation",
+      "range": {
+        "startLine": 6710,
+        "startChar": 8,
+        "endLine": 6710,
+        "endChar": 10
+      },
+      "revId": "79c7ade1554285d9818a727146c6b4ad9baae249",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "59021d4a_11168380",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 6730,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-12-13T17:20:18Z",
+      "side": 1,
+      "message": "Indentation",
+      "range": {
+        "startLine": 6730,
+        "startChar": 5,
+        "endLine": 6730,
+        "endChar": 6
+      },
+      "revId": "79c7ade1554285d9818a727146c6b4ad9baae249",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b6a465d6_40414c37",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2212,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-12-13T17:20:18Z",
+      "side": 1,
+      "message": "Remove space.",
+      "range": {
+        "startLine": 2212,
+        "startChar": 47,
+        "endLine": 2212,
+        "endChar": 48
+      },
+      "revId": "79c7ade1554285d9818a727146c6b4ad9baae249",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3d1b1418_fbb6384d",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2967,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-12-13T17:20:18Z",
+      "side": 1,
+      "message": "Line too long.",
+      "revId": "79c7ade1554285d9818a727146c6b4ad9baae249",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a171bbc_74e04790",
+        "filename": "libdexfile/dex/proto_reference.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-12-13T17:20:18Z",
+      "side": 1,
+      "message": "Should we return `std::string_view` with `GetTypeDescriptorView()`? The `strcmp` is quite slow as it has to look for the terminating zero in both strings and creating the `std::string_view` for ASCII strings in the dex file is really cheap.\n\n(OTOH, you\u0027re just moving existing code.)",
+      "range": {
+        "startLine": 45,
+        "startChar": 21,
+        "endLine": 45,
+        "endChar": 36
+      },
+      "revId": "79c7ade1554285d9818a727146c6b4ad9baae249",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1604a1e0_cad8687a",
+        "filename": "libdexfile/dex/proto_reference.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-12-13T17:20:18Z",
+      "side": 1,
+      "message": "If the dex files are the same, just compare indexes.",
+      "revId": "79c7ade1554285d9818a727146c6b4ad9baae249",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ce62de6_78b1da5c",
+        "filename": "libdexfile/dex/proto_reference.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-12-13T17:20:18Z",
+      "side": 1,
+      "message": "`std::string_view`?",
+      "range": {
+        "startLine": 64,
+        "startChar": 44,
+        "endLine": 64,
+        "endChar": 59
+      },
+      "revId": "79c7ade1554285d9818a727146c6b4ad9baae249",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4e9a970_19c30199",
+        "filename": "libdexfile/dex/proto_reference_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-12-13T17:20:18Z",
+      "side": 1,
+      "message": "You may as well check that `cmp(proto(i), proto(j)) \u003d\u003d i \u003c j` for all possible `i` and `j`.",
+      "revId": "79c7ade1554285d9818a727146c6b4ad9baae249",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be5dea66_f9b775cd",
+        "filename": "libdexfile/dex/proto_reference_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-12-13T17:20:18Z",
+      "side": 1,
+      "message": "2",
+      "range": {
+        "startLine": 82,
+        "startChar": 34,
+        "endLine": 82,
+        "endChar": 35
+      },
+      "revId": "79c7ade1554285d9818a727146c6b4ad9baae249",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2cb6848d_cd86728c",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1028,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-12-13T17:20:18Z",
+      "side": 1,
+      "message": "Bump the oat version.",
+      "revId": "79c7ade1554285d9818a727146c6b4ad9baae249",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
