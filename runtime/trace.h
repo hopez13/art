@@ -36,6 +36,8 @@
 #include "runtime_globals.h"
 #include "thread_pool.h"
 
+#define NUM_TRACE_BUFFERS 250
+
 namespace unix_file {
 class FdFile;
 }  // namespace unix_file
@@ -174,6 +176,10 @@ class TraceWriter {
   TraceOutputMode GetOutputMode() { return trace_output_mode_; }
   size_t GetBufferSize() { return buffer_size_; }
 
+  void InitializeTraceBuffers();
+  void ReleaseTraceBuffer(int index);
+  int AcquireTraceBuffer(size_t tid);
+
  private:
   // Get a 32-bit id for the method and specify if the method hasn't been seen before. If this is
   // the first time we see this method record information (like method name, declaring class etc.,)
@@ -273,6 +279,9 @@ class TraceWriter {
 
   // Thread pool to flush the trace entries to file.
   std::unique_ptr<ThreadPool> thread_pool_;
+
+  std::atomic<size_t> owner_tids_[NUM_TRACE_BUFFERS];
+  uintptr_t* trace_buffers_[NUM_TRACE_BUFFERS];
 };
 
 // Class for recording event traces. Trace data is either collected

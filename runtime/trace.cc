@@ -233,24 +233,35 @@ uint16_t TraceWriter::GetThreadEncoding(pid_t thread_id) {
 
 class TraceWriterTask final : public Task {
  public:
-  TraceWriterTask(TraceWriter* trace_writer, uintptr_t* buffer, size_t cur_offset, size_t thread_id)
+  // TraceWriterTask(TraceWriter* trace_writer, uintptr_t* buffer, size_t cur_offset, size_t thread_id)
+  TraceWriterTask(TraceWriter* trace_writer, int index, uintptr_t* buffer, size_t cur_offset, size_t thread_id)
       : trace_writer_(trace_writer),
+        index_(index),
         buffer_(buffer),
         cur_offset_(cur_offset),
         thread_id_(thread_id) {}
 
   void Run(Thread* self ATTRIBUTE_UNUSED) override {
     std::unordered_map<ArtMethod*, std::string> method_infos;
+    DCHECK_NE(buffer_, nullptr);
+    DCHECK_NE(trace_writer_, nullptr);
+    DCHECK_GT(cur_offset_ + thread_id_, 0u);
     {
       ScopedObjectAccess soa(Thread::Current());
       trace_writer_->PreProcessTraceForMethodInfos(buffer_, cur_offset_, method_infos);
     }
     trace_writer_->FlushBuffer(buffer_, cur_offset_, thread_id_, method_infos);
-    delete[] buffer_;
+    if (index_ == -1) {
+      delete[] buffer_;
+    } else {
+      // Set the pid[i] to 0 to indicate free.
+      trace_writer_->ReleaseTraceBuffer(index_);
+    }
   }
 
  private:
   TraceWriter* trace_writer_;
+  int index_;
   uintptr_t* buffer_;
   size_t cur_offset_;
   size_t thread_id_;
@@ -804,6 +815,8 @@ TraceWriter::TraceWriter(File* trace_file,
     thread_pool_.reset(new ThreadPool("Trace writer pool", 1));
     thread_pool_->StartWorkers(Thread::Current());
   }
+
+  InitializeTraceBuffers();
 }
 
 Trace::Trace(File* trace_file,
@@ -936,6 +949,10 @@ void TraceWriter::FinishTracing(int flags, bool flush_entries) {
     if (trace_file_->Close() != 0) {
       PLOG(ERROR) << "Could not close trace file.";
     }
+  }
+
+  for (int i = 0; i < NUM_TRACE_BUFFERS; i++) {
+    delete[] trace_buffers_[i];
   }
 }
 
@@ -1173,31 +1190,64 @@ uintptr_t* TraceWriter::PrepareBufferForNewEntries(Thread* thread) {
   return thread->GetMethodTraceBuffer();
 }
 
+void TraceWriter::InitializeTraceBuffers() {
+  // This would be done at the start of tracing.
+  for (int i = 0; i < NUM_TRACE_BUFFERS; i++) {
+    trace_buffers_[i] = new uintptr_t[std::max(kMinBufSize, kPerThreadBufSize)]();
+    owner_tids_[i].store(0);
+  }
+}
+
+int TraceWriter::AcquireTraceBuffer(size_t tid) {
+  for (int i = 0; i < NUM_TRACE_BUFFERS; i++) {
+    size_t owner = 0;
+    if (owner_tids_[i].compare_exchange_strong(owner, tid)) {
+      return i;
+    }
+  }
+  return -1;
+}
+
+void TraceWriter::ReleaseTraceBuffer(int index) {
+  // Only the trace_writer_ thread can release it so there won't be any
+  // concurrency issues here.
+  owner_tids_[index].store(0);
+}
+
 void TraceWriter::FlushBuffer(Thread* thread, bool is_sync) {
-  uintptr_t* method_trace_entries = thread->GetMethodTraceBuffer();
+  uintptr_t* method_trace_buffer = thread->GetMethodTraceBuffer();
   size_t* current_offset = thread->GetMethodTraceIndexPtr();
   size_t tid = thread->GetTid();
-  DCHECK(method_trace_entries != nullptr);
+  DCHECK(method_trace_buffer != nullptr);
 
   if (is_sync || thread_pool_ == nullptr) {
     std::unordered_map<ArtMethod*, std::string> method_infos;
-    PreProcessTraceForMethodInfos(method_trace_entries, *current_offset, method_infos);
-    FlushBuffer(method_trace_entries, *current_offset, tid, method_infos);
+    PreProcessTraceForMethodInfos(method_trace_buffer, *current_offset, method_infos);
+    FlushBuffer(method_trace_buffer, *current_offset, tid, method_infos);
 
     // This is a synchronous flush, so no need to allocate a new buffer. This is used either
     // when the tracing has finished or in non-streaming mode.
     // Just reset the buffer pointer to the initial value, so we can reuse the same buffer.
     *current_offset = kPerThreadBufSize;
   } else {
+    int index = AcquireTraceBuffer(tid);
+    uintptr_t* new_buffer = nullptr;
+    if (index != -1) {
+      new_buffer = trace_buffers_[index];
+    } else {
+      // Create a new buffer and update the per-thread buffer so we don't have to wait for the
+      // flushing to finish.
+      new_buffer = new uintptr_t[std::max(kMinBufSize, kPerThreadBufSize)]();
+    }
+    trace_buffers_[index] = method_trace_buffer;
+    thread_pool_->AddTask(Thread::Current(),
+                          new TraceWriterTask(this, index, method_trace_buffer, *current_offset, tid));
     // The TraceWriterTask takes the ownership of the buffer and delets the buffer once the
     // entries are flushed.
-    thread_pool_->AddTask(Thread::Current(),
-                          new TraceWriterTask(this, method_trace_entries, *current_offset, tid));
+    // thread_pool_->AddTask(Thread::Current(),
+    //                      new TraceWriterTask(this, method_trace_buffer, *current_offset, tid));
 
-    // Create a new buffer and update the per-thread buffer so we don't have to wait for the
-    // flushing to finish.
-    uintptr_t* method_trace_buffer = new uintptr_t[std::max(kMinBufSize, kPerThreadBufSize)]();
-    thread->SetMethodTraceBuffer(method_trace_buffer);
+    thread->SetMethodTraceBuffer(new_buffer);
     *current_offset = kPerThreadBufSize;
   }
 
