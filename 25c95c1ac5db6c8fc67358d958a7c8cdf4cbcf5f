@@ -33,6 +33,24 @@
       "message": "PS: Any power of 2, greater than or equal to `sizeof(uint64_t)` would do.\n\nMaybe we should go with `sizeof(uint64_t)` as that is the minimum needed now.",
       "revId": "25c95c1ac5db6c8fc67358d958a7c8cdf4cbcf5f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f31c5fc7_efc11f27",
+        "filename": "libartbase/base/bit_memory_region.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2023-12-13T21:11:34Z",
+      "side": 1,
+      "message": "Thanks for the comment, this indeed makes sense and feels more straightfoward. I\u0027ll be pushing an updated patchset shortly.",
+      "parentUuid": "88fcb935_1aa8adab",
+      "revId": "25c95c1ac5db6c8fc67358d958a7c8cdf4cbcf5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
