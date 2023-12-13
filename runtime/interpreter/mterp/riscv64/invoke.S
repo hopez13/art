@@ -161,7 +161,7 @@
    // (1) ArtMethod*
    // (2) ArtMethod* with LSB #1 set (default method)
    // (3) method index << 16 with LSB #0 set (j.l.Object method)
-   FETCH_FROM_THREAD_CACHE t0, /*slow path*/6f, t1, t2
+   FETCH_FROM_THREAD_CACHE t0, /*slow path*/5f, t1, t2
 1:
 %  fetch_receiver(reg="a1", vreg="s7", range=range)
                           // a1 := fp[C] (this)
@@ -169,19 +169,18 @@
    lwu t1, MIRROR_OBJECT_CLASS_OFFSET(a1)
                           // t1 := klass object (32-bit addr)
    slliw t2, t0, 30       // test LSB #0 and #1
-   bltz t2, 4f            // LSB #1 is set; handle default method
-   bgtz t2, 5f            // LSB #0 is set; handle object method
+   bltz t2, 3f            // LSB #1 is set; handle default method
+   bgtz t2, 4f            // LSB #0 is set; handle object method
    // no signal bits; it is a clean ArtMethod*
-   lh t2, ART_METHOD_IMT_INDEX_OFFSET(t0)
+   lhu t2, ART_METHOD_IMT_INDEX_OFFSET(t0)
                           // t2 := idx into interface method table (16-bit value)
 2:
    ld t1, MIRROR_CLASS_IMT_PTR_OFFSET_64(t1)
                           // t1 := base address of imt
    sh3add t1, t2, t1      // t1 := entry's address in imt
-3:
    ld a0, (t1)            // a0 := ArtMethod*
    tail NterpInvokeInterface${range}  // args a0, a1, s7, t0
-4:
+3:
    andi t0, t0, ~2        // t0 := method index, LSB #1 cleared
    lh t2, ART_METHOD_METHOD_INDEX_OFFSET(t0)
                           // t2 := method_index_ (16-bit value)
@@ -189,14 +188,15 @@
    andi t2, t2, ART_METHOD_IMT_MASK
                           // t2 := idx into interface method table
    j 2b
-5:
+4:
    // Interface methods on j.l.Object have a contract with NterpGetMethod.
    srliw t0, t0, 16       // t0 := method index
-   lwu t1, MIRROR_CLASS_VTABLE_OFFSET_64(t1)
+   addi t1, t1, MIRROR_CLASS_VTABLE_OFFSET_64
                           // t1 := base address of vtable (32-bit addr)
    sh3add t1, t0, t1      // t1 := entry's address in vtable
-   j 3b
-6:
+   ld a0, (t1)
+   tail NterpInvokeDirect${range}  // args a0, a1, s7
+5:
 %  resolve_method_into_a0()
    mv t0, a0              // t0 to match behavior of cache fetch
    j 1b
@@ -592,9 +592,9 @@
 // s8: (regular) vreg ids F|E|D|C, (range) vreg id CCCC
 %def nterp_invoke_custom(uniq="invoke_custom", range=""):
 %  if range == "Range":
-%    slow_setup_args_range(shorty="s7", vC="s8", z0="t0", z1="t1", z2="t2", z3="t3", z4="t4", z5="t5", z6="t6", z7="s9", uniq=uniq)
+%    slow_setup_args_range(shorty="s7", vC="s8", z0="t0", z1="t1", z2="t2", z3="t3", z4="t4", z5="t5", z6="t6", z7="s9", arg_start="0", uniq=uniq)
 %  else:
-%    slow_setup_args(shorty="s7", vregs="s8", z0="t0", z1="t1", z2="t2", z3="t3", z4="t4", z5="t5", z6="t6", uniq=uniq)
+%    slow_setup_args(shorty="s7", vregs="s8", z0="t0", z1="t1", z2="t2", z3="t3", z4="t4", z5="t5", z6="t6", arg_start="0", uniq=uniq)
 %#:
    // Managed ABI argument regs get spilled to stack and consumed by artInvokeCustom.
    call art_quick_invoke_custom  // args a0 - a7, fa0 - fa7, and maybe stack
