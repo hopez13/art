@@ -141,6 +141,30 @@
       },
       "revId": "ddbc950c15eca8b0b49dcd0476eb9f8e6828634d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d46882f_32a76210",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 542,
+      "author": {
+        "id": 1535516
+      },
+      "writtenOn": "2023-12-13T23:01:41Z",
+      "side": 1,
+      "message": "I would say custom soong modules are better than make, yes. Though in the long term we should add sufficient capabilities to the Android.bp file language so that it\u0027s not necessary for cases like these.",
+      "parentUuid": "b4b3e2e5_decc1c31",
+      "range": {
+        "startLine": 542,
+        "startChar": 0,
+        "endLine": 542,
+        "endChar": 1
+      },
+      "revId": "ddbc950c15eca8b0b49dcd0476eb9f8e6828634d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
