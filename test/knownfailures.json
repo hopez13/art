@@ -1590,11 +1590,9 @@
         "description": ["Test failures when using the Restricted mode (for simulator)."]
     },
     {
-        "tests": ["597-deopt-busy-loop",
-                  "638-checker-inline-cache-intrinsic"],
+        "tests": ["667-jit-jni-stub"],
         "env_vars": {"ART_USE_RESTRICTED_MODE": "true"},
-        "description": ["Simulator doesn't yet support JIT compilation and those test",
-                        "force JIT compilation even in --optimizing mode."]
+        "description": ["The restricted mode disables the JNI compiler which this test requires."]
     },
     {
         "tests": ["151-OpenFileLimit"],
@@ -1611,5 +1609,13 @@
         "tests": ["012-math"],
         "env_vars": {"ART_USE_SIMULATOR": "true"},
         "description": ["TODO: debug this failure, which happens when nterp is on."]
+    },
+    {
+        "tests": ["1955-pop-frame-jit-called",
+                  "1956-pop-frame-jit-calling",
+                  "1960-obsolete-jit-multithread-native"],
+        "env_vars": {"ART_USE_SIMULATOR": "true"},
+        "variant": "jit",
+        "description": ["TODO: investigate these timeouts when using jit on the simulator."]
     }
 ]

@@ -37,6 +37,7 @@ class OsrData;
 
 extern "C" const void* GetQuickInvokeStub();
 extern "C" const void* GetQuickInvokeStaticStub();
+extern "C" const void* GetQuickOsrStub();
 extern "C" const void* GetQuickThrowNullPointerExceptionFromSignal();
 extern "C" const void* GetQuickThrowStackOverflow();
 
@@ -86,6 +87,9 @@ extern "C" ssize_t NterpDoPackedSwitch(const uint16_t* switchData, int32_t testV
     REQUIRES_SHARED(Locks::mutator_lock_);
 extern "C" ssize_t NterpDoSparseSwitch(const uint16_t* switchData, int32_t testVal)
     REQUIRES_SHARED(Locks::mutator_lock_);
+extern "C" void NterpFree(void* val);
+extern "C" float NterpFmodF(float x, float y);
+extern "C" double NterpFmod(double x, double y);
 
 namespace arm64 {
 
@@ -248,6 +252,9 @@ class CustomSimulator final: public Simulator {
     RegisterBranchInterception(artIsAssignableFromCode);
     RegisterBranchInterception(artThrowArrayStoreException);
     RegisterBranchInterception(artThrowStackOverflowFromCode);
+    RegisterBranchInterception(artCompileOptimized);
+    RegisterBranchInterception(artAllocStringObjectRosAllocInstrumented);
+    RegisterBranchInterception(artMethodEntryHook);
 
     // ART has a number of math entrypoints which operate on double type (see
     // quick_entrypoints_list.h, entrypoints_init_arm64.cc); we need to intercept C functions
@@ -290,6 +297,9 @@ class CustomSimulator final: public Simulator {
     RegisterBranchInterception(NterpHotMethod);
     RegisterBranchInterception(NterpDoPackedSwitch);
     RegisterBranchInterception(NterpDoSparseSwitch);
+    RegisterBranchInterception(NterpFree);
+    RegisterBranchInterception(NterpFmod);
+    RegisterBranchInterception(NterpFmodF);
 
     RegisterTwoWordReturnInterception(artInvokeSuperTrampolineWithAccessCheck);
     RegisterTwoWordReturnInterception(artInvokeStaticTrampolineWithAccessCheck);
@@ -428,6 +438,38 @@ void CodeSimulatorArm64::Invoke(ArtMethod* method,
   } else {
     quick_code = reinterpret_cast<int64_t>(GetQuickInvokeStub());
   }
+
+  DCHECK_NE(quick_code, 0);
+  RunFrom(quick_code);
+}
+
+void CodeSimulatorArm64::DoOsr(void** stack,
+                               size_t stack_size_in_bytes,
+                               const uint8_t* native_pc,
+                               JValue* result,
+                               const char* shorty,
+                               Thread* self)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  /*  extern "C"
+   *     void art_quick_osr_stub(void** stack,                x0
+   *                             size_t stack_size_in_bytes,  x1
+   *                             const uint8_t* native_pc,    x2
+   *                             JValue* result,              x3
+   *                             const char* shorty,          x4
+   *                             Thread* self);               x5 */
+  CustomSimulator* simulator = GetSimulator();
+  size_t arg_no = 0;
+  simulator->WriteXRegister(arg_no++, reinterpret_cast<uint64_t>(stack));
+  simulator->WriteXRegister(arg_no++, stack_size_in_bytes);
+  simulator->WriteXRegister(arg_no++, reinterpret_cast<uint64_t>(native_pc));
+  simulator->WriteXRegister(arg_no++, reinterpret_cast<uint64_t>(result));
+  simulator->WriteXRegister(arg_no++, reinterpret_cast<uint64_t>(shorty));
+  simulator->WriteXRegister(arg_no++, reinterpret_cast<uint64_t>(self));
+
+  // The simulator will stop (and return from RunFrom) when it encounters pc == 0.
+  simulator->WriteLr(0);
+
+  int64_t quick_code = reinterpret_cast<int64_t>(GetQuickOsrStub());
 
   DCHECK_NE(quick_code, 0);
   RunFrom(quick_code);

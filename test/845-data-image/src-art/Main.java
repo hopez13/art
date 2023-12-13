@@ -191,7 +191,7 @@ public class Main implements Itf {
       return;
     }
 
-    String instructionSet = VMRuntime.getCurrentInstructionSet();
+    String instructionSet = getCurrentQuickInstructionSet();
     // Wait for the file to be generated.
     File image = new File(DEX_LOCATION + "/" + instructionSet + "/845-data-image.art");
     while (!image.exists()) {
@@ -337,6 +337,7 @@ public class Main implements Itf {
   private static native boolean hasImage();
   private static native String getCompilerFilter(Class<?> cls);
   private static native boolean isInImageSpace(Class<?> cls);
+  private static native String getCurrentQuickInstructionSet();
 
   private static final String TEMP_FILE_NAME_PREFIX = "temp";
   private static final String TEMP_FILE_NAME_SUFFIX = "-file";

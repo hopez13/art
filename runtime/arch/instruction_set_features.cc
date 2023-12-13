@@ -109,7 +109,7 @@ std::unique_ptr<const InstructionSetFeatures> InstructionSetFeatures::FromBitmap
 }
 
 std::unique_ptr<const InstructionSetFeatures> InstructionSetFeatures::FromCppDefines() {
-  switch (kRuntimeISA) {
+  switch (kRuntimeQuickCodeISA) {
     case InstructionSet::kArm:
     case InstructionSet::kThumb2:
       return ArmInstructionSetFeatures::FromCppDefines();
@@ -125,7 +125,7 @@ std::unique_ptr<const InstructionSetFeatures> InstructionSetFeatures::FromCppDef
     default:
       break;
   }
-  UNIMPLEMENTED(FATAL) << kRuntimeISA;
+  UNIMPLEMENTED(FATAL) << kRuntimeQuickCodeISA;
   UNREACHABLE();
 }
 
@@ -183,7 +183,7 @@ std::unique_ptr<const InstructionSetFeatures> InstructionSetFeatures::FromHwcap(
 }
 
 std::unique_ptr<const InstructionSetFeatures> InstructionSetFeatures::FromAssembly() {
-  switch (kRuntimeISA) {
+  switch (kRuntimeQuickCodeISA) {
     case InstructionSet::kArm:
     case InstructionSet::kThumb2:
       return ArmInstructionSetFeatures::FromAssembly();
@@ -199,7 +199,7 @@ std::unique_ptr<const InstructionSetFeatures> InstructionSetFeatures::FromAssemb
     default:
       break;
   }
-  UNIMPLEMENTED(FATAL) << kRuntimeISA;
+  UNIMPLEMENTED(FATAL) << kRuntimeQuickCodeISA;
   UNREACHABLE();
 }
 
