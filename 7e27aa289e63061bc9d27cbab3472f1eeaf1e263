@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a00bb580_ea6d9a79",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-12-13T18:23:56Z",
+      "side": 1,
+      "message": "There are some tests failing because the disassembly has to be updated for `DecodeJNITransitionOrLocalJObject`.\n\nI have seen `device-boot-test` to be flaky lately so I am not sure if it\u0027s related or not.",
+      "revId": "7e27aa289e63061bc9d27cbab3472f1eeaf1e263",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
