@@ -2016,6 +2016,13 @@ bool Runtime::Init(RuntimeArgumentMap&& runtime_options_in) {
     trace_config_->clock_source = runtime_options.GetOrDefault(Opt::MethodTraceClock);
   }
 
+  /*trace_config_.reset(new TraceConfig());
+  trace_config_->trace_file = "/dev/null";
+  trace_config_->trace_file_size = 1000000;
+  trace_config_->trace_mode = Trace::TraceMode::kMethodTracing;
+  trace_config_->trace_output_mode = TraceOutputMode::kStreaming;
+  trace_config_->clock_source = TraceClockSource::kWall;*/
+
   // TODO: Remove this in a follow up CL. This isn't used anywhere.
   Trace::SetDefaultClockSource(runtime_options.GetOrDefault(Opt::ProfileClock));
 
