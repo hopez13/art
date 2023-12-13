@@ -58,6 +58,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1890c2bc_b24c011d",
+        "filename": "openjdkjvmti/ti_heap.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 980,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-12-13T17:49:12Z",
+      "side": 1,
+      "message": "Old habits die hard. Done.",
+      "parentUuid": "abf2b73a_c2687235",
+      "range": {
+        "startLine": 980,
+        "startChar": 72,
+        "endLine": 980,
+        "endChar": 73
+      },
+      "revId": "5b52fef9f66e3464019d1c7b514306cf75fbe9f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7062c921_93f7104e",
@@ -81,6 +105,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1692424b_8fbfc1a8",
+        "filename": "openjdkjvmti/ti_threadgroup.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-12-13T17:49:12Z",
+      "side": 1,
+      "message": "Done. I suspect that was my intent.",
+      "parentUuid": "7062c921_93f7104e",
+      "range": {
+        "startLine": 184,
+        "startChar": 24,
+        "endLine": 184,
+        "endChar": 75
+      },
+      "revId": "5b52fef9f66e3464019d1c7b514306cf75fbe9f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "373e2b96_9e45fbd6",
@@ -94,6 +142,30 @@
       "writtenOn": "2023-12-11T07:06:50Z",
       "side": 1,
       "message": "I\u0027m a bit confused. The declaration in thread.h says it requires that this is not held for this function. But here you say it can be in any state. So shouldn\u0027t you remove the `REQUIRES` there for `thread_list_lock_`?",
+      "range": {
+        "startLine": 4759,
+        "startChar": 41,
+        "endLine": 4759,
+        "endChar": 58
+      },
+      "revId": "5b52fef9f66e3464019d1c7b514306cf75fbe9f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "260a0869_c68c52d3",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 4759,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-12-13T17:49:12Z",
+      "side": 1,
+      "message": "Yes. I neglected to fix that after adding the hack for GetReferenceKind(). Replaced the REQUIRES clause with a more complicated comment.",
+      "parentUuid": "373e2b96_9e45fbd6",
       "range": {
         "startLine": 4759,
         "startChar": 41,
@@ -150,6 +222,54 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "63de6d13_340d1553",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 4760,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-12-13T17:49:12Z",
+      "side": 1,
+      "message": "I think the new version is what you had in mind, and I agree that it\u0027s cleaner.",
+      "parentUuid": "46fd8bb9_36f7db86",
+      "range": {
+        "startLine": 4760,
+        "startChar": 5,
+        "endLine": 4760,
+        "endChar": 12
+      },
+      "revId": "5b52fef9f66e3464019d1c7b514306cf75fbe9f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dcb08c73_25bda83f",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 4760,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-12-13T17:49:12Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "671773d1_a65b7d4f",
+      "range": {
+        "startLine": 4759,
+        "startChar": 3,
+        "endLine": 4760,
+        "endChar": 84
+      },
+      "revId": "5b52fef9f66e3464019d1c7b514306cf75fbe9f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a145efbf_a68f503e",
@@ -163,6 +283,30 @@
       "writtenOn": "2023-12-11T07:06:50Z",
       "side": 1,
       "message": "Isn\u0027t that a problem? I mean wouldn\u0027t that cause failures?",
+      "range": {
+        "startLine": 875,
+        "startChar": 5,
+        "endLine": 875,
+        "endChar": 88
+      },
+      "revId": "5b52fef9f66e3464019d1c7b514306cf75fbe9f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f9a32d05_34cfb772",
+        "filename": "runtime/thread.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 875,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-12-13T17:49:12Z",
+      "side": 1,
+      "message": "I think only because the comment was misleading. We don\u0027t guarantee to fail if the thread has terminated, though it should be likely that we will. In the absence of other bugs, the thread should not have terminated.\n\nCorrected/clarified the comment.",
+      "parentUuid": "a145efbf_a68f503e",
       "range": {
         "startLine": 875,
         "startChar": 5,
