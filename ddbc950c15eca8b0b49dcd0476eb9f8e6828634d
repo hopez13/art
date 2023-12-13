@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a6454709_33d4b772",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-12-13T22:17:54Z",
+      "side": 1,
+      "message": "Thanks. I verified that it works.",
+      "parentUuid": "6382b489_265d4d52",
+      "range": {
+        "startLine": 10,
+        "startChar": 6,
+        "endLine": 10,
+        "endChar": 37
+      },
+      "revId": "ddbc950c15eca8b0b49dcd0476eb9f8e6828634d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "39180e4e_9d0ce1c2",
@@ -85,6 +109,30 @@
       "side": 1,
       "message": "We definitely need to do this eventually. One problem with `boot.zip` and `system_server.zip` specifically is that they rely on lists of jars that vary per product.\n\nIn 2024 we plan on migrating partition builds to soong, which should give us soong modules that have better representation of the state of the whole product. That will make it easier to add stuff like `boot.zip` to soong.",
       "parentUuid": "39180e4e_9d0ce1c2",
+      "range": {
+        "startLine": 542,
+        "startChar": 0,
+        "endLine": 542,
+        "endChar": 1
+      },
+      "revId": "ddbc950c15eca8b0b49dcd0476eb9f8e6828634d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4b3e2e5_decc1c31",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 542,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-12-13T22:17:54Z",
+      "side": 1,
+      "message": "The products vars that `boot.zip` and `system_server.zip` need are already available in Soong. I\u0027m not too worried about that.\n\nMy question is, do you think it\u0027s a good idea if I define dedicated Soong module types for them and put the logic in Go code?",
+      "parentUuid": "0a04ca70_bafeffc2",
       "range": {
         "startLine": 542,
         "startChar": 0,
