@@ -65,6 +65,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "360033c6_3d40d1e5",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2407,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-12-13T13:38:24Z",
+      "side": 1,
+      "message": "Thanks!",
+      "parentUuid": "ef531ca3_85d87f4d",
+      "range": {
+        "startLine": 2407,
+        "startChar": 5,
+        "endLine": 2407,
+        "endChar": 77
+      },
+      "revId": "04dfae1b7d0bf77e3363673ff6abf49d31319556",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d20048cb_2f00d157",
@@ -102,6 +126,30 @@
       "side": 1,
       "message": "Yes, we may accumulate compilation requests, but given the high threshold for compilation, I don\u0027t expect this to happen often.\n\nThanks for pointing out the fix, incorporated.",
       "parentUuid": "d20048cb_2f00d157",
+      "range": {
+        "startLine": 1264,
+        "startChar": 2,
+        "endLine": 1264,
+        "endChar": 87
+      },
+      "revId": "04dfae1b7d0bf77e3363673ff6abf49d31319556",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "01595ee3_da1034bd",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1264,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-12-13T13:38:24Z",
+      "side": 1,
+      "message": "Thanks! I was thinking if we can check if method has optimized code in JitCompileTask::Run but I guess we can\u0027t differentiate baseline and optimized code right. I agree this might not be frequent enough to be a problem. \n\nMaybe you missed uploading the new patch with the fix for redefinition.",
+      "parentUuid": "5b10ed5b_55eca303",
       "range": {
         "startLine": 1264,
         "startChar": 2,
