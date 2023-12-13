@@ -341,7 +341,8 @@
     },
     {
         "tests": ["000-nop",
-                  "595-profile-saving"],
+                  "595-profile-saving",
+                  "2270-profile-inline-cache"],
         "description": "The doesn't compile anything",
         "env_vars": {"ART_TEST_BISECTION": "true"},
         "variant": "optimizing"
@@ -515,7 +516,8 @@
             "924-threads",
             "981-dedup-original-dex",
             "1900-track-alloc",
-            "2230-profile-save-hotness"
+            "2230-profile-save-hotness",
+            "2270-profile-inline-cache"
         ],
         "description": ["Tests that require exact knowledge of the deoptimization state, the ",
                         "number of plugins and agents, or breaks other openjdkjvmti assumptions."],
@@ -950,7 +952,6 @@
           "593-checker-shift-and-simplifier",
           "594-invoke-super",
           "595-error-class",
-          "595-profile-saving",
           "596-app-images",
           "596-checker-dead-phi",
           "596-monitor-inflation",
@@ -1570,5 +1571,11 @@
         "description": "ASAN issue.",
         "variant": "host",
         "env_vars": {"SANITIZE_HOST": "address"}
+    },
+    {
+      "tests": ["595-profile-saving",
+                "2270-profile-inline-cache"],
+      "variant": "jvm",
+      "description": ["jvm doesn't support profiling."]
     }
 ]
