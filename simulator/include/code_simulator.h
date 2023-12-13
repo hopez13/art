@@ -77,6 +77,14 @@ class CodeSimulator {
                       const char* shorty,
                       bool isStatic) REQUIRES_SHARED(Locks::mutator_lock_) = 0;
 
+  // Do on stack replacement; this should follow the semantics of art_quick_osr_stub.
+  virtual void DoOsr(void** stack,
+                     size_t stack_size_in_bytes,
+                     const uint8_t* native_pc,
+                     JValue* result,
+                     const char* shorty,
+                     Thread* self) REQUIRES_SHARED(Locks::mutator_lock_) = 0;
+
   // Get the current stack pointer from the simulator.
   virtual int64_t GetStackPointer() = 0;
   // Get the stack base from the simulator.

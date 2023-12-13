@@ -90,14 +90,16 @@ double tsc_to_microsec_scaling_factor = -1.0;
 
 uint64_t GetTimestamp() {
   uint64_t t = 0;
-#if defined(__arm__)
+#if defined(__arm__) || defined(ART_USE_SIMULATOR)
   // On ARM 32 bit, we don't always have access to the timestamp counters from user space. There is
   // no easy way to check if it is safe to read the timestamp counters. There is HWCAP_EVTSTRM which
   // is set when generic timer is available but not necessarily from the user space. Kernel disables
   // access to generic timer when there are known problems on the target CPUs. Sometimes access is
-  // disabled only for 32-bit processes even when 64-bit processes can accesses the timer from user
-  // space. These are not reflected in the HWCAP_EVTSTRM capability.So just fallback to
+  // disabled only for 32-bit processes even when 64-bit processes can access the timer from user
+  // space. These are not reflected in the HWCAP_EVTSTRM capability. So just fallback to
   // clock_gettime on these processes. See b/289178149 for more discussion.
+  // The simulator does not support simulated timestamp counters so also fallback to using
+  // clock_gettime.
   t = MicroTime();
 #elif defined(__aarch64__)
   // See Arm Architecture Registers  Armv8 section System Registers
@@ -115,10 +117,11 @@ uint64_t GetTimestamp() {
   return t;
 }
 
-#if defined(__i386__) || defined(__x86_64__) || defined(__aarch64__)
+#if !defined(ART_USE_SIMULATOR) && \
+    (defined(__i386__) || defined(__x86_64__) || defined(__aarch64__))
 // Here we compute the scaling factor by sleeping for a millisecond. Alternatively, we could
 // generate raw timestamp counter and also time using clock_gettime at the start and the end of the
-// trace. We can compute the frequency of timestamp counter upadtes in the post processing step
+// trace. We can compute the frequency of timestamp counter updates in the post processing step
 // using these two samples. However, that would require a change in Android Studio which is the main
 // consumer of these profiles. For now, just compute the frequency of tsc updates here.
 double computeScalingFactor() {
@@ -134,7 +137,7 @@ double computeScalingFactor() {
 }
 #endif
 
-#if defined(__i386__) || defined(__x86_64__)
+#if !defined(ART_USE_SIMULATOR) && (defined(__i386__) || defined(__x86_64__))
 double GetScalingFactorForX86() {
   uint32_t eax, ebx, ecx;
   asm volatile("cpuid" : "=a"(eax), "=b"(ebx), "=c"(ecx) : "a"(0x0), "c"(0));
@@ -180,9 +183,9 @@ void InitializeTimestampCounters() {
     return;
   }
 
-#if defined(__arm__)
-  // On ARM 32 bit, we don't always have access to the timestamp counters from
-  // user space. Seem comment in GetTimestamp for more details.
+#if defined(__arm__) || defined(ART_USE_SIMULATOR)
+  // On ARM 32 bit and the simulator, we don't always have access to the timestamp counters from
+  // user space. See comment in GetTimestamp for more details.
   tsc_to_microsec_scaling_factor = 1.0;
 #elif defined(__aarch64__)
   double seconds_to_microseconds = 1000 * 1000;
@@ -590,9 +593,9 @@ void Trace::Start(std::unique_ptr<File>&& trace_file_in,
         // For thread cpu clocks, we need to make a kernel call and hence we call into c++ to
         // support them.
         bool is_fast_trace = !UseThreadCpuClock(the_trace_->GetClockSource());
-#if defined(__arm__)
-        // On ARM 32 bit, we don't always have access to the timestamp counters from
-        // user space. Seem comment in GetTimestamp for more details.
+#if defined(__arm__) || defined(ART_USE_SIMULATOR)
+        // On ARM 32 bit and the simulator, we don't always have access to the timestamp counters
+        // from user space. See comment in GetTimestamp for more details.
         is_fast_trace = false;
 #endif
         runtime->GetInstrumentation()->AddListener(
@@ -655,9 +658,9 @@ void Trace::StopTracing(bool flush_entries) {
       // For thread cpu clocks, we need to make a kernel call and hence we call into c++ to support
       // them.
       bool is_fast_trace = !UseThreadCpuClock(the_trace_->GetClockSource());
-#if defined(__arm__)
-        // On ARM 32 bit, we don't always have access to the timestamp counters from
-        // user space. Seem comment in GetTimestamp for more details.
+#if defined(__arm__) || defined(ART_USE_SIMULATOR)
+        // On ARM 32 bit and the simulator, we don't always have access to the timestamp counters
+        // from user space. See comment in GetTimestamp for more details.
         is_fast_trace = false;
 #endif
       runtime->GetInstrumentation()->RemoveListener(

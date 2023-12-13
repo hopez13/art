@@ -42,7 +42,8 @@ CompilerOptions::CompilerOptions()
       huge_method_threshold_(kDefaultHugeMethodThreshold),
       large_method_threshold_(kDefaultLargeMethodThreshold),
       inline_max_code_units_(kUnsetInlineMaxCodeUnits),
-      instruction_set_(kRuntimeISA == InstructionSet::kArm ? InstructionSet::kThumb2 : kRuntimeISA),
+      instruction_set_(kRuntimeQuickCodeISA == InstructionSet::kArm ? InstructionSet::kThumb2
+                                                                      : kRuntimeQuickCodeISA),
       instruction_set_features_(nullptr),
       no_inline_from_(),
       dex_files_for_oat_file_(),

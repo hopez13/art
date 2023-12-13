@@ -80,6 +80,13 @@ class CodeSimulatorArm64 : public CodeSimulator, public BasicCodeSimulatorArm64 
               const char* shorty,
               bool isStatic) override REQUIRES_SHARED(Locks::mutator_lock_);
 
+  void DoOsr(void** stack,
+             size_t stack_size_in_bytes,
+             const uint8_t* native_pc,
+             JValue* result,
+             const char* shorty,
+             Thread* self) override REQUIRES_SHARED(Locks::mutator_lock_);
+
   int64_t GetStackPointer() override;
   uint8_t* GetStackBaseInternal() override;
   uintptr_t GetPc() override;

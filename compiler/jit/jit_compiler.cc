@@ -83,7 +83,7 @@ void JitCompiler::ParseCompilerOptions() {
   if (kRuntimeISA == InstructionSet::kArm) {
     DCHECK_EQ(instruction_set, InstructionSet::kThumb2);
   } else {
-    DCHECK_EQ(instruction_set, kRuntimeISA);
+    DCHECK_EQ(instruction_set, kRuntimeQuickCodeISA);
   }
   std::unique_ptr<const InstructionSetFeatures> instruction_set_features;
   for (const std::string& option : runtime->GetCompilerOptions()) {

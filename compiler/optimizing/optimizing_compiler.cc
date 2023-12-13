@@ -1267,6 +1267,11 @@ bool OptimizingCompiler::JitCompile(Thread* self,
   ArenaAllocator allocator(runtime->GetJitArenaPool());
 
   if (UNLIKELY(method->IsNative())) {
+    // Use GenericJniTrampoline if the JNI compiler is not enabled.
+    if (!compiler_options.IsJniCompilationEnabled()) {
+      return false;
+    }
+
     // Use GenericJniTrampoline for critical native methods in debuggable runtimes. We don't
     // support calling method entry / exit hooks for critical native methods yet.
     // TODO(mythria): Add support for calling method entry / exit hooks in JITed stubs for critical

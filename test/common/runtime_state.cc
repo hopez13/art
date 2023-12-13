@@ -598,4 +598,8 @@ extern "C" JNIEXPORT jboolean Java_Main_removeJitCompiledMethod(JNIEnv* env,
   return removed ? JNI_TRUE : JNI_FALSE;
 }
 
+extern "C" JNIEXPORT jstring JNICALL Java_Main_getCurrentQuickInstructionSet(JNIEnv* env, jclass) {
+  return env->NewStringUTF(GetInstructionSetString(kRuntimeQuickCodeISA));
+}
+
 }  // namespace art

@@ -21,7 +21,7 @@ public class Main {
     public static void main(String[] args) throws Exception {
         System.loadLibrary(args[0]);
         boolean hasImage = hasImage();
-        String instructionSet = VMRuntime.getCurrentInstructionSet();
+        String instructionSet = getCurrentQuickInstructionSet();
         boolean isBootClassPathOnDisk = VMRuntime.isBootClassPathOnDisk(instructionSet);
         System.out.println(
                 "Has image is " + hasImage + ", is image dex2oat enabled is "
@@ -45,14 +45,13 @@ public class Main {
     private native static boolean hasImage();
 
     private native static boolean isImageDex2OatEnabled();
+    private native static String getCurrentQuickInstructionSet();
 
     private static class VMRuntime {
-        private static final Method getCurrentInstructionSetMethod;
         private static final Method isBootClassPathOnDiskMethod;
         static {
             try {
                 Class<?> c = Class.forName("dalvik.system.VMRuntime");
-                getCurrentInstructionSetMethod = c.getDeclaredMethod("getCurrentInstructionSet");
                 isBootClassPathOnDiskMethod =
                         c.getDeclaredMethod("isBootClassPathOnDisk", String.class);
             } catch (Exception e) {
@@ -60,9 +59,6 @@ public class Main {
             }
         }
 
-        public static String getCurrentInstructionSet() throws Exception {
-            return (String) getCurrentInstructionSetMethod.invoke(null);
-        }
         public static boolean isBootClassPathOnDisk(String instructionSet) throws Exception {
             return (boolean) isBootClassPathOnDiskMethod.invoke(null, instructionSet);
         }
