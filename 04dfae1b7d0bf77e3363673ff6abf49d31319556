@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f168050_7aec1263",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-12-13T13:03:52Z",
+      "side": 1,
+      "message": "Thanks Mythri.",
+      "revId": "04dfae1b7d0bf77e3363673ff6abf49d31319556",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "54af5989_cea1a769",
@@ -26,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ef531ca3_85d87f4d",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2407,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-12-13T13:03:52Z",
+      "side": 1,
+      "message": "We almost never class unload, and JIT activity very quickly quiets down after app startup. That\u0027s why I think thins this is fine.",
+      "parentUuid": "54af5989_cea1a769",
+      "range": {
+        "startLine": 2407,
+        "startChar": 5,
+        "endLine": 2407,
+        "endChar": 77
+      },
+      "revId": "04dfae1b7d0bf77e3363673ff6abf49d31319556",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d20048cb_2f00d157",
         "filename": "runtime/jit/jit.cc",
         "patchSetId": 2
@@ -37,6 +78,30 @@
       "writtenOn": "2023-12-13T11:00:23Z",
       "side": 1,
       "message": "How do we make sure we aren\u0027t enqueuing multiple tasks for the same method? If a method gets hot multiple times before we get a chance to finish the compilation wouldn\u0027t we enqueue multiple compile tasks for the same method.\n\nAlso I remember a bug related to redefinition. We shouldn\u0027t enqueue tasks when jit thread pool is stopped. We added the check to ScopedCompilation but we actually don\u0027t need it. I think we can just check ``thread_pool_-\u003eHasStarted()`` before adding the task. Here\u0027s the fix: https://android-review.git.corp.google.com/c/platform/art/+/2129478",
+      "range": {
+        "startLine": 1264,
+        "startChar": 2,
+        "endLine": 1264,
+        "endChar": 87
+      },
+      "revId": "04dfae1b7d0bf77e3363673ff6abf49d31319556",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b10ed5b_55eca303",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1264,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-12-13T13:03:52Z",
+      "side": 1,
+      "message": "Yes, we may accumulate compilation requests, but given the high threshold for compilation, I don\u0027t expect this to happen often.\n\nThanks for pointing out the fix, incorporated.",
+      "parentUuid": "d20048cb_2f00d157",
       "range": {
         "startLine": 1264,
         "startChar": 2,
