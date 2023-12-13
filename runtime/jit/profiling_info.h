@@ -99,7 +99,9 @@ class BranchCache {
 class ProfilingInfo {
  public:
   // Create a ProfilingInfo for 'method'.
-  static ProfilingInfo* Create(Thread* self, ArtMethod* method)
+  static ProfilingInfo* Create(Thread* self,
+                               ArtMethod* method,
+                               const std::vector<uint32_t>& inline_cache_entries)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Add information from an executed INVOKE instruction to the profile.
@@ -126,7 +128,8 @@ class ProfilingInfo {
         number_of_inline_caches_ * sizeof(InlineCache));
   }
 
-  static size_t ComputeSize(uint32_t number_of_inline_caches, uint32_t number_of_branch_caches) {
+  static size_t ComputeSize(uint32_t number_of_inline_caches,
+                            uint32_t number_of_branch_caches) {
     return sizeof(ProfilingInfo) +
         number_of_inline_caches * sizeof(InlineCache) +
         number_of_branch_caches * sizeof(BranchCache);

@@ -1827,4 +1827,28 @@ ScaleFactor CodeGenerator::ScaleFactorForType(DataType::Type type) {
   }
 }
 
+bool CodeGenerator::UpdateInlineCache(HInvoke* invoke) const {
+  DCHECK(invoke->IsInvokeVirtual() || invoke->IsInvokeInterface());
+  if (invoke->IsIntrinsic()) {
+    return false;
+  }
+  if (!GetGraph()->IsCompilingBaseline()) {
+    return false;
+  }
+  if (Runtime::Current()->IsAotCompiler()) {
+    return false;
+  }
+  if (invoke->InputAt(0)->GetReferenceTypeInfo().IsExact()) {
+    return false;
+  }
+  if (invoke->GetResolvedMethod() != nullptr) {
+    ScopedObjectAccess soa(Thread::Current());
+    if (invoke->GetResolvedMethod()->IsFinal() ||
+        invoke->GetResolvedMethod()->GetDeclaringClass()->IsFinal()) {
+      return false;
+    }
+  }
+  return true;
+}
+
 }  // namespace art
