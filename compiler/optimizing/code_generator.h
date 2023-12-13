@@ -718,6 +718,9 @@ class CodeGenerator : public DeletableArenaObject<kArenaAllocCodeGenerator> {
                                    GetAssembler().CodeSize());
   }
 
+  // Whether a virtual/interface invoke can update an inline cache.
+  bool UpdateInlineCache(HInvoke* invoke) const;
+
  protected:
   // Patch info used for recording locations of required linker patches and their targets,
   // i.e. target method, string, type or code identified by their dex file and index,

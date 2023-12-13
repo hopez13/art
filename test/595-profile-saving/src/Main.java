@@ -129,7 +129,10 @@ public class Main {
   }
 
   // Ensure a method has a profiling info.
-  public static native void ensureProfilingInfo(Method method);
+  public static void ensureProfilingInfo(Method method) {
+    ensureJitBaselineCompiled(method.getDeclaringClass(), method.getName());
+  }
+  public static native void ensureJitBaselineCompiled(Class<?> cls, String methodName);
   // Ensures the profile saver does its usual processing.
   public static native void ensureProfileProcessing();
   // Checks if the profiles saver knows about the method.
