@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dee5e9d9_611f41d9",
+        "filename": "libartbase/base/systrace.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-12-13T03:27:32Z",
+      "side": 1,
+      "message": "I guess it would be somewhat more efficient if we use `UNLIKELY` here and in the condition at line 71. TraceHeapSize is done much more frequently than the others that are added in this chain.",
+      "range": {
+        "startLine": 62,
+        "startChar": 6,
+        "endLine": 62,
+        "endChar": 49
+      },
+      "revId": "26626d3cb7c412dc50661ff40e5784dd86b54ead",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
