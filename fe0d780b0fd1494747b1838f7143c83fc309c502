@@ -301,6 +301,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "39d2e995_189ce058",
+        "filename": "runtime/gc/collector/garbage_collector.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-12-13T11:43:12Z",
+      "side": 1,
+      "message": "\u003e Maybe we could use another \"fake\" call to ATRACE_INT (e.g. via `ATraceIntegerValue(\"32-bit integer overflow\", 0)`) for this purpose?\n\nIsn\u0027t there a risk that it won\u0027t get collected like the payload metrics, so we wouldn\u0027t see it?\n\n\u003e Another option would be to make sure overflows/underflows are reported as truncated values (i.e. INT_MAX/INT32_MIN), which was suggested by Martin before. These values would presumably be very rare and easy to filter.\n\nOne may argue that _any_ specific value (except zero, probably) is rare so we would be able to detect it if these overflows start to happen. But yes, clamping at max and min seems reasonable. The risk is that it\u0027ll skew our statistics more subtly so we may be looking at inaccurate values for a while before realising we need to look for those values specifically, but it still seems like the best we can do here.",
+      "parentUuid": "94490eb8_81cf34e4",
+      "range": {
+        "startLine": 54,
+        "startChar": 5,
+        "endLine": 56,
+        "endChar": 18
+      },
+      "revId": "fe0d780b0fd1494747b1838f7143c83fc309c502",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3dea85a5_df342ab5",
         "filename": "runtime/gc/collector/garbage_collector.cc",
         "patchSetId": 2
