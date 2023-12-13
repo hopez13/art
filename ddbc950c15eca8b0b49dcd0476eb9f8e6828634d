@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6382b489_265d4d52",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1535516
+      },
+      "writtenOn": "2023-12-13T20:06:27Z",
+      "side": 1,
+      "message": "Ah good catch, I updated this cl to get the libraries from the apex so they\u0027re the apex variants.",
+      "parentUuid": "5450eb82_08994343",
+      "range": {
+        "startLine": 10,
+        "startChar": 6,
+        "endLine": 10,
+        "endChar": 37
+      },
+      "revId": "ddbc950c15eca8b0b49dcd0476eb9f8e6828634d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "39180e4e_9d0ce1c2",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-12-13T14:03:12Z",
       "side": 1,
       "message": "Out-of-scope question: The logic for `art_release.zip` is simple that it can be spelled in a genrule. I\u0027m interested in migrating other build rules such as those for `boot.zip` and `system_server.zip` from `core/dex_preopt.mk` to Soong. Do you think it\u0027s possible? The logic for those is not so simple, so I probably need to add dedicated Soong module types for those and spell the logic in Go. I\u0027m a bit worried about how this approach can scale. What\u0027s your opinion on this approach? Are you open to it?",
+      "range": {
+        "startLine": 542,
+        "startChar": 0,
+        "endLine": 542,
+        "endChar": 1
+      },
+      "revId": "ddbc950c15eca8b0b49dcd0476eb9f8e6828634d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a04ca70_bafeffc2",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 542,
+      "author": {
+        "id": 1535516
+      },
+      "writtenOn": "2023-12-13T20:06:27Z",
+      "side": 1,
+      "message": "We definitely need to do this eventually. One problem with `boot.zip` and `system_server.zip` specifically is that they rely on lists of jars that vary per product.\n\nIn 2024 we plan on migrating partition builds to soong, which should give us soong modules that have better representation of the state of the whole product. That will make it easier to add stuff like `boot.zip` to soong.",
+      "parentUuid": "39180e4e_9d0ce1c2",
       "range": {
         "startLine": 542,
         "startChar": 0,
