@@ -2229,6 +2229,17 @@ extern "C" const void* GetQuickInvokeStaticStub() {
   return reinterpret_cast<const void*>(art_quick_invoke_static_stub);
 }
 
+// Return the address of quick stub code for doing on stack replacement (OSR).
+extern "C" void art_quick_osr_stub(void** stack,
+                                   size_t stack_size_in_bytes,
+                                   const uint8_t* native_pc,
+                                   JValue* result,
+                                   const char* shorty,
+                                   Thread* self);
+extern "C" const void* GetQuickOsrStub() {
+  return reinterpret_cast<const void*>(art_quick_osr_stub);
+}
+
 // Return the address of quick stub code for throwing a NPE from a signal.
 extern "C" void art_quick_throw_null_pointer_exception_from_signal();
 extern "C" const void* GetQuickThrowNullPointerExceptionFromSignal() {

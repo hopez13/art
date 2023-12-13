@@ -56,6 +56,10 @@
 #include "thread-inl.h"
 #include "thread_list.h"
 
+#ifdef ART_USE_SIMULATOR
+#include "code_simulator.h"
+#endif
+
 using android::base::unique_fd;
 
 namespace art HIDDEN {
@@ -566,12 +570,23 @@ bool Jit::MaybeDoOnStackReplacement(Thread* thread,
     thread->PopShadowFrame();
     ManagedStack fragment;
     thread->PushManagedStackFragment(&fragment);
+#ifdef ART_USE_SIMULATOR
+    DCHECK(Runtime::SimulatorMode());
+    CodeSimulator* simulator = Thread::Current()->GetSimExecutor();
+    simulator->DoOsr(osr_data->memory,
+                     osr_data->frame_size,
+                     osr_data->native_pc,
+                     result,
+                     method->GetShorty(),
+                     thread);
+#else
     (*art_quick_osr_stub)(osr_data->memory,
                           osr_data->frame_size,
                           osr_data->native_pc,
                           result,
                           method->GetShorty(),
                           thread);
+#endif
 
     if (UNLIKELY(thread->GetException() == Thread::GetDeoptimizationException())) {
       thread->DeoptimizeWithDeoptimizationException(result);
