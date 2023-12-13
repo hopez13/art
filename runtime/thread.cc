@@ -2604,7 +2604,6 @@ void Thread::Destroy(bool should_run_callbacks) {
 
     if (UNLIKELY(self->GetMethodTraceBuffer() != nullptr)) {
       Trace::FlushThreadBuffer(self);
-      self->ResetMethodTraceBuffer();
     }
 
     // this.nativePeer = 0;
@@ -2675,7 +2674,7 @@ Thread::~Thread() {
   delete tlsPtr_.deps_or_stack_trace_sample.stack_trace_sample;
 
   if (tlsPtr_.method_trace_buffer != nullptr) {
-    delete[] tlsPtr_.method_trace_buffer;
+    Trace::FlushThreadBuffer(this);
   }
 
   Runtime::Current()->GetHeap()->AssertThreadLocalBuffersAreRevoked(this);

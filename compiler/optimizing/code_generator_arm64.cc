@@ -1234,32 +1234,32 @@ void InstructionCodeGeneratorARM64::GenerateMethodEntryExitHook(HInstruction* in
   // Check if there is place in the buffer to store a new entry, if no, take slow path.
   uint32_t trace_buffer_index_offset =
       Thread::TraceBufferIndexOffset<kArm64PointerSize>().Int32Value();
-  __ Ldr(index, MemOperand(tr, trace_buffer_index_offset));
-  __ Subs(index, index, kNumEntriesForWallClock);
-  __ B(lt, slow_path->GetEntryLabel());
-
-  // Update the index in the `Thread`.
-  __ Str(index, MemOperand(tr, trace_buffer_index_offset));
-  // Calculate the entry address in the buffer.
-  // addr = base_addr + sizeof(void*) * index;
-  __ Ldr(addr, MemOperand(tr, Thread::TraceBufferPtrOffset<kArm64PointerSize>().SizeValue()));
-  __ ComputeAddress(addr, MemOperand(addr, index, LSL, TIMES_8));
-
   Register tmp = index;
+  __ Ldr(addr, MemOperand(tr, trace_buffer_index_offset));
+  __ Ldr(tmp, MemOperand(tr, Thread::TraceBufferPtrOffset<kArm64PointerSize>().SizeValue()));
+  __ Cmp(addr, tmp);
+  __ B(le, slow_path->GetEntryLabel());
+
+  __ Mrs(tmp, (SystemRegister)SYS_CNTVCT_EL0);
+  __ Str(tmp, MemOperand(addr, -8, PostIndex));
   // Record method pointer and trace action.
-  __ Ldr(tmp, MemOperand(sp, 0));
+  // __ Ldr(tmp, MemOperand(sp, 0));
   // Use last two bits to encode trace method action. For MethodEntry it is 0
   // so no need to set the bits since they are 0 already.
   if (instruction->IsMethodExitHook()) {
     DCHECK_GE(ArtMethod::Alignment(kRuntimePointerSize), static_cast<size_t>(4));
     static_assert(enum_cast<int32_t>(TraceAction::kTraceMethodEnter) == 0);
     static_assert(enum_cast<int32_t>(TraceAction::kTraceMethodExit) == 1);
-    __ Orr(tmp, tmp, Operand(enum_cast<int32_t>(TraceAction::kTraceMethodExit)));
+    // __ Orr(tmp, tmp, Operand(enum_cast<int32_t>(TraceAction::kTraceMethodExit)));
+    __ Str(xzr, MemOperand(addr, -8, PostIndex));
+    // kMethodOffsetInBytes));
+  } else {
+    __ Str(kArtMethodRegister, MemOperand(addr, -8, PostIndex));
+    // kMethodOffsetInBytes));
   }
-  __ Str(tmp, MemOperand(addr, kMethodOffsetInBytes));
+  // __ Str(tmp, MemOperand(addr, kMethodOffsetInBytes));
   // Record the timestamp.
-  __ Mrs(tmp, (SystemRegister)SYS_CNTVCT_EL0);
-  __ Str(tmp, MemOperand(addr, kTimestampOffsetInBytes));
+  __ Str(addr, MemOperand(tr, trace_buffer_index_offset));
   __ Bind(slow_path->GetExitLabel());
 }
 

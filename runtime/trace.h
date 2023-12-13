@@ -36,6 +36,8 @@
 #include "runtime_globals.h"
 #include "thread_pool.h"
 
+#define NUM_TRACE_BUFFERS 150
+
 namespace unix_file {
 class FdFile;
 }  // namespace unix_file
@@ -134,7 +136,7 @@ class TraceWriter {
   // required to serialize these since each method is encoded with a unique id which is assigned
   // when the method is seen for the first time in the recoreded events. So we need to serialize
   // these flushes across threads.
-  void FlushBuffer(Thread* thread, bool is_sync) REQUIRES_SHARED(Locks::mutator_lock_)
+  void FlushBuffer(Thread* thread, bool is_sync, bool allocate) REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!tracing_lock_);
 
   // This is called when the per-thread buffer is full and a new entry needs to be recorded. This
@@ -153,26 +155,25 @@ class TraceWriter {
   void FinishTracing(int flags, bool flush_entries) REQUIRES(!tracing_lock_)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
-  void PreProcessTraceForMethodInfos(uintptr_t* buffer,
-                                     size_t num_entries,
-                                     std::unordered_map<ArtMethod*, std::string>& method_infos)
-      REQUIRES_SHARED(Locks::mutator_lock_) REQUIRES(!tracing_lock_);
-
   // Flush buffer to the file (for streaming) or to the common buffer (for non-streaming). In
   // non-streaming case it returns false if all the contents couldn't be flushed.
-  void FlushBuffer(uintptr_t* buffer,
-                   size_t num_entries,
-                   size_t tid,
-                   const std::unordered_map<ArtMethod*, std::string>& method_infos)
-      REQUIRES(!tracing_lock_);
+  void FlushBuffer(uintptr_t* buffer, size_t num_entries, size_t tid) REQUIRES(!tracing_lock_);
 
   // This is called when we see the first entry from the thread to record the information about the
   // thread.
   void RecordThreadInfo(Thread* thread) REQUIRES(!tracing_lock_);
 
+  // Records information about all methods in the newly loaded class.
+  void RecordMethodInfo(mirror::Class* klass) REQUIRES_SHARED(Locks::mutator_lock_);
+
   bool HasOverflow() { return overflow_; }
   TraceOutputMode GetOutputMode() { return trace_output_mode_; }
   size_t GetBufferSize() { return buffer_size_; }
+
+  void InitializeTraceBuffers();
+  void ReleaseTraceBuffer(int index);
+  int AcquireTraceBuffer(size_t tid);
+  uintptr_t* GetTraceBuffer(int index);
 
  private:
   // Get a 32-bit id for the method and specify if the method hasn't been seen before. If this is
@@ -273,6 +274,10 @@ class TraceWriter {
 
   // Thread pool to flush the trace entries to file.
   std::unique_ptr<ThreadPool> thread_pool_;
+
+  std::atomic<size_t> owner_tids_[NUM_TRACE_BUFFERS];
+  uintptr_t* trace_buffer_;
+  int fd_;
 };
 
 // Class for recording event traces. Trace data is either collected
@@ -393,6 +398,11 @@ class Trace final : public instrumentation::InstrumentationListener {
 
   // Used by class linker to prevent class unloading.
   static bool IsTracingEnabled() REQUIRES(!Locks::trace_lock_);
+
+  // Callback for each class prepare event to record information about the newly created methods.
+  static void ClassPrepare(Handle<mirror::Class> klass) REQUIRES_SHARED(Locks::mutator_lock_);
+
+  TraceWriter* GetTraceWriter() { return trace_writer_.get(); }
 
  private:
   Trace(File* trace_file,
