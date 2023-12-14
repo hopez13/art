@@ -531,8 +531,8 @@ JValue InvokeWithVarArgs(const ScopedObjectAccessAlreadyRunnable& soa,
   // We want to make sure that the stack is not within a small distance from the
   // protected region in case we are calling into a leaf function whose stack
   // check has been elided.
-  if (UNLIKELY(__builtin_frame_address(0) < soa.Self()->GetStackEnd())) {
-    ThrowStackOverflowError(soa.Self());
+  if (UNLIKELY(__builtin_frame_address(0) < soa.Self()->GetStackEnd<kNativeStackType>())) {
+    ThrowStackOverflowError<kNativeStackType>(soa.Self());
     return JValue();
   }
   bool is_string_init = method->IsStringConstructor();
@@ -573,8 +573,8 @@ JValue InvokeWithJValues(const ScopedObjectAccessAlreadyRunnable& soa,
   // We want to make sure that the stack is not within a small distance from the
   // protected region in case we are calling into a leaf function whose stack
   // check has been elided.
-  if (UNLIKELY(__builtin_frame_address(0) < soa.Self()->GetStackEnd())) {
-    ThrowStackOverflowError(soa.Self());
+  if (UNLIKELY(__builtin_frame_address(0) < soa.Self()->GetStackEnd<kNativeStackType>())) {
+    ThrowStackOverflowError<kNativeStackType>(soa.Self());
     return JValue();
   }
   bool is_string_init = method->IsStringConstructor();
@@ -614,8 +614,8 @@ JValue InvokeVirtualOrInterfaceWithJValues(const ScopedObjectAccessAlreadyRunnab
   // We want to make sure that the stack is not within a small distance from the
   // protected region in case we are calling into a leaf function whose stack
   // check has been elided.
-  if (UNLIKELY(__builtin_frame_address(0) < soa.Self()->GetStackEnd())) {
-    ThrowStackOverflowError(soa.Self());
+  if (UNLIKELY(__builtin_frame_address(0) < soa.Self()->GetStackEnd<kNativeStackType>())) {
+    ThrowStackOverflowError<kNativeStackType>(soa.Self());
     return JValue();
   }
   ObjPtr<mirror::Object> receiver = soa.Decode<mirror::Object>(obj);
@@ -657,8 +657,8 @@ JValue InvokeVirtualOrInterfaceWithVarArgs(const ScopedObjectAccessAlreadyRunnab
   // We want to make sure that the stack is not within a small distance from the
   // protected region in case we are calling into a leaf function whose stack
   // check has been elided.
-  if (UNLIKELY(__builtin_frame_address(0) < soa.Self()->GetStackEnd())) {
-    ThrowStackOverflowError(soa.Self());
+  if (UNLIKELY(__builtin_frame_address(0) < soa.Self()->GetStackEnd<kNativeStackType>())) {
+    ThrowStackOverflowError<kNativeStackType>(soa.Self());
     return JValue();
   }
 
@@ -701,7 +701,7 @@ jobject InvokeMethod(const ScopedObjectAccessAlreadyRunnable& soa, jobject javaM
   // check has been elided.
   if (UNLIKELY(__builtin_frame_address(0) <
                soa.Self()->GetStackEndForInterpreter(true))) {
-    ThrowStackOverflowError(soa.Self());
+    ThrowStackOverflowError<kNativeStackType>(soa.Self());
     return nullptr;
   }
 
@@ -796,7 +796,7 @@ void InvokeConstructor(const ScopedObjectAccessAlreadyRunnable& soa,
   // protected region in case we are calling into a leaf function whose stack
   // check has been elided.
   if (UNLIKELY(__builtin_frame_address(0) < soa.Self()->GetStackEndForInterpreter(true))) {
-    ThrowStackOverflowError(soa.Self());
+    ThrowStackOverflowError<kNativeStackType>(soa.Self());
     return;
   }
 
