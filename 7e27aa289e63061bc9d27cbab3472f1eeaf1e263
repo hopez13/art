@@ -16,6 +16,24 @@
       "message": "There are some tests failing because the disassembly has to be updated for `DecodeJNITransitionOrLocalJObject`.\n\nI have seen `device-boot-test` to be flaky lately so I am not sure if it\u0027s related or not.",
       "revId": "7e27aa289e63061bc9d27cbab3472f1eeaf1e263",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "af8715a4_f3600f1d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-12-14T08:31:08Z",
+      "side": 1,
+      "message": "Unfortunately, `m test-art-host-gtest` does not work in a `master-art` tree with a `riscv64` lunch target for some reason (many tests fail), so I had to test in another checkout. Fixed in PS3.",
+      "parentUuid": "a00bb580_ea6d9a79",
+      "revId": "7e27aa289e63061bc9d27cbab3472f1eeaf1e263",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
