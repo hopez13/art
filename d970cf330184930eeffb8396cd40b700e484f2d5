@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0474e0b4_f809f406",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 2967,
+      "author": {
+        "id": 1793992
+      },
+      "writtenOn": "2023-12-14T16:15:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "68466c8c_f129387b",
+      "range": {
+        "startLine": 2967,
+        "startChar": 31,
+        "endLine": 2967,
+        "endChar": 34
+      },
+      "revId": "d970cf330184930eeffb8396cd40b700e484f2d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "62e87d0c_08a0991a",
@@ -49,6 +73,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1b7c76e3_8a3410b1",
+        "filename": "libdexfile/dex/proto_reference.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1793992
+      },
+      "writtenOn": "2023-12-14T16:15:38Z",
+      "side": 1,
+      "message": "Should it be part of this struct or there is a better place?",
+      "parentUuid": "62e87d0c_08a0991a",
+      "range": {
+        "startLine": 65,
+        "startChar": 44,
+        "endLine": 65,
+        "endChar": 51
+      },
+      "revId": "d970cf330184930eeffb8396cd40b700e484f2d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b4040201_919ac3b0",
         "filename": "libdexfile/dex/proto_reference_test.cc",
         "patchSetId": 8
@@ -60,6 +108,24 @@
       "writtenOn": "2023-12-14T15:55:12Z",
       "side": 1,
       "message": "Line too long.",
+      "revId": "d970cf330184930eeffb8396cd40b700e484f2d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "11a5fc61_65ade4f9",
+        "filename": "libdexfile/dex/proto_reference_test.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1793992
+      },
+      "writtenOn": "2023-12-14T16:15:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b4040201_919ac3b0",
       "revId": "d970cf330184930eeffb8396cd40b700e484f2d5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
