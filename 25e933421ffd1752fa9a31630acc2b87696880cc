@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "004564e6_7cd44845",
+        "filename": "libartbase/base/bit_table.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-12-14T08:17:44Z",
+      "side": 1,
+      "message": "There are two alternative approaches to consider:\n1. Add a `static_cast\u003c\u003e` here instead of defining another constant.\n2. Rename the local constant to `kLocalNoValue`.",
+      "range": {
+        "startLine": 271,
+        "startChar": 38,
+        "endLine": 271,
+        "endChar": 46
+      },
+      "revId": "25e933421ffd1752fa9a31630acc2b87696880cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
