@@ -160,6 +160,21 @@ filegroup {
     srcs: ["art-gtests-target-standalone-with-boot-image-template.xml"],
 }
 
+filegroup {
+    name: "test_build_common_files",
+    srcs: [
+        "jvmti-common/*.java",
+        "1953-pop-frame/src/art/SuspendEvents.java",
+        "1953-pop-frame/src/art/Test1953.java",
+        "993-breakpoints/src/art/Test993.java",
+        "988-method-trace/src/art/Test988.java",
+        "988-method-trace/src/art/Test988Intrinsics.java",
+    ],
+    visibility: [
+        "//art/test:__subpackages__",
+    ],
+}
+
 art_cc_defaults {
     name: "art_standalone_test_defaults",
     defaults: [
@@ -477,6 +492,10 @@ java_defaults {
         "art-run-test-checker",
     ],
     min_sdk_version: "31",
+
+    compile_data: [
+        ":test_build_common_files",
+    ],
 }
 
 art_cc_test_library {
