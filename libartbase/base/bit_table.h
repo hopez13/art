@@ -264,7 +264,10 @@ class BitTableBuilderBase {
     Entry() {
       // The definition of kNoValue here is for host and target debug builds which complain about
       // missing a symbol definition for BitTableBase<N>::kNovValue when optimization is off.
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wshadow"
       static constexpr uint32_t kNoValue = BitTableBase<kNumColumns>::kNoValue;
+#pragma clang diagnostic pop
       std::fill_n(data_, kNumColumns, kNoValue);
     }
 
