@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1317a180_bf4b0bba",
+        "filename": "test/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2023-12-14T18:10:37Z",
+      "side": 1,
+      "message": "Could you add a comment mentioning that these files are targets of symlinks, which needs to be declared for sandboxing purposes?",
+      "range": {
+        "startLine": 163,
+        "startChar": 0,
+        "endLine": 163,
+        "endChar": 9
+      },
+      "revId": "72aa5d1ad85bd3db0cda6a628544a92557ee0021",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
