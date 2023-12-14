@@ -51,6 +51,24 @@
       "parentUuid": "88fcb935_1aa8adab",
       "revId": "25c95c1ac5db6c8fc67358d958a7c8cdf4cbcf5f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1240cb53_e3fb1e62",
+        "filename": "libartbase/base/bit_memory_region.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2023-12-14T15:31:48Z",
+      "side": 1,
+      "message": "Done. I\u0027ve adjusted the commit message and comments to include more details on why the alignment is necessary and why sizeof(uint64_t) is sufficient. Please take a look, thanks!",
+      "parentUuid": "f31c5fc7_efc11f27",
+      "revId": "25c95c1ac5db6c8fc67358d958a7c8cdf4cbcf5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
