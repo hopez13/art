@@ -1,6 +1,46 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c8c34c0_b07009fe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-12-14T13:29:57Z",
+      "side": 1,
+      "message": "Thanks Nicolas! mostly lgtm just one minor comment.",
+      "revId": "71cfce43d8fdc70c503d7eb42ca92931ba232ae2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b3b8b5b8_d54c9ab9",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3705,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-12-14T13:29:57Z",
+      "side": 1,
+      "message": "Just for my understanding, this would be a problem only if we have baseline compiled the same method twice and somehow not resolved the invokes similarly in both compilations right. For ex: we couldn\u0027t resolve the method or couldn\u0027t resolve the method to an exact method.",
+      "range": {
+        "startLine": 3704,
+        "startChar": 29,
+        "endLine": 3705,
+        "endChar": 39
+      },
+      "revId": "71cfce43d8fdc70c503d7eb42ca92931ba232ae2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bf1417fa_8ed2acf8",
@@ -14,6 +54,29 @@
       "writtenOn": "2023-12-14T12:34:42Z",
       "side": 1,
       "message": "Can we add a comment like: `// ProfilingInfo::Create might return null if we cannot create the instance due to memory requirements`.\n\nnon-blocking: maybe `ProfilingInfo::Create` should be renamed to `TryCreate` or something like that. Similar for `JitCodeCache::AddProfilingInfo`. That would be the only reason the `graph-\u003eGetProfilingInfo()` is null right? I wouldn\u0027t have expected this creation to return null",
+      "revId": "71cfce43d8fdc70c503d7eb42ca92931ba232ae2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "31238b84_c0e14bea",
+        "filename": "compiler/optimizing/profiling_info_builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-12-14T13:29:57Z",
+      "side": 1,
+      "message": "These should match with the UpdateInlineCache in CodeGenerator right? Is it somehow  possible to share this so we don\u0027t have any inconsistencies in future.",
+      "range": {
+        "startLine": 46,
+        "startChar": 2,
+        "endLine": 60,
+        "endChar": 3
+      },
       "revId": "71cfce43d8fdc70c503d7eb42ca92931ba232ae2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
