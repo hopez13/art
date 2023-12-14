@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf1417fa_8ed2acf8",
+        "filename": "compiler/optimizing/profiling_info_builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-12-14T12:34:42Z",
+      "side": 1,
+      "message": "Can we add a comment like: `// ProfilingInfo::Create might return null if we cannot create the instance due to memory requirements`.\n\nnon-blocking: maybe `ProfilingInfo::Create` should be renamed to `TryCreate` or something like that. Similar for `JitCodeCache::AddProfilingInfo`. That would be the only reason the `graph-\u003eGetProfilingInfo()` is null right? I wouldn\u0027t have expected this creation to return null",
+      "revId": "71cfce43d8fdc70c503d7eb42ca92931ba232ae2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
