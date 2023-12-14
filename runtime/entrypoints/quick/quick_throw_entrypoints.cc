@@ -107,7 +107,7 @@ extern "C" void artThrowStringBoundsFromCode(int index, int length, Thread* self
 extern "C" void artThrowStackOverflowFromCode(Thread* self)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   ScopedQuickEntrypointChecks sqec(self);
-  ThrowStackOverflowError(self);
+  ThrowStackOverflowError<kQuickStackType>(self);
   self->QuickDeliverException();
 }
 
