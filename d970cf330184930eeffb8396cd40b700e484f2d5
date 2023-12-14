@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "68466c8c_f129387b",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 2967,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-12-14T15:55:12Z",
+      "side": 1,
+      "message": "Indentation: +1 space. (I would break the line after `.Get(` but this is also OK.)",
+      "range": {
+        "startLine": 2967,
+        "startChar": 31,
+        "endLine": 2967,
+        "endChar": 34
+      },
+      "revId": "d970cf330184930eeffb8396cd40b700e484f2d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "62e87d0c_08a0991a",
+        "filename": "libdexfile/dex/proto_reference.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-12-14T15:55:12Z",
+      "side": 1,
+      "message": "Should we add a comment that `std::char_traits\u003cchar\u003e::compare()` compares individual characters as `unsigned char`? (It does and that\u0027s exactly what we need for descriptor ordering.)\n\nWe could even introduce a helper function `CompareDescriptors()` where we would document that. But maybe that\u0027s work for another CL.",
+      "range": {
+        "startLine": 65,
+        "startChar": 44,
+        "endLine": 65,
+        "endChar": 51
+      },
+      "revId": "d970cf330184930eeffb8396cd40b700e484f2d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4040201_919ac3b0",
+        "filename": "libdexfile/dex/proto_reference_test.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-12-14T15:55:12Z",
+      "side": 1,
+      "message": "Line too long.",
+      "revId": "d970cf330184930eeffb8396cd40b700e484f2d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
