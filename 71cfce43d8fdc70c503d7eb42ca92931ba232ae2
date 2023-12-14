@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "da9c6192_3f75dc9b",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3705,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-12-14T14:14:31Z",
+      "side": 1,
+      "message": "Yes, that\u0027s right. Given this is baseline compilation, which happen after a lot of execution of the method, I wouldn\u0027t expect this to happen.",
+      "parentUuid": "b3b8b5b8_d54c9ab9",
+      "range": {
+        "startLine": 3704,
+        "startChar": 29,
+        "endLine": 3705,
+        "endChar": 39
+      },
+      "revId": "71cfce43d8fdc70c503d7eb42ca92931ba232ae2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bf1417fa_8ed2acf8",
         "filename": "compiler/optimizing/profiling_info_builder.cc",
         "patchSetId": 2
@@ -60,6 +84,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f26af3fd_e060c3a6",
+        "filename": "compiler/optimizing/profiling_info_builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-12-14T14:14:31Z",
+      "side": 1,
+      "message": "This is an allocation, so can always return null, and the code is being defensive. Not sure it\u0027s great to comment that for every place we do allocations. Is there a particular code which is surprising?",
+      "parentUuid": "bf1417fa_8ed2acf8",
+      "revId": "71cfce43d8fdc70c503d7eb42ca92931ba232ae2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "31238b84_c0e14bea",
         "filename": "compiler/optimizing/profiling_info_builder.cc",
         "patchSetId": 2
@@ -71,6 +113,30 @@
       "writtenOn": "2023-12-14T13:29:57Z",
       "side": 1,
       "message": "These should match with the UpdateInlineCache in CodeGenerator right? Is it somehow  possible to share this so we don\u0027t have any inconsistencies in future.",
+      "range": {
+        "startLine": 46,
+        "startChar": 2,
+        "endLine": 60,
+        "endChar": 3
+      },
+      "revId": "71cfce43d8fdc70c503d7eb42ca92931ba232ae2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c3f6715_638cda87",
+        "filename": "compiler/optimizing/profiling_info_builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-12-14T14:14:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "31238b84_c0e14bea",
       "range": {
         "startLine": 46,
         "startChar": 2,
