@@ -16,6 +16,24 @@
       "message": "You could have reused the `op_filled_new_array` with an extra argument as we do on arm64. (But feel free to ACK and leave this as is.)",
       "revId": "5c7a253a76f37ad35144820a608e09470acfa7eb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "89e953b0_26601fdb",
+        "filename": "runtime/interpreter/mterp/riscv64/array.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-12-14T20:21:16Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "3fbf4b85_4b00cbac",
+      "revId": "5c7a253a76f37ad35144820a608e09470acfa7eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
