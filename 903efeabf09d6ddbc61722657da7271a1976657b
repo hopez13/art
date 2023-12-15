@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b163c47_f2bd751b",
+        "filename": "test/2271-checker-codegen-honor-write-barrier-kind/src/Main.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-12-15T00:16:24Z",
+      "side": 1,
+      "message": "This test crashed due to the new runtime check. Not sure why the GC runtime check didn\u0027t crash for this test.",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 9
+      },
+      "revId": "903efeabf09d6ddbc61722657da7271a1976657b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "89e53d6b_5f7e3a41",
+        "filename": "test/2272-checker-write-barrier-elimination-regression-array/src/Main.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-12-15T00:16:24Z",
+      "side": 1,
+      "message": "This test crashed with the GC runtime debug check. If I do `assert(!clean)` instead of `assert(!clean || !gc_is_marking)`, it crashes with the new runtime check. My impression is that the GC check runs first (and crashes) so the new one doesn\u0027t crash.",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 9
+      },
+      "revId": "903efeabf09d6ddbc61722657da7271a1976657b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

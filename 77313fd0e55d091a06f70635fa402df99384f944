@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "21947c64_2209aa5f",
+        "filename": "test/2271-checker-codegen-honor-write-barrier-kind/src/Main.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-12-15T00:16:24Z",
+      "side": 1,
+      "message": "Here on the WBE pass we wouldn\u0027t see the null constant as we have a BoundType in the middle. After prepare_for_register_allocation, the codegen will see the null constant directly, leading to inconsistencies.\n\nOn a positive note, this is something we can support and potentially eliminate more write barriers.",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 28
+      },
+      "revId": "77313fd0e55d091a06f70635fa402df99384f944",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c396516_d2815859",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 6002,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-12-15T00:16:24Z",
+      "side": 0,
+      "message": "It\u0027s fine if we poison null (it is a no-op for null values)",
+      "range": {
+        "startLine": 6000,
+        "startChar": 0,
+        "endLine": 6002,
+        "endChar": 26
+      },
+      "revId": "460de8d128e14841e47cc6ce30b6aa30768126a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c0c11f4_e6ceec67",
+        "filename": "test/2247-checker-write-barrier-elimination/src/Main.java",
+        "patchSetId": 18
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-12-15T00:16:24Z",
+      "side": 0,
+      "message": "Since we are now doing a runtime check for the dirty bit (on debug builds), we will have the `; card_table` comment for `write_barrier_kind:DontEmit` since we are going to load the card table to check the dirty bit. We can have a check that we are emitting the `; card_table` for cases like `write_barrier_kind:EmitBeingReliedOn` but we cannot say anything for the `DontEmit` case.",
+      "revId": "460de8d128e14841e47cc6ce30b6aa30768126a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

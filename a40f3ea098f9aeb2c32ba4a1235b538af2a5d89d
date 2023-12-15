@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb3b1688_afe32dcf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 18
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-12-15T00:16:24Z",
+      "side": 1,
+      "message": "Vladimir PTAL\n\nLokesh PTAL at the tests 2271- and 2272- to make sure my regression tests make sense from your end. I saw them crashing locally with the runtime checks (and without the fixes).\n\nMartin and Roland as CC: this CL enables 2247- but not for MTS (due to SLO requirements).\n\nNicolas and Hans as CC as this CL might interest you.",
+      "revId": "a40f3ea098f9aeb2c32ba4a1235b538af2a5d89d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae566829_cc3dc1a8",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 5936,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-12-15T00:16:24Z",
+      "side": 1,
+      "message": "Bug 1: codegen was recomputing whether a write barrier was needed, which led to inconsistencies. Regression test: 2271-\n\nThis (and 2272-) are regression tests which fail with the runtime checks (and without the fixes).\n\nNote that `needs_write_barrier` keeps the old implementation (i.e. using `CodeGenerator::StoreNeedsWriteBarrier`) for baseline compiles as it doesn\u0027t run write barrier elimination.",
+      "range": {
+        "startLine": 5936,
+        "startChar": 7,
+        "endLine": 5936,
+        "endChar": 26
+      },
+      "revId": "a40f3ea098f9aeb2c32ba4a1235b538af2a5d89d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4e4d7be_da26062e",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 5940,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-12-15T00:16:24Z",
+      "side": 1,
+      "message": "Whether we do the dirty bit runtime check or not. We do it only for write barriers we eliminated in the write barrier elimination pass.\n\nWilling to bikeshed name to something like `check_gc_card_is_valid` too.",
+      "range": {
+        "startLine": 5940,
+        "startChar": 7,
+        "endLine": 5940,
+        "endChar": 25
+      },
+      "revId": "a40f3ea098f9aeb2c32ba4a1235b538af2a5d89d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3eabfd84_c2dda894",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 7046,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-12-15T00:16:24Z",
+      "side": 1,
+      "message": "Bug 2: Even when we were relying on a write barrier, we were writing null checks which would bypass the write barrier. Regression test 2272-",
+      "range": {
+        "startLine": 7043,
+        "startChar": 0,
+        "endLine": 7046,
+        "endChar": 7
+      },
+      "revId": "a40f3ea098f9aeb2c32ba4a1235b538af2a5d89d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
