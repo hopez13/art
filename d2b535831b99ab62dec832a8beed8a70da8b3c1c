@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "39dfd7b4_2dadd8bf",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-12-15T08:20:12Z",
+      "side": 1,
+      "message": "Could be embedded in the LD below.",
+      "range": {
+        "startLine": 194,
+        "startChar": 16,
+        "endLine": 194,
+        "endChar": 45
+      },
+      "revId": "d2b535831b99ab62dec832a8beed8a70da8b3c1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1712cf28_8b6a3caf",
+        "filename": "runtime/interpreter/mterp/riscv64/object.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-12-15T08:20:12Z",
+      "side": 1,
+      "message": "I need to get used to this weird python syntax.",
+      "range": {
+        "startLine": 99,
+        "startChar": 3,
+        "endLine": 99,
+        "endChar": 42
+      },
+      "revId": "d2b535831b99ab62dec832a8beed8a70da8b3c1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a618a401_6ae5c023",
+        "filename": "runtime/interpreter/mterp/riscv64/object.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-12-15T08:20:12Z",
+      "side": 1,
+      "message": "That\u0027s a bit unfortunate as it shall make heap poisoning support more diffcult to implement.",
+      "range": {
+        "startLine": 211,
+        "startChar": 3,
+        "endLine": 211,
+        "endChar": 44
+      },
+      "revId": "d2b535831b99ab62dec832a8beed8a70da8b3c1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
