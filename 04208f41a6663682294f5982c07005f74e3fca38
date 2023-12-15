@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1573cc57_7525529a",
+        "filename": "test/2271-checker-codegen-honor-write-barrier-kind/src/Main.java",
+        "patchSetId": 22
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-12-15T16:14:01Z",
+      "side": 1,
+      "message": "finalization doesn\u0027t cause any card cleaning. In fact, it can dirty cards. I\u0027d say just run `Runtime.getRuntime().gc()`.",
+      "range": {
+        "startLine": 27,
+        "startChar": 15,
+        "endLine": 27,
+        "endChar": 30
+      },
+      "revId": "04208f41a6663682294f5982c07005f74e3fca38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
