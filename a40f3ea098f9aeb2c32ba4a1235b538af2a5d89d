@@ -419,6 +419,30 @@
       },
       "revId": "a40f3ea098f9aeb2c32ba4a1235b538af2a5d89d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f02fd27f_a91658d7",
+        "filename": "test/2271-checker-codegen-honor-write-barrier-kind/src/Main.java",
+        "patchSetId": 18
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-12-15T13:44:32Z",
+      "side": 1,
+      "message": "you understand the codegen part. But as far as the test program is concerned, it seems pretty straight-forward on how to keep it independent within the same test. If from codegen pov it\u0027s not possible then sure keep it as is.",
+      "parentUuid": "3bcd9bf5_d1883753",
+      "range": {
+        "startLine": 56,
+        "startChar": 48,
+        "endLine": 56,
+        "endChar": 61
+      },
+      "revId": "a40f3ea098f9aeb2c32ba4a1235b538af2a5d89d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
