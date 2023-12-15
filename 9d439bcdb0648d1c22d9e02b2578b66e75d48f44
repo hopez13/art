@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "fcc1ec1e_e921807a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2023-12-15T17:26:38Z",
+      "side": 1,
+      "message": "IIUC, this means most of our gtests will be moved to the \"eng-only\" MTS test plan and therefore will no longer be executed as part of the \"user\" MTS test plan, which is run by Android Partners (against devices running a \"user\" build) as part of Mainline Train Testing. Going ahead with this change as-is seems like a sudden regression in terms of test coverage.\n\nShould we discuss this a bit more before landing this change?",
+      "parentUuid": "cdd6e8fa_341773c4",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 68
+      },
+      "revId": "9d439bcdb0648d1c22d9e02b2578b66e75d48f44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "a2026d58_a557243f",
