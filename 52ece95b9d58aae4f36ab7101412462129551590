@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8828aca0_783bb74c",
+        "filename": "test/Main/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-12-15T13:22:03Z",
+      "side": 1,
+      "message": "Is this method only used in `595-profile-saving`? Should we rename this to `MainWithEmptyLoop.java`?",
+      "range": {
+        "startLine": 18,
+        "startChar": 23,
+        "endLine": 18,
+        "endChar": 27
+      },
+      "revId": "52ece95b9d58aae4f36ab7101412462129551590",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
