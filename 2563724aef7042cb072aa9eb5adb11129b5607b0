@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "954bb4ab_c215f91b",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 925,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2023-12-15T12:48:40Z",
+      "side": 1,
+      "message": "Fixed",
+      "parentUuid": "65c2bf75_b9ad8af3",
+      "range": {
+        "startLine": 925,
+        "startChar": 21,
+        "endLine": 925,
+        "endChar": 32
+      },
+      "revId": "2563724aef7042cb072aa9eb5adb11129b5607b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "793c25a8_cc597d6e",
@@ -54,6 +78,30 @@
       "writtenOn": "2023-12-11T16:24:36Z",
       "side": 1,
       "message": "I\u0027d prefer `EmitI()`. That template can take the `uimm` as `rs1`.",
+      "range": {
+        "startLine": 932,
+        "startChar": 2,
+        "endLine": 935,
+        "endChar": 24
+      },
+      "revId": "2563724aef7042cb072aa9eb5adb11129b5607b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "17d44035_431efc8c",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 935,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2023-12-15T12:48:40Z",
+      "side": 1,
+      "message": "Fixed",
+      "parentUuid": "793c25a8_cc597d6e",
       "range": {
         "startLine": 932,
         "startChar": 2,
@@ -87,6 +135,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8cdf1616_b81a695f",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1600,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2023-12-15T12:48:40Z",
+      "side": 1,
+      "message": "Fixed",
+      "parentUuid": "bfd2edd7_0a32a04b",
+      "range": {
+        "startLine": 1600,
+        "startChar": 36,
+        "endLine": 1600,
+        "endChar": 47
+      },
+      "revId": "2563724aef7042cb072aa9eb5adb11129b5607b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9f319a83_eb55e792",
@@ -100,6 +172,30 @@
       "writtenOn": "2023-12-11T16:24:36Z",
       "side": 1,
       "message": "typo",
+      "range": {
+        "startLine": 3482,
+        "startChar": 36,
+        "endLine": 3482,
+        "endChar": 47
+      },
+      "revId": "2563724aef7042cb072aa9eb5adb11129b5607b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e1ffd7c_80e01169",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3482,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2023-12-15T12:48:40Z",
+      "side": 1,
+      "message": "Fixed",
+      "parentUuid": "9f319a83_eb55e792",
       "range": {
         "startLine": 3482,
         "startChar": 36,
