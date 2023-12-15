@@ -467,6 +467,30 @@
       },
       "revId": "a40f3ea098f9aeb2c32ba4a1235b538af2a5d89d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "33c041d1_3961c1e3",
+        "filename": "test/2271-checker-codegen-honor-write-barrier-kind/src/Main.java",
+        "patchSetId": 18
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-12-15T15:16:51Z",
+      "side": 1,
+      "message": "There is a substantial code duplication between the two tests. That in itself is a pretty strong motivation for merging the two tests. Given that both regressions are related to write-barrier-elimination, is another motivation for merging the tests. Also, correct me if I\u0027m wrong, but it\u0027s not like by merging the tests we are loosing test coverage.",
+      "parentUuid": "a593fec5_29901065",
+      "range": {
+        "startLine": 56,
+        "startChar": 48,
+        "endLine": 56,
+        "endChar": 61
+      },
+      "revId": "a40f3ea098f9aeb2c32ba4a1235b538af2a5d89d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
