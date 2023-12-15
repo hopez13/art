@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c180784e_65966b2e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-12-15T11:57:24Z",
+      "side": 1,
+      "message": "I completely missed during code review that the codegen change emitted AOT code also for JIT.",
+      "revId": "d014fd019e84471665ac02f2de285541009892cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
