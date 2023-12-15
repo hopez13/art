@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2313c4b_5553287b",
+        "filename": "compiler/optimizing/write_barrier_elimination.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-12-15T13:43:51Z",
+      "side": 0,
+      "message": "Keep this but set to true, in case we need a one liner revert.",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 35
+      },
+      "revId": "a627c7e71a59135daab7f2fb8505d4873f61e4ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

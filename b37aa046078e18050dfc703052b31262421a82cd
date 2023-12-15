@@ -1,0 +1,118 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6be04cda_d390f834",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-12-15T13:43:51Z",
+      "side": 1,
+      "message": "We can\u0027t do this, when we preopt, we may be running dex2oatd.\n\nYou\u0027ll need another flag to enable it.",
+      "range": {
+        "startLine": 72,
+        "startChar": 51,
+        "endLine": 72,
+        "endChar": 64
+      },
+      "revId": "b37aa046078e18050dfc703052b31262421a82cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a8916560_0c33e7b2",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 5934,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-12-15T13:43:51Z",
+      "side": 1,
+      "message": "Move this logic to `StoreNeedsWriteBarrier`.",
+      "range": {
+        "startLine": 5932,
+        "startChar": 0,
+        "endLine": 5934,
+        "endChar": 60
+      },
+      "revId": "b37aa046078e18050dfc703052b31262421a82cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e614521_161d3b6c",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 1343,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-12-15T13:43:51Z",
+      "side": 1,
+      "message": "Add a comment that we expect the original reference to be in the same block.",
+      "revId": "b37aa046078e18050dfc703052b31262421a82cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61cbe145_76b8f1f6",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 1379,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-12-15T13:43:51Z",
+      "side": 1,
+      "message": "Comment what this line is about.",
+      "revId": "b37aa046078e18050dfc703052b31262421a82cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99000915_714fe316",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 1409,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-12-15T13:43:51Z",
+      "side": 1,
+      "message": "Looks like you could share a lot of code between the two VisitArraySet and VisitInstanceFieldSet.",
+      "revId": "b37aa046078e18050dfc703052b31262421a82cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bdf7fa03_966f53e0",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 6373,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-12-15T13:43:51Z",
+      "side": 1,
+      "message": "Add that this is the default behavior.",
+      "revId": "b37aa046078e18050dfc703052b31262421a82cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
