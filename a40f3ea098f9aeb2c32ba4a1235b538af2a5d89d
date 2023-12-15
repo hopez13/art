@@ -395,6 +395,30 @@
       },
       "revId": "a40f3ea098f9aeb2c32ba4a1235b538af2a5d89d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3bcd9bf5_d1883753",
+        "filename": "test/2271-checker-codegen-honor-write-barrier-kind/src/Main.java",
+        "patchSetId": 18
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-12-15T13:25:00Z",
+      "side": 1,
+      "message": "The tests may look the same but they hit different bugs.\n\nBug 1: codegen was recomputing whether a write barrier was needed, which led to inconsistencies. Regression test: 2271-\n\nBug 2: Even when we were relying on a write barrier, we were writing null checks which would bypass the write barrier. Regression test 2272-\n\nI opted to have them in different test cases to have them be independent of each other, and have minimal tests.",
+      "parentUuid": "8bd56629_8cd1a813",
+      "range": {
+        "startLine": 56,
+        "startChar": 48,
+        "endLine": 56,
+        "endChar": 61
+      },
+      "revId": "a40f3ea098f9aeb2c32ba4a1235b538af2a5d89d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
