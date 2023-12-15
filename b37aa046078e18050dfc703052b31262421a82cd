@@ -74,6 +74,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a1386ffe_a4967bde",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-12-15T15:24:47Z",
+      "side": 1,
+      "message": "About https://cs.android.com/android/platform/superproject/main/+/main:art/runtime/gc/collector/concurrent_copying.cc;l\u003d68;drc\u003d565b3b67de4b3b781b1c97aa86164c1bd604cd3d\n\nThat\u0027s OK as it\u0027s runtime behavior. TLDR is that the code we generate with `dex2oatd` should be exactly the same as the one we generate with `dex2oat`.",
+      "parentUuid": "6b35c875_2efe7324",
+      "range": {
+        "startLine": 72,
+        "startChar": 51,
+        "endLine": 72,
+        "endChar": 64
+      },
+      "revId": "b37aa046078e18050dfc703052b31262421a82cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a8916560_0c33e7b2",
         "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
         "patchSetId": 19
@@ -121,6 +145,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9e902cde_21bdeed1",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 5934,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-12-15T15:24:47Z",
+      "side": 1,
+      "message": "Sounds good for another helper, which you will be able to use in the other places.",
+      "parentUuid": "c668292f_2d4a6460",
+      "range": {
+        "startLine": 5932,
+        "startChar": 0,
+        "endLine": 5934,
+        "endChar": 60
+      },
+      "revId": "b37aa046078e18050dfc703052b31262421a82cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3e614521_161d3b6c",
         "filename": "compiler/optimizing/graph_checker.cc",
         "patchSetId": 19
@@ -150,6 +198,24 @@
       "side": 1,
       "message": "The original reference can be in a different block. For example NullConstant will be in a different block for sure.\n\nDid you mean that the write barrier we are relying on must be in the same block? If so, I added a comment regarding that.",
       "parentUuid": "3e614521_161d3b6c",
+      "revId": "b37aa046078e18050dfc703052b31262421a82cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5903063_d0d4e5e4",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 1343,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-12-15T15:24:47Z",
+      "side": 1,
+      "message": "Doesn\u0027t the code below rely on finding the instruction in the same block?",
+      "parentUuid": "eb24e03c_40e2c70b",
       "revId": "b37aa046078e18050dfc703052b31262421a82cd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
