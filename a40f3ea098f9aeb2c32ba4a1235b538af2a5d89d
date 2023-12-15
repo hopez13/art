@@ -98,6 +98,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d2153d30_5f7dbbef",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 5946,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-12-15T13:22:48Z",
+      "side": 1,
+      "message": "Moved boolean and created method in code_generator.h.\n\nAlso renamed `checking_dirty_bit` to `check_gc_card` because it looks more precise. Shifted the booleans around so that `!needs_write_barrier \u0026\u0026 CodeGenerator::StoreNeedsWriteBarrier(field_type, instruction-\u003eInputAt(1))` are together (which means \"eliminated write barriers\")",
+      "parentUuid": "3e94f910_be00cb88",
+      "revId": "a40f3ea098f9aeb2c32ba4a1235b538af2a5d89d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d9197771_20605090",
@@ -111,6 +129,30 @@
       "writtenOn": "2023-12-15T10:25:21Z",
       "side": 1,
       "message": "Can WBE ensure that this is false for null value?\n\n(This is essentially the same question as my WBE comment about \"hunt for original reference\" before checking for null.)",
+      "range": {
+        "startLine": 6968,
+        "startChar": 12,
+        "endLine": 6968,
+        "endChar": 70
+      },
+      "revId": "a40f3ea098f9aeb2c32ba4a1235b538af2a5d89d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8441b6f1_6b4cc640",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 6968,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-12-15T13:22:48Z",
+      "side": 1,
+      "message": "\u003eCan WBE ensure that this is false for null value?\n\nNot right now. This is the repro case of `2271-` where WBE doesn\u0027t see the null but codegen does.",
+      "parentUuid": "d9197771_20605090",
       "range": {
         "startLine": 6968,
         "startChar": 12,
@@ -169,6 +211,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cfa87898_13c26154",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 7055,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-12-15T13:22:48Z",
+      "side": 1,
+      "message": "We can do it (and that\u0027s what the TODO is about) but I wanted to have this CL be as small as possible with the least changes. Since skipping the write barrier when null is a runtime optimization (and not a correctness thing) I decided not to do it for this CL.\n\nI can change and update the CL if you prefer.",
+      "parentUuid": "a0b326d3_4eb3b263",
+      "range": {
+        "startLine": 7055,
+        "startChar": 18,
+        "endLine": 7055,
+        "endChar": 28
+      },
+      "revId": "a40f3ea098f9aeb2c32ba4a1235b538af2a5d89d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d4502af8_005d8282",
         "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
         "patchSetId": 18
@@ -180,6 +246,30 @@
       "writtenOn": "2023-12-15T10:25:21Z",
       "side": 1,
       "message": "If we\u0027ve eliminated this write barrier, we are relying on a previous write barrier which needs to be unconditional, so we can emit check this even if the value is null.",
+      "range": {
+        "startLine": 7330,
+        "startChar": 2,
+        "endLine": 7331,
+        "endChar": 68
+      },
+      "revId": "a40f3ea098f9aeb2c32ba4a1235b538af2a5d89d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9aad36a_c6d4af6e",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 7331,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-12-15T13:22:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d4502af8_005d8282",
       "range": {
         "startLine": 7330,
         "startChar": 2,
@@ -213,6 +303,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1743a99c_480058dc",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 7342,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-12-15T13:22:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c0c50170_6f322d2f",
+      "range": {
+        "startLine": 7342,
+        "startChar": 2,
+        "endLine": 7342,
+        "endChar": 90
+      },
+      "revId": "a40f3ea098f9aeb2c32ba4a1235b538af2a5d89d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9985f400_0d852efa",
@@ -226,6 +340,30 @@
       "writtenOn": "2023-12-15T10:25:21Z",
       "side": 1,
       "message": "Should we \"hunt for original reference\" before checking for null? Wouldn\u0027t that fix fix the bug even without the codegen changes?",
+      "range": {
+        "startLine": 45,
+        "startChar": 8,
+        "endLine": 45,
+        "endChar": 31
+      },
+      "revId": "a40f3ea098f9aeb2c32ba4a1235b538af2a5d89d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "473532be_210d8c55",
+        "filename": "compiler/optimizing/write_barrier_elimination.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-12-15T13:22:48Z",
+      "side": 1,
+      "message": "It would fix *this* bug without the `needs_write_barrier` codegen changes but other bugs might pop-up in the future. Fixing codegen is future-proofing too.\n\nThis is a possibility of improvement but I didn\u0027t want to do it in this CL to make the changes as little as possible.\n\nSince it is an optimization and not a correctness change I opted not to do it in this CL. I can do this change if you prefer.",
+      "parentUuid": "9985f400_0d852efa",
       "range": {
         "startLine": 45,
         "startChar": 8,
