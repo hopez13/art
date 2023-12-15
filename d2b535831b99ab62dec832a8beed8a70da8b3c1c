@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "5fb5f189_d14b82a8",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-12-15T08:27:24Z",
+      "side": 1,
+      "message": "nice. i\u0027ll do that in the morning.",
+      "parentUuid": "39dfd7b4_2dadd8bf",
+      "range": {
+        "startLine": 194,
+        "startChar": 16,
+        "endLine": 194,
+        "endChar": 45
+      },
+      "revId": "d2b535831b99ab62dec832a8beed8a70da8b3c1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "1712cf28_8b6a3caf",
@@ -60,6 +84,30 @@
       "writtenOn": "2023-12-15T08:20:12Z",
       "side": 1,
       "message": "That\u0027s a bit unfortunate as it shall make heap poisoning support more diffcult to implement.",
+      "range": {
+        "startLine": 211,
+        "startChar": 3,
+        "endLine": 211,
+        "endChar": 44
+      },
+      "revId": "d2b535831b99ab62dec832a8beed8a70da8b3c1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1c08062c_bdc65ddb",
+        "filename": "runtime/interpreter/mterp/riscv64/object.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-12-15T08:27:24Z",
+      "side": 1,
+      "message": "Hmm. How about I move the nterp_get_static_field call out to the slow path, similar to sput? (it should be pretty straightforward)\n\nI also maxed out handler size for nterp_op_invoke_interface with the fix in this CL - will you need more space for heap poisoning there?",
+      "parentUuid": "a618a401_6ae5c023",
       "range": {
         "startLine": 211,
         "startChar": 3,
