@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9973129c_976b46a2",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-12-15T22:49:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1385ec16_f679bf02",
+      "range": {
+        "startLine": 164,
+        "startChar": 27,
+        "endLine": 164,
+        "endChar": 29
+      },
+      "revId": "d2b535831b99ab62dec832a8beed8a70da8b3c1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "39dfd7b4_2dadd8bf",
@@ -61,6 +85,30 @@
       "side": 1,
       "message": "nice. i\u0027ll do that in the morning.",
       "parentUuid": "39dfd7b4_2dadd8bf",
+      "range": {
+        "startLine": 194,
+        "startChar": 16,
+        "endLine": 194,
+        "endChar": 45
+      },
+      "revId": "d2b535831b99ab62dec832a8beed8a70da8b3c1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a0fe572_bc946927",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-12-15T22:49:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5fb5f189_d14b82a8",
       "range": {
         "startLine": 194,
         "startChar": 16,
@@ -179,6 +227,30 @@
       "side": 1,
       "message": "We can save 2 instructions in the invoke-interface handler, so we should not have a problem there.",
       "parentUuid": "ffaef1f5_38f11773",
+      "range": {
+        "startLine": 211,
+        "startChar": 3,
+        "endLine": 211,
+        "endChar": 44
+      },
+      "revId": "d2b535831b99ab62dec832a8beed8a70da8b3c1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cfa15e41_7c65f08f",
+        "filename": "runtime/interpreter/mterp/riscv64/object.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-12-15T22:49:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2c1a6035_6140afd4",
       "range": {
         "startLine": 211,
         "startChar": 3,
