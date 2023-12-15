@@ -97,6 +97,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "18e1bad3_00a3bc7d",
+        "filename": "libdexfile/dex/proto_reference.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-12-15T09:20:48Z",
+      "side": 1,
+      "message": "This depends on dex file verification (for example, descriptors and function names cannot have embedded `\\0`s which would break the ordering), so it would be best to add it somewhere to `dex_file-inl.h`, similar to `StringViewFromUtf16Length()`. It could even be a static member of the `DexFile` class.\n\nYou should submit this CL as is. I will not be available to review changes for two weeks.",
+      "parentUuid": "1b7c76e3_8a3410b1",
+      "range": {
+        "startLine": 65,
+        "startChar": 44,
+        "endLine": 65,
+        "endChar": 51
+      },
+      "revId": "d970cf330184930eeffb8396cd40b700e484f2d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b4040201_919ac3b0",
         "filename": "libdexfile/dex/proto_reference_test.cc",
         "patchSetId": 8
