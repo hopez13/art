@@ -74,6 +74,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "2f0f07f0_579ed680",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-12-15T17:35:42Z",
+      "side": 1,
+      "message": "I think we\u0027ve determined that relying on `LD_CONFIG_FILE` is a non-starter. Should\u0027ve abandoned this long ago, sorry.",
+      "parentUuid": "fcc1ec1e_e921807a",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 68
+      },
+      "revId": "9d439bcdb0648d1c22d9e02b2578b66e75d48f44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "a2026d58_a557243f",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
