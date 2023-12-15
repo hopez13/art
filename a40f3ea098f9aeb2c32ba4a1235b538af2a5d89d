@@ -443,6 +443,30 @@
       },
       "revId": "a40f3ea098f9aeb2c32ba4a1235b538af2a5d89d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a593fec5_29901065",
+        "filename": "test/2271-checker-codegen-honor-write-barrier-kind/src/Main.java",
+        "patchSetId": 18
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-12-15T14:51:33Z",
+      "side": 1,
+      "message": "It is possible: what\u0027s on the `main` can be moved into a separate method. Having said that, I think it is best to keep the regression tests separate. Not sure what we are gaining by combining them, only removing one folder from the art tests?",
+      "parentUuid": "f02fd27f_a91658d7",
+      "range": {
+        "startLine": 56,
+        "startChar": 48,
+        "endLine": 56,
+        "endChar": 61
+      },
+      "revId": "a40f3ea098f9aeb2c32ba4a1235b538af2a5d89d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

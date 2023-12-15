@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6b35c875_2efe7324",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-12-15T14:51:33Z",
+      "side": 1,
+      "message": "The CC check also runs on debug builds (https://cs.android.com/android/platform/superproject/main/+/main:art/runtime/gc/collector/concurrent_copying.cc;l\u003d68;drc\u003d565b3b67de4b3b781b1c97aa86164c1bd604cd3d).\n\nNote that the runtime check has the same performance as not having the WBE pass enabled. The check would run only for removed write barriers (which would have been emitted if WBE didn\u0027t exist). I don\u0027t think this will have a performance/code size effect.",
+      "parentUuid": "e95c4033_89209cc7",
+      "range": {
+        "startLine": 72,
+        "startChar": 51,
+        "endLine": 72,
+        "endChar": 64
+      },
+      "revId": "b37aa046078e18050dfc703052b31262421a82cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a8916560_0c33e7b2",
         "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
         "patchSetId": 19
@@ -61,6 +85,30 @@
       "writtenOn": "2023-12-15T13:43:51Z",
       "side": 1,
       "message": "Move this logic to `StoreNeedsWriteBarrier`.",
+      "range": {
+        "startLine": 5932,
+        "startChar": 0,
+        "endLine": 5934,
+        "endChar": 60
+      },
+      "revId": "b37aa046078e18050dfc703052b31262421a82cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c668292f_2d4a6460",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 5934,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-12-15T14:51:33Z",
+      "side": 1,
+      "message": "`StoreNeedsWriteBarrier` is used in other contexts too where WBE doesn\u0027t run e.g. VarHandles.\n\nIf you want, I can add a new method `StoreNeedsWriteBarrier` with an extra `WriteBarrierKind` parameter that has this logic. It can also be a method with a different name.",
+      "parentUuid": "a8916560_0c33e7b2",
       "range": {
         "startLine": 5932,
         "startChar": 0,
@@ -88,6 +136,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb24e03c_40e2c70b",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 1343,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-12-15T14:51:33Z",
+      "side": 1,
+      "message": "The original reference can be in a different block. For example NullConstant will be in a different block for sure.\n\nDid you mean that the write barrier we are relying on must be in the same block? If so, I added a comment regarding that.",
+      "parentUuid": "3e614521_161d3b6c",
+      "revId": "b37aa046078e18050dfc703052b31262421a82cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "61cbe145_76b8f1f6",
@@ -101,6 +167,24 @@
       "writtenOn": "2023-12-15T13:43:51Z",
       "side": 1,
       "message": "Comment what this line is about.",
+      "revId": "b37aa046078e18050dfc703052b31262421a82cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7306ff62_ed2fa69b",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 1379,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-12-15T14:51:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "61cbe145_76b8f1f6",
       "revId": "b37aa046078e18050dfc703052b31262421a82cd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -122,6 +206,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "985abf3d_8ca7cf95",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 1409,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-12-15T14:51:33Z",
+      "side": 1,
+      "message": "The code is slightly different for the three of them: there are casts like IsInstanceField and AsInstanceField which would need a macro or an if/elseif/else when encountered.\n\nAlso, the ArraySet case is slightly different for ArraySet instructions that can trigger GC.\n\nGiven that these are graph checker checks I\u0027d be leaning towards keeping them as-is.",
+      "parentUuid": "99000915_714fe316",
+      "revId": "b37aa046078e18050dfc703052b31262421a82cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bdf7fa03_966f53e0",
@@ -135,6 +237,24 @@
       "writtenOn": "2023-12-15T13:43:51Z",
       "side": 1,
       "message": "Add that this is the default behavior.",
+      "revId": "b37aa046078e18050dfc703052b31262421a82cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e8a31fa_7061bc6c",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 6373,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-12-15T14:51:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bdf7fa03_966f53e0",
       "revId": "b37aa046078e18050dfc703052b31262421a82cd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
