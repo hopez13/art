@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a865cfd_7a739c6f",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 24
+      },
+      "lineNbr": 1393,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-12-15T18:07:31Z",
+      "side": 1,
+      "message": "nit: you could avoid those checks by passing them to CheckWriteBarrier. But fine as-is.",
+      "range": {
+        "startLine": 1375,
+        "startChar": 0,
+        "endLine": 1393,
+        "endChar": 4
+      },
+      "revId": "58efb16319e5c4ecc2c0b4e011de5893c4e8bf05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
