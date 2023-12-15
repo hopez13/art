@@ -234,6 +234,29 @@
       },
       "revId": "a40f3ea098f9aeb2c32ba4a1235b538af2a5d89d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8bd56629_8cd1a813",
+        "filename": "test/2271-checker-codegen-honor-write-barrier-kind/src/Main.java",
+        "patchSetId": 18
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2023-12-15T13:20:10Z",
+      "side": 1,
+      "message": "The tests look fine, but the code is almost identical. Isn\u0027t it possible to merge the two cases into a single art-test?",
+      "range": {
+        "startLine": 56,
+        "startChar": 48,
+        "endLine": 56,
+        "endChar": 61
+      },
+      "revId": "a40f3ea098f9aeb2c32ba4a1235b538af2a5d89d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
