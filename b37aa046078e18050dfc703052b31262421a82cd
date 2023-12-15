@@ -96,6 +96,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4fcd543e_f80b4842",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-12-15T15:43:15Z",
+      "side": 1,
+      "message": "Ack, changed to use `GetCompilerOptions().EmitRunTimeChecksInDebugMode`",
+      "parentUuid": "a1386ffe_a4967bde",
+      "range": {
+        "startLine": 72,
+        "startChar": 51,
+        "endLine": 72,
+        "endChar": 64
+      },
+      "revId": "b37aa046078e18050dfc703052b31262421a82cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a8916560_0c33e7b2",
@@ -167,6 +191,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "587bddbc_6cce4a9c",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 5934,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-12-15T15:43:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9e902cde_21bdeed1",
+      "range": {
+        "startLine": 5932,
+        "startChar": 0,
+        "endLine": 5934,
+        "endChar": 60
+      },
+      "revId": "b37aa046078e18050dfc703052b31262421a82cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3e614521_161d3b6c",
@@ -216,6 +264,24 @@
       "side": 1,
       "message": "Doesn\u0027t the code below rely on finding the instruction in the same block?",
       "parentUuid": "eb24e03c_40e2c70b",
+      "revId": "b37aa046078e18050dfc703052b31262421a82cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dced44e6_195c4cfb",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 1343,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-12-15T15:43:15Z",
+      "side": 1,
+      "message": "The instruction yes, but not the original reference. The original reference is about the class, object, or array we are setting (not about the instruction itself).",
+      "parentUuid": "f5903063_d0d4e5e4",
       "revId": "b37aa046078e18050dfc703052b31262421a82cd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
