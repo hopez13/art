@@ -20,6 +20,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "7ecb5b12_28c9aba1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 18
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-12-15T10:25:21Z",
+      "side": 1,
+      "message": "Partial review.",
+      "revId": "a40f3ea098f9aeb2c32ba4a1235b538af2a5d89d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "ae566829_cc3dc1a8",
         "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
         "patchSetId": 18
@@ -64,6 +81,46 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e94f910_be00cb88",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 5946,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-12-15T10:25:21Z",
+      "side": 1,
+      "message": "We should have helper functions to get these two booleans. (And share `kEnableRuntimeGCCardChecks` across codegens.)",
+      "revId": "a40f3ea098f9aeb2c32ba4a1235b538af2a5d89d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d9197771_20605090",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 6968,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-12-15T10:25:21Z",
+      "side": 1,
+      "message": "Can WBE ensure that this is false for null value?\n\n(This is essentially the same question as my WBE comment about \"hunt for original reference\" before checking for null.)",
+      "range": {
+        "startLine": 6968,
+        "startChar": 12,
+        "endLine": 6968,
+        "endChar": 70
+      },
+      "revId": "a40f3ea098f9aeb2c32ba4a1235b538af2a5d89d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "3eabfd84_c2dda894",
@@ -82,6 +139,98 @@
         "startChar": 0,
         "endLine": 7046,
         "endChar": 7
+      },
+      "revId": "a40f3ea098f9aeb2c32ba4a1235b538af2a5d89d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0b326d3_4eb3b263",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 7055,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-12-15T10:25:21Z",
+      "side": 1,
+      "message": "Should we optimize this to emit the write barrier before binding `do_store` for `kEmitNotBeingReliedOn` and after binding for `kEmitBeingReliedOn`?",
+      "range": {
+        "startLine": 7055,
+        "startChar": 18,
+        "endLine": 7055,
+        "endChar": 28
+      },
+      "revId": "a40f3ea098f9aeb2c32ba4a1235b538af2a5d89d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4502af8_005d8282",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 7331,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-12-15T10:25:21Z",
+      "side": 1,
+      "message": "If we\u0027ve eliminated this write barrier, we are relying on a previous write barrier which needs to be unconditional, so we can emit check this even if the value is null.",
+      "range": {
+        "startLine": 7330,
+        "startChar": 2,
+        "endLine": 7331,
+        "endChar": 68
+      },
+      "revId": "a40f3ea098f9aeb2c32ba4a1235b538af2a5d89d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c0c50170_6f322d2f",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 7342,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-12-15T10:25:21Z",
+      "side": 1,
+      "message": "On ARM and ARM64 we have the marking register.",
+      "range": {
+        "startLine": 7342,
+        "startChar": 2,
+        "endLine": 7342,
+        "endChar": 90
+      },
+      "revId": "a40f3ea098f9aeb2c32ba4a1235b538af2a5d89d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9985f400_0d852efa",
+        "filename": "compiler/optimizing/write_barrier_elimination.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-12-15T10:25:21Z",
+      "side": 1,
+      "message": "Should we \"hunt for original reference\" before checking for null? Wouldn\u0027t that fix fix the bug even without the codegen changes?",
+      "range": {
+        "startLine": 45,
+        "startChar": 8,
+        "endLine": 45,
+        "endChar": 31
       },
       "revId": "a40f3ea098f9aeb2c32ba4a1235b538af2a5d89d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
