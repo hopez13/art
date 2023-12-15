@@ -22,6 +22,30 @@
       },
       "revId": "04208f41a6663682294f5982c07005f74e3fca38",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "66ade75c_a399044b",
+        "filename": "test/2271-checker-codegen-honor-write-barrier-kind/src/Main.java",
+        "patchSetId": 22
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2023-12-15T16:18:19Z",
+      "side": 1,
+      "message": "Ack, changed \n```\nSystem.gc();\nSystem.runFinalization();\n```\nto\n```\nRuntime.getRuntime().gc();\n```",
+      "parentUuid": "1573cc57_7525529a",
+      "range": {
+        "startLine": 27,
+        "startChar": 15,
+        "endLine": 27,
+        "endChar": 30
+      },
+      "revId": "04208f41a6663682294f5982c07005f74e3fca38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
