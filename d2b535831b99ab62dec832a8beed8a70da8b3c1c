@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1385ec16_f679bf02",
+        "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-12-15T08:45:48Z",
+      "side": 1,
+      "message": "Load to A0 to avoid the MV after `resolve_method_into_a0`?",
+      "range": {
+        "startLine": 164,
+        "startChar": 27,
+        "endLine": 164,
+        "endChar": 29
+      },
+      "revId": "d2b535831b99ab62dec832a8beed8a70da8b3c1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "39dfd7b4_2dadd8bf",
         "filename": "runtime/interpreter/mterp/riscv64/invoke.S",
         "patchSetId": 1
@@ -132,6 +155,30 @@
       "side": 1,
       "message": "You can move the `nterp_get_static_field` call out of the handler if you want to. (It is a slow-path anyway.)\n\nThe invoke-interface code shall need to unpoison the class reference. But let\u0027s leave that for later and keep the normal configuration fast-path as fast as possible.",
       "parentUuid": "1c08062c_bdc65ddb",
+      "range": {
+        "startLine": 211,
+        "startChar": 3,
+        "endLine": 211,
+        "endChar": 44
+      },
+      "revId": "d2b535831b99ab62dec832a8beed8a70da8b3c1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c1a6035_6140afd4",
+        "filename": "runtime/interpreter/mterp/riscv64/object.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2023-12-15T08:45:48Z",
+      "side": 1,
+      "message": "We can save 2 instructions in the invoke-interface handler, so we should not have a problem there.",
+      "parentUuid": "ffaef1f5_38f11773",
       "range": {
         "startLine": 211,
         "startChar": 3,
