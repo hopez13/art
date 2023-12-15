@@ -358,6 +358,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "dd4aca2d_a77b5953",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 1409,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-12-15T17:25:54Z",
+      "side": 1,
+      "message": "Hmm, but the casts to check if its the right instruction kind you could get away with passing a predicate no? (the other cast is for taking the input, so it isn\u0027t needed.",
+      "parentUuid": "985abf3d_8ca7cf95",
+      "revId": "b37aa046078e18050dfc703052b31262421a82cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bdf7fa03_966f53e0",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 19
