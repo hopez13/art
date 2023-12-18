@@ -64,6 +64,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "de0365a5_25e58803",
+        "filename": "libartbase/base/mem_map.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1280281
+      },
+      "writtenOn": "2023-12-18T17:57:33Z",
+      "side": 1,
+      "message": "Replaced with `UNUSED` - due to ATTRIBUTE_UNUSED at the declaration of the parameter appears to require that the variable isn\u0027t used at all (triggers Wused-but-marked-unused warning).",
+      "parentUuid": "9d8803ce_706cb335",
+      "range": {
+        "startLine": 145,
+        "startChar": 2,
+        "endLine": 145,
+        "endChar": 19
+      },
+      "revId": "15f247ac5c44b77ec5fefe5206674a6682943b68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f372f2c4_6ed90404",
@@ -77,6 +101,30 @@
       "writtenOn": "2023-12-18T04:44:16Z",
       "side": 1,
       "message": "Why not static? We try to avoid adding fields to Thread. Admittedly, it is currently larger than it needs to be, and we could shrink it with some effort.",
+      "range": {
+        "startLine": 2183,
+        "startChar": 2,
+        "endLine": 2183,
+        "endChar": 46
+      },
+      "revId": "15f247ac5c44b77ec5fefe5206674a6682943b68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b415c628_929d8a76",
+        "filename": "runtime/thread.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 2183,
+      "author": {
+        "id": 1280281
+      },
+      "writtenOn": "2023-12-18T17:57:33Z",
+      "side": 1,
+      "message": "Looking into this, I\u0027ve realized that apparently there is no need in the variable at all - converted it to an ALWAYS_INLINE function returning the corresponding expression instead. When ASan is disabled, it should expand into simple read of gPageSize at each call site.",
+      "parentUuid": "f372f2c4_6ed90404",
       "range": {
         "startLine": 2183,
         "startChar": 2,
