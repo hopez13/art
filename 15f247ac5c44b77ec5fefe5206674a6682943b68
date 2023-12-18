@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dde9b606_efd6c87d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-12-18T04:44:16Z",
+      "side": 1,
+      "message": "I haven\u0027t quite made it through the whole CL yet. I did have a question about thread.h that may require further not-completely-trivial change.\n\nIn general, I like this approach much better. Thanks!",
+      "revId": "15f247ac5c44b77ec5fefe5206674a6682943b68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "68589fb0_d30a841f",
+        "filename": "libartbase/base/macros.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-12-18T04:44:16Z",
+      "side": 1,
+      "message": "Nit: Probably \"global\".\n\nBelow: \"allows to hide\" \u003d\u003d\u003e \"allows hiding\"",
+      "range": {
+        "startLine": 126,
+        "startChar": 8,
+        "endLine": 126,
+        "endChar": 15
+      },
+      "revId": "15f247ac5c44b77ec5fefe5206674a6682943b68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d8803ce_706cb335",
+        "filename": "libartbase/base/mem_map.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-12-18T04:44:16Z",
+      "side": 1,
+      "message": "ATTRIBUTE_UNUSED seems to be the preferred solution here.",
+      "range": {
+        "startLine": 145,
+        "startChar": 2,
+        "endLine": 145,
+        "endChar": 19
+      },
+      "revId": "15f247ac5c44b77ec5fefe5206674a6682943b68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f372f2c4_6ed90404",
+        "filename": "runtime/thread.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 2183,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-12-18T04:44:16Z",
+      "side": 1,
+      "message": "Why not static? We try to avoid adding fields to Thread. Admittedly, it is currently larger than it needs to be, and we could shrink it with some effort.",
+      "range": {
+        "startLine": 2183,
+        "startChar": 2,
+        "endLine": 2183,
+        "endChar": 46
+      },
+      "revId": "15f247ac5c44b77ec5fefe5206674a6682943b68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
