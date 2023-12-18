@@ -130,6 +130,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "af5f4214_e9279237",
+        "filename": "libartbase/base/mem_map.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-12-18T21:06:32Z",
+      "side": 1,
+      "message": "That should be fine for now. I just saw that we also have direct uses of [[maybe_unused]] in some places.",
+      "parentUuid": "de0365a5_25e58803",
+      "range": {
+        "startLine": 145,
+        "startChar": 2,
+        "endLine": 145,
+        "endChar": 19
+      },
+      "revId": "15f247ac5c44b77ec5fefe5206674a6682943b68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f372f2c4_6ed90404",
