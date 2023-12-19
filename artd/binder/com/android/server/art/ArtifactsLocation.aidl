@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2022 The Android Open Source Project
+ * Copyright (C) 2023 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,18 +16,15 @@
 
 package com.android.server.art;
 
-/**
- * The result of {@code IArtd.getDexoptStatus}. Each field corresponds to a field in
- * {@code com.android.server.art.model.DexoptStatus.DexFileDexoptStatus}.
- *
- * @hide
- */
-parcelable GetDexoptStatusResult {
-    @utf8InCpp String compilerFilter;
-    @utf8InCpp String compilationReason;
-    @utf8InCpp String locationDebugString;
-
-    /** The location of the best usable artifacts. */
-    com.android.server.art.ArtifactsLocation artifactsLocation =
-            com.android.server.art.ArtifactsLocation.NONE_OR_ERROR;
+/** @hide */
+@Backing(type="int")
+enum ArtifactsLocation {
+    /** No usable artifacts. */
+    NONE_OR_ERROR = 0,
+    /** In the global "dalvik-cache" folder. */
+    DALVIK_CACHE = 1,
+    /** In the "oat" folder next to the dex file. */
+    NEXT_TO_DEX = 2,
+    /** In the dex metadata file. This means the only usable artifact is the VDEX file. */
+    DM = 3,
 }
