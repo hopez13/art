@@ -826,8 +826,12 @@ Trace::Trace(File* trace_file,
       stop_tracing_(false) {
   CHECK_IMPLIES(trace_file == nullptr, output_mode == TraceOutputMode::kDDMS);
 
+  // In streaming mode, we only need a buffer big enough to store data per each
+  // thread buffer. In non-streaming mode this is specified by the user and we
+  // stop tracing when the buffer is full.
+  size_t buf_size = (output_mode == TraceOutputMode::kStreaming) ? kPerThreadBufSize : buffer_size;
   trace_writer_.reset(new TraceWriter(
-      trace_file, output_mode, clock_source_, buffer_size, GetClockOverheadNanoSeconds()));
+      trace_file, output_mode, clock_source_, buf_size, GetClockOverheadNanoSeconds()));
 }
 
 void TraceWriter::FinishTracing(int flags, bool flush_entries) {
@@ -1221,17 +1225,11 @@ void TraceWriter::FlushBuffer(uintptr_t* method_trace_entries,
   // seen method. tracing_lock_ is required to serialize these.
   MutexLock mu(Thread::Current(), tracing_lock_);
   size_t current_index;
-  uint8_t* buffer_ptr = nullptr;
-  size_t buffer_size;
-  std::unique_ptr<uint8_t[]> buffer;
+  uint8_t* buffer_ptr = buf_.get();
+  size_t buffer_size = buffer_size_;
   if (trace_output_mode_ == TraceOutputMode::kStreaming) {
-    buffer_size = std::max(kMinBufSize, kPerThreadBufSize);
-    buffer.reset(new uint8_t[buffer_size]);
-    buffer_ptr = buffer.get();
     current_index = 0;
   } else {
-    buffer_size = buffer_size_;
-    buffer_ptr = buf_.get();
     current_index = cur_offset_;
   }
   uint16_t thread_id = GetThreadEncoding(tid);
