@@ -2621,17 +2621,20 @@ void InstructionCodeGeneratorRISCV64::GenerateMethodEntryExitHook(HInstruction* 
   __ Sh3Add(tmp, tmp, tmp2);
 
   // Record method pointer and trace action.
-  __ Ld(tmp2, SP, 0);
   // Use last two bits to encode trace method action. For MethodEntry it is 0
   // so no need to set the bits since they are 0 already.
   DCHECK_GE(ArtMethod::Alignment(kRuntimePointerSize), static_cast<size_t>(4));
   static_assert(enum_cast<int32_t>(TraceAction::kTraceMethodEnter) == 0);
   static_assert(enum_cast<int32_t>(TraceAction::kTraceMethodExit) == 1);
   if (instruction->IsMethodExitHook()) {
+    __ Ld(tmp2, SP, 0);
     __ Ori(tmp2, tmp2, enum_cast<int32_t>(TraceAction::kTraceMethodExit));
+    static_assert(IsInt<12>(kMethodOffsetInBytes));  // No free scratch register for `Stored()`.
+    __ Sd(tmp2, tmp, kMethodOffsetInBytes);
+  } else {
+    static_assert(IsInt<12>(kMethodOffsetInBytes));  // No free scratch register for `Stored()`.
+    __ Sd(kArtMethodRegister, tmp, kMethodOffsetInBytes);
   }
-  static_assert(IsInt<12>(kMethodOffsetInBytes));  // No free scratch register for `Stored()`.
-  __ Sd(tmp2, tmp, kMethodOffsetInBytes);
 
   // Record the timestamp.
   __ RdTime(tmp2);

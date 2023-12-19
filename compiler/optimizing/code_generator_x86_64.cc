@@ -1652,16 +1652,18 @@ void InstructionCodeGeneratorX86_64::GenerateMethodEntryExitHook(HInstruction* i
 
   // Record method pointer and action.
   CpuRegister method = index;
-  __ movq(CpuRegister(method), Address(CpuRegister(RSP), kCurrentMethodStackOffset));
   // Use last two bits to encode trace method action. For MethodEntry it is 0
   // so no need to set the bits since they are 0 already.
   if (instruction->IsMethodExitHook()) {
+    __ movq(CpuRegister(method), Address(CpuRegister(RSP), kCurrentMethodStackOffset));
     DCHECK_GE(ArtMethod::Alignment(kRuntimePointerSize), static_cast<size_t>(4));
     static_assert(enum_cast<int32_t>(TraceAction::kTraceMethodEnter) == 0);
     static_assert(enum_cast<int32_t>(TraceAction::kTraceMethodExit) == 1);
     __ orq(method, Immediate(enum_cast<int32_t>(TraceAction::kTraceMethodExit)));
+    __ movq(Address(entry_addr, kMethodOffsetInBytes), CpuRegister(method));
+  } else {
+    __ movq(Address(entry_addr, kMethodOffsetInBytes), CpuRegister(kMethodRegisterArgument));
   }
-  __ movq(Address(entry_addr, kMethodOffsetInBytes), CpuRegister(method));
   // Get the timestamp. rdtsc returns timestamp in RAX + RDX even in 64-bit architectures.
   __ rdtsc();
   __ shlq(CpuRegister(RDX), Immediate(32));

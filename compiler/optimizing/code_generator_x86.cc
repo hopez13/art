@@ -1286,16 +1286,18 @@ void InstructionCodeGeneratorX86::GenerateMethodEntryExitHook(HInstruction* inst
 
   // Record method pointer and trace action.
   Register method = index;
-  __ movl(method, Address(ESP, kCurrentMethodStackOffset));
   // Use last two bits to encode trace method action. For MethodEntry it is 0
   // so no need to set the bits since they are 0 already.
   if (instruction->IsMethodExitHook()) {
+    __ movl(method, Address(ESP, kCurrentMethodStackOffset));
     DCHECK_GE(ArtMethod::Alignment(kRuntimePointerSize), static_cast<size_t>(4));
     static_assert(enum_cast<int32_t>(TraceAction::kTraceMethodEnter) == 0);
     static_assert(enum_cast<int32_t>(TraceAction::kTraceMethodExit) == 1);
     __ orl(method, Immediate(enum_cast<int32_t>(TraceAction::kTraceMethodExit)));
+    __ movl(Address(entry_addr, kMethodOffsetInBytes), method);
+  } else {
+    __ movl(Address(entry_addr, kMethodOffsetInBytes), kMethodRegisterArgument);
   }
-  __ movl(Address(entry_addr, kMethodOffsetInBytes), method);
   // Get the timestamp. rdtsc returns timestamp in EAX + EDX.
   __ rdtsc();
   __ movl(Address(entry_addr, kTimestampOffsetInBytes), EAX);
