@@ -106,6 +106,24 @@
       "parentUuid": "52002ae9_b36ae3cf",
       "revId": "324b4020be20ec8702edfc9fb6a14ab888a31d80",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "69efd6e8_51b2a858",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-12-19T21:35:42Z",
+      "side": 1,
+      "message": "Done.\nI preserved the old behavior just in case we re-enable compact dex.\nAt the same time, I made it explicit, so if we purge compact dex code, there will be no redundant code left here (i.e. `IsCompactDexFile` we be syntax error as reminder to simplify the code)",
+      "parentUuid": "57fbf1ca_63d80288",
+      "revId": "324b4020be20ec8702edfc9fb6a14ab888a31d80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
