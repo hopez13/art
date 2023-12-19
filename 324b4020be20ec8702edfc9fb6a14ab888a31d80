@@ -34,6 +34,24 @@
       "parentUuid": "a7162fb2_14fb7e19",
       "revId": "324b4020be20ec8702edfc9fb6a14ab888a31d80",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52002ae9_b36ae3cf",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-12-19T18:26:43Z",
+      "side": 1,
+      "message": "I guess the question is whether we can do `static_assert` but I can\u0027t think of one.",
+      "parentUuid": "b09fab85_fe2664aa",
+      "revId": "324b4020be20ec8702edfc9fb6a14ab888a31d80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
