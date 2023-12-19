@@ -16,6 +16,24 @@
       "message": "Add a check that cdex isn\u0027t enabled?",
       "revId": "a79456d2b006916b53f463cd3e4f8fa44dcef9a1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "80ca078d_d22121fa",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-12-19T18:19:58Z",
+      "side": 1,
+      "message": "Ah, yes, good point.  Done.",
+      "parentUuid": "9a971ed5_83e7f774",
+      "revId": "a79456d2b006916b53f463cd3e4f8fa44dcef9a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
