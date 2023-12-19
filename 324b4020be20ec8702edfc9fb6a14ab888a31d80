@@ -16,6 +16,24 @@
       "message": "I wonder if there could be a more friendly way to break if someone attempts to enable compact dex file. @mast@google.com any suggestion?",
       "revId": "324b4020be20ec8702edfc9fb6a14ab888a31d80",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b09fab85_fe2664aa",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-12-19T18:25:53Z",
+      "side": 1,
+      "message": "Well, I could also try to make it work (keeping the old expressions as well).\n\nHowever, for now, I am kind of happy with just getting DCHECK as reminder.",
+      "parentUuid": "a7162fb2_14fb7e19",
+      "revId": "324b4020be20ec8702edfc9fb6a14ab888a31d80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
