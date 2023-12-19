@@ -52,6 +52,24 @@
       "parentUuid": "b09fab85_fe2664aa",
       "revId": "324b4020be20ec8702edfc9fb6a14ab888a31d80",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57fbf1ca_63d80288",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-12-19T18:34:31Z",
+      "side": 1,
+      "message": "Shouldn\u0027t we fail (gracefully) when the caller tries to load a cdex? I haven\u0027t added code for that - in the experiment I focused on invalidating and blocking generation of them.",
+      "parentUuid": "52002ae9_b36ae3cf",
+      "revId": "324b4020be20ec8702edfc9fb6a14ab888a31d80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
