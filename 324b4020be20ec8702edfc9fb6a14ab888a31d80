@@ -19,6 +19,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cdae31c8_4ebc4dd2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-12-19T19:24:32Z",
+      "side": 1,
+      "message": "If we do that we\u0027d probably reintroduce the `ART_DEFAULT_COMPACT_DEX_LEVEL` define, so you could check for that as a static assertion. It wouldn\u0027t subsume the DCHECK.",
+      "parentUuid": "66a3c95f_cb4057b1",
+      "revId": "324b4020be20ec8702edfc9fb6a14ab888a31d80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a7162fb2_14fb7e19",
