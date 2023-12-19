@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed131bd9_96c49c7b",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1230,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-12-19T13:51:24Z",
+      "side": 1,
+      "message": "Can you add comments here as well on what is happening?",
+      "revId": "fc97bfa658d535a79832e3c87e8931bf61bfae06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "39303da9_1ed6da43",
+        "filename": "runtime/trace.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-12-19T13:51:24Z",
+      "side": 1,
+      "message": "Expand the comment by saying what happens when the buffer is full in the non-streaming mode.",
+      "range": {
+        "startLine": 250,
+        "startChar": 62,
+        "endLine": 252,
+        "endChar": 24
+      },
+      "revId": "fc97bfa658d535a79832e3c87e8931bf61bfae06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
