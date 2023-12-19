@@ -58,6 +58,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0cf7c3f0_5c4e07eb",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 670,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-12-19T10:50:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4e2cb623_1b42adc3",
+      "range": {
+        "startLine": 670,
+        "startChar": 4,
+        "endLine": 670,
+        "endChar": 29
+      },
+      "revId": "75a90cd6b29fbc4dc85a2e816ad860d278b27659",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fc69853d_10c11ea9",
@@ -71,6 +95,30 @@
       "writtenOn": "2023-12-19T10:19:20Z",
       "side": 1,
       "message": "line too long.",
+      "range": {
+        "startLine": 927,
+        "startChar": 4,
+        "endLine": 927,
+        "endChar": 110
+      },
+      "revId": "75a90cd6b29fbc4dc85a2e816ad860d278b27659",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e257c573_6124801e",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 927,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-12-19T10:50:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fc69853d_10c11ea9",
       "range": {
         "startLine": 927,
         "startChar": 4,
