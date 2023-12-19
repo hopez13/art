@@ -95,6 +95,15 @@ public class ArtFlags {
      * @hide
      */
     public static final int FLAG_FORCE_MERGE_PROFILE = 1 << 8;
+    /**
+     * Dexopt artifacts become stale when one of their dependencies has changed or the ART module
+     * has updated. This option determines whether to include the stats of those stale artifacts on
+     * {@link ArtManagerLocal#getArtManagedFileStats}. Note that ART Service may remove or replace
+     * the stale artifacts at any time.
+     *
+     * @hide
+     */
+    public static final int FLAG_INCLUDE_STALE_ARTIFACTS = 1 << 9;
 
     /**
      * Flags for {@link
@@ -118,6 +127,32 @@ public class ArtFlags {
      * Value: {@link #FLAG_FOR_PRIMARY_DEX}, {@link #FLAG_FOR_SECONDARY_DEX}.
      */
     public static @GetStatusFlags int defaultGetStatusFlags() {
+        return FLAG_FOR_PRIMARY_DEX | FLAG_FOR_SECONDARY_DEX;
+    }
+
+    /**
+     * Flags for {@link
+     * ArtManagerLocal#getArtManagedFileStats(PackageManagerLocal.FilteredSnapshot, String, int)}.
+     *
+     * @hide
+     */
+    // clang-format off
+    @IntDef(flag = true, prefix = "FLAG_", value = {
+        FLAG_FOR_PRIMARY_DEX,
+        FLAG_FOR_SECONDARY_DEX,
+        FLAG_INCLUDE_STALE_ARTIFACTS,
+    })
+    // clang-format on
+    @Retention(RetentionPolicy.SOURCE)
+    public @interface GetFileStatsFlags {}
+
+    /**
+     * Default flags that are used when {@link
+     * ArtManagerLocal#getArtManagedFileStats(PackageManagerLocal.FilteredSnapshot, String)} is
+     * called.
+     * Value: {@link #FLAG_FOR_PRIMARY_DEX}, {@link #FLAG_FOR_SECONDARY_DEX}.
+     */
+    public static @GetFileStatsFlags int defaultGetFileStatsFlags() {
         return FLAG_FOR_PRIMARY_DEX | FLAG_FOR_SECONDARY_DEX;
     }
 

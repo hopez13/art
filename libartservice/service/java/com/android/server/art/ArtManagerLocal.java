@@ -24,6 +24,7 @@ import static com.android.server.art.ReasonMapping.BatchDexoptReason;
 import static com.android.server.art.ReasonMapping.BootReason;
 import static com.android.server.art.Utils.Abi;
 import static com.android.server.art.Utils.InitProfileResult;
+import static com.android.server.art.model.ArtFlags.GetFileStatsFlags;
 import static com.android.server.art.model.ArtFlags.GetStatusFlags;
 import static com.android.server.art.model.ArtFlags.ScheduleStatus;
 import static com.android.server.art.model.Config.Callback;
@@ -57,6 +58,7 @@ import androidx.annotation.RequiresApi;
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.server.LocalManagerRegistry;
 import com.android.server.art.model.ArtFlags;
+import com.android.server.art.model.ArtManagedFileStats;
 import com.android.server.art.model.BatchDexoptParams;
 import com.android.server.art.model.Config;
 import com.android.server.art.model.DeleteResult;
@@ -922,6 +924,63 @@ public final class ArtManagerLocal {
             @NonNull PackageManagerLocal.FilteredSnapshot snapshot, @NonNull String packageName) {
         new DumpHelper(this).dumpPackage(
                 pw, snapshot, Utils.getPackageStateOrThrow(snapshot, packageName));
+    }
+
+    /** @hide */
+    @RequiresApi(Build.VERSION_CODES.UPSIDE_DOWN_CAKE)
+    @NonNull
+    public ArtManagedFileStats getArtManagedFileStats(
+            @NonNull PackageManagerLocal.FilteredSnapshot snapshot, @NonNull String packageName) {
+        return getArtManagedFileStats(snapshot, packageName, ArtFlags.defaultGetFileStatsFlags());
+    }
+
+    /** @hide */
+    @RequiresApi(Build.VERSION_CODES.UPSIDE_DOWN_CAKE)
+    @NonNull
+    public ArtManagedFileStats getArtManagedFileStats(
+            @NonNull PackageManagerLocal.FilteredSnapshot snapshot, @NonNull String packageName,
+            @GetFileStatsFlags int flags) {
+        if ((flags & ArtFlags.FLAG_FOR_PRIMARY_DEX) == 0
+                && (flags & ArtFlags.FLAG_FOR_SECONDARY_DEX) == 0) {
+            throw new IllegalArgumentException("Nothing to get");
+        }
+
+        PackageState pkgState = Utils.getPackageStateOrThrow(snapshot, packageName);
+        AndroidPackage pkg = Utils.getPackageOrThrow(pkgState);
+
+        try {
+            long artifactsSize = 0;
+            long refProfilesSize = 0;
+            long curProfilesSize = 0;
+
+            if ((flags & ArtFlags.FLAG_FOR_PRIMARY_DEX) != 0) {
+                for (DetailedPrimaryDexInfo dexInfo :
+                        PrimaryDexUtils.getDetailedDexInfo(pkgState, pkg)) {
+                    if (!dexInfo.hasCode()) {
+                        continue;
+                    }
+                    for (Abi abi : Utils.getAllAbis(pkgState)) {
+                        GetDexoptStatusResult result = mInjector.getArtd().getDexoptStatus(
+                                dexInfo.dexPath(), abi.isa(), dexInfo.classLoaderContext());
+                    }
+                }
+            }
+
+            if ((flags & ArtFlags.FLAG_FOR_SECONDARY_DEX) != 0) {
+                for (SecondaryDexInfo dexInfo :
+                        mInjector.getDexUseManager().getSecondaryDexInfo(packageName)) {
+                    // for (Abi abi : Utils.getAllAbisForNames(dexInfo.abiNames(), pkgState)) {
+                    //     dexAndAbis.add(Pair.create(dexInfo, abi));
+                    // }
+                }
+            }
+
+            return ArtManagedFileStats.create(artifactsSize, refProfilesSize, curProfilesSize);
+        } catch (RemoteException e) {
+            Utils.logArtdException(e);
+            return ArtManagedFileStats.create(
+                    0 /* artifactsSize */, 0 /* refProfilesSize */, 0 /* curProfilesSize */);
+        }
     }
 
     /**
