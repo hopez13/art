@@ -16,6 +16,29 @@
       "message": "Thanks! PTAL.",
       "revId": "67bd1c469e2be2ce190f65d8aa1a63ed0b94f136",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77664560_6b08b2b4",
+        "filename": "runtime/trace.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-12-19T15:23:38Z",
+      "side": 1,
+      "message": "`we stop the tracing and following trace events are ignored` ?",
+      "range": {
+        "startLine": 252,
+        "startChar": 5,
+        "endLine": 252,
+        "endChar": 38
+      },
+      "revId": "67bd1c469e2be2ce190f65d8aa1a63ed0b94f136",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
