@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d0d0268a_c76fa7e4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-12-19T12:35:40Z",
+      "side": 1,
+      "message": "Nice, thank you.\n\nThere\u0027s a risk that this breaks our LUCI tests on go/art-buildbot, but they are only postsubmit so not that easy to test. We\u0027ll just have to keep an eye on it.",
+      "revId": "ee0d84890f9154b45e8de540c981ffbdd5a6d32b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
