@@ -1194,8 +1194,8 @@ static dwarf::Reg DWARFReg(Register reg) {
   return dwarf::Reg::X86Core(static_cast<int>(reg));
 }
 
-void SetInForReturnValue(HInstruction* ret, LocationSummary* locations) {
-  switch (ret->InputAt(0)->GetType()) {
+void SetInForReturnValue(HInstruction* ret, LocationSummary* locations, int index) {
+  switch (ret->InputAt(index)->GetType()) {
     case DataType::Type::kReference:
     case DataType::Type::kBool:
     case DataType::Type::kUint8:
@@ -1203,31 +1203,32 @@ void SetInForReturnValue(HInstruction* ret, LocationSummary* locations) {
     case DataType::Type::kUint16:
     case DataType::Type::kInt16:
     case DataType::Type::kInt32:
-      locations->SetInAt(0, Location::RegisterLocation(EAX));
+      locations->SetInAt(index, Location::RegisterLocation(EAX));
       break;
 
     case DataType::Type::kInt64:
-      locations->SetInAt(0, Location::RegisterPairLocation(EAX, EDX));
+      locations->SetInAt(index, Location::RegisterPairLocation(EAX, EDX));
       break;
 
     case DataType::Type::kFloat32:
     case DataType::Type::kFloat64:
-      locations->SetInAt(0, Location::FpuRegisterLocation(XMM0));
+      locations->SetInAt(index, Location::FpuRegisterLocation(XMM0));
       break;
 
     case DataType::Type::kVoid:
-      locations->SetInAt(0, Location::NoLocation());
+      locations->SetInAt(index, Location::NoLocation());
       break;
 
     default:
-      LOG(FATAL) << "Unknown return type " << ret->InputAt(0)->GetType();
+      LOG(FATAL) << "Unknown return type " << ret->InputAt(index)->GetType();
   }
 }
 
 void LocationsBuilderX86::VisitMethodExitHook(HMethodExitHook* method_hook) {
   LocationSummary* locations = new (GetGraph()->GetAllocator())
       LocationSummary(method_hook, LocationSummary::kCallOnSlowPath);
-  SetInForReturnValue(method_hook, locations);
+  locations->SetInAt(0, Location::Any());
+  SetInForReturnValue(method_hook, locations, 1);
   // We use rdtsc to obtain a timestamp for tracing. rdtsc returns the results in EAX + EDX.
   locations->AddTemp(Location::RegisterLocation(EAX));
   locations->AddTemp(Location::RegisterLocation(EDX));
@@ -1286,7 +1287,12 @@ void InstructionCodeGeneratorX86::GenerateMethodEntryExitHook(HInstruction* inst
 
   // Record method pointer and trace action.
   Register method = index;
-  __ movl(method, Address(ESP, kCurrentMethodStackOffset));
+  Location method_location = locations->InAt(0);
+  if (method_location.IsStackSlot()) {
+    __ movl(method, Address(ESP, method_location.GetStackIndex()));
+  } else {
+    method = method_location.AsRegister<Register>();
+  }
   // Use last two bits to encode trace method action. For MethodEntry it is 0
   // so no need to set the bits since they are 0 already.
   if (instruction->IsMethodExitHook()) {
@@ -1312,6 +1318,7 @@ void InstructionCodeGeneratorX86::VisitMethodExitHook(HMethodExitHook* instructi
 void LocationsBuilderX86::VisitMethodEntryHook(HMethodEntryHook* method_hook) {
   LocationSummary* locations = new (GetGraph()->GetAllocator())
       LocationSummary(method_hook, LocationSummary::kCallOnSlowPath);
+  locations->SetInAt(0, Location::Any());
   // We use rdtsc to obtain a timestamp for tracing. rdtsc returns the results in EAX + EDX.
   locations->AddTemp(Location::RegisterLocation(EAX));
   locations->AddTemp(Location::RegisterLocation(EDX));
@@ -2679,7 +2686,7 @@ void InstructionCodeGeneratorX86::VisitReturnVoid([[maybe_unused]] HReturnVoid* 
 void LocationsBuilderX86::VisitReturn(HReturn* ret) {
   LocationSummary* locations =
       new (GetGraph()->GetAllocator()) LocationSummary(ret, LocationSummary::kNoCall);
-  SetInForReturnValue(ret, locations);
+  SetInForReturnValue(ret, locations, 0);
 }
 
 void InstructionCodeGeneratorX86::VisitReturn(HReturn* ret) {
