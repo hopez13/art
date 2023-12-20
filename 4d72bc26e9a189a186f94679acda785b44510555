@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b277378f_ffaddaeb",
+        "filename": "artd/binder/com/android/server/art/ArtifactsLocation.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-12-20T14:27:16Z",
+      "side": 1,
+      "message": "Nit: Maybe use something longer here, to make it easier to find (and a symbol db may not be available in all cases). What about `IN_DM_FILE`?\n\n(Edit: I noticed this is just moved, so then it\u0027s not necessarily in scope.)",
+      "range": {
+        "startLine": 29,
+        "startChar": 4,
+        "endLine": 29,
+        "endChar": 6
+      },
+      "revId": "4d72bc26e9a189a186f94679acda785b44510555",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9fd3ef76_3ff1ae54",
+        "filename": "artd/binder/com/android/server/art/GetDexoptStatusResult.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-12-20T14:27:16Z",
+      "side": 1,
+      "message": "Can you be more specific about what this means? Just a reference to the code in OatFileAssistant should be enough.",
+      "range": {
+        "startLine": 30,
+        "startChar": 28,
+        "endLine": 30,
+        "endChar": 32
+      },
+      "revId": "4d72bc26e9a189a186f94679acda785b44510555",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
