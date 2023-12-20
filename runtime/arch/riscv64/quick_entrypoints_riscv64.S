@@ -1815,6 +1815,7 @@ ENTRY \name
     // a1: int32_t component_count
     // a2-a7: free.
     mv    a3, a0
+    zext.w a1, a1  // calculations expect zext for negative length
     \size_setup a3, a1, a4, a5, a6
     ALLOC_ARRAY_TLAB_FAST_PATH_RESOLVED_WITH_SIZE .Lslow_path\name, a3, a1, a4, a5, a6
 .Lslow_path\name:
@@ -1823,6 +1824,7 @@ ENTRY \name
     // a2: Thread* self
     SETUP_SAVE_REFS_ONLY_FRAME                              // Save callee saves in case of GC.
     mv    a2, xSELF                                         // Pass Thread::Current().
+    sext.w a1, a1  // C++ entrypoint expects sext for negative length
     call  \entrypoint
     RESTORE_SAVE_REFS_ONLY_FRAME
     RETURN_OR_DEOPT_IF_RESULT_IS_NON_NULL_OR_DELIVER
