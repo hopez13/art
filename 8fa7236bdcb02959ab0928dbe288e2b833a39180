@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "69f278d9_23ee4680",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-12-20T19:15:30Z",
+      "side": 1,
+      "message": "A few system apps do get recompiled repeatedly, but it\u0027s with `dexoptNeeded\u003d3`, i.e. `kDex2OatForFilter`, which shows that they get past the `CheckDisableCompactDex` check.",
+      "range": {
+        "startLine": 20,
+        "startChar": 6,
+        "endLine": 20,
+        "endChar": 64
+      },
+      "revId": "8fa7236bdcb02959ab0928dbe288e2b833a39180",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
