@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "60863e6b_e7731c93",
+        "filename": "tools/boot-image-profile-generate.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-12-20T11:24:29Z",
+      "side": 1,
+      "message": "Nit: Drop the trailing space.",
+      "range": {
+        "startLine": 41,
+        "startChar": 25,
+        "endLine": 41,
+        "endChar": 26
+      },
+      "revId": "0060f5fe561772755f0ff1da21efeb1584bc6d60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c5b5f95_762ef869",
+        "filename": "tools/boot-image-profile-generate.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-12-20T11:24:29Z",
+      "side": 1,
+      "message": "It looks surprising to me that this argument specifies an output while other arguments surrounding it specify inputs. Does this have to be an argument? Could you instead `cp` the output to the desired location after running this script?",
+      "range": {
+        "startLine": 42,
+        "startChar": 80,
+        "endLine": 42,
+        "endChar": 106
+      },
+      "revId": "0060f5fe561772755f0ff1da21efeb1584bc6d60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
