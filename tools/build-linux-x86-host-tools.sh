@@ -33,10 +33,18 @@ HOST_BINARIES=(
   ${OUT_DIR}/host/linux-x86/bin/dex2oatd
   ${OUT_DIR}/host/linux-x86/bin/deapexer
   ${OUT_DIR}/host/linux-x86/bin/debugfs_static
+  ${OUT_DIR}/host/linux-x86/bin/oatdump
 )
 
 # Build and zip statically linked musl binaries for linux-x86 hosts without the
 # standard glibc implementation.
 build/soong/soong_ui.bash --make-mode USE_HOST_MUSL=true BUILD_HOST_static=true ${HOST_BINARIES[*]}
+# Build art_release.zip and extract jars
+build/soong/soong_ui.bash --make-mode dist ${OUT_DIR}/dist/art_release.zip
+prebuilts/build-tools/linux-x86/bin/ziptool unzip -j -d art_bootjars/ ${OUT_DIR}/dist/art_release.zip bootjars/*
+# Zip all binaries and jars
 prebuilts/build-tools/linux-x86/bin/soong_zip -o ${DIST_DIR}/art-host-tools-linux-x86.zip \
+  -d -D art_bootjars \
   -j ${HOST_BINARIES[*]/#/-f }
+# Delete temporary folder
+rm -rf art_bootjars/
