@@ -1,17 +1,235 @@
+// check-cast vAA, type@BBBB
+// Format 21c: AA|1f BBBB
+// Throw a ClassCastException if the reference in the given register cannot be cast to the indicated
+// type.
+// Note: Since A must always be a reference (and not a primitive value), this will necessarily
+// fail at runtime (that is, it will throw an exception) if B refers to a primitive type.
 %def op_check_cast():
-    unimp
+   FETCH_FROM_THREAD_CACHE /*expected klass*/a0, .L${opcode}_miss, t0, t1
+.L${opcode}_miss_resume:
 
-%def op_check_cast_slow_path():
-    unimp
+   srliw t0, xINST, 8         // t0 := AA
+   GET_VREG_OBJECT t0, t0     // t0 := refs[AA]
+   beqz t0, .L${opcode}_next  // null
+   lwu a2, MIRROR_OBJECT_CLASS_OFFSET(t0)  // a2 := actual klass
+   // Fast path: compare without read barrier.
+   bne a0, a2, .L${opcode}_slow
 
+.L${opcode}_next:
+   FETCH_ADVANCE_INST 2
+   GET_INST_OPCODE t0
+   GOTO_OPCODE t0
+
+.L${opcode}_miss:
+   EXPORT_PC
+   mv a0, xSELF
+   ld a1, (sp)  // caller ArtMethod*
+   mv a2, xPC
+   call nterp_get_class
+   j .L${opcode}_miss_resume
+
+.L${opcode}_slow:
+   // Arg registers positioned in anticipation of quick call.
+   mv a1, a0  // a1 := expected klass
+   mv a0, t0  // a0 := object
+%  slow_path = add_slow_path(op_check_cast_slow_path, "t0", "t1", "t2")
+   tail $slow_path  // slow offset exceeds branch imm
+                    // args a0, a1, a2
+
+
+// Checks cases for (1) interface, (2) array, and (3) super classes.
+// Hardcoded: a0 (obj), a1 (expected klass), a2 (actual klass)
+//
+// Note. We don't do read barriers for simplicity. However, this means that fetched objects may be a
+// from-space reference. That's OK as we only fetch constant information from the references. This
+// also means that some of the comparisons below may lead to false negative due to stale data, so
+// all negative cases must pass through the runtime, via potential read barrier.
+%def op_check_cast_slow_path(z0, z1, z2):
+   // Interface check: cut to runtime.
+   lwu $z0, MIRROR_CLASS_ACCESS_FLAGS_OFFSET(a1)
+   BRANCH_IF_BIT_SET $z0, $z0, MIRROR_CLASS_IS_INTERFACE_FLAG_BIT, .L${opcode}_runtime
+
+   // Array check handled below.
+   lwu $z0, MIRROR_CLASS_COMPONENT_TYPE_OFFSET(a1)
+   bnez $z0, .L${opcode}_array
+
+   // Super check: find expected class, else cut to runtime.
+.L${opcode}_super:
+   lwu a2, MIRROR_CLASS_SUPER_CLASS_OFFSET(a2)
+   beq a2, a1, .L${opcode}_slow_next
+   bnez a2, .L${opcode}_super
+
+.L${opcode}_runtime:
+   TEST_IF_MARKING $z0, .L${opcode}_mark
+.L${opcode}_mark_resume:
+   EXPORT_PC
+   call art_quick_check_instance_of  // args a0 (obj), a1 (expected klass)
+
+   // Advancement logic replicated here for branch distance.
+.L${opcode}_slow_next:
+   FETCH_ADVANCE_INST 2
+   GET_INST_OPCODE $z0
+   GOTO_OPCODE $z0
+
+.L${opcode}_mark:
+   call art_quick_read_barrier_mark_reg11  // a1, expected klass
+   j .L${opcode}_mark_resume
+
+.L${opcode}_array:
+   // z0 = expected.component
+   lwu $z1, MIRROR_CLASS_COMPONENT_TYPE_OFFSET(a2)  // z1 := actual.component
+   beqz $z1, .L${opcode}_runtime  // null: actual not an array
+   lwu $z2, MIRROR_CLASS_SUPER_CLASS_OFFSET($z0)  // z2 := expected.component.super
+   bnez $z2, .L${opcode}_runtime  // super type exists
+   // expected.component.super is null: expected is either Object[] or primitive array.
+   lhu $z2, MIRROR_CLASS_OBJECT_PRIMITIVE_TYPE_OFFSET($z0)  // z2 := expected.component.primitive
+   bnez $z2, .L${opcode}_runtime  // expected's component is primitive
+   lwu $z2, MIRROR_CLASS_OBJECT_PRIMITIVE_TYPE_OFFSET($z1)  // z2 := actual.component.primitive
+   bnez $z2, .L${opcode}_runtime  // actual's component is primitive
+   // z0 and z1 must both be Object!
+   j .L${opcode}_slow_next
+
+
+// instance-of vA, vB, type@CCCC
+// Format 22c: B|A|20 CCCC
+// vA := 1 if vB instance-of CCCC, else 0
+// Store in the given destination register 1 if the indicated reference is an instance of the given
+// type, or 0 if not.
+// Note: Since B must always be a reference (and not a primitive value), this will always result in
+// 0 being stored if C refers to a primitive type.
 %def op_instance_of():
-    unimp
+   srliw s7, xINST, 8    // s7 := B|A
+   andi s7, s7, 0xF      // s7 := A
+   FETCH_FROM_THREAD_CACHE /*expected klass*/ a0, .L${opcode}_miss, t0, t1
+.L${opcode}_miss_resume:
 
-%def op_instance_of_slow_path():
-    unimp
+   srliw t0, xINST, 12        // t0 := B
+   GET_VREG_OBJECT t0, t0     // t0 := refs[B]
+   beqz t0, .L${opcode}_next  // t0 = null = dst value "false"
+   lwu a2, MIRROR_OBJECT_CLASS_OFFSET(t0)  // a2 := actual klass
+   // Fast path: compare without read barrier.
+   bne a0, a2, .L${opcode}_slow
 
+   li t0, 1  // dst value "true"
+
+.L${opcode}_next:
+%  set_vreg("t0", "s7", z0="t1")  # fp[A] := t0
+   FETCH_ADVANCE_INST 2
+   GET_INST_OPCODE t0
+   GOTO_OPCODE t0
+
+.L${opcode}_miss:
+   EXPORT_PC
+   mv a0, xSELF
+   ld a1, (sp)  // caller ArtMethod*
+   mv a2, xPC
+   call nterp_get_class
+   j .L${opcode}_miss_resume
+
+.L${opcode}_slow:
+   // Arg registers positioned in anticipation of quick call.
+   mv a1, a0  // a1 := expected klass
+   mv a0, t0  // a0 := object
+%  slow_path = add_slow_path(op_instance_of_slow_path, "s7", "t0", "t1", "t2")
+   tail $slow_path  // slow offset exceeds branch imm
+                    // args a0, a1, a2
+
+
+// Checks cases for (1) interface, (2) array, and (3) super classes.
+// Hardcoded: a0 (obj), a1 (expected klass), a2 (actual klass)
+//
+// Npte. If marking, don't bother with read barrier calls - cut to runtime. This arrangement allows
+// the (non marking) super class fast path's negative case to skip the read barrier and runtime
+// call, and correctly diagnose the situation with fp[A] := 0.
+%def op_instance_of_slow_path(vA, z0, z1, z2):
+   TEST_IF_MARKING $z0, .L${opcode}_runtime_with_read_barrier
+
+   // Interface check: cut to runtime.
+   lwu $z0, MIRROR_CLASS_ACCESS_FLAGS_OFFSET(a1)
+   BRANCH_IF_BIT_SET $z0, $z0, MIRROR_CLASS_IS_INTERFACE_FLAG_BIT, .L${opcode}_runtime
+
+   // Array check handled below.
+   lwu $z0, MIRROR_CLASS_COMPONENT_TYPE_OFFSET(a1)
+   bnez $z0, .L${opcode}_array
+
+   // Super check: find klass up the hierarchy.
+.L${opcode}_super:
+   lwu a2, MIRROR_CLASS_SUPER_CLASS_OFFSET(a2)
+   beq a2, a1, .L${opcode}_super_exit
+   bnez a2, .L${opcode}_super
+.L${opcode}_super_exit:
+   sub $z0, a2, a1
+   seqz a0, $z0  // a0 := 1 if eq, else 0
+
+.L${opcode}_slow_next:
+%  set_vreg("a0", vA, z0=z0)  # fp[A] := a0
+   FETCH_ADVANCE_INST 2
+   GET_INST_OPCODE $z0
+   GOTO_OPCODE $z0
+
+.L${opcode}_runtime_with_read_barrier:
+   call art_quick_read_barrier_mark_reg11  // a1, expected klass
+.L${opcode}_runtime:
+   EXPORT_PC
+   call artInstanceOfFromCode  // args a0 (obj), a1 (expected klass)
+       // return a0: 1 if true, else 0
+   j .L${opcode}_slow_next
+
+.L${opcode}_array:
+   // z0 = expected.component
+   lwu $z1, MIRROR_CLASS_COMPONENT_TYPE_OFFSET(a2)  // z1 := actual.component
+   beqz $z1, .L${opcode}_array_exit  // null: actual not an array
+                                     // at exit: klass != null  =>  a0 := 0
+   lwu $z2, MIRROR_CLASS_SUPER_CLASS_OFFSET($z0)  // z2 := expected.component.super
+   bnez $z2, .L${opcode}_runtime     // super type exists
+   // expected.component.super is null: expected is either Object[] or primitive array.
+   lhu $z0, MIRROR_CLASS_OBJECT_PRIMITIVE_TYPE_OFFSET($z0)  // z0 := expected.component.primitive
+   bnez $z0, .L${opcode}_array_exit  // expected's component is primitive
+                                     // at exit: Primitive::Type enum != klass  =>  a0 := 0
+   lhu $z1, MIRROR_CLASS_OBJECT_PRIMITIVE_TYPE_OFFSET($z1)  // z1 := actual.component.primitive
+   // if z1 != 0: actual's component is primitive. At exit: z0 = 0 and z1 != 0  =>  a0 := 0
+   // if z1  = 0: actual's component is Object. At exit: z0 = 0 and z1 = 0  =>  a0 := 1
+.L${opcode}_array_exit:
+   sub $z1, $z0, $z1
+   seqz a0, $z1
+   j .L${opcode}_slow_next
+
+
+// new-instance vAA, type@BBBB
+// Format 21c: AA|22 BBBB
+// Construct a new instance of the indicated type, storing a reference to it in the destination. The
+// type must refer to a non-array class.
 %def op_new_instance():
-    unimp
+   EXPORT_PC
+   srliw s7, xINST, 8  // s7 := AA
+   FETCH_FROM_THREAD_CACHE /*resolved klass*/a0, .L${opcode}_miss, t0, t1
+   TEST_IF_MARKING t0, .L${opcode}_mark
+.L${opcode}_mark_resume:
+
+   ld t0, THREAD_ALLOC_OBJECT_ENTRYPOINT_OFFSET(xSELF)
+   jalr t0     // arg a0 (klass)
+               // return a0 := new-obj
+   fence w, w  // constructor fence; main.S has details
+
+.L${opcode}_miss_resume:
+   SET_VREG_OBJECT a0, s7, z0=t0  // refs[AA] := new-obj
+   FETCH_ADVANCE_INST 2
+   GET_INST_OPCODE t0
+   GOTO_OPCODE t0
+
+.L${opcode}_mark:
+   call art_quick_read_barrier_mark_reg10  // a0, klass
+   j .L${opcode}_mark_resume
+
+.L${opcode}_miss:
+   EXPORT_PC
+   mv a0, xSELF
+   ld a1, (sp)  // caller ArtMethod*
+   mv a2, xPC
+   call nterp_allocate_object
+       // return a0 := new-obj, plus cache is set with resolved klass
+   j .L${opcode}_miss_resume
+
 
 // *** iget ***
 
