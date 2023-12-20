@@ -14,8 +14,11 @@
  * limitations under the License.
  */
 
+#include <string.h>
+
 #include "base/common_art_test.h"  // For ScratchFile
 #include "base/file_utils.h"
+#include "base/stl_util.h"
 #include "gtest/gtest.h"
 #include "fd_file.h"
 #include "random_access_file_test.h"
@@ -170,7 +173,7 @@ TEST_F(FdFileTest, Copy) {
   ASSERT_EQ(static_cast<int64_t>(sizeof(src_data)), src.GetLength());
 
   art::ScratchFile dest_tmp;
-  FdFile dest(src_tmp.GetFilename(), O_RDWR, false);
+  FdFile dest(dest_tmp.GetFilename(), O_RDWR, false);
   ASSERT_GE(dest.Fd(), 0);
   ASSERT_TRUE(dest.IsOpened());
 
@@ -185,6 +188,112 @@ TEST_F(FdFileTest, Copy) {
   ASSERT_EQ(0, dest.Close());
   ASSERT_EQ(0, src.Close());
 }
+
+#ifdef __linux__
+TEST_F(FdFileTest, CopySparse) {
+  // The test validates that FdFile::Copy preserves sparsity of the file i.e. doesn't write zeroes
+  // to the output file in locations corresponding to empty blocks in the input file.
+  constexpr size_t kChunkSize = 64 * art::KB;
+  constexpr size_t kEstimateMaxFileMetadataSize = 131072;
+  constexpr size_t kStatBlockSize = 512;
+  constexpr int kChunksNumber = 16;
+  int rc;
+
+  art::UniqueCPtr<void> data_buffer(malloc(kChunkSize));
+  art::UniqueCPtr<void> zero_buffer(calloc(kChunkSize, 1));
+  CHECK_NE(data_buffer.get(), nullptr);
+  CHECK_NE(zero_buffer.get(), nullptr);
+  memset(data_buffer.get(), 0xFF, kChunkSize);
+
+  size_t empty_prefix = 0;
+  while (empty_prefix <= kChunkSize) {
+    size_t empty_suffix = 0;
+    while (empty_suffix <= kChunkSize) {
+      struct stat src_stat, dest_stat;
+
+      art::ScratchFile src_tmp;
+      FdFile src(src_tmp.GetFilename(), O_RDWR, false);
+      ASSERT_GE(src.Fd(), 0);
+      ASSERT_TRUE(src.IsOpened());
+
+      for (int i = 0; i < kChunksNumber; i++) {
+        // Write data leaving chunk size of unwritten space in between them
+        ASSERT_TRUE(src.PwriteFully(data_buffer.get(), kChunkSize,
+                                    empty_prefix + 2 * i * kChunkSize));
+      }
+
+      if (empty_suffix != 0) {
+        CHECK_EQ(src.SetLength(src.GetLength() + empty_suffix), 0u);
+      }
+
+      ASSERT_EQ(0, src.Flush());
+
+      size_t expected_length = (2 * kChunksNumber - 1) * kChunkSize + empty_prefix + empty_suffix;
+      ASSERT_EQ(static_cast<int64_t>(expected_length), src.GetLength());
+
+      rc = TEMP_FAILURE_RETRY(fstat(src.Fd(), &src_stat));
+      ASSERT_EQ(rc, 0u);
+      ASSERT_GE(src_stat.st_blocks, kChunksNumber * kChunkSize / kStatBlockSize);
+      ASSERT_LE(src_stat.st_blocks,
+                kEstimateMaxFileMetadataSize + kChunksNumber * kChunkSize / kStatBlockSize);
+
+      art::ScratchFile dest_tmp;
+      FdFile dest(dest_tmp.GetFilename(), O_RDWR, false);
+      ASSERT_GE(dest.Fd(), 0);
+      ASSERT_TRUE(dest.IsOpened());
+
+      ASSERT_TRUE(dest.Copy(&src, 0, src.GetLength()));
+      ASSERT_EQ(0, dest.Flush());
+      ASSERT_EQ(src.GetLength(), dest.GetLength());
+
+      rc = TEMP_FAILURE_RETRY(fstat(dest.Fd(), &dest_stat));
+      ASSERT_EQ(rc, 0u);
+      ASSERT_EQ(dest_stat.st_blocks, src_stat.st_blocks);
+
+      char check_data[kChunkSize];
+
+      if (empty_prefix != 0) {
+        ASSERT_TRUE(dest.PreadFully(check_data, empty_prefix, 0));
+        CHECK_EQ(0, memcmp(check_data, zero_buffer.get(), empty_prefix));
+      }
+
+      if (empty_suffix != 0) {
+        ASSERT_TRUE(dest.PreadFully(check_data, empty_suffix, expected_length - empty_suffix));
+        CHECK_EQ(0, memcmp(check_data, zero_buffer.get(), empty_suffix));
+      }
+
+      for (int i = 0; i < 2 * kChunksNumber - 1; i++) {
+        ASSERT_TRUE(dest.PreadFully(check_data, sizeof(check_data), empty_prefix + i * kChunkSize));
+
+        if (i % 2 == 0) {
+          CHECK_EQ(0, memcmp(check_data, data_buffer.get(), kChunkSize));
+        } else {
+          CHECK_EQ(0, memcmp(check_data, zero_buffer.get(), kChunkSize));
+        }
+      }
+
+      // Both dest and src file offsets are expected to be at the end of file.
+      ASSERT_FALSE(dest.ReadFully(check_data, 1));
+      ASSERT_FALSE(src.ReadFully(check_data, 1));
+
+      ASSERT_EQ(0, dest.Close());
+      ASSERT_EQ(0, src.Close());
+
+      if (empty_suffix == 0) {
+        empty_suffix = 1;
+      } else {
+        empty_suffix <<= 1;
+      }
+    }
+
+    if (empty_prefix == 0) {
+      empty_prefix = 1;
+    } else {
+      empty_prefix <<= 1;
+    }
+  }
+}
+#endif
 
 TEST_F(FdFileTest, MoveConstructor) {
   // New scratch file, zero-length.
