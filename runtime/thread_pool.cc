@@ -46,7 +46,8 @@ static constexpr bool kUseCustomThreadPoolStack = false;
 static constexpr bool kUseCustomThreadPoolStack = true;
 #endif
 
-ThreadPoolWorker::ThreadPoolWorker(ThreadPool* thread_pool, const std::string& name,
+ThreadPoolWorker::ThreadPoolWorker(AbstractThreadPool* thread_pool,
+                                   const std::string& name,
                                    size_t stack_size)
     : thread_pool_(thread_pool),
       name_(name) {
@@ -158,18 +159,21 @@ void ThreadPool::AddTask(Thread* self, Task* task) {
 void ThreadPool::RemoveAllTasks(Thread* self) {
   // The ThreadPool is responsible for calling Finalize (which usually delete
   // the task memory) on all the tasks.
-  Task* task = nullptr;
-  while ((task = TryGetTask(self)) != nullptr) {
+  MutexLock mu(self, task_queue_lock_);
+  for (Task* task : tasks_) {
     task->Finalize();
   }
-  MutexLock mu(self, task_queue_lock_);
   tasks_.clear();
 }
 
-ThreadPool::ThreadPool(const char* name,
-                       size_t num_threads,
-                       bool create_peers,
-                       size_t worker_stack_size)
+ThreadPool::~ThreadPool() {
+  RemoveAllTasks(Thread::Current());
+}
+
+AbstractThreadPool::AbstractThreadPool(const char* name,
+                                       size_t num_threads,
+                                       bool create_peers,
+                                       size_t worker_stack_size)
   : name_(name),
     task_queue_lock_("task queue lock", kGenericBottomLock),
     task_queue_condition_("task queue condition", task_queue_lock_),
@@ -186,7 +190,7 @@ ThreadPool::ThreadPool(const char* name,
   CreateThreads();
 }
 
-void ThreadPool::CreateThreads() {
+void AbstractThreadPool::CreateThreads() {
   CHECK(threads_.empty());
   Thread* self = Thread::Current();
   {
@@ -203,17 +207,17 @@ void ThreadPool::CreateThreads() {
   }
 }
 
-void ThreadPool::WaitForWorkersToBeCreated() {
+void AbstractThreadPool::WaitForWorkersToBeCreated() {
   creation_barier_.Increment(Thread::Current(), 0);
 }
 
-const std::vector<ThreadPoolWorker*>& ThreadPool::GetWorkers() {
+const std::vector<ThreadPoolWorker*>& AbstractThreadPool::GetWorkers() {
   // Wait for all the workers to be created before returning them.
   WaitForWorkersToBeCreated();
   return threads_;
 }
 
-void ThreadPool::DeleteThreads() {
+void AbstractThreadPool::DeleteThreads() {
   {
     Thread* self = Thread::Current();
     MutexLock mu(self, task_queue_lock_);
@@ -229,18 +233,17 @@ void ThreadPool::DeleteThreads() {
   STLDeleteElements(&threads_);
 }
 
-void ThreadPool::SetMaxActiveWorkers(size_t max_workers) {
+void AbstractThreadPool::SetMaxActiveWorkers(size_t max_workers) {
   MutexLock mu(Thread::Current(), task_queue_lock_);
   CHECK_LE(max_workers, GetThreadCount());
   max_active_workers_ = max_workers;
 }
 
-ThreadPool::~ThreadPool() {
+AbstractThreadPool::~AbstractThreadPool() {
   DeleteThreads();
-  RemoveAllTasks(Thread::Current());
 }
 
-void ThreadPool::StartWorkers(Thread* self) {
+void AbstractThreadPool::StartWorkers(Thread* self) {
   MutexLock mu(self, task_queue_lock_);
   started_ = true;
   task_queue_condition_.Broadcast(self);
@@ -248,17 +251,17 @@ void ThreadPool::StartWorkers(Thread* self) {
   total_wait_time_ = 0;
 }
 
-void ThreadPool::StopWorkers(Thread* self) {
+void AbstractThreadPool::StopWorkers(Thread* self) {
   MutexLock mu(self, task_queue_lock_);
   started_ = false;
 }
 
-bool ThreadPool::HasStarted(Thread* self) {
+bool AbstractThreadPool::HasStarted(Thread* self) {
   MutexLock mu(self, task_queue_lock_);
   return started_;
 }
 
-Task* ThreadPool::GetTask(Thread* self) {
+Task* AbstractThreadPool::GetTask(Thread* self) {
   MutexLock mu(self, task_queue_lock_);
   while (!IsShuttingDown()) {
     const size_t thread_count = GetThreadCount();
@@ -290,7 +293,7 @@ Task* ThreadPool::GetTask(Thread* self) {
   return nullptr;
 }
 
-Task* ThreadPool::TryGetTask(Thread* self) {
+Task* AbstractThreadPool::TryGetTask(Thread* self) {
   MutexLock mu(self, task_queue_lock_);
   return TryGetTaskLocked();
 }
@@ -304,7 +307,7 @@ Task* ThreadPool::TryGetTaskLocked() {
   return nullptr;
 }
 
-void ThreadPool::Wait(Thread* self, bool do_work, bool may_hold_locks) {
+void AbstractThreadPool::Wait(Thread* self, bool do_work, bool may_hold_locks) {
   if (do_work) {
     CHECK(!create_peers_);
     Task* task = nullptr;
@@ -329,13 +332,13 @@ size_t ThreadPool::GetTaskCount(Thread* self) {
   return tasks_.size();
 }
 
-void ThreadPool::SetPthreadPriority(int priority) {
+void AbstractThreadPool::SetPthreadPriority(int priority) {
   for (ThreadPoolWorker* worker : threads_) {
     worker->SetPthreadPriority(priority);
   }
 }
 
-void ThreadPool::CheckPthreadPriority(int priority) {
+void AbstractThreadPool::CheckPthreadPriority(int priority) {
 #if defined(ART_TARGET_ANDROID)
   for (ThreadPoolWorker* worker : threads_) {
     CHECK_EQ(worker->GetPthreadPriority(), priority);
