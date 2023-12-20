@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f385d018_dff610b6",
+        "filename": "tools/build-linux-x86-host-tools.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-12-20T17:49:00Z",
+      "side": 1,
+      "message": "It\u0027s a bit better behaved to use a temporary directory in the standard place (typically /tmp), so I suggest `mktemp -d`. One can never know if the build root is writable and has free space, e.g. if sandboxing is being used.",
+      "range": {
+        "startLine": 44,
+        "startChar": 56,
+        "endLine": 44,
+        "endChar": 68
+      },
+      "revId": "49c305345df5fc87e45585bd306ea2fe4b848730",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
