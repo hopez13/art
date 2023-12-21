@@ -46,6 +46,30 @@
       },
       "revId": "49c305345df5fc87e45585bd306ea2fe4b848730",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "002685c2_b932cfaa",
+        "filename": "tools/build-linux-x86-host-tools.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-12-21T13:15:14Z",
+      "side": 1,
+      "message": "I\u0027d just create a directory with the desired name inside the temporary dir returned by `mktemp`. But this works too.",
+      "parentUuid": "bade8471_d0e87033",
+      "range": {
+        "startLine": 44,
+        "startChar": 56,
+        "endLine": 44,
+        "endChar": 68
+      },
+      "revId": "49c305345df5fc87e45585bd306ea2fe4b848730",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

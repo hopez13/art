@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2e8e7f7_3ac5adc8",
+        "filename": "tools/build-linux-x86-host-tools.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-12-21T13:15:14Z",
+      "side": 1,
+      "message": "Doesn\u0027t this get expanded by the shell? Maybe it works because it doesn\u0027t match anything (if the `nullglob` option is unset), but please quote it properly.",
+      "range": {
+        "startLine": 49,
+        "startChar": 45,
+        "endLine": 49,
+        "endChar": 46
+      },
+      "revId": "2ff7f009802beed86a56744fc32061f39b9695ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
