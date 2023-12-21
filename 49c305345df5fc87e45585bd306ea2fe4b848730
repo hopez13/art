@@ -22,6 +22,30 @@
       },
       "revId": "49c305345df5fc87e45585bd306ea2fe4b848730",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bade8471_d0e87033",
+        "filename": "tools/build-linux-x86-host-tools.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1980056
+      },
+      "writtenOn": "2023-12-21T12:11:18Z",
+      "side": 1,
+      "message": "I could not set the name of jars folder inside the zip to a desired value using `mktemp`. So, I created temporary zips (deleting them later) and merged them into a single zip finally.",
+      "parentUuid": "f385d018_dff610b6",
+      "range": {
+        "startLine": 44,
+        "startChar": 56,
+        "endLine": 44,
+        "endChar": 68
+      },
+      "revId": "49c305345df5fc87e45585bd306ea2fe4b848730",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
