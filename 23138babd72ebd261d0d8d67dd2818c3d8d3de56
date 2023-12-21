@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a3231e1_b022c4f6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-12-21T18:10:45Z",
+      "side": 1,
+      "message": "The problem is that https://r.android.com/2883706 didn\u0027t get blocked from merging into aosp-main as expected, so the topic is fine here but got incorrectly (partially) merged into that branch. So the right way to fix it is to revert in AOSP main. I\u0027ll send out a CL shortly.",
+      "revId": "23138babd72ebd261d0d8d67dd2818c3d8d3de56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
