@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ebb7835_290cde03",
+        "filename": "tools/boot-image-profile-generate.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-12-21T12:09:51Z",
+      "side": 1,
+      "message": "Nit: Change the example to be more general? A specific path may give users an impression that they should use exactly that path, just like the one for preloaded-classes-denylist.",
+      "range": {
+        "startLine": 44,
+        "startChar": 31,
+        "endLine": 44,
+        "endChar": 83
+      },
+      "revId": "87de26fc040ebbe9a680299a5164c084f9974db6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
