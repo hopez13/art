@@ -92,9 +92,6 @@ public class PrimaryDexopter extends Dexopter<DetailedPrimaryDexInfo> {
 
     @Override
     protected boolean isDexoptable(@NonNull DetailedPrimaryDexInfo dexInfo) {
-        if (!dexInfo.hasCode()) {
-            return false;
-        }
         if ((mParams.getFlags() & ArtFlags.FLAG_FOR_SINGLE_SPLIT) != 0) {
             return Objects.equals(mParams.getSplitName(), dexInfo.splitName());
         }
