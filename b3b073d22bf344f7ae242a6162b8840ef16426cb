@@ -52,6 +52,24 @@
       "parentUuid": "8a022adb_ef002caf",
       "revId": "b3b073d22bf344f7ae242a6162b8840ef16426cb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d108633_ca4e4b7c",
+        "filename": "runtime/interpreter/mterp/riscv64/other.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-12-21T16:10:18Z",
+      "side": 1,
+      "message": "There are two vreg arrays.\nThe scecond has copy of the pointer if it is GC object, or 0 other if is primitive.",
+      "parentUuid": "da7d655f_0bf29de1",
+      "revId": "b3b073d22bf344f7ae242a6162b8840ef16426cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
