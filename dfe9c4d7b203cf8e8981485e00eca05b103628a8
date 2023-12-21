@@ -69,6 +69,24 @@
       "parentUuid": "7da56259_3fb6fb36",
       "revId": "dfe9c4d7b203cf8e8981485e00eca05b103628a8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cf6094df_1dd7814f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-12-21T21:32:13Z",
+      "side": 1,
+      "message": "I don\u0027t think we\u0027ll need to do any `LD_LIBRARY_PATH` chicanery, as long as the tests are correctly linked to depend on (only) the API libs. Being APIs they are after all exposed by the ART module so that the default namespace has links to them.\n\nFiled b/317397172.",
+      "parentUuid": "6cba3feb_033c34f4",
+      "revId": "dfe9c4d7b203cf8e8981485e00eca05b103628a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
