@@ -70,6 +70,24 @@
       "parentUuid": "da7d655f_0bf29de1",
       "revId": "b3b073d22bf344f7ae242a6162b8840ef16426cb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc9ce599_28b0342d",
+        "filename": "runtime/interpreter/mterp/riscv64/other.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-12-21T22:50:23Z",
+      "side": 1,
+      "message": "Ah, a consistency check! Not by looking up if an address value is a valid object.",
+      "parentUuid": "7d108633_ca4e4b7c",
+      "revId": "b3b073d22bf344f7ae242a6162b8840ef16426cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
