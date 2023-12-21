@@ -16,6 +16,24 @@
       "message": "It looks like this has to be rebased.",
       "revId": "c5cc7275f98acb4b403e86606cfcc605c9d430a7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad89ffa7_f9dfc6be",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1280281
+      },
+      "writtenOn": "2023-12-21T10:32:06Z",
+      "side": 1,
+      "message": "Thank you Hans.\n\nI\u0027ve rebased the patch. Would it be possible for you to take look?\n\nI believe there are no real changes between the patchsets apart from the rebase - https://android-review.googlesource.com/c/platform/art/+/2852448/9..11 however unfortunately the code review flags were cleared.",
+      "parentUuid": "051de0c0_77ecc7dc",
+      "revId": "c5cc7275f98acb4b403e86606cfcc605c9d430a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
