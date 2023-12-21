@@ -86,6 +86,30 @@
       },
       "revId": "bb17e1929ae8b601830d320979cb8894b4ad51aa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "254e07ce_f8b6757c",
+        "filename": "libartservice/service/java/com/android/server/art/model/ArtManagedFileStats.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-12-21T22:47:12Z",
+      "side": 1,
+      "message": "Discussed with carmenjackson@ and haiping@. The size information is for app developers to do debugging and telemetry. The size of each file type is used in a different use case. A sum of all file types is not particularly helpful to app developers.\n\nAlso, providing a sum will make it easier for app developers to do wrong things. Since the platform provides an API that returns the size of an app\u0027s all data (https://developer.android.com/reference/android/app/usage/StorageStats#getDataBytes()), app developers may do wrong things like subtracting all data size by all ART managed file size and think that the result is the size of their own data, which doesn\u0027t make sense. ART managed files are not necessarily in app\u0027s data dir. For example, some of them can also be in /data/dalvik-cache, which does not count into app\u0027s all data size. We can\u0027t prevent app developers from doing wrong things, but we can at least make it harder by not providing `getTotalSizeBytes`.",
+      "parentUuid": "c13505ff_2b7e92e3",
+      "range": {
+        "startLine": 94,
+        "startChar": 16,
+        "endLine": 94,
+        "endChar": 39
+      },
+      "revId": "bb17e1929ae8b601830d320979cb8894b4ad51aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
