@@ -22,6 +22,30 @@
       },
       "revId": "2ff7f009802beed86a56744fc32061f39b9695ad",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1dfdba89_677c9391",
+        "filename": "tools/build-linux-x86-host-tools.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1980056
+      },
+      "writtenOn": "2023-12-21T17:32:31Z",
+      "side": 1,
+      "message": "Thanks, I have added double quotes to `bootjars/*`. \n\nAnd for consistency, I have added double quotes at most places.",
+      "parentUuid": "d2e8e7f7_3ac5adc8",
+      "range": {
+        "startLine": 49,
+        "startChar": 45,
+        "endLine": 49,
+        "endChar": 46
+      },
+      "revId": "2ff7f009802beed86a56744fc32061f39b9695ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
