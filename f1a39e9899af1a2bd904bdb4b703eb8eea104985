@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca17bacb_823fc3fe",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1197,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-12-21T11:07:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fbe60a85_e16e0497",
+      "range": {
+        "startLine": 1197,
+        "startChar": 76,
+        "endLine": 1197,
+        "endChar": 81
+      },
+      "revId": "f1a39e9899af1a2bd904bdb4b703eb8eea104985",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "913570ae_f746ac3a",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d373ef5_5b1ce64c",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1231,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-12-21T11:07:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "913570ae_f746ac3a",
+      "range": {
+        "startLine": 1231,
+        "startChar": 45,
+        "endLine": 1231,
+        "endChar": 46
+      },
+      "revId": "f1a39e9899af1a2bd904bdb4b703eb8eea104985",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f1b91d26_63a56220",
@@ -60,6 +108,30 @@
       "writtenOn": "2023-12-21T10:25:09Z",
       "side": 1,
       "message": "nit: keep alignment like it is line 863?",
+      "range": {
+        "startLine": 870,
+        "startChar": 0,
+        "endLine": 871,
+        "endChar": 88
+      },
+      "revId": "f1a39e9899af1a2bd904bdb4b703eb8eea104985",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1547b948_263cb9f4",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 871,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-12-21T11:07:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f1b91d26_63a56220",
       "range": {
         "startLine": 870,
         "startChar": 0,
