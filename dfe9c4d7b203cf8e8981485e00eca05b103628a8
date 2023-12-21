@@ -16,6 +16,41 @@
       "message": "Looks like a good idea to me. Should we also merge this into main?",
       "revId": "dfe9c4d7b203cf8e8981485e00eca05b103628a8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7da56259_3fb6fb36",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-12-21T12:08:30Z",
+      "side": 1,
+      "message": "I think the problem is the opposite there - it links all libs statically, including those that should be API tested. I\u0027ll look into that too, but I\u0027ll file a different ticket for it.",
+      "parentUuid": "67e399d2_3f3af41b",
+      "revId": "dfe9c4d7b203cf8e8981485e00eca05b103628a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c82bd2c9_e9c7e028",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-12-21T12:08:30Z",
+      "side": 1,
+      "message": "+samgarg for CTS DrNo.",
+      "revId": "dfe9c4d7b203cf8e8981485e00eca05b103628a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
