@@ -34,6 +34,24 @@
       "parentUuid": "739bc288_4a36bf37",
       "revId": "b3b073d22bf344f7ae242a6162b8840ef16426cb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da7d655f_0bf29de1",
+        "filename": "runtime/interpreter/mterp/riscv64/other.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-12-21T16:08:39Z",
+      "side": 1,
+      "message": "Yes, it\u0027ll require a larger handler size... perhaps as a separate CL.\n\nIs there a straightforward way of looking at the contents of a vreg and determining whether it is an object?",
+      "parentUuid": "8a022adb_ef002caf",
+      "revId": "b3b073d22bf344f7ae242a6162b8840ef16426cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
