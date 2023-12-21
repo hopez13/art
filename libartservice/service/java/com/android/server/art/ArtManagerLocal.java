@@ -877,9 +877,8 @@ public final class ArtManagerLocal {
      * @throws IllegalArgumentException if the package is not found
      * @throws IllegalStateException if the operation encounters an error that should never happen
      *         (e.g., an internal logic error).
-     *
-     * @hide
      */
+    @SuppressLint("UnflaggedApi") // Flag support for mainline is not available.
     @RequiresApi(Build.VERSION_CODES.UPSIDE_DOWN_CAKE)
     @NonNull
     public ArtManagedFileStats getArtManagedFileStats(

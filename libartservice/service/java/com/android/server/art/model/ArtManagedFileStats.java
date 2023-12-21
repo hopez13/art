@@ -34,7 +34,8 @@ import java.util.Map;
  *
  * @hide
  */
-//@SystemApi(client = SystemApi.Client.SYSTEM_SERVER)
+@SuppressLint("UnflaggedApi") // Flag support for mainline is not available.
+@SystemApi(client = SystemApi.Client.SYSTEM_SERVER)
 @Immutable
 @AutoValue
 public abstract class ArtManagedFileStats {
@@ -88,8 +89,6 @@ public abstract class ArtManagedFileStats {
      *
      * @throws IllegalArgumentException if {@code fileType} is not one of those defined in {@link
      *         FileTypes}.
-     *
-     * @hide
      */
     public long getTotalSizeBytesByType(@FileTypes int fileType) {
         Long value = getTotalSizesBytes().get(fileType);
