@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "828ca520_09f32657",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-12-21T12:21:41Z",
+      "side": 1,
+      "message": "It\u0027s a pity the compiler doesn\u0027t figure out that the type [actually is](https://cs.android.com/android/platform/superproject/main/+/main:art/libartbase/base/enums.h;l\u003d25;drc\u003ded4898e280912b1014ded043138ef5d41613a5f8) a `size_t`.",
+      "range": {
+        "startLine": 9,
+        "startChar": 99,
+        "endLine": 9,
+        "endChar": 138
+      },
+      "revId": "7a604b955756e2046ea37b35c7d3fa2cc9aeac0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e5ffdd84_24887391",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-12-21T12:21:41Z",
+      "side": 1,
+      "message": "+scianciulli apropos compiler warnings.",
+      "revId": "7a604b955756e2046ea37b35c7d3fa2cc9aeac0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
