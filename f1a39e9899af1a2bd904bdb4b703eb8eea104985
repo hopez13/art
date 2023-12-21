@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fbe60a85_e16e0497",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1197,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-12-21T10:25:09Z",
+      "side": 1,
+      "message": "`input_index` ?",
+      "range": {
+        "startLine": 1197,
+        "startChar": 76,
+        "endLine": 1197,
+        "endChar": 81
+      },
+      "revId": "f1a39e9899af1a2bd904bdb4b703eb8eea104985",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "913570ae_f746ac3a",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1231,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-12-21T10:25:09Z",
+      "side": 1,
+      "message": "/* input_index\u003d */",
+      "range": {
+        "startLine": 1231,
+        "startChar": 45,
+        "endLine": 1231,
+        "endChar": 46
+      },
+      "revId": "f1a39e9899af1a2bd904bdb4b703eb8eea104985",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f1b91d26_63a56220",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 871,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2023-12-21T10:25:09Z",
+      "side": 1,
+      "message": "nit: keep alignment like it is line 863?",
+      "range": {
+        "startLine": 870,
+        "startChar": 0,
+        "endLine": 871,
+        "endChar": 88
+      },
+      "revId": "f1a39e9899af1a2bd904bdb4b703eb8eea104985",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
