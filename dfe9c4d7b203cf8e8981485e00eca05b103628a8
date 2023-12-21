@@ -51,6 +51,24 @@
       "message": "+samgarg for CTS DrNo.",
       "revId": "dfe9c4d7b203cf8e8981485e00eca05b103628a8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6cba3feb_033c34f4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-12-21T12:12:39Z",
+      "side": 1,
+      "message": "There are only a few libs that expose APIs, right? Can we at least restrict LD_LIBRARY_PATH to those libs instead of the whole dir on main?",
+      "parentUuid": "7da56259_3fb6fb36",
+      "revId": "dfe9c4d7b203cf8e8981485e00eca05b103628a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
