@@ -218,7 +218,8 @@ void RegisterAllocationResolver::Resolve(ArrayRef<HInstruction* const> safepoint
               temp->GetRegister(), temp->GetHighInterval()->GetRegister());
           locations->SetTempAt(temp_index, location);
         } else {
-          locations->SetTempAt(temp_index, Location::FpuRegisterLocation(temp->GetRegister()));
+          DCHECK(temp->HasRegister());
+          locations->SetTempAt(temp_index, temp->ToLocation());
         }
         break;
 
@@ -273,18 +274,12 @@ void RegisterAllocationResolver::UpdateSafepointLiveRegisters() {
 
 size_t RegisterAllocationResolver::CalculateMaximumSafepointSpillSize(
     ArrayRef<HInstruction* const> safepoints) {
-  size_t core_register_spill_size = codegen_->GetWordSize();
-  size_t fp_register_spill_size = codegen_->GetSlowPathFPWidth();
   size_t maximum_safepoint_spill_size = 0u;
   for (HInstruction* instruction : safepoints) {
     LocationSummary* locations = instruction->GetLocations();
     if (locations->OnlyCallsOnSlowPath()) {
-      size_t core_spills =
-          codegen_->GetNumberOfSlowPathSpills(locations, /* core_registers= */ true);
-      size_t fp_spills =
-          codegen_->GetNumberOfSlowPathSpills(locations, /* core_registers= */ false);
-      size_t spill_size =
-          core_register_spill_size * core_spills + fp_register_spill_size * fp_spills;
+      size_t spill_size = codegen_->GetSlowPathSpillSize(locations, /* core_registers= */ true) +
+                          codegen_->GetSlowPathSpillSize(locations, /* core_registers= */ false);
       maximum_safepoint_spill_size = std::max(maximum_safepoint_spill_size, spill_size);
     } else if (locations->CallsOnMainAndSlowPath()) {
       // Nothing to spill on the slow path if the main path already clobbers caller-saves.
@@ -307,7 +302,8 @@ void RegisterAllocationResolver::ConnectSiblings(LiveInterval* interval) {
     loc = Location::StackSlotByNumOfSlots(num_of_slots, interval->GetParent()->GetSpillSlot());
 
     CHECK_IMPLIES(loc.IsSIMDStackSlot(),
-                  (codegen_->GetSIMDRegisterWidth() / kVRegSize == num_of_slots))
+                  ((codegen_->GetSIMDRegisterWidth() / kVRegSize <= num_of_slots) &&
+                   (codegen_->GetMaxSIMDRegisterWidth() / kVRegSize >= num_of_slots)))
         << "Unexpected number of spill slots";
     InsertMoveAfter(interval->GetDefinedBy(), interval->ToLocation(), loc);
   }
@@ -469,7 +465,8 @@ void RegisterAllocationResolver::ConnectSplitSiblings(LiveInterval* interval,
       size_t num_of_slots = parent->NumberOfSpillSlotsNeeded();
       location_source = Location::StackSlotByNumOfSlots(num_of_slots, parent->GetSpillSlot());
       CHECK_IMPLIES(location_source.IsSIMDStackSlot(),
-                    (codegen_->GetSIMDRegisterWidth() == num_of_slots * kVRegSize))
+                    ((codegen_->GetSIMDRegisterWidth() <= num_of_slots * kVRegSize) &&
+                     (codegen_->GetMaxSIMDRegisterWidth() >= num_of_slots * kVRegSize)))
           << "Unexpected number of spill slots";
     }
   } else {
