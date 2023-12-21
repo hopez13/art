@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "af66a8c9_42fda3c3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-12-21T09:07:13Z",
+      "side": 1,
+      "message": "Thanks! PTAL.",
+      "revId": "d22f7b22758653664c16b7099edfb9c976588aad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a21c760_d845ea7b",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2177,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2023-12-21T09:07:13Z",
+      "side": 1,
+      "message": "Is it better to specify Location::Register here? I used Any and loading it when required. We won\u0027t need to load it when tracing is off. Since we use the same code for debuggable when tracing is off I just put it as Location::Any.",
+      "range": {
+        "startLine": 2177,
+        "startChar": 24,
+        "endLine": 2177,
+        "endChar": 39
+      },
+      "revId": "d22f7b22758653664c16b7099edfb9c976588aad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
