@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4ddac0d_20373a08",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-12-21T21:51:29Z",
+      "side": 1,
+      "message": "LGTM on the API overall, just a few comments.",
+      "revId": "bb17e1929ae8b601830d320979cb8894b4ad51aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d9c93802_3f855d59",
+        "filename": "libartservice/service/java/com/android/server/art/model/ArtManagedFileStats.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-12-21T21:51:29Z",
+      "side": 1,
+      "message": "Should this still be here? What does it mean to hide the class when it has unhidden methods?",
+      "range": {
+        "startLine": 36,
+        "startChar": 3,
+        "endLine": 36,
+        "endChar": 8
+      },
+      "revId": "bb17e1929ae8b601830d320979cb8894b4ad51aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c13505ff_2b7e92e3",
+        "filename": "libartservice/service/java/com/android/server/art/model/ArtManagedFileStats.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2023-12-21T21:51:29Z",
+      "side": 1,
+      "message": "Should we also provide a `getTotalSizeBytes`, to avoid the potential antipattern\n\n```\nlong myGetAllArtManagedSizeBytes() {\n  ArtManagedFileStats stats \u003d artLocalManager.getArtManagedFileStats(...);\n  return stats.getTotalSizeBytesByType(TYPE_DEXOPT_ARTIFACT) +\n         stats.getTotalSizeBytesByType(TYPE_CUR_PROFILE) +\n         stats.getTotalSizeBytesByType(TYPE_REF_PROFILE);\n}\n```\n\n?",
+      "range": {
+        "startLine": 94,
+        "startChar": 16,
+        "endLine": 94,
+        "endChar": 39
+      },
+      "revId": "bb17e1929ae8b601830d320979cb8894b4ad51aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
