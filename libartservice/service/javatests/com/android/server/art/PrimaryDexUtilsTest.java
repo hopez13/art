@@ -71,10 +71,9 @@ public class PrimaryDexUtilsTest {
         assertThat(infos.get(0).classLoaderContext()).isEqualTo("PCL[]" + sharedLibrariesContext);
         assertThat(infos.get(1).classLoaderContext())
                 .isEqualTo("PCL[base.apk]" + sharedLibrariesContext);
-        assertThat(infos.get(2).classLoaderContext()).isEqualTo(null);
-        assertThat(infos.get(3).classLoaderContext())
+        assertThat(infos.get(2).classLoaderContext())
                 .isEqualTo("PCL[base.apk:split_0.apk:split_1.apk]" + sharedLibrariesContext);
-        assertThat(infos.get(4).classLoaderContext())
+        assertThat(infos.get(3).classLoaderContext())
                 .isEqualTo("PCL[base.apk:split_0.apk:split_1.apk:split_2.apk]"
                         + sharedLibrariesContext);
     }
@@ -94,11 +93,10 @@ public class PrimaryDexUtilsTest {
         assertThat(infos.get(0).classLoaderContext()).isEqualTo("PCL[]" + sharedLibrariesContext);
         assertThat(infos.get(1).classLoaderContext())
                 .isEqualTo("PCL[];DLC[split_2.apk];PCL[base.apk]" + sharedLibrariesContext);
-        assertThat(infos.get(2).classLoaderContext()).isEqualTo(null);
-        assertThat(infos.get(3).classLoaderContext())
+        assertThat(infos.get(2).classLoaderContext())
                 .isEqualTo("DLC[];PCL[base.apk]" + sharedLibrariesContext);
-        assertThat(infos.get(4).classLoaderContext()).isEqualTo("PCL[]");
-        assertThat(infos.get(5).classLoaderContext()).isEqualTo("PCL[];PCL[split_3.apk]");
+        assertThat(infos.get(3).classLoaderContext()).isEqualTo("PCL[]");
+        assertThat(infos.get(4).classLoaderContext()).isEqualTo("PCL[];PCL[split_3.apk]");
     }
 
     private <T extends PrimaryDexInfo> void checkBasicInfo(List<T> infos) {
@@ -110,21 +108,17 @@ public class PrimaryDexUtilsTest {
         assertThat(infos.get(1).hasCode()).isTrue();
         assertThat(infos.get(1).splitName()).isEqualTo("split_0");
 
-        assertThat(infos.get(2).dexPath()).isEqualTo("/data/app/foo/split_1.apk");
-        assertThat(infos.get(2).hasCode()).isFalse();
-        assertThat(infos.get(2).splitName()).isEqualTo("split_1");
+        assertThat(infos.get(2).dexPath()).isEqualTo("/data/app/foo/split_2.apk");
+        assertThat(infos.get(2).hasCode()).isTrue();
+        assertThat(infos.get(2).splitName()).isEqualTo("split_2");
 
-        assertThat(infos.get(3).dexPath()).isEqualTo("/data/app/foo/split_2.apk");
+        assertThat(infos.get(3).dexPath()).isEqualTo("/data/app/foo/split_3.apk");
         assertThat(infos.get(3).hasCode()).isTrue();
-        assertThat(infos.get(3).splitName()).isEqualTo("split_2");
+        assertThat(infos.get(3).splitName()).isEqualTo("split_3");
 
-        assertThat(infos.get(4).dexPath()).isEqualTo("/data/app/foo/split_3.apk");
+        assertThat(infos.get(4).dexPath()).isEqualTo("/data/app/foo/split_4.apk");
         assertThat(infos.get(4).hasCode()).isTrue();
-        assertThat(infos.get(4).splitName()).isEqualTo("split_3");
-
-        assertThat(infos.get(5).dexPath()).isEqualTo("/data/app/foo/split_4.apk");
-        assertThat(infos.get(5).hasCode()).isTrue();
-        assertThat(infos.get(5).splitName()).isEqualTo("split_4");
+        assertThat(infos.get(4).splitName()).isEqualTo("split_4");
     }
 
     private AndroidPackage createPackage(boolean isIsolatedSplitLoading) {

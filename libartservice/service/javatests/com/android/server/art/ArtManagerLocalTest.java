@@ -117,6 +117,7 @@ public class ArtManagerLocalTest {
             SystemProperties.class, Constants.class, PackageStateModulesUtils.class);
 
     @Mock private ArtManagerLocal.Injector mInjector;
+    @Mock private ArtFileManager.Injector mArtFileManagerInjector;
     @Mock private PackageManagerLocal mPackageManagerLocal;
     @Mock private PackageManagerLocal.FilteredSnapshot mSnapshot;
     @Mock private IArtd mArtd;
@@ -158,6 +159,13 @@ public class ArtManagerLocalTest {
         lenient().when(mInjector.getDexUseManager()).thenReturn(mDexUseManager);
         lenient().when(mInjector.getCurrentTimeMillis()).thenReturn(CURRENT_TIME_MS);
         lenient().when(mInjector.getStorageManager()).thenReturn(mStorageManager);
+        lenient()
+                .when(mInjector.getArtFileManager())
+                .thenReturn(new ArtFileManager(mArtFileManagerInjector));
+
+        lenient().when(mArtFileManagerInjector.getArtd()).thenReturn(mArtd);
+        lenient().when(mArtFileManagerInjector.getUserManager()).thenReturn(mUserManager);
+        lenient().when(mArtFileManagerInjector.getDexUseManager()).thenReturn(mDexUseManager);
 
         Path tempDir = Files.createTempDirectory("temp");
         tempDir.toFile().deleteOnExit();
