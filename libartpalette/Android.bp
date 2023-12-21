@@ -129,6 +129,13 @@ art_cc_test {
         "art_gtest_defaults",
         "art_libartpalette_tests_defaults",
     ],
+<<<<<<< HEAD   (4f99d9 Reapply "Construct BCP arguments to the VM using CommonArtTe)
+=======
+    shared_libs: [
+        "libartpalette",
+        "libnativehelper",
+    ],
+>>>>>>> BRANCH (dfe9c4 Do not add the ART APEX to LD_LIBRARY_PATH in the CTS tests,)
     host_supported: true,
 }
 
@@ -140,6 +147,16 @@ art_cc_test {
         "art_standalone_gtest_defaults",
         "art_libartpalette_tests_defaults",
     ],
+<<<<<<< HEAD   (4f99d9 Reapply "Construct BCP arguments to the VM using CommonArtTe)
+=======
+    static_libs: [
+        "libartpalette",
+        "libc++fs",
+        // libnativehelper_lazy has the glue we need to dlsym the platform-only
+        // APIs we need, like JniInvocationInit.
+        "libnativehelper_lazy",
+    ],
+>>>>>>> BRANCH (dfe9c4 Do not add the ART APEX to LD_LIBRARY_PATH in the CTS tests,)
     test_config_template: ":art-gtests-target-standalone-cts-template",
     test_suites: [
         "cts",
