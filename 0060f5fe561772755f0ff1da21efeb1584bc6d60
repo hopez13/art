@@ -93,6 +93,30 @@
       },
       "revId": "0060f5fe561772755f0ff1da21efeb1584bc6d60",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae099faf_dd657102",
+        "filename": "tools/boot-image-profile-generate.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-12-21T11:47:09Z",
+      "side": 1,
+      "message": "I\u0027m okay with this argument, but I think it will be easier to understand if it immediately follows \u003coutput-dir\u003e rather than being among a bunch of arguments specifying inputs.",
+      "parentUuid": "4d1848c5_9fc0c0f7",
+      "range": {
+        "startLine": 42,
+        "startChar": 80,
+        "endLine": 42,
+        "endChar": 106
+      },
+      "revId": "0060f5fe561772755f0ff1da21efeb1584bc6d60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
