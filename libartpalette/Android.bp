@@ -114,11 +114,14 @@ art_cc_library {
 art_cc_defaults {
     name: "art_libartpalette_tests_defaults",
     srcs: ["apex/palette_test.cc"],
+<<<<<<< HEAD   (dfe9c4 Do not add the ART APEX to LD_LIBRARY_PATH in the CTS tests,)
     target: {
         android: {
             static_libs: ["libmodules-utils-build"],
         },
     },
+=======
+>>>>>>> BRANCH (50cfe0 Do not add the ART APEX to LD_LIBRARY_PATH in the CTS tests,)
 }
 
 // Version of ART gtest `art_libartpalette_tests` bundled with the ART APEX on target.
@@ -146,7 +149,10 @@ art_cc_test {
     ],
     static_libs: [
         "libartpalette",
+<<<<<<< HEAD   (dfe9c4 Do not add the ART APEX to LD_LIBRARY_PATH in the CTS tests,)
         "libc++fs",
+=======
+>>>>>>> BRANCH (50cfe0 Do not add the ART APEX to LD_LIBRARY_PATH in the CTS tests,)
         // libnativehelper_lazy has the glue we need to dlsym the platform-only
         // APIs we need, like JniInvocationInit.
         "libnativehelper_lazy",
