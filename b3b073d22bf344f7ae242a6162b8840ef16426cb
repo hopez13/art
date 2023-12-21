@@ -16,6 +16,24 @@
       "message": "Note: `SET_VREG_OBJECT` will also mark the VREG as reference for GC, otherwise GC will ignore it and you end up with stale pointer.  So that was significant bug as well.  Just saying in case you suspect similar issue elsewhere.",
       "revId": "b3b073d22bf344f7ae242a6162b8840ef16426cb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a022adb_ef002caf",
+        "filename": "runtime/interpreter/mterp/riscv64/other.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2023-12-21T13:04:58Z",
+      "side": 1,
+      "message": "And if you go down that rabbit hole, I wonder if you would like to change `GET_VREG_OBJECT` and `GET_VREG` to check whether the loaded vreg is object or not.  (in debug build only, which might require increasing handler size in debug build)  I bet that would have caught this bug.",
+      "parentUuid": "739bc288_4a36bf37",
+      "revId": "b3b073d22bf344f7ae242a6162b8840ef16426cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
