@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd5a9c42_05072281",
+        "filename": "libartservice/service/java/com/android/server/art/model/ArtManagedFileStats.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-12-21T22:18:42Z",
+      "side": 1,
+      "message": "@SystemApi must always come with @hide, where @hide means hiding from public SDK (i.e., apps). Public unannotated methods in this class inherit the class\u0027es visibility.",
+      "parentUuid": "d9c93802_3f855d59",
+      "range": {
+        "startLine": 36,
+        "startChar": 3,
+        "endLine": 36,
+        "endChar": 8
+      },
+      "revId": "bb17e1929ae8b601830d320979cb8894b4ad51aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c13505ff_2b7e92e3",
