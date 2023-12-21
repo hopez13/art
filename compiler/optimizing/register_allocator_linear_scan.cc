@@ -138,7 +138,8 @@ void RegisterAllocatorLinearScan::BlockRegister(Location location, size_t start,
       ? DataType::Type::kInt32
       : DataType::Type::kFloat32;
   if (interval == nullptr) {
-    interval = LiveInterval::MakeFixedInterval(allocator_, reg, type);
+    interval = LiveInterval::MakeFixedInterval(
+        allocator_, reg, type, codegen_->HasOverlappingFPVecRegisters());
     if (location.IsRegister()) {
       physical_core_register_intervals_[reg] = interval;
     } else {
@@ -312,7 +313,10 @@ void RegisterAllocatorLinearScan::CheckForTempLiveIntervals(HInstruction* instru
       switch (temp.GetPolicy()) {
         case Location::kRequiresRegister: {
           LiveInterval* interval =
-              LiveInterval::MakeTempInterval(allocator_, DataType::Type::kInt32);
+              LiveInterval::MakeTempInterval(allocator_,
+                                             DataType::Type::kInt32,
+                                             instruction,
+                                             codegen_->HasOverlappingFPVecRegisters());
           temp_intervals_.push_back(interval);
           interval->AddTempUse(instruction, i);
           unhandled_core_intervals_.push_back(interval);
@@ -321,7 +325,10 @@ void RegisterAllocatorLinearScan::CheckForTempLiveIntervals(HInstruction* instru
 
         case Location::kRequiresFpuRegister: {
           LiveInterval* interval =
-              LiveInterval::MakeTempInterval(allocator_, DataType::Type::kFloat64);
+              LiveInterval::MakeTempInterval(allocator_,
+                                             DataType::Type::kFloat64,
+                                             instruction,
+                                             codegen_->HasOverlappingFPVecRegisters());
           temp_intervals_.push_back(interval);
           interval->AddTempUse(instruction, i);
           if (codegen_->NeedsTwoRegisters(DataType::Type::kFloat64)) {

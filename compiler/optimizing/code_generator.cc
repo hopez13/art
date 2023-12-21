@@ -1692,6 +1692,25 @@ void CodeGenerator::ValidateInvokeRuntimeWithoutRecordingPcInfo(HInstruction* in
       << " slow_path->GetDescription()=" << slow_path->GetDescription();
 }
 
+size_t CodeGenerator::GetSlowPathSpillSize(LocationSummary* locations, bool core_registers) const {
+  if (core_registers) {
+    return GetNumberOfSlowPathSpills(locations, core_registers) * GetWordSize();
+  }
+  size_t spill_size = 0;
+  size_t slow_path_fp_width = GetSlowPathFPWidth();
+  if (locations->GetNumLiveVectorRegisters() > 0) {
+    uint32_t fp_spills = GetSlowPathSpills(locations, core_registers);
+    for (uint32_t i : LowToHighBits(fp_spills)) {
+      size_t vecLen = locations->LiveFPVecRegAsLocation(i).GetVecLen();
+      spill_size += (vecLen > 0) ? vecLen : slow_path_fp_width;
+    }
+  } else {
+    size_t fp_spills = GetNumberOfSlowPathSpills(locations, core_registers);
+    spill_size += slow_path_fp_width * fp_spills;
+  }
+  return spill_size;
+}
+
 void SlowPathCode::SaveLiveRegisters(CodeGenerator* codegen, LocationSummary* locations) {
   size_t stack_offset = codegen->GetFirstRegisterSlotInSlowPath();
 
@@ -1712,7 +1731,12 @@ void SlowPathCode::SaveLiveRegisters(CodeGenerator* codegen, LocationSummary* lo
     DCHECK_LT(stack_offset, codegen->GetFrameSize() - codegen->FrameEntrySpillSize());
     DCHECK_LT(i, kMaximumNumberOfExpectedRegisters);
     saved_fpu_stack_offsets_[i] = stack_offset;
-    stack_offset += codegen->SaveFloatingPointRegister(stack_offset, i);
+    if (locations->GetNumLiveVectorRegisters() > 0) {
+      stack_offset +=
+          codegen->SaveFloatingPointRegister(stack_offset, locations->LiveFPVecRegAsLocation(i));
+    } else {
+      stack_offset += codegen->SaveFloatingPointRegister(stack_offset, i);
+    }
   }
 }
 
@@ -1730,7 +1754,12 @@ void SlowPathCode::RestoreLiveRegisters(CodeGenerator* codegen, LocationSummary*
   for (uint32_t i : LowToHighBits(fp_spills)) {
     DCHECK_LT(stack_offset, codegen->GetFrameSize() - codegen->FrameEntrySpillSize());
     DCHECK_LT(i, kMaximumNumberOfExpectedRegisters);
-    stack_offset += codegen->RestoreFloatingPointRegister(stack_offset, i);
+    if (locations->GetNumLiveVectorRegisters() > 0) {
+      stack_offset +=
+          codegen->RestoreFloatingPointRegister(stack_offset, locations->LiveFPVecRegAsLocation(i));
+    } else {
+      stack_offset += codegen->RestoreFloatingPointRegister(stack_offset, i);
+    }
   }
 }
 
