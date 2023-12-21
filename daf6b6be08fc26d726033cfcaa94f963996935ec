@@ -16,6 +16,24 @@
       "message": "There was some discussion of this at our team meeting. The decision to make GetPageSize() callable only as a member of MemMap was not popular. We would prefer to have that changed in the long run so it is more globally visible. This is not immediately time-sensitive, so it can be done in a later CL, if desired.",
       "revId": "daf6b6be08fc26d726033cfcaa94f963996935ec",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1685bab5_dff40a5d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1280281
+      },
+      "writtenOn": "2023-12-21T20:57:39Z",
+      "side": 1,
+      "message": "I think there are no technical obstacles to this. The MemMap appeared to be a suitable location for that due to MemMap:\n - itself needs the page size value;\n - is initialized in more or less all configurations and before most other components;\n - is responsible for virtual memory management which is connected with page size value.\n\nHowever, nothing prevents introducing, for example, a PageSize class solely dedicated to maintaining the page size value outside the runtime. Then page size in MemMap can be a private member without external interface, or could refer to the PageSize to retrieve the value.\n\nThe PageSize however will have to be initialized before more or less any other component, similarly to the MemMap.",
+      "parentUuid": "c406fdf1_951f6b8c",
+      "revId": "daf6b6be08fc26d726033cfcaa94f963996935ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
