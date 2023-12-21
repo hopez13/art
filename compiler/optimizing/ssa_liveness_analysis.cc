@@ -55,8 +55,8 @@ void SsaLivenessAnalysis::NumberInstructions() {
       if (locations != nullptr && locations->Out().IsValid()) {
         instructions_from_ssa_index_.push_back(current);
         current->SetSsaIndex(ssa_index++);
-        current->SetLiveInterval(
-            LiveInterval::MakeInterval(allocator_, current->GetType(), current));
+        current->SetLiveInterval(LiveInterval::MakeInterval(
+            allocator_, current->GetType(), current, codegen_->HasOverlappingFPVecRegisters()));
       }
       current->SetLifetimePosition(lifetime_position);
     }
@@ -73,8 +73,8 @@ void SsaLivenessAnalysis::NumberInstructions() {
       if (locations != nullptr && locations->Out().IsValid()) {
         instructions_from_ssa_index_.push_back(current);
         current->SetSsaIndex(ssa_index++);
-        current->SetLiveInterval(
-            LiveInterval::MakeInterval(allocator_, current->GetType(), current));
+        current->SetLiveInterval(LiveInterval::MakeInterval(
+            allocator_, current->GetType(), current, codegen_->HasOverlappingFPVecRegisters()));
       }
       instructions_from_lifetime_position_.push_back(current);
       current->SetLifetimePosition(lifetime_position);
@@ -509,6 +509,13 @@ Location LiveInterval::ToLocation() const {
       if (HasHighInterval()) {
         return Location::FpuRegisterPairLocation(GetRegister(), GetHighInterval()->GetRegister());
       } else {
+        // For vector operation we want to embedd the vector length in the Location info
+        DCHECK(GetParent()->GetDefinedBy());
+        if (GetParent()->GetDefinedBy()->IsVecOperation() && has_overlapping_fp_vec_registers_) {
+          HVecOperation* vecOperation = GetParent()->GetDefinedBy()->AsVecOperation();
+          return Location::FpuRegisterLocation(GetRegister(),
+                                               vecOperation->GetVectorNumberOfBytes());
+        }
         return Location::FpuRegisterLocation(GetRegister());
       }
     } else {
