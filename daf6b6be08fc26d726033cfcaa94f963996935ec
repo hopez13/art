@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c406fdf1_951f6b8c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-12-21T19:13:11Z",
+      "side": 1,
+      "message": "There was some discussion of this at our team meeting. The decision to make GetPageSize() callable only as a member of MemMap was not popular. We would prefer to have that changed in the long run so it is more globally visible. This is not immediately time-sensitive, so it can be done in a later CL, if desired.",
+      "revId": "daf6b6be08fc26d726033cfcaa94f963996935ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
