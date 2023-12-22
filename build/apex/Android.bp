@@ -544,6 +544,9 @@ genrule {
 
         "$(location merge_zips) $(out) $(out).tmp $(location :art-module-host-exports-for-genrule)",
     dist: {
-        targets: ["droidcore"],
+        targets: [
+            "droidcore",
+            "art-host-tools",
+        ],
     },
 }
