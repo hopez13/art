@@ -1689,7 +1689,11 @@ class HLoopInformationOutwardIterator : public ValueObject {
 #define FOR_EACH_CONCRETE_INSTRUCTION_X86_COMMON(M)
 #endif
 
+#if defined(ART_ENABLE_CODEGEN_x86_64)
+#define FOR_EACH_CONCRETE_INSTRUCTION_X86_64(M) M(X86Clear, Instruction)
+#else
 #define FOR_EACH_CONCRETE_INSTRUCTION_X86_64(M)
+#endif
 
 #define FOR_EACH_CONCRETE_INSTRUCTION(M)                                \
   FOR_EACH_CONCRETE_INSTRUCTION_COMMON(M)                               \
@@ -2450,16 +2454,14 @@ class HInstruction : public ArenaObject<kArenaAllocInstruction> {
   }
 
   bool IsRemovable() const {
-    return
-        !DoesAnyWrite() &&
-        !CanThrow() &&
-        !IsSuspendCheck() &&
-        !IsControlFlow() &&
-        !IsNop() &&
-        !IsParameterValue() &&
-        // If we added an explicit barrier then we should keep it.
-        !IsMemoryBarrier() &&
-        !IsConstructorFence();
+    return !DoesAnyWrite() && !CanThrow() && !IsSuspendCheck() && !IsControlFlow() && !IsNop() &&
+           !IsParameterValue() &&
+           // If we added an explicit barrier then we should keep it.
+           !IsMemoryBarrier() &&
+#if defined(ART_ENABLE_CODEGEN_x86_64)
+           !IsX86Clear() &&
+#endif
+           !IsConstructorFence();
   }
 
   bool IsDeadAndRemovable() const {

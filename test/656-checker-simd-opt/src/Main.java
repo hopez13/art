@@ -45,8 +45,15 @@ public class Main {
   //
   /// CHECK-ELSE:
   //
-  ///     CHECK-DAG: <<Incr:i\d+>>  IntConstant 4                        loop:none
-  ///     CHECK-DAG: <<Repl:d\d+>>  VecReplicateScalar [<<Cons>>]        loop:none
+  //      The IntConstant 4 is only true for 128-bit vectorization
+  ///	  CHECK-IF: hasIsaFeature("avx2")
+  ///         CHECK-DAG: <<Incr:i\d+>>  IntConstant 8                        loop:none
+  ///         CHECK-DAG: <<Repl:d\d+>>  VecReplicateScalar [<<Cons>>]        loop:none
+  ///     CHECK-ELSE:
+  ///         CHECK-DAG: <<Incr:i\d+>>  IntConstant 4                        loop:none
+  ///         CHECK-DAG: <<Repl:d\d+>>  VecReplicateScalar [<<Cons>>]        loop:none
+  ///     CHECK-FI:
+  //
   ///     CHECK-NOT:                VecReplicateScalar
   ///     CHECK-DAG: <<Phi:i\d+>>   Phi                                  loop:<<Loop:B\d+>> outer_loop:none
   ///     CHECK-DAG: <<Get1:d\d+>>  VecLoad [{{l\d+}},<<Phi>>]           loop:<<Loop>>      outer_loop:none
@@ -331,8 +338,15 @@ public class Main {
   //
   /// CHECK-ELSE:
   //
-  ///     CHECK-DAG: <<I4:i\d+>>    IntConstant 4                       loop:none
-  ///     CHECK-DAG: <<Rep:d\d+>>   VecReplicateScalar [<<Cnv>>]        loop:none
+  //      The IntConstant 4 is only true for 128-bit vectorization
+  ///	  CHECK-IF: hasIsaFeature("avx2")
+  ///         CHECK-DAG: <<I4:i\d+>>    IntConstant 8                       loop:none
+  ///         CHECK-DAG: <<Rep:d\d+>>   VecReplicateScalar [<<Cnv>>]        loop:none
+  ///     CHECK-ELSE:
+  ///         CHECK-DAG: <<I4:i\d+>>    IntConstant 4                       loop:none
+  ///         CHECK-DAG: <<Rep:d\d+>>   VecReplicateScalar [<<Cnv>>]        loop:none
+  ///     CHECK-FI:
+  //
   ///     CHECK-DAG: <<Phi:i\d+>>   Phi [<<I0>>,{{i\d+}}]               loop:<<Loop:B\d+>> outer_loop:none
   ///     CHECK-DAG:                VecStore [{{l\d+}},<<Phi>>,<<Rep>>] loop:<<Loop>>      outer_loop:none
   ///     CHECK-DAG:                Add [<<Phi>>,<<I4>>]                loop:<<Loop>>      outer_loop:none
@@ -372,8 +386,15 @@ public class Main {
   //
   /// CHECK-ELSE:
   //
-  ///     CHECK-DAG: <<I4:i\d+>>    IntConstant 4                       loop:none
-  ///     CHECK-DAG: <<Rep:d\d+>>   VecReplicateScalar [<<Cnv>>]        loop:none
+  //      The IntConstant 4 is only true for 128-bit vectorization
+  ///	  CHECK-IF: hasIsaFeature("avx2")
+  ///         CHECK-DAG: <<I4:i\d+>>    IntConstant 8                       loop:none
+  ///         CHECK-DAG: <<Rep:d\d+>>   VecReplicateScalar [<<Cnv>>]        loop:none
+  ///     CHECK-ELSE:
+  ///         CHECK-DAG: <<I4:i\d+>>    IntConstant 4                       loop:none
+  ///         CHECK-DAG: <<Rep:d\d+>>   VecReplicateScalar [<<Cnv>>]        loop:none
+  ///     CHECK-FI:
+  //
   ///     CHECK-DAG: <<Phi:i\d+>>   Phi [<<I0>>,{{i\d+}}]               loop:<<Loop:B\d+>> outer_loop:none
   ///     CHECK-DAG: <<Load:d\d+>>  VecLoad [{{l\d+}},<<Phi>>]          loop:<<Loop>>      outer_loop:none
   ///     CHECK-DAG: <<Add:d\d+>>   VecAdd [<<Load>>,<<Rep>>]           loop:<<Loop>>      outer_loop:none
