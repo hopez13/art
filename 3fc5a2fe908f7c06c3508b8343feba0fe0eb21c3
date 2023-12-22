@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6aa02b7c_80c230ac",
+        "filename": "tools/build-linux-x86-host-tools.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-12-22T13:48:23Z",
+      "side": 1,
+      "message": "Discussed offline. Let\u0027s try to avoid introducing one more thing to remember.",
+      "range": {
+        "startLine": 47,
+        "startChar": 38,
+        "endLine": 47,
+        "endChar": 52
+      },
+      "revId": "3fc5a2fe908f7c06c3508b8343feba0fe0eb21c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8adbccd6_5ccca884",
         "filename": "tools/build-linux-x86-host-tools.sh",
         "patchSetId": 1
