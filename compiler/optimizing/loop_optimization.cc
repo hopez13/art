@@ -513,6 +513,8 @@ HLoopOptimization::HLoopOptimization(HGraph* graph,
     : HOptimization(graph, name, stats),
       compiler_options_(&codegen.GetCompilerOptions()),
       simd_register_size_(codegen.GetSIMDRegisterWidth()),
+      min_simd_register_size_(codegen.GetSIMDRegisterWidth()),
+      max_simd_register_size_(codegen.GetMaxSIMDRegisterWidth()),
       induction_range_(induction_analysis),
       loop_allocator_(nullptr),
       global_allocator_(graph_->GetAllocator()),
@@ -537,8 +539,7 @@ HLoopOptimization::HLoopOptimization(HGraph* graph,
       vector_header_(nullptr),
       vector_body_(nullptr),
       vector_index_(nullptr),
-      arch_loop_helper_(ArchNoOptsLoopHelper::Create(codegen, global_allocator_)) {
-}
+      arch_loop_helper_(ArchNoOptsLoopHelper::Create(codegen, global_allocator_)) {}
 
 bool HLoopOptimization::Run() {
   // Skip if there is no loop or the graph has irreducible loops.
@@ -1124,12 +1125,14 @@ bool HLoopOptimization::TryLoopScalarOpts(LoopNode* node) {
 // Intel Press, June, 2004 (http://www.aartbik.com/).
 //
 
-
 bool HLoopOptimization::CanVectorizeDataFlow(LoopNode* node,
                                              HBasicBlock* header,
-                                             bool collect_alignment_info) {
+                                             bool collect_alignment_info,
+                                             int64_t trip_count) {
   // Reset vector bookkeeping.
   vector_length_ = 0;
+  // Set the default size
+  simd_register_size_ = min_simd_register_size_;
   vector_refs_->clear();
   vector_static_peeling_factor_ = 0;
   vector_dynamic_peeling_candidate_ = nullptr;
@@ -1162,6 +1165,20 @@ bool HLoopOptimization::CanVectorizeDataFlow(LoopNode* node,
       }
     }
   }
+
+// This is the right place to decide the optimal vector size as:
+// 1) We already know, there are no restrictions for the min SIMD width
+// TODO: Changing the vector size here, we need to ensure that ISA for higher
+//          SIMD width is not restrictive.
+//          If higher SIMD is more permissive, we may miss those opportunities as well
+// 2) Dependance analysis below has no bearing on vector size
+// 3) We can account for max peeling while picking the right size
+// Make the change specific to x86_64, till we can guarentee the restrictions
+// Besides x86 needs vec_length to be part of each operation and hence, must be
+// explicitly chosen before emitting, unlike other archs
+#if defined(ART_ENABLE_CODEGEN_x86_64)
+  SetOptimalVectorSize_X86_64(trip_count);
+#endif
 
   // Prepare alignment analysis:
   // (1) find desired alignment (SIMD vector size in bytes).
@@ -1263,7 +1280,7 @@ bool HLoopOptimization::ShouldVectorizeCommon(LoopNode* node,
 
   bool enable_alignment_strategies = !IsInPredicatedVectorizationMode();
   if (!TrySetSimpleLoopHeader(header, &main_phi) ||
-      !CanVectorizeDataFlow(node, header, enable_alignment_strategies) ||
+      !CanVectorizeDataFlow(node, header, enable_alignment_strategies, trip_count) ||
       !IsVectorizationProfitable(trip_count) ||
       !TryAssignLastValue(node->loop_info, main_phi, preheader, /*collect_loop_uses*/ true)) {
     return false;
@@ -1512,6 +1529,18 @@ void HLoopOptimization::FinalizeVectorization(LoopNode* node) {
   HBasicBlock* header = node->loop_info->GetHeader();
   HBasicBlock* preheader = node->loop_info->GetPreHeader();
   HLoopInformation* vloop = vector_header_->GetLoopInformation();
+// No more BB are inserted at the exit of vloop
+// Add the HX86Clear at the exit of the vloop
+// This is required for X86 when switching out of AVX2 context
+#if defined(ART_ENABLE_CODEGEN_x86_64)
+  DCHECK(!IsInPredicatedVectorizationMode());
+  if (simd_register_size_ > min_simd_register_size_) {
+    HBasicBlock* vloop_exit = vector_header_->GetSuccessors()[0];
+    vloop_exit->InsertInstructionBefore(new (global_allocator_) HX86Clear(),
+                                        vloop_exit->GetLastInstruction());
+  }
+#endif
+
   // Link reductions to their final uses.
   for (auto i = reductions_->begin(); i != reductions_->end(); ++i) {
     if (i->first->IsPhi()) {
@@ -2115,6 +2144,8 @@ bool HLoopOptimization::TrySetVectorType(DataType::Type type, uint64_t* restrict
       // Allow vectorization for SSE4.1-enabled X86 devices only (128-bit SIMD).
       *restrictions |= kNoIfCond;
       if (features->AsX86InstructionSetFeatures()->HasSSE4_1()) {
+        size_t vector_length = simd_register_size_ / DataType::Size(type);
+        DCHECK_EQ(simd_register_size_ % DataType::Size(type), 0u);
         switch (type) {
           case DataType::Type::kBool:
           case DataType::Type::kUint8:
@@ -2127,7 +2158,7 @@ bool HLoopOptimization::TrySetVectorType(DataType::Type type, uint64_t* restrict
                              kNoUnroundedHAdd |
                              kNoSAD |
                              kNoDotProd;
-            return TrySetVectorLength(type, 16);
+            return TrySetVectorLength(type, vector_length);
           case DataType::Type::kUint16:
             *restrictions |= kNoDiv |
                              kNoAbs |
@@ -2135,26 +2166,26 @@ bool HLoopOptimization::TrySetVectorType(DataType::Type type, uint64_t* restrict
                              kNoUnroundedHAdd |
                              kNoSAD |
                              kNoDotProd;
-            return TrySetVectorLength(type, 8);
+            return TrySetVectorLength(type, vector_length);
           case DataType::Type::kInt16:
             *restrictions |= kNoDiv |
                              kNoAbs |
                              kNoSignedHAdd |
                              kNoUnroundedHAdd |
                              kNoSAD;
-            return TrySetVectorLength(type, 8);
+            return TrySetVectorLength(type, vector_length);
           case DataType::Type::kInt32:
             *restrictions |= kNoDiv | kNoSAD;
-            return TrySetVectorLength(type, 4);
+            return TrySetVectorLength(type, vector_length);
           case DataType::Type::kInt64:
             *restrictions |= kNoMul | kNoDiv | kNoShr | kNoAbs | kNoSAD;
-            return TrySetVectorLength(type, 2);
+            return TrySetVectorLength(type, vector_length);
           case DataType::Type::kFloat32:
             *restrictions |= kNoReduction;
-            return TrySetVectorLength(type, 4);
+            return TrySetVectorLength(type, vector_length);
           case DataType::Type::kFloat64:
             *restrictions |= kNoReduction;
-            return TrySetVectorLength(type, 2);
+            return TrySetVectorLength(type, vector_length);
           default:
             break;
         }  // switch type
@@ -2928,6 +2959,35 @@ bool HLoopOptimization::TrySetPhiReduction(HPhi* phi) {
     }
   }
   return false;
+}
+
+void HLoopOptimization::SetOptimalVectorSize_X86_64(int64_t trip_count) {
+  // A vector length is already arrived at, by assuming min_simd_register_size
+  // Check if a higher order vectorization can help and set the simd_register_size
+  // and vector_length_ accordingly;
+  size_t simd_size;
+  size_t vector_length = vector_length_ * (max_simd_register_size_ / min_simd_register_size_);
+  // account for max peeling = vector_length
+  constexpr size_t factor_for_max_peeling = 2;
+  constexpr size_t min_loops_to_vectorize = 1;
+
+  // TODO: Reduction in AVX2 is broken, fix it to remove this workaround
+  // Note: We cannot handle this in restrictions, as we try out with 128-bit
+  //       and then scale here to 256-bit.
+  if (reductions_->size() > 0) {
+    return;
+  }
+
+  for (simd_size = max_simd_register_size_; simd_size >= min_simd_register_size_;
+       simd_size = simd_size >> 1, vector_length = vector_length >> 1) {
+    if (trip_count == 0 ||
+        trip_count >= (int64_t)(min_loops_to_vectorize * factor_for_max_peeling * vector_length)) {
+      // Set the new register size and vector length
+      simd_register_size_ = simd_size;
+      vector_length_ = vector_length;
+      return;
+    }
+  }
 }
 
 bool HLoopOptimization::TrySetSimpleLoopHeader(HBasicBlock* block, /*out*/ HPhi** main_phi) {
