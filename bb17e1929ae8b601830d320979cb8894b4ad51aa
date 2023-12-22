@@ -89,6 +89,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b4d5785_e091ef50",
+        "filename": "libartservice/service/java/com/android/server/art/model/ArtManagedFileStats.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-12-22T21:03:15Z",
+      "side": 1,
+      "message": "\u003e Except when @SystemApi is on the class level and not on the methods, apparently.\n\nSorry, I don\u0027t get it.\n\n\u003e This isn\u0027t the first time I\u0027m confused by @hide and the different API annotations. Is there some comprehensive docs on them somewhere, so I can stop asking embarrassing questions?\n\nI don\u0027t find a doc, but I can summarize it here.\n\n[no annotation] -\u003e public\n@SystemApi(PRIVILEGED_APPS) -\u003e invalid\n@SystemApi(MODULE_LIBRARIES) -\u003e invalid\n@SystemApi(SYSTEM_SERVER) -\u003e invalid\n@hide + @SystemApi(PRIVILEGED_APPS) -\u003e system api\n@hide + @SystemApi(MODULE_LIBRARIES) -\u003e module lib api\n@hide + @SystemApi(SYSTEM_SERVER) -\u003e system server api\n@hide -\u003e hidden\n\nThe visibility can be on the class level or on the method level. A method level visibility overrides the class level one. Unannotated methods inherit the class\u0027es visibility.\n\nThe combination of @hide and @SystemApi(...) must be looked at as a whole. It provides a single visibility and is overriden as a whole.\n\nE.g.,\n\n```\n/** @hide */\n@SystemApi(SYSTEM_SERVER)\npublic class Foo {\n  // Inherits the class\u0027es visibility, so this is system server api.\n  public void bar();\n}\n```\n\n```\n/** @hide */\n@SystemApi(SYSTEM_SERVER)\npublic class Foo {\n  /** @hide */ // Overrides the class\u0027es visibility, so this is hidden.\n  public void bar();\n}\n```",
+      "parentUuid": "cc1ec716_f234a828",
+      "range": {
+        "startLine": 36,
+        "startChar": 3,
+        "endLine": 36,
+        "endChar": 8
+      },
+      "revId": "bb17e1929ae8b601830d320979cb8894b4ad51aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c13505ff_2b7e92e3",
@@ -150,6 +174,30 @@
       "side": 1,
       "message": "\u003e A sum of all file types is not particularly helpful to app developers.\n\nOk, good.\n\n\u003e We can\u0027t prevent app developers from doing wrong things, but we can at least make it harder by not providing getTotalSizeBytes.\n\nJustifying doing one thing wrong because another thing is done wrong seems dubious to me, but I\u0027m certainly not one for adding APIs without clear use cases, so let\u0027s skip it.\n\nBtw, when you talk about app developers there it sounds like they\u0027d have direct access to this API. That won\u0027t be the case, right?",
       "parentUuid": "254e07ce_f8b6757c",
+      "range": {
+        "startLine": 94,
+        "startChar": 16,
+        "endLine": 94,
+        "endChar": 39
+      },
+      "revId": "bb17e1929ae8b601830d320979cb8894b4ad51aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb5c1d0b_2cf801fd",
+        "filename": "libartservice/service/java/com/android/server/art/model/ArtManagedFileStats.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2023-12-22T21:03:15Z",
+      "side": 1,
+      "message": "\u003e Btw, when you talk about app developers there it sounds like they\u0027d have direct access to this API. That won\u0027t be the case, right?\n\nRight, they have no direct access to this API. They will access this information through [`StorageStats.getAppBytesByDataType`](https://source.corp.google.com/h/googleplex-android/platform/superproject/main/+/main:frameworks/base/core/java/android/app/usage/StorageStats.java;l\u003d104;drc\u003dec7a413c67c95c465b682189d2436028aedc8779).",
+      "parentUuid": "e828aa97_6c76535f",
       "range": {
         "startLine": 94,
         "startChar": 16,
