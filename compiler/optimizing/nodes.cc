@@ -3625,4 +3625,15 @@ bool IsGEZero(HInstruction* instruction) {
   return IsInt64AndGet(instruction, &value) && value >= 0;
 }
 
+size_t HInstruction::GetInputVectorNumberOfBytes() {
+  size_t vecNumBytes = 0;
+  for (const HInstruction* i : GetInputs()) {
+    if (i->IsVecOperation()) {
+      const HVecOperation* vecOperation = i->AsVecOperation();
+      vecNumBytes = std::max(vecNumBytes, vecOperation->GetVectorNumberOfBytes());
+    }
+  }
+  return vecNumBytes;
+}
+
 }  // namespace art

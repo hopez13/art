@@ -296,10 +296,15 @@ class HLoopOptimization : public HOptimization {
   // Returns whether the data flow requirements are met for vectorization.
   //
   //   - checks whether instructions are vectorizable for the target.
+  //   - picks an optimal vector size
   //   - conducts data dependence analysis for array references.
   //   - additionally, collects info on peeling and aligment strategy.
-  bool CanVectorizeDataFlow(LoopNode* node, HBasicBlock* header, bool collect_alignment_info);
+  bool CanVectorizeDataFlow(LoopNode* node,
+                            HBasicBlock* header,
+                            bool collect_alignment_info,
+                            int64_t trip_count);
 
+  void SetOptimalVectorSize_X86_64(int64_t trip_count);
   // Does the checks (common for predicated and traditional mode) for the loop.
   bool ShouldVectorizeCommon(LoopNode* node, HPhi* main_phi, int64_t trip_count);
 
@@ -484,7 +489,9 @@ class HLoopOptimization : public HOptimization {
   const CompilerOptions* compiler_options_;
 
   // Cached target SIMD vector register size in bytes.
-  const size_t simd_register_size_;
+  size_t simd_register_size_;
+  const size_t min_simd_register_size_;
+  const size_t max_simd_register_size_;
 
   // Range information based on prior induction variable analysis.
   InductionVarRange induction_range_;

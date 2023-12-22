@@ -166,6 +166,10 @@ class SuspendCheckSlowPathX86_64 : public SlowPathCode {
     CodeGeneratorX86_64* x86_64_codegen = down_cast<CodeGeneratorX86_64*>(codegen);
     __ Bind(GetEntryLabel());
     SaveLiveRegisters(codegen, locations);  // Only saves full width XMM for SIMD.
+    // If this is related to an AVX2 loop, we must emit vzeroupper here before the context switch
+    if (codegen->GetGraph()->HasSIMD() && x86_64_codegen->GetInstructionSetFeatures().HasAVX2()) {
+      __ vzeroupper();
+    }
     x86_64_codegen->InvokeRuntime(kQuickTestSuspend, instruction_, instruction_->GetDexPc(), this);
     CheckEntrypointTypes<kQuickTestSuspend, void, void>();
     RestoreLiveRegisters(codegen, locations);  // Only restores full width XMM for SIMD.
