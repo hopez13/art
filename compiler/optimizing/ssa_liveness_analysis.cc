@@ -511,10 +511,16 @@ Location LiveInterval::ToLocation() const {
       } else {
         // For vector operation we want to embedd the vector length in the Location info
         DCHECK(GetParent()->GetDefinedBy());
-        if (GetParent()->GetDefinedBy()->IsVecOperation() && has_overlapping_fp_vec_registers_) {
-          HVecOperation* vecOperation = GetParent()->GetDefinedBy()->AsVecOperation();
-          return Location::FpuRegisterLocation(GetRegister(),
-                                               vecOperation->GetVectorNumberOfBytes());
+        HInstruction* defined_by_instr = GetParent()->GetDefinedBy();
+        if (has_overlapping_fp_vec_registers_) {
+          size_t vecNumBytes = 0;
+          if (defined_by_instr->IsVecOperation()) {
+            HVecOperation* vecOperation = defined_by_instr->AsVecOperation();
+            vecNumBytes = vecOperation->GetVectorNumberOfBytes();
+          } else if ((vecNumBytes = defined_by_instr->GetInputVectorNumberOfBytes()) > 0) {
+            DCHECK(defined_by_instr->IsPhi()) << "Unexpected instruction with vector input";
+          }
+          return Location::FpuRegisterLocation(GetRegister(), vecNumBytes);
         }
         return Location::FpuRegisterLocation(GetRegister());
       }

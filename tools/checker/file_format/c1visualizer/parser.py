@@ -60,8 +60,8 @@ def _parse_c1_line(c1_file, line, line_no, state, filename):
       method_name = line.split('"')[1].strip()
       if not method_name:
         Logger.fail("Empty method name in output", filename, line_no)
-
-      match = re.search(r"isa_features:([\w,-]+)", method_name)
+      # Some features may contain a '.' like sse4.1
+      match = re.search(r"isa_features:([\w\.?\w,-]+)", method_name)
       if match:
         raw_features = match.group(1).split(",")
         # Create a map of features in the form {feature_name: is_enabled}.

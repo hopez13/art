@@ -87,7 +87,13 @@ public class Main {
   /// CHECK-NEXT: BelowOrEqual
   //
   /// CHECK:      ArrayGet loop:none
-  /// CHECK-NEXT: Return
+  /// CHECK-IF:   hasIsaFeature("avx2")
+    // Incase of avx2 we may generate a HX86Clear just before return
+    // So dont enforce return to be the next HIR
+    /// CHECK: Return
+  /// CHECK-ELSE:
+    /// CHECK-NEXT: Return
+  /// CHECK-FI:
 
   /// CHECK-START: double Main.$noinline$test02(double[], int) load_store_elimination (after)
   /// CHECK:      BoundsCheck loop:none
@@ -131,7 +137,13 @@ public class Main {
   //
   /// CHECK-START: double Main.$noinline$test03(int) load_store_elimination (before)
   /// CHECK:      ArrayGet loop:none
-  /// CHECK-NEXT: Return
+  /// CHECK-IF:   hasIsaFeature("avx2")
+    // Incase of avx2 we may generate a HX86Clear just before return
+    // So dont enforce return to be the next HIR
+    /// CHECK: Return
+  /// CHECK-ELSE:
+    /// CHECK-NEXT: Return
+  /// CHECK-FI:
 
   /// CHECK-START: double Main.$noinline$test03(int) load_store_elimination (after)
   /// CHECK-IF:     not hasIsaFeature("sve")
