@@ -490,6 +490,50 @@ class Riscv64Assembler final : public Assembler {
   void FClassS(XRegister rd, FRegister rs1);
   void FClassD(XRegister rd, FRegister rs1);
 
+  // "C" Stanrd Extension, Compresseed Instructions
+  void CLwsp(XRegister rd, uint16_t offset);
+  void CLdsp(XRegister rd, uint16_t offset);
+  void CFLdsp(FRegister rd, uint16_t offset);
+  void CSwsp(XRegister rs2, uint16_t offset);
+  void CSdsp(XRegister rs2, uint16_t offset);
+  void CFSdsp(FRegister rs2, uint16_t offset);
+
+  void CLw(XRegister rd_s, XRegister rs1_s, uint16_t offset);
+  void CLd(XRegister rd_s, XRegister rs1_s, uint16_t offset);
+  void CFLd(FRegister rd_s, XRegister rs1_s, uint16_t offset);
+  void CSw(XRegister rs2_s, XRegister rs1_s, uint16_t offset);
+  void CSd(XRegister rs2_s, XRegister rs1_s, uint16_t offset);
+  void CFSd(FRegister rs2_s, XRegister rs1_s, uint16_t offset);
+
+  void CLi(XRegister rd, int16_t imm);
+  void CLui(XRegister rd, uint32_t nzimm6);
+  void CAddi(XRegister rd, int16_t nzimm);
+  void CAddiw(XRegister rd, int16_t imm);
+  void CAddi16Sp(int16_t nzimm);
+  void CAddi4Spn(XRegister rd, uint16_t nzuimm);
+  void CSlli(XRegister rd, uint16_t shamt);
+  void CSRli(XRegister rd_s, uint16_t shamt);
+  void CSRai(XRegister rd_s, uint16_t shamt);
+  void CAndi(XRegister rd_s, int16_t imm);
+  void CMv(XRegister rd, XRegister rs2);
+  void CAdd(XRegister rd, XRegister rs2);
+  void CAnd(XRegister rd_s, XRegister rs2_s);
+  void COr(XRegister rd_s, XRegister rs2_s);
+  void CXor(XRegister rd_s, XRegister rs2_s);
+  void CSub(XRegister rd_s, XRegister rs2_s);
+  void CAddw(XRegister rd_s, XRegister rs2_s);
+  void CSubw(XRegister rd_s, XRegister rs2_s);
+
+  void CJ(int16_t offset);
+  void CJr(XRegister rs1);
+  void CJalr(XRegister rs1);
+  void CBeqz(XRegister rs1_s, int16_t offset);
+  void CBnez(XRegister rs1_s, int16_t offset);
+
+  void CEbreak();
+  void CNop();
+  void CUnimp();
+
   // "Zba" Standard Extension, opcode = 0x1b, 0x33 or 0x3b, funct3 and funct7 varies.
   void AddUw(XRegister rd, XRegister rs1, XRegister rs2);
   void Sh1Add(XRegister rd, XRegister rs1, XRegister rs2);
@@ -1758,6 +1802,13 @@ class Riscv64Assembler final : public Assembler {
   // and emit branches.
   void FinalizeCode() override;
 
+  template <typename Reg>
+  static inline bool IsShortReg(Reg reg) {
+    static_assert(std::is_enum_v<Reg>, "Should be either XRegister or FRegister");
+    uint32_t uv = enum_cast<uint32_t>(reg) - 8u;
+    return IsUint<3>(uv);
+  }
+
   // Returns the current location of a label.
   //
   // This function must be used instead of `Riscv64Label::GetPosition()`
@@ -1952,7 +2003,19 @@ class Riscv64Assembler final : public Assembler {
   void PatchCFI();
 
   // Emit data (e.g. encoded instruction or immediate) to the instruction stream.
-  void Emit(uint32_t value);
+  template <typename T>
+  void Emit(T value) {
+    static_assert(std::is_integral_v<T>, "Only Integer types are allowed");
+    if (overwriting_) {
+      // Branches to labels are emitted into their placeholders here.
+      buffer_.Store<T>(overwrite_location_, value);
+      overwrite_location_ += sizeof(T);
+    } else {
+      // Other instructions are simply appended at the end here.
+      AssemblerBuffer::EnsureCapacity ensured(&buffer_);
+      buffer_.Emit<T>(value);
+    }
+  }
 
   // Adjust base register and offset if needed for load/store with a large offset.
   void AdjustBaseAndOffset(XRegister& base, int32_t& offset, ScratchRegisterScope& srs);
@@ -2200,6 +2263,172 @@ class Riscv64Assembler final : public Assembler {
     uint32_t encoding = (imm20 & 0x80000u) << (31 - 19) | (imm20 & 0x03ffu) << 21 |
                         (imm20 & 0x400u) << (20 - 10) | (imm20 & 0x7f800u) << (12 - 11) |
                         static_cast<uint32_t>(rd) << 7 | opcode;
+    Emit(encoding);
+  }
+
+  // Compressed Instruction Encodings
+
+  // CR-type instruction:
+  //
+  //   15    12 11      7 6       2 1 0
+  //   ---------------------------------
+  //   [ . . . | . . . . | . . . . | . ]
+  //   [ func4   rd/rs2      rs2    op ]
+  //   ---------------------------------
+  //
+  void EmitCR(uint16_t funct4, XRegister rd, XRegister rs2, uint16_t opcode) {
+    DCHECK(IsUint<4>(funct4));
+    DCHECK(IsUint<5>(static_cast<uint32_t>(rd)));
+    DCHECK(IsUint<5>(static_cast<uint32_t>(rs2)));
+    DCHECK(IsUint<2>(opcode));
+
+    uint16_t encoding =
+        funct4 << 12 | static_cast<uint16_t>(rd) << 7 | static_cast<uint16_t>(rs2) << 2 | opcode;
+    Emit(encoding);
+  }
+
+  // CI-type instruction:
+  //
+  //   15  13   11      7 6       2 1 0
+  //   ---------------------------------
+  //   [ . . | | . . . . | . . . . | . ]
+  //   [func3 imm rd/rs2     imm    op ]
+  //   ---------------------------------
+  //
+  template <typename Reg>
+  void EmitCI(uint16_t funct3, Reg rd, uint16_t imm6[2], uint16_t opcode) {
+    DCHECK(IsUint<3>(funct3));
+    DCHECK(IsUint<5>(static_cast<uint32_t>(rd)));
+    DCHECK(IsUint<1>(imm6[1])) << imm6[1];
+    DCHECK(IsUint<5>(imm6[0])) << imm6[0];
+    DCHECK(IsUint<2>(opcode));
+
+    uint16_t encoding = funct3 << 13 | static_cast<uint16_t>(imm6[1]) << 12 |
+                        static_cast<uint16_t>(rd) << 7 | static_cast<uint16_t>(imm6[0]) << 2 |
+                        opcode;
+    Emit(encoding);
+  }
+
+  // CSS-type instruction:
+  //
+  //   15  13 12        7 6       2 1 0
+  //   ---------------------------------
+  //   [ . . | . . . . . | . . . . | . ]
+  //   [func3     imm6      rs2     op ]
+  //   ---------------------------------
+  //
+  template <typename Reg>
+  void EmitCSS(uint16_t funct3, uint16_t offset6, Reg rs2, uint16_t opcode) {
+    DCHECK(IsUint<3>(funct3));
+    DCHECK(IsUint<6>(offset6));
+    DCHECK(IsUint<5>(static_cast<uint32_t>(rs2)));
+    DCHECK(IsUint<2>(opcode));
+
+    uint16_t encoding = funct3 << 13 | offset6 << 7 | static_cast<uint16_t>(rs2) << 2 | opcode;
+    Emit(encoding);
+  }
+
+  // CIW-type instruction:
+  //
+  //   15  13 12            5 4   2 1 0
+  //   ---------------------------------
+  //   [ . . | . . . . . . . | . . | . ]
+  //   [func3     imm8         rd'  op ]
+  //   ---------------------------------
+  //
+  void EmitCIW(uint16_t funct3, uint16_t imm8, XRegister rd_s, uint16_t opcode) {
+    DCHECK(IsUint<3>(funct3));
+    DCHECK(IsUint<8>(imm8));
+    CHECK(IsShortReg(rd_s)) << "Only x8-x15 supported for this type of encoding, but got: " << rd_s;
+    DCHECK(IsUint<2>(opcode));
+
+    uint16_t encoding = funct3 << 13 | imm8 << 5 | (static_cast<uint16_t>(rd_s) - 8) << 2 | opcode;
+    Emit(encoding);
+  }
+
+  // CL/S-type instruction:
+  //
+  //   15  13 12  10 9  7 6 5 4   2 1 0
+  //   ---------------------------------
+  //   [ . . | . . | . . | . | . . | . ]
+  //   [func3  imm   rs1' imm  rd'  op ]
+  //   ---------------------------------
+  //
+  template <typename Reg>
+  void EmitCM(uint16_t funct3, uint16_t imm5[2], XRegister rs1_s, Reg rd_s, uint16_t opcode) {
+    DCHECK(IsUint<3>(funct3));
+    DCHECK(IsUint<3>(imm5[1]));
+    DCHECK(IsUint<2>(imm5[0]));
+    CHECK(IsShortReg(rs1_s)) << "Only x8-x15 supported for this type of encoding, but got: "
+                             << rs1_s;
+    CHECK(IsShortReg(rd_s)) << "Only x8-x15 supported for this type of encoding, but got: " << rd_s;
+    DCHECK(IsUint<2>(opcode));
+
+    uint16_t encoding = funct3 << 13 | static_cast<uint16_t>(imm5[1]) << 10 |
+                        (static_cast<uint16_t>(rs1_s) - 8) << 7 |
+                        static_cast<uint16_t>(imm5[0]) << 5 |
+                        (static_cast<uint16_t>(rd_s) - 8) << 2 | opcode;
+    Emit(encoding);
+  }
+
+  // CA-type instruction:
+  //
+  //   15         10 9  7 6 5 4   2 1 0
+  //   ---------------------------------
+  //   [ . . . . . | . . | . | . . | . ]
+  //   [    funct6  rs1' funct2 rs2' op]
+  //   ---------------------------------
+  //
+  void EmitCA(uint16_t funct6, XRegister rs1_s, uint16_t funct2, XRegister rs2_s, uint16_t opcode) {
+    DCHECK(IsUint<6>(funct6));
+    CHECK(IsShortReg(rs1_s)) << "Only x8-x15 supported for this type of encoding, but got: "
+                             << rs1_s;
+    DCHECK(IsUint<2>(funct2));
+    CHECK(IsShortReg(rs2_s)) << "Only x8-x15 supported for this type of encoding, but got: "
+                             << rs2_s;
+    DCHECK(IsUint<2>(opcode));
+
+    uint16_t encoding = funct6 << 10 | (static_cast<uint16_t>(rs1_s) - 8) << 7 |
+                        static_cast<uint16_t>(funct2) << 5 |
+                        (static_cast<uint16_t>(rs2_s) - 8) << 2 | opcode;
+    Emit(encoding);
+  }
+
+  // CB-type instruction:
+  //
+  //   15  13 12  10 9  7 6       2 1 0
+  //   ---------------------------------
+  //   [ . . | . . | . . | . . . . | . ]
+  //   [func3 offset rs1'   offset  op ]
+  //   ---------------------------------
+  //
+  void EmitCB(uint16_t funct3, uint16_t offset8[2], XRegister rs1_s, uint16_t opcode) {
+    DCHECK(IsUint<3>(funct3));
+    DCHECK(IsUint<3>(offset8[1]));
+    DCHECK(IsUint<5>(offset8[0]));
+    CHECK(IsShortReg(rs1_s)) << "Only x8-x15 supported for this type of encoding, but got: "
+                             << rs1_s;
+    DCHECK(IsUint<2>(opcode));
+
+    uint16_t encoding = funct3 << 13 | offset8[1] << 10 | (static_cast<uint16_t>(rs1_s) - 8) << 7 |
+                        offset8[0] << 2 | opcode;
+    Emit(encoding);
+  }
+
+  // CJ-type instruction:
+  //
+  //   15  13 12                  2 1 0
+  //   ---------------------------------
+  //   [ . . | . . . . . . . . . . | . ]
+  //   [func3    jump target 11     op ]
+  //   ---------------------------------
+  //
+  void EmitCJ(uint16_t funct3, uint16_t jumpt, uint16_t opcode) {
+    DCHECK(IsUint<3>(funct3));
+    DCHECK(IsUint<11>(jumpt)) << jumpt;
+    DCHECK(IsUint<2>(opcode));
+
+    uint16_t encoding = funct3 << 13 | static_cast<uint16_t>(jumpt) << 2 | opcode;
     Emit(encoding);
   }
 

@@ -59,6 +59,24 @@ class AssemblerRISCV64Test : public AssemblerTest<Riscv64Assembler,
     use_simple_march_ = value;
   }
 
+  void SetCompressedMode(bool value) { compressed_mode_ = value; }
+
+  struct CompressedModeRAII {
+    AssemblerRISCV64Test* test_;
+    bool old_cm_, old_sa_;
+
+    explicit CompressedModeRAII(AssemblerRISCV64Test* test)
+        : test_(test), old_cm_(test->compressed_mode_), old_sa_(test->use_simple_march_) {
+      test->SetUseSimpleMarch(true);
+      test->SetCompressedMode(true);
+    }
+
+    ~CompressedModeRAII() {
+      test_->SetCompressedMode(old_cm_);
+      test_->SetUseSimpleMarch(old_sa_);
+    }
+  };
+
   std::vector<std::string> GetAssemblerCommand() override {
     std::vector<std::string> result = Base::GetAssemblerCommand();
     if (use_simple_march_) {
@@ -66,7 +84,7 @@ class AssemblerRISCV64Test : public AssemblerTest<Riscv64Assembler,
                              result.end(),
                              [](const std::string& s) { return StartsWith(s, "-march="); });
       CHECK(it != result.end());
-      *it = "-march=rv64imafdv";
+      *it = compressed_mode_ ? "-march=rv64imafdcv" : "-march=rv64imafdv";
     }
     return result;
   }
@@ -78,7 +96,7 @@ class AssemblerRISCV64Test : public AssemblerTest<Riscv64Assembler,
                              result.end(),
                              [](const std::string& s) { return StartsWith(s, "--mattr="); });
       CHECK(it != result.end());
-      *it = "--mattr=+F,+D,+A,+V";
+      *it = compressed_mode_ ? "--mattr=+F,+D,+A,+V,+C" : "--mattr=+F,+D,+A,+V";
     }
     return result;
   }
@@ -167,6 +185,20 @@ class AssemblerRISCV64Test : public AssemblerTest<Riscv64Assembler,
     return ArrayRef<const XRegister>(kXRegisters);
   }
 
+  ArrayRef<const XRegister> GetRegistersShort() {
+    static constexpr XRegister kXRegistersShort[] = {
+        S0,
+        S1,
+        A0,
+        A1,
+        A2,
+        A3,
+        A4,
+        A5,
+    };
+    return ArrayRef<const XRegister>(kXRegistersShort);
+  }
+
   ArrayRef<const FRegister> GetFPRegisters() override {
     static constexpr FRegister kFRegisters[] = {
         FT0,
@@ -211,6 +243,20 @@ class AssemblerRISCV64Test : public AssemblerTest<Riscv64Assembler,
         V16, V17, V18, V19, V20, V21, V22, V23, V24, V25, V26, V27, V28, V29, V30, V31
     };
     return ArrayRef<const VRegister>(kVRegisters);
+  }
+
+  ArrayRef<const FRegister> GetFPRegistersShort() {
+    static constexpr FRegister kFRegistersShort[] = {
+        FS0,
+        FS1,
+        FA0,
+        FA1,
+        FA2,
+        FA3,
+        FA4,
+        FA5,
+    };
+    return ArrayRef<const FRegister>(kFRegistersShort);
   }
 
   std::string GetSecondaryRegisterName(const XRegister& reg) override {
@@ -952,6 +998,174 @@ class AssemblerRISCV64Test : public AssemblerTest<Riscv64Assembler,
       }
     }
     return str;
+  }
+
+  template <typename Reg, typename Imm>
+  std::string RepeatCTemplateRegImm(void (Riscv64Assembler::*f)(Reg, Imm),
+                                    ArrayRef<const Reg> registers,
+                                    std::string (Base::*GetName)(const Reg&),
+                                    int immBits,
+                                    int shift,
+                                    bool noZeroImm,
+                                    const std::string& fmt) {
+    auto imms = CreateImmediateValuesBits(abs(immBits), /*as_uint=*/immBits > 0, shift);
+
+    CHECK(f != nullptr);
+    std::string str;
+    for (Reg reg : registers) {
+      for (Imm imm : imms) {
+        if (noZeroImm && imm == 0)
+          continue;
+
+        (GetAssembler()->*f)(reg, imm);
+
+        std::string base = fmt;
+        ReplaceReg(REG_TOKEN, (this->*GetName)(reg), &base);
+        ReplaceImm(imm, 0, 1, &base);
+        str += base;
+        str += "\n";
+      }
+    }
+    return str;
+  }
+
+  template <typename Imm>
+  std::string RepeatCRImm(void (Riscv64Assembler::*f)(XRegister, Imm),
+                          bool isShort,
+                          bool noZero,
+                          bool noZeroImm,
+                          int immBits,
+                          int shift,
+                          const std::string& fmt) {
+    auto regs = isShort ? GetRegistersShort() : GetRegisters();
+    if (noZero)
+      regs = regs.SubArray(1);
+    return RepeatCTemplateRegImm(
+        f, regs, &AssemblerRISCV64Test::GetRegisterName, immBits, shift, noZeroImm, fmt);
+  }
+
+  template <typename Imm>
+  std::string RepeatCFImm(void (Riscv64Assembler::*f)(FRegister, Imm),
+                          bool isShort,
+                          bool noZero,
+                          bool noZeroImm,
+                          int immBits,
+                          int shift,
+                          const std::string& fmt) {
+    auto regs = isShort ? GetFPRegistersShort() : GetFPRegisters();
+    if (noZero)
+      regs = regs.SubArray(1);
+    return RepeatCTemplateRegImm(
+        f, regs, &AssemblerRISCV64Test::GetFPRegName, immBits, shift, noZeroImm, fmt);
+  }
+
+  template <typename Reg1>
+  std::string RepeatTemplatedShortRegistersImm(void (Riscv64Assembler::*f)(Reg1,
+                                                                           XRegister,
+                                                                           uint16_t),
+                                               ArrayRef<const Reg1> reg1_registers,
+                                               std::string (Base::*GetName1)(const Reg1&),
+                                               int immBits,
+                                               int shift,
+                                               bool noZeroImm,
+                                               const std::string& fmt) {
+    CHECK(f != nullptr);
+    auto imms = CreateImmediateValuesBits(abs(immBits), immBits > 0, shift);
+    std::string str;
+    for (Reg1 reg1 : reg1_registers) {
+      for (XRegister reg2 : GetRegistersShort()) {
+        for (auto imm : imms) {
+          if (noZeroImm && imm == 0)
+            continue;
+
+          (GetAssembler()->*f)(reg1, reg2, imm);
+
+          std::string base = fmt;
+          ReplaceReg(REG1_TOKEN, (this->*GetName1)(reg1), &base);
+          ReplaceReg(REG2_TOKEN, GetRegisterName(reg2), &base);
+          ReplaceImm(imm, 0, 1, &base);
+          str += base;
+          str += "\n";
+        }
+      }
+    }
+    return str;
+  }
+
+  std::string RepeatCRRImm(void (Riscv64Assembler::*f)(XRegister, XRegister, uint16_t),
+                           int immBits,
+                           int shift,
+                           bool noZeroImm,
+                           const std::string& fmt) {
+    return RepeatTemplatedShortRegistersImm(f,
+                                            GetRegistersShort(),
+                                            &AssemblerRISCV64Test::GetRegisterName,
+                                            immBits,
+                                            shift,
+                                            noZeroImm,
+                                            fmt);
+  }
+
+  std::string RepeatCFRImm(void (Riscv64Assembler::*f)(FRegister, XRegister, uint16_t),
+                           int immBits,
+                           int shift,
+                           bool noZeroImm,
+                           const std::string& fmt) {
+    return RepeatTemplatedShortRegistersImm(f,
+                                            GetFPRegistersShort(),
+                                            &AssemblerRISCV64Test::GetFPRegName,
+                                            immBits,
+                                            shift,
+                                            noZeroImm,
+                                            fmt);
+  }
+
+  std::string RepeatCRRShort(void (Riscv64Assembler::*f)(XRegister, XRegister),
+                             const std::string& fmt) {
+    return RepeatTemplatedRegisters(f,
+                                    GetRegistersShort(),
+                                    GetRegistersShort(),
+                                    &AssemblerRISCV64Test::GetRegisterName,
+                                    &AssemblerRISCV64Test::GetRegisterName,
+                                    fmt);
+  }
+
+  std::string RepeatCRRNonZero(void (Riscv64Assembler::*f)(XRegister, XRegister),
+                               const std::string& fmt) {
+    return RepeatTemplatedRegisters(f,
+                                    GetRegistersShort().SubArray(1),
+                                    GetRegistersShort().SubArray(1),
+                                    &AssemblerRISCV64Test::GetRegisterName,
+                                    &AssemblerRISCV64Test::GetRegisterName,
+                                    fmt);
+  }
+
+  template <typename Imm>
+  std::string RepeatImm(void (Riscv64Assembler::*f)(Imm),
+                        int immBits,
+                        int shift,
+                        bool skipZero,
+                        const std::string& fmt) {
+    auto imms = CreateImmediateValuesBits(abs(immBits), immBits > 0, shift);
+    std::string str;
+    for (Imm imm : imms) {
+      if (skipZero && imm == Imm(0))
+        continue;
+
+      (GetAssembler()->*f)(imm);
+
+      std::string base = fmt;
+      ReplaceImm(imm, 0, 1, &base);
+      str += base;
+      str += "\n";
+    }
+
+    return str;
+  }
+
+  std::string RepeatRNoZero(void (Riscv64Assembler::*f)(XRegister), const std::string& fmt) {
+    return RepeatTemplatedRegister(
+        f, GetRegisters().SubArray(1), &AssemblerRISCV64Test::GetRegisterName, fmt);
   }
 
   template <typename Reg1, typename Reg2>
@@ -1974,6 +2188,7 @@ class AssemblerRISCV64Test : public AssemblerTest<Riscv64Assembler,
 
   std::unique_ptr<const Riscv64InstructionSetFeatures> instruction_set_features_;
   bool use_simple_march_ = false;
+  bool compressed_mode_ = false;
 };
 
 TEST_F(AssemblerRISCV64Test, Toolchain) { EXPECT_TRUE(CheckTools()); }
@@ -2872,6 +3087,241 @@ TEST_F(AssemblerRISCV64Test, FClassS) {
 
 TEST_F(AssemblerRISCV64Test, FClassD) {
   DriverStr(RepeatrF(&Riscv64Assembler::FClassD, "fclass.d {reg1}, {reg2}"), "FClassD");
+}
+
+TEST_F(AssemblerRISCV64Test, CLwsp) {
+  CompressedModeRAII cm(this);
+  DriverStr(
+      RepeatCRImm(&Riscv64Assembler::CLwsp, false, true, false, 6, 2, "c.lwsp {reg}, {imm}(sp)"),
+      "CLwsp");
+}
+
+TEST_F(AssemblerRISCV64Test, CLdsp) {
+  CompressedModeRAII cm(this);
+  DriverStr(
+      RepeatCRImm(&Riscv64Assembler::CLdsp, false, true, false, 6, 3, "c.ldsp {reg}, {imm}(sp)"),
+      "CLdsp");
+}
+
+TEST_F(AssemblerRISCV64Test, CFLdsp) {
+  CompressedModeRAII cm(this);
+  DriverStr(
+      RepeatCFImm(&Riscv64Assembler::CFLdsp, false, true, false, 6, 3, "c.fldsp {reg}, {imm}(sp)"),
+      "CFLdsp");
+}
+
+TEST_F(AssemblerRISCV64Test, CSwsp) {
+  CompressedModeRAII cm(this);
+  DriverStr(
+      RepeatCRImm(&Riscv64Assembler::CLwsp, false, true, false, 6, 2, "c.lwsp {reg}, {imm}(sp)"),
+      "CLwsp");
+}
+
+TEST_F(AssemblerRISCV64Test, CSdsp) {
+  CompressedModeRAII cm(this);
+  DriverStr(
+      RepeatCRImm(&Riscv64Assembler::CLdsp, false, true, false, 6, 3, "c.ldsp {reg}, {imm}(sp)"),
+      "CLdsp");
+}
+
+TEST_F(AssemblerRISCV64Test, CFSdsp) {
+  CompressedModeRAII cm(this);
+  DriverStr(
+      RepeatCFImm(&Riscv64Assembler::CFLdsp, false, true, false, 6, 3, "c.fldsp {reg}, {imm}(sp)"),
+      "CFLdsp");
+}
+
+TEST_F(AssemblerRISCV64Test, CLw) {
+  CompressedModeRAII cm(this);
+  DriverStr(RepeatCRRImm(&Riscv64Assembler::CLw, 5, 2, false, "c.lw {reg1}, {imm}({reg2})"), "CLw");
+}
+
+TEST_F(AssemblerRISCV64Test, CLd) {
+  CompressedModeRAII cm(this);
+  DriverStr(RepeatCRRImm(&Riscv64Assembler::CLd, 5, 3, false, "c.ld {reg1}, {imm}({reg2})"), "CLd");
+}
+
+TEST_F(AssemblerRISCV64Test, CFLd) {
+  CompressedModeRAII cm(this);
+  DriverStr(RepeatCFRImm(&Riscv64Assembler::CFLd, 5, 3, false, "c.fld {reg1}, {imm}({reg2})"),
+            "CFLd");
+}
+
+TEST_F(AssemblerRISCV64Test, CSw) {
+  CompressedModeRAII cm(this);
+  DriverStr(RepeatCRRImm(&Riscv64Assembler::CSw, 5, 2, false, "c.sw {reg1}, {imm}({reg2})"), "CSw");
+}
+
+TEST_F(AssemblerRISCV64Test, CSd) {
+  CompressedModeRAII cm(this);
+  DriverStr(RepeatCRRImm(&Riscv64Assembler::CSd, 5, 3, false, "c.sd {reg1}, {imm}({reg2})"), "CSd");
+}
+
+TEST_F(AssemblerRISCV64Test, CFSd) {
+  CompressedModeRAII cm(this);
+  DriverStr(RepeatCFRImm(&Riscv64Assembler::CFSd, 5, 3, false, "c.fsd {reg1}, {imm}({reg2})"),
+            "CFSd");
+}
+
+TEST_F(AssemblerRISCV64Test, CLi) {
+  CompressedModeRAII cm(this);
+  DriverStr(RepeatCRImm(&Riscv64Assembler::CLi, false, true, false, -6, 0, "c.li {reg}, {imm}"),
+            "CLi");
+}
+
+TEST_F(AssemblerRISCV64Test, CLui) {
+  CompressedModeRAII cm(this);
+  std::string str;
+  auto imms = CreateImmediateValuesBits(5, true);
+  for (XRegister reg : GetRegisters()) {
+    for (int32_t imm : imms) {
+      if (imm == 0)
+        continue;
+
+      if (reg == Zero || reg == SP)
+        continue;
+
+      GetAssembler()->CLui(reg, imm);
+
+      std::string base = "c.lui {reg}, {imm}";
+      ReplaceReg(REG_TOKEN, GetRegisterName(reg), &base);
+      ReplaceImm(imm, 0, 1, &base);
+      str += base;
+      str += "\n";
+    }
+  }
+
+  DriverStr(str, "CLui");
+}
+
+TEST_F(AssemblerRISCV64Test, CAddi) {
+  CompressedModeRAII cm(this);
+  DriverStr(RepeatCRImm(&Riscv64Assembler::CAddi, false, true, true, -6, 0, "c.addi {reg}, {imm}"),
+            "CAddi");
+}
+
+TEST_F(AssemblerRISCV64Test, CAddiw) {
+  CompressedModeRAII cm(this);
+  DriverStr(
+      RepeatCRImm(&Riscv64Assembler::CAddiw, false, true, false, -6, 0, "c.addiw {reg}, {imm}"),
+      "CAddiw");
+}
+
+TEST_F(AssemblerRISCV64Test, CAddi16Sp) {
+  CompressedModeRAII cm(this);
+  DriverStr(RepeatImm(&Riscv64Assembler::CAddi16Sp, -6, 4, true, "c.addi16sp sp, {imm}"),
+            "CAddi16Sp");
+}
+
+TEST_F(AssemblerRISCV64Test, CAddi4Spn) {
+  CompressedModeRAII cm(this);
+  DriverStr(
+      RepeatCRImm(
+          &Riscv64Assembler::CAddi4Spn, true, false, true, 8, 2, "c.addi4spn {reg}, sp, {imm}"),
+      "CAddi4Spn");
+}
+
+TEST_F(AssemblerRISCV64Test, CSlli) {
+  CompressedModeRAII cm(this);
+  DriverStr(RepeatCRImm(&Riscv64Assembler::CSlli, false, true, true, 5, 0, "c.slli {reg}, {imm}"),
+            "CSlli");
+}
+
+TEST_F(AssemblerRISCV64Test, CSRli) {
+  CompressedModeRAII cm(this);
+  DriverStr(RepeatCRImm(&Riscv64Assembler::CSRli, true, true, true, 5, 0, "c.srli {reg}, {imm}"),
+            "CSRli");
+}
+
+TEST_F(AssemblerRISCV64Test, CSRai) {
+  CompressedModeRAII cm(this);
+  DriverStr(RepeatCRImm(&Riscv64Assembler::CSRai, true, true, true, 5, 0, "c.srai {reg}, {imm}"),
+            "CSRai");
+}
+
+TEST_F(AssemblerRISCV64Test, CAndi) {
+  CompressedModeRAII cm(this);
+  DriverStr(RepeatCRImm(&Riscv64Assembler::CAndi, true, false, false, -5, 0, "c.andi {reg}, {imm}"),
+            "CAndi");
+}
+
+TEST_F(AssemblerRISCV64Test, CMv) {
+  CompressedModeRAII cm(this);
+  DriverStr(RepeatCRRNonZero(&Riscv64Assembler::CMv, "c.mv {reg1}, {reg2}"), "CMv");
+}
+
+TEST_F(AssemblerRISCV64Test, CAdd) {
+  CompressedModeRAII cm(this);
+  DriverStr(RepeatCRRNonZero(&Riscv64Assembler::CAdd, "c.add {reg1}, {reg2}"), "CAdd");
+}
+
+TEST_F(AssemblerRISCV64Test, CAnd) {
+  CompressedModeRAII cm(this);
+  DriverStr(RepeatCRRShort(&Riscv64Assembler::CAnd, "c.and {reg1}, {reg2}"), "CAnd");
+}
+
+TEST_F(AssemblerRISCV64Test, COr) {
+  CompressedModeRAII cm(this);
+  DriverStr(RepeatCRRShort(&Riscv64Assembler::COr, "c.or {reg1}, {reg2}"), "COr");
+}
+
+TEST_F(AssemblerRISCV64Test, CXor) {
+  CompressedModeRAII cm(this);
+  DriverStr(RepeatCRRShort(&Riscv64Assembler::CXor, "c.xor {reg1}, {reg2}"), "CXor");
+}
+
+TEST_F(AssemblerRISCV64Test, CSub) {
+  CompressedModeRAII cm(this);
+  DriverStr(RepeatCRRShort(&Riscv64Assembler::CSub, "c.sub {reg1}, {reg2}"), "CSub");
+}
+
+TEST_F(AssemblerRISCV64Test, CAddw) {
+  CompressedModeRAII cm(this);
+  DriverStr(RepeatCRRShort(&Riscv64Assembler::CAddw, "c.addw {reg1}, {reg2}"), "CAddw");
+}
+
+TEST_F(AssemblerRISCV64Test, CSubw) {
+  CompressedModeRAII cm(this);
+  DriverStr(RepeatCRRShort(&Riscv64Assembler::CSubw, "c.subw {reg1}, {reg2}"), "CSubw");
+}
+
+TEST_F(AssemblerRISCV64Test, CJ) {
+  CompressedModeRAII cm(this);
+  DriverStr(RepeatImm(&Riscv64Assembler::CJ, -11, 1, false, "c.j {imm}"), "CJ");
+}
+
+TEST_F(AssemblerRISCV64Test, CJr) {
+  CompressedModeRAII cm(this);
+  DriverStr(RepeatRNoZero(&Riscv64Assembler::CJr, "c.jr {reg}"), "CJr");
+}
+
+TEST_F(AssemblerRISCV64Test, CJalr) {
+  CompressedModeRAII cm(this);
+  DriverStr(RepeatRNoZero(&Riscv64Assembler::CJalr, "c.jalr {reg}"), "CJalr");
+}
+
+TEST_F(AssemblerRISCV64Test, CBeqz) {
+  CompressedModeRAII cm(this);
+  DriverStr(RepeatCRImm(&Riscv64Assembler::CBeqz, true, false, false, -8, 1, "c.beqz {reg}, {imm}"),
+            "CBeqz");
+}
+
+TEST_F(AssemblerRISCV64Test, CBnez) {
+  CompressedModeRAII cm(this);
+  DriverStr(RepeatCRImm(&Riscv64Assembler::CBnez, true, false, false, -8, 1, "c.bnez {reg}, {imm}"),
+            "CBnez");
+}
+
+TEST_F(AssemblerRISCV64Test, CEbreak) {
+  CompressedModeRAII cm(this);
+  __ CEbreak();
+  DriverStr("c.ebreak", "CEbreak");
+}
+
+TEST_F(AssemblerRISCV64Test, CNop) {
+  CompressedModeRAII cm(this);
+  __ CNop();
+  DriverStr("c.nop", "CNop");
 }
 
 TEST_F(AssemblerRISCV64Test, AddUw) {

@@ -61,18 +61,6 @@ void Riscv64Assembler::FinalizeCode() {
   finalized_ = true;
 }
 
-void Riscv64Assembler::Emit(uint32_t value) {
-  if (overwriting_) {
-    // Branches to labels are emitted into their placeholders here.
-    buffer_.Store<uint32_t>(overwrite_location_, value);
-    overwrite_location_ += sizeof(uint32_t);
-  } else {
-    // Other instructions are simply appended at the end here.
-    AssemblerBuffer::EnsureCapacity ensured(&buffer_);
-    buffer_.Emit<uint32_t>(value);
-  }
-}
-
 /////////////////////////////// RV64 VARIANTS extension ///////////////////////////////
 
 //////////////////////////////// RV64 "I" Instructions ////////////////////////////////
@@ -791,6 +779,356 @@ void Riscv64Assembler::FClassD(XRegister rd, FRegister rs1) {
 }
 
 /////////////////////////////// RV64 "FD" Instructions  END ///////////////////////////////
+
+/////////////////////////////// RV64 "C" Instructions  START /////////////////////////////
+
+void Riscv64Assembler::CLwsp(XRegister rd, uint16_t offset) {
+  DCHECK(IsAligned<4>(offset)) << "Offset should be scalable by 4";
+  DCHECK_NE(rd, Zero);
+
+  uint16_t imms[2];
+  imms[1] = (offset >> 5) & 0x1u;
+  uint16_t imm42 = (offset >> 2) & 0x7u;
+  uint16_t imm76 = (offset >> 6) & 0x3u;
+  imms[0] = (imm42 << 2) | imm76;
+
+  EmitCI(0b010u, rd, imms, 0b10u);
+}
+
+void Riscv64Assembler::CLdsp(XRegister rd, uint16_t offset) {
+  DCHECK(IsAligned<8>(offset)) << "Offset should be scalable by 8";
+  DCHECK_NE(rd, Zero);
+
+  uint16_t imms[2];
+  imms[1] = (offset >> 5) & 0x1u;
+  uint16_t imm43 = (offset >> 3) & 0x3u;
+  uint16_t imm86 = (offset >> 6) & 0x7u;
+  imms[0] = (imm43 << 3) | imm86;
+
+  EmitCI(0b011u, rd, imms, 0b10u);
+}
+
+void Riscv64Assembler::CFLdsp(FRegister rd, uint16_t offset) {
+  DCHECK(IsAligned<8>(offset)) << "Offset should be scalable by 8";
+
+  uint16_t imms[2];
+  imms[1] = (offset >> 5) & 0x1u;
+  uint16_t imm43 = (offset >> 3) & 0x3u;
+  uint16_t imm86 = (offset >> 6) & 0x7u;
+  imms[0] = (imm43 << 3) | imm86;
+
+  EmitCI(0b001u, rd, imms, 0b10u);
+}
+
+void Riscv64Assembler::CSwsp(XRegister rs2, uint16_t offset) {
+  DCHECK(IsAligned<4>(offset)) << "Offset should be scalable by 4";
+
+  uint16_t imm52 = (offset >> 2) & 0xFu;
+  uint16_t imm76 = (offset >> 6) & 0x3u;
+
+  EmitCSS(0b110u, (imm52 << 2) | imm76, rs2, 0b10u);
+}
+
+void Riscv64Assembler::CSdsp(XRegister rs2, uint16_t offset) {
+  DCHECK(IsAligned<8>(offset)) << "Offset should be scalable by 8";
+
+  uint16_t imm53 = (offset >> 3) & 0x7u;
+  uint16_t imm86 = (offset >> 6) & 0x7u;
+
+  EmitCSS(0b111u, (imm53 << 3) | imm86, rs2, 0b10u);
+}
+
+void Riscv64Assembler::CFSdsp(FRegister rs2, uint16_t offset) {
+  DCHECK(IsAligned<8>(offset)) << "Offset should be scalable by 8";
+
+  uint16_t imm53 = (offset >> 3) & 0x7u;
+  uint16_t imm86 = (offset >> 6) & 0x7u;
+
+  EmitCSS(0b101u, (imm53 << 3) | imm86, rs2, 0b10u);
+}
+
+void Riscv64Assembler::CLw(XRegister rd_s, XRegister rs1_s, uint16_t offset) {
+  DCHECK(IsAligned<4>(offset)) << "Offset should be scalable by 4";
+
+  uint16_t imm5[2];
+  imm5[1] = (offset >> 3) & 0x7u;                                    // 5:3
+  imm5[0] = (((offset >> 2) & 0x1u) << 1) | ((offset >> 6) & 0x1u);  // 2|6
+
+  EmitCM(0b010u, imm5, rs1_s, rd_s, 0b00u);
+}
+
+void Riscv64Assembler::CLd(XRegister rd_s, XRegister rs1_s, uint16_t offset) {
+  DCHECK(IsAligned<8>(offset)) << "Offset should be scalable by 8";
+
+  uint16_t imm5[2];
+  imm5[1] = (offset >> 3) & 0x7u;  // 5:3
+  imm5[0] = (offset >> 6) & 0x3u;  // 7:6
+
+  EmitCM(0b011u, imm5, rs1_s, rd_s, 0b00u);
+}
+
+void Riscv64Assembler::CFLd(FRegister rd_s, XRegister rs1_s, uint16_t offset) {
+  DCHECK(IsAligned<8>(offset)) << "Offset should be scalable by 8";
+
+  uint16_t imm5[2];
+  imm5[1] = (offset >> 3) & 0x7u;  // 5:3
+  imm5[0] = (offset >> 6) & 0x3u;  // 7:6
+
+  EmitCM(0b001u, imm5, rs1_s, rd_s, 0b00u);
+}
+
+void Riscv64Assembler::CSw(XRegister rs2_s, XRegister rs1_s, uint16_t offset) {
+  DCHECK(IsAligned<4>(offset)) << "Offset should be scalable by 4";
+
+  uint16_t imm5[2];
+  imm5[1] = (offset >> 3) & 0x7u;                                    // 5:3
+  imm5[0] = (((offset >> 2) & 0x1u) << 1) | ((offset >> 6) & 0x1u);  // 2|6
+
+  EmitCM(0b110u, imm5, rs1_s, rs2_s, 0b00u);
+}
+
+void Riscv64Assembler::CSd(XRegister rs2_s, XRegister rs1_s, uint16_t offset) {
+  DCHECK(IsAligned<8>(offset)) << "Offset should be scalable by 8";
+
+  uint16_t imm5[2];
+  imm5[1] = (offset >> 3) & 0x7u;  // 5:3
+  imm5[0] = (offset >> 6) & 0x3u;  // 7:6
+
+  EmitCM(0b111u, imm5, rs1_s, rs2_s, 0b00u);
+}
+
+void Riscv64Assembler::CFSd(FRegister rs2_s, XRegister rs1_s, uint16_t offset) {
+  DCHECK(IsAligned<8>(offset)) << "Offset should be scalable by 8";
+
+  uint16_t imm5[2];
+  imm5[1] = (offset >> 3) & 0x7u;  // 5:3
+  imm5[0] = (offset >> 6) & 0x3u;  // 7:6
+
+  EmitCM(0b101u, imm5, rs1_s, rs2_s, 0b00u);
+}
+
+void Riscv64Assembler::CLi(XRegister rd, int16_t imm) {
+  DCHECK_NE(rd, Zero);
+  DCHECK(IsInt<6>(imm));
+
+  uint16_t imm5[2];
+
+  imm5[1] = imm >> 5 & 0x1u;
+  imm5[0] = imm & 0x1Fu;
+
+  EmitCI(0b010u, rd, imm5, 0b01u);
+}
+
+void Riscv64Assembler::CLui(XRegister rd, uint32_t nzimm6) {
+  DCHECK_NE(rd, Zero);
+  DCHECK_NE(rd, SP);
+  DCHECK_NE(nzimm6, 0U);
+  DCHECK(IsInt<6>((static_cast<int32_t>(nzimm6) << 14) >> 14));
+
+  uint16_t imm5[2];
+  imm5[1] = (nzimm6 >> 5) & 0x1u;  // 17
+  imm5[0] = nzimm6 & 0x1Fu;        // 16:12
+
+  EmitCI(0b011u, rd, imm5, 0b01u);
+}
+
+void Riscv64Assembler::CAddi(XRegister rd, int16_t nzimm) {
+  DCHECK_NE(rd, Zero);
+  DCHECK_NE(nzimm, 0);
+
+  uint16_t imm5[2];
+
+  imm5[1] = nzimm >> 5 & 0x1u;
+  imm5[0] = nzimm & 0x1Fu;
+
+  EmitCI(0b000u, rd, imm5, 0b01u);
+}
+
+void Riscv64Assembler::CAddiw(XRegister rd, int16_t imm) {
+  DCHECK_NE(rd, Zero);
+
+  uint16_t imm5[2];
+
+  imm5[1] = imm >> 5 & 0x1u;
+  imm5[0] = imm & 0x1Fu;
+
+  EmitCI(0b001u, rd, imm5, 0b01u);
+}
+
+void Riscv64Assembler::CAddi16Sp(int16_t nzimm) {
+  DCHECK_NE(nzimm, 0);
+  DCHECK(IsAligned<16>(nzimm));
+
+  uint16_t imm5[2];
+
+  imm5[1] = nzimm >> 9 & 0x1u;              // nzimm[9]
+  imm5[0] = (((nzimm >> 4) & 0x1u) << 4) |  // nzimm[4|6|8:7|5]
+            (((nzimm >> 6) & 0x1u) << 3) | (((nzimm >> 7) & 0x3u) << 1) | ((nzimm >> 5) & 0x1u);
+
+  EmitCI(0b011u, SP, imm5, 0b01u);
+}
+
+void Riscv64Assembler::CAddi4Spn(XRegister rd, uint16_t nzuimm) {
+  DCHECK_NE(nzuimm, 0);
+  DCHECK(IsAligned<4>(nzuimm));
+  DCHECK(IsUint<10>(nzuimm));
+
+  // nzuimm[5:4|9:6|2|3]
+  uint16_t uimm = (((nzuimm >> 4) & 0x3u) << 6) |  // 5:4
+                  (((nzuimm >> 6) & 0xfu) << 2) |  // 9:6
+                  (((nzuimm >> 2) & 0x1u) << 1) |  // 2
+                  ((nzuimm >> 3) & 0x1u);          // 3
+
+  EmitCIW(0b000u, uimm, rd, 0b00u);
+}
+
+void Riscv64Assembler::CSlli(XRegister rd, uint16_t shamt) {
+  DCHECK_NE(shamt, 0);
+  DCHECK_NE(rd, Zero);
+
+  uint16_t imm6[2];
+
+  imm6[1] = (shamt >> 5) & 0x1u;
+  imm6[0] = shamt & 0x1Fu;
+
+  EmitCI(0b000u, rd, imm6, 0b10u);
+}
+
+void Riscv64Assembler::CSRli(XRegister rd_s, uint16_t shamt) {
+  DCHECK_NE(shamt, 0);
+  DCHECK(IsUint<6>(shamt));
+
+  uint16_t imm8[2];
+
+  imm8[1] = ((shamt >> 5) & 0x1u) << 2;  // shamt[5] | 0b00
+  imm8[0] = shamt & 0x1Fu;               // shamt[4:0]
+
+  EmitCB(0b100u, imm8, rd_s, 0b01u);
+}
+
+void Riscv64Assembler::CSRai(XRegister rd_s, uint16_t shamt) {
+  DCHECK_NE(shamt, 0);
+  DCHECK(IsUint<6>(shamt));
+
+  uint16_t imm8[2];
+
+  imm8[1] = (((shamt >> 5) & 0x1u) << 2) | 0b01u;  // shamt[5] | 0b01
+  imm8[0] = shamt & 0x1Fu;                         // shamt[4:0]
+
+  EmitCB(0b100u, imm8, rd_s, 0b01u);
+}
+
+void Riscv64Assembler::CAndi(XRegister rd_s, int16_t imm) {
+  DCHECK(IsInt<6>(imm));
+
+  uint16_t imm8[2];
+
+  imm8[1] = (((imm >> 5) & 0x1u) << 2) | 0b10u;  // imm[5] | 0b10
+  imm8[0] = imm & 0x1Fu;                         // imm[4:0]
+
+  EmitCB(0b100u, imm8, rd_s, 0b01u);
+}
+
+void Riscv64Assembler::CMv(XRegister rd, XRegister rs2) {
+  DCHECK_NE(rd, Zero);
+  DCHECK_NE(rs2, Zero);
+
+  EmitCR(0b1000u, rd, rs2, 0b10u);
+}
+
+void Riscv64Assembler::CAdd(XRegister rd, XRegister rs2) {
+  DCHECK_NE(rd, Zero);
+  DCHECK_NE(rs2, Zero);
+
+  EmitCR(0b1001u, rd, rs2, 0b10u);
+}
+
+void Riscv64Assembler::CAnd(XRegister rd_s, XRegister rs2_s) {
+  EmitCA(0b100011u, rd_s, 0b11, rs2_s, 0b01u);
+}
+
+void Riscv64Assembler::COr(XRegister rd_s, XRegister rs2_s) {
+  EmitCA(0b100011u, rd_s, 0b10, rs2_s, 0b01u);
+}
+
+void Riscv64Assembler::CXor(XRegister rd_s, XRegister rs2_s) {
+  EmitCA(0b100011u, rd_s, 0b01, rs2_s, 0b01u);
+}
+
+void Riscv64Assembler::CSub(XRegister rd_s, XRegister rs2_s) {
+  EmitCA(0b100011u, rd_s, 0b00, rs2_s, 0b01u);
+}
+
+void Riscv64Assembler::CAddw(XRegister rd_s, XRegister rs2_s) {
+  EmitCA(0b100111u, rd_s, 0b01, rs2_s, 0b01u);
+}
+
+void Riscv64Assembler::CSubw(XRegister rd_s, XRegister rs2_s) {
+  EmitCA(0b100111u, rd_s, 0b00, rs2_s, 0b01u);
+}
+
+void Riscv64Assembler::CJ(int16_t offset) {
+  DCHECK(IsInt<12>(offset));
+  DCHECK(IsAligned<2>(offset));
+
+  uint16_t imm = (((offset >> 11) & 0x1u) << 10) | (((offset >> 4) & 0x1u) << 9) |
+                 (((offset >> 8) & 0x3u) << 7) | (((offset >> 10) & 0x1u) << 6) |
+                 (((offset >> 6) & 0x1u) << 5) | (((offset >> 7) & 0x1u) << 4) |
+                 (((offset >> 1) & 0x7u) << 1) | ((offset >> 5) & 0x1u);
+
+  EmitCJ(0b101u, imm, 0b01u);
+}
+
+void Riscv64Assembler::CJr(XRegister rs1) {
+  DCHECK_NE(rs1, Zero);
+
+  EmitCR(0b1000u, rs1, Zero, 0b10u);
+}
+
+void Riscv64Assembler::CJalr(XRegister rs1) {
+  DCHECK_NE(rs1, Zero);
+
+  EmitCR(0b1001u, rs1, Zero, 0b10u);
+}
+
+void Riscv64Assembler::CBeqz(XRegister rs1_s, int16_t offset) {
+  DCHECK(IsInt<9>(offset));
+  CHECK(IsAligned<2>(offset));
+
+  uint16_t imm8[2];
+  imm8[1] = (((offset >> 8) & 0x1u) << 2) |  // 8
+            ((offset >> 3) & 0x3u);          // 4:3
+  imm8[0] = (((offset >> 6) & 0x3u) << 3) |  // 7:6
+            (((offset >> 1) & 0x3u) << 1) |  // 2:1
+            ((offset >> 5) & 0x1u);          // 5
+
+  EmitCB(0b110u, imm8, rs1_s, 0b01u);
+}
+
+void Riscv64Assembler::CBnez(XRegister rs1_s, int16_t offset) {
+  DCHECK(IsInt<9>(offset));
+  CHECK(IsAligned<2>(offset));
+
+  uint16_t imm8[2];
+  imm8[1] = (((offset >> 8) & 0x1u) << 2) |  // 8
+            ((offset >> 3) & 0x3u);          // 4:3
+  imm8[0] = (((offset >> 6) & 0x3u) << 3) |  // 7:6
+            (((offset >> 1) & 0x3u) << 1) |  // 2:1
+            ((offset >> 5) & 0x1u);          // 5
+
+  EmitCB(0b111u, imm8, rs1_s, 0b01u);
+}
+
+void Riscv64Assembler::CEbreak() { EmitCR(0b1001u, Zero, Zero, 0b10u); }
+
+void Riscv64Assembler::CNop() {
+  uint16_t imms[2] = {0u, 0u};
+  EmitCI(0b000u, Zero, imms, 0b01u);
+}
+
+void Riscv64Assembler::CUnimp() { Emit<uint16_t>(0x0); }
+
+/////////////////////////////// RV64 "C" Instructions  END ///////////////////////////////
 
 ////////////////////////////// RV64 "Zba" Instructions  START /////////////////////////////
 
