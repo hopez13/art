@@ -76,11 +76,20 @@ class DisassemblerRiscv64::Printer {
     kOpCFG = 0b111,
   };
 
+  class ScopedNewLinePrinter {
+    std::ostream& os_;
+
+   public:
+    ScopedNewLinePrinter(std::ostream& os) : os_(os) {}
+    ~ScopedNewLinePrinter() { os_ << std::endl; }
+  };
+
   static const char* XRegName(uint32_t regno);
   static const char* FRegName(uint32_t regno);
   static const char* VRegName(uint32_t regno);
   static const char* RoundingModeName(uint32_t rm);
 
+  // Regular instruction immediate utils
   static int32_t Decode32Imm12(uint32_t insn32) {
     uint32_t sign = (insn32 >> 31);
     uint32_t imm12 = (insn32 >> 20);
@@ -99,11 +108,56 @@ class DisassemblerRiscv64::Printer {
     return static_cast<int32_t>(imm) - static_cast<int32_t>(bit11 << 12);  // Sign-extend.
   }
 
+  // Compressed instruction immediate utils
+  static uint32_t Decode16CMOffsetW(uint32_t insn16) {
+    return BitFieldExtract(insn16, 5, 1) << 6 | BitFieldExtract(insn16, 10, 3) << 3 |
+           BitFieldExtract(insn16, 6, 1) << 2;
+  }
+
+  static uint32_t Decode16CMOffsetD(uint32_t insn16) {
+    return BitFieldExtract(insn16, 5, 2) << 6 | BitFieldExtract(insn16, 10, 3) << 3;
+  }
+
+  static uint32_t Uimm6ToOffsetD16(uint32_t uimm6) {
+    return (BitFieldExtract(uimm6, 3, 3) << 3) | (BitFieldExtract(uimm6, 0, 3) << 6);
+  }
+
+  static uint32_t Uimm6ToOffsetW16(uint32_t uimm6) {
+    return (BitFieldExtract(uimm6, 2, 4) << 2) | (BitFieldExtract(uimm6, 0, 2) << 6);
+  }
+
+  template <size_t kWidth>
+  static constexpr int32_t SignExtendBits(uint32_t bits) {
+    static_assert(kWidth <= BitSizeOf<uint32_t>());
+    const uint32_t sign_bit = (bits >> kWidth) & 1u;
+    return static_cast<int32_t>(bits) - static_cast<int32_t>(sign_bit << kWidth);
+  }
+
+  template <typename T>
+  static T Decode16Imm6(uint32_t insn16) {
+    static_assert(std::is_integral_v<T>, "Should be integer");
+    const T bits =
+        BitFieldInsert(BitFieldExtract(insn16, 2, 5), BitFieldExtract(insn16, 12, 1), 5, 1);
+    const T checked_bits = dchecked_integral_cast<T>(bits);
+    if (std::is_unsigned_v<T>) {
+      return checked_bits;
+    }
+    // Maybe sign-extend
+    return SignExtendBits<6>(checked_bits);
+  }
+
+  // Regular instruction register utils
   static uint32_t GetRd(uint32_t insn32) { return (insn32 >> 7) & 0x1fu; }
   static uint32_t GetRs1(uint32_t insn32) { return (insn32 >> 15) & 0x1fu; }
   static uint32_t GetRs2(uint32_t insn32) { return (insn32 >> 20) & 0x1fu; }
   static uint32_t GetRs3(uint32_t insn32) { return insn32 >> 27; }
   static uint32_t GetRoundingMode(uint32_t insn32) { return (insn32 >> 12) & 7u; }
+
+  // Compressed instruction register utils
+  static uint32_t GetRs1Short16(uint32_t insn16) { return BitFieldExtract(insn16, 7, 3) + 8u; }
+  static uint32_t GetRs2Short16(uint32_t insn16) { return BitFieldExtract(insn16, 2, 3) + 8u; }
+  static uint32_t GetRs1_16(uint32_t insn16) { return BitFieldExtract(insn16, 7, 5); }
+  static uint32_t GetRs2_16(uint32_t insn16) { return BitFieldExtract(insn16, 2, 5); }
 
   void PrintBranchOffset(int32_t offset);
   void PrintLoadStoreAddress(uint32_t rs1, int32_t offset);
@@ -1548,10 +1602,291 @@ void DisassemblerRiscv64::Printer::Dump32(const uint8_t* insn) {
 
 void DisassemblerRiscv64::Printer::Dump16(const uint8_t* insn) {
   uint32_t insn16 = static_cast<uint32_t>(insn[0]) + (static_cast<uint32_t>(insn[1]) << 8);
+  ScopedNewLinePrinter nl(os_);
   CHECK_NE(insn16 & 3u, 3u);
-  // TODO(riscv64): Disassemble instructions from the "C" extension.
-  os_ << disassembler_->FormatInstructionPointer(insn)
-      << StringPrintf(": %04x    \t<unknown16>\n", insn16);
+  os_ << disassembler_->FormatInstructionPointer(insn) << StringPrintf(": %04x    \t", insn16);
+
+  uint32_t funct3 = BitFieldExtract(insn16, 13, 3);
+  int32_t offset = -1;
+
+  switch (insn16 & 3u) {
+    case 0b00u:
+      switch (funct3) {
+        case 0b000u:
+          if (insn16 == 0u) {
+            os_ << "c.unimp";
+          } else {
+            uint32_t nzuimm = BitFieldExtract(insn16, 5, 8);
+            if (nzuimm != 0u) {
+              uint32_t decoded =
+                  BitFieldExtract(nzuimm, 0, 1) << 3 | BitFieldExtract(nzuimm, 1, 1) << 2 |
+                  BitFieldExtract(nzuimm, 2, 4) << 6 | BitFieldExtract(nzuimm, 6, 2) << 4;
+              os_ << "c.addi4spn " << XRegName(GetRs2Short16(insn16)) << ", sp, " << decoded;
+            } else {
+              os_ << "<unknown16>";
+            }
+          }
+          return;
+        case 0b001u:
+          offset = Decode16CMOffsetD(insn16);
+          os_ << "c.fld " << FRegName(GetRs2Short16(insn16));
+          break;
+        case 0b010u:
+          offset = Decode16CMOffsetW(insn16);
+          os_ << "c.lw " << XRegName(GetRs2Short16(insn16));
+          break;
+        case 0b011u:
+          offset = Decode16CMOffsetD(insn16);
+          os_ << "c.ld " << XRegName(GetRs2Short16(insn16));
+          break;
+        case 0b100u:
+          // Note: "Zcb" load/store instruction are in this space.
+          os_ << "<unknown16>";
+          return;
+        case 0b101u:
+          offset = Decode16CMOffsetD(insn16);
+          os_ << "c.fsd " << FRegName(GetRs2Short16(insn16));
+          break;
+        case 0b110u:
+          offset = Decode16CMOffsetW(insn16);
+          os_ << "c.sw " << XRegName(GetRs2Short16(insn16));
+          break;
+        case 0b111u:
+          offset = Decode16CMOffsetD(insn16);
+          os_ << "c.sd " << XRegName(GetRs2Short16(insn16));
+          break;
+        default:
+          UNREACHABLE();
+      }
+      os_ << ", ";
+      PrintLoadStoreAddress(GetRs1Short16(insn16), offset);
+      return;
+    case 0b01u:
+      switch (funct3) {
+        case 0b000u: {
+          uint32_t rd = GetRs1_16(insn16);
+          if (rd == 0) {
+            if (Decode16Imm6<uint32_t>(insn16) != 0u) {
+              os_ << "<hint16>";
+            } else {
+              os_ << "c.nop";
+            }
+          } else {
+            int32_t imm = Decode16Imm6<int32_t>(insn16);
+            if (imm != 0) {
+              os_ << "c.addi " << XRegName(rd) << StringPrintf(", %04d", imm);
+            } else {
+              os_ << "<hint16>";
+            }
+          }
+          break;
+        }
+        case 0b001u: {
+          uint32_t rd = GetRs1_16(insn16);
+          if (rd != 0) {
+            os_ << "c.addiw " << XRegName(rd)
+                << StringPrintf(", %04d", Decode16Imm6<int32_t>(insn16));
+          } else {
+            os_ << "<unknown16>";
+          }
+          break;
+        }
+        case 0b010u: {
+          uint32_t rd = GetRs1_16(insn16);
+          if (rd != 0) {
+            os_ << "c.li " << XRegName(rd) << StringPrintf(", %04d", Decode16Imm6<int32_t>(insn16));
+          } else {
+            os_ << "<hint16>";
+          }
+          break;
+        }
+        case 0b011u: {
+          uint32_t rd = GetRs1_16(insn16);
+          uint32_t imm6_bits = Decode16Imm6<uint32_t>(insn16);
+          if (imm6_bits == 0u) {
+            if (rd == 2) {
+              int32_t nzimm =
+                  BitFieldExtract(insn16, 6, 1) << 4 | BitFieldExtract(insn16, 2, 1) << 5 |
+                  BitFieldExtract(insn16, 5, 1) << 6 | BitFieldExtract(insn16, 3, 2) << 7 |
+                  BitFieldExtract(insn16, 12, 1) << 9;
+              // sign-extend bits
+              os_ << "c.addi16sp sp" << StringPrintf(", %04d", SignExtendBits<10>(nzimm));
+            } else if (rd != 0) {
+              // sign-extend bits and mask with 0xfffff as llvm-objdump does
+              uint32_t mask = MaskLeastSignificant<uint32_t>(20);
+              os_ << "c.lui " << XRegName(rd)
+                  << StringPrintf(", %04d", SignExtendBits<6>(imm6_bits) & mask);
+            } else {
+              os_ << "<hint16>";
+            }
+          } else {
+            os_ << "<unknown16>";
+          }
+          break;
+        }
+        case 0b100u: {
+          uint32_t funct2 = BitFieldExtract(insn16, 10, 2);
+          switch (funct2) {
+            case 0b00: {
+              int32_t nzuimm = Decode16Imm6<uint32_t>(insn16);
+              if (nzuimm != 0) {
+                os_ << "c.srli " << XRegName(GetRs1Short16(insn16))
+                    << StringPrintf(", %04d", nzuimm);
+              } else {
+                os_ << "<hint16>";
+              }
+              break;
+            }
+            case 0b01: {
+              int32_t nzuimm = Decode16Imm6<uint32_t>(insn16);
+              if (nzuimm != 0) {
+                os_ << "c.srai " << XRegName(GetRs1Short16(insn16))
+                    << StringPrintf(", %04d", nzuimm);
+              } else {
+                os_ << "<hint16>";
+              }
+              break;
+            }
+            case 0b10:
+              os_ << "c.andi " << XRegName(GetRs1Short16(insn16))
+                  << StringPrintf(", %04d", Decode16Imm6<int32_t>(insn16));
+              break;
+            case 0b11: {
+              // Note: mnemonics[6] is c.mul from "Zcb".
+              constexpr static const char* mnemonics[] = {
+                  "c.sub", "c.xor", "c.or", "c.and", "c.subw", "c.addw", nullptr, nullptr
+              };
+              uint32_t opc = BitFieldInsert(
+                  BitFieldExtract(insn16, 5, 2), BitFieldExtract(insn16, 12, 1), 2, 1);
+              DCHECK(IsUint<3>(opc));
+              const char* mnem = mnemonics[opc];
+              if (mnem != nullptr) {
+                os_ << mnem << " " << XRegName(GetRs1Short16(insn16)) << ", "
+                    << XRegName(GetRs2Short16(insn16));
+              } else {
+                // Note: These include c.{z,s}ext.* and c.not from "Zcb".
+                os_ << "<unknown16>";
+              }
+              break;
+            }
+            default:
+              UNREACHABLE();
+          }
+          break;
+        }
+        case 0b101u: {
+          int32_t disp = BitFieldExtract(insn16, 3, 3) << 1  | BitFieldExtract(insn16, 11, 1) << 4 |
+                         BitFieldExtract(insn16, 2, 1) << 5  | BitFieldExtract(insn16, 7,  1) << 6 |
+                         BitFieldExtract(insn16, 6, 1) << 7  | BitFieldExtract(insn16, 9,  2) << 8 |
+                         BitFieldExtract(insn16, 8, 1) << 10 | BitFieldExtract(insn16, 12, 1) << 11;
+          os_ << "c.j ";
+          PrintBranchOffset(SignExtendBits<12>(disp));
+          break;
+        }
+        case 0b110u:
+        case 0b111u: {
+          int32_t disp = BitFieldExtract(insn16, 3, 2) << 1 | BitFieldExtract(insn16, 10, 2) << 3 |
+                         BitFieldExtract(insn16, 2, 1) << 5 | BitFieldExtract(insn16, 5,  2) << 6 |
+                         BitFieldExtract(insn16, 12, 1) << 8;
+
+          os_ << (funct3 == 0b110u ? "c.beqz " : "c.bnez ");
+          os_ << XRegName(GetRs1Short16(insn16)) << ", ";
+          PrintBranchOffset(SignExtendBits<9>(disp));
+          break;
+        }
+        default:
+          UNREACHABLE();
+      }
+      break;
+    case 0b10u:
+      switch (funct3) {
+        case 0b000u: {
+          uint32_t nzuimm = Decode16Imm6<uint32_t>(insn16);
+          uint32_t rd = GetRs1_16(insn16);
+          if (rd == 0 || nzuimm == 0) {
+            os_ << "<hint16>";
+          } else {
+            os_ << "c.slli " << XRegName(rd) << ", " << StringPrintf("%04u", nzuimm);
+          }
+          return;
+        }
+        case 0b001u: {
+          offset = Uimm6ToOffsetD16(Decode16Imm6<uint32_t>(insn16));
+          os_ << "c.fldsp " << FRegName(GetRs1_16(insn16));
+          break;
+        }
+        case 0b010u: {
+          uint32_t rd = GetRs1_16(insn16);
+          if (rd != 0) {
+            offset = Uimm6ToOffsetW16(Decode16Imm6<uint32_t>(insn16));
+            os_ << "c.lwsp " << XRegName(GetRs1_16(insn16));
+          } else {
+            os_ << "<unknown16>";
+            return;
+          }
+          break;
+        }
+        case 0b011u: {
+          uint32_t rd = GetRs1_16(insn16);
+          if (rd != 0) {
+            offset = Uimm6ToOffsetD16(Decode16Imm6<uint32_t>(insn16));
+            os_ << "c.ldsp " << XRegName(GetRs1_16(insn16));
+          } else {
+            os_ << "<unknown16>";
+            return;
+          }
+          break;
+        }
+        case 0b100u: {
+          uint32_t rd_rs1 = GetRs1_16(insn16);
+          uint32_t rs2 = GetRs2_16(insn16);
+          uint32_t b12 = BitFieldExtract(insn16, 12, 1);
+          if (b12 == 0) {
+            if (rd_rs1 != 0 && rs2 != 0) {
+              os_ << "c.mv " << XRegName(rd_rs1) << ", " << XRegName(rs2);
+            } else if (rd_rs1 != 0) {
+              os_ << "c.jr " << XRegName(rd_rs1);
+            } else if (rs2 != 0) {
+              os_ << "<hint16>";
+            } else {
+              os_ << "<unknown16>";
+            }
+          } else {
+            if (rd_rs1 != 0 && rs2 != 0) {
+              os_ << "c.add " << XRegName(rd_rs1) << ", " << XRegName(rs2);
+            } else if (rd_rs1 != 0) {
+              os_ << "c.jalr " << XRegName(rd_rs1);
+            } else if (rs2 != 0) {
+              os_ << "<hint16>";
+            } else {
+              os_ << "c.ebreak";
+            }
+          }
+          return;
+        }
+        case 0b101u:
+          offset = BitFieldExtract(insn16, 7, 3) << 6 | BitFieldExtract(insn16, 10, 3) << 3;
+          os_ << "c.fsdsp " << FRegName(GetRs2_16(insn16));
+          break;
+        case 0b110u:
+          offset = BitFieldExtract(insn16, 7, 2) << 6 | BitFieldExtract(insn16, 9, 4) << 2;
+          os_ << "c.swsp " << XRegName(GetRs2_16(insn16));
+          break;
+        case 0b111u:
+          offset = BitFieldExtract(insn16, 7, 3) << 6 | BitFieldExtract(insn16, 10, 3) << 3;
+          os_ << "c.sdsp " << XRegName(GetRs2_16(insn16));
+          break;
+        default:
+          UNREACHABLE();
+      }
+
+      os_ << ", ";
+      PrintLoadStoreAddress(/* sp */ 2, offset);
+
+      break;
+    default:
+      UNREACHABLE();
+  }
 }
 
 void DisassemblerRiscv64::Printer::Dump2Byte(const uint8_t* data) {
