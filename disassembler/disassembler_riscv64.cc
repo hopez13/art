@@ -91,6 +91,8 @@ class DisassemblerRiscv64::Printer {
   void Print32Zicsr(uint32_t insn32);
   void Print32Fence(uint32_t insn32);
 
+  void PrintHint16(const uint8_t* insn);
+
   DisassemblerRiscv64* const disassembler_;
   std::ostream& os_;
 };
@@ -811,12 +813,314 @@ void DisassemblerRiscv64::Printer::Dump32(const uint8_t* insn) {
   os_ << "\n";
 }
 
+static uint32_t GetImmCM(uint16_t insn16, bool isD) {
+  if (isD) {
+    return ((insn16 >> 5) & 3u) << 6 | ((insn16 >> 10) & 7u) << 3;
+  } else {
+    return (((insn16 >> 5) & 1u) << 6) | ((insn16 >> 10) & 7u) << 3 | ((insn16 >> 6) & 1u) << 2;
+  }
+}
+
+static uint32_t GetRs1Short16(uint16_t insn16) { return ((insn16 >> 7) & 0x7u) + 8u; }
+
+static uint32_t GetRs2Short16(uint16_t insn16) { return ((insn16 >> 2) & 0x7u) + 8; }
+
+static uint32_t GetRs116(uint16_t insn16) { return (insn16 >> 7) & 0x1fu; }
+
+static uint32_t GetRs216(uint16_t insn16) { return (insn16 >> 2) & 0x1fu; }
+
+template <typename T>
+static T GetImm16(uint16_t insn16) {
+  static_assert(std::is_integral_v<T>, "Should be integer");
+  T v = ((insn16 >> 2) & 0x1f) | ((insn16 >> 12) & 1u) << 5;
+  if (std::is_unsigned_v<T> == false) {
+    v = (v << 26) >> 26;
+  }
+  return v;
+}
+
+void DisassemblerRiscv64::Printer::PrintHint16(const uint8_t* insn) {
+  uint32_t insn16 = static_cast<uint32_t>(insn[0]) + (static_cast<uint32_t>(insn[1]));
+  os_ << disassembler_->FormatInstructionPointer(insn)
+      << StringPrintf(": %04x    \t<hint16>\n", insn16);
+}
+
 void DisassemblerRiscv64::Printer::Dump16(const uint8_t* insn) {
   uint32_t insn16 = static_cast<uint32_t>(insn[0]) + (static_cast<uint32_t>(insn[1]) << 8);
   CHECK_NE(insn16 & 3u, 3u);
-  // TODO(riscv64): Disassemble instructions from the "C" extension.
-  os_ << disassembler_->FormatInstructionPointer(insn)
-      << StringPrintf(": %04x    \t<unknown16>\n", insn16);
+  os_ << disassembler_->FormatInstructionPointer(insn) << StringPrintf(": %08x\t", insn16);
+
+  uint32_t funct3 = (insn16 >> 13) & 7u;
+  int32_t offset = -1;
+
+  switch (insn16 & 3u) {
+    case 0b00u:
+      switch (funct3) {
+        case 0b000u:
+          if (insn16 != 0) {
+            os_ << disassembler_->FormatInstructionPointer(insn)
+                << StringPrintf(": %04x    \t<illegal16>\n", insn16);
+          } else {
+            uint32_t nzuimm = (insn16 >> 5) & 0xffu;
+            uint32_t decoded = ((nzuimm & 1u) << 3) | (((nzuimm >> 1) & 1u) << 3) |
+                               (((nzuimm >> 3) & 0x1fu) << 6) | (((nzuimm >> 7) & 0x3u) << 4);
+            os_ << "c.addi4spn " << XRegName(GetRs2Short16(insn16)) << ", sp, "
+                << StringPrintf("0x%04x", decoded);
+          }
+          os_ << "\n";
+          return;
+        case 0b001u:
+          offset = GetImmCM(insn16, true);
+          os_ << "c.fld " << FRegName(GetRs2Short16(insn16));
+          break;
+        case 0b010u:
+          offset = GetImmCM(insn16, false);
+          os_ << "c.lw " << XRegName(GetRs2Short16(insn16));
+          break;
+        case 0b011u:
+          offset = GetImmCM(insn16, true);
+          os_ << "c.ld " << XRegName(GetRs2Short16(insn16));
+          os_ << "\n";
+          return;
+        case 0b100u:
+          os_ << disassembler_->FormatInstructionPointer(insn)
+              << StringPrintf(": %04x    \t<reserved16>\n", insn16);
+          return;
+        case 0b101u:
+          offset = GetImmCM(insn16, true);
+          os_ << "c.fsd " << FRegName(GetRs2Short16(insn16));
+          break;
+        case 0b110u:
+          offset = GetImmCM(insn16, false);
+          os_ << "c.sw " << XRegName(GetRs2Short16(insn16));
+          break;
+        case 0b111u:
+          offset = GetImmCM(insn16, true);
+          os_ << "c.sd " << XRegName(GetRs2Short16(insn16));
+          break;
+        default:
+          UNREACHABLE();
+      }
+      os_ << ", ";
+      PrintLoadStoreAddress(GetRs1Short16(insn16), offset);
+      os_ << "\n";
+      return;
+    case 0b01u:
+      switch (funct3) {
+        case 0b000u: {
+          uint32_t rd = GetRs116(insn16);
+          if (rd == 0) {
+            if (GetImm16<int32_t>(insn16)) {
+              PrintHint16(insn);
+            } else {
+              os_ << "c.nop";
+            }
+          } else {
+            int32_t imm = GetImm16<int32_t>(insn16);
+            if (imm)
+              os_ << "c.addi " << XRegName(rd) << StringPrintf(", %04d", imm);
+            else
+              PrintHint16(insn);
+          }
+          break;
+        }
+        case 0b001u: {
+          uint32_t rd = GetRs116(insn16);
+          if (rd)
+            os_ << "c.addiw " << XRegName(rd) << StringPrintf(", %04d", GetImm16<int32_t>(insn16));
+          else
+            os_ << disassembler_->FormatInstructionPointer(insn)
+                << StringPrintf(": %04x    \t<reserved16>\n", insn16);
+          break;
+        }
+        case 0b010u: {
+          uint32_t rd = GetRs116(insn16);
+          if (rd)
+            os_ << "c.li " << XRegName(rd) << StringPrintf(", %04d", GetImm16<int32_t>(insn16));
+          else
+            PrintHint16(insn);
+          break;
+        }
+        case 0b011u: {
+          uint32_t rd = GetRs116(insn16);
+          if (rd == 2) {
+            int32_t nzimm = (((insn16 >> 6) & 1u) << 4) | (((insn16 >> 2) & 1u) << 5) |
+                            (((insn16 >> 5) & 1u) << 6) | (((insn16 >> 3) & 3u) << 7) |
+                            (((insn16 >> 12) & 1u) << 9);
+            os_ << "c.addi16sp sp" << StringPrintf(", %04d", (nzimm << 22) >> 22);
+          } else if (rd) {
+            os_ << "c.lui " << XRegName(rd) << StringPrintf(", %04d", GetImm16<int32_t>(insn16));
+          } else {
+            PrintHint16(insn);
+          }
+          break;
+        }
+        case 0b100u: {
+          uint32_t funct2 = (insn16 >> 10) & 3u;
+          switch (funct2) {
+            case 0b00: {
+              int32_t nzuimm = GetImm16<uint32_t>(insn16);
+              if (nzuimm)
+                os_ << "c.srli " << XRegName(GetRs1Short16(insn16))
+                    << StringPrintf(", %04d", nzuimm);
+              else
+                PrintHint16(insn);
+              break;
+            }
+            case 0b01: {
+              int32_t nzuimm = GetImm16<uint32_t>(insn16);
+              if (nzuimm)
+                os_ << "c.srai " << XRegName(GetRs1Short16(insn16))
+                    << StringPrintf(", %04d", nzuimm);
+              else
+                PrintHint16(insn);
+              break;
+            }
+            case 0b10:
+              os_ << "c.andi " << XRegName(GetRs1Short16(insn16))
+                  << StringPrintf(", %04d", GetImm16<int32_t>(insn16));
+              break;
+            case 0b11: {
+              constexpr static const char* mnemonics[] = {
+                  "c.sub", "c.xor", "c.or", "c.and", "c.subw", "c.addw", nullptr, nullptr};
+
+              uint32_t opc = ((insn16 >> 12) & 1u) << 2 | ((insn16 >> 5) & 3u);
+              const char* mnem = mnemonics[opc];
+              if (mnem) {
+                os_ << mnem << " " << XRegName(GetRs1Short16(insn16)) << ", "
+                    << XRegName(GetRs2Short16(insn16));
+              } else {
+                os_ << disassembler_->FormatInstructionPointer(insn)
+                    << StringPrintf(": %04x    \t<reserved16>\n", insn16);
+              }
+              break;
+            }
+            default:
+              UNREACHABLE();
+          }
+          break;
+        }
+        case 0b101u: {
+          int32_t disp = ((insn16 >> 1) & 7u) << 1 | ((insn16 >> 11) & 1u) << 4 |
+                         ((insn16 >> 0) & 1u) << 5 | ((insn16 >> 7) & 1u) << 6 |
+                         ((insn16 >> 6) & 1u) << 7 | ((insn16 >> 9) & 3u) << 8 |
+                         ((insn16 >> 8) & 1u) << 10 | ((insn16 >> 12) & 1u) << 11;
+          os_ << "c.j " << StringPrintf("%04d", (disp << 20) >> 20);
+          break;
+        }
+        case 0b110u:
+        case 0b111u: {
+          int32_t disp = ((insn16 >> 1) & 3u) << 1 | ((insn16 >> 10) & 3u) << 3 |
+                         ((insn16 >> 0) & 1u) << 5 | ((insn16 >> 5) & 3u) << 6 |
+                         ((insn16 >> 12) & 1u) << 8;
+
+          os_ << (funct3 == 0b110u ? "c.beqz " : "c.bnez ") << XRegName(GetRs1Short16(insn16))
+              << ", " << StringPrintf("%04d", (disp << 23) >> 23);
+          break;
+        }
+        default:
+          UNREACHABLE();
+      }
+      break;
+    case 0b10u:
+      switch (funct3) {
+        case 0b000u: {
+          uint32_t nzuimm = GetImm16<uint32_t>(insn16);
+          uint32_t rd = GetRs116(insn16);
+          if (rd == 0 || nzuimm == 0)
+            PrintHint16(insn);
+          else
+            os_ << "c.slli " << XRegName(rd) << ", " << StringPrintf("%04u", nzuimm);
+          os_ << "\n";
+          return;
+        }
+        case 0b001u: {
+          offset = (((insn16 >> 5) & 3u) << 3) | (((insn16 >> 12) & 1u) << 5) |
+                   (((insn16 >> 2) & 7u) << 6);
+          os_ << "c.fldsp " << FRegName(GetRs116(insn16));
+          break;
+        }
+        case 0b010u: {
+          uint32_t rd = GetRs116(insn16);
+          if (rd) {
+            offset = (((insn16 >> 5) & 7u) << 2) | (((insn16 >> 12) & 1u) << 5) |
+                     (((insn16 >> 2) & 3u) << 6);
+            os_ << "c.lwsp " << XRegName(GetRs116(insn16));
+          } else {
+            os_ << disassembler_->FormatInstructionPointer(insn)
+                << StringPrintf(": %04x    \t<reserved16>\n", insn16);
+            os_ << "\n";
+            return;
+          }
+          break;
+        }
+        case 0b011u: {
+          uint32_t rd = GetRs116(insn16);
+          if (rd) {
+            offset = (((insn16 >> 5) & 3u) << 3) | (((insn16 >> 12) & 1u) << 5) |
+                     (((insn16 >> 2) & 7u) << 6);
+            os_ << "c.ldsp " << XRegName(GetRs116(insn16));
+          } else {
+            os_ << disassembler_->FormatInstructionPointer(insn)
+                << StringPrintf(": %04x    \t<reserved16>\n", insn16);
+            os_ << "\n";
+            return;
+          }
+          break;
+        }
+        case 0b100u: {
+          uint32_t rs1 = GetRs116(insn16);
+          uint32_t rs2 = GetRs216(insn16);
+          uint32_t b12 = (insn16 >> 12) & 1u;
+          if (b12) {
+            if (rs1 && rs2) {
+              os_ << "c.mv " << XRegName(rs1) << ", " << XRegName(rs2);
+            } else if (rs1) {
+              os_ << "c.jr " << XRegName(rs1);
+            } else if (rs2) {
+              PrintHint16(insn);
+            } else {
+              os_ << disassembler_->FormatInstructionPointer(insn)
+                  << StringPrintf(": %04x    \t<reserved16>\n", insn16);
+            }
+          } else {
+            if (rs1 && rs2) {
+              os_ << "c.add " << XRegName(rs1) << ", " << XRegName(rs2);
+            } else if (rs1) {
+              os_ << "c.jalr " << XRegName(rs1);
+            } else if (rs2) {
+              PrintHint16(insn);
+            } else {
+              os_ << "c.ebreak";
+            }
+          }
+          os_ << "\n";
+          return;
+        }
+        case 0b101u:
+          offset = (((insn16 >> 7) & 7u) << 6) | (((insn16 >> 10) & 7u) << 3);
+          os_ << "c.fsdsp " << FRegName(GetRs216(insn16));
+          break;
+        case 0b110u:
+          offset = (((insn16 >> 7) & 3u) << 6) | (((insn16 >> 9) & 0xfu) << 2);
+          os_ << "c.swsp " << XRegName(GetRs216(insn16));
+          break;
+        case 0b111u:
+          offset = (((insn16 >> 7) & 7u) << 6) | (((insn16 >> 10) & 7u) << 3);
+          os_ << "c.sdsp " << XRegName(GetRs216(insn16));
+          break;
+        default:
+          UNREACHABLE();
+      }
+
+      os_ << ", ";
+      PrintLoadStoreAddress(/* sp */ 2, offset);
+
+      break;
+    default:
+      UNREACHABLE();
+  }
+  os_ << "\n";
 }
 
 void DisassemblerRiscv64::Printer::Dump2Byte(const uint8_t* data) {
