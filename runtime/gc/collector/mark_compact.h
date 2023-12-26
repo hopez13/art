@@ -156,9 +156,11 @@ class MarkCompact final : public GarbageCollector {
 
   // In copy-mode of userfaultfd, we don't need to reach a 'processed' state as
   // it's given that processing thread also copies the page, thereby mapping it.
-  // The order is important as we may treat them as integers.
+  // The order is important as we may treat them as integers. Also
+  // 'kUnprocessed' should be set to 0 as we rely on madvise(dontneed) to return
+  // us initialized page-status to 'Unprocessed'.
   enum class PageState : uint8_t {
-    kUnprocessed = 0,           // Not processed yet
+    kUnprocessed = 0,           // Not processed yet.
     kProcessing = 1,            // Being processed by GC thread and will not be mapped
     kProcessed = 2,             // Processed but not mapped
     kProcessingAndMapping = 3,  // Being processed by GC or mutator and will be mapped
@@ -176,6 +178,8 @@ class MarkCompact final : public GarbageCollector {
 
  private:
   using ObjReference = mirror::CompressedReference<mirror::Object>;
+  static constexpr uint32_t kPageStateShift = BitSizeOf<uint8_t>();
+  static constexpr uint32_t kPageStateMask = (1 << kPageStateShift) - 1;
   // Number of bits (live-words) covered by a single chunk-info (below)
   // entry/word.
   // TODO: Since popcount is performed usomg SIMD instructions, we should
@@ -348,10 +352,10 @@ class MarkCompact final : public GarbageCollector {
   // Compact the given page as per func and change its state. Also map/copy the
   // page, if required.
   template <int kMode, typename CompactionFn>
-  ALWAYS_INLINE void DoPageCompactionWithStateChange(size_t page_idx,
-                                                     size_t status_arr_len,
+  ALWAYS_INLINE bool DoPageCompactionWithStateChange(size_t page_idx,
                                                      uint8_t* to_space_page,
                                                      uint8_t* page,
+                                                     bool map_immediately,
                                                      CompactionFn func)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
@@ -515,7 +519,8 @@ class MarkCompact final : public GarbageCollector {
   // feature.
   bool CanCompactMovingSpaceWithMinorFault();
 
-  void FreeFromSpacePages(size_t cur_page_idx, int mode) REQUIRES_SHARED(Locks::mutator_lock_);
+  bool FreeFromSpacePages(size_t cur_page_idx, int mode, size_t end_idx_for_mapping)
+      REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Maps processed pages (from moving space and linear-alloc) for uffd's
   // minor-fault feature. We try to 'claim' all processed (and unmapped) pages
@@ -527,6 +532,7 @@ class MarkCompact final : public GarbageCollector {
                          Atomic<PageState>* state_arr,
                          size_t arr_idx,
                          size_t arr_len) REQUIRES_SHARED(Locks::mutator_lock_);
+  size_t MapMovingSpacePages(size_t arr_idx, size_t arr_len) REQUIRES_SHARED(Locks::mutator_lock_);
 
   bool IsValidFd(int fd) const { return fd >= 0; }
   // Add/update <class, obj> pair if class > obj and obj is the lowest address
@@ -543,15 +549,19 @@ class MarkCompact final : public GarbageCollector {
   void MarkZygoteLargeObjects() REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(Locks::heap_bitmap_lock_);
 
-  void ZeropageIoctl(void* addr, bool tolerate_eexist, bool tolerate_enoent);
-  void CopyIoctl(void* dst, void* buffer);
-  // Called after updating a linear-alloc page to either map a zero-page if the
-  // page wasn't touched during updation, or map the page via copy-ioctl. And
-  // then updates the page's state to indicate the page is mapped.
-  void MapUpdatedLinearAllocPage(uint8_t* page,
-                                 uint8_t* shadow_page,
-                                 Atomic<PageState>& state,
-                                 bool page_touched);
+  void ZeropageIoctl(void* addr, size_t length, bool tolerate_eexist, bool tolerate_enoent);
+  void CopyIoctl(void* dst, void* buffer, size_t length);
+  // Called after updating linear-alloc page(s) to map the page. It first
+  // updates the state of the pages to kProcessedAndMapping and after ioctl to
+  // kProcessedAndMapped. Returns true if at least one ioctl invocation was
+  // done. If 'free_pages' is true then also frees shadow pages. If 'single_ioctl'
+  // is true, then attempts ioctl only once.
+  bool MapUpdatedLinearAllocPages(uint8_t* page,
+                                  uint8_t* shadow_page,
+                                  Atomic<PageState>* state,
+                                  size_t length,
+                                  bool free_pages,
+                                  bool single_ioctl);
   // Called for clamping of 'info_map_' and other GC data structures, which are
   // small and/or in >4GB address space. There is no real benefit of clamping
   // them synchronously during app forking. It clamps only if clamp_info_map_status_
@@ -683,6 +693,8 @@ class MarkCompact final : public GarbageCollector {
   // how far the pages have been reclaimed/checked.
   size_t last_checked_reclaim_page_idx_;
   uint8_t* last_reclaimed_page_;
+  uint8_t* last_reclaimable_page_;
+  uint8_t* cur_reclaimable_page_;
 
   space::ContinuousSpace* non_moving_space_;
   space::BumpPointerSpace* const bump_pointer_space_;
@@ -691,7 +703,7 @@ class MarkCompact final : public GarbageCollector {
   accounting::ContinuousSpaceBitmap* non_moving_space_bitmap_;
   Thread* thread_running_gc_;
   // Array of moving-space's pages' compaction status.
-  Atomic<PageState>* moving_pages_status_;
+  Atomic<uint32_t>* moving_pages_status_;
   size_t vector_length_;
   size_t live_stack_freeze_size_;
 
