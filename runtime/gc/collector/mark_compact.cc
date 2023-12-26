@@ -266,6 +266,7 @@ static bool SysPropSaysUffdGc() { return true; }
 
 static bool ShouldUseUserfaultfd() {
   static_assert(kUseBakerReadBarrier || kUseTableLookupReadBarrier);
+#if 0
 #ifdef __linux__
   // Use CMC/CC if that is being explicitly asked for on cmdline. Otherwise,
   // always use CC on host. On target, use CMC only if system properties says so
@@ -279,6 +280,8 @@ static bool ShouldUseUserfaultfd() {
 #else
   return false;
 #endif
+#endif
+  return false;
 }
 
 const bool gUseUserfaultfd = ShouldUseUserfaultfd();
