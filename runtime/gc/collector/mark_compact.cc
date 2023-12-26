@@ -124,7 +124,7 @@ static constexpr uint64_t kUffdFeaturesForSigbus = UFFD_FEATURE_SIGBUS;
 // We may want minor-fault in future to be available for making jit-code-cache
 // updation concurrent, which uses shmem.
 bool KernelSupportsUffd() {
-#ifdef __linux__
+#if 0
   if (gHaveMremapDontunmap) {
     int fd = syscall(__NR_userfaultfd, O_CLOEXEC | UFFD_USER_MODE_ONLY);
     // On non-android devices we may not have the kernel patches that restrict
