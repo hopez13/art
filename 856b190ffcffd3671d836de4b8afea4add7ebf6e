@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d7c8a9c_de2f5234",
+        "filename": "runtime/interpreter/mterp/riscv64/floating_point.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-12-27T21:07:06Z",
+      "side": 1,
+      "message": "PS1\u0027s nested IF was more brittle than I\u0027d like. I swapped it out with this version that should be easier to reason through. And this version uses py str expansion into FCLASS.S/D to constrain src\u003d\"s\" or \"d\" for free.",
+      "revId": "856b190ffcffd3671d836de4b8afea4add7ebf6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
