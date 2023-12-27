@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8a64e8ad_bf5ea2ac",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2023-12-27T00:12:20Z",
+      "side": 1,
+      "message": "This is another suspend CL fix of sorts. I decided not to revert this time, since we have no real way to test the fix without immediately submitting again, and a revert might have been messy at this stage. That makes this a bit urgent.",
+      "revId": "225de25638f0e7bfa4d4beb2c82f4d60b971c5af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
