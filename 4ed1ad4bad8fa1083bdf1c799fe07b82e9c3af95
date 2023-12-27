@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cf01bbc9_d6a6563f",
+        "filename": "libartbase/base/unix_file/fd_file.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 495,
+      "author": {
+        "id": 1280281
+      },
+      "writtenOn": "2023-12-27T11:51:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "988427d5_80033428",
+      "range": {
+        "startLine": 495,
+        "startChar": 4,
+        "endLine": 495,
+        "endChar": 17
+      },
+      "revId": "4ed1ad4bad8fa1083bdf1c799fe07b82e9c3af95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5953f54f_9e37ce5d",
@@ -54,6 +78,30 @@
       "writtenOn": "2023-12-22T15:48:05Z",
       "side": 1,
       "message": "We only use CHECK on things that are logically deducible, not on some value set by some external function that is out of our control. A failed CHECK results in a crash, which is considered very severe in Android. Because Android runs on so many devices, we should prepare for any unexpected values from external functions, rather than crashing easily. In this particular case, I would return false and let the caller to decide what to do with the problem.\n\nHere and all the CHECKs below.",
+      "range": {
+        "startLine": 509,
+        "startChar": 6,
+        "endLine": 509,
+        "endChar": 14
+      },
+      "revId": "4ed1ad4bad8fa1083bdf1c799fe07b82e9c3af95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff4f9fd5_92826cc6",
+        "filename": "libartbase/base/unix_file/fd_file.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 509,
+      "author": {
+        "id": 1280281
+      },
+      "writtenOn": "2023-12-27T11:51:21Z",
+      "side": 1,
+      "message": "Done - added conditional statement. However I replaced CHECK with DCHECK instead of completely removing it, with the intention to catch anything totally unexpected (e.g. if a new file system driver doesn\u0027t correctly handle some corner case) as close to where it happened as possible - which I assume might be helpful if in the debug builds. Would this be suitable?",
+      "parentUuid": "5953f54f_9e37ce5d",
       "range": {
         "startLine": 509,
         "startChar": 6,
@@ -87,6 +135,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e859a087_56594a3f",
+        "filename": "libartbase/base/unix_file/fd_file_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1280281
+      },
+      "writtenOn": "2023-12-27T11:51:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9f2229f8_b9452e12",
+      "range": {
+        "startLine": 200,
+        "startChar": 2,
+        "endLine": 200,
+        "endChar": 9
+      },
+      "revId": "4ed1ad4bad8fa1083bdf1c799fe07b82e9c3af95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1af6b2f5_aba7bad1",
@@ -100,6 +172,30 @@
       "writtenOn": "2023-12-22T15:48:05Z",
       "side": 1,
       "message": "Nit: I would use\n\n```\nstd::vector\u003cuint8_t\u003e data_buffer(kChunkSize, /*value\u003d*/0xFFu);\nstd::vector\u003cuint8_t\u003e zero_buffer(kChunkSize, /*value\u003d*/0u);\n```\n\nas it\u0027s more C++ idiomatic.",
+      "range": {
+        "startLine": 202,
+        "startChar": 0,
+        "endLine": 206,
+        "endChar": 46
+      },
+      "revId": "4ed1ad4bad8fa1083bdf1c799fe07b82e9c3af95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b45c8f0_3bd97796",
+        "filename": "libartbase/base/unix_file/fd_file_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1280281
+      },
+      "writtenOn": "2023-12-27T11:51:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1af6b2f5_aba7bad1",
       "range": {
         "startLine": 202,
         "startChar": 0,
@@ -133,6 +229,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "85f4056a_df8b886a",
+        "filename": "libartbase/base/unix_file/fd_file_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1280281
+      },
+      "writtenOn": "2023-12-27T11:51:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eac3b90b_818c968d",
+      "range": {
+        "startLine": 212,
+        "startChar": 6,
+        "endLine": 212,
+        "endChar": 23
+      },
+      "revId": "4ed1ad4bad8fa1083bdf1c799fe07b82e9c3af95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "298ca931_2f4f559b",
@@ -146,6 +266,30 @@
       "writtenOn": "2023-12-22T15:48:05Z",
       "side": 1,
       "message": "```suggestion\n      FdFile src(src_tmp.GetFilename(), O_RDWR, /*check_usage\u003d*/false);\n```",
+      "range": {
+        "startLine": 215,
+        "startChar": 48,
+        "endLine": 215,
+        "endChar": 53
+      },
+      "revId": "4ed1ad4bad8fa1083bdf1c799fe07b82e9c3af95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ec756d3_cecb472e",
+        "filename": "libartbase/base/unix_file/fd_file_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1280281
+      },
+      "writtenOn": "2023-12-27T11:51:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "298ca931_2f4f559b",
       "range": {
         "startLine": 215,
         "startChar": 48,
@@ -179,6 +323,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d20e66c5_3dd7905f",
+        "filename": "libartbase/base/unix_file/fd_file_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1280281
+      },
+      "writtenOn": "2023-12-27T11:51:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "55ec61cf_44c47987",
+      "range": {
+        "startLine": 216,
+        "startChar": 6,
+        "endLine": 216,
+        "endChar": 29
+      },
+      "revId": "4ed1ad4bad8fa1083bdf1c799fe07b82e9c3af95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b0943c67_ec84e9b0",
@@ -192,6 +360,30 @@
       "writtenOn": "2023-12-22T15:48:05Z",
       "side": 1,
       "message": "Nit: I would use `lseek` and `WriteFully` instead of `PwriteFully` to avoid this complicated calculation, but this is just my personal opinion.",
+      "range": {
+        "startLine": 222,
+        "startChar": 36,
+        "endLine": 222,
+        "endChar": 69
+      },
+      "revId": "4ed1ad4bad8fa1083bdf1c799fe07b82e9c3af95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "92ae1866_24aa3ce5",
+        "filename": "libartbase/base/unix_file/fd_file_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1280281
+      },
+      "writtenOn": "2023-12-27T11:51:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0943c67_ec84e9b0",
       "range": {
         "startLine": 222,
         "startChar": 36,
@@ -225,6 +417,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5bb4650d_55d619e7",
+        "filename": "libartbase/base/unix_file/fd_file_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1280281
+      },
+      "writtenOn": "2023-12-27T11:51:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e570a9d1_156a60a5",
+      "range": {
+        "startLine": 226,
+        "startChar": 8,
+        "endLine": 226,
+        "endChar": 16
+      },
+      "revId": "4ed1ad4bad8fa1083bdf1c799fe07b82e9c3af95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "80d41bb1_9d7293f1",
@@ -248,6 +464,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "baf6f300_9b1de95f",
+        "filename": "libartbase/base/unix_file/fd_file_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1280281
+      },
+      "writtenOn": "2023-12-27T11:51:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "80d41bb1_9d7293f1",
+      "range": {
+        "startLine": 266,
+        "startChar": 68,
+        "endLine": 266,
+        "endChar": 97
+      },
+      "revId": "4ed1ad4bad8fa1083bdf1c799fe07b82e9c3af95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "efac9c3f_7918d324",
@@ -261,6 +501,30 @@
       "writtenOn": "2023-12-22T15:48:05Z",
       "side": 1,
       "message": "Please extract this body into a separate function for better readability.",
+      "range": {
+        "startLine": 212,
+        "startChar": 1,
+        "endLine": 280,
+        "endChar": 32
+      },
+      "revId": "4ed1ad4bad8fa1083bdf1c799fe07b82e9c3af95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79bc9607_baa56643",
+        "filename": "libartbase/base/unix_file/fd_file_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1280281
+      },
+      "writtenOn": "2023-12-27T11:51:21Z",
+      "side": 1,
+      "message": "Done - extracted into a lambda expression. Would this be suitable?",
+      "parentUuid": "efac9c3f_7918d324",
       "range": {
         "startLine": 212,
         "startChar": 1,
