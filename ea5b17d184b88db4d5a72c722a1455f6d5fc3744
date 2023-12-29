@@ -16,6 +16,24 @@
       "message": "Bah. Just got a failure in 412-new-array:\nException in thread \"main\" java.lang.AssertionError: Expected 0 got 1\n        at TestCase.assertEquals(TestCase.java:46)\n        at Main.testNegativeArraySize(Main.java:140)\n        at Main.main(Main.java:29)\n        \nIt\u0027s probably a silly error, but I\u0027ll have to continue this when I\u0027m back.",
       "revId": "ea5b17d184b88db4d5a72c722a1455f6d5fc3744",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12332b92_45a6c630",
+        "filename": "runtime/interpreter/mterp/riscv64/array.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2023-12-29T05:59:36Z",
+      "side": 1,
+      "message": "quick gdb: I see -1 going to the alloc code in a1. not yet sure what the alloc is doing with it.",
+      "parentUuid": "1c1adba3_88fb5050",
+      "revId": "ea5b17d184b88db4d5a72c722a1455f6d5fc3744",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
