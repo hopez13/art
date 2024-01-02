@@ -317,7 +317,7 @@ public class Test913 {
       BufferedReader reader = new BufferedReader(new FileReader("/proc/" + pid + "/maps"));
       String line;
       while ((line = reader.readLine()) != null) {
-        if (line.endsWith(".art")) {
+        if (line.endsWith(".art]")) {
           reader.close();
           return true;
         }
