@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c9fc7e8_323beb9a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-01-02T13:01:12Z",
+      "side": 1,
+      "message": "Thanks Nicolas! Just one question and a few minor nits.",
+      "revId": "f56afd64db4c7de6d93f96e2ff942c207d5df9c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c72962d_00b94a93",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 698,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-01-02T13:01:12Z",
+      "side": 1,
+      "message": "IIUC, if we don\u0027t have the profiling info for the outermost or if we were unable to encode the inline information in the outermost function, we just encode the information in the current function that is being inlined right? \n\nWhy don\u0027t we just always do that? Is it to get more precise information based on the call site?",
+      "range": {
+        "startLine": 698,
+        "startChar": 2,
+        "endLine": 698,
+        "endChar": 25
+      },
+      "revId": "f56afd64db4c7de6d93f96e2ff942c207d5df9c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ea8a5e3_c016ca6e",
+        "filename": "compiler/optimizing/inliner.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-01-02T13:01:12Z",
+      "side": 1,
+      "message": "minor nit: typo",
+      "range": {
+        "startLine": 332,
+        "startChar": 42,
+        "endLine": 332,
+        "endChar": 51
+      },
+      "revId": "f56afd64db4c7de6d93f96e2ff942c207d5df9c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "faf75f12_87a3380d",
+        "filename": "compiler/optimizing/profiling_info_builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-01-02T13:01:12Z",
+      "side": 1,
+      "message": "Maybe we can drop this check? EncodeDexPc does it anyway.",
+      "range": {
+        "startLine": 61,
+        "startChar": 2,
+        "endLine": 64,
+        "endChar": 3
+      },
+      "revId": "f56afd64db4c7de6d93f96e2ff942c207d5df9c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23892cf1_3f69937e",
+        "filename": "compiler/optimizing/profiling_info_builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-01-02T13:01:12Z",
+      "side": 1,
+      "message": "Why do we need ScopedObjectAccess here? Even in EncodeDexPc we are only getting method and dexpc which doesn\u0027t need shared mutator lock right?",
+      "range": {
+        "startLine": 90,
+        "startChar": 4,
+        "endLine": 90,
+        "endChar": 46
+      },
+      "revId": "f56afd64db4c7de6d93f96e2ff942c207d5df9c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1de8c241_86e223fc",
+        "filename": "runtime/jit/profiling_info.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-01-02T13:01:12Z",
+      "side": 1,
+      "message": "The inline_max_code_units could be passed as a parameter right? How do we make sure that profiling info is compatible across different invocations if this value changes?",
+      "range": {
+        "startLine": 179,
+        "startChar": 32,
+        "endLine": 179,
+        "endChar": 53
+      },
+      "revId": "f56afd64db4c7de6d93f96e2ff942c207d5df9c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
