@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "267278f7_6947b97e",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 698,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-01-02T15:13:28Z",
+      "side": 1,
+      "message": "Yes - we used to only take the profiling info from the callee, which might be megamorphic if the callee is eg a library method. By specializing it in the caller, we may have a monomorphic call instead.",
+      "parentUuid": "0c72962d_00b94a93",
+      "range": {
+        "startLine": 698,
+        "startChar": 2,
+        "endLine": 698,
+        "endChar": 25
+      },
+      "revId": "f56afd64db4c7de6d93f96e2ff942c207d5df9c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2ea8a5e3_c016ca6e",
@@ -54,6 +78,30 @@
       "writtenOn": "2024-01-02T13:01:12Z",
       "side": 1,
       "message": "minor nit: typo",
+      "range": {
+        "startLine": 332,
+        "startChar": 42,
+        "endLine": 332,
+        "endChar": 51
+      },
+      "revId": "f56afd64db4c7de6d93f96e2ff942c207d5df9c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f76d438_8cc6f8fe",
+        "filename": "compiler/optimizing/inliner.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-01-02T15:13:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2ea8a5e3_c016ca6e",
       "range": {
         "startLine": 332,
         "startChar": 42,
@@ -87,6 +135,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "57e06c23_a3961253",
+        "filename": "compiler/optimizing/profiling_info_builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-01-02T15:13:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "faf75f12_87a3380d",
+      "range": {
+        "startLine": 61,
+        "startChar": 2,
+        "endLine": 64,
+        "endChar": 3
+      },
+      "revId": "f56afd64db4c7de6d93f96e2ff942c207d5df9c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "23892cf1_3f69937e",
@@ -110,6 +182,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "08406319_6acf92d1",
+        "filename": "compiler/optimizing/profiling_info_builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-01-02T15:13:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "23892cf1_3f69937e",
+      "range": {
+        "startLine": 90,
+        "startChar": 4,
+        "endLine": 90,
+        "endChar": 46
+      },
+      "revId": "f56afd64db4c7de6d93f96e2ff942c207d5df9c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1de8c241_86e223fc",
@@ -123,6 +219,30 @@
       "writtenOn": "2024-01-02T13:01:12Z",
       "side": 1,
       "message": "The inline_max_code_units could be passed as a parameter right? How do we make sure that profiling info is compatible across different invocations if this value changes?",
+      "range": {
+        "startLine": 179,
+        "startChar": 32,
+        "endLine": 179,
+        "endChar": 53
+      },
+      "revId": "f56afd64db4c7de6d93f96e2ff942c207d5df9c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "abe52cb2_00db130f",
+        "filename": "runtime/jit/profiling_info.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-01-02T15:13:28Z",
+      "side": 1,
+      "message": "Added a DCHECK.",
+      "parentUuid": "1de8c241_86e223fc",
       "range": {
         "startLine": 179,
         "startChar": 32,
