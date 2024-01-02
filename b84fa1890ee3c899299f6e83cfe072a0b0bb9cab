@@ -16,6 +16,29 @@
       "message": "Lokesh, Mythri, PTAL.",
       "revId": "b84fa1890ee3c899299f6e83cfe072a0b0bb9cab",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "642a1b5e_54441ff2",
+        "filename": "runtime/thread_pool.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2024-01-02T09:56:55Z",
+      "side": 1,
+      "message": "Given that it\u0027s a private ctor, wouldn\u0027t it be better not to have default arguments since that\u0027s covered in Create()? Same is applicable to AbstractThreadPool\u0027s ctor.",
+      "range": {
+        "startLine": 244,
+        "startChar": 14,
+        "endLine": 245,
+        "endChar": 76
+      },
+      "revId": "b84fa1890ee3c899299f6e83cfe072a0b0bb9cab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
