@@ -112,6 +112,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7813776a_59ca379a",
+        "filename": "libartbase/base/unix_file/fd_file.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 509,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-01-02T17:13:10Z",
+      "side": 1,
+      "message": "Yeah, I think that\u0027s okay.",
+      "parentUuid": "ff4f9fd5_92826cc6",
+      "range": {
+        "startLine": 509,
+        "startChar": 6,
+        "endLine": 509,
+        "endChar": 14
+      },
+      "revId": "4ed1ad4bad8fa1083bdf1c799fe07b82e9c3af95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9f2229f8_b9452e12",
@@ -525,6 +549,30 @@
       "side": 1,
       "message": "Done - extracted into a lambda expression. Would this be suitable?",
       "parentUuid": "efac9c3f_7918d324",
+      "range": {
+        "startLine": 212,
+        "startChar": 1,
+        "endLine": 280,
+        "endChar": 32
+      },
+      "revId": "4ed1ad4bad8fa1083bdf1c799fe07b82e9c3af95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0164f131_e324734a",
+        "filename": "libartbase/base/unix_file/fd_file_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-01-02T17:13:10Z",
+      "side": 1,
+      "message": "Yes, looks more clear than before.",
+      "parentUuid": "79bc9607_baa56643",
       "range": {
         "startLine": 212,
         "startChar": 1,

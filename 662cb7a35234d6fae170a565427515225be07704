@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a902f6de_27972cd2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-01-02T17:13:10Z",
+      "side": 1,
+      "message": "LGTM, just some nits.",
+      "revId": "662cb7a35234d6fae170a565427515225be07704",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fced1245_c8993b10",
+        "filename": "libartbase/base/unix_file/fd_file.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 513,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-01-02T17:13:10Z",
+      "side": 1,
+      "message": "Super nit: move this out of the `else` block as the `if` block returns.",
+      "range": {
+        "startLine": 513,
+        "startChar": 8,
+        "endLine": 513,
+        "endChar": 18
+      },
+      "revId": "662cb7a35234d6fae170a565427515225be07704",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d5273a2_297ac8e1",
+        "filename": "libartbase/base/unix_file/fd_file_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-01-02T17:13:10Z",
+      "side": 1,
+      "message": "Some comment to illustrate how the file looks like will be helpful. The code is understandable, but some comment will make it easier to understand.",
+      "range": {
+        "startLine": 209,
+        "startChar": 4,
+        "endLine": 222,
+        "endChar": 30
+      },
+      "revId": "662cb7a35234d6fae170a565427515225be07704",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "47d4a246_2937b120",
+        "filename": "libartbase/base/unix_file/fd_file_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-01-02T17:13:10Z",
+      "side": 1,
+      "message": "Nit: Use std::vector to avoid allocating such a large array on the stack. This is just a test so it probably doesn\u0027t matter, but please avoid a large stack frame just in case we change the stack frame size limit in the future.",
+      "range": {
+        "startLine": 252,
+        "startChar": 4,
+        "endLine": 252,
+        "endChar": 32
+      },
+      "revId": "662cb7a35234d6fae170a565427515225be07704",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
