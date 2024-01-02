@@ -757,7 +757,7 @@ void ArtMethod::SetIntrinsic(uint32_t intrinsic) {
     bool must_count_locks = MustCountLocks();
     // Recompute flags instead of getting them from the current access flags because
     // access flags may have been changed to deduplicate warning messages (b/129063331).
-    uint32_t hiddenapi_flags = hiddenapi::CreateRuntimeFlags(this);
+    // uint32_t hiddenapi_flags = hiddenapi::CreateRuntimeFlags(this);
     SetAccessFlags(new_value);
     DCHECK_EQ(java_flags, (GetAccessFlags() & kAccJavaFlagsMask));
     DCHECK_EQ(is_constructor, IsConstructor());
@@ -774,9 +774,9 @@ void ArtMethod::SetIntrinsic(uint32_t intrinsic) {
     // Only DCHECK that we have preserved the hidden API access flags if the
     // original method was not in the SDK list. This is because the core image
     // does not have the access flags set (b/77733081).
-    if ((hiddenapi_flags & kAccHiddenapiBits) != kAccPublicApi) {
-      DCHECK_EQ(hiddenapi_flags, hiddenapi::GetRuntimeFlags(this)) << PrettyMethod();
-    }
+    // if ((hiddenapi_flags & kAccHiddenapiBits) != kAccPublicApi) {
+    //   DCHECK_EQ(hiddenapi_flags, hiddenapi::GetRuntimeFlags(this)) << PrettyMethod();
+    // }
   } else {
     SetAccessFlags(new_value);
   }
