@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd8731f8_55b25860",
+        "filename": "runtime/interpreter/mterp/riscv64/other.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-02T09:45:45Z",
+      "side": 1,
+      "message": "Previous change introduced `is_unsigned` arg for `GET_VREG`, so we could just use that instead.\n\nUsing `GET_VREG_OBJECT` can turn a corrupted reference to a simple NPE and I\u0027d prefer to see a crash if an numeric value is used as a reference.",
+      "range": {
+        "startLine": 17,
+        "startChar": 5,
+        "endLine": 17,
+        "endChar": 20
+      },
+      "revId": "c209f168b9d93f8cee155904b1a209345a7a1aaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
