@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51d36351_901dec6a",
+        "filename": "runtime/interpreter/mterp/riscv64/object.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 430,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-02T08:16:05Z",
+      "side": 1,
+      "message": "Unnecessary, this code is only for refs now.",
+      "range": {
+        "startLine": 430,
+        "startChar": 6,
+        "endLine": 430,
+        "endChar": 15
+      },
+      "revId": "38855ee54a03e29e8391a1f362aaec543c767f10",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
