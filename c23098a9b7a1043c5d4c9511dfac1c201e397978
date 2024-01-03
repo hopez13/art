@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b0835743_30e820a3",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 6723,
+      "author": {
+        "id": 1793992
+      },
+      "writtenOn": "2024-01-03T14:20:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5e677f7a_3ad32a5a",
+      "revId": "c23098a9b7a1043c5d4c9511dfac1c201e397978",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bfe89fc6_b279bae3",
@@ -31,6 +49,30 @@
       "writtenOn": "2024-01-03T13:51:30Z",
       "side": 1,
       "message": "Move this to `case HLoadMethodType::LoadKind::kRuntimeCall:`, or to the `default:` with a `DCHECK()` for the load kind.",
+      "range": {
+        "startLine": 6760,
+        "startChar": 1,
+        "endLine": 6760,
+        "endChar": 52
+      },
+      "revId": "c23098a9b7a1043c5d4c9511dfac1c201e397978",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b07448a_61afd724",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 6760,
+      "author": {
+        "id": 1793992
+      },
+      "writtenOn": "2024-01-03T14:20:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bfe89fc6_b279bae3",
       "range": {
         "startLine": 6760,
         "startChar": 1,
