@@ -267,7 +267,7 @@ public class DumpHelper {
 
         @NonNull
         public IArtd getArtd() {
-            return Utils.getArtd();
+            return ArtdRefCache.getInstance().getArtd();
         }
     }
 }
