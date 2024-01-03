@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1481a74e_a4c9ef54",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-03T13:51:30Z",
+      "side": 1,
+      "message": "You should keep this. For example\n\n    \n    This reverts commit d014fd019e84471665ac02f2de285541009892cd.\n\n    Reason for revert: Fix codegen to do runtime call in JIT for now.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 19
+      },
+      "revId": "1afec5d79cf4bdcbc0bb116170fc45f0a8da1626",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
