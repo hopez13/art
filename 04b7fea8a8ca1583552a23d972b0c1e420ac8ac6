@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26d91456_a891207f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-03T15:54:18Z",
+      "side": 1,
+      "message": "I would not do this by individual files.\n\nFor example, `aot_class_linker.cc` and `aot_class_linker.h` belong together but you\u0027re adding `HIDDEN` only to one of them here. They should be fully handled in the same change.",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 5
+      },
+      "revId": "04b7fea8a8ca1583552a23d972b0c1e420ac8ac6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
