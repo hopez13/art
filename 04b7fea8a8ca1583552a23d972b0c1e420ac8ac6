@@ -22,6 +22,30 @@
       },
       "revId": "04b7fea8a8ca1583552a23d972b0c1e420ac8ac6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c49d744_5aaf2847",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-03T15:58:34Z",
+      "side": 1,
+      "message": "Since `fault_handler.h` is not updated, none of the other `fault_handler*` files should be updated.",
+      "parentUuid": "26d91456_a891207f",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 5
+      },
+      "revId": "04b7fea8a8ca1583552a23d972b0c1e420ac8ac6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
