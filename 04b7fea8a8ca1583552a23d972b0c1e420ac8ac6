@@ -46,6 +46,30 @@
       },
       "revId": "04b7fea8a8ca1583552a23d972b0c1e420ac8ac6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b336f9ae_f130a148",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2024-01-03T16:29:42Z",
+      "side": 1,
+      "message": "I split it like this to simplify the review, these 600 files have the same trivial modification.\n\nAll the exports are in the second CL, which has the same topic. I assume that all CLs in the topic are submitted simultaneously, so there shouldn\u0027t be a problem with fault_handler* files.",
+      "parentUuid": "3c49d744_5aaf2847",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 5
+      },
+      "revId": "04b7fea8a8ca1583552a23d972b0c1e420ac8ac6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
