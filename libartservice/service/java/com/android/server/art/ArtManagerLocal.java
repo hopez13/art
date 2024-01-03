@@ -196,7 +196,7 @@ public final class ArtManagerLocal {
         PackageState pkgState = Utils.getPackageStateOrThrow(snapshot, packageName);
         AndroidPackage pkg = Utils.getPackageOrThrow(pkgState);
 
-        try {
+        try (var pin = mInjector.getArtdPin()) {
             long freedBytes = 0;
             WritableArtifactLists list =
                     mInjector.getArtFileManager().getWritableArtifacts(pkgState, pkg);
@@ -250,7 +250,7 @@ public final class ArtManagerLocal {
                 pkgState, pkg, (flags & ArtFlags.FLAG_FOR_PRIMARY_DEX) != 0,
                 (flags & ArtFlags.FLAG_FOR_SECONDARY_DEX) != 0, false /* excludeNotFound */);
 
-        try {
+        try (var pin = mInjector.getArtdPin()) {
             List<DexContainerFileDexoptStatus> statuses = new ArrayList<>();
 
             for (Pair<DetailedDexInfo, Abi> pair : dexAndAbis) {
@@ -301,7 +301,7 @@ public final class ArtManagerLocal {
         PackageState pkgState = Utils.getPackageStateOrThrow(snapshot, packageName);
         AndroidPackage pkg = Utils.getPackageOrThrow(pkgState);
 
-        try {
+        try (var pin = mInjector.getArtdPin()) {
             // We want to delete as many profiles as possible, so this deletes profiles of all known
             // secondary dex files. If there are unknown secondary dex files, their profiles will be
             // deleted by `cleanup`.
@@ -348,8 +348,10 @@ public final class ArtManagerLocal {
     public DexoptResult dexoptPackage(@NonNull PackageManagerLocal.FilteredSnapshot snapshot,
             @NonNull String packageName, @NonNull DexoptParams params,
             @NonNull CancellationSignal cancellationSignal) {
-        return mInjector.getDexoptHelper().dexopt(
-                snapshot, List.of(packageName), params, cancellationSignal, Runnable::run);
+        try (var pin = mInjector.getArtdPin()) {
+            return mInjector.getDexoptHelper().dexopt(
+                    snapshot, List.of(packageName), params, cancellationSignal, Runnable::run);
+        }
     }
 
     /**
@@ -458,7 +460,7 @@ public final class ArtManagerLocal {
         ExecutorService dexoptExecutor =
                 Executors.newFixedThreadPool(ReasonMapping.getConcurrencyForReason(reason));
         Map<Integer, DexoptResult> dexoptResults = new HashMap<>();
-        try {
+        try (var pin = mInjector.getArtdPin()) {
             if (reason.equals(ReasonMapping.REASON_BG_DEXOPT)) {
                 DexoptResult downgradeResult = maybeDowngradePackages(snapshot,
                         new HashSet<>(params.getPackages()) /* excludedPackages */,
@@ -721,7 +723,7 @@ public final class ArtManagerLocal {
             @NonNull PackageManagerLocal.FilteredSnapshot snapshot, @NonNull String packageName,
             @Nullable String splitName, @NonNull MergeProfileOptions options)
             throws SnapshotProfileException {
-        try {
+        try (var pin = mInjector.getArtdPin()) {
             PackageState pkgState = Utils.getPackageStateOrThrow(snapshot, packageName);
             AndroidPackage pkg = Utils.getPackageOrThrow(pkgState);
             PrimaryDexInfo dexInfo = PrimaryDexUtils.getDexInfoBySplitName(pkg, splitName);
@@ -822,7 +824,10 @@ public final class ArtManagerLocal {
         var options = new MergeProfileOptions();
         options.forceMerge = true;
         options.forBootImage = true;
-        return mergeProfilesAndGetFd(profiles, output, dexPaths, options);
+
+        try (var pin = mInjector.getArtdPin()) {
+            return mergeProfilesAndGetFd(profiles, output, dexPaths, options);
+        }
     }
 
     /**
@@ -856,7 +861,9 @@ public final class ArtManagerLocal {
     @RequiresApi(Build.VERSION_CODES.UPSIDE_DOWN_CAKE)
     public void dump(
             @NonNull PrintWriter pw, @NonNull PackageManagerLocal.FilteredSnapshot snapshot) {
-        new DumpHelper(this).dump(pw, snapshot);
+        try (var pin = mInjector.getArtdPin()) {
+            new DumpHelper(this).dump(pw, snapshot);
+        }
     }
 
     /**
@@ -871,8 +878,10 @@ public final class ArtManagerLocal {
     @RequiresApi(Build.VERSION_CODES.UPSIDE_DOWN_CAKE)
     public void dumpPackage(@NonNull PrintWriter pw,
             @NonNull PackageManagerLocal.FilteredSnapshot snapshot, @NonNull String packageName) {
-        new DumpHelper(this).dumpPackage(
-                pw, snapshot, Utils.getPackageStateOrThrow(snapshot, packageName));
+        try (var pin = mInjector.getArtdPin()) {
+            new DumpHelper(this).dumpPackage(
+                    pw, snapshot, Utils.getPackageStateOrThrow(snapshot, packageName));
+        }
     }
 
     /**
@@ -890,7 +899,7 @@ public final class ArtManagerLocal {
         PackageState pkgState = Utils.getPackageStateOrThrow(snapshot, packageName);
         AndroidPackage pkg = Utils.getPackageOrThrow(pkgState);
 
-        try {
+        try (var pin = mInjector.getArtdPin()) {
             long artifactsSize = 0;
             long refProfilesSize = 0;
             long curProfilesSize = 0;
@@ -935,9 +944,9 @@ public final class ArtManagerLocal {
      */
     @RequiresApi(Build.VERSION_CODES.UPSIDE_DOWN_CAKE)
     public long cleanup(@NonNull PackageManagerLocal.FilteredSnapshot snapshot) {
-        mInjector.getDexUseManager().cleanup();
+        try (var pin = mInjector.getArtdPin()) {
+            mInjector.getDexUseManager().cleanup();
 
-        try {
             // For every primary dex container file or secondary dex container file of every app, if
             // it has code, we keep the following types of files:
             // - The reference profile and the current profiles, regardless of the hibernation state
@@ -1314,7 +1323,13 @@ public final class ArtManagerLocal {
         @RequiresApi(Build.VERSION_CODES.UPSIDE_DOWN_CAKE)
         @NonNull
         public IArtd getArtd() {
-            return Utils.getArtd();
+            return ArtdRefCache.getInstance().getArtd();
+        }
+
+        @RequiresApi(Build.VERSION_CODES.UPSIDE_DOWN_CAKE)
+        @NonNull
+        public ArtdRefCache.Pin getArtdPin() {
+            return ArtdRefCache.getInstance().new Pin();
         }
 
         /** Returns a new {@link DexoptHelper} instance. */
