@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b0751080_ebf31bb0",
+        "filename": "libartbase/base/unix_file/fd_file.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 513,
+      "author": {
+        "id": 1280281
+      },
+      "writtenOn": "2024-01-03T15:53:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fced1245_c8993b10",
+      "range": {
+        "startLine": 513,
+        "startChar": 8,
+        "endLine": 513,
+        "endChar": 18
+      },
+      "revId": "662cb7a35234d6fae170a565427515225be07704",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6d5273a2_297ac8e1",
@@ -64,6 +88,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "aeb7cc6d_64c1e68d",
+        "filename": "libartbase/base/unix_file/fd_file_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1280281
+      },
+      "writtenOn": "2024-01-03T15:53:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6d5273a2_297ac8e1",
+      "range": {
+        "startLine": 209,
+        "startChar": 4,
+        "endLine": 222,
+        "endChar": 30
+      },
+      "revId": "662cb7a35234d6fae170a565427515225be07704",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "47d4a246_2937b120",
@@ -77,6 +125,30 @@
       "writtenOn": "2024-01-02T17:13:10Z",
       "side": 1,
       "message": "Nit: Use std::vector to avoid allocating such a large array on the stack. This is just a test so it probably doesn\u0027t matter, but please avoid a large stack frame just in case we change the stack frame size limit in the future.",
+      "range": {
+        "startLine": 252,
+        "startChar": 4,
+        "endLine": 252,
+        "endChar": 32
+      },
+      "revId": "662cb7a35234d6fae170a565427515225be07704",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f53d8385_da05e2b3",
+        "filename": "libartbase/base/unix_file/fd_file_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1280281
+      },
+      "writtenOn": "2024-01-03T15:53:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "47d4a246_2937b120",
       "range": {
         "startLine": 252,
         "startChar": 4,
