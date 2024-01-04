@@ -16,6 +16,52 @@
       "message": "On a re-run, TH errors are only on unrelated architectures.",
       "revId": "ecaccbd4a245cca4bd76f84a646cd0dc1f85841f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eed37821_12ae4760",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-04T19:00:43Z",
+      "side": 1,
+      "message": "shouldn\u0027t we initialize `src_curr_addr` before using it here? Maybe with the value from `locations-\u003eInAt(0).AsRegister\u003cRegister\u003e();`",
+      "range": {
+        "startLine": 118,
+        "startChar": 0,
+        "endLine": 118,
+        "endChar": 96
+      },
+      "revId": "ecaccbd4a245cca4bd76f84a646cd0dc1f85841f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bcac444a_3b16d9e6",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3191,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-04T19:00:43Z",
+      "side": 1,
+      "message": "On every call site, we use it with the same register (i.e. `klass` and `temp` are the same register). Do you think we could merge the arguments?",
+      "range": {
+        "startLine": 3191,
+        "startChar": 7,
+        "endLine": 3191,
+        "endChar": 38
+      },
+      "revId": "ecaccbd4a245cca4bd76f84a646cd0dc1f85841f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
