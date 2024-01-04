@@ -16,6 +16,29 @@
       "message": "Thanks!",
       "revId": "cac6b42519e9dd2725cb7e86fecd9ceb6e60d52f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fea46512_4a7603ad",
+        "filename": "runtime/image.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-04T11:26:19Z",
+      "side": 1,
+      "message": "What can cause the compression to fail? Internal OOM?",
+      "range": {
+        "startLine": 305,
+        "startChar": 2,
+        "endLine": 307,
+        "endChar": 3
+      },
+      "revId": "cac6b42519e9dd2725cb7e86fecd9ceb6e60d52f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
