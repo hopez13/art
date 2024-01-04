@@ -70,6 +70,53 @@
       },
       "revId": "04b7fea8a8ca1583552a23d972b0c1e420ac8ac6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8dfc86f0_5af7f86d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-04T12:44:09Z",
+      "side": 1,
+      "message": "I have a very different idea of what makes a review easy. I would have split it into several CLs, such as adding attributes to `runtime/gc/`. Such CLs would also have a much smaller chance of breaking things for changes that get merged in the meantime. They could also help with diagnosing DRM issues. And they would allow more discussion of individual exports. (Could we avoid the throw exports in `array.h` if we replaced `Set` by `SetWithoutChecks` in `image_writer.cc`?)\n\nThere are no exports in `runtime/native/` and only a single \"test only\" export in `runtime/entrypoints/`, so these would comprise a nice almost-100-file chunk that could be split out and submitted without doing a massive code review.\n\nI also consider a \"topic\" with multiple CLs in a single git repository very weird and I would not split a change that way.\n\nFor now, consider the list below as my notes of the things I need to pay attention to while reviewing the other CL.\n\n---\n\n    art_field*\n    art_method*\n    barrier.cc\n    gc_visited_arena_pool.cc\n    locks.cc\n    mutex*\n    timing_logger.cc\n    class_linker*\n    class_loader_context.cc\n    class_table*\n    common_throws.h\n    debug_print.cc`. `debugger.cc\n    dex_register_location.cc\n    dex_file_annotations.cc\n    math_entrypoints.cc\n    exec_utils.cc\n    gc_root-inl.h\n    space_bitmap*\n    allocation_record.cc\n    rosalloc*\n    concurrent_copying*\n    mark_compact*\n    heap*\n    scoped_ciritical_section.cc\n    bump_pointer_space*\n    image_space.cc\n    region_space*\n    space*\n    verification*\n    image*\n    indirect_reference_table*\n    instrumentation.cc\n    intern_table*\n    interpreter_cache*\n    unstarted_runtime.cc\n    jit.cc\n    jit_code_cache.cc\n    profile_saver.cc\n    profiling_info.cc\n    java_vm_ext-inl.h\n    jni_env_ext*\n    jni_id_managed.cc\n    jni_interal.cc\n    local_referenve_table*\n    lock_word-inl.h\n    array*\n    class*\n    class_ext*\n    dex_cache*\n    method_handle_impl*\n    method_type*\n    object*\n    string*\n    throwable.cc\n    monitor*\n    monitor_\u003carch\u003e.cc\n    non_debuggable_classes.cc\n    nterp_helper.cc\n    oat.cc\n    oat_file*\n    oat_file_assistant.cc\n    oat_file_assistant_context.cc\n    oat_file_manager.cc\n    oat_quick_method_header.cc\n    object_lock.cc\n    reference_table.cc\n    reflection*\n    reflective_value_visitor.cc\n    runtime_android.cc\n    runtime_\u003carch\u003e.cc\n    runtime_callbacks.cc\n    runtime_image.cc\n    runtime_intrinsics.cc\n    runtime_options.cc`. `runtime-inl.h\n    scoped_thread_state_change*\n    sdk_checker.cc\n    stack.cc\n    stack_map.cc\n    thread*\n    thread_\u003carch\u003e.cc\n    thread_list.cc\n    thread_pool.cc\n    vdex_file.cc\n    class_verifier.cc\n    method_verifier*\n    verifier_deps.cc\n    verify_object*\n    well_known_classes*",
+      "parentUuid": "b336f9ae_f130a148",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 5
+      },
+      "revId": "04b7fea8a8ca1583552a23d972b0c1e420ac8ac6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12b55ce4_9cf9d7af",
+        "filename": "runtime/arch/memcmp16.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-04T12:44:09Z",
+      "side": 1,
+      "message": "We need to decide whether we want to hide this symbol. As such, maybe we could leave this file (and .cc) without `HIDDEN` for now, so that we can easily find it by searching for `namespace art {`. Alternatively, add a TODO referencing the bug.",
+      "range": {
+        "startLine": 52,
+        "startChar": 19,
+        "endLine": 52,
+        "endChar": 42
+      },
+      "revId": "04b7fea8a8ca1583552a23d972b0c1e420ac8ac6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
