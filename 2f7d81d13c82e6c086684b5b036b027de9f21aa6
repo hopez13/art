@@ -39,6 +39,30 @@
       },
       "revId": "2f7d81d13c82e6c086684b5b036b027de9f21aa6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "98855f9a_c7987f92",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1367,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-01-05T10:26:33Z",
+      "side": 1,
+      "message": "\u003e I guess this and x86_64 are the only architectures where we are updating the hotness counter before checking for zero. This is what makes it harder to just update hotness counter but not miss to runtime right?  Does it make sense to change these to compare first. Is lack of temporary registers problem here?\n\nYeah, I thought about doing this \"decrement but don\u0027t go to zero and don\u0027t call the runtime\" strategy, but what you noticed is the reason I didn\u0027t go with it. I see some value in keeping the same behavior between archs. Also, the fact we now wait for the whole method to be executed, and we are not going to do OSR anyway.\n\n\u003e \n\u003e If we want to keep it this way, do we have to adjust the thresholds of hotness when tiering up from baseline -\u003e optimized. I guess we are doing more optimizations in baseline so not necessary but just checking.\n\nBenchmarks show we\u0027re not really affected (OSR in the interpreter is really what is needed for benchmarks, and we already have that. OSR from baseline to optimized hasn\u0027t really been required so far).",
+      "parentUuid": "536c1580_0eea1afe",
+      "range": {
+        "startLine": 1367,
+        "startChar": 4,
+        "endLine": 1367,
+        "endChar": 45
+      },
+      "revId": "2f7d81d13c82e6c086684b5b036b027de9f21aa6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
