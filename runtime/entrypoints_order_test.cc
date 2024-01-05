@@ -139,11 +139,19 @@ class EntrypointsOrderTest : public CommonArtTest {
         Thread, tlsPtr_, method_trace_buffer, method_trace_buffer_index, sizeof(void*));
     EXPECT_OFFSET_DIFFP(
         Thread, tlsPtr_, method_trace_buffer_index, thread_exit_flags, sizeof(void*));
+#ifdef ART_USE_SIMULATOR
+    EXPECT_OFFSET_DIFFP(Thread, tlsPtr_, thread_exit_flags, sim_executor, sizeof(void*));
+#endif
     // The first field after tlsPtr_ is forced to a 16 byte alignment so it might have some space.
     auto offset_tlsptr_end = OFFSETOF_MEMBER(Thread, tlsPtr_) +
         sizeof(decltype(reinterpret_cast<Thread*>(16)->tlsPtr_));
+#ifdef ART_USE_SIMULATOR
+    CHECKED(offset_tlsptr_end - OFFSETOF_MEMBER(Thread, tlsPtr_.sim_executor) == sizeof(void*),
+            "simulator last field");
+#else
     CHECKED(offset_tlsptr_end - OFFSETOF_MEMBER(Thread, tlsPtr_.thread_exit_flags) == sizeof(void*),
             "async_exception last field");
+#endif
   }
 
   void CheckJniEntryPoints() {
