@@ -731,7 +731,7 @@ uintptr_t QuickExceptionHandler::UpdateInstrumentationStack() {
   return return_pc;
 }
 
-void QuickExceptionHandler::DoLongJump(bool smash_caller_saves) {
+void QuickExceptionHandler::PrepareLongJump(bool smash_caller_saves) {
   // Place context back on thread so it will be available when we continue.
   self_->ReleaseLongJumpContext(context_);
   context_->SetSP(reinterpret_cast<uintptr_t>(handler_quick_frame_));
@@ -752,8 +752,6 @@ void QuickExceptionHandler::DoLongJump(bool smash_caller_saves) {
   }
   // Clear the dex_pc list so as not to leak memory.
   handler_dex_pc_list_.reset();
-  context_->DoLongJump();
-  UNREACHABLE();
 }
 
 void QuickExceptionHandler::DumpFramesWithType(Thread* self, bool details) {

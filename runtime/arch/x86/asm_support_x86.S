@@ -378,6 +378,34 @@ MACRO0(RESTORE_SAVE_REFS_AND_ARGS_FRAME)
     POP edi
 END_MACRO
 
+MACRO0(PREPARE_AND_DO_LONG_JUMP)
+    // Reserve space for the gprs + fprs;
+    INCREASE_FRAME X86_LONG_JUMP_CONTEXT_SIZE
+
+    mov %fs:THREAD_LONG_JUMP_CONTEXT_OFFSET, %edi  // pass Thread::Current()
+
+    lea 0(%esp), %esi                              // GPRS
+    lea X86_LONG_JUMP_GPRS_SIZE(%esp), %edx        // FPRS
+
+    PUSH_ARG edx
+    PUSH_ARG esi
+    PUSH_ARG edi
+
+    call SYMBOL(artContextCopyForLongJump)          // Context* context,
+                                                    // uintptr_t* gprs,
+                                                    // uintptr_t* fprs
+
+    POP_ARG edi
+    POP_ARG esi
+    POP_ARG edx
+
+    PUSH_ARG esi                                    // FPRS
+    PUSH_ARG edx                                    // GPRS
+
+    call SYMBOL(art_quick_do_long_jump)
+    UNREACHABLE
+END_MACRO
+
     /*
      * Macro that calls through to artDeliverPendingExceptionFromCode, where the pending
      * exception is Thread::Current()->exception_ when the runtime method frame is ready.
@@ -388,7 +416,7 @@ MACRO0(DELIVER_PENDING_EXCEPTION_FRAME_READY)
     pushl %fs:THREAD_SELF_OFFSET               // pass Thread::Current()
     CFI_ADJUST_CFA_OFFSET(4)
     call SYMBOL(artDeliverPendingExceptionFromCode)  // artDeliverPendingExceptionFromCode(Thread*)
-    UNREACHABLE
+    PREPARE_AND_DO_LONG_JUMP
     CFI_ADJUST_CFA_OFFSET(-16)                 // Reset CFA in case there is more code afterwards.
 END_MACRO
 

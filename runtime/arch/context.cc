@@ -22,4 +22,8 @@ Context* Context::Create() {
   return new RuntimeContextType;
 }
 
+extern "C" void artContextCopyForLongJump(Context* context, uintptr_t* gprs, uintptr_t* fprs) {
+  context->CopyContextTo(gprs, fprs);
+}
+
 }  // namespace art

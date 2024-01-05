@@ -465,6 +465,25 @@ MACRO0(RESTORE_FP_CALLEE_SAVE_FRAME)
     DECREASE_FRAME 4 * 8
 END_MACRO
 
+MACRO0(PREPARE_AND_DO_LONG_JUMP)
+    // Reserve space for the gprs + fprs;
+    INCREASE_FRAME X86_64_LONG_JUMP_CONTEXT_SIZE
+
+    movq %gs:THREAD_LONG_JUMP_CONTEXT_OFFSET, %rdi  // pass Thread::Current()
+
+    leaq 0(%rsp), %rsi                              // GPRS
+    leaq X86_64_LONG_JUMP_GPRS_SIZE(%rsp), %rdx     // FPRS
+
+    call SYMBOL(artContextCopyForLongJump)          // Context* context,
+                                                    // uintptr_t* gprs,
+                                                    // uintptr_t* fprs
+
+    leaq 0(%rsp), %rdi                              // GPRS
+    leaq X86_64_LONG_JUMP_GPRS_SIZE(%rsp), %rsi     // FPRS
+    call SYMBOL(art_quick_do_long_jump)
+    UNREACHABLE
+END_MACRO
+
     /*
      * Macro that calls through to artDeliverPendingExceptionFromCode, where the pending
      * exception is Thread::Current()->exception_ when the runtime method frame is ready.
@@ -473,7 +492,7 @@ MACRO0(DELIVER_PENDING_EXCEPTION_FRAME_READY)
     // (Thread*) setup
     movq %gs:THREAD_SELF_OFFSET, %rdi
     call SYMBOL(artDeliverPendingExceptionFromCode)  // artDeliverPendingExceptionFromCode(Thread*)
-    UNREACHABLE
+    PREPARE_AND_DO_LONG_JUMP
 END_MACRO
     /*
      * Macro that calls through to artDeliverPendingExceptionFromCode, where the pending

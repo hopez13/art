@@ -28,4 +28,11 @@
 #define SAVE_EVERYTHING_FRAME_RAX_OFFSET \
     (FRAME_SIZE_SAVE_EVERYTHING - CALLEE_SAVE_EVERYTHING_NUM_CORE_SPILLS * POINTER_SIZE)
 
+// Size of Context::gprs_.
+#define X86_64_LONG_JUMP_GPRS_SIZE 136
+// Size of Context::fprs_.
+#define X86_64_LONG_JUMP_FPRS_SIZE 128
+// Size of Context::gprs_ + Context::fprs_.
+#define X86_64_LONG_JUMP_CONTEXT_SIZE 264
+
 #endif  // ART_RUNTIME_ARCH_X86_64_ASM_SUPPORT_X86_64_H_
