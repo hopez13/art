@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "59846938_c6b0cf1f",
+        "filename": "runtime/arch/arm/fault_handler_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2024-01-05T21:52:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8436b962_7fcb2809",
+      "range": {
+        "startLine": 34,
+        "startChar": 14,
+        "endLine": 34,
+        "endChar": 20
+      },
+      "revId": "61a8383fd5db1fe8feae4324c009d690e4a190b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "36a26550_4b44202a",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-01-05T15:54:11Z",
       "side": 1,
       "message": "Similar to `fault_handler`, add `thread.h`, `thread.cc`, `thread-inl.h`, `thread_linux.cc`, `thread_android.cc` (all these belong together with arch-specific `thread_\u003carch\u003e` files).",
+      "range": {
+        "startLine": 24,
+        "startChar": 14,
+        "endLine": 24,
+        "endChar": 20
+      },
+      "revId": "61a8383fd5db1fe8feae4324c009d690e4a190b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dfca51dd_61b6abb6",
+        "filename": "runtime/arch/arm/thread_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2024-01-05T21:52:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "36a26550_4b44202a",
       "range": {
         "startLine": 24,
         "startChar": 14,
