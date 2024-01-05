@@ -628,6 +628,7 @@ libart_static_cc_defaults {
     name: "libart_static_base_defaults",
     whole_static_libs: [
         "libartpalette",
+        "libart-simulator-container",
         "libbase",
         "liblog",
         "liblz4",
@@ -740,6 +741,7 @@ art_cc_defaults {
     ],
     shared_libs: [
         "libartbase",
+        "libart-simulator-container",
         "libdexfile",
         "libprofile",
     ],
@@ -798,6 +800,7 @@ art_cc_library {
     ],
     shared_libs: [
         "libartbased",
+        "libartd-simulator-container",
         "libdexfiled",
         "libprofiled",
     ],

@@ -96,6 +96,7 @@ def parse_args(argv):
   argp.add_argument("--secondary-class-loader-context", default="")
   argp.add_argument("--secondary-compilation", default=True, action=opt_bool)
   argp.add_argument("--simpleperf", action="store_true")
+  argp.add_argument("--simulator", action="store_true")
   argp.add_argument("--sync", action="store_true")
   argp.add_argument("--testlib", default=[], action="append")
   argp.add_argument("--timeout", default=0, type=int)
@@ -172,10 +173,10 @@ def get_apex_bootclasspath_impl(bpath_prefix: str):
 
 
 # Gets a -Xbootclasspath paths with the apex modules.
-def get_apex_bootclasspath(host: bool):
+def get_apex_bootclasspath(host: bool, simulator: bool):
   bpath_prefix = ""
 
-  if host:
+  if host or simulator:
     bpath_prefix = os.environ["ANDROID_HOST_OUT"]
 
   return get_apex_bootclasspath_impl(bpath_prefix)
@@ -341,6 +342,7 @@ def default_run(ctx, args, **kwargs):
   ANDROID_FLAGS += (" -Xcompiler-option --runtime-arg -Xcompiler-option "
                     "-XX:SlowDebug=true")
   COMPILER_FLAGS = "  --runtime-arg -XX:SlowDebug=true"
+  SIMULATOR = args.simulator
 
   # Let the compiler and runtime know that we are running tests.
   COMPILE_FLAGS += " --compile-art-test"
@@ -453,6 +455,13 @@ def default_run(ctx, args, **kwargs):
   if args.vdex_arg:
     arg = args.vdex_arg
     VDEX_ARGS += f" {arg}"
+  if SIMULATOR:
+    HOST = True
+    ANDROID_PRODUCT_OUT = os.environ.get("ANDROID_PRODUCT_OUT")
+    ANDROID_ROOT = f"{ANDROID_PRODUCT_OUT}/system"
+    ANDROID_RUNTIME_ROOT = f"{ANDROID_PRODUCT_OUT}/apex/com.android.runtime.debug"
+    # Simulation has some overhead so give an extra 50 mins.
+    TIME_OUT_EXTRA += 3000
 
 # HACK: Force the use of `signal_dumper` on host.
   if HOST:
@@ -616,7 +625,7 @@ def default_run(ctx, args, **kwargs):
     ctx.run(tee(cmdline), expected_exit_code=args.expected_exit_code)
     return
 
-  b_path = get_apex_bootclasspath(HOST)
+  b_path = get_apex_bootclasspath(HOST, SIMULATOR)
   b_path_locations = get_apex_bootclasspath_locations(HOST)
 
   BCPEX = ""
@@ -707,7 +716,9 @@ def default_run(ctx, args, **kwargs):
       "/", "@")
   assert len(VDEX_NAME) <= max_filename_size, "Dex location path too long"
 
-  if HOST:
+  if SIMULATOR:
+    ANDROID_ART_BIN_DIR = f"{ANDROID_HOST_OUT}/bin"
+  elif HOST:
     # On host, run binaries (`dex2oat(d)`, `dalvikvm`, `profman`) from the `bin`
     # directory under the "Android Root" (usually `out/host/linux-x86`).
     #
@@ -722,6 +733,10 @@ def default_run(ctx, args, **kwargs):
     ANDROID_ART_BIN_DIR = f"{ANDROID_ART_ROOT}/bin"
 
   profman_cmdline = "true"
+  if SIMULATOR:
+    # TODO(Simulator): get rid of hard-coded isa.
+    ISA = "arm64"
+
   dex2oat_cmdline = "true"
   vdex_cmdline = "true"
   dm_cmdline = "true"
@@ -1094,7 +1109,13 @@ def default_run(ctx, args, **kwargs):
       # Put the zipapex files in front of the ld-library-path
       LD_LIBRARY_PATH = f"{ANDROID_DATA}/zipapex/{LIBRARY_DIRECTORY}:{ANDROID_ROOT}/{TEST_DIRECTORY}"
     else:
-      LD_LIBRARY_PATH = f"{ANDROID_ROOT}/{LIBRARY_DIRECTORY}:{ANDROID_ROOT}/{TEST_DIRECTORY}"
+      if SIMULATOR:
+        # In simulator mode host native libraries should be used.
+        PATH_PREFIX = ANDROID_HOST_OUT
+      else:
+        PATH_PREFIX = ANDROID_ROOT
+
+      LD_LIBRARY_PATH = f"{PATH_PREFIX}/{LIBRARY_DIRECTORY}:{PATH_PREFIX}/{TEST_DIRECTORY}"
 
     ctx.export(
       ANDROID_PRINTF_LOG = "brief",

@@ -205,6 +205,54 @@ Simulator* CodeSimulatorArm64::CreateNewInstructionSimulator(SimStack::Allocated
   return new CustomSimulator(decoder_.get(), stdout, std::move(stack));
 }
 
+void CodeSimulatorArm64::Invoke(ArtMethod* method,
+                                uint32_t* args,
+                                uint32_t args_size_in_bytes,
+                                Thread* self,
+                                JValue* result,
+                                const char* shorty,
+                                bool isStatic)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  // ARM64 simulator only supports 64-bit host machines. Because:
+  //   1) vixl simulator is not tested on 32-bit host machines.
+  //   2) Data structures in ART have different representations for 32/64-bit machines.
+  DCHECK(sizeof(args) == sizeof(int64_t));
+
+  if (VLOG_IS_ON(simulator)) {
+    VLOG(simulator) << "\nVIXL_SIMULATOR simulate: " << method->PrettyMethod();
+  }
+
+  /*  extern "C"
+   *     void art_quick_invoke_static_stub(ArtMethod *method,   x0
+   *                                       uint32_t  *args,     x1
+   *                                       uint32_t argsize,    w2
+   *                                       Thread *self,        x3
+   *                                       JValue *result,      x4
+   *                                       char   *shorty);     x5 */
+  CustomSimulator* simulator = GetSimulator();
+  size_t arg_no = 0;
+  simulator->WriteXRegister(arg_no++, reinterpret_cast<uint64_t>(method));
+  simulator->WriteXRegister(arg_no++, reinterpret_cast<uint64_t>(args));
+  simulator->WriteWRegister(arg_no++, args_size_in_bytes);
+  simulator->WriteXRegister(arg_no++, reinterpret_cast<uint64_t>(self));
+  simulator->WriteXRegister(arg_no++, reinterpret_cast<uint64_t>(result));
+  simulator->WriteXRegister(arg_no++, reinterpret_cast<uint64_t>(shorty));
+
+  // The simulator will stop (and return from RunFrom) when it encounters pc == 0.
+  simulator->WriteLr(0);
+
+  int64_t quick_code;
+
+  if (isStatic) {
+    quick_code = reinterpret_cast<int64_t>(GetQuickInvokeStaticStub());
+  } else {
+    quick_code = reinterpret_cast<int64_t>(GetQuickInvokeStub());
+  }
+
+  DCHECK_NE(quick_code, 0);
+  RunFrom(quick_code);
+}
+
 #endif
 
 }  // namespace arm64
