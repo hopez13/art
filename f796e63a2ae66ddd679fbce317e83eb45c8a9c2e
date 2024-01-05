@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "afcaf439_4f07c05c",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 25
+      },
+      "lineNbr": 1516,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-05T18:37:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c31f13af_8191183b",
+      "range": {
+        "startLine": 1516,
+        "startChar": 2,
+        "endLine": 1516,
+        "endChar": 28
+      },
+      "revId": "f796e63a2ae66ddd679fbce317e83eb45c8a9c2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "55501cb5_4e47198c",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-01-05T08:56:49Z",
       "side": 1,
       "message": "I would prefer all this code to be inside the `CheckGcCard()` to avoid repeating it for each architecture. (Also simplifies the codegen below.)",
+      "range": {
+        "startLine": 5935,
+        "startChar": 6,
+        "endLine": 5938,
+        "endChar": 68
+      },
+      "revId": "f796e63a2ae66ddd679fbce317e83eb45c8a9c2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c289c999_45e83103",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 25
+      },
+      "lineNbr": 5938,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-05T18:37:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "55501cb5_4e47198c",
       "range": {
         "startLine": 5935,
         "startChar": 6,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c87029da_f09e9351",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 25
+      },
+      "lineNbr": 7321,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-05T18:37:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e4841217_ab635efc",
+      "range": {
+        "startLine": 7321,
+        "startChar": 44,
+        "endLine": 7321,
+        "endChar": 68
+      },
+      "revId": "f796e63a2ae66ddd679fbce317e83eb45c8a9c2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5155d677_2ab3b374",
@@ -83,6 +155,30 @@
       "writtenOn": "2024-01-05T08:56:49Z",
       "side": 1,
       "message": "Remove.",
+      "range": {
+        "startLine": 2436,
+        "startChar": 2,
+        "endLine": 2436,
+        "endChar": 20
+      },
+      "revId": "f796e63a2ae66ddd679fbce317e83eb45c8a9c2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d7b59616_eb4c523b",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 25
+      },
+      "lineNbr": 2436,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-05T18:37:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5155d677_2ab3b374",
       "range": {
         "startLine": 2436,
         "startChar": 2,
@@ -116,6 +212,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "81973dc1_b8ef6259",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 25
+      },
+      "lineNbr": 6695,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-05T18:37:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c53818b2_d904bf53",
+      "range": {
+        "startLine": 6695,
+        "startChar": 17,
+        "endLine": 6695,
+        "endChar": 25
+      },
+      "revId": "f796e63a2ae66ddd679fbce317e83eb45c8a9c2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "15dbb5fa_a33d5e1c",
@@ -129,6 +249,30 @@
       "writtenOn": "2024-01-05T08:56:49Z",
       "side": 1,
       "message": "Style: Fits on a single line.",
+      "range": {
+        "startLine": 6252,
+        "startChar": 2,
+        "endLine": 6253,
+        "endChar": 14
+      },
+      "revId": "f796e63a2ae66ddd679fbce317e83eb45c8a9c2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b9bac4e7_24d79009",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 25
+      },
+      "lineNbr": 6253,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-05T18:37:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "15dbb5fa_a33d5e1c",
       "range": {
         "startLine": 6252,
         "startChar": 2,
@@ -164,6 +308,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4a78a483_c97aa5ce",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 25
+      },
+      "lineNbr": 1387,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-05T18:37:17Z",
+      "side": 1,
+      "message": "I don\u0027t think this check is that costly. It would only be called for eliminated write barriers so it affects a portion of the graph only. It also only kicks in at the very late stages of compilation so earlier graph checker runs are unaffected. Also, it only looks within the same basic block.\n\nI am not sure what you mean by the templating. Do you mean templating the types? I changed the arguments to use `const \u0026`. Do you think that would be enough?\n\nRenamed `is_cast` to `instruction_type_cast`.\n\nRegarding the `implementation detail check`, not sure if there\u0027s anything better we could do as a compile-time check. Do you think it\u0027s better to not have anything?",
+      "parentUuid": "a5c9d20c_106736b0",
+      "range": {
+        "startLine": 1387,
+        "startChar": 2,
+        "endLine": 1387,
+        "endChar": 89
+      },
+      "revId": "f796e63a2ae66ddd679fbce317e83eb45c8a9c2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a8d362c0_983c63ee",
         "filename": "compiler/optimizing/graph_checker.cc",
         "patchSetId": 25
@@ -175,6 +343,30 @@
       "writtenOn": "2024-01-05T08:56:49Z",
       "side": 1,
       "message": "This slow piece of code (and the check below) could be avoided if we added a `HBackwardInstructionIterator` constructor that takes an `HInstruction*`.",
+      "range": {
+        "startLine": 1392,
+        "startChar": 2,
+        "endLine": 1399,
+        "endChar": 3
+      },
+      "revId": "f796e63a2ae66ddd679fbce317e83eb45c8a9c2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d8372124_35fed1fa",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 25
+      },
+      "lineNbr": 1399,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-05T18:37:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a8d362c0_983c63ee",
       "range": {
         "startLine": 1392,
         "startChar": 2,
@@ -208,6 +400,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dfb5d468_e13fddf1",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 25
+      },
+      "lineNbr": 4055,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-05T18:37:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9afae413_16908fce",
+      "range": {
+        "startLine": 4055,
+        "startChar": 56,
+        "endLine": 4055,
+        "endChar": 57
+      },
+      "revId": "f796e63a2ae66ddd679fbce317e83eb45c8a9c2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c3c9bea7_6adb48f4",
@@ -221,6 +437,30 @@
       "writtenOn": "2024-01-05T08:56:49Z",
       "side": 1,
       "message": "Do not add this if not necessary for this CL.",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 33
+      },
+      "revId": "f796e63a2ae66ddd679fbce317e83eb45c8a9c2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1fa4250_3fb04dc9",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 25
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-05T18:37:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c3c9bea7_6adb48f4",
       "range": {
         "startLine": 35,
         "startChar": 0,
@@ -254,6 +494,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5282e006_c3be53b3",
+        "filename": "test/2271-checker-codegen-honor-write-barrier-kind/src/Main.java",
+        "patchSetId": 25
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-05T18:37:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6e20e245_27cd08f6",
+      "range": {
+        "startLine": 37,
+        "startChar": 74,
+        "endLine": 37,
+        "endChar": 78
+      },
+      "revId": "f796e63a2ae66ddd679fbce317e83eb45c8a9c2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "94dc7783_7da178d3",
@@ -267,6 +531,30 @@
       "writtenOn": "2024-01-05T08:56:49Z",
       "side": 1,
       "message": "Rephrase with \"dirty card\"? Something like \"skip marking the card dirty\"?",
+      "range": {
+        "startLine": 39,
+        "startChar": 74,
+        "endLine": 40,
+        "endChar": 16
+      },
+      "revId": "f796e63a2ae66ddd679fbce317e83eb45c8a9c2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "44966070_40be606d",
+        "filename": "test/2271-checker-codegen-honor-write-barrier-kind/src/Main.java",
+        "patchSetId": 25
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-05T18:37:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "94dc7783_7da178d3",
       "range": {
         "startLine": 39,
         "startChar": 74,
@@ -300,6 +588,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d1ee91d_e0b51d91",
+        "filename": "test/2271-checker-codegen-honor-write-barrier-kind/src/Main.java",
+        "patchSetId": 25
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-05T18:37:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "051c74db_a209cb6a",
+      "range": {
+        "startLine": 82,
+        "startChar": 77,
+        "endLine": 82,
+        "endChar": 81
+      },
+      "revId": "f796e63a2ae66ddd679fbce317e83eb45c8a9c2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "62327a82_ac5b626c",
@@ -323,6 +635,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "be0432cb_c07606c8",
+        "filename": "test/2271-checker-codegen-honor-write-barrier-kind/src/Main.java",
+        "patchSetId": 25
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-05T18:37:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "62327a82_ac5b626c",
+      "range": {
+        "startLine": 84,
+        "startChar": 27,
+        "endLine": 84,
+        "endChar": 56
+      },
+      "revId": "f796e63a2ae66ddd679fbce317e83eb45c8a9c2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9d7bd042_a6753cce",
@@ -336,6 +672,30 @@
       "writtenOn": "2024-01-05T08:56:49Z",
       "side": 1,
       "message": "Remove.",
+      "range": {
+        "startLine": 218,
+        "startChar": 33,
+        "endLine": 220,
+        "endChar": 42
+      },
+      "revId": "f796e63a2ae66ddd679fbce317e83eb45c8a9c2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6e8d0a3_a2da36fb",
+        "filename": "test/utils/regen-test-files",
+        "patchSetId": 25
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-05T18:37:17Z",
+      "side": 1,
+      "message": "We can\u0027t do it now. As I wrote in the CL description, `Test 2247- is removed from knownfailures.json but still skipped in MTS due to SLO requirements.`. I think we need to have the test green for a while before enabling it on MTS. rpl@ might know more about this.",
+      "parentUuid": "9d7bd042_a6753cce",
       "range": {
         "startLine": 218,
         "startChar": 33,
