@@ -397,6 +397,18 @@ build-art: build-art-target
 .PHONY: build-art-target
 build-art-target: $(TARGET_OUT_EXECUTABLES)/art $(ART_TARGET_DEPENDENCIES) $(TARGET_CORE_IMG_OUTS)
 
+TARGET_BOOT_IMAGE := $(PRODUCT_OUT)/apex/art_boot_images
+TARGET_BOOT_IMAGE_SYSTEM := ${PRODUCT_OUT}/system/apex/art_boot_images
+
+# For simulator, build a target boot image on the host.
+.PHONY: build-art-simulator
+build-art-simulator: dexpreopt_bootjar.art_$(TARGET_ARCH)
+	# The target boot image needs to be copied to a trusted system directory to be used by the
+	# zygote or if -Xonly-use-system-oat-files is passed to the runtime.
+	mkdir -p $(TARGET_BOOT_IMAGE_SYSTEM)/javalib && \
+	cp -r ${TARGET_BOOT_IMAGE}/javalib/. \
+      ${TARGET_BOOT_IMAGE_SYSTEM}/javalib
+
 PRIVATE_ART_APEX_DEPENDENCY_FILES := \
   bin/dalvikvm32 \
   bin/dalvikvm64 \
@@ -577,10 +589,10 @@ standalone-apex-files: deapexer \
 	$(call extract-from-apex,$(STATSD_APEX),\
 	  $(PRIVATE_STATSD_APEX_DEPENDENCY_LIBS))
 	$(call extract-from-apex,$(TZDATA_APEX),)
-	rm -rf $(PRODUCT_OUT)/apex/art_boot_images && \
-	  mkdir -p $(PRODUCT_OUT)/apex/art_boot_images/javalib && \
+	rm -rf $(TARGET_BOOT_IMAGE) && \
+	  mkdir -p $(TARGET_BOOT_IMAGE)/javalib && \
 	  $(HOST_OUT)/bin/generate-boot-image64 \
-	    --output-dir=$(PRODUCT_OUT)/apex/art_boot_images/javalib \
+	    --output-dir=$(TARGET_BOOT_IMAGE)/javalib \
 	    --compiler-filter=speed \
 	    --use-profile=false \
 	    --dex2oat-bin=$(HOST_OUT)/bin/dex2oat64 \
