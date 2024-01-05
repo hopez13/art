@@ -23,7 +23,8 @@ namespace art {
 
 extern "C" mirror::String* artStringBuilderAppend(uint32_t format,
                                                   const uint32_t* args,
-                                                  Thread* self) {
+                                                  Thread* self)
+    REQUIRES_SHARED(Locks::mutator_lock_) {
   return StringBuilderAppend::AppendF(format, args, self).Ptr();
 }
 

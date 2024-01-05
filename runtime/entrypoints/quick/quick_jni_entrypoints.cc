@@ -24,6 +24,7 @@
 #include "palette/palette.h"
 #include "thread-inl.h"
 #include "verify_object.h"
+#include "runtime_entrypoints_list.h"
 
 // For methods that monitor JNI invocations and report their begin/end to
 // palette hooks.
@@ -37,11 +38,6 @@
   }
 
 namespace art {
-
-extern "C" int artMethodExitHook(Thread* self,
-                                 ArtMethod* method,
-                                 uint64_t* gpr_result,
-                                 uint64_t* fpr_result);
 
 static_assert(sizeof(jni::LRTSegmentState) == sizeof(uint32_t), "LRTSegmentState size unexpected");
 static_assert(std::is_trivial<jni::LRTSegmentState>::value, "LRTSegmentState not trivial");
