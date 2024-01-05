@@ -60,8 +60,8 @@
 
 namespace art HIDDEN {
 
-extern "C" NO_RETURN void artDeoptimizeFromCompiledCode(DeoptimizationKind kind, Thread* self);
-extern "C" NO_RETURN void artDeoptimize(Thread* self, bool skip_method_exit_callbacks);
+extern "C" void artDeoptimizeFromCompiledCode(DeoptimizationKind kind, Thread* self);
+extern "C" void artDeoptimize(Thread* self, bool skip_method_exit_callbacks);
 
 // Visits the arguments as saved to the stack by a CalleeSaveType::kRefAndArgs callee save frame.
 class QuickArgumentVisitor {
@@ -2517,12 +2517,19 @@ extern "C" void artJniMethodEntryHook(Thread* self)
   instr->MethodEnterEvent(self, method);
 }
 
-extern "C" void artMethodEntryHook(ArtMethod* method, Thread* self, ArtMethod** sp)
+// Enum to list possible return status options for artMethodEntryHook and artMethodExitHook;
+// the actual value will be checked in .S stubs on return.
+enum MethodHooksReturnStatus {
+  kNormal = 0,
+  kExceptionOrDeoptimize = 1,
+};
+
+extern "C" int artMethodEntryHook(ArtMethod* method, Thread* self, ArtMethod** sp)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   instrumentation::Instrumentation* instr = Runtime::Current()->GetInstrumentation();
   if (instr->HasFastMethodEntryListenersOnly()) {
     instr->MethodEnterEvent(self, method);
-    return;
+    return MethodHooksReturnStatus::kNormal;
   }
 
   if (instr->HasMethodEntryListeners()) {
@@ -2534,13 +2541,15 @@ extern "C" void artMethodEntryHook(ArtMethod* method, Thread* self, ArtMethod** 
       // there are break points on the method). In such cases deoptimize only this method.
       // FullFrame deoptimizations are handled on method exits.
       artDeoptimizeFromCompiledCode(DeoptimizationKind::kDebugging, self);
+      return MethodHooksReturnStatus::kExceptionOrDeoptimize;
     }
   } else {
     DCHECK(!instr->IsDeoptimized(method));
   }
+  return MethodHooksReturnStatus::kNormal;
 }
 
-extern "C" void artMethodExitHook(Thread* self,
+extern "C" int artMethodExitHook(Thread* self,
                                   ArtMethod** sp,
                                   uint64_t* gpr_result,
                                   uint64_t* fpr_result,
@@ -2560,7 +2569,7 @@ extern "C" void artMethodExitHook(Thread* self,
     // or a return value.
     JValue return_value;
     instr->MethodExitEvent(self, method, /* frame= */ {}, return_value);
-    return;
+    return MethodHooksReturnStatus::kNormal;
   }
 
   bool is_ref = false;
@@ -2594,7 +2603,7 @@ extern "C" void artMethodExitHook(Thread* self,
     // The exception was thrown from the method exit callback. We should not call method unwind
     // callbacks for this case.
     self->QuickDeliverException(/* is_method_exit_exception= */ true);
-    UNREACHABLE();
+    return MethodHooksReturnStatus::kExceptionOrDeoptimize;
   }
 
   // We should deoptimize here if the caller requires a deoptimization or if the current method
@@ -2610,8 +2619,10 @@ extern "C" void artMethodExitHook(Thread* self,
     // Method exit callback has already been run for this method. So tell the deoptimizer to skip
     // callbacks for this frame.
     artDeoptimize(self, /*skip_method_exit_callbacks = */ true);
-    UNREACHABLE();
+    return MethodHooksReturnStatus::kExceptionOrDeoptimize;
   }
+
+  return MethodHooksReturnStatus::kNormal;
 }
 
 }  // namespace art

@@ -389,10 +389,11 @@ ENTRY art_jni_lock_object_no_inline
     ldr    lr, [sp, #(MANAGED_ARGS_R4_LR_SAVE_SIZE - 4)]
     .cfi_restore lr
     DECREASE_FRAME MANAGED_ARGS_R4_LR_SAVE_SIZE
-    // Make a tail call to `artDeliverPendingExceptionFromCode()`.
+    // Make a call to `artDeliverPendingExceptionFromCode()`.
     // Rely on the JNI transition frame constructed in the JNI stub.
-    mov    r0, rSELF                           @ Pass Thread::Current().
-    b      artDeliverPendingExceptionFromCode  @ (Thread*)
+    mov    r0, rSELF                            @ Pass Thread::Current().
+    bl      artDeliverPendingExceptionFromCode  @ (Thread*)
+    PREPARE_AND_DO_LONG_JUMP
 END art_jni_lock_object_no_inline
 
     /*

@@ -462,7 +462,8 @@ DEFINE_FUNCTION art_jni_lock_object_no_inline
     DECREASE_FRAME MANAGED_ARGS_SAVE_SIZE
     // Rely on the JNI transition frame constructed in the JNI stub.
     movq %gs:THREAD_SELF_OFFSET, %rdi     // Pass Thread::Current().
-    jmp  SYMBOL(artDeliverPendingExceptionFromCode)  // (Thread*); tail call.
+    call  SYMBOL(artDeliverPendingExceptionFromCode)  // (Thread*); tail call.
+    PREPARE_AND_DO_LONG_JUMP
 END_FUNCTION art_jni_lock_object_no_inline
 
     /*

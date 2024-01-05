@@ -25,10 +25,10 @@
 
 namespace art HIDDEN {
 
-NO_RETURN static void artDeoptimizeImpl(Thread* self,
-                                        DeoptimizationKind kind,
-                                        bool single_frame,
-                                        bool skip_method_exit_callbacks)
+static void artDeoptimizeImpl(Thread* self,
+                              DeoptimizationKind kind,
+                              bool single_frame,
+                              bool skip_method_exit_callbacks)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   Runtime::Current()->IncrementDeoptimizationCount(kind);
   if (VLOG_IS_ON(deopt)) {
@@ -49,24 +49,24 @@ NO_RETURN static void artDeoptimizeImpl(Thread* self,
     exception_handler.DeoptimizeStack(skip_method_exit_callbacks);
   }
   if (exception_handler.IsFullFragmentDone()) {
-    exception_handler.DoLongJump(true);
+    exception_handler.PrepareLongJump(true);
   } else {
     exception_handler.DeoptimizePartialFragmentFixup();
     // We cannot smash the caller-saves, as we need the ArtMethod in a parameter register that would
     // be caller-saved. This has the downside that we cannot track incorrect register usage down the
     // line.
-    exception_handler.DoLongJump(false);
+    exception_handler.PrepareLongJump(false);
   }
 }
 
-extern "C" NO_RETURN void artDeoptimize(Thread* self, bool skip_method_exit_callbacks)
+extern "C" void artDeoptimize(Thread* self, bool skip_method_exit_callbacks)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   ScopedQuickEntrypointChecks sqec(self);
   artDeoptimizeImpl(self, DeoptimizationKind::kFullFrame, false, skip_method_exit_callbacks);
 }
 
 // This is called directly from compiled code by an HDeoptimize.
-extern "C" NO_RETURN void artDeoptimizeFromCompiledCode(DeoptimizationKind kind, Thread* self)
+extern "C" void artDeoptimizeFromCompiledCode(DeoptimizationKind kind, Thread* self)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   ScopedQuickEntrypointChecks sqec(self);
   // Before deoptimizing to interpreter, we must push the deoptimization context.

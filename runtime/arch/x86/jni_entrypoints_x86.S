@@ -358,7 +358,7 @@ DEFINE_FUNCTION art_jni_lock_object_no_inline
     pushl %fs:THREAD_SELF_OFFSET          // pass Thread::Current()
     CFI_ADJUST_CFA_OFFSET(4)
     call SYMBOL(artDeliverPendingExceptionFromCode)  // (Thread*)
-    UNREACHABLE
+    PREPARE_AND_DO_LONG_JUMP
 END_FUNCTION art_jni_lock_object_no_inline
 
     /*
