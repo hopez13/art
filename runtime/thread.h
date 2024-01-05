@@ -57,6 +57,10 @@ class AndroidLocalUnwinder;
 
 namespace art HIDDEN {
 
+#ifdef ART_USE_SIMULATOR
+class CodeSimulator;
+#endif
+
 namespace gc {
 namespace accounting {
 template<class T> class AtomicStack;
@@ -236,7 +240,11 @@ static constexpr size_t kSharedMethodHotnessThreshold = 0x1fff;
 
 // The type of stack used when executing quick code. For simulator builds this is the simulated
 // stack and for non-simulator builds this is the native stack.
+#ifdef ART_USE_SIMULATOR
+static constexpr StackType kQuickStackType = StackType::kSimulated;
+#else
 static constexpr StackType kQuickStackType = StackType::kNative;
+#endif
 
 // Thread's stack layout for implicit stack overflow checks:
 //
@@ -300,6 +308,10 @@ class EXPORT Thread {
   // (lowest memory). The higher portion of the memory is protected against reads and the lower is
   // available for use while throwing the StackOverflow exception.
   ALWAYS_INLINE static size_t GetStackOverflowProtectedSize();
+
+#ifdef ART_USE_SIMULATOR
+  CodeSimulator* GetSimExecutor() const;
+#endif
 
   // On a runnable thread, check for pending thread suspension request and handle if pending.
   void AllowThreadSuspension() REQUIRES_SHARED(Locks::mutator_lock_);
@@ -1760,6 +1772,11 @@ class EXPORT Thread {
       REQUIRES(Locks::runtime_shutdown_lock_);
   void InitCardTable();
   void InitCpu();
+
+#ifdef ART_USE_SIMULATOR
+  void CreateSimExecutor(size_t stack_size);
+#endif
+
   void CleanupCpu();
   void InitTlsEntryPoints();
   void InitTid();
@@ -2176,7 +2193,15 @@ class EXPORT Thread {
                                top_reflective_handle_scope(nullptr),
                                method_trace_buffer(nullptr),
                                method_trace_buffer_index(0),
+#ifdef ART_USE_SIMULATOR
+                               thread_exit_flags(nullptr),
+                               sim_executor(nullptr),
+                               sim_stack_end(nullptr),
+                               sim_stack_begin(nullptr),
+                               sim_stack_size(0) {
+#else
                                thread_exit_flags(nullptr) {
+#endif
       std::fill(held_mutexes, held_mutexes + kLockLevelCount, nullptr);
     }
 
@@ -2355,6 +2380,18 @@ class EXPORT Thread {
 
     // Pointer to the first node of an intrusively doubly-linked list of ThreadExitFlags.
     ThreadExitFlag* thread_exit_flags GUARDED_BY(Locks::thread_list_lock_);
+
+#ifdef ART_USE_SIMULATOR
+    // Each thread has its own simulator executor with a full sim CPU context: registers,
+    // stack, etc.
+    CodeSimulator* sim_executor;
+
+    // Same semantics as for the relevant stack variables (see the diagram near class Thread), but
+    // for simulator's stack.
+    uint8_t* sim_stack_end;
+    uint8_t* sim_stack_begin;
+    size_t sim_stack_size;
+#endif
   } tlsPtr_;
 
   // Small thread-local cache to be used from the interpreter.

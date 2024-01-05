@@ -400,9 +400,11 @@ build-art-target: $(TARGET_OUT_EXECUTABLES)/art $(ART_TARGET_DEPENDENCIES) $(TAR
 TARGET_BOOT_IMAGE := $(PRODUCT_OUT)/apex/art_boot_images
 TARGET_BOOT_IMAGE_SYSTEM := ${PRODUCT_OUT}/system/apex/art_boot_images
 
-# For simulator, build a target boot image on the host.
+# For simulator, build a target boot image and the libartd-simulator library on the host.
+# libartd-simulator should not be linked to any other library as it will be dynamically linked at
+# runtime.
 .PHONY: build-art-simulator
-build-art-simulator: dexpreopt_bootjar.art_$(TARGET_ARCH)
+build-art-simulator: dexpreopt_bootjar.art_$(TARGET_ARCH) libartd-simulator
 	# The target boot image needs to be copied to a trusted system directory to be used by the
 	# zygote or if -Xonly-use-system-oat-files is passed to the runtime.
 	mkdir -p $(TARGET_BOOT_IMAGE_SYSTEM)/javalib && \
