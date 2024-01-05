@@ -143,6 +143,11 @@ class CustomSimulator final: public Simulator {
     RegisterBranchInterception(artThrowNullPointerExceptionFromCode);
     RegisterBranchInterception(artThrowStringBoundsFromCode);
     RegisterBranchInterception(artDeoptimizeFromCompiledCode);
+    RegisterBranchInterception(artResolveTypeAndVerifyAccessFromCode);
+    RegisterBranchInterception(artIsAssignableFromCode);
+    RegisterBranchInterception(artThrowArrayStoreException);
+    RegisterBranchInterception(artInitializeStaticStorageFromCode);
+    RegisterBranchInterception(artResolveStringFromCode);
 
     RegisterTwoWordReturnInterception(artInvokeSuperTrampolineWithAccessCheck);
 
