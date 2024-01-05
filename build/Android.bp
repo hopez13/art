@@ -22,6 +22,7 @@ bootstrap_go_package {
     srcs: [
         "art.go",
         "codegen.go",
+        "quick_code_arch.go",
         "makevars.go",
     ],
     pluginFor: ["soong_build"],
