@@ -22,6 +22,7 @@
 
 #include "base/macros.h"
 #include "thread.h"
+#include "entrypoints/quick/runtime_entrypoints_list.h"
 
 namespace art HIDDEN {
 
@@ -103,10 +104,6 @@ class Context {
     kBadFprBase = 0xebad8070,
   };
 };
-
-// Copy the GPRs and FPRs from the given thread's context to the given buffers. This function
-// expects that a long jump (art_quick_do_long_jump) is called afterwards.
-extern "C" void artContextCopyForLongJump(Thread* self, uintptr_t* gprs, uintptr_t* fprs);
 
 }  // namespace art
 
