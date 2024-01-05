@@ -710,12 +710,30 @@
 .endm
 
 
+.macro PREPARE_AND_DO_LONG_JUMP
+    // Reserve space for the gprs + fprs;
+    INCREASE_FRAME RISCV64_LONG_JUMP_CONTEXT_SIZE
+
+    mv a0, xSELF                    // pass Thread::Current()
+    mv a1, sp
+    add a2, sp, RISCV64_LONG_JUMP_GPRS_SIZE
+
+    call artContextCopyForLongJump  // Thread* self, uintptr_t* gprs, uintptr_t* fprs
+
+    mv a0, SP
+    add a1, sp, #RISCV64_LONG_JUMP_GPRS_SIZE
+
+    call art_quick_do_long_jump
+    unimp  // Unreached
+.endm
+
+
 // Macro that calls through to artDeliverPendingExceptionFromCode, where the pending exception is
 // Thread::Current()->exception_ when the runtime method frame is ready.
 .macro DELIVER_PENDING_EXCEPTION_FRAME_READY
     mv a0, xSELF
-    call artDeliverPendingExceptionFromCode  // Point of no return.
-    unimp                                    // Unreachable.
+    call artDeliverPendingExceptionFromCode
+    PREPARE_AND_DO_LONG_JUMP
 .endm
 
 

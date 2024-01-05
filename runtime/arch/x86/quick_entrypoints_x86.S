@@ -211,7 +211,7 @@ MACRO2(NO_ARG_RUNTIME_EXCEPTION, c_name, cxx_name)
     pushl %fs:THREAD_SELF_OFFSET               // pass Thread::Current()
     CFI_ADJUST_CFA_OFFSET(4)
     call CALLVAR(cxx_name)                     // cxx_name(Thread*)
-    UNREACHABLE
+    PREPARE_AND_DO_LONG_JUMP
     END_FUNCTION VAR(c_name)
 END_MACRO
 
@@ -223,7 +223,7 @@ MACRO2(NO_ARG_RUNTIME_EXCEPTION_SAVE_EVERYTHING, c_name, cxx_name)
     pushl %fs:THREAD_SELF_OFFSET               // pass Thread::Current()
     CFI_ADJUST_CFA_OFFSET(4)
     call CALLVAR(cxx_name)                     // cxx_name(Thread*)
-    UNREACHABLE
+    PREPARE_AND_DO_LONG_JUMP
     END_FUNCTION VAR(c_name)
 END_MACRO
 
@@ -236,7 +236,7 @@ MACRO2(ONE_ARG_RUNTIME_EXCEPTION, c_name, cxx_name)
     CFI_ADJUST_CFA_OFFSET(4)
     PUSH eax                                   // pass arg1
     call CALLVAR(cxx_name)                     // cxx_name(arg1, Thread*)
-    UNREACHABLE
+    PREPARE_AND_DO_LONG_JUMP
     END_FUNCTION VAR(c_name)
 END_MACRO
 
@@ -250,7 +250,7 @@ MACRO2(TWO_ARG_RUNTIME_EXCEPTION_SAVE_EVERYTHING, c_name, cxx_name)
     PUSH ecx                                   // pass arg2
     PUSH eax                                   // pass arg1
     call CALLVAR(cxx_name)                     // cxx_name(arg1, arg2, Thread*)
-    UNREACHABLE
+    PREPARE_AND_DO_LONG_JUMP
     END_FUNCTION VAR(c_name)
 END_MACRO
 
@@ -276,7 +276,7 @@ DEFINE_FUNCTION_CUSTOM_CFA art_quick_throw_null_pointer_exception_from_signal, 2
     CFI_ADJUST_CFA_OFFSET(4)
     PUSH eax                                              // pass arg1
     call SYMBOL(artThrowNullPointerExceptionFromSignal)   // (addr, self)
-    UNREACHABLE
+    PREPARE_AND_DO_LONG_JUMP
 END_FUNCTION art_quick_throw_null_pointer_exception_from_signal
 
     /*
@@ -644,6 +644,37 @@ DEFINE_FUNCTION art_quick_invoke_static_stub
     ret
 END_FUNCTION art_quick_invoke_static_stub
 
+    /*
+     * Long jump stub.
+     * On entry:
+     *   [sp] = Return address
+     *   [sp + 4] = FPRS
+     *   [sp + 8] = GPRS
+     */
+DEFINE_FUNCTION art_quick_do_long_jump
+#if defined(__APPLE__)
+    int3
+    int3
+#else
+    mov 4(%esp), %eax    // FPRS.
+    mov 8(%esp), %ecx    // GPRS.
+
+    // Address base of FPRs.
+    movsd 0(%eax), %xmm0     // Load up XMM0-XMM7.
+    movsd 8(%eax), %xmm1
+    movsd 16(%eax), %xmm2
+    movsd 24(%eax), %xmm3
+    movsd 32(%eax), %xmm4
+    movsd 40(%eax), %xmm5
+    movsd 48(%eax), %xmm6
+    movsd 56(%eax), %xmm7
+    movl %ecx, %esp  // ESP points to gprs.
+    popal            // Load all registers except ESP and EIP with values in gprs.
+    popl %esp        // Load stack pointer.
+    ret              // From higher in the stack pop eip.
+#endif
+END_FUNCTION art_quick_do_long_jump
+
 MACRO3(ONE_ARG_DOWNCALL, c_name, cxx_name, return_macro)
     DEFINE_FUNCTION VAR(c_name)
     SETUP_SAVE_REFS_ONLY_FRAME ebx               // save ref containing registers for GC
@@ -769,9 +800,17 @@ MACRO2(DEOPT_OR_RETURN, temp, is_ref = 0)
   pushl %fs:THREAD_SELF_OFFSET      // Pass Thread::Current
   CFI_ADJUST_CFA_OFFSET(4)
   call SYMBOL(artDeoptimizeIfNeeded)
+
+  cmp LITERAL(0), %eax
+  jne 3f
+
   DECREASE_FRAME(16)                // pop arguments
   RESTORE_SAVE_EVERYTHING_FRAME
   ret
+
+3:
+  // Deoptimize
+  PREPARE_AND_DO_LONG_JUMP
 END_MACRO
 
 MACRO2(DEOPT_OR_RESTORE_SAVE_EVERYTHING_FRAME_AND_RETURN_EAX, temp, is_ref = 0)
@@ -790,11 +829,19 @@ MACRO2(DEOPT_OR_RESTORE_SAVE_EVERYTHING_FRAME_AND_RETURN_EAX, temp, is_ref = 0)
   pushl %fs:THREAD_SELF_OFFSET                      // Pass Thread::Current
   CFI_ADJUST_CFA_OFFSET(4)
   call SYMBOL(artDeoptimizeIfNeeded)
+
+  cmp LITERAL(0), %eax
+  jne 3f
+
   DECREASE_FRAME(16)                                // pop arguments
   CFI_REMEMBER_STATE
   RESTORE_SAVE_EVERYTHING_FRAME
   ret
   CFI_RESTORE_STATE_AND_DEF_CFA esp, FRAME_SIZE_SAVE_EVERYTHING
+
+3:
+  // Deoptimize
+  PREPARE_AND_DO_LONG_JUMP
 END_MACRO
 
 
@@ -1226,7 +1273,7 @@ DEFINE_FUNCTION art_quick_check_instance_of
     PUSH ecx                              // pass arg2
     PUSH eax                              // pass arg1
     call SYMBOL(artThrowClassCastExceptionForObject)  // (Object* src, Class* dest, Thread*)
-    UNREACHABLE
+    PREPARE_AND_DO_LONG_JUMP
 END_FUNCTION art_quick_check_instance_of
 
 // Restore reg's value if reg is not the same as exclude_reg, otherwise just adjust stack.
@@ -1302,7 +1349,7 @@ DEFINE_FUNCTION art_quick_aput_obj
     PUSH_ARG edx                  // Pass arg2 - value.
     PUSH_ARG eax                  // Pass arg1 - array.
     call SYMBOL(artThrowArrayStoreException) // (array, value, Thread*)
-    UNREACHABLE
+    PREPARE_AND_DO_LONG_JUMP
 
 #ifdef USE_READ_BARRIER
 .Laput_obj_gc_marking:
@@ -1357,9 +1404,17 @@ DEFINE_FUNCTION art_quick_test_suspend
     pushl %fs:THREAD_SELF_OFFSET                      // pass Thread::Current()
     CFI_ADJUST_CFA_OFFSET(4)
     call SYMBOL(artTestSuspendFromCode)               // (Thread*)
+
+    cmp LITERAL(0), %eax
+    jne .Ltest_suspend_deoptimize
+
     DECREASE_FRAME 16                                 // pop arguments
     RESTORE_SAVE_EVERYTHING_FRAME                     // restore frame up to return address
     ret                                               // return
+
+.Ltest_suspend_deoptimize:
+    // Deoptimize
+    PREPARE_AND_DO_LONG_JUMP
 END_FUNCTION art_quick_test_suspend
 
 DEFINE_FUNCTION art_quick_d2l
@@ -1709,7 +1764,7 @@ DEFINE_FUNCTION art_quick_deoptimize_from_compiled_code
     CFI_ADJUST_CFA_OFFSET(4)
     PUSH eax
     call SYMBOL(artDeoptimizeFromCompiledCode)  // (DeoptimizationKind, Thread*)
-    UNREACHABLE
+    PREPARE_AND_DO_LONG_JUMP
 END_FUNCTION art_quick_deoptimize_from_compiled_code
 
     /*
@@ -2158,11 +2213,19 @@ DEFINE_FUNCTION art_quick_method_entry_hook
 
     call SYMBOL(artMethodEntryHook) // (Method*, Thread*, SP)
 
+    cmp LITERAL(0), %eax
+    jne .Lentryhook_deopt
+
+    // Normal return.
     addl LITERAL(16), %esp          // Pop arguments.
     CFI_ADJUST_CFA_OFFSET(-16)
 
     RESTORE_SAVE_EVERYTHING_FRAME
     ret
+
+.Lentryhook_deopt:
+    // Deoptimize.
+    PREPARE_AND_DO_LONG_JUMP
 END_FUNCTION art_quick_method_entry_hook
 
 DEFINE_FUNCTION art_quick_method_exit_hook
@@ -2187,6 +2250,9 @@ DEFINE_FUNCTION art_quick_method_exit_hook
     call SYMBOL(artMethodExitHook) // (Thread*, ArtMethod**, gpr_result*, fpr_result*,
                                    // frame_size)
 
+    cmp LITERAL(0), %eax
+    jne .Lexithook_deopt_or_exception
+
     // Return result could have been changed if it's a reference.
     movl 20(%esp), %ecx
     movl %ecx, (80+32)(%esp)
@@ -2196,4 +2262,8 @@ DEFINE_FUNCTION art_quick_method_exit_hook
     // Normal return.
     RESTORE_SAVE_EVERYTHING_FRAME
     ret
+
+.Lexithook_deopt_or_exception:
+    // Deoptimize or exception thrown.
+    PREPARE_AND_DO_LONG_JUMP
 END_FUNCTION art_quick_method_exit_hook
