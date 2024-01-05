@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "456c21c4_0cbba4f4",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1268,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2024-01-05T12:06:07Z",
+      "side": 1,
+      "message": "OK. But now the current changes make confuse me. Are precompile tasks not needed to be compiled at all? Or you are directly going to call AddTask elsewhere?",
+      "parentUuid": "0545ab66_7a060e96",
+      "range": {
+        "startLine": 1268,
+        "startChar": 6,
+        "endLine": 1268,
+        "endChar": 16
+      },
+      "revId": "871b7e56d5a21f5fc6365d893b6e8d1ac19398bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fc207fd3_ef4e7394",
         "filename": "runtime/jit/jit.cc",
         "patchSetId": 1
@@ -226,6 +250,30 @@
       "side": 1,
       "message": "No, as `tasks_` (now `generic_queue_`) is not for ArtMethod compilation tasks and so don\u0027t have a root to visit. The exception being precompilation, but the ArtMethods for precompilation are either boot classpath or system server classpath methods, which cannot be unloaded.",
       "parentUuid": "97882896_2aa32d18",
+      "range": {
+        "startLine": 1898,
+        "startChar": 4,
+        "endLine": 1898,
+        "endChar": 11
+      },
+      "revId": "871b7e56d5a21f5fc6365d893b6e8d1ac19398bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7493ee0_8785df8e",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1898,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2024-01-05T12:06:07Z",
+      "side": 1,
+      "message": "Thanks for clarifying. Please add a comment about this here.",
+      "parentUuid": "90d418df_af1a96f3",
       "range": {
         "startLine": 1898,
         "startChar": 4,
