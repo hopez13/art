@@ -153,6 +153,8 @@ TEST_F(ImageWriteReadTest, WriteReadLZ4HC) {
 
 
 TEST_F(ImageWriteReadTest, WriteReadLZ4HCKBBlock) {
+  // Use this test to compile managed code to catch crashes when compiling the boot class path.
+  EnableManagedCodeCompilation();
   TestWriteRead(ImageHeader::kStorageModeLZ4HC, /*max_image_block_size=*/KB);
 }
 

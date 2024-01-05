@@ -83,6 +83,16 @@ class ImageTest : public CommonCompilerDriverTest {
     CommonCompilerDriverTest::SetUp();
   }
 
+  CompilerFilter::Filter GetCompilerFilter() const override {
+    // Using "speed" shall compile most methods. (We could compile more with "everything".)
+    // Using "speed-profile" with an empty profile shall compile only JNI stubs.
+    return compile_managed_code_ ? CompilerFilter::kSpeed : CompilerFilter::kSpeedProfile;
+  }
+
+  void EnableManagedCodeCompilation() {
+    compile_managed_code_ = true;
+  }
+
   void Compile(ImageHeader::StorageMode storage_mode,
                uint32_t max_image_block_size,
                /*out*/ CompilationHelper& out_helper,
@@ -120,6 +130,7 @@ class ImageTest : public CommonCompilerDriverTest {
   void DoCompile(ImageHeader::StorageMode storage_mode, /*out*/ CompilationHelper& out_helper);
 
   HashSet<std::string> image_classes_;
+  bool compile_managed_code_ = false;
 };
 
 inline CompilationHelper::~CompilationHelper() {
@@ -370,7 +381,7 @@ inline void ImageTest::Compile(
   }
   DoCompile(storage_mode, helper);
   if (image_classes.begin() != image_classes.end()) {
-    // Make sure the class got initialized.
+    // Make sure all explicitly specified classes got initialized.
     ScopedObjectAccess soa(Thread::Current());
     ClassLinker* const class_linker = Runtime::Current()->GetClassLinker();
     for (const std::string& image_class : image_classes) {
