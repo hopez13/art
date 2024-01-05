@@ -82,6 +82,10 @@ class CodeSimulatorArm64 : public CodeSimulator, public BasicCodeSimulatorArm64 
 
   int64_t GetStackPointer() override;
   uint8_t* GetStackBaseInternal() override;
+  uintptr_t GetPc() override;
+
+  bool HandleNullPointer(int sig, siginfo_t* siginfo, void* context) override
+      NO_THREAD_SAFETY_ANALYSIS;
 
  private:
   CodeSimulatorArm64();

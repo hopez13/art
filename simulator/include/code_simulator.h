@@ -19,6 +19,7 @@
 
 #include "arch/instruction_set.h"
 #include "runtime.h"
+#include <signal.h>
 
 namespace art {
 
@@ -80,6 +81,11 @@ class CodeSimulator {
   virtual int64_t GetStackPointer() = 0;
   // Get the stack base from the simulator.
   virtual uint8_t* GetStackBaseInternal() = 0;
+  // Get the simulated program counter (PC).
+  virtual uintptr_t GetPc() = 0;
+
+  // Try to handle an implicit check that occured during simulation.
+  virtual bool HandleNullPointer(int sig, siginfo_t* siginfo, void* context) = 0;
 
  private:
   DISALLOW_COPY_AND_ASSIGN(CodeSimulator);
