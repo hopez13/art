@@ -71,6 +71,13 @@ void BasicCodeSimulatorArm64::InitInstructionSimulator(size_t stack_size) {
 
   SimStack::Allocated stack = stack_builder.Allocate();
   simulator_.reset(CreateNewInstructionSimulator(std::move(stack)));
+
+  // VIXL simulator will print a warning by default if it gets an instruction with any special
+  // behavior in terms of memory model - not only those with exclusive access.
+  //
+  // TODO: Update this once the behavior is resolved in VIXL.
+  simulator_->SilenceExclusiveAccessWarning();
+
   if (VLOG_IS_ON(simulator)) {
     // Only trace the main thread. Multiple threads tracing simulation at the same time can ruin
     // the output trace, making it difficult to read.
@@ -132,6 +139,12 @@ class CustomSimulator final: public Simulator {
     RegisterBranchInterception(artResolveTypeFromCode);
     RegisterBranchInterception(artThrowClassCastExceptionForObject);
     RegisterBranchInterception(artInstanceOfFromCode);
+    RegisterBranchInterception(artThrowArrayBoundsFromCode);
+    RegisterBranchInterception(artThrowNullPointerExceptionFromCode);
+    RegisterBranchInterception(artThrowStringBoundsFromCode);
+    RegisterBranchInterception(artDeoptimizeFromCompiledCode);
+
+    RegisterTwoWordReturnInterception(artInvokeSuperTrampolineWithAccessCheck);
 
     RegisterBranchInterception(artArm64SimulatorGenericJNIPlaceholder,
                                [this]([[maybe_unused]] uint64_t addr)
