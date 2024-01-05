@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0545ab66_7a060e96",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1268,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-01-05T11:07:39Z",
+      "side": 1,
+      "message": "Precompilation is an edge case which I didn\u0027t want to build infra for. Here, the flag `kPreCompile` would need to be passed to JitThreadPool::AddTask, and I didn\u0027t want to have it bother about it.",
+      "parentUuid": "903826d2_c736b909",
+      "range": {
+        "startLine": 1268,
+        "startChar": 6,
+        "endLine": 1268,
+        "endChar": 16
+      },
+      "revId": "871b7e56d5a21f5fc6365d893b6e8d1ac19398bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fc207fd3_ef4e7394",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-01-05T09:27:58Z",
       "side": 1,
       "message": "`deletes`",
+      "range": {
+        "startLine": 1777,
+        "startChar": 71,
+        "endLine": 1777,
+        "endChar": 77
+      },
+      "revId": "871b7e56d5a21f5fc6365d893b6e8d1ac19398bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "609d0166_6e79f99f",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1777,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-01-05T11:07:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fc207fd3_ef4e7394",
       "range": {
         "startLine": 1777,
         "startChar": 71,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "69e5ed6b_a97c3f0a",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1854,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-01-05T11:07:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1e4d13a3_aa6d43ba",
+      "range": {
+        "startLine": 1854,
+        "startChar": 18,
+        "endLine": 1854,
+        "endChar": 23
+      },
+      "revId": "871b7e56d5a21f5fc6365d893b6e8d1ac19398bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1a84655b_101dee2d",
@@ -83,6 +155,30 @@
       "writtenOn": "2024-01-05T09:27:58Z",
       "side": 1,
       "message": "nit: Since you are passing kind, you don\u0027t need to pass methods. You can use a switch to pick the right deque.",
+      "range": {
+        "startLine": 1865,
+        "startChar": 55,
+        "endLine": 1865,
+        "endChar": 62
+      },
+      "revId": "871b7e56d5a21f5fc6365d893b6e8d1ac19398bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "654872b6_d712e209",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1865,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-01-05T11:07:39Z",
+      "side": 1,
+      "message": "I wanted to avoid the switch 😊",
+      "parentUuid": "1a84655b_101dee2d",
       "range": {
         "startLine": 1865,
         "startChar": 55,
@@ -116,6 +212,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "90d418df_af1a96f3",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1898,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-01-05T11:07:39Z",
+      "side": 1,
+      "message": "No, as `tasks_` (now `generic_queue_`) is not for ArtMethod compilation tasks and so don\u0027t have a root to visit. The exception being precompilation, but the ArtMethods for precompilation are either boot classpath or system server classpath methods, which cannot be unloaded.",
+      "parentUuid": "97882896_2aa32d18",
+      "range": {
+        "startLine": 1898,
+        "startChar": 4,
+        "endLine": 1898,
+        "endChar": 11
+      },
+      "revId": "871b7e56d5a21f5fc6365d893b6e8d1ac19398bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a39dbeae_5feb087b",
@@ -129,6 +249,30 @@
       "writtenOn": "2024-01-05T09:27:58Z",
       "side": 1,
       "message": "Shouldn\u0027t this and the following be `||`? Any of them having a pending task should be considered right?",
+      "range": {
+        "startLine": 265,
+        "startChar": 24,
+        "endLine": 265,
+        "endChar": 26
+      },
+      "revId": "871b7e56d5a21f5fc6365d893b6e8d1ac19398bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fef965c2_2f07492c",
+        "filename": "runtime/jit/jit.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-01-05T11:07:39Z",
+      "side": 1,
+      "message": "Doh, yes! Thanks for spotting. This didn\u0027t show as a major issue because `JitThreadPool::TryGetTaskLocked` doesn\u0027t call `HasOutstandingTasks`. Still, fixed.",
+      "parentUuid": "a39dbeae_5feb087b",
       "range": {
         "startLine": 265,
         "startChar": 24,
@@ -162,6 +306,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "53034c43_6c62b6a4",
+        "filename": "runtime/jit/jit.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-01-05T11:07:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e0570c78_4b0be1e1",
+      "range": {
+        "startLine": 281,
+        "startChar": 20,
+        "endLine": 281,
+        "endChar": 26
+      },
+      "revId": "871b7e56d5a21f5fc6365d893b6e8d1ac19398bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "86f7d78d_0d8403ee",
@@ -175,6 +343,30 @@
       "writtenOn": "2024-01-05T09:27:58Z",
       "side": 1,
       "message": "How many max entries could end up in this? Since you are removing based on key, it would be a linear operation. If quite a bit entries are expected then maybe consider using unordered_set?",
+      "range": {
+        "startLine": 288,
+        "startChar": 7,
+        "endLine": 288,
+        "endChar": 10
+      },
+      "revId": "871b7e56d5a21f5fc6365d893b6e8d1ac19398bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd032483_3abaef5a",
+        "filename": "runtime/jit/jit.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-01-05T11:07:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "86f7d78d_0d8403ee",
       "range": {
         "startLine": 288,
         "startChar": 7,
