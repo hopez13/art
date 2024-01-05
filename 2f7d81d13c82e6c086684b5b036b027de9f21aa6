@@ -16,6 +16,29 @@
       "message": "Mythry, PTAL at 1..2.",
       "revId": "2f7d81d13c82e6c086684b5b036b027de9f21aa6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "536c1580_0eea1afe",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1367,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-01-05T10:10:01Z",
+      "side": 1,
+      "message": "I guess this and x86_64 are the only architectures where we are updating the hotness counter before checking for zero. This is what makes it harder to just update hotness counter but not miss to runtime right?  Does it make sense to change these to compare first. Is lack of temporary registers problem here?\n\nIf we want to keep it this way, do we have to adjust the thresholds of hotness when tiering up from baseline -\u003e optimized. I guess we are doing more optimizations in baseline so not necessary but just checking.",
+      "range": {
+        "startLine": 1367,
+        "startChar": 4,
+        "endLine": 1367,
+        "endChar": 45
+      },
+      "revId": "2f7d81d13c82e6c086684b5b036b027de9f21aa6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
