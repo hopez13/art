@@ -16,6 +16,24 @@
       "message": "FYI test failures might be related to baseline compile running optimizations such as WBE. See https://android-review.git.corp.google.com/c/platform/art/+/2897725/3/compiler/optimizing/optimizing_compiler.cc#914 for more details.\n\nIf baseline optimizations are going to be running WBE then I will have to update parts of this CL...and it will make it tricky to backport.",
       "revId": "993484bcaee0d5b7b07bf47682cf0dfdd13b1571",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "091e29c2_31c3e9bf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 26
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-05T20:54:18Z",
+      "side": 1,
+      "message": "Addressed in patchset 27",
+      "parentUuid": "3771df06_e2e3cfd9",
+      "revId": "993484bcaee0d5b7b07bf47682cf0dfdd13b1571",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
