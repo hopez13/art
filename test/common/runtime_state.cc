@@ -404,7 +404,7 @@ extern "C" JNIEXPORT void JNICALL Java_Main_fetchProfiles(JNIEnv*, jclass) {
   std::set<std::string> unused_locations;
   unused_locations.insert("fake_location");
   ScopedObjectAccess soa(Thread::Current());
-  code_cache->GetProfiledMethods(unused_locations, unused_vector, /*inline_cache_threshold=*/0);
+  code_cache->GetCompiledMethods(unused_locations, unused_vector, /*inline_cache_threshold=*/0);
 }
 
 extern "C" JNIEXPORT void JNICALL Java_Main_waitForCompilation(JNIEnv*, jclass) {
