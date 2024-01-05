@@ -142,6 +142,10 @@ if [[ $build_target == "yes" ]]; then
   # Build/install the required APEXes.
   make_command+=" ${apexes[*]}"
   make_command+=" ${specific_targets}"
+
+  if [[ -n "${ART_USE_SIMULATOR}" ]]; then
+    make_command+=" build-art-simulator"
+  fi
 fi
 
 if [[ $installclean == "yes" ]]; then
