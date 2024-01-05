@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+#include "arch/instruction_set.h"
 #include "art_method-inl.h"
 #include "base/callee_save_type.h"
 #include "base/enums.h"
@@ -62,7 +63,8 @@
 namespace art {
 
 // Visits the arguments as saved to the stack by a CalleeSaveType::kRefAndArgs callee save frame.
-class QuickArgumentVisitor {
+template <typename Derived>
+class QuickArgumentVisitorBase {
   // Number of bytes for each out register in the caller method's frame.
   static constexpr size_t kBytesStackArgLocation = 4;
   // Frame size in bytes of a callee-save frame for RefsAndArgs.
@@ -77,149 +79,22 @@ class QuickArgumentVisitor {
   // Offset of return address.
   static constexpr size_t kQuickCalleeSaveFrame_RefAndArgs_ReturnPcOffset =
       RuntimeCalleeSaveFrame::GetReturnPcOffset(CalleeSaveType::kSaveRefsAndArgs);
-#if defined(__arm__)
-  // The callee save frame is pointed to by SP.
-  // | argN       |  |
-  // | ...        |  |
-  // | arg4       |  |
-  // | arg3 spill |  |  Caller's frame
-  // | arg2 spill |  |
-  // | arg1 spill |  |
-  // | Method*    | ---
-  // | LR         |
-  // | ...        |    4x6 bytes callee saves
-  // | R3         |
-  // | R2         |
-  // | R1         |
-  // | S15        |
-  // | :          |
-  // | S0         |
-  // |            |    4x2 bytes padding
-  // | Method*    |  <- sp
-  static constexpr bool kSplitPairAcrossRegisterAndStack = false;
-  static constexpr bool kAlignPairRegister = true;
-  static constexpr bool kQuickSoftFloatAbi = false;
-  static constexpr bool kQuickDoubleRegAlignedFloatBackFilled = true;
-  static constexpr bool kQuickSkipOddFpRegisters = false;
-  static constexpr size_t kNumQuickGprArgs = 3;
-  static constexpr size_t kNumQuickFprArgs = 16;
-  static constexpr bool kGprFprLockstep = false;
+
   static size_t GprIndexToGprOffset(uint32_t gpr_index) {
-    return gpr_index * GetBytesPerGprSpillLocation(kRuntimeISA);
+    return Derived::GprIndexToGprOffsetImpl(gpr_index);
   }
-#elif defined(__aarch64__)
-  // The callee save frame is pointed to by SP.
-  // | argN       |  |
-  // | ...        |  |
-  // | arg4       |  |
-  // | arg3 spill |  |  Caller's frame
-  // | arg2 spill |  |
-  // | arg1 spill |  |
-  // | Method*    | ---
-  // | LR         |
-  // | X29        |
-  // |  :         |
-  // | X20        |
-  // | X7         |
-  // | :          |
-  // | X1         |
-  // | D7         |
-  // |  :         |
-  // | D0         |
-  // |            |    padding
-  // | Method*    |  <- sp
-  static constexpr bool kSplitPairAcrossRegisterAndStack = false;
-  static constexpr bool kAlignPairRegister = false;
-  static constexpr bool kQuickSoftFloatAbi = false;  // This is a hard float ABI.
-  static constexpr bool kQuickDoubleRegAlignedFloatBackFilled = false;
-  static constexpr bool kQuickSkipOddFpRegisters = false;
-  static constexpr size_t kNumQuickGprArgs = 7;  // 7 arguments passed in GPRs.
-  static constexpr size_t kNumQuickFprArgs = 8;  // 8 arguments passed in FPRs.
-  static constexpr bool kGprFprLockstep = false;
-  static size_t GprIndexToGprOffset(uint32_t gpr_index) {
-    return gpr_index * GetBytesPerGprSpillLocation(kRuntimeISA);
-  }
-#elif defined(__i386__)
-  // The callee save frame is pointed to by SP.
-  // | argN        |  |
-  // | ...         |  |
-  // | arg4        |  |
-  // | arg3 spill  |  |  Caller's frame
-  // | arg2 spill  |  |
-  // | arg1 spill  |  |
-  // | Method*     | ---
-  // | Return      |
-  // | EBP,ESI,EDI |    callee saves
-  // | EBX         |    arg3
-  // | EDX         |    arg2
-  // | ECX         |    arg1
-  // | XMM3        |    float arg 4
-  // | XMM2        |    float arg 3
-  // | XMM1        |    float arg 2
-  // | XMM0        |    float arg 1
-  // | EAX/Method* |  <- sp
-  static constexpr bool kSplitPairAcrossRegisterAndStack = false;
-  static constexpr bool kAlignPairRegister = false;
-  static constexpr bool kQuickSoftFloatAbi = false;  // This is a hard float ABI.
-  static constexpr bool kQuickDoubleRegAlignedFloatBackFilled = false;
-  static constexpr bool kQuickSkipOddFpRegisters = false;
-  static constexpr size_t kNumQuickGprArgs = 3;  // 3 arguments passed in GPRs.
-  static constexpr size_t kNumQuickFprArgs = 4;  // 4 arguments passed in FPRs.
-  static constexpr bool kGprFprLockstep = false;
-  static size_t GprIndexToGprOffset(uint32_t gpr_index) {
-    return gpr_index * GetBytesPerGprSpillLocation(kRuntimeISA);
-  }
-#elif defined(__x86_64__)
-  // The callee save frame is pointed to by SP.
-  // | argN            |  |
-  // | ...             |  |
-  // | reg. arg spills |  |  Caller's frame
-  // | Method*         | ---
-  // | Return          |
-  // | R15             |    callee save
-  // | R14             |    callee save
-  // | R13             |    callee save
-  // | R12             |    callee save
-  // | R9              |    arg5
-  // | R8              |    arg4
-  // | RSI/R6          |    arg1
-  // | RBP/R5          |    callee save
-  // | RBX/R3          |    callee save
-  // | RDX/R2          |    arg2
-  // | RCX/R1          |    arg3
-  // | XMM7            |    float arg 8
-  // | XMM6            |    float arg 7
-  // | XMM5            |    float arg 6
-  // | XMM4            |    float arg 5
-  // | XMM3            |    float arg 4
-  // | XMM2            |    float arg 3
-  // | XMM1            |    float arg 2
-  // | XMM0            |    float arg 1
-  // | Padding         |
-  // | RDI/Method*     |  <- sp
-  static constexpr bool kSplitPairAcrossRegisterAndStack = false;
-  static constexpr bool kAlignPairRegister = false;
-  static constexpr bool kQuickSoftFloatAbi = false;  // This is a hard float ABI.
-  static constexpr bool kQuickDoubleRegAlignedFloatBackFilled = false;
-  static constexpr bool kQuickSkipOddFpRegisters = false;
-  static constexpr size_t kNumQuickGprArgs = 5;  // 5 arguments passed in GPRs.
-  static constexpr size_t kNumQuickFprArgs = 8;  // 8 arguments passed in FPRs.
-  static constexpr bool kGprFprLockstep = false;
-  static size_t GprIndexToGprOffset(uint32_t gpr_index) {
-    switch (gpr_index) {
-      case 0: return (4 * GetBytesPerGprSpillLocation(kRuntimeISA));
-      case 1: return (1 * GetBytesPerGprSpillLocation(kRuntimeISA));
-      case 2: return (0 * GetBytesPerGprSpillLocation(kRuntimeISA));
-      case 3: return (5 * GetBytesPerGprSpillLocation(kRuntimeISA));
-      case 4: return (6 * GetBytesPerGprSpillLocation(kRuntimeISA));
-      default:
-      LOG(FATAL) << "Unexpected GPR index: " << gpr_index;
-      UNREACHABLE();
-    }
-  }
-#else
-#error "Unsupported architecture"
-#endif
+
+  static constexpr bool kSplitPairAcrossRegisterAndStack =
+      Derived::kSplitPairAcrossRegisterAndStack;
+  static constexpr bool kAlignPairRegister = Derived::kAlignPairRegister;
+  static constexpr bool kQuickSoftFloatAbi = Derived::kQuickSoftFloatAbi;
+  static constexpr bool kQuickDoubleRegAlignedFloatBackFilled =
+      Derived::kQuickDoubleRegAlignedFloatBackFilled;
+  static constexpr bool kQuickSkipOddFpRegisters = Derived::kQuickSkipOddFpRegisters;
+  static constexpr size_t kNumQuickGprArgs = Derived::kNumQuickGprArgs;
+  static constexpr size_t kNumQuickFprArgs = Derived::kNumQuickFprArgs;
+  static constexpr bool kGprFprLockstep = Derived::kGprFprLockstep;
+
 
  public:
   static StackReference<mirror::Object>* GetThisObjectReference(ArtMethod** sp)
@@ -250,7 +125,7 @@ class QuickArgumentVisitor {
         RuntimeCalleeSaveFrame::GetFrameSize(CalleeSaveType::kSaveRefsAndArgs);
     ArtMethod** caller_sp = reinterpret_cast<ArtMethod**>(
         reinterpret_cast<uintptr_t>(sp) + callee_frame_size);
-    uintptr_t outer_pc = QuickArgumentVisitor::GetCallingPc(sp);
+    uintptr_t outer_pc = QuickArgumentVisitorBase::GetCallingPc(sp);
     const OatQuickMethodHeader* current_code = (*caller_sp)->GetOatQuickMethodHeader(outer_pc);
     uintptr_t outer_pc_offset = current_code->NativeQuickPcOffset(outer_pc);
 
@@ -281,8 +156,8 @@ class QuickArgumentVisitor {
     return *reinterpret_cast<uintptr_t*>(GetCallingPcAddr(sp));
   }
 
-  QuickArgumentVisitor(ArtMethod** sp, bool is_static, const char* shorty,
-                       uint32_t shorty_len) REQUIRES_SHARED(Locks::mutator_lock_) :
+  QuickArgumentVisitorBase(ArtMethod** sp, bool is_static, const char* shorty,
+                           uint32_t shorty_len) REQUIRES_SHARED(Locks::mutator_lock_) :
           is_static_(is_static), shorty_(shorty), shorty_len_(shorty_len),
           gpr_args_(reinterpret_cast<uint8_t*>(sp) + kQuickCalleeSaveFrame_RefAndArgs_Gpr1Offset),
           fpr_args_(reinterpret_cast<uint8_t*>(sp) + kQuickCalleeSaveFrame_RefAndArgs_Fpr1Offset),
@@ -301,7 +176,7 @@ class QuickArgumentVisitor {
     DCHECK_EQ(Runtime::Current()->GetClassLinker()->GetImagePointerSize(), kRuntimePointerSize);
   }
 
-  virtual ~QuickArgumentVisitor() {}
+  virtual ~QuickArgumentVisitorBase() {}
 
   virtual void Visit() = 0;
 
@@ -517,6 +392,201 @@ class QuickArgumentVisitor {
   // Does a 64bit parameter straddle the register and stack arguments?
   bool is_split_long_or_double_;
 };
+
+class QuickArgumentFrameInfoARM : public QuickArgumentVisitorBase<QuickArgumentFrameInfoARM> {
+ public:
+  // The callee save frame is pointed to by SP.
+  // | argN       |  |
+  // | ...        |  |
+  // | arg4       |  |
+  // | arg3 spill |  |  Caller's frame
+  // | arg2 spill |  |
+  // | arg1 spill |  |
+  // | Method*    | ---
+  // | LR         |
+  // | ...        |    4x6 bytes callee saves
+  // | R3         |
+  // | R2         |
+  // | R1         |
+  // | S15        |
+  // | :          |
+  // | S0         |
+  // |            |    4x2 bytes padding
+  // | Method*    |  <- sp
+  static constexpr bool kSplitPairAcrossRegisterAndStack = false;
+  static constexpr bool kAlignPairRegister = true;
+  static constexpr bool kQuickSoftFloatAbi = false;
+  static constexpr bool kQuickDoubleRegAlignedFloatBackFilled = true;
+  static constexpr bool kQuickSkipOddFpRegisters = false;
+  static constexpr size_t kNumQuickGprArgs = 3;
+  static constexpr size_t kNumQuickFprArgs = 16;
+  static constexpr bool kGprFprLockstep = false;
+  static size_t GprIndexToGprOffsetImpl(uint32_t gpr_index) {
+    return gpr_index * GetBytesPerGprSpillLocation(kRuntimeISA);
+  }
+
+  QuickArgumentFrameInfoARM(ArtMethod** sp,
+                            bool is_static,
+                            const char* shorty,
+                            uint32_t shorty_len) REQUIRES_SHARED(Locks::mutator_lock_)
+      : QuickArgumentVisitorBase(sp, is_static, shorty, shorty_len) {}
+};
+
+class QuickArgumentFrameInfoARM64 : public QuickArgumentVisitorBase<QuickArgumentFrameInfoARM64> {
+ public:
+  // The callee save frame is pointed to by SP.
+  // | argN       |  |
+  // | ...        |  |
+  // | arg4       |  |
+  // | arg3 spill |  |  Caller's frame
+  // | arg2 spill |  |
+  // | arg1 spill |  |
+  // | Method*    | ---
+  // | LR         |
+  // | X29        |
+  // |  :         |
+  // | X20        |
+  // | X7         |
+  // | :          |
+  // | X1         |
+  // | D7         |
+  // |  :         |
+  // | D0         |
+  // |            |    padding
+  // | Method*    |  <- sp
+  static constexpr bool kSplitPairAcrossRegisterAndStack = false;
+  static constexpr bool kAlignPairRegister = false;
+  static constexpr bool kQuickSoftFloatAbi = false;  // This is a hard float ABI.
+  static constexpr bool kQuickDoubleRegAlignedFloatBackFilled = false;
+  static constexpr bool kQuickSkipOddFpRegisters = false;
+  static constexpr size_t kNumQuickGprArgs = 7;  // 7 arguments passed in GPRs.
+  static constexpr size_t kNumQuickFprArgs = 8;  // 8 arguments passed in FPRs.
+  static constexpr bool kGprFprLockstep = false;
+  static size_t GprIndexToGprOffsetImpl(uint32_t gpr_index) {
+    return gpr_index * GetBytesPerGprSpillLocation(kRuntimeISA);
+  }
+
+  QuickArgumentFrameInfoARM64(ArtMethod** sp,
+                              bool is_static,
+                              const char* shorty,
+                              uint32_t shorty_len) REQUIRES_SHARED(Locks::mutator_lock_)
+      : QuickArgumentVisitorBase(sp, is_static, shorty, shorty_len) {}
+};
+
+class QuickArgumentFrameInfoX86 : public QuickArgumentVisitorBase<QuickArgumentFrameInfoX86> {
+ public:
+  // The callee save frame is pointed to by SP.
+  // | argN        |  |
+  // | ...         |  |
+  // | arg4        |  |
+  // | arg3 spill  |  |  Caller's frame
+  // | arg2 spill  |  |
+  // | arg1 spill  |  |
+  // | Method*     | ---
+  // | Return      |
+  // | EBP,ESI,EDI |    callee saves
+  // | EBX         |    arg3
+  // | EDX         |    arg2
+  // | ECX         |    arg1
+  // | XMM3        |    float arg 4
+  // | XMM2        |    float arg 3
+  // | XMM1        |    float arg 2
+  // | XMM0        |    float arg 1
+  // | EAX/Method* |  <- sp
+  static constexpr bool kSplitPairAcrossRegisterAndStack = false;
+  static constexpr bool kAlignPairRegister = false;
+  static constexpr bool kQuickSoftFloatAbi = false;  // This is a hard float ABI.
+  static constexpr bool kQuickDoubleRegAlignedFloatBackFilled = false;
+  static constexpr bool kQuickSkipOddFpRegisters = false;
+  static constexpr size_t kNumQuickGprArgs = 3;  // 3 arguments passed in GPRs.
+  static constexpr size_t kNumQuickFprArgs = 4;  // 4 arguments passed in FPRs.
+  static constexpr bool kGprFprLockstep = false;
+  static size_t GprIndexToGprOffsetImpl(uint32_t gpr_index) {
+    return gpr_index * GetBytesPerGprSpillLocation(kRuntimeISA);
+  }
+
+  QuickArgumentFrameInfoX86(ArtMethod** sp,
+                            bool is_static,
+                            const char* shorty,
+                            uint32_t shorty_len) REQUIRES_SHARED(Locks::mutator_lock_)
+      : QuickArgumentVisitorBase(sp, is_static, shorty, shorty_len) {}
+};
+
+class QuickArgumentFrameInfoX86_64 :
+    public QuickArgumentVisitorBase<QuickArgumentFrameInfoX86_64> {
+ public:
+  // The callee save frame is pointed to by SP.
+  // | argN            |  |
+  // | ...             |  |
+  // | reg. arg spills |  |  Caller's frame
+  // | Method*         | ---
+  // | Return          |
+  // | R15             |    callee save
+  // | R14             |    callee save
+  // | R13             |    callee save
+  // | R12             |    callee save
+  // | R9              |    arg5
+  // | R8              |    arg4
+  // | RSI/R6          |    arg1
+  // | RBP/R5          |    callee save
+  // | RBX/R3          |    callee save
+  // | RDX/R2          |    arg2
+  // | RCX/R1          |    arg3
+  // | XMM7            |    float arg 8
+  // | XMM6            |    float arg 7
+  // | XMM5            |    float arg 6
+  // | XMM4            |    float arg 5
+  // | XMM3            |    float arg 4
+  // | XMM2            |    float arg 3
+  // | XMM1            |    float arg 2
+  // | XMM0            |    float arg 1
+  // | Padding         |
+  // | RDI/Method*     |  <- sp
+  static constexpr bool kSplitPairAcrossRegisterAndStack = false;
+  static constexpr bool kAlignPairRegister = false;
+  static constexpr bool kQuickSoftFloatAbi = false;  // This is a hard float ABI.
+  static constexpr bool kQuickDoubleRegAlignedFloatBackFilled = false;
+  static constexpr bool kQuickSkipOddFpRegisters = false;
+  static constexpr size_t kNumQuickGprArgs = 5;  // 5 arguments passed in GPRs.
+  static constexpr size_t kNumQuickFprArgs = 8;  // 8 arguments passed in FPRs.
+  static constexpr bool kGprFprLockstep = false;
+  static size_t GprIndexToGprOffsetImpl(uint32_t gpr_index) {
+    switch (gpr_index) {
+      case 0: return (4 * GetBytesPerGprSpillLocation(kRuntimeISA));
+      case 1: return (1 * GetBytesPerGprSpillLocation(kRuntimeISA));
+      case 2: return (0 * GetBytesPerGprSpillLocation(kRuntimeISA));
+      case 3: return (5 * GetBytesPerGprSpillLocation(kRuntimeISA));
+      case 4: return (6 * GetBytesPerGprSpillLocation(kRuntimeISA));
+      default:
+      LOG(FATAL) << "Unexpected GPR index: " << gpr_index;
+      UNREACHABLE();
+    }
+  }
+
+  QuickArgumentFrameInfoX86_64(ArtMethod** sp,
+                               bool is_static,
+                               const char* shorty,
+                               uint32_t shorty_len) REQUIRES_SHARED(Locks::mutator_lock_)
+      : QuickArgumentVisitorBase(sp, is_static, shorty, shorty_len) {}
+};
+
+namespace detail {
+
+template <InstructionSet>
+struct QAVSelector;
+
+template <>
+struct QAVSelector<InstructionSet::kArm> { using type = QuickArgumentFrameInfoARM; };
+template <>
+struct QAVSelector<InstructionSet::kArm64> { using type = QuickArgumentFrameInfoARM64; };
+template <>
+struct QAVSelector<InstructionSet::kX86> { using type = QuickArgumentFrameInfoX86; };
+template <>
+struct QAVSelector<InstructionSet::kX86_64> { using type = QuickArgumentFrameInfoX86_64; };
+
+}  // namespace detail
+
+using QuickArgumentVisitor = detail::QAVSelector<kRuntimeISA>::type;
 
 // Returns the 'this' object of a proxy method. This function is only used by StackVisitor. It
 // allows to use the QuickArgumentVisitor constants without moving all the code in its own module.
