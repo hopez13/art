@@ -27,7 +27,7 @@ ENTRY \name
     .ifnc \arg1, none
         mov x0, \arg1                          // Pass arg1.
     .endif
-    bl     \cxx_name                           // Call cxx_name(...).
+    CALL_SYMBOL     \cxx_name                  // Call cxx_name(...).
     // Restore LR and args and return.
     ldr    lr, [sp, #(ALL_ARGS_SIZE + /*padding*/ 8)]
     .cfi_restore lr
@@ -49,7 +49,7 @@ ENTRY \name
     .ifnc \arg2, none
         mov x1, \arg2                          // Pass arg2.
     .endif
-    bl     \cxx_name                           // Call cxx_name(...).
+    CALL_SYMBOL     \cxx_name                  // Call cxx_name(...).
     // Restore return registers and return.
     ldr    d0, [sp, #16]
     ldp    x0, lr, [sp], #32
@@ -66,7 +66,7 @@ ENTRY art_jni_dlsym_lookup_critical_stub
     // The hidden arg holding the tagged method (bit 0 set means GenericJNI) is x15.
     // For Generic JNI we already have a managed frame, so we reuse the art_jni_dlsym_lookup_stub.
     tbz  x15, #0, .Lcritical_not_generic_jni
-    b art_jni_dlsym_lookup_stub
+    BRANCH_SYMBOL art_jni_dlsym_lookup_stub
 
 .Lcritical_not_generic_jni:
     // Save args, the hidden arg and caller PC. No CFI needed for args and the hidden arg.
@@ -77,7 +77,7 @@ ENTRY art_jni_dlsym_lookup_critical_stub
     // Call artCriticalNativeFrameSize(method, caller_pc)
     mov   x0, x15  // x0 := method (from hidden arg)
     mov   x1, lr   // x1 := caller_pc
-    bl    artCriticalNativeFrameSize
+    CALL_SYMBOL    artCriticalNativeFrameSize
 
     // Move frame size to x14.
     mov   x14, x0
@@ -176,7 +176,7 @@ ENTRY art_jni_dlsym_lookup_critical_stub
 
     // Call artFindNativeMethodRunnable()
     mov   x0, xSELF   // pass Thread::Current()
-    bl    artFindNativeMethodRunnable
+    CALL_SYMBOL    artFindNativeMethodRunnable
 
     // Store result in scratch reg.
     mov   x13, x0
@@ -345,9 +345,9 @@ ENTRY art_jni_lock_object_no_inline
     str    lr, [sp, #(ALL_ARGS_SIZE + /*padding*/ 8)]
     .cfi_rel_offset lr, ALL_ARGS_SIZE + /*padding*/ 8
     // Call `artLockObjectFromCode()`.
-    mov    x0, x15                    // Pass the object to lock.
-    mov    x1, xSELF                  // Pass Thread::Current().
-    bl     artLockObjectFromCode      // (Object* obj, Thread*)
+    mov    x0, x15                             // Pass the object to lock.
+    mov    x1, xSELF                           // Pass Thread::Current().
+    CALL_SYMBOL     artLockObjectFromCode      // (Object* obj, Thread*)
     // Restore return address.
     ldr    lr, [sp, #(ALL_ARGS_SIZE + /*padding*/ 8)]
     .cfi_restore lr
@@ -362,8 +362,8 @@ ENTRY art_jni_lock_object_no_inline
     DECREASE_FRAME (ALL_ARGS_SIZE + /*padding*/ 8 + /*LR*/ 8)
     // Make a call to `artDeliverPendingExceptionFromCode()`.
     // Rely on the JNI transition frame constructed in the JNI stub.
-    mov    x0, xSELF                            // Pass Thread::Current().
-    bl      artDeliverPendingExceptionFromCode  // (Thread*)
+    mov    x0, xSELF                                       // Pass Thread::Current().
+    BRANCH_SYMBOL      artDeliverPendingExceptionFromCode  // (Thread*)
     PREPARE_AND_DO_LONG_JUMP
 END art_jni_lock_object_no_inline
 
