@@ -136,7 +136,7 @@ namespace art HIDDEN {
 using android::base::StringAppendV;
 using android::base::StringPrintf;
 
-extern "C" NO_RETURN void artDeoptimize(Thread* self, bool skip_method_exit_callbacks);
+extern "C" void artDeoptimize(Thread* self, bool skip_method_exit_callbacks);
 
 bool Thread::is_started_ = false;
 pthread_key_t Thread::pthread_key_self_;
@@ -3936,7 +3936,7 @@ void Thread::QuickDeliverException(bool skip_method_exit_callbacks) {
     // will be recorded in the DeoptimizationContext and it will be restored later.
     ClearException();
     artDeoptimize(this, skip_method_exit_callbacks);
-    UNREACHABLE();
+    return;
   }
 
   ReadBarrier::MaybeAssertToSpaceInvariant(exception.Ptr());
@@ -3979,7 +3979,7 @@ void Thread::QuickDeliverException(bool skip_method_exit_callbacks) {
             /* from_code= */ false,
             method_type);
         artDeoptimize(this, skip_method_exit_callbacks);
-        UNREACHABLE();
+        return;
       } else {
         LOG(WARNING) << "Got a deoptimization request on un-deoptimizable method "
                      << visitor.caller->PrettyMethod();
@@ -4004,10 +4004,10 @@ void Thread::QuickDeliverException(bool skip_method_exit_callbacks) {
     // Check the to-space invariant on the re-installed exception (if applicable).
     ReadBarrier::MaybeAssertToSpaceInvariant(GetException());
   }
-  exception_handler.DoLongJump();
+  exception_handler.PrepareLongJump();
 }
 
-Context* Thread::GetLongJumpContext() {
+Context* Thread::MakeOrResetLongJumpContext() {
   Context* result = tlsPtr_.long_jump_context;
   if (result == nullptr) {
     result = Context::Create();

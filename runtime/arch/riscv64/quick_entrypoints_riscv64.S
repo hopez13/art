@@ -429,8 +429,16 @@ ENTRY art_quick_method_entry_hook
     mv   a2, sp                               // pass SP
     call artMethodEntryHook                   // (ArtMethod*, Thread*, SP)
 
+    CFI_REMEMBER_STATE
+    bnez a0, .Lentryhook_deopt
+
     RESTORE_SAVE_EVERYTHING_FRAME
     ret
+
+.Lentryhook_deopt:
+    // Deoptimize.
+    CFI_RESTORE_STATE_AND_DEF_CFA sp, FRAME_SIZE_SAVE_EVERYTHING
+    PREPARE_AND_DO_LONG_JUMP
 END art_quick_method_entry_hook
 
 
@@ -446,9 +454,17 @@ ENTRY art_quick_method_exit_hook
     call artMethodExitHook                         // (Thread*, ArtMethod**, gpr_res*, fpr_res*,
                                                    // frame_size)
 
+    CFI_REMEMBER_STATE
+    bnez a0, .Lexithook_deopt_or_exception
+
     // Normal return.
     RESTORE_SAVE_EVERYTHING_FRAME
     ret
+
+.Lexithook_deopt_or_exception:
+    // Deoptimize or exception thrown.
+    CFI_RESTORE_STATE_AND_DEF_CFA sp, FRAME_SIZE_SAVE_EVERYTHING
+    PREPARE_AND_DO_LONG_JUMP
 END art_quick_method_exit_hook
 
 
@@ -549,32 +565,46 @@ END art_quick_do_long_jump
     mv    a1, a0                      // pass the result
     mv    a0, xSELF                   // pass Thread::Current
     call  artDeoptimizeIfNeeded       // (Thread*, uintptr_t, bool)
+
+    CFI_REMEMBER_STATE
+    bnez  a0, 3f
+
     RESTORE_SAVE_EVERYTHING_FRAME
     ret
+3:
+    // Deoptimize
+    CFI_RESTORE_STATE_AND_DEF_CFA sp, FRAME_SIZE_SAVE_EVERYTHING
+    PREPARE_AND_DO_LONG_JUMP
 .endm
 
 
 .macro RETURN_OR_DEOPT_IF_RESULT_IS_NON_NULL_OR_DELIVER
+    CFI_REMEMBER_STATE
     beqz  a0, 1f
     DEOPT_OR_RETURN a1, /*is_ref=*/ 1
 1:
+    CFI_RESTORE_STATE_AND_DEF_CFA sp, 0
     DELIVER_PENDING_EXCEPTION
 .endm
 
 
 .macro RETURN_OR_DEOPT_IF_INT_RESULT_IS_ZERO_OR_DELIVER
+    CFI_REMEMBER_STATE
     bnez  a0, 1f
     DEOPT_OR_RETURN a1
 1:
+    CFI_RESTORE_STATE_AND_DEF_CFA sp, 0
     DELIVER_PENDING_EXCEPTION
 .endm
 
 
 .macro RETURN_OR_DEOPT_OR_DELIVER_PENDING_EXCEPTION is_ref = 0
     lwu   a1, THREAD_EXCEPTION_OFFSET(xSELF)   // Get exception field.
+    CFI_REMEMBER_STATE
     bnez  a1, 1f
     DEOPT_OR_RETURN a1, \is_ref                // Check if deopt is required.
 1:
+    CFI_RESTORE_STATE_AND_DEF_CFA sp, 0
     DELIVER_PENDING_EXCEPTION                  // Deliver exception on current thread.
 .endm
 
@@ -597,10 +627,17 @@ END art_quick_do_long_jump
   mv      a1, a0                                     // pass the result
   mv      a0, xSELF                                  // Thread::Current
   call    artDeoptimizeIfNeeded
+
   CFI_REMEMBER_STATE
+  bnez  a0, 3f
+
   RESTORE_SAVE_EVERYTHING_FRAME
   ret
+
+3:
+  // Deoptimize
   CFI_RESTORE_STATE_AND_DEF_CFA sp, FRAME_SIZE_SAVE_EVERYTHING
+  PREPARE_AND_DO_LONG_JUMP
 .endm
 
 
@@ -683,7 +720,7 @@ ENTRY art_quick_deoptimize_from_compiled_code
     SETUP_SAVE_EVERYTHING_FRAME
     mv    a1, xSELF                           // Pass Thread::Current().
     call  artDeoptimizeFromCompiledCode       // (DeoptimizationKind, Thread*)
-    unimp
+    PREPARE_AND_DO_LONG_JUMP
 END art_quick_deoptimize_from_compiled_code
 
 
@@ -738,7 +775,7 @@ ENTRY art_quick_check_instance_of
     SETUP_SAVE_ALL_CALLEE_SAVES_FRAME         // Save all registers as basis for long jump context.
     mv    a2, xSELF                           // Pass Thread::Current().
     call  artThrowClassCastExceptionForObject // (Object*, Class*, Thread*)
-    unimp                                     // We should not return here...
+    PREPARE_AND_DO_LONG_JUMP
 END art_quick_check_instance_of
 
 
@@ -748,7 +785,7 @@ ENTRY \c_name
     SETUP_SAVE_EVERYTHING_FRAME       // save all registers as basis for long jump context.
     mv    a\n, xSELF                  // pass Thread::Current.
     call  \cxx_name                   // \cxx_name(args..., Thread*).
-    unimp
+    PREPARE_AND_DO_LONG_JUMP
 END \c_name
 .endm
 
@@ -769,7 +806,7 @@ ENTRY \c_name
     SETUP_SAVE_ALL_CALLEE_SAVES_FRAME // save all registers as basis for long jump context.
     mv    a\n, xSELF                  // pass Thread::Current.
     call  \cxx_name                   // \cxx_name(args..., Thread*).
-    unimp
+    PREPARE_AND_DO_LONG_JUMP
 END \c_name
 .endm
 
@@ -801,7 +838,7 @@ ENTRY art_quick_throw_null_pointer_exception_from_signal
     mv    a0, ra                      // pass the fault address stored in RA by the fault handler.
     mv    a1, xSELF                   // pass Thread::Current.
     call  artThrowNullPointerExceptionFromSignal  // (arg, Thread*).
-    unimp
+    PREPARE_AND_DO_LONG_JUMP
 END art_quick_throw_null_pointer_exception_from_signal
 
 
@@ -859,8 +896,17 @@ ENTRY art_quick_test_suspend
         RUNTIME_SAVE_EVERYTHING_FOR_SUSPEND_CHECK_METHOD_OFFSET
     mv   a0, xSELF
     call artTestSuspendFromCode
+
+    CFI_REMEMBER_STATE
+    bnez a0, .Ltest_suspend_deoptimize
+
     RESTORE_SAVE_EVERYTHING_FRAME
     ret
+
+.Ltest_suspend_deoptimize:
+    // Deoptimize
+    CFI_RESTORE_STATE_AND_DEF_CFA sp, FRAME_SIZE_SAVE_EVERYTHING
+    PREPARE_AND_DO_LONG_JUMP
 END art_quick_test_suspend
 
 
@@ -1165,9 +1211,11 @@ ENTRY \name
     SETUP_SAVE_EVERYTHING_FRAME \runtime_method_offset  // Save everything for stack crawl.
     mv    a1, xSELF                   // Pass Thread::Current().
     call  \entrypoint                 // (uint32_t/Class* index/klass, Thread* self)
+    CFI_REMEMBER_STATE
     beqz  a0, 1f                      // If result is null, deliver the exception.
     DEOPT_OR_RESTORE_SAVE_EVERYTHING_FRAME_AND_RETURN_A0 /* temp= */ a1, /* is_ref= */ 1
 1:
+    CFI_RESTORE_STATE_AND_DEF_CFA sp, FRAME_SIZE_SAVE_EVERYTHING
     DELIVER_PENDING_EXCEPTION_FRAME_READY
 END \name
 .endm
@@ -1331,7 +1379,7 @@ ENTRY art_quick_aput_obj
     mv    a1, a2                        // Pass value.
     mv    a2, xSELF                     // Pass Thread::Current().
     call  artThrowArrayStoreException   // (Object*, Object*, Thread*).
-    unimp                               // Unreachable.
+    PREPARE_AND_DO_LONG_JUMP
 
 #if defined(USE_READ_BARRIER) && defined(USE_BAKER_READ_BARRIER)
     CFI_RESTORE_STATE_AND_DEF_CFA sp, 0
