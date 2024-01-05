@@ -1,0 +1,176 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "755e50aa_30e1003c",
+        "filename": "artd/artd.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1291,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-01-05T00:12:36Z",
+      "side": 1,
+      "message": "This looks unrelated. Please move it to a separate CL. (I also don\u0027t see any logging of non-fatal errors.)",
+      "range": {
+        "startLine": 1284,
+        "startChar": 0,
+        "endLine": 1291,
+        "endChar": 92
+      },
+      "revId": "0213c11352c791aeed38ed5d24d3999a0c80e3d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3537f65d_20d3cd10",
+        "filename": "artd/artd.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1318,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-01-05T00:12:36Z",
+      "side": 1,
+      "message": "Logging of non-fatal errors missing here?",
+      "revId": "0213c11352c791aeed38ed5d24d3999a0c80e3d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f4b241a_414a29c6",
+        "filename": "artd/artd.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1322,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-01-05T00:12:36Z",
+      "side": 1,
+      "message": "Please use `.value()` instead, for clarity (and like in most other places in this file).",
+      "range": {
+        "startLine": 1322,
+        "startChar": 33,
+        "endLine": 1322,
+        "endChar": 34
+      },
+      "revId": "0213c11352c791aeed38ed5d24d3999a0c80e3d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c55fa5f1_6d27b450",
+        "filename": "libartservice/service/java/com/android/server/art/ArtManagerLocal.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 896,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-01-05T00:12:36Z",
+      "side": 1,
+      "message": "This includes dexpreopt artifacts in read only partitions if they are in use, doesn\u0027t it? Does the caller want that?\n\nEither way, it\u0027s worth clarifying in the doc comment for `TYPE_DEXOPT_ARTIFACT` in ArtManagedFileStats.java.",
+      "range": {
+        "startLine": 896,
+        "startChar": 50,
+        "endLine": 896,
+        "endChar": 68
+      },
+      "revId": "0213c11352c791aeed38ed5d24d3999a0c80e3d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4697566_cb715f79",
+        "filename": "libartservice/service/java/com/android/server/art/ArtManagerLocal.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 898,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-01-05T00:12:36Z",
+      "side": 1,
+      "message": "There\u0027s a bit of fanout of binder calls here. If the caller on top of this iterates over a lot of packages they may start add up. Do you have any idea on how frequently they\u0027ll use this API? I can see a couple of ways to cut down on the overhead, but let\u0027s start with this and leave optimisations for later.",
+      "range": {
+        "startLine": 898,
+        "startChar": 53,
+        "endLine": 898,
+        "endChar": 69
+      },
+      "revId": "0213c11352c791aeed38ed5d24d3999a0c80e3d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "28df048d_a838d02e",
+        "filename": "libartservice/service/java/com/android/server/art/ArtManagerLocal.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 898,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-01-05T00:12:36Z",
+      "side": 1,
+      "message": "Nit: Maybe use a local variable for this.",
+      "range": {
+        "startLine": 898,
+        "startChar": 33,
+        "endLine": 898,
+        "endChar": 52
+      },
+      "revId": "0213c11352c791aeed38ed5d24d3999a0c80e3d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac2d9466_b12b1007",
+        "filename": "libartservice/service/javatests/com/android/server/art/ArtManagerLocalTest.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 1096,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-01-05T00:12:36Z",
+      "side": 1,
+      "message": "Can you please add a case for a dexpreopted system app? Preferably both with and without an override in dalvik-cache.",
+      "revId": "0213c11352c791aeed38ed5d24d3999a0c80e3d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c459d247_2396cbcd",
+        "filename": "libartservice/service/javatests/com/android/server/art/ArtManagerLocalTest.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 1159,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-01-05T00:12:36Z",
+      "side": 1,
+      "message": "It\u0027s tedious to check the bits back and forth between these and the `assertThat`s below. Please divide them up for each file type with comments like \"These are counted as TYPE_DEXOPT_ARTIFACT\" etc (and ensure the bit shifts are in order).",
+      "range": {
+        "startLine": 1127,
+        "startChar": 0,
+        "endLine": 1159,
+        "endChar": 93
+      },
+      "revId": "0213c11352c791aeed38ed5d24d3999a0c80e3d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
