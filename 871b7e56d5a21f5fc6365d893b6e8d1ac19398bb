@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "903826d2_c736b909",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1268,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2024-01-05T09:27:58Z",
+      "side": 1,
+      "message": "Why can\u0027t this be handled in the same way as rest of them? I mean why create the compile-task right away?",
+      "range": {
+        "startLine": 1268,
+        "startChar": 6,
+        "endLine": 1268,
+        "endChar": 16
+      },
+      "revId": "871b7e56d5a21f5fc6365d893b6e8d1ac19398bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc207fd3_ef4e7394",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1777,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2024-01-05T09:27:58Z",
+      "side": 1,
+      "message": "`deletes`",
+      "range": {
+        "startLine": 1777,
+        "startChar": 71,
+        "endLine": 1777,
+        "endChar": 77
+      },
+      "revId": "871b7e56d5a21f5fc6365d893b6e8d1ac19398bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e4d13a3_aa6d43ba",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1854,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2024-01-05T09:27:58Z",
+      "side": 1,
+      "message": "`second`?",
+      "range": {
+        "startLine": 1854,
+        "startChar": 18,
+        "endLine": 1854,
+        "endChar": 23
+      },
+      "revId": "871b7e56d5a21f5fc6365d893b6e8d1ac19398bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a84655b_101dee2d",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1865,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2024-01-05T09:27:58Z",
+      "side": 1,
+      "message": "nit: Since you are passing kind, you don\u0027t need to pass methods. You can use a switch to pick the right deque.",
+      "range": {
+        "startLine": 1865,
+        "startChar": 55,
+        "endLine": 1865,
+        "endChar": 62
+      },
+      "revId": "871b7e56d5a21f5fc6365d893b6e8d1ac19398bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "97882896_2aa32d18",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1898,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2024-01-05T09:27:58Z",
+      "side": 1,
+      "message": "Don\u0027t you need to also capture the ArtMethods in tasks_ deque?",
+      "range": {
+        "startLine": 1898,
+        "startChar": 4,
+        "endLine": 1898,
+        "endChar": 11
+      },
+      "revId": "871b7e56d5a21f5fc6365d893b6e8d1ac19398bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a39dbeae_5feb087b",
+        "filename": "runtime/jit/jit.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2024-01-05T09:27:58Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this and the following be `||`? Any of them having a pending task should be considered right?",
+      "range": {
+        "startLine": 265,
+        "startChar": 24,
+        "endLine": 265,
+        "endChar": 26
+      },
+      "revId": "871b7e56d5a21f5fc6365d893b6e8d1ac19398bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0570c78_4b0be1e1",
+        "filename": "runtime/jit/jit.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2024-01-05T09:27:58Z",
+      "side": 1,
+      "message": "Wouldn\u0027t it be more consistent if this was called `generic_queue_` given that all the following are named as such? After all of them contain tasks.",
+      "range": {
+        "startLine": 281,
+        "startChar": 20,
+        "endLine": 281,
+        "endChar": 26
+      },
+      "revId": "871b7e56d5a21f5fc6365d893b6e8d1ac19398bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86f7d78d_0d8403ee",
+        "filename": "runtime/jit/jit.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2024-01-05T09:27:58Z",
+      "side": 1,
+      "message": "How many max entries could end up in this? Since you are removing based on key, it would be a linear operation. If quite a bit entries are expected then maybe consider using unordered_set?",
+      "range": {
+        "startLine": 288,
+        "startChar": 7,
+        "endLine": 288,
+        "endChar": 10
+      },
+      "revId": "871b7e56d5a21f5fc6365d893b6e8d1ac19398bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
