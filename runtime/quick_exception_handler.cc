@@ -52,7 +52,7 @@ static constexpr size_t kInvalidFrameDepth = 0xffffffff;
 
 QuickExceptionHandler::QuickExceptionHandler(Thread* self, bool is_deoptimization)
     : self_(self),
-      context_(self->GetLongJumpContext()),
+      context_(self->MakeOrResetLongJumpContext()),
       is_deoptimization_(is_deoptimization),
       handler_quick_frame_(nullptr),
       handler_quick_frame_pc_(0),
@@ -789,7 +789,7 @@ void QuickExceptionHandler::DeoptimizePartialFragmentFixup() {
   }
 }
 
-void QuickExceptionHandler::DoLongJump(bool smash_caller_saves) {
+void QuickExceptionHandler::PrepareLongJump(bool smash_caller_saves) {
   // Place context back on thread so it will be available when we continue.
   self_->ReleaseLongJumpContext(context_);
   context_->SetSP(reinterpret_cast<uintptr_t>(handler_quick_frame_));
@@ -810,8 +810,6 @@ void QuickExceptionHandler::DoLongJump(bool smash_caller_saves) {
   }
   // Clear the dex_pc list so as not to leak memory.
   handler_dex_pc_list_.reset();
-  context_->DoLongJump();
-  UNREACHABLE();
 }
 
 void QuickExceptionHandler::DumpFramesWithType(Thread* self, bool details) {
