@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57df9c04_bb0d6cd9",
+        "filename": "libartservice/service/java/com/android/server/art/ArtManagerLocal.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-01-05T00:10:42Z",
+      "side": 0,
+      "message": "This is getting replaced with a `getFilteredDetailedSecondaryDexInfo` call, so it\u0027s not a no-op, right? Was this call wrong, apropos \"can only be used for debugging purpose\" in the docs for it? Deserves a mention in the commit message.",
+      "range": {
+        "startLine": 277,
+        "startChar": 49,
+        "endLine": 277,
+        "endChar": 68
+      },
+      "revId": "dfc85005d93db3e7fe8daf4a45319dd727fb3c83",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ac2610e_a1331876",
+        "filename": "libartservice/service/java/com/android/server/art/PrimaryDexopter.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-01-05T00:10:42Z",
+      "side": 0,
+      "message": "For the sake of robustness I think it\u0027s better to keep this. Otherwise there ought to be a passus somewhere that this function assumes that dex infos without code have already been filtered out (but even then it\u0027s extra effort to ascertain that that invariant is kept).",
+      "range": {
+        "startLine": 95,
+        "startChar": 0,
+        "endLine": 97,
+        "endChar": 9
+      },
+      "revId": "dfc85005d93db3e7fe8daf4a45319dd727fb3c83",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
