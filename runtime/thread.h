@@ -665,14 +665,17 @@ class EXPORT Thread {
   // that needs to be dealt with, false otherwise.
   bool ObserveAsyncException() REQUIRES_SHARED(Locks::mutator_lock_);
 
-  // Find catch block and perform long jump to appropriate exception handle. When
+  // Find catch block and prepare the long jump context to appropriate exception handle. When
   // is_method_exit_exception is true, the exception was thrown by the method exit callback and we
   // should not send method unwind for the method on top of the stack since method exit callback was
   // already called.
-  NO_RETURN void QuickDeliverException(bool is_method_exit_exception = false)
+  void QuickDeliverException(bool is_method_exit_exception = false)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
-  Context* GetLongJumpContext();
+  // Either return a new long jump context if one does not exist or reset and return the existing
+  // long jump context.
+  Context* MakeOrResetLongJumpContext();
+  Context* GetLongJumpContext() { return tlsPtr_.long_jump_context; }
   void ReleaseLongJumpContext(Context* context) {
     if (tlsPtr_.long_jump_context != nullptr) {
       ReleaseLongJumpContextInternal();
