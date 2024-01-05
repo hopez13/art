@@ -72,6 +72,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "592b5aca_47781a54",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1268,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-01-05T13:07:27Z",
+      "side": 1,
+      "message": "Yes, I realized the method was not used for precompilation. All the places where we request precompilation we were calling `AddTask` directly already.",
+      "parentUuid": "456c21c4_0cbba4f4",
+      "range": {
+        "startLine": 1268,
+        "startChar": 6,
+        "endLine": 1268,
+        "endChar": 16
+      },
+      "revId": "871b7e56d5a21f5fc6365d893b6e8d1ac19398bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fc207fd3_ef4e7394",
@@ -274,6 +298,30 @@
       "side": 1,
       "message": "Thanks for clarifying. Please add a comment about this here.",
       "parentUuid": "90d418df_af1a96f3",
+      "range": {
+        "startLine": 1898,
+        "startChar": 4,
+        "endLine": 1898,
+        "endChar": 11
+      },
+      "revId": "871b7e56d5a21f5fc6365d893b6e8d1ac19398bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1fd9f3aa_7dc0a918",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1898,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-01-05T13:07:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b7493ee0_8785df8e",
       "range": {
         "startLine": 1898,
         "startChar": 4,
