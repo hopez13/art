@@ -2011,6 +2011,9 @@ mirror::Object* Heap::AllocateInternalWithGc(Thread* self,
             case HomogeneousSpaceCompactResult::kErrorVMShuttingDown:
               // Throw OOM by default.
               break;
+            case HomogeneousSpaceCompactResult::kErrorUnsupported:
+              // Reject if CMS is not the default collector.
+              break;
             default: {
               UNIMPLEMENTED(FATAL) << "homogeneous space compaction result: "
                   << static_cast<size_t>(result);
