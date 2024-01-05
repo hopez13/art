@@ -38,6 +38,8 @@ enum class InstructionSet {
 };
 std::ostream& operator<<(std::ostream& os, InstructionSet rhs);
 
+// kRuntimeISA must match the ISA of the machine that ART will be run on. This ISA will be used for
+// the native context, native stack frame and native ABI.
 #if defined(__arm__)
 static constexpr InstructionSet kRuntimeISA = InstructionSet::kArm;
 #elif defined(__aarch64__)
@@ -51,6 +53,10 @@ static constexpr InstructionSet kRuntimeISA = InstructionSet::kX86_64;
 #else
 static constexpr InstructionSet kRuntimeISA = InstructionSet::kNone;
 #endif
+
+// The ISA that ART will generate quick code for, i.e: that java code will be compiled to. This ISA
+// will be used for the quick context, quick stack frame and quick ABI.
+static constexpr InstructionSet kRuntimeQuickCodeISA = kRuntimeISA;
 
 // Architecture-specific pointer sizes
 static constexpr PointerSize kArmPointerSize = PointerSize::k32;
