@@ -10,7 +10,7 @@
    UNPOISON_HEAP_REF w2
    // Fast path: do a comparison without read barrier.
    cmp     w1, w2
-   bne     ${slow_path}
+   BRANCH_SYMBOL_NE     ${slow_path}
 .L${opcode}_resume:
    FETCH_ADVANCE_INST 2
    GET_INST_OPCODE ip
@@ -20,7 +20,7 @@
    mov     x0, xSELF
    ldr     x1, [sp]
    mov     x2, xPC
-   bl      nterp_get_class
+   CALL_SYMBOL      nterp_get_class
    mov     x1, x0
    b       1b
 
@@ -45,10 +45,10 @@
    TEST_IF_MARKING 4f
 3:
    EXPORT_PC
-   bl      art_quick_check_instance_of
+   CALL_SYMBOL      art_quick_check_instance_of
    b       .L${opcode}_resume
 4:
-   bl      art_quick_read_barrier_mark_reg01
+   CALL_SYMBOL      art_quick_read_barrier_mark_reg01
    b       3b
 5:
    // Class in w1 is an array, w3 is the component type.
@@ -82,7 +82,7 @@
    UNPOISON_HEAP_REF w2
    // Fast path: do a comparison without read barrier.
    cmp     w1, w2
-   bne     ${slow_path}
+   BRANCH_SYMBOL_NE     ${slow_path}
 .L${opcode}_set_one:
    mov     w0, #1
 .L${opcode}_resume:
@@ -96,7 +96,7 @@
    mov     x0, xSELF
    ldr     x1, [sp]
    mov     x2, xPC
-   bl      nterp_get_class
+   CALL_SYMBOL      nterp_get_class
    mov     x1, x0
    b       1b
 
@@ -139,10 +139,10 @@
    cset    w0, eq
    b       .L${opcode}_resume
 4:
-   bl      art_quick_read_barrier_mark_reg01
+   CALL_SYMBOL      art_quick_read_barrier_mark_reg01
 5:
    EXPORT_PC
-   bl      artInstanceOfFromCode
+   CALL_SYMBOL      artInstanceOfFromCode
    b       .L${opcode}_resume
 
 %def op_iget_boolean():
@@ -160,7 +160,7 @@
 %def op_iget(load="ldr", volatile_load="ldar", maybe_extend="", wide="0", is_object="0"):
 %  slow_path = add_slow_path(op_iget_slow_path, volatile_load, maybe_extend, wide, is_object)
    // Fast-path which gets the field from thread-local cache.
-%  fetch_from_thread_cache("x0", miss_label=slow_path)
+%  fetch_from_thread_cache_with_symbol("x0", miss_symbol=slow_path)
 .L${opcode}_resume:
    lsr     w2, wINST, #12              // w2<- B
    GET_VREG w3, w2                     // w3<- object we're operating on
@@ -184,7 +184,7 @@
    GOTO_OPCODE ip
    .if $is_object
 .L${opcode}_read_barrier:
-   bl      art_quick_read_barrier_mark_reg00
+   CALL_SYMBOL      art_quick_read_barrier_mark_reg00
    b       .L${opcode}_resume_after_read_barrier
    .endif
 
@@ -194,12 +194,14 @@
    mov     x2, xPC
    mov     x3, #0
    EXPORT_PC
-   bl      nterp_get_instance_field_offset
+   CALL_SYMBOL      nterp_get_instance_field_offset
    // Zero extension (nterp_get_instance_field_offset returns uint32_t) of the return value is
    // needed as the value is used below via wider X0 register - AARCH64 AAPCS specifies that
    // "... any unused bits in the register have unspecified value" (see 6.8.2, 6.9).
    mov     w0, w0
-   tbz     w0, #31, .L${opcode}_resume
+   // tbz will not have enough branch range in the restricted mode.
+   tst     w0, #0x80000000
+   b.eq    .L${opcode}_resume
    CLEAR_INSTANCE_VOLATILE_MARKER w0
    lsr     w2, wINST, #12              // w2<- B
    GET_VREG w3, w2                     // w3<- object we're operating on
@@ -250,7 +252,7 @@
    GET_VREG w26, w1                    // w26 <- v[A]
    .endif
    // Fast-path which gets the field from thread-local cache.
-%  fetch_from_thread_cache("x0", miss_label=slow_path)
+%  fetch_from_thread_cache_with_symbol("x0", miss_symbol=slow_path)
 .L${opcode}_resume:
    lsr     w2, wINST, #12              // w2<- B
    GET_VREG w2, w2                     // vB (object we're operating on)
@@ -276,7 +278,7 @@
    mov     x3, #0
    .endif
    EXPORT_PC
-   bl      nterp_get_instance_field_offset
+   CALL_SYMBOL      nterp_get_instance_field_offset
    // Zero extension (nterp_get_instance_field_offset returns uint32_t) of the return value is
    // needed as the value is used below via wider X0 register - AARCH64 AAPCS specifies that
    // "... any unused bits in the register have unspecified value" (see 6.8.2, 6.9).
@@ -286,7 +288,9 @@
    ubfx    w1, wINST, #8, #4           // w1<- A
    GET_VREG w26, w1                    // w26 <- v[A]
    .endif
-   tbz     w0, #31, .L${opcode}_resume
+   // tbz will not have enough branch range in the restricted mode.
+   tst     w0, #0x80000000
+   b.eq    .L${opcode}_resume
    CLEAR_INSTANCE_VOLATILE_MARKER w0
    lsr     w2, wINST, #12              // w2<- B
    GET_VREG w2, w2                     // vB (object we're operating on)
@@ -324,7 +328,7 @@
 %def op_sget(load="ldr", volatile_load="ldar", maybe_extend="", wide="0", is_object="0"):
 %  slow_path = add_slow_path(op_sget_slow_path, volatile_load, maybe_extend, wide, is_object)
    // Fast-path which gets the field from thread-local cache.
-%  fetch_from_thread_cache("x0", miss_label=slow_path)
+%  fetch_from_thread_cache_with_symbol("x0", miss_symbol=slow_path)
 .L${opcode}_resume:
    ldr     w1, [x0, #ART_FIELD_OFFSET_OFFSET]
    lsr     w2, wINST, #8               // w2 <- A
@@ -348,13 +352,13 @@
    GET_INST_OPCODE ip
    GOTO_OPCODE ip
 .L${opcode}_read_barrier:
-   bl      art_quick_read_barrier_mark_reg00
+   CALL_SYMBOL      art_quick_read_barrier_mark_reg00
    .if $is_object
    $load   w0, [x0, x1]
    UNPOISON_HEAP_REF w0
 .L${opcode}_mark_after_load:
    // Here, we know the marking register is set.
-   bl      art_quick_read_barrier_mark_reg00
+   CALL_SYMBOL      art_quick_read_barrier_mark_reg00
    b       .L${opcode}_after_reference_load
    .else
    b       .L${opcode}_resume_after_read_barrier
@@ -366,8 +370,10 @@
    mov     x2, xPC
    mov     x3, #0
    EXPORT_PC
-   bl      nterp_get_static_field
-   tbz     x0, #0, .L${opcode}_resume
+   CALL_SYMBOL      nterp_get_static_field
+   // tbz will not have enough branch range in the restricted mode.
+   tst     x0, #0x1
+   b.eq .L${opcode}_resume
    CLEAR_STATIC_VOLATILE_MARKER x0
    ldr     w1, [x0, #ART_FIELD_OFFSET_OFFSET]
    lsr     w2, wINST, #8               // w2 <- A
@@ -392,7 +398,7 @@
    GET_INST_OPCODE ip
    GOTO_OPCODE ip
 .L${opcode}_slow_path_read_barrier:
-   bl      art_quick_read_barrier_mark_reg00
+   CALL_SYMBOL      art_quick_read_barrier_mark_reg00
    b       .L${opcode}_slow_path_resume_after_read_barrier
 
 %def op_sget_wide():
@@ -422,7 +428,7 @@
    GET_VREG w26, w2                    // w26 <- v[A]
    .endif
    // Fast-path which gets the field from thread-local cache.
-%  fetch_from_thread_cache("x0", miss_label=slow_path)
+%  fetch_from_thread_cache_with_symbol("x0", miss_symbol=slow_path)
 .L${opcode}_resume:
    ldr     w1, [x0, #ART_FIELD_OFFSET_OFFSET]
    ldr     w0, [x0, #ART_FIELD_DECLARING_CLASS_OFFSET]
@@ -439,7 +445,7 @@
    GET_INST_OPCODE ip
    GOTO_OPCODE ip
 .L${opcode}_read_barrier:
-   bl      art_quick_read_barrier_mark_reg00
+   CALL_SYMBOL      art_quick_read_barrier_mark_reg00
    b       .L${opcode}_resume_after_read_barrier
 
 %def op_sput_slow_path(volatile_store, wide, is_object):
@@ -452,13 +458,15 @@
    mov     x3, #0
    .endif
    EXPORT_PC
-   bl      nterp_get_static_field
+   CALL_SYMBOL      nterp_get_static_field
    .if $is_object
    // Reload the value as it may have moved.
    lsr     w2, wINST, #8               // w2 <- A
    GET_VREG w26, w2                    // w26 <- v[A]
    .endif
-   tbz     x0, #0, .L${opcode}_resume
+   // tbz will not have enough branch range in the restricted mode.
+   tst x0, #0x1
+   b.eq .L${opcode}_resume
    CLEAR_STATIC_VOLATILE_MARKER x0
    ldr     w1, [x0, #ART_FIELD_OFFSET_OFFSET]
    ldr     w0, [x0, #ART_FIELD_DECLARING_CLASS_OFFSET]
@@ -476,7 +484,7 @@
    GET_INST_OPCODE ip
    GOTO_OPCODE ip
 .L${opcode}_slow_path_read_barrier:
-   bl      art_quick_read_barrier_mark_reg00
+   CALL_SYMBOL      art_quick_read_barrier_mark_reg00
    b       .L${opcode}_slow_path_resume_after_read_barrier
 
 %def op_sput_wide():
@@ -504,8 +512,8 @@
    mov     x0, xSELF
    ldr     x1, [sp]
    mov     x2, xPC
-   bl      nterp_allocate_object
+   CALL_SYMBOL      nterp_allocate_object
    b       1b
 3:
-   bl      art_quick_read_barrier_mark_reg00
+   CALL_SYMBOL      art_quick_read_barrier_mark_reg00
    b       4b

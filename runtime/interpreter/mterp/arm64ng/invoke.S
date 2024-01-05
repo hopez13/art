@@ -25,7 +25,7 @@
    mov x0, xSELF
    ldr x1, [sp]
    mov x2, xPC
-   bl nterp_get_method
+   CALL_SYMBOL nterp_get_method
    .if $is_super
    b 1b
    .else
@@ -73,7 +73,7 @@
 %  slow_path = add_slow_path(invoke_interface_slow_path, range)
    EXPORT_PC
    // Fast-path which gets the method from thread-local cache.
-%  fetch_from_thread_cache("x26", miss_label=slow_path)
+%  fetch_from_thread_cache_with_symbol("x26", miss_symbol=slow_path)
 .L${opcode}_resume:
    // First argument is the 'this' pointer.
    FETCH w1, 2
@@ -118,7 +118,7 @@
    mov x0, xSELF
    ldr x1, [sp]
    mov x2, xPC
-   bl nterp_get_method
+   CALL_SYMBOL nterp_get_method
    mov x26, x0
    b .L${opcode}_resume
 
@@ -137,7 +137,7 @@
    mov x0, xSELF
    ldr x1, [sp]
    mov x2, xPC
-   bl nterp_get_method
+   CALL_SYMBOL nterp_get_method
    b $helper
 
 %def op_invoke_static():
@@ -166,7 +166,7 @@
    mov x0, xSELF
    ldr x1, [sp]
    mov x2, xPC
-   bl nterp_get_method
+   CALL_SYMBOL nterp_get_method
    mov x2, x0
    b 1b
 
