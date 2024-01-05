@@ -191,28 +191,37 @@ static bool CanExecuteOnHardware(InstructionSet target_isa) {
       || (kRuntimeISA == InstructionSet::kArm && target_isa == InstructionSet::kThumb2);
 }
 
+static constexpr size_t kDefaultStackSize = 1 * MB;
+
 static bool CanExecute(InstructionSet target_isa) {
-  CodeSimulatorContainer simulator(target_isa);
-  return CanExecuteOnHardware(target_isa) || simulator.CanSimulate();
+  if (CanExecuteOnHardware(target_isa)) {
+    return true;
+  }
+
+  CodeSimulatorContainer simulator_container(target_isa);
+  std::unique_ptr<BasicCodeSimulator> simulator(
+      simulator_container.CreateBasicExecutor(kDefaultStackSize));
+
+  return simulator.get() != nullptr;
 }
 
 template <typename Expected>
-inline static Expected SimulatorExecute(CodeSimulator* simulator, Expected (*f)());
+inline static Expected SimulatorExecute(BasicCodeSimulator* simulator, Expected (*f)());
 
 template <>
-inline bool SimulatorExecute<bool>(CodeSimulator* simulator, bool (*f)()) {
+inline bool SimulatorExecute<bool>(BasicCodeSimulator* simulator, bool (*f)()) {
   simulator->RunFrom(reinterpret_cast<intptr_t>(f));
   return simulator->GetCReturnBool();
 }
 
 template <>
-inline int32_t SimulatorExecute<int32_t>(CodeSimulator* simulator, int32_t (*f)()) {
+inline int32_t SimulatorExecute<int32_t>(BasicCodeSimulator* simulator, int32_t (*f)()) {
   simulator->RunFrom(reinterpret_cast<intptr_t>(f));
   return simulator->GetCReturnInt32();
 }
 
 template <>
-inline int64_t SimulatorExecute<int64_t>(CodeSimulator* simulator, int64_t (*f)()) {
+inline int64_t SimulatorExecute<int64_t>(BasicCodeSimulator* simulator, int64_t (*f)()) {
   simulator->RunFrom(reinterpret_cast<intptr_t>(f));
   return simulator->GetCReturnInt64();
 }
@@ -223,11 +232,14 @@ static void VerifyGeneratedCode(InstructionSet target_isa,
                                 bool has_result,
                                 Expected expected) {
   ASSERT_TRUE(CanExecute(target_isa)) << "Target isa is not executable.";
-
   // Verify on simulator.
-  CodeSimulatorContainer simulator(target_isa);
-  if (simulator.CanSimulate()) {
-    Expected result = SimulatorExecute<Expected>(simulator.Get(), f);
+  CodeSimulatorContainer simulator_container(target_isa);
+  // Use basic simulator: for the gtests we don't have runtime started, so won't have entrypoints
+  // initialized.
+  std::unique_ptr<BasicCodeSimulator> simulator(
+      simulator_container.CreateBasicExecutor(kDefaultStackSize));
+  if (simulator.get() != nullptr) {
+    Expected result = SimulatorExecute<Expected>(simulator.get(), f);
     if (has_result) {
       ASSERT_EQ(expected, result);
     }
