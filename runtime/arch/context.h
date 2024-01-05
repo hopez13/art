@@ -21,6 +21,7 @@
 #include <stdint.h>
 
 #include "base/macros.h"
+#include "entrypoints/quick/runtime_entrypoints_list.h"
 
 namespace art HIDDEN {
 
@@ -102,8 +103,6 @@ class Context {
     kBadFprBase = 0xebad8070,
   };
 };
-
-extern "C" void artContextCopyForLongJump(Context* context, uintptr_t* gprs, uintptr_t* fprs);
 
 }  // namespace art
 

@@ -57,11 +57,9 @@
 #include "thread-inl.h"
 #include "var_handles.h"
 #include "well_known_classes.h"
+#include "runtime_entrypoints_list.h"
 
 namespace art HIDDEN {
-
-extern "C" void artDeoptimizeFromCompiledCode(DeoptimizationKind kind, Thread* self);
-extern "C" void artDeoptimize(Thread* self, bool skip_method_exit_callbacks);
 
 // Visits the arguments as saved to the stack by a CalleeSaveType::kRefAndArgs callee save frame.
 class QuickArgumentVisitor {
