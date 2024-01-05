@@ -1281,10 +1281,15 @@ ScopedAStatus Artd::isInDalvikCache(const std::string& in_dexFile, bool* _aidl_r
 ScopedAStatus Artd::deleteRuntimeArtifacts(const RuntimeArtifactsPath& in_runtimeArtifactsPath,
                                            int64_t* _aidl_return) {
   OR_RETURN_FATAL(ValidateRuntimeArtifactsPath(in_runtimeArtifactsPath));
-  std::string android_data = OR_RETURN_NON_FATAL(GetAndroidDataOrError());
-  std::string android_expand = OR_RETURN_NON_FATAL(GetAndroidExpandOrError());
+  *_aidl_return = 0;
+  Result<std::string> android_data = GetAndroidDataOrError();
+  Result<std::string> android_expand = GetAndroidExpandOrError();
+  if (!android_data.ok() || !android_expand.ok()) {
+    LOG(ERROR) << "Failed to get the path to ANDROID_DATA or ANDROID_EXPAND";
+    return ScopedAStatus::ok();
+  }
   for (const std::string& file :
-       ListRuntimeArtifactsFiles(android_data, android_expand, in_runtimeArtifactsPath)) {
+       ListRuntimeArtifactsFiles(*android_data, *android_expand, in_runtimeArtifactsPath)) {
     *_aidl_return += GetSizeAndDeleteFile(file);
   }
   return ScopedAStatus::ok();
