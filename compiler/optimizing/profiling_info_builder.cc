@@ -28,6 +28,7 @@
 namespace art HIDDEN {
 
 void ProfilingInfoBuilder::Run() {
+  DCHECK(GetGraph()->IsUsefulOptimizing());
   DCHECK_EQ(GetGraph()->GetProfilingInfo(), nullptr);
   // Order does not matter.
   for (HBasicBlock* block : GetGraph()->GetReversePostOrder()) {
@@ -121,6 +122,11 @@ bool ProfilingInfoBuilder::IsInlineCacheUseful(HInvoke* invoke, CodeGenerator* c
         invoke->GetResolvedMethod()->GetDeclaringClass()->IsFinal()) {
       return false;
     }
+  }
+
+  if (!codegen->GetGraph()->IsUsefulOptimizing()) {
+    LOG(WARNING) << "Asking for an inline cache, when we marked the graph as not worth optimizing";
+    return false;
   }
   return true;
 }

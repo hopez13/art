@@ -917,6 +917,7 @@ CodeGenerator* OptimizingCompiler::TryCompile(ArenaAllocator* allocator,
   // this method already, do it now.
   if (jit != nullptr &&
       compilation_kind == CompilationKind::kBaseline &&
+      graph->IsUsefulOptimizing() &&
       graph->GetProfilingInfo() == nullptr) {
     ProfilingInfoBuilder(
         graph, codegen->GetCompilerOptions(), codegen.get(), compilation_stats_.get()).Run();
