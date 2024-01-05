@@ -35,12 +35,6 @@ namespace art HIDDEN {
 namespace interpreter {
 
 bool IsNterpSupported() {
-#ifdef ART_USE_RESTRICTED_MODE
-  // TODO(Simulator): Support Nterp.
-  // Nterp uses the native stack and quick stack frame layout; this will be a complication
-  // for the simulator mode. We should use switch interpreter only for now.
-  return false;
-#else
   switch (kRuntimeQuickCodeISA) {
     case InstructionSet::kArm:
     case InstructionSet::kThumb2:
@@ -54,7 +48,6 @@ bool IsNterpSupported() {
     default:
       return false;
   }
-#endif  // #ifdef ART_USE_RESTRICTED_MODE
 }
 
 bool CanRuntimeUseNterp() REQUIRES_SHARED(Locks::mutator_lock_) {
@@ -243,12 +236,6 @@ extern "C" void NterpSetupArm32Fprs(const char* shorty,
 }
 
 #endif
-
-extern "C" const dex::CodeItem* NterpGetCodeItem(ArtMethod* method)
-    REQUIRES_SHARED(Locks::mutator_lock_) {
-  ScopedAssertNoThreadSuspension sants("In nterp");
-  return method->GetCodeItem();
-}
 
 extern "C" const char* NterpGetShorty(ArtMethod* method)
     REQUIRES_SHARED(Locks::mutator_lock_) {
@@ -814,8 +801,20 @@ extern "C" ssize_t NterpDoSparseSwitch(const uint16_t* switchData, int32_t testV
   return kInstrLen;
 }
 
+//
+// Wrappers for C functions - to be called from nterp .S implementation.
+//
+
 extern "C" void NterpFree(void* val) {
   free(val);
+}
+
+extern "C" double NterpFmod(double x, double y) {
+  return fmod(x, y);
+}
+
+extern "C" float NterpFmodF(float x, float y) {
+  return fmodf(x, y);
 }
 
 }  // namespace interpreter
