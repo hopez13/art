@@ -22,6 +22,30 @@
       },
       "revId": "1a6b5b318aa69903a74dd10312a77bd8ee7c4cf6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5bb3507_5013b8d3",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 914,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-01-05T20:14:22Z",
+      "side": 1,
+      "message": "Yes, that\u0027s the whole purpose of this CL. Why are you highlighting WriteBarrierElimination running in baseline? The code was already there for optimized compilation (thought the pass being disabled by kWBEEnabled).",
+      "parentUuid": "b0213b07_81dd3731",
+      "range": {
+        "startLine": 907,
+        "startChar": 0,
+        "endLine": 914,
+        "endChar": 3
+      },
+      "revId": "1a6b5b318aa69903a74dd10312a77bd8ee7c4cf6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
