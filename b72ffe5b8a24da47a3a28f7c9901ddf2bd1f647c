@@ -33,6 +33,23 @@
       "message": "some tests are still faling: \n\nhttps://android-build.corp.google.com/artifact/pending/P67354866/art-test/latest/view/logs%2Fbuild_error.log",
       "revId": "b72ffe5b8a24da47a3a28f7c9901ddf2bd1f647c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a1df775_a5a5317c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1087625
+      },
+      "writtenOn": "2024-01-05T08:05:47Z",
+      "side": 1,
+      "message": "This CL only implemented for vaddps. We also need the same optimisation for other operations.\n\nThis page shows all the operations that requires the optimisation:\n\nhttps://android-build.corp.google.com/test_investigate/?blocking\u003dblocking\u0026invocationId\u003dI31200010232768186\u0026status\u003dnone\u0026testResultId\u003dTR22729115254867262",
+      "revId": "b72ffe5b8a24da47a3a28f7c9901ddf2bd1f647c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
