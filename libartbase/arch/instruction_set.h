@@ -56,7 +56,12 @@ static constexpr InstructionSet kRuntimeISA = InstructionSet::kNone;
 
 // The ISA that ART will generate quick code for, i.e: that java code will be compiled to. This ISA
 // will be used for the quick context, quick stack frame and quick ABI.
+#ifdef ART_USE_SIMULATOR
+static constexpr InstructionSet kSimulatedISA = InstructionSet::kArm64;
+static constexpr InstructionSet kRuntimeQuickCodeISA = kSimulatedISA;
+#else
 static constexpr InstructionSet kRuntimeQuickCodeISA = kRuntimeISA;
+#endif
 
 // Architecture-specific pointer sizes
 static constexpr PointerSize kArmPointerSize = PointerSize::k32;
