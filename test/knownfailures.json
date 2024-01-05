@@ -1627,5 +1627,10 @@
         "env_vars": {"ART_USE_SIMULATOR": "true"},
         "description": ["The simulator requires a temporary file to be opened when creating a new",
                         "simulator/thread."]
+    },
+    {
+        "tests": ["137-cfi"],
+        "env_vars": {"ART_USE_SIMULATOR": "true"},
+        "description": ["Simulator does not currently support cfi relocations."]
     }
 ]
