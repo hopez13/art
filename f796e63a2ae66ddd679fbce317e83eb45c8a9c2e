@@ -1,0 +1,349 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c31f13af_8191183b",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 25
+      },
+      "lineNbr": 1516,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-05T08:56:49Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 1516,
+        "startChar": 2,
+        "endLine": 1516,
+        "endChar": 28
+      },
+      "revId": "f796e63a2ae66ddd679fbce317e83eb45c8a9c2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "55501cb5_4e47198c",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 25
+      },
+      "lineNbr": 5938,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-05T08:56:49Z",
+      "side": 1,
+      "message": "I would prefer all this code to be inside the `CheckGcCard()` to avoid repeating it for each architecture. (Also simplifies the codegen below.)",
+      "range": {
+        "startLine": 5935,
+        "startChar": 6,
+        "endLine": 5938,
+        "endChar": 68
+      },
+      "revId": "f796e63a2ae66ddd679fbce317e83eb45c8a9c2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4841217_ab635efc",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 25
+      },
+      "lineNbr": 7321,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-05T08:56:49Z",
+      "side": 1,
+      "message": "Style: odd spaces, should be `/*is_far_target\u003d*/ false`. (Same below.)",
+      "range": {
+        "startLine": 7321,
+        "startChar": 44,
+        "endLine": 7321,
+        "endChar": 68
+      },
+      "revId": "f796e63a2ae66ddd679fbce317e83eb45c8a9c2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5155d677_2ab3b374",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 25
+      },
+      "lineNbr": 2436,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-05T08:56:49Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 2436,
+        "startChar": 2,
+        "endLine": 2436,
+        "endChar": 20
+      },
+      "revId": "f796e63a2ae66ddd679fbce317e83eb45c8a9c2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c53818b2_d904bf53",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 25
+      },
+      "lineNbr": 6695,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-05T08:56:49Z",
+      "side": 1,
+      "message": "\"Inline\" the only use. (You\u0027ve done that in other places.)",
+      "range": {
+        "startLine": 6695,
+        "startChar": 17,
+        "endLine": 6695,
+        "endChar": 25
+      },
+      "revId": "f796e63a2ae66ddd679fbce317e83eb45c8a9c2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "15dbb5fa_a33d5e1c",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 25
+      },
+      "lineNbr": 6253,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-05T08:56:49Z",
+      "side": 1,
+      "message": "Style: Fits on a single line.",
+      "range": {
+        "startLine": 6252,
+        "startChar": 2,
+        "endLine": 6253,
+        "endChar": 14
+      },
+      "revId": "f796e63a2ae66ddd679fbce317e83eb45c8a9c2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5c9d20c_106736b0",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 25
+      },
+      "lineNbr": 1387,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-05T08:56:49Z",
+      "side": 1,
+      "message": "This looks more like an implementation detail check instead of graph consistency check, so I would prefer to remove it, especially as it looks rather costly.\n\nWe could pass `is_cast` (this is a bad name) and `get_write_barrier_kind` as template arguments to ensure we do not incur allocation/deallocation overhead for `std::function`but I would still expect this to slow down debug builds considerably.",
+      "range": {
+        "startLine": 1387,
+        "startChar": 2,
+        "endLine": 1387,
+        "endChar": 89
+      },
+      "revId": "f796e63a2ae66ddd679fbce317e83eb45c8a9c2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a8d362c0_983c63ee",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 25
+      },
+      "lineNbr": 1399,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-05T08:56:49Z",
+      "side": 1,
+      "message": "This slow piece of code (and the check below) could be avoided if we added a `HBackwardInstructionIterator` constructor that takes an `HInstruction*`.",
+      "range": {
+        "startLine": 1392,
+        "startChar": 2,
+        "endLine": 1399,
+        "endChar": 3
+      },
+      "revId": "f796e63a2ae66ddd679fbce317e83eb45c8a9c2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9afae413_16908fce",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 25
+      },
+      "lineNbr": 4055,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-05T08:56:49Z",
+      "side": 1,
+      "message": "I\u0027d prefer to keep the space in `/*value\u003d*/ RegisterFrom(arg)`.",
+      "range": {
+        "startLine": 4055,
+        "startChar": 56,
+        "endLine": 4055,
+        "endChar": 57
+      },
+      "revId": "f796e63a2ae66ddd679fbce317e83eb45c8a9c2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c3c9bea7_6adb48f4",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 25
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-05T08:56:49Z",
+      "side": 1,
+      "message": "Do not add this if not necessary for this CL.",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 33
+      },
+      "revId": "f796e63a2ae66ddd679fbce317e83eb45c8a9c2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e20e245_27cd08f6",
+        "filename": "test/2271-checker-codegen-honor-write-barrier-kind/src/Main.java",
+        "patchSetId": 25
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-05T08:56:49Z",
+      "side": 1,
+      "message": "would",
+      "range": {
+        "startLine": 37,
+        "startChar": 74,
+        "endLine": 37,
+        "endChar": 78
+      },
+      "revId": "f796e63a2ae66ddd679fbce317e83eb45c8a9c2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94dc7783_7da178d3",
+        "filename": "test/2271-checker-codegen-honor-write-barrier-kind/src/Main.java",
+        "patchSetId": 25
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-05T08:56:49Z",
+      "side": 1,
+      "message": "Rephrase with \"dirty card\"? Something like \"skip marking the card dirty\"?",
+      "range": {
+        "startLine": 39,
+        "startChar": 74,
+        "endLine": 40,
+        "endChar": 16
+      },
+      "revId": "f796e63a2ae66ddd679fbce317e83eb45c8a9c2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "051c74db_a209cb6a",
+        "filename": "test/2271-checker-codegen-honor-write-barrier-kind/src/Main.java",
+        "patchSetId": 25
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-05T08:56:49Z",
+      "side": 1,
+      "message": "would",
+      "range": {
+        "startLine": 82,
+        "startChar": 77,
+        "endLine": 82,
+        "endChar": 81
+      },
+      "revId": "f796e63a2ae66ddd679fbce317e83eb45c8a9c2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "62327a82_ac5b626c",
+        "filename": "test/2271-checker-codegen-honor-write-barrier-kind/src/Main.java",
+        "patchSetId": 25
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-05T08:56:49Z",
+      "side": 1,
+      "message": "\"marking the card dirty with a null check on `o` for `arr[0] \u003d o`\"",
+      "range": {
+        "startLine": 84,
+        "startChar": 27,
+        "endLine": 84,
+        "endChar": 56
+      },
+      "revId": "f796e63a2ae66ddd679fbce317e83eb45c8a9c2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d7bd042_a6753cce",
+        "filename": "test/utils/regen-test-files",
+        "patchSetId": 25
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-05T08:56:49Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 218,
+        "startChar": 33,
+        "endLine": 220,
+        "endChar": 42
+      },
+      "revId": "f796e63a2ae66ddd679fbce317e83eb45c8a9c2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

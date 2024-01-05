@@ -233,6 +233,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "247d0f49_0f94b8f3",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 7055,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-05T08:56:49Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "cfa87898_13c26154",
+      "range": {
+        "startLine": 7055,
+        "startChar": 18,
+        "endLine": 7055,
+        "endChar": 28
+      },
+      "revId": "a40f3ea098f9aeb2c32ba4a1235b538af2a5d89d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d4502af8_005d8282",
@@ -364,6 +388,30 @@
       "side": 1,
       "message": "It would fix *this* bug without the `needs_write_barrier` codegen changes but other bugs might pop-up in the future. Fixing codegen is future-proofing too.\n\nThis is a possibility of improvement but I didn\u0027t want to do it in this CL to make the changes as little as possible.\n\nSince it is an optimization and not a correctness change I opted not to do it in this CL. I can do this change if you prefer.",
       "parentUuid": "9985f400_0d852efa",
+      "range": {
+        "startLine": 45,
+        "startChar": 8,
+        "endLine": 45,
+        "endChar": 31
+      },
+      "revId": "a40f3ea098f9aeb2c32ba4a1235b538af2a5d89d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61941aab_beef45c5",
+        "filename": "compiler/optimizing/write_barrier_elimination.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-05T08:56:49Z",
+      "side": 1,
+      "message": "Unfortunately, not doing it here adds complexity to the codegen. The current code in `GraphChecker` (which I\u0027d prefer to remove) also has to carefully follow what we do here (which adds to my argument that it\u0027s checking implementation details instead of graph consistency).",
+      "parentUuid": "473532be_210d8c55",
       "range": {
         "startLine": 45,
         "startChar": 8,
