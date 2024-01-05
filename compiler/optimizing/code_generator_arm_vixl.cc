@@ -2300,6 +2300,7 @@ void CodeGeneratorARMVIXL::MaybeIncrementHotness(bool is_frame_entry) {
   }
 
   if (GetGraph()->IsCompilingBaseline() &&
+      GetGraph()->IsUsefulOptimizing() &&
       is_frame_entry &&
       !Runtime::Current()->IsAotCompiler()) {
     // Note the slow path doesn't save SIMD registers, so if we were to

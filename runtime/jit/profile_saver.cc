@@ -868,7 +868,7 @@ bool ProfileSaver::ProcessProfilingInfo(
     std::vector<ProfileMethodInfo> profile_methods;
     {
       ScopedObjectAccess soa(Thread::Current());
-      jit_code_cache_->GetProfiledMethods(
+      jit_code_cache_->GetCompiledMethods(
           locations, profile_methods, options_.GetInlineCacheThreshold());
       total_number_of_code_cache_queries_++;
     }
