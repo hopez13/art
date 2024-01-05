@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1a7ce49_d394fe95",
+        "filename": "libartservice/service/java/com/android/server/art/ArtManagerLocal.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-01-05T16:43:36Z",
+      "side": 1,
+      "message": "Please mention that this can return secondary dexes that aren\u0027t readable, since it\u0027s intentional.",
+      "revId": "ca38b9cb47a68667f913c46535d0f2ad826623b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e648be60_1e0008ff",
+        "filename": "libartservice/service/java/com/android/server/art/ArtManagerLocal.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-01-05T16:43:36Z",
+      "side": 1,
+      "message": "It\u0027s worth a comment to motivate why this doesn\u0027t use `getFilteredDetailedSecondaryDexInfo`, just to confirm it\u0027s intentional.",
+      "range": {
+        "startLine": 305,
+        "startChar": 67,
+        "endLine": 305,
+        "endChar": 97
+      },
+      "revId": "ca38b9cb47a68667f913c46535d0f2ad826623b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
