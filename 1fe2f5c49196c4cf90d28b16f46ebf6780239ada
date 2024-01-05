@@ -93,6 +93,30 @@
       },
       "revId": "1fe2f5c49196c4cf90d28b16f46ebf6780239ada",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "47ed9d46_059d0f18",
+        "filename": "libartservice/service/java/com/android/server/art/Debouncer.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-01-05T10:47:12Z",
+      "side": 1,
+      "message": "I\u0027d find the opposite unintuitive, actually; with `mExecutor` in the lambda I\u0027d expect it to use the value it has when the lambda is run. It\u0027s the same as for named methods - both take an implicit `this` as argument. (I\u0027m fairly sure the language spec states this somewhere, but it\u0027s quite dense so I\u0027m not going to look.)",
+      "parentUuid": "49de12aa_8d2be6d2",
+      "range": {
+        "startLine": 71,
+        "startChar": 0,
+        "endLine": 71,
+        "endChar": 87
+      },
+      "revId": "1fe2f5c49196c4cf90d28b16f46ebf6780239ada",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
