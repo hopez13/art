@@ -1580,5 +1580,18 @@
       "description": ["Test relies on profiling done by baseline compiled code. Meanwhile, it",
                       "can't use --baseline because it has a test case checking the behavior when",
                       "a method is optimized compiled."]
+    },
+    {
+        "tests": ["004-StackWalk",
+                  "141-class-unload",
+                  "178-app-image-native-method",
+                  "597-deopt-busy-loop",
+                  "629-vdex-speed",
+                  "638-checker-inline-cache-intrinsic",
+                  "661-oat-writer-layout",
+                  "692-vdex-secondary-loader",
+                  "850-checker-branches"],
+        "env_vars": {"ART_USE_RESTRICTED_MODE": "true"},
+        "description": ["Test failures when using the Restricted mode for simulator."]
     }
 ]
