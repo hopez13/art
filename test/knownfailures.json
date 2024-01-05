@@ -1582,30 +1582,19 @@
                       "a method is optimized compiled."]
     },
     {
-        "tests": ["004-StackWalk",
-                  "141-class-unload",
+        "tests": ["141-class-unload",
                   "178-app-image-native-method",
-                  "597-deopt-busy-loop",
-                  "629-vdex-speed",
-                  "638-checker-inline-cache-intrinsic",
-                  "661-oat-writer-layout",
                   "692-vdex-secondary-loader",
                   "850-checker-branches"],
         "env_vars": {"ART_USE_RESTRICTED_MODE": "true"},
-        "description": ["Test failures when using the Restricted mode for simulator."]
+        "description": ["Test failures when using the Restricted mode (for simulator)."]
     },
     {
-        "tests": ["044-proxy",
-                  "046-reflect",
-                  "064-field-access",
-                  "178-app-image-native-method",
-                  "693-vdex-inmem-loader-evict",
-                  "800-smali",
-                  "1914-get-local-instance",
-                  "1939-proxy-frames",
-                  "1945-proxy-method-arguments"],
-        "env_vars": {"ART_USE_SIMULATOR": "true"},
-        "description": ["TODO: Investigate reasons for these failures of the ART simulator."]
+        "tests": ["597-deopt-busy-loop",
+                  "638-checker-inline-cache-intrinsic"],
+        "env_vars": {"ART_USE_RESTRICTED_MODE": "true"},
+        "description": ["Simulator doesn't yet support JIT compilation and those test",
+                        "force JIT compilation even in --optimizing mode."]
     },
     {
         "tests": ["107-int-math2",
@@ -1613,14 +1602,6 @@
                   "004-SignalTest"],
         "env_vars": {"ART_USE_SIMULATOR": "true"},
         "description": ["TODO: Implement implicit stack overflow checks for the ART simulator."]
-    },
-    {
-        "tests": ["2029-contended-monitors",
-                  "2042-reference-processing",
-                  "2043-reference-pauses"],
-        "env_vars": {"ART_USE_SIMULATOR": "true"},
-        "description": ["Intermittent timeout failures on the ART simulator due to the overheads",
-                        "in simulation."]
     },
     {
         "tests": ["151-OpenFileLimit"],
