@@ -53,6 +53,17 @@ class ShadowFrame;
 class Thread;
 enum class DeoptimizationMethodType;
 
+// Enum to list possible return status options for entrypoints that may require an exception or
+// deoptimization to be dealt with when the actual value is checked in a .S stub on return.
+enum EntrypointReturnStatus {
+  kNormal = 0,
+  kExceptionOrDeoptimize = 1,
+};
+
+// Assert that kNormal is 0. This is explicitly used in quick entrypoints assembly so must stay
+// aligned.
+static_assert(EntrypointReturnStatus::kNormal == 0);
+
 namespace instrumentation {
 
 
@@ -533,11 +544,14 @@ class Instrumentation {
                                 DeoptimizationMethodType deopt_type,
                                 bool is_ref,
                                 const JValue& result) REQUIRES_SHARED(Locks::mutator_lock_);
-  void DeoptimizeIfNeeded(Thread* self,
-                          ArtMethod** sp,
-                          DeoptimizationMethodType type,
-                          JValue result,
-                          bool is_ref) REQUIRES_SHARED(Locks::mutator_lock_);
+
+  // Deoptimize upon pending exception or if the caller requires it. Returns true if a
+  // deoptimization is needed and taken.
+  EntrypointReturnStatus DeoptimizeIfNeeded(Thread* self,
+                                            ArtMethod** sp,
+                                            DeoptimizationMethodType type,
+                                            JValue result,
+                                            bool is_ref) REQUIRES_SHARED(Locks::mutator_lock_);
   // This returns if the caller of runtime method requires a deoptimization. This checks both if the
   // method requires a deopt or if this particular frame needs a deopt because of a class
   // redefinition.
