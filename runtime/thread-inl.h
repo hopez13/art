@@ -466,14 +466,14 @@ inline ShadowFrame* Thread::PopShadowFrame() {
 
 inline uint8_t* Thread::GetStackEndForInterpreter(bool implicit_overflow_check) const {
   uint8_t* end = tlsPtr_.stack_end + (implicit_overflow_check
-      ? GetStackOverflowReservedBytes(kRuntimeISA)
+      ? GetStackOverflowReservedBytes(kRuntimeQuickCodeISA)
           : 0);
   if (kIsDebugBuild) {
     // In a debuggable build, but especially under ASAN, the access-checks interpreter has a
     // potentially humongous stack size. We don't want to take too much of the stack regularly,
     // so do not increase the regular reserved size (for compiled code etc) and only report the
     // virtually smaller stack to the interpreter here.
-    end += GetStackOverflowReservedBytes(kRuntimeISA);
+    end += GetStackOverflowReservedBytes(kRuntimeQuickCodeISA);
   }
   return end;
 }
@@ -481,7 +481,7 @@ inline uint8_t* Thread::GetStackEndForInterpreter(bool implicit_overflow_check) 
 inline void Thread::ResetDefaultStackEnd() {
   // Our stacks grow down, so we want stack_end_ to be near there, but reserving enough room
   // to throw a StackOverflowError.
-  tlsPtr_.stack_end = tlsPtr_.stack_begin + GetStackOverflowReservedBytes(kRuntimeISA);
+  tlsPtr_.stack_end = tlsPtr_.stack_begin + GetStackOverflowReservedBytes(kRuntimeQuickCodeISA);
 }
 
 }  // namespace art

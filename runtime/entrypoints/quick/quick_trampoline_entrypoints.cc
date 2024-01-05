@@ -190,10 +190,11 @@ class QuickArgumentVisitorBase {
       if (UNLIKELY((type == Primitive::kPrimDouble) || (type == Primitive::kPrimFloat))) {
         if (type == Primitive::kPrimDouble && kQuickDoubleRegAlignedFloatBackFilled) {
           if (fpr_double_index_ + 2 < kNumQuickFprArgs + 1) {
-            return fpr_args_ + (fpr_double_index_ * GetBytesPerFprSpillLocation(kRuntimeISA));
+            return fpr_args_ +
+                   (fpr_double_index_ * GetBytesPerFprSpillLocation(kRuntimeQuickCodeISA));
           }
         } else if (fpr_index_ + 1 < kNumQuickFprArgs + 1) {
-          return fpr_args_ + (fpr_index_ * GetBytesPerFprSpillLocation(kRuntimeISA));
+          return fpr_args_ + (fpr_index_ * GetBytesPerFprSpillLocation(kRuntimeQuickCodeISA));
         }
         return stack_args_ + (stack_index_ * kBytesStackArgLocation);
       }
@@ -205,8 +206,8 @@ class QuickArgumentVisitorBase {
   }
 
   bool IsSplitLongOrDouble() const {
-    if ((GetBytesPerGprSpillLocation(kRuntimeISA) == 4) ||
-        (GetBytesPerFprSpillLocation(kRuntimeISA) == 4)) {
+    if ((GetBytesPerGprSpillLocation(kRuntimeQuickCodeISA) == 4) ||
+        (GetBytesPerFprSpillLocation(kRuntimeQuickCodeISA) == 4)) {
       return is_split_long_or_double_;
     } else {
       return false;  // An optimization for when GPR and FPRs are 64bit.
@@ -312,7 +313,7 @@ class QuickArgumentVisitorBase {
               // even-numbered registers by skipping R1 and using R2 instead.
               IncGprIndex();
             }
-            is_split_long_or_double_ = (GetBytesPerGprSpillLocation(kRuntimeISA) == 4) &&
+            is_split_long_or_double_ = (GetBytesPerGprSpillLocation(kRuntimeQuickCodeISA) == 4) &&
                 ((gpr_index_ + 1) == kNumQuickGprArgs);
             if (!kSplitPairAcrossRegisterAndStack && is_split_long_or_double_) {
               // We don't want to split this. Pass over this register.
@@ -328,14 +329,14 @@ class QuickArgumentVisitorBase {
             }
             if (gpr_index_ < kNumQuickGprArgs) {
               IncGprIndex();
-              if (GetBytesPerGprSpillLocation(kRuntimeISA) == 4) {
+              if (GetBytesPerGprSpillLocation(kRuntimeQuickCodeISA) == 4) {
                 if (gpr_index_ < kNumQuickGprArgs) {
                   IncGprIndex();
                 }
               }
             }
           } else {
-            is_split_long_or_double_ = (GetBytesPerFprSpillLocation(kRuntimeISA) == 4) &&
+            is_split_long_or_double_ = (GetBytesPerFprSpillLocation(kRuntimeQuickCodeISA) == 4) &&
                 ((fpr_index_ + 1) == kNumQuickFprArgs) && !kQuickDoubleRegAlignedFloatBackFilled;
             Visit();
             if (kBytesStackArgLocation == 4) {
@@ -354,7 +355,7 @@ class QuickArgumentVisitorBase {
               }
             } else if (fpr_index_ + 1 < kNumQuickFprArgs + 1) {
               IncFprIndex();
-              if (GetBytesPerFprSpillLocation(kRuntimeISA) == 4) {
+              if (GetBytesPerFprSpillLocation(kRuntimeQuickCodeISA) == 4) {
                 if (fpr_index_ + 1 < kNumQuickFprArgs + 1) {
                   IncFprIndex();
                 }
@@ -422,7 +423,7 @@ class QuickArgumentFrameInfoARM : public QuickArgumentVisitorBase<QuickArgumentF
   static constexpr size_t kNumQuickFprArgs = 16;
   static constexpr bool kGprFprLockstep = false;
   static size_t GprIndexToGprOffsetImpl(uint32_t gpr_index) {
-    return gpr_index * GetBytesPerGprSpillLocation(kRuntimeISA);
+    return gpr_index * GetBytesPerGprSpillLocation(kRuntimeQuickCodeISA);
   }
 
   QuickArgumentFrameInfoARM(ArtMethod** sp,
@@ -463,7 +464,7 @@ class QuickArgumentFrameInfoARM64 : public QuickArgumentVisitorBase<QuickArgumen
   static constexpr size_t kNumQuickFprArgs = 8;  // 8 arguments passed in FPRs.
   static constexpr bool kGprFprLockstep = false;
   static size_t GprIndexToGprOffsetImpl(uint32_t gpr_index) {
-    return gpr_index * GetBytesPerGprSpillLocation(kRuntimeISA);
+    return gpr_index * GetBytesPerGprSpillLocation(kRuntimeQuickCodeISA);
   }
 
   QuickArgumentFrameInfoARM64(ArtMethod** sp,
@@ -502,7 +503,7 @@ class QuickArgumentFrameInfoX86 : public QuickArgumentVisitorBase<QuickArgumentF
   static constexpr size_t kNumQuickFprArgs = 4;  // 4 arguments passed in FPRs.
   static constexpr bool kGprFprLockstep = false;
   static size_t GprIndexToGprOffsetImpl(uint32_t gpr_index) {
-    return gpr_index * GetBytesPerGprSpillLocation(kRuntimeISA);
+    return gpr_index * GetBytesPerGprSpillLocation(kRuntimeQuickCodeISA);
   }
 
   QuickArgumentFrameInfoX86(ArtMethod** sp,
@@ -552,11 +553,11 @@ class QuickArgumentFrameInfoX86_64 :
   static constexpr bool kGprFprLockstep = false;
   static size_t GprIndexToGprOffsetImpl(uint32_t gpr_index) {
     switch (gpr_index) {
-      case 0: return (4 * GetBytesPerGprSpillLocation(kRuntimeISA));
-      case 1: return (1 * GetBytesPerGprSpillLocation(kRuntimeISA));
-      case 2: return (0 * GetBytesPerGprSpillLocation(kRuntimeISA));
-      case 3: return (5 * GetBytesPerGprSpillLocation(kRuntimeISA));
-      case 4: return (6 * GetBytesPerGprSpillLocation(kRuntimeISA));
+      case 0: return (4 * GetBytesPerGprSpillLocation(kRuntimeQuickCodeISA));
+      case 1: return (1 * GetBytesPerGprSpillLocation(kRuntimeQuickCodeISA));
+      case 2: return (0 * GetBytesPerGprSpillLocation(kRuntimeQuickCodeISA));
+      case 3: return (5 * GetBytesPerGprSpillLocation(kRuntimeQuickCodeISA));
+      case 4: return (6 * GetBytesPerGprSpillLocation(kRuntimeQuickCodeISA));
       default:
       LOG(FATAL) << "Unexpected GPR index: " << gpr_index;
       UNREACHABLE();
@@ -586,7 +587,7 @@ struct QAVSelector<InstructionSet::kX86_64> { using type = QuickArgumentFrameInf
 
 }  // namespace detail
 
-using QuickArgumentVisitor = detail::QAVSelector<kRuntimeISA>::type;
+using QuickArgumentVisitor = detail::QAVSelector<kRuntimeQuickCodeISA>::type;
 
 // Returns the 'this' object of a proxy method. This function is only used by StackVisitor. It
 // allows to use the QuickArgumentVisitor constants without moving all the code in its own module.

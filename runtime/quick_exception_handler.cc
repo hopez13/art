@@ -712,7 +712,8 @@ void QuickExceptionHandler::DeoptimizePartialFragmentFixup(uintptr_t return_pc) 
   }
 
   // Architecture-dependent work. This is to get the LR right for x86 and x86-64.
-  if (kRuntimeISA == InstructionSet::kX86 || kRuntimeISA == InstructionSet::kX86_64) {
+  if (kRuntimeQuickCodeISA == InstructionSet::kX86 ||
+      kRuntimeQuickCodeISA == InstructionSet::kX86_64) {
     // On x86, the return address is on the stack, so just reuse it. Otherwise we would have to
     // change how longjump works.
     handler_quick_frame_ = reinterpret_cast<ArtMethod**>(

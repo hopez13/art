@@ -137,7 +137,8 @@ using android::base::StringPrintf;
 bool Thread::is_started_ = false;
 pthread_key_t Thread::pthread_key_self_;
 ConditionVariable* Thread::resume_cond_ = nullptr;
-const size_t Thread::kStackOverflowImplicitCheckSize = GetStackOverflowReservedBytes(kRuntimeISA);
+const size_t Thread::kStackOverflowImplicitCheckSize =
+    GetStackOverflowReservedBytes(kRuntimeQuickCodeISA);
 bool (*Thread::is_sensitive_thread_hook_)() = nullptr;
 Thread* Thread::jit_sensitive_thread_ = nullptr;
 #ifndef __BIONIC__
@@ -720,12 +721,12 @@ static size_t FixStackSize(size_t stack_size) {
     // If we are going to use implicit stack checks, allocate space for the protected
     // region at the bottom of the stack.
     stack_size += Thread::kStackOverflowImplicitCheckSize +
-        GetStackOverflowReservedBytes(kRuntimeISA);
+        GetStackOverflowReservedBytes(kRuntimeQuickCodeISA);
   } else {
     // It's likely that callers are trying to ensure they have at least a certain amount of
     // stack space, so we should add our reserved space on top of what they requested, rather
     // than implicitly take it away from them.
-    stack_size += GetStackOverflowReservedBytes(kRuntimeISA);
+    stack_size += GetStackOverflowReservedBytes(kRuntimeQuickCodeISA);
   }
 
   // Some systems require the stack size to be a multiple of the system page size, so round up.
@@ -1343,7 +1344,8 @@ bool Thread::InitStackHwm() {
   // 8K) + the protected region size (4K) + another page (4K).  Typically this will
   // be 8+4+4 = 16K.  The thread won't be able to do much with this stack even the GC takes
   // between 8K and 12K.
-  uint32_t min_stack = GetStackOverflowReservedBytes(kRuntimeISA) + kStackOverflowProtectedSize
+  uint32_t min_stack = GetStackOverflowReservedBytes(
+      kRuntimeQuickCodeISA) + kStackOverflowProtectedSize
     + 4 * KB;
   if (read_stack_size <= min_stack) {
     // Note, as we know the stack is small, avoid operations that could use a lot of stack.
@@ -4562,7 +4564,7 @@ void Thread::SetStackEndForStackOverflow() {
   if (tlsPtr_.stack_end == tlsPtr_.stack_begin) {
     // However, we seem to have already extended to use the full stack.
     LOG(ERROR) << "Need to increase kStackOverflowReservedBytes (currently "
-               << GetStackOverflowReservedBytes(kRuntimeISA) << ")?";
+               << GetStackOverflowReservedBytes(kRuntimeQuickCodeISA) << ")?";
     DumpStack(LOG_STREAM(ERROR));
     LOG(FATAL) << "Recursive stack overflow.";
   }
