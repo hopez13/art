@@ -218,9 +218,16 @@
   mov x1, x0                        // pass the result
   mov x0, xSELF                     // Thread::Current
   bl artDeoptimizeIfNeeded
+
+  cbnz w0, 3f
+
   RESTORE_SAVE_EVERYTHING_FRAME
   REFRESH_MARKING_REGISTER
   ret
+
+3:
+  // Deoptimize.
+  PREPARE_AND_DO_LONG_JUMP
 .endm
 
 .macro DEOPT_OR_RESTORE_SAVE_EVERYTHING_FRAME_AND_RETURN_X0 temp, is_ref
@@ -237,11 +244,18 @@
   mov x1, x0                                     // pass the result
   mov x0, xSELF                                  // Thread::Current
   bl artDeoptimizeIfNeeded
+
+  cbnz w0, 3f
+
   CFI_REMEMBER_STATE
   RESTORE_SAVE_EVERYTHING_FRAME
   REFRESH_MARKING_REGISTER
   ret
   CFI_RESTORE_STATE_AND_DEF_CFA sp, FRAME_SIZE_SAVE_EVERYTHING
+
+3:
+  // Deoptimize.
+  PREPARE_AND_DO_LONG_JUMP
 .endm
 
 
@@ -258,7 +272,7 @@ ENTRY \c_name
     SETUP_SAVE_ALL_CALLEE_SAVES_FRAME // save all registers as basis for long jump context
     mov x0, xSELF                     // pass Thread::Current
     bl  \cxx_name                     // \cxx_name(Thread*)
-    brk 0
+    PREPARE_AND_DO_LONG_JUMP
 END \c_name
 .endm
 
@@ -268,7 +282,7 @@ ENTRY \c_name
     SETUP_SAVE_EVERYTHING_FRAME       // save all registers as basis for long jump context
     mov x0, xSELF                     // pass Thread::Current
     bl  \cxx_name                     // \cxx_name(Thread*)
-    brk 0
+    PREPARE_AND_DO_LONG_JUMP
 END \c_name
 .endm
 
@@ -278,7 +292,7 @@ ENTRY \c_name
     SETUP_SAVE_ALL_CALLEE_SAVES_FRAME // save all registers as basis for long jump context.
     mov x1, xSELF                     // pass Thread::Current.
     bl  \cxx_name                     // \cxx_name(arg, Thread*).
-    brk 0
+    PREPARE_AND_DO_LONG_JUMP
 END \c_name
 .endm
 
@@ -288,7 +302,7 @@ ENTRY \c_name
     SETUP_SAVE_EVERYTHING_FRAME       // save all registers as basis for long jump context
     mov x2, xSELF                     // pass Thread::Current
     bl  \cxx_name                     // \cxx_name(arg1, arg2, Thread*)
-    brk 0
+    PREPARE_AND_DO_LONG_JUMP
 END \c_name
 .endm
 
@@ -320,7 +334,7 @@ ENTRY art_quick_throw_null_pointer_exception_from_signal
     mov x0, lr                        // pass the fault address stored in LR by the fault handler.
     mov x1, xSELF                     // pass Thread::Current.
     bl  artThrowNullPointerExceptionFromSignal  // (arg, Thread*).
-    brk 0
+    PREPARE_AND_DO_LONG_JUMP
 END art_quick_throw_null_pointer_exception_from_signal
 
     /*
@@ -922,7 +936,7 @@ ENTRY art_quick_check_instance_of
     SETUP_SAVE_ALL_CALLEE_SAVES_FRAME // save all registers as basis for long jump context
     mov x2, xSELF                     // pass Thread::Current
     bl artThrowClassCastExceptionForObject     // (Object*, Class*, Thread*)
-    brk 0                             // We should not return here...
+    PREPARE_AND_DO_LONG_JUMP                             // We should not return here...
 END art_quick_check_instance_of
 
 // Restore xReg's value from [sp, #offset] if xReg is not the same as xExclude.
@@ -1072,7 +1086,7 @@ ENTRY art_quick_aput_obj
     mov x1, x2                      // Pass value.
     mov x2, xSELF                   // Pass Thread::Current.
     bl artThrowArrayStoreException  // (Object*, Object*, Thread*).
-    brk 0                           // Unreachable.
+    PREPARE_AND_DO_LONG_JUMP
 
 #if defined(USE_READ_BARRIER) && defined(USE_BAKER_READ_BARRIER)
     CFI_RESTORE_STATE_AND_DEF_CFA sp, 0
@@ -1565,10 +1579,18 @@ ENTRY art_quick_test_suspend
     SETUP_SAVE_EVERYTHING_FRAME RUNTIME_SAVE_EVERYTHING_FOR_SUSPEND_CHECK_METHOD_OFFSET
     mov    x0, xSELF
     bl     artTestSuspendFromCode       // (Thread*)
+
+    cbnz w0, .Ltest_suspend_deoptimize
+
+    // Normal return.
     RESTORE_SAVE_EVERYTHING_FRAME
     REFRESH_MARKING_REGISTER
     REFRESH_SUSPEND_CHECK_REGISTER
     ret
+
+.Ltest_suspend_deoptimize:
+    // Deoptimize.
+    PREPARE_AND_DO_LONG_JUMP
 END art_quick_test_suspend
 
     /*
@@ -1580,10 +1602,17 @@ ENTRY art_quick_implicit_suspend
     SETUP_SAVE_EVERYTHING_FRAME RUNTIME_SAVE_EVERYTHING_FOR_SUSPEND_CHECK_METHOD_OFFSET
     mov    x0, xSELF
     bl     artImplicitSuspendFromCode   // (Thread*)
+
+    cbnz w0, .Limplicit_suspend_deopt
+
     RESTORE_SAVE_EVERYTHING_FRAME
     REFRESH_MARKING_REGISTER
     REFRESH_SUSPEND_CHECK_REGISTER
     br     lr  // Do not use RET as we do not enter the entrypoint with "BL".
+
+.Limplicit_suspend_deopt:
+    // Deoptimize.
+    PREPARE_AND_DO_LONG_JUMP
 END art_quick_implicit_suspend
 
      /*
@@ -1873,7 +1902,7 @@ ENTRY art_quick_deoptimize_from_compiled_code
     SETUP_SAVE_EVERYTHING_FRAME
     mov    x1, xSELF                      // Pass thread.
     bl     artDeoptimizeFromCompiledCode  // (DeoptimizationKind, Thread*)
-    brk 0
+    PREPARE_AND_DO_LONG_JUMP
 END art_quick_deoptimize_from_compiled_code
 
 
@@ -2500,9 +2529,16 @@ ENTRY art_quick_method_entry_hook
     mov x2, sp                                // pass SP
     bl  artMethodEntryHook                    // (ArtMethod*, Thread*, SP)
 
+    cbnz w0, .Lentryhook_deopt
+
+    // Normal return.
     RESTORE_SAVE_EVERYTHING_FRAME             // Note: will restore xSELF
     REFRESH_MARKING_REGISTER
     ret
+
+.Lentryhook_deopt:
+    // Deoptimize.
+    PREPARE_AND_DO_LONG_JUMP
 END art_quick_method_entry_hook
 
     .extern artMethodExitHook
@@ -2517,8 +2553,14 @@ ENTRY art_quick_method_exit_hook
     bl  artMethodExitHook                     // (Thread*, ArtMethod**, gpr_res*, fpr_res*,
                                               // frame_size)
 
+    cbnz w0, .Lexithook_deopt_or_exception
+
     // Normal return.
     RESTORE_SAVE_EVERYTHING_FRAME
     REFRESH_MARKING_REGISTER
     ret
+
+.Lexithook_deopt_or_exception:
+    // Deoptimize or exception thrown.
+    PREPARE_AND_DO_LONG_JUMP
 END art_quick_method_exit_hook
