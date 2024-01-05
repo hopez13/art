@@ -810,6 +810,9 @@ void ThrowStackOverflowError(Thread* self) {
 
 // Explicit instantiations to keep this definition separate to the declaration.
 template void ThrowStackOverflowError<StackType::kHardware>(Thread* self);
+#ifdef ART_USE_SIMULATOR
+template void ThrowStackOverflowError<StackType::kSimulated>(Thread* self);
+#endif
 
 // StringIndexOutOfBoundsException
 
