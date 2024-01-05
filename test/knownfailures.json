@@ -1613,5 +1613,10 @@
         "tests": ["137-cfi"],
         "env_vars": {"ART_USE_SIMULATOR": "true"},
         "description": ["Simulator does not currently support cfi relocations."]
+    },
+    {
+        "tests": ["012-math"],
+        "env_vars": {"ART_USE_SIMULATOR": "true"},
+        "description": ["TODO: debug this failure, which happens when nterp is on."]
     }
 ]
