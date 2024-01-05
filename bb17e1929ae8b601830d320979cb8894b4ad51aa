@@ -113,6 +113,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2653efdc_471317f1",
+        "filename": "libartservice/service/java/com/android/server/art/model/ArtManagedFileStats.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-01-05T00:13:03Z",
+      "side": 1,
+      "message": "\u003e The combination of @hide and @SystemApi(...) must be looked at as a whole. It provides a single visibility and is overriden as a whole.\n\nThanks, this is what I haven\u0027t been able to find. I\u0027ll open a ticket about getting it added somewhere discoverable.",
+      "parentUuid": "2b4d5785_e091ef50",
+      "range": {
+        "startLine": 36,
+        "startChar": 3,
+        "endLine": 36,
+        "endChar": 8
+      },
+      "revId": "bb17e1929ae8b601830d320979cb8894b4ad51aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c13505ff_2b7e92e3",
