@@ -237,7 +237,7 @@ bool FaultManager::HandleSigbusFault(int sig, siginfo_t* info, [[maybe_unused]] 
 
 inline void FaultManager::CheckForUnrecognizedImplicitSuspendCheckInBootImage(
     siginfo_t* siginfo, void* context) {
-  CHECK_EQ(kRuntimeISA, InstructionSet::kArm64);
+  CHECK_EQ(kRuntimeQuickCodeISA, InstructionSet::kArm64);
   uintptr_t fault_pc = GetFaultPc(siginfo, context);
   if (fault_pc == 0u || !IsUint<32>(fault_pc) || !IsAligned<4u>(fault_pc)) {
     return;
@@ -296,7 +296,7 @@ bool FaultManager::HandleSigsegvFault(int sig, siginfo_t* info, void* context) {
         return true;
       }
     }
-  } else if (kRuntimeISA == InstructionSet::kArm64) {
+  } else if (kRuntimeQuickCodeISA == InstructionSet::kArm64) {
     CheckForUnrecognizedImplicitSuspendCheckInBootImage(info, context);
   }
 

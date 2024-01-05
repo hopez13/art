@@ -467,7 +467,8 @@ class CodeInfo {
     return stack_maps_.GetInvalidRow();
   }
 
-  StackMap GetStackMapForNativePcOffset(uintptr_t pc, InstructionSet isa = kRuntimeISA) const;
+  StackMap GetStackMapForNativePcOffset(uintptr_t pc,
+                                        InstructionSet isa = kRuntimeQuickCodeISA) const;
 
   // Dump this CodeInfo object on `vios`.
   // `code_offset` is the (absolute) native PC of the compiled method.
