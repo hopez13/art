@@ -117,6 +117,30 @@
       },
       "revId": "04b7fea8a8ca1583552a23d972b0c1e420ac8ac6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "74921014_4891bf42",
+        "filename": "runtime/arch/memcmp16.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2024-01-05T14:41:23Z",
+      "side": 1,
+      "message": "Fixed in aosp/2897703",
+      "parentUuid": "12b55ce4_9cf9d7af",
+      "range": {
+        "startLine": 52,
+        "startChar": 19,
+        "endLine": 52,
+        "endChar": 42
+      },
+      "revId": "04b7fea8a8ca1583552a23d972b0c1e420ac8ac6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
