@@ -46,6 +46,30 @@
       },
       "revId": "1a6b5b318aa69903a74dd10312a77bd8ee7c4cf6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "46e92ec1_deb7724e",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 914,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-05T20:22:29Z",
+      "side": 1,
+      "message": "\u003e Why are you highlighting WriteBarrierElimination running in baseline? \n\nJust wanted to be sure as this changes my re-enabling of WBE CL. It was relying on the fact that baseline compiles did not run WBE.",
+      "parentUuid": "a5bb3507_5013b8d3",
+      "range": {
+        "startLine": 907,
+        "startChar": 0,
+        "endLine": 914,
+        "endChar": 3
+      },
+      "revId": "1a6b5b318aa69903a74dd10312a77bd8ee7c4cf6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
