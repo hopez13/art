@@ -87,8 +87,8 @@ public class ArtFileManager {
         }
         if (forSecondaryDex) {
             List<? extends SecondaryDexInfo> dexInfos = excludeNotFound
-                    ? mInjector.getDexUseManager().getFilteredDetailedSecondaryDexInfo(
-                            pkgState.getPackageName())
+                    ? mInjector.getDexUseManager().getCheckedSecondaryDexInfo(
+                            pkgState.getPackageName(), true /* excludeNotFound */)
                     : mInjector.getDexUseManager().getSecondaryDexInfo(pkgState.getPackageName());
             for (SecondaryDexInfo dexInfo : dexInfos) {
                 for (Abi abi : Utils.getAllAbisForNames(dexInfo.abiNames(), pkgState)) {
@@ -191,8 +191,8 @@ public class ArtFileManager {
         }
         if (alsoForSecondaryDex) {
             List<? extends SecondaryDexInfo> dexInfos = excludeDexNotFound
-                    ? mInjector.getDexUseManager().getFilteredDetailedSecondaryDexInfo(
-                            pkgState.getPackageName())
+                    ? mInjector.getDexUseManager().getCheckedSecondaryDexInfo(
+                            pkgState.getPackageName(), true /* excludeNotFound */)
                     : mInjector.getDexUseManager().getSecondaryDexInfo(pkgState.getPackageName());
             for (SecondaryDexInfo dexInfo : dexInfos) {
                 refProfiles.add(AidlUtils.buildProfilePathForSecondaryRef(dexInfo.dexPath()));
