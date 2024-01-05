@@ -42,6 +42,30 @@
 // Implicit suspend check register.
 #define xSUSPEND x21
 
+.macro LOAD_PC_REL_ADDRESS reg, symbol
+    adr \reg, \symbol
+.endm
+
+.macro CALL_SYMBOL symbol
+    bl \symbol
+.endm
+
+.macro BRANCH_SYMBOL symbol
+    b \symbol
+.endm
+
+.macro BRANCH_SYMBOL_CBZ reg, symbol
+    cbz \reg, \symbol
+.endm
+
+.macro BRANCH_SYMBOL_NE symbol
+    b.ne \symbol
+.endm
+
+.macro BRANCH_SYMBOL_EQ symbol
+    b.eq \symbol
+.endm
+
 .macro CFI_EXPRESSION_BREG n, b, offset
     .if (-0x40 <= (\offset)) && ((\offset) < 0x40)
         CFI_EXPRESSION_BREG_1(\n, \b, \offset)
@@ -410,12 +434,12 @@
     mov x1, sp
     add x2, sp, #ARM64_LONG_JUMP_GPRS_SIZE
 
-    bl artContextCopyForLongJump  // Context* context, uintptr_t* gprs, uintptr_t* fprs
+    CALL_SYMBOL artContextCopyForLongJump  // Context* context, uintptr_t* gprs, uintptr_t* fprs
 
     mov x0, SP
     add x1, sp, #ARM64_LONG_JUMP_GPRS_SIZE
 
-    bl art_quick_do_long_jump
+    CALL_SYMBOL art_quick_do_long_jump
     brk 0  // Unreached
 .endm
 
@@ -427,7 +451,7 @@
     mov x0, xSELF
 
     // Point of no return.
-    bl artDeliverPendingExceptionFromCode  // artDeliverPendingExceptionFromCode(Thread*)
+    CALL_SYMBOL artDeliverPendingExceptionFromCode  // artDeliverPendingExceptionFromCode(Thread*)
     PREPARE_AND_DO_LONG_JUMP
 .endm
 
@@ -457,7 +481,7 @@
     // Use scratch registers x8-x11 as temporaries.
     ldr    w9, [xSELF, #THREAD_ID_OFFSET]
     .if \can_be_null
-        cbz    \obj, \slow_lock
+        BRANCH_SYMBOL_CBZ    \obj, \slow_lock
     .endif
                                       // Exclusive load/store has no immediate anymore.
     add    x8, \obj, #MIRROR_OBJECT_LOCK_WORD_OFFSET
@@ -476,10 +500,11 @@
 2:  // w10: original lock word, w9: thread id, w11: w10 ^ w11
                                       // Check lock word state and thread id together,
     tst    w11, #(LOCK_WORD_STATE_MASK_SHIFTED | LOCK_WORD_THIN_LOCK_OWNER_MASK_SHIFTED)
-    b.ne   \slow_lock
+    BRANCH_SYMBOL_NE   \slow_lock
     add    w11, w10, #LOCK_WORD_THIN_LOCK_COUNT_ONE  // Increment the recursive lock count.
     tst    w11, #LOCK_WORD_THIN_LOCK_COUNT_MASK_SHIFTED  // Test the new thin lock count.
-    b.eq   \slow_lock                 // Zero as the new count indicates overflow, go slow path.
+    BRANCH_SYMBOL_EQ   \slow_lock                 // Zero as the new count indicates overflow, go
+                                                  // slow path.
     stxr   w10, w11, [x8]
     cbnz   w10, 1b                    // If the store failed, retry.
     ret
@@ -490,7 +515,7 @@
     // Use scratch registers x8-x11 as temporaries.
     ldr    w9, [xSELF, #THREAD_ID_OFFSET]
     .if \can_be_null
-        cbz    \obj, \slow_unlock
+        BRANCH_SYMBOL_CBZ    \obj, \slow_unlock
     .endif
                                       // Exclusive load/store has no immediate anymore.
     add    x8, \obj, #MIRROR_OBJECT_LOCK_WORD_OFFSET
@@ -517,7 +542,7 @@
 2:
                                       // Check lock word state and thread id together.
     tst    w11, #(LOCK_WORD_STATE_MASK_SHIFTED | LOCK_WORD_THIN_LOCK_OWNER_MASK_SHIFTED)
-    b.ne   \slow_unlock
+    BRANCH_SYMBOL_NE   \slow_unlock
     sub    w11, w10, #LOCK_WORD_THIN_LOCK_COUNT_ONE  // decrement count
 #ifndef USE_READ_BARRIER
     str    w11, [x8]
