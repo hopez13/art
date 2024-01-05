@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "234ea097_5c7ba08f",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-05T09:06:21Z",
+      "side": 1,
+      "message": "`src_curr_addr` and `dst_curr_addr` have been initialized before going to the slow path. Should I add a comment here and to the other architectures (x86-64 in this CL and arm/arm64/riscv64 in separate CLs)?",
+      "parentUuid": "eed37821_12ae4760",
+      "range": {
+        "startLine": 118,
+        "startChar": 0,
+        "endLine": 118,
+        "endChar": 96
+      },
+      "revId": "ecaccbd4a245cca4bd76f84a646cd0dc1f85841f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bcac444a_3b16d9e6",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 4
@@ -54,6 +78,30 @@
       "writtenOn": "2024-01-04T19:00:43Z",
       "side": 1,
       "message": "On every call site, we use it with the same register (i.e. `klass` and `temp` are the same register). Do you think we could merge the arguments?",
+      "range": {
+        "startLine": 3191,
+        "startChar": 7,
+        "endLine": 3191,
+        "endChar": 38
+      },
+      "revId": "ecaccbd4a245cca4bd76f84a646cd0dc1f85841f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d665d3ef_1b93cc7e",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3191,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-05T09:06:21Z",
+      "side": 1,
+      "message": "Having a separate arg provides an implicit documentation at the use site that the register shall be clobbered.\n\n(And even if the current code structure does not need to preserve `klass` at any call site, that\u0027s unrelated to the functionality we\u0027re trying to provide here, allowing `klass` to be preserved.)",
+      "parentUuid": "bcac444a_3b16d9e6",
       "range": {
         "startLine": 3191,
         "startChar": 7,
