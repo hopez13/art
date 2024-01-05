@@ -250,6 +250,7 @@ cc_defaults {
     arch: {
         arm64: {
             srcs: [
+                ":libart_mterp.arm64ng",
                 "arch/arm64/context_arm64.cc",
                 "arch/arm64/entrypoints_init_arm64.cc",
                 "arch/arm64/jni_entrypoints_arm64.S",
@@ -258,6 +259,7 @@ cc_defaults {
         },
         x86_64: {
             srcs: [
+                ":libart_mterp.arm64ng_to_x86_64",
                 "arch/arm64/context_arm64.cc",
                 "arch/arm64/entrypoints_init_arm64.cc",
                 ":jni_entrypoints_arm64_to_x86_64",
@@ -273,6 +275,7 @@ cc_defaults {
     arch: {
         arm: {
             srcs: [
+                ":libart_mterp.armng",
                 "arch/arm/context_arm.cc",
                 "arch/arm/entrypoints_init_arm.cc",
                 "arch/arm/jni_entrypoints_arm.S",
@@ -281,6 +284,7 @@ cc_defaults {
         },
         arm64: {
             srcs: [
+                ":libart_mterp.arm64ng",
                 "arch/arm64/context_arm64.cc",
                 "arch/arm64/entrypoints_init_arm64.cc",
                 "arch/arm64/jni_entrypoints_arm64.S",
@@ -289,6 +293,7 @@ cc_defaults {
         },
         riscv64: {
             srcs: [
+                ":libart_mterp.riscv64",
                 "arch/riscv64/context_riscv64.cc",
                 "arch/riscv64/entrypoints_init_riscv64.cc",
                 "arch/riscv64/jni_entrypoints_riscv64.S",
@@ -297,6 +302,7 @@ cc_defaults {
         },
         x86: {
             srcs: [
+                ":libart_mterp.x86ng",
                 "arch/x86/context_x86.cc",
                 "arch/x86/entrypoints_init_x86.cc",
                 "arch/x86/jni_entrypoints_x86.S",
@@ -305,6 +311,7 @@ cc_defaults {
         },
         x86_64: {
             srcs: [
+                ":libart_mterp.x86_64ng",
                 "arch/x86_64/context_x86_64.cc",
                 "arch/x86_64/entrypoints_init_x86_64.cc",
                 "arch/x86_64/jni_entrypoints_x86_64.S",
@@ -550,7 +557,6 @@ art_libart_cc_defaults {
         arm: {
             srcs: [
                 "interpreter/mterp/nterp.cc",
-                ":libart_mterp.armng",
                 "arch/arm/instruction_set_features_assembly_tests.S",
                 "arch/arm/memcmp16_arm.S",
                 "arch/arm/native_entrypoints_arm.S",
@@ -562,7 +568,6 @@ art_libart_cc_defaults {
         arm64: {
             srcs: [
                 "interpreter/mterp/nterp.cc",
-                ":libart_mterp.arm64ng",
                 "arch/arm64/memcmp16_arm64.S",
                 "arch/arm64/native_entrypoints_arm64.S",
                 "arch/arm64/thread_arm64.cc",
@@ -572,7 +577,6 @@ art_libart_cc_defaults {
         },
         riscv64: {
             srcs: [
-                ":libart_mterp.riscv64",
                 "arch/riscv64/fault_handler_riscv64.cc",
                 "arch/riscv64/native_entrypoints_riscv64.S",
                 "arch/riscv64/thread_riscv64.cc",
@@ -583,7 +587,6 @@ art_libart_cc_defaults {
         x86: {
             srcs: [
                 "interpreter/mterp/nterp.cc",
-                ":libart_mterp.x86ng",
                 "arch/x86/memcmp16_x86.S",
                 "arch/x86/native_entrypoints_x86.S",
                 "arch/x86/thread_x86.cc",
@@ -601,7 +604,6 @@ art_libart_cc_defaults {
                 // Note that the fault_handler_x86.cc is not a mistake.  This file is
                 // shared between the x86 and x86_64 architectures.
                 "interpreter/mterp/nterp.cc",
-                ":libart_mterp.x86_64ng",
                 "arch/x86_64/memcmp16_x86_64.S",
                 "arch/x86_64/native_entrypoints_x86_64.S",
                 "arch/x86_64/thread_x86_64.cc",
@@ -699,7 +701,7 @@ cc_defaults {
 }
 
 //
-// Compile the following entrypoint files as normal but don't link them yet.
+// Compile the following .S files as normal but don't link them yet.
 //
 
 cc_object {
@@ -724,8 +726,19 @@ cc_object {
     srcs: ["arch/arm64/quick_entrypoints_arm64.S"],
 }
 
+cc_object {
+    name: "cc_object_libart_mterp.arm64ng",
+    host_supported: false,
+    defaults: [
+        "art_debug_defaults",
+        "libart_common_defaults",
+        "libartd-runtime_deps",
+    ],
+    srcs: [":libart_mterp.arm64ng"],
+}
+
 //
-// If ART_USE_SIMULATOR is defined then the compiled Arm64 entrypoint file is transformed into an
+// If ART_USE_SIMULATOR is defined then the compiled Arm64 object file is transformed into an
 // x86_64 format ELF file that still contains Arm64 code. This allows it to be linked to the x86_64
 // libart and its Arm64 code later simulated using the ART simulator.
 //
@@ -744,6 +757,15 @@ cc_genrule {
     host_supported: true,
     srcs: [":cc_object_quick_entrypoints_arm64.S"],
     out: ["quick_entrypoints_x86_64.o"],
+    tools: ["transform_arm64_to_x86_64"],
+    cmd: "$(location transform_arm64_to_x86_64) $(in) $(out)",
+}
+
+cc_genrule {
+    name: "libart_mterp.arm64ng_to_x86_64",
+    host_supported: true,
+    srcs: [":cc_object_libart_mterp.arm64ng"],
+    out: ["libart_mterp.arm64ng.o"],
     tools: ["transform_arm64_to_x86_64"],
     cmd: "$(location transform_arm64_to_x86_64) $(in) $(out)",
 }
