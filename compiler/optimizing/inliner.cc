@@ -204,6 +204,13 @@ bool HInliner::Run() {
     }
   }
 
+  if (run_extra_type_propagation_) {
+    ReferenceTypePropagation rtp_fixup(graph_,
+                                       outer_compilation_unit_.GetDexCache(),
+                                       /* is_first_run= */ false);
+    rtp_fixup.Run();
+  }
+
   // We return true if we either inlined at least one method, or we marked one of our methods as
   // always throwing.
   // To check if we added an always throwing method we can either:
@@ -229,7 +236,7 @@ static bool IsMethodOrDeclaringClassFinal(ArtMethod* method)
  * the actual runtime target of an interface or virtual call.
  * Return nullptr if the runtime target cannot be proven.
  */
-static ArtMethod* FindVirtualOrInterfaceTarget(HInvoke* invoke, ReferenceTypeInfo info)
+ArtMethod* HInliner::FindVirtualOrInterfaceTarget(HInvoke* invoke, ReferenceTypeInfo info)
     REQUIRES_SHARED(Locks::mutator_lock_) {
   ArtMethod* resolved_method = invoke->GetResolvedMethod();
   if (IsMethodOrDeclaringClassFinal(resolved_method)) {
@@ -477,6 +484,17 @@ bool HInliner::TryInline(HInvoke* invoke_instruction) {
       receiver = receiver->InputAt(0);
     }
     receiver_info = receiver->GetReferenceTypeInfo();
+    if (!receiver_info.IsValid()) {
+      // We have to run the extra type propagation now as we are requiring the RTI.
+      DCHECK(run_extra_type_propagation_);
+      run_extra_type_propagation_ = false;
+      ReferenceTypePropagation rtp_fixup(graph_,
+                                         outer_compilation_unit_.GetDexCache(),
+                                         /* is_first_run= */ false);
+      rtp_fixup.Run();
+      receiver_info = receiver->GetReferenceTypeInfo();
+    }
+
     DCHECK(receiver_info.IsValid()) << "Invalid RTI for " << receiver->DebugName();
     if (invoke_instruction->IsInvokeStaticOrDirect()) {
       actual_method = invoke_instruction->GetResolvedMethod();
@@ -879,12 +897,9 @@ bool HInliner::TryInlineMonomorphicCall(
                invoke_instruction,
                /* with_deoptimization= */ true);
 
-  // Run type propagation to get the guard typed, and eventually propagate the
+  // Lazily run type propagation to get the guard typed, and eventually propagate the
   // type of the receiver.
-  ReferenceTypePropagation rtp_fixup(graph_,
-                                     outer_compilation_unit_.GetDexCache(),
-                                     /* is_first_run= */ false);
-  rtp_fixup.Run();
+  run_extra_type_propagation_ = true;
 
   MaybeRecordStat(stats_, MethodCompilationStat::kInlinedMonomorphicCall);
   return true;
@@ -1102,11 +1117,8 @@ bool HInliner::TryInlinePolymorphicCall(
 
   MaybeRecordStat(stats_, MethodCompilationStat::kInlinedPolymorphicCall);
 
-  // Run type propagation to get the guards typed.
-  ReferenceTypePropagation rtp_fixup(graph_,
-                                     outer_compilation_unit_.GetDexCache(),
-                                     /* is_first_run= */ false);
-  rtp_fixup.Run();
+  // Lazily run type propagation to get the guards typed.
+  run_extra_type_propagation_ = true;
   return true;
 }
 
@@ -1295,12 +1307,8 @@ bool HInliner::TryInlinePolymorphicCallToSameTarget(
     deoptimize->SetReferenceTypeInfo(receiver->GetReferenceTypeInfo());
   }
 
-  // Run type propagation to get the guard typed.
-  ReferenceTypePropagation rtp_fixup(graph_,
-                                     outer_compilation_unit_.GetDexCache(),
-                                     /* is_first_run= */ false);
-  rtp_fixup.Run();
-
+  // Lazily run type propagation to get the guard typed.
+  run_extra_type_propagation_ = true;
   MaybeRecordStat(stats_, MethodCompilationStat::kInlinedPolymorphicCall);
 
   LOG_SUCCESS() << "Inlined same polymorphic target " << actual_method->PrettyMethod();
