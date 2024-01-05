@@ -110,6 +110,13 @@ class CustomSimulator final: public Simulator {
     RegisterBranchInterception(artQuickProxyInvokeHandler);
     RegisterBranchInterception(artInvokeObsoleteMethod);
     RegisterBranchInterception(artMethodExitHook);
+    RegisterBranchInterception(artAllocArrayFromCodeResolvedRosAlloc);
+    RegisterBranchInterception(artTestSuspendFromCode);
+    RegisterBranchInterception(artAllocObjectFromCodeInitializedRosAlloc);
+    RegisterBranchInterception(artAllocObjectFromCodeResolvedRosAlloc);
+    RegisterBranchInterception(artResolveTypeFromCode);
+    RegisterBranchInterception(artThrowClassCastExceptionForObject);
+    RegisterBranchInterception(artInstanceOfFromCode);
 
     RegisterTwoWordReturnInterception(artInstrumentationMethodExitFromCode);
 
