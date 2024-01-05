@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7328ae8_ac8a8ada",
+        "filename": "libartservice/service/java/com/android/server/art/ArtFileManager.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-01-05T14:49:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b5b621b0_adf04f50",
+      "range": {
+        "startLine": 125,
+        "startChar": 47,
+        "endLine": 125,
+        "endChar": 72
+      },
+      "revId": "971e88e62f45ed24e8b091c0f0d6f7ff7e9cd050",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "25f634ec_630bbbdb",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-01-05T00:10:42Z",
       "side": 1,
       "message": "Can you please mention when they aren\u0027t?",
+      "range": {
+        "startLine": 155,
+        "startChar": 28,
+        "endLine": 155,
+        "endChar": 54
+      },
+      "revId": "971e88e62f45ed24e8b091c0f0d6f7ff7e9cd050",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "08afd390_8c49347f",
+        "filename": "libartservice/service/java/com/android/server/art/ArtFileManager.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-01-05T14:49:36Z",
+      "side": 1,
+      "message": "Done and moved to `UsableArtifactLists`.",
+      "parentUuid": "25f634ec_630bbbdb",
       "range": {
         "startLine": 155,
         "startChar": 28,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "864f27d1_009af860",
+        "filename": "libartservice/service/java/com/android/server/art/ArtFileManager.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-01-05T14:49:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c2db367_184b18d6",
+      "range": {
+        "startLine": 203,
+        "startChar": 42,
+        "endLine": 203,
+        "endChar": 46
+      },
+      "revId": "971e88e62f45ed24e8b091c0f0d6f7ff7e9cd050",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c1bd47ce_8c7d43ce",
@@ -83,6 +155,30 @@
       "writtenOn": "2024-01-05T00:10:42Z",
       "side": 1,
       "message": "If `predicate` is misconstructed and matches more than one element then this function may return the wrong one without any indication of a problem. Assuming the intention is that the predicate never should match more than one then throw an exception if that happens.",
+      "range": {
+        "startLine": 103,
+        "startChar": 16,
+        "endLine": 103,
+        "endChar": 28
+      },
+      "revId": "971e88e62f45ed24e8b091c0f0d6f7ff7e9cd050",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "99c06f04_3cbec44e",
+        "filename": "libartservice/service/java/com/android/server/art/PrimaryDexUtils.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-01-05T14:49:36Z",
+      "side": 1,
+      "message": "\"find\" in the method name \"findDexInfo\" means returning the first occurrence. In my understanding, this is conventional in API designs (e.g., https://en.cppreference.com/w/cpp/algorithm/find and https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find). But I get your point that this is not obvious, and my understanding is probably wrong. Clarified in the javadoc.",
+      "parentUuid": "c1bd47ce_8c7d43ce",
       "range": {
         "startLine": 103,
         "startChar": 16,
@@ -116,6 +212,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff5acaaa_743d0c84",
+        "filename": "libartservice/service/javatests/com/android/server/art/PrimaryDexUtilsTest.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-01-05T14:49:36Z",
+      "side": 1,
+      "message": "Restructured the code to make it more self-explanatory. I was actually missing a split, and the restructuring revealed it.",
+      "parentUuid": "4d15383e_fd10103f",
+      "range": {
+        "startLine": 71,
+        "startChar": 29,
+        "endLine": 71,
+        "endChar": 30
+      },
+      "revId": "971e88e62f45ed24e8b091c0f0d6f7ff7e9cd050",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e4648190_fdda0f49",
@@ -129,6 +249,24 @@
       "writtenOn": "2024-01-05T00:10:42Z",
       "side": 1,
       "message": "Worth a comment here that split_1 is skipped because it has no code.",
+      "revId": "971e88e62f45ed24e8b091c0f0d6f7ff7e9cd050",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f3ad583_b4c9acce",
+        "filename": "libartservice/service/javatests/com/android/server/art/PrimaryDexUtilsTest.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-01-05T14:49:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e4648190_fdda0f49",
       "revId": "971e88e62f45ed24e8b091c0f0d6f7ff7e9cd050",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
