@@ -19,6 +19,7 @@
 
 #include <android-base/logging.h>
 
+#include "base/bit_utils.h"
 #include "base/globals.h"
 
 namespace art {
@@ -87,8 +88,26 @@ struct PageSize {
 // gPageSize should only be used within libart. For most of the other cases MemMap::GetPageSize()
 // or GetPageSizeSlow() should be used. See also the comment for GetPageSizeSlow().
 extern PageSize gPageSize ALWAYS_HIDDEN;
+
+// In the page agnostic configuration the compiler may not recognise gPageSize as a power-of-two
+// value, and may therefore miss opportunities to optimize: divisions via a right-shift, modulo via
+// a bitwise-AND.
+// These functions use the optimized versions explicitly, and should be called when dividing by or
+// applying modulo of the page size.
+static ALWAYS_INLINE inline size_t DivideByPageSize(const size_t num) {
+  return (num >> WhichPowerOf2(static_cast<size_t>(gPageSize)));
+}
+static ALWAYS_INLINE inline size_t ModuloPageSize(const size_t num) {
+  return (num & (gPageSize-1));
+}
 #else
 static constexpr size_t gPageSize = kMinPageSize;
+static constexpr size_t DivideByPageSize(const size_t num) {
+  return num / gPageSize;
+}
+static constexpr size_t ModuloPageSize(const size_t num) {
+  return num % gPageSize;
+}
 #endif
 
 // Returns whether the given memory offset can be used for generating
