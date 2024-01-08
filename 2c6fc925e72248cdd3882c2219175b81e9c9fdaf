@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d92f573b_8fb546fd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-01-08T10:02:33Z",
+      "side": 1,
+      "message": "Thanks! lgtm with a quick question.",
+      "revId": "2c6fc925e72248cdd3882c2219175b81e9c9fdaf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2836698e_60b701a8",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 990,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-01-08T10:02:33Z",
+      "side": 1,
+      "message": "I am a bit confused here. SaveLiveRegisters only saves live registers right like even for other general purpose or floating point registers? Why are we explicitly saying it for SIMD registers?",
+      "range": {
+        "startLine": 990,
+        "startChar": 9,
+        "endLine": 990,
+        "endChar": 46
+      },
+      "revId": "2c6fc925e72248cdd3882c2219175b81e9c9fdaf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
