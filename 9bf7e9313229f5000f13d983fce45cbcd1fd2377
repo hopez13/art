@@ -39,6 +39,30 @@
       },
       "revId": "9bf7e9313229f5000f13d983fce45cbcd1fd2377",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f6c94cb7_361c43bc",
+        "filename": "dex2oat/linker/image_test.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-08T15:29:59Z",
+      "side": 1,
+      "message": "Called from `CommonCompilerDriverTest::CreateCompilerDriver()` (which is called below - line 373).",
+      "parentUuid": "89455abd_9dffc16a",
+      "range": {
+        "startLine": 86,
+        "startChar": 0,
+        "endLine": 88,
+        "endChar": 3
+      },
+      "revId": "9bf7e9313229f5000f13d983fce45cbcd1fd2377",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
