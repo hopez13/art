@@ -660,8 +660,10 @@ bool ThreadList::WaitForSuspendBarrier(AtomicInteger* barrier) {
   // Only fail after multiple timeouts, to make us robust against app freezing.
   static constexpr int kIters = 5;
   timespec wait_timeout;
+  DCHECK_GE(NsToMs(thread_suspend_timeout_ns_ / kIters), 100ul);
   InitTimeSpec(
       false, CLOCK_MONOTONIC, NsToMs(thread_suspend_timeout_ns_ / kIters), 0, &wait_timeout);
+  const uint64_t start_time = NanoTime();
 #else
   static constexpr int kIters = 10'000'000;
 #endif
@@ -675,6 +677,7 @@ bool ThreadList::WaitForSuspendBarrier(AtomicInteger* barrier) {
     if (futex(barrier->Address(), FUTEX_WAIT_PRIVATE, cur_val, &wait_timeout, nullptr, 0) != 0) {
       if (errno == ETIMEDOUT) {
         ++i;
+        CHECK_GE(NanoTime() - start_time, i * thread_suspend_timeout_ns_ / kIters - 1'000'000);
       } else if (errno != EAGAIN && errno != EINTR) {
         PLOG(FATAL) << "futex wait for suspend barrier failed";
       }
@@ -1101,13 +1104,14 @@ Thread* ThreadList::SuspendThreadByThreadId(uint32_t thread_id, SuspendReason re
     }
     LOG(FATAL) << StringPrintf(
         "SuspendThreadByThreadId timed out: %d (%s), state&flags: 0x%x, priority: %d,"
-        " barriers: %p, ours: %p",
+        " barriers: %p, ours: %p, barrier value: %d",
         thread_id,
         name.c_str(),
         thread->GetStateAndFlags(std::memory_order_relaxed).GetValue(),
         thread->GetNativePriority(),
         first_barrier,
-        &wrapped_barrier);
+        &wrapped_barrier,
+        wrapped_barrier.barrier_.load());
     UNREACHABLE();
   }
 }
