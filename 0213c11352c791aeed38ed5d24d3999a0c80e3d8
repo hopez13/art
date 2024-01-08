@@ -203,6 +203,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "793dacbe_c1e2d7e7",
+        "filename": "libartservice/service/java/com/android/server/art/ArtManagerLocal.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 896,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-01-08T13:42:04Z",
+      "side": 1,
+      "message": "I don\u0027t think the purpose for this API is to tell apps how much space they consume. We even exclude unusable artifacts although they take space too. In my understanding, the purpose is to provide details for performance debugging, in addition to just saying the app is in \"verify\", \"speed-profile\", etc. For example, an app developer may want to know, when the app is in \"speed-profile\", how large the dexopt artifacts are. If they are abnormally small, then something might be wrong with the profile.\n\nWe can potentially provide another API to tell apps how much space they consume, but in another day, with specific use cases.",
+      "parentUuid": "02b84703_69c5caa1",
+      "range": {
+        "startLine": 896,
+        "startChar": 50,
+        "endLine": 896,
+        "endChar": 68
+      },
+      "revId": "0213c11352c791aeed38ed5d24d3999a0c80e3d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "f4697566_cb715f79",
         "filename": "libartservice/service/java/com/android/server/art/ArtManagerLocal.java",
         "patchSetId": 6
@@ -344,6 +368,24 @@
       "side": 1,
       "message": "There\u0027s also the case with a preopted system app which doesn\u0027t (yet) have anything in `dalvik-cache` (with `reason\u003dprebuilt`, I noticed from a real device).\n\nAs for the cases when `isInDalvikCache` is true, they can hardly occur for apps in /data, right? I can see why it\u0027s tempting to cram as many test cases as possible into the same fixtures, but the drawback is that these tests get confusing because they don\u0027t correspond to real scenarios (in more ways than the obvious). Short of adding more fixtures, I think it\u0027d be good to a) make it more clear that the app location really is unspecified by using something like `/somewhere/app` as the root path instead, and/or b) add some comments to point out the discrepancies wrt reality.\n\nAnyway, that\u0027s out of scope here. For this CL the important bit is to make it clear (maybe just with a comment) that the case with preopted artifacts is covered.",
       "parentUuid": "98b3187d_3ef4a979",
+      "revId": "0213c11352c791aeed38ed5d24d3999a0c80e3d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f6edea12_814945bc",
+        "filename": "libartservice/service/javatests/com/android/server/art/ArtManagerLocalTest.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 1096,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-01-08T13:42:04Z",
+      "side": 1,
+      "message": "A preopted system app with nothing in dalvik-cache is the same as a data app when it comes to usable artifacts: the artifacts are next to the apk (i.e., the Java part gets `NEXT_TO_DEX` from `IArtd.getDexoptStatus` and passes `false /* isInDalvikCache */` to `IArtd.getArtifactsSize`). We don\u0027t need to treat them differently when counting the size.\n\nThe whole Java part of ART Service (not just `getArtManagedFileStats`, but the whole) is really agnostic to the location of the APKs. It gets the usable paths from `IArtd.getDexoptStatus`/`IArtd.getDexoptNeeded` and gets the writable paths from `IArtd.isInDalvikCache`. There is no special logic that treats apks differently based on the return value of those methods.\n\nTherefore, in testing, there is no need to create different test cases just for that. Maybe it\u0027s the `/data/app` string that made you confused. I can change all of them to `/somewhere/app`, in a separate CL.",
+      "parentUuid": "c42d83dc_82ae0898",
       "revId": "0213c11352c791aeed38ed5d24d3999a0c80e3d8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
