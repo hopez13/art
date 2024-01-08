@@ -22,6 +22,30 @@
       },
       "revId": "71dd359f3af2ba9ea4ebc86679090479354e302a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "31bf9138_2e2ec298",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-08T12:21:29Z",
+      "side": 1,
+      "message": "Ah sorry, reverted this change. When I created my CL, `FindVirtualOrInterfaceTarget` used to be different, and I forgot to revert this change after doing a repo sync.",
+      "parentUuid": "d4e6737f_8f4e162f",
+      "range": {
+        "startLine": 239,
+        "startChar": 11,
+        "endLine": 239,
+        "endChar": 21
+      },
+      "revId": "71dd359f3af2ba9ea4ebc86679090479354e302a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
