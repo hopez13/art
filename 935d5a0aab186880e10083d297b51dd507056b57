@@ -63,6 +63,30 @@
       },
       "revId": "935d5a0aab186880e10083d297b51dd507056b57",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8f554430_92620320",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1579,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-01-08T11:12:13Z",
+      "side": 1,
+      "message": "Thanks! I missed that we also want the information about hotness.",
+      "parentUuid": "62bfab59_bc9b4458",
+      "range": {
+        "startLine": 1578,
+        "startChar": 4,
+        "endLine": 1579,
+        "endChar": 79
+      },
+      "revId": "935d5a0aab186880e10083d297b51dd507056b57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
