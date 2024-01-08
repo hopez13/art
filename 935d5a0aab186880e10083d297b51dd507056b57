@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "137c712b_ff47fd80",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-01-08T10:57:45Z",
+      "side": 1,
+      "message": "Thanks! lgtm with a question.",
+      "revId": "935d5a0aab186880e10083d297b51dd507056b57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23a16bad_419fc551",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1579,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-01-08T10:57:45Z",
+      "side": 1,
+      "message": "Why do we need to record it even if there is no profile information?",
+      "range": {
+        "startLine": 1578,
+        "startChar": 4,
+        "endLine": 1579,
+        "endChar": 79
+      },
+      "revId": "935d5a0aab186880e10083d297b51dd507056b57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
