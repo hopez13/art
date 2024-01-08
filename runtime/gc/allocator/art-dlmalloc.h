@@ -19,6 +19,8 @@
 
 #include <cstdint>
 
+#include "base/macros.h"
+
 // Configure dlmalloc for mspaces.
 // Avoid a collision with one used in llvm.
 #undef HAVE_MMAP
