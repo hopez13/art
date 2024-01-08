@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ddf865bc_c9c68778",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 1632,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-08T18:29:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "63872735_f482af10",
+      "range": {
+        "startLine": 1632,
+        "startChar": 10,
+        "endLine": 1632,
+        "endChar": 15
+      },
+      "revId": "73ad398fee2287bd163fe9a901dcbcbb1ace83ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "296a6951_3d8acb4a",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-01-08T10:44:49Z",
       "side": 1,
       "message": "Style: Break the lines before `?` and `:`.",
+      "range": {
+        "startLine": 1633,
+        "startChar": 12,
+        "endLine": 1633,
+        "endChar": 13
+      },
+      "revId": "73ad398fee2287bd163fe9a901dcbcbb1ace83ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c4798ec0_c77409c6",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 1633,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-08T18:29:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "296a6951_3d8acb4a",
       "range": {
         "startLine": 1633,
         "startChar": 12,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e9bad6b9_d03466fb",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 5945,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-08T18:29:55Z",
+      "side": 1,
+      "message": "I can move the second DCHECK to `ShouldCheckGCCard`.\nThe first DCHECK uses `write_barrier_kind` which `ShouldCheckGCCard` doesn\u0027t have as a parameter, but we can add it as you suggested in another comment.",
+      "parentUuid": "79252552_38251c53",
+      "range": {
+        "startLine": 5942,
+        "startChar": 2,
+        "endLine": 5945,
+        "endChar": 96
+      },
+      "revId": "73ad398fee2287bd163fe9a901dcbcbb1ace83ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8207246e_57d0ee4a",
@@ -83,6 +155,30 @@
       "writtenOn": "2024-01-08T10:44:49Z",
       "side": 1,
       "message": "Note: Always false in this path.\n\nI\u0027m wondering if we should instead pass the `write_barrier_kind` to `ShouldCheckGCCard()` (passing the same arguments as to `StoreNeedsWriteBarrier()`) but that\u0027s mostly a question of style.",
+      "range": {
+        "startLine": 6090,
+        "startChar": 17,
+        "endLine": 6090,
+        "endChar": 36
+      },
+      "revId": "73ad398fee2287bd163fe9a901dcbcbb1ace83ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "086ee874_c8426ae3",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 6090,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-08T18:29:55Z",
+      "side": 1,
+      "message": "Sure I can do that. This lets us move the other DCHECK that you mentioned in another comment.",
+      "parentUuid": "8207246e_57d0ee4a",
       "range": {
         "startLine": 6090,
         "startChar": 17,

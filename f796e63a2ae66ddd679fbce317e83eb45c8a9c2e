@@ -380,6 +380,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "baff7908_68de148d",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 25
+      },
+      "lineNbr": 1387,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-08T18:29:55Z",
+      "side": 1,
+      "message": "Done the templating, and removed the `InstructionTypeCast` in favor of using `instruction-\u003eGetKind() \u003d\u003d it.Current()-\u003eGetKind()`.\n\n\u003e Do you really want to keep this check for the graph modifications that PrepareForRegisterAllocation can do?\n\nMy concern would be that we don\u0027t have a safety net on the compiler side. On the runtime side we have one but only for CC GC.\n\nWDYT about having an extra check and only calling `CheckWriteBarrier` for eliminated write barriers? This way the other phases wouldn\u0027t be affected by it.",
+      "parentUuid": "32e67a61_6906450b",
+      "range": {
+        "startLine": 1387,
+        "startChar": 2,
+        "endLine": 1387,
+        "endChar": 89
+      },
+      "revId": "f796e63a2ae66ddd679fbce317e83eb45c8a9c2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a8d362c0_983c63ee",
         "filename": "compiler/optimizing/graph_checker.cc",
         "patchSetId": 25
