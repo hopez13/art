@@ -39,6 +39,30 @@
       },
       "revId": "2c6fc925e72248cdd3882c2219175b81e9c9fdaf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ac801ec_b02e85c2",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 990,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-01-08T10:12:31Z",
+      "side": 1,
+      "message": "Ah yeah, this is a no-op on arm32, good catch. Given SuspendCheckSlowPath also doesn\u0027t call `SaveLiveRegisters`, I\u0027ve removed these lines in the latest PS.",
+      "parentUuid": "2836698e_60b701a8",
+      "range": {
+        "startLine": 990,
+        "startChar": 9,
+        "endLine": 990,
+        "endChar": 46
+      },
+      "revId": "2c6fc925e72248cdd3882c2219175b81e9c9fdaf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
