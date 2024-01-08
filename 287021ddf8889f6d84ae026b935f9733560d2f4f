@@ -1,0 +1,280 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3200927c_32eba508",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-01-08T14:11:30Z",
+      "side": 1,
+      "message": "intended? If yes, can you add a comment?",
+      "range": {
+        "startLine": 304,
+        "startChar": 52,
+        "endLine": 304,
+        "endChar": 53
+      },
+      "revId": "287021ddf8889f6d84ae026b935f9733560d2f4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2add0699_8daac69c",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2250,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-01-08T14:11:30Z",
+      "side": 1,
+      "message": "Capital M and \u0027.\u0027.",
+      "range": {
+        "startLine": 2250,
+        "startChar": 0,
+        "endLine": 2250,
+        "endChar": 37
+      },
+      "revId": "287021ddf8889f6d84ae026b935f9733560d2f4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2cbaf352_fde7b0df",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2253,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-01-08T14:11:30Z",
+      "side": 1,
+      "message": "Drop?",
+      "range": {
+        "startLine": 2253,
+        "startChar": 9,
+        "endLine": 2253,
+        "endChar": 12
+      },
+      "revId": "287021ddf8889f6d84ae026b935f9733560d2f4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c0bb9c8_8a11fef1",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2254,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-01-08T14:11:30Z",
+      "side": 1,
+      "message": "Comment on how long we expect this wait?",
+      "range": {
+        "startLine": 2254,
+        "startChar": 36,
+        "endLine": 2254,
+        "endChar": 40
+      },
+      "revId": "287021ddf8889f6d84ae026b935f9733560d2f4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "159ab9b2_28c818a4",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2254,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-01-08T14:11:30Z",
+      "side": 1,
+      "message": "their",
+      "range": {
+        "startLine": 2254,
+        "startChar": 45,
+        "endLine": 2254,
+        "endChar": 50
+      },
+      "revId": "287021ddf8889f6d84ae026b935f9733560d2f4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c7e3340_275ce319",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2368,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-01-08T14:11:30Z",
+      "side": 1,
+      "message": "Add /* parameterName\u003d */",
+      "range": {
+        "startLine": 2368,
+        "startChar": 38,
+        "endLine": 2368,
+        "endChar": 39
+      },
+      "revId": "287021ddf8889f6d84ae026b935f9733560d2f4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f478ee8d_174ff0c6",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2375,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-01-08T14:11:30Z",
+      "side": 1,
+      "message": "Grammar",
+      "range": {
+        "startLine": 2374,
+        "startChar": 0,
+        "endLine": 2375,
+        "endChar": 16
+      },
+      "revId": "287021ddf8889f6d84ae026b935f9733560d2f4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8787ee6d_24a18ee7",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2397,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-01-08T14:11:30Z",
+      "side": 1,
+      "message": "ditto /* parameter_name\u003d */",
+      "range": {
+        "startLine": 2397,
+        "startChar": 32,
+        "endLine": 2397,
+        "endChar": 33
+      },
+      "revId": "287021ddf8889f6d84ae026b935f9733560d2f4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de69dc49_2549fc0d",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3478,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-01-08T14:11:30Z",
+      "side": 1,
+      "message": "by who and for how long?",
+      "range": {
+        "startLine": 3478,
+        "startChar": 35,
+        "endLine": 3478,
+        "endChar": 41
+      },
+      "revId": "287021ddf8889f6d84ae026b935f9733560d2f4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d4f3b98_30b4535e",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3557,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-01-08T14:11:30Z",
+      "side": 1,
+      "message": "will",
+      "range": {
+        "startLine": 3557,
+        "startChar": 45,
+        "endLine": 3557,
+        "endChar": 48
+      },
+      "revId": "287021ddf8889f6d84ae026b935f9733560d2f4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d5733410_16addc7b",
+        "filename": "runtime/gc/collector/mark_compact.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-01-08T14:11:30Z",
+      "side": 1,
+      "message": "Add a comment about what this method returns.",
+      "range": {
+        "startLine": 355,
+        "startChar": 16,
+        "endLine": 355,
+        "endChar": 20
+      },
+      "revId": "287021ddf8889f6d84ae026b935f9733560d2f4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f60fa2e3_e99102a4",
+        "filename": "runtime/gc/collector/mark_compact.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 706,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-01-08T14:11:30Z",
+      "side": 1,
+      "message": "why do you need to change this?",
+      "range": {
+        "startLine": 706,
+        "startChar": 9,
+        "endLine": 706,
+        "endChar": 17
+      },
+      "revId": "287021ddf8889f6d84ae026b935f9733560d2f4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
