@@ -142,6 +142,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "94fbc589_22fb4649",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 25
+      },
+      "lineNbr": 7321,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-08T10:44:49Z",
+      "side": 1,
+      "message": "I prefer an additional space after `\u003d*/` but it seems both styles are widely used:\n\n    $ sum\u003d0; for i in `git grep -cE \u0027\u003d\\*/[^ ]\u0027 | sed \u0027-es/.*://\u0027`; do sum\u003d$(($sum+$i)); done; echo $sum\n    1569\n    $ sum\u003d0; for i in `git grep -cE \u0027\u003d\\*/ \u0027 | sed \u0027-es/.*://\u0027`; do sum\u003d$(($sum+$i)); done; echo $sum\n    2151",
+      "parentUuid": "c87029da_f09e9351",
+      "range": {
+        "startLine": 7321,
+        "startChar": 44,
+        "endLine": 7321,
+        "endChar": 68
+      },
+      "revId": "f796e63a2ae66ddd679fbce317e83eb45c8a9c2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5155d677_2ab3b374",
@@ -320,6 +344,30 @@
       "side": 1,
       "message": "I don\u0027t think this check is that costly. It would only be called for eliminated write barriers so it affects a portion of the graph only. It also only kicks in at the very late stages of compilation so earlier graph checker runs are unaffected. Also, it only looks within the same basic block.\n\nI am not sure what you mean by the templating. Do you mean templating the types? I changed the arguments to use `const \u0026`. Do you think that would be enough?\n\nRenamed `is_cast` to `instruction_type_cast`.\n\nRegarding the `implementation detail check`, not sure if there\u0027s anything better we could do as a compile-time check. Do you think it\u0027s better to not have anything?",
       "parentUuid": "a5c9d20c_106736b0",
+      "range": {
+        "startLine": 1387,
+        "startChar": 2,
+        "endLine": 1387,
+        "endChar": 89
+      },
+      "revId": "f796e63a2ae66ddd679fbce317e83eb45c8a9c2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32e67a61_6906450b",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 25
+      },
+      "lineNbr": 1387,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-08T10:44:49Z",
+      "side": 1,
+      "message": "The check for eliminated write barriers is inside the `CheckWriteBarrier`, so any `std::function` overhead applies to all the previous optimization passes. And making args `const \u0026` just adds an indirection instead of helping.\n\nThe lambdas you pass to this function do not have any captures, so I guess the `std::function` optimization that avoids the `new`/`delete` shall apply. But I\u0027m never certain about such details and prefer\n\n    template \u003ctypename InstructionTypeCast, typename GetWriteBarrierKind\u003e\n    CheckWriteBarrier(...,\n                      InstructionTypeCast\u0026\u0026 instruction_type_cast,\n                      GetWriteBarrierKind\u0026\u0026 get_write_barrier_kind);\n\nThe `instruction_type_cast` is still an odd name. Maybe we could just check for `instruction-\u003eGetKind() \u003d\u003d it.Current()-\u003eGetKind()` and drop that argument.\n\n---\n\nAs you said, this kicks in only at the very late stages, so it\u0027s only checking after WBE itself (where I find it useless), after `PrepareForRegisterAllocation` (which is the only check I find somewhat useful) and after `SsaLivenessAnalysis` and `RegisterAllocator` which do not modify the graph.\n\nDo you really want to keep this check for the graph modifications that `PrepareForRegisterAllocation` can do?\n\nNote that the check shall indeed need to evolve with WBE if we implement it across basic blocks (say, going across simple `HIf`), or across checks that can trigger GC only in a throwing slow path (`HNullCheck`, `HBoundsCheck`, etc.).",
+      "parentUuid": "4a78a483_c97aa5ce",
       "range": {
         "startLine": 1387,
         "startChar": 2,
@@ -696,6 +744,30 @@
       "side": 1,
       "message": "We can\u0027t do it now. As I wrote in the CL description, `Test 2247- is removed from knownfailures.json but still skipped in MTS due to SLO requirements.`. I think we need to have the test green for a while before enabling it on MTS. rpl@ might know more about this.",
       "parentUuid": "9d7bd042_a6753cce",
+      "range": {
+        "startLine": 218,
+        "startChar": 33,
+        "endLine": 220,
+        "endChar": 42
+      },
+      "revId": "f796e63a2ae66ddd679fbce317e83eb45c8a9c2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "108110d1_98ce200b",
+        "filename": "test/utils/regen-test-files",
+        "patchSetId": 25
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-08T10:44:49Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "c6e8d0a3_a2da36fb",
       "range": {
         "startLine": 218,
         "startChar": 33,

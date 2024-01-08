@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63872735_f482af10",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 1632,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-08T10:44:49Z",
+      "side": 1,
+      "message": "Now that this function is not static and we can use `GetGraph()`, we do not need to explicitly pass the graph.",
+      "range": {
+        "startLine": 1632,
+        "startChar": 10,
+        "endLine": 1632,
+        "endChar": 15
+      },
+      "revId": "73ad398fee2287bd163fe9a901dcbcbb1ace83ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "296a6951_3d8acb4a",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 1633,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-08T10:44:49Z",
+      "side": 1,
+      "message": "Style: Break the lines before `?` and `:`.",
+      "range": {
+        "startLine": 1633,
+        "startChar": 12,
+        "endLine": 1633,
+        "endChar": 13
+      },
+      "revId": "73ad398fee2287bd163fe9a901dcbcbb1ace83ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79252552_38251c53",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 5945,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-08T10:44:49Z",
+      "side": 1,
+      "message": "I included these `DCHECK`s in the code I wanted moved to the helper function. Is there any particular reason to have them here?",
+      "range": {
+        "startLine": 5942,
+        "startChar": 2,
+        "endLine": 5945,
+        "endChar": 96
+      },
+      "revId": "73ad398fee2287bd163fe9a901dcbcbb1ace83ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8207246e_57d0ee4a",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 6090,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-08T10:44:49Z",
+      "side": 1,
+      "message": "Note: Always false in this path.\n\nI\u0027m wondering if we should instead pass the `write_barrier_kind` to `ShouldCheckGCCard()` (passing the same arguments as to `StoreNeedsWriteBarrier()`) but that\u0027s mostly a question of style.",
+      "range": {
+        "startLine": 6090,
+        "startChar": 17,
+        "endLine": 6090,
+        "endChar": 36
+      },
+      "revId": "73ad398fee2287bd163fe9a901dcbcbb1ace83ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
