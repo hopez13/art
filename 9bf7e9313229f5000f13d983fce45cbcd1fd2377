@@ -16,6 +16,29 @@
       "message": "TH failures are unrelated.",
       "revId": "9bf7e9313229f5000f13d983fce45cbcd1fd2377",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89455abd_9dffc16a",
+        "filename": "dex2oat/linker/image_test.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-08T15:27:17Z",
+      "side": 1,
+      "message": "Is this used?",
+      "range": {
+        "startLine": 86,
+        "startChar": 0,
+        "endLine": 88,
+        "endChar": 3
+      },
+      "revId": "9bf7e9313229f5000f13d983fce45cbcd1fd2377",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
