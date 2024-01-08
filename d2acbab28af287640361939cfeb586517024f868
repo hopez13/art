@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a95d6670_14bf3c78",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-01-08T00:03:20Z",
+      "side": 1,
+      "message": "I\u0027m ok with submitting as-is and addressing comments in a follow-up, if you\u0027re anxious to get this in.",
+      "revId": "d2acbab28af287640361939cfeb586517024f868",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c74ef967_0d23b822",
+        "filename": "artd/artd.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 1315,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-01-08T00:03:20Z",
+      "side": 1,
+      "message": "Please also include the error message from the failing Result. (It may be easier to introduce a macro `OR_LOG_AND_RETURN_OK`.)",
+      "range": {
+        "startLine": 1315,
+        "startChar": 18,
+        "endLine": 1315,
+        "endChar": 76
+      },
+      "revId": "d2acbab28af287640361939cfeb586517024f868",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
