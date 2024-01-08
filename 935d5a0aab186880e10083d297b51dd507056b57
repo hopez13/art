@@ -39,6 +39,30 @@
       },
       "revId": "935d5a0aab186880e10083d297b51dd507056b57",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "62bfab59_bc9b4458",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1579,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-01-08T11:08:32Z",
+      "side": 1,
+      "message": "That\u0027s how the profile saving works - this tells the profile saver that the method is hot, and that there is no inline cache.",
+      "parentUuid": "23a16bad_419fc551",
+      "range": {
+        "startLine": 1578,
+        "startChar": 4,
+        "endLine": 1579,
+        "endChar": 79
+      },
+      "revId": "935d5a0aab186880e10083d297b51dd507056b57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
