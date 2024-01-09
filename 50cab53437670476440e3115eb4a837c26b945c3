@@ -16,6 +16,23 @@
       "message": "FYI you are reverting a revert. If this is the cause of a regression, it means that the original CL was improving things.\n\nAlso, the reland was already merged in aosp/2879726.",
       "revId": "50cab53437670476440e3115eb4a837c26b945c3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "907ba95e_0916cd8a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-01-09T14:34:59Z",
+      "side": 1,
+      "message": "Please see the update on bug (b/316655248#comment10). This has recovered after the reland. We don\u0027t need this revert.",
+      "revId": "50cab53437670476440e3115eb4a837c26b945c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
