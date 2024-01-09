@@ -70,6 +70,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "78a9ab5b_851daf8a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2024-01-09T19:09:29Z",
+      "side": 1,
+      "message": "Sorry for the delay. I don\u0027t see a real problem. One more question to make sure we\u0027re not overlooking corner cases with monitors.",
+      "revId": "0b0b0c9a4d2320f5e398802b4f70a0d3cac2bf8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "821d69a4_841df4ce",
@@ -155,6 +172,30 @@
       "side": 1,
       "message": "Looks like `VERIFY_ERROR_LOCKING` during class verification would check that the locks are balanced. Such methods would not run through the optimized pipeline",
       "parentUuid": "1530f953_cad79fe0",
+      "range": {
+        "startLine": 1079,
+        "startChar": 8,
+        "endLine": 1079,
+        "endChar": 43
+      },
+      "revId": "0b0b0c9a4d2320f5e398802b4f70a0d3cac2bf8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f17d8a2c_d03fbc38",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1079,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2024-01-09T19:09:29Z",
+      "side": 1,
+      "message": "So I guess the question becomes: If the verifier can determine that locks are balanced, are we also guaranteed that IsSingletonAndRemovable is consistent here? Or could the latter analysis be weaker?\n\nI suspect we don\u0027t actually currently need balanced locking, so that restriction on compilation may currently be spurious. That\u0027s probably irrelevant, so long as we document that we are using the assumption here. I can\u0027t imagine that performance of lock-unbalanced code will matter; we just need to be correct. (Lock-unbalanced code is very useful, but I don\u0027t think people would trust Java runtimes to handle it correctly, and it\u0027s way too hard to generate.)",
+      "parentUuid": "b8a16082_1c354d0e",
       "range": {
         "startLine": 1079,
         "startChar": 8,
