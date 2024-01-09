@@ -120,6 +120,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ce6b2fa2_449a088f",
+        "filename": "libartservice/service/java/com/android/server/art/DexUseManagerLocal.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-01-09T20:09:21Z",
+      "side": 1,
+      "message": "Sure, but my point is that it\u0027s hard to reason about it. The effect of this change is that this method starts to behave subtly wrong, and then there\u0027s a motivation in the commit message that it\u0027s unlikely to matter. For one, it\u0027s not clear to me how the cleanup that\u0027s (sometimes) done beforehand affects the visibility filter - exactly how does the removal of obsolete dex infos make that filtering a no-op? But foremost it\u0027s a global characteristic in the current ART Service that it mostly doesn\u0027t matter. It\u0027s hard to confirm that\u0027s true (and frankly I\u0027d rather spend my time on other things), and it\u0027s hard to ensure that it remains true as the code changes anywhere in these code paths. It\u0027s a lot simpler to ensure that the method just DTRT in isolation.\n\nSomething like this may be motivated if the benefit is substantial, but I don\u0027t see any substantial win here - it\u0027s easy enough to just add a flag around the visibility filter instead.\n\nHowever it\u0027d be a different matter if you argue that the visibility filter is really not the correct thing to do. If that\u0027s the case then please update the commit message with that.",
+      "parentUuid": "5dc606e5_47782993",
+      "range": {
+        "startLine": 334,
+        "startChar": 0,
+        "endLine": 336,
+        "endChar": 73
+      },
+      "revId": "87fee33c460c7dfad6fda4492adca12b20b88940",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e49fa0fa_5f3b9565",
         "filename": "libartservice/service/javatests/com/android/server/art/DexUseManagerTest.java",
         "patchSetId": 5
