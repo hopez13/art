@@ -33,6 +33,24 @@
       "message": "Thanks for taking a look at this Jiakai. What are your thoughts on the additional complexity of this approach versus something a bit more narrowly scoped and simple like aosp/2889793? I\u0027m somewhat indifferent, though I\u0027m always a bit hesitant of solutions that have timeout-based expirations.",
       "revId": "ec317e96825d657de911d44da98d712c33d659d7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad192d23_249d7ba7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-01-09T23:53:11Z",
+      "side": 1,
+      "message": "Thanks for the thoughts. For b/317221732 (just avoiding repetitive waitForService calls), I think both solutions work, and I would prefer aosp/2889793 over this CL because it\u0027s simpler.\n\nHowever, when it comes to avoiding repetitive artd initialization, which is much more expensive than repetitive waitForService calls, the pinning approach in this CL is necessary. aosp/2889793 basically keeps the behavior unchanged, which relies on an assumption that the GC doesn\u0027t happen immediately after an artd handle is no longer referenced. I don\u0027t know how well this assumption holds in reality. Maybe under extreme memory pressure, artd is brought up and teared down repetitively because of the GC, though this is just theoretical. This has been my concern for a long time. I\u0027m actually more comfortable with explicit pinning instead of relying on the assumption.\n\nIn short, I think aosp/2889793 is simpler and it solves one problem, while this CL is more complicated but solves two at a time, though one of them is theoretical. But TBH, I\u0027m indifferent too. I\u0027ll leave this to Martin to provide some thoughts.\n\nThe timeout-based expiration is just a bonus. This main part of ArtdRefCache is about pinning. Because we already have a debouncer implementation, it\u0027s easy to add a few lines to use it to implement the timeout-based expiration. It can fight against the case where our APIs are called repetitively, in which case a local pinning won\u0027t work. I\u0027m interested in seeing how our APIs are used in real CUJs. You mentioned initial device setup in aosp/2889793. Could you provide some traces to show how our APIs are used in that CUJ? If it turns out that the timeout-based expiration is useless, I can remove it.",
+      "parentUuid": "e2eaefe9_72c59fd3",
+      "revId": "ec317e96825d657de911d44da98d712c33d659d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
