@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "90cfeb08_ade921f7",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 28
+      },
+      "lineNbr": 3003,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-09T12:40:24Z",
+      "side": 1,
+      "message": "Already `DCHECK()`ed in `ShouldCheckGCCard()`.",
+      "range": {
+        "startLine": 3003,
+        "startChar": 4,
+        "endLine": 3003,
+        "endChar": 63
+      },
+      "revId": "f9e50e049bcad0d3fc5c8d2f79c6719f9af95b42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22f4397d_2b61f74d",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 28
+      },
+      "lineNbr": 6004,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-09T12:40:24Z",
+      "side": 1,
+      "message": "Already `DCHECK()`ed in `ShouldCheckGCCard()`.",
+      "range": {
+        "startLine": 6004,
+        "startChar": 8,
+        "endLine": 6004,
+        "endChar": 67
+      },
+      "revId": "f9e50e049bcad0d3fc5c8d2f79c6719f9af95b42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
