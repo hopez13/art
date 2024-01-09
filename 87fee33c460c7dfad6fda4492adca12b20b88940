@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "8ed71506_167a393c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-01-09T17:47:44Z",
+      "side": 1,
+      "message": "I don\u0027t think so. `getSecondaryDexContainerFileUseInfo` calls `getSecondaryDexInfo`, which calls `getSecondaryDexInfoImpl` with `false /* checkDexFile */`, in which case `visibility` is always `FileVisibility.OTHER_READABLE`, so this change is a no-op to it.",
+      "parentUuid": "9b008e3e_a06724db",
+      "range": {
+        "startLine": 22,
+        "startChar": 62,
+        "endLine": 23,
+        "endChar": 59
+      },
+      "revId": "87fee33c460c7dfad6fda4492adca12b20b88940",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "c388557e_e6f27638",
         "filename": "libartservice/service/java/com/android/server/art/DexUseManagerLocal.java",
         "patchSetId": 5
@@ -70,6 +94,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5dc606e5_47782993",
+        "filename": "libartservice/service/java/com/android/server/art/DexUseManagerLocal.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-01-09T17:47:44Z",
+      "side": 1,
+      "message": "As I said in the CL description, secondary dexopter is mostly run during the bg dexopt job (see the usage of `FLAG_FOR_SECONDARY_DEX` in [`defaultDexoptFlags`](https://cs.android.com/android/platform/superproject/main/+/main:art/libartservice/service/java/com/android/server/art/model/ArtFlags.java;l\u003d151;drc\u003d03144b13b3489be8e5fcde799d08fcf30bd00b19)), and the job calls `DexUseManagerLocal.cleanup` at the very begining to prune dex use info including loaders, so this change has almost no impact.",
+      "parentUuid": "7ed59852_fd3a9de3",
+      "range": {
+        "startLine": 334,
+        "startChar": 0,
+        "endLine": 336,
+        "endChar": 73
+      },
+      "revId": "87fee33c460c7dfad6fda4492adca12b20b88940",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e49fa0fa_5f3b9565",
@@ -83,6 +131,30 @@
       "writtenOn": "2024-01-09T16:22:07Z",
       "side": 1,
       "message": "Please update.",
+      "range": {
+        "startLine": 90,
+        "startChar": 7,
+        "endLine": 90,
+        "endChar": 80
+      },
+      "revId": "87fee33c460c7dfad6fda4492adca12b20b88940",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "556a7003_5173bc48",
+        "filename": "libartservice/service/javatests/com/android/server/art/DexUseManagerTest.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-01-09T17:47:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e49fa0fa_5f3b9565",
       "range": {
         "startLine": 90,
         "startChar": 7,
