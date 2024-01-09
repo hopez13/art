@@ -1575,14 +1575,44 @@ void HInstruction::ReplaceWith(HInstruction* other) {
 void HInstruction::ReplaceUsesDominatedBy(HInstruction* dominator,
                                           HInstruction* replacement,
                                           bool strictly_dominated) {
+  // Get the dominated blocks first to faster calculation of domination afterwards.
+  HGraph* graph = GetBlock()->GetGraph();
+  ArenaBitVector visited_blocks(graph->GetAllocator(),
+                                graph->GetBlocks().size(),
+                                /* expandable= */ false,
+                                kArenaAllocMisc);
+  visited_blocks.ClearAllBits();
+  ScopedArenaAllocator allocator(graph->GetArenaStack());
+  ScopedArenaQueue<const HBasicBlock*> worklist(allocator.Adapter(kArenaAllocMisc));
+  worklist.push(dominator->GetBlock());
+
+  while (!worklist.empty()) {
+    const HBasicBlock* current = worklist.front();
+    worklist.pop();
+    if (visited_blocks.IsBitSet(current->GetBlockId())) {
+      continue;
+    }
+    visited_blocks.SetBit(current->GetBlockId());
+    for (HBasicBlock* dominated : current->GetDominatedBlocks()) {
+      worklist.push(dominated);
+    }
+  }
+
   const HUseList<HInstruction*>& uses = GetUses();
   for (auto it = uses.begin(), end = uses.end(); it != end; /* ++it below */) {
     HInstruction* user = it->GetUser();
     size_t index = it->GetIndex();
     // Increment `it` now because `*it` may disappear thanks to user->ReplaceInput().
     ++it;
-    const bool dominated =
-        strictly_dominated ? dominator->StrictlyDominates(user) : dominator->Dominates(user);
+    bool dominated = false;
+    if (dominator->GetBlock() == user->GetBlock()) {
+      // Trickier case, call the other methods.
+      dominated =
+          strictly_dominated ? dominator->StrictlyDominates(user) : dominator->Dominates(user);
+    } else {
+      // Block domination.
+      dominated = visited_blocks.IsBitSet(user->GetBlock()->GetBlockId());
+    }
 
     if (dominated) {
       user->ReplaceInput(replacement, index);
