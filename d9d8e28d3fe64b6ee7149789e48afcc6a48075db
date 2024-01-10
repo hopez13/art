@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d7325b38_f3615422",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-01-10T20:32:29Z",
+      "side": 1,
+      "message": "Spello: \"Replace\"",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 8
+      },
+      "revId": "d9d8e28d3fe64b6ee7149789e48afcc6a48075db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fac53e6a_540f5916",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-01-10T20:32:29Z",
+      "side": 1,
+      "message": "This is a good example of a generic characteristic that\u0027s very helpful to know when reading the code but which rarely ends up in docs, let alone in a discoverable location. I\u0027m not sure where the ideal place would be - the docstring for `ArtManagerLocal` is an option, although that\u0027s arguably for API docs and it\u0027s not relevant there. Maybe just a non-docstring comment in that file?",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 58
+      },
+      "revId": "d9d8e28d3fe64b6ee7149789e48afcc6a48075db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "372b8c72_2d5217a2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-01-10T20:32:29Z",
+      "side": 1,
+      "message": "The fixtures can still be confusing since they combine situations that cannot occur for a single package, but that\u0027s another story.",
+      "revId": "d9d8e28d3fe64b6ee7149789e48afcc6a48075db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "00304181_16c86c6e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-01-10T20:32:29Z",
+      "side": 1,
+      "message": "Gerrit diffs are a mess when the formatter changes line breaks, so I\u0027ll just assume it\u0027s a plain replacement.",
+      "revId": "d9d8e28d3fe64b6ee7149789e48afcc6a48075db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
