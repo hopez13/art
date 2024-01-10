@@ -51,6 +51,24 @@
       "parentUuid": "e2eaefe9_72c59fd3",
       "revId": "ec317e96825d657de911d44da98d712c33d659d7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba933361_d833f959",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-01-10T21:31:21Z",
+      "side": 1,
+      "message": "I think the unpredictable GC behaviour on high memory pressure is a good point. It\u0027s nice to avoid that uncertainty.\n\nThat said, the ref cache is rather more code than I\u0027d like for that sort of thing. I\u0027d expect/hope the JDK would have something to help with such scoped caching. That\u0027s not the case?\n\n\u003e it\u0027s easy to add a few lines to use it to implement the timeout-based expiration\n\nWell, it also introduces the finicky `DeathRecipient` stuff, doesn\u0027t it? That makes it not so trivial anymore.\n\nIf we do find CUJ\u0027s where there\u0027s a tangible benefit to cache the artd instance longer, then the proper approach is arguably to introduce a session class to give control of the lifetime to the caller (but admittedly at the cost of adding quite a bit of new API).\n\nAnother idea is to combine this and aosp/2889793 - i.e. do the refcounting but leave behind a best-effort weak ref when the refcount goes to zero. It\u0027s not clear to me if a weak ref would avoid the `DeathRecipient` stuff though - isn\u0027t it also prone to cache a potentially dead instance?",
+      "parentUuid": "ad192d23_249d7ba7",
+      "revId": "ec317e96825d657de911d44da98d712c33d659d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
