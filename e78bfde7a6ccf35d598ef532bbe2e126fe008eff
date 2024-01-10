@@ -22,6 +22,30 @@
       },
       "revId": "e78bfde7a6ccf35d598ef532bbe2e126fe008eff",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "292274cb_80694128",
+        "filename": "TEST_MAPPING",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2024-01-10T15:56:08Z",
+      "side": 1,
+      "message": "Actually, these tests have been added as postsubmits three days ago (https://android-review.git.corp.google.com/c/platform/art/+/2897727 was merged on 2024-01-07); I was planning to wait until next week before restarting TreeHugger.",
+      "parentUuid": "90039d78_353b399c",
+      "range": {
+        "startLine": 0,
+        "startChar": 0,
+        "endLine": 0,
+        "endChar": 0
+      },
+      "revId": "e78bfde7a6ccf35d598ef532bbe2e126fe008eff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
