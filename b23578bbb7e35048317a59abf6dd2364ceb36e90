@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "70e5e1f5_d7aafa38",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2024-01-10T16:57:19Z",
+      "side": 1,
+      "message": "Unfortunately, this adds a significant amount of code to try to better understand what the target thread of SuspendThreadId is doing when it fails to suspend. But I couldn\u0027t think of another way to get more insight here. This shouldn\u0027t affect the fast/normal path significantly, so I think it\u0027s OK to have this always on. This code should eventually also be triggered for other suspension failures.",
+      "revId": "b23578bbb7e35048317a59abf6dd2364ceb36e90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
