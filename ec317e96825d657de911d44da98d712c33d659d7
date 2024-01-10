@@ -69,6 +69,24 @@
       "parentUuid": "ad192d23_249d7ba7",
       "revId": "ec317e96825d657de911d44da98d712c33d659d7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ff39e07_eb424726",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-01-10T21:58:07Z",
+      "side": 1,
+      "message": "\u003e That said, the ref cache is rather more code than I\u0027d like for that sort of thing.\n\nThe file looks lengthy because it has various boilerplates like license, imports, injector pattern, etc. The core part is line 80-153 (only 74 lines).\n\n\u003e I\u0027d expect/hope the JDK would have something to help with such scoped caching. That\u0027s not the case?\n\nI\u0027d not expect JDK to have anything smart, frankly speaking :)\n\n\u003e it also introduces the finicky DeathRecipient stuff, doesn\u0027t it?\n\n`DeathRecipient` is not for the timeout-based expiration. It is needed whenever we keep a ref, so that if a previous call causes a crash, the next call won\u0027t be affected. For example, during bg dexopt, if artd crashes when dexopting a package, we still want the job to continue to dexopt other packages. Even if we decide to adopt aosp/2889793 (the `WeakReference` approach), we\u0027ll have to add `DeathRecipient` before submitting the CL.\n\nBTW, it\u0027s unfortunate that the `DeathRecipient` has to be a class because it has two callbacks, one of which is legacy. Otherwise, I could make it a lambda so that it looks shorter. But this is just an API detail. The lengthy class doesn\u0027t really add logically complexity, so don\u0027t be scared of it. At the end of the day, it\u0027s just a callback with 5 lines of code.",
+      "parentUuid": "ba933361_d833f959",
+      "revId": "ec317e96825d657de911d44da98d712c33d659d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
