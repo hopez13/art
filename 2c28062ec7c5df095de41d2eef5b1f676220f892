@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb92b2dd_c5f82eac",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-01-10T15:05:43Z",
+      "side": 1,
+      "message": "Have you tested with an example entry in `failing_tests_excluded_from_test_mapping` too? (But no need to upload a CL with it.)",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 4
+      },
+      "revId": "2c28062ec7c5df095de41d2eef5b1f676220f892",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef884743_664e5afc",
+        "filename": "test/utils/regen-test-files",
+        "patchSetId": 1
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-01-10T15:05:43Z",
+      "side": 1,
+      "message": "I suggest an example in the comment to clarify what kind of identifier is expected here (it\u0027s not always clear what is meant with a \"test\").",
+      "range": {
+        "startLine": 307,
+        "startChar": 2,
+        "endLine": 307,
+        "endChar": 7
+      },
+      "revId": "2c28062ec7c5df095de41d2eef5b1f676220f892",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
