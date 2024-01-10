@@ -63,3 +63,10 @@ sh_binary_host {
     src: "appcompat.sh",
     filename_from_src: true,
 }
+
+genrule {
+    name: "copy_java_import_system_stub_dex",
+    srcs: [":java_import_system_stub_dex"],
+    out: ["bp_system_stub.dex"],
+    cmd: "cp $(in) $(out)",
+}
