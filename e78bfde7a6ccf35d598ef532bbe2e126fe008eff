@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "90039d78_353b399c",
+        "filename": "TEST_MAPPING",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-01-10T14:59:36Z",
+      "side": 1,
+      "message": "\u003e Branch: main, Target: aosp_cf_x86_64_phone-trunk_staging-userdebug\n\u003e ERROR: No data found for this config.\n\u003e Does not meet SLO. Please consult go/test-mapping-slo-guide\n\u003e \n\u003e FAIL: This test module does not meet SLO and is not ready to be in presubmit.\n\nThese have been in postsubmit for a while. Is the checker broken, and if so is there a ticket for it?",
+      "range": {
+        "startLine": 0,
+        "startChar": 0,
+        "endLine": 0,
+        "endChar": 0
+      },
+      "revId": "e78bfde7a6ccf35d598ef532bbe2e126fe008eff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
