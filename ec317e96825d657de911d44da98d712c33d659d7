@@ -105,6 +105,24 @@
       "parentUuid": "5ff39e07_eb424726",
       "revId": "ec317e96825d657de911d44da98d712c33d659d7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16e1e0ac_8031bad4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-01-10T22:37:49Z",
+      "side": 1,
+      "message": "\u003e Even if we decide to adopt aosp/2889793 (the WeakReference approach), we\u0027ll have to add DeathRecipient before submitting the CL.\n\nHow can we be sure about that, doesn\u0027t it depend on why artd died? If it got killed by the LMK then it sounds like a good idea to back off - dexopting isn\u0027t _that_ important. If it crashed because something is broken then isn\u0027t it rather likely that it\u0027ll just crash soon enough again? (dex2oat and profman are a different matter in that regard.)\n\n\u003e The lengthy class doesn\u0027t really add logically complexity\n\nI\u0027m discussing logical complexity, not lines. `CacheDeathRecipient` is indeed tedious and annoying, but it\u0027s line 91 that\u0027s the issue.",
+      "parentUuid": "7e6c8c1c_a1d2ff83",
+      "revId": "ec317e96825d657de911d44da98d712c33d659d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
