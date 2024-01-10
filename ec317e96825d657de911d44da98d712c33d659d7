@@ -87,6 +87,24 @@
       "parentUuid": "ba933361_d833f959",
       "revId": "ec317e96825d657de911d44da98d712c33d659d7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e6c8c1c_a1d2ff83",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1064003
+      },
+      "writtenOn": "2024-01-10T22:08:22Z",
+      "side": 1,
+      "message": "\u003e Even if we decide to adopt aosp/2889793 (the WeakReference approach), we\u0027ll have to add DeathRecipient before submitting the CL.\n\nDefinitely. @smoreland@google.com would you be the right person to talk in brainstorming how we could handle this more seamlessly for arbitrary clients? Maybe ART\u0027s needs are slightly unique here in how it\u0027s referencing the transient `artd` service, but I wonder if we can solve this more generally in the platform in a way that minimizes unnecessary calls into `servicemanager` for these handles (without needing each client to add this kind of additional caching/bookkeeping logic).",
+      "parentUuid": "5ff39e07_eb424726",
+      "revId": "ec317e96825d657de911d44da98d712c33d659d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
