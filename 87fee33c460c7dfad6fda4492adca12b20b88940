@@ -142,6 +142,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c5191ad0_94c17f3f",
+        "filename": "libartservice/service/java/com/android/server/art/DexUseManagerLocal.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-01-10T01:33:05Z",
+      "side": 1,
+      "message": "During the cleanup, we use [exactly the same condition](https://cs.android.com/android/platform/superproject/main/+/main:art/libartservice/service/java/com/android/server/art/DexUseManagerLocal.java;l\u003d805-812;drc\u003d0fb0b42523681e150297c466a1b289aff74c648d) as the filter uses to remove loaders. That\u0027s why the filtering is effectively a no-op after the cleanup takes place.\n\nI don\u0027t see it as \"this method starts to behave subtly wrong\". This method operates on the current data. If something has changed, we should run the cleanup to update the current data, rather than adding complicated logic here. The cleanup is run daily, so this method is eventually correct in any case, not to mention that we do run the cleanup right before secondary dexopt during bg dexopt job. Even if the cleanup is run after secondary dexopt, secondary dexopt will still be correct after a day.\n\nIn the CL description, I mentioned 3 drawbacks of the filtering:\n\n1. It added unnecessary complexity in the method itself.\n2. It prevented DumpHelper from reusing the method.\n3. It can also be surprising when the method is used by others in the future as this behavior is subtle and not well-documented.\n\nAdding a flag can address #2 but #1 and #3 would still exist.\n\nAlso, as the comment [here](https://cs.android.com/android/platform/superproject/main/+/main:art/libartservice/service/java/com/android/server/art/DexUseManagerLocal.java;l\u003d805-812;drc\u003d0fb0b42523681e150297c466a1b289aff74c648d) said, the filtering is only useful in an edge case:\n\n1. A secondary dex file owned by package A was other-readable.\n2. Another package B loaded it.\n3. The secondary dex file was changed to non-other-readable at some point.\n4. Package B can no longer load it.\n\nHow often does this happen in reality? I don\u0027t think it often happens. I think it\u0027s an edge case.\n\nAlso, the filtering is incomplete. It doesn\u0027t cover a more common case, where a package loads a secondary dex file but is then removed. For this more common case, we fully rely on the cleanup.\n\nAll I wanted to say is that the filtering yields low ROI, so I prefer to remove it. I regret that I added it in the first place. It doesn\u0027t exist in the legacy code. In fact, the legacy code doesn\u0027t even have the cleanup. If the legacy code hits the edge case that I mentioned above, it will behave \"wrong\" forever.",
+      "parentUuid": "ce6b2fa2_449a088f",
+      "range": {
+        "startLine": 334,
+        "startChar": 0,
+        "endLine": 336,
+        "endChar": 73
+      },
+      "revId": "87fee33c460c7dfad6fda4492adca12b20b88940",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e49fa0fa_5f3b9565",
