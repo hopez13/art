@@ -228,6 +228,30 @@
       },
       "revId": "0b0b0c9a4d2320f5e398802b4f70a0d3cac2bf8e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b655549_baf25410",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1079,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2024-01-10T18:51:07Z",
+      "side": 1,
+      "message": "I don\u0027t understand either the LSE analysis or the verifier\u0027s analysis enough. My concern is that we have basically\n\nMonitorEnter x\n...\ny \u003d x; // May involve a more complicated chain of assignments\n...\nMonitorExit y\n\nand the verifier understands that x and y are the same, and hence locking is balanced, but we decide to eliminate only one of the Monitor... instructions because we don\u0027t get the same answer for removability in the two cases.\n\nI have no idea whether this is an actual issue, given the way things are implemented. But superficially we seem to be assuming that two analyses give us related results, which can be problematic.",
+      "parentUuid": "04a54f9f_f114effe",
+      "range": {
+        "startLine": 1079,
+        "startChar": 8,
+        "endLine": 1079,
+        "endChar": 43
+      },
+      "revId": "0b0b0c9a4d2320f5e398802b4f70a0d3cac2bf8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
