@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "12138e3a_79b33d92",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-01-10T20:51:39Z",
+      "side": 1,
+      "message": "It\u0027s also interesting to confirm that the thread dies eventually. An idle thread will keep global refs, but the executor implementation ought to deal with that, or else it\u0027s arguably leaky.",
+      "range": {
+        "startLine": 23,
+        "startChar": 5,
+        "endLine": 23,
+        "endChar": 62
+      },
+      "revId": "146ed81945bb58a7ff03d8c0f105b88e82fd6e53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
