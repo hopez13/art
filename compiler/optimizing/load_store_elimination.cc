@@ -2492,7 +2492,9 @@ void LSEVisitor::ProcessLoopPhiWithUnknownInput(PhiPlaceholder loop_phi_with_unk
               local_heap_values[idx] = Replacement(local_heap_values[idx]);
             }
             record.value = local_heap_values[idx];
-            HInstruction* heap_value = local_heap_values[idx].GetInstruction();
+            HInstruction* heap_value = local_heap_values[idx].IsDefault() ?
+                                           GetDefaultValue(load_or_store->GetType()) :
+                                           local_heap_values[idx].GetInstruction();
             AddRemovedLoad(load_or_store, heap_value);
           }
         }
