@@ -136,6 +136,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a15ca0e_6e733c3e",
+        "filename": "libartbase/base/atomic.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2024-01-11T21:04:50Z",
+      "side": 1,
+      "message": "This is good to know. I always thought fetch_add would be cheaper.",
+      "parentUuid": "e99136e4_34091b19",
+      "range": {
+        "startLine": 132,
+        "startChar": 5,
+        "endLine": 132,
+        "endChar": 10
+      },
+      "revId": "b23578bbb7e35048317a59abf6dd2364ceb36e90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3d73a620_17d73fa8",
