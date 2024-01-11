@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5892a744_1b92ec19",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 718,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-11T09:18:57Z",
+      "side": 1,
+      "message": "This should be refactored to avoid the `EXPORT` as the non-debug implementation is just calling the inline function `IsBootImageAddress()`. Add a TODO.\n\n(`IsInBootImageOatFile()` should be similarly refactored even though it does not currently require `EXPORT`.)",
+      "range": {
+        "startLine": 718,
+        "startChar": 14,
+        "endLine": 718,
+        "endChar": 38
+      },
+      "revId": "5448ed86e3d9320f3c5ebbeb25ec7b51d3223300",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
