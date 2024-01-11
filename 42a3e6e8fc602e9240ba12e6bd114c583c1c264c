@@ -99,6 +99,24 @@
       "parentUuid": "2fea63c1_032c2d7d",
       "revId": "42a3e6e8fc602e9240ba12e6bd114c583c1c264c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c8e1688_a537b58d",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1600,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-11T18:17:23Z",
+      "side": 1,
+      "message": "Ah I thought you meant something else. This would save computation for when all uses are in the same block, and that block is `dominator_block`. I\u0027d think that it is not a common case but it is something to potentially do in a future CL.",
+      "parentUuid": "9879a73a_ef3043b6",
+      "revId": "42a3e6e8fc602e9240ba12e6bd114c583c1c264c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
