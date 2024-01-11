@@ -141,6 +141,24 @@
       "parentUuid": "16e1e0ac_8031bad4",
       "revId": "ec317e96825d657de911d44da98d712c33d659d7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc2649dd_d4b8e474",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-01-11T21:29:11Z",
+      "side": 1,
+      "message": "\u003e Maybe an app with an extremely long CLC can crash artd (just saying, not the real case), in which case artd won\u0027t crash on other apps.\n\nApp specific failure mode is a factor for profman and dex2oat invocations, but I remain unconvinced that it\u0027s a likely one for artd itself. It\u0027s much more likely with a resource contention of some sort, or a code bug that\u0027s triggered by some condition in the execution environment. But we\u0027re both guessing here.\n\nBe that as it may, the impact of consistently failing to progress past some point is arguably worse than of getting a cascade of artd crashes (except maybe if they can DoS the system, but I\u0027m going to assume that the crash dumper has rate limiting measures in place to handle crash loops). So on that ground I can agree that `DeathRecipient` should be used.\n\nAfter some thought I\u0027m less keen on timed expiration (in any form) though - it\u0027s after all a premature optimisation, and there are different options to consider if we want to do it.",
+      "parentUuid": "1450f9ff_7f0e2041",
+      "revId": "ec317e96825d657de911d44da98d712c33d659d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
