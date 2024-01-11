@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "43327a20_a8bde264",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1597,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-11T16:54:04Z",
+      "side": 1,
+      "message": "Yeah, `GetDominatedBlocks` only gives you the directly-dominated blocks. I guess it is consistent with `GetDominator` which only gives you the directly-dominator i.e. for every `block` in `parent-\u003eGetDominatedBlocks()`, `block-\u003eGetDominator()` is equal to `parent`",
+      "parentUuid": "be3aec81_77dd74a6",
+      "range": {
+        "startLine": 1597,
+        "startChar": 43,
+        "endLine": 1597,
+        "endChar": 61
+      },
+      "revId": "42a3e6e8fc602e9240ba12e6bd114c583c1c264c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d367887f_3eaf6575",
@@ -37,6 +61,24 @@
       "writtenOn": "2024-01-11T15:50:35Z",
       "side": 1,
       "message": "If all uses are in the same block, this is unnecessary work, so we may want to do this lazily. And if you\u0027re going for the best performance, you should check the `visited_blocks.IsBitSet(.)` before pushing the dominated blocks to the `worklist`.\n\nIf we deem this information generally useful, we could also hold the `BitVector` in the `HBlock` and populate it together with the (poorly-named) `dominated_blocks_` in `HGraph::ComputeDominanceInformation()` where we could do it quite quickly using the `BitVector::Union()` function.",
+      "revId": "42a3e6e8fc602e9240ba12e6bd114c583c1c264c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2fea63c1_032c2d7d",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1600,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-11T16:54:04Z",
+      "side": 1,
+      "message": "\u003e If all uses are in the same block, this is unnecessary work, so we may want to do this lazily.\n\nTrue, but we would need to have heuristics on which way to iterate (old way of doing the domination chain, or the new way) which would complicate the method.\n\n\u003e And if you\u0027re going for the best performance, you should check the `visited_blocks.IsBitSet(.)` before pushing the dominated blocks to the `worklist`.\n\nDone.\n\n\u003e If we deem this information generally useful, we could also hold the `BitVector` in the `HBlock` and populate it together with the (poorly-named) `dominated_blocks_` in `HGraph::ComputeDominanceInformation()` where we could do it quite quickly using the `BitVector::Union()` function.\n\nHaving the transitive domination could prove difficult to update when we do small modifications to the graph and don\u0027t call `ComputeDominanceInformation`. Nowadays we just update the directly affected blocks, but if we keep the full transitive information we would need to update all affected blocks.",
+      "parentUuid": "d367887f_3eaf6575",
       "revId": "42a3e6e8fc602e9240ba12e6bd114c583c1c264c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
