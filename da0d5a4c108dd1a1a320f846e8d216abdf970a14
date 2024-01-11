@@ -1,0 +1,159 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "16d2a026_69835784",
+        "filename": "libartservice/service/java/com/android/server/art/ArtManagerLocal.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1276,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-01-11T20:47:21Z",
+      "side": 1,
+      "message": "This may be disturbing when debugging, e.g. if `pm compile -m` just refuses to compile with the filter given to it. I think we should at least allow that command to override this callback. Inconsistency between dexopt calls isn\u0027t an issue in that situation, but not obeying the user is.\n\nSame goes for the hardcoded overrides we already have in `adjustCompilerFilter` (I haven\u0027t realised they override the filter in that entry point). Given that, changing it is a bit out of scope here - I\u0027d still like to discuss it but I think it\u0027s better done in a later CL.",
+      "range": {
+        "startLine": 1275,
+        "startChar": 76,
+        "endLine": 1276,
+        "endChar": 42
+      },
+      "revId": "da0d5a4c108dd1a1a320f846e8d216abdf970a14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3fd3afc0_042e6845",
+        "filename": "libartservice/service/java/com/android/server/art/ArtManagerLocal.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1293,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-01-11T20:47:21Z",
+      "side": 1,
+      "message": "This looks prone to get stale. Do we need to be this detailed here? If so, I suggest adding a comment at least in `adjustCompilerFilter` to point out that this may need updating.",
+      "range": {
+        "startLine": 1287,
+        "startChar": 0,
+        "endLine": 1293,
+        "endChar": 44
+      },
+      "revId": "da0d5a4c108dd1a1a320f846e8d216abdf970a14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "41ef618f_dd15fc14",
+        "filename": "libartservice/service/java/com/android/server/art/ArtManagerLocal.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1298,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-01-11T20:47:21Z",
+      "side": 1,
+      "message": "```suggestion\n         *         of step 3 described above. It would be the input to step 5 described above if\n         *         it wasn\u0027t for this callback.\n```",
+      "range": {
+        "startLine": 1297,
+        "startChar": 94,
+        "endLine": 1298,
+        "endChar": 45
+      },
+      "revId": "da0d5a4c108dd1a1a320f846e8d216abdf970a14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "606b2a67_6e433035",
+        "filename": "libartservice/service/java/com/android/server/art/ArtManagerLocal.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1301,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-01-11T20:47:21Z",
+      "side": 1,
+      "message": "```suggestion\n         *         DexoptParams.Builder#Builder(String)}.\n```",
+      "revId": "da0d5a4c108dd1a1a320f846e8d216abdf970a14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c7efc7f_210b5ae7",
+        "filename": "libartservice/service/java/com/android/server/art/ArtManagerLocal.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1304,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-01-11T20:47:21Z",
+      "side": 1,
+      "message": "```suggestion\n         *         above.\n```",
+      "range": {
+        "startLine": 1304,
+        "startChar": 19,
+        "endLine": 1304,
+        "endChar": 24
+      },
+      "revId": "da0d5a4c108dd1a1a320f846e8d216abdf970a14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72bf9a0c_6066fa5b",
+        "filename": "libartservice/service/javatests/com/android/server/art/PrimaryDexopterParameterizedTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 374,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-01-11T20:47:21Z",
+      "side": 1,
+      "message": "What about `mCallbackReturnedCompilerFilter`, to make it more self-explanatory?",
+      "range": {
+        "startLine": 374,
+        "startChar": 22,
+        "endLine": 374,
+        "endChar": 45
+      },
+      "revId": "da0d5a4c108dd1a1a320f846e8d216abdf970a14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b911d72_2ecd9c01",
+        "filename": "libartservice/service/javatests/com/android/server/art/PrimaryDexopterParameterizedTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-01-11T20:47:21Z",
+      "side": 1,
+      "message": "Similarly, `mCallbackInputCompilerFilter`.",
+      "range": {
+        "startLine": 384,
+        "startChar": 22,
+        "endLine": 384,
+        "endChar": 53
+      },
+      "revId": "da0d5a4c108dd1a1a320f846e8d216abdf970a14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
