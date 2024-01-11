@@ -123,6 +123,24 @@
       "parentUuid": "7e6c8c1c_a1d2ff83",
       "revId": "ec317e96825d657de911d44da98d712c33d659d7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1450f9ff_7f0e2041",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-01-11T12:57:30Z",
+      "side": 1,
+      "message": "\u003e If it got killed by the LMK then it sounds like a good idea to back off\n\nartd is a native service, so it gets the lowest oom_adj (NATIVE_ADJ), which means it\u0027s in the last category that LMK would kill. If we want to respect low memory we\u0027d rely on something else. For example, job scheduler probably cancels some jobs on low memory, and we do respect job cancellation. artd can only die because it goes wrong.\n\n\u003e If it crashed because something is broken then isn\u0027t it rather likely that it\u0027ll just crash soon enough again?\n\nI beg to differ. Maybe an app with an extremely long CLC can crash artd (just saying, not the real case), in which case artd won\u0027t crash on other apps.\n\n\u003e but it\u0027s line 91 that\u0027s the issue.\n\nSorry, I don\u0027t follow. When artd is dead, CacheDeathRecipient just clears the cache, as if there wasn\u0027t any cached artd reference. We have code that checks the existence of the cache and build it if it doesn\u0027t exist, for the very first `getArtd()` call, so the same code handles the death case naturally. Or, are you concerning about some other logical complexity?",
+      "parentUuid": "16e1e0ac_8031bad4",
+      "revId": "ec317e96825d657de911d44da98d712c33d659d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

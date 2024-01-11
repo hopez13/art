@@ -16,6 +16,24 @@
       "message": "artd is a lazy service, so presumably this would break that? (I haven\u0027t read the rest of the patch)",
       "revId": "4b80442b859bb2d465f38686cadec9ebda00b650",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4053662e_42a78ce2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-01-11T12:57:30Z",
+      "side": 1,
+      "message": "No, we drop the cache when there is no more pin within a timeout. See the comment on ArtdRefCache.java line 114.",
+      "parentUuid": "bbbd70fa_c6fc271d",
+      "revId": "4b80442b859bb2d465f38686cadec9ebda00b650",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
