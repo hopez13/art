@@ -160,6 +160,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0408f46c_1b0f5ec0",
+        "filename": "libartbase/base/atomic.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2024-01-11T22:02:32Z",
+      "side": 1,
+      "message": "Often, it is the only thing that\u0027s correct. As the comment says, you should never do this with concurrent writers, even if you only care about approximate answers. You may aggravate cache contention, and that may greatly increase the length of the time window in which you will lose increments.",
+      "parentUuid": "3a15ca0e_6e733c3e",
+      "range": {
+        "startLine": 132,
+        "startChar": 5,
+        "endLine": 132,
+        "endChar": 10
+      },
+      "revId": "b23578bbb7e35048317a59abf6dd2364ceb36e90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3d73a620_17d73fa8",
