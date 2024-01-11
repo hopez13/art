@@ -16,6 +16,98 @@
       "message": "Unfortunately, this adds a significant amount of code to try to better understand what the target thread of SuspendThreadId is doing when it fails to suspend. But I couldn\u0027t think of another way to get more insight here. This shouldn\u0027t affect the fast/normal path significantly, so I think it\u0027s OK to have this always on. This code should eventually also be triggered for other suspension failures.",
       "revId": "b23578bbb7e35048317a59abf6dd2364ceb36e90",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b2df052_e19b4e56",
+        "filename": "libartbase/base/atomic.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2024-01-11T20:10:43Z",
+      "side": 1,
+      "message": "This is not the naming convention we use, right? Maybe something like `IncrementStatsCounter`.",
+      "range": {
+        "startLine": 131,
+        "startChar": 5,
+        "endLine": 131,
+        "endChar": 23
+      },
+      "revId": "b23578bbb7e35048317a59abf6dd2364ceb36e90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a01aaee_7ed3d144",
+        "filename": "libartbase/base/atomic.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2024-01-11T20:10:43Z",
+      "side": 1,
+      "message": "Didn\u0027t understand from the comment why fetch_add() wasn\u0027t usable here.",
+      "range": {
+        "startLine": 132,
+        "startChar": 5,
+        "endLine": 132,
+        "endChar": 10
+      },
+      "revId": "b23578bbb7e35048317a59abf6dd2364ceb36e90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3d73a620_17d73fa8",
+        "filename": "runtime/thread.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 2327,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2024-01-11T20:10:43Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 2327,
+        "startChar": 24,
+        "endLine": 2327,
+        "endChar": 28
+      },
+      "revId": "b23578bbb7e35048317a59abf6dd2364ceb36e90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1200b38_dee3e6a5",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 685,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2024-01-11T20:10:43Z",
+      "side": 1,
+      "message": "Are you sure you want to iterate so many times for one invocation of this function?",
+      "range": {
+        "startLine": 685,
+        "startChar": 22,
+        "endLine": 685,
+        "endChar": 31
+      },
+      "revId": "b23578bbb7e35048317a59abf6dd2364ceb36e90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
