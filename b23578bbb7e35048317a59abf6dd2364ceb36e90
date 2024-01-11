@@ -112,6 +112,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e1c943b3_c2d6e7bd",
+        "filename": "libartbase/base/atomic.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2024-01-11T21:01:20Z",
+      "side": 1,
+      "message": "Note that\u0027s specifically true for small counters, which often require a CAS on the whole word to implement atomically.",
+      "parentUuid": "e99136e4_34091b19",
+      "range": {
+        "startLine": 132,
+        "startChar": 5,
+        "endLine": 132,
+        "endChar": 10
+      },
+      "revId": "b23578bbb7e35048317a59abf6dd2364ceb36e90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3d73a620_17d73fa8",
