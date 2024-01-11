@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "be3aec81_77dd74a6",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1597,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-11T15:50:35Z",
+      "side": 1,
+      "message": "Note: The pre-existing naming is a bit weird. The `GetDominatedBlocks()` gives you only the closest dominated blocks and you\u0027re calculating the set of all dominated blocks here.",
+      "range": {
+        "startLine": 1597,
+        "startChar": 43,
+        "endLine": 1597,
+        "endChar": 61
+      },
+      "revId": "42a3e6e8fc602e9240ba12e6bd114c583c1c264c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d367887f_3eaf6575",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1600,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-11T15:50:35Z",
+      "side": 1,
+      "message": "If all uses are in the same block, this is unnecessary work, so we may want to do this lazily. And if you\u0027re going for the best performance, you should check the `visited_blocks.IsBitSet(.)` before pushing the dominated blocks to the `worklist`.\n\nIf we deem this information generally useful, we could also hold the `BitVector` in the `HBlock` and populate it together with the (poorly-named) `dominated_blocks_` in `HGraph::ComputeDominanceInformation()` where we could do it quite quickly using the `BitVector::Union()` function.",
+      "revId": "42a3e6e8fc602e9240ba12e6bd114c583c1c264c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
