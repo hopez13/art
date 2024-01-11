@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1dae6a18_9cbacd6f",
+        "filename": "runtime/gc/allocator/art-dlmalloc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-11T09:03:18Z",
+      "side": 1,
+      "message": "If I\u0027m reading the code correctly, we just use pointers to these callbacks, so they do not need to be `extern \"C\"`, or exported. We could move them to the `art` namespace to get the `HIDDEN` attribute implictly, maybe even to the namespace `art::gc::allocator` as the `ArtDlMallocMoreCore`. Furthermore, they are used only from `dlmalloc_space.cc`, so they could be simply moved there with no declaration in any `.h` file.\n\n(But feel free to simply add a TODO.)",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 10
+      },
+      "revId": "49a078fcdfadbead3ede089ed7a6974d89edd8ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed20aa92_b57e7d1e",
+        "filename": "runtime/gc/allocator/art-dlmalloc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-11T09:03:18Z",
+      "side": 1,
+      "message": "Why is the declaration in `art-dlmalloc.h` and definition in `dlmalloc_space.cc`? This makes no sense, the declaration should be in `dlmalloc_space.h`. If we need to see the declaration in `art-dlmalloc.cc` without actually including `dlmalloc_space.h`, we can have that declaration directly in the `art-dlmalloc.cc` file instead of `.h`.\n\nAdding `HIDDEN` here and not to the definition in `dlmalloc_space.cc` risks inconsistent attribute while compiling the two .cc files. (Though that\u0027s probably of little consequence as long as the linker does not check for that.)",
+      "range": {
+        "startLine": 57,
+        "startChar": 6,
+        "endLine": 57,
+        "endChar": 25
+      },
+      "revId": "49a078fcdfadbead3ede089ed7a6974d89edd8ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
