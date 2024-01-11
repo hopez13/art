@@ -81,6 +81,24 @@
       "parentUuid": "d367887f_3eaf6575",
       "revId": "42a3e6e8fc602e9240ba12e6bd114c583c1c264c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9879a73a_ef3043b6",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1600,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-11T17:18:56Z",
+      "side": 1,
+      "message": "The lazy computation can easily be done in the `else` block that starts with the comment `// Block domination.` We just need a flag whether we have already calculated the set. That flag could be the `has_value()` of an `std::optional\u003c.\u003e` and we could hide all the local variables above in the optional value and perform the calculation in its constructor.\n\n    class AllDominatedBlocks {\n      [...]\n    };\n    std::optional\u003cAllDominatedBlocks\u003e all_dominated_blocks(std::nullopt);\n    [...]\n    for ([...]) {\n      [...]\n      if (dominator_block \u003d\u003d block) {\n        [...]\n      } else {\n        // Block domination.\n        if (!all_dominated_blocks.has_value()) {\n          all_dominated_blocks.emplace(GetBlock()-\u003eGetGraph());\n        }\n        dominated \u003d all_dominated_blocks-\u003eContains(block-\u003eGetBlockId());\n      }\n      [...]\n    }\n\nBut this makes the code a little more complex and does not eliminate all potentially unnecessary work anyway, so feel free to submit as is.",
+      "parentUuid": "2fea63c1_032c2d7d",
+      "revId": "42a3e6e8fc602e9240ba12e6bd114c583c1c264c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
