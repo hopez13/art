@@ -118,6 +118,30 @@
       },
       "revId": "ad5a02e7a7530009177fc6a5619889439897a229",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6929410a_92a23e4e",
+        "filename": "compiler/optimizing/intrinsics_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2470,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-11T13:32:29Z",
+      "side": 1,
+      "message": "I think you have forgotten to commit your changes before uploading PS4, Lifang.\n\nI\u0027ve updated this, rebased on ToT and moved the intrinsic implementation right after `ThreadCurrentThread` in PS5. Hans, please review.\n\nNote that I\u0027m keeping the `kFenceDefault` for now as we\u0027re testing agains clang.",
+      "parentUuid": "a5b118da_90bfb3b3",
+      "range": {
+        "startLine": 2470,
+        "startChar": 2,
+        "endLine": 2470,
+        "endChar": 13
+      },
+      "revId": "ad5a02e7a7530009177fc6a5619889439897a229",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
