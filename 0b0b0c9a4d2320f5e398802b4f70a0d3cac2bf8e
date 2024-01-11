@@ -252,6 +252,30 @@
       },
       "revId": "0b0b0c9a4d2320f5e398802b4f70a0d3cac2bf8e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b408af14_617bd06c",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1079,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-11T08:33:54Z",
+      "side": 1,
+      "message": "The verifier does not perform LSE or any other analysis to uncover references that could be hidden outside dex registers. Therefore, if the verifier can see across those assignments, surely the compiler can - we\u0027re using SSA, so those assignments do not even exist in HIR.",
+      "parentUuid": "5b655549_baf25410",
+      "range": {
+        "startLine": 1079,
+        "startChar": 8,
+        "endLine": 1079,
+        "endChar": 43
+      },
+      "revId": "0b0b0c9a4d2320f5e398802b4f70a0d3cac2bf8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
