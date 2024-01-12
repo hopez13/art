@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "253957ac_d9200d7a",
+        "filename": "libartservice/service/java/com/android/server/art/ArtManagerLocal.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1276,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-01-12T15:40:40Z",
+      "side": 1,
+      "message": "Yes, I also found it annoying. Once I ran `pm compile -m verify` for the System UI but I found that I couldn\u0027t do it. Let\u0027s discuss a solution.",
+      "parentUuid": "16d2a026_69835784",
+      "range": {
+        "startLine": 1275,
+        "startChar": 76,
+        "endLine": 1276,
+        "endChar": 42
+      },
+      "revId": "da0d5a4c108dd1a1a320f846e8d216abdf970a14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3fd3afc0_042e6845",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-01-11T20:47:21Z",
       "side": 1,
       "message": "This looks prone to get stale. Do we need to be this detailed here? If so, I suggest adding a comment at least in `adjustCompilerFilter` to point out that this may need updating.",
+      "range": {
+        "startLine": 1287,
+        "startChar": 0,
+        "endLine": 1293,
+        "endChar": 44
+      },
+      "revId": "da0d5a4c108dd1a1a320f846e8d216abdf970a14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b27fa84d_9464b030",
+        "filename": "libartservice/service/java/com/android/server/art/ArtManagerLocal.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1293,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-01-12T15:40:40Z",
+      "side": 1,
+      "message": "I found it very hard to explain `originalCompilerFilter` and the return value if I don\u0027t explain this in the first place. If you have a better idea, let me know.\n\nAdded a comment on `adjustCompilerFilter`.",
+      "parentUuid": "3fd3afc0_042e6845",
       "range": {
         "startLine": 1287,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c59ecdb_15d31aaf",
+        "filename": "libartservice/service/java/com/android/server/art/ArtManagerLocal.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1298,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-01-12T15:40:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "41ef618f_dd15fc14",
+      "range": {
+        "startLine": 1297,
+        "startChar": 94,
+        "endLine": 1298,
+        "endChar": 45
+      },
+      "revId": "da0d5a4c108dd1a1a320f846e8d216abdf970a14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "606b2a67_6e433035",
@@ -87,6 +159,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b27e3090_304a7a49",
+        "filename": "libartservice/service/java/com/android/server/art/ArtManagerLocal.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1301,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-01-12T15:40:40Z",
+      "side": 1,
+      "message": "The style guide doesn\u0027t suggest a period at the end. go/java-practices/javadoc#param",
+      "parentUuid": "606b2a67_6e433035",
+      "revId": "da0d5a4c108dd1a1a320f846e8d216abdf970a14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2c7efc7f_210b5ae7",
@@ -100,6 +190,30 @@
       "writtenOn": "2024-01-11T20:47:21Z",
       "side": 1,
       "message": "```suggestion\n         *         above.\n```",
+      "range": {
+        "startLine": 1304,
+        "startChar": 19,
+        "endLine": 1304,
+        "endChar": 24
+      },
+      "revId": "da0d5a4c108dd1a1a320f846e8d216abdf970a14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ed21cb9_caadb118",
+        "filename": "libartservice/service/java/com/android/server/art/ArtManagerLocal.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1304,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-01-12T15:40:40Z",
+      "side": 1,
+      "message": "Ditto. go/java-practices/javadoc#return",
+      "parentUuid": "2c7efc7f_210b5ae7",
       "range": {
         "startLine": 1304,
         "startChar": 19,
@@ -133,6 +247,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8da37eaf_9cbefe11",
+        "filename": "libartservice/service/javatests/com/android/server/art/PrimaryDexopterParameterizedTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 374,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-01-12T15:40:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "72bf9a0c_6066fa5b",
+      "range": {
+        "startLine": 374,
+        "startChar": 22,
+        "endLine": 374,
+        "endChar": 45
+      },
+      "revId": "da0d5a4c108dd1a1a320f846e8d216abdf970a14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7b911d72_2ecd9c01",
@@ -146,6 +284,30 @@
       "writtenOn": "2024-01-11T20:47:21Z",
       "side": 1,
       "message": "Similarly, `mCallbackInputCompilerFilter`.",
+      "range": {
+        "startLine": 384,
+        "startChar": 22,
+        "endLine": 384,
+        "endChar": 53
+      },
+      "revId": "da0d5a4c108dd1a1a320f846e8d216abdf970a14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2053a9f4_4265a56e",
+        "filename": "libartservice/service/javatests/com/android/server/art/PrimaryDexopterParameterizedTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-01-12T15:40:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7b911d72_2ecd9c01",
       "range": {
         "startLine": 384,
         "startChar": 22,
