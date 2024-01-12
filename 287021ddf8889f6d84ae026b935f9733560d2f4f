@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3943689a_23e9f630",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2024-01-12T02:25:23Z",
+      "side": 1,
+      "message": "More later ...",
+      "revId": "287021ddf8889f6d84ae026b935f9733560d2f4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3200927c_32eba508",
@@ -233,6 +250,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7d45e72c_3be12680",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3608,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2024-01-12T02:25:23Z",
+      "side": 1,
+      "message": "I\u0027m not crazy about using a variable called start_state to step through the array. It\u0027s clearly not the start of anything.",
+      "range": {
+        "startLine": 3608,
+        "startChar": 10,
+        "endLine": 3608,
+        "endChar": 21
+      },
+      "revId": "287021ddf8889f6d84ae026b935f9733560d2f4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5aadf3e4_6c650e3f",
+        "filename": "runtime/gc/collector/mark_compact.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2024-01-12T02:25:23Z",
+      "side": 1,
+      "message": "??",
+      "range": {
+        "startLine": 161,
+        "startChar": 5,
+        "endLine": 161,
+        "endChar": 31
+      },
+      "revId": "287021ddf8889f6d84ae026b935f9733560d2f4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d5733410_16addc7b",
         "filename": "runtime/gc/collector/mark_compact.h",
         "patchSetId": 3
@@ -249,6 +312,75 @@
         "startChar": 16,
         "endLine": 355,
         "endChar": 20
+      },
+      "revId": "287021ddf8889f6d84ae026b935f9733560d2f4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "62bf5061_1f5465ce",
+        "filename": "runtime/gc/collector/mark_compact.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 523,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2024-01-12T02:25:23Z",
+      "side": 1,
+      "message": "Could also use an explanatory comment about parameter meaning and result value.",
+      "range": {
+        "startLine": 522,
+        "startChar": 2,
+        "endLine": 523,
+        "endChar": 44
+      },
+      "revId": "287021ddf8889f6d84ae026b935f9733560d2f4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6078e88_bb140e9f",
+        "filename": "runtime/gc/collector/mark_compact.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 554,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2024-01-12T02:25:23Z",
+      "side": 1,
+      "message": "Would be clearer if preceded by a blank line.",
+      "range": {
+        "startLine": 554,
+        "startChar": 1,
+        "endLine": 554,
+        "endChar": 73
+      },
+      "revId": "287021ddf8889f6d84ae026b935f9733560d2f4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "31521603_445b9d88",
+        "filename": "runtime/gc/collector/mark_compact.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 558,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2024-01-12T02:25:23Z",
+      "side": 1,
+      "message": "\"stop after first ioctl\"",
+      "range": {
+        "startLine": 558,
+        "startChar": 14,
+        "endLine": 558,
+        "endChar": 43
       },
       "revId": "287021ddf8889f6d84ae026b935f9733560d2f4f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
