@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2254c53_c0d3452c",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-12T08:50:10Z",
+      "side": 1,
+      "message": "Add blank line.",
+      "revId": "f6179eed6e92f420bc133d93a3b3700ff2e508a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f38ede6c_44a854af",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-12T08:50:10Z",
+      "side": 1,
+      "message": "I would generally discourage `EXPORT` on the `art` namespace but it aligns with the `export \"C\"` block here and this is a .cc file (with no mismatch with .h file declarations), so this is actually OK.\n\n(Note: Unlike the other namespace lines, I would not add blank lines around this one as it is closely tied to the `extern \"C\"` block.)",
+      "range": {
+        "startLine": 114,
+        "startChar": 14,
+        "endLine": 114,
+        "endChar": 20
+      },
+      "revId": "f6179eed6e92f420bc133d93a3b3700ff2e508a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "568dfefd_fbaffa73",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-12T08:50:10Z",
+      "side": 1,
+      "message": "Add blank line.",
+      "revId": "f6179eed6e92f420bc133d93a3b3700ff2e508a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dfaf5de1_3e93c2c1",
+        "filename": "runtime/jit/jit_code_cache.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-12T08:50:10Z",
+      "side": 1,
+      "message": "Can you undo the line break changes in this file, please? (If we have to break the line for any `REQUIRES` annotation, I prefer to break before the first one.)",
+      "range": {
+        "startLine": 214,
+        "startChar": 54,
+        "endLine": 214,
+        "endChar": 55
+      },
+      "revId": "f6179eed6e92f420bc133d93a3b3700ff2e508a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
