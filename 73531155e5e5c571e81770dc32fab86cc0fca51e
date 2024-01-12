@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b6abf840_51279847",
+        "filename": "runtime/jni/java_vm_ext.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1267,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-12T08:07:39Z",
+      "side": 1,
+      "message": "This CL should preferably keep the old multi-line style.",
+      "range": {
+        "startLine": 1267,
+        "startChar": 71,
+        "endLine": 1267,
+        "endChar": 90
+      },
+      "revId": "73531155e5e5c571e81770dc32fab86cc0fca51e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2220a9c4_5b95beb2",
+        "filename": "runtime/jni/local_reference_table.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-12T08:07:39Z",
+      "side": 1,
+      "message": "Why do we need to export this? Can we change that user to go through `JNIEnvExt::NewLocalRef()`?",
+      "range": {
+        "startLine": 275,
+        "startChar": 2,
+        "endLine": 275,
+        "endChar": 8
+      },
+      "revId": "73531155e5e5c571e81770dc32fab86cc0fca51e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
