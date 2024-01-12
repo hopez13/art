@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb723f8e_2ce5bbf8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-01-12T13:18:44Z",
+      "side": 1,
+      "message": "Thank you for review, now it looks much better\n\n- Fix names\n- Move enums in appropriate place\n- Add missed instructions and pseudo-instructions\n- Clean up Emit* functions\n\nAdded pseudo-instructions\n\n```\nvneg.v\nvnot.v\nvmsge{u}.vv\nvmsgt{u}.vv\nvncvt.x.x.w\nvmmv.m\nvmclr.m\nvmset.m\nmnot.n\nvfneg.v\nvfabs.v\nvmfgt.vv\nvmfge.vv\n```",
+      "revId": "9f833d81dc0eca560706c22996b2053670dd4d6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
