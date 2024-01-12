@@ -131,6 +131,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "85525d5b_31a2a778",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 541,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-12T16:37:01Z",
+      "side": 1,
+      "message": "Partially done in PS6.\n\nRemove `kReserved{2,3,4}` as they are the `kM1Over{8,4,2}`.",
+      "parentUuid": "ab5dccbc_84b605b1",
+      "range": {
+        "startLine": 539,
+        "startChar": 4,
+        "endLine": 541,
+        "endChar": 24
+      },
+      "revId": "dea4f1b7d36fc46591912541e28381ce658d6471",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8fb83f0d_3faafd63",
         "filename": "compiler/utils/riscv64/assembler_riscv64.h",
         "patchSetId": 3
@@ -1809,6 +1833,30 @@
       "side": 1,
       "message": "This enum stands for `Vector Arithmetic Instruction encoding`\n\nhttps://github.com/riscv/riscv-v-spec/blob/master/v-spec.adoc#101-vector-arithmetic-instruction-encoding",
       "parentUuid": "3e1bf6e7_b141a491",
+      "range": {
+        "startLine": 1942,
+        "startChar": 75,
+        "endLine": 1942,
+        "endChar": 81
+      },
+      "revId": "dea4f1b7d36fc46591912541e28381ce658d6471",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "26507999_01913a08",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1942,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-12T16:37:01Z",
+      "side": 1,
+      "message": "So, the R-type, I-type and U-type refer to the instruction types from the basic RV spec and the RVV-type was essentially a typo.",
+      "parentUuid": "e9bb624d_3d4278d2",
       "range": {
         "startLine": 1942,
         "startChar": 75,

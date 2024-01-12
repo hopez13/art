@@ -1,0 +1,267 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35f05b6e_01ff05cb",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 943,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-12T16:37:01Z",
+      "side": 1,
+      "message": "Add `DCHECK(vm !\u003d VM::kV0_t || vd !\u003d V0);` to `VLe\u003cn\u003e()`?",
+      "revId": "da09da86610da248d6bca30985b5c1b88f79c378",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "841cc67c_6ac3ebb3",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 963,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-12T16:37:01Z",
+      "side": 1,
+      "message": "Is it allowed to store `v0` while using `v0.m`?",
+      "revId": "da09da86610da248d6bca30985b5c1b88f79c378",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e68a340_f1281010",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1314,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-12T16:37:01Z",
+      "side": 1,
+      "message": "Previous stores did not have this check. Should we add the check there, or remove it from the segment stores?",
+      "range": {
+        "startLine": 1314,
+        "startChar": 2,
+        "endLine": 1314,
+        "endChar": 39
+      },
+      "revId": "da09da86610da248d6bca30985b5c1b88f79c378",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f4b95e99_c56e2a64",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2943,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-12T16:37:01Z",
+      "side": 1,
+      "message": "`DCHECK(vd !\u003d vs2)`?",
+      "revId": "da09da86610da248d6bca30985b5c1b88f79c378",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0dd7637b_8f34d076",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2956,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-12T16:37:01Z",
+      "side": 1,
+      "message": "`DCHECK(vd !\u003d vs2)`?",
+      "revId": "da09da86610da248d6bca30985b5c1b88f79c378",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a0fb34a_7100b993",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2976,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-12T16:37:01Z",
+      "side": 1,
+      "message": "`DCHECK(vd !\u003d vs2)`?",
+      "revId": "da09da86610da248d6bca30985b5c1b88f79c378",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "27319ad8_b965de2a",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2982,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-12T16:37:01Z",
+      "side": 1,
+      "message": "I do not see this restriction in the spec. However, we should check that `vd !\u003d V0` (`V0` is an implicit input register).\n\nSame for other `VAdc*` and `VSbc*` instructions.",
+      "range": {
+        "startLine": 2982,
+        "startChar": 2,
+        "endLine": 2982,
+        "endChar": 33
+      },
+      "revId": "da09da86610da248d6bca30985b5c1b88f79c378",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fba6c217_864abb93",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 3184,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-12T16:37:01Z",
+      "side": 1,
+      "message": "Comparison `*_vi` pseudo-instructions are misplaced (compared to the declaration ordering in the header file).",
+      "range": {
+        "startLine": 3184,
+        "startChar": 23,
+        "endLine": 3184,
+        "endChar": 32
+      },
+      "revId": "da09da86610da248d6bca30985b5c1b88f79c378",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a90e1f9_ded15b9c",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 3185,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-12T16:37:01Z",
+      "side": 1,
+      "message": "If you want to enforce this, I\u0027d recommend a strong `CHECK()` instead of `DCHECK()` in this particular case.\n\nThe other alternative is to support `IsInt\u003c5\u003e(imm5 - 1)`. It may be useful to pass small negative values `-x` which shall be interpreted as `2^SEW-x`. But `imm5 \u003d\u003d 0` should be either forbidden or redirected to `VMset_m()`. Similar in `VMsltu_vi()` but with `VMclr_m()`.",
+      "range": {
+        "startLine": 3185,
+        "startChar": 2,
+        "endLine": 3185,
+        "endChar": 69
+      },
+      "revId": "da09da86610da248d6bca30985b5c1b88f79c378",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fffc99a9_6b876c0e",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 585,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-12T16:37:01Z",
+      "side": 1,
+      "message": "Note: The spec uses the suffix `.v` for all loads/stores but I prefer to keep these without the corresponding `_v`.",
+      "range": {
+        "startLine": 585,
+        "startChar": 7,
+        "endLine": 585,
+        "endChar": 11
+      },
+      "revId": "da09da86610da248d6bca30985b5c1b88f79c378",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc94a88e_ab5722e0",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 1053,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-12T16:37:01Z",
+      "side": 1,
+      "message": "Add blank line before pseudo-instruction? (Same for other VMs\u003ccmp\u003e_v\u003cx\u003e and other pseudo-instructions below.)\n\nYou prepared a separate section for pseudo-instructions in PS5 but removed that in PS6, so I assume you want to have them next to the instructions they forward to. You separate only some of them with a blank line and I\u0027d prefer the style to be consistent.",
+      "revId": "da09da86610da248d6bca30985b5c1b88f79c378",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52a4eda9_a1bdff5a",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 1066,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-12T16:37:01Z",
+      "side": 1,
+      "message": "The range for this pseudo-instruction is [-15, 16] which differs from the usual [-16, 15] for `imm5`. Should the argument name reflect that? Say, `aimm5` for \"adjusted imm5\"?\n\n(Same for `VMslt_vi()`, `VMsgeu_vi()` and `VMsge_vi()` below.)",
+      "range": {
+        "startLine": 1066,
+        "startChar": 54,
+        "endLine": 1066,
+        "endChar": 58
+      },
+      "revId": "da09da86610da248d6bca30985b5c1b88f79c378",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3013888_232c947f",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 1385,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-12T16:37:01Z",
+      "side": 1,
+      "message": "Oddly, the spec does not list a `vm` argument for `vfneg.v` and `vfabs.v` pseudo-instructions. So, let\u0027s stick to that.",
+      "range": {
+        "startLine": 1385,
+        "startChar": 7,
+        "endLine": 1385,
+        "endChar": 14
+      },
+      "revId": "da09da86610da248d6bca30985b5c1b88f79c378",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
