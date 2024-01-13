@@ -177,6 +177,24 @@
       "parentUuid": "cc2649dd_d4b8e474",
       "revId": "ec317e96825d657de911d44da98d712c33d659d7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "80fc71cb_47b5ac8d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-01-13T00:15:06Z",
+      "side": 1,
+      "message": "\u003e without needing each client to add this kind of additional caching/bookkeeping logic\n\nMissed this when you originally added me, and I didn\u0027t realize you were handling the lazy cases. I don\u0027t really know what way of managing this would actually be generally useful. I would personally always use an object to act as the session so that I wouldn\u0027t have this problem, but if you have a proposal or other ideas, happy to talk about it. Obviously, the art case would need a lot of other refactoring to keep track of this in the type system.",
+      "parentUuid": "664d1b4c_8c5c87e3",
+      "revId": "ec317e96825d657de911d44da98d712c33d659d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
