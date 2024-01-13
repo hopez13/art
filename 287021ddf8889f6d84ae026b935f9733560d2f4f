@@ -43,6 +43,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "14eedd77_a9a51d11",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 461,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2024-01-13T00:03:23Z",
+      "side": 1,
+      "message": "This has to be kept in sync with the above, right?\n\nIt seems cleaner to factor this out into its own function, defined right before InitializeInfoMap, and just to DCHECK in InitializeInfoMap that the supplied size is correct.",
+      "range": {
+        "startLine": 459,
+        "startChar": 3,
+        "endLine": 461,
+        "endChar": 95
+      },
+      "revId": "287021ddf8889f6d84ae026b935f9733560d2f4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b2eafada_34526973",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2099,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2024-01-13T00:03:23Z",
+      "side": 1,
+      "message": "IIUC, you could also just do\nuint32_t store_val \u003d page - from_space_begin_;\nand skip the duelling shifts and kPageStateShift?\nIn any case, it would be nice to define somewhere what the entries here mean.",
+      "range": {
+        "startLine": 2098,
+        "startChar": 8,
+        "endLine": 2099,
+        "endChar": 38
+      },
+      "revId": "287021ddf8889f6d84ae026b935f9733560d2f4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2add0699_8daac69c",
         "filename": "runtime/gc/collector/mark_compact.cc",
         "patchSetId": 3
