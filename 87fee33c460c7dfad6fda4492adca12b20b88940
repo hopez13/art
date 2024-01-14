@@ -168,6 +168,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "39cd71c3_f5cb9c15",
+        "filename": "libartservice/service/java/com/android/server/art/DexUseManagerLocal.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-01-14T23:54:06Z",
+      "side": 1,
+      "message": "Very well then. I had to take the time to more thoroughly refresh myself on the code here (b/249508007 would\u0027ve been very helpful).\n\n\u003e This method operates on the current data. If something has changed, we should run the cleanup to update the current data\n\nThe result of the call should be correct irrespective of when cleanup runs - that\u0027s what I mean with not relying on a global characteristic. When the cleanup runs and what it does may change, and that shouldn\u0027t matter for this method.\n\n\u003e 1. It added unnecessary complexity in the method itself.\n\nThat\u0027s a conclusion without motivation, and this discussion is a sign that it\u0027s not obvious.\n\n\u003e 3. It can also be surprising when the method is used by others in the future as this behavior is subtle and not well-documented.\n\nThe subtlety of visibility vs multiple loaders is inherent in the file structure, so it\u0027s still there. I don\u0027t see how removing the code that deals with it helps - it only makes it easier to overlook.\n\n\u003e Also, as the comment here said, the filtering is only useful in an edge case\n\nIs there anything stopping an app from notifying dependencies on files it cannot read? I don\u0027t find that.\n\nI still don\u0027t buy the cleanup argument, for the reason given, but if you can ascertain that the problem only occurs on a visibility change by the owning app then I can agree that\u0027s not enough to motivate the extra logic.\n\nHowever, removing that logic means the method makes more assumptions on the data structure and disk state. In that way the logic really makes it simpler, because (and sorry for repeating myself) then one can see that the method DTRT in isolation. Iow, the removed filtering should be replaced with a comment explaining why no filtering is necessary.",
+      "parentUuid": "c5191ad0_94c17f3f",
+      "range": {
+        "startLine": 334,
+        "startChar": 0,
+        "endLine": 336,
+        "endChar": 73
+      },
+      "revId": "87fee33c460c7dfad6fda4492adca12b20b88940",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e49fa0fa_5f3b9565",
         "filename": "libartservice/service/javatests/com/android/server/art/DexUseManagerTest.java",
         "patchSetId": 5

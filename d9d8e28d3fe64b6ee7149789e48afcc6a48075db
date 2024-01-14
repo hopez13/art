@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ea15391_44e8fd9d",
+        "filename": "libartservice/service/java/com/android/server/art/DexUseManagerLocal.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-01-14T23:54:06Z",
+      "side": 0,
+      "message": "From the discussion in the other thread, I think this should be kept to avoid assumptions on when cleanup runs and what it does.",
+      "range": {
+        "startLine": 306,
+        "startChar": 16,
+        "endLine": 308,
+        "endChar": 17
+      },
+      "revId": "d9d8e28d3fe64b6ee7149789e48afcc6a48075db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
