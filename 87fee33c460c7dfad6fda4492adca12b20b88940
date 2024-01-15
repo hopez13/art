@@ -190,6 +190,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ca24f6a_7ec9cddc",
+        "filename": "libartservice/service/java/com/android/server/art/DexUseManagerLocal.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-01-15T12:53:22Z",
+      "side": 1,
+      "message": "\u003e Is there anything stopping an app from notifying dependencies on files it cannot read? I don\u0027t find that.\n\nNo, there isn\u0027t, but I think this is also an edge case.\n\n\u003e However, removing that logic means the method makes more assumptions on the data structure and disk state. \n\nIt\u0027s true that this logic eliminates the need for some assumptions. I don\u0027t doubt that. It\u0027s the duplication (having the same logic here and in cleanup) and the incompleteness (that it doesn\u0027t filter out non-existing packages) that I don\u0027t like.\n\nAnyway, I decided to keep this logic and protect it with a flag so that I can spend my time on more important things. I still don\u0027t like it, but maybe we should discuss it at another time.",
+      "parentUuid": "39cd71c3_f5cb9c15",
+      "range": {
+        "startLine": 334,
+        "startChar": 0,
+        "endLine": 336,
+        "endChar": 73
+      },
+      "revId": "87fee33c460c7dfad6fda4492adca12b20b88940",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e49fa0fa_5f3b9565",
