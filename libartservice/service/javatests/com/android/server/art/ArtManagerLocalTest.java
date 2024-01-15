@@ -168,6 +168,7 @@ public class ArtManagerLocalTest {
         lenient().when(mArtFileManagerInjector.getArtd()).thenReturn(mArtd);
         lenient().when(mArtFileManagerInjector.getUserManager()).thenReturn(mUserManager);
         lenient().when(mArtFileManagerInjector.getDexUseManager()).thenReturn(mDexUseManager);
+        lenient().when(mArtFileManagerInjector.isSystemOrRootOrShell()).thenReturn(true);
 
         Path tempDir = Files.createTempDirectory("temp");
         tempDir.toFile().deleteOnExit();
@@ -211,8 +212,9 @@ public class ArtManagerLocalTest {
 
         // All packages are by default recently used.
         lenient().when(mDexUseManager.getPackageLastUsedAtMs(any())).thenReturn(RECENT_TIME_MS);
-        mPkg1SecondaryDexInfo1 = createSecondaryDexInfo("/data/user/0/foo/1.apk");
-        mPkg1SecondaryDexInfoNotFound = createSecondaryDexInfo("/data/user/0/foo/not_found.apk");
+        mPkg1SecondaryDexInfo1 = createSecondaryDexInfo("/data/user/0/foo/1.apk", UserHandle.of(0));
+        mPkg1SecondaryDexInfoNotFound =
+                createSecondaryDexInfo("/data/user/0/foo/not_found.apk", UserHandle.of(0));
         lenient()
                 .doReturn(List.of(mPkg1SecondaryDexInfo1, mPkg1SecondaryDexInfoNotFound))
                 .when(mDexUseManager)
@@ -1113,7 +1115,18 @@ public class ArtManagerLocalTest {
 
     @Test
     public void testGetArtManagedFileStats() throws Exception {
-        // The same setup as `testCleanup`.
+        lenient().when(mArtFileManagerInjector.isSystemOrRootOrShell()).thenReturn(false);
+        lenient().when(mArtFileManagerInjector.getCallingUserHandle()).thenReturn(UserHandle.of(0));
+
+        // The same setup as `testCleanup`, but add a secondary dex file for a different user. None
+        // of its artifacts or profiles should be counted.
+        DetailedSecondaryDexInfo pkg1SecondaryDexInfo2 =
+                createSecondaryDexInfo("/data/user/1/foo/1.apk", UserHandle.of(1));
+        lenient()
+                .doReturn(List.of(mPkg1SecondaryDexInfo1, mPkg1SecondaryDexInfoNotFound,
+                        pkg1SecondaryDexInfo2))
+                .when(mDexUseManager)
+                .getSecondaryDexInfo(eq(PKG_NAME_1));
 
         // It should count all artifacts, but not runtime images.
         doReturn(createGetDexoptStatusResult(
@@ -1171,15 +1184,10 @@ public class ArtManagerLocalTest {
         // These are counted as TYPE_CUR_PROFILE.
         doReturn(1l << 9).when(mArtd).getProfileSize(deepEq(
                 AidlUtils.buildProfilePathForPrimaryCur(0 /* userId */, PKG_NAME_1, "primary")));
-        doReturn(1l << 10).when(mArtd).getProfileSize(deepEq(
-                AidlUtils.buildProfilePathForPrimaryCur(1 /* userId */, PKG_NAME_1, "primary")));
-        doReturn(1l << 11).when(mArtd).getProfileSize(
+        doReturn(1l << 10).when(mArtd).getProfileSize(
                 deepEq(AidlUtils.buildProfilePathForPrimaryCur(
                         0 /* userId */, PKG_NAME_1, "split_0.split")));
-        doReturn(1l << 12).when(mArtd).getProfileSize(
-                deepEq(AidlUtils.buildProfilePathForPrimaryCur(
-                        1 /* userId */, PKG_NAME_1, "split_0.split")));
-        doReturn(1l << 13).when(mArtd).getProfileSize(
+        doReturn(1l << 11).when(mArtd).getProfileSize(
                 deepEq(AidlUtils.buildProfilePathForSecondaryCur("/data/user/0/foo/1.apk")));
 
         ArtManagedFileStats stats = mArtManagerLocal.getArtManagedFileStats(mSnapshot, PKG_NAME_1);
@@ -1188,12 +1196,12 @@ public class ArtManagerLocalTest {
         assertThat(stats.getTotalSizeBytesByType(ArtManagedFileStats.TYPE_REF_PROFILE))
                 .isEqualTo((1l << 6) + (1l << 7) + (1l << 8));
         assertThat(stats.getTotalSizeBytesByType(ArtManagedFileStats.TYPE_CUR_PROFILE))
-                .isEqualTo((1l << 9) + (1l << 10) + (1l << 11) + (1l << 12) + (1l << 13));
+                .isEqualTo((1l << 9) + (1l << 10) + (1l << 11));
 
         verify(mArtd, times(3)).getArtifactsSize(any());
         verify(mArtd, times(1)).getVdexFileSize(any());
         verify(mArtd, times(2)).getRuntimeArtifactsSize(any());
-        verify(mArtd, times(8)).getProfileSize(any());
+        verify(mArtd, times(6)).getProfileSize(any());
     }
 
     private AndroidPackage createPackage(boolean multiSplit) {
@@ -1283,11 +1291,13 @@ public class ArtManagerLocalTest {
         return getDexoptStatusResult;
     }
 
-    private DetailedSecondaryDexInfo createSecondaryDexInfo(String dexPath) throws Exception {
+    private DetailedSecondaryDexInfo createSecondaryDexInfo(String dexPath, UserHandle userHandle)
+            throws Exception {
         var dexInfo = mock(DetailedSecondaryDexInfo.class);
         lenient().when(dexInfo.dexPath()).thenReturn(dexPath);
         lenient().when(dexInfo.abiNames()).thenReturn(Set.of("arm64-v8a"));
         lenient().when(dexInfo.classLoaderContext()).thenReturn("CLC");
+        lenient().when(dexInfo.userHandle()).thenReturn(userHandle);
         return dexInfo;
     }
 
