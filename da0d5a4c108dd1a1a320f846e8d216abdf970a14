@@ -195,6 +195,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "77b08202_d38cb650",
+        "filename": "libartservice/service/java/com/android/server/art/ArtManagerLocal.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1301,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-01-15T13:03:48Z",
+      "side": 1,
+      "message": "The fact that the style guide suggests a verb at the beginning and a period at the end in the first sentence of the method description is an instance that grammar correctness is not that important when it comes to the code style. I think it\u0027s fine as long as we are consistent. (Maybe there\u0027s some inconsistency in our code due to overlooking, but it\u0027s a different matter.)",
+      "parentUuid": "e2164912_ad3cf0ea",
+      "revId": "da0d5a4c108dd1a1a320f846e8d216abdf970a14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2c7efc7f_210b5ae7",
