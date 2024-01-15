@@ -23,6 +23,7 @@ import static com.android.server.art.Utils.Abi;
 
 import android.annotation.NonNull;
 import android.content.Context;
+import android.os.Binder;
 import android.os.Build;
 import android.os.RemoteException;
 import android.os.ServiceSpecificException;
@@ -91,6 +92,10 @@ public class ArtFileManager {
                             pkgState.getPackageName())
                     : mInjector.getDexUseManager().getSecondaryDexInfo(pkgState.getPackageName());
             for (SecondaryDexInfo dexInfo : dexInfos) {
+                if (!Utils.isSystemOrRootOrShell()
+                        && !Binder.getCallingUserHandle().equals(dexInfo.userHandle())) {
+                    continue;
+                }
                 for (Abi abi : Utils.getAllAbisForNames(dexInfo.abiNames(), pkgState)) {
                     dexAndAbis.add(Pair.create(dexInfo, abi));
                 }
@@ -186,8 +191,11 @@ public class ArtFileManager {
 
         for (PrimaryDexInfo dexInfo : PrimaryDexUtils.getDexInfo(pkg)) {
             refProfiles.add(PrimaryDexUtils.buildRefProfilePath(pkgState, dexInfo));
-            curProfiles.addAll(
-                    PrimaryDexUtils.getCurProfiles(mInjector.getUserManager(), pkgState, dexInfo));
+            curProfiles.addAll(Utils.isSystemOrRootOrShell()
+                            ? PrimaryDexUtils.getCurProfiles(
+                                    mInjector.getUserManager(), pkgState, dexInfo)
+                            : PrimaryDexUtils.getCurProfiles(
+                                    List.of(Binder.getCallingUserHandle()), pkgState, dexInfo));
         }
         if (alsoForSecondaryDex) {
             List<? extends SecondaryDexInfo> dexInfos = excludeDexNotFound
@@ -195,6 +203,10 @@ public class ArtFileManager {
                             pkgState.getPackageName())
                     : mInjector.getDexUseManager().getSecondaryDexInfo(pkgState.getPackageName());
             for (SecondaryDexInfo dexInfo : dexInfos) {
+                if (!Utils.isSystemOrRootOrShell()
+                        && !Binder.getCallingUserHandle().equals(dexInfo.userHandle())) {
+                    continue;
+                }
                 refProfiles.add(AidlUtils.buildProfilePathForSecondaryRef(dexInfo.dexPath()));
                 curProfiles.add(AidlUtils.buildProfilePathForSecondaryCur(dexInfo.dexPath()));
             }
