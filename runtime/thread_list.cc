@@ -656,15 +656,28 @@ void ThreadList::FlipThreadRoots(Closure* thread_flip_visitor,
 }
 
 #if ART_USE_FUTEXES
-static constexpr int kSuspendBarrierIters = 5;
+static constexpr int kSuspendBarrierIters = 10;
 
 // Returns true if it timed out.
 static bool WaitOnceForSuspendBarrier(AtomicInteger* barrier,
                                       int32_t cur_val,
                                       uint64_t timeout_ns) {
-  timespec wait_timeout;
+  const uint64_t start_time = NanoTime();
+  // First try sched_yield a few times.  We suspect that frequently re-entering the scheduler like
+  // this may improve our chances of the correct threads getting scheduled.
+  static constexpr int kSchedYieldIters = 20;
+  for (int i = 0; i < kSchedYieldIters; ++i) {
+    sched_yield();
+    if (barrier->load(std::memory_order_acquire) == 0) {
+      return false;
+    }
+  }
+
   DCHECK_GE(NsToMs(timeout_ns / kSuspendBarrierIters), 100ul);
-  InitTimeSpec(false, CLOCK_MONOTONIC, NsToMs(timeout_ns / kSuspendBarrierIters), 0, &wait_timeout);
+  timespec wait_timeout;
+  uint64_t remaining_ns =
+      UnsignedDifference(timeout_ns / kSuspendBarrierIters, NanoTime() - start_time);
+  InitTimeSpec(false, CLOCK_MONOTONIC, NsToMs(remaining_ns) + 1, 0, &wait_timeout);
   if (futex(barrier->Address(), FUTEX_WAIT_PRIVATE, cur_val, &wait_timeout, nullptr, 0) != 0) {
     if (errno == ETIMEDOUT) {
       return true;

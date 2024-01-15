@@ -155,6 +155,13 @@ inline static int32_t Signum(T opnd) {
   return (opnd < 0) ? -1 : ((opnd == 0) ? 0 : 1);
 }
 
+// Difference between two values, but never < 0.  Number is commonly, but not necessarily,
+// unsigned. Requiring the same type for both is safer.
+template <typename Number>
+inline size_t UnsignedDifference(Number x, Number y) {
+  return x > y ? x - y : 0;
+}
+
 template <typename Func, typename... Args>
 static inline void CheckedCall(const Func& function, const char* what, Args... args) {
   int rc = function(args...);

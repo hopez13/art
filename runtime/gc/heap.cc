@@ -3792,12 +3792,13 @@ void Heap::GrowForUtilization(collector::GarbageCollector* collector_ran,
           current_gc_iteration_.GetFreedRevokeBytes();
       // Records the number of bytes allocated at the time of GC finish,excluding the number of
       // bytes allocated during GC.
-      num_bytes_alive_after_gc_ = UnsignedDifference(bytes_allocated_before_gc, freed_bytes);
+      num_bytes_alive_after_gc_ =
+          UnsignedDifference(static_cast<uint64_t>(bytes_allocated_before_gc), freed_bytes);
       // Bytes allocated will shrink by freed_bytes after the GC runs, so if we want to figure out
       // how many bytes were allocated during the GC we need to add freed_bytes back on.
       // Almost always bytes_allocated + freed_bytes >= bytes_allocated_before_gc.
-      const size_t bytes_allocated_during_gc =
-          UnsignedDifference(bytes_allocated + freed_bytes, bytes_allocated_before_gc);
+      const size_t bytes_allocated_during_gc = UnsignedDifference(
+          bytes_allocated + freed_bytes, static_cast<uint64_t>(bytes_allocated_before_gc));
       // Calculate when to perform the next ConcurrentGC.
       // Estimate how many remaining bytes we will have when we need to start the next GC.
       size_t remaining_bytes = bytes_allocated_during_gc;

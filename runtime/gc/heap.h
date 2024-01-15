@@ -33,6 +33,7 @@
 #include "base/runtime_debug.h"
 #include "base/safe_map.h"
 #include "base/time_utils.h"
+#include "base/utils.h"
 #include "gc/collector/gc_type.h"
 #include "gc/collector/iteration.h"
 #include "gc/collector/mark_compact.h"
@@ -1064,9 +1065,6 @@ class Heap {
   }
 
   // Size_t saturating arithmetic
-  static ALWAYS_INLINE size_t UnsignedDifference(size_t x, size_t y) {
-    return x > y ? x - y : 0;
-  }
   static ALWAYS_INLINE size_t UnsignedSum(size_t x, size_t y) {
     return x + y >= x ? x + y : std::numeric_limits<size_t>::max();
   }
