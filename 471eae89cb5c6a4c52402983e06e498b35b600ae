@@ -239,6 +239,23 @@
       },
       "revId": "471eae89cb5c6a4c52402983e06e498b35b600ae",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fadb5c56_847e82bd",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 1317,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-15T15:32:50Z",
+      "side": 1,
+      "message": "Add pseudo-instructions\n\n    vwcvt.x.x.v vd,vs,vm \u003d vwadd.vx vd,vs,x0,vm\n    vwcvtu.x.x.v vd,vs,vm \u003d vwaddu.vx vd,vs,x0,vm\n\n? (Note in section 11.2)",
+      "revId": "471eae89cb5c6a4c52402983e06e498b35b600ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
