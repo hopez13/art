@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b8421700_365a9d35",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 943,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-01-15T14:05:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "35f05b6e_01ff05cb",
+      "revId": "da09da86610da248d6bca30985b5c1b88f79c378",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "841cc67c_6ac3ebb3",
@@ -31,6 +49,24 @@
       "writtenOn": "2024-01-12T16:37:01Z",
       "side": 1,
       "message": "Is it allowed to store `v0` while using `v0.m`?",
+      "revId": "da09da86610da248d6bca30985b5c1b88f79c378",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f01a6a0_121fc15f",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 963,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-01-15T14:05:09Z",
+      "side": 1,
+      "message": "Seems it is. At least there is nothing said in spec and clang assembler allows it.",
+      "parentUuid": "841cc67c_6ac3ebb3",
       "revId": "da09da86610da248d6bca30985b5c1b88f79c378",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -58,6 +94,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ef947ce_f6284292",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1314,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-01-15T14:05:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3e68a340_f1281010",
+      "range": {
+        "startLine": 1314,
+        "startChar": 2,
+        "endLine": 1314,
+        "endChar": 39
+      },
+      "revId": "da09da86610da248d6bca30985b5c1b88f79c378",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f4b95e99_c56e2a64",
@@ -71,6 +131,24 @@
       "writtenOn": "2024-01-12T16:37:01Z",
       "side": 1,
       "message": "`DCHECK(vd !\u003d vs2)`?",
+      "revId": "da09da86610da248d6bca30985b5c1b88f79c378",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "447cb802_ff2eac92",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2943,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-01-15T14:05:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f4b95e99_c56e2a64",
       "revId": "da09da86610da248d6bca30985b5c1b88f79c378",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -92,6 +170,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ac463ba_60d344fc",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2956,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-01-15T14:05:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0dd7637b_8f34d076",
+      "revId": "da09da86610da248d6bca30985b5c1b88f79c378",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8a0fb34a_7100b993",
@@ -109,6 +205,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "85e280b2_8c4e6350",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2976,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-01-15T14:05:09Z",
+      "side": 1,
+      "message": "I am not sure, in the spec I use there is no such note about register overlapping\n\nhttps://github.com/riscv/riscv-v-spec/blob/master/v-spec.adoc#1632-vector-slidedown-instructions\n\nAlso clang assembler allows such overlapping.",
+      "parentUuid": "8a0fb34a_7100b993",
+      "revId": "da09da86610da248d6bca30985b5c1b88f79c378",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "27319ad8_b965de2a",
@@ -122,6 +236,30 @@
       "writtenOn": "2024-01-12T16:37:01Z",
       "side": 1,
       "message": "I do not see this restriction in the spec. However, we should check that `vd !\u003d V0` (`V0` is an implicit input register).\n\nSame for other `VAdc*` and `VSbc*` instructions.",
+      "range": {
+        "startLine": 2982,
+        "startChar": 2,
+        "endLine": 2982,
+        "endChar": 33
+      },
+      "revId": "da09da86610da248d6bca30985b5c1b88f79c378",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e20d7e8_0a4622ad",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2982,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-01-15T14:05:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "27319ad8_b965de2a",
       "range": {
         "startLine": 2982,
         "startChar": 2,
@@ -155,6 +293,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "51422f32_908ae860",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 3184,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-01-15T14:05:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fba6c217_864abb93",
+      "range": {
+        "startLine": 3184,
+        "startChar": 23,
+        "endLine": 3184,
+        "endChar": 32
+      },
+      "revId": "da09da86610da248d6bca30985b5c1b88f79c378",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1a90e1f9_ded15b9c",
@@ -168,6 +330,30 @@
       "writtenOn": "2024-01-12T16:37:01Z",
       "side": 1,
       "message": "If you want to enforce this, I\u0027d recommend a strong `CHECK()` instead of `DCHECK()` in this particular case.\n\nThe other alternative is to support `IsInt\u003c5\u003e(imm5 - 1)`. It may be useful to pass small negative values `-x` which shall be interpreted as `2^SEW-x`. But `imm5 \u003d\u003d 0` should be either forbidden or redirected to `VMset_m()`. Similar in `VMsltu_vi()` but with `VMclr_m()`.",
+      "range": {
+        "startLine": 3185,
+        "startChar": 2,
+        "endLine": 3185,
+        "endChar": 69
+      },
+      "revId": "da09da86610da248d6bca30985b5c1b88f79c378",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc3d5c0c_54cb28e3",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 3185,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-01-15T14:05:09Z",
+      "side": 1,
+      "message": "Am I correct that `DCHECK()` stands for DebugCHECK when `CHECK()` works in production build as well?",
+      "parentUuid": "1a90e1f9_ded15b9c",
       "range": {
         "startLine": 3185,
         "startChar": 2,
@@ -218,6 +404,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "19681ad7_dc1e2414",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 1053,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-01-15T14:05:09Z",
+      "side": 1,
+      "message": "I was thinking which formatting would be better and decide to group instructions based on its semantic rather than put pseudo-instructions in the separate section.\n\nAdd explicit blank and comment",
+      "parentUuid": "fc94a88e_ab5722e0",
+      "revId": "da09da86610da248d6bca30985b5c1b88f79c378",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "52a4eda9_a1bdff5a",
@@ -231,6 +435,30 @@
       "writtenOn": "2024-01-12T16:37:01Z",
       "side": 1,
       "message": "The range for this pseudo-instruction is [-15, 16] which differs from the usual [-16, 15] for `imm5`. Should the argument name reflect that? Say, `aimm5` for \"adjusted imm5\"?\n\n(Same for `VMslt_vi()`, `VMsgeu_vi()` and `VMsge_vi()` below.)",
+      "range": {
+        "startLine": 1066,
+        "startChar": 54,
+        "endLine": 1066,
+        "endChar": 58
+      },
+      "revId": "da09da86610da248d6bca30985b5c1b88f79c378",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3975b800_b5aa2063",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 1066,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-01-15T14:05:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "52a4eda9_a1bdff5a",
       "range": {
         "startLine": 1066,
         "startChar": 54,
