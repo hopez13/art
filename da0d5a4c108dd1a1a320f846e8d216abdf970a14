@@ -177,6 +177,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2164912_ad3cf0ea",
+        "filename": "libartservice/service/java/com/android/server/art/ArtManagerLocal.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1301,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-01-15T00:36:47Z",
+      "side": 1,
+      "message": "The non-normative example is different - there it\u0027s only a noun phrase without a verb, but here it\u0027s a complete sentence so imo normal grammar rules apply. I also looked at other cases in this file, like line 774.\n\n(If the style guide is to be followed strictly, there should only be a noun phrase after @param and @return, no periods and full sentences at all, and I suppose one would be forced to write the docs in a way that the extra info is in the method description instead, or not use @param or @return. I don\u0027t think that\u0027d be a good idea though.)\n\nBut whatever, it\u0027s not significant.",
+      "parentUuid": "b27e3090_304a7a49",
+      "revId": "da0d5a4c108dd1a1a320f846e8d216abdf970a14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2c7efc7f_210b5ae7",
@@ -214,6 +232,30 @@
       "side": 1,
       "message": "Ditto. go/java-practices/javadoc#return",
       "parentUuid": "2c7efc7f_210b5ae7",
+      "range": {
+        "startLine": 1304,
+        "startChar": 19,
+        "endLine": 1304,
+        "endChar": 24
+      },
+      "revId": "da0d5a4c108dd1a1a320f846e8d216abdf970a14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "791bba79_042ab502",
+        "filename": "libartservice/service/java/com/android/server/art/ArtManagerLocal.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1304,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-01-15T00:36:47Z",
+      "side": 1,
+      "message": "Yes.",
+      "parentUuid": "3ed21cb9_caadb118",
       "range": {
         "startLine": 1304,
         "startChar": 19,
