@@ -195,6 +195,24 @@
       "parentUuid": "664d1b4c_8c5c87e3",
       "revId": "ec317e96825d657de911d44da98d712c33d659d7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ea9040b_6276144b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-01-15T01:18:35Z",
+      "side": 1,
+      "message": "\u003e Not really. App-specific failure mode can also happen /.../\n\nSure, didn\u0027t say otherwise. I can also start listing examples when it doesn\u0027t matter, but it\u0027d be a pointless discussion.\n\n\u003e This reminds me that it may also happen in reality: when the user clicks \"update all\" in Play Store, when the device is restoring from a backup, or when the user sets up a work profile, a burst of installs take place. Therefore, I see a value in a timeout-based expiration.\n\nI don\u0027t think tests are relevant, but some of these CUJs may be. I don\u0027t know if fetching a service handle about once per package is heavy enough to matter in them - maybe @jdduke@google.com has an opinion on that?\n\n\u003e Obviously, the art case would need a lot of other refactoring to keep track of this in the type system.\n\nYes, exposing a session object would probably need a fair bit of new API, and I suppose it\u0027d also be a bit of work to pass it around in the framework code if we need to handle the multi-package CUJs Jiakai mentioned.",
+      "parentUuid": "80fc71cb_47b5ac8d",
+      "revId": "ec317e96825d657de911d44da98d712c33d659d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
