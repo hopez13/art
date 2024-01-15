@@ -1,0 +1,244 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "01a49320_8a3f98dd",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1457,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-15T15:29:13Z",
+      "side": 1,
+      "message": "`DCHECK(vm !\u003d VM::kV0_t || vd !\u003d V0);` erroneously removed from segment \"\"ff\" loads?",
+      "revId": "471eae89cb5c6a4c52402983e06e498b35b600ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0bdd1624_ae65a5ef",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 3126,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-15T15:29:13Z",
+      "side": 1,
+      "message": "`DCHECK(vm !\u003d VM::kV0_t || vd !\u003d V0);`",
+      "revId": "471eae89cb5c6a4c52402983e06e498b35b600ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32826f6a_a16e3142",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 3382,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-15T15:29:13Z",
+      "side": 1,
+      "message": "Aren\u0027t reduction instructions (including FP instructions) allowed to write V0 even when masked?",
+      "range": {
+        "startLine": 3382,
+        "startChar": 2,
+        "endLine": 3382,
+        "endChar": 38
+      },
+      "revId": "471eae89cb5c6a4c52402983e06e498b35b600ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9472f1b7_5c7632eb",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 3559,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-15T15:29:13Z",
+      "side": 1,
+      "message": "`DCHECK(vm !\u003d VM::kV0_t || vd !\u003d V0);`",
+      "revId": "471eae89cb5c6a4c52402983e06e498b35b600ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b79ce52a_cf9eeb26",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 3654,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-15T15:29:13Z",
+      "side": 1,
+      "message": "`DCHECK(vm !\u003d VM::kV0_t || vd !\u003d V0);`",
+      "revId": "471eae89cb5c6a4c52402983e06e498b35b600ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "059d9b4d_12b41901",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 3754,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-15T15:29:13Z",
+      "side": 1,
+      "message": "`vd \u003d\u003d vs1` should be allowed, both use `2*SEW`.\n\nSame for `VWadd_wv()`, `VWsubu_wv()` and `VWsub_wv()`.",
+      "range": {
+        "startLine": 3754,
+        "startChar": 9,
+        "endLine": 3754,
+        "endChar": 18
+      },
+      "revId": "471eae89cb5c6a4c52402983e06e498b35b600ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2eda7b59_378ebec6",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 3846,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-15T15:29:13Z",
+      "side": 1,
+      "message": "`DCHECK(vm !\u003d VM::kV0_t || vd !\u003d V0);`",
+      "revId": "471eae89cb5c6a4c52402983e06e498b35b600ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "76fffee1_25306c58",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 4008,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-15T15:29:13Z",
+      "side": 1,
+      "message": "Duplicate `DCHECK()`.",
+      "range": {
+        "startLine": 4008,
+        "startChar": 2,
+        "endLine": 4008,
+        "endChar": 38
+      },
+      "revId": "471eae89cb5c6a4c52402983e06e498b35b600ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ac8403a_34b99031",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 4232,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-15T15:29:13Z",
+      "side": 1,
+      "message": "`vd !\u003d vs1 \u0026\u0026`\n\nSame for `VFwsub_vv()`.",
+      "range": {
+        "startLine": 4232,
+        "startChar": 9,
+        "endLine": 4232,
+        "endChar": 10
+      },
+      "revId": "471eae89cb5c6a4c52402983e06e498b35b600ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2abc0aae_ebd74ae5",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 4286,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-15T15:29:13Z",
+      "side": 1,
+      "message": "Remove?",
+      "range": {
+        "startLine": 4286,
+        "startChar": 9,
+        "endLine": 4286,
+        "endChar": 21
+      },
+      "revId": "471eae89cb5c6a4c52402983e06e498b35b600ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb2e0c26_1a0b38a7",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 4319,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-15T15:29:13Z",
+      "side": 1,
+      "message": "`DCHECK(vm !\u003d VM::kV0_t || vd !\u003d V0);`",
+      "revId": "471eae89cb5c6a4c52402983e06e498b35b600ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "97fc7922_4720a893",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 952,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-15T15:29:13Z",
+      "side": 1,
+      "message": "Typo, copy-pasted to all similar comments.",
+      "range": {
+        "startLine": 952,
+        "startChar": 5,
+        "endLine": 952,
+        "endChar": 11
+      },
+      "revId": "471eae89cb5c6a4c52402983e06e498b35b600ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
