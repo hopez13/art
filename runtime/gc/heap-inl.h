@@ -28,6 +28,7 @@
 #include "gc/collector/semi_space.h"
 #include "gc/space/bump_pointer_space-inl.h"
 #include "gc/space/dlmalloc_space-inl.h"
+#include "gc/space/image_space.h"
 #include "gc/space/large_object_space.h"
 #include "gc/space/region_space-inl.h"
 #include "gc/space/rosalloc_space-inl.h"
@@ -479,6 +480,27 @@ inline bool Heap::ShouldConcurrentGCForJava(size_t new_num_bytes_allocated) {
   // maintained, and (b) reduce the cost of the check here.
   return new_num_bytes_allocated >= concurrent_start_bytes_;
 }
+
+inline bool Heap::ObjectIsInBootImageSpace(ObjPtr<mirror::Object> obj) const {
+  DCHECK_EQ(IsBootImageAddress(obj.Ptr()),
+            any_of(boot_image_spaces_.begin(),
+                   boot_image_spaces_.end(),
+                   [obj](gc::space::ImageSpace* space) REQUIRES_SHARED(Locks::mutator_lock_) {
+                     return space->HasAddress(obj.Ptr());
+                   }));
+  return IsBootImageAddress(obj.Ptr());
+}
+
+inline bool Heap::IsInBootImageOatFile(const void* p) const {
+  DCHECK_EQ(IsBootImageAddress(p),
+            any_of(boot_image_spaces_.begin(),
+                   boot_image_spaces_.end(),
+                   [p](gc::space::ImageSpace* space) REQUIRES_SHARED(Locks::mutator_lock_) {
+                     return space->GetOatFile()->Contains(p);
+                   }));
+  return IsBootImageAddress(p);
+}
+
 
 }  // namespace gc
 }  // namespace art

@@ -24,7 +24,7 @@
 #include "code_generator.h"
 #include "driver/compiler_options.h"
 #include "driver/dex_compilation_unit.h"
-#include "gc/heap.h"
+#include "gc/heap-inl.h"
 #include "gc/space/image_space.h"
 #include "handle_scope-inl.h"
 #include "jit/jit.h"

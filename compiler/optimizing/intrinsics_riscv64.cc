@@ -17,6 +17,7 @@
 #include "intrinsics_riscv64.h"
 
 #include "code_generator_riscv64.h"
+#include "gc/heap-inl.h"
 #include "intrinsic_objects.h"
 #include "intrinsics_utils.h"
 #include "well_known_classes.h"

@@ -23,7 +23,7 @@
 #include "base/stl_util.h"
 #include "dex/descriptors_names.h"
 #include "gc/accounting/card_table-inl.h"
-#include "gc/heap.h"
+#include "gc/heap-inl.h"
 #include "gc_root-inl.h"
 #include "intern_table.h"
 #include "mirror/class-inl.h"

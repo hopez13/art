@@ -4445,26 +4445,6 @@ bool Heap::IsGCDisabledForShutdown() const {
   return gc_disabled_for_shutdown_;
 }
 
-bool Heap::ObjectIsInBootImageSpace(ObjPtr<mirror::Object> obj) const {
-  DCHECK_EQ(IsBootImageAddress(obj.Ptr()),
-            any_of(boot_image_spaces_.begin(),
-                   boot_image_spaces_.end(),
-                   [obj](gc::space::ImageSpace* space) REQUIRES_SHARED(Locks::mutator_lock_) {
-                     return space->HasAddress(obj.Ptr());
-                   }));
-  return IsBootImageAddress(obj.Ptr());
-}
-
-bool Heap::IsInBootImageOatFile(const void* p) const {
-  DCHECK_EQ(IsBootImageAddress(p),
-            any_of(boot_image_spaces_.begin(),
-                   boot_image_spaces_.end(),
-                   [p](gc::space::ImageSpace* space) REQUIRES_SHARED(Locks::mutator_lock_) {
-                     return space->GetOatFile()->Contains(p);
-                   }));
-  return IsBootImageAddress(p);
-}
-
 void Heap::SetAllocationListener(AllocationListener* l) {
   AllocationListener* old = GetAndOverwriteAllocationListener(&alloc_listener_, l);
 

@@ -19,7 +19,7 @@
 #include "class_status.h"
 #include "compiler_callbacks.h"
 #include "dex/class_reference.h"
-#include "gc/heap.h"
+#include "gc/heap-inl.h"
 #include "handle_scope-inl.h"
 #include "mirror/class-inl.h"
 #include "runtime.h"

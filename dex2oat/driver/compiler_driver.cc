@@ -57,6 +57,7 @@
 #include "driver/dex_compilation_unit.h"
 #include "gc/accounting/card_table-inl.h"
 #include "gc/accounting/heap_bitmap.h"
+#include "gc/heap-inl.h"
 #include "gc/space/image_space.h"
 #include "gc/space/space.h"
 #include "handle_scope-inl.h"

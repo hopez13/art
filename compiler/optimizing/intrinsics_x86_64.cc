@@ -23,6 +23,7 @@
 #include "base/bit_utils.h"
 #include "code_generator_x86_64.h"
 #include "entrypoints/quick/quick_entrypoints.h"
+#include "gc/heap-inl.h"
 #include "heap_poisoning.h"
 #include "intrinsics.h"
 #include "intrinsic_objects.h"

@@ -20,6 +20,7 @@
 #include "arch/arm64/instruction_set_features_arm64.h"
 #include "art_method.h"
 #include "base/bit_utils.h"
+#include "gc/heap-inl.h"
 #include "code_generator_arm64.h"
 #include "common_arm64.h"
 #include "data_type-inl.h"

@@ -21,6 +21,7 @@
 #include "art_method.h"
 #include "code_generator_arm_vixl.h"
 #include "common_arm.h"
+#include "gc/heap-inl.h"
 #include "heap_poisoning.h"
 #include "intrinsic_objects.h"
 #include "intrinsics.h"
