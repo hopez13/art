@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "301d1575_61358882",
+        "filename": "runtime/jni/jni_env_ext-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-16T16:41:15Z",
+      "side": 1,
+      "message": "I\u0027m in favor or reducing code duplication - compare the old code to the code in `NewLocalRef()`. Let\u0027s hope this shall not cause any unexpected performance regression.",
+      "range": {
+        "startLine": 29,
+        "startChar": 2,
+        "endLine": 30,
+        "endChar": 39
+      },
+      "revId": "6c274c217cefc6310ff6d2eba24478168cc21cbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
