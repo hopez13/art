@@ -214,6 +214,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e94ef5de_dda375ae",
+        "filename": "libartservice/service/java/com/android/server/art/DexUseManagerLocal.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-01-16T22:08:57Z",
+      "side": 1,
+      "message": "\u003e No, there isn\u0027t, but I think this is also an edge case.\n\nIt looks like a vector an app could use to adversely affect the performance of another app (that hasn\u0027t made its dex file public). It\u0027d be necessary to get the app uuid to do it; I don\u0027t know how hard that is, but it\u0027s not exactly super secret.\n\nI think the duplication would need to be addressed some other way.\n\n\u003e (that it doesn\u0027t filter out non-existing packages)\n\nYou mean loaders for packages that don\u0027t exist? Yes, I could get behind a fix for that.\n\n\u003e so that I can spend my time on more important things\n\nYes, me too.",
+      "parentUuid": "6ca24f6a_7ec9cddc",
+      "range": {
+        "startLine": 334,
+        "startChar": 0,
+        "endLine": 336,
+        "endChar": 73
+      },
+      "revId": "87fee33c460c7dfad6fda4492adca12b20b88940",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e49fa0fa_5f3b9565",
