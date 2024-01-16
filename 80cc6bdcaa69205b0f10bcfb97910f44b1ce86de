@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa474bf4_fc71d821",
+        "filename": "libartservice/service/javatests/com/android/server/art/ArtManagerLocalTest.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 1293,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-01-16T23:08:31Z",
+      "side": 1,
+      "message": "I\u0027ll address this later since it\u0027s existing issue while this CL only renames the class.",
+      "parentUuid": "d1b19a88_03050eac",
+      "range": {
+        "startLine": 1293,
+        "startChar": 0,
+        "endLine": 1293,
+        "endChar": 58
+      },
+      "revId": "80cc6bdcaa69205b0f10bcfb97910f44b1ce86de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "63ae06fe_e5cdfd69",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-01-16T22:08:57Z",
       "side": 1,
       "message": "Please add a test where this isn\u0027t done and pass `excludeObsoleteDexesAndLoaders\u003dtrue` to check lines 324-327 in DexUseManagerLocal.",
+      "range": {
+        "startLine": 591,
+        "startChar": 8,
+        "endLine": 591,
+        "endChar": 63
+      },
+      "revId": "80cc6bdcaa69205b0f10bcfb97910f44b1ce86de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "abf55188_1654a651",
+        "filename": "libartservice/service/javatests/com/android/server/art/DexUseManagerTest.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 591,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-01-16T23:08:31Z",
+      "side": 1,
+      "message": "The case you mentioned is covered by `testCheckedSecondaryDexPrivate`. Meanwhile, this test case is to check that the whole SecondaryDexInfo is omitted when there is no loader after filtering (DexUseManagerLocal line 329-331). It is essentially `testFilteredDetailedSecondaryDexFilteredDueToVisibility` in the base version but Gerrit shows it as a new test unfortunately.",
+      "parentUuid": "63ae06fe_e5cdfd69",
       "range": {
         "startLine": 591,
         "startChar": 8,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e23d365_3477eb96",
+        "filename": "libartservice/service/javatests/com/android/server/art/DexUseManagerTest.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 597,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-01-16T23:08:31Z",
+      "side": 1,
+      "message": "Added to `testCheckedSecondaryDexPrivate`.",
+      "parentUuid": "297e6e24_8ab5d95b",
+      "range": {
+        "startLine": 594,
+        "startChar": 0,
+        "endLine": 597,
+        "endChar": 27
+      },
+      "revId": "80cc6bdcaa69205b0f10bcfb97910f44b1ce86de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f04c0330_be2145b1",
@@ -83,6 +155,30 @@
       "writtenOn": "2024-01-16T22:08:57Z",
       "side": 1,
       "message": "Why not just add this check to `testCheckedSecondaryDexNotFound` instead?",
+      "range": {
+        "startLine": 607,
+        "startChar": 0,
+        "endLine": 609,
+        "endChar": 27
+      },
+      "revId": "80cc6bdcaa69205b0f10bcfb97910f44b1ce86de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e97fa118_cc42810b",
+        "filename": "libartservice/service/javatests/com/android/server/art/DexUseManagerTest.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 609,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-01-16T23:08:31Z",
+      "side": 1,
+      "message": "Moved to `testCheckedSecondaryDexNotFound`.",
+      "parentUuid": "f04c0330_be2145b1",
       "range": {
         "startLine": 607,
         "startChar": 0,
