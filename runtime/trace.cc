@@ -832,7 +832,8 @@ Trace::Trace(File* trace_file,
   // In streaming mode, we only need a buffer big enough to store data per each
   // thread buffer. In non-streaming mode this is specified by the user and we
   // stop tracing when the buffer is full.
-  size_t buf_size = (output_mode == TraceOutputMode::kStreaming) ? kPerThreadBufSize : buffer_size;
+  size_t buf_size =
+      (output_mode == TraceOutputMode::kStreaming) ? kPerThreadBufSize * 6 : buffer_size;
   trace_writer_.reset(new TraceWriter(
       trace_file, output_mode, clock_source_, buf_size, GetClockOverheadNanoSeconds()));
 }
