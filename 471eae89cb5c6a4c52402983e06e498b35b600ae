@@ -459,6 +459,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "092bd2e0_463e3973",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 4286,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-01-16T09:01:48Z",
+      "side": 1,
+      "message": "I apologize for my inadvertency, there are many different combinations\n\nAlso seems like (based on clang) this instructions don\u0027t allow overlap between `vd` and `vs1`, not `vs2`",
+      "parentUuid": "2395d96d_8b9133f4",
+      "range": {
+        "startLine": 4286,
+        "startChar": 9,
+        "endLine": 4286,
+        "endChar": 21
+      },
+      "revId": "471eae89cb5c6a4c52402983e06e498b35b600ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bb2e0c26_1a0b38a7",
