@@ -3046,7 +3046,7 @@ void IntrinsicCodeGeneratorARM64::VisitSystemArrayCopyChar(HInvoke* invoke) {
   __ Bind(slow_path->GetExitLabel());
 }
 
-// We can choose to use the native implementation there for longer copy lengths.
+// We choose to use the native implementation for longer copy lengths.
 static constexpr int32_t kSystemArrayCopyThreshold = 128;
 
 void IntrinsicLocationsBuilderARM64::VisitSystemArrayCopy(HInvoke* invoke) {
