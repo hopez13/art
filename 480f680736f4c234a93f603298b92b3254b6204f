@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d476866_8c950313",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-01-16T17:24:13Z",
+      "side": 1,
+      "message": "Apart from avoiding overflow check twice others should have been done by the compiler. Updated the code anyway since it is minor change.",
+      "revId": "480f680736f4c234a93f603298b92b3254b6204f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
