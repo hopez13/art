@@ -22,6 +22,30 @@
       },
       "revId": "5448ed86e3d9320f3c5ebbeb25ec7b51d3223300",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4271a5a6_72bc8be8",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 718,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2024-01-16T17:19:20Z",
+      "side": 1,
+      "message": "Added a TODO comment.\n\nOne option is to make these functions inline and use them in both debug/release builds, but that requires `#include \"gc/heap-inl.h\"` in a lot of files: http://aosp/2910960",
+      "parentUuid": "5892a744_1b92ec19",
+      "range": {
+        "startLine": 718,
+        "startChar": 14,
+        "endLine": 718,
+        "endChar": 38
+      },
+      "revId": "5448ed86e3d9320f3c5ebbeb25ec7b51d3223300",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
