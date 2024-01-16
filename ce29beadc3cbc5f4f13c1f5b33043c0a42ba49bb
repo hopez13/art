@@ -60,6 +60,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b6a2c462_da71e7de",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 932,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-01-16T17:04:47Z",
+      "side": 1,
+      "message": "This `EmitI`, there is only one function with this name I found",
+      "parentUuid": "47eff6b9_57b79192",
+      "range": {
+        "startLine": 932,
+        "startChar": 2,
+        "endLine": 932,
+        "endChar": 7
+      },
+      "revId": "ce29beadc3cbc5f4f13c1f5b33043c0a42ba49bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "502e55c0_4b4fdcc9",
         "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
         "patchSetId": 9
@@ -140,6 +164,30 @@
       "writtenOn": "2024-01-16T16:49:23Z",
       "side": 1,
       "message": "These are missing the 4th argument `VM`. This makes it so that you have e.g. `VMadc_vim` and `VMadc_vi` but those are the same (but with different `VM` values). I guess it is fine to skip in e.g. `VAdc` and `VSbc` since they have no counerpart.\n\nThis is related to my comment on suffixes. If we didn\u0027t have suffixes (unless explicitly necessary), we wouldn\u0027t have two `VMadc`",
+      "range": {
+        "startLine": 1011,
+        "startChar": 0,
+        "endLine": 1013,
+        "endChar": 60
+      },
+      "revId": "ce29beadc3cbc5f4f13c1f5b33043c0a42ba49bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "673043f7_7e098360",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 1013,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-01-16T17:04:47Z",
+      "side": 1,
+      "message": "Spec differentiate `vvm` from `vv` and `vim` from `vi` explicitly so I was thinking it\u0027s better to follow the documentation \n\nhttps://github.com/riscv/riscv-v-spec/blob/master/v-spec.adoc#114-vector-integer-add-with-carry--subtract-with-borrow-instructions",
+      "parentUuid": "ffbab131_f3e89889",
       "range": {
         "startLine": 1011,
         "startChar": 0,
