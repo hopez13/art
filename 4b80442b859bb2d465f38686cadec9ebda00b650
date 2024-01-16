@@ -38,6 +38,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "69a5a9b9_4027502b",
+        "filename": "libartservice/service/java/com/android/server/art/ArtdRefCache.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1064003
+      },
+      "writtenOn": "2024-01-16T19:30:20Z",
+      "side": 1,
+      "message": "Might be worth a brief comment as to why 5s was chosen.",
+      "range": {
+        "startLine": 44,
+        "startChar": 43,
+        "endLine": 44,
+        "endChar": 47
+      },
+      "revId": "4b80442b859bb2d465f38686cadec9ebda00b650",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9e2ab19c_819d785a",
         "filename": "libartservice/service/java/com/android/server/art/ArtdRefCache.java",
         "patchSetId": 3
@@ -85,6 +108,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b27621bd_5264bf74",
+        "filename": "libartservice/service/java/com/android/server/art/ArtdRefCache.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1064003
+      },
+      "writtenOn": "2024-01-16T19:30:20Z",
+      "side": 1,
+      "message": "I guess that could sneak in in the future? In which case, a stray call to getArtd() would end up indefinitely keeping artd alive until another call gets made to fetch the pin (and the pin also gets closed properly)?",
+      "parentUuid": "13227f23_9450801e",
+      "range": {
+        "startLine": 82,
+        "startChar": 17,
+        "endLine": 82,
+        "endChar": 24
+      },
+      "revId": "4b80442b859bb2d465f38686cadec9ebda00b650",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "32cb9603_09f07978",
         "filename": "libartservice/service/java/com/android/server/art/ArtdRefCache.java",
         "patchSetId": 3
@@ -114,6 +161,29 @@
       "side": 1,
       "message": "We get the artd handle in multiple levels. If the getter is exposed by the pin, we\u0027ll have to pass the pin down to all those levels, so I think it adds too much complexity.\n\nArtManagerLocal is always the top level because all our API entrypoints are there. What I\u0027m doing is creating a pin at that level so all the getArtd() calls in the levels below it are covered.",
       "parentUuid": "32cb9603_09f07978",
+      "revId": "4b80442b859bb2d465f38686cadec9ebda00b650",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a8de28a_cdcbef08",
+        "filename": "libartservice/service/java/com/android/server/art/ArtdRefCache.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1064003
+      },
+      "writtenOn": "2024-01-16T19:30:20Z",
+      "side": 1,
+      "message": "Should we have some stronger checks on close() being called? Otherwise we\u0027ll never drop the ref. CloseGuard maybe? Alternatively, you could use a cleaner as the backstop to ensure the ref counts are balanced.\n\nAnother approach would be to combine this debounce clear behavior with storing mArtd in a WeakRef. It\u0027s no worse than current behavior that relies on GC, avoids any leaks, and also allows the binder death callback.",
+      "range": {
+        "startLine": 123,
+        "startChar": 12,
+        "endLine": 123,
+        "endChar": 24
+      },
       "revId": "4b80442b859bb2d465f38686cadec9ebda00b650",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
