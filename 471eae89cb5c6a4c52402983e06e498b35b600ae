@@ -235,6 +235,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c68c2093_26f347e2",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 3754,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-16T08:18:51Z",
+      "side": 1,
+      "message": "You\u0027re right, the odd argument ordering (vs2 before vs1) has confused me.",
+      "parentUuid": "3b7574d8_d8239d95",
+      "range": {
+        "startLine": 3754,
+        "startChar": 9,
+        "endLine": 3754,
+        "endChar": 18
+      },
+      "revId": "471eae89cb5c6a4c52402983e06e498b35b600ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2eda7b59_378ebec6",
@@ -401,6 +425,30 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "2abc0aae_ebd74ae5",
+      "range": {
+        "startLine": 4286,
+        "startChar": 9,
+        "endLine": 4286,
+        "endChar": 21
+      },
+      "revId": "471eae89cb5c6a4c52402983e06e498b35b600ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2395d96d_8b9133f4",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 4286,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-16T08:18:51Z",
+      "side": 1,
+      "message": "Not removed in PS8. (Note that this check should be the same as in `VFwadd_wv()`.)",
+      "parentUuid": "faf856e4_a491ee69",
       "range": {
         "startLine": 4286,
         "startChar": 9,
