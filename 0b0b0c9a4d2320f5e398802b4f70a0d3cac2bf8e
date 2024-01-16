@@ -276,6 +276,30 @@
       },
       "revId": "0b0b0c9a4d2320f5e398802b4f70a0d3cac2bf8e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c24d859d_22e8f0a1",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1079,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2024-01-16T11:12:17Z",
+      "side": 1,
+      "message": "If Santiago also agrees, I\u0027m happy to go with that.",
+      "parentUuid": "b408af14_617bd06c",
+      "range": {
+        "startLine": 1079,
+        "startChar": 8,
+        "endLine": 1079,
+        "endChar": 43
+      },
+      "revId": "0b0b0c9a4d2320f5e398802b4f70a0d3cac2bf8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
