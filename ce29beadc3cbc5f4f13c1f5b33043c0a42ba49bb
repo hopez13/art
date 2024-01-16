@@ -1,0 +1,153 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ad13550_69b7a9df",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-16T16:49:23Z",
+      "side": 1,
+      "message": "Read the .h, and started reading the .cc.\n\nApologize in advance if I am re-asking things. I went through the already posted comments and I didn\u0027t see them discussed.",
+      "revId": "ce29beadc3cbc5f4f13c1f5b33043c0a42ba49bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de9ed1d6_d79f15e1",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 931,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-16T16:49:23Z",
+      "side": 1,
+      "message": "Extra line",
+      "revId": "ce29beadc3cbc5f4f13c1f5b33043c0a42ba49bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "47eff6b9_57b79192",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 932,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-16T16:49:23Z",
+      "side": 1,
+      "message": "Which `EmitI` are we calling here? I only see https://cs.android.com/android/platform/superproject/main/+/main:art/compiler/utils/riscv64/assembler_riscv64.h;l\u003d889;drc\u003d7411322d1e061e27dc66a53a14b231f15f55af74 which is the one the line 925 is calling.",
+      "range": {
+        "startLine": 932,
+        "startChar": 2,
+        "endLine": 932,
+        "endChar": 7
+      },
+      "revId": "ce29beadc3cbc5f4f13c1f5b33043c0a42ba49bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "502e55c0_4b4fdcc9",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 944,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-16T16:49:23Z",
+      "side": 1,
+      "message": "Personal preference: This can be re-written as `DCHECK_IMPLIES(vm \u003d\u003d VM::kV0_t, vd !\u003d V0);`, so it reads something like \"If VM is masked, then vd and V0 must be different\"",
+      "range": {
+        "startLine": 944,
+        "startChar": 2,
+        "endLine": 944,
+        "endChar": 38
+      },
+      "revId": "ce29beadc3cbc5f4f13c1f5b33043c0a42ba49bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff7cc6be_b79416bb",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 612,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-16T16:49:23Z",
+      "side": 1,
+      "message": "In the manual these are called `VLoxei8`. Note the `i`.\nSimilar for Luxe, Soxe, Suxe.\n\nNote that below in `Vector Indexed-unordered Segment Loads/Stores` you have the `i` in e.g. `VLuxseg2ei8`",
+      "range": {
+        "startLine": 612,
+        "startChar": 7,
+        "endLine": 612,
+        "endChar": 13
+      },
+      "revId": "ce29beadc3cbc5f4f13c1f5b33043c0a42ba49bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce746ad3_dbe18659",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 937,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-16T16:49:23Z",
+      "side": 1,
+      "message": "In this section the methods have suffixes like `_vv`. Was this a stylistic choice? The other methods e.g. `VL1re8` don\u0027t have suffixes.\n\nWe can differentiate between e.g. `VAdd_vv`, `VAdd_vx`, and `VAdd_vi` from their inputs and there shouldn\u0027t be collisions as far as I can see.\n\nThere are some instructions like `VWaddu` which need a suffix, but most instructions don\u0027t need it (And even then, we could get away with simply `_v` and `_w`)",
+      "range": {
+        "startLine": 937,
+        "startChar": 5,
+        "endLine": 937,
+        "endChar": 34
+      },
+      "revId": "ce29beadc3cbc5f4f13c1f5b33043c0a42ba49bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ffbab131_f3e89889",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 1013,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-16T16:49:23Z",
+      "side": 1,
+      "message": "These are missing the 4th argument `VM`. This makes it so that you have e.g. `VMadc_vim` and `VMadc_vi` but those are the same (but with different `VM` values). I guess it is fine to skip in e.g. `VAdc` and `VSbc` since they have no counerpart.\n\nThis is related to my comment on suffixes. If we didn\u0027t have suffixes (unless explicitly necessary), we wouldn\u0027t have two `VMadc`",
+      "range": {
+        "startLine": 1011,
+        "startChar": 0,
+        "endLine": 1013,
+        "endChar": 60
+      },
+      "revId": "ce29beadc3cbc5f4f13c1f5b33043c0a42ba49bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
