@@ -483,6 +483,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f1530ab5_acda39b0",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 4286,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-16T09:16:18Z",
+      "side": 1,
+      "message": "I guess you\u0027re right.\n\nI found it a bit difficult to read and I switched my \"Not removed in PS8\" draft comment several times to say that the `vd !\u003d vs2` should be removed instead, and then back. The problem is that the arguments are named `vs2` and `vs1` in a very unnatural order which can confuse the interpretation of comments like\n\n    # Widening FP add/subtract, 2*SEW \u003d 2*SEW +/- SEW",
+      "parentUuid": "092bd2e0_463e3973",
+      "range": {
+        "startLine": 4286,
+        "startChar": 9,
+        "endLine": 4286,
+        "endChar": 21
+      },
+      "revId": "471eae89cb5c6a4c52402983e06e498b35b600ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bb2e0c26_1a0b38a7",
