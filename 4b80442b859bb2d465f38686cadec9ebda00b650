@@ -59,6 +59,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "13227f23_9450801e",
+        "filename": "libartservice/service/java/com/android/server/art/ArtdRefCache.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-01-16T19:08:23Z",
+      "side": 1,
+      "message": "I would say none.",
+      "parentUuid": "9e2ab19c_819d785a",
+      "range": {
+        "startLine": 82,
+        "startChar": 17,
+        "endLine": 82,
+        "endChar": 24
+      },
+      "revId": "4b80442b859bb2d465f38686cadec9ebda00b650",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "32cb9603_09f07978",
@@ -76,6 +100,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c109a7a5_b5553c58",
+        "filename": "libartservice/service/java/com/android/server/art/ArtdRefCache.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-01-16T19:08:23Z",
+      "side": 1,
+      "message": "We get the artd handle in multiple levels. If the getter is exposed by the pin, we\u0027ll have to pass the pin down to all those levels, so I think it adds too much complexity.\n\nArtManagerLocal is always the top level because all our API entrypoints are there. What I\u0027m doing is creating a pin at that level so all the getArtd() calls in the levels below it are covered.",
+      "parentUuid": "32cb9603_09f07978",
+      "revId": "4b80442b859bb2d465f38686cadec9ebda00b650",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e6c864c4_3ec359e6",
@@ -89,6 +131,30 @@
       "writtenOn": "2024-01-16T18:34:13Z",
       "side": 1,
       "message": "Does this end up creating a new thread? Can we just use the system_server BG executor? https://cs.android.com/android/platform/superproject/main/+/main:frameworks/base/core/java/com/android/internal/os/BackgroundThread.java;drc\u003da15d36b097385cb03a86cb681f97075316293663;l\u003d69",
+      "range": {
+        "startLine": 177,
+        "startChar": 19,
+        "endLine": 177,
+        "endChar": 28
+      },
+      "revId": "4b80442b859bb2d465f38686cadec9ebda00b650",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a2ab130_2cdc3c8e",
+        "filename": "libartservice/service/java/com/android/server/art/ArtdRefCache.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-01-16T19:08:23Z",
+      "side": 1,
+      "message": "We need a ScheduledExecutorService for the debouncer, not a normal executor. Yes, this ScheduledExecutorService creates a new thread, but we have throttled the calls to it by aosp/2887708, so I think it\u0027s fine?",
+      "parentUuid": "e6c864c4_3ec359e6",
       "range": {
         "startLine": 177,
         "startChar": 19,
