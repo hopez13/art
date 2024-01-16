@@ -61,6 +61,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "411acb22_6525842b",
+        "filename": "libartservice/service/java/com/android/server/art/ArtdRefCache.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-01-16T19:41:27Z",
+      "side": 1,
+      "message": "I arbitrarily chose it. Do you by any chance know the typical interval between ArtManagerLocal.dexoptPackage calls in real CUJs like device setup or restoring from backup?",
+      "parentUuid": "69a5a9b9_4027502b",
+      "range": {
+        "startLine": 44,
+        "startChar": 43,
+        "endLine": 44,
+        "endChar": 47
+      },
+      "revId": "4b80442b859bb2d465f38686cadec9ebda00b650",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9e2ab19c_819d785a",
         "filename": "libartservice/service/java/com/android/server/art/ArtdRefCache.java",
         "patchSetId": 3
@@ -130,6 +154,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "719a350e_70dc2361",
+        "filename": "libartservice/service/java/com/android/server/art/ArtdRefCache.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-01-16T19:41:27Z",
+      "side": 1,
+      "message": "No, a call to getArtd() will not put the handle in the cache if there is no pin.",
+      "parentUuid": "b27621bd_5264bf74",
+      "range": {
+        "startLine": 82,
+        "startChar": 17,
+        "endLine": 82,
+        "endChar": 24
+      },
+      "revId": "4b80442b859bb2d465f38686cadec9ebda00b650",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "32cb9603_09f07978",
@@ -178,6 +226,30 @@
       "writtenOn": "2024-01-16T19:30:20Z",
       "side": 1,
       "message": "Should we have some stronger checks on close() being called? Otherwise we\u0027ll never drop the ref. CloseGuard maybe? Alternatively, you could use a cleaner as the backstop to ensure the ref counts are balanced.\n\nAnother approach would be to combine this debounce clear behavior with storing mArtd in a WeakRef. It\u0027s no worse than current behavior that relies on GC, avoids any leaks, and also allows the binder death callback.",
+      "range": {
+        "startLine": 123,
+        "startChar": 12,
+        "endLine": 123,
+        "endChar": 24
+      },
+      "revId": "4b80442b859bb2d465f38686cadec9ebda00b650",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ab430ad_68be3ac3",
+        "filename": "libartservice/service/java/com/android/server/art/ArtdRefCache.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-01-16T19:41:27Z",
+      "side": 1,
+      "message": "Thank for the suggestions! I\u0027ll explore those.",
+      "parentUuid": "6a8de28a_cdcbef08",
       "range": {
         "startLine": 123,
         "startChar": 12,
