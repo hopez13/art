@@ -34,6 +34,69 @@
       "parentUuid": "bbbd70fa_c6fc271d",
       "revId": "4b80442b859bb2d465f38686cadec9ebda00b650",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e2ab19c_819d785a",
+        "filename": "libartservice/service/java/com/android/server/art/ArtdRefCache.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1064003
+      },
+      "writtenOn": "2024-01-16T18:34:13Z",
+      "side": 1,
+      "message": "Any sense for how many clients call this directly without the pin? I imagine most cases are now handled, just curious.",
+      "range": {
+        "startLine": 82,
+        "startChar": 17,
+        "endLine": 82,
+        "endChar": 24
+      },
+      "revId": "4b80442b859bb2d465f38686cadec9ebda00b650",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32cb9603_09f07978",
+        "filename": "libartservice/service/java/com/android/server/art/ArtdRefCache.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1064003
+      },
+      "writtenOn": "2024-01-16T18:34:13Z",
+      "side": 1,
+      "message": "Does it improve ergonomics/readability if the Pin exposes a getter for the Artd handle?",
+      "revId": "4b80442b859bb2d465f38686cadec9ebda00b650",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e6c864c4_3ec359e6",
+        "filename": "libartservice/service/java/com/android/server/art/ArtdRefCache.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1064003
+      },
+      "writtenOn": "2024-01-16T18:34:13Z",
+      "side": 1,
+      "message": "Does this end up creating a new thread? Can we just use the system_server BG executor? https://cs.android.com/android/platform/superproject/main/+/main:frameworks/base/core/java/com/android/internal/os/BackgroundThread.java;drc\u003da15d36b097385cb03a86cb681f97075316293663;l\u003d69",
+      "range": {
+        "startLine": 177,
+        "startChar": 19,
+        "endLine": 177,
+        "endChar": 28
+      },
+      "revId": "4b80442b859bb2d465f38686cadec9ebda00b650",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
