@@ -82,6 +82,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "486cee24_374a553d",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 932,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-16T17:27:39Z",
+      "side": 1,
+      "message": "Ah, we are using the fact it is templatized and the uimm fits fine. I originally read the method as requiring an XRegister and I got confused.",
+      "parentUuid": "b6a2c462_da71e7de",
+      "range": {
+        "startLine": 932,
+        "startChar": 2,
+        "endLine": 932,
+        "endChar": 7
+      },
+      "revId": "ce29beadc3cbc5f4f13c1f5b33043c0a42ba49bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "502e55c0_4b4fdcc9",
@@ -188,6 +212,30 @@
       "side": 1,
       "message": "Spec differentiate `vvm` from `vv` and `vim` from `vi` explicitly so I was thinking it\u0027s better to follow the documentation \n\nhttps://github.com/riscv/riscv-v-spec/blob/master/v-spec.adoc#114-vector-integer-add-with-carry--subtract-with-borrow-instructions",
       "parentUuid": "ffbab131_f3e89889",
+      "range": {
+        "startLine": 1011,
+        "startChar": 0,
+        "endLine": 1013,
+        "endChar": 60
+      },
+      "revId": "ce29beadc3cbc5f4f13c1f5b33043c0a42ba49bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7b87475_6f7682ef",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 1013,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-16T17:27:39Z",
+      "side": 1,
+      "message": "I am fine if Vladimir is fine with this. I found it strange that arithmetic (and only arithmetic) instructions had the suffix.\n\nThe benefit I would see of adding the suffix only when it is necessary is the fact that it would force the developer to pause and think which one it is. Also, as a reader you would know that there is more than one version with the same arguments.",
+      "parentUuid": "673043f7_7e098360",
       "range": {
         "startLine": 1011,
         "startChar": 0,
