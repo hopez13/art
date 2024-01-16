@@ -213,6 +213,24 @@
       "parentUuid": "80fc71cb_47b5ac8d",
       "revId": "ec317e96825d657de911d44da98d712c33d659d7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b7fc3c1d_18ecc549",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-01-16T14:44:11Z",
+      "side": 1,
+      "message": "\u003e I don\u0027t know if fetching a service handle about once per package is heavy enough to matter in them\n\nI don\u0027t think fetching a service handle once per package is a problem, but I think initializing artd once per package is, and that\u0027s what is happening during that test, if you see the logs in that ticket.\n\nI\u0027m not saying tests are relevant, but I\u0027m saying that that test does nothing special but installs many packages, which can also happen in some real CUJs, so it concerns me.\n\nExposing a session object is a proper way to handle this case, but as you said, it is too heavy-weight. That\u0027s why I prefer a timeout-based expiration, which is relatively light-weight compared to that, and it should handle the case quite well in practice, though it\u0027s not an elegant solution. WDYT?",
+      "parentUuid": "8ea9040b_6276144b",
+      "revId": "ec317e96825d657de911d44da98d712c33d659d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
