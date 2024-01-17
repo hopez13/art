@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b4a439e5_7f4693d9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-17T16:20:06Z",
+      "side": 1,
+      "message": "Halfway through the .cc. Should finish tomorrow.",
+      "revId": "4cd527f1b4cd784efba68281715a52633418f8c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f78e2d3_ece05488",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 2569,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-17T16:20:06Z",
+      "side": 1,
+      "message": "Where did this restriction come from? Can\u0027t find it in the `7.9. Vector Load/Store Whole Register Instructions` section of the manual",
+      "range": {
+        "startLine": 2569,
+        "startChar": 2,
+        "endLine": 2569,
+        "endChar": 47
+      },
+      "revId": "4cd527f1b4cd784efba68281715a52633418f8c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

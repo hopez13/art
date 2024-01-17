@@ -289,6 +289,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4db8e048_e2230d05",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 937,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-17T16:20:06Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "736f25f3_3f6f7760",
+      "range": {
+        "startLine": 937,
+        "startChar": 5,
+        "endLine": 937,
+        "endChar": 34
+      },
+      "revId": "ce29beadc3cbc5f4f13c1f5b33043c0a42ba49bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ffbab131_f3e89889",
@@ -398,6 +422,30 @@
       "side": 1,
       "message": "These particular instructions use the \"vm\" bit very differently from other instructions, so the spec describes those with \"vm\u003d0\" and \"vm\u003d1\" with different mnemonics and we should do that too. The case for keeping the suffix (and not adding a `vm` argument) is much stronger here than for other instructions.",
       "parentUuid": "58f738f4_7dad02de",
+      "range": {
+        "startLine": 1011,
+        "startChar": 0,
+        "endLine": 1013,
+        "endChar": 60
+      },
+      "revId": "ce29beadc3cbc5f4f13c1f5b33043c0a42ba49bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "65283d98_0e71f025",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 1013,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-17T16:20:06Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "d5f01207_4d4797fc",
       "range": {
         "startLine": 1011,
         "startChar": 0,
