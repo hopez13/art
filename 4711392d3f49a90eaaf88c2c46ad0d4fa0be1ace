@@ -22,6 +22,30 @@
       },
       "revId": "4711392d3f49a90eaaf88c2c46ad0d4fa0be1ace",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f7e91e7_8d236e9f",
+        "filename": "runtime/debug_print.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2024-01-17T18:12:17Z",
+      "side": 1,
+      "message": "Yes, `art/test/172-app-image-twice/debug_print_class.cc:30`",
+      "parentUuid": "cd44e667_51e459cf",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 6
+      },
+      "revId": "4711392d3f49a90eaaf88c2c46ad0d4fa0be1ace",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
