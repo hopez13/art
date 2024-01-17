@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "82bc9566_58117741",
+        "filename": "libartservice/service/java/com/android/server/art/ArtManagerLocal.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 1275,
+      "author": {
+        "id": 1166043
+      },
+      "writtenOn": "2024-01-17T04:30:00Z",
+      "side": 1,
+      "message": "(nit) should we allow \u0027null\u0027 as well if it does not want to adjust?",
+      "range": {
+        "startLine": 1275,
+        "startChar": 37,
+        "endLine": 1275,
+        "endChar": 41
+      },
+      "revId": "83c3158524e6561036f03499fecf2538c4e0155b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e79722dc_218c1152",
+        "filename": "libartservice/service/java/com/android/server/art/ArtManagerLocal.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 1284,
+      "author": {
+        "id": 1166043
+      },
+      "writtenOn": "2024-01-17T04:30:00Z",
+      "side": 1,
+      "message": "(nit) punctuation",
+      "range": {
+        "startLine": 1284,
+        "startChar": 40,
+        "endLine": 1284,
+        "endChar": 48
+      },
+      "revId": "83c3158524e6561036f03499fecf2538c4e0155b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "33a8f405_e32ea684",
+        "filename": "libartservice/service/java/com/android/server/art/ArtManagerLocal.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 1294,
+      "author": {
+        "id": 1166043
+      },
+      "writtenOn": "2024-01-17T04:30:00Z",
+      "side": 1,
+      "message": "Sounds like ART Service\u0027s adjustments should have higher priority, i.e. this one should be #3. otherwise the callback might encounter unknown params coming from ART Service, and get confused.\nHaving said that, we already might be passing \"default\" filter, which might or might not be familiar to the callback.",
+      "range": {
+        "startLine": 1294,
+        "startChar": 11,
+        "endLine": 1294,
+        "endChar": 13
+      },
+      "revId": "83c3158524e6561036f03499fecf2538c4e0155b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b1bea65_c3c6ab9d",
+        "filename": "libartservice/service/java/com/android/server/art/ArtManagerLocal.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 1311,
+      "author": {
+        "id": 1166043
+      },
+      "writtenOn": "2024-01-17T04:30:00Z",
+      "side": 1,
+      "message": "(thinking point) looking at the bug, should we instead override \u0027reason\u0027?",
+      "range": {
+        "startLine": 1311,
+        "startChar": 15,
+        "endLine": 1311,
+        "endChar": 37
+      },
+      "revId": "83c3158524e6561036f03499fecf2538c4e0155b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
