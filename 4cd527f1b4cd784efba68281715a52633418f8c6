@@ -39,6 +39,30 @@
       },
       "revId": "4cd527f1b4cd784efba68281715a52633418f8c6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72a6691f_5dbcb03a",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 2569,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-17T16:33:46Z",
+      "side": 1,
+      "message": "That section contains the following: \"The encoded number of registers must be a power of 2 and the vector register numbers must be aligned as with a vector register group, otherwise the instruction encoding is reserved.\"",
+      "parentUuid": "9f78e2d3_ece05488",
+      "range": {
+        "startLine": 2569,
+        "startChar": 2,
+        "endLine": 2569,
+        "endChar": 47
+      },
+      "revId": "4cd527f1b4cd784efba68281715a52633418f8c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
