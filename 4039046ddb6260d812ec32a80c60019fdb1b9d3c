@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "19e9f942_7b01eed5",
+        "filename": "runtime/mirror/array.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-17T11:36:41Z",
+      "side": 1,
+      "message": "Could we avoid the throw exports here if we replaced `Set` by `SetWithoutChecks` in image_writer.cc?",
+      "range": {
+        "startLine": 131,
+        "startChar": 2,
+        "endLine": 131,
+        "endChar": 8
+      },
+      "revId": "4039046ddb6260d812ec32a80c60019fdb1b9d3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
