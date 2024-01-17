@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "51ad06c5_e4897f96",
+        "filename": "libartservice/service/java/com/android/server/art/ArtManagerLocal.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 1275,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-01-17T12:11:43Z",
+      "side": 1,
+      "message": "Thanks for the suggestion. I think returning `originalCompilerFilter` is easy enough for the API user, so I want to avoid providing two similar ways to achieve the same thing.",
+      "parentUuid": "82bc9566_58117741",
+      "range": {
+        "startLine": 1275,
+        "startChar": 37,
+        "endLine": 1275,
+        "endChar": 41
+      },
+      "revId": "83c3158524e6561036f03499fecf2538c4e0155b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e79722dc_218c1152",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-01-17T04:30:00Z",
       "side": 1,
       "message": "(nit) punctuation",
+      "range": {
+        "startLine": 1284,
+        "startChar": 40,
+        "endLine": 1284,
+        "endChar": 48
+      },
+      "revId": "83c3158524e6561036f03499fecf2538c4e0155b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c224b3c_83adc18b",
+        "filename": "libartservice/service/java/com/android/server/art/ArtManagerLocal.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 1284,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-01-17T12:11:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e79722dc_218c1152",
       "range": {
         "startLine": 1284,
         "startChar": 40,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa2fa38c_c1d1aa6d",
+        "filename": "libartservice/service/java/com/android/server/art/ArtManagerLocal.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 1294,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-01-17T12:11:43Z",
+      "side": 1,
+      "message": "Thanks for the suggestion. I discussed this with Martin. While we have our opinions on how to adjust the compiler filter (e.g., we think system UI is important), we still want to allow partners to override that based on their business need.\n\nThe callback ought to handle unknown filters. I clarified this in the first paragraph.",
+      "parentUuid": "33a8f405_e32ea684",
+      "range": {
+        "startLine": 1294,
+        "startChar": 11,
+        "endLine": 1294,
+        "endChar": 13
+      },
+      "revId": "83c3158524e6561036f03499fecf2538c4e0155b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7b1bea65_c3c6ab9d",
@@ -83,6 +155,30 @@
       "writtenOn": "2024-01-17T04:30:00Z",
       "side": 1,
       "message": "(thinking point) looking at the bug, should we instead override \u0027reason\u0027?",
+      "range": {
+        "startLine": 1311,
+        "startChar": 15,
+        "endLine": 1311,
+        "endChar": 37
+      },
+      "revId": "83c3158524e6561036f03499fecf2538c4e0155b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe53513d_7aaa436f",
+        "filename": "libartservice/service/java/com/android/server/art/ArtManagerLocal.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 1311,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-01-17T12:11:43Z",
+      "side": 1,
+      "message": "In the bug, the partner says they want to dexopt with a different compiler filter for certain packages after OTA. Because it\u0027s after OTA, we expect the reason always being `boot-after-ota`, so we shouldn\u0027t allow partners to override the reason.",
+      "parentUuid": "7b1bea65_c3c6ab9d",
       "range": {
         "startLine": 1311,
         "startChar": 15,
