@@ -267,6 +267,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "736f25f3_3f6f7760",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 937,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-17T09:48:49Z",
+      "side": 1,
+      "message": "Load/store instructions would always have a `_v` suffix and I find that unnecessary.\n\nHowever, for arithmetic instructions I\u0027d prefer to keep those suffixes. Most have at least two of `_vv`, `_vx`/`_vf` and `_vi` and having overloads with the same name is not just inconvenient for testing. It can actually hide relevant information when using these functions. The declaration of a variable passed as an argument can be far from the call and I don\u0027t want to frequently scroll up to see its type which could even be `auto` or a template argument. (OTOH, having overloads that can be called from template functions can reduce code duplication but I do not anticipate that to come up often.)",
+      "parentUuid": "4dc66e3c_a0d0c484",
+      "range": {
+        "startLine": 937,
+        "startChar": 5,
+        "endLine": 937,
+        "endChar": 34
+      },
+      "revId": "ce29beadc3cbc5f4f13c1f5b33043c0a42ba49bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ffbab131_f3e89889",
         "filename": "compiler/utils/riscv64/assembler_riscv64.h",
         "patchSetId": 9
@@ -350,6 +374,30 @@
       "side": 1,
       "message": "I think there is a significant difference between a regular instruction takes `VM` as it\u0027s parameter and say `VMadc_vim` and `VMadc_vi`. In the second case these are different `mnemonics` and masking isn\u0027t an generic instruction argument so probably it worth to keep them separated",
       "parentUuid": "e7b87475_6f7682ef",
+      "range": {
+        "startLine": 1011,
+        "startChar": 0,
+        "endLine": 1013,
+        "endChar": 60
+      },
+      "revId": "ce29beadc3cbc5f4f13c1f5b33043c0a42ba49bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d5f01207_4d4797fc",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 1013,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-17T09:48:49Z",
+      "side": 1,
+      "message": "These particular instructions use the \"vm\" bit very differently from other instructions, so the spec describes those with \"vm\u003d0\" and \"vm\u003d1\" with different mnemonics and we should do that too. The case for keeping the suffix (and not adding a `vm` argument) is much stronger here than for other instructions.",
+      "parentUuid": "58f738f4_7dad02de",
       "range": {
         "startLine": 1011,
         "startChar": 0,
