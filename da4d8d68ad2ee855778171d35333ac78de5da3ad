@@ -22,6 +22,30 @@
       },
       "revId": "da4d8d68ad2ee855778171d35333ac78de5da3ad",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "253ef45c_32eef96f",
+        "filename": "runtime/barrier.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2024-01-17T15:06:48Z",
+      "side": 1,
+      "message": "The symbol for `Barrier::Increment\u003cLockHandling\u003e` is not visible otherwise.\n\nI guess template functions must have all their template parameters\u0027 symbols visible to be EXPORTed themselves.",
+      "parentUuid": "43a58f94_ac38b4c5",
+      "range": {
+        "startLine": 43,
+        "startChar": 7,
+        "endLine": 43,
+        "endChar": 13
+      },
+      "revId": "da4d8d68ad2ee855778171d35333ac78de5da3ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
