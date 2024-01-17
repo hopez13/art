@@ -23,7 +23,7 @@
 #include "mirror/executable.h"
 #include "mirror/object-inl.h"
 #include "obj_ptr.h"
-#include "oat_file.h"
+#include "oat/oat_file.h"
 #include "runtime.h"
 #include "scoped_thread_state_change-inl.h"
 #include "thread.h"

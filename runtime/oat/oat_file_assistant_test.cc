@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-#include "oat_file_assistant.h"
+#include "oat/oat_file_assistant.h"
 
 #include <fcntl.h>
 #include <gtest/gtest.h>
@@ -38,10 +38,10 @@
 #include "class_loader_context.h"
 #include "common_runtime_test.h"
 #include "dexopt_test.h"
-#include "oat.h"
-#include "oat_file.h"
-#include "oat_file_assistant_context.h"
-#include "oat_file_manager.h"
+#include "oat/oat.h"
+#include "oat/oat_file.h"
+#include "oat/oat_file_assistant_context.h"
+#include "oat/oat_file_manager.h"
 #include "scoped_thread_state_change.h"
 #include "thread.h"
 

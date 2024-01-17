@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 
-#ifndef ART_RUNTIME_OAT_FILE_ASSISTANT_H_
-#define ART_RUNTIME_OAT_FILE_ASSISTANT_H_
+#ifndef ART_RUNTIME_OAT_OAT_FILE_ASSISTANT_H_
+#define ART_RUNTIME_OAT_OAT_FILE_ASSISTANT_H_
 
 #include <cstdint>
 #include <memory>
@@ -31,8 +31,8 @@
 #include "base/scoped_flock.h"
 #include "base/unix_file/fd_file.h"
 #include "class_loader_context.h"
-#include "oat_file.h"
-#include "oat_file_assistant_context.h"
+#include "oat/oat_file.h"
+#include "oat/oat_file_assistant_context.h"
 
 namespace art {
 
@@ -591,4 +591,4 @@ std::ostream& operator << (std::ostream& stream, const OatFileAssistant::OatStat
 
 }  // namespace art
 
-#endif  // ART_RUNTIME_OAT_FILE_ASSISTANT_H_
+#endif  // ART_RUNTIME_OAT_OAT_FILE_ASSISTANT_H_

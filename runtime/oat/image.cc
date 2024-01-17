@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-#include "image.h"
+#include "oat/image.h"
 
 #include <lz4.h>
 #include <lz4hc.h>

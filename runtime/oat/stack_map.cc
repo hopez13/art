@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-#include "stack_map.h"
+#include "oat/stack_map.h"
 
 #include <iomanip>
 #include <stdint.h>
@@ -22,7 +22,7 @@
 #include "art_method.h"
 #include "base/indenter.h"
 #include "base/stats-inl.h"
-#include "oat_quick_method_header.h"
+#include "oat/oat_quick_method_header.h"
 #include "scoped_thread_state_change-inl.h"
 
 namespace art {

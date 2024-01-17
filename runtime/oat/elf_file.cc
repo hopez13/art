@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-#include "elf_file.h"
+#include "oat/elf_file.h"
 
 #include <inttypes.h>
 #include <sys/mman.h>  // For the PROT_* and MAP_* constants.
@@ -30,7 +30,7 @@
 #include "base/unix_file/fd_file.h"
 #include "base/utils.h"
 #include "elf/elf_utils.h"
-#include "elf_file_impl.h"
+#include "oat/elf_file_impl.h"
 
 namespace art {
 

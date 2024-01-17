@@ -18,7 +18,7 @@
 
 #include <android-base/logging.h>
 
-#include "aot_class_linker.h"
+#include "oat/aot_class_linker.h"
 #include "base/mutex-inl.h"
 #include "base/stl_util.h"
 #include "dex/descriptors_names.h"

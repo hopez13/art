@@ -19,7 +19,7 @@
 #include "art_field-inl.h"
 #include "base/casts.h"
 #include "base/logging.h"
-#include "image.h"
+#include "oat/image.h"
 #include "intrinsics.h"
 #include "obj_ptr-inl.h"
 #include "well_known_classes.h"

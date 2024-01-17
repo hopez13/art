@@ -27,7 +27,7 @@
 #include "deoptimization_kind.h"
 #include "obj_ptr.h"
 #include "quick/quick_method_frame_info.h"
-#include "stack_map.h"
+#include "oat/stack_map.h"
 
 namespace art {
 

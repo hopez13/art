@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-#include "oat_file_assistant.h"
+#include "oat/oat_file_assistant.h"
 
 #include <sys/stat.h>
 
@@ -48,9 +48,9 @@
 #include "exec_utils.h"
 #include "gc/heap.h"
 #include "gc/space/image_space.h"
-#include "image.h"
-#include "oat.h"
-#include "oat_file_assistant_context.h"
+#include "oat/image.h"
+#include "oat/oat.h"
+#include "oat/oat_file_assistant_context.h"
 #include "runtime.h"
 #include "scoped_thread_state_change-inl.h"
 #include "vdex_file.h"

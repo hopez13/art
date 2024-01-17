@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-#include "oat_file_manager.h"
+#include "oat/oat_file_manager.h"
 
 #include <stdlib.h>
 #include <sys/stat.h>
@@ -48,8 +48,8 @@
 #include "jni/jni_internal.h"
 #include "mirror/class_loader.h"
 #include "mirror/object-inl.h"
-#include "oat_file.h"
-#include "oat_file_assistant.h"
+#include "oat/oat_file.h"
+#include "oat/oat_file_assistant.h"
 #include "obj_ptr-inl.h"
 #include "runtime_image.h"
 #include "scoped_thread_state_change-inl.h"

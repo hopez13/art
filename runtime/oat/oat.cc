@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-#include "oat.h"
+#include "oat/oat.h"
 
 #include <string.h>
 

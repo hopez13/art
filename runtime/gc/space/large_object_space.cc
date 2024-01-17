@@ -30,7 +30,7 @@
 #include "gc/accounting/heap_bitmap-inl.h"
 #include "gc/accounting/space_bitmap-inl.h"
 #include "gc/heap.h"
-#include "image.h"
+#include "oat/image.h"
 #include "mirror/object-readbarrier-inl.h"
 #include "scoped_thread_state_change-inl.h"
 #include "space-inl.h"

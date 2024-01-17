@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-#ifndef ART_RUNTIME_IMAGE_INL_H_
-#define ART_RUNTIME_IMAGE_INL_H_
+#ifndef ART_RUNTIME_OAT_IMAGE_INL_H_
+#define ART_RUNTIME_OAT_IMAGE_INL_H_
 
-#include "image.h"
+#include "oat/image.h"
 
 #include "art_method.h"
 #include "imt_conflict_table.h"
@@ -117,4 +117,4 @@ inline void ImageHeader::VisitPackedImtConflictTables(const Visitor& visitor,
 
 }  // namespace art
 
-#endif  // ART_RUNTIME_IMAGE_INL_H_
+#endif  // ART_RUNTIME_OAT_IMAGE_INL_H_

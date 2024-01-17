@@ -80,7 +80,7 @@
 #include "handle_scope-inl.h"
 #include "heap-inl.h"
 #include "heap-visit-objects-inl.h"
-#include "image.h"
+#include "oat/image.h"
 #include "intern_table.h"
 #include "jit/jit.h"
 #include "jit/jit_code_cache.h"

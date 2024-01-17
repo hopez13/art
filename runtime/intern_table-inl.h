@@ -22,7 +22,7 @@
 #include "dex/utf.h"
 #include "gc/space/image_space.h"
 #include "gc_root-inl.h"
-#include "image.h"
+#include "oat/image.h"
 #include "mirror/string-inl.h"
 #include "thread-current-inl.h"
 

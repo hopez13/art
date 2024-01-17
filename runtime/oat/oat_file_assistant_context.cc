@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-#include "oat_file_assistant_context.h"
+#include "oat/oat_file_assistant_context.h"
 
 #include <memory>
 #include <optional>

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-#include "oat_file.h"
+#include "oat/oat_file.h"
 
 #include <dlfcn.h>
 
@@ -61,15 +61,15 @@
 #include "dex/type_lookup_table.h"
 #include "dex/utf-inl.h"
 #include "elf/elf_utils.h"
-#include "elf_file.h"
+#include "oat/elf_file.h"
 #include "gc_root.h"
 #include "gc/heap.h"
 #include "gc/space/image_space.h"
 #include "mirror/class.h"
 #include "mirror/object-inl.h"
-#include "oat.h"
-#include "oat_file-inl.h"
-#include "oat_file_manager.h"
+#include "oat/oat.h"
+#include "oat/oat_file-inl.h"
+#include "oat/oat_file_manager.h"
 #include "runtime-inl.h"
 #include "vdex_file.h"
 #include "verifier/verifier_deps.h"

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-#include "aot_class_linker.h"
+#include "oat/aot_class_linker.h"
 
 #include "class_status.h"
 #include "compiler_callbacks.h"

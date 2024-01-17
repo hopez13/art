@@ -25,7 +25,7 @@
 #include "dex/invoke_type.h"
 #include "driver/compiler_options.h"
 #include "gc/space/image_space.h"
-#include "image-inl.h"
+#include "oat/image-inl.h"
 #include "intrinsic_objects.h"
 #include "intrinsics_list.h"
 #include "nodes.h"

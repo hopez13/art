@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-#include "oat_quick_method_header.h"
+#include "oat/oat_quick_method_header.h"
 
 #include <optional>
 
@@ -28,7 +28,7 @@
 #include "interpreter/mterp/nterp.h"
 #include "nterp_helpers.h"
 #include "scoped_thread_state_change-inl.h"
-#include "stack_map.h"
+#include "oat/stack_map.h"
 #include "thread.h"
 
 namespace art {

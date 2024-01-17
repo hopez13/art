@@ -16,7 +16,7 @@
 
 #include <algorithm>
 
-#include "index_bss_mapping.h"
+#include "oat/index_bss_mapping.h"
 
 #include "base/bit_utils.h"
 #include "base/length_prefixed_array.h"

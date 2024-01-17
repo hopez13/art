@@ -36,7 +36,7 @@
 #include "gc/space/image_space.h"
 #include "gc/space/space-inl.h"
 #include "gc/verification.h"
-#include "image-inl.h"
+#include "oat/image-inl.h"
 #include "intern_table.h"
 #include "mirror/class-inl.h"
 #include "mirror/object-inl.h"
