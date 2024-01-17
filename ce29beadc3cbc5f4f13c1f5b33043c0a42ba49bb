@@ -35,6 +35,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2106acd0_433a61f2",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 931,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-01-17T09:20:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "de9ed1d6_d79f15e1",
+      "revId": "ce29beadc3cbc5f4f13c1f5b33043c0a42ba49bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "47eff6b9_57b79192",
@@ -129,6 +147,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "50135fae_13be8400",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 944,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-01-17T09:20:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "502e55c0_4b4fdcc9",
+      "range": {
+        "startLine": 944,
+        "startChar": 2,
+        "endLine": 944,
+        "endChar": 38
+      },
+      "revId": "ce29beadc3cbc5f4f13c1f5b33043c0a42ba49bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ff7cc6be_b79416bb",
@@ -152,6 +194,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "69e6b1d6_c439e179",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 612,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-01-17T09:20:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ff7cc6be_b79416bb",
+      "range": {
+        "startLine": 612,
+        "startChar": 7,
+        "endLine": 612,
+        "endChar": 13
+      },
+      "revId": "ce29beadc3cbc5f4f13c1f5b33043c0a42ba49bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ce746ad3_dbe18659",
@@ -165,6 +231,30 @@
       "writtenOn": "2024-01-16T16:49:23Z",
       "side": 1,
       "message": "In this section the methods have suffixes like `_vv`. Was this a stylistic choice? The other methods e.g. `VL1re8` don\u0027t have suffixes.\n\nWe can differentiate between e.g. `VAdd_vv`, `VAdd_vx`, and `VAdd_vi` from their inputs and there shouldn\u0027t be collisions as far as I can see.\n\nThere are some instructions like `VWaddu` which need a suffix, but most instructions don\u0027t need it (And even then, we could get away with simply `_v` and `_w`)",
+      "range": {
+        "startLine": 937,
+        "startChar": 5,
+        "endLine": 937,
+        "endChar": 34
+      },
+      "revId": "ce29beadc3cbc5f4f13c1f5b33043c0a42ba49bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4dc66e3c_a0d0c484",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 937,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-01-17T09:20:19Z",
+      "side": 1,
+      "message": "I agree we can. Actually I am not sure which approach is better.\n\nHaving such suffixes is still required and have more than one naming convention could not be good idea.\nAlso dropping suffixes makes testing a bit more complex since `\u0026Riscv64Assembler::VAdd` became ambiguous. Probably it could be solved wrapping into lambda or something similar or even rewrite testing framework but from my perspective looks a bit like overkill \n\nAnyway I could make whatever you like",
+      "parentUuid": "ce746ad3_dbe18659",
       "range": {
         "startLine": 937,
         "startChar": 5,
@@ -236,6 +326,30 @@
       "side": 1,
       "message": "I am fine if Vladimir is fine with this. I found it strange that arithmetic (and only arithmetic) instructions had the suffix.\n\nThe benefit I would see of adding the suffix only when it is necessary is the fact that it would force the developer to pause and think which one it is. Also, as a reader you would know that there is more than one version with the same arguments.",
       "parentUuid": "673043f7_7e098360",
+      "range": {
+        "startLine": 1011,
+        "startChar": 0,
+        "endLine": 1013,
+        "endChar": 60
+      },
+      "revId": "ce29beadc3cbc5f4f13c1f5b33043c0a42ba49bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "58f738f4_7dad02de",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 1013,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-01-17T09:20:19Z",
+      "side": 1,
+      "message": "I think there is a significant difference between a regular instruction takes `VM` as it\u0027s parameter and say `VMadc_vim` and `VMadc_vi`. In the second case these are different `mnemonics` and masking isn\u0027t an generic instruction argument so probably it worth to keep them separated",
+      "parentUuid": "e7b87475_6f7682ef",
       "range": {
         "startLine": 1011,
         "startChar": 0,
