@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "44aaf3c0_1794d30b",
+        "filename": "runtime/aot_class_linker.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-17T15:14:39Z",
+      "side": 1,
+      "message": "We should create a directory for files related to compiled code (either `oat` or `aot`). It would hold all `oat*` files as well as `elf_file*`, `image*`, `index_bss_mapping*` and `stack_map*`. These files naturally belong together, so you could add the attribute to them in one CL. I\u0027m not sure if `AotClassLinker` belongs there though as I would prefer to move it to `dex2oat/` eventually.",
+      "range": {
+        "startLine": 32,
+        "startChar": 6,
+        "endLine": 32,
+        "endChar": 20
+      },
+      "revId": "3d7f058f0d03605c4727a90da11c3cded4c8f810",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "412c27f0_8caf54ec",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1028,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-17T15:14:39Z",
+      "side": 1,
+      "message": "Undo the line-break change.",
+      "range": {
+        "startLine": 1028,
+        "startChar": 54,
+        "endLine": 1028,
+        "endChar": 55
+      },
+      "revId": "3d7f058f0d03605c4727a90da11c3cded4c8f810",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
