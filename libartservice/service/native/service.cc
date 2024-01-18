@@ -24,7 +24,10 @@
 #include "android-base/file.h"
 #include "android-base/result.h"
 #include "class_loader_context.h"
+#include "gc/collector_type.h"
+#include "gc/heap.h"
 #include "nativehelper/utils.h"
+#include "runtime.h"
 
 namespace art {
 namespace service {
@@ -76,6 +79,13 @@ Result<void> ValidateDexPath(const std::string& dex_path) {
   return {};
 }
 
+std::string GetGarbageCollector() {
+  std::ostringstream oss;
+  gc::CollectorType collector_type = Runtime::Current()->GetHeap()->GetForegroundCollectorType();
+  oss << collector_type;
+  return oss.str();
+}
+
 extern "C" JNIEXPORT jstring JNICALL
 Java_com_android_server_art_ArtJni_validateDexPathNative(JNIEnv* env, jobject, jstring j_dex_path) {
   std::string dex_path(GET_UTF_OR_RETURN(env, j_dex_path));
@@ -114,6 +124,11 @@ Java_com_android_server_art_ArtJni_validateClassLoaderContextNative(
   }
 
   return nullptr;
+}
+
+extern "C" JNIEXPORT jstring JNICALL
+Java_com_android_server_art_ArtJni_getGarbageCollectorNative(JNIEnv* env, jobject) {
+  return CREATE_UTF_OR_RETURN(env, GetGarbageCollector()).release();
 }
 
 }  // namespace service

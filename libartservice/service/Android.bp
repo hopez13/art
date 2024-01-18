@@ -36,6 +36,9 @@ cc_defaults {
         "libbase",
         "libnativehelper",
     ],
+    generated_sources: [
+        "art_operator_srcs",
+    ],
 }
 
 cc_library {
