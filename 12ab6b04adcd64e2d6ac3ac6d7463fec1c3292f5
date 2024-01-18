@@ -22,6 +22,30 @@
       },
       "revId": "12ab6b04adcd64e2d6ac3ac6d7463fec1c3292f5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c99e3a7_654b5346",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1422,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-18T14:07:06Z",
+      "side": 1,
+      "message": "Fixed.\n\nI benchmarked\n\n    public static void $noinline$arraycopy(Object[] dest, Object src, int length) {\n        System.arraycopy(src, 0, dest, 0, length);\n    }\n\nwith `dest \u003d new Object[1]`, `src \u003d new String[1]` and `length \u003d 1` and the change to LDRH showed over 400x improvement on both arm and arm64. (Choosing `length \u003d 1` means that the intrinsic has very little to do and the JNI transitions in the slow-path dominate the benchmark.)",
+      "parentUuid": "b49e3b9e_1609b621",
+      "range": {
+        "startLine": 1422,
+        "startChar": 7,
+        "endLine": 1422,
+        "endChar": 10
+      },
+      "revId": "12ab6b04adcd64e2d6ac3ac6d7463fec1c3292f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
