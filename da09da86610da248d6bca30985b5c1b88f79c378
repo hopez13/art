@@ -366,6 +366,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "e89ebb9d_7db6b692",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 3185,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-18T16:57:20Z",
+      "side": 1,
+      "message": "Yes, that\u0027s correct.",
+      "parentUuid": "bc3d5c0c_54cb28e3",
+      "range": {
+        "startLine": 3185,
+        "startChar": 2,
+        "endLine": 3185,
+        "endChar": 69
+      },
+      "revId": "da09da86610da248d6bca30985b5c1b88f79c378",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "fffc99a9_6b876c0e",
         "filename": "compiler/utils/riscv64/assembler_riscv64.h",
         "patchSetId": 6

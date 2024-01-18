@@ -138,6 +138,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1810e885_fd1f3c49",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 2684,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-18T16:57:20Z",
+      "side": 1,
+      "message": "Section 10.1. contains:\n\n    1. For integer operations, the scalar can be a 5-bit immediate, imm[4:0],\n       encoded in the rs1 field. The value is sign-extended to SEW bits, unless\n       otherwise specified.\n\nThe unsigned immediate is essentially used only by vsetivli, many shift instructions, vrgather and vslide{up,down}.",
+      "parentUuid": "d28c82b4_85b1f229",
+      "range": {
+        "startLine": 2684,
+        "startChar": 60,
+        "endLine": 2684,
+        "endChar": 72
+      },
+      "revId": "4cd527f1b4cd784efba68281715a52633418f8c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a1c55e0d_d8523a0a",
         "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
         "patchSetId": 10
@@ -266,6 +290,30 @@
       "writtenOn": "2024-01-18T16:34:57Z",
       "side": 1,
       "message": "This check is required for unsigned compare because of \n`an effective vmsltu.vi range of 1 to 16 (Note, vmsltu.vi with immediate 0 is not useful as it is always false).`\n\nhttps://github.com/riscv/riscv-v-spec/blob/master/v-spec.adoc#118-vector-integer-compare-instructions\n\nMore general check about imm width is made in `VMsleu_vi` (See `EncodeInt5(..)`)",
+      "parentUuid": "bfd76c76_a5b1f5fc",
+      "range": {
+        "startLine": 3078,
+        "startChar": 0,
+        "endLine": 3078,
+        "endChar": 70
+      },
+      "revId": "4cd527f1b4cd784efba68281715a52633418f8c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9bbeeb16_413d268a",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 3078,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-18T16:57:20Z",
+      "side": 1,
+      "message": "Those signed comparisons support the full adjusted range [-15, 16] with a very natural meaning. Unsigned comparisons are different - see also my comments in PS6.",
       "parentUuid": "bfd76c76_a5b1f5fc",
       "range": {
         "startLine": 3078,
