@@ -160,6 +160,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "012ef369_d6515dfe",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 2684,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-18T17:00:08Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "a77333ff_09f13a6b",
+      "range": {
+        "startLine": 2684,
+        "startChar": 60,
+        "endLine": 2684,
+        "endChar": 72
+      },
+      "revId": "4cd527f1b4cd784efba68281715a52633418f8c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a1c55e0d_d8523a0a",
@@ -315,6 +339,30 @@
       "side": 1,
       "message": "Those signed comparisons support the full adjusted range [-15, 16] with a very natural meaning. Unsigned comparisons are different - see also my comments in PS6.",
       "parentUuid": "bfd76c76_a5b1f5fc",
+      "range": {
+        "startLine": 3078,
+        "startChar": 0,
+        "endLine": 3078,
+        "endChar": 70
+      },
+      "revId": "4cd527f1b4cd784efba68281715a52633418f8c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7139a93a_e8383883",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 3078,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-18T17:00:08Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "43493b15_82b497d1",
       "range": {
         "startLine": 3078,
         "startChar": 0,
