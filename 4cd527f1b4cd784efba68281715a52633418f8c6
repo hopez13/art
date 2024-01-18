@@ -114,6 +114,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a77333ff_09f13a6b",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 2684,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-01-18T16:34:57Z",
+      "side": 1,
+      "message": "Probably yes\nIn spec this `vadd.vi vd, vs2, imm, vm   # vector-immediate` usually stands for singed imm in contrast to i.e. `vsll.vi vd, vs2, uimm, vm   # vector-immediate` where immediate is unsinged.",
+      "parentUuid": "d28c82b4_85b1f229",
+      "range": {
+        "startLine": 2684,
+        "startChar": 60,
+        "endLine": 2684,
+        "endChar": 72
+      },
+      "revId": "4cd527f1b4cd784efba68281715a52633418f8c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a1c55e0d_d8523a0a",
         "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
         "patchSetId": 10
@@ -125,6 +149,30 @@
       "writtenOn": "2024-01-18T15:52:25Z",
       "side": 1,
       "message": "nit: this can be two separate DCHECKs. The benefit is that if/when the DCHECK is triggered, then we know which one of the two comparisons was the faulty one.\n\nSimilar comment for other `DCHECK(vd !\u003d vs1 \u0026\u0026 vd !\u003d vs2);`",
+      "range": {
+        "startLine": 2821,
+        "startChar": 2,
+        "endLine": 2821,
+        "endChar": 33
+      },
+      "revId": "4cd527f1b4cd784efba68281715a52633418f8c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7cf36457_a0cb36a7",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 2821,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-01-18T16:34:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a1c55e0d_d8523a0a",
       "range": {
         "startLine": 2821,
         "startChar": 2,
@@ -158,6 +206,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4f9c9e60_a660b6e5",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 2956,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-01-18T16:34:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "61896e6b_9460d5c7",
+      "range": {
+        "startLine": 2956,
+        "startChar": 58,
+        "endLine": 2956,
+        "endChar": 65
+      },
+      "revId": "4cd527f1b4cd784efba68281715a52633418f8c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bfd76c76_a5b1f5fc",
@@ -171,6 +243,30 @@
       "writtenOn": "2024-01-18T15:52:25Z",
       "side": 1,
       "message": "Add the same DCHECK for `VMslt_vi` and `VMsge_vi` below?",
+      "range": {
+        "startLine": 3078,
+        "startChar": 0,
+        "endLine": 3078,
+        "endChar": 70
+      },
+      "revId": "4cd527f1b4cd784efba68281715a52633418f8c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "43493b15_82b497d1",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 3078,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-01-18T16:34:57Z",
+      "side": 1,
+      "message": "This check is required for unsigned compare because of \n`an effective vmsltu.vi range of 1 to 16 (Note, vmsltu.vi with immediate 0 is not useful as it is always false).`\n\nhttps://github.com/riscv/riscv-v-spec/blob/master/v-spec.adoc#118-vector-integer-compare-instructions\n\nMore general check about imm width is made in `VMsleu_vi` (See `EncodeInt5(..)`)",
+      "parentUuid": "bfd76c76_a5b1f5fc",
       "range": {
         "startLine": 3078,
         "startChar": 0,
