@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5d30cf6d_9595d6c8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-01-18T21:22:38Z",
+      "side": 1,
+      "message": "Btw, again I\u0027m bothered by the dysfunctional line coverage findings in Gerrit. I read up on [this page](http://go/android-code-coverage-presubmit-pilot) and started an [explicit coverage run](http://android-build/test_investigate/?blocking\u003dnonBlocking\u0026invocationId\u003dI69200010237263094\u0026status\u003dnone\u0026testResultId\u003dTR36129136321060826), but still no dice.\n\nI can\u0027t find any reason why we shouldn\u0027t expect working coverage here. IIRC neither could you, right?",
+      "revId": "ddd210a2741cd8f2b5f053cc8c3f5b1826c36740",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b1a6de4c_ffd03743",
         "filename": "libartservice/service/javatests/com/android/server/art/ArtManagerLocalTest.java",
         "patchSetId": 2
