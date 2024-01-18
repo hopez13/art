@@ -231,6 +231,24 @@
       "parentUuid": "8ea9040b_6276144b",
       "revId": "ec317e96825d657de911d44da98d712c33d659d7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4bc9e375_01b147d6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-01-18T21:14:05Z",
+      "side": 1,
+      "message": "\u003e I think initializing artd once per package is, and that\u0027s what is happening during that test\n\nInteresting, I got a different picture from http://b/317221732#comment1. But I suppose it\u0027s WAI that the process is terminated immediately when the service handle is finalised.",
+      "parentUuid": "b7fc3c1d_18ecc549",
+      "revId": "ec317e96825d657de911d44da98d712c33d659d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
