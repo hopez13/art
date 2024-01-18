@@ -861,6 +861,7 @@ class Heap {
   bool IsMovingGc() const { return IsMovingGc(CurrentCollectorType()); }
 
   CollectorType GetForegroundCollectorType() const { return foreground_collector_type_; }
+  EXPORT std::string GetForegroundCollectorName();
 
   bool IsGcConcurrentAndMoving() const {
     if (IsGcConcurrent() && IsMovingGc(collector_type_)) {
