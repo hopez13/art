@@ -1,6 +1,121 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "c02f7e1e_ad51efcc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-01-18T18:34:40Z",
+      "side": 1,
+      "message": "Nit: Rephrase to something like \"on SDK platform level `VanillaIceCream`\", to make it more clear irrespective of current `main` version?",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 33
+      },
+      "revId": "52420de367bdf5a88d9a96bb7431d987254ec146",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14a5ed49_7c4c49e2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-01-18T18:34:40Z",
+      "side": 1,
+      "message": "Since this description easily can be taken as complete user docs for `PRODUCT_ENABLE_UFFD_GC`, it may be worth pointing out that we don\u0027t necessarily intend to heed this in future ART module updates.",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 50,
+        "endChar": 67
+      },
+      "revId": "52420de367bdf5a88d9a96bb7431d987254ec146",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7797b90_99723770",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-01-18T18:34:40Z",
+      "side": 1,
+      "message": "Since it looks like you\u0027re aiming to describe all the logic, mention the reintroduced `persist.device_config.runtime_native_boot.enable_uffd_gc_2` as well?",
+      "range": {
+        "startLine": 53,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 52
+      },
+      "revId": "52420de367bdf5a88d9a96bb7431d987254ec146",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f2a8547f_1e5c960a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-01-18T18:34:40Z",
+      "side": 1,
+      "message": "Nit: This condition seems to be at odds with \"In all cases\". What about V+?",
+      "range": {
+        "startLine": 53,
+        "startChar": 63,
+        "endLine": 54,
+        "endChar": 23
+      },
+      "revId": "52420de367bdf5a88d9a96bb7431d987254ec146",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba573ccf_176dd85c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-01-18T18:34:40Z",
+      "side": 1,
+      "message": "For the sake of completeness, we ought to check that the boot image also gets used (iow, no JIT zygote(?)) in these tests.",
+      "range": {
+        "startLine": 65,
+        "startChar": 35,
+        "endLine": 67,
+        "endChar": 29
+      },
+      "revId": "52420de367bdf5a88d9a96bb7431d987254ec146",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "c2964bfc_7d80dcb2",
