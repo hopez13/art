@@ -63,6 +63,145 @@
       },
       "revId": "4cd527f1b4cd784efba68281715a52633418f8c6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "25f4fd27_55f13c30",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 2569,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-18T15:52:25Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "72a6691f_5dbcb03a",
+      "range": {
+        "startLine": 2569,
+        "startChar": 2,
+        "endLine": 2569,
+        "endChar": 47
+      },
+      "revId": "4cd527f1b4cd784efba68281715a52633418f8c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d28c82b4_85b1f229",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 2684,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-18T15:52:25Z",
+      "side": 1,
+      "message": "Is there a table (or one place in particular) where they mention whether the immediate can be negative or not? In the instruction\u0027s sections sometimes it is not clear whether the immediate can be negative or not (besides common sense).\n\nFor example `vxor` explicitly mentions `-1` as an input, but that could have been `31` (`0x1F` or however) instead and everything would work as normal.",
+      "range": {
+        "startLine": 2684,
+        "startChar": 60,
+        "endLine": 2684,
+        "endChar": 72
+      },
+      "revId": "4cd527f1b4cd784efba68281715a52633418f8c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1c55e0d_d8523a0a",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 2821,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-18T15:52:25Z",
+      "side": 1,
+      "message": "nit: this can be two separate DCHECKs. The benefit is that if/when the DCHECK is triggered, then we know which one of the two comparisons was the faulty one.\n\nSimilar comment for other `DCHECK(vd !\u003d vs1 \u0026\u0026 vd !\u003d vs2);`",
+      "range": {
+        "startLine": 2821,
+        "startChar": 2,
+        "endLine": 2821,
+        "endChar": 33
+      },
+      "revId": "4cd527f1b4cd784efba68281715a52633418f8c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61896e6b_9460d5c7",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 2956,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-18T15:52:25Z",
+      "side": 1,
+      "message": "Not sure why some lines have comments like `/* 0 */` or `/* 1 */`. I\u0027d favor of removing them for consistency (unless there\u0027s a reason I am missing)",
+      "range": {
+        "startLine": 2956,
+        "startChar": 58,
+        "endLine": 2956,
+        "endChar": 65
+      },
+      "revId": "4cd527f1b4cd784efba68281715a52633418f8c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bfd76c76_a5b1f5fc",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 3078,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-18T15:52:25Z",
+      "side": 1,
+      "message": "Add the same DCHECK for `VMslt_vi` and `VMsge_vi` below?",
+      "range": {
+        "startLine": 3078,
+        "startChar": 0,
+        "endLine": 3078,
+        "endChar": 70
+      },
+      "revId": "4cd527f1b4cd784efba68281715a52633418f8c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6392f1a4_1714b139",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 4054,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-18T15:52:25Z",
+      "side": 1,
+      "message": "Just FYI but the manual says `This instruction is encoded as a masked\ninstruction (vm\u003d1).` which is inconsistent as masked instructions are `vm\u003d0`. It looks like a typo in the manual (it should read `unmasked`) as later it says `The vfmv.v.f instruction shares the encoding with the vfmerge.vfm instruction, but with vm\u003d1 and vs2\u003dv0.`.",
+      "range": {
+        "startLine": 4054,
+        "startChar": 48,
+        "endLine": 4054,
+        "endChar": 61
+      },
+      "revId": "4cd527f1b4cd784efba68281715a52633418f8c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
