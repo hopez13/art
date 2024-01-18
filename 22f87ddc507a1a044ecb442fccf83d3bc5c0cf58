@@ -1,0 +1,216 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c09381f_25df57ab",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-01-18T15:58:30Z",
+      "side": 1,
+      "message": "Please manually test:\n\n- `adb shell dumpsys package dexopt` (should have the GC type)\n- `adb shell dumpsys package \u003cpackage-name\u003e` (should NOT have the GC type)\n- `adb shell pm art dump` (should have the GC type)\n- `adb shell pm art dump \u003cpackage-name\u003e` (should NOT have the GC type)",
+      "revId": "22f87ddc507a1a044ecb442fccf83d3bc5c0cf58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fadf6361_5a0d19a1",
+        "filename": "libartservice/service/java/com/android/server/art/ArtJni.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-01-18T15:58:30Z",
+      "side": 1,
+      "message": "@NonNull because the failure case cannot happen.",
+      "range": {
+        "startLine": 62,
+        "startChar": 5,
+        "endLine": 62,
+        "endChar": 13
+      },
+      "revId": "22f87ddc507a1a044ecb442fccf83d3bc5c0cf58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b63c7cd_b6e9863e",
+        "filename": "libartservice/service/java/com/android/server/art/DumpHelper.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-01-18T15:58:30Z",
+      "side": 1,
+      "message": "Optional: I would move it to the end the of dump, and put a \"\\n\" to separate it from what\u0027s above.",
+      "range": {
+        "startLine": 73,
+        "startChar": 8,
+        "endLine": 73,
+        "endChar": 17
+      },
+      "revId": "22f87ddc507a1a044ecb442fccf83d3bc5c0cf58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26e63f88_240fc6b5",
+        "filename": "libartservice/service/javatests/com/android/server/art/DumpHelperTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-01-18T15:58:30Z",
+      "side": 1,
+      "message": "I think you need to add `ArtJni.class` to line 66 to make it work. Please run `atest ArtServiceTests` to verify it.",
+      "revId": "22f87ddc507a1a044ecb442fccf83d3bc5c0cf58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a7eefdea_a9c7cb69",
+        "filename": "libartservice/service/native/service.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-01-18T15:58:30Z",
+      "side": 1,
+      "message": "Drop `Result` because this function cannot fail.",
+      "range": {
+        "startLine": 81,
+        "startChar": 0,
+        "endLine": 81,
+        "endChar": 19
+      },
+      "revId": "22f87ddc507a1a044ecb442fccf83d3bc5c0cf58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2310d595_1580d3b1",
+        "filename": "libartservice/service/native/service.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-01-18T15:58:30Z",
+      "side": 1,
+      "message": "Use https://cs.android.com/android/platform/superproject/main/+/main:out/soong/.intermediates/art/runtime/art_operator_srcs/gen/gensrcs/art/runtime/gc/collector_type.operator_out.cc;l\u003d8;drc\u003d7e24730d4df51e80413e3c0b44eb98efba03b7c6 to align with the logs.",
+      "range": {
+        "startLine": 83,
+        "startChar": 0,
+        "endLine": 117,
+        "endChar": 33
+      },
+      "revId": "22f87ddc507a1a044ecb442fccf83d3bc5c0cf58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66eb5067_9884e9a0",
+        "filename": "libartservice/service/native/service.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-01-18T15:58:30Z",
+      "side": 1,
+      "message": "Cannot happen.",
+      "range": {
+        "startLine": 165,
+        "startChar": 4,
+        "endLine": 165,
+        "endChar": 19
+      },
+      "revId": "22f87ddc507a1a044ecb442fccf83d3bc5c0cf58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86a56c7f_d35735ce",
+        "filename": "libartservice/service/native/service.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-01-18T15:58:30Z",
+      "side": 1,
+      "message": "No need to add this to the header. The header is for sharing the code with artd.",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 57
+      },
+      "revId": "22f87ddc507a1a044ecb442fccf83d3bc5c0cf58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d06b2ba_ccad144f",
+        "filename": "libartservice/service/native/service_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-01-18T15:58:30Z",
+      "side": 1,
+      "message": "You can override [`SetUpRuntimeOptions`](https://cs.android.com/android/platform/superproject/main/+/main:art/runtime/common_runtime_test.h;l\u003d139;drc\u003d914d59c5581152f8b0cc5ec477ff926eddcce7c3) with `-Xgc:SomeGcType` and check if the return value of `GetGarbageCollector()` matches the GC type that you specify.",
+      "revId": "22f87ddc507a1a044ecb442fccf83d3bc5c0cf58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "53e07730_0c73932e",
+        "filename": "libartservice/service/native/service_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-01-18T15:58:30Z",
+      "side": 1,
+      "message": "This is probably not needed because `CommonRuntimeTest` always initializes the runtime. If you\u0027d like to keep it, please at least change `EXPECT_NE` to `ASSERT_NE` because the test is not supposed to continue if this check fails.",
+      "range": {
+        "startLine": 113,
+        "startChar": 4,
+        "endLine": 113,
+        "endChar": 13
+      },
+      "revId": "22f87ddc507a1a044ecb442fccf83d3bc5c0cf58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
