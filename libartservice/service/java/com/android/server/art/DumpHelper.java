@@ -70,6 +70,7 @@ public class DumpHelper {
     /** Handles {@link ArtManagerLocal#dump(PrintWriter, PackageManagerLocal.FilteredSnapshot)}. */
     public void dump(
             @NonNull PrintWriter pw, @NonNull PackageManagerLocal.FilteredSnapshot snapshot) {
+        pw.printf("Current GC: %s\n", ArtJni.getGarbageCollector());
         snapshot.getPackageStates()
                 .values()
                 .stream()

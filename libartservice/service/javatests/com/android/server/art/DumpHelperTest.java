@@ -83,6 +83,8 @@ public class DumpHelperTest {
                 .when(SystemProperties.get(argThat(arg -> arg.startsWith("ro.dalvik.vm.isa."))))
                 .thenReturn("");
 
+        lenient().when(ArtJni.getGarbageCollector()).thenReturn("Concurrent mark-compact");
+
         lenient().when(mInjector.getArtManagerLocal()).thenReturn(mArtManagerLocal);
         lenient().when(mInjector.getDexUseManager()).thenReturn(mDexUseManagerLocal);
 
@@ -100,7 +102,8 @@ public class DumpHelperTest {
 
     @Test
     public void testDump() throws Exception {
-        String expected = "[com.example1.foo]\n"
+        String expected = "Current GC: Concurrent mark-compact\n"
+                + "[com.example1.foo]\n"
                 + "  path: /somewhere/app/foo/base.apk\n"
                 + "    arm64: [status=speed-profile] [reason=bg-dexopt] [primary-abi]\n"
                 + "      [location is /somewhere/app/foo/oat/arm64/base.odex]\n"

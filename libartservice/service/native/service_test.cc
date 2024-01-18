@@ -17,6 +17,7 @@
 #include "service.h"
 
 #include "android-base/result-gmock.h"
+#include "common_runtime_test.h"
 #include "gtest/gtest.h"
 
 namespace art {
@@ -105,6 +106,16 @@ TEST_F(ArtServiceTest, ValidateDexPathNul) {
   EXPECT_THAT(ValidateDexPath("/a/\0/b.apk"s),
               HasError(WithMessage("Path '/a/\0/b.apk' has invalid character '\\0'"s)));
 }
+
+class ArtServiceGcTest : public CommonRuntimeTest {
+ protected:
+  void TestGetGarbageCollector() {
+    EXPECT_NE(Runtime::Current(), nullptr);
+    EXPECT_THAT(GetGarbageCollector(), Ok());
+  }
+};
+
+TEST_F(ArtServiceGcTest, GetGarbageCollector) { TestGetGarbageCollector(); }
 
 }  // namespace
 }  // namespace service

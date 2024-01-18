@@ -34,6 +34,8 @@ android::base::Result<void> ValidatePathElement(const std::string& path_element,
 
 android::base::Result<void> ValidateDexPath(const std::string& dex_path);
 
+android::base::Result<std::string> GetGarbageCollector();
+
 }  // namespace service
 }  // namespace art
 

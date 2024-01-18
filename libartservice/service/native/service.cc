@@ -24,7 +24,9 @@
 #include "android-base/file.h"
 #include "android-base/result.h"
 #include "class_loader_context.h"
+#include "gc/heap.h"
 #include "nativehelper/utils.h"
+#include "runtime.h"
 
 namespace art {
 namespace service {
@@ -76,6 +78,45 @@ Result<void> ValidateDexPath(const std::string& dex_path) {
   return {};
 }
 
+Result<std::string> GetGarbageCollector() {
+  std::string gc;
+  switch (Runtime::Current()->GetHeap()->GetForegroundCollectorType()) {
+    case gc::CollectorType::kCollectorTypeMS:
+      gc = "Non concurrent mark-sweep";
+      break;
+    case gc::CollectorType::kCollectorTypeCMS:
+      gc = "Concurrent mark-sweep";
+      break;
+    case gc::CollectorType::kCollectorTypeCMC:
+    case gc::CollectorType::kCollectorTypeCMCBackground:
+      gc = "Concurrent mark-compact";
+      break;
+    case gc::CollectorType::kCollectorTypeSS:
+      gc = "Semi-space / mark-sweep hybrid";
+      break;
+    case gc::kCollectorTypeCC:
+    case gc::kCollectorTypeCCBackground:
+      gc = "Concurrent copying";
+      break;
+    case gc::kCollectorTypeNone:
+    case gc::kCollectorTypeInstrumentation:
+    case gc::kCollectorTypeAddRemoveAppImageSpace:
+    case gc::kCollectorTypeDebugger:
+    case gc::kCollectorTypeHomogeneousSpaceCompact:
+    case gc::kCollectorTypeClassLinker:
+    case gc::kCollectorTypeJitCodeCache:
+    case gc::kCollectorTypeHprof:
+    case gc::kCollectorTypeAddRemoveSystemWeakHolder:
+    case gc::kCollectorTypeGetObjectsAllocated:
+    case gc::kCollectorTypeCriticalSection:
+    case gc::kCollectorTypeHeapTrim:
+    default:
+      gc = "Unknown";
+  }
+
+  return Result<std::string>(gc);
+}
+
 extern "C" JNIEXPORT jstring JNICALL
 Java_com_android_server_art_ArtJni_validateDexPathNative(JNIEnv* env, jobject, jstring j_dex_path) {
   std::string dex_path(GET_UTF_OR_RETURN(env, j_dex_path));
@@ -114,6 +155,15 @@ Java_com_android_server_art_ArtJni_validateClassLoaderContextNative(
   }
 
   return nullptr;
+}
+
+extern "C" JNIEXPORT jstring JNICALL
+Java_com_android_server_art_ArtJni_getGarbageCollectorNative(JNIEnv* env, jobject) {
+  if (Result<std::string> result = GetGarbageCollector(); result.ok()) {
+    return CREATE_UTF_OR_RETURN(env, result.value().c_str()).release();
+  } else {
+    return nullptr;
+  }
 }
 
 }  // namespace service
