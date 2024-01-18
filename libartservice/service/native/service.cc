@@ -23,14 +23,18 @@
 #include "android-base/errors.h"
 #include "android-base/file.h"
 #include "android-base/result.h"
+#include "android-base/stringprintf.h"
 #include "class_loader_context.h"
+#include "gc/heap.h"
 #include "nativehelper/utils.h"
+#include "runtime.h"
 
 namespace art {
 namespace service {
 
 using ::android::base::Dirname;
 using ::android::base::Result;
+using ::android::base::StringPrintf;
 
 Result<void> ValidateAbsoluteNormalPath(const std::string& path_str) {
   if (path_str.empty()) {
@@ -76,6 +80,52 @@ Result<void> ValidateDexPath(const std::string& dex_path) {
   return {};
 }
 
+std::string GetGarbageCollector() {
+  gc::CollectorType collectorType = Runtime::Current()->GetHeap()->GetForegroundCollectorType();
+  switch (collectorType) {
+    case gc::kCollectorTypeNone:
+      return "CollectorTypeNone";
+    case gc::kCollectorTypeMS:
+      return "CollectorTypeMS";
+    case gc::kCollectorTypeCMS:
+      return "CollectorTypeCMS";
+    case gc::kCollectorTypeCMC:
+      return "CollectorTypeCMC";
+    case gc::kCollectorTypeCMCBackground:
+      return "CollectorTypeCMCBackground";
+    case gc::kCollectorTypeSS:
+      return "CollectorTypeSS";
+    case gc::kCollectorTypeHeapTrim:
+      return "CollectorTypeHeapTrim";
+    case gc::kCollectorTypeCC:
+      return "CollectorTypeCC";
+    case gc::kCollectorTypeCCBackground:
+      return "CollectorTypeCCBackground";
+    case gc::kCollectorTypeInstrumentation:
+      return "CollectorTypeInstrumentation";
+    case gc::kCollectorTypeAddRemoveAppImageSpace:
+      return "CollectorTypeAddRemoveAppImageSpace";
+    case gc::kCollectorTypeDebugger:
+      return "CollectorTypeDebugger";
+    case gc::kCollectorTypeHomogeneousSpaceCompact:
+      return "CollectorTypeHomogeneousSpaceCompact";
+    case gc::kCollectorTypeClassLinker:
+      return "CollectorTypeClassLinker";
+    case gc::kCollectorTypeJitCodeCache:
+      return "CollectorTypeJitCodeCache";
+    case gc::kCollectorTypeHprof:
+      return "CollectorTypeHprof";
+    case gc::kCollectorTypeAddRemoveSystemWeakHolder:
+      return "CollectorTypeAddRemoveSystemWeakHolder";
+    case gc::kCollectorTypeGetObjectsAllocated:
+      return "CollectorTypeGetObjectsAllocated";
+    case gc::kCollectorTypeCriticalSection:
+      return "CollectorTypeGetObjectsAllocated";
+    default:
+      return StringPrintf("CollectorType[%d]", static_cast<int>(collectorType));
+  }
+}
+
 extern "C" JNIEXPORT jstring JNICALL
 Java_com_android_server_art_ArtJni_validateDexPathNative(JNIEnv* env, jobject, jstring j_dex_path) {
   std::string dex_path(GET_UTF_OR_RETURN(env, j_dex_path));
@@ -114,6 +164,11 @@ Java_com_android_server_art_ArtJni_validateClassLoaderContextNative(
   }
 
   return nullptr;
+}
+
+extern "C" JNIEXPORT jstring JNICALL
+Java_com_android_server_art_ArtJni_getGarbageCollectorNative(JNIEnv* env, jobject) {
+  return CREATE_UTF_OR_RETURN(env, GetGarbageCollector().c_str()).release();
 }
 
 }  // namespace service
