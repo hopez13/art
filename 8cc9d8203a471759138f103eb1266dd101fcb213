@@ -1,0 +1,1595 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "92b9fef8_67349f83",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-18T09:33:21Z",
+      "side": 1,
+      "message": "I think clang-format goes against our style where we want a .cc to include its own .h file first, followed by a blank line and then include all other required files. Therefore I never apply this and I would not mention it in the commit message either.\n\nIs there any reason not to do the reordering I\u0027ve flagged in the individual files? (I\u0027ve ended those comments with a question mark.)",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 40
+      },
+      "revId": "8cc9d8203a471759138f103eb1266dd101fcb213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0359fc85_c6c2841a",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-18T09:33:21Z",
+      "side": 1,
+      "message": "Move before `oat/stack_map.h`?",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 22
+      },
+      "revId": "8cc9d8203a471759138f103eb1266dd101fcb213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0117737a_507223a0",
+        "filename": "compiler/optimizing/intrinsic_objects.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-18T09:33:21Z",
+      "side": 1,
+      "message": "Move before `obj_ptr-inl.h`?",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 22
+      },
+      "revId": "8cc9d8203a471759138f103eb1266dd101fcb213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e5fb52f3_ab678e3f",
+        "filename": "compiler/optimizing/intrinsics.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-18T09:33:21Z",
+      "side": 1,
+      "message": "Move before `obj_ptr-inl.h`?",
+      "range": {
+        "startLine": 28,
+        "startChar": 10,
+        "endLine": 28,
+        "endChar": 25
+      },
+      "revId": "8cc9d8203a471759138f103eb1266dd101fcb213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e187c840_2d4d3846",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-18T09:33:21Z",
+      "side": 1,
+      "message": "Move before `optimizing_compiler_stats.h`?",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 26
+      },
+      "revId": "8cc9d8203a471759138f103eb1266dd101fcb213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e876300f_66ffe306",
+        "filename": "compiler/optimizing/stack_map_stream.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-18T09:33:21Z",
+      "side": 1,
+      "message": "Move before `optimizing/code_generator.h`?",
+      "range": {
+        "startLine": 34,
+        "startChar": 10,
+        "endLine": 34,
+        "endChar": 25
+      },
+      "revId": "8cc9d8203a471759138f103eb1266dd101fcb213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "837b0174_3238d237",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-18T09:33:21Z",
+      "side": 1,
+      "message": "Move `oat/aot_class_linker.h` and `oat/elf_file.h` here?",
+      "revId": "8cc9d8203a471759138f103eb1266dd101fcb213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9428504_f8ea2822",
+        "filename": "dex2oat/dex2oat_options.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-18T09:33:21Z",
+      "side": 1,
+      "message": "Move after `linker/oat_writer.h`?",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 22
+      },
+      "revId": "8cc9d8203a471759138f103eb1266dd101fcb213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2531cd87_70a08abe",
+        "filename": "dex2oat/dex2oat_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-18T09:33:21Z",
+      "side": 1,
+      "message": "Move `oat/elf_file.h` and `oat/elf_file_impl.h` here?",
+      "revId": "8cc9d8203a471759138f103eb1266dd101fcb213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23567a79_bf226b6d",
+        "filename": "dex2oat/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-18T09:33:21Z",
+      "side": 1,
+      "message": "Move before `object_lock.h`?",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 33
+      },
+      "revId": "8cc9d8203a471759138f103eb1266dd101fcb213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "061f6293_759ade66",
+        "filename": "dex2oat/linker/elf_writer_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-18T09:33:21Z",
+      "side": 1,
+      "message": "Move before `oat/oat.h`?",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 30
+      },
+      "revId": "8cc9d8203a471759138f103eb1266dd101fcb213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a7954d8b_d3410338",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-18T09:33:21Z",
+      "side": 1,
+      "message": "Move `oat/elf_file.h` and `oat/image-inl.h` here?",
+      "revId": "8cc9d8203a471759138f103eb1266dd101fcb213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a38ef0f7_a0f92f76",
+        "filename": "dex2oat/linker/image_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-18T09:33:21Z",
+      "side": 1,
+      "message": "Move before `oat/oat.h`?",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 22
+      },
+      "revId": "8cc9d8203a471759138f103eb1266dd101fcb213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ceb6926c_4a4ab01e",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-18T09:33:21Z",
+      "side": 1,
+      "message": "Move before `profile/profile_compilation_info.h`?",
+      "range": {
+        "startLine": 74,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 26
+      },
+      "revId": "8cc9d8203a471759138f103eb1266dd101fcb213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c38b0a1f_56221789",
+        "filename": "dex2oat/linker/riscv64/relative_patcher_riscv64_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-18T09:33:21Z",
+      "side": 1,
+      "message": "Move after `linker/relative_patcher_test.h`? (The old ordering was already wrong.)",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 40
+      },
+      "revId": "8cc9d8203a471759138f103eb1266dd101fcb213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d5fdb3d3_34d49680",
+        "filename": "imgdiag/imgdiag.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-18T09:33:21Z",
+      "side": 1,
+      "message": "Move before `oat/oat.h`?",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 26
+      },
+      "revId": "8cc9d8203a471759138f103eb1266dd101fcb213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "64ab2dcb_e265a32e",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-18T09:33:21Z",
+      "side": 1,
+      "message": "Move `oat/image-inl.h` and `oat/index_bss_mapping.h` here and `oat/stack_map.h` after `oat/oat_file_manager.h`?",
+      "revId": "8cc9d8203a471759138f103eb1266dd101fcb213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e0129bb_a58c8c28",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-18T09:33:21Z",
+      "side": 1,
+      "message": "Move other `oat/*.cc` files together with these.",
+      "range": {
+        "startLine": 383,
+        "startChar": 8,
+        "endLine": 388,
+        "endChar": 41
+      },
+      "revId": "8cc9d8203a471759138f103eb1266dd101fcb213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0126f96_d9ad98e2",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 746,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-18T09:33:21Z",
+      "side": 1,
+      "message": "Move `oat/image.h` here.",
+      "revId": "8cc9d8203a471759138f103eb1266dd101fcb213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6fd701b_9666f264",
+        "filename": "runtime/check_reference_map_visitor.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-18T09:33:21Z",
+      "side": 1,
+      "message": "Move before `scoped_thread_state_change-inl.h`?",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 26
+      },
+      "revId": "8cc9d8203a471759138f103eb1266dd101fcb213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dbcc42c2_4a233ef5",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-18T09:33:21Z",
+      "side": 1,
+      "message": "Move before `oat/oat.h`?",
+      "range": {
+        "startLine": 93,
+        "startChar": 0,
+        "endLine": 93,
+        "endChar": 26
+      },
+      "revId": "8cc9d8203a471759138f103eb1266dd101fcb213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9c2a5437_b11f646a",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-18T09:33:21Z",
+      "side": 1,
+      "message": "Move before `reflective_handle_scope-inl.h`?",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 26
+      },
+      "revId": "8cc9d8203a471759138f103eb1266dd101fcb213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "805611b0_fbf5b698",
+        "filename": "runtime/entrypoints/entrypoint_utils.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-18T09:33:21Z",
+      "side": 1,
+      "message": "Move before `oat/oat_file.h`?",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 34
+      },
+      "revId": "8cc9d8203a471759138f103eb1266dd101fcb213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "854090cb_709a9d2d",
+        "filename": "runtime/entrypoints/jni/jni_entrypoints.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-18T09:33:21Z",
+      "side": 1,
+      "message": "Move before `scoped_thread_state_change-inl.h`?",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 26
+      },
+      "revId": "8cc9d8203a471759138f103eb1266dd101fcb213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48406875_5636d4b9",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-18T09:33:21Z",
+      "side": 1,
+      "message": "Move before `scoped_thread_state_change-inl.h`?",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 26
+      },
+      "revId": "8cc9d8203a471759138f103eb1266dd101fcb213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5fd51955_3e1f53b5",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-18T09:33:21Z",
+      "side": 1,
+      "message": "Move before `obj_ptr-inl.h`?",
+      "range": {
+        "startLine": 83,
+        "startChar": 0,
+        "endLine": 83,
+        "endChar": 22
+      },
+      "revId": "8cc9d8203a471759138f103eb1266dd101fcb213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ae1410b_f5f1cb08",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-18T09:33:21Z",
+      "side": 1,
+      "message": "Move before `oat/oat.h`?",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 59,
+        "endChar": 22
+      },
+      "revId": "8cc9d8203a471759138f103eb1266dd101fcb213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "928c8cd3_3118638a",
+        "filename": "runtime/gc/space/large_object_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-18T09:33:21Z",
+      "side": 1,
+      "message": "Move before `scoped_thread_state_change-inl.h`?",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 22
+      },
+      "revId": "8cc9d8203a471759138f103eb1266dd101fcb213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6043572_25372625",
+        "filename": "runtime/intern_table-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-18T09:33:21Z",
+      "side": 1,
+      "message": "Move before `thread-current-inl.h`?",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 22
+      },
+      "revId": "8cc9d8203a471759138f103eb1266dd101fcb213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "881bc993_8cde25b3",
+        "filename": "runtime/intern_table.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-18T09:33:21Z",
+      "side": 1,
+      "message": "Move before `object_callbacks.h`?",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 26
+      },
+      "revId": "8cc9d8203a471759138f103eb1266dd101fcb213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4be8cbdf_68da23e5",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-18T09:33:21Z",
+      "side": 1,
+      "message": "Note: This is also misplaced.",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 34
+      },
+      "revId": "8cc9d8203a471759138f103eb1266dd101fcb213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6397217f_eb18c6e6",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-18T09:33:21Z",
+      "side": 1,
+      "message": "Move `oat/image-inl.h` here and `oat/stack_map.h` after `oat/oat_quick_method_header.h`?",
+      "revId": "8cc9d8203a471759138f103eb1266dd101fcb213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e199636e_3d308365",
+        "filename": "runtime/oat/aot_class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-18T09:33:21Z",
+      "side": 1,
+      "message": "Remove. We can always include files in the same directory without specifying the directory.",
+      "range": {
+        "startLine": 17,
+        "startChar": 10,
+        "endLine": 17,
+        "endChar": 14
+      },
+      "revId": "8cc9d8203a471759138f103eb1266dd101fcb213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b512c1f7_f8aa0a6d",
+        "filename": "runtime/oat/elf_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-18T09:33:21Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 17,
+        "startChar": 10,
+        "endLine": 17,
+        "endChar": 14
+      },
+      "revId": "8cc9d8203a471759138f103eb1266dd101fcb213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d23e1991_d029ee20",
+        "filename": "runtime/oat/elf_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-18T09:33:21Z",
+      "side": 1,
+      "message": "Hmm, we already have `elf/` in `libelffile/`? Nevertheless, I\u0027d still put the `elf_file*` in `runtime/oat/` as done in this CL.",
+      "range": {
+        "startLine": 32,
+        "startChar": 10,
+        "endLine": 32,
+        "endChar": 14
+      },
+      "revId": "8cc9d8203a471759138f103eb1266dd101fcb213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f50ffc6_fab71c83",
+        "filename": "runtime/oat/elf_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-18T09:33:21Z",
+      "side": 1,
+      "message": "Maybe remove?\n\nWhile I definitely want the directory removed when a .cc file references its own header file, I\u0027m OK with keeping it when referencing other header files in the same directory.\n\nIf you decide to remove these, you can do something like\n\n    sed \u0027-es/include \"oat\\//include \"/\u0027 --in-place runtime/oat/*\n\nto address most (all?) of my comments in `runtime/oat/`.",
+      "range": {
+        "startLine": 33,
+        "startChar": 10,
+        "endLine": 33,
+        "endChar": 14
+      },
+      "revId": "8cc9d8203a471759138f103eb1266dd101fcb213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b61c2aad_b4abcfaa",
+        "filename": "runtime/oat/image-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-18T09:33:21Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 20,
+        "startChar": 10,
+        "endLine": 20,
+        "endChar": 14
+      },
+      "revId": "8cc9d8203a471759138f103eb1266dd101fcb213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1eea6802_d9e75f58",
+        "filename": "runtime/oat/image.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-18T09:33:21Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 17,
+        "startChar": 10,
+        "endLine": 17,
+        "endChar": 14
+      },
+      "revId": "8cc9d8203a471759138f103eb1266dd101fcb213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35345d68_ef494b20",
+        "filename": "runtime/oat/index_bss_mapping.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-18T09:33:21Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 19,
+        "startChar": 10,
+        "endLine": 19,
+        "endChar": 14
+      },
+      "revId": "8cc9d8203a471759138f103eb1266dd101fcb213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f92ee46_ae9874b6",
+        "filename": "runtime/oat/oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-18T09:33:21Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 17,
+        "startChar": 10,
+        "endLine": 17,
+        "endChar": 14
+      },
+      "revId": "8cc9d8203a471759138f103eb1266dd101fcb213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35580ec3_f0fd340f",
+        "filename": "runtime/oat/oat_file-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-18T09:33:21Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 20,
+        "startChar": 10,
+        "endLine": 20,
+        "endChar": 14
+      },
+      "revId": "8cc9d8203a471759138f103eb1266dd101fcb213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f08f33b0_f5a80e43",
+        "filename": "runtime/oat/oat_file-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-18T09:33:21Z",
+      "side": 1,
+      "message": "Maybe remove?",
+      "range": {
+        "startLine": 23,
+        "startChar": 10,
+        "endLine": 23,
+        "endChar": 14
+      },
+      "revId": "8cc9d8203a471759138f103eb1266dd101fcb213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e5633e74_f5633420",
+        "filename": "runtime/oat/oat_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-18T09:33:21Z",
+      "side": 1,
+      "message": "Remove",
+      "range": {
+        "startLine": 17,
+        "startChar": 10,
+        "endLine": 17,
+        "endChar": 14
+      },
+      "revId": "8cc9d8203a471759138f103eb1266dd101fcb213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c4d1e66_d2989904",
+        "filename": "runtime/oat/oat_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-18T09:33:21Z",
+      "side": 1,
+      "message": "Remove directory or move the include.",
+      "range": {
+        "startLine": 64,
+        "startChar": 10,
+        "endLine": 64,
+        "endChar": 14
+      },
+      "revId": "8cc9d8203a471759138f103eb1266dd101fcb213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b2d09090_39e9dc15",
+        "filename": "runtime/oat/oat_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-18T09:33:21Z",
+      "side": 1,
+      "message": "Maybe remove directory.",
+      "range": {
+        "startLine": 70,
+        "startChar": 0,
+        "endLine": 72,
+        "endChar": 33
+      },
+      "revId": "8cc9d8203a471759138f103eb1266dd101fcb213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5eb37977_e01fd3ed",
+        "filename": "runtime/oat/oat_file.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-18T09:33:21Z",
+      "side": 1,
+      "message": "Either remove the directory, or move the #include after `mirror/object.h`.",
+      "range": {
+        "startLine": 37,
+        "startChar": 10,
+        "endLine": 37,
+        "endChar": 14
+      },
+      "revId": "8cc9d8203a471759138f103eb1266dd101fcb213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f4bb1256_a2484d99",
+        "filename": "runtime/oat/oat_file_assistant.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-18T09:33:21Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 17,
+        "startChar": 10,
+        "endLine": 17,
+        "endChar": 14
+      },
+      "revId": "8cc9d8203a471759138f103eb1266dd101fcb213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b258d00_be769bf6",
+        "filename": "runtime/oat/oat_file_assistant.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-18T09:33:21Z",
+      "side": 1,
+      "message": "Maybe remove directory?",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 43
+      },
+      "revId": "8cc9d8203a471759138f103eb1266dd101fcb213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dcd102dd_f2ae7d7b",
+        "filename": "runtime/oat/oat_file_assistant.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-18T09:33:21Z",
+      "side": 1,
+      "message": "Maybe remove directory?",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 43
+      },
+      "revId": "8cc9d8203a471759138f103eb1266dd101fcb213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "102182c3_03d9926c",
+        "filename": "runtime/oat/oat_file_assistant_context.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-18T09:33:21Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 17,
+        "startChar": 10,
+        "endLine": 17,
+        "endChar": 14
+      },
+      "revId": "8cc9d8203a471759138f103eb1266dd101fcb213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "95f54df7_ec92f339",
+        "filename": "runtime/oat/oat_file_assistant_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-18T09:33:21Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 17,
+        "startChar": 10,
+        "endLine": 17,
+        "endChar": 14
+      },
+      "revId": "8cc9d8203a471759138f103eb1266dd101fcb213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5dc270a7_29147106",
+        "filename": "runtime/oat/oat_file_assistant_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-18T09:33:21Z",
+      "side": 1,
+      "message": "Maybe remove directory?",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 33
+      },
+      "revId": "8cc9d8203a471759138f103eb1266dd101fcb213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b5ad4f3_8ce7de40",
+        "filename": "runtime/oat/oat_file_manager.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-18T09:33:21Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 17,
+        "startChar": 10,
+        "endLine": 17,
+        "endChar": 14
+      },
+      "revId": "8cc9d8203a471759138f103eb1266dd101fcb213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88ff0870_e8e89ac1",
+        "filename": "runtime/oat/oat_file_manager.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-18T09:33:21Z",
+      "side": 1,
+      "message": "Maybe remove directory?",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 35
+      },
+      "revId": "8cc9d8203a471759138f103eb1266dd101fcb213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c9438c6b_711309f2",
+        "filename": "runtime/oat/oat_file_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-18T09:33:21Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 17,
+        "startChar": 10,
+        "endLine": 17,
+        "endChar": 14
+      },
+      "revId": "8cc9d8203a471759138f103eb1266dd101fcb213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a7904e64_a6fcf392",
+        "filename": "runtime/oat/oat_quick_method_header.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-18T09:33:21Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 17,
+        "startChar": 10,
+        "endLine": 17,
+        "endChar": 14
+      },
+      "revId": "8cc9d8203a471759138f103eb1266dd101fcb213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "057ee85c_1e70f15f",
+        "filename": "runtime/oat/oat_quick_method_header.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-18T09:33:21Z",
+      "side": 1,
+      "message": "Maybe remove?",
+      "range": {
+        "startLine": 31,
+        "startChar": 10,
+        "endLine": 31,
+        "endChar": 14
+      },
+      "revId": "8cc9d8203a471759138f103eb1266dd101fcb213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b51530cc_5686a5b1",
+        "filename": "runtime/oat/oat_quick_method_header.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-18T09:33:21Z",
+      "side": 1,
+      "message": "Maybe remove?",
+      "range": {
+        "startLine": 27,
+        "startChar": 10,
+        "endLine": 27,
+        "endChar": 14
+      },
+      "revId": "8cc9d8203a471759138f103eb1266dd101fcb213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb7b9825_820e8429",
+        "filename": "runtime/oat/stack_map.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-18T09:33:21Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 17,
+        "startChar": 10,
+        "endLine": 17,
+        "endChar": 14
+      },
+      "revId": "8cc9d8203a471759138f103eb1266dd101fcb213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d75ce2d_e21a6726",
+        "filename": "runtime/oat/stack_map.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-18T09:33:21Z",
+      "side": 1,
+      "message": "Maybe remove?",
+      "range": {
+        "startLine": 25,
+        "startChar": 10,
+        "endLine": 25,
+        "endChar": 14
+      },
+      "revId": "8cc9d8203a471759138f103eb1266dd101fcb213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b100cc69_401645cc",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-18T09:33:21Z",
+      "side": 1,
+      "message": "Move before `stack.h`?",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 26
+      },
+      "revId": "8cc9d8203a471759138f103eb1266dd101fcb213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88d9c3a5_5cfe94e2",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-18T09:33:21Z",
+      "side": 1,
+      "message": "Move `oat/aot_class_linker.h`, `oat/elf_file.h` and `oat/image-inl.h` here?",
+      "revId": "8cc9d8203a471759138f103eb1266dd101fcb213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d1bacb9c_cf5dcde2",
+        "filename": "runtime/runtime_image.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-18T09:33:21Z",
+      "side": 1,
+      "message": "Move before `oat/oat.h`?",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 22
+      },
+      "revId": "8cc9d8203a471759138f103eb1266dd101fcb213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "562cb421_9db18ff8",
+        "filename": "runtime/stack.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-18T09:33:21Z",
+      "side": 1,
+      "message": "Move before `obj_ptr.h`?",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 26
+      },
+      "revId": "8cc9d8203a471759138f103eb1266dd101fcb213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ccf4c5d_8f571116",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-18T09:33:21Z",
+      "side": 1,
+      "message": "Move before `obj_ptr-inl.h`?",
+      "range": {
+        "startLine": 109,
+        "startChar": 0,
+        "endLine": 109,
+        "endChar": 26
+      },
+      "revId": "8cc9d8203a471759138f103eb1266dd101fcb213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46042eea_729605e3",
+        "filename": "runtime/transaction.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-18T09:33:21Z",
+      "side": 1,
+      "message": "Move before `obj_ptr-inl.h`?",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 33
+      },
+      "revId": "8cc9d8203a471759138f103eb1266dd101fcb213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a39718f_3a922ba8",
+        "filename": "test/1001-app-image-regions/app_image_regions.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-18T09:33:21Z",
+      "side": 1,
+      "message": "Move before `runtime.h`?",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 22
+      },
+      "revId": "8cc9d8203a471759138f103eb1266dd101fcb213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d8d095c5_bd96ad75",
+        "filename": "test/566-polymorphic-inlining/polymorphic_inline.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-18T09:33:21Z",
+      "side": 1,
+      "message": "Move before `scoped_thread_state_change-inl.h`?",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 26
+      },
+      "revId": "8cc9d8203a471759138f103eb1266dd101fcb213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "28ec62e2_f5c4d825",
+        "filename": "test/570-checker-osr/osr.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-18T09:33:21Z",
+      "side": 1,
+      "message": "Move before `scoped_thread_state_change-inl.h`?",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 26
+      },
+      "revId": "8cc9d8203a471759138f103eb1266dd101fcb213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1fb5a01f_d208d322",
+        "filename": "test/596-app-images/app_images.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-18T09:33:21Z",
+      "side": 1,
+      "message": "Move before `oat/oat_file.h`?",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 22
+      },
+      "revId": "8cc9d8203a471759138f103eb1266dd101fcb213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8dfc9e5_8199caad",
+        "filename": "test/661-oat-writer-layout/oat_writer_layout.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-18T09:33:21Z",
+      "side": 1,
+      "message": "Move before `obj_ptr.h`? (This was already misplaced before.)",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 25
+      },
+      "revId": "8cc9d8203a471759138f103eb1266dd101fcb213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
