@@ -16,6 +16,47 @@
       "message": "Jiakai, Martin, please check that my explanations here are correct; thanks!",
       "revId": "615fae37db39cd2efd0448e02a08e02f03029b3b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4480b2dd_669612f5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-01-18T15:45:09Z",
+      "side": 1,
+      "message": "LGTM, but I\u0027ll leave it to Martin to take another look.",
+      "parentUuid": "5a552767_0fb88ddc",
+      "revId": "615fae37db39cd2efd0448e02a08e02f03029b3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f42acd88_02288065",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-01-18T15:45:09Z",
+      "side": 1,
+      "message": "It\u0027s worth pointing out that `PRODUCT_ENABLE_UFFD_GC` only affects dexpreopt on S, T, and U.",
+      "range": {
+        "startLine": 15,
+        "startChar": 23,
+        "endLine": 15,
+        "endChar": 24
+      },
+      "revId": "615fae37db39cd2efd0448e02a08e02f03029b3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
