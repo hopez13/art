@@ -70,6 +70,30 @@
       },
       "revId": "12ab6b04adcd64e2d6ac3ac6d7463fec1c3292f5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d033fc2_f75353ad",
+        "filename": "compiler/optimizing/intrinsics_arm_vixl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1422,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-18T14:23:12Z",
+      "side": 1,
+      "message": "This could be read as an indication that the `kSystemArrayCopyThreshold \u003d 128` may be too low. But this depends on the particular CPU core, so I\u0027m keeping the old value. I\u0027m not planning to benchmark and tune this threshold.",
+      "parentUuid": "503dab8f_b2279dc9",
+      "range": {
+        "startLine": 1422,
+        "startChar": 7,
+        "endLine": 1422,
+        "endChar": 10
+      },
+      "revId": "12ab6b04adcd64e2d6ac3ac6d7463fec1c3292f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
