@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "72fed721_4720e86d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-01-19T14:33:25Z",
+      "side": 1,
+      "message": "I can\u0027t. I still think it\u0027s worth filing a bug. I just don\u0027t have the time to do that.",
+      "parentUuid": "5d30cf6d_9595d6c8",
+      "revId": "ddd210a2741cd8f2b5f053cc8c3f5b1826c36740",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b1a6de4c_ffd03743",
@@ -31,6 +49,30 @@
       "writtenOn": "2024-01-18T10:29:14Z",
       "side": 1,
       "message": "I\u0027m a little bit torn here - good test coverage would dictate we should have this test for root as well, but otoh it\u0027s not a present use case, and it\u0027s somewhat faffy. The best way to do it I think is to make this function a helper that\u0027s called from two tests passing true and false for this. Then conditionals can be used around the differences. WDYT?",
+      "range": {
+        "startLine": 1118,
+        "startChar": 18,
+        "endLine": 1118,
+        "endChar": 89
+      },
+      "revId": "ddd210a2741cd8f2b5f053cc8c3f5b1826c36740",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d738a712_7dc2c315",
+        "filename": "libartservice/service/javatests/com/android/server/art/ArtManagerLocalTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1118,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-01-19T14:33:25Z",
+      "side": 1,
+      "message": "Works for me. Not sure if having so many differences hurts readability though.",
+      "parentUuid": "b1a6de4c_ffd03743",
       "range": {
         "startLine": 1118,
         "startChar": 18,
