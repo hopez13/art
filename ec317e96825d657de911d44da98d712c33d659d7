@@ -285,6 +285,24 @@
       "parentUuid": "a55fc0e8_156668df",
       "revId": "ec317e96825d657de911d44da98d712c33d659d7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f7d3614_501a3b5d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-01-19T17:11:28Z",
+      "side": 1,
+      "message": "Dropping the service handle does not make artd killed right away. Though I believe killing art service right away is the desired behavior, Java doesn\u0027t offer a C++-style destructor that can make this possible. In fact, artd is killed by the service handle finalizer, so it very depends on the timing of the GC. I would say the behavior is that artd is **eventually** killed after the service handle is dropped.\n\nI think the stack in http://b/317221732#comment1 shows a light-weight situation, where the GC was not that aggressive, while the logs in http://b/278038751#comment1 shows a heavy-weight situation, where the GC was aggressive. Both cases can happen in reality, depending on the memory pressure.\n\nBecause both cases can happen, we need to optimize for the worse case. That\u0027s why I think a timeout-based expiration is necessary.",
+      "parentUuid": "a43b86c2_833d4560",
+      "revId": "ec317e96825d657de911d44da98d712c33d659d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

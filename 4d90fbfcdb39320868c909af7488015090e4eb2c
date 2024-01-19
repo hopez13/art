@@ -72,6 +72,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d25d7b10_599f3700",
+        "filename": "libartservice/service/java/com/android/server/art/ArtManagerLocal.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 1331,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-01-19T17:11:28Z",
+      "side": 1,
+      "message": "We can fix this problem and use the real `ArtdRefCache`, but I doubt the value of doing this. Checking the `getArtd` calls in `ArtManagerLocalTest` does not guarantee us that all `getArtd` calls are in pinned scope because `getArtd` is called everywhere: not just in `ArtManagerLocal` itself but also in its dependencies, which we have mocked in `ArtManagerLocalTest` and cannot be checked.\n\nIf we really want to make sure that all `getArtd` calls are in pinned scope, we\u0027ll have to do something like what Jared suggested in another comment: we expose `getArtd` from the pin object instead of from the global `ArtdRefCache`. Then we\u0027ll have to do a lot of refactoring to pass the pin object around. I think it\u0027s an overkill for a non-performance-sensitive service like ART Service.\n\nI missed your suggestion on the naming. Changed to `createArtdPin`.",
+      "parentUuid": "ca4be8af_01713a31",
+      "range": {
+        "startLine": 1331,
+        "startChar": 32,
+        "endLine": 1331,
+        "endChar": 35
+      },
+      "revId": "4d90fbfcdb39320868c909af7488015090e4eb2c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5db914e7_846003a0",
@@ -133,6 +157,30 @@
       "side": 1,
       "message": "Apropos the discussion in the other thread, we should exercise the pinner in all the `ArtManagerLocal` tests, and check that `getArtd` only is called from pinned code.\n\nStill, I agree we cannot be confident no call is missed (it shouldn\u0027t be if tests are decent, but it\u0027s not safe to assume that). Given that, besides more predictable runtime behaviour, I think it gets overall more consistent and simpler if this code caches artd the same way regardless of the pin state. Then all artd instances are configured and handled the same way. In practice it means deleting this condition, making a function out of lines 137-147, and call it just before the return below.",
       "parentUuid": "5493e3fd_03f6b3ef",
+      "range": {
+        "startLine": 92,
+        "startChar": 12,
+        "endLine": 92,
+        "endChar": 30
+      },
+      "revId": "4d90fbfcdb39320868c909af7488015090e4eb2c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "49e1beec_a251de8f",
+        "filename": "libartservice/service/java/com/android/server/art/ArtdRefCache.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-01-19T17:11:28Z",
+      "side": 1,
+      "message": "Checking the `getArtd` calls in `ArtManagerLocalTest` does not guarantee us that all `getArtd` calls are in pinned scope. See my explanation in another comment.\n\nBut I get your point on consistent caching. I made the change as you suggested.",
+      "parentUuid": "ee81b512_ca5d3657",
       "range": {
         "startLine": 92,
         "startChar": 12,
