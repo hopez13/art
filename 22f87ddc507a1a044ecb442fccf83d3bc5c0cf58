@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "418b7e84_02b11e81",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2024-01-19T12:51:54Z",
+      "side": 1,
+      "message": "I have tested all these commands locally, and the results were:\n* `adb shell dumpsys package dexopt`: `Current GC: CollectorTypeCMC` on the last line of the output\n* `adb shell pm art dump`: `Current GC: CollectorTypeCMC` on the last line of the output\n* `adb shell dumpsys package com.android.bluetooth`: no mention of `CollectorTypeCMC` in the `Dexopt state` section\n* `adb shell pm art dump com.android.bluetooth`: no mention of `CollectorTypeCMC`",
+      "parentUuid": "4c09381f_25df57ab",
+      "revId": "22f87ddc507a1a044ecb442fccf83d3bc5c0cf58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fadf6361_5a0d19a1",
