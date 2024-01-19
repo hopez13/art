@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a6d1140e_1c1fb5c0",
+        "filename": "libartservice/service/javatests/com/android/server/art/ArtManagerLocalTest.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 1247,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-01-19T16:59:59Z",
+      "side": 1,
+      "message": "An alternative to this is to introduce variables `expectedDexoptArtifactSize`, `expectedRefProfileSize`, etc, at the start of the test and then set the respective bits in them right next to the corresponding `doReturn` sections. It\u0027d reduce the conditional code and make it easier to follow the test, but consider it optional.\n\n(The same approach could be taken to the `times` checks as well, but that could get a bit verbose, so not sure about that.)",
+      "range": {
+        "startLine": 1246,
+        "startChar": 31,
+        "endLine": 1247,
+        "endChar": 40
+      },
+      "revId": "76bbdaedbeec9f6dcb64adf383b04a5ecf9da3ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

@@ -36,6 +36,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4f818157_bb19c6ec",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-01-19T16:59:59Z",
+      "side": 1,
+      "message": "Ok, I\u0027ve filed b/321241566.",
+      "parentUuid": "72fed721_4720e86d",
+      "revId": "ddd210a2741cd8f2b5f053cc8c3f5b1826c36740",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b1a6de4c_ffd03743",
@@ -73,6 +91,30 @@
       "side": 1,
       "message": "Works for me. Not sure if having so many differences hurts readability though.",
       "parentUuid": "b1a6de4c_ffd03743",
+      "range": {
+        "startLine": 1118,
+        "startChar": 18,
+        "endLine": 1118,
+        "endChar": 89
+      },
+      "revId": "ddd210a2741cd8f2b5f053cc8c3f5b1826c36740",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7efae55_2cc85a59",
+        "filename": "libartservice/service/javatests/com/android/server/art/ArtManagerLocalTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1118,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-01-19T16:59:59Z",
+      "side": 1,
+      "message": "Yeah. I added a comment about that.",
+      "parentUuid": "d738a712_7dc2c315",
       "range": {
         "startLine": 1118,
         "startChar": 18,
