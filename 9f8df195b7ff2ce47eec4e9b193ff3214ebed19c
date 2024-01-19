@@ -51,6 +51,24 @@
       "message": "Can you please add the ticket, for reference?",
       "revId": "9f8df195b7ff2ce47eec4e9b193ff3214ebed19c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "259ebe21_a2ac5615",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-19T17:15:52Z",
+      "side": 1,
+      "message": "There\u0027s no ticket. It was a build breakage in `git_master-art-host/art-gtest-read-barrier`",
+      "parentUuid": "dfaa4a01_ec721fa7",
+      "revId": "9f8df195b7ff2ce47eec4e9b193ff3214ebed19c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
