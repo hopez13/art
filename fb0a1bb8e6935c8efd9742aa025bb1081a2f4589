@@ -50,6 +50,24 @@
       "message": "Here we have `vs1` second, and `vs2` third...",
       "revId": "fb0a1bb8e6935c8efd9742aa025bb1081a2f4589",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e7e4de7_88736cca",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 1358,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-19T14:48:21Z",
+      "side": 1,
+      "message": "Nice catch! It should probably be `vs2, vs1` (i.e. the .cc being the correct one) since the manual shows `vmul.vv vd, vs2, vs1, vm   # Vector-vector` and we have been using that order",
+      "parentUuid": "a0b19e25_4d1d6e83",
+      "revId": "fb0a1bb8e6935c8efd9742aa025bb1081a2f4589",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
