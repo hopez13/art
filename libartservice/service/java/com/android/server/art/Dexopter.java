@@ -153,9 +153,14 @@ public abstract class Dexopter<DexInfoType extends DetailedDexInfo> {
                         // and dex2oat already makes this transformation. However, we need to
                         // explicitly make this transformation here to guide the later decisions
                         // such as whether the artifacts can be public and whether dexopt is needed.
-                        compilerFilter = needsToBeShared
+                        String newCompilerFilter = needsToBeShared
                                 ? ReasonMapping.getCompilerFilterForShared()
                                 : "verify";
+                        printAdjustReason(compilerFilter, newCompilerFilter,
+                                "there is no valid profile"
+                                        + (needsToBeShared ? " and the package needs to be shared"
+                                                           : ""));
+                        compilerFilter = newCompilerFilter;
                     }
                 }
                 boolean isProfileGuidedCompilerFilter =
@@ -308,24 +313,32 @@ public abstract class Dexopter<DexInfoType extends DetailedDexInfo> {
     @NonNull
     private String adjustCompilerFilter(
             @NonNull String targetCompilerFilter, @NonNull DexInfoType dexInfo) {
-        if (mInjector.isSystemUiPackage(mPkgState.getPackageName())) {
-            String systemUiCompilerFilter = getSystemUiCompilerFilter();
-            if (!systemUiCompilerFilter.isEmpty()) {
-                targetCompilerFilter = systemUiCompilerFilter;
+        if ((mParams.getFlags() & ArtFlags.FLAG_FORCE_COMPILER_FILTER) == 0) {
+            if (mInjector.isSystemUiPackage(mPkgState.getPackageName())) {
+                String systemUiCompilerFilter = getSystemUiCompilerFilter();
+                if (!systemUiCompilerFilter.isEmpty()) {
+                    printAdjustReason(targetCompilerFilter, systemUiCompilerFilter,
+                            "the package is System UI");
+                    targetCompilerFilter = systemUiCompilerFilter;
+                }
+            } else if (mInjector.isLauncherPackage(mPkgState.getPackageName())) {
+                printAdjustReason(
+                        targetCompilerFilter, "speed-profile", "the package is a launcher package");
+                targetCompilerFilter = "speed-profile";
             }
-        } else if (mInjector.isLauncherPackage(mPkgState.getPackageName())) {
-            targetCompilerFilter = "speed-profile";
-        }
 
-        Callback<AdjustCompilerFilterCallback, Void> callback =
-                mInjector.getConfig().getAdjustCompilerFilterCallback();
-        if (callback != null) {
-            // Local variables passed to the lambda must be final or effectively final.
-            final String originalCompilerFilter = targetCompilerFilter;
-            targetCompilerFilter = Utils.executeAndWait(callback.executor(), () -> {
-                return callback.get().onAdjustCompilerFilter(
-                        mPkgState.getPackageName(), originalCompilerFilter, mParams.getReason());
-            });
+            Callback<AdjustCompilerFilterCallback, Void> callback =
+                    mInjector.getConfig().getAdjustCompilerFilterCallback();
+            if (callback != null) {
+                // Local variables passed to the lambda must be final or effectively final.
+                final String originalCompilerFilter = targetCompilerFilter;
+                targetCompilerFilter = Utils.executeAndWait(callback.executor(), () -> {
+                    return callback.get().onAdjustCompilerFilter(mPkgState.getPackageName(),
+                            originalCompilerFilter, mParams.getReason());
+                });
+                printAdjustReason(originalCompilerFilter, targetCompilerFilter,
+                        "of AdjustCompilerFilterCallback");
+            }
         }
 
         // Code below should only downgrade the compiler filter. Don't upgrade the compiler filter
@@ -339,12 +352,18 @@ public abstract class Dexopter<DexInfoType extends DetailedDexInfo> {
         // are done via adb shell commands). This is okay because the runtime will ignore the
         // compiled code anyway.
         if (mPkg.isVmSafeMode() || mPkg.isDebuggable()) {
-            targetCompilerFilter = DexFile.getSafeModeCompilerFilter(targetCompilerFilter);
+            String newCompilerFilter = DexFile.getSafeModeCompilerFilter(targetCompilerFilter);
+            printAdjustReason(targetCompilerFilter, newCompilerFilter,
+                    mPkg.isVmSafeMode() ? "the package requests VM safe mode"
+                                        : "the package is debuggable");
+            targetCompilerFilter = newCompilerFilter;
         }
 
         // We cannot do AOT compilation if we don't have a valid class loader context.
         if (dexInfo.classLoaderContext() == null
                 && DexFile.isOptimizedCompilerFilter(targetCompilerFilter)) {
+            printAdjustReason(
+                    targetCompilerFilter, "verify", "there is no valid class loader context");
             targetCompilerFilter = "verify";
         }
 
@@ -354,11 +373,15 @@ public abstract class Dexopter<DexInfoType extends DetailedDexInfo> {
         // won't extract the dex code because the APK is uncompressed, and the assumption is that
         // such applications always use uncompressed APKs.
         if (mPkg.isUseEmbeddedDex() && DexFile.isOptimizedCompilerFilter(targetCompilerFilter)) {
+            printAdjustReason(
+                    targetCompilerFilter, "verify", "the package requests to use embedded dex");
             targetCompilerFilter = "verify";
         }
 
         if ((mParams.getFlags() & ArtFlags.FLAG_IGNORE_PROFILE) != 0
                 && DexFile.isProfileGuidedCompilerFilter(targetCompilerFilter)) {
+            printAdjustReason(
+                    targetCompilerFilter, "verify", "the user requests to ignore the profile");
             targetCompilerFilter = "verify";
         }
 
@@ -373,6 +396,17 @@ public abstract class Dexopter<DexInfoType extends DetailedDexInfo> {
                     "Got invalid compiler filter '" + compilerFilter + "' for System UI");
         }
         return compilerFilter;
+    }
+
+    private void printAdjustReason(@NonNull String oldCompilerFilter,
+            @NonNull String newCompilerFilter, @NonNull String reason) {
+        if (!oldCompilerFilter.equals(newCompilerFilter)) {
+            Log.i(TAG,
+                    String.format(
+                            "Adjusting the compiler filter for '%s' from '%s' to '%s' because %s",
+                            mPkgState.getPackageName(), oldCompilerFilter, newCompilerFilter,
+                            reason));
+        }
     }
 
     /** @see Utils#getOrInitReferenceProfile */
