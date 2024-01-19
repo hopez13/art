@@ -19,9 +19,7 @@
 
 #include <jni.h>
 
-#include "base/macros.h"
-
-namespace art HIDDEN {
+namespace art {
 
 const JNINativeInterface* GetCheckJniNativeInterface();
 const JNIInvokeInterface* GetCheckJniInvokeInterface();
