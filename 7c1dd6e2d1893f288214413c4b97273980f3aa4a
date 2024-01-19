@@ -22,6 +22,30 @@
       },
       "revId": "7c1dd6e2d1893f288214413c4b97273980f3aa4a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5cfeac70_ee63a041",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 30
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-19T13:14:57Z",
+      "side": 1,
+      "message": "I\u0027m glad we have these helper functions, otherwise this change would have been duplicated across codegens.",
+      "parentUuid": "2e028a45_57a5d080",
+      "range": {
+        "startLine": 175,
+        "startChar": 26,
+        "endLine": 175,
+        "endChar": 57
+      },
+      "revId": "7c1dd6e2d1893f288214413c4b97273980f3aa4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
