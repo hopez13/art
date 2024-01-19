@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff490c93_b410894a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-19T09:57:39Z",
+      "side": 1,
+      "message": "I am not too sure about naming: `Intrinsics with HIR` are the intrinsics we shouldn\u0027t see in the graph, and `without HIR` are the ones we can see. I think the confusing part is that the `instrinsics without HIR` appear in the HIR graph as fields of `HInvoke` instructions.\n\nNot sure if naming like `InstructionBuilder only intrinsics` and `Regular intrinsics` would help or if it would add to the confusion.",
+      "range": {
+        "startLine": 7,
+        "startChar": 15,
+        "endLine": 7,
+        "endChar": 34
+      },
+      "revId": "489023ba44b4f35666cca6c77005350a23ed5439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de05f222_9185ec8b",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 747,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-19T09:57:39Z",
+      "side": 1,
+      "message": "nit: either both having `()` or neither",
+      "range": {
+        "startLine": 747,
+        "startChar": 20,
+        "endLine": 747,
+        "endChar": 71
+      },
+      "revId": "489023ba44b4f35666cca6c77005350a23ed5439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed0da11b_7f7ecafc",
+        "filename": "runtime/intrinsics_list.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-19T09:57:39Z",
+      "side": 1,
+      "message": "Can you add a comment here and in the other list explaining the difference?",
+      "range": {
+        "startLine": 86,
+        "startChar": 8,
+        "endLine": 86,
+        "endChar": 36
+      },
+      "revId": "489023ba44b4f35666cca6c77005350a23ed5439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
