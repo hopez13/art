@@ -201,6 +201,7 @@ public final class ArtShellCommand extends BasicShellCommandHandler {
         boolean legacyClearProfile = false;
         boolean verbose = false;
         boolean forceMergeProfile = false;
+        boolean forceCompilerFilter = false;
 
         String opt;
         while ((opt = getNextOption()) != null) {
@@ -213,6 +214,7 @@ public final class ArtShellCommand extends BasicShellCommandHandler {
                     break;
                 case "-m":
                     compilerFilter = getNextArgRequired();
+                    forceCompilerFilter = true;
                     break;
                 case "-p":
                     priorityClass = parsePriorityClass(getNextArgRequired());
@@ -302,6 +304,10 @@ public final class ArtShellCommand extends BasicShellCommandHandler {
         if (forceMergeProfile) {
             paramsBuilder.setFlags(
                     ArtFlags.FLAG_FORCE_MERGE_PROFILE, ArtFlags.FLAG_FORCE_MERGE_PROFILE);
+        }
+        if (forceCompilerFilter) {
+            paramsBuilder.setFlags(
+                    ArtFlags.FLAG_FORCE_COMPILER_FILTER, ArtFlags.FLAG_FORCE_COMPILER_FILTER);
         }
         if (splitArg != null) {
             if (scopeFlags != 0) {

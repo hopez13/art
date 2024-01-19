@@ -308,24 +308,26 @@ public abstract class Dexopter<DexInfoType extends DetailedDexInfo> {
     @NonNull
     private String adjustCompilerFilter(
             @NonNull String targetCompilerFilter, @NonNull DexInfoType dexInfo) {
-        if (mInjector.isSystemUiPackage(mPkgState.getPackageName())) {
-            String systemUiCompilerFilter = getSystemUiCompilerFilter();
-            if (!systemUiCompilerFilter.isEmpty()) {
-                targetCompilerFilter = systemUiCompilerFilter;
+        if ((mParams.getFlags() & ArtFlags.FLAG_FORCE_COMPILER_FILTER) == 0) {
+            if (mInjector.isSystemUiPackage(mPkgState.getPackageName())) {
+                String systemUiCompilerFilter = getSystemUiCompilerFilter();
+                if (!systemUiCompilerFilter.isEmpty()) {
+                    targetCompilerFilter = systemUiCompilerFilter;
+                }
+            } else if (mInjector.isLauncherPackage(mPkgState.getPackageName())) {
+                targetCompilerFilter = "speed-profile";
             }
-        } else if (mInjector.isLauncherPackage(mPkgState.getPackageName())) {
-            targetCompilerFilter = "speed-profile";
-        }
 
-        Callback<AdjustCompilerFilterCallback, Void> callback =
-                mInjector.getConfig().getAdjustCompilerFilterCallback();
-        if (callback != null) {
-            // Local variables passed to the lambda must be final or effectively final.
-            final String originalCompilerFilter = targetCompilerFilter;
-            targetCompilerFilter = Utils.executeAndWait(callback.executor(), () -> {
-                return callback.get().onAdjustCompilerFilter(
-                        mPkgState.getPackageName(), originalCompilerFilter, mParams.getReason());
-            });
+            Callback<AdjustCompilerFilterCallback, Void> callback =
+                    mInjector.getConfig().getAdjustCompilerFilterCallback();
+            if (callback != null) {
+                // Local variables passed to the lambda must be final or effectively final.
+                final String originalCompilerFilter = targetCompilerFilter;
+                targetCompilerFilter = Utils.executeAndWait(callback.executor(), () -> {
+                    return callback.get().onAdjustCompilerFilter(mPkgState.getPackageName(),
+                            originalCompilerFilter, mParams.getReason());
+                });
+            }
         }
 
         // Code below should only downgrade the compiler filter. Don't upgrade the compiler filter
