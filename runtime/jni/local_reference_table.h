@@ -39,7 +39,7 @@
 #include "obj_ptr.h"
 #include "offsets.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class RootInfo;
 
@@ -324,7 +324,7 @@ class LocalReferenceTable {
   // without recovering holes. Thus this is a conservative estimate.
   size_t FreeCapacity() const;
 
-  EXPORT void VisitRoots(RootVisitor* visitor, const RootInfo& root_info)
+  void VisitRoots(RootVisitor* visitor, const RootInfo& root_info)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   LRTSegmentState PushFrame() {

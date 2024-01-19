@@ -51,7 +51,7 @@
 #include "thread.h"
 #include "well_known_classes.h"
 
-namespace art HIDDEN {
+namespace art {
 
 // This helper cannot be in the anonymous namespace because it needs to be
 // declared as a friend by JniVmExt and JniEnvExt.

@@ -46,7 +46,7 @@
 #include "thread-inl.h"
 #include "thread.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace jni {
 
 constexpr bool kTraceIds = false;
