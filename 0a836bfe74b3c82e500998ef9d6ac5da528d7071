@@ -16,6 +16,24 @@
       "message": "Were there any performance improvements?",
       "revId": "0a836bfe74b3c82e500998ef9d6ac5da528d7071",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "22a56f3c_64dd03c4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-19T09:03:06Z",
+      "side": 1,
+      "message": "Theoretically yes as the fast-path in `LocalReferenceTable::Add()` can avoid one load (which was previously done unconditionally by the caller). But I did not measure because I expect the difference to be insignificant and lost in the noise.",
+      "parentUuid": "1acad72f_d25528e7",
+      "revId": "0a836bfe74b3c82e500998ef9d6ac5da528d7071",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
