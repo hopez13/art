@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f77cc96_fb17b777",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-19T08:59:01Z",
+      "side": 1,
+      "message": "Thank you!",
+      "revId": "aea2a8000c89480b83f12968da135d78a48379d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63bf66e0_e21e38dc",
+        "filename": "runtime/entrypoints/entrypoint_utils.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-19T08:59:01Z",
+      "side": 1,
+      "message": "If we\u0027re including `-inl.h`, we do not need to include the corresponing `.h`.",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 25
+      },
+      "revId": "aea2a8000c89480b83f12968da135d78a48379d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
