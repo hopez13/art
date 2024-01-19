@@ -165,6 +165,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a54e7db_34865363",
+        "filename": "libartservice/service/javatests/com/android/server/art/DumpHelperTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2024-01-19T12:20:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ef07f9b6_c90f960f",
+      "revId": "22f87ddc507a1a044ecb442fccf83d3bc5c0cf58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a7eefdea_a9c7cb69",
@@ -273,6 +291,30 @@
       "side": 1,
       "message": "Please use that operator directly. Don\u0027t copy it. You can create an `std::stringstream` so that you can use the operator on it.",
       "parentUuid": "ea48b306_970d6847",
+      "range": {
+        "startLine": 83,
+        "startChar": 0,
+        "endLine": 117,
+        "endChar": 33
+      },
+      "revId": "22f87ddc507a1a044ecb442fccf83d3bc5c0cf58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "92c457f5_c987a433",
+        "filename": "libartservice/service/native/service.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2024-01-19T12:20:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b9d413cb_852b0c3c",
       "range": {
         "startLine": 83,
         "startChar": 0,
