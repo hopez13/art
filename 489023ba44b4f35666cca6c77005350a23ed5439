@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "eb1600f2_b0e6e78c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-19T11:47:33Z",
+      "side": 1,
+      "message": "SGTM",
+      "parentUuid": "f5d46454_7b399f0d",
+      "range": {
+        "startLine": 7,
+        "startChar": 15,
+        "endLine": 7,
+        "endChar": 34
+      },
+      "revId": "489023ba44b4f35666cca6c77005350a23ed5439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "de05f222_9185ec8b",
         "filename": "compiler/optimizing/graph_checker.cc",
         "patchSetId": 5
