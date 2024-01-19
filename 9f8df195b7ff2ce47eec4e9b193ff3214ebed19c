@@ -16,6 +16,24 @@
       "message": "Only heap-poisoning configurations.",
       "revId": "9f8df195b7ff2ce47eec4e9b193ff3214ebed19c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a09231ba_282ed3a2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-19T16:44:25Z",
+      "side": 1,
+      "message": "Yep. The issue is that [this line](https://cs.android.com/android/platform/superproject/main/+/main:art/compiler/optimizing/code_generator_x86_64.cc;l\u003d5485;drc\u003d4d6b008243a5b1b1fb4e725e37e14651a24a4a4d) wants to get Temp at index 1 (since `extra_temp_index` is `1`) but we only reserved one temp since we only needed one.\n\nA simple fix would be to reserve two registers for that code path. I think we\u0027d like to keep using `extra_temp_index` (instead of `0`) due to the HandleFieldSet call in [GenerateVarHandleSet](https://cs.android.com/android/platform/superproject/main/+/main:art/compiler/optimizing/intrinsics_x86_64.cc;l\u003d4150;drc\u003d4d6b008243a5b1b1fb4e725e37e14651a24a4a4d)",
+      "parentUuid": "97eb6ccc_a016631e",
+      "revId": "9f8df195b7ff2ce47eec4e9b193ff3214ebed19c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
