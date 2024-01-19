@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c0ca7757_b10341c6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1096713
+      },
+      "writtenOn": "2024-01-19T14:32:19Z",
+      "side": 1,
+      "message": "Naive drive-by.  I don\u0027t know enough about this code to know if this is a problem, but it seems like it could lead to potential confusion/bugs.",
+      "revId": "fb0a1bb8e6935c8efd9742aa025bb1081a2f4589",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "759df9d9_4bda0ade",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 3873,
+      "author": {
+        "id": 1096713
+      },
+      "writtenOn": "2024-01-19T14:32:19Z",
+      "side": 1,
+      "message": "...but here we have `vs2` second, and `vs1` third.",
+      "revId": "fb0a1bb8e6935c8efd9742aa025bb1081a2f4589",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0b19e25_4d1d6e83",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 1358,
+      "author": {
+        "id": 1096713
+      },
+      "writtenOn": "2024-01-19T14:32:19Z",
+      "side": 1,
+      "message": "Here we have `vs1` second, and `vs2` third...",
+      "revId": "fb0a1bb8e6935c8efd9742aa025bb1081a2f4589",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
