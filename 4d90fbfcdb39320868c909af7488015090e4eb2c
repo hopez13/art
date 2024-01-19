@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "83e9324f_dfea9f9d",
+        "filename": "libartservice/service/java/com/android/server/art/ArtManagerLocal.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 1331,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-01-19T12:31:40Z",
+      "side": 1,
+      "message": "Tests don\u0027t implement this method, so the method returns null by default, making the pinning a no-op. Without this injector wrapper, `ArtManagerLocal` will call into the real `ArtdRefCache`, and the latter will fail during initialization on\n`ArtModuleServiceInitializer.getArtModuleServiceManager()`.\n\nMaybe relying on the default behavior is not great. I changed ArtManagerLocalTest to return a mock pin instead, to make it more explicit.",
+      "parentUuid": "4f2c9cf1_f0bec584",
+      "range": {
+        "startLine": 1331,
+        "startChar": 32,
+        "endLine": 1331,
+        "endChar": 35
+      },
+      "revId": "4d90fbfcdb39320868c909af7488015090e4eb2c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5db914e7_846003a0",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-01-18T21:14:05Z",
       "side": 1,
       "message": "This means we\u0027re not timeout caching the artd instance if `getArtd` is called outside a pinned section. Why not do that?\n\nAnother option is to make it an error to call `getArtd` when there are no pins. That\u0027d enforce the pattern to pin at all entry points, rather than relying on the timeout cache.",
+      "range": {
+        "startLine": 92,
+        "startChar": 12,
+        "endLine": 92,
+        "endChar": 30
+      },
+      "revId": "4d90fbfcdb39320868c909af7488015090e4eb2c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5493e3fd_03f6b3ef",
+        "filename": "libartservice/service/java/com/android/server/art/ArtdRefCache.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-01-19T12:31:40Z",
+      "side": 1,
+      "message": "Calling `getArtd` outside a pinned section is not expected, so I don\u0027t want to do caching for that.\n\nHowever, making it an error seems too strict. Unlike in C++, we don\u0027t have static analysis support in Java to make sure this doesn\u0027t happen. One can introduce a `getArtd` call in a code path that is rarely hit, and then we\u0027ll find it out very late that it causes system server crashes under certain conditions. If a call is rarely hit, performance is not that important, so it\u0027s not necessary to trade stability for it.",
+      "parentUuid": "5db914e7_846003a0",
       "range": {
         "startLine": 92,
         "startChar": 12,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "63f3481a_a4e3ae19",
+        "filename": "libartservice/service/java/com/android/server/art/ArtdRefCache.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-01-19T12:31:40Z",
+      "side": 1,
+      "message": "Interesting. I followed the example in the public doc (https://developer.android.com/reference/android/util/CloseGuard). Maybe the doc needs an update.",
+      "parentUuid": "7f0575ac_7d67231e",
+      "range": {
+        "startLine": 149,
+        "startChar": 0,
+        "endLine": 149,
+        "endChar": 46
+      },
+      "revId": "4d90fbfcdb39320868c909af7488015090e4eb2c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "65946492_2ac4ecdd",
@@ -93,6 +165,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd6f1828_cd077512",
+        "filename": "libartservice/service/java/com/android/server/art/ArtdRefCache.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-01-19T12:31:40Z",
+      "side": 1,
+      "message": "Added @SuppressWarnings.",
+      "parentUuid": "65946492_2ac4ecdd",
+      "range": {
+        "startLine": 152,
+        "startChar": 0,
+        "endLine": 152,
+        "endChar": 52
+      },
+      "revId": "4d90fbfcdb39320868c909af7488015090e4eb2c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "650135cb_1941d99f",
@@ -106,6 +202,30 @@
       "writtenOn": "2024-01-18T21:14:05Z",
       "side": 1,
       "message": "Please test a call with a different binder instance.",
+      "range": {
+        "startLine": 158,
+        "startChar": 38,
+        "endLine": 158,
+        "endChar": 57
+      },
+      "revId": "4d90fbfcdb39320868c909af7488015090e4eb2c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c59b028_d22ecc6a",
+        "filename": "libartservice/service/javatests/com/android/server/art/ArtdRefCacheTest.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-01-19T12:31:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "650135cb_1941d99f",
       "range": {
         "startLine": 158,
         "startChar": 38,

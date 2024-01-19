@@ -249,6 +249,24 @@
       "parentUuid": "b7fc3c1d_18ecc549",
       "revId": "ec317e96825d657de911d44da98d712c33d659d7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a55fc0e8_156668df",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-01-19T12:31:40Z",
+      "side": 1,
+      "message": "Looks like we were talking about different things. http://b/317221732#comment1 shows the service handle being fetched multiple times. http://b/278038751#comment1 shows artd being killed and restarted multiple times. I was saying that the latter happened during a test, which does nothing special but installing a bunch of apps, which can also happen in real CUJs.",
+      "parentUuid": "4bc9e375_01b147d6",
+      "revId": "ec317e96825d657de911d44da98d712c33d659d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
