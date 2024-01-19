@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb13a7ac_df5926b9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2024-01-19T21:14:41Z",
+      "side": 1,
+      "message": "LGTM, except for the comments below. The only message I could find about the test failure was the following in the kernel log.\n\n[    8.819819] general protection fault, probably for non-canonical address 0x5328ea4916b0706b: 0000 [#1] PREEMPT SMP NOPTI\n\nDoesn\u0027t look to me like this is our issue. Let\u0027s retry after addressing the comment.",
+      "revId": "27981fd3604f6dbcbfbeb6c98c690999368ff51b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f050518c_a65fafae",
+        "filename": "runtime/runtime_globals.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2024-01-19T21:14:41Z",
+      "side": 1,
+      "message": "Is there a reason not to declare these two constexpr, and drop the definitions below? WhichPowerOf is already constexpr.\n\nNit: I don\u0027t think we usually specify const in cases like this. It does guarantee that there is no assignment to num in the function body, but we can see that anyway.",
+      "range": {
+        "startLine": 97,
+        "startChar": 0,
+        "endLine": 102,
+        "endChar": 1
+      },
+      "revId": "27981fd3604f6dbcbfbeb6c98c690999368ff51b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
