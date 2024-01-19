@@ -17,6 +17,7 @@
 public class Main {
   public static void main(String[] args) throws Exception {
     System.loadLibrary(args[0]);
+    disableBootJniTrampoline();
     if (isAotCompiled(Main.class, "hasJit")) {
       throw new Error("This test must be run with --no-prebuild!");
     }
@@ -161,6 +162,7 @@ public class Main {
   public native static void jitGc();
   public native static boolean isNextJitGcFull();
 
+  public native static void disableBootJniTrampoline();
   public native static boolean isAotCompiled(Class<?> cls, String methodName);
   public native static boolean hasJitCompiledEntrypoint(Class<?> cls, String methodName);
   public native static boolean hasJitCompiledCode(Class<?> cls, String methodName);

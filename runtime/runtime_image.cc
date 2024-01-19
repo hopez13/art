@@ -38,6 +38,7 @@
 #include "class_root-inl.h"
 #include "dex/class_accessor-inl.h"
 #include "gc/space/image_space.h"
+#include "jni_hash_set.h"
 #include "mirror/object-inl.h"
 #include "mirror/object-refvisitor-inl.h"
 #include "mirror/object_array-alloc-inl.h"
@@ -951,7 +952,15 @@ class RuntimeImageHelper {
       const OatFile* oat_file = image_spaces[0]->GetOatFile();
       DCHECK(oat_file != nullptr);
       const OatHeader& header = oat_file->GetOatHeader();
-      copy->SetEntryPointFromQuickCompiledCode(header.GetOatAddress(stub));
+      const void* entrypoint = header.GetOatAddress(stub);
+      if (method->IsNative() && (is_class_initialized || !method->NeedsClinitCheckBeforeCall())) {
+        ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
+        ArtMethod* boot_method = class_linker->FindBootNativeMethod(JniHashedKey{method});
+        if (boot_method != nullptr) {
+          entrypoint = boot_method->GetOatMethodQuickCode(kRuntimePointerSize);
+        }
+      }
+      copy->SetEntryPointFromQuickCompiledCode(entrypoint);
 
       if (method->IsNative()) {
         StubType stub_type = method->IsCriticalNative()

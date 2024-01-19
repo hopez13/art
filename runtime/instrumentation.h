@@ -597,6 +597,9 @@ class Instrumentation {
   bool MethodSupportsExitEvents(ArtMethod* method, const OatQuickMethodHeader* header)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
+  void RevokeBootJniTrampoline(ArtMethod* klass) REQUIRES_SHARED(Locks::mutator_lock_);
+  void DisableBootJniTrampoline() REQUIRES_SHARED(Locks::mutator_lock_);
+
  private:
   // Update the current instrumentation_level_.
   void UpdateInstrumentationLevel(InstrumentationLevel level);

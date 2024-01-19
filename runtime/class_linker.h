@@ -39,6 +39,7 @@
 #include "handle.h"
 #include "interpreter/mterp/nterp.h"
 #include "jni.h"
+#include "jni_hash_set.h"
 #include "mirror/class.h"
 #include "mirror/object.h"
 #include "oat/oat_file.h"
@@ -888,6 +889,19 @@ class ClassLinker {
   ClassTable* GetBootClassTable() REQUIRES_SHARED(Locks::classlinker_classes_lock_) {
     return boot_class_table_.get();
   }
+  // Find a boot jni trampoline with same jni shorty that we could reuse it as entrypoint.
+  ArtMethod* FindBootNativeMethod(JniHashedKey key) REQUIRES_SHARED(Locks::mutator_lock_);
+
+  // Visit all boot jni trampolines.
+  template <typename Visitor>
+  void VisitBootNativeMethods(const Visitor& visitor) REQUIRES_SHARED(Locks::mutator_lock_);
+
+  // Clear the method set is the same as turning off boot jni trampoline reuse feature,
+  // this is used by jit-jni-stub test that getting jit compliation to work.
+  void ClearBootNativeMethods(Thread* self) REQUIRES_SHARED(Locks::mutator_lock_) {
+    WriterMutexLock mu(self, boot_native_methods_lock_);
+    boot_native_methods_.clear();
+  }
 
  protected:
   virtual bool InitializeClass(Thread* self,
@@ -1409,6 +1423,11 @@ class ClassLinker {
   Mutex critical_native_code_with_clinit_check_lock_;
   std::map<ArtMethod*, void*> critical_native_code_with_clinit_check_
       GUARDED_BY(critical_native_code_with_clinit_check_lock_);
+
+  // Load jni trampolines from boot images which have unique jni shorty. If subsequently loaded
+  // native methods have same jni shorty, then reuse those boot trampolines without compiling again.
+  ReaderWriterMutex boot_native_methods_lock_;
+  JniHashSet boot_native_methods_ GUARDED_BY(boot_native_methods_lock_);
 
   std::unique_ptr<ClassHierarchyAnalysis> cha_;
 

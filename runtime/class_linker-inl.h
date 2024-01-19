@@ -527,6 +527,15 @@ void ClassLinker::VisitKnownDexFiles(Thread* self, Visitor visitor) {
                 });
 }
 
+template <typename Visitor>
+inline void ClassLinker::VisitBootNativeMethods(const Visitor& visitor) {
+  ReaderMutexLock rmu(Thread::Current(), boot_native_methods_lock_);
+  for (JniHashedKey& key : boot_native_methods_) {
+    ArtMethod* method = key.Method();
+    visitor(method);
+  }
+}
+
 }  // namespace art
 
 #endif  // ART_RUNTIME_CLASS_LINKER_INL_H_

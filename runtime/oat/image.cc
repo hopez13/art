@@ -34,8 +34,8 @@
 namespace art HIDDEN {
 
 const uint8_t ImageHeader::kImageMagic[] = { 'a', 'r', 't', '\n' };
-// Last change: Split intrinsics list - with and without HIR.
-const uint8_t ImageHeader::kImageVersion[] = { '1', '0', '9', '\0' };
+// Last change: Add JniTrampolineSection.
+const uint8_t ImageHeader::kImageVersion[] = { '1', '1', '0', '\0' };
 
 ImageHeader::ImageHeader(uint32_t image_reservation_size,
                          uint32_t component_count,
@@ -265,6 +265,7 @@ const char* ImageHeader::GetImageSectionName(ImageSections index) {
     case kSectionArtFields: return "ArtFields";
     case kSectionArtMethods: return "ArtMethods";
     case kSectionRuntimeMethods: return "RuntimeMethods";
+    case kSectionJniTrampolines: return "JniTrampolines";
     case kSectionImTables: return "ImTables";
     case kSectionIMTConflictTables: return "IMTConflictTables";
     case kSectionInternedStrings: return "InternedStrings";

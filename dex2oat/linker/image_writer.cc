@@ -27,6 +27,7 @@
 #include <vector>
 
 #include "android-base/strings.h"
+#include "android-base/thread_annotations.h"
 #include "art_field-inl.h"
 #include "art_method-inl.h"
 #include "base/callee_save_type.h"
@@ -565,12 +566,23 @@ bool ImageWriter::Write(int image_fd,
   CHECK_EQ(image_filenames.size(), oat_filenames_.size());
 
   Thread* const self = Thread::Current();
+  if (!compiler_options_.IsBootImage()) {
+    ScopedObjectAccess soa(self);
+    ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
+    class_linker->VisitBootNativeMethods(
+        [&](ArtMethod* method) REQUIRES_SHARED(Locks::mutator_lock_) {
+      boot_jni_trampolines_.insert(
+          std::make_pair(method, method->GetOatMethodQuickCode(target_ptr_size_)));
+    });
+  }
+
   ScopedDebugDisallowReadBarriers sddrb(self);
   {
     ScopedObjectAccess soa(self);
     for (size_t i = 0; i < oat_filenames_.size(); ++i) {
       CreateHeader(i, component_count);
       CopyAndFixupNativeData(i);
+      CopyAndFixupJniTrampoline(i);
     }
   }
 
@@ -1462,6 +1474,13 @@ void ImageWriter::RecordNativeRelocations(ObjPtr<mirror::Class> klass, size_t oa
     image_info.IncrementBinSlotSize(bin_type, header_size);
     for (auto& m : klass->GetMethods(target_ptr_size_)) {
       AssignMethodOffset(&m, type, oat_index);
+      // Only store jni trampolines in boot images, but not in boot image extensions and app images.
+      if (compiler_options_.IsBootImage() &&
+          compiler_options_.IsJniCompilationEnabled() &&
+          m.IsNative() &&
+          !m.IsIntrinsic()) {
+        AssignJniTrampolineOffset(&m, oat_index);
+      }
     }
     (any_dirty ? dirty_methods_ : clean_methods_) += num_methods;
   }
@@ -1542,6 +1561,19 @@ void ImageWriter::AssignMethodOffset(ArtMethod* method,
   native_object_relocations_.insert(
       std::make_pair(method, NativeObjectRelocation{oat_index, offset, type}));
   image_info.IncrementBinSlotSize(bin_type, ArtMethod::Size(target_ptr_size_));
+}
+
+void ImageWriter::AssignJniTrampolineOffset(ArtMethod* method, size_t oat_index) {
+  CHECK(method->IsNative());
+  auto [it, inserted] = native_methods_.insert(JniHashedKey{method});
+  if (inserted) {
+    ImageInfo& image_info = GetImageInfo(oat_index);
+    Bin bin_type = Bin::kJniTrampoline;
+    size_t offset = image_info.GetBinSlotSize(bin_type);
+    jni_trampoline_relocations_.insert(
+        std::make_pair(method, JniTrampolineRelocation{oat_index, offset}));
+    image_info.IncrementBinSlotSize(bin_type, static_cast<size_t>(target_ptr_size_));
+  }
 }
 
 class ImageWriter::LayoutHelper {
@@ -2607,6 +2639,14 @@ void ImageWriter::CalculateNewObjectOffsets() {
     ImageInfo& image_info = GetImageInfo(relocation.oat_index);
     relocation.offset += image_info.GetBinSlotOffset(bin_type);
   }
+
+  // Update the jni trampolines by adding their bin sums.
+  for (auto& pair : jni_trampoline_relocations_) {
+    JniTrampolineRelocation& relocation = pair.second;
+    Bin bin_type = Bin::kJniTrampoline;
+    ImageInfo& image_info = GetImageInfo(relocation.oat_index);
+    relocation.offset += image_info.GetBinSlotOffset(bin_type);
+  }
 }
 
 std::pair<size_t, dchecked_vector<ImageSection>>
@@ -2655,11 +2695,17 @@ ImageWriter::ImageInfo::CreateImageSections() const {
       ImageSection(GetBinSlotOffset(Bin::kRuntimeMethod), GetBinSlotSize(Bin::kRuntimeMethod));
 
   /*
+   * Jni Trampolines section
+   */
+  sections[ImageHeader::kSectionJniTrampolines] =
+      ImageSection(GetBinSlotOffset(Bin::kJniTrampoline), GetBinSlotSize(Bin::kJniTrampoline));
+
+  /*
    * Interned Strings section
    */
 
   // Round up to the alignment the string table expects. See HashSet::WriteToMemory.
-  size_t cur_pos = RoundUp(sections[ImageHeader::kSectionRuntimeMethods].End(), sizeof(uint64_t));
+  size_t cur_pos = RoundUp(sections[ImageHeader::kSectionJniTrampolines].End(), sizeof(uint64_t));
 
   const ImageSection& interned_strings_section =
       sections[ImageHeader::kSectionInternedStrings] =
@@ -3027,6 +3073,21 @@ void ImageWriter::CopyAndFixupNativeData(size_t oat_index) {
       // The ClassSet was inserted at the beginning.
       CHECK_EQ(temp_class_table.classes_[0].size(), table.size());
     }
+  }
+}
+
+void ImageWriter::CopyAndFixupJniTrampoline(size_t oat_index) {
+  const ImageInfo& image_info = GetImageInfo(oat_index);
+  // Copy method's address to jni trampoline section.
+  for (auto& pair : jni_trampoline_relocations_) {
+    JniTrampolineRelocation& relocation = pair.second;
+    // Only work with jni trampolines that are in the current oat file.
+    if (relocation.oat_index != oat_index) {
+      continue;
+    }
+    void** address = reinterpret_cast<void**>(image_info.image_.Begin() + relocation.offset);
+    ArtMethod* method = reinterpret_cast<ArtMethod*>(pair.first);
+    CopyAndFixupPointer(address, method);
   }
 }
 
@@ -3514,6 +3575,24 @@ void ImageWriter::CopyAndFixupMethod(ArtMethod* orig,
 
       // JNI entrypoint:
       if (orig->IsNative()) {
+        // Find boot jni trampoline for those methods that skipped AOT compilation and don't need
+        // clinit check.
+        bool still_needs_clinit_check = orig->StillNeedsClinitCheck<kWithoutReadBarrier>();
+        if (!still_needs_clinit_check &&
+            !compiler_options_.IsBootImage() &&
+            quick_code == GetOatAddress(StubType::kQuickGenericJNITrampoline)) {
+          ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
+          ArtMethod* boot_method = class_linker->FindBootNativeMethod(JniHashedKey{orig});
+          if (boot_method != nullptr) {
+            auto it = boot_jni_trampolines_.find(boot_method);
+            if (it != boot_jni_trampolines_.end()) {
+              quick_code = it->second;
+            } else {
+              LOG(FATAL) << "No boot jni trampoline for ArtMethod " << orig->PrettyMethod();
+              UNREACHABLE();
+            }
+          }
+        }
         // The native method's pointer is set to a stub to lookup via dlsym.
         // Note this is not the code_ pointer, that is handled above.
         StubType stub_type = orig->IsCriticalNative() ? StubType::kJNIDlsymLookupCriticalTrampoline
@@ -3684,6 +3763,8 @@ ImageWriter::ImageWriter(const CompilerOptions& compiler_options,
       image_objects_offset_begin_(0),
       target_ptr_size_(InstructionSetPointerSize(compiler_options.GetInstructionSet())),
       image_infos_(oat_filenames.size()),
+      native_methods_(JniShortyHash(compiler_options.GetInstructionSet()),
+                      JniShortyEquals(compiler_options.GetInstructionSet())),
       dirty_methods_(0u),
       clean_methods_(0u),
       app_class_loader_(class_loader),

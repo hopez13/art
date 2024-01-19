@@ -34,6 +34,7 @@
 #include "interpreter/shadow_frame-inl.h"
 #include "jit/jit.h"
 #include "jit/jit_code_cache.h"
+#include "jni_hash_set.h"
 #include "linear_alloc.h"
 #include "managed_stack.h"
 #include "mirror/class-inl.h"
@@ -853,6 +854,13 @@ void StackVisitor::WalkStack(bool include_transitions) {
                 OatQuickMethodHeader::FromEntryPoint(existing_entry_point);
           } else {
             const void* code = method->GetOatMethodQuickCode(class_linker->GetImagePointerSize());
+            if (code == nullptr) {
+              // Check if current method reuses the jni trampoline of a boot method.
+              ArtMethod* boot_method = class_linker->FindBootNativeMethod(JniHashedKey{method});
+              if (boot_method != nullptr) {
+                code = boot_method->GetOatMethodQuickCode(class_linker->GetImagePointerSize());
+              }
+            }
             if (code != nullptr) {
               cur_oat_quick_method_header_ = OatQuickMethodHeader::FromEntryPoint(code);
             } else {

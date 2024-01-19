@@ -17,6 +17,7 @@
 #ifndef ART_RUNTIME_OAT_IMAGE_INL_H_
 #define ART_RUNTIME_OAT_IMAGE_INL_H_
 
+#include "base/casts.h"
 #include "image.h"
 
 #include "art_method.h"
@@ -112,6 +113,37 @@ inline void ImageHeader::VisitPackedImtConflictTables(const Visitor& visitor,
       return std::make_pair(visitor(methods.first), visitor(methods.second));
     }, pointer_size);
     pos += table->ComputeSize(pointer_size);
+  }
+}
+
+template <typename Visitor>
+inline void ImageHeader::VisitJniTrampolines(const Visitor& visitor,
+                                             uint8_t* base,
+                                             PointerSize pointer_size,
+                                             bool set_value) const
+    REQUIRES_SHARED(Locks::mutator_lock_) {
+  const ImageSection& section = GetJniTrampolinesSection();
+  for (size_t pos = 0; pos < section.Size(); ) {
+    uint8_t* ptr = base + section.Offset() + pos;
+    ArtMethod* orig;
+    if (pointer_size == PointerSize::k32) {
+      uint32_t value = *reinterpret_cast<uint32_t*>(ptr);
+      orig = reinterpret_cast32<ArtMethod*>(value);
+    } else {
+      uint64_t value = *reinterpret_cast<uint64_t*>(ptr);
+      orig = reinterpret_cast64<ArtMethod*>(value);
+    }
+    if (set_value){
+      ArtMethod* updated = visitor(orig);
+      if (pointer_size == PointerSize::k32) {
+        *reinterpret_cast<uint32_t*>(ptr) = reinterpret_cast32<uint32_t>(updated);
+      } else {
+        *reinterpret_cast<uint64_t*>(ptr) = reinterpret_cast64<uint64_t>(updated);
+      }
+    } else {
+      visitor(orig);
+    }
+    pos += static_cast<size_t>(pointer_size);
   }
 }
 
