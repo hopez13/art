@@ -40,6 +40,7 @@
 #include "interpreter/interpreter_common.h"
 #include "jit/jit.h"
 #include "jit/jit_code_cache.h"
+#include "jni_hash_set.h"
 #include "jvalue-inl.h"
 #include "jvalue.h"
 #include "mirror/class-inl.h"
@@ -50,6 +51,7 @@
 #include "nth_caller_visitor.h"
 #include "oat_file_manager.h"
 #include "oat_quick_method_header.h"
+#include "obj_ptr.h"
 #include "runtime-inl.h"
 #include "thread.h"
 #include "thread_list.h"
@@ -101,6 +103,24 @@ class InstallStubsClassVisitor : public ClassVisitor {
   bool operator()(ObjPtr<mirror::Class> klass) override REQUIRES(Locks::mutator_lock_) {
     instrumentation_->InstallStubsForClass(klass.Ptr());
     return true;  // we visit all classes.
+  }
+
+ private:
+  Instrumentation* const instrumentation_;
+};
+
+class RevokeBootJniTrampolineClassVisitor : public ClassVisitor {
+ public:
+  explicit RevokeBootJniTrampolineClassVisitor(Instrumentation* instrumentation)
+      : instrumentation_(instrumentation) {}
+
+  bool operator()(ObjPtr<mirror::Class> klass) override REQUIRES(Locks::mutator_lock_) {
+    for (ArtMethod& method : klass->GetMethods(kRuntimePointerSize)) {
+      if (method.IsNative()) {
+        instrumentation_->RevokeBootJniTrampoline(&method);
+      }
+    }
+    return true;
   }
 
  private:
@@ -1773,6 +1793,26 @@ bool Instrumentation::ShouldDeoptimizeCaller(Thread* self, ArtMethod** sp, size_
   }
 
   return false;
+}
+
+void Instrumentation::RevokeBootJniTrampoline(ArtMethod* method) {
+  CHECK(method->IsNative());
+  ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
+  ArtMethod* boot_method = class_linker->FindBootNativeMethod(JniHashedKey{method});
+  if (boot_method != nullptr) {
+    if (method->StillNeedsClinitCheck()) {
+      UpdateEntryPoints(method, GetQuickResolutionStub());
+      return;
+    }
+    UpdateEntryPoints(method, GetOptimizedCodeFor(method));
+  }
+}
+
+void Instrumentation::DisableBootJniTrampoline() {
+  ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
+  RevokeBootJniTrampolineClassVisitor visitor(this);
+  class_linker->VisitClasses(&visitor);
+  class_linker->ClearBootNativeMethods(Thread::Current());
 }
 
 }  // namespace instrumentation

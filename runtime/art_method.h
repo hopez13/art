@@ -1018,6 +1018,10 @@ class EXPORT ArtMethod final {
   const void* GetOatMethodQuickCode(PointerSize pointer_size)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
+  // Get compiled code size for the method, return 0 if no code exists.
+  uint32_t GetOatMethodQuickCodeSize(PointerSize pointer_size)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
   // Returns whether the method has any compiled code, JIT or AOT.
   bool HasAnyCompiledCode() REQUIRES_SHARED(Locks::mutator_lock_);
 

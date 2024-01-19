@@ -63,6 +63,7 @@
 #include "intrinsics_enum.h"
 #include "intrinsics_list.h"
 #include "jni/jni_internal.h"
+#include "jni_hash_set.h"
 #include "linker/linker_patch.h"
 #include "mirror/class-inl.h"
 #include "mirror/class_loader.h"
@@ -468,7 +469,7 @@ static void CompileMethodQuick(
                                   uint32_t method_idx,
                                   Handle<mirror::ClassLoader> class_loader,
                                   const DexFile& dex_file,
-                                  Handle<mirror::DexCache> dex_cache) {
+                                  Handle<mirror::DexCache> dex_cache) NO_THREAD_SAFETY_ANALYSIS {
     DCHECK(driver != nullptr);
     const VerificationResults* results = driver->GetVerificationResults();
     DCHECK(results != nullptr);
@@ -488,10 +489,21 @@ static void CompileMethodQuick(
         // Query any JNI optimization annotations such as @FastNative or @CriticalNative.
         access_flags |= annotations::GetNativeMethodAnnotationAccessFlags(
             dex_file, dex_file.GetClassDef(class_def_idx), method_idx);
-
-        compiled_method = driver->GetCompiler()->JniCompile(
-            access_flags, method_idx, dex_file, dex_cache);
-        CHECK(compiled_method != nullptr);
+        ArtMethod* boot_method = nullptr;
+        if (compiler_options.IsBootImageExtension() ||
+            (compiler_options.IsAppImage() &&
+             !Runtime::Current()->GetHeap()->GetBootImageSpaces().empty())) {
+          // For boot extension compilation and app compilation with boot images, we could skip
+          // JniCompile if there is a usable jni trampoline in the boot images.
+          ClassLinker* const class_linker = Runtime::Current()->GetClassLinker();
+          std::string_view shorty = dex_file.GetMethodShortyView(dex_file.GetMethodId(method_idx));
+          boot_method = class_linker->FindBootNativeMethod(JniHashedKey{access_flags, shorty});
+        }
+        if (boot_method == nullptr) {
+          compiled_method =
+              driver->GetCompiler()->JniCompile(access_flags, method_idx, dex_file, dex_cache);
+          CHECK(compiled_method != nullptr);
+        }
       }
     } else if ((access_flags & kAccAbstract) != 0) {
       // Abstract methods don't have code.

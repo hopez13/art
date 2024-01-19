@@ -39,6 +39,7 @@
 #include "barrier.h"
 #include "base/arena_allocator.h"
 #include "base/arena_bit_vector.h"
+#include "base/locks.h"
 #include "base/casts.h"
 #include "base/file_utils.h"
 #include "base/hash_map.h"
@@ -408,6 +409,16 @@ void ClassLinker::ForceClassInitialized(Thread* self, Handle<mirror::Class> klas
   MakeInitializedClassesVisiblyInitialized(self, /*wait=*/true);
 }
 
+ArtMethod* ClassLinker::FindBootNativeMethod(JniHashedKey key) {
+  ReaderMutexLock mu(Thread::Current(), boot_native_methods_lock_);
+  auto it = boot_native_methods_.find(key);
+  if (it == boot_native_methods_.end()) {
+    return nullptr;
+  } else {
+    return (*it).Method();
+  }
+}
+
 ClassLinker::VisiblyInitializedCallback* ClassLinker::MarkClassInitialized(
     Thread* self, Handle<mirror::Class> klass) {
   if (kRuntimeISA == InstructionSet::kX86 || kRuntimeISA == InstructionSet::kX86_64) {
@@ -616,6 +627,9 @@ ClassLinker::ClassLinker(InternTable* intern_table, bool fast_class_not_found_ex
       visibly_initialize_classes_with_membarier_(RegisterMemBarrierForClassInitialization()),
       critical_native_code_with_clinit_check_lock_("critical native code with clinit check lock"),
       critical_native_code_with_clinit_check_(),
+      boot_native_methods_lock_("boot jni trampolines hash set lock", kGenericBottomLock),
+      boot_native_methods_(JniShortyHash(Runtime::Current()->GetInstructionSet()),
+                           JniShortyEquals(Runtime::Current()->GetInstructionSet())),
       cha_(Runtime::Current()->IsAotCompiler() ? nullptr : new ClassHierarchyAnalysis()) {
   // For CHA disabled during Aot, see b/34193647.
 
@@ -2363,6 +2377,15 @@ bool ClassLinker::AddImageSpace(gc::space::ImageSpace* space,
     class_table->AddClassSet(std::move(temp_set));
   }
 
+  if (!app_image) {
+    header.VisitJniTrampolines([&](ArtMethod* method)
+        REQUIRES_SHARED(Locks::mutator_lock_) {
+      WriterMutexLock mu(Thread::Current(), boot_native_methods_lock_);
+      boot_native_methods_.insert(JniHashedKey{method});
+      return method;
+    }, space->Begin(), GetImagePointerSize(), false);
+  }
+
   if (kIsDebugBuild && app_image) {
     // This verification needs to happen after the classes have been added to the class loader.
     // Since it ensures classes are in the class table.
@@ -3678,7 +3701,15 @@ void ClassLinker::FixupStaticTrampolines(Thread* self, ObjPtr<mirror::Class> kla
   for (size_t method_index = 0; method_index < num_direct_methods; ++method_index) {
     ArtMethod* method = klass->GetDirectMethod(method_index, pointer_size);
     if (method->NeedsClinitCheckBeforeCall()) {
-      instrumentation->UpdateMethodsCode(method, instrumentation->GetCodeForInvoke(method));
+      const void* quick_code = instrumentation->GetCodeForInvoke(method);
+      if (method->IsNative() && IsQuickGenericJniStub(quick_code)) {
+        ArtMethod* boot_method = FindBootNativeMethod(JniHashedKey{method});
+        if (boot_method != nullptr) {
+          // Reuse jni trampoline in the boot images if found.
+          quick_code = boot_method->GetOatMethodQuickCode(GetImagePointerSize());
+        }
+      }
+      instrumentation->UpdateMethodsCode(method, quick_code);
     }
   }
   // Ignore virtual methods on the iterator.
@@ -3721,6 +3752,13 @@ static void LinkCode(ClassLinker* class_linker,
     // non-abstract methods also get their code pointers.
     const OatFile::OatMethod oat_method = oat_class->GetOatMethod(class_def_method_index);
     quick_code = oat_method.GetQuickCode();
+  }
+  if (method->IsNative() && quick_code == nullptr) {
+    ArtMethod* boot_method = class_linker->FindBootNativeMethod(JniHashedKey{method});
+    if (boot_method != nullptr) {
+      // Reuse jni trampoline in the boot images if found.
+      quick_code = boot_method->GetOatMethodQuickCode(class_linker->GetImagePointerSize());
+    }
   }
   runtime->GetInstrumentation()->InitializeMethodsCode(method, quick_code);
 

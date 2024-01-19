@@ -717,6 +717,15 @@ const void* ArtMethod::GetOatMethodQuickCode(PointerSize pointer_size) {
   return nullptr;
 }
 
+uint32_t ArtMethod::GetOatMethodQuickCodeSize(PointerSize pointer_size) {
+  bool found;
+  OatFile::OatMethod oat_method = FindOatMethodFor(this, pointer_size, &found);
+  if (found) {
+    return oat_method.GetQuickCodeSize();
+  }
+  return 0;
+}
+
 bool ArtMethod::HasAnyCompiledCode() {
   if (IsNative() || !IsInvokable() || IsProxyMethod()) {
     return false;

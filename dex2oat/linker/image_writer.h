@@ -43,6 +43,7 @@
 #include "gc/accounting/space_bitmap.h"
 #include "image.h"
 #include "intern_table.h"
+#include "jni_hash_set.h"
 #include "lock_word.h"
 #include "mirror/dex_cache.h"
 #include "oat.h"
@@ -209,6 +210,8 @@ class ImageWriter final {
     kIMTConflictTable,
     // Runtime methods (always clean, do not have a length prefix array).
     kRuntimeMethod,
+    // Unique jni trampolines (a representative ArtMethod*).
+    kJniTrampoline,
     // Metadata bin for data that is temporary during image lifetime.
     kMetadata,
     kLast = kMetadata,
@@ -450,6 +453,7 @@ class ImageWriter final {
 
   // Creates the contiguous image in memory and adjusts pointers.
   void CopyAndFixupNativeData(size_t oat_index) REQUIRES_SHARED(Locks::mutator_lock_);
+  void CopyAndFixupJniTrampoline(size_t oat_index) REQUIRES_SHARED(Locks::mutator_lock_);
   void CopyAndFixupObjects() REQUIRES_SHARED(Locks::mutator_lock_);
   void CopyAndFixupObject(mirror::Object* obj) REQUIRES_SHARED(Locks::mutator_lock_);
   template <bool kCheckIfDone>
@@ -495,6 +499,10 @@ class ImageWriter final {
                           size_t oat_index)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
+  // Assign the offset for a jni trampoline(a representative ArtMethod*).
+  void AssignJniTrampolineOffset(ArtMethod* method, size_t oat_index)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
   // Return true if imt was newly inserted.
   bool TryAssignImTableOffset(ImTable* imt, size_t oat_index) REQUIRES_SHARED(Locks::mutator_lock_);
 
@@ -528,6 +536,11 @@ class ImageWriter final {
     size_t oat_index;
     uintptr_t offset;
     NativeObjectRelocationType type;
+  };
+
+  struct JniTrampolineRelocation {
+    size_t oat_index;
+    uintptr_t offset;
   };
 
   NativeObjectRelocation GetNativeRelocation(void* obj) REQUIRES_SHARED(Locks::mutator_lock_);
@@ -644,6 +657,16 @@ class ImageWriter final {
   // have one entry per art field for convenience. ArtFields are placed right after the end of the
   // image objects (aka sum of bin_slot_sizes_). ArtMethods are placed right after the ArtFields.
   HashMap<void*, NativeObjectRelocation> native_object_relocations_;
+
+  // HashSet that saves native ArtMethod* which filtered by jni shorty.
+  JniHashSet native_methods_;
+
+  // Jni trampoline relocation map.
+  HashMap<ArtMethod*, JniTrampolineRelocation> jni_trampoline_relocations_;
+
+  // Jni trampoline for boot native methods. Image generation disallow read barriers, so we
+  // collect these jni trampolines from oat methods in advance.
+  HashMap<ArtMethod*, const void*> boot_jni_trampolines_;
 
   // Runtime ArtMethods which aren't reachable from any Class but need to be copied into the image.
   ArtMethod* image_methods_[ImageHeader::kImageMethodsCount];

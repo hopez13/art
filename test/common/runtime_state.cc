@@ -598,4 +598,10 @@ extern "C" JNIEXPORT jboolean Java_Main_removeJitCompiledMethod(JNIEnv* env,
   return removed ? JNI_TRUE : JNI_FALSE;
 }
 
+extern "C" JNIEXPORT void JNICALL Java_Main_disableBootJniTrampoline(JNIEnv* env,
+                                                                       jclass) {
+  ScopedObjectAccess soa(env);
+  Runtime::Current()->GetInstrumentation()->DisableBootJniTrampoline();
+}
+
 }  // namespace art
