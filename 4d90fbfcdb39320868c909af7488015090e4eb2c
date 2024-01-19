@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ca4be8af_01713a31",
+        "filename": "libartservice/service/java/com/android/server/art/ArtManagerLocal.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 1331,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-01-19T16:12:57Z",
+      "side": 1,
+      "message": "\u003e Without this injector wrapper, ArtManagerLocal will call into the real ArtdRefCache, and the latter will fail during initialization on\nArtModuleServiceInitializer.getArtModuleServiceManager().\n\nSounds like we should fix that and not mock `ArtdRefCache` at all in any tests. There\u0027s only logic in it, so there\u0027s no reason to not use the real thing in the tests. It\u0027d make them better and give us confidence that the `getArtd` calls are in pinned code.\n\nI suppose an `@After` method is necessary that checks the state of the cache and resets it so that no caching happens between tests, but I think it\u0027s well worth it to get better testing.",
+      "parentUuid": "83e9324f_dfea9f9d",
+      "range": {
+        "startLine": 1331,
+        "startChar": 32,
+        "endLine": 1331,
+        "endChar": 35
+      },
+      "revId": "4d90fbfcdb39320868c909af7488015090e4eb2c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5db914e7_846003a0",
         "filename": "libartservice/service/java/com/android/server/art/ArtdRefCache.java",
         "patchSetId": 4
@@ -85,6 +109,30 @@
       "side": 1,
       "message": "Calling `getArtd` outside a pinned section is not expected, so I don\u0027t want to do caching for that.\n\nHowever, making it an error seems too strict. Unlike in C++, we don\u0027t have static analysis support in Java to make sure this doesn\u0027t happen. One can introduce a `getArtd` call in a code path that is rarely hit, and then we\u0027ll find it out very late that it causes system server crashes under certain conditions. If a call is rarely hit, performance is not that important, so it\u0027s not necessary to trade stability for it.",
       "parentUuid": "5db914e7_846003a0",
+      "range": {
+        "startLine": 92,
+        "startChar": 12,
+        "endLine": 92,
+        "endChar": 30
+      },
+      "revId": "4d90fbfcdb39320868c909af7488015090e4eb2c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee81b512_ca5d3657",
+        "filename": "libartservice/service/java/com/android/server/art/ArtdRefCache.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-01-19T16:12:57Z",
+      "side": 1,
+      "message": "Apropos the discussion in the other thread, we should exercise the pinner in all the `ArtManagerLocal` tests, and check that `getArtd` only is called from pinned code.\n\nStill, I agree we cannot be confident no call is missed (it shouldn\u0027t be if tests are decent, but it\u0027s not safe to assume that). Given that, besides more predictable runtime behaviour, I think it gets overall more consistent and simpler if this code caches artd the same way regardless of the pin state. Then all artd instances are configured and handled the same way. In practice it means deleting this condition, making a function out of lines 137-147, and call it just before the return below.",
+      "parentUuid": "5493e3fd_03f6b3ef",
       "range": {
         "startLine": 92,
         "startChar": 12,

@@ -267,6 +267,24 @@
       "parentUuid": "4bc9e375_01b147d6",
       "revId": "ec317e96825d657de911d44da98d712c33d659d7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a43b86c2_833d4560",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-01-19T16:12:57Z",
+      "side": 1,
+      "message": "My point is that the test appears to show that the former (dropping the service handle) implies the latter (artd is killed right away). If that\u0027s the case it\u0027s a lot more heavy-weight than I thought it was. If it\u0027s not intentional then someone on the framework side ought to take a look, and we probably shouldn\u0027t be working around it at this level. But I\u0027ll assume it is intentional.",
+      "parentUuid": "a55fc0e8_156668df",
+      "revId": "ec317e96825d657de911d44da98d712c33d659d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
