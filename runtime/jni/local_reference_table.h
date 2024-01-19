@@ -39,7 +39,7 @@
 #include "obj_ptr.h"
 #include "offsets.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class RootInfo;
 
@@ -274,7 +274,8 @@ class LocalReferenceTable {
   // will return null if an error happened (with an appropriate error message set).
   IndirectRef Add(LRTSegmentState previous_state,
                   ObjPtr<mirror::Object> obj,
-                  std::string* error_msg) REQUIRES_SHARED(Locks::mutator_lock_);
+                  std::string* error_msg)
+      REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Given an `IndirectRef` in the table, return the `Object` it refers to.
   //
@@ -329,7 +330,7 @@ class LocalReferenceTable {
   // without recovering holes. Thus this is a conservative estimate.
   size_t FreeCapacity() const;
 
-  EXPORT void VisitRoots(RootVisitor* visitor, const RootInfo& root_info)
+  void VisitRoots(RootVisitor* visitor, const RootInfo& root_info)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   LRTSegmentState GetSegmentState() const {
