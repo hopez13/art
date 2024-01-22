@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77ab1817_ff5fa6bb",
+        "filename": "libartservice/service/java/com/android/server/art/Dexopter.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-01-22T22:42:18Z",
+      "side": 1,
+      "message": "Why should any of this be in play when forcing the filter? It\u0027s more consistent and hence easier to reason about if the forcing is without exception, and if it results in dex2oat failing or the runtime not being able to use the files I argue it\u0027s up to the user to contemplate the consequences.\n\nAlso, with an override of the user\u0027s wish here, one could argue a warning message about it is in order from the `pm` command. It\u0027s easier to just pass it on and let the user look for the error from dex2oat instead (if any).",
+      "range": {
+        "startLine": 336,
+        "startChar": 0,
+        "endLine": 365,
+        "endChar": 9
+      },
+      "revId": "8af139c6ffa368eb3ab1f4b2fa89e1063576e1a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
