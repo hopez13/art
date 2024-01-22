@@ -120,6 +120,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f96c93b0_d3097614",
+        "filename": "libartservice/service/native/service.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-01-22T20:33:40Z",
+      "side": 1,
+      "message": "Looks like `libartservice.so` is in the test app. Then it won\u0027t go into a linker namespace where it can load `libart.so`. But if that\u0027s the problem I\u0027d expect a linker error, not a SIGSEGV, so I\u0027m not sure what\u0027s going on.\n\nIn any case, I think we\u0027d need to link all dependencies statically into the test, just like in the other standalone gtests. Should be doable, but not something to prioritise just for this, so very well then.",
+      "parentUuid": "9a1801b0_0fbdbdb7",
+      "range": {
+        "startLine": 82,
+        "startChar": 0,
+        "endLine": 84,
+        "endChar": 1
+      },
+      "revId": "7d081c8ac27326f95d323acbb3772545b9f77c19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4c93f09c_7b429260",
