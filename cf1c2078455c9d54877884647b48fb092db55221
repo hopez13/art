@@ -1,6 +1,52 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2fac136_c19fc741",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-01-22T10:20:33Z",
+      "side": 1,
+      "message": "great ?",
+      "range": {
+        "startLine": 14,
+        "startChar": 3,
+        "endLine": 14,
+        "endChar": 4
+      },
+      "revId": "cf1c2078455c9d54877884647b48fb092db55221",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2700fac6_6a5e9473",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-01-22T10:20:33Z",
+      "side": 1,
+      "message": "mention which one",
+      "range": {
+        "startLine": 16,
+        "startChar": 27,
+        "endLine": 16,
+        "endChar": 44
+      },
+      "revId": "cf1c2078455c9d54877884647b48fb092db55221",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "c083f164_8b9e0c8c",
@@ -14,6 +60,92 @@
       "writtenOn": "2024-01-16T16:20:55Z",
       "side": 1,
       "message": "PTAL. Thanks!",
+      "revId": "cf1c2078455c9d54877884647b48fb092db55221",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "65b87f4f_b95ac440",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1095,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-01-22T10:20:33Z",
+      "side": 1,
+      "message": "Add a LOG(WARNING) ? Or is that handled higher up?",
+      "revId": "cf1c2078455c9d54877884647b48fb092db55221",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bdf768cb_a9e699a8",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1263,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-01-22T10:20:33Z",
+      "side": 1,
+      "message": "You mean the one currently owned by the thread? Can you expand the comment?",
+      "range": {
+        "startLine": 1263,
+        "startChar": 28,
+        "endLine": 1263,
+        "endChar": 38
+      },
+      "revId": "cf1c2078455c9d54877884647b48fb092db55221",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b0ebe668_7a94ea17",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1275,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-01-22T10:20:33Z",
+      "side": 1,
+      "message": "Whis is this `Release` when we don\u0027t store 0? Should it be called `Fetch` ?",
+      "range": {
+        "startLine": 1275,
+        "startChar": 18,
+        "endLine": 1275,
+        "endChar": 45
+      },
+      "revId": "cf1c2078455c9d54877884647b48fb092db55221",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9621d252_07577585",
+        "filename": "runtime/trace.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-01-22T10:20:33Z",
+      "side": 1,
+      "message": "Do you need this? Isn\u0027t it `owner_tids_.size()` ?",
+      "range": {
+        "startLine": 309,
+        "startChar": 0,
+        "endLine": 309,
+        "endChar": 25
+      },
       "revId": "cf1c2078455c9d54877884647b48fb092db55221",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
