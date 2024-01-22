@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "34ad3e77_7ad07d83",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-22T10:47:03Z",
+      "side": 1,
+      "message": "I will take a deeper look later, but some of the defined functions are unused are they not? Not sure if you were planning on using them later",
+      "revId": "476db06d87f346ddee0afb99349cc58679957a25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "633fc0fd_5b52913f",
+        "filename": "compiler/utils/assembler_test.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-22T10:47:03Z",
+      "side": 1,
+      "message": "Only used by `RepeatVIV` which is unused. Can we remove both?",
+      "range": {
+        "startLine": 308,
+        "startChar": 14,
+        "endLine": 308,
+        "endChar": 45
+      },
+      "revId": "476db06d87f346ddee0afb99349cc58679957a25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bfbcb45e_fc04c107",
+        "filename": "compiler/utils/assembler_test.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 747,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-22T10:47:03Z",
+      "side": 1,
+      "message": "unused",
+      "range": {
+        "startLine": 747,
+        "startChar": 14,
+        "endLine": 747,
+        "endChar": 23
+      },
+      "revId": "476db06d87f346ddee0afb99349cc58679957a25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c1366593_7d09095d",
+        "filename": "compiler/utils/assembler_test.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 874,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-22T10:47:03Z",
+      "side": 1,
+      "message": "unused",
+      "range": {
+        "startLine": 874,
+        "startChar": 14,
+        "endLine": 874,
+        "endChar": 23
+      },
+      "revId": "476db06d87f346ddee0afb99349cc58679957a25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48c1fbcb_52474515",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 1635,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-22T10:47:03Z",
+      "side": 1,
+      "message": "unused",
+      "range": {
+        "startLine": 1635,
+        "startChar": 7,
+        "endLine": 1635,
+        "endChar": 21
+      },
+      "revId": "476db06d87f346ddee0afb99349cc58679957a25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
