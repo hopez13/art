@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2adbc613_152a44cd",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2024-01-22T15:25:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "333aca19_71290b6a",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 6
+      },
+      "revId": "771a2eba2d73a57ad55ea851a55181d21fbdce5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e31d4f19_1c921d56",
@@ -37,6 +61,24 @@
       "writtenOn": "2024-01-22T15:14:50Z",
       "side": 1,
       "message": "Nit: Add a comment that the `EXPORT` is for libartservice.",
+      "revId": "771a2eba2d73a57ad55ea851a55181d21fbdce5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee9fea91_3cb87c07",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 864,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2024-01-22T15:25:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e31d4f19_1c921d56",
       "revId": "771a2eba2d73a57ad55ea851a55181d21fbdce5c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
