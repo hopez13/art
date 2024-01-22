@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a2a7d59_7b0b0ed7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-01-22T16:44:00Z",
+      "side": 1,
+      "message": "A bit late now, but I think the condition on line 268 in mark_compact.cc looks at both this flag and `persist.device_config.runtime_native_boot.force_disable_uffd_gc`.",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 59,
+        "endChar": 60
+      },
+      "revId": "d4b899e9fb1cc338eebcb392b3f44148a229c12e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
