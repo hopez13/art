@@ -96,6 +96,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "49561463_35dd1741",
+        "filename": "libartservice/service/java/com/android/server/art/ArtManagerLocal.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 1331,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-01-22T23:11:13Z",
+      "side": 1,
+      "message": "Ok, it\u0027s probably not worth the effort to check that invariant. With the change in `getArtd` there are only a few long winded invocations where the pinning would make a difference.\n\n\u003e not just in ArtManagerLocal itself but also in its dependencies, which we have mocked in ArtManagerLocalTest and cannot be checked.\n\nRight, I haven\u0027t reflected much on that before, but ideally nothing internal in ART Service should be mocked in its own tests, only the external dependencies should be*. Mocks always introduce the risk of gaps in tests since they may not mimic the real thing properly. Anyway, that\u0027s for another time.\n\n*) At least in the tests for the main successful code paths from the entry points - mocking for error conditions is another matter.",
+      "parentUuid": "d25d7b10_599f3700",
+      "range": {
+        "startLine": 1331,
+        "startChar": 32,
+        "endLine": 1331,
+        "endChar": 35
+      },
+      "revId": "4d90fbfcdb39320868c909af7488015090e4eb2c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5db914e7_846003a0",
