@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0bb0e87d_a24cbab0",
+        "filename": "libartservice/service/native/service.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2024-01-22T16:11:44Z",
+      "side": 1,
+      "message": "Indeed I have exposed this method (rather than inlining in the JNI entry point as you suggest) mainly for testing purposes, as this would be the only place to test its real behaviour - in the Java test (in libartservice/service/javatests/com/android/server/art/DumpHelperTest.java) we are mocking the JNI call to return a string of our choice, which might or might not be the actual one that we would receive from a real call to `GetGarbageCollector()`.",
+      "parentUuid": "e18d65b9_29427035",
+      "range": {
+        "startLine": 82,
+        "startChar": 0,
+        "endLine": 84,
+        "endChar": 1
+      },
+      "revId": "7d081c8ac27326f95d323acbb3772545b9f77c19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4c93f09c_7b429260",
         "filename": "libartservice/service/native/service_test.cc",
         "patchSetId": 7
