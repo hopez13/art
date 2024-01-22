@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e18d65b9_29427035",
+        "filename": "libartservice/service/native/service.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-01-22T15:58:59Z",
+      "side": 1,
+      "message": "This is only used in one place. Do we need it on the native level? I suggest folding it into the JNI entry point and skip the native level test. It\u0027s enough to test on the java level.",
+      "range": {
+        "startLine": 82,
+        "startChar": 0,
+        "endLine": 84,
+        "endChar": 1
+      },
+      "revId": "7d081c8ac27326f95d323acbb3772545b9f77c19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c93f09c_7b429260",
+        "filename": "libartservice/service/native/service_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-01-22T15:58:59Z",
+      "side": 1,
+      "message": "If you want to keep the native test, then please move this into the test and leave the class empty.",
+      "range": {
+        "startLine": 113,
+        "startChar": 4,
+        "endLine": 113,
+        "endChar": 76
+      },
+      "revId": "7d081c8ac27326f95d323acbb3772545b9f77c19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
