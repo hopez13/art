@@ -74,6 +74,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "709a2f4f_9c02d6f7",
+        "filename": "libartservice/service/native/service.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2024-01-22T16:50:36Z",
+      "side": 1,
+      "message": "I have tried removing the mock from `DumpHelperTest.java`, but that results in a segmentation fault in `testDump`:\n```\n01-22 16:43:09 V/InstrumentationResultParser: INSTRUMENTATION_STATUS: test\u003dtestDump\n01-22 16:43:09 D/ModuleListener: ModuleListener.testStarted(com.android.server.art.DumpHelperTest#testDump) on 127.0.0.1:59791\n01-22 16:43:09 V/InstrumentationResultParser: INSTRUMENTATION_STATUS_CODE: 1\n01-22 16:43:09 V/InstrumentationResultParser: INSTRUMENTATION_RESULT: shortMsg\u003dProcess crashed.\n01-22 16:43:09 I/InstrumentationResultParser: test run failed: \u0027Instrumentation run failed due to \u0027Process crashed.\u0027\u0027\n01-22 16:43:09 D/NativeDevice: Using property ro.build.version.sdk\u003d34 from cache.\n01-22 16:43:10 I/TestFailureListener: FailureListener.testFailed com.android.server.art.DumpHelperTest#testDump false\n01-22 16:43:10 I/ModuleListener: [143/241] 127.0.0.1:59791 com.android.server.art.tests com.android.server.art.DumpHelperTest#testDump FAILURE: Test failed to run to completion. Reason: \u0027Instrumentation run failed due to \u0027Process crashed.\u0027\u0027. Check device logcat for details\n```\nwhere the logcat is:\n```\n01-22 16:43:08.304 10108  3403  3419 I TestRunner: started: testDump(com.android.server.art.DumpHelperTest)\n--------- beginning of crash\n01-22 16:43:08.357 10108  3403  3553 F libc    : Fatal signal 11 (SIGSEGV), code 1 (SEGV_MAPERR), fault addr 0x200 in tid 3553 (Time-limited te), pid 3403 (erver.art.tests)\n[...]\n01-22 16:43:09.042 10108  3556  3556 F DEBUG   : backtrace:\n01-22 16:43:09.042 10108  3556  3556 F DEBUG   :       #00 pc 0000000000005603  /data/app/~~_RY5WV9p1QjVz15eegbNcQ\u003d\u003d/com.android.server.art.tests-KGL7n8fPq-32Pacv8qDlFg\u003d\u003d/base.apk!libartservice.so (offset 0x1bec000) (Java_com_android_server_art_ArtJni_getGarbageCollectorNative+35) (BuildId: cc71cdafb4019f294427ed8fbd6162c2)\n```\n\nAbout testing the JNI entry point, I\u0027m not sure how to achieve that - I took inspiration from the other JNI calls that are available in `service.cc` where they expose the main logic into a separate method which is then tested in `service_test.cc` and there\u0027s no test (that I can find) around the JNI entry point.",
+      "parentUuid": "6cade76b_02e60e67",
+      "range": {
+        "startLine": 82,
+        "startChar": 0,
+        "endLine": 84,
+        "endChar": 1
+      },
+      "revId": "7d081c8ac27326f95d323acbb3772545b9f77c19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4c93f09c_7b429260",
         "filename": "libartservice/service/native/service_test.cc",
         "patchSetId": 7
