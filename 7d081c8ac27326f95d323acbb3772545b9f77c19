@@ -144,6 +144,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9045a0c5_f1d5114a",
+        "filename": "libartservice/service/native/service.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-01-22T22:14:38Z",
+      "side": 1,
+      "message": "We need to access [`Runtime::Current()`](https://cs.android.com/android/platform/superproject/main/+/main:art/runtime/runtime.h;l\u003d279;drc\u003d95ef776b3efb1c23f9ab21e81ded07c2a4d0e36b) in the JNI lib. If we link statically, I suppose that field will refer to a different variable, so it won\u0027t work.",
+      "parentUuid": "f96c93b0_d3097614",
+      "range": {
+        "startLine": 82,
+        "startChar": 0,
+        "endLine": 84,
+        "endChar": 1
+      },
+      "revId": "7d081c8ac27326f95d323acbb3772545b9f77c19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4c93f09c_7b429260",
