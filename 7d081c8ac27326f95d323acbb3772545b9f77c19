@@ -96,6 +96,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a1801b0_0fbdbdb7",
+        "filename": "libartservice/service/native/service.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-01-22T16:54:23Z",
+      "side": 1,
+      "message": "\u003e Why can\u0027t we do JNI calls in those tests?\n\nI tried that initially when I was setting up the JNI library, but faced some issues. The test is an ordinary app from the runtime\u0027s perspective. I\u0027m not sure if it can access libart.so or how to make it possible. I think it\u0027s not trivial to make the JNI calls work in the test.\n\n\u003e If it has to be tested in native code, what about testing the JNI entry point instead?\n\nIt\u0027s not trivial either. The JNI entry point takes a `JNIEnv` pointer. I\u0027m not sure how to set up a JNIEnv properly for testing.",
+      "parentUuid": "6cade76b_02e60e67",
+      "range": {
+        "startLine": 82,
+        "startChar": 0,
+        "endLine": 84,
+        "endChar": 1
+      },
+      "revId": "7d081c8ac27326f95d323acbb3772545b9f77c19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4c93f09c_7b429260",
