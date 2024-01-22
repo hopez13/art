@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6cade76b_02e60e67",
+        "filename": "libartservice/service/native/service.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-01-22T16:32:41Z",
+      "side": 1,
+      "message": "Oh, I missed that it\u0027s mocked. Is that really necessary? Why can\u0027t we do JNI calls in those tests?\n\nIf it has to be tested in native code, what about testing the JNI entry point instead? Less untested wrappers that may go wrong.",
+      "parentUuid": "0bb0e87d_a24cbab0",
+      "range": {
+        "startLine": 82,
+        "startChar": 0,
+        "endLine": 84,
+        "endChar": 1
+      },
+      "revId": "7d081c8ac27326f95d323acbb3772545b9f77c19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4c93f09c_7b429260",
         "filename": "libartservice/service/native/service_test.cc",
         "patchSetId": 7
