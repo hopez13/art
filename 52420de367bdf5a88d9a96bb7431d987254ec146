@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "47a3a930_2c7f6316",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2024-01-22T16:30:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c02f7e1e_ad51efcc",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 33
+      },
+      "revId": "52420de367bdf5a88d9a96bb7431d987254ec146",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "14a5ed49_7c4c49e2",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-01-18T18:34:40Z",
       "side": 1,
       "message": "Since this description easily can be taken as complete user docs for `PRODUCT_ENABLE_UFFD_GC`, it may be worth pointing out that we don\u0027t necessarily intend to heed this in future ART module updates.",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 50,
+        "endChar": 67
+      },
+      "revId": "52420de367bdf5a88d9a96bb7431d987254ec146",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d36aad6_f0ce7c4b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2024-01-22T16:30:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "14a5ed49_7c4c49e2",
       "range": {
         "startLine": 45,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "185cb574_ddf8dabb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2024-01-22T16:30:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e7797b90_99723770",
+      "range": {
+        "startLine": 53,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 52
+      },
+      "revId": "52420de367bdf5a88d9a96bb7431d987254ec146",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f2a8547f_1e5c960a",
@@ -93,6 +165,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f8a48b2a_584c49d5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2024-01-22T16:30:09Z",
+      "side": 1,
+      "message": "Right; I moved this sentence earlier to make it clearer.",
+      "parentUuid": "f2a8547f_1e5c960a",
+      "range": {
+        "startLine": 53,
+        "startChar": 63,
+        "endLine": 54,
+        "endChar": 23
+      },
+      "revId": "52420de367bdf5a88d9a96bb7431d987254ec146",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ba573ccf_176dd85c",
@@ -106,6 +202,30 @@
       "writtenOn": "2024-01-18T18:34:40Z",
       "side": 1,
       "message": "For the sake of completeness, we ought to check that the boot image also gets used (iow, no JIT zygote(?)) in these tests.",
+      "range": {
+        "startLine": 65,
+        "startChar": 35,
+        "endLine": 67,
+        "endChar": 29
+      },
+      "revId": "52420de367bdf5a88d9a96bb7431d987254ec146",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "178130e1_d31e842c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2024-01-22T16:30:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ba573ccf_176dd85c",
       "range": {
         "startLine": 65,
         "startChar": 35,
