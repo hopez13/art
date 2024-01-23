@@ -70,6 +70,30 @@
       },
       "revId": "8af139c6ffa368eb3ab1f4b2fa89e1063576e1a6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e12263ac_b52bd7de",
+        "filename": "libartservice/service/java/com/android/server/art/Dexopter.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-01-23T19:16:17Z",
+      "side": 1,
+      "message": "\u003e You\u0027re assuming the user runs this with the purpose to load it into the runtime.\n\nYes, I want to minimize user\u0027s confusion in major use cases rather than supporting minor use cases, unless there is a good reason.\n\n\u003e Regardless what we do here, the runtime ought to explain why it isn\u0027t loading a file (at least in some debug logging mode). Isn\u0027t that the case?\n\nYou can take a look at the callers of [`IsJavaDebuggable()`](https://cs.android.com/android/platform/superproject/main/+/main:art/runtime/runtime.h;l\u003d838;drc\u003dd19b6a90b6d689ca4961116a7f35234fb9931169). I\u0027m not sure if any of those prints useful logs or the logs that they print are understandable by ordinary users.\n\n\u003e We can\u0027t assume we\u0027ll perfectly anticipate the runtime behaviour anyway.\n\nThat\u0027s true, but I want to minimize user\u0027s confusion when we can.\n\n\u003e The runtime blocks that too, yes?\n\nYou are right. Initially I thought it didn\u0027t because I couldn\u0027t find any reference to the flag in the runtime, but it turns out that the flag is [handled in the framework](https://cs.android.com/android/platform/superproject/main/+/main:frameworks/base/services/core/java/com/android/server/am/ProcessList.java;l\u003d1894;drc\u003d36fc7d357b7ffb7bb1f42d9d487a9d87cc767347).\n\n\u003e Still, I maintain that we should let the user know when we override the forced filter.\n\nI agree. I was asked by others more than once why a package isn\u0027t dexopted with the desired compiler filter. Added logging. ([Test logs](https://paste.googleplex.com/5832316205662208))\n\n\u003e Ideally in the command output, but that\u0027s too much work.\n\nWe actually print the actual compiler filter after adjustments if the user passes `-v` to `pm compile`, though we don\u0027t print specific reasons for the adjustments. It\u0027s unfortunate that we have to hide the actual compiler filter behind the `-v` flag for compatibility reasons.",
+      "parentUuid": "6b7a1d42_c16f5de6",
+      "range": {
+        "startLine": 336,
+        "startChar": 0,
+        "endLine": 365,
+        "endChar": 9
+      },
+      "revId": "8af139c6ffa368eb3ab1f4b2fa89e1063576e1a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
