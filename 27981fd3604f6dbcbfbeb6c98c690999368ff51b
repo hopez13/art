@@ -39,6 +39,30 @@
       },
       "revId": "27981fd3604f6dbcbfbeb6c98c690999368ff51b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a4fecc1d_ff048385",
+        "filename": "runtime/runtime_globals.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2024-01-23T13:29:02Z",
+      "side": 1,
+      "message": "Done.\n\nIn order to define these as constexpr, the gPageSize operator() needed to be also be tagged as constexpr.\n\nOn pga-mode, as gPageSize.value_ cannot be compile-time evaluated, the operator (and these functions) will remain run-time evaluated and the operator constexpr keyword will essentially have no effect. But it does mean that on non-pga-mode, we no longer need to specify two different constexpr definitions that effectively do the same thing.\n\n(Note: as constexpr implies inline, the inline keyword has been dropped).",
+      "parentUuid": "f050518c_a65fafae",
+      "range": {
+        "startLine": 97,
+        "startChar": 0,
+        "endLine": 102,
+        "endChar": 1
+      },
+      "revId": "27981fd3604f6dbcbfbeb6c98c690999368ff51b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
