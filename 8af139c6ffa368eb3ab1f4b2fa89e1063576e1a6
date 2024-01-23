@@ -46,6 +46,30 @@
       },
       "revId": "8af139c6ffa368eb3ab1f4b2fa89e1063576e1a6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b7a1d42_c16f5de6",
+        "filename": "libartservice/service/java/com/android/server/art/Dexopter.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-01-23T17:58:52Z",
+      "side": 1,
+      "message": "You\u0027re assuming the user runs this with the purpose to load it into the runtime. This is a developer tool, so that\u0027s not at all certain. They may want to compile to see the size, or the dex2oat time, or whatever.\n\n\u003e users will see that filter in DexoptResult and in the dump, while the runtime treats the app as if it\u0027s in \"verify\", so it will be even harder to reason about.\n\nRegardless what we do here, the runtime ought to explain why it isn\u0027t loading a file (at least in some debug logging mode). Isn\u0027t that the case? We can\u0027t assume we\u0027ll perfectly anticipate the runtime behaviour anyway.\n\n\u003e This is for security. If we ignore this condition, we\u0027ll be providing an attack vector.\n\nThe runtime blocks that too, yes? I suppose we\u0027re talking about defense in depth here, so that\u0027s the only compelling case.\n\nStill, I maintain that we should let the user know when we override the forced filter. Ideally in the command output, but that\u0027s too much work. However we can still drop something about it in the logcat.",
+      "parentUuid": "bbd347c5_c1721fec",
+      "range": {
+        "startLine": 336,
+        "startChar": 0,
+        "endLine": 365,
+        "endChar": 9
+      },
+      "revId": "8af139c6ffa368eb3ab1f4b2fa89e1063576e1a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
