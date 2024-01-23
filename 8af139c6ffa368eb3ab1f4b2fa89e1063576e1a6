@@ -22,6 +22,30 @@
       },
       "revId": "8af139c6ffa368eb3ab1f4b2fa89e1063576e1a6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bbd347c5_c1721fec",
+        "filename": "libartservice/service/java/com/android/server/art/Dexopter.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-01-23T14:11:48Z",
+      "side": 1,
+      "message": "Let me talk about those conditions one by one.\n\n`isVmSafeMode`:\n\nhttps://developer.android.com/guide/topics/manifest/application-element#vmSafeMode\n\n\u003e This attribute was adapted in API level 22, where a value of \"true\" disabled the ART ahead-of-time (AOT) compiler.\n\nIf we ignore this condition, we\u0027ll be violating this guarantee.\n\n`isDebuggable`:\n\nAs the comment on line 336-342 said, the runtime will ignore the compiled code anyway. If we force \"speed-profile\" or \"speed\", users will see that filter in DexoptResult and in the dump, while the runtime treats the app as if it\u0027s in \"verify\", so it will be even harder to reason about.\n\n`isUseEmbeddedDex`:\n\nhttps://developer.android.com/privacy-and-security/security-dex\n\n\u003e On devices running Android 10 (API level 29) and higher you can tell the platform to run embedded DEX code directly from your app\u0027s APK file. This option can help prevent an attack if an attacker ever managed to tamper with the locally compiled code on the device.\n\nThis is for security. If we ignore this condition, we\u0027ll be providing an attack vector.\n\n`FLAG_IGNORE_PROFILE`:\n\nThe order of precedence doesn\u0027t matter.\n\nCurrently, it\u0027s impossible for `FLAG_IGNORE_PROFILE` and `FLAG_FORCE_COMPILER_FILTER` to co-exist. `FLAG_IGNORE_PROFILE` is set through `--ignore-dexopt-profile` in the `adb install` command; `FLAG_FORCE_COMPILER_FILTER` is set through `-m \u003ccompiler-filter\u003e` in the `pm compile` command.\n\nTaking a step back, I can\u0027t think of any use case where `FLAG_IGNORE_PROFILE` and `FLAG_FORCE_COMPILER_FILTER` should co-exist.\n\nAccording to the javadoc on `FLAG_IGNORE_PROFILE`:\n\n\u003e This option is especially useful when the compiler filter is not explicitly specified.\n\nAccording to the javadoc on `FLAG_FORCE_COMPILER_FILTER`:\n\n\u003e Whether to force the specified compiler filter.\n\nAs you can see, their use cases conflict with each other. That\u0027s why the order of precedence doesn\u0027t matter.",
+      "parentUuid": "77ab1817_ff5fa6bb",
+      "range": {
+        "startLine": 336,
+        "startChar": 0,
+        "endLine": 365,
+        "endChar": 9
+      },
+      "revId": "8af139c6ffa368eb3ab1f4b2fa89e1063576e1a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
