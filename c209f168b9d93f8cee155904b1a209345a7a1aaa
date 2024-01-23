@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c454496_67b5b591",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2024-01-23T01:18:01Z",
+      "side": 1,
+      "message": "post-review fix in r.android.com/2923297",
+      "revId": "c209f168b9d93f8cee155904b1a209345a7a1aaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bd8731f8_55b25860",
@@ -14,6 +31,30 @@
       "writtenOn": "2024-01-02T09:45:45Z",
       "side": 1,
       "message": "Previous change introduced `is_unsigned` arg for `GET_VREG`, so we could just use that instead.\n\nUsing `GET_VREG_OBJECT` can turn a corrupted reference to a simple NPE and I\u0027d prefer to see a crash if an numeric value is used as a reference.",
+      "range": {
+        "startLine": 17,
+        "startChar": 5,
+        "endLine": 17,
+        "endChar": 20
+      },
+      "revId": "c209f168b9d93f8cee155904b1a209345a7a1aaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b577071a_df345f46",
+        "filename": "runtime/interpreter/mterp/riscv64/other.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2024-01-23T01:18:01Z",
+      "side": 1,
+      "message": "Changed uniformly for MOVE opcodes.",
+      "parentUuid": "bd8731f8_55b25860",
       "range": {
         "startLine": 17,
         "startChar": 5,
