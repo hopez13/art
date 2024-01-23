@@ -22,6 +22,30 @@
       },
       "revId": "4039046ddb6260d812ec32a80c60019fdb1b9d3c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "07845909_6fa7357c",
+        "filename": "runtime/mirror/array.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2024-01-23T22:09:15Z",
+      "side": 1,
+      "message": "There are multiple places that would have to be modified and I\u0027m not sure if it is safe to do so in all of them.\n```\nObjectArray\u003cT\u003e::Get(int32_t i)\n  art/dex2oat/linker/image_writer.cc (1 result)\n  art/oatdump/oatdump.cc (4 results)\n  art/openjdkjvmti/ti_redefine.cc (5 results)\n  art/test/626-const-class-linking/clear_dex_cache_types.cc (4 results)   \n  art/imgdiag/imgdiag.cc (1 result)\nObjectArray\u003cT\u003e::Set(int32_t i, ObjPtr\u003cT\u003e object)\n  art/openjdkjvmti/ti_heap.cc (1 result)\n  art/openjdkjvmti/ti_redefine.cc (6 results)\n```",
+      "parentUuid": "19e9f942_7b01eed5",
+      "range": {
+        "startLine": 131,
+        "startChar": 2,
+        "endLine": 131,
+        "endChar": 8
+      },
+      "revId": "4039046ddb6260d812ec32a80c60019fdb1b9d3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
