@@ -5740,6 +5740,7 @@ CodeGeneratorRISCV64::CodeGeneratorRISCV64(HGraph* graph,
                          graph->GetAllocator()->Adapter(kArenaAllocCodeGenerator)) {
   // Always mark the RA register to be saved.
   AddAllocatedRegister(Location::RegisterLocation(RA));
+  assembler_.SetCompressionMode(GetInstructionSetFeatures().HasCompressed());
 }
 
 void CodeGeneratorRISCV64::MaybeIncrementHotness(HSuspendCheck* suspend_check,
