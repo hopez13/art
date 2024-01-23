@@ -6657,6 +6657,7 @@ void CodeGeneratorRISCV64::LoadClassRootForIntrinsic(XRegister dest, ClassRoot c
 }
 
 void CodeGeneratorRISCV64::LoadMethod(MethodLoadKind load_kind, Location temp, HInvoke* invoke) {
+  ScopedNoCInstructions noCompression(GetAssembler());
   switch (load_kind) {
     case MethodLoadKind::kBootImageLinkTimePcRelative: {
       DCHECK(GetCompilerOptions().IsBootImage() || GetCompilerOptions().IsBootImageExtension());

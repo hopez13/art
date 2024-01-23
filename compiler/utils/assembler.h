@@ -99,18 +99,22 @@ class AssemblerBuffer {
   // Basic support for emitting, loading, and storing.
   template<typename T> void Emit(T value) {
     CHECK(HasEnsuredCapacity());
-    *reinterpret_cast<T*>(cursor_) = value;
+    // On some ISA implementations unaligned access could be slow so
+    // use memcpy() and expect clang optimizes this proprely
+    memcpy(cursor_, &value, sizeof(T));
     cursor_ += sizeof(T);
   }
 
   template<typename T> T Load(size_t position) {
     CHECK_LE(position, Size() - static_cast<int>(sizeof(T)));
-    return *reinterpret_cast<T*>(contents_ + position);
+    T value;
+    memcpy(&value, contents_ + position, sizeof(T));
+    return value;
   }
 
   template<typename T> void Store(size_t position, T value) {
     CHECK_LE(position, Size() - static_cast<int>(sizeof(T)));
-    *reinterpret_cast<T*>(contents_ + position) = value;
+    memcpy(contents_ + position, &value, sizeof(T));
   }
 
   void Resize(size_t new_size) {
