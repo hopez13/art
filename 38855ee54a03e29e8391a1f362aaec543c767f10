@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a76f970_d4b5fbc0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2024-01-23T01:17:32Z",
+      "side": 1,
+      "message": "post-review fix in r.android.com/2923297",
+      "revId": "38855ee54a03e29e8391a1f362aaec543c767f10",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "51d36351_901dec6a",
@@ -14,6 +31,30 @@
       "writtenOn": "2024-01-02T08:16:05Z",
       "side": 1,
       "message": "Unnecessary, this code is only for refs now.",
+      "range": {
+        "startLine": 430,
+        "startChar": 6,
+        "endLine": 430,
+        "endChar": 15
+      },
+      "revId": "38855ee54a03e29e8391a1f362aaec543c767f10",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc0aee73_46417883",
+        "filename": "runtime/interpreter/mterp/riscv64/object.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 430,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2024-01-23T01:17:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "51d36351_901dec6a",
       "range": {
         "startLine": 430,
         "startChar": 6,
