@@ -118,6 +118,30 @@
       },
       "revId": "8af139c6ffa368eb3ab1f4b2fa89e1063576e1a6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48a57fb4_46ddfaac",
+        "filename": "libartservice/service/java/com/android/server/art/Dexopter.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-01-24T12:49:02Z",
+      "side": 1,
+      "message": "Looks like we have different understandings on what developers are trying to do with the `-m` flag. In my experience (given all those questions I got from Jetpack team, sys health team, etc.), by specifying `-m`, developers want to see the performance aspect, that is, how the app performs with the given compiler filter. But both of us are just guessing, so I can\u0027t say my understanding is correct.\n\nI get you point, but I\u0027m sorry that I can\u0027t accept creating a huge gap between the dexopt behavior and the runtime behavior. It\u0027s too confusing when developers want to measure the performance, even if we state this in the help text (nobody really reads it).\n\nTo meet halfway, WDYT about failing the `pm compile` command if the `-m` flag can\u0027t be fulfilled due to these conditions?\n\n\u003e Was that supposed to become a new patchset here?\n\nYes, that\u0027s PS2.",
+      "parentUuid": "9cb6951d_42e2f74f",
+      "range": {
+        "startLine": 336,
+        "startChar": 0,
+        "endLine": 365,
+        "endChar": 9
+      },
+      "revId": "8af139c6ffa368eb3ab1f4b2fa89e1063576e1a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
