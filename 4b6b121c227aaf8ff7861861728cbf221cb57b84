@@ -46,6 +46,30 @@
       },
       "revId": "4b6b121c227aaf8ff7861861728cbf221cb57b84",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8a9b31e_237d8374",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 794,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-24T14:47:59Z",
+      "side": 1,
+      "message": "Should we add a `visited_blocks.ClearAllBits()` then?",
+      "parentUuid": "9118e2ee_51a79c37",
+      "range": {
+        "startLine": 794,
+        "startChar": 19,
+        "endLine": 794,
+        "endChar": 33
+      },
+      "revId": "4b6b121c227aaf8ff7861861728cbf221cb57b84",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
