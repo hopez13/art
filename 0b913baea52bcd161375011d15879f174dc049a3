@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd3fd76a_fa68c92c",
+        "filename": "runtime/mapping_table.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-24T17:27:40Z",
+      "side": 1,
+      "message": "Let\u0027s remove this file instead with https://android-review.googlesource.com/2926738 .",
+      "revId": "0b913baea52bcd161375011d15879f174dc049a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7144e68_c3d351c7",
+        "filename": "runtime/monitor.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-24T17:27:40Z",
+      "side": 1,
+      "message": "I\u0027d prefer one per line as before.",
+      "range": {
+        "startLine": 83,
+        "startChar": 6,
+        "endLine": 84,
+        "endChar": 78
+      },
+      "revId": "0b913baea52bcd161375011d15879f174dc049a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3fe0ab12_3c8187b4",
+        "filename": "runtime/monitor.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-24T17:27:40Z",
+      "side": 1,
+      "message": "Undo line break and indentation changes here.",
+      "range": {
+        "startLine": 87,
+        "startChar": 33,
+        "endLine": 90,
+        "endChar": 37
+      },
+      "revId": "0b913baea52bcd161375011d15879f174dc049a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
