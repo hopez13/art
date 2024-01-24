@@ -1050,7 +1050,7 @@ MACRO1(COMPUTE_ARRAY_SIZE_UNKNOWN, slow_path)
     // Possibly a large object, go slow.
     // Also does negative array size check.
     cmpl LITERAL((MIN_LARGE_OBJECT_THRESHOLD - MIRROR_WIDE_ARRAY_DATA_OFFSET) / 8), %ecx
-    ja RAW_VAR(slow_path)
+    jae RAW_VAR(slow_path)
     PUSH ecx
     movl %ecx, %edx
     movl MIRROR_CLASS_COMPONENT_TYPE_OFFSET(%eax), %ecx        // Load component type.
@@ -1075,7 +1075,7 @@ MACRO1(COMPUTE_ARRAY_SIZE_8, slow_path)
     // Possibly a large object, go slow.
     // Also does negative array size check.
     cmpl LITERAL(MIN_LARGE_OBJECT_THRESHOLD - MIRROR_INT_ARRAY_DATA_OFFSET), %ecx
-    ja RAW_VAR(slow_path)
+    jae RAW_VAR(slow_path)
     // Add array header + alignment rounding.
     leal (MIRROR_INT_ARRAY_DATA_OFFSET + OBJECT_ALIGNMENT_MASK)(%ecx), %edx
 END_MACRO
@@ -1085,7 +1085,7 @@ MACRO1(COMPUTE_ARRAY_SIZE_16, slow_path)
     // Possibly a large object, go slow.
     // Also does negative array size check.
     cmpl LITERAL((MIN_LARGE_OBJECT_THRESHOLD - MIRROR_INT_ARRAY_DATA_OFFSET) / 2), %ecx
-    ja RAW_VAR(slow_path)
+    jae RAW_VAR(slow_path)
     // Add array header + alignment rounding.
     leal ((MIRROR_INT_ARRAY_DATA_OFFSET + OBJECT_ALIGNMENT_MASK) / 2)(%ecx), %edx
     sall MACRO_LITERAL(1), %edx
@@ -1096,7 +1096,7 @@ MACRO1(COMPUTE_ARRAY_SIZE_32, slow_path)
     // Possibly a large object, go slow.
     // Also does negative array size check.
     cmpl LITERAL((MIN_LARGE_OBJECT_THRESHOLD - MIRROR_INT_ARRAY_DATA_OFFSET) / 4), %ecx
-    ja RAW_VAR(slow_path)
+    jae RAW_VAR(slow_path)
     // Add array header + alignment rounding.
     leal ((MIRROR_INT_ARRAY_DATA_OFFSET + OBJECT_ALIGNMENT_MASK) / 4)(%ecx), %edx
     sall MACRO_LITERAL(2), %edx
@@ -1107,7 +1107,7 @@ MACRO1(COMPUTE_ARRAY_SIZE_64, slow_path)
     // Possibly a large object, go slow.
     // Also does negative array size check.
     cmpl LITERAL((MIN_LARGE_OBJECT_THRESHOLD - MIRROR_WIDE_ARRAY_DATA_OFFSET) / 8), %ecx
-    ja RAW_VAR(slow_path)
+    jae RAW_VAR(slow_path)
     // Add array header + alignment rounding.
     leal ((MIRROR_WIDE_ARRAY_DATA_OFFSET + OBJECT_ALIGNMENT_MASK) / 8)(%ecx), %edx
     sall MACRO_LITERAL(3), %edx
