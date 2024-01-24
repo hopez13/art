@@ -1,0 +1,245 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "df11a7bb_696d4792",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-24T15:06:32Z",
+      "side": 1,
+      "message": "Partial review, some comments on the defined helper methods",
+      "revId": "4ad36b83248c46aafeca63296afee7ca2dd57057",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e76b401b_70ee9636",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1122,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-24T15:06:32Z",
+      "side": 1,
+      "message": "Not sure if I understand the naming. Shouldn\u0027t it be `RepeatVRAligned`?",
+      "range": {
+        "startLine": 1122,
+        "startChar": 14,
+        "endLine": 1122,
+        "endChar": 25
+      },
+      "revId": "4ad36b83248c46aafeca63296afee7ca2dd57057",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "421e49f0_8219037e",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1175,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-24T15:06:32Z",
+      "side": 1,
+      "message": "Here and in the other `RepeatTemplatedRegistersVM`, it should read `Vm` (as in lowercase). At least the other cases are using `Vm` (and not `VM`) in their naming",
+      "range": {
+        "startLine": 1175,
+        "startChar": 14,
+        "endLine": 1175,
+        "endChar": 40
+      },
+      "revId": "4ad36b83248c46aafeca63296afee7ca2dd57057",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a729c3c1_b10b1927",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1186,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-24T15:06:32Z",
+      "side": 1,
+      "message": "`WarnOnCombinations`? We can get the sizes from the `ArrayRef` and multiply by 2 (for the two VM values).\n\nSame for methods below e.g. RepeatTemplatedRegistersPred",
+      "revId": "4ad36b83248c46aafeca63296afee7ca2dd57057",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "141d827b_c8a71970",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1388,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-24T15:06:32Z",
+      "side": 1,
+      "message": "What\u0027s the `b` in `RepeatVVIbFiltered` representing? Looks like a typo",
+      "range": {
+        "startLine": 1388,
+        "startChar": 14,
+        "endLine": 1388,
+        "endChar": 32
+      },
+      "revId": "4ad36b83248c46aafeca63296afee7ca2dd57057",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "24c08013_293901e0",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1429,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-24T15:06:32Z",
+      "side": 1,
+      "message": "nit: exchange loops to keep the `VVIVm` pattern",
+      "range": {
+        "startLine": 1428,
+        "startChar": 6,
+        "endLine": 1429,
+        "endChar": 53
+      },
+      "revId": "4ad36b83248c46aafeca63296afee7ca2dd57057",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "404fb029_473def34",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1486,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-24T15:06:32Z",
+      "side": 1,
+      "message": "May be worth it to define `RepeatRVVm(...)` which passes the \"always true predicate\" to `RepeatTemplatedRegistersVM` or even maybe to `RepeatRVVmFiltered`. This would get rid of a lot of `VmIdPredicate` (maybe all of it)",
+      "range": {
+        "startLine": 1486,
+        "startChar": 14,
+        "endLine": 1486,
+        "endChar": 32
+      },
+      "revId": "4ad36b83248c46aafeca63296afee7ca2dd57057",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cfca0e09_0c023665",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1569,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-24T15:06:32Z",
+      "side": 1,
+      "message": "v0 v1 overlap? Or vd vs1 overlap? Same for below",
+      "range": {
+        "startLine": 1569,
+        "startChar": 16,
+        "endLine": 1569,
+        "endChar": 27
+      },
+      "revId": "4ad36b83248c46aafeca63296afee7ca2dd57057",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32273c92_73a44dc9",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1571,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-24T15:06:32Z",
+      "side": 1,
+      "message": "Can we define this (or the opposite) once and call a function? There are several places that are using it",
+      "range": {
+        "startLine": 1571,
+        "startChar": 10,
+        "endLine": 1571,
+        "endChar": 55
+      },
+      "revId": "4ad36b83248c46aafeca63296afee7ca2dd57057",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a73151f_a5aacb99",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1572,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-24T15:06:32Z",
+      "side": 1,
+      "message": "`{}` around this line. Same for below",
+      "range": {
+        "startLine": 1572,
+        "startChar": 8,
+        "endLine": 1572,
+        "endChar": 21
+      },
+      "revId": "4ad36b83248c46aafeca63296afee7ca2dd57057",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d5e07665_c51d2a2a",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1579,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-24T15:06:32Z",
+      "side": 1,
+      "message": "Are you using `X` to represent the templated register here? Should we do the same above with `RepeatTemplatedRegistersVM`? It could be named e.g. `RepeatXXVm`",
+      "range": {
+        "startLine": 1579,
+        "startChar": 7,
+        "endLine": 1579,
+        "endChar": 27
+      },
+      "revId": "4ad36b83248c46aafeca63296afee7ca2dd57057",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
