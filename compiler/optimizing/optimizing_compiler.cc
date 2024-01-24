@@ -65,6 +65,19 @@
 
 namespace art HIDDEN {
 
+namespace {
+TraceDebugLevel GetDebugLevel(const CompilerOptions& compiler_options) {
+  if (compiler_options.GetDebuggable()) {
+    return TraceDebugLevel::kDebuggable;
+  } else if (compiler_options.PreciseMethodTrace()) {
+    return TraceDebugLevel::kPreciseMethodTracing;
+  } else if (compiler_options.TraceMethods()) {
+    return TraceDebugLevel::kMethodTracing;
+  }
+  return TraceDebugLevel::kDebugNone;
+}
+}  // anonymous namespace
+
 static constexpr size_t kArenaAllocatorMemoryReportThreshold = 8 * MB;
 
 static constexpr const char* kPassNameSeparator = "$";
@@ -817,17 +830,16 @@ CodeGenerator* OptimizingCompiler::TryCompile(ArenaAllocator* allocator,
     dead_reference_safe = false;
   }
 
-  HGraph* graph = new (allocator) HGraph(
-      allocator,
-      arena_stack,
-      handles,
-      dex_file,
-      method_idx,
-      compiler_options.GetInstructionSet(),
-      kInvalidInvokeType,
-      dead_reference_safe,
-      compiler_options.GetDebuggable(),
-      compilation_kind);
+  HGraph* graph = new (allocator) HGraph(allocator,
+                                         arena_stack,
+                                         handles,
+                                         dex_file,
+                                         method_idx,
+                                         compiler_options.GetInstructionSet(),
+                                         kInvalidInvokeType,
+                                         dead_reference_safe,
+                                         GetDebugLevel(compiler_options),
+                                         compilation_kind);
 
   if (method != nullptr) {
     graph->SetArtMethod(method);
@@ -963,17 +975,17 @@ CodeGenerator* OptimizingCompiler::TryCompileIntrinsic(
     return nullptr;
   }
 
-  HGraph* graph = new (allocator) HGraph(
-      allocator,
-      arena_stack,
-      handles,
-      dex_file,
-      method_idx,
-      compiler_options.GetInstructionSet(),
-      kInvalidInvokeType,
-      /* dead_reference_safe= */ true,  // Intrinsics don't affect dead reference safety.
-      compiler_options.GetDebuggable(),
-      CompilationKind::kOptimized);
+  HGraph* graph = new (allocator)
+      HGraph(allocator,
+             arena_stack,
+             handles,
+             dex_file,
+             method_idx,
+             compiler_options.GetInstructionSet(),
+             kInvalidInvokeType,
+             /* dead_reference_safe= */ true,  // Intrinsics don't affect dead reference safety.
+             GetDebugLevel(compiler_options),
+             CompilationKind::kOptimized);
 
   DCHECK(Runtime::Current()->IsAotCompiler());
   DCHECK(method != nullptr);

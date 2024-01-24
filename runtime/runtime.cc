@@ -1635,6 +1635,10 @@ bool Runtime::Init(RuntimeArgumentMap&& runtime_options_in) {
     if (option == "--debuggable") {
       SetRuntimeDebugState(RuntimeDebugState::kJavaDebuggableAtInit);
       break;
+    } else if (option == "--precise-method-trace") {
+      SetRuntimeDebugState(RuntimeDebugState::kJavaPreciseMethodTracing);
+    } else if (option == "--trace-methods") {
+      SetRuntimeDebugState(RuntimeDebugState::kJavaMethodTracing);
     }
   }
   image_compiler_options_ = runtime_options.ReleaseOrDefault(Opt::ImageCompilerOptions);
@@ -3423,6 +3427,7 @@ void Runtime::SetRuntimeDebugState(RuntimeDebugState state) {
     // We never change the state if we started as a debuggable runtime.
     DCHECK(runtime_debug_state_ != RuntimeDebugState::kJavaDebuggableAtInit);
   }
+  LOG(WARNING) << "SetRuntimeDebugState " << static_cast<int>(state);
   runtime_debug_state_ = state;
 }
 

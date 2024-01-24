@@ -65,6 +65,8 @@ CompilerOptions::CompilerOptions()
       dump_pass_timings_(false),
       dump_stats_(false),
       profile_branches_(false),
+      trace_methods_(false),
+      precise_method_trace_(false),
       profile_compilation_info_(nullptr),
       verbose_methods_(),
       abort_on_hard_verifier_failure_(false),
@@ -82,8 +84,7 @@ CompilerOptions::CompilerOptions()
       check_profiled_methods_(ProfileMethodsCheck::kNone),
       max_image_block_size_(std::numeric_limits<uint32_t>::max()),
       register_allocation_strategy_(RegisterAllocator::kRegisterAllocatorDefault),
-      passes_to_run_(nullptr) {
-}
+      passes_to_run_(nullptr) {}
 
 CompilerOptions::~CompilerOptions() {
   // Everything done by member destructors.

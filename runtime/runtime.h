@@ -142,6 +142,12 @@ class Runtime {
   enum class RuntimeDebugState {
     // This doesn't support any debug features / method tracing. This is the expected state usually.
     kNonJavaDebuggable,
+    // This supports method tracing but no other features. This also enables AOT
+    // code and the expectation is that AOT code also records the entries.
+    // TODO find a way to check if AOT supports tracing and don't use it if it
+    // doesn't. For initial performance analysis we don't do this.
+    kJavaMethodTracing,
+    kJavaPreciseMethodTracing,
     // This supports method tracing and a restricted set of debug features (for ex: redefinition
     // isn't supported). We transition to this state when method tracing has started or when the
     // debugger was attached and transition back to NonDebuggable once the tracing has stopped /
@@ -149,7 +155,7 @@ class Runtime {
     kJavaDebuggable,
     // The runtime was started as a debuggable runtime. This allows us to support the extended set
     // of debug features (for ex: redefinition). We never transition out of this state.
-    kJavaDebuggableAtInit
+    kJavaDebuggableAtInit,
   };
 
   bool EnsurePluginLoaded(const char* plugin_name, std::string* error_msg);
@@ -840,6 +846,11 @@ class Runtime {
            runtime_debug_state_ == RuntimeDebugState::kJavaDebuggableAtInit;
   }
 
+  bool IsTracing() const {
+    return runtime_debug_state_ == RuntimeDebugState::kJavaPreciseMethodTracing ||
+           runtime_debug_state_ == RuntimeDebugState::kJavaMethodTracing;
+  }
+
   bool IsJavaDebuggableAtInit() const {
     return runtime_debug_state_ == RuntimeDebugState::kJavaDebuggableAtInit;
   }
@@ -861,6 +872,8 @@ class Runtime {
   }
 
   void SetRuntimeDebugState(RuntimeDebugState state);
+
+  RuntimeDebugState GetRuntimeDebugState() { return runtime_debug_state_; }
 
   // Deoptimize the boot image, called for Java debuggable apps.
   void DeoptimizeBootImage() REQUIRES(Locks::mutator_lock_);

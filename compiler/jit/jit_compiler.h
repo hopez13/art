@@ -51,7 +51,7 @@ class JitCompiler : public JitCompilerInterface {
 
   bool IsBaselineCompiler() const override;
 
-  void SetDebuggableCompilerOption(bool val) override;
+  void SetDebuggableCompilerOption(TraceDebugLevel level) override;
 
   bool GenerateDebugInfo() override;
 

@@ -326,6 +326,12 @@ class Trace final : public instrumentation::InstrumentationListener {
     kTraceClockSourceThreadCpu = 0x100,
   };
 
+  // TODO(mythria): Using 0x for trace flag is a bug. It works since we use same
+  // values in frameworks code as well. Fix it and change this to 3. Infact use
+  // a bitfield to make it better.
+  static const int kTracingModeShift = 1;
+  static const int kTracingModeMask = (0b11) << kTracingModeShift;
+
   enum class TraceMode {
     kMethodTracing,
     kSampling

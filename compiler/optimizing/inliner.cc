@@ -137,7 +137,7 @@ bool HInliner::Run() {
   if (codegen_->GetCompilerOptions().GetInlineMaxCodeUnits() == 0) {
     // Inlining effectively disabled.
     return false;
-  } else if (graph_->IsDebuggable()) {
+  } else if (graph_->NeedsPreciseInvokes()) {
     // For simplicity, we currently never inline when the graph is debuggable. This avoids
     // doing some logic in the runtime to discover if a method could have been inlined.
     return false;
@@ -1349,7 +1349,7 @@ bool HInliner::TryDevirtualize(HInvoke* invoke_instruction,
       kDirect,
       MethodReference(method->GetDexFile(), method->GetDexMethodIndex()),
       HInvokeStaticOrDirect::ClinitCheckRequirement::kNone,
-      !graph_->IsDebuggable());
+      !graph_->NeedsPreciseInvokes());
   HInputsRef inputs = invoke_instruction->GetInputs();
   DCHECK_EQ(inputs.size(), invoke_instruction->GetNumberOfArguments());
   for (size_t index = 0; index != inputs.size(); ++index) {
@@ -1558,7 +1558,7 @@ bool HInliner::TryBuildAndInline(HInvoke* invoke_instruction,
         method,
         MethodReference(method->GetDexFile(), method->GetDexMethodIndex()),
         method->GetMethodIndex(),
-        !graph_->IsDebuggable());
+        !graph_->NeedsPreciseInvokes());
     DCHECK_NE(new_invoke->GetIntrinsic(), Intrinsics::kNone);
     HInputsRef inputs = invoke_instruction->GetInputs();
     for (size_t index = 0; index != inputs.size(); ++index) {
@@ -2136,18 +2136,18 @@ bool HInliner::TryBuildAndInlineHelper(HInvoke* invoke_instruction,
       && !annotations::MethodContainsRSensitiveAccess(callee_dex_file, callee_class, method_index);
 
   const int32_t caller_instruction_counter = graph_->GetCurrentInstructionId();
-  HGraph* callee_graph = new (graph_->GetAllocator()) HGraph(
-      graph_->GetAllocator(),
-      graph_->GetArenaStack(),
-      graph_->GetHandleCache()->GetHandles(),
-      callee_dex_file,
-      method_index,
-      codegen_->GetCompilerOptions().GetInstructionSet(),
-      invoke_type,
-      callee_dead_reference_safe,
-      graph_->IsDebuggable(),
-      graph_->GetCompilationKind(),
-      /* start_instruction_id= */ caller_instruction_counter);
+  HGraph* callee_graph =
+      new (graph_->GetAllocator()) HGraph(graph_->GetAllocator(),
+                                          graph_->GetArenaStack(),
+                                          graph_->GetHandleCache()->GetHandles(),
+                                          callee_dex_file,
+                                          method_index,
+                                          codegen_->GetCompilerOptions().GetInstructionSet(),
+                                          invoke_type,
+                                          callee_dead_reference_safe,
+                                          graph_->GetDebuggableLevel(),
+                                          graph_->GetCompilationKind(),
+                                          /* start_instruction_id= */ caller_instruction_counter);
   callee_graph->SetArtMethod(resolved_method);
 
   ScopedProfilingInfoUse spiu(Runtime::Current()->GetJit(), resolved_method, Thread::Current());

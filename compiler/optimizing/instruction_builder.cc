@@ -80,6 +80,11 @@ class SamePackageCompare {
   size_t referrers_package_length_ = 0u;
 };
 
+bool NeedsMethodEntryExitHooks(HGraph* graph, CodeGenerator* codegen) {
+  return (graph->IsDebuggable() && codegen->GetCompilerOptions().IsJitCompiler()) ||
+         (graph->IsTracingMethods());
+}
+
 }  // anonymous namespace
 
 HInstructionBuilder::HInstructionBuilder(HGraph* graph,
@@ -377,7 +382,7 @@ bool HInstructionBuilder::Build() {
     if (current_block_->IsEntryBlock()) {
       InitializeParameters();
       AppendInstruction(new (allocator_) HSuspendCheck(0u));
-      if (graph_->IsDebuggable() && code_generator_->GetCompilerOptions().IsJitCompiler()) {
+      if (NeedsMethodEntryExitHooks(graph_, code_generator_)) {
         AppendInstruction(new (allocator_) HMethodEntryHook(0u));
       }
       AppendInstruction(new (allocator_) HGoto(0u));
@@ -469,7 +474,7 @@ void HInstructionBuilder::BuildIntrinsic(ArtMethod* method) {
   current_block_ = graph_->GetEntryBlock();
   InitializeBlockLocals();
   InitializeParameters();
-  if (graph_->IsDebuggable() && code_generator_->GetCompilerOptions().IsJitCompiler()) {
+  if (NeedsMethodEntryExitHooks(graph_, code_generator_)) {
     AppendInstruction(new (allocator_) HMethodEntryHook(0u));
   }
   AppendInstruction(new (allocator_) HGoto(0u));
@@ -497,29 +502,29 @@ void HInstructionBuilder::BuildIntrinsic(ArtMethod* method) {
         /* method_load_data= */ 0u
     };
     InvokeType invoke_type = dex_compilation_unit_->IsStatic() ? kStatic : kDirect;
-    HInvokeStaticOrDirect* invoke = new (allocator_) HInvokeStaticOrDirect(
-        allocator_,
-        number_of_arguments,
-        return_type_,
-        kNoDexPc,
-        target_method,
-        method,
-        dispatch_info,
-        invoke_type,
-        target_method,
-        HInvokeStaticOrDirect::ClinitCheckRequirement::kNone,
-        !graph_->IsDebuggable());
+    HInvokeStaticOrDirect* invoke =
+        new (allocator_) HInvokeStaticOrDirect(allocator_,
+                                               number_of_arguments,
+                                               return_type_,
+                                               kNoDexPc,
+                                               target_method,
+                                               method,
+                                               dispatch_info,
+                                               invoke_type,
+                                               target_method,
+                                               HInvokeStaticOrDirect::ClinitCheckRequirement::kNone,
+                                               !graph_->NeedsPreciseInvokes());
     HandleInvoke(invoke, operands, shorty, /* is_unresolved= */ false);
   }
 
   // Add the return instruction.
   if (return_type_ == DataType::Type::kVoid) {
-    if (graph_->IsDebuggable() && code_generator_->GetCompilerOptions().IsJitCompiler()) {
+    if (NeedsMethodEntryExitHooks(graph_, code_generator_)) {
       AppendInstruction(new (allocator_) HMethodExitHook(graph_->GetNullConstant(), kNoDexPc));
     }
     AppendInstruction(new (allocator_) HReturnVoid());
   } else {
-    if (graph_->IsDebuggable() && code_generator_->GetCompilerOptions().IsJitCompiler()) {
+    if (NeedsMethodEntryExitHooks(graph_, code_generator_)) {
       AppendInstruction(new (allocator_) HMethodExitHook(latest_result_, kNoDexPc));
     }
     AppendInstruction(new (allocator_) HReturn(latest_result_));
@@ -854,7 +859,7 @@ void HInstructionBuilder::BuildReturn(const Instruction& instruction,
           compilation_stats_,
           MethodCompilationStat::kConstructorFenceGeneratedFinal);
     }
-    if (graph_->IsDebuggable() && code_generator_->GetCompilerOptions().IsJitCompiler()) {
+    if (NeedsMethodEntryExitHooks(graph_, code_generator_)) {
       // Return value is not used for void functions. We pass NullConstant to
       // avoid special cases when generating code.
       AppendInstruction(new (allocator_) HMethodExitHook(graph_->GetNullConstant(), dex_pc));
@@ -863,7 +868,7 @@ void HInstructionBuilder::BuildReturn(const Instruction& instruction,
   } else {
     DCHECK(!RequiresConstructorBarrier(dex_compilation_unit_));
     HInstruction* value = LoadLocal(instruction.VRegA(), type);
-    if (graph_->IsDebuggable() && code_generator_->GetCompilerOptions().IsJitCompiler()) {
+    if (NeedsMethodEntryExitHooks(graph_, code_generator_)) {
       AppendInstruction(new (allocator_) HMethodExitHook(value, dex_pc));
     }
     AppendInstruction(new (allocator_) HReturn(value, dex_pc));
@@ -1059,18 +1064,18 @@ bool HInstructionBuilder::BuildInvoke(const Instruction& instruction,
     };
     // We pass null for the resolved_method to ensure optimizations
     // don't rely on it.
-    HInvoke* invoke = new (allocator_) HInvokeStaticOrDirect(
-        allocator_,
-        number_of_arguments - 1,
-        /* return_type= */ DataType::Type::kReference,
-        dex_pc,
-        method_reference,
-        /* resolved_method= */ nullptr,
-        dispatch_info,
-        invoke_type,
-        resolved_method_reference,
-        HInvokeStaticOrDirect::ClinitCheckRequirement::kImplicit,
-        !graph_->IsDebuggable());
+    HInvoke* invoke = new (allocator_)
+        HInvokeStaticOrDirect(allocator_,
+                              number_of_arguments - 1,
+                              /* return_type= */ DataType::Type::kReference,
+                              dex_pc,
+                              method_reference,
+                              /* resolved_method= */ nullptr,
+                              dispatch_info,
+                              invoke_type,
+                              resolved_method_reference,
+                              HInvokeStaticOrDirect::ClinitCheckRequirement::kImplicit,
+                              !graph_->NeedsPreciseInvokes());
     return HandleStringInit(invoke, operands, shorty);
   }
 
@@ -1083,7 +1088,7 @@ bool HInstructionBuilder::BuildInvoke(const Instruction& instruction,
   }
 
   // Try to build an HIR replacement for the intrinsic.
-  if (UNLIKELY(resolved_method->IsIntrinsic()) && !graph_->IsDebuggable()) {
+  if (UNLIKELY(resolved_method->IsIntrinsic()) && !graph_->NeedsPreciseInvokes()) {
     // All intrinsics are in the primary boot image, so their class can always be referenced
     // and we do not need to rely on the implicit class initialization check. The class should
     // be initialized but we do not require that here.
@@ -1135,7 +1140,7 @@ bool HInstructionBuilder::BuildInvoke(const Instruction& instruction,
                                                     invoke_type,
                                                     resolved_method_reference,
                                                     clinit_check_requirement,
-                                                    !graph_->IsDebuggable());
+                                                    !graph_->NeedsPreciseInvokes());
     if (clinit_check != nullptr) {
       // Add the class initialization check as last input of `invoke`.
       DCHECK_EQ(clinit_check_requirement, HInvokeStaticOrDirect::ClinitCheckRequirement::kExplicit);
@@ -1151,8 +1156,8 @@ bool HInstructionBuilder::BuildInvoke(const Instruction& instruction,
                                              method_reference,
                                              resolved_method,
                                              resolved_method_reference,
-                                             /*vtable_index=*/ imt_or_vtable_index,
-                                             !graph_->IsDebuggable());
+                                             /*vtable_index=*/imt_or_vtable_index,
+                                             !graph_->NeedsPreciseInvokes());
   } else {
     DCHECK_EQ(invoke_type, kInterface);
     if (kIsDebugBuild) {
@@ -1172,9 +1177,9 @@ bool HInstructionBuilder::BuildInvoke(const Instruction& instruction,
                                                method_reference,
                                                resolved_method,
                                                resolved_method_reference,
-                                               /*imt_index=*/ imt_or_vtable_index,
+                                               /*imt_index=*/imt_or_vtable_index,
                                                load_kind,
-                                               !graph_->IsDebuggable());
+                                               !graph_->NeedsPreciseInvokes());
   }
   return HandleInvoke(invoke, operands, shorty, /* is_unresolved= */ false);
 }
@@ -1413,7 +1418,7 @@ bool HInstructionBuilder::BuildInvokeCustom(uint32_t dex_pc,
                                                    return_type,
                                                    dex_pc,
                                                    method_reference,
-                                                   !graph_->IsDebuggable());
+                                                   !graph_->NeedsPreciseInvokes());
   return HandleInvoke(invoke, operands, shorty, /* is_unresolved= */ false);
 }
 

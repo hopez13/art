@@ -1209,7 +1209,7 @@ void InstructionCodeGeneratorARM64::GenerateMethodEntryExitHook(HInstruction* in
       new (codegen_->GetScopedAllocator()) MethodEntryExitHooksSlowPathARM64(instruction);
   codegen_->AddSlowPath(slow_path);
 
-  if (instruction->IsMethodExitHook()) {
+  if (instruction->IsMethodExitHook() && codegen_->GetCompilerOptions().GetDebuggable()) {
     // Check if we are required to check if the caller needs a deoptimization. Strictly speaking it
     // would be sufficient to check if CheckCallerForDeopt bit is set. Though it is faster to check
     // if it is just non-zero. kCHA bit isn't used in debuggable runtimes as cha optimization is
@@ -1219,18 +1219,24 @@ void InstructionCodeGeneratorARM64::GenerateMethodEntryExitHook(HInstruction* in
     __ Cbnz(value, slow_path->GetEntryLabel());
   }
 
-  uint64_t address = reinterpret_cast64<uint64_t>(Runtime::Current()->GetInstrumentation());
-  MemberOffset  offset = instruction->IsMethodExitHook() ?
-      instrumentation::Instrumentation::HaveMethodExitListenersOffset() :
-      instrumentation::Instrumentation::HaveMethodEntryListenersOffset();
-  __ Mov(addr, address + offset.Int32Value());
-  __ Ldrb(value, MemOperand(addr, 0));
-  __ Cmp(value, Operand(instrumentation::Instrumentation::kFastTraceListeners));
-  // Check if there are any method entry / exit listeners. If no, continue.
-  __ B(lt, slow_path->GetExitLabel());
-  // Check if there are any slow (jvmti / trace with thread cpu time) method entry / exit listeners.
-  // If yes, just take the slow path.
-  __ B(gt, slow_path->GetEntryLabel());
+  if (codegen_->GetCompilerOptions().IsJitCompiler() &&
+      codegen_->GetCompilerOptions().GetDebuggable()) {
+    uint64_t address = reinterpret_cast64<uint64_t>(Runtime::Current()->GetInstrumentation());
+    MemberOffset offset = instruction->IsMethodExitHook() ?
+                              instrumentation::Instrumentation::HaveMethodExitListenersOffset() :
+                              instrumentation::Instrumentation::HaveMethodEntryListenersOffset();
+    __ Mov(addr, address + offset.Int32Value());
+    __ Ldrb(value, MemOperand(addr, 0));
+    __ Cmp(value, Operand(instrumentation::Instrumentation::kFastTraceListeners));
+    // Check if there are any method entry / exit listeners. If no, continue.
+    __ B(lt, slow_path->GetExitLabel());
+    // Check if there are any slow (jvmti / trace with thread cpu time) method entry / exit
+    // listeners. If yes, just take the slow path.
+    __ B(gt, slow_path->GetEntryLabel());
+  } else {
+    __ Ldr(addr, MemOperand(tr, Thread::TraceBufferPtrOffset<kArm64PointerSize>().SizeValue()));
+    __ Cbz(addr, slow_path->GetExitLabel());
+  }
 
   // Check if there is place in the buffer to store a new entry, if no, take slow path.
   uint32_t trace_buffer_index_offset =
@@ -1243,7 +1249,6 @@ void InstructionCodeGeneratorARM64::GenerateMethodEntryExitHook(HInstruction* in
   __ Str(index, MemOperand(tr, trace_buffer_index_offset));
   // Calculate the entry address in the buffer.
   // addr = base_addr + sizeof(void*) * index;
-  __ Ldr(addr, MemOperand(tr, Thread::TraceBufferPtrOffset<kArm64PointerSize>().SizeValue()));
   __ ComputeAddress(addr, MemOperand(addr, index, LSL, TIMES_8));
 
   Register tmp = index;
@@ -1265,7 +1270,6 @@ void InstructionCodeGeneratorARM64::GenerateMethodEntryExitHook(HInstruction* in
 }
 
 void InstructionCodeGeneratorARM64::VisitMethodExitHook(HMethodExitHook* instruction) {
-  DCHECK(codegen_->GetCompilerOptions().IsJitCompiler() && GetGraph()->IsDebuggable());
   DCHECK(codegen_->RequiresCurrentMethod());
   GenerateMethodEntryExitHook(instruction);
 }
@@ -1275,7 +1279,6 @@ void LocationsBuilderARM64::VisitMethodEntryHook(HMethodEntryHook* method_hook) 
 }
 
 void InstructionCodeGeneratorARM64::VisitMethodEntryHook(HMethodEntryHook* instruction) {
-  DCHECK(codegen_->GetCompilerOptions().IsJitCompiler() && GetGraph()->IsDebuggable());
   DCHECK(codegen_->RequiresCurrentMethod());
   GenerateMethodEntryExitHook(instruction);
 }

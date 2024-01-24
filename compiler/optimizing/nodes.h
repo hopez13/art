@@ -384,7 +384,7 @@ class HGraph : public ArenaObject<kArenaAllocGraph> {
          InstructionSet instruction_set,
          InvokeType invoke_type = kInvalidInvokeType,
          bool dead_reference_safe = false,
-         bool debuggable = false,
+         TraceDebugLevel debuggable_level = TraceDebugLevel::kDebugNone,
          CompilationKind compilation_kind = CompilationKind::kOptimized,
          int start_instruction_id = 0)
       : allocator_(allocator),
@@ -410,7 +410,7 @@ class HGraph : public ArenaObject<kArenaAllocGraph> {
         has_direct_critical_native_call_(false),
         has_always_throwing_invokes_(false),
         dead_reference_safe_(dead_reference_safe),
-        debuggable_(debuggable),
+        debuggable_level_(debuggable_level),
         current_instruction_id_(start_instruction_id),
         dex_file_(dex_file),
         method_idx_(method_idx),
@@ -630,7 +630,19 @@ class HGraph : public ArenaObject<kArenaAllocGraph> {
 
   void MarkDeadReferenceUnsafe() { dead_reference_safe_ = false; }
 
-  bool IsDebuggable() const { return debuggable_; }
+  bool IsDebuggable() const { return debuggable_level_ == TraceDebugLevel::kDebuggable; }
+
+  bool NeedsPreciseInvokes() const {
+    return debuggable_level_ == TraceDebugLevel::kDebuggable ||
+           debuggable_level_ == TraceDebugLevel::kPreciseMethodTracing;
+  }
+
+  bool IsTracingMethods() const {
+    return debuggable_level_ == TraceDebugLevel::kMethodTracing ||
+           debuggable_level_ == TraceDebugLevel::kPreciseMethodTracing;
+  }
+
+  TraceDebugLevel GetDebuggableLevel() { return debuggable_level_; }
 
   // Returns a constant of the given type and value. If it does not exist
   // already, it is created and inserted into the graph. This method is only for
@@ -701,7 +713,7 @@ class HGraph : public ArenaObject<kArenaAllocGraph> {
   }
 
   bool HasShouldDeoptimizeFlag() const {
-    return number_of_cha_guards_ != 0 || debuggable_;
+    return number_of_cha_guards_ != 0 || (debuggable_level_ == TraceDebugLevel::kDebuggable);
   }
 
   bool HasTryCatch() const { return has_try_catch_; }
@@ -860,7 +872,7 @@ class HGraph : public ArenaObject<kArenaAllocGraph> {
   // Indicates whether the graph should be compiled in a way that
   // ensures full debuggability. If false, we can apply more
   // aggressive optimizations that may limit the level of debugging.
-  const bool debuggable_;
+  const TraceDebugLevel debuggable_level_;
 
   // The current id to assign to a newly added instruction. See HInstruction.id_.
   int32_t current_instruction_id_;

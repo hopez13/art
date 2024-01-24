@@ -230,22 +230,34 @@ static bool CodeSupportsEntryExitHooks(const void* entry_point, ArtMethod* metho
     return true;
   }
 
-  // When jiting code for debuggable runtimes / instrumentation is active  we generate the code to
-  // call method entry / exit hooks when required.
-  jit::Jit* jit = Runtime::Current()->GetJit();
-  if (jit != nullptr && jit->GetCodeCache()->ContainsPc(entry_point)) {
-    // If JITed code was compiled with instrumentation support we support entry / exit hooks.
-    OatQuickMethodHeader* header = OatQuickMethodHeader::FromEntryPoint(entry_point);
-    return CodeInfo::IsDebuggable(header->GetOptimizedCodeInfoPtr());
-  }
-
   // GenericJni trampoline can handle entry / exit hooks.
   if (linker->IsQuickGenericJniStub(entry_point)) {
     return true;
   }
 
-  // The remaining cases are nterp / oat code / JIT code that isn't compiled with instrumentation
-  // support.
+  OatQuickMethodHeader* header = OatQuickMethodHeader::FromCodePointer(entry_point);
+  if (header->IsNterpMethodHeader()) {
+    return false;
+  }
+
+  // TODO(mythria): Update CodeHeader so we don't have to check the runtime
+  // state. This a pseudo check since we don't have a way to check the code.
+  // It is expected that AOT code is compiled with --method-trace / --precise-method-trace
+  // TODO(mythria): Add a way to check for this and return false otherwise.
+  auto debug_state = Runtime::Current()->GetRuntimeDebugState();
+  if (debug_state == Runtime::RuntimeDebugState::kJavaPreciseMethodTracing ||
+      debug_state == Runtime::RuntimeDebugState::kJavaMethodTracing) {
+    return true;
+  }
+
+  // When jiting code for debuggable runtimes / instrumentation is active  we generate the code to
+  // call method entry / exit hooks when required.
+  jit::Jit* jit = Runtime::Current()->GetJit();
+  if (jit != nullptr && jit->GetCodeCache()->ContainsPc(entry_point)) {
+    // If JITed code was compiled with instrumentation support we support entry / exit hooks.
+    return CodeInfo::IsDebuggable(header->GetOptimizedCodeInfoPtr());
+  }
+
   return false;
 }
 
@@ -306,7 +318,16 @@ static bool CanUseAotCode(const void* quick_code)
     return runtime->GetHeap()->IsInBootImageOatFile(quick_code);
   }
 
-  return true;
+  // TODO(mythria): Check if the oat code was compiled with method entry / exit hooks before using
+  // it. For the initial hacky implementation just assume the oat code was generated with
+  // --trace-methods or --precise-method-trace.
+  auto debug_state = Runtime::Current()->GetRuntimeDebugState();
+  if (debug_state == Runtime::RuntimeDebugState::kJavaPreciseMethodTracing ||
+      debug_state == Runtime::RuntimeDebugState::kJavaMethodTracing) {
+    return true;
+  }
+
+  return false;
 }
 
 static bool CanUseNterp(ArtMethod* method) REQUIRES_SHARED(Locks::mutator_lock_) {
@@ -1350,10 +1371,16 @@ void Instrumentation::MaybeSwitchRuntimeDebugState(Thread* self) {
     return;
   }
 
+  auto debug_state = Runtime::Current()->GetRuntimeDebugState();
+  if (debug_state == Runtime::RuntimeDebugState::kJavaPreciseMethodTracing ||
+      debug_state == Runtime::RuntimeDebugState::kJavaMethodTracing) {
+    return;
+  }
+
   art::jit::Jit* jit = runtime->GetJit();
   if (jit != nullptr) {
     jit->GetCodeCache()->InvalidateAllCompiledCode();
-    jit->GetJitCompiler()->SetDebuggableCompilerOption(false);
+    jit->GetJitCompiler()->SetDebuggableCompilerOption(TraceDebugLevel::kDebugNone);
   }
   runtime->SetRuntimeDebugState(art::Runtime::RuntimeDebugState::kNonJavaDebuggable);
 }

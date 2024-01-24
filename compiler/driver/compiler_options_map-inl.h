@@ -71,6 +71,13 @@ inline bool ReadCompilerOptions(Base& map, CompilerOptions* options, std::string
   if (map.Exists(Base::ProfileBranches)) {
     options->profile_branches_ = true;
   }
+  if (map.Exists(Base::TraceMethods)) {
+    LOG(ERROR) << "TraceMethods set to true";
+    options->trace_methods_ = true;
+  }
+  if (map.Exists(Base::PreciseMethodTrace)) {
+    options->precise_method_trace_ = true;
+  }
   map.AssignIfExists(Base::AbortOnHardVerifierFailure, &options->abort_on_hard_verifier_failure_);
   map.AssignIfExists(Base::AbortOnSoftVerifierFailure, &options->abort_on_soft_verifier_failure_);
   if (map.Exists(Base::DumpInitFailures)) {
@@ -196,6 +203,14 @@ NO_INLINE void AddCompilerOptionsArgumentParserOptions(Builder& b) {
       .Define("--debuggable")
           .WithHelp("Produce code debuggable with a java-debugger.")
           .IntoKey(Map::Debuggable)
+
+      .Define("--trace-methods")
+          .WithHelp("Emit code to record method entry / exits")
+          .IntoKey(Map::TraceMethods)
+
+      .Define("--precise-method-trace")
+          .WithHelp("Disable inling for precise method trace")
+          .IntoKey(Map::PreciseMethodTrace)
 
       .Define("--baseline")
           .WithHelp("Produce code using the baseline compilation")

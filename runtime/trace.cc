@@ -535,6 +535,51 @@ void Trace::StartDDMS(size_t buffer_size,
         interval_us);
 }
 
+namespace {
+
+TraceClockSource GetClockSourceFromFlags(int flags) {
+  bool need_wall = flags & Trace::TraceFlag::kTraceClockSourceWallClock;
+  bool need_thread_cpu = flags & Trace::TraceFlag::kTraceClockSourceThreadCpu;
+  if (need_wall && need_thread_cpu) {
+    return TraceClockSource::kDual;
+  } else if (need_wall) {
+    return TraceClockSource::kWall;
+  } else if (need_thread_cpu) {
+    return TraceClockSource::kThreadCpu;
+  } else {
+    return kDefaultTraceClockSource;
+  }
+}
+
+TraceDebugLevel GetTraceDebugLevelFromFlags(int flags) {
+  int debug_level = (flags & Trace::kTracingModeMask) >> Trace::kTracingModeShift;
+  return static_cast<TraceDebugLevel>(debug_level);
+}
+
+}  // namespace
+
+static constexpr size_t kMinBufSize = 18U;  // Trace header is up to 18B.
+// Size of per-thread buffer size. The value is chosen arbitrarily. This value
+// should be greater than kMinBufSize.
+static size_t kPerThreadBufSize = 512 * 1024;
+// static_assert(kPerThreadBufSize > kMinBufSize);
+// On average we need 12 bytes for encoding an entry. We typically use two
+// entries in per-thread buffer, the scaling factor is 6.
+static constexpr size_t kScalingFactorEncodedEntries = 6;
+
+bool ShouldUpdateDebugState(TraceDebugLevel debug_level, Runtime::RuntimeDebugState runtime_state) {
+  if (runtime_state == Runtime::RuntimeDebugState::kJavaDebuggable) {
+    return false;
+  } else if (runtime_state == Runtime::RuntimeDebugState::kJavaPreciseMethodTracing) {
+    return debug_level == TraceDebugLevel::kDebuggable;
+  } else if (runtime_state == Runtime::RuntimeDebugState::kJavaMethodTracing) {
+    return debug_level == TraceDebugLevel::kDebuggable ||
+           debug_level == TraceDebugLevel::kPreciseMethodTracing;
+  } else {
+    return debug_level != TraceDebugLevel::kDebugNone;
+  }
+}
+
 void Trace::Start(std::unique_ptr<File>&& trace_file_in,
                   size_t buffer_size,
                   int flags,
@@ -595,6 +640,7 @@ void Trace::Start(std::unique_ptr<File>&& trace_file_in,
       LOG(ERROR) << "Trace already in progress, ignoring this request";
     } else {
       enable_stats = (flags & kTraceCountAllocs) != 0;
+      TraceDebugLevel debug_level = GetTraceDebugLevelFromFlags(flags);
       the_trace_ = new Trace(trace_file.release(), buffer_size, flags, output_mode, trace_mode);
       if (trace_mode == TraceMode::kSampling) {
         CHECK_PTHREAD_CALL(pthread_create, (&sampling_pthread_, nullptr, &RunSamplingThread,
@@ -602,16 +648,44 @@ void Trace::Start(std::unique_ptr<File>&& trace_file_in,
                                             "Sampling profiler thread");
         the_trace_->interval_us_ = interval_us;
       } else {
-        if (!runtime->IsJavaDebuggable()) {
+        // TODO(mythria): Add more checks on when to invalidated jited code.
+        if (ShouldUpdateDebugState(debug_level, runtime->GetRuntimeDebugState())) {
+          LOG(FATAL) << "This is unsupported -- Need a way to check for CodeInfo";
           art::jit::Jit* jit = runtime->GetJit();
           if (jit != nullptr) {
             jit->GetCodeCache()->InvalidateAllCompiledCode();
-            jit->GetCodeCache()->TransitionToDebuggable();
-            jit->GetJitCompiler()->SetDebuggableCompilerOption(true);
+            jit->GetJitCompiler()->SetDebuggableCompilerOption(debug_level);
+            if (debug_level == TraceDebugLevel::kDebuggable) {
+              // Transition to debuggable ensure we don't have any entrypoints from zygote space.
+              // Since we aren't deoptimizing and assume boot image is compiled with tracing, this
+              // is not needed in other cases.
+              jit->GetCodeCache()->TransitionToDebuggable();
+            }
           }
-          runtime->SetRuntimeDebugState(art::Runtime::RuntimeDebugState::kJavaDebuggable);
+          if (debug_level == TraceDebugLevel::kDebuggable) {
+            runtime->SetRuntimeDebugState(Runtime::RuntimeDebugState::kJavaDebuggable);
+          } else {
+            runtime->SetRuntimeDebugState(Runtime::RuntimeDebugState::kJavaMethodTracing);
+          }
           runtime->GetInstrumentation()->UpdateEntrypointsForDebuggable();
-          runtime->DeoptimizeBootImage();
+          if (debug_level == TraceDebugLevel::kDebuggable) {
+            // TODO(mythria): We don't deoptimize for method tracing. It is expected that the boot
+            // image is generated with right flags. In future support the case where we check and
+            // deoptimize when required.
+            runtime->DeoptimizeBootImage();
+          }
+        }
+
+        // TODO(mythria): We no longer lazily initialize trace buffer but maybe // that's okay.
+        {
+          MutexLock tl_lock(Thread::Current(), *Locks::thread_list_lock_);
+          for (Thread* thread : Runtime::Current()->GetThreadList()->GetList()) {
+            thread->SetMethodTraceBuffer(
+                the_trace_->trace_writer_->AcquireTraceBuffer(thread->GetTid()));
+            size_t* current_index = thread->GetMethodTraceIndexPtr();
+            *current_index = kPerThreadBufSize;
+            the_trace_->trace_writer_->RecordThreadInfo(thread);
+          }
         }
         // For thread cpu clocks, we need to make a kernel call and hence we call into c++ to
         // support them.
@@ -766,33 +840,6 @@ TracingMode Trace::GetMethodTracingMode() {
   }
 }
 
-static constexpr size_t kMinBufSize = 18U;  // Trace header is up to 18B.
-// Size of per-thread buffer size. The value is chosen arbitrarily. This value
-// should be greater than kMinBufSize.
-static constexpr size_t kPerThreadBufSize = 512 * 1024;
-static_assert(kPerThreadBufSize > kMinBufSize);
-// On average we need 12 bytes for encoding an entry. We typically use two
-// entries in per-thread buffer, the scaling factor is 6.
-static constexpr size_t kScalingFactorEncodedEntries = 6;
-
-namespace {
-
-TraceClockSource GetClockSourceFromFlags(int flags) {
-  bool need_wall = flags & Trace::TraceFlag::kTraceClockSourceWallClock;
-  bool need_thread_cpu = flags & Trace::TraceFlag::kTraceClockSourceThreadCpu;
-  if (need_wall && need_thread_cpu) {
-    return TraceClockSource::kDual;
-  } else if (need_wall) {
-    return TraceClockSource::kWall;
-  } else if (need_thread_cpu) {
-    return TraceClockSource::kThreadCpu;
-  } else {
-    return kDefaultTraceClockSource;
-  }
-}
-
-}  // namespace
-
 TraceWriter::TraceWriter(File* trace_file,
                          TraceOutputMode output_mode,
                          TraceClockSource clock_source,
@@ -862,6 +909,11 @@ Trace::Trace(File* trace_file,
       interval_us_(0),
       stop_tracing_(false) {
   CHECK_IMPLIES(trace_file == nullptr, output_mode == TraceOutputMode::kDDMS);
+
+  // TODO(mythria): Hack to update buffersize. Don't use global if we want to
+  // actually make it configurable
+  kPerThreadBufSize = buffer_size;
+  CHECK(kPerThreadBufSize > kMinBufSize);
 
   // In streaming mode, we only need a buffer big enough to store data per each
   // thread buffer. In non-streaming mode this is specified by the user and we

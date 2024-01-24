@@ -1650,7 +1650,7 @@ void InstructionCodeGeneratorX86_64::GenerateMethodEntryExitHook(HInstruction* i
   LocationSummary* locations = instruction->GetLocations();
   codegen_->AddSlowPath(slow_path);
 
-  if (instruction->IsMethodExitHook()) {
+  if (instruction->IsMethodExitHook() && codegen_->GetCompilerOptions().GetDebuggable()) {
     // Check if we are required to check if the caller needs a deoptimization. Strictly speaking it
     // would be sufficient to check if CheckCallerForDeopt bit is set. Though it is faster to check
     // if it is just non-zero. kCHA bit isn't used in debuggable runtimes as cha optimization is
@@ -1661,21 +1661,32 @@ void InstructionCodeGeneratorX86_64::GenerateMethodEntryExitHook(HInstruction* i
     __ j(kNotEqual, slow_path->GetEntryLabel());
   }
 
-  uint64_t address = reinterpret_cast64<uint64_t>(Runtime::Current()->GetInstrumentation());
-  MemberOffset  offset = instruction->IsMethodExitHook() ?
-      instrumentation::Instrumentation::HaveMethodExitListenersOffset()
-      : instrumentation::Instrumentation::HaveMethodEntryListenersOffset();
-  __ movq(CpuRegister(TMP), Immediate(address + offset.Int32Value()));
-  __ cmpb(Address(CpuRegister(TMP), 0),
-          Immediate(instrumentation::Instrumentation::kFastTraceListeners));
-  // Check if there are any method entry / exit listeners. If no, continue with execution.
-  __ j(kLess, slow_path->GetExitLabel());
-  // Check if there are any slow method entry / exit listeners. If yes, take the slow path.
-  __ j(kGreater, slow_path->GetEntryLabel());
-
   // Check if there is place in the buffer for a new entry, if no, take slow path.
   CpuRegister index = locations->GetTemp(0).AsRegister<CpuRegister>();
   CpuRegister entry_addr = CpuRegister(TMP);
+  if (codegen_->GetCompilerOptions().IsJitCompiler() &&
+      codegen_->GetCompilerOptions().GetDebuggable()) {
+    uint64_t address = reinterpret_cast64<uint64_t>(Runtime::Current()->GetInstrumentation());
+    MemberOffset offset = instruction->IsMethodExitHook() ?
+                              instrumentation::Instrumentation::HaveMethodExitListenersOffset() :
+                              instrumentation::Instrumentation::HaveMethodEntryListenersOffset();
+    __ movq(CpuRegister(TMP), Immediate(address + offset.Int32Value()));
+    __ cmpb(Address(CpuRegister(TMP), 0),
+            Immediate(instrumentation::Instrumentation::kFastTraceListeners));
+    // Check if there are any method entry / exit listeners. If no, continue with execution.
+    __ j(kLess, slow_path->GetExitLabel());
+    // Check if there are any slow method entry / exit listeners. If yes, take the slow path.
+    __ j(kGreater, slow_path->GetEntryLabel());
+  } else {
+    // For AOT code and if only method tracing is enabled, just check if buffer is not nullptr to
+    // decide if entry / exit events need to be recorded.
+    __ gs()->movq(entry_addr,
+                  Address::Absolute(Thread::TraceBufferPtrOffset<kX86_64PointerSize>().SizeValue(),
+                                    /* no_rip= */ true));
+    __ testq(entry_addr, entry_addr);
+    __ j(kZero, slow_path->GetExitLabel());
+  }
+
   uint64_t trace_buffer_index_offset =
       Thread::TraceBufferIndexOffset<kX86_64PointerSize>().SizeValue();
   __ gs()->movq(CpuRegister(index),
@@ -1688,9 +1699,6 @@ void InstructionCodeGeneratorX86_64::GenerateMethodEntryExitHook(HInstruction* i
                 CpuRegister(index));
   // Calculate the entry address in the buffer.
   // entry_addr = base_addr + sizeof(void*) * index
-  __ gs()->movq(entry_addr,
-                Address::Absolute(Thread::TraceBufferPtrOffset<kX86_64PointerSize>().SizeValue(),
-                                  /* no_rip= */ true));
   __ leaq(CpuRegister(entry_addr),
           Address(CpuRegister(entry_addr), CpuRegister(index), TIMES_8, 0));
 
@@ -1715,7 +1723,6 @@ void InstructionCodeGeneratorX86_64::GenerateMethodEntryExitHook(HInstruction* i
 }
 
 void InstructionCodeGeneratorX86_64::VisitMethodEntryHook(HMethodEntryHook* instruction) {
-  DCHECK(codegen_->GetCompilerOptions().IsJitCompiler() && GetGraph()->IsDebuggable());
   DCHECK(codegen_->RequiresCurrentMethod());
   GenerateMethodEntryExitHook(instruction);
 }
@@ -1758,7 +1765,6 @@ void LocationsBuilderX86_64::VisitMethodExitHook(HMethodExitHook* method_hook) {
 }
 
 void InstructionCodeGeneratorX86_64::VisitMethodExitHook(HMethodExitHook* instruction) {
-  DCHECK(codegen_->GetCompilerOptions().IsJitCompiler() && GetGraph()->IsDebuggable());
   DCHECK(codegen_->RequiresCurrentMethod());
   GenerateMethodEntryExitHook(instruction);
 }
