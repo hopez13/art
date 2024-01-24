@@ -41,8 +41,21 @@ JitCompiler* JitCompiler::Create() {
   return new JitCompiler();
 }
 
-void JitCompiler::SetDebuggableCompilerOption(bool value) {
-  compiler_options_->SetDebuggable(value);
+void JitCompiler::SetDebuggableCompilerOption(TraceDebugLevel level) {
+  if (level == TraceDebugLevel::kDebuggable) {
+    compiler_options_->SetDebuggable(true);
+  } else if (level == TraceDebugLevel::kPreciseMethodTracing) {
+    compiler_options_->SetDebuggable(false);
+    compiler_options_->SetPreciseMethodTrace(true);
+  } else if (level == TraceDebugLevel::kMethodTracing) {
+    compiler_options_->SetDebuggable(false);
+    compiler_options_->SetPreciseMethodTrace(false);
+    compiler_options_->SetTraceMethods(true);
+  } else {
+    compiler_options_->SetDebuggable(false);
+    compiler_options_->SetPreciseMethodTrace(false);
+    compiler_options_->SetTraceMethods(false);
+  }
 }
 
 void JitCompiler::ParseCompilerOptions() {

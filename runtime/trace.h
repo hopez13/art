@@ -380,6 +380,9 @@ class Trace final : public instrumentation::InstrumentationListener, public Clas
   static const int kFormatV2 = 1;
   static const int kTraceFormatVersionFlagMask = 0b110;
   static const int kTraceFormatVersionShift = 1;
+  // TODO(mythria): Use a bitfield to make it better.
+  static const int kTracingModeShift = 5;
+  static const int kTracingModeMask = (0b11) << kTracingModeShift;
 
   enum class TraceMode {
     kMethodTracing,

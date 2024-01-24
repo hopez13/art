@@ -208,7 +208,9 @@
   V(ReadBarrierForRootSlow, mirror::Object*, GcRoot<mirror::Object>*) \
 \
   V(MethodEntryHook, void, ArtMethod*, Thread*) \
-  V(MethodExitHook, int32_t, Thread*, ArtMethod*, uint64_t*, uint64_t*)
+  V(MethodExitHook, int32_t, Thread*, ArtMethod*, uint64_t*, uint64_t*) \
+  V(TraceMethodEntryHook, void, uint64_t*) \
+  V(TraceMethodExitHook, void, uint64_t*)
 
 #endif  // ART_RUNTIME_ENTRYPOINTS_QUICK_QUICK_ENTRYPOINTS_LIST_H_
 #undef ART_RUNTIME_ENTRYPOINTS_QUICK_QUICK_ENTRYPOINTS_LIST_H_   // #define is only for lint.

@@ -74,7 +74,7 @@ class JitCompilerInterface {
   virtual bool GenerateDebugInfo() = 0;
   virtual void ParseCompilerOptions() = 0;
   virtual bool IsBaselineCompiler() const = 0;
-  virtual void SetDebuggableCompilerOption(bool value) = 0;
+  virtual void SetDebuggableCompilerOption(TraceDebugLevel level) = 0;
   virtual uint32_t GetInlineMaxCodeUnits() const = 0;
 
   virtual std::vector<uint8_t> PackElfFileForJIT(ArrayRef<const JITCodeEntry*> elf_files,

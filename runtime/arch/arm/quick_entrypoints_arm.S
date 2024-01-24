@@ -2394,6 +2394,17 @@ ENTRY art_quick_method_entry_hook
     blx lr
 END art_quick_method_entry_hook
 
+ENTRY art_quick_trace_method_entry_hook
+    SETUP_SAVE_EVERYTHING_FRAME r0
+    ldr r0, [sp, FRAME_SIZE_SAVE_EVERYTHING] @ pass ArtMethod
+    mov r1, rSELF                            @ pass Thread::Current
+    mov r2, sp                               @ pass SP
+    bl  artMethodEntryHook                   @ (ArtMethod*, Thread*, SP)
+    RESTORE_SAVE_EVERYTHING_FRAME
+    REFRESH_MARKING_REGISTER
+    blx lr
+END art_quick_trace_method_entry_hook
+
 ENTRY art_quick_method_exit_hook
     SETUP_SAVE_EVERYTHING_FRAME r5
 
@@ -2412,3 +2423,22 @@ ENTRY art_quick_method_exit_hook
     REFRESH_MARKING_REGISTER
     blx lr
 END art_quick_method_exit_hook
+
+ENTRY art_quick_trace_method_exit_hook
+    SETUP_SAVE_EVERYTHING_FRAME r5
+
+    INCREASE_FRAME 4                          @ align stack
+    push {r2}                                 @ pass frame_size stack
+    .cfi_adjust_cfa_offset 4
+    add r3, sp, #(8 + 8)                      @ store fpr_res pointer, in kSaveEverything frame
+    add r2, sp, #(136 + 8)                    @ store gpr_res pointer, in kSaveEverything frame
+    add r1, sp, #(FRAME_SIZE_SAVE_EVERYTHING + 8)   @ pass ArtMethod**
+    mov r0, rSELF                             @ pass Thread::Current
+    blx artMethodExitHook                     @ (Thread*, ArtMethod**, gpr_res*, fpr_res*,
+                                              @ frame_size)
+
+    DECREASE_FRAME 8                          @ pop arguments on stack
+    RESTORE_SAVE_EVERYTHING_FRAME
+    REFRESH_MARKING_REGISTER
+    blx lr
+END art_quick_trace_method_exit_hook

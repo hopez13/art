@@ -156,6 +156,13 @@ enum class TraceClockSource {
   kDual,  // Both wall and thread CPU clocks.
 };
 
+enum class TraceDebugLevel {
+  kDebugNone,
+  kMethodTracing,
+  kPreciseMethodTracing,
+  kDebuggable,
+};
+
 #if defined(__linux__)
 static constexpr TraceClockSource kDefaultTraceClockSource = TraceClockSource::kDual;
 #else

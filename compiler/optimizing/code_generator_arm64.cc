@@ -818,6 +818,34 @@ class ReadBarrierForRootSlowPathARM64 : public SlowPathCodeARM64 {
   DISALLOW_COPY_AND_ASSIGN(ReadBarrierForRootSlowPathARM64);
 };
 
+class TracingMethodEntryExitHooksSlowPathARM64 : public SlowPathCodeARM64 {
+ public:
+  explicit TracingMethodEntryExitHooksSlowPathARM64(Register addr, bool is_method_entry)
+      : SlowPathCodeARM64(nullptr), addr_(addr), is_method_entry_(is_method_entry) {}
+
+  void EmitNativeCode(CodeGenerator* codegen) override {
+    QuickEntrypointEnum entry_point =
+        (is_method_entry_) ? kQuickTraceMethodEntryHook : kQuickTraceMethodExitHook;
+    CodeGeneratorARM64* arm64_codegen = down_cast<CodeGeneratorARM64*>(codegen);
+    vixl::aarch64::Label call;
+    __ Bind(GetEntryLabel());
+    uint32_t entrypoint_offset =
+        GetThreadOffset<kArm64PointerSize>(entry_point).Int32Value();
+    __ Ldr(lr, MemOperand(tr, entrypoint_offset));
+    __ Blr(lr);
+    __ B(GetExitLabel());
+  }
+
+  const char* GetDescription() const override {
+    return "TracingMethodEntryExitHooksSlowPath";
+  }
+
+ private:
+  DISALLOW_COPY_AND_ASSIGN(TracingMethodEntryExitHooksSlowPathARM64);
+  Register addr_;
+  bool is_method_entry_;
+};
+
 class MethodEntryExitHooksSlowPathARM64 : public SlowPathCodeARM64 {
  public:
   explicit MethodEntryExitHooksSlowPathARM64(HInstruction* instruction)
@@ -1275,7 +1303,6 @@ void InstructionCodeGeneratorARM64::GenerateMethodEntryExitHook(HInstruction* in
 }
 
 void InstructionCodeGeneratorARM64::VisitMethodExitHook(HMethodExitHook* instruction) {
-  DCHECK(codegen_->GetCompilerOptions().IsJitCompiler() && GetGraph()->IsDebuggable());
   DCHECK(codegen_->RequiresCurrentMethod());
   GenerateMethodEntryExitHook(instruction);
 }
@@ -1285,7 +1312,6 @@ void LocationsBuilderARM64::VisitMethodEntryHook(HMethodEntryHook* method_hook) 
 }
 
 void InstructionCodeGeneratorARM64::VisitMethodEntryHook(HMethodEntryHook* instruction) {
-  DCHECK(codegen_->GetCompilerOptions().IsJitCompiler() && GetGraph()->IsDebuggable());
   DCHECK(codegen_->RequiresCurrentMethod());
   GenerateMethodEntryExitHook(instruction);
 }
@@ -1445,11 +1471,40 @@ void CodeGeneratorARM64::GenerateFrameEntry() {
       __ Str(wzr, MemOperand(sp, GetStackOffsetOfShouldDeoptimizeFlag()));
     }
   }
+
+  if (GetGraph()->IsTracingMethods()) {
+    UseScratchRegisterScope temps(masm);
+    Register addr = temps.AcquireX();
+
+    SlowPathCodeARM64* slow_path =
+        new (GetScopedAllocator()) TracingMethodEntryExitHooksSlowPathARM64(addr, /* is_method_entry= */ true);
+    AddSlowPath(slow_path);
+
+    __ Ldr(addr, MemOperand(tr, Thread::TraceBufferPtrOffset<kArm64PointerSize>().SizeValue()));
+    __ Cbnz(addr, slow_path->GetEntryLabel());
+    __ Bind(slow_path->GetExitLabel());
+  }
+
   MaybeIncrementHotness(/* suspend_check= */ nullptr, /* is_frame_entry= */ true);
   MaybeGenerateMarkingRegisterCheck(/* code= */ __LINE__);
 }
 
 void CodeGeneratorARM64::GenerateFrameExit() {
+  if (GetGraph()->IsTracingMethods()) {
+    MacroAssembler* masm = GetVIXLAssembler();
+    UseScratchRegisterScope temps(masm);
+    Register addr = temps.AcquireX();
+
+    SlowPathCodeARM64* slow_path =
+        new (GetScopedAllocator()) TracingMethodEntryExitHooksSlowPathARM64(
+            addr, /*is_method_entry= */ false);
+    AddSlowPath(slow_path);
+
+    __ Ldr(addr, MemOperand(tr, Thread::TraceBufferPtrOffset<kArm64PointerSize>().SizeValue()));
+    __ Cbnz(addr, slow_path->GetEntryLabel());
+    __ Bind(slow_path->GetExitLabel());
+  }
+
   GetAssembler()->cfi().RememberState();
   if (!HasEmptyFrame()) {
     int32_t frame_size = dchecked_integral_cast<int32_t>(GetFrameSize());

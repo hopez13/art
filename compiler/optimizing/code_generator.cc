@@ -1020,7 +1020,7 @@ CodeGenerator::CodeGenerator(HGraph* graph,
       }
     }
   }
-  if (GetGraph()->IsCompilingBaseline()) {
+  if (GetGraph()->IsCompilingBaseline() || GetGraph()->IsTracingMethods()) {
     // We need the current method in case we reach the hotness threshold. As a
     // side effect this makes the frame non-empty.
     SetRequiresCurrentMethod();

@@ -2195,7 +2195,7 @@ void InstructionCodeGeneratorARMVIXL::GenerateMethodEntryExitHook(HInstruction* 
       new (codegen_->GetScopedAllocator()) MethodEntryExitHooksSlowPathARMVIXL(instruction);
   codegen_->AddSlowPath(slow_path);
 
-  if (instruction->IsMethodExitHook()) {
+  if (instruction->IsMethodExitHook() && codegen_->GetCompilerOptions().GetDebuggable()) {
     // Check if we are required to check if the caller needs a deoptimization. Strictly speaking it
     // would be sufficient to check if CheckCallerForDeopt bit is set. Though it is faster to check
     // if it is just non-zero. kCHA bit isn't used in debuggable runtimes as cha optimization is
@@ -2206,18 +2206,25 @@ void InstructionCodeGeneratorARMVIXL::GenerateMethodEntryExitHook(HInstruction* 
     __ CompareAndBranchIfNonZero(value, slow_path->GetEntryLabel());
   }
 
-  MemberOffset  offset = instruction->IsMethodExitHook() ?
-      instrumentation::Instrumentation::HaveMethodExitListenersOffset() :
-      instrumentation::Instrumentation::HaveMethodEntryListenersOffset();
-  uint32_t address = reinterpret_cast32<uint32_t>(Runtime::Current()->GetInstrumentation());
-  __ Mov(addr, address + offset.Int32Value());
-  __ Ldrb(value, MemOperand(addr, 0));
-  __ Cmp(value, instrumentation::Instrumentation::kFastTraceListeners);
-  // Check if there are any trace method entry / exit listeners. If no, continue.
-  __ B(lt, slow_path->GetExitLabel());
-  // Check if there are any slow (jvmti / trace with thread cpu time) method entry / exit listeners.
-  // If yes, just take the slow path.
-  __ B(gt, slow_path->GetEntryLabel());
+  if (codegen_->GetCompilerOptions().IsJitCompiler() &&
+      codegen_->GetCompilerOptions().GetDebuggable()) {
+    MemberOffset offset = instruction->IsMethodExitHook() ?
+                              instrumentation::Instrumentation::HaveMethodExitListenersOffset() :
+                              instrumentation::Instrumentation::HaveMethodEntryListenersOffset();
+    uint32_t address = reinterpret_cast32<uint32_t>(Runtime::Current()->GetInstrumentation());
+    __ Mov(addr, address + offset.Int32Value());
+    __ Ldrb(value, MemOperand(addr, 0));
+    __ Cmp(value, instrumentation::Instrumentation::kFastTraceListeners);
+    // Check if there are any trace method entry / exit listeners. If no, continue.
+    __ B(lt, slow_path->GetExitLabel());
+    // Check if there are any slow (jvmti / trace with thread cpu time) method entry / exit
+    // listeners. If yes, just take the slow path.
+    __ B(gt, slow_path->GetEntryLabel());
+    __ Ldr(addr, MemOperand(tr, Thread::TraceBufferPtrOffset<kArmPointerSize>().SizeValue()));
+  } else {
+    __ Ldr(addr, MemOperand(tr, Thread::TraceBufferPtrOffset<kArmPointerSize>().SizeValue()));
+    __ CompareAndBranchIfZero(addr, slow_path->GetExitLabel());
+  }
 
   // Check if there is place in the buffer to store a new entry, if no, take slow path.
   uint32_t trace_buffer_index_offset =
@@ -2231,7 +2238,6 @@ void InstructionCodeGeneratorARMVIXL::GenerateMethodEntryExitHook(HInstruction* 
   __ Str(index, MemOperand(tr, trace_buffer_index_offset));
   // Calculate the entry address in the buffer.
   // addr = base_addr + sizeof(void*) * index
-  __ Ldr(addr, MemOperand(tr, Thread::TraceBufferPtrOffset<kArmPointerSize>().SizeValue()));
   __ Add(addr, addr, Operand(index, LSL, TIMES_4));
 
   // Record method pointer and trace action.
@@ -2260,7 +2266,6 @@ void InstructionCodeGeneratorARMVIXL::GenerateMethodEntryExitHook(HInstruction* 
 }
 
 void InstructionCodeGeneratorARMVIXL::VisitMethodExitHook(HMethodExitHook* instruction) {
-  DCHECK(codegen_->GetCompilerOptions().IsJitCompiler() && GetGraph()->IsDebuggable());
   DCHECK(codegen_->RequiresCurrentMethod());
   GenerateMethodEntryExitHook(instruction);
 }
@@ -2274,7 +2279,6 @@ void LocationsBuilderARMVIXL::VisitMethodEntryHook(HMethodEntryHook* method_hook
 }
 
 void InstructionCodeGeneratorARMVIXL::VisitMethodEntryHook(HMethodEntryHook* instruction) {
-  DCHECK(codegen_->GetCompilerOptions().IsJitCompiler() && GetGraph()->IsDebuggable());
   DCHECK(codegen_->RequiresCurrentMethod());
   GenerateMethodEntryExitHook(instruction);
 }

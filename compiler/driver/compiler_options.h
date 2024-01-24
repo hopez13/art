@@ -147,6 +147,14 @@ class CompilerOptions final {
     debuggable_ = value;
   }
 
+  void SetPreciseMethodTrace(bool value) {
+    precise_method_trace_ = value;
+  }
+
+  void SetTraceMethods(bool value) {
+    trace_methods_ = value;
+  }
+
   bool GetNativeDebuggable() const {
     return GetDebuggable() && GetGenerateDebugInfo();
   }
@@ -217,6 +225,14 @@ class CompilerOptions final {
 
   bool ProfileBranches() const {
     return profile_branches_;
+  }
+
+  bool TraceMethods() const {
+    return trace_methods_;
+  }
+
+  bool PreciseMethodTrace() const {
+    return precise_method_trace_;
   }
 
   // Are we compiling an app image?
@@ -421,6 +437,8 @@ class CompilerOptions final {
   bool dump_pass_timings_;
   bool dump_stats_;
   bool profile_branches_;
+  bool trace_methods_;
+  bool precise_method_trace_;
 
   // Info for profile guided compilation.
   const ProfileCompilationInfo* profile_compilation_info_;

@@ -2491,6 +2491,44 @@ ENTRY art_quick_compile_optimized
     ret
 END art_quick_compile_optimized
 
+ENTRY art_quick_trace_method_entry_hook
+    LOAD_RUNTIME_INSTANCE xIP1
+    ldrb wIP1, [xIP1, #HAVE_METHOD_ENTRY_LISTENERS_FROM_RUNTIME_INSTANCE]
+    cmp wIP1, #1
+    bne .Lmethod_entry_call
+
+    ldr xIP1, [xSELF, #THREAD_TRACE_BUFFER_INDEX_OFFSET]
+    subs xIP1, xIP1, #2
+    b.lt .Lmethod_entry_call
+
+    // Update the index in the `Thread`.
+    str xIP1, [xSELF, #THREAD_TRACE_BUFFER_INDEX_OFFSET]
+    // Calculate the entry address in the buffer.
+    // addr = base_addr + sizeof(void*) * index;
+    add  xIP0, xIP0, xIP1, lsl #3
+
+    // Record method pointer and trace action.
+    ldr xIP1, [sp, #0]
+    str xIP1, [xIP0, #0]
+    // Record the timestamp.
+    mrs xIP1, cntvct_el0
+    str xIP1, [xIP0, #8]
+    ret
+
+.Lmethod_entry_call:
+    SETUP_SAVE_EVERYTHING_FRAME
+
+    ldr x0, [sp, #FRAME_SIZE_SAVE_EVERYTHING] // pass ArtMethod*
+    mov x1, xSELF                             // pass Thread::Current
+    mov x2, sp                                // pass SP
+    bl  artMethodEntryHook                    // (ArtMethod*, Thread*, SP)
+
+    RESTORE_SAVE_EVERYTHING_FRAME             // Note: will restore xSELF
+    REFRESH_MARKING_REGISTER
+    ret
+END art_quick_trace_method_entry_hook
+
+
     .extern artMethodEntryHook
 ENTRY art_quick_method_entry_hook
     SETUP_SAVE_EVERYTHING_FRAME
@@ -2504,6 +2542,49 @@ ENTRY art_quick_method_entry_hook
     REFRESH_MARKING_REGISTER
     ret
 END art_quick_method_entry_hook
+
+    .extern artMethodExitHook
+ENTRY art_quick_trace_method_exit_hook
+    LOAD_RUNTIME_INSTANCE xIP1
+    ldrb wIP1, [xIP1, #HAVE_METHOD_EXIT_LISTENERS_FROM_RUNTIME_INSTANCE]
+    cmp wIP1, #1
+    bne .Lmethod_exit_call
+
+    ldr xIP1, [xSELF, #THREAD_TRACE_BUFFER_INDEX_OFFSET]
+    subs xIP1, xIP1, #2
+    b.lt .Lmethod_exit_call
+
+    // Update the index in the `Thread`.
+    str xIP1, [xSELF, #THREAD_TRACE_BUFFER_INDEX_OFFSET]
+    // Calculate the entry address in the buffer.
+    // addr = base_addr + sizeof(void*) * index;
+    add  xIP0, xIP0, xIP1, lsl #3
+
+    // Record method pointer and trace action.
+    ldr xIP1, [sp, #0]
+    orr xIP1, xIP1, #1
+    str xIP1, [xIP0, #0]
+    // Record the timestamp.
+    mrs xIP1, cntvct_el0
+    str xIP1, [xIP0, #8]
+    ret
+
+.Lmethod_exit_call:
+    SETUP_SAVE_EVERYTHING_FRAME
+
+    // frame_size is passed from JITed code in x4
+    add x3, sp, #16                           // floating-point result ptr in kSaveEverything frame
+    add x2, sp, #272                          // integer result ptr in kSaveEverything frame
+    add x1, sp, #FRAME_SIZE_SAVE_EVERYTHING   // ArtMethod**
+    mov x0, xSELF                             // Thread::Current
+    bl  artMethodExitHook                     // (Thread*, ArtMethod**, gpr_res*, fpr_res*,
+                                              // frame_size)
+
+    // Normal return.
+    RESTORE_SAVE_EVERYTHING_FRAME
+    REFRESH_MARKING_REGISTER
+    ret
+END art_quick_trace_method_exit_hook
 
     .extern artMethodExitHook
 ENTRY art_quick_method_exit_hook
