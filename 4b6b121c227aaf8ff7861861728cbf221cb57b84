@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ef44898_01828a62",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 794,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-24T14:08:41Z",
+      "side": 1,
+      "message": "Should we `ClearAllBits`? It\u0027s always odd to me that we have to do it every time at creation but that\u0027s what I see when we use `ArenaBitVector`s.\n\nIn BitVector\u0027s constructor there\u0027s a `ClearAllBits` call so maybe it is not necessary (https://cs.android.com/android/platform/superproject/main/+/main:art/libartbase/base/bit_vector.cc;l\u003d49;drc\u003df61ae8a45a4d979f78d3d462d52fdab4260aff91). If it\u0027s not necessary maybe we can remove `visited.ClearAllBits();` from line 819 (and in a later CL the rest of the `ClearAllBits` calls from other `ArenaBitVector`s).",
+      "range": {
+        "startLine": 794,
+        "startChar": 19,
+        "endLine": 794,
+        "endChar": 33
+      },
+      "revId": "4b6b121c227aaf8ff7861861728cbf221cb57b84",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
