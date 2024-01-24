@@ -16,6 +16,458 @@
       "message": "PTAL",
       "revId": "2aff014ace4473ee4b6f5949450fa9446d8738d3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ed85c69_13275983",
+        "filename": "runtime/arch/riscv64/quick_entrypoints_riscv64.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1818,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-24T12:15:08Z",
+      "side": 1,
+      "message": "`COMPUTE_ARRAY_SIZE_{8,16,32,64}` use `{add,sh{1,2,3}}.uw`, so this is unnecessary for them. We should move this `zext.w` to the `COMPUTE_ARRAY_SIZE_UNKNOWN` and do it in a temp register to avoid the `sext.w` below.",
+      "range": {
+        "startLine": 1818,
+        "startChar": 4,
+        "endLine": 1818,
+        "endChar": 66
+      },
+      "revId": "2aff014ace4473ee4b6f5949450fa9446d8738d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa101010_520aebb9",
+        "filename": "runtime/interpreter/mterp/riscv64/array.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-24T12:15:08Z",
+      "side": 1,
+      "message": "Reorder?",
+      "range": {
+        "startLine": 24,
+        "startChar": 3,
+        "endLine": 25,
+        "endChar": 36
+      },
+      "revId": "2aff014ace4473ee4b6f5949450fa9446d8738d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "82e1d825_43d23d3a",
+        "filename": "runtime/interpreter/mterp/riscv64/object.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-24T12:15:08Z",
+      "side": 1,
+      "message": "If B refers to a primitive type, the bytecode shall be rejected by the `MethodVerifier` and never reach nterp.",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 89
+      },
+      "revId": "2aff014ace4473ee4b6f5949450fa9446d8738d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e272dd1_00b855ed",
+        "filename": "runtime/interpreter/mterp/riscv64/object.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-24T12:15:08Z",
+      "side": 1,
+      "message": "Or `GET_VREG ... is_unsigned\u003dTrue`?",
+      "range": {
+        "startLine": 12,
+        "startChar": 3,
+        "endLine": 12,
+        "endChar": 18
+      },
+      "revId": "2aff014ace4473ee4b6f5949450fa9446d8738d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ecd1ea8_b75050cf",
+        "filename": "runtime/interpreter/mterp/riscv64/object.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-24T12:15:08Z",
+      "side": 1,
+      "message": "`UNPOISON_HEAP_REF a2`",
+      "revId": "2aff014ace4473ee4b6f5949450fa9446d8738d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "924f1160_bf2482d5",
+        "filename": "runtime/interpreter/mterp/riscv64/object.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-24T12:15:08Z",
+      "side": 1,
+      "message": "Change registers used above to avoid these moves?",
+      "range": {
+        "startLine": 33,
+        "startChar": 3,
+        "endLine": 34,
+        "endChar": 29
+      },
+      "revId": "2aff014ace4473ee4b6f5949450fa9446d8738d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5c22933_7c61f525",
+        "filename": "runtime/interpreter/mterp/riscv64/object.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-24T12:15:08Z",
+      "side": 1,
+      "message": "`UNPOISON_HEAP_REF $z0` (it is used below)",
+      "revId": "2aff014ace4473ee4b6f5949450fa9446d8738d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4978c84e_d65b25f4",
+        "filename": "runtime/interpreter/mterp/riscv64/object.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-24T12:15:08Z",
+      "side": 1,
+      "message": "`UNPOISON_HEAP_REF a2`",
+      "revId": "2aff014ace4473ee4b6f5949450fa9446d8738d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe42dba8_2589d471",
+        "filename": "runtime/interpreter/mterp/riscv64/object.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-24T12:15:08Z",
+      "side": 1,
+      "message": "`UNPOISON_HEAP_REF $z1`",
+      "revId": "2aff014ace4473ee4b6f5949450fa9446d8738d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23d968f0_53ae39b7",
+        "filename": "runtime/interpreter/mterp/riscv64/object.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-24T12:15:08Z",
+      "side": 1,
+      "message": "Add comment - no need to unpoison...",
+      "revId": "2aff014ace4473ee4b6f5949450fa9446d8738d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "acffa7b4_fb2f9e7e",
+        "filename": "runtime/interpreter/mterp/riscv64/object.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-24T12:15:08Z",
+      "side": 1,
+      "message": "Remove ambiguous comment. `z0` is exactly `j.l.Object` but `z1` is a subclass - if it was exactly `j.l.Object`, we would have gone through the fast-path.",
+      "range": {
+        "startLine": 89,
+        "startChar": 3,
+        "endLine": 89,
+        "endChar": 36
+      },
+      "revId": "2aff014ace4473ee4b6f5949450fa9446d8738d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6eab3564_11855715",
+        "filename": "runtime/interpreter/mterp/riscv64/object.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-24T12:15:08Z",
+      "side": 1,
+      "message": "Primitive type rejected by verifier.",
+      "range": {
+        "startLine": 98,
+        "startChar": 0,
+        "endLine": 99,
+        "endChar": 50
+      },
+      "revId": "2aff014ace4473ee4b6f5949450fa9446d8738d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "65c4bb0b_5865056d",
+        "filename": "runtime/interpreter/mterp/riscv64/object.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-24T12:15:08Z",
+      "side": 1,
+      "message": "Move between SRLIW and ANDI above and use `s8` to preserve across the `_miss` call?\n\nAlternatively, move the SRLIW+ANDI from above down here.",
+      "range": {
+        "startLine": 106,
+        "startChar": 3,
+        "endLine": 106,
+        "endChar": 22
+      },
+      "revId": "2aff014ace4473ee4b6f5949450fa9446d8738d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d060480_b7793d35",
+        "filename": "runtime/interpreter/mterp/riscv64/object.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-24T12:15:08Z",
+      "side": 1,
+      "message": "`UNPOISON_HEAP_REF a2`",
+      "revId": "2aff014ace4473ee4b6f5949450fa9446d8738d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c60892a_65f57351",
+        "filename": "runtime/interpreter/mterp/riscv64/object.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-24T12:15:08Z",
+      "side": 1,
+      "message": "Change registers used above to avoid these moves?",
+      "range": {
+        "startLine": 131,
+        "startChar": 3,
+        "endLine": 132,
+        "endChar": 29
+      },
+      "revId": "2aff014ace4473ee4b6f5949450fa9446d8738d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "336166ec_b5a69268",
+        "filename": "runtime/interpreter/mterp/riscv64/object.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-24T12:15:08Z",
+      "side": 1,
+      "message": "`UNPOISON_HEAP_REF a1`",
+      "revId": "2aff014ace4473ee4b6f5949450fa9446d8738d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2e63cf41_12a7952e",
+        "filename": "runtime/interpreter/mterp/riscv64/object.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-24T12:15:08Z",
+      "side": 1,
+      "message": "Replace with SNEZ. We get here with either `a2 \u003d\u003d a1 !\u003d null` or `a2 \u003d\u003d null`.",
+      "range": {
+        "startLine": 161,
+        "startChar": 3,
+        "endLine": 162,
+        "endChar": 41
+      },
+      "revId": "2aff014ace4473ee4b6f5949450fa9446d8738d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3685ae95_3c6b2c14",
+        "filename": "runtime/interpreter/mterp/riscv64/object.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-24T12:15:08Z",
+      "side": 1,
+      "message": "`UNPOISON_HEAP_REF $z1`",
+      "revId": "2aff014ace4473ee4b6f5949450fa9446d8738d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac3dfbd4_9149e6fb",
+        "filename": "runtime/interpreter/mterp/riscv64/object.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-24T12:15:08Z",
+      "side": 1,
+      "message": "If we use `a0` instead of `$z1`, we can branch directly to `.L${opcode}_slow_next`.",
+      "range": {
+        "startLine": 181,
+        "startChar": 3,
+        "endLine": 181,
+        "endChar": 35
+      },
+      "revId": "2aff014ace4473ee4b6f5949450fa9446d8738d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b87eb549_c4a32446",
+        "filename": "runtime/interpreter/mterp/riscv64/object.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-24T12:15:08Z",
+      "side": 1,
+      "message": "Add comment - no need to unpoison...",
+      "revId": "2aff014ace4473ee4b6f5949450fa9446d8738d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "34d3a9fb_3ad07a5c",
+        "filename": "runtime/interpreter/mterp/riscv64/object.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-24T12:15:08Z",
+      "side": 1,
+      "message": "We could remove this branching and just OR the primitive types, then SEQZ and jump to `.L${opcode}_slow_next`.",
+      "range": {
+        "startLine": 187,
+        "startChar": 3,
+        "endLine": 188,
+        "endChar": 91
+      },
+      "revId": "2aff014ace4473ee4b6f5949450fa9446d8738d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96dee0d3_4acbd5c1",
+        "filename": "runtime/interpreter/mterp/riscv64/object.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-24T12:15:08Z",
+      "side": 1,
+      "message": "Maybe \"cache entry is updated with the resolved klass\"?",
+      "range": {
+        "startLine": 230,
+        "startChar": 37,
+        "endLine": 230,
+        "endChar": 69
+      },
+      "revId": "2aff014ace4473ee4b6f5949450fa9446d8738d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
