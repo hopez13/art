@@ -142,6 +142,30 @@
       },
       "revId": "8af139c6ffa368eb3ab1f4b2fa89e1063576e1a6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "830ea336_f798589e",
+        "filename": "libartservice/service/java/com/android/server/art/Dexopter.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-01-24T15:58:59Z",
+      "side": 1,
+      "message": "\u003e Looks like we have different understandings on what developers are trying to do with the -m flag\n\nI guess so. You seem to consider this to be much more tightly coupled with the runtime, while I see it as a conceptually separate step, meaning that inconsistencies can inherently occur which just have to be taken that into account (and also that compilation is an operation to investigate in its own right). After all, with any amount of experience one would have faced the situation that the compiled files have been dismissed due to staleness if nothing else.\n\n\u003e To meet halfway, WDYT about failing the pm compile command if the -m flag can\u0027t be fulfilled due to these conditions?\n\nAll right then. That may give us some input on the use cases where people run into it.\n\n\u003e Yes, that\u0027s PS2.\n\nD\u0027oh, somehow I thought that was the patchset I\u0027ve already reviewed. It\u0027s worthwhile logging in any case, thanks.",
+      "parentUuid": "48a57fb4_46ddfaac",
+      "range": {
+        "startLine": 336,
+        "startChar": 0,
+        "endLine": 365,
+        "endChar": 9
+      },
+      "revId": "8af139c6ffa368eb3ab1f4b2fa89e1063576e1a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

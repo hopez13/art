@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc0067d0_b783832f",
+        "filename": "libartservice/service/java/com/android/server/art/Dexopter.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-01-24T15:58:59Z",
+      "side": 1,
+      "message": "I spontaneously thought this meant that it\u0027s the compiler reason that gets adjusted rather than the filter. So it could use a clarification, maybe `printAdjustFilter` instead (or the AI suggestion `printAdjustCompilerFilterReason`).\n\nAnother thought is to let this function return the new filter, to help avoid temporary variables like on line 355.",
+      "range": {
+        "startLine": 401,
+        "startChar": 28,
+        "endLine": 401,
+        "endChar": 34
+      },
+      "revId": "42861b120cf37daa613b43a9e608cdfbfad75f08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
