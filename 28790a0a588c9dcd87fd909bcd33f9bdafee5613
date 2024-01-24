@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "60aadbed_fae15f5b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 3050003
+      },
+      "writtenOn": "2024-01-24T22:18:35Z",
+      "side": 1,
+      "message": "Thank you very much for the review! Yes, I\u0027ve seen about 4% improvement in benchmark based on compression algorithm implementation.",
+      "parentUuid": "752a948c_641be243",
+      "revId": "28790a0a588c9dcd87fd909bcd33f9bdafee5613",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f31c9b29_789ff2c6",
         "filename": "compiler/optimizing/data_type.h",
         "patchSetId": 1
@@ -48,6 +66,30 @@
       "writtenOn": "2024-01-24T09:23:52Z",
       "side": 1,
       "message": "Not too fond of the name. For example, `kBool` or `kUint8` are integral types but they are never returned. Maybe `SignedIntegralTypeFromSize`?\n\n```suggestion\n  static constexpr Type SignedIntegralTypeFromSize(size_t size) {\n```",
+      "range": {
+        "startLine": 104,
+        "startChar": 24,
+        "endLine": 104,
+        "endChar": 44
+      },
+      "revId": "28790a0a588c9dcd87fd909bcd33f9bdafee5613",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e2b5f50_89931e6f",
+        "filename": "compiler/optimizing/data_type.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 3050003
+      },
+      "writtenOn": "2024-01-24T22:18:35Z",
+      "side": 1,
+      "message": "Yes, thank you for suggestion!",
+      "parentUuid": "f31c9b29_789ff2c6",
       "range": {
         "startLine": 104,
         "startChar": 24,
@@ -75,6 +117,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2cba7301_b2aa2185",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 389,
+      "author": {
+        "id": 3050003
+      },
+      "writtenOn": "2024-01-24T22:18:35Z",
+      "side": 1,
+      "message": "Fixed, thank you!",
+      "parentUuid": "e691475e_cf987ec2",
+      "revId": "28790a0a588c9dcd87fd909bcd33f9bdafee5613",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6ce122e7_c0ce91fa",
@@ -88,6 +148,30 @@
       "writtenOn": "2024-01-24T09:23:52Z",
       "side": 1,
       "message": "suggestion: Separate into two `if` statements (one for the HInstructions, and another one for `Is64BitType`) to make it easier to read",
+      "range": {
+        "startLine": 391,
+        "startChar": 0,
+        "endLine": 394,
+        "endChar": 3
+      },
+      "revId": "28790a0a588c9dcd87fd909bcd33f9bdafee5613",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "37c19039_ff8d2369",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 3050003
+      },
+      "writtenOn": "2024-01-24T22:18:35Z",
+      "side": 1,
+      "message": "Done, thanks!",
+      "parentUuid": "6ce122e7_c0ce91fa",
       "range": {
         "startLine": 391,
         "startChar": 0,
@@ -121,6 +205,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b246ca97_e6e2242b",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 3050003
+      },
+      "writtenOn": "2024-01-24T22:18:35Z",
+      "side": 1,
+      "message": "Done, thank you for suggestion!",
+      "parentUuid": "322630dd_002e872f",
+      "range": {
+        "startLine": 406,
+        "startChar": 0,
+        "endLine": 411,
+        "endChar": 33
+      },
+      "revId": "28790a0a588c9dcd87fd909bcd33f9bdafee5613",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2490d1a1_b440ae4d",
@@ -134,6 +242,30 @@
       "writtenOn": "2024-01-24T09:23:52Z",
       "side": 1,
       "message": "`shl`",
+      "range": {
+        "startLine": 429,
+        "startChar": 27,
+        "endLine": 429,
+        "endChar": 36
+      },
+      "revId": "28790a0a588c9dcd87fd909bcd33f9bdafee5613",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e6f801c_316ab1bb",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 3050003
+      },
+      "writtenOn": "2024-01-24T22:18:35Z",
+      "side": 1,
+      "message": "Fixed, thanks!",
+      "parentUuid": "2490d1a1_b440ae4d",
       "range": {
         "startLine": 429,
         "startChar": 27,
@@ -167,6 +299,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d9c95089_2d7a6e9f",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 431,
+      "author": {
+        "id": 3050003
+      },
+      "writtenOn": "2024-01-24T22:18:35Z",
+      "side": 1,
+      "message": "Fixed, thanks!",
+      "parentUuid": "c982ba65_5035b05a",
+      "range": {
+        "startLine": 431,
+        "startChar": 57,
+        "endLine": 431,
+        "endChar": 62
+      },
+      "revId": "28790a0a588c9dcd87fd909bcd33f9bdafee5613",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6e9c5a06_6bd24c01",
@@ -180,6 +336,24 @@
       "writtenOn": "2024-01-24T09:23:52Z",
       "side": 1,
       "message": "nit: `.` at the end of the comment",
+      "revId": "28790a0a588c9dcd87fd909bcd33f9bdafee5613",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c1312bb_aad1a227",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 3050003
+      },
+      "writtenOn": "2024-01-24T22:18:35Z",
+      "side": 1,
+      "message": "Fixed, thanks!",
+      "parentUuid": "6e9c5a06_6bd24c01",
       "revId": "28790a0a588c9dcd87fd909bcd33f9bdafee5613",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -207,6 +381,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b15ece5_9ccf7808",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 3050003
+      },
+      "writtenOn": "2024-01-24T22:18:35Z",
+      "side": 1,
+      "message": "Fixed, thanks!",
+      "parentUuid": "d36c8e24_ebfbd899",
+      "range": {
+        "startLine": 434,
+        "startChar": 19,
+        "endLine": 434,
+        "endChar": 28
+      },
+      "revId": "28790a0a588c9dcd87fd909bcd33f9bdafee5613",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "897ad69c_967f1dec",
@@ -224,6 +422,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "da906852_9eebdf36",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 437,
+      "author": {
+        "id": 3050003
+      },
+      "writtenOn": "2024-01-24T22:18:35Z",
+      "side": 1,
+      "message": "Fixed, thanks!",
+      "parentUuid": "897ad69c_967f1dec",
+      "revId": "28790a0a588c9dcd87fd909bcd33f9bdafee5613",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9b223695_00e0b92d",
@@ -237,6 +453,30 @@
       "writtenOn": "2024-01-24T09:23:52Z",
       "side": 1,
       "message": "Remove `Actually`, and `.` at the end of comment.",
+      "range": {
+        "startLine": 447,
+        "startChar": 5,
+        "endLine": 447,
+        "endChar": 13
+      },
+      "revId": "28790a0a588c9dcd87fd909bcd33f9bdafee5613",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "52275c18_795523ab",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 447,
+      "author": {
+        "id": 3050003
+      },
+      "writtenOn": "2024-01-24T22:18:35Z",
+      "side": 1,
+      "message": "Fixed, thanks!",
+      "parentUuid": "9b223695_00e0b92d",
       "range": {
         "startLine": 447,
         "startChar": 5,
@@ -270,6 +510,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "70c0a20d_d9fc5e94",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 451,
+      "author": {
+        "id": 3050003
+      },
+      "writtenOn": "2024-01-24T22:18:35Z",
+      "side": 1,
+      "message": "Fixed, thank you for suggestion!",
+      "parentUuid": "0f26ef8c_86a2c060",
+      "range": {
+        "startLine": 450,
+        "startChar": 0,
+        "endLine": 451,
+        "endChar": 47
+      },
+      "revId": "28790a0a588c9dcd87fd909bcd33f9bdafee5613",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "07197266_ae8fe6a4",
@@ -283,6 +547,24 @@
       "writtenOn": "2024-01-24T09:23:52Z",
       "side": 1,
       "message": "In your test cases you always use `24` for `byte`, and `16` for `short` and `char`. Have you tried using the other number e.g. `24` for `short` would be a TypeConversion from 2 bytes to 1 byte",
+      "revId": "28790a0a588c9dcd87fd909bcd33f9bdafee5613",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7cc521d_bf2dd25b",
+        "filename": "test/458-checker-instruct-simplification/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 3122,
+      "author": {
+        "id": 3050003
+      },
+      "writtenOn": "2024-01-24T22:18:35Z",
+      "side": 1,
+      "message": "Added such tests, thank you for suggestion!",
+      "parentUuid": "07197266_ae8fe6a4",
       "revId": "28790a0a588c9dcd87fd909bcd33f9bdafee5613",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -304,6 +586,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c190b90_de3f344f",
+        "filename": "test/458-checker-instruct-simplification/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 3125,
+      "author": {
+        "id": 3050003
+      },
+      "writtenOn": "2024-01-24T22:18:35Z",
+      "side": 1,
+      "message": "Fixed, thanks!",
+      "parentUuid": "cfa1acab_7ae50724",
+      "revId": "28790a0a588c9dcd87fd909bcd33f9bdafee5613",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7150703f_c7b0dce1",
@@ -317,6 +617,30 @@
       "writtenOn": "2024-01-24T09:23:52Z",
       "side": 1,
       "message": "```suggestion\n  /// CHECK-START: int Main.$noinline$testByteToIntAsUnsigned(byte) instruction_simplifier (after)\n  /// CHECK:     \u003c\u003cParam:b\\d+\u003e\u003e   ParameterValue\n  /// CHECK:     \u003c\u003cConv:a\\d+\u003e\u003e    TypeConversion [\u003c\u003cParam\u003e\u003e]\n  /// CHECK:     \u003c\u003cReturn:v\\d+\u003e\u003e  Return [\u003c\u003cConv\u003e\u003e]\n\n  /// CHECK-START: int Main.$noinline$testByteToIntAsUnsigned(byte) instruction_simplifier (after)\n  /// CHECK-NOT:                  Shl\n  \n  /// CHECK-START: int Main.$noinline$testByteToIntAsUnsigned(byte) instruction_simplifier (after)\n  /// CHECK-NOT:                  UShr\n```\n\nDue to the pattern matching we have the CHECK-NOT as separate lines. Same for other cases",
+      "range": {
+        "startLine": 3134,
+        "startChar": 0,
+        "endLine": 3139,
+        "endChar": 51
+      },
+      "revId": "28790a0a588c9dcd87fd909bcd33f9bdafee5613",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b24fe6d_1734a07e",
+        "filename": "test/458-checker-instruct-simplification/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 3139,
+      "author": {
+        "id": 3050003
+      },
+      "writtenOn": "2024-01-24T22:18:35Z",
+      "side": 1,
+      "message": "Fixed, thank you!",
+      "parentUuid": "7150703f_c7b0dce1",
       "range": {
         "startLine": 3134,
         "startChar": 0,
@@ -350,6 +674,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "46654d61_92bfb02a",
+        "filename": "test/458-checker-instruct-simplification/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 3141,
+      "author": {
+        "id": 3050003
+      },
+      "writtenOn": "2024-01-24T22:18:35Z",
+      "side": 1,
+      "message": "Removed cast as it is unnecessary here",
+      "parentUuid": "c4e43521_1d587773",
+      "range": {
+        "startLine": 3141,
+        "startChar": 11,
+        "endLine": 3141,
+        "endChar": 34
+      },
+      "revId": "28790a0a588c9dcd87fd909bcd33f9bdafee5613",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fcd38df0_0af50296",
@@ -363,6 +711,24 @@
       "writtenOn": "2024-01-24T09:23:52Z",
       "side": 1,
       "message": "`.` at the end of comment. Same for comments below",
+      "revId": "28790a0a588c9dcd87fd909bcd33f9bdafee5613",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7073ff5_4bc9b998",
+        "filename": "test/458-checker-instruct-simplification/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 3479,
+      "author": {
+        "id": 3050003
+      },
+      "writtenOn": "2024-01-24T22:18:35Z",
+      "side": 1,
+      "message": "Fixed, thanks!",
+      "parentUuid": "fcd38df0_0af50296",
       "revId": "28790a0a588c9dcd87fd909bcd33f9bdafee5613",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
