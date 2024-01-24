@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "136ea62b_2edd425b",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2957,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-24T13:31:50Z",
+      "side": 1,
+      "message": "This was failing on test 590-. If we do `HuntForOriginalReference` on the value, we should be able to re-add this DCHECK.",
+      "range": {
+        "startLine": 2956,
+        "startChar": 0,
+        "endLine": 2957,
+        "endChar": 79
+      },
+      "revId": "22f7efb914e3a97c0f52b2dd47a36519a44c62f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
