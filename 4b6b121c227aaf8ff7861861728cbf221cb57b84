@@ -22,6 +22,30 @@
       },
       "revId": "4b6b121c227aaf8ff7861861728cbf221cb57b84",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9118e2ee_51a79c37",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 794,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-24T14:45:14Z",
+      "side": 1,
+      "message": "`BitVector` constructors are somewhat inconsistent - one public constructor does not clear the memory. So I\u0027m doing the slightly paranoid clearing here just in case (despite the particular constructor being used already clearing the `BitVector`). Feel free to clean this up in a separate CL. (Maybe make `BitVector(bool, Allocator*, uint32_t, uint32_t*)` private, so that all public constructors prepare a well-defined state.)\n\n(Also note that `ArenaAllocator` always provides zero-initialized memory but`ScopedArenaAllocator` does not.)\n\nIf I ever get to do a proper cleanup, it shall go much deeper and make the `BitVector` non-expandable (remove `allocator_` and `expandable_`, simplify some functions) and provide a separate class for expandable bit vectors. Uses like this shall not need the implicit `ArenaBitVectorAllocator`.",
+      "parentUuid": "1ef44898_01828a62",
+      "range": {
+        "startLine": 794,
+        "startChar": 19,
+        "endLine": 794,
+        "endChar": 33
+      },
+      "revId": "4b6b121c227aaf8ff7861861728cbf221cb57b84",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
