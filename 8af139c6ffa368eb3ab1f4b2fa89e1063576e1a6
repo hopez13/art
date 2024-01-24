@@ -166,6 +166,30 @@
       },
       "revId": "8af139c6ffa368eb3ab1f4b2fa89e1063576e1a6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6ec7ae17_2d022446",
+        "filename": "libartservice/service/java/com/android/server/art/Dexopter.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-01-24T17:57:17Z",
+      "side": 1,
+      "message": "I realized a problem with failing the command. The command operates on the package level, but the compiler filter adjustments are done on the dex file level. It\u0027s possible that we need to adjust the compiler filter for one of the splits. For example, we may need to change \"speed-profile\" to \"verify\" for one split because there is no profile for it, while we can still use \"speed-profile\" for other splits. In this case, failing the whole command won\u0027t make sense.\n\nAn alternative is to surface the compiler filter adjustments (with the reason) as warnings to the command outputs. If your worry is that the adjustments can create confusions, then surfacing the adjustments should mitigate it. If developers run into those warnings and find that the behavior not what they want, we\u0027ll hear from them. WDYT?",
+      "parentUuid": "830ea336_f798589e",
+      "range": {
+        "startLine": 336,
+        "startChar": 0,
+        "endLine": 365,
+        "endChar": 9
+      },
+      "revId": "8af139c6ffa368eb3ab1f4b2fa89e1063576e1a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
