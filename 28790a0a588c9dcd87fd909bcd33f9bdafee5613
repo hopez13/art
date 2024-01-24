@@ -16,6 +16,355 @@
       "message": "Hello! Please take a look at this patch with supports of a new simplification pattern. Thank you!",
       "revId": "28790a0a588c9dcd87fd909bcd33f9bdafee5613",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "752a948c_641be243",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-24T09:23:52Z",
+      "side": 1,
+      "message": "Thanks for the CL! Have you seen improvements in particular code patterns / benchmarks?",
+      "revId": "28790a0a588c9dcd87fd909bcd33f9bdafee5613",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f31c9b29_789ff2c6",
+        "filename": "compiler/optimizing/data_type.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-24T09:23:52Z",
+      "side": 1,
+      "message": "Not too fond of the name. For example, `kBool` or `kUint8` are integral types but they are never returned. Maybe `SignedIntegralTypeFromSize`?\n\n```suggestion\n  static constexpr Type SignedIntegralTypeFromSize(size_t size) {\n```",
+      "range": {
+        "startLine": 104,
+        "startChar": 24,
+        "endLine": 104,
+        "endChar": 44
+      },
+      "revId": "28790a0a588c9dcd87fd909bcd33f9bdafee5613",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e691475e_cf987ec2",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 389,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-24T09:23:52Z",
+      "side": 1,
+      "message": "nit: `.` at the end of the comment",
+      "revId": "28790a0a588c9dcd87fd909bcd33f9bdafee5613",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6ce122e7_c0ce91fa",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-24T09:23:52Z",
+      "side": 1,
+      "message": "suggestion: Separate into two `if` statements (one for the HInstructions, and another one for `Is64BitType`) to make it easier to read",
+      "range": {
+        "startLine": 391,
+        "startChar": 0,
+        "endLine": 394,
+        "endChar": 3
+      },
+      "revId": "28790a0a588c9dcd87fd909bcd33f9bdafee5613",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "322630dd_002e872f",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-24T09:23:52Z",
+      "side": 1,
+      "message": "```suggestion\n  HInstruction* shr_value \u003d instruction-\u003eGetLeft();\n  if (!shr_value-\u003eIsShl()) {\n    return false;\n  }\n\n  HShl *shl \u003d shr_value-\u003eAsShl();\n  if (!shl-\u003eHasOnlyOneNonEnvironmentUse()) {\n    return false;\n  }\n```\n\nreads better in my opinion as it is checking what the comment above the method says",
+      "range": {
+        "startLine": 406,
+        "startChar": 0,
+        "endLine": 411,
+        "endChar": 33
+      },
+      "revId": "28790a0a588c9dcd87fd909bcd33f9bdafee5613",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2490d1a1_b440ae4d",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-24T09:23:52Z",
+      "side": 1,
+      "message": "`shl`",
+      "range": {
+        "startLine": 429,
+        "startChar": 27,
+        "endLine": 429,
+        "endChar": 36
+      },
+      "revId": "28790a0a588c9dcd87fd909bcd33f9bdafee5613",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c982ba65_5035b05a",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 431,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-24T09:23:52Z",
+      "side": 1,
+      "message": "Please fix this ERROR reported by Common Typos: Common typo found: \" e.g \" -- should it be \" e.g. \"?\n\nAnalyzer Description: Linter for catching common typos motivated by go/todo-fail and go/lol-codesearch. Shared with google3 common typos library go/common-typos.\nOwner: ayeaye-team@google.com\n\nCommon typo found: \" e.g \" -- should it be \" e.g. \"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027No-Typo-Check: \u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 431,
+        "startChar": 57,
+        "endLine": 431,
+        "endChar": 62
+      },
+      "revId": "28790a0a588c9dcd87fd909bcd33f9bdafee5613",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e9c5a06_6bd24c01",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-24T09:23:52Z",
+      "side": 1,
+      "message": "nit: `.` at the end of the comment",
+      "revId": "28790a0a588c9dcd87fd909bcd33f9bdafee5613",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d36c8e24_ebfbd899",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-24T09:23:52Z",
+      "side": 1,
+      "message": "`shl`",
+      "range": {
+        "startLine": 434,
+        "startChar": 19,
+        "endLine": 434,
+        "endChar": 28
+      },
+      "revId": "28790a0a588c9dcd87fd909bcd33f9bdafee5613",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "897ad69c_967f1dec",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 437,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-24T09:23:52Z",
+      "side": 1,
+      "message": "nit: `.` at the end of the comment",
+      "revId": "28790a0a588c9dcd87fd909bcd33f9bdafee5613",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b223695_00e0b92d",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 447,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-24T09:23:52Z",
+      "side": 1,
+      "message": "Remove `Actually`, and `.` at the end of comment.",
+      "range": {
+        "startLine": 447,
+        "startChar": 5,
+        "endLine": 447,
+        "endChar": 13
+      },
+      "revId": "28790a0a588c9dcd87fd909bcd33f9bdafee5613",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f26ef8c_86a2c060",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 451,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-24T09:23:52Z",
+      "side": 1,
+      "message": "Odd formatting\n```suggestion\nDataType::Type conv_type \u003d\n        is_signed ? source_integral_type : DataType::ToUnsigned(source_integral_type);\n```",
+      "range": {
+        "startLine": 450,
+        "startChar": 0,
+        "endLine": 451,
+        "endChar": 47
+      },
+      "revId": "28790a0a588c9dcd87fd909bcd33f9bdafee5613",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "07197266_ae8fe6a4",
+        "filename": "test/458-checker-instruct-simplification/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 3122,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-24T09:23:52Z",
+      "side": 1,
+      "message": "In your test cases you always use `24` for `byte`, and `16` for `short` and `char`. Have you tried using the other number e.g. `24` for `short` would be a TypeConversion from 2 bytes to 1 byte",
+      "revId": "28790a0a588c9dcd87fd909bcd33f9bdafee5613",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cfa1acab_7ae50724",
+        "filename": "test/458-checker-instruct-simplification/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 3125,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-24T09:23:52Z",
+      "side": 1,
+      "message": "`.` at the end of the comment. Same for similar `Check ... cases` comments",
+      "revId": "28790a0a588c9dcd87fd909bcd33f9bdafee5613",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7150703f_c7b0dce1",
+        "filename": "test/458-checker-instruct-simplification/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 3139,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-24T09:23:52Z",
+      "side": 1,
+      "message": "```suggestion\n  /// CHECK-START: int Main.$noinline$testByteToIntAsUnsigned(byte) instruction_simplifier (after)\n  /// CHECK:     \u003c\u003cParam:b\\d+\u003e\u003e   ParameterValue\n  /// CHECK:     \u003c\u003cConv:a\\d+\u003e\u003e    TypeConversion [\u003c\u003cParam\u003e\u003e]\n  /// CHECK:     \u003c\u003cReturn:v\\d+\u003e\u003e  Return [\u003c\u003cConv\u003e\u003e]\n\n  /// CHECK-START: int Main.$noinline$testByteToIntAsUnsigned(byte) instruction_simplifier (after)\n  /// CHECK-NOT:                  Shl\n  \n  /// CHECK-START: int Main.$noinline$testByteToIntAsUnsigned(byte) instruction_simplifier (after)\n  /// CHECK-NOT:                  UShr\n```\n\nDue to the pattern matching we have the CHECK-NOT as separate lines. Same for other cases",
+      "range": {
+        "startLine": 3134,
+        "startChar": 0,
+        "endLine": 3139,
+        "endChar": 51
+      },
+      "revId": "28790a0a588c9dcd87fd909bcd33f9bdafee5613",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c4e43521_1d587773",
+        "filename": "test/458-checker-instruct-simplification/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 3141,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-24T09:23:52Z",
+      "side": 1,
+      "message": "Please add `()` to show the order of operations. Same for the other cases.",
+      "range": {
+        "startLine": 3141,
+        "startChar": 11,
+        "endLine": 3141,
+        "endChar": 34
+      },
+      "revId": "28790a0a588c9dcd87fd909bcd33f9bdafee5613",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fcd38df0_0af50296",
+        "filename": "test/458-checker-instruct-simplification/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 3479,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-24T09:23:52Z",
+      "side": 1,
+      "message": "`.` at the end of comment. Same for comments below",
+      "revId": "28790a0a588c9dcd87fd909bcd33f9bdafee5613",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
