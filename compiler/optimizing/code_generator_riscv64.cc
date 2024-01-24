@@ -4537,7 +4537,6 @@ void LocationsBuilderRISCV64::VisitMethodEntryHook(HMethodEntryHook* instruction
 }
 
 void InstructionCodeGeneratorRISCV64::VisitMethodEntryHook(HMethodEntryHook* instruction) {
-  DCHECK(codegen_->GetCompilerOptions().IsJitCompiler() && GetGraph()->IsDebuggable());
   DCHECK(codegen_->RequiresCurrentMethod());
   GenerateMethodEntryExitHook(instruction);
 }
@@ -4550,7 +4549,6 @@ void LocationsBuilderRISCV64::VisitMethodExitHook(HMethodExitHook* instruction) 
 }
 
 void InstructionCodeGeneratorRISCV64::VisitMethodExitHook(HMethodExitHook* instruction) {
-  DCHECK(codegen_->GetCompilerOptions().IsJitCompiler() && GetGraph()->IsDebuggable());
   DCHECK(codegen_->RequiresCurrentMethod());
   GenerateMethodEntryExitHook(instruction);
 }

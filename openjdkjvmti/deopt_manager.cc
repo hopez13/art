@@ -188,7 +188,7 @@ void DeoptManager::FinishSetup() {
   if (jit != nullptr) {
     jit->GetCodeCache()->InvalidateAllCompiledCode();
     jit->GetCodeCache()->TransitionToDebuggable();
-    jit->GetJitCompiler()->SetDebuggableCompilerOption(true);
+    jit->GetJitCompiler()->SetDebuggableCompilerOption(art::TraceDebugLevel::kDebuggable);
   }
 
   // 3. Change the state to JavaDebuggable, so that debug features can be
