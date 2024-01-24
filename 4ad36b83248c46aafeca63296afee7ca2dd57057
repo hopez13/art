@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "78018a26_0c6e852b",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1122,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-01-24T17:44:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e76b401b_70ee9636",
+      "range": {
+        "startLine": 1122,
+        "startChar": 14,
+        "endLine": 1122,
+        "endChar": 25
+      },
+      "revId": "4ad36b83248c46aafeca63296afee7ca2dd57057",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "421e49f0_8219037e",
@@ -54,6 +78,30 @@
       "writtenOn": "2024-01-24T15:06:32Z",
       "side": 1,
       "message": "Here and in the other `RepeatTemplatedRegistersVM`, it should read `Vm` (as in lowercase). At least the other cases are using `Vm` (and not `VM`) in their naming",
+      "range": {
+        "startLine": 1175,
+        "startChar": 14,
+        "endLine": 1175,
+        "endChar": 40
+      },
+      "revId": "4ad36b83248c46aafeca63296afee7ca2dd57057",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f16e2dfb_14619623",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1175,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-01-24T17:44:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "421e49f0_8219037e",
       "range": {
         "startLine": 1175,
         "startChar": 14,
@@ -81,6 +129,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ddbeb60_af2edf53",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1186,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-01-24T17:44:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a729c3c1_b10b1927",
+      "revId": "4ad36b83248c46aafeca63296afee7ca2dd57057",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "141d827b_c8a71970",
@@ -104,6 +170,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "90848c99_6272b9f8",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1388,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-01-24T17:44:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "141d827b_c8a71970",
+      "range": {
+        "startLine": 1388,
+        "startChar": 14,
+        "endLine": 1388,
+        "endChar": 32
+      },
+      "revId": "4ad36b83248c46aafeca63296afee7ca2dd57057",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "24c08013_293901e0",
@@ -117,6 +207,30 @@
       "writtenOn": "2024-01-24T15:06:32Z",
       "side": 1,
       "message": "nit: exchange loops to keep the `VVIVm` pattern",
+      "range": {
+        "startLine": 1428,
+        "startChar": 6,
+        "endLine": 1429,
+        "endChar": 53
+      },
+      "revId": "4ad36b83248c46aafeca63296afee7ca2dd57057",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b207903e_d6ce485f",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1429,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-01-24T17:44:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "24c08013_293901e0",
       "range": {
         "startLine": 1428,
         "startChar": 6,
@@ -152,6 +266,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "628356d0_c338a91b",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1486,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-01-24T17:44:37Z",
+      "side": 1,
+      "message": "Sorry, is this really such important? There are many combinations of `Repeat**` and predicate and as you can see in previous revisions I have already tried many variants of how to make it look better and the current one seems to be the most acceptable imho :(",
+      "parentUuid": "404fb029_473def34",
+      "range": {
+        "startLine": 1486,
+        "startChar": 14,
+        "endLine": 1486,
+        "endChar": 32
+      },
+      "revId": "4ad36b83248c46aafeca63296afee7ca2dd57057",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cfca0e09_0c023665",
         "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
         "patchSetId": 13
@@ -163,6 +301,30 @@
       "writtenOn": "2024-01-24T15:06:32Z",
       "side": 1,
       "message": "v0 v1 overlap? Or vd vs1 overlap? Same for below",
+      "range": {
+        "startLine": 1569,
+        "startChar": 16,
+        "endLine": 1569,
+        "endChar": 27
+      },
+      "revId": "4ad36b83248c46aafeca63296afee7ca2dd57057",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c32c762e_028d1496",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1569,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-01-24T17:44:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cfca0e09_0c023665",
       "range": {
         "startLine": 1569,
         "startChar": 16,
@@ -196,6 +358,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2b61a95_74fe8478",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1571,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-01-24T17:44:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "32273c92_73a44dc9",
+      "range": {
+        "startLine": 1571,
+        "startChar": 10,
+        "endLine": 1571,
+        "endChar": 55
+      },
+      "revId": "4ad36b83248c46aafeca63296afee7ca2dd57057",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5a73151f_a5aacb99",
@@ -219,6 +405,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "97e74d1a_117f9eb7",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1572,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-01-24T17:44:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5a73151f_a5aacb99",
+      "range": {
+        "startLine": 1572,
+        "startChar": 8,
+        "endLine": 1572,
+        "endChar": 21
+      },
+      "revId": "4ad36b83248c46aafeca63296afee7ca2dd57057",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d5e07665_c51d2a2a",
@@ -232,6 +442,30 @@
       "writtenOn": "2024-01-24T15:06:32Z",
       "side": 1,
       "message": "Are you using `X` to represent the templated register here? Should we do the same above with `RepeatTemplatedRegistersVM`? It could be named e.g. `RepeatXXVm`",
+      "range": {
+        "startLine": 1579,
+        "startChar": 7,
+        "endLine": 1579,
+        "endChar": 27
+      },
+      "revId": "4ad36b83248c46aafeca63296afee7ca2dd57057",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e60028dc_42199dae",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1579,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-01-24T17:44:37Z",
+      "side": 1,
+      "message": "This name pattern I took from `$AOSP/art/compiler/utils/assembler_test.h`, i.e. `RepeatTemplatedRegisters(...)`.\nShould I introduce new naming scheme in risc-v tests?",
+      "parentUuid": "d5e07665_c51d2a2a",
       "range": {
         "startLine": 1579,
         "startChar": 7,
