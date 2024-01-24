@@ -94,6 +94,30 @@
       },
       "revId": "8af139c6ffa368eb3ab1f4b2fa89e1063576e1a6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9cb6951d_42e2f74f",
+        "filename": "libartservice/service/java/com/android/server/art/Dexopter.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-01-24T12:04:57Z",
+      "side": 1,
+      "message": "This is a developer CUJ; the goals are different here. Any overrides and attempts to second guess what the user wants adds to the confusion rather than makes it less. The express purpose of the force flag is after all to skip all that and just do what the user tells us to.\n\nAlso, I don\u0027t think we can confidently say what\u0027s a minor use case and not in developer workflows. They\u0027re more diverse and even less common ones may be important when they\u0027re actually needed.\n\nThat the files may not be usable later doesn\u0027t overshadow this. What we could do to minimise that confusion is to document in the help text that compiled code produced with `-m` may be rejected by the runtime for various reasons.\n\n\u003e You can take a look at the callers of IsJavaDebuggable().\n\nI tried, but I gave up trying to find the call path up to where the decision is made whether to use an OAT file or interpreter/JIT (if you can point me to it I\u0027d appreciate it). In any case, if there\u0027s no good logging when the file is loaded then that\u0027s something to fix there.\n\n\u003e You are right. Initially I thought it didn\u0027t because I couldn\u0027t find any reference to the flag in the runtime, but it turns out that the flag is handled in the framework.\n\nInteresting, I guess it should end up in [`OatFileManager.only_use_system_oat_files_`](https://cs.android.com/android/platform/superproject/main/+/main:art/runtime/oat/oat_file_manager.h;l\u003d168;drc\u003d689cca840843eeced3206da16e475856de953360), but I fail to follow that path too. Afaict it only gets set from the `-Xonly-use-system-oat-files` runtime arg, but that only gets set in a few tests.\n\n\u003e Added logging. (Test logs)\n\nWas that supposed to become a new patchset here?",
+      "parentUuid": "e12263ac_b52bd7de",
+      "range": {
+        "startLine": 336,
+        "startChar": 0,
+        "endLine": 365,
+        "endChar": 9
+      },
+      "revId": "8af139c6ffa368eb3ab1f4b2fa89e1063576e1a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
