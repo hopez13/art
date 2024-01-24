@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d7b064e4_c1e2fdde",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1063,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2024-01-24T18:31:23Z",
+      "side": 1,
+      "message": "I don\u0027t fully understand the intent of the macros in asm_support, and whether this is consistent with that. Vladimir?",
+      "range": {
+        "startLine": 1063,
+        "startChar": 4,
+        "endLine": 1063,
+        "endChar": 51
+      },
+      "revId": "5d90329dd41360791b1e364db856048563a35cbd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
