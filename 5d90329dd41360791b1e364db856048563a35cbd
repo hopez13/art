@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "40325096_2b29eabf",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 998,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-25T09:12:51Z",
+      "side": 1,
+      "message": "I see we have the same off-by-one error on x86 and we cannot easily move the check to `ALLOC_ARRAY_TLAB_FAST_PATH_RESOLVED_WITH_SIZE` there. So we should really fix JA to JAE for x86 and we may want to think whether to replace the imprecise check in the `COMPUTE_ARRAY_SIZE_UNKNOWN` with two checks to make it precise; first the same check as in `COMPUTE_ARRAY_SIZE_8` which would avoid overflows in the size calculation, and then a precise check after calculating the size.",
+      "parentUuid": "ceb14fca_0086db57",
+      "range": {
+        "startLine": 997,
+        "startChar": 4,
+        "endLine": 998,
+        "endChar": 25
+      },
+      "revId": "5d90329dd41360791b1e364db856048563a35cbd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d7b064e4_c1e2fdde",
         "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
         "patchSetId": 1
