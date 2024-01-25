@@ -200,6 +200,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1e4b2cb1_bd7c193c",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 452,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-25T14:17:04Z",
+      "side": 1,
+      "message": "Then reorder the checks. Lines 438-452 should be moved before the defintion of `shr_value`. (That would address my comment on line 405 by fully checking for supported shift before proceeding with other checks.)",
+      "parentUuid": "aab18898_241e89bd",
+      "range": {
+        "startLine": 450,
+        "startChar": 2,
+        "endLine": 452,
+        "endChar": 3
+      },
+      "revId": "f0385839bc2da14055deb9d96f89f78c6f186f6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "aaffefa5_f985cab2",
         "filename": "test/458-checker-instruct-simplification/src/Main.java",
         "patchSetId": 3
@@ -304,6 +328,30 @@
       "side": 1,
       "message": "Not yet, but it is good idea, thanks!",
       "parentUuid": "a1104b3d_ef32029b",
+      "range": {
+        "startLine": 3628,
+        "startChar": 4,
+        "endLine": 3628,
+        "endChar": 27
+      },
+      "revId": "f0385839bc2da14055deb9d96f89f78c6f186f6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "69b529d8_840d1642",
+        "filename": "test/458-checker-instruct-simplification/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 3628,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-25T14:17:04Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "6009645b_6b15ba6e",
       "range": {
         "startLine": 3628,
         "startChar": 4,
