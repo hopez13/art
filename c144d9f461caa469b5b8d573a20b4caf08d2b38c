@@ -1,0 +1,866 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72385419_998204c8",
+        "filename": "dex2oat/driver/compiler_driver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 472,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-25T16:20:15Z",
+      "side": 1,
+      "message": "Is this for `FindBootNativeMethod()`?",
+      "range": {
+        "startLine": 472,
+        "startChar": 70,
+        "endLine": 472,
+        "endChar": 95
+      },
+      "revId": "c144d9f461caa469b5b8d573a20b4caf08d2b38c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fcc72c44_65729b68",
+        "filename": "dex2oat/driver/compiler_driver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 494,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-25T16:20:15Z",
+      "side": 1,
+      "message": "I would drop this part and apply the code below also for `CompilerOptions::ImageType::kNone` as long as we have the primary boot image. (And update the comment below to match the code.)\n\nNote that this shall match the `CompilerOptions::ImageType::kAppImage` behavior for native methods in classes that are not in the profile.",
+      "range": {
+        "startLine": 493,
+        "startChar": 12,
+        "endLine": 494,
+        "endChar": 45
+      },
+      "revId": "c144d9f461caa469b5b8d573a20b4caf08d2b38c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "716f9885_8d5dbcce",
+        "filename": "dex2oat/driver/compiler_driver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 496,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-25T16:20:15Z",
+      "side": 1,
+      "message": "Remove \"could\". We skip the compilation.",
+      "range": {
+        "startLine": 496,
+        "startChar": 85,
+        "endLine": 496,
+        "endChar": 90
+      },
+      "revId": "c144d9f461caa469b5b8d573a20b4caf08d2b38c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5000c8af_f020bb3b",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1479,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-25T16:20:15Z",
+      "side": 1,
+      "message": "These conditions are loop-invariant. Maybe we should move the `AssignJniTrampolineOffset(\u0026m, oat_index);` to a separate loop that we enter only for boot image.",
+      "range": {
+        "startLine": 1478,
+        "startChar": 10,
+        "endLine": 1479,
+        "endChar": 56
+      },
+      "revId": "c144d9f461caa469b5b8d573a20b4caf08d2b38c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bae681fc_ca3ee3d8",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3089,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-25T16:20:15Z",
+      "side": 1,
+      "message": "Unnecessary `reinterpret_cast\u003c\u003e` to the same type as input.",
+      "range": {
+        "startLine": 3089,
+        "startChar": 24,
+        "endLine": 3089,
+        "endChar": 64
+      },
+      "revId": "c144d9f461caa469b5b8d573a20b4caf08d2b38c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "afe0294e_a0be067a",
+        "filename": "dex2oat/linker/image_writer.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-25T16:20:15Z",
+      "side": 1,
+      "message": "What about \"Methods with unique JNI stubs\"?",
+      "range": {
+        "startLine": 213,
+        "startChar": 7,
+        "endLine": 213,
+        "endChar": 29
+      },
+      "revId": "c144d9f461caa469b5b8d573a20b4caf08d2b38c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d371159a_6fa693ec",
+        "filename": "dex2oat/linker/image_writer.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-25T16:20:15Z",
+      "side": 1,
+      "message": "`kJniStubMethods`",
+      "range": {
+        "startLine": 214,
+        "startChar": 4,
+        "endLine": 214,
+        "endChar": 18
+      },
+      "revId": "c144d9f461caa469b5b8d573a20b4caf08d2b38c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6aa5dc25_8f689460",
+        "filename": "dex2oat/linker/image_writer.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 456,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-25T16:20:15Z",
+      "side": 1,
+      "message": "`CopyAndFixupJniStubMethods`",
+      "range": {
+        "startLine": 456,
+        "startChar": 7,
+        "endLine": 456,
+        "endChar": 32
+      },
+      "revId": "c144d9f461caa469b5b8d573a20b4caf08d2b38c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a3973ba_ee164662",
+        "filename": "dex2oat/linker/image_writer.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 503,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-25T16:20:15Z",
+      "side": 1,
+      "message": "`AssignJniStubMethodOffset`",
+      "range": {
+        "startLine": 503,
+        "startChar": 7,
+        "endLine": 503,
+        "endChar": 32
+      },
+      "revId": "c144d9f461caa469b5b8d573a20b4caf08d2b38c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "456902c5_7e4e2d00",
+        "filename": "dex2oat/linker/image_writer.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 541,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-25T16:20:15Z",
+      "side": 1,
+      "message": "`JniStubMethodRelocation`",
+      "range": {
+        "startLine": 541,
+        "startChar": 9,
+        "endLine": 541,
+        "endChar": 32
+      },
+      "revId": "c144d9f461caa469b5b8d573a20b4caf08d2b38c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc7623a7_7f147755",
+        "filename": "dex2oat/linker/image_writer.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 662,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-25T16:20:15Z",
+      "side": 1,
+      "message": "`jni_stub_map_`",
+      "range": {
+        "startLine": 662,
+        "startChar": 13,
+        "endLine": 662,
+        "endChar": 28
+      },
+      "revId": "c144d9f461caa469b5b8d573a20b4caf08d2b38c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "54e7b4d9_0eee6ff8",
+        "filename": "dex2oat/linker/image_writer.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 665,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-25T16:20:15Z",
+      "side": 1,
+      "message": "We could merge this into the value type of the map above. (See comments in `jni_hash_set.h` first.)",
+      "range": {
+        "startLine": 664,
+        "startChar": 2,
+        "endLine": 665,
+        "endChar": 75
+      },
+      "revId": "c144d9f461caa469b5b8d573a20b4caf08d2b38c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a9f163d_1de58f8f",
+        "filename": "dex2oat/linker/image_writer.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 669,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-25T16:20:15Z",
+      "side": 1,
+      "message": "This would be unnecessary if we changed `ClassLinker::boot_native_methods_` to map directly to the code.",
+      "range": {
+        "startLine": 669,
+        "startChar": 35,
+        "endLine": 669,
+        "endChar": 56
+      },
+      "revId": "c144d9f461caa469b5b8d573a20b4caf08d2b38c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e43f6b3b_da995ba0",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1063,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-25T16:20:15Z",
+      "side": 1,
+      "message": "Move after `jni/`. (The `_` is after `/`.)",
+      "range": {
+        "startLine": 1063,
+        "startChar": 8,
+        "endLine": 1063,
+        "endChar": 31
+      },
+      "revId": "c144d9f461caa469b5b8d573a20b4caf08d2b38c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a412be7f_ca7c00a8",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 720,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-25T16:20:15Z",
+      "side": 1,
+      "message": "This function is used only by the test and the same information can be retrieved by using `GetOatMethodQuickCode()` and functions from `OatQuickMethodHeader`, so it should be moved to the test.",
+      "range": {
+        "startLine": 720,
+        "startChar": 20,
+        "endLine": 720,
+        "endChar": 45
+      },
+      "revId": "c144d9f461caa469b5b8d573a20b4caf08d2b38c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "615ccbe5_6a227191",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2380,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-25T16:20:15Z",
+      "side": 1,
+      "message": "Alternatively, we could build the map in `InitFromBootImage()` after adding all boot image spaces. That would make it easier to see that we do not need the `boot_native_methods_lock_`. (The per-method locking below is especially bad.)",
+      "revId": "c144d9f461caa469b5b8d573a20b4caf08d2b38c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "44ddf58c_cf77581b",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2384,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-25T16:20:15Z",
+      "side": 1,
+      "message": "Keys should be unique, so use `Put()` which never compares for equality in release build. (In debug build, `Put()` checks that the new element does not equal an existing one.)",
+      "range": {
+        "startLine": 2384,
+        "startChar": 27,
+        "endLine": 2384,
+        "endChar": 33
+      },
+      "revId": "c144d9f461caa469b5b8d573a20b4caf08d2b38c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f221ffa9_882ee5f7",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2386,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-25T16:20:15Z",
+      "side": 1,
+      "message": "`/*set_value\u003d*/ false`\n\nBut maybe we can make this a template argument and it shall become `/*kSetValue\u003d*/ false`.",
+      "range": {
+        "startLine": 2386,
+        "startChar": 46,
+        "endLine": 2386,
+        "endChar": 51
+      },
+      "revId": "c144d9f461caa469b5b8d573a20b4caf08d2b38c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8cd6bc07_4b42647c",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3708,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-25T16:20:15Z",
+      "side": 1,
+      "message": "\"JNI stub\" and maybe use sigular for the \"boot image\".\n\nAnd I would move this comment before the `FindBootNativeMethod()` call.\n\n(The call to `GetOatMethodQuickCode()` shall disappear anyway if we make `boot_native_methods_` map directly to the code.)",
+      "range": {
+        "startLine": 3708,
+        "startChar": 19,
+        "endLine": 3708,
+        "endChar": 33
+      },
+      "revId": "c144d9f461caa469b5b8d573a20b4caf08d2b38c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c977cde_3f9cd17b",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3759,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-25T16:20:15Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 3759,
+        "startChar": 6,
+        "endLine": 3759,
+        "endChar": 58
+      },
+      "revId": "c144d9f461caa469b5b8d573a20b4caf08d2b38c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e86ce4d5_d698bd2d",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 897,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-25T16:20:15Z",
+      "side": 1,
+      "message": "This function shall become unnecessary if we change the `boot_native_methods_` to map to the code and remove the `ImageWriter::boot_jni_trampolines_` as I suggested in `image_writer.h`.",
+      "range": {
+        "startLine": 897,
+        "startChar": 7,
+        "endLine": 897,
+        "endChar": 29
+      },
+      "revId": "c144d9f461caa469b5b8d573a20b4caf08d2b38c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "434296ac_ec3e9618",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 901,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-25T16:20:15Z",
+      "side": 1,
+      "message": "This is for test only. I would look for a way to move this to the test itself.",
+      "range": {
+        "startLine": 901,
+        "startChar": 7,
+        "endLine": 901,
+        "endChar": 29
+      },
+      "revId": "c144d9f461caa469b5b8d573a20b4caf08d2b38c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1b2e1551_7e75660e",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1429,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-25T16:20:15Z",
+      "side": 1,
+      "message": "I\u0027d prefer to remove the lock.\n\nThe `boot_native_methods_` should be initialized during early initialization while the process is single-threaded. The only other uses I can see is for test code, so we should look for a way to do this differently in the test.",
+      "range": {
+        "startLine": 1429,
+        "startChar": 20,
+        "endLine": 1429,
+        "endChar": 45
+      },
+      "revId": "c144d9f461caa469b5b8d573a20b4caf08d2b38c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a6618ee_c09d1bfb",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1430,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-25T16:20:15Z",
+      "side": 1,
+      "message": "`boot_image_jni_stubs_` or `boot_image_jni_stub_map_`",
+      "range": {
+        "startLine": 1430,
+        "startChar": 13,
+        "endLine": 1430,
+        "endChar": 33
+      },
+      "revId": "c144d9f461caa469b5b8d573a20b4caf08d2b38c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "383bcd5e_2cb00c1f",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2618,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-25T16:20:15Z",
+      "side": 1,
+      "message": "`/*set_value\u003d*/ true`",
+      "range": {
+        "startLine": 2618,
+        "startChar": 90,
+        "endLine": 2618,
+        "endChar": 91
+      },
+      "revId": "c144d9f461caa469b5b8d573a20b4caf08d2b38c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "321e6468_e8bf821b",
+        "filename": "runtime/instrumentation.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 601,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-25T16:20:15Z",
+      "side": 1,
+      "message": "Used only in test. We should look for ways to do this in test code itself.",
+      "range": {
+        "startLine": 600,
+        "startChar": 2,
+        "endLine": 601,
+        "endChar": 72
+      },
+      "revId": "c144d9f461caa469b5b8d573a20b4caf08d2b38c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c5f4f12_1ed56324",
+        "filename": "runtime/jni_hash_set.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-25T16:20:15Z",
+      "side": 1,
+      "message": "I would call this a `JniStubKey` as we usually call the JNI compiler output \"JNI stubs\". (And then I would rename `JniShorty{Empty,Hash,Equals}` to `JniStubKey{Empty,Hash,Equals}`.)\n\nIf we drop the `method_` member (see below), we could actually use this class also in JIT instead of the `JitCodeCache::JniStubKey`. After all, these keys hold the same data, except that the JIT version extracts the flags to `bool` fields (which is somewhat detrimental to performance) and needs to redirect the shorty to another dex file if the original dex file is unloaded. But leave such cleanup for a separate CL.",
+      "range": {
+        "startLine": 119,
+        "startChar": 6,
+        "endLine": 119,
+        "endChar": 18
+      },
+      "revId": "c144d9f461caa469b5b8d573a20b4caf08d2b38c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "56bd154a_ba917522",
+        "filename": "runtime/jni_hash_set.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-25T16:20:15Z",
+      "side": 1,
+      "message": "Indentation is off in this class. There should be only 1 space before `public:`/`private:` and 2 spaces before function/field declarations/definitions.",
+      "range": {
+        "startLine": 120,
+        "startChar": 0,
+        "endLine": 120,
+        "endChar": 2
+      },
+      "revId": "c144d9f461caa469b5b8d573a20b4caf08d2b38c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f729fb19_8980316c",
+        "filename": "runtime/jni_hash_set.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-25T16:20:15Z",
+      "side": 1,
+      "message": "This looks more like a value in a map, not really a part of the key. And maybe we could actually use maps with different value types. For example, the `ClassLinker::boot_native_methods_` could map directly to the code, so that we do not need to call `boot_method-\u003eGetOatMethodQuickCode(GetImagePointerSize())` anymore in `LinkCode()`.",
+      "range": {
+        "startLine": 157,
+        "startChar": 6,
+        "endLine": 157,
+        "endChar": 24
+      },
+      "revId": "c144d9f461caa469b5b8d573a20b4caf08d2b38c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "81245fae_da8bf204",
+        "filename": "runtime/jni_hash_set.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-25T16:20:15Z",
+      "side": 1,
+      "message": "I would replace this with a function pointer for comparing the shorty (but compare access flags before that). That function pointer would be initialized to a function specialized for the particular architecture, so we would not need any branches dependent on the ISA and the function call target should be trivially guessed by the CPU\u0027s branch predictor.\n\nWe could use a function template for arm64 and x86-64, so that the results of `GetMaxIntLikeRegisterArgs()` and `GetMaxFloatOrDoubleRegisterArgs()` would be known at compile time and the control flow from `TranslateReturnTypeToJniShorty()` would also be optimized away when inlined.\n\nOne other benefit of this change is that most of the code would move from the header file to a .cc file, reducing the amount of dependencies. That makes the code cleaner and also reduces the ART recompilation time after touching certain code (such as the shorty comparison code itself).\n\nSame for `JniShortyEquals` (or `JniStubKeyHash` after the suggested rename).",
+      "range": {
+        "startLine": 366,
+        "startChar": 4,
+        "endLine": 366,
+        "endChar": 23
+      },
+      "revId": "c144d9f461caa469b5b8d573a20b4caf08d2b38c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "054a76e9_60a69456",
+        "filename": "runtime/jni_hash_set.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-25T16:20:15Z",
+      "side": 1,
+      "message": "If we remove the `method_` from the key, we would want to replace this with\n\n    template \u003ctypename Value,\n              class Alloc \u003d std::allocator\u003cstd::pair\u003cJniStubKey, Value\u003e\u003e\u003e\n    using JniStubHashMap \u003d\n         HashMap\u003cJniStubKey, Value, JniStubKeyEmpty, JniStubKeyHash, JniStubKeyEquals, Alloc\u003e;\n\n(With all the suggested renames, this file could also be renamed to `jni_stub_map.h`.)",
+      "range": {
+        "startLine": 369,
+        "startChar": 6,
+        "endLine": 369,
+        "endChar": 16
+      },
+      "revId": "c144d9f461caa469b5b8d573a20b4caf08d2b38c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "09cf9e55_b52894ef",
+        "filename": "runtime/oat/image-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-25T16:20:15Z",
+      "side": 1,
+      "message": "We could pull this shared code out of the `if`. We could also `DCHECK_EQ(updated, orig)` in the else block.",
+      "range": {
+        "startLine": 137,
+        "startChar": 6,
+        "endLine": 137,
+        "endChar": 41
+      },
+      "revId": "c144d9f461caa469b5b8d573a20b4caf08d2b38c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2669056a_28eca8df",
+        "filename": "runtime/oat/image.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-25T16:20:15Z",
+      "side": 1,
+      "message": "`kSectionJniStubMethods`\n\nI would move this at least after the `kSectionClassTable`. With some effort, we could `munmap()` this section after it\u0027s been used to initialize the map in `ClassLinker`. I\u0027m sure that up to the `kSectionClassTable`, all sections need to remain in memory but I\u0027m not sure about `kSectionStringReferenceOffsets`.",
+      "range": {
+        "startLine": 269,
+        "startChar": 4,
+        "endLine": 269,
+        "endChar": 26
+      },
+      "revId": "c144d9f461caa469b5b8d573a20b4caf08d2b38c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6da0010b_7654a268",
+        "filename": "runtime/oat/image.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-25T16:20:15Z",
+      "side": 1,
+      "message": "`VisitJniStubMethods`",
+      "range": {
+        "startLine": 412,
+        "startChar": 7,
+        "endLine": 412,
+        "endChar": 26
+      },
+      "revId": "c144d9f461caa469b5b8d573a20b4caf08d2b38c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a8cadf19_a387a00f",
+        "filename": "runtime/oat/image.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-25T16:20:15Z",
+      "side": 1,
+      "message": "Maybe change to a template argument `kSetValue`? (Or `kUpdate`.)",
+      "range": {
+        "startLine": 415,
+        "startChar": 27,
+        "endLine": 415,
+        "endChar": 41
+      },
+      "revId": "c144d9f461caa469b5b8d573a20b4caf08d2b38c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9cc0db31_8b407e79",
+        "filename": "test/MyClassNatives/MyClassNatives.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-25T16:20:15Z",
+      "side": 1,
+      "message": "The `S` is ambiguous here, it could mean `short`. Use the `s` prefix as in `sbar()`.",
+      "range": {
+        "startLine": 60,
+        "startChar": 25,
+        "endLine": 60,
+        "endChar": 26
+      },
+      "revId": "c144d9f461caa469b5b8d573a20b4caf08d2b38c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9f17de2_1e4405a5",
+        "filename": "test/MyClassNatives/MyClassNatives.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-25T16:20:15Z",
+      "side": 1,
+      "message": "Line too long.\n\nSame 3x below.",
+      "revId": "c144d9f461caa469b5b8d573a20b4caf08d2b38c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee78959e_7a0db3b8",
+        "filename": "test/MyClassNatives/MyClassNatives.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-25T16:20:15Z",
+      "side": 1,
+      "message": "Argument indentation should be twice the normal indentation. Add 4 spaces.\n\nSame 4x below.",
+      "range": {
+        "startLine": 387,
+        "startChar": 4,
+        "endLine": 387,
+        "endChar": 8
+      },
+      "revId": "c144d9f461caa469b5b8d573a20b4caf08d2b38c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
