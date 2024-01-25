@@ -176,6 +176,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "aab18898_241e89bd",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 452,
+      "author": {
+        "id": 3050003
+      },
+      "writtenOn": "2024-01-25T14:00:49Z",
+      "side": 1,
+      "message": "Yes, this check exactly for the same purpose. I decided to use it instead of a explicit one for 16 and 24 only, because it is more general and works not only for Int32 case that could be useful in future. Also from my point of view it better reflects the validity criteria for a constant (why 16 and 24 are valid ones and 8 is not). What do you think?",
+      "parentUuid": "3557861c_d4f2cb4e",
+      "range": {
+        "startLine": 450,
+        "startChar": 2,
+        "endLine": 452,
+        "endChar": 3
+      },
+      "revId": "f0385839bc2da14055deb9d96f89f78c6f186f6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "aaffefa5_f985cab2",
         "filename": "test/458-checker-instruct-simplification/src/Main.java",
         "patchSetId": 3
@@ -256,6 +280,30 @@
       "writtenOn": "2024-01-25T12:22:48Z",
       "side": 1,
       "message": "Are you planning to introduce arm/arm64-specific `HIntruction` (say, `HBitFieldExtract`) that would emit UBFX/SBFX in these cases?",
+      "range": {
+        "startLine": 3628,
+        "startChar": 4,
+        "endLine": 3628,
+        "endChar": 27
+      },
+      "revId": "f0385839bc2da14055deb9d96f89f78c6f186f6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6009645b_6b15ba6e",
+        "filename": "test/458-checker-instruct-simplification/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 3628,
+      "author": {
+        "id": 3050003
+      },
+      "writtenOn": "2024-01-25T14:00:49Z",
+      "side": 1,
+      "message": "Not yet, but it is good idea, thanks!",
+      "parentUuid": "a1104b3d_ef32029b",
       "range": {
         "startLine": 3628,
         "startChar": 4,
