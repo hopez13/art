@@ -34,6 +34,282 @@
       "parentUuid": "73b67e2a_cbca6207",
       "revId": "f0385839bc2da14055deb9d96f89f78c6f186f6b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ea0edb3_74f4bee5",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 404,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-25T12:22:48Z",
+      "side": 1,
+      "message": "Shift is always a 32-bit int, so we could use `shr_amount-\u003eAsIntConstant()-\u003eGetValue()`.\n\nWe can also replace the `shr_amount-\u003eIsConstant()` with `shr_amount-\u003eIsIntConstant()` above (line 400) which should allow clang to optimize the `Int64FromConstant()` if you want to keep it for style reasons.",
+      "range": {
+        "startLine": 404,
+        "startChar": 27,
+        "endLine": 404,
+        "endChar": 71
+      },
+      "revId": "f0385839bc2da14055deb9d96f89f78c6f186f6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "38026470_b4555f4e",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-25T12:22:48Z",
+      "side": 1,
+      "message": "The only supported values here are 16 and 24, so we should just check that before proceeding with the other checks below.",
+      "range": {
+        "startLine": 405,
+        "startChar": 2,
+        "endLine": 405,
+        "endChar": 45
+      },
+      "revId": "f0385839bc2da14055deb9d96f89f78c6f186f6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "404bcf80_0d7a4a9f",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-25T12:22:48Z",
+      "side": 1,
+      "message": "Constants are unique, just check `if (shl_amount !\u003d shr_amount)`. (Maybe even drop the local variable `shl_amount` and use directly `shl-\u003eGetRight()`.)",
+      "range": {
+        "startLine": 421,
+        "startChar": 0,
+        "endLine": 428,
+        "endChar": 3
+      },
+      "revId": "f0385839bc2da14055deb9d96f89f78c6f186f6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72514a30_95f88ce4",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 435,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-25T12:22:48Z",
+      "side": 1,
+      "message": "Move this DCHECK() and associated comments right after the definition of `skr_amount_cst`. (Which we can check instead of `shl_amount_cst` as it has the same value here.)",
+      "range": {
+        "startLine": 435,
+        "startChar": 2,
+        "endLine": 435,
+        "endChar": 50
+      },
+      "revId": "f0385839bc2da14055deb9d96f89f78c6f186f6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "11a57bd5_99ba41ef",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 436,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-25T12:22:48Z",
+      "side": 1,
+      "message": "Move this between the `source_significant_part_size` definition below and the comment above that.",
+      "range": {
+        "startLine": 436,
+        "startChar": 2,
+        "endLine": 436,
+        "endChar": 75
+      },
+      "revId": "f0385839bc2da14055deb9d96f89f78c6f186f6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3557861c_d4f2cb4e",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 452,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-25T12:22:48Z",
+      "side": 1,
+      "message": "If we check for shifts 16 and 24 above, this check becomes unnecessary and can be either removed or converted to `DCHECK_EQ()`.",
+      "range": {
+        "startLine": 450,
+        "startChar": 2,
+        "endLine": 452,
+        "endChar": 3
+      },
+      "revId": "f0385839bc2da14055deb9d96f89f78c6f186f6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aaffefa5_f985cab2",
+        "filename": "test/458-checker-instruct-simplification/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 3469,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-25T12:22:48Z",
+      "side": 1,
+      "message": "Method name says \"UnsignedShort\" but the conversion goes to \"UnsignedByte\".",
+      "range": {
+        "startLine": 3469,
+        "startChar": 11,
+        "endLine": 3469,
+        "endChar": 27
+      },
+      "revId": "f0385839bc2da14055deb9d96f89f78c6f186f6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b1215992_dbd203bc",
+        "filename": "test/458-checker-instruct-simplification/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 3513,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-25T12:22:48Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 3513,
+        "startChar": 11,
+        "endLine": 3513,
+        "endChar": 26
+      },
+      "revId": "f0385839bc2da14055deb9d96f89f78c6f186f6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "981f7d72_776dd559",
+        "filename": "test/458-checker-instruct-simplification/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 3536,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-25T12:22:48Z",
+      "side": 1,
+      "message": "Works also for initially mismatched constants (`arg \u003c\u003c 48 \u003e\u003e\u003e 16`).",
+      "range": {
+        "startLine": 3536,
+        "startChar": 11,
+        "endLine": 3536,
+        "endChar": 27
+      },
+      "revId": "f0385839bc2da14055deb9d96f89f78c6f186f6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1104b3d_ef32029b",
+        "filename": "test/458-checker-instruct-simplification/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 3628,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-25T12:22:48Z",
+      "side": 1,
+      "message": "Are you planning to introduce arm/arm64-specific `HIntruction` (say, `HBitFieldExtract`) that would emit UBFX/SBFX in these cases?",
+      "range": {
+        "startLine": 3628,
+        "startChar": 4,
+        "endLine": 3628,
+        "endChar": 27
+      },
+      "revId": "f0385839bc2da14055deb9d96f89f78c6f186f6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca10868e_ad952c22",
+        "filename": "test/458-checker-instruct-simplification/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 4047,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-25T12:22:48Z",
+      "side": 1,
+      "message": "\"UnsignedShort\" is \"Char\" but in this context the name with explicit \"Unsigned\" may actually be better.",
+      "range": {
+        "startLine": 4047,
+        "startChar": 47,
+        "endLine": 4047,
+        "endChar": 60
+      },
+      "revId": "f0385839bc2da14055deb9d96f89f78c6f186f6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "49142cff_8518e7d6",
+        "filename": "test/458-checker-instruct-simplification/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 4066,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-25T12:22:48Z",
+      "side": 1,
+      "message": "Indentation for method arguments should be twice the basic indentation - increase to 4 spaces. Same below.",
+      "range": {
+        "startLine": 4066,
+        "startChar": 4,
+        "endLine": 4066,
+        "endChar": 6
+      },
+      "revId": "f0385839bc2da14055deb9d96f89f78c6f186f6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
