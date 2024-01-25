@@ -136,4 +136,8 @@ public class CompOsTestUtils {
         assertWithMessage(result.toString()).that(result.getExitCode()).isEqualTo(0);
         return result.getStdout().trim();
     }
+
+    public void assumeConfigEnableFsVerity() throws Exception {
+        assumeTrue(mDevice.getIntProperty("ro.product.first_api_level", 0) >= 30);
+    }
 }

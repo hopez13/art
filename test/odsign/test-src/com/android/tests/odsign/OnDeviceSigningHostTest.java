@@ -18,6 +18,7 @@ package com.android.tests.odsign;
 
 import static org.junit.Assert.assertTrue;
 
+import com.android.tradefed.device.ITestDevice;
 import com.android.tradefed.invoker.TestInformation;
 import com.android.tradefed.testtype.DeviceJUnit4ClassRunner;
 import com.android.tradefed.testtype.junit4.AfterClassWithInfo;
@@ -38,7 +39,12 @@ import org.junit.runner.RunWith;
 public class OnDeviceSigningHostTest extends ActivationTest {
     @BeforeClassWithInfo
     public static void beforeClassWithDevice(TestInformation testInfo) throws Exception {
+        ITestDevice device = testInfo.getDevice();
         OdsignTestUtils testUtils = new OdsignTestUtils(testInfo);
+        CompOsTestUtils compOsTestUtils = new CompOsTestUtils(device);
+
+        compOsTestUtils.assumeConfigEnableFsVerity();
+
         testUtils.installTestApex();
         testUtils.reboot();
     }
