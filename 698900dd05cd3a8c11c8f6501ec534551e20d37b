@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c4643d41_0d4cd22e",
+        "filename": "runtime/interpreter/mterp/riscv64/object.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-25T08:29:55Z",
+      "side": 1,
+      "message": "Merge these lines and adjust comment?\n\n    UNPOISON_HEAP_REF $z0                          // unpoison z0 \u003d expected.component",
+      "range": {
+        "startLine": 181,
+        "startChar": 3,
+        "endLine": 182,
+        "endChar": 29
+      },
+      "revId": "698900dd05cd3a8c11c8f6501ec534551e20d37b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af10f35d_41f5a3e8",
+        "filename": "runtime/interpreter/mterp/riscv64/object.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-25T08:29:55Z",
+      "side": 1,
+      "message": "Line too long. (Remove some spaces before `//`, or split the comment on two lines?)",
+      "revId": "698900dd05cd3a8c11c8f6501ec534551e20d37b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
