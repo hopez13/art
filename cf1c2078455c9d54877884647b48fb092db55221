@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bda9a3d1_d7a5fbd4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-01-25T04:54:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c2fac136_c19fc741",
+      "range": {
+        "startLine": 14,
+        "startChar": 3,
+        "endLine": 14,
+        "endChar": 4
+      },
+      "revId": "cf1c2078455c9d54877884647b48fb092db55221",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2700fac6_6a5e9473",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-01-22T10:20:33Z",
       "side": 1,
       "message": "mention which one",
+      "range": {
+        "startLine": 16,
+        "startChar": 27,
+        "endLine": 16,
+        "endChar": 44
+      },
+      "revId": "cf1c2078455c9d54877884647b48fb092db55221",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5c779b0_6b350e38",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-01-25T04:54:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2700fac6_6a5e9473",
       "range": {
         "startLine": 16,
         "startChar": 27,
@@ -81,6 +129,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7888756c_745e9ef9",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1095,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-01-25T04:54:06Z",
+      "side": 1,
+      "message": "Done.\n\nThis is handled higher up but I added a warning anyway. I don\u0027t expect this to happen often so having a warning at least would tell us if it is happening.",
+      "parentUuid": "65b87f4f_b95ac440",
+      "revId": "cf1c2078455c9d54877884647b48fb092db55221",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bdf768cb_a9e699a8",
@@ -94,6 +160,30 @@
       "writtenOn": "2024-01-22T10:20:33Z",
       "side": 1,
       "message": "You mean the one currently owned by the thread? Can you expand the comment?",
+      "range": {
+        "startLine": 1263,
+        "startChar": 28,
+        "endLine": 1263,
+        "endChar": 38
+      },
+      "revId": "cf1c2078455c9d54877884647b48fb092db55221",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "72c89b6d_61003d4d",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1263,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-01-25T04:54:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bdf768cb_a9e699a8",
       "range": {
         "startLine": 1263,
         "startChar": 28,
@@ -127,6 +217,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f0ce0be4_e05674e1",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1275,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-01-25T04:54:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0ebe668_7a94ea17",
+      "range": {
+        "startLine": 1275,
+        "startChar": 18,
+        "endLine": 1275,
+        "endChar": 45
+      },
+      "revId": "cf1c2078455c9d54877884647b48fb092db55221",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9621d252_07577585",
@@ -140,6 +254,30 @@
       "writtenOn": "2024-01-22T10:20:33Z",
       "side": 1,
       "message": "Do you need this? Isn\u0027t it `owner_tids_.size()` ?",
+      "range": {
+        "startLine": 309,
+        "startChar": 0,
+        "endLine": 309,
+        "endChar": 25
+      },
+      "revId": "cf1c2078455c9d54877884647b48fb092db55221",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d29e5f83_4e546eeb",
+        "filename": "runtime/trace.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-01-25T04:54:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9621d252_07577585",
       "range": {
         "startLine": 309,
         "startChar": 0,
