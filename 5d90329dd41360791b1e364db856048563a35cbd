@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ceb14fca_0086db57",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 998,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-25T09:04:43Z",
+      "side": 1,
+      "message": "This is overly pessimistic for small types and off-by-one for long/double (the branch should be JAE instead of JA). The same off-by-one error is in other `COMPUTE_ARRAY_SIZE_*` macros.\n\nI think this check should be done in the `ALLOC_ARRAY_TLAB_FAST_PATH_RESOLVED_WITH_SIZE` as on arm64. In that macro, we finish the exact size calculation (with the ANDQ instruction) and we can do a precise check (the threshold is aligned, so we could compare even before the ANDQ). This would also reduce the amount of almost indentical code across the `COMPUTE_ARRAY_SIZE_*` macros.",
+      "range": {
+        "startLine": 997,
+        "startChar": 4,
+        "endLine": 998,
+        "endChar": 25
+      },
+      "revId": "5d90329dd41360791b1e364db856048563a35cbd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d7b064e4_c1e2fdde",
         "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
         "patchSetId": 1
@@ -14,6 +37,30 @@
       "writtenOn": "2024-01-24T18:31:23Z",
       "side": 1,
       "message": "I don\u0027t fully understand the intent of the macros in asm_support, and whether this is consistent with that. Vladimir?",
+      "range": {
+        "startLine": 1063,
+        "startChar": 4,
+        "endLine": 1063,
+        "endChar": 51
+      },
+      "revId": "5d90329dd41360791b1e364db856048563a35cbd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "619d0cdb_447e11dd",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1063,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-25T09:04:43Z",
+      "side": 1,
+      "message": "Those macros were useful when we supported Mac builds but I don\u0027t think we support that anymore. But we may want to support them again, so I would not want to get rid of them.",
+      "parentUuid": "d7b064e4_c1e2fdde",
       "range": {
         "startLine": 1063,
         "startChar": 4,
