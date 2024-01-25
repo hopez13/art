@@ -46,6 +46,8 @@ public class CompOsTestUtils {
     /** Job ID of the pending compilation with staged APEXes. */
     private static final String JOB_ID = "5132251";
 
+    private static final int ANDROID_API_LEVEL_R = 30;
+
     private final ITestDevice mDevice;
 
     public CompOsTestUtils(ITestDevice device) {
@@ -135,5 +137,9 @@ public class CompOsTestUtils {
         CommandResult result = mDevice.executeShellV2Command(command);
         assertWithMessage(result.toString()).that(result.getExitCode()).isEqualTo(0);
         return result.getStdout().trim();
+    }
+
+    public void assumeConfigEnableFsVerity() throws Exception {
+        assumeTrue(mDevice.getLaunchApiLevel() >= ANDROID_API_LEVEL_R);
     }
 }
