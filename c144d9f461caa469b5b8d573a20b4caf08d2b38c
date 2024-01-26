@@ -49,6 +49,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "abbf1e5c_99ac354c",
+        "filename": "dex2oat/driver/compiler_driver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 494,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-01-26T06:50:15Z",
+      "side": 1,
+      "message": "Confused about:\n \n\u003e Note that this shall match the CompilerOptions::ImageType::kAppImage behavior for native methods in classes that are not in the profile.\n\nFor those methods, image_writer will change their trampoline to boot jni stub as well.",
+      "parentUuid": "fcc72c44_65729b68",
+      "range": {
+        "startLine": 493,
+        "startChar": 12,
+        "endLine": 494,
+        "endChar": 45
+      },
+      "revId": "c144d9f461caa469b5b8d573a20b4caf08d2b38c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "716f9885_8d5dbcce",
         "filename": "dex2oat/driver/compiler_driver.cc",
         "patchSetId": 2
@@ -434,6 +458,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a3859a01_7b962791",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3708,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-01-26T06:50:15Z",
+      "side": 1,
+      "message": "Isn\u0027t there more than one boot images in system(if not adb install apex)? why should use singular here? And could you please share more info about primary boot image and the main difference between boot.art and others? Thanks!",
+      "parentUuid": "8cd6bc07_4b42647c",
+      "range": {
+        "startLine": 3708,
+        "startChar": 19,
+        "endLine": 3708,
+        "endChar": 33
+      },
+      "revId": "c144d9f461caa469b5b8d573a20b4caf08d2b38c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6c977cde_3f9cd17b",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 2
@@ -675,6 +723,30 @@
       "writtenOn": "2024-01-25T16:20:15Z",
       "side": 1,
       "message": "I would replace this with a function pointer for comparing the shorty (but compare access flags before that). That function pointer would be initialized to a function specialized for the particular architecture, so we would not need any branches dependent on the ISA and the function call target should be trivially guessed by the CPU\u0027s branch predictor.\n\nWe could use a function template for arm64 and x86-64, so that the results of `GetMaxIntLikeRegisterArgs()` and `GetMaxFloatOrDoubleRegisterArgs()` would be known at compile time and the control flow from `TranslateReturnTypeToJniShorty()` would also be optimized away when inlined.\n\nOne other benefit of this change is that most of the code would move from the header file to a .cc file, reducing the amount of dependencies. That makes the code cleaner and also reduces the ART recompilation time after touching certain code (such as the shorty comparison code itself).\n\nSame for `JniShortyEquals` (or `JniStubKeyHash` after the suggested rename).",
+      "range": {
+        "startLine": 366,
+        "startChar": 4,
+        "endLine": 366,
+        "endChar": 23
+      },
+      "revId": "c144d9f461caa469b5b8d573a20b4caf08d2b38c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7fb8af4a_0ebe3b49",
+        "filename": "runtime/jni_hash_set.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-01-26T06:50:15Z",
+      "side": 1,
+      "message": "Is there any examples to use the function pointer to omit isa branches?\n\n\u003e most of the code would move from the header file to a .cc file, reducing the amount of dependencies\n\nwhich .cc files I should move code to? create new one in arm/arm64/riscv64... subfolder?",
+      "parentUuid": "81245fae_da8bf204",
       "range": {
         "startLine": 366,
         "startChar": 4,
