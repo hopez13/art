@@ -348,7 +348,10 @@ const ClassDef* DexFile::FindClassDef(dex::TypeIndex type_idx) const {
 std::optional<uint32_t> DexFile::GetCodeItemOffset(const ClassDef &class_def,
                                                    uint32_t method_idx) const {
   ClassAccessor accessor(*this, class_def);
-  CHECK(accessor.HasClassData());
+  if (!accessor.HasClassData()) {
+    LOG(ERROR) << "Unable to find accessor class with idx: " << class_def.class_idx_;
+    return std::nullopt;
+  }
   for (const ClassAccessor::Method &method : accessor.GetMethods()) {
     if (method.GetIndex() == method_idx) {
       return method.GetCodeItemOffset();
