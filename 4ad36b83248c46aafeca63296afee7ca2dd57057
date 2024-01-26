@@ -290,6 +290,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "40208fb0_752865c3",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1486,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-26T10:32:20Z",
+      "side": 1,
+      "message": "I think you\u0027d need to define new 5 methods `RepeatVRVm`, `RepeatVRRVm`, `RepeatVRVVm`, `RepeatVVVVm`, `RepeatRVVm`. I think this would simplify things, since methods like `VSe8` are not really filtering.\n\nIn fact `RepeatRVVmFiltered` is only used with `VmIdPredicate` so we don\u0027t even need the filtering for `RepeatRVVmFiltered` at all. You could have:\n\n```\n  std::string RepeatRVVm(void (Riscv64Assembler::*f)(XRegister,\n                                                     VRegister,\n                                                     Riscv64Assembler::VM vm),\n                         const std::string\u0026 fmt) {\n    return RepeatTemplatedRegistersVm(f,\n                                      GetRegisters(),\n                                      GetVectorRegisters(),\n                                      \u0026AssemblerRISCV64Test::GetRegisterName,\n                                      \u0026AssemblerRISCV64Test::GetVecRegName,\n                                      return [](XRegister, VRegister, Riscv64Assembler::VM) { return true; },\n                                      fmt);\n  }\n```\n\nand for the ones that are used with both filtering and non-filtering you could do:\n\n```\n  std::string RepeatVRVm(void (Riscv64Assembler::*f)(VRegister,\n                                                     XRegister,\n                                                     Riscv64Assembler::VM vm),\n                         const std::string\u0026 fmt) {\n    return RepeatVRVmFiltered(f,\n                              fmt,\n                              VmIdPredicate\u003cVRegister, XRegister\u003e());\n  }\n```\n\nIf you think this would look worse, feel free to resolve the comment.",
+      "parentUuid": "628356d0_c338a91b",
+      "range": {
+        "startLine": 1486,
+        "startChar": 14,
+        "endLine": 1486,
+        "endChar": 32
+      },
+      "revId": "4ad36b83248c46aafeca63296afee7ca2dd57057",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cfca0e09_0c023665",
         "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
         "patchSetId": 13
@@ -466,6 +490,30 @@
       "side": 1,
       "message": "This name pattern I took from `$AOSP/art/compiler/utils/assembler_test.h`, i.e. `RepeatTemplatedRegisters(...)`.\nShould I introduce new naming scheme in risc-v tests?",
       "parentUuid": "d5e07665_c51d2a2a",
+      "range": {
+        "startLine": 1579,
+        "startChar": 7,
+        "endLine": 1579,
+        "endChar": 27
+      },
+      "revId": "4ad36b83248c46aafeca63296afee7ca2dd57057",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "906db873_f19d42e9",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1579,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-26T10:32:20Z",
+      "side": 1,
+      "message": "I am not too familiar with `assembler_test.h`. If you took the pattern from there, it is fine by me.",
+      "parentUuid": "e60028dc_42199dae",
       "range": {
         "startLine": 1579,
         "startChar": 7,
