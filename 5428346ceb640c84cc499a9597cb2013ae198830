@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9620276_6c4c5aa9",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1878,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-01-26T11:40:25Z",
+      "side": 1,
+      "message": "Should we remove this when the compilation has finished maybe in JitThreadPool::Remove?  That way we don\u0027t enqueue multiple times if there\u0027s a long ongoing compilation.",
+      "range": {
+        "startLine": 1878,
+        "startChar": 4,
+        "endLine": 1878,
+        "endChar": 22
+      },
+      "revId": "5428346ceb640c84cc499a9597cb2013ae198830",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
