@@ -1820,12 +1820,21 @@ void JitThreadPool::AddTask(Thread* self, ArtMethod* method, CompilationKind kin
   }
   switch (kind) {
     case CompilationKind::kOsr:
+      if (ContainsElement(osr_set_, method)) {
+        return;
+      }
       osr_queue_.push_back(method);
       break;
     case CompilationKind::kBaseline:
+      if (ContainsElement(baseline_set_, method)) {
+        return;
+      }
       baseline_queue_.push_back(method);
       break;
     case CompilationKind::kOptimized:
+      if (ContainsElement(optimized_set_, method)) {
+        return;
+      }
       optimized_queue_.push_back(method);
       break;
   }
@@ -1848,22 +1857,25 @@ Task* JitThreadPool::TryGetTaskLocked() {
   }
 
   // OSR requests second, then baseline and finally optimized.
-  Task* task = FetchFrom(osr_queue_, CompilationKind::kOsr);
+  Task* task = FetchFrom(osr_queue_, osr_set_, CompilationKind::kOsr);
   if (task == nullptr) {
-    task = FetchFrom(baseline_queue_, CompilationKind::kBaseline);
+    task = FetchFrom(baseline_queue_, baseline_set_, CompilationKind::kBaseline);
     if (task == nullptr) {
-      task = FetchFrom(optimized_queue_, CompilationKind::kOptimized);
+      task = FetchFrom(optimized_queue_, optimized_set_, CompilationKind::kOptimized);
     }
   }
   return task;
 }
 
-Task* JitThreadPool::FetchFrom(std::deque<ArtMethod*>& methods, CompilationKind kind) {
+Task* JitThreadPool::FetchFrom(std::deque<ArtMethod*>& methods,
+                               std::set<ArtMethod*>& set,
+                               CompilationKind kind) {
   if (!methods.empty()) {
     ArtMethod* method = methods.front();
     methods.pop_front();
     JitCompileTask* task = new JitCompileTask(method, JitCompileTask::TaskKind::kCompile, kind);
     current_compilations_.insert(task);
+    set.erase(method);
     return task;
   }
   return nullptr;

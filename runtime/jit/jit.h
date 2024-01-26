@@ -280,12 +280,19 @@ class JitThreadPool : public AbstractThreadPool {
       : AbstractThreadPool(name, num_threads, /* create_peers= */ true, worker_stack_size) {}
 
   // Try to fetch an entry from `methods`. Return null if `methods` is empty.
-  Task* FetchFrom(std::deque<ArtMethod*>& methods, CompilationKind kind) REQUIRES(task_queue_lock_);
+  Task* FetchFrom(std::deque<ArtMethod*>& methods,
+                  std::set<ArtMethod*>& set,
+                  CompilationKind kind) REQUIRES(task_queue_lock_);
 
   std::deque<Task*> generic_queue_ GUARDED_BY(task_queue_lock_);
+
   std::deque<ArtMethod*> osr_queue_ GUARDED_BY(task_queue_lock_);
   std::deque<ArtMethod*> baseline_queue_ GUARDED_BY(task_queue_lock_);
   std::deque<ArtMethod*> optimized_queue_ GUARDED_BY(task_queue_lock_);
+
+  std::set<ArtMethod*> osr_set_ GUARDED_BY(task_queue_lock_);
+  std::set<ArtMethod*> baseline_set_ GUARDED_BY(task_queue_lock_);
+  std::set<ArtMethod*> optimized_set_ GUARDED_BY(task_queue_lock_);
 
   // A set to keep track of methods that are currently being compiled. Entries
   // will be removed when JitCompileTask->Finalize is called.
