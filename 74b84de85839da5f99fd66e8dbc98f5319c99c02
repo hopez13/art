@@ -58,6 +58,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8620ea96_af594694",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1653,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-01-26T15:58:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "39b88b0e_66a0fff6",
+      "range": {
+        "startLine": 1653,
+        "startChar": 23,
+        "endLine": 1653,
+        "endChar": 24
+      },
+      "revId": "74b84de85839da5f99fd66e8dbc98f5319c99c02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f6678a1b_503743e0",
@@ -71,6 +95,30 @@
       "writtenOn": "2024-01-26T15:24:56Z",
       "side": 1,
       "message": "nit: Remove `Filtered` from the name for consistency (the others don\u0027t have it)",
+      "range": {
+        "startLine": 1644,
+        "startChar": 0,
+        "endLine": 1655,
+        "endChar": 3
+      },
+      "revId": "74b84de85839da5f99fd66e8dbc98f5319c99c02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "de648d73_6eb40f04",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1655,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-01-26T15:58:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f6678a1b_503743e0",
       "range": {
         "startLine": 1644,
         "startChar": 0,
@@ -104,6 +152,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b4222e52_f119d079",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 5596,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-01-26T15:58:38Z",
+      "side": 1,
+      "message": "`RepeatVVAligned` filters them If I understand you correctly. \n`Riscv64Assembler::Vmv1r_v` particularly does not have alignment-check because it has no sense to check alignment by 1 :man-shrugging:",
+      "parentUuid": "40a15836_bd466910",
+      "range": {
+        "startLine": 5596,
+        "startChar": 29,
+        "endLine": 5596,
+        "endChar": 36
+      },
+      "revId": "74b84de85839da5f99fd66e8dbc98f5319c99c02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "555e6718_110e0825",
@@ -117,6 +189,30 @@
       "writtenOn": "2024-01-26T15:24:56Z",
       "side": 1,
       "message": "`VXVVmSkipV0VmAndNoVdVs1Overlap` does what we want, but the name is a bit confusing since we used `vs2` in the definition (`VFwmacc_vf(VRegister vd, FRegister fs1, VRegister vs2, VM vm)`) which is the register we want to check against.\n\nSame for `VFwnmacc_vf` `VFwmsac_vf` and `VFwnmsac_vf`",
+      "range": {
+        "startLine": 6840,
+        "startChar": 52,
+        "endLine": 6840,
+        "endChar": 55
+      },
+      "revId": "74b84de85839da5f99fd66e8dbc98f5319c99c02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa4d1b1b_a8fab4e5",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 6840,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-01-26T15:58:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "555e6718_110e0825",
       "range": {
         "startLine": 6840,
         "startChar": 52,
