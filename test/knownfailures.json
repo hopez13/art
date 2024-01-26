@@ -1580,5 +1580,11 @@
       "description": ["Test relies on profiling done by baseline compiled code. Meanwhile, it",
                       "can't use --baseline because it has a test case checking the behavior when",
                       "a method is optimized compiled."]
+    },
+    {
+        "tests": "183-rmw-stress-test",
+        "description": ["This test timesout occasionally on redefine-stress"],
+        "variant": "redefine-stress",
+        "bug": "b/322428305"
     }
 ]
