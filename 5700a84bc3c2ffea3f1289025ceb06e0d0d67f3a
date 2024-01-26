@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "97458e69_8221f48f",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2515,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-26T09:12:49Z",
+      "side": 1,
+      "message": "Can\u0027t do the same as in Arm64 due to the `value.AsRegister\u003cXRegister\u003e()` in the call.\n\nAlternatively, we could do `value.IsConstant() ? XRegister(kNoXRegister) : value.AsRegister\u003cXRegister\u003e()` in the call and merge the if and else cases.",
+      "range": {
+        "startLine": 2515,
+        "startChar": 6,
+        "endLine": 2515,
+        "endChar": 32
+      },
+      "revId": "5700a84bc3c2ffea3f1289025ceb06e0d0d67f3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac19459b_7c846b7e",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2942,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-26T09:12:49Z",
+      "side": 1,
+      "message": "Wasn\u0027t sure if adding `DCHECK_IMPLIES(value.IsConstant(), IsZeroBitPattern(value.GetConstant()));` was useful. I can upload a patchset with that included too.",
+      "revId": "5700a84bc3c2ffea3f1289025ceb06e0d0d67f3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
