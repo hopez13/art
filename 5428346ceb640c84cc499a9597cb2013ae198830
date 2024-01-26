@@ -22,6 +22,29 @@
       },
       "revId": "5428346ceb640c84cc499a9597cb2013ae198830",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c4e0ae2b_0d2b0bef",
+        "filename": "runtime/jit/jit.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-26T16:05:50Z",
+      "side": 1,
+      "message": "nit: Maybe rename to osr_enqueued_methods_ and add a comment explaining why we need these extra data structures\n\n```suggestion\n  // We track the methods that are currently enqueued to avoid\n  // adding them to the queue multiple times, which would bloat the\n  // queues.\n  std::set\u003cArtMethod*\u003e osr_enqueued_methods_ GUARDED_BY(task_queue_lock_);\n  std::set\u003cArtMethod*\u003e baseline_enqueued_methods_ GUARDED_BY(task_queue_lock_);\n  std::set\u003cArtMethod*\u003e optimized_enqueued_methods_ GUARDED_BY(task_queue_lock_);\n```\n\nName can change dependending on Mythri\u0027s comment (since it would enqueued + being compiled)",
+      "range": {
+        "startLine": 293,
+        "startChar": 0,
+        "endLine": 296,
+        "endChar": 0
+      },
+      "revId": "5428346ceb640c84cc499a9597cb2013ae198830",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
