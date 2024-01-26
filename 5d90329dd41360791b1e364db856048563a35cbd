@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f1e1e55f_e5e831d1",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 998,
+      "author": {
+        "id": 3257532
+      },
+      "writtenOn": "2024-01-26T02:19:54Z",
+      "side": 1,
+      "message": "Thank you for your review and for catching the off-by-one error. Do you want me to change the x86 code in this CL as well? I\u0027ll change the x86_64 code to be more similar to the arm64 one with only one size check in `ALLOC_ARRAY_TLAB_FAST_PATH_RESOLVED_WITH_SIZE`.",
+      "parentUuid": "40325096_2b29eabf",
+      "range": {
+        "startLine": 997,
+        "startChar": 4,
+        "endLine": 998,
+        "endChar": 25
+      },
+      "revId": "5d90329dd41360791b1e364db856048563a35cbd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d7b064e4_c1e2fdde",
         "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
         "patchSetId": 1
