@@ -74,6 +74,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d2c1b1b1_07ab7089",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 998,
+      "author": {
+        "id": 3257532
+      },
+      "writtenOn": "2024-01-26T02:26:44Z",
+      "side": 1,
+      "message": "Though I\u0027m not sure why you say moving the check to `ALLOC_ARRAY_TLAB_FAST_PATH_RESOLVED_WITH_SIZE` in x86 is not easy? The total size is in the `%edx` register and we could do the size check after aligning the size to 8-bytes. Does that not work?",
+      "parentUuid": "f1e1e55f_e5e831d1",
+      "range": {
+        "startLine": 997,
+        "startChar": 4,
+        "endLine": 998,
+        "endChar": 25
+      },
+      "revId": "5d90329dd41360791b1e364db856048563a35cbd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d7b064e4_c1e2fdde",
         "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
         "patchSetId": 1
