@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a81c7db_213d4cc1",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4844,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2024-01-28T04:45:20Z",
+      "side": 1,
+      "message": "Didn\u0027t you want to use `SetAbortMessage` here? At least that\u0027s what the comment for SetAbortMessage() says.",
+      "range": {
+        "startLine": 4844,
+        "startChar": 22,
+        "endLine": 4844,
+        "endChar": 37
+      },
+      "revId": "1f9dddbcd779a495a6bdc368ebbdbb8de4412b94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
