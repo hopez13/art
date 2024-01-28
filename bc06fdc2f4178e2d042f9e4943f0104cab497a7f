@@ -46,6 +46,30 @@
       },
       "revId": "bc06fdc2f4178e2d042f9e4943f0104cab497a7f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b599e695_8535dfa3",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2169,
+      "author": {
+        "id": 1047684
+      },
+      "writtenOn": "2024-01-28T22:07:01Z",
+      "side": 1,
+      "message": "Um. The edge case happens when an interface A implements a super-interface B, but A is public, but B is hidden.\n\nThe step to check the methods in `iftable` for an interface class seems to be no-op because the `iftable` doesn\u0027t seem to have any methods. I think because interface isn\u0027t conrete, but iftable only maps to concrete implementation method. I am not 100% sure though.",
+      "parentUuid": "5eebb9d1_5a3b8208",
+      "range": {
+        "startLine": 2169,
+        "startChar": 35,
+        "endLine": 2169,
+        "endChar": 58
+      },
+      "revId": "bc06fdc2f4178e2d042f9e4943f0104cab497a7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
