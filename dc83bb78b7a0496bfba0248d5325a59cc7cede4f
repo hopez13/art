@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "87dbf89f_5b5873a5",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2262,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-01-28T15:18:23Z",
+      "side": 1,
+      "message": "Missing \u0027.\u0027",
+      "range": {
+        "startLine": 2262,
+        "startChar": 32,
+        "endLine": 2262,
+        "endChar": 37
+      },
+      "revId": "dc83bb78b7a0496bfba0248d5325a59cc7cede4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea60b9d4_c665e881",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3495,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-01-28T15:18:23Z",
+      "side": 1,
+      "message": "extra space",
+      "range": {
+        "startLine": 3495,
+        "startChar": 83,
+        "endLine": 3495,
+        "endChar": 85
+      },
+      "revId": "dc83bb78b7a0496bfba0248d5325a59cc7cede4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e8bebb2_59b26c27",
+        "filename": "runtime/gc/collector/mark_compact.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-01-28T15:18:23Z",
+      "side": 1,
+      "message": "drop?",
+      "range": {
+        "startLine": 161,
+        "startChar": 58,
+        "endLine": 161,
+        "endChar": 60
+      },
+      "revId": "dc83bb78b7a0496bfba0248d5325a59cc7cede4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
