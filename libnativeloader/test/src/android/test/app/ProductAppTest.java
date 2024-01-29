@@ -73,10 +73,8 @@ public class ProductAppTest {
 
     @Test
     public void testLoadPrivateLibrariesViaSystemSharedLib() {
-        // TODO(b/237577392): Loading a private native system library via a shared system library
-        // ought to work.
-        // SystemSharedLib.loadLibrary("system_private2");
-        // SystemSharedLib.loadLibrary("systemext_private2");
+        SystemSharedLib.loadLibrary("system_private2");
+        SystemSharedLib.loadLibrary("systemext_private2");
         if (!productAppsAreShared()) {
             TestUtils.assertLibraryNotFound(() -> SystemSharedLib.loadLibrary("product_private2"));
         }
@@ -85,10 +83,8 @@ public class ProductAppTest {
 
     @Test
     public void testLoadPrivateLibrariesViaSystemExtSharedLib() {
-        // TODO(b/237577392): Loading a private native system library via a shared system library
-        // ought to work.
-        // SystemExtSharedLib.loadLibrary("system_private3");
-        // SystemExtSharedLib.loadLibrary("systemext_private3");
+        SystemExtSharedLib.loadLibrary("system_private3");
+        SystemExtSharedLib.loadLibrary("systemext_private3");
         if (!productAppsAreShared()) {
             TestUtils.assertLibraryNotFound(
                     () -> SystemExtSharedLib.loadLibrary("product_private3"));

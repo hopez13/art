@@ -24,6 +24,7 @@
 #include <algorithm>
 #include <memory>
 #include <mutex>
+#include <optional>
 #include <regex>
 #include <string>
 #include <vector>
@@ -52,6 +53,7 @@ using ::android::nativeloader::LibraryNamespaces;
 
 const std::regex kVendorPathRegex("(^|:)(/system)?/vendor/");
 const std::regex kProductPathRegex("(^|:)(/system)?/product/");
+const std::regex kSystemPathRegex("(^|:)/system(_ext)?/");  // MUST be tested last.
 
 nativeloader::ApiDomain GetApiDomainFromPath(const std::string& path) {
   nativeloader::ApiDomain api_domain = nativeloader::API_DOMAIN_DEFAULT;
@@ -63,6 +65,9 @@ nativeloader::ApiDomain GetApiDomainFromPath(const std::string& path) {
                         "Path matches both vendor and product partitions: %s",
                         path.c_str());
     api_domain = nativeloader::API_DOMAIN_PRODUCT;
+  }
+  if (api_domain == nativeloader::API_DOMAIN_DEFAULT && std::regex_search(path, kSystemPathRegex)) {
+    api_domain = nativeloader::API_DOMAIN_SYSTEM;
   }
   return api_domain;
 }
@@ -301,27 +306,80 @@ void* OpenNativeLibrary(JNIEnv* env,
   }
 
   std::lock_guard<std::mutex> guard(g_namespaces_mutex);
-  NativeLoaderNamespace* ns;
+  std::optional<Result<NativeLoaderNamespace>> ns_holder;  // Optional owning storage
+  NativeLoaderNamespace* ns = nullptr;
 
-  if ((ns = g_namespaces->FindNamespaceByClassLoader(env, class_loader)) == nullptr) {
-    // This is the case where the classloader was not created by ApplicationLoaders
-    // In this case we create an isolated not-shared namespace for it.
-    const std::string empty_dex_path;
-    Result<NativeLoaderNamespace*> isolated_ns =
-        CreateClassLoaderNamespaceLocked(env,
-                                         target_sdk_version,
-                                         class_loader,
-                                         nativeloader::API_DOMAIN_DEFAULT,
-                                         /*is_shared=*/false,
-                                         empty_dex_path,
-                                         library_path_j,
-                                         /*permitted_path=*/nullptr,
-                                         /*uses_library_list=*/nullptr);
-    if (!isolated_ns.ok()) {
-      *error_msg = strdup(isolated_ns.error().message().c_str());
-      return nullptr;
-    } else {
-      ns = *isolated_ns;
+  // Allow shared java libraries in any of the system image partitions free
+  // access to the native libraries in their own partitions.
+  if (target_sdk_version >= 35 /* Android V (aka 15) */ && caller_location != nullptr) {
+    std::string caller_loc_str = caller_location;
+    nativeloader::ApiDomain caller_api_domain = GetApiDomainFromPath(std::string(caller_loc_str));
+    nativeloader::ApiDomain library_api_domain = GetApiDomainFromPath(path);
+    if (caller_api_domain == library_api_domain) {
+      bool is_bridged = false;
+      if (library_path_j != nullptr) {
+        ScopedUtfChars library_path_utf_chars(env, library_path_j);
+        if (library_path_utf_chars[0] != '\0') {
+          is_bridged = NativeBridgeIsPathSupported(library_path_utf_chars.c_str());
+        }
+      }
+
+      switch (library_api_domain) {
+        case nativeloader::API_DOMAIN_VENDOR:
+          ns_holder = NativeLoaderNamespace::GetExportedNamespace(
+              nativeloader::kVendorNamespaceName, is_bridged);
+          break;
+        case nativeloader::API_DOMAIN_PRODUCT:
+          ns_holder = NativeLoaderNamespace::GetExportedNamespace(
+              nativeloader::kProductNamespaceName, is_bridged);
+          break;
+        case nativeloader::API_DOMAIN_SYSTEM:
+          ns_holder = NativeLoaderNamespace::GetSystemNamespace(is_bridged);
+          break;
+        case nativeloader::API_DOMAIN_DEFAULT:
+          break;
+      }
+
+      if (ns_holder.has_value()) {
+        if (!ns_holder.value().ok()) {
+          *error_msg = strdup(ns_holder.value().error().message().c_str());
+          return nullptr;
+        }
+        ns = &ns_holder.value().value();
+        ALOGD(
+            "Using linker namespace %s to load %s because the caller %s is in the same partition "
+            "(is_bridged=%b, target_sdk_version=%d)",
+            ns->name().c_str(),
+            path,
+            caller_location,
+            is_bridged,
+            target_sdk_version);
+      }
+    }
+  }
+
+  if (ns == nullptr) {
+    ns = g_namespaces->FindNamespaceByClassLoader(env, class_loader);
+    if (ns == nullptr) {
+      // This is the case where the classloader was not created by ApplicationLoaders
+      // In this case we create an isolated not-shared namespace for it.
+      const std::string empty_dex_path;
+      Result<NativeLoaderNamespace*> isolated_ns =
+          CreateClassLoaderNamespaceLocked(env,
+                                           target_sdk_version,
+                                           class_loader,
+                                           nativeloader::API_DOMAIN_DEFAULT,
+                                           /*is_shared=*/false,
+                                           empty_dex_path,
+                                           library_path_j,
+                                           /*permitted_path=*/nullptr,
+                                           /*uses_library_list=*/nullptr);
+      if (!isolated_ns.ok()) {
+        *error_msg = strdup(isolated_ns.error().message().c_str());
+        return nullptr;
+      } else {
+        ns = isolated_ns.value();
+      }
     }
   }
 
