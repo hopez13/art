@@ -52,6 +52,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c406087_6b67cc1c",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1830,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-01-29T10:42:55Z",
+      "side": 1,
+      "message": "Doh, indeed. Not sure how I missed that 😊",
+      "parentUuid": "b6c20987_00b8ea9d",
+      "revId": "88aead738f46dd11e776b867d04acf44062533ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0d5a2c85_2b5866d8",
@@ -65,6 +83,30 @@
       "writtenOn": "2024-01-29T08:46:45Z",
       "side": 1,
       "message": "Can we DCHECK or kIsDebugBuild that we are erasing something?",
+      "range": {
+        "startLine": 1888,
+        "startChar": 0,
+        "endLine": 1898,
+        "endChar": 3
+      },
+      "revId": "88aead738f46dd11e776b867d04acf44062533ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "14326bb0_f22f53f1",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1898,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-01-29T10:42:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0d5a2c85_2b5866d8",
       "range": {
         "startLine": 1888,
         "startChar": 0,
