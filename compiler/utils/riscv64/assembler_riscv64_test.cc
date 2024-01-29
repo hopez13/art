@@ -208,7 +208,8 @@ class AssemblerRISCV64Test : public AssemblerTest<Riscv64Assembler,
   ArrayRef<const VRegister> GetVectorRegisters() override {
     static constexpr VRegister kVRegisters[] = {
         V0,  V1,  V2,  V3,  V4,  V5,  V6,  V7,  V8,  V9,  V10, V11, V12, V13, V14, V15,
-        V16, V17, V18, V19, V20, V21, V22, V23, V24, V25, V26, V27, V28, V29, V30, V31};
+        V16, V17, V18, V19, V20, V21, V22, V23, V24, V25, V26, V27, V28, V29, V30, V31
+    };
     return ArrayRef<const VRegister>(kVRegisters);
   }
 
@@ -1120,7 +1121,7 @@ class AssemblerRISCV64Test : public AssemblerTest<Riscv64Assembler,
   }
 
   std::string RepeatVRAligned(void (Riscv64Assembler::*f)(VRegister, XRegister),
-                              uint32_t aligner,
+                              uint32_t alignment,
                               const std::string& fmt) {
     WarnOnCombinations(GetVectorRegisters().size() * GetRegisters().size());
     CHECK(f != nullptr);
@@ -1128,14 +1129,15 @@ class AssemblerRISCV64Test : public AssemblerTest<Riscv64Assembler,
     std::string str;
     for (auto reg1 : GetVectorRegisters()) {
       for (auto reg2 : GetRegisters()) {
-        if ((static_cast<uint32_t>(reg1) % aligner) != 0)
+        if ((static_cast<uint32_t>(reg1) % alignment) != 0) {
           continue;
+        }
 
         (GetAssembler()->*f)(reg1, reg2);
         std::string base = fmt;
 
         ReplaceReg(REG1_TOKEN, GetVecRegName(reg1), &base);
-        ReplaceReg(REG2_TOKEN, GetRegName<RegisterView::kUsePrimaryName>(reg2), &base);
+        ReplaceReg(REG2_TOKEN, GetRegisterName(reg2), &base);
 
         str += base;
         str += "\n";
@@ -1145,18 +1147,20 @@ class AssemblerRISCV64Test : public AssemblerTest<Riscv64Assembler,
   }
 
   std::string RepeatVVAligned(void (Riscv64Assembler::*f)(VRegister, VRegister),
-                              uint32_t aligner,
+                              uint32_t alignment,
                               const std::string& fmt) {
     WarnOnCombinations(GetVectorRegisters().size() * GetRegisters().size());
     CHECK(f != nullptr);
 
     std::string str;
     for (auto reg1 : GetVectorRegisters()) {
-      if ((static_cast<uint32_t>(reg1) % aligner) != 0)
+      if ((static_cast<uint32_t>(reg1) % alignment) != 0) {
         continue;
+      }
       for (auto reg2 : GetVectorRegisters()) {
-        if ((static_cast<uint32_t>(reg2) % aligner) != 0)
+        if ((static_cast<uint32_t>(reg2) % alignment) != 0) {
           continue;
+        }
 
         (GetAssembler()->*f)(reg1, reg2);
         std::string base = fmt;
@@ -1172,7 +1176,7 @@ class AssemblerRISCV64Test : public AssemblerTest<Riscv64Assembler,
   }
 
   template <typename Reg1, typename Reg2, typename Reg3, typename Predicate>
-  std::string RepeatTemplatedRegistersVm(
+  std::string RepeatTemplatedRegistersVmFiltered(
       void (Riscv64Assembler::*f)(Reg1, Reg2, Reg3, Riscv64Assembler::VM),
       ArrayRef<const Reg1> reg1_registers,
       ArrayRef<const Reg2> reg2_registers,
@@ -1190,8 +1194,9 @@ class AssemblerRISCV64Test : public AssemblerTest<Riscv64Assembler,
       for (auto reg2 : reg2_registers) {
         for (auto reg3 : reg3_registers) {
           for (Riscv64Assembler::VM vm : kVMs) {
-            if (!pred(reg1, reg2, reg3, vm))
+            if (!pred(reg1, reg2, reg3, vm)) {
               continue;
+            }
 
             (GetAssembler()->*f)(reg1, reg2, reg3, vm);
             std::string base = fmt;
@@ -1210,20 +1215,20 @@ class AssemblerRISCV64Test : public AssemblerTest<Riscv64Assembler,
     return str;
   }
 
-  template <typename Pred>
+  template <typename Predicate>
   std::string RepeatVRRVmFiltered(
       void (Riscv64Assembler::*f)(VRegister, XRegister, XRegister, Riscv64Assembler::VM),
       const std::string& fmt,
-      Pred&& predicate) {
-    return RepeatTemplatedRegistersVm(f,
-                                      GetVectorRegisters(),
-                                      GetRegisters(),
-                                      GetRegisters(),
-                                      &AssemblerRISCV64Test::GetVecRegName,
-                                      &AssemblerRISCV64Test::GetRegisterName,
-                                      &AssemblerRISCV64Test::GetRegisterName,
-                                      predicate,
-                                      fmt);
+      Predicate&& pred) {
+    return RepeatTemplatedRegistersVmFiltered(f,
+                                              GetVectorRegisters(),
+                                              GetRegisters(),
+                                              GetRegisters(),
+                                              &AssemblerRISCV64Test::GetVecRegName,
+                                              &AssemblerRISCV64Test::GetRegisterName,
+                                              &AssemblerRISCV64Test::GetRegisterName,
+                                              std::forward<Predicate>(pred),
+                                              fmt);
   }
 
   std::string RepeatVRRVm(
@@ -1233,36 +1238,36 @@ class AssemblerRISCV64Test : public AssemblerTest<Riscv64Assembler,
         f, fmt, [](VRegister, XRegister, XRegister, Riscv64Assembler::VM) { return true; });
   }
 
-  template <typename Pred>
+  template <typename Predicate>
   std::string RepeatVVRVmFiltered(
       void (Riscv64Assembler::*f)(VRegister, VRegister, XRegister, Riscv64Assembler::VM),
       const std::string& fmt,
-      Pred&& predicate) {
-    return RepeatTemplatedRegistersVm(f,
-                                      GetVectorRegisters(),
-                                      GetVectorRegisters(),
-                                      GetRegisters(),
-                                      &AssemblerRISCV64Test::GetVecRegName,
-                                      &AssemblerRISCV64Test::GetVecRegName,
-                                      &AssemblerRISCV64Test::GetRegisterName,
-                                      predicate,
-                                      fmt);
+      Predicate&& pred) {
+    return RepeatTemplatedRegistersVmFiltered(f,
+                                              GetVectorRegisters(),
+                                              GetVectorRegisters(),
+                                              GetRegisters(),
+                                              &AssemblerRISCV64Test::GetVecRegName,
+                                              &AssemblerRISCV64Test::GetVecRegName,
+                                              &AssemblerRISCV64Test::GetRegisterName,
+                                              std::forward<Predicate>(pred),
+                                              fmt);
   }
 
-  template <typename Pred>
+  template <typename Predicate>
   std::string RepeatVRVVmFiltered(
       void (Riscv64Assembler::*f)(VRegister, XRegister, VRegister, Riscv64Assembler::VM),
       const std::string& fmt,
-      Pred&& predicate) {
-    return RepeatTemplatedRegistersVm(f,
-                                      GetVectorRegisters(),
-                                      GetRegisters(),
-                                      GetVectorRegisters(),
-                                      &AssemblerRISCV64Test::GetVecRegName,
-                                      &AssemblerRISCV64Test::GetRegisterName,
-                                      &AssemblerRISCV64Test::GetVecRegName,
-                                      predicate,
-                                      fmt);
+      Predicate&& pred) {
+    return RepeatTemplatedRegistersVmFiltered(f,
+                                              GetVectorRegisters(),
+                                              GetRegisters(),
+                                              GetVectorRegisters(),
+                                              &AssemblerRISCV64Test::GetVecRegName,
+                                              &AssemblerRISCV64Test::GetRegisterName,
+                                              &AssemblerRISCV64Test::GetVecRegName,
+                                              std::forward<Predicate>(pred),
+                                              fmt);
   }
 
   std::string RepeatVRVVm(
@@ -1272,20 +1277,20 @@ class AssemblerRISCV64Test : public AssemblerTest<Riscv64Assembler,
         f, fmt, [](VRegister, XRegister, VRegister, Riscv64Assembler::VM) { return true; });
   }
 
-  template <typename Pred>
+  template <typename Predicate>
   std::string RepeatVVVVmFiltered(
       void (Riscv64Assembler::*f)(VRegister, VRegister, VRegister, Riscv64Assembler::VM),
       const std::string& fmt,
-      Pred&& predicate) {
-    return RepeatTemplatedRegistersVm(f,
-                                      GetVectorRegisters(),
-                                      GetVectorRegisters(),
-                                      GetVectorRegisters(),
-                                      &AssemblerRISCV64Test::GetVecRegName,
-                                      &AssemblerRISCV64Test::GetVecRegName,
-                                      &AssemblerRISCV64Test::GetVecRegName,
-                                      predicate,
-                                      fmt);
+      Predicate&& pred) {
+    return RepeatTemplatedRegistersVmFiltered(f,
+                                              GetVectorRegisters(),
+                                              GetVectorRegisters(),
+                                              GetVectorRegisters(),
+                                              &AssemblerRISCV64Test::GetVecRegName,
+                                              &AssemblerRISCV64Test::GetVecRegName,
+                                              &AssemblerRISCV64Test::GetVecRegName,
+                                              std::forward<Predicate>(pred),
+                                              fmt);
   }
 
   std::string RepeatVVVVm(
@@ -1295,48 +1300,48 @@ class AssemblerRISCV64Test : public AssemblerTest<Riscv64Assembler,
         f, fmt, [](VRegister, VRegister, VRegister, Riscv64Assembler::VM) { return true; });
   }
 
-  template <typename Pred>
+  template <typename Predicate>
   std::string RepeatVVFVmFiltered(
       void (Riscv64Assembler::*f)(VRegister, VRegister, FRegister, Riscv64Assembler::VM),
       const std::string& fmt,
-      Pred&& predicate) {
-    return RepeatTemplatedRegistersVm(f,
-                                      GetVectorRegisters(),
-                                      GetVectorRegisters(),
-                                      GetFPRegisters(),
-                                      &AssemblerRISCV64Test::GetVecRegName,
-                                      &AssemblerRISCV64Test::GetVecRegName,
-                                      &AssemblerRISCV64Test::GetFPRegName,
-                                      predicate,
-                                      fmt);
+      Predicate&& pred) {
+    return RepeatTemplatedRegistersVmFiltered(f,
+                                              GetVectorRegisters(),
+                                              GetVectorRegisters(),
+                                              GetFPRegisters(),
+                                              &AssemblerRISCV64Test::GetVecRegName,
+                                              &AssemblerRISCV64Test::GetVecRegName,
+                                              &AssemblerRISCV64Test::GetFPRegName,
+                                              std::forward<Predicate>(pred),
+                                              fmt);
   }
 
-  template <typename Pred>
+  template <typename Predicate>
   std::string RepeatVFVVmFiltered(
       void (Riscv64Assembler::*f)(VRegister, FRegister, VRegister, Riscv64Assembler::VM),
       const std::string& fmt,
-      Pred&& predicate) {
-    return RepeatTemplatedRegistersVm(f,
-                                      GetVectorRegisters(),
-                                      GetFPRegisters(),
-                                      GetVectorRegisters(),
-                                      &AssemblerRISCV64Test::GetVecRegName,
-                                      &AssemblerRISCV64Test::GetFPRegName,
-                                      &AssemblerRISCV64Test::GetVecRegName,
-                                      predicate,
-                                      fmt);
+      Predicate&& pred) {
+    return RepeatTemplatedRegistersVmFiltered(f,
+                                              GetVectorRegisters(),
+                                              GetFPRegisters(),
+                                              GetVectorRegisters(),
+                                              &AssemblerRISCV64Test::GetVecRegName,
+                                              &AssemblerRISCV64Test::GetFPRegName,
+                                              &AssemblerRISCV64Test::GetVecRegName,
+                                              std::forward<Predicate>(pred),
+                                              fmt);
   }
 
   template <typename Reg1, typename Reg2, typename Reg3, typename Predicate>
-  std::string RepeatTemplatedRegistersPred(void (Riscv64Assembler::*f)(Reg1, Reg2, Reg3),
-                                           ArrayRef<const Reg1> reg1_registers,
-                                           ArrayRef<const Reg2> reg2_registers,
-                                           ArrayRef<const Reg3> reg3_registers,
-                                           std::string (AssemblerTest::*GetName1)(const Reg1&),
-                                           std::string (AssemblerTest::*GetName2)(const Reg2&),
-                                           std::string (AssemblerTest::*GetName3)(const Reg3&),
-                                           Predicate&& pred,
-                                           const std::string& fmt) {
+  std::string RepeatTemplatedRegistersFiltered(void (Riscv64Assembler::*f)(Reg1, Reg2, Reg3),
+                                               ArrayRef<const Reg1> reg1_registers,
+                                               ArrayRef<const Reg2> reg2_registers,
+                                               ArrayRef<const Reg3> reg3_registers,
+                                               std::string (AssemblerTest::*GetName1)(const Reg1&),
+                                               std::string (AssemblerTest::*GetName2)(const Reg2&),
+                                               std::string (AssemblerTest::*GetName3)(const Reg3&),
+                                               Predicate&& pred,
+                                               const std::string& fmt) {
     WarnOnCombinations(reg1_registers.size() * reg2_registers.size() * reg3_registers.size());
     CHECK(f != nullptr);
 
@@ -1344,8 +1349,9 @@ class AssemblerRISCV64Test : public AssemblerTest<Riscv64Assembler,
     for (auto reg1 : reg1_registers) {
       for (auto reg2 : reg2_registers) {
         for (auto reg3 : reg3_registers) {
-          if (!pred(reg1, reg2, reg3))
+          if (!pred(reg1, reg2, reg3)) {
             continue;
+          }
 
           (GetAssembler()->*f)(reg1, reg2, reg3);
           std::string base = fmt;
@@ -1362,56 +1368,56 @@ class AssemblerRISCV64Test : public AssemblerTest<Riscv64Assembler,
     return str;
   }
 
-  template <typename Pred>
+  template <typename Predicate>
   std::string RepeatVVRFiltered(void (Riscv64Assembler::*f)(VRegister, VRegister, XRegister),
                                 const std::string& fmt,
-                                Pred&& predicate) {
-    return RepeatTemplatedRegistersPred(f,
-                                        GetVectorRegisters(),
-                                        GetVectorRegisters(),
-                                        GetRegisters(),
-                                        &AssemblerRISCV64Test::GetVecRegName,
-                                        &AssemblerRISCV64Test::GetVecRegName,
-                                        &AssemblerRISCV64Test::GetRegisterName,
-                                        predicate,
-                                        fmt);
+                                Predicate&& pred) {
+    return RepeatTemplatedRegistersFiltered(f,
+                                            GetVectorRegisters(),
+                                            GetVectorRegisters(),
+                                            GetRegisters(),
+                                            &AssemblerRISCV64Test::GetVecRegName,
+                                            &AssemblerRISCV64Test::GetVecRegName,
+                                            &AssemblerRISCV64Test::GetRegisterName,
+                                            std::forward<Predicate>(pred),
+                                            fmt);
   }
 
-  template <typename Pred>
+  template <typename Predicate>
   std::string RepeatVVVFiltered(void (Riscv64Assembler::*f)(VRegister, VRegister, VRegister),
                                 const std::string& fmt,
-                                Pred&& predicate) {
-    return RepeatTemplatedRegistersPred(f,
-                                        GetVectorRegisters(),
-                                        GetVectorRegisters(),
-                                        GetVectorRegisters(),
-                                        &AssemblerRISCV64Test::GetVecRegName,
-                                        &AssemblerRISCV64Test::GetVecRegName,
-                                        &AssemblerRISCV64Test::GetVecRegName,
-                                        predicate,
-                                        fmt);
+                                Predicate&& pred) {
+    return RepeatTemplatedRegistersFiltered(f,
+                                            GetVectorRegisters(),
+                                            GetVectorRegisters(),
+                                            GetVectorRegisters(),
+                                            &AssemblerRISCV64Test::GetVecRegName,
+                                            &AssemblerRISCV64Test::GetVecRegName,
+                                            &AssemblerRISCV64Test::GetVecRegName,
+                                            std::forward<Predicate>(pred),
+                                            fmt);
   }
 
-  template <typename Pred>
+  template <typename Predicate>
   std::string RepeatVVFFiltered(void (Riscv64Assembler::*f)(VRegister, VRegister, FRegister),
                                 const std::string& fmt,
-                                Pred&& predicate) {
-    return RepeatTemplatedRegistersPred(f,
-                                        GetVectorRegisters(),
-                                        GetVectorRegisters(),
-                                        GetFPRegisters(),
-                                        &AssemblerRISCV64Test::GetVecRegName,
-                                        &AssemblerRISCV64Test::GetVecRegName,
-                                        &AssemblerRISCV64Test::GetFPRegName,
-                                        predicate,
-                                        fmt);
+                                Predicate&& pred) {
+    return RepeatTemplatedRegistersFiltered(f,
+                                            GetVectorRegisters(),
+                                            GetVectorRegisters(),
+                                            GetFPRegisters(),
+                                            &AssemblerRISCV64Test::GetVecRegName,
+                                            &AssemblerRISCV64Test::GetVecRegName,
+                                            &AssemblerRISCV64Test::GetFPRegName,
+                                            std::forward<Predicate>(pred),
+                                            fmt);
   }
 
-  template <typename Pred, typename ImmType>
+  template <typename Predicate, typename ImmType>
   std::string RepeatVVIFiltered(void (Riscv64Assembler::*f)(VRegister, VRegister, ImmType),
                                 int imm_bits,
                                 const std::string& fmt,
-                                Pred&& predicate) {
+                                Predicate&& pred) {
     CHECK(f != nullptr);
     std::string str;
     std::vector<int64_t> imms = CreateImmediateValuesBits(abs(imm_bits), (imm_bits > 0));
@@ -1423,15 +1429,16 @@ class AssemblerRISCV64Test : public AssemblerTest<Riscv64Assembler,
         for (int64_t imm : imms) {
           ImmType new_imm = CreateImmediate(imm);
 
-          if (!predicate(reg1, reg2, new_imm))
+          if (!pred(reg1, reg2, new_imm)) {
             continue;
+          }
 
           (GetAssembler()->*f)(reg1, reg2, new_imm);
 
           std::string base = fmt;
           ReplaceReg(REG1_TOKEN, GetVecRegName(reg1), &base);
           ReplaceReg(REG2_TOKEN, GetVecRegName(reg2), &base);
-          ReplaceImm(imm, 0, /*multiplier=*/1, &base);
+          ReplaceImm(imm, /*bias=*/ 0, /*multiplier=*/ 1, &base);
           str += base;
           str += "\n";
         }
@@ -1440,12 +1447,12 @@ class AssemblerRISCV64Test : public AssemblerTest<Riscv64Assembler,
     return str;
   }
 
-  template <typename Pred, typename ImmType>
+  template <typename Predicate, typename ImmType>
   std::string RepeatVVIbVmFiltered(
       void (Riscv64Assembler::*f)(VRegister, VRegister, ImmType, Riscv64Assembler::VM),
       int imm_bits,
       const std::string& fmt,
-      Pred&& predicate,
+      Predicate&& pred,
       ImmType bias = 0) {
     CHECK(f != nullptr);
     std::string str;
@@ -1457,15 +1464,16 @@ class AssemblerRISCV64Test : public AssemblerTest<Riscv64Assembler,
       for (VRegister reg2 : GetVectorRegisters()) {
         for (int64_t imm : imms) {
           for (Riscv64Assembler::VM vm : kVMs) {
-            if (!predicate(reg1, reg2, imm, vm))
+            if (!pred(reg1, reg2, imm, vm)) {
               continue;
+            }
 
             ImmType new_imm = CreateImmediate(imm) + bias;
             (GetAssembler()->*f)(reg1, reg2, new_imm, vm);
 
             std::string base = fmt;
             ReplaceReg(REG1_TOKEN, GetVecRegName(reg1), &base);
-            ReplaceImm(imm, bias, 1, &base);
+            ReplaceImm(imm, bias, /*multiplier=*/ 1, &base);
             ReplaceReg(REG2_TOKEN, GetVecRegName(reg2), &base);
             ReplaceVm(vm, &base);
             str += base;
@@ -1478,15 +1486,14 @@ class AssemblerRISCV64Test : public AssemblerTest<Riscv64Assembler,
   }
 
   template <typename Reg1, typename Reg2, typename Predicate>
-  std::string RepeatTemplatedRegistersVm(void (Riscv64Assembler::*f)(Reg1,
-                                                                     Reg2,
-                                                                     Riscv64Assembler::VM),
-                                         ArrayRef<const Reg1> reg1_registers,
-                                         ArrayRef<const Reg2> reg2_registers,
-                                         std::string (AssemblerTest::*GetName1)(const Reg1&),
-                                         std::string (AssemblerTest::*GetName2)(const Reg2&),
-                                         Predicate&& pred,
-                                         const std::string& fmt) {
+  std::string RepeatTemplatedRegistersVmFiltered(
+      void (Riscv64Assembler::*f)(Reg1, Reg2, Riscv64Assembler::VM),
+      ArrayRef<const Reg1> reg1_registers,
+      ArrayRef<const Reg2> reg2_registers,
+      std::string (AssemblerTest::*GetName1)(const Reg1&),
+      std::string (AssemblerTest::*GetName2)(const Reg2&),
+      Predicate&& pred,
+      const std::string& fmt) {
     CHECK(f != nullptr);
 
     WarnOnCombinations(2 * reg2_registers.size() * reg1_registers.size());
@@ -1495,8 +1502,9 @@ class AssemblerRISCV64Test : public AssemblerTest<Riscv64Assembler,
     for (auto reg1 : reg1_registers) {
       for (auto reg2 : reg2_registers) {
         for (Riscv64Assembler::VM vm : kVMs) {
-          if (!pred(reg1, reg2, vm))
+          if (!pred(reg1, reg2, vm)) {
             continue;
+          }
 
           (GetAssembler()->*f)(reg1, reg2, vm);
           std::string base = fmt;
@@ -1513,19 +1521,19 @@ class AssemblerRISCV64Test : public AssemblerTest<Riscv64Assembler,
     return str;
   }
 
-  template <typename Pred>
+  template <typename Predicate>
   std::string RepeatRVVmFiltered(void (Riscv64Assembler::*f)(XRegister,
                                                              VRegister,
                                                              Riscv64Assembler::VM),
                                  const std::string& fmt,
-                                 Pred&& predicate) {
-    return RepeatTemplatedRegistersVm(f,
-                                      GetRegisters(),
-                                      GetVectorRegisters(),
-                                      &AssemblerRISCV64Test::GetRegisterName,
-                                      &AssemblerRISCV64Test::GetVecRegName,
-                                      predicate,
-                                      fmt);
+                                 Predicate&& pred) {
+    return RepeatTemplatedRegistersVmFiltered(f,
+                                              GetRegisters(),
+                                              GetVectorRegisters(),
+                                              &AssemblerRISCV64Test::GetRegisterName,
+                                              &AssemblerRISCV64Test::GetVecRegName,
+                                              std::forward<Predicate>(pred),
+                                              fmt);
   }
 
   std::string RepeatRVVm(void (Riscv64Assembler::*f)(XRegister, VRegister, Riscv64Assembler::VM vm),
@@ -1534,19 +1542,19 @@ class AssemblerRISCV64Test : public AssemblerTest<Riscv64Assembler,
         f, fmt, [](XRegister, VRegister, Riscv64Assembler::VM) { return true; });
   }
 
-  template <typename Pred>
+  template <typename Predicate>
   std::string RepeatVRVmFiltered(void (Riscv64Assembler::*f)(VRegister,
                                                              XRegister,
                                                              Riscv64Assembler::VM),
                                  const std::string& fmt,
-                                 Pred&& predicate) {
-    return RepeatTemplatedRegistersVm(f,
-                                      GetVectorRegisters(),
-                                      GetRegisters(),
-                                      &AssemblerRISCV64Test::GetVecRegName,
-                                      &AssemblerRISCV64Test::GetRegisterName,
-                                      predicate,
-                                      fmt);
+                                 Predicate&& pred) {
+    return RepeatTemplatedRegistersVmFiltered(f,
+                                              GetVectorRegisters(),
+                                              GetRegisters(),
+                                              &AssemblerRISCV64Test::GetVecRegName,
+                                              &AssemblerRISCV64Test::GetRegisterName,
+                                              std::forward<Predicate>(pred),
+                                              fmt);
   }
 
   std::string RepeatVRVm(void (Riscv64Assembler::*f)(VRegister, XRegister, Riscv64Assembler::VM),
@@ -1555,32 +1563,33 @@ class AssemblerRISCV64Test : public AssemblerTest<Riscv64Assembler,
         f, fmt, [](VRegister, XRegister, Riscv64Assembler::VM) { return true; });
   }
 
-  template <typename Pred>
+  template <typename Predicate>
   std::string RepeatVVVmFiltered(void (Riscv64Assembler::*f)(VRegister,
                                                              VRegister,
                                                              Riscv64Assembler::VM),
                                  const std::string& fmt,
-                                 Pred&& predicate) {
-    return RepeatTemplatedRegistersVm(f,
-                                      GetVectorRegisters(),
-                                      GetVectorRegisters(),
-                                      &AssemblerRISCV64Test::GetVecRegName,
-                                      &AssemblerRISCV64Test::GetVecRegName,
-                                      predicate,
-                                      fmt);
+                                 Predicate&& pred) {
+    return RepeatTemplatedRegistersVmFiltered(f,
+                                              GetVectorRegisters(),
+                                              GetVectorRegisters(),
+                                              &AssemblerRISCV64Test::GetVecRegName,
+                                              &AssemblerRISCV64Test::GetVecRegName,
+                                              std::forward<Predicate>(pred),
+                                              fmt);
   }
 
-  template <typename Pred>
+  template <typename Predicate>
   std::string RepeatVVmFiltered(void (Riscv64Assembler::*f)(VRegister, Riscv64Assembler::VM),
                                 const std::string& fmt,
-                                Pred&& predicate) {
+                                Predicate&& pred) {
     WarnOnCombinations(2 * GetVectorRegisters().size());
     CHECK(f != nullptr);
     std::string str;
     for (VRegister reg1 : GetVectorRegisters()) {
       for (Riscv64Assembler::VM vm : kVMs) {
-        if (!predicate(reg1, vm))
+        if (!pred(reg1, vm)) {
           continue;
+        }
 
         (GetAssembler()->*f)(reg1, vm);
 
@@ -1594,49 +1603,33 @@ class AssemblerRISCV64Test : public AssemblerTest<Riscv64Assembler,
     return str;
   }
 
-  static constexpr bool IsVdAllowed(const VRegister vd, const Riscv64Assembler::VM vm) {
+  static constexpr bool IsVdAllowed(VRegister vd, Riscv64Assembler::VM vm) {
     return vm != Riscv64Assembler::VM::kV0_t || vd != V0;
   }
 
   template <typename Reg2>
   auto VXVVmSkipV0VmAndNoR1R3Overlap() {
     return [](VRegister vd, Reg2, VRegister vs1, Riscv64Assembler::VM vm) {
-      if (!IsVdAllowed(vd, vm)) {
-        return false;
-      }
-
-      return vd != vs1;
+      return IsVdAllowed(vd, vm) && vd != vs1;
     };
   }
 
   template <typename Reg3>
   auto VXVVmSkipV0VmAndNoR1R2Overlap() {
     return [](VRegister vd, VRegister vs2, Reg3, Riscv64Assembler::VM vm) {
-      if (!IsVdAllowed(vd, vm)) {
-        return false;
-      }
-
-      return vd != vs2;
+      return IsVdAllowed(vd, vm) && vd != vs2;
     };
   }
 
   auto VXVVmSkipV0VmAndNoR1R2R3Overlap() {
     return [](VRegister vd, VRegister vs2, VRegister vs1, Riscv64Assembler::VM vm) {
-      if (!IsVdAllowed(vd, vm)) {
-        return false;
-      }
-
-      return vd != vs1 && vd != vs2;
+      return IsVdAllowed(vd, vm) && vd != vs1 && vd != vs2;
     };
   }
 
   auto VVVmSkipV0VmAndNoR1R2Overlap() {
     return [](VRegister vd, VRegister vs2, Riscv64Assembler::VM vm) {
-      if (!IsVdAllowed(vd, vm)) {
-        return false;
-      }
-
-      return vd != vs2;
+      return IsVdAllowed(vd, vm) && vd != vs2;
     };
   }
 
@@ -1665,8 +1658,8 @@ class AssemblerRISCV64Test : public AssemblerTest<Riscv64Assembler,
 
   template <typename Arg, typename Args, typename Replacer>
   std::string TestVSetI(void (Riscv64Assembler::*f)(XRegister, Arg, uint32_t),
-                        Args arguments,
-                        Replacer replacer,
+                        Args&& arguments,
+                        Replacer&& replacer,
                         const std::string& fmt) {
     CHECK(f != nullptr);
 
@@ -1676,8 +1669,8 @@ class AssemblerRISCV64Test : public AssemblerTest<Riscv64Assembler,
         for (Riscv64Assembler::VectorMaskAgnostic vma : kVMAs) {
           for (Riscv64Assembler::VectorTailAgnostic vta : kVTAs) {
             for (Riscv64Assembler::SelectedElementWidth sew : kSEWs) {
-              for (Riscv64Assembler::LengthMultiplier lmup : kLMUPs) {
-                uint32_t vtype = Riscv64Assembler::VTypeiValue(vma, vta, sew, lmup);
+              for (Riscv64Assembler::LengthMultiplier lmul : kLMULs) {
+                uint32_t vtype = Riscv64Assembler::VTypeiValue(vma, vta, sew, lmul);
                 (GetAssembler()->*f)(reg1, arg, vtype);
                 std::string base = fmt;
 
@@ -1686,7 +1679,7 @@ class AssemblerRISCV64Test : public AssemblerTest<Riscv64Assembler,
                 ReplaceVMA(vma, &base);
                 ReplaceVTA(vta, &base);
                 ReplaceSEW(sew, &base);
-                ReplaceLMUP(lmup, &base);
+                ReplaceLMUL(lmul, &base);
 
                 str += base;
                 str += "\n";
@@ -1749,7 +1742,7 @@ class AssemblerRISCV64Test : public AssemblerTest<Riscv64Assembler,
   static constexpr const char* VMA_TOKEN = "{vma}";
   static constexpr const char* VTA_TOKEN = "{vta}";
   static constexpr const char* SEW_TOKEN = "{sew}";
-  static constexpr const char* LMUP_TOKEN = "{lmup}";
+  static constexpr const char* LMUL_TOKEN = "{lmul}";
 
   static constexpr AqRl kAqRls[] = { AqRl::kNone, AqRl::kRelease, AqRl::kAcquire, AqRl::kAqRl };
 
@@ -1770,7 +1763,7 @@ class AssemblerRISCV64Test : public AssemblerTest<Riscv64Assembler,
       Riscv64Assembler::SelectedElementWidth::kE32,
       Riscv64Assembler::SelectedElementWidth::kE64};
 
-  static constexpr Riscv64Assembler::LengthMultiplier kLMUPs[] = {
+  static constexpr Riscv64Assembler::LengthMultiplier kLMULs[] = {
       Riscv64Assembler::LengthMultiplier::kM1Over8,
       Riscv64Assembler::LengthMultiplier::kM1Over4,
       Riscv64Assembler::LengthMultiplier::kM1Over2,
@@ -1879,10 +1872,10 @@ class AssemblerRISCV64Test : public AssemblerTest<Riscv64Assembler,
         LOG(FATAL) << "Unexpected value for `VectorMaskAgnostic`: " << enum_cast<uint32_t>(vma);
         UNREACHABLE();
     }
-    size_t vm_index = str->find(VMA_TOKEN);
-    EXPECT_NE(vm_index, std::string::npos);
-    if (vm_index != std::string::npos) {
-      str->replace(vm_index, ConstexprStrLen(VMA_TOKEN), replacement);
+    size_t vma_index = str->find(VMA_TOKEN);
+    EXPECT_NE(vma_index, std::string::npos);
+    if (vma_index != std::string::npos) {
+      str->replace(vma_index, ConstexprStrLen(VMA_TOKEN), replacement);
     }
   }
 
@@ -1899,10 +1892,10 @@ class AssemblerRISCV64Test : public AssemblerTest<Riscv64Assembler,
         LOG(FATAL) << "Unexpected value for `VectorTailAgnostic`: " << enum_cast<uint32_t>(vta);
         UNREACHABLE();
     }
-    size_t vm_index = str->find(VTA_TOKEN);
-    EXPECT_NE(vm_index, std::string::npos);
-    if (vm_index != std::string::npos) {
-      str->replace(vm_index, ConstexprStrLen(VTA_TOKEN), replacement);
+    size_t vta_index = str->find(VTA_TOKEN);
+    EXPECT_NE(vta_index, std::string::npos);
+    if (vta_index != std::string::npos) {
+      str->replace(vta_index, ConstexprStrLen(VTA_TOKEN), replacement);
     }
   }
 
@@ -1925,16 +1918,16 @@ class AssemblerRISCV64Test : public AssemblerTest<Riscv64Assembler,
         LOG(FATAL) << "Unexpected value for `SelectedElementWidth`: " << enum_cast<uint32_t>(sew);
         UNREACHABLE();
     }
-    size_t vm_index = str->find(SEW_TOKEN);
-    EXPECT_NE(vm_index, std::string::npos);
-    if (vm_index != std::string::npos) {
-      str->replace(vm_index, ConstexprStrLen(SEW_TOKEN), replacement);
+    size_t sew_index = str->find(SEW_TOKEN);
+    EXPECT_NE(sew_index, std::string::npos);
+    if (sew_index != std::string::npos) {
+      str->replace(sew_index, ConstexprStrLen(SEW_TOKEN), replacement);
     }
   }
 
-  void ReplaceLMUP(Riscv64Assembler::LengthMultiplier lmup, /*inout*/ std::string* str) {
+  void ReplaceLMUL(Riscv64Assembler::LengthMultiplier lmul, /*inout*/ std::string* str) {
     const char* replacement;
-    switch (lmup) {
+    switch (lmul) {
       case Riscv64Assembler::LengthMultiplier::kM1Over8:
         replacement = "mf8";
         break;
@@ -1957,13 +1950,13 @@ class AssemblerRISCV64Test : public AssemblerTest<Riscv64Assembler,
         replacement = "m8";
         break;
       default:
-        LOG(FATAL) << "Unexpected value for `LengthMultiplier`: " << enum_cast<uint32_t>(lmup);
+        LOG(FATAL) << "Unexpected value for `LengthMultiplier`: " << enum_cast<uint32_t>(lmul);
         UNREACHABLE();
     }
-    size_t vm_index = str->find(LMUP_TOKEN);
-    EXPECT_NE(vm_index, std::string::npos);
-    if (vm_index != std::string::npos) {
-      str->replace(vm_index, ConstexprStrLen(LMUP_TOKEN), replacement);
+    size_t lmul_index = str->find(LMUL_TOKEN);
+    EXPECT_NE(lmul_index, std::string::npos);
+    if (lmul_index != std::string::npos) {
+      str->replace(lmul_index, ConstexprStrLen(LMUL_TOKEN), replacement);
     }
   }
 
@@ -3001,14 +2994,16 @@ TEST_F(AssemblerRISCV64Test, VSetvl) {
 }
 
 TEST_F(AssemblerRISCV64Test, VSetivli) {
-  auto replacer = [=](uint32_t uimm, std::string* s) { ReplaceImm(uimm, 0, 1, s); };
+  auto replacer = [=](uint32_t uimm, std::string* s) {
+    ReplaceImm(uimm, /*bias=*/ 0, /*multiplier=*/ 1, s);
+  };
 
   std::vector<int64_t> imms = CreateImmediateValuesBits(5, true);
 
   DriverStr(TestVSetI(&Riscv64Assembler::VSetivli,
                       imms,
                       replacer,
-                      "vsetivli {reg1}, {imm}, {sew}, {lmup}, {vta}, {vma}"),
+                      "vsetivli {reg1}, {imm}, {sew}, {lmul}, {vta}, {vma}"),
             "VSetivli");
 }
 
@@ -3020,7 +3015,7 @@ TEST_F(AssemblerRISCV64Test, VSetvli) {
   DriverStr(TestVSetI(&Riscv64Assembler::VSetvli,
                       GetRegisters(),
                       replacer,
-                      "vsetvli {reg1}, {reg2}, {sew}, {lmup}, {vta}, {vma}"),
+                      "vsetvli {reg1}, {reg2}, {sew}, {lmul}, {vta}, {vma}"),
             "VSetvli");
 }
 
@@ -3137,97 +3132,97 @@ TEST_F(AssemblerRISCV64Test, VSse64) {
 
 TEST_F(AssemblerRISCV64Test, VLoxei8) {
   DriverStr(RepeatVRVVmFiltered(&Riscv64Assembler::VLoxei8,
-                                "VLoxei8.v {reg1}, ({reg2}), {reg3}{vm}",
+                                "vloxei8.v {reg1}, ({reg2}), {reg3}{vm}",
                                 SkipV0Vm<XRegister, VRegister>()),
             "VLoxei8");
 }
 
 TEST_F(AssemblerRISCV64Test, VLoxei16) {
   DriverStr(RepeatVRVVmFiltered(&Riscv64Assembler::VLoxei16,
-                                "VLoxei16.v {reg1}, ({reg2}), {reg3}{vm}",
+                                "vloxei16.v {reg1}, ({reg2}), {reg3}{vm}",
                                 SkipV0Vm<XRegister, VRegister>()),
             "VLoxei16");
 }
 
 TEST_F(AssemblerRISCV64Test, VLoxei32) {
   DriverStr(RepeatVRVVmFiltered(&Riscv64Assembler::VLoxei32,
-                                "VLoxei32.v {reg1}, ({reg2}), {reg3}{vm}",
+                                "vloxei32.v {reg1}, ({reg2}), {reg3}{vm}",
                                 SkipV0Vm<XRegister, VRegister>()),
             "VLoxei32");
 }
 
 TEST_F(AssemblerRISCV64Test, VLoxei64) {
   DriverStr(RepeatVRVVmFiltered(&Riscv64Assembler::VLoxei64,
-                                "VLoxei64.v {reg1}, ({reg2}), {reg3}{vm}",
+                                "vloxei64.v {reg1}, ({reg2}), {reg3}{vm}",
                                 SkipV0Vm<XRegister, VRegister>()),
             "VLoxei64");
 }
 
 TEST_F(AssemblerRISCV64Test, VLuxei8) {
   DriverStr(RepeatVRVVmFiltered(&Riscv64Assembler::VLuxei8,
-                                "VLuxei8.v {reg1}, ({reg2}), {reg3}{vm}",
+                                "vluxei8.v {reg1}, ({reg2}), {reg3}{vm}",
                                 SkipV0Vm<XRegister, VRegister>()),
             "VLuxei8");
 }
 
 TEST_F(AssemblerRISCV64Test, VLuxei16) {
   DriverStr(RepeatVRVVmFiltered(&Riscv64Assembler::VLuxei16,
-                                "VLuxei16.v {reg1}, ({reg2}), {reg3}{vm}",
+                                "vluxei16.v {reg1}, ({reg2}), {reg3}{vm}",
                                 SkipV0Vm<XRegister, VRegister>()),
             "VLuxei16");
 }
 
 TEST_F(AssemblerRISCV64Test, VLuxei32) {
   DriverStr(RepeatVRVVmFiltered(&Riscv64Assembler::VLuxei32,
-                                "VLuxei32.v {reg1}, ({reg2}), {reg3}{vm}",
+                                "vluxei32.v {reg1}, ({reg2}), {reg3}{vm}",
                                 SkipV0Vm<XRegister, VRegister>()),
             "VLuxei32");
 }
 
 TEST_F(AssemblerRISCV64Test, VLuxei64) {
   DriverStr(RepeatVRVVmFiltered(&Riscv64Assembler::VLuxei64,
-                                "VLuxei64.v {reg1}, ({reg2}), {reg3}{vm}",
+                                "vluxei64.v {reg1}, ({reg2}), {reg3}{vm}",
                                 SkipV0Vm<XRegister, VRegister>()),
             "VLuxei64");
 }
 
 TEST_F(AssemblerRISCV64Test, VSoxei8) {
-  DriverStr(RepeatVRVVm(&Riscv64Assembler::VSoxei8, "VSoxei8.v {reg1}, ({reg2}), {reg3}{vm}"),
+  DriverStr(RepeatVRVVm(&Riscv64Assembler::VSoxei8, "vsoxei8.v {reg1}, ({reg2}), {reg3}{vm}"),
             "VSoxei8");
 }
 
 TEST_F(AssemblerRISCV64Test, VSoxei16) {
-  DriverStr(RepeatVRVVm(&Riscv64Assembler::VSoxei16, "VSoxei16.v {reg1}, ({reg2}), {reg3}{vm}"),
+  DriverStr(RepeatVRVVm(&Riscv64Assembler::VSoxei16, "vsoxei16.v {reg1}, ({reg2}), {reg3}{vm}"),
             "VSoxei16");
 }
 
 TEST_F(AssemblerRISCV64Test, VSoxei32) {
-  DriverStr(RepeatVRVVm(&Riscv64Assembler::VSoxei32, "VSoxei32.v {reg1}, ({reg2}), {reg3}{vm}"),
+  DriverStr(RepeatVRVVm(&Riscv64Assembler::VSoxei32, "vsoxei32.v {reg1}, ({reg2}), {reg3}{vm}"),
             "VSoxei32");
 }
 
 TEST_F(AssemblerRISCV64Test, VSoxei64) {
-  DriverStr(RepeatVRVVm(&Riscv64Assembler::VSoxei64, "VSoxei64.v {reg1}, ({reg2}), {reg3}{vm}"),
+  DriverStr(RepeatVRVVm(&Riscv64Assembler::VSoxei64, "vsoxei64.v {reg1}, ({reg2}), {reg3}{vm}"),
             "VSoxei64");
 }
 
 TEST_F(AssemblerRISCV64Test, VSuxei8) {
-  DriverStr(RepeatVRVVm(&Riscv64Assembler::VSuxei8, "VSuxei8.v {reg1}, ({reg2}), {reg3}{vm}"),
+  DriverStr(RepeatVRVVm(&Riscv64Assembler::VSuxei8, "vsuxei8.v {reg1}, ({reg2}), {reg3}{vm}"),
             "VSuxei8");
 }
 
 TEST_F(AssemblerRISCV64Test, VSuxei16) {
-  DriverStr(RepeatVRVVm(&Riscv64Assembler::VSuxei16, "VSuxei16.v {reg1}, ({reg2}), {reg3}{vm}"),
+  DriverStr(RepeatVRVVm(&Riscv64Assembler::VSuxei16, "vsuxei16.v {reg1}, ({reg2}), {reg3}{vm}"),
             "VSuxei16");
 }
 
 TEST_F(AssemblerRISCV64Test, VSuxei32) {
-  DriverStr(RepeatVRVVm(&Riscv64Assembler::VSuxei32, "VSuxei32.v {reg1}, ({reg2}), {reg3}{vm}"),
+  DriverStr(RepeatVRVVm(&Riscv64Assembler::VSuxei32, "vsuxei32.v {reg1}, ({reg2}), {reg3}{vm}"),
             "VSuxei32");
 }
 
 TEST_F(AssemblerRISCV64Test, VSuxei64) {
-  DriverStr(RepeatVRVVm(&Riscv64Assembler::VSuxei64, "VSuxei64.v {reg1}, ({reg2}), {reg3}{vm}"),
+  DriverStr(RepeatVRVVm(&Riscv64Assembler::VSuxei64, "vsuxei64.v {reg1}, ({reg2}), {reg3}{vm}"),
             "VSuxei64");
 }
 
@@ -5390,7 +5385,7 @@ TEST_F(AssemblerRISCV64Test, VMsltu_vi) {
                                  4,
                                  "vmsltu.vi {reg1}, {reg2}, {imm}{vm}",
                                  SkipV0Vm<VRegister, uint32_t>(),
-                                 1),
+                                 /*bias=*/ 1),
             "VMsltu_vi");
 }
 
@@ -5428,17 +5423,8 @@ TEST_F(AssemblerRISCV64Test, VMslt_vi) {
                                  -5,
                                  "vmslt.vi {reg1}, {reg2}, {imm}{vm}",
                                  SkipV0Vm<VRegister, int32_t>(),
-                                 1),
+                                 /*bias=*/ 1),
             "VMslt_vi");
-}
-
-TEST_F(AssemblerRISCV64Test, VMsge_vi) {
-  DriverStr(RepeatVVIbVmFiltered(&Riscv64Assembler::VMsge_vi,
-                                 -5,
-                                 "vmsge.vi {reg1}, {reg2}, {imm}{vm}",
-                                 SkipV0Vm<VRegister, int32_t>(),
-                                 1),
-            "VMsge_vi");
 }
 
 TEST_F(AssemblerRISCV64Test, VMsgtu_vx) {
@@ -5461,7 +5447,7 @@ TEST_F(AssemblerRISCV64Test, VMsgeu_vi) {
                                  4,
                                  "vmsgeu.vi {reg1}, {reg2}, {imm}{vm}",
                                  SkipV0Vm<VRegister, uint32_t>(),
-                                 1),
+                                 /*bias=*/ 1),
             "VMsgeu_vi");
 }
 
@@ -5478,6 +5464,15 @@ TEST_F(AssemblerRISCV64Test, VMsgt_vi) {
                                  "vmsgt.vi {reg1}, {reg2}, {imm}{vm}",
                                  SkipV0Vm<VRegister, int32_t>()),
             "VMsgt_vi");
+}
+
+TEST_F(AssemblerRISCV64Test, VMsge_vi) {
+  DriverStr(RepeatVVIbVmFiltered(&Riscv64Assembler::VMsge_vi,
+                                 -5,
+                                 "vmsge.vi {reg1}, {reg2}, {imm}{vm}",
+                                 SkipV0Vm<VRegister, int32_t>(),
+                                 /*bias=*/ 1),
+            "VMsge_vi");
 }
 
 TEST_F(AssemblerRISCV64Test, VSaddu_vv) {
