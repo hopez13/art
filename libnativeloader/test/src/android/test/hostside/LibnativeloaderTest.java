@@ -232,9 +232,9 @@ public class LibnativeloaderTest extends BaseHostJUnit4Test {
                 mLibApk = libApk;
             }
 
-            void addLib(String libName, String destDir, String destName) throws Exception {
-                pushNativeTestLib(mLibApk, libName, destDir + "/" + destName);
-                mPublicLibs.add(destName);
+            void addLib(String dir, String name) throws Exception {
+                pushNativeTestLib(mLibApk, dir + "/" + name);
+                mPublicLibs.add(name);
             }
 
             void pushPublicLibrariesFile(String path) throws DeviceNotAvailableException {
@@ -244,34 +244,30 @@ public class LibnativeloaderTest extends BaseHostJUnit4Test {
 
         void pushExtendedPublicSystemOemLibs(ZipFile libApk) throws Exception {
             var oem1Libs = new PublicLibs(libApk);
-            // Push libsystem_extpub<n>.oem1.so for each test. Since we cannot unload them, we need
-            // a fresh never-before-loaded library in each loadLibrary call.
-            for (int i = 1; i <= 3; ++i) {
-                oem1Libs.addLib("libsystem_testlib.so", "/system/${LIB}",
-                        "libsystem_extpub" + i + ".oem1.so");
+            // Push libextpub<n>.oem1.so for each test. Since we cannot unload them, we need a fresh
+            // never-before-loaded library in each loadLibrary call.
+            for (int i = 1; i <= 2; ++i) {
+                oem1Libs.addLib("/system/${LIB}", "libsystem_extpub" + i + ".oem1.so");
             }
-            oem1Libs.addLib("libsystem_testlib.so", "/system/${LIB}", "libsystem_extpub.oem1.so");
+            oem1Libs.addLib("/system/${LIB}", "libsystem_extpub.oem1.so");
             oem1Libs.pushPublicLibrariesFile("/system/etc/public.libraries-oem1.txt");
 
             var oem2Libs = new PublicLibs(libApk);
-            oem2Libs.addLib("libsystem_testlib.so", "/system/${LIB}", "libsystem_extpub.oem2.so");
+            oem2Libs.addLib("/system/${LIB}", "libsystem_extpub.oem2.so");
             // libextpub_nouses.oem2.so is a library that the test apps don't have
             // <uses-native-library> dependencies for.
-            oem2Libs.addLib(
-                    "libsystem_testlib.so", "/system/${LIB}", "libsystem_extpub_nouses.oem2.so");
+            oem2Libs.addLib("/system/${LIB}", "libsystem_extpub_nouses.oem2.so");
             oem2Libs.pushPublicLibrariesFile("/system/etc/public.libraries-oem2.txt");
         }
 
         void pushExtendedPublicProductLibs(ZipFile libApk) throws Exception {
             var product1Libs = new PublicLibs(libApk);
-            // Push libproduct_extpub<n>.product1.so for each test. Since we cannot unload them, we
-            // need a fresh never-before-loaded library in each loadLibrary call.
-            for (int i = 1; i <= 3; ++i) {
-                product1Libs.addLib("libproduct_testlib.so", "/product/${LIB}",
-                        "libproduct_extpub" + i + ".product1.so");
+            // Push libfoo<n>.product1.so for each test. Since we cannot unload them, we need a
+            // fresh never-before-loaded library in each loadLibrary call.
+            for (int i = 1; i <= 2; ++i) {
+                product1Libs.addLib("/product/${LIB}", "libproduct_extpub" + i + ".product1.so");
             }
-            product1Libs.addLib(
-                    "libproduct_testlib.so", "/product/${LIB}", "libproduct_extpub.product1.so");
+            product1Libs.addLib("/product/${LIB}", "libproduct_extpub.product1.so");
             product1Libs.pushPublicLibrariesFile("/product/etc/public.libraries-product1.txt");
         }
 
@@ -279,14 +275,10 @@ public class LibnativeloaderTest extends BaseHostJUnit4Test {
             // Push the libraries once for each test. Since we cannot unload them, we need a fresh
             // never-before-loaded library in each loadLibrary call.
             for (int i = 1; i <= 6; ++i) {
-                pushNativeTestLib(libApk, "libsystem_testlib.so",
-                        "/system/${LIB}/libsystem_private" + i + ".so");
-                pushNativeTestLib(libApk, "libsystem_testlib.so",
-                        "/system_ext/${LIB}/libsystemext_private" + i + ".so");
-                pushNativeTestLib(libApk, "libproduct_testlib.so",
-                        "/product/${LIB}/libproduct_private" + i + ".so");
-                pushNativeTestLib(libApk, "libvendor_testlib.so",
-                        "/vendor/${LIB}/libvendor_private" + i + ".so");
+                pushNativeTestLib(libApk, "/system/${LIB}/libsystem_private" + i + ".so");
+                pushNativeTestLib(libApk, "/system_ext/${LIB}/libsystemext_private" + i + ".so");
+                pushNativeTestLib(libApk, "/product/${LIB}/libproduct_private" + i + ".so");
+                pushNativeTestLib(libApk, "/vendor/${LIB}/libvendor_private" + i + ".so");
             }
         }
 
@@ -345,8 +337,8 @@ public class LibnativeloaderTest extends BaseHostJUnit4Test {
 
         // Like pushString, but extracts libnativeloader_testlib.so from the library_container_app
         // APK and pushes it to destPath. "${LIB}" is replaced with "lib" or "lib64" as appropriate.
-        void pushNativeTestLib(ZipFile libApk, String libName, String destPath) throws Exception {
-            String libApkPath = "lib/" + getTestArch() + "/" + libName;
+        void pushNativeTestLib(ZipFile libApk, String destPath) throws Exception {
+            String libApkPath = "lib/" + getTestArch() + "/libnativeloader_testlib.so";
             ZipEntry entry = libApk.getEntry(libApkPath);
             assertWithMessage("Failed to find " + libApkPath + " in library_container_app.apk")
                     .that(entry)
@@ -354,7 +346,7 @@ public class LibnativeloaderTest extends BaseHostJUnit4Test {
 
             File libraryTempFile;
             try (InputStream inStream = libApk.getInputStream(entry)) {
-                libraryTempFile = writeStreamToTempFile(libName, inStream);
+                libraryTempFile = writeStreamToTempFile("libnativeloader_testlib.so", inStream);
             }
 
             destPath = destPath.replace("${LIB}", libDirName());
