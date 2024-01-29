@@ -33,6 +33,46 @@
       "message": "Thanks!",
       "revId": "88aead738f46dd11e776b867d04acf44062533ac",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b6c20987_00b8ea9d",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1830,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-29T08:46:45Z",
+      "side": 1,
+      "message": "Aren\u0027t we supposed to push_back here on `osr_enqueued_methods_` and below too?",
+      "revId": "88aead738f46dd11e776b867d04acf44062533ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d5a2c85_2b5866d8",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1898,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-29T08:46:45Z",
+      "side": 1,
+      "message": "Can we DCHECK or kIsDebugBuild that we are erasing something?",
+      "range": {
+        "startLine": 1888,
+        "startChar": 0,
+        "endLine": 1898,
+        "endChar": 3
+      },
+      "revId": "88aead738f46dd11e776b867d04acf44062533ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
