@@ -51,6 +51,7 @@ using ApiDomain = enum {
   API_DOMAIN_DEFAULT = 0,  // Locations other than those below, in particular for ordinary apps
   API_DOMAIN_VENDOR = 1,   // Vendor partition
   API_DOMAIN_PRODUCT = 2,  // Product partition
+  API_DOMAIN_SYSTEM = 3,   // System and system_ext partitions
 };
 
 // LibraryNamespaces is a singleton object that manages NativeLoaderNamespace
