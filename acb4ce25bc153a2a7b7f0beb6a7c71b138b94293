@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4de78e3b_3fc3ab3a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-01-29T14:05:31Z",
+      "side": 1,
+      "message": "Nit: add comment why crafting a regression test is difficult.",
+      "revId": "acb4ce25bc153a2a7b7f0beb6a7c71b138b94293",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0c9a41f_8290bfa5",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2521,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-01-29T14:05:31Z",
+      "side": 1,
+      "message": "A shame that you cannot craft a regression test. This looks so basic that one would expect both cases could easily be hit?",
+      "revId": "acb4ce25bc153a2a7b7f0beb6a7c71b138b94293",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
