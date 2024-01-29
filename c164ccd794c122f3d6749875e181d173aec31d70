@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ab47c71_963d3986",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-29T11:34:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0db00652_2fff6498",
+      "revId": "c164ccd794c122f3d6749875e181d173aec31d70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5bfd7b68_95daa16f",
@@ -31,6 +49,30 @@
       "writtenOn": "2024-01-29T10:43:58Z",
       "side": 1,
       "message": "nit: add a comment.",
+      "range": {
+        "startLine": 2495,
+        "startChar": 0,
+        "endLine": 2497,
+        "endChar": 83
+      },
+      "revId": "c164ccd794c122f3d6749875e181d173aec31d70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0858fd44_8c9f520e",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2497,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-01-29T11:34:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5bfd7b68_95daa16f",
       "range": {
         "startLine": 2495,
         "startChar": 0,
