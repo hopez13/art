@@ -24,6 +24,7 @@
 #include <algorithm>
 #include <memory>
 #include <mutex>
+#include <optional>
 #include <regex>
 #include <string>
 #include <vector>
@@ -52,6 +53,7 @@ using ::android::nativeloader::LibraryNamespaces;
 
 const std::regex kVendorDexPathRegex("(^|:)(/system)?/vendor/");
 const std::regex kProductDexPathRegex("(^|:)(/system)?/product/");
+const std::regex kSystemDexPathRegex("(^|:)/system(_ext)?/");  // MUST be tested last.
 
 nativeloader::ApkOrigin GetApkOriginFromDexPath(const std::string& dex_path) {
   nativeloader::ApkOrigin apk_origin = nativeloader::APK_ORIGIN_DEFAULT;
@@ -64,6 +66,10 @@ nativeloader::ApkOrigin GetApkOriginFromDexPath(const std::string& dex_path) {
                         dex_path.c_str());
 
     apk_origin = nativeloader::APK_ORIGIN_PRODUCT;
+  }
+  if (apk_origin == nativeloader::APK_ORIGIN_DEFAULT &&
+      std::regex_search(dex_path, kSystemDexPathRegex)) {
+    apk_origin = nativeloader::APK_ORIGIN_SYSTEM;
   }
   return apk_origin;
 }
@@ -302,26 +308,82 @@ void* OpenNativeLibrary(JNIEnv* env,
   }
 
   std::lock_guard<std::mutex> guard(g_namespaces_mutex);
-  NativeLoaderNamespace* ns;
+  std::optional<Result<NativeLoaderNamespace>> ns_holder;  // Optional owning storage
+  NativeLoaderNamespace* ns = nullptr;
 
-  if ((ns = g_namespaces->FindNamespaceByClassLoader(env, class_loader)) == nullptr) {
-    // This is the case where the classloader was not created by ApplicationLoaders
-    // In this case we create an isolated not-shared namespace for it.
-    Result<NativeLoaderNamespace*> isolated_ns =
-        CreateClassLoaderNamespaceLocked(env,
-                                         target_sdk_version,
-                                         class_loader,
-                                         nativeloader::APK_ORIGIN_DEFAULT,
-                                         /*is_shared=*/false,
-                                         /*dex_path=*/nullptr,
-                                         library_path_j,
-                                         /*permitted_path=*/nullptr,
-                                         /*uses_library_list=*/nullptr);
-    if (!isolated_ns.ok()) {
-      *error_msg = strdup(isolated_ns.error().message().c_str());
-      return nullptr;
-    } else {
-      ns = *isolated_ns;
+  // If the caller is a shared java library in one of the system image
+  // partitions then use the linker namespace for that partition, to allow free
+  // access to any native library in it.
+  if (target_sdk_version >= 35 /* Android V (aka 15) */ && caller_location != nullptr) {
+    std::string caller_loc_str = caller_location;
+    // Check that it's a shared library - we shouldn't do this for apps, even if
+    // they are in the same partition, because they need their classloader
+    // namespaces.
+    if (caller_loc_str.find("/framework/") != caller_loc_str.npos) {
+      nativeloader::ApkOrigin apk_origin = GetApkOriginFromDexPath(std::string(caller_loc_str));
+      bool is_bridged = false;
+      if (library_path_j != nullptr) {
+        ScopedUtfChars library_path_utf_chars(env, library_path_j);
+        if (library_path_utf_chars[0] != '\0') {
+          is_bridged = NativeBridgeIsPathSupported(library_path_utf_chars.c_str());
+        }
+      }
+
+      switch (apk_origin) {
+        case nativeloader::APK_ORIGIN_VENDOR:
+          ns_holder = NativeLoaderNamespace::GetExportedNamespace(
+              nativeloader::kVendorNamespaceName, is_bridged);
+          break;
+        case nativeloader::APK_ORIGIN_PRODUCT:
+          ns_holder = NativeLoaderNamespace::GetExportedNamespace(
+              nativeloader::kProductNamespaceName, is_bridged);
+          break;
+        case nativeloader::APK_ORIGIN_SYSTEM:
+          ns_holder = NativeLoaderNamespace::GetSystemNamespace(is_bridged);
+          break;
+        case nativeloader::APK_ORIGIN_DEFAULT:
+          break;
+      }
+
+      if (ns_holder.has_value()) {
+        if (!ns_holder.value().ok()) {
+          *error_msg = strdup(ns_holder.value().error().message().c_str());
+          return nullptr;
+        }
+        ns = &ns_holder.value().value();
+        ALOGD(
+            "Using linker namespace %s to load %s because the caller %s is in the same partition "
+            "(is_bridged=%b, target_sdk_version=%d)",
+            ns->name().c_str(),
+            path,
+            caller_location,
+            is_bridged,
+            target_sdk_version);
+      }
+    }
+  }
+
+  if (ns == nullptr) {
+    ns = g_namespaces->FindNamespaceByClassLoader(env, class_loader);
+    if (ns == nullptr) {
+      // This is the case where the classloader was not created by ApplicationLoaders
+      // In this case we create an isolated not-shared namespace for it.
+      Result<NativeLoaderNamespace*> isolated_ns =
+          CreateClassLoaderNamespaceLocked(env,
+                                           target_sdk_version,
+                                           class_loader,
+                                           nativeloader::APK_ORIGIN_DEFAULT,
+                                           /*is_shared=*/false,
+                                           /*dex_path=*/nullptr,
+                                           library_path_j,
+                                           /*permitted_path=*/nullptr,
+                                           /*uses_library_list=*/nullptr);
+      if (!isolated_ns.ok()) {
+        *error_msg = strdup(isolated_ns.error().message().c_str());
+        return nullptr;
+      } else {
+        ns = isolated_ns.value();
+      }
     }
   }
 

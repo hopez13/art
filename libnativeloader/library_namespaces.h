@@ -50,6 +50,7 @@ using ApkOrigin = enum {
   APK_ORIGIN_DEFAULT = 0,
   APK_ORIGIN_VENDOR = 1,   // Includes both /vendor and /system/vendor
   APK_ORIGIN_PRODUCT = 2,  // Includes both /product and /system/product
+  APK_ORIGIN_SYSTEM = 3,   // Includes both /system and /system_ext but not /system/{vendor,product}
 };
 
 // LibraryNamespaces is a singleton object that manages NativeLoaderNamespace
