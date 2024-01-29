@@ -48,4 +48,11 @@ public final class TestUtils {
     public static boolean skipPublicProductLibTests() {
         return Build.VERSION.SDK_INT < 33; // TIRAMISU
     }
+
+    // True if apps and shared java libs in system/product/vendor partitions are
+    // able to load private native libs in the same partition.
+    public static boolean canLoadPrivateLibsFromPartitionJars() {
+        return Build.VERSION.SDK_INT >= 35 // VANILLA_ICE_CREAM
+                || Build.VERSION.CODENAME.equals("VanillaIceCream");
+    }
 }
