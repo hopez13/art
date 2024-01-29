@@ -98,6 +98,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e92d1790_3f7d4322",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 998,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-29T09:43:24Z",
+      "side": 1,
+      "message": "Feel free to add x86 changes to this CL or create a separate one.\n\nOn 64-bit architectures, such as x64-64, we\u0027re using 64-bit arithmetic to avoid overflows. On 32-bit architectures, this trick does not work because we have only 32-bit registers and we could have arithmetic overflow for very high or negative input lengths, so it\u0027s better to do the check before calculating the object size.",
+      "parentUuid": "d2c1b1b1_07ab7089",
+      "range": {
+        "startLine": 997,
+        "startChar": 4,
+        "endLine": 998,
+        "endChar": 25
+      },
+      "revId": "5d90329dd41360791b1e364db856048563a35cbd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d7b064e4_c1e2fdde",
         "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
         "patchSetId": 1
