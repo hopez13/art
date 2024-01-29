@@ -31,7 +31,9 @@ using ::testing::Not;
 
 TEST(LibraryNamespacesTest, TestGetApiDomainFromPath) {
   EXPECT_EQ(GetApiDomainFromPath("/data/somewhere"), API_DOMAIN_DEFAULT);
-  EXPECT_EQ(GetApiDomainFromPath("/system/somewhere"), API_DOMAIN_DEFAULT);
+  EXPECT_EQ(GetApiDomainFromPath("/system/somewhere"), API_DOMAIN_SYSTEM);
+  EXPECT_EQ(GetApiDomainFromPath("/system_ext/somewhere"), API_DOMAIN_SYSTEM);
+  EXPECT_EQ(GetApiDomainFromPath("/systemext/somewhere"), API_DOMAIN_DEFAULT);
   EXPECT_EQ(GetApiDomainFromPath("/product/somewhere"), API_DOMAIN_PRODUCT);
   EXPECT_EQ(GetApiDomainFromPath("/vendor/somewhere"), API_DOMAIN_VENDOR);
   EXPECT_EQ(GetApiDomainFromPath("/system/product/somewhere"), API_DOMAIN_PRODUCT);
@@ -51,7 +53,8 @@ TEST(LibraryNamespacesTest, TestGetApiDomainFromPath) {
 
 TEST(LibraryNamespacesTest, TestGetApiDomainFromPathList) {
   EXPECT_THAT(GetApiDomainFromPathList("/data/somewhere"), HasValue(API_DOMAIN_DEFAULT));
-  EXPECT_THAT(GetApiDomainFromPathList("/system/somewhere"), HasValue(API_DOMAIN_DEFAULT));
+  EXPECT_THAT(GetApiDomainFromPathList("/system/somewhere"), HasValue(API_DOMAIN_SYSTEM));
+  EXPECT_THAT(GetApiDomainFromPathList("/system_ext/somewhere"), HasValue(API_DOMAIN_SYSTEM));
   EXPECT_THAT(GetApiDomainFromPathList("/product/somewhere"), HasValue(API_DOMAIN_PRODUCT));
   EXPECT_THAT(GetApiDomainFromPathList("/vendor/somewhere"), HasValue(API_DOMAIN_VENDOR));
   EXPECT_THAT(GetApiDomainFromPathList("/system/product/somewhere"), HasValue(API_DOMAIN_PRODUCT));
@@ -66,6 +69,8 @@ TEST(LibraryNamespacesTest, TestGetApiDomainFromPathList) {
               HasValue(API_DOMAIN_PRODUCT));
   EXPECT_THAT(GetApiDomainFromPathList("/vendor/somewhere:/product/somewhere"), Not(Ok()));
   EXPECT_THAT(GetApiDomainFromPathList("/product/somewhere:/vendor/somewhere"), Not(Ok()));
+  EXPECT_THAT(GetApiDomainFromPathList("/system/somewhere:/vendor/somewhere"), Not(Ok()));
+  EXPECT_THAT(GetApiDomainFromPathList("/system_ext/somewhere:/vendor/somewhere"), Not(Ok()));
 }
 
 }  // namespace

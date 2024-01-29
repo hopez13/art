@@ -42,21 +42,22 @@ public abstract class AppTestCommon {
     // ProductSharedLib and VendorSharedLib can still load private system libs
     // through their classloader namespaces, but not the private libs in the
     // same partition as themselves.
+    //
+    // When canLoadPrivateLibsFromSamePartition() is true in VIC and later this
+    // is less pronounced since libnativeloader uses the partition linker
+    // namespaces instead of the classloader namespaces within the same
+    // partition.
     private boolean isSharedSystemApp() {
         return getAppLocation() == AppLocation.SYSTEM;
     }
 
     @Test
     public void testLoadPrivateLibrariesViaSystemSharedLibWithAbsolutePaths() {
-        if (getAppLocation() == AppLocation.SYSTEM) {
+        if (TestUtils.canLoadPrivateLibsFromSamePartition()
+                || getAppLocation() == AppLocation.SYSTEM) {
             SystemSharedLib.load(TestUtils.libPath("/system", "system_private7"));
             SystemSharedLib.load(TestUtils.libPath("/system_ext", "systemext_private7"));
         } else {
-            // Cannot load private system libs because there is no provision in
-            // LibraryNamespaces::Create to create an "unbundled system apk" for
-            // shared system libs based on their location. Hence SystemSharedLib
-            // gets a classloader namespace as an "other apk", with the same
-            // library_path as the app.
             TestUtils.assertLibraryInaccessible(() -> {
                 SystemSharedLib.load(TestUtils.libPath("/system", "system_private7"));
             });
@@ -74,11 +75,11 @@ public abstract class AppTestCommon {
 
     @Test
     public void testLoadPrivateLibrariesViaSystemExtSharedLibWithAbsolutePaths() {
-        if (getAppLocation() == AppLocation.SYSTEM) {
+        if (TestUtils.canLoadPrivateLibsFromSamePartition()
+                || getAppLocation() == AppLocation.SYSTEM) {
             SystemExtSharedLib.load(TestUtils.libPath("/system", "system_private8"));
             SystemExtSharedLib.load(TestUtils.libPath("/system_ext", "systemext_private8"));
         } else {
-            // See comment in the corresponding test for SystemSharedLib above.
             TestUtils.assertLibraryInaccessible(() -> {
                 SystemExtSharedLib.load(TestUtils.libPath("/system", "system_private8"));
             });
@@ -110,7 +111,7 @@ public abstract class AppTestCommon {
             });
         }
 
-        if (!isSharedSystemApp()) {
+        if (TestUtils.canLoadPrivateLibsFromSamePartition() || !isSharedSystemApp()) {
             ProductSharedLib.load(TestUtils.libPath("/product", "product_private9"));
         } else {
             TestUtils.assertLibraryInaccessible(() -> {
@@ -140,7 +141,7 @@ public abstract class AppTestCommon {
             VendorSharedLib.load(TestUtils.libPath("/product", "product_private10"));
         });
 
-        if (!isSharedSystemApp()) {
+        if (TestUtils.canLoadPrivateLibsFromSamePartition() || !isSharedSystemApp()) {
             VendorSharedLib.load(TestUtils.libPath("/vendor", "vendor_private10"));
         } else {
             TestUtils.assertLibraryInaccessible(() -> {
