@@ -37,7 +37,9 @@ TEST(LibraryNamespacesTest, TestGetApiDomainFromPath) {
   ApiDomain api_domain_product = is_product_treblelized() ? API_DOMAIN_PRODUCT : API_DOMAIN_DEFAULT;
 
   EXPECT_EQ(GetApiDomainFromPath("/data/somewhere"), API_DOMAIN_DEFAULT);
-  EXPECT_EQ(GetApiDomainFromPath("/system/somewhere"), API_DOMAIN_DEFAULT);
+  EXPECT_EQ(GetApiDomainFromPath("/system/somewhere"), API_DOMAIN_SYSTEM);
+  EXPECT_EQ(GetApiDomainFromPath("/system_ext/somewhere"), API_DOMAIN_SYSTEM);
+  EXPECT_EQ(GetApiDomainFromPath("/systemext/somewhere"), API_DOMAIN_DEFAULT);
   EXPECT_EQ(GetApiDomainFromPath("/product/somewhere"), api_domain_product);
   EXPECT_EQ(GetApiDomainFromPath("/vendor/somewhere"), API_DOMAIN_VENDOR);
   EXPECT_EQ(GetApiDomainFromPath("/system/product/somewhere"), api_domain_product);
@@ -61,7 +63,8 @@ TEST(LibraryNamespacesTest, TestGetApiDomainFromPathList) {
   ApiDomain api_domain_product = is_product_treblelized() ? API_DOMAIN_PRODUCT : API_DOMAIN_DEFAULT;
 
   EXPECT_THAT(GetApiDomainFromPathList("/data/somewhere"), HasValue(API_DOMAIN_DEFAULT));
-  EXPECT_THAT(GetApiDomainFromPathList("/system/somewhere"), HasValue(API_DOMAIN_DEFAULT));
+  EXPECT_THAT(GetApiDomainFromPathList("/system/somewhere"), HasValue(API_DOMAIN_SYSTEM));
+  EXPECT_THAT(GetApiDomainFromPathList("/system_ext/somewhere"), HasValue(API_DOMAIN_SYSTEM));
   EXPECT_THAT(GetApiDomainFromPathList("/product/somewhere"), HasValue(api_domain_product));
   EXPECT_THAT(GetApiDomainFromPathList("/vendor/somewhere"), HasValue(API_DOMAIN_VENDOR));
   EXPECT_THAT(GetApiDomainFromPathList("/system/product/somewhere"), HasValue(api_domain_product));
@@ -80,6 +83,10 @@ TEST(LibraryNamespacesTest, TestGetApiDomainFromPathList) {
     EXPECT_THAT(GetApiDomainFromPathList("/product/somewhere:/vendor/somewhere"),
                 HasError(WithMessage(StartsWith("Path list crosses partition boundaries"))));
   }
+  EXPECT_THAT(GetApiDomainFromPathList("/system/somewhere:/vendor/somewhere"),
+              HasError(WithMessage(StartsWith("Path list crosses partition boundaries"))));
+  EXPECT_THAT(GetApiDomainFromPathList("/system_ext/somewhere:/vendor/somewhere"),
+              HasError(WithMessage(StartsWith("Path list crosses partition boundaries"))));
 }
 
 }  // namespace
