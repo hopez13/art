@@ -88,7 +88,7 @@ public class SystemAppTest {
         ProductSharedLib.loadLibrary("system_private4");
         ProductSharedLib.loadLibrary("systemext_private4");
         if (!TestUtils.skipPublicProductLibTests()) {
-            TestUtils.assertLibraryNotFound(() -> ProductSharedLib.loadLibrary("product_private4"));
+            ProductSharedLib.loadLibrary("product_private4");
         }
         TestUtils.assertLibraryNotFound(() -> ProductSharedLib.loadLibrary("vendor_private4"));
     }
@@ -100,7 +100,7 @@ public class SystemAppTest {
         if (!TestUtils.skipPublicProductLibTests()) {
             TestUtils.assertLibraryNotFound(() -> VendorSharedLib.loadLibrary("product_private5"));
         }
-        TestUtils.assertLibraryNotFound(() -> VendorSharedLib.loadLibrary("vendor_private5"));
+        VendorSharedLib.loadLibrary("vendor_private5");
     }
 
     @Test
