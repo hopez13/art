@@ -225,6 +225,8 @@ cc_defaults {
         //   manifest-art.json.
         "libjavacore",
     ],
+    ldflags: ["-Wl,-Bsymbolic"],
+    cflags: ["-fno-semantic-interposition"],
 }
 
 // Common defaults for `libart-runtime_defaults` and `libartd-runtime_defaults`.
