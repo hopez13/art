@@ -16,20 +16,25 @@
 
 package android.test.app;
 
+import android.test.lib.AppTestCommon;
 import android.test.lib.TestUtils;
 import android.test.productsharedlib.ProductSharedLib;
 import android.test.systemextsharedlib.SystemExtSharedLib;
 import android.test.systemsharedlib.SystemSharedLib;
 import android.test.vendorsharedlib.VendorSharedLib;
+
 import androidx.test.filters.MediumTest;
-import androidx.test.runner.AndroidJUnit4;
+
 import org.junit.Test;
-import org.junit.runner.RunWith;
 
 // These tests are run from /system/app, /system/priv-app, and /system_ext/app.
 @MediumTest
-@RunWith(AndroidJUnit4.class)
-public class SystemAppTest {
+public class SystemAppTest extends AppTestCommon {
+    @Override
+    public AppLocation getAppLocation() {
+        return AppLocation.SYSTEM;
+    }
+
     @Test
     public void testPrivateLibsExist() {
         TestUtils.testPrivateLibsExist("/system", "system_private");
@@ -70,6 +75,7 @@ public class SystemAppTest {
 
     @Test
     public void testLoadPrivateLibrariesViaSystemSharedLib() {
+        // TODO(b/186729817): Loading a private library by name only shouldn't work.
         SystemSharedLib.loadLibrary("system_private2");
         SystemSharedLib.loadLibrary("systemext_private2");
         if (!TestUtils.skipPublicProductLibTests()) {
@@ -81,6 +87,7 @@ public class SystemAppTest {
 
     @Test
     public void testLoadPrivateLibrariesViaSystemExtSharedLib() {
+        // TODO(b/186729817): Loading a private library by name only shouldn't work.
         SystemExtSharedLib.loadLibrary("system_private3");
         SystemExtSharedLib.loadLibrary("systemext_private3");
         if (!TestUtils.skipPublicProductLibTests()) {
@@ -93,6 +100,7 @@ public class SystemAppTest {
 
     @Test
     public void testLoadPrivateLibrariesViaProductSharedLib() {
+        // TODO(b/186729817): Loading a private library by name only shouldn't work.
         ProductSharedLib.loadLibrary("system_private4");
         ProductSharedLib.loadLibrary("systemext_private4");
         if (!TestUtils.skipPublicProductLibTests()) {
@@ -104,6 +112,7 @@ public class SystemAppTest {
 
     @Test
     public void testLoadPrivateLibrariesViaVendorSharedLib() {
+        // TODO(b/186729817): Loading a private library by name only shouldn't work.
         VendorSharedLib.loadLibrary("system_private5");
         VendorSharedLib.loadLibrary("systemext_private5");
         if (!TestUtils.skipPublicProductLibTests()) {

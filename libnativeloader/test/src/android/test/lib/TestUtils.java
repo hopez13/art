@@ -47,10 +47,17 @@ public final class TestUtils {
         return Build.VERSION.SDK_INT < 33; // TIRAMISU
     }
 
+    // True if apps and shared java libs in system/product/vendor partitions are
+    // able to load private native libs in the same partition.
+    public static boolean canLoadPrivateLibsFromSamePartition() {
+        return Build.VERSION.SDK_INT >= 35 // VANILLA_ICE_CREAM
+                || Build.VERSION.CODENAME.equals("VanillaIceCream");
+    }
+
     // Test that private libs are present, as a safeguard so that the dlopen
     // failures we expect in other tests aren't due to them not being there.
     public static void testPrivateLibsExist(String libDir, String libStem) {
-        for (int i = 1; i <= 6; ++i) {
+        for (int i = 1; i <= 10; ++i) {
             String libPath = libPath(libDir, libStem + i);
             assertWithMessage(libPath + " does not exist")
                     .that(new File(libPath).exists())
