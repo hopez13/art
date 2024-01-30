@@ -25,6 +25,7 @@
 #include <unordered_set>
 #include <vector>
 
+#include "android-base/thread_annotations.h"
 #include "base/arena_containers.h"
 #include "base/array_ref.h"
 #include "base/atomic.h"
@@ -358,6 +359,10 @@ class JitCodeCache {
 
   bool IsOsrCompiled(ArtMethod* method) REQUIRES(!Locks::jit_lock_);
 
+  template<typename RootVisitorType>
+  EXPORT void VisitRootTables(ArtMethod* method,
+                              RootVisitorType& visitor) NO_THREAD_SAFETY_ANALYSIS;
+
   void SweepRootTables(IsMarkedVisitor* visitor)
       REQUIRES(!Locks::jit_lock_)
       REQUIRES_SHARED(Locks::mutator_lock_);
@@ -512,6 +517,8 @@ class JitCodeCache {
       REQUIRES(!Locks::jit_lock_)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
+  EXPORT const uint8_t* GetRootTable(const void* code_ptr, uint32_t* number_of_roots = nullptr);
+
   class JniStubKey;
   class JniStubData;
 
@@ -551,7 +558,9 @@ class JitCodeCache {
   SafeMap<JniStubKey, JniStubData> jni_stubs_map_ GUARDED_BY(Locks::jit_lock_);
 
   // Holds compiled code associated to the ArtMethod.
+  // Bimap or Boost.MultiIndex would make this simpler.
   SafeMap<const void*, ArtMethod*> method_code_map_ GUARDED_BY(Locks::jit_lock_);
+  std::multimap<ArtMethod*, const void*> method_code_map_reverted_ GUARDED_BY(Locks::jit_lock_);
 
   // Holds compiled code associated to the ArtMethod. Used when pre-jitting
   // methods whose entrypoints have the resolution stub.
