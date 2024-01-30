@@ -16,23 +16,23 @@
 
 #if defined(ART_TARGET_ANDROID)
 
+#define LOG_TAG "nativeloader"
+
 #include "library_namespaces.h"
 
 #include <dirent.h>
 #include <dlfcn.h>
 
-#include <regex>
 #include <string>
 #include <vector>
 
-#include <android-base/file.h>
-#include <android-base/logging.h>
-#include <android-base/macros.h>
-#include <android-base/result.h>
-#include <android-base/strings.h>
-#include <android-base/stringprintf.h>
-#include <nativehelper/scoped_utf_chars.h>
-
+#include "android-base/file.h"
+#include "android-base/logging.h"
+#include "android-base/macros.h"
+#include "android-base/result.h"
+#include "android-base/stringprintf.h"
+#include "android-base/strings.h"
+#include "nativehelper/scoped_utf_chars.h"
 #include "nativeloader/dlext_namespaces.h"
 #include "public_libraries.h"
 #include "utils.h"
@@ -42,19 +42,6 @@ namespace android::nativeloader {
 namespace {
 
 constexpr const char* kApexPath = "/apex/";
-
-// The device may be configured to have the vendor libraries loaded to a separate namespace.
-// For historical reasons this namespace was named sphal but effectively it is intended
-// to use to load vendor libraries to separate namespace with controlled interface between
-// vendor and system namespaces.
-constexpr const char* kVendorNamespaceName = "sphal";
-// Similar to sphal namespace, product namespace provides some product libraries.
-constexpr const char* kProductNamespaceName = "product";
-
-// vndk namespace for unbundled vendor apps
-constexpr const char* kVndkNamespaceName = "vndk";
-// vndk_product namespace for unbundled product apps
-constexpr const char* kVndkProductNamespaceName = "vndk_product";
 
 // clns-XX is a linker namespace that is created for normal apps installed in
 // the data partition. To be specific, it is created for the app classloader.
@@ -89,37 +76,12 @@ constexpr const char* kVendorLibPath = "/vendor/" LIB;
 // a symlink to the other.
 constexpr const char* kProductLibPath = "/product/" LIB ":/system/product/" LIB;
 
-const std::regex kVendorDexPathRegex("(^|:)(/system)?/vendor/");
-const std::regex kProductDexPathRegex("(^|:)(/system)?/product/");
-
-// Define origin partition of APK
-using ApkOrigin = enum {
-  APK_ORIGIN_DEFAULT = 0,
-  APK_ORIGIN_VENDOR = 1,   // Includes both /vendor and /system/vendor
-  APK_ORIGIN_PRODUCT = 2,  // Includes both /product and /system/product
-};
-
 jobject GetParentClassLoader(JNIEnv* env, jobject class_loader) {
   jclass class_loader_class = env->FindClass("java/lang/ClassLoader");
   jmethodID get_parent =
       env->GetMethodID(class_loader_class, "getParent", "()Ljava/lang/ClassLoader;");
 
   return env->CallObjectMethod(class_loader, get_parent);
-}
-
-ApkOrigin GetApkOriginFromDexPath(const std::string& dex_path) {
-  ApkOrigin apk_origin = APK_ORIGIN_DEFAULT;
-  if (std::regex_search(dex_path, kVendorDexPathRegex)) {
-    apk_origin = APK_ORIGIN_VENDOR;
-  }
-  if (std::regex_search(dex_path, kProductDexPathRegex)) {
-    LOG_ALWAYS_FATAL_IF(apk_origin == APK_ORIGIN_VENDOR,
-                        "Dex path contains both vendor and product partition : %s",
-                        dex_path.c_str());
-
-    apk_origin = APK_ORIGIN_PRODUCT;
-  }
-  return apk_origin;
 }
 
 }  // namespace
@@ -178,32 +140,29 @@ static const std::string filter_public_libraries(
   return android::base::Join(filtered, ":");
 }
 
-Result<NativeLoaderNamespace*> LibraryNamespaces::Create(JNIEnv* env, uint32_t target_sdk_version,
-                                                         jobject class_loader, bool is_shared,
-                                                         jstring dex_path_j,
-                                                         jstring java_library_path,
-                                                         jstring java_permitted_path,
-                                                         jstring uses_library_list) {
+Result<NativeLoaderNamespace*> LibraryNamespaces::Create(JNIEnv* env,
+                                                         uint32_t target_sdk_version,
+                                                         jobject class_loader,
+                                                         ApkOrigin apk_origin,
+                                                         bool is_shared,
+                                                         const std::string& dex_path,
+                                                         jstring library_path_j,
+                                                         jstring permitted_path_j,
+                                                         jstring uses_library_list_j) {
   std::string library_path;  // empty string by default.
-  std::string dex_path;
 
-  if (java_library_path != nullptr) {
-    ScopedUtfChars library_path_utf_chars(env, java_library_path);
+  if (library_path_j != nullptr) {
+    ScopedUtfChars library_path_utf_chars(env, library_path_j);
     library_path = library_path_utf_chars.c_str();
   }
 
-  if (dex_path_j != nullptr) {
-    ScopedUtfChars dex_path_chars(env, dex_path_j);
-    dex_path = dex_path_chars.c_str();
-  }
-
   std::vector<std::string> uses_libraries;
-  if (uses_library_list != nullptr) {
-    ScopedUtfChars names(env, uses_library_list);
+  if (uses_library_list_j != nullptr) {
+    ScopedUtfChars names(env, uses_library_list_j);
     uses_libraries = android::base::Split(names.c_str(), ":");
   } else {
-    // uses_library_list could be nullptr when System.loadLibrary is called from a
-    // custom classloader. In that case, we don't know the list of public
+    // uses_library_list_j could be nullptr when System.loadLibrary is called
+    // from a custom classloader. In that case, we don't know the list of public
     // libraries because we don't know which apk the classloader is for. Only
     // choices we can have are 1) allowing all public libs (as before), or 2)
     // not allowing all but NDK libs. Here we take #1 because #2 would surprise
@@ -214,8 +173,6 @@ Result<NativeLoaderNamespace*> LibraryNamespaces::Create(JNIEnv* env, uint32_t t
     uses_libraries.emplace_back(LIBRARY_ALL);
   }
 
-  ApkOrigin apk_origin = GetApkOriginFromDexPath(dex_path);
-
   // (http://b/27588281) This is a workaround for apps using custom
   // classloaders and calling System.load() with an absolute path which
   // is outside of the classloader library search path.
@@ -224,8 +181,8 @@ Result<NativeLoaderNamespace*> LibraryNamespaces::Create(JNIEnv* env, uint32_t t
   // under /data and /mnt/expand
   std::string permitted_path = kAlwaysPermittedDirectories;
 
-  if (java_permitted_path != nullptr) {
-    ScopedUtfChars path(env, java_permitted_path);
+  if (permitted_path_j != nullptr) {
+    ScopedUtfChars path(env, permitted_path_j);
     if (path.c_str() != nullptr && path.size() > 0) {
       permitted_path = permitted_path + ":" + path.c_str();
     }
