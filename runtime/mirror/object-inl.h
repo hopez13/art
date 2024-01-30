@@ -35,6 +35,7 @@
 #include "object_array-inl.h"
 #include "object_reference-inl.h"
 #include "read_barrier-inl.h"
+#include "read_barrier_option.h"
 #include "reference.h"
 #include "runtime.h"
 #include "string.h"
@@ -130,11 +131,11 @@ inline bool Object::VerifierInstanceOf(ObjPtr<Class> klass) {
   return klass->IsInterface() || InstanceOf(klass);
 }
 
-template<VerifyObjectFlags kVerifyFlags>
+template<VerifyObjectFlags kVerifyFlags, ReadBarrierOption kReadBarrierOption>
 inline bool Object::InstanceOf(ObjPtr<Class> klass) {
   DCHECK(klass != nullptr);
-  DCHECK(GetClass<kVerifyNone>() != nullptr) << "this=" << this;
-  return klass->IsAssignableFrom(GetClass<kVerifyFlags>());
+  DCHECK((GetClass<kVerifyNone, kReadBarrierOption>()) != nullptr) << "this=" << this;
+  return klass->IsAssignableFrom(GetClass<kVerifyFlags, kReadBarrierOption>());
 }
 
 template<VerifyObjectFlags kVerifyFlags>

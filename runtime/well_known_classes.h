@@ -272,6 +272,8 @@ struct WellKnownClasses {
   static constexpr ClassFromMethod<&java_lang_Short_valueOf> java_lang_Short;
   static constexpr ClassFromMethod<&java_lang_Integer_valueOf> java_lang_Integer;
   static constexpr ClassFromMethod<&java_lang_Long_valueOf> java_lang_Long;
+  static constexpr ClassFromMethod<&java_lang_invoke_MethodType_makeImpl>
+      java_lang_invoke_MethodType;
 };
 
 }  // namespace art

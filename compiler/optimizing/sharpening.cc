@@ -468,4 +468,36 @@ void HSharpening::ProcessLoadString(
   load_string->SetLoadKind(load_kind);
 }
 
+void HSharpening::ProcessLoadMethodType(
+    HLoadMethodType* load_method_type,
+    CodeGenerator* codegen,
+    const DexCompilationUnit& dex_compilation_unit,
+    VariableSizedHandleScope* handles) {
+  const CompilerOptions& compiler_options = codegen->GetCompilerOptions();
+  if (compiler_options.IsJitCompiler()) {
+    DCHECK(!compiler_options.GetCompilePic());
+    Runtime* runtime = Runtime::Current();
+    ClassLinker* class_linker = runtime->GetClassLinker();
+    ObjPtr<mirror::MethodType> method_type =
+        class_linker->ResolveMethodType(Thread::Current(),
+                                        load_method_type->GetProtoIndex(),
+                                        dex_compilation_unit.GetDexCache(),
+                                        dex_compilation_unit.GetClassLoader());
+
+    if (method_type != nullptr) {
+      load_method_type->SetMethodType(handles->NewHandle(method_type));
+      load_method_type->SetLoadKind(HLoadMethodType::LoadKind::kJitTableAddress);
+    } else {
+      Thread::Current()->ClearException();
+    }
+  } else {
+    if (compiler_options.GetCompilePic()) {
+      load_method_type->SetLoadKind(HLoadMethodType::LoadKind::kBssEntry);
+    } else {
+      // Test configuration, do not sharpen.
+      load_method_type->SetLoadKind(HLoadMethodType::LoadKind::kRuntimeCall);
+    }
+  }
+}
+
 }  // namespace art
