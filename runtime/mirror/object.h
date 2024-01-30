@@ -129,7 +129,8 @@ class EXPORT MANAGED LOCKABLE Object {
   // invoke-interface to detect incompatible interface types.
   template<VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags>
   bool VerifierInstanceOf(ObjPtr<Class> klass) REQUIRES_SHARED(Locks::mutator_lock_);
-  template<VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags>
+  template<VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags,
+           ReadBarrierOption kReadBarrierOption = kWithReadBarrier>
   ALWAYS_INLINE bool InstanceOf(ObjPtr<Class> klass) REQUIRES_SHARED(Locks::mutator_lock_);
 
   template<VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags>

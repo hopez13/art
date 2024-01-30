@@ -59,6 +59,7 @@
 #include "thread-current-inl.h"
 #include "thread-inl.h"
 #include "thread_list.h"
+#include "well_known_classes-inl.h"
 
 namespace art HIDDEN {
 namespace jit {
@@ -398,16 +399,6 @@ static void DCheckRootsAreValid(const std::vector<Handle<mirror::Object>>& roots
   }
 }
 
-static const uint8_t* GetRootTable(const void* code_ptr, uint32_t* number_of_roots = nullptr) {
-  OatQuickMethodHeader* method_header = OatQuickMethodHeader::FromCodePointer(code_ptr);
-  uint8_t* data = method_header->GetOptimizedCodeInfoPtr();
-  uint32_t roots = GetNumberOfRoots(data);
-  if (number_of_roots != nullptr) {
-    *number_of_roots = roots;
-  }
-  return data - ComputeRootTableSize(roots);
-}
-
 void JitCodeCache::SweepRootTables(IsMarkedVisitor* visitor) {
   Thread* self = Thread::Current();
   ScopedDebugDisallowReadBarriers sddrb(self);
@@ -434,12 +425,26 @@ void JitCodeCache::SweepRootTables(IsMarkedVisitor* visitor) {
         if (new_object != object) {
           roots[i] = GcRoot<mirror::Object>(new_object);
         }
-      } else {
+      } else if (object->IsClass<kDefaultVerifyFlags>()) {
         mirror::Object* new_klass = visitor->IsMarked(object);
         if (new_klass == nullptr) {
           roots[i] = GcRoot<mirror::Object>(Runtime::GetWeakClassSentinel());
         } else if (new_klass != object) {
           roots[i] = GcRoot<mirror::Object>(new_klass);
+        }
+      } else {
+        mirror::Object* new_method_type = visitor->IsMarked(object);
+        if (new_method_type == nullptr) {
+          roots[i] = nullptr;
+          continue;
+        }
+
+        ObjPtr<mirror::Class> method_type_class =
+            WellKnownClasses::java_lang_invoke_MethodType.Get<kWithoutReadBarrier>();
+        DCHECK((new_method_type->InstanceOf<kVerifyNone, kWithoutReadBarrier>(method_type_class)));
+
+        if (new_method_type != object) {
+          roots[i] = GcRoot<mirror::Object>(new_method_type);
         }
       }
     }
@@ -593,6 +598,16 @@ void JitCodeCache::WaitUntilInlineCacheAccessible(Thread* self) {
   while (!IsWeakAccessEnabled(self)) {
     inline_cache_cond_.Wait(self);
   }
+}
+
+const uint8_t* JitCodeCache::GetRootTable(const void* code_ptr, uint32_t* number_of_roots) {
+  OatQuickMethodHeader* method_header = OatQuickMethodHeader::FromCodePointer(code_ptr);
+  uint8_t* data = method_header->GetOptimizedCodeInfoPtr();
+  uint32_t roots = GetNumberOfRoots(data);
+  if (number_of_roots != nullptr) {
+    *number_of_roots = roots;
+  }
+  return data - ComputeRootTableSize(roots);
 }
 
 void JitCodeCache::BroadcastForInlineCacheAccess() {
