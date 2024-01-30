@@ -1,0 +1,170 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61bccd73_be3b1414",
+        "filename": "compiler/optimizing/code_generation_data.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-30T16:05:42Z",
+      "side": 1,
+      "message": "We should DCHECK() the type here. We could define\n\n    static constexpr ClassFromMethod\u003c\u0026java_lang_invoke_MethodType_makeImpl\u003e\n        java_lang_invoke_MethodType;\n\nin `WellKnownClasses` to help with that.",
+      "revId": "7983d0b6cceabb96c2737d24a14d578dbf54663d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "716488c2_2d93b5fd",
+        "filename": "compiler/optimizing/code_generation_data.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-30T16:05:42Z",
+      "side": 1,
+      "message": "You may need to update `JitCodeCache::SweepRootTables()` for new entry type.",
+      "revId": "7983d0b6cceabb96c2737d24a14d578dbf54663d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9baf468c_f1d0dc36",
+        "filename": "compiler/optimizing/code_generation_data.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-30T16:05:42Z",
+      "side": 1,
+      "message": "Style: One per line.",
+      "range": {
+        "startLine": 102,
+        "startChar": 11,
+        "endLine": 103,
+        "endChar": 42
+      },
+      "revId": "7983d0b6cceabb96c2737d24a14d578dbf54663d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d55d2d94_188dfe16",
+        "filename": "compiler/optimizing/code_generation_data.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-30T16:05:42Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 140,
+        "startChar": 40,
+        "endLine": 140,
+        "endChar": 47
+      },
+      "revId": "7983d0b6cceabb96c2737d24a14d578dbf54663d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ca6869c_ed69cf46",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 6801,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-30T16:05:42Z",
+      "side": 1,
+      "message": "Move this after `NewJitRootClassPatch`.",
+      "range": {
+        "startLine": 6801,
+        "startChar": 28,
+        "endLine": 6801,
+        "endChar": 53
+      },
+      "revId": "7983d0b6cceabb96c2737d24a14d578dbf54663d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c94a9cc3_69aa027b",
+        "filename": "compiler/optimizing/sharpening.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 477,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-30T16:05:42Z",
+      "side": 1,
+      "message": "Maybe we should keep `kRuntimeCall` for non-PIC. (See `Test configuration, do not sharpen` in other functions in this file.)",
+      "range": {
+        "startLine": 477,
+        "startChar": 4,
+        "endLine": 477,
+        "endChar": 72
+      },
+      "revId": "7983d0b6cceabb96c2737d24a14d578dbf54663d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "83965008_a65c9a78",
+        "filename": "compiler/optimizing/sharpening.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 483,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-30T16:05:42Z",
+      "side": 1,
+      "message": "Should we have a `LookupMethodType()` that would never throw? (And keep `kRuntimeCall` if it does not find the method type.)",
+      "range": {
+        "startLine": 483,
+        "startChar": 22,
+        "endLine": 483,
+        "endChar": 39
+      },
+      "revId": "7983d0b6cceabb96c2737d24a14d578dbf54663d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "34b5fe24_179c65ce",
+        "filename": "compiler/optimizing/sharpening.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 491,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-30T16:05:42Z",
+      "side": 1,
+      "message": "else clear the OOME?",
+      "revId": "7983d0b6cceabb96c2737d24a14d578dbf54663d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
