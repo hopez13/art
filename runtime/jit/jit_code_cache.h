@@ -358,6 +358,10 @@ class JitCodeCache {
 
   bool IsOsrCompiled(ArtMethod* method) REQUIRES(!Locks::jit_lock_);
 
+  template<typename RootVisitorType>
+  EXPORT void VisitRootTables(ArtMethod* method,
+                              RootVisitorType& visitor) NO_THREAD_SAFETY_ANALYSIS;
+
   void SweepRootTables(IsMarkedVisitor* visitor)
       REQUIRES(!Locks::jit_lock_)
       REQUIRES_SHARED(Locks::mutator_lock_);
@@ -511,6 +515,8 @@ class JitCodeCache {
   void WaitUntilInlineCacheAccessible(Thread* self)
       REQUIRES(!Locks::jit_lock_)
       REQUIRES_SHARED(Locks::mutator_lock_);
+
+  EXPORT const uint8_t* GetRootTable(const void* code_ptr, uint32_t* number_of_roots = nullptr);
 
   class JniStubKey;
   class JniStubData;
