@@ -24,7 +24,7 @@
 #include "base/macros.h"
 #include "handle.h"
 
-namespace art {
+namespace art HIDDEN {
 
 namespace dex {
 struct ClassDef;
@@ -158,7 +158,7 @@ class ReflectiveValueVisitCallback {
       REQUIRES(Locks::mutator_lock_) = 0;
 };
 
-class RuntimeCallbacks {
+class EXPORT RuntimeCallbacks {
  public:
   RuntimeCallbacks();
 
@@ -168,8 +168,8 @@ class RuntimeCallbacks {
   void ThreadStart(Thread* self) REQUIRES_SHARED(Locks::mutator_lock_);
   void ThreadDeath(Thread* self) REQUIRES_SHARED(Locks::mutator_lock_);
 
-  void AddClassLoadCallback(ClassLoadCallback* cb) REQUIRES(Locks::mutator_lock_);
-  void RemoveClassLoadCallback(ClassLoadCallback* cb) REQUIRES(Locks::mutator_lock_);
+  EXPORT void AddClassLoadCallback(ClassLoadCallback* cb) REQUIRES(Locks::mutator_lock_);
+  EXPORT void RemoveClassLoadCallback(ClassLoadCallback* cb) REQUIRES(Locks::mutator_lock_);
 
   void BeginDefineClass() REQUIRES_SHARED(Locks::mutator_lock_);
   void EndDefineClass() REQUIRES_SHARED(Locks::mutator_lock_);
@@ -177,9 +177,8 @@ class RuntimeCallbacks {
   void ClassPrepare(Handle<mirror::Class> temp_klass, Handle<mirror::Class> klass)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
-  void AddRuntimeSigQuitCallback(RuntimeSigQuitCallback* cb)
-      REQUIRES(Locks::mutator_lock_);
-  void RemoveRuntimeSigQuitCallback(RuntimeSigQuitCallback* cb)
+  EXPORT void AddRuntimeSigQuitCallback(RuntimeSigQuitCallback* cb) REQUIRES(Locks::mutator_lock_);
+  EXPORT void RemoveRuntimeSigQuitCallback(RuntimeSigQuitCallback* cb)
       REQUIRES(Locks::mutator_lock_);
 
   void SigQuit() REQUIRES_SHARED(Locks::mutator_lock_);
@@ -201,8 +200,8 @@ class RuntimeCallbacks {
                       /*out*/dex::ClassDef const** final_class_def)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
-  void AddMethodCallback(MethodCallback* cb) REQUIRES(Locks::mutator_lock_);
-  void RemoveMethodCallback(MethodCallback* cb) REQUIRES(Locks::mutator_lock_);
+  EXPORT void AddMethodCallback(MethodCallback* cb) REQUIRES(Locks::mutator_lock_);
+  EXPORT void RemoveMethodCallback(MethodCallback* cb) REQUIRES(Locks::mutator_lock_);
 
   void RegisterNativeMethod(ArtMethod* method,
                             const void* original_implementation,
@@ -216,29 +215,29 @@ class RuntimeCallbacks {
   void MonitorWaitFinished(Monitor* m, bool timed_out)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
-  void AddMonitorCallback(MonitorCallback* cb) REQUIRES_SHARED(Locks::mutator_lock_);
-  void RemoveMonitorCallback(MonitorCallback* cb) REQUIRES_SHARED(Locks::mutator_lock_);
+  EXPORT void AddMonitorCallback(MonitorCallback* cb) REQUIRES_SHARED(Locks::mutator_lock_);
+  EXPORT void RemoveMonitorCallback(MonitorCallback* cb) REQUIRES_SHARED(Locks::mutator_lock_);
 
   void ThreadParkStart(bool is_absolute, int64_t timeout) REQUIRES_SHARED(Locks::mutator_lock_);
   void ThreadParkFinished(bool timed_out) REQUIRES_SHARED(Locks::mutator_lock_);
-  void AddParkCallback(ParkCallback* cb) REQUIRES_SHARED(Locks::mutator_lock_);
-  void RemoveParkCallback(ParkCallback* cb) REQUIRES_SHARED(Locks::mutator_lock_);
+  EXPORT void AddParkCallback(ParkCallback* cb) REQUIRES_SHARED(Locks::mutator_lock_);
+  EXPORT void RemoveParkCallback(ParkCallback* cb) REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Returns true if any locals have changed. This is used to prevent OSRing frames that have
   // some locals changed.
   bool HaveLocalsChanged() REQUIRES_SHARED(Locks::mutator_lock_);
 
-  void AddMethodInspectionCallback(MethodInspectionCallback* cb)
+  EXPORT void AddMethodInspectionCallback(MethodInspectionCallback* cb)
       REQUIRES_SHARED(Locks::mutator_lock_);
-  void RemoveMethodInspectionCallback(MethodInspectionCallback* cb)
+  EXPORT void RemoveMethodInspectionCallback(MethodInspectionCallback* cb)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   // DDMS callbacks
   void DdmPublishChunk(uint32_t type, const ArrayRef<const uint8_t>& data)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
-  void AddDdmCallback(DdmCallback* cb) REQUIRES_SHARED(Locks::mutator_lock_);
-  void RemoveDdmCallback(DdmCallback* cb) REQUIRES_SHARED(Locks::mutator_lock_);
+  EXPORT void AddDdmCallback(DdmCallback* cb) REQUIRES_SHARED(Locks::mutator_lock_);
+  EXPORT void RemoveDdmCallback(DdmCallback* cb) REQUIRES_SHARED(Locks::mutator_lock_);
 
   void StartDebugger() REQUIRES_SHARED(Locks::mutator_lock_);
   // NO_THREAD_SAFETY_ANALYSIS since this is only called when we are in the middle of shutting down
@@ -246,16 +245,16 @@ class RuntimeCallbacks {
   void StopDebugger() NO_THREAD_SAFETY_ANALYSIS;
   bool IsDebuggerConfigured() REQUIRES_SHARED(Locks::mutator_lock_);
 
-  void AddDebuggerControlCallback(DebuggerControlCallback* cb)
+  EXPORT void AddDebuggerControlCallback(DebuggerControlCallback* cb)
       REQUIRES_SHARED(Locks::mutator_lock_);
-  void RemoveDebuggerControlCallback(DebuggerControlCallback* cb)
+  EXPORT void RemoveDebuggerControlCallback(DebuggerControlCallback* cb)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
   void VisitReflectiveTargets(ReflectiveValueVisitor* visitor) REQUIRES(Locks::mutator_lock_);
 
-  void AddReflectiveValueVisitCallback(ReflectiveValueVisitCallback* cb)
+  EXPORT void AddReflectiveValueVisitCallback(ReflectiveValueVisitCallback* cb)
       REQUIRES_SHARED(Locks::mutator_lock_);
-  void RemoveReflectiveValueVisitCallback(ReflectiveValueVisitCallback* cb)
+  EXPORT void RemoveReflectiveValueVisitCallback(ReflectiveValueVisitCallback* cb)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
  private:
