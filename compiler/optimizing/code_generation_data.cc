@@ -52,6 +52,15 @@ void CodeGenerationData::EmitJitRoots(
     entry.second = index;
     ++index;
   }
+  for (auto& entry : jit_method_type_roots_) {
+    // Update the `roots` with the MethodType, and replace the address temporarily
+    // stored to the index in the table.
+    uint64_t address = entry.second;
+    roots->emplace_back(reinterpret_cast<StackReference<mirror::Object>*>(address));
+    DCHECK(roots->back() != nullptr);
+    entry.second = index;
+    ++index;
+  }
 }
 
 }  // namespace art

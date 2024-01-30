@@ -468,4 +468,28 @@ void HSharpening::ProcessLoadString(
   load_string->SetLoadKind(load_kind);
 }
 
+void HSharpening::ProcessLoadMethodType(
+    HLoadMethodType* load_method_type,
+    CodeGenerator* codegen,
+    const DexCompilationUnit& dex_compilation_unit,
+    VariableSizedHandleScope* handles) {
+  if (!codegen->GetCompilerOptions().IsJitCompiler()) {
+    load_method_type->SetLoadKind(HLoadMethodType::LoadKind::kBssEntry);
+  } else {
+    DCHECK(!codegen->GetCompilerOptions().GetCompilePic());
+    Runtime* runtime = Runtime::Current();
+    ClassLinker* class_linker = runtime->GetClassLinker();
+    ObjPtr<mirror::MethodType> method_type =
+        class_linker->ResolveMethodType(Thread::Current(),
+                                        load_method_type->GetProtoIndex(),
+                                        dex_compilation_unit.GetDexCache(),
+                                        dex_compilation_unit.GetClassLoader());
+
+    if (method_type != nullptr) {
+      load_method_type->SetMethodType(handles->NewHandle(method_type));
+      load_method_type->SetLoadKind(HLoadMethodType::LoadKind::kJitTableAddress);
+    }
+  }
+}
+
 }  // namespace art
