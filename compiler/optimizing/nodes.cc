@@ -1513,7 +1513,9 @@ bool HInstruction::Dominates(HInstruction* other_instruction) const {
   return other_instruction == this || StrictlyDominates(other_instruction);
 }
 
-bool HInstruction::StrictlyDominates(HInstruction* other_instruction) const {
+bool HInstruction::StrictlyDominates(
+    HInstruction* other_instruction,
+    std::optional<std::reference_wrapper<const ScopedArenaVector<int>>> instruction_order) const {
   if (other_instruction == this) {
     // An instruction does not strictly dominate itself.
     return false;
@@ -1544,6 +1546,16 @@ bool HInstruction::StrictlyDominates(HInstruction* other_instruction) const {
       } else {
         // Check whether this instruction comes before
         // `other_instruction` in the instruction list.
+        if (instruction_order.has_value()) {
+          // Use the available cache.
+          DCHECK_NE(instruction_order->get()[this->GetId()], -1);
+          DCHECK_NE(instruction_order->get()[other_instruction->GetId()], -1);
+          DCHECK_NE(instruction_order->get()[this->GetId()],
+                    instruction_order->get()[other_instruction->GetId()]);
+          return instruction_order->get()[this->GetId()] <
+                 instruction_order->get()[other_instruction->GetId()];
+        }
+
         return block->GetInstructions().FoundBefore(this, other_instruction);
       }
     }

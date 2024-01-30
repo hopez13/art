@@ -19,6 +19,7 @@
 
 #include <algorithm>
 #include <array>
+#include <optional>
 #include <type_traits>
 
 #include "art_method.h"
@@ -32,6 +33,7 @@
 #include "base/macros.h"
 #include "base/mutex.h"
 #include "base/quasi_atomic.h"
+#include "base/scoped_arena_containers.h"
 #include "base/stl_util.h"
 #include "base/transform_array_ref.h"
 #include "block_namer.h"
@@ -2470,8 +2472,11 @@ class HInstruction : public ArenaObject<kArenaAllocInstruction> {
   bool Dominates(HInstruction* other_instruction) const;
 
   // Same but with `strictly dominates` i.e. returns false if this instruction and
-  // `other_instruction` are the same.
-  bool StrictlyDominates(HInstruction* other_instruction) const;
+  // `other_instruction` are the same. An `instruction_order` can be passed which contains the order
+  // of instructions within `this`'s block.
+  bool StrictlyDominates(
+      HInstruction* other_instruction,
+      std::optional<std::reference_wrapper<const ScopedArenaVector<int>>> instruction_order = std::nullopt) const;
 
   int GetId() const { return id_; }
   void SetId(int id) { id_ = id; }

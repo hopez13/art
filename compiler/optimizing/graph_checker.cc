@@ -17,9 +17,11 @@
 #include "graph_checker.h"
 
 #include <algorithm>
+#include <cstdint>
 #include <sstream>
 #include <string>
 
+#include "android-base/logging.h"
 #include "android-base/stringprintf.h"
 
 #include "base/bit_vector-inl.h"
@@ -295,6 +297,14 @@ void GraphChecker::VisitBasicBlock(HBasicBlock* block) {
   }
 
   // Visit this block's list of instructions.
+  // Reset instruction_order_ since we only keep the current block's information.
+  std::fill(instruction_order_.begin(), instruction_order_.end(), -1);
+
+  int pos = 0u;
+  for (HInstructionIterator it(block->GetInstructions()); !it.Done(); it.Advance()) {
+    instruction_order_[it.Current()->GetId()] = pos++;
+  }
+
   for (HInstructionIterator it(block->GetInstructions()); !it.Done(); it.Advance()) {
     HInstruction* current = it.Current();
     // Ensure this block's list of instructions does not contains phis.
@@ -304,9 +314,9 @@ void GraphChecker::VisitBasicBlock(HBasicBlock* block) {
     }
     if (current->GetNext() == nullptr && current != block->GetLastInstruction()) {
       AddError(StringPrintf("The recorded last instruction of block %d does not match "
-                            "the actual last instruction %d.",
-                            current_block_->GetBlockId(),
-                            current->GetId()));
+                       "the actual last instruction %d.",
+                       current_block_->GetBlockId(),
+                       current->GetId()));
     }
     current->Accept(this);
   }
@@ -656,7 +666,7 @@ void GraphChecker::VisitInstruction(HInstruction* instruction) {
   // Ensure an instruction dominates all its uses.
   for (const HUseListNode<HInstruction*>& use : instruction->GetUses()) {
     HInstruction* user = use.GetUser();
-    if (!user->IsPhi() && !instruction->StrictlyDominates(user)) {
+    if (!user->IsPhi() && !instruction->StrictlyDominates(user, instruction_order_)) {
       AddError(StringPrintf("Instruction %s:%d in block %d does not dominate "
                             "use %s:%d in block %d.",
                             instruction->DebugName(),
@@ -683,8 +693,8 @@ void GraphChecker::VisitInstruction(HInstruction* instruction) {
        environment = environment->GetParent()) {
     for (size_t i = 0, e = environment->Size(); i < e; ++i) {
       HInstruction* env_instruction = environment->GetInstructionAt(i);
-      if (env_instruction != nullptr
-          && !env_instruction->StrictlyDominates(instruction)) {
+      if (env_instruction != nullptr &&
+          !env_instruction->StrictlyDominates(instruction, instruction_order_)) {
         AddError(StringPrintf("Instruction %d in environment of instruction %d "
                               "from block %d does not dominate instruction %d.",
                               env_instruction->GetId(),

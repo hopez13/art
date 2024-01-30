@@ -43,6 +43,8 @@ class GraphChecker : public HGraphDelegateVisitor {
         uses_per_instruction_(allocator_.Adapter(kArenaAllocGraphChecker)),
         instructions_per_block_(allocator_.Adapter(kArenaAllocGraphChecker)),
         phis_per_block_(allocator_.Adapter(kArenaAllocGraphChecker)),
+        instruction_order_(GetGraph()->GetCurrentInstructionId(),
+                           allocator_.Adapter(kArenaAllocGraphChecker)),
         codegen_(codegen) {
     seen_ids_.ClearAllBits();
   }
@@ -147,6 +149,11 @@ class GraphChecker : public HGraphDelegateVisitor {
   // in a list of instructions/phis.
   ScopedArenaSafeMap<HBasicBlock*, ScopedArenaHashSet<HInstruction*>> instructions_per_block_;
   ScopedArenaSafeMap<HBasicBlock*, ScopedArenaHashSet<HInstruction*>> phis_per_block_;
+
+  // Extra bookkeeping to increase GraphChecker's speed while asking if an instruction dominates
+  // another one in the same block. Since we iterate on a per-block basis, we can discard the
+  // previous block's information.
+  ScopedArenaVector<int> instruction_order_;
 
   // Used to access target information.
   CodeGenerator* codegen_;
