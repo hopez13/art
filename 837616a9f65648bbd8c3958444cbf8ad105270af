@@ -34,6 +34,569 @@
       "parentUuid": "90696699_683740b6",
       "revId": "837616a9f65648bbd8c3958444cbf8ad105270af",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1f19d257_e82d4d4c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-30T09:48:18Z",
+      "side": 1,
+      "message": "I\u0027ll submit this as is and upload a style-fix CL that I\u0027ve been preparing alongside the review.",
+      "revId": "837616a9f65648bbd8c3958444cbf8ad105270af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "11b95c5c_1d6ceb3a",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-30T09:48:18Z",
+      "side": 1,
+      "message": "Add line-break before `{`.",
+      "range": {
+        "startLine": 211,
+        "startChar": 86,
+        "endLine": 211,
+        "endChar": 87
+      },
+      "revId": "837616a9f65648bbd8c3958444cbf8ad105270af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fef73a87_3f021270",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 1123,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-30T09:48:18Z",
+      "side": 1,
+      "message": "Maybe `alignment`? (Same below.)",
+      "range": {
+        "startLine": 1123,
+        "startChar": 39,
+        "endLine": 1123,
+        "endChar": 46
+      },
+      "revId": "837616a9f65648bbd8c3958444cbf8ad105270af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "230a259e_006f5fb2",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 1132,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-30T09:48:18Z",
+      "side": 1,
+      "message": "Style: Add braces even for a trivial block. (Same below.)",
+      "range": {
+        "startLine": 1132,
+        "startChar": 10,
+        "endLine": 1132,
+        "endChar": 19
+      },
+      "revId": "837616a9f65648bbd8c3958444cbf8ad105270af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "13ff72d0_46e40001",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 1138,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-30T09:48:18Z",
+      "side": 1,
+      "message": "GetRegisterName",
+      "range": {
+        "startLine": 1138,
+        "startChar": 31,
+        "endLine": 1138,
+        "endChar": 72
+      },
+      "revId": "837616a9f65648bbd8c3958444cbf8ad105270af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c923b71_c7491cc0",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 1175,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-30T09:48:18Z",
+      "side": 1,
+      "message": "Filtered",
+      "range": {
+        "startLine": 1175,
+        "startChar": 40,
+        "endLine": 1175,
+        "endChar": 41
+      },
+      "revId": "837616a9f65648bbd8c3958444cbf8ad105270af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b92b86b6_7d894a86",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 1225,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-30T09:48:18Z",
+      "side": 1,
+      "message": "`std::forward()` (Same below.)",
+      "range": {
+        "startLine": 1225,
+        "startChar": 38,
+        "endLine": 1225,
+        "endChar": 47
+      },
+      "revId": "837616a9f65648bbd8c3958444cbf8ad105270af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "15567dbd_0adcf044",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 1330,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-30T09:48:18Z",
+      "side": 1,
+      "message": "Inconsistent template argument names.",
+      "range": {
+        "startLine": 1330,
+        "startChar": 66,
+        "endLine": 1330,
+        "endChar": 75
+      },
+      "revId": "837616a9f65648bbd8c3958444cbf8ad105270af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4ab324b_8fc1110a",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 1331,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-30T09:48:18Z",
+      "side": 1,
+      "message": "Filtered",
+      "range": {
+        "startLine": 1331,
+        "startChar": 38,
+        "endLine": 1331,
+        "endChar": 42
+      },
+      "revId": "837616a9f65648bbd8c3958444cbf8ad105270af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3baa752a_790c8ecb",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 1434,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-30T09:48:18Z",
+      "side": 1,
+      "message": "`/*bias\u003d*/`",
+      "range": {
+        "startLine": 1434,
+        "startChar": 25,
+        "endLine": 1434,
+        "endChar": 26
+      },
+      "revId": "837616a9f65648bbd8c3958444cbf8ad105270af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f640725c_ee88412a",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 1481,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-30T09:48:18Z",
+      "side": 1,
+      "message": "Filtered",
+      "range": {
+        "startLine": 1481,
+        "startChar": 40,
+        "endLine": 1481,
+        "endChar": 41
+      },
+      "revId": "837616a9f65648bbd8c3958444cbf8ad105270af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "37f9ea1a_7c20c139",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 1597,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-30T09:48:18Z",
+      "side": 1,
+      "message": "Top-level const is essentially useless.",
+      "range": {
+        "startLine": 1597,
+        "startChar": 36,
+        "endLine": 1597,
+        "endChar": 41
+      },
+      "revId": "837616a9f65648bbd8c3958444cbf8ad105270af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e834b3e_513f5869",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 1608,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-30T09:48:18Z",
+      "side": 1,
+      "message": "`return IsVdAllowed(vd, vm) \u0026\u0026 vd !\u003d vs1;` (Similar below.)",
+      "range": {
+        "startLine": 1604,
+        "startChar": 6,
+        "endLine": 1608,
+        "endChar": 23
+      },
+      "revId": "837616a9f65648bbd8c3958444cbf8ad105270af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51c4bb02_3ed0ffb9",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 1669,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-30T09:48:18Z",
+      "side": 1,
+      "message": "`\u0026\u0026`",
+      "range": {
+        "startLine": 1668,
+        "startChar": 24,
+        "endLine": 1669,
+        "endChar": 42
+      },
+      "revId": "837616a9f65648bbd8c3958444cbf8ad105270af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f91e3e8e_2dcec58b",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 1752,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-30T09:48:18Z",
+      "side": 1,
+      "message": "The standard uses \"LMUL\", so we should use the same if we want to use a short name. (Otherwise `LENGTH_MULTIPLIER_TOKEN`.)",
+      "range": {
+        "startLine": 1752,
+        "startChar": 31,
+        "endLine": 1752,
+        "endChar": 35
+      },
+      "revId": "837616a9f65648bbd8c3958444cbf8ad105270af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2589880a_0e5601a0",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 1882,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-30T09:48:18Z",
+      "side": 1,
+      "message": "`vma_index` (Similar below.)",
+      "range": {
+        "startLine": 1882,
+        "startChar": 11,
+        "endLine": 1882,
+        "endChar": 19
+      },
+      "revId": "837616a9f65648bbd8c3958444cbf8ad105270af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2d120a6_5eeaa29f",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 3004,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-30T09:48:18Z",
+      "side": 1,
+      "message": "`/*bias\u003d*/ 0, /*multiplier\u003d*/ 1`",
+      "range": {
+        "startLine": 3004,
+        "startChar": 72,
+        "endLine": 3004,
+        "endChar": 76
+      },
+      "revId": "837616a9f65648bbd8c3958444cbf8ad105270af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e041d34c_761ed11b",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 3140,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-30T09:48:18Z",
+      "side": 1,
+      "message": "Should we use lower-case instructions for the clang assembler?",
+      "range": {
+        "startLine": 3140,
+        "startChar": 33,
+        "endLine": 3140,
+        "endChar": 35
+      },
+      "revId": "837616a9f65648bbd8c3958444cbf8ad105270af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d01a2a76_639769fa",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 4897,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-30T09:48:18Z",
+      "side": 1,
+      "message": "Missing tests for `VL\u003cn\u003er()` pseudo-instructions.",
+      "revId": "837616a9f65648bbd8c3958444cbf8ad105270af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1df6d8ba_9222083f",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 5393,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-30T09:48:18Z",
+      "side": 1,
+      "message": "`/*bias\u003d*/`",
+      "range": {
+        "startLine": 5393,
+        "startChar": 33,
+        "endLine": 5393,
+        "endChar": 34
+      },
+      "revId": "837616a9f65648bbd8c3958444cbf8ad105270af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a223236c_a6384e5d",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 5431,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-30T09:48:18Z",
+      "side": 1,
+      "message": "`/*bias\u003d*/`",
+      "range": {
+        "startLine": 5431,
+        "startChar": 33,
+        "endLine": 5431,
+        "endChar": 34
+      },
+      "revId": "837616a9f65648bbd8c3958444cbf8ad105270af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a2abdb7e_70d01de0",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 5435,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-30T09:48:18Z",
+      "side": 1,
+      "message": "Misplaced, should be after `VMsgt_vi`.",
+      "range": {
+        "startLine": 5435,
+        "startChar": 29,
+        "endLine": 5435,
+        "endChar": 37
+      },
+      "revId": "837616a9f65648bbd8c3958444cbf8ad105270af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da88fbc7_4abcef4a",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 5440,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-30T09:48:18Z",
+      "side": 1,
+      "message": "`/*bias\u003d*/`",
+      "range": {
+        "startLine": 5440,
+        "startChar": 33,
+        "endLine": 5440,
+        "endChar": 34
+      },
+      "revId": "837616a9f65648bbd8c3958444cbf8ad105270af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1cd31804_613e9f22",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 5464,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-30T09:48:18Z",
+      "side": 1,
+      "message": "`/*bias\u003d*/`",
+      "range": {
+        "startLine": 5464,
+        "startChar": 33,
+        "endLine": 5464,
+        "endChar": 34
+      },
+      "revId": "837616a9f65648bbd8c3958444cbf8ad105270af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f4be932c_a5174665",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 6793,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-30T09:48:18Z",
+      "side": 1,
+      "message": "This matches what we currently have in the assembler. But is this restriction necessary? Which value is being widened from SEW to 2*SEW? Is it `vs2` or `rs1`? (Same for `VFwsub_wf`.)",
+      "range": {
+        "startLine": 6793,
+        "startChar": 48,
+        "endLine": 6793,
+        "endChar": 61
+      },
+      "revId": "837616a9f65648bbd8c3958444cbf8ad105270af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
