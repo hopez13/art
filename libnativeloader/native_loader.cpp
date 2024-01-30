@@ -24,19 +24,20 @@
 #include <algorithm>
 #include <memory>
 #include <mutex>
+#include <regex>
 #include <string>
 #include <vector>
 
-#include <android-base/file.h>
-#include <android-base/macros.h>
-#include <android-base/strings.h>
-#include <android-base/thread_annotations.h>
-#include <nativebridge/native_bridge.h>
-#include <nativehelper/scoped_utf_chars.h>
+#include "android-base/file.h"
+#include "android-base/macros.h"
+#include "android-base/strings.h"
+#include "android-base/thread_annotations.h"
+#include "nativebridge/native_bridge.h"
+#include "nativehelper/scoped_utf_chars.h"
 
 #ifdef ART_TARGET_ANDROID
-#include <log/log.h>
 #include "library_namespaces.h"
+#include "log/log.h"
 #include "nativeloader/dlext_namespaces.h"
 #endif
 
@@ -45,6 +46,27 @@ namespace android {
 namespace {
 
 #if defined(ART_TARGET_ANDROID)
+
+using ::android::base::Result;
+using ::android::nativeloader::LibraryNamespaces;
+
+const std::regex kVendorDexPathRegex("(^|:)(/system)?/vendor/");
+const std::regex kProductDexPathRegex("(^|:)(/system)?/product/");
+
+nativeloader::ApkOrigin GetApkOriginFromDexPath(const std::string& dex_path) {
+  nativeloader::ApkOrigin apk_origin = nativeloader::APK_ORIGIN_DEFAULT;
+  if (std::regex_search(dex_path, kVendorDexPathRegex)) {
+    apk_origin = nativeloader::APK_ORIGIN_VENDOR;
+  }
+  if (std::regex_search(dex_path, kProductDexPathRegex)) {
+    LOG_ALWAYS_FATAL_IF(apk_origin == nativeloader::APK_ORIGIN_VENDOR,
+                        "Dex path contains both vendor and product partition : %s",
+                        dex_path.c_str());
+
+    apk_origin = nativeloader::APK_ORIGIN_PRODUCT;
+  }
+  return apk_origin;
+}
 
 // NATIVELOADER_DEFAULT_NAMESPACE_LIBS is an environment variable that can be
 // used to list extra libraries (separated by ":") that libnativeloader will
@@ -61,8 +83,6 @@ namespace {
 // (com_android_art) for all libraries, which means this can be used to load
 // test libraries that depend on ART internal libraries.
 constexpr const char* kNativeloaderExtraLibs = "nativeloader-extra-libs";
-
-using android::nativeloader::LibraryNamespaces;
 
 std::mutex g_namespaces_mutex;
 LibraryNamespaces* g_namespaces = new LibraryNamespaces;
@@ -139,20 +159,22 @@ Result<void*> TryLoadNativeloaderExtraLib(const char* path) {
 Result<NativeLoaderNamespace*> CreateClassLoaderNamespaceLocked(JNIEnv* env,
                                                                 int32_t target_sdk_version,
                                                                 jobject class_loader,
+                                                                nativeloader::ApkOrigin apk_origin,
                                                                 bool is_shared,
-                                                                jstring dex_path,
-                                                                jstring library_path,
-                                                                jstring permitted_path,
-                                                                jstring uses_library_list)
+                                                                std::string dex_path,
+                                                                jstring library_path_j,
+                                                                jstring permitted_path_j,
+                                                                jstring uses_library_list_j)
     REQUIRES(g_namespaces_mutex) {
   Result<NativeLoaderNamespace*> ns = g_namespaces->Create(env,
                                                            target_sdk_version,
                                                            class_loader,
+                                                           apk_origin,
                                                            is_shared,
                                                            dex_path,
-                                                           library_path,
-                                                           permitted_path,
-                                                           uses_library_list);
+                                                           library_path_j,
+                                                           permitted_path_j,
+                                                           uses_library_list_j);
   if (!ns.ok()) {
     return ns;
   }
@@ -183,32 +205,58 @@ void ResetNativeLoader() {
 #endif
 }
 
-jstring CreateClassLoaderNamespace(JNIEnv* env, int32_t target_sdk_version, jobject class_loader,
-                                   bool is_shared, jstring dex_path, jstring library_path,
-                                   jstring permitted_path, jstring uses_library_list) {
+jstring CreateClassLoaderNamespace(JNIEnv* env,
+                                   int32_t target_sdk_version,
+                                   jobject class_loader,
+                                   bool is_shared,
+                                   jstring dex_path_j,
+                                   jstring library_path_j,
+                                   jstring permitted_path_j,
+                                   jstring uses_library_list_j) {
 #if defined(ART_TARGET_ANDROID)
+  std::string dex_path;
+  if (dex_path_j != nullptr) {
+    ScopedUtfChars dex_path_chars(env, dex_path_j);
+    dex_path = dex_path_chars.c_str();
+  }
+  nativeloader::ApkOrigin apk_origin = GetApkOriginFromDexPath(dex_path);
+
   std::lock_guard<std::mutex> guard(g_namespaces_mutex);
   Result<NativeLoaderNamespace*> ns = CreateClassLoaderNamespaceLocked(env,
                                                                        target_sdk_version,
                                                                        class_loader,
+                                                                       apk_origin,
                                                                        is_shared,
                                                                        dex_path,
-                                                                       library_path,
-                                                                       permitted_path,
-                                                                       uses_library_list);
+                                                                       library_path_j,
+                                                                       permitted_path_j,
+                                                                       uses_library_list_j);
   if (!ns.ok()) {
     return env->NewStringUTF(ns.error().message().c_str());
   }
+
 #else
-  UNUSED(env, target_sdk_version, class_loader, is_shared, dex_path, library_path, permitted_path,
-         uses_library_list);
+  UNUSED(env,
+         target_sdk_version,
+         class_loader,
+         is_shared,
+         dex_path_j,
+         library_path_j,
+         permitted_path_j,
+         uses_library_list_j);
 #endif
+
   return nullptr;
 }
 
-void* OpenNativeLibrary(JNIEnv* env, int32_t target_sdk_version, const char* path,
-                        jobject class_loader, const char* caller_location, jstring library_path,
-                        bool* needs_native_bridge, char** error_msg) {
+void* OpenNativeLibrary(JNIEnv* env,
+                        int32_t target_sdk_version,
+                        const char* path,
+                        jobject class_loader,
+                        const char* caller_location,
+                        jstring library_path_j,
+                        bool* needs_native_bridge,
+                        char** error_msg) {
 #if defined(ART_TARGET_ANDROID)
   UNUSED(target_sdk_version);
 
@@ -263,9 +311,10 @@ void* OpenNativeLibrary(JNIEnv* env, int32_t target_sdk_version, const char* pat
         CreateClassLoaderNamespaceLocked(env,
                                          target_sdk_version,
                                          class_loader,
+                                         nativeloader::APK_ORIGIN_DEFAULT,
                                          /*is_shared=*/false,
                                          /*dex_path=*/nullptr,
-                                         library_path,
+                                         library_path_j,
                                          /*permitted_path=*/nullptr,
                                          /*uses_library_list=*/nullptr);
     if (!isolated_ns.ok()) {
@@ -284,13 +333,13 @@ void* OpenNativeLibrary(JNIEnv* env, int32_t target_sdk_version, const char* pat
   // work for dependencies.
   //
   // Note: null has a special meaning and must be preserved.
-  std::string c_library_path;  // Empty string by default.
-  if (library_path != nullptr && path != nullptr && path[0] != '/') {
-    ScopedUtfChars library_path_utf_chars(env, library_path);
-    c_library_path = library_path_utf_chars.c_str();
+  std::string library_path;  // Empty string by default.
+  if (library_path_j != nullptr && path != nullptr && path[0] != '/') {
+    ScopedUtfChars library_path_utf_chars(env, library_path_j);
+    library_path = library_path_utf_chars.c_str();
   }
 
-  std::vector<std::string> library_paths = base::Split(c_library_path, ":");
+  std::vector<std::string> library_paths = base::Split(library_path, ":");
 
   for (const std::string& lib_path : library_paths) {
     *needs_native_bridge = false;
@@ -397,4 +446,4 @@ void LinkNativeLoaderNamespaceToExportedNamespaceLibrary(struct NativeLoaderName
 
 #endif  // ART_TARGET_ANDROID
 
-};  // namespace android
+}  // namespace android
