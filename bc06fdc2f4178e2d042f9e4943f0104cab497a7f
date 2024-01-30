@@ -70,6 +70,30 @@
       },
       "revId": "bc06fdc2f4178e2d042f9e4943f0104cab497a7f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "34f511e3_2aa94015",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2169,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-01-30T17:13:35Z",
+      "side": 1,
+      "message": "Ack. If it fixes the issue, let\u0027s go for it. Given we reach this for an edge case, maybe the performance concern isn\u0027t too bad.",
+      "parentUuid": "b599e695_8535dfa3",
+      "range": {
+        "startLine": 2169,
+        "startChar": 35,
+        "endLine": 2169,
+        "endChar": 58
+      },
+      "revId": "bc06fdc2f4178e2d042f9e4943f0104cab497a7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
