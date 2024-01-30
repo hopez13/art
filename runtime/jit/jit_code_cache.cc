@@ -59,6 +59,7 @@
 #include "thread-current-inl.h"
 #include "thread-inl.h"
 #include "thread_list.h"
+#include "well_known_classes-inl.h"
 
 namespace art HIDDEN {
 namespace jit {
@@ -434,12 +435,21 @@ void JitCodeCache::SweepRootTables(IsMarkedVisitor* visitor) {
         if (new_object != object) {
           roots[i] = GcRoot<mirror::Object>(new_object);
         }
-      } else {
+      } else if (object->IsClass<kDefaultVerifyFlags>()) {
         mirror::Object* new_klass = visitor->IsMarked(object);
         if (new_klass == nullptr) {
           roots[i] = GcRoot<mirror::Object>(Runtime::GetWeakClassSentinel());
         } else if (new_klass != object) {
           roots[i] = GcRoot<mirror::Object>(new_klass);
+        }
+      } else {
+        ObjPtr<mirror::Class> method_type_class =
+            WellKnownClasses::java_lang_invoke_MethodType.Get<kWithoutReadBarrier>();
+        DCHECK((object->InstanceOf<kVerifyNone, kWithoutReadBarrier>(method_type_class)));
+        mirror::Object* new_method_type = visitor->IsMarked(object);
+
+        if (new_method_type != object) {
+          roots[i] = GcRoot<mirror::Object>(new_method_type);
         }
       }
     }
