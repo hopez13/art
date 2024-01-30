@@ -18,13 +18,14 @@
 
 #include <algorithm>
 #include <bitset>
+#include <functional>
 #include <limits>
 #include <memory>
+#include <stack>
 
 #include "android-base/logging.h"
 #include "android-base/macros.h"
 #include "android-base/stringprintf.h"
-
 #include "base/hash_map.h"
 #include "base/leb128.h"
 #include "base/safe_map.h"
@@ -290,9 +291,16 @@ class DexFileVerifier {
   bool CheckStaticFieldTypes(const dex::ClassDef& class_def);
 
   bool CheckPadding(uint32_t aligned_offset, DexFile::MapItemType type);
+
+  // The encoded values, arrays and annotations are allowed to be very deeply nested,
+  // so use heap todo-list instead of stack recursion (the work is done in LIFO order).
+  using ToDoList = std::stack<std::function<bool(DexFileVerifier* self)>>;
   bool CheckEncodedValue();
   bool CheckEncodedArray();
+  bool CheckArrayElement(uint32_t size);
   bool CheckEncodedAnnotation();
+  bool CheckAnnotationElement(uint32_t last_idx, uint32_t size);
+  bool FlushToDoList();
 
   bool CheckIntraTypeIdItem();
   bool CheckIntraProtoIdItem();
@@ -453,6 +461,9 @@ class DexFileVerifier {
 
   // Class definition indexes, valid only if corresponding `defined_classes_[.]` is true.
   std::vector<uint16_t> defined_class_indexes_;
+
+  // Used by CheckEncodedValue to avoid recursion. Field so we can reuse allocated memory.
+  ToDoList todo_;
 };
 
 template <typename ExtraCheckFn>
@@ -1149,8 +1160,16 @@ bool DexFileVerifier::CheckEncodedValue() {
 
 bool DexFileVerifier::CheckEncodedArray() {
   DECODE_UNSIGNED_CHECKED_FROM(ptr_, size);
+  todo_.emplace([=](auto* self) { return self->CheckArrayElement(size); });
+  return true;
+}
 
-  for (; size != 0u; --size) {
+bool DexFileVerifier::CheckArrayElement(uint32_t size) {
+  if (size != 0u) {
+    // Check the remainder of the array later.
+    todo_.emplace([=](auto* self) { return self->CheckArrayElement(size - 1); });
+
+    // Check this element (non-recursive, so we can bypass the todo list).
     if (!CheckEncodedValue()) {
       failure_reason_ = StringPrintf("Bad encoded_array value: %s", failure_reason_.c_str());
       return false;
@@ -1166,25 +1185,42 @@ bool DexFileVerifier::CheckEncodedAnnotation() {
   }
 
   DECODE_UNSIGNED_CHECKED_FROM(ptr_, size);
-  uint32_t last_idx = 0;
+  todo_.emplace([=](auto* self) { return self->CheckAnnotationElement(kDexNoIndex, size); });
+  return true;
+}
 
-  for (uint32_t i = 0; i < size; i++) {
+bool DexFileVerifier::CheckAnnotationElement(uint32_t last_idx, uint32_t size) {
+  if (size != 0u) {
     DECODE_UNSIGNED_CHECKED_FROM(ptr_, idx);
     if (!CheckIndex(idx, header_->string_ids_size_, "annotation_element name_idx")) {
       return false;
     }
 
-    if (UNLIKELY(last_idx >= idx && i != 0)) {
+    if (UNLIKELY(last_idx >= idx && last_idx != kDexNoIndex)) {
       ErrorStringPrintf("Out-of-order annotation_element name_idx: %x then %x",
                         last_idx, idx);
       return false;
     }
 
+    // Check the remainder of the annotation later.
+    todo_.emplace([=](auto* self) { return self->CheckAnnotationElement(idx, size - 1); });
+
+    // Check this element (non-recursive, so we can bypass the todo list).
     if (!CheckEncodedValue()) {
       return false;
     }
+  }
+  return true;
+}
 
-    last_idx = idx;
+// Keep processing the rest of the to-do list until we are finished or encounter an error.
+bool DexFileVerifier::FlushToDoList() {
+  while (!todo_.empty()) {
+    std::function<bool(DexFileVerifier*)> fn = std::move(todo_.top());
+    todo_.pop();
+    if (!fn(this)) {
+      return false;
+    }
   }
   return true;
 }
@@ -1912,7 +1948,8 @@ bool DexFileVerifier::CheckIntraAnnotationItem() {
       return false;
   }
 
-  if (!CheckEncodedAnnotation()) {
+  CHECK(todo_.empty());
+  if (!CheckEncodedAnnotation() || !FlushToDoList()) {
     return false;
   }
 
@@ -2164,7 +2201,8 @@ bool DexFileVerifier::CheckIntraSectionIterate(uint32_t section_count) {
         break;
       }
       case DexFile::kDexTypeEncodedArrayItem: {
-        if (!CheckEncodedArray()) {
+        CHECK(todo_.empty());
+        if (!CheckEncodedArray() || !FlushToDoList()) {
           return false;
         }
         break;
@@ -3407,6 +3445,7 @@ bool DexFileVerifier::Verify() {
     return false;
   }
 
+  CHECK(todo_.empty());  // No unprocessed work left over.
   return true;
 }
 
