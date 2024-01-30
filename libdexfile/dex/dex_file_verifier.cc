@@ -18,13 +18,14 @@
 
 #include <algorithm>
 #include <bitset>
+#include <functional>
 #include <limits>
 #include <memory>
+#include <stack>
 
 #include "android-base/logging.h"
 #include "android-base/macros.h"
 #include "android-base/stringprintf.h"
-
 #include "base/hash_map.h"
 #include "base/leb128.h"
 #include "base/safe_map.h"
@@ -290,9 +291,16 @@ class DexFileVerifier {
   bool CheckStaticFieldTypes(const dex::ClassDef& class_def);
 
   bool CheckPadding(uint32_t aligned_offset, DexFile::MapItemType type);
-  bool CheckEncodedValue();
-  bool CheckEncodedArray();
-  bool CheckEncodedAnnotation();
+
+  // The encoded values, arrays and annotations are allowed to be very deeply nested,
+  // so use heap todo-list instead of stack recursion (the work is done in LIFO order).
+  using ToDoList = std::stack<std::function<bool()>>;
+  bool CheckEncodedValue(ToDoList* todo);
+  bool CheckEncodedArray(ToDoList* todo);
+  bool CheckArrayElement(uint32_t size, ToDoList* todo);
+  bool CheckEncodedAnnotation(ToDoList* todo);
+  bool CheckAnnotationElement(uint32_t last_idx, uint32_t size, ToDoList* todo);
+  bool Flush(ToDoList* list);
 
   bool CheckIntraTypeIdItem();
   bool CheckIntraProtoIdItem();
@@ -1005,7 +1013,7 @@ bool DexFileVerifier::CheckPadding(uint32_t aligned_offset,
   return true;
 }
 
-bool DexFileVerifier::CheckEncodedValue() {
+bool DexFileVerifier::CheckEncodedValue(ToDoList* todo) {
   if (!CheckListSize(ptr_, 1, sizeof(uint8_t), "encoded_value header")) {
     return false;
   }
@@ -1092,7 +1100,7 @@ bool DexFileVerifier::CheckEncodedValue() {
         ErrorStringPrintf("Bad encoded_value array value_arg %x", value_arg);
         return false;
       }
-      if (!CheckEncodedArray()) {
+      if (!CheckEncodedArray(todo)) {
         return false;
       }
       break;
@@ -1101,7 +1109,7 @@ bool DexFileVerifier::CheckEncodedValue() {
         ErrorStringPrintf("Bad encoded_value annotation value_arg %x", value_arg);
         return false;
       }
-      if (!CheckEncodedAnnotation()) {
+      if (!CheckEncodedAnnotation(todo)) {
         return false;
       }
       break;
@@ -1147,11 +1155,19 @@ bool DexFileVerifier::CheckEncodedValue() {
   return true;
 }
 
-bool DexFileVerifier::CheckEncodedArray() {
+bool DexFileVerifier::CheckEncodedArray(ToDoList* todo) {
   DECODE_UNSIGNED_CHECKED_FROM(ptr_, size);
+  todo->emplace([=]() { return CheckArrayElement(size, todo); });
+  return true;
+}
 
-  for (; size != 0u; --size) {
-    if (!CheckEncodedValue()) {
+bool DexFileVerifier::CheckArrayElement(uint32_t size, ToDoList* todo) {
+  if (size != 0u) {
+    // Check the remainder of the array later.
+    todo->emplace([=]() { return CheckArrayElement(size - 1, todo); });
+
+    // Check this element (non-recursive, so we can by-pass the todo list).
+    if (!CheckEncodedValue(todo)) {
       failure_reason_ = StringPrintf("Bad encoded_array value: %s", failure_reason_.c_str());
       return false;
     }
@@ -1159,32 +1175,49 @@ bool DexFileVerifier::CheckEncodedArray() {
   return true;
 }
 
-bool DexFileVerifier::CheckEncodedAnnotation() {
+bool DexFileVerifier::CheckEncodedAnnotation(ToDoList* todo) {
   DECODE_UNSIGNED_CHECKED_FROM(ptr_, anno_idx);
   if (!CheckIndex(anno_idx, header_->type_ids_size_, "encoded_annotation type_idx")) {
     return false;
   }
 
   DECODE_UNSIGNED_CHECKED_FROM(ptr_, size);
-  uint32_t last_idx = 0;
+  todo->emplace([=]() { return CheckAnnotationElement(kDexNoIndex, size, todo); });
+  return true;
+}
 
-  for (uint32_t i = 0; i < size; i++) {
+bool DexFileVerifier::CheckAnnotationElement(uint32_t last_idx, uint32_t size, ToDoList* todo) {
+  if (size != 0u) {
     DECODE_UNSIGNED_CHECKED_FROM(ptr_, idx);
     if (!CheckIndex(idx, header_->string_ids_size_, "annotation_element name_idx")) {
       return false;
     }
 
-    if (UNLIKELY(last_idx >= idx && i != 0)) {
+    if (UNLIKELY(last_idx != kDexNoIndex)) {
       ErrorStringPrintf("Out-of-order annotation_element name_idx: %x then %x",
                         last_idx, idx);
       return false;
     }
 
-    if (!CheckEncodedValue()) {
+    // Check the remainder of the annotation later.
+    todo->emplace([=]() { return CheckAnnotationElement(idx, size - 1, todo); });
+
+    // Check this element (non-recursive, so we can by-pass the todo list).
+    if (!CheckEncodedValue(todo)) {
       return false;
     }
+  }
+  return true;
+}
 
-    last_idx = idx;
+// Keep processing the rest of the to-do list until we are finished or encounter an error.
+bool DexFileVerifier::Flush(ToDoList* list) {
+  while (!list->empty()) {
+    std::function<bool()> fn = std::move(list->top());
+    list->pop();
+    if (!fn()) {
+      return false;
+    }
   }
   return true;
 }
@@ -1912,7 +1945,8 @@ bool DexFileVerifier::CheckIntraAnnotationItem() {
       return false;
   }
 
-  if (!CheckEncodedAnnotation()) {
+  ToDoList todo;
+  if (!CheckEncodedAnnotation(&todo) || !Flush(&todo)) {
     return false;
   }
 
@@ -2164,7 +2198,8 @@ bool DexFileVerifier::CheckIntraSectionIterate(uint32_t section_count) {
         break;
       }
       case DexFile::kDexTypeEncodedArrayItem: {
-        if (!CheckEncodedArray()) {
+        ToDoList todo;
+        if (!CheckEncodedArray(&todo) || !Flush(&todo)) {
           return false;
         }
         break;
