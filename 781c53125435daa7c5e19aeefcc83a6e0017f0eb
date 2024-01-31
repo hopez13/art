@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "09021120_dd6a14ae",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-01-31T11:58:37Z",
+      "side": 1,
+      "message": "Folks, could you please take a look?\n\nI implement RISC-V \"C\" extension. There are 4 commits, (1) basic support of \"C\" in emitter + tests, (2) support in disassembler, (3) part which applies compressed instructions automatically during code emitting + tests and (4) enabling \"C\" extension in codegen",
+      "revId": "781c53125435daa7c5e19aeefcc83a6e0017f0eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
