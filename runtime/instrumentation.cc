@@ -266,6 +266,9 @@ static void UpdateEntryPoints(ArtMethod* method, const void* quick_code)
     if (instr->EntryExitStubsInstalled()) {
       DCHECK(CodeSupportsEntryExitHooks(quick_code, method));
     }
+    if (instr->InterpreterStubsInstalled() && !method->IsNative()) {
+      DCHECK_EQ(quick_code, GetQuickToInterpreterBridge());
+    }
   }
   // If the method is from a boot image, don't dirty it if the entrypoint
   // doesn't change.
@@ -1189,7 +1192,7 @@ void Instrumentation::UpdateMethodsCodeImpl(ArtMethod* method, const void* new_c
     return;
   }
 
-  if (IsDeoptimized(method)) {
+  if (InterpretOnly(method)) {
     DCHECK(class_linker->IsQuickToInterpreterBridge(method->GetEntryPointFromQuickCompiledCode()))
         << EntryPointString(method->GetEntryPointFromQuickCompiledCode());
     // Don't update, stay deoptimized.
@@ -1267,6 +1270,7 @@ void Instrumentation::Deoptimize(ArtMethod* method) {
     // If by the time we hit this frame we no longer need a deopt it is safe to continue.
     InstrumentAllThreadStacks(/* force_deopt= */ false);
   }
+  CHECK_EQ(method->GetEntryPointFromQuickCompiledCode(), GetQuickToInterpreterBridge());
 }
 
 void Instrumentation::Undeoptimize(ArtMethod* method) {
