@@ -59,6 +59,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "50b38287_67450fb3",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 404,
+      "author": {
+        "id": 3050003
+      },
+      "writtenOn": "2024-01-31T11:38:03Z",
+      "side": 1,
+      "message": "Done, thank you for suggestion!",
+      "parentUuid": "4ea0edb3_74f4bee5",
+      "range": {
+        "startLine": 404,
+        "startChar": 27,
+        "endLine": 404,
+        "endChar": 71
+      },
+      "revId": "f0385839bc2da14055deb9d96f89f78c6f186f6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "38026470_b4555f4e",
@@ -72,6 +96,30 @@
       "writtenOn": "2024-01-25T12:22:48Z",
       "side": 1,
       "message": "The only supported values here are 16 and 24, so we should just check that before proceeding with the other checks below.",
+      "range": {
+        "startLine": 405,
+        "startChar": 2,
+        "endLine": 405,
+        "endChar": 45
+      },
+      "revId": "f0385839bc2da14055deb9d96f89f78c6f186f6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "276e38b2_595f77ce",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 3050003
+      },
+      "writtenOn": "2024-01-31T11:38:03Z",
+      "side": 1,
+      "message": "As we discussed I left more general check but reordered it with others",
+      "parentUuid": "38026470_b4555f4e",
       "range": {
         "startLine": 405,
         "startChar": 2,
@@ -105,6 +153,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "99591bf5_9f56b939",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 3050003
+      },
+      "writtenOn": "2024-01-31T11:38:03Z",
+      "side": 1,
+      "message": "Done, thank you very much for suggestion!",
+      "parentUuid": "404bcf80_0d7a4a9f",
+      "range": {
+        "startLine": 421,
+        "startChar": 0,
+        "endLine": 428,
+        "endChar": 3
+      },
+      "revId": "f0385839bc2da14055deb9d96f89f78c6f186f6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "72514a30_95f88ce4",
@@ -128,6 +200,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "60507654_9ea6e986",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 435,
+      "author": {
+        "id": 3050003
+      },
+      "writtenOn": "2024-01-31T11:38:03Z",
+      "side": 1,
+      "message": "Done, thanks!",
+      "parentUuid": "72514a30_95f88ce4",
+      "range": {
+        "startLine": 435,
+        "startChar": 2,
+        "endLine": 435,
+        "endChar": 50
+      },
+      "revId": "f0385839bc2da14055deb9d96f89f78c6f186f6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "11a57bd5_99ba41ef",
@@ -141,6 +237,30 @@
       "writtenOn": "2024-01-25T12:22:48Z",
       "side": 1,
       "message": "Move this between the `source_significant_part_size` definition below and the comment above that.",
+      "range": {
+        "startLine": 436,
+        "startChar": 2,
+        "endLine": 436,
+        "endChar": 75
+      },
+      "revId": "f0385839bc2da14055deb9d96f89f78c6f186f6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bbb2c9b0_dfcf0130",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 436,
+      "author": {
+        "id": 3050003
+      },
+      "writtenOn": "2024-01-31T11:38:03Z",
+      "side": 1,
+      "message": "Done, thanks!",
+      "parentUuid": "11a57bd5_99ba41ef",
       "range": {
         "startLine": 436,
         "startChar": 2,
@@ -222,6 +342,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f73c8fa6_8d556849",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 452,
+      "author": {
+        "id": 3050003
+      },
+      "writtenOn": "2024-01-31T11:38:03Z",
+      "side": 1,
+      "message": "Done, thank you!",
+      "parentUuid": "1e4b2cb1_bd7c193c",
+      "range": {
+        "startLine": 450,
+        "startChar": 2,
+        "endLine": 452,
+        "endChar": 3
+      },
+      "revId": "f0385839bc2da14055deb9d96f89f78c6f186f6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "aaffefa5_f985cab2",
@@ -235,6 +379,30 @@
       "writtenOn": "2024-01-25T12:22:48Z",
       "side": 1,
       "message": "Method name says \"UnsignedShort\" but the conversion goes to \"UnsignedByte\".",
+      "range": {
+        "startLine": 3469,
+        "startChar": 11,
+        "endLine": 3469,
+        "endChar": 27
+      },
+      "revId": "f0385839bc2da14055deb9d96f89f78c6f186f6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d824332_43f559fa",
+        "filename": "test/458-checker-instruct-simplification/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 3469,
+      "author": {
+        "id": 3050003
+      },
+      "writtenOn": "2024-01-31T11:38:03Z",
+      "side": 1,
+      "message": "Fixed, thank you very much!",
+      "parentUuid": "aaffefa5_f985cab2",
       "range": {
         "startLine": 3469,
         "startChar": 11,
@@ -268,6 +436,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "06afcbc9_7bbde97f",
+        "filename": "test/458-checker-instruct-simplification/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 3513,
+      "author": {
+        "id": 3050003
+      },
+      "writtenOn": "2024-01-31T11:38:03Z",
+      "side": 1,
+      "message": "Fixed, thank you!",
+      "parentUuid": "b1215992_dbd203bc",
+      "range": {
+        "startLine": 3513,
+        "startChar": 11,
+        "endLine": 3513,
+        "endChar": 26
+      },
+      "revId": "f0385839bc2da14055deb9d96f89f78c6f186f6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "981f7d72_776dd559",
@@ -281,6 +473,30 @@
       "writtenOn": "2024-01-25T12:22:48Z",
       "side": 1,
       "message": "Works also for initially mismatched constants (`arg \u003c\u003c 48 \u003e\u003e\u003e 16`).",
+      "range": {
+        "startLine": 3536,
+        "startChar": 11,
+        "endLine": 3536,
+        "endChar": 27
+      },
+      "revId": "f0385839bc2da14055deb9d96f89f78c6f186f6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a32014f7_95db0fc6",
+        "filename": "test/458-checker-instruct-simplification/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 3536,
+      "author": {
+        "id": 3050003
+      },
+      "writtenOn": "2024-01-31T11:38:03Z",
+      "side": 1,
+      "message": "Added new test for this case, thank you!",
+      "parentUuid": "981f7d72_776dd559",
       "range": {
         "startLine": 3536,
         "startChar": 11,
@@ -398,6 +614,30 @@
       "writtenOn": "2024-01-25T12:22:48Z",
       "side": 1,
       "message": "Indentation for method arguments should be twice the basic indentation - increase to 4 spaces. Same below.",
+      "range": {
+        "startLine": 4066,
+        "startChar": 4,
+        "endLine": 4066,
+        "endChar": 6
+      },
+      "revId": "f0385839bc2da14055deb9d96f89f78c6f186f6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "46fd711e_c405608f",
+        "filename": "test/458-checker-instruct-simplification/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 4066,
+      "author": {
+        "id": 3050003
+      },
+      "writtenOn": "2024-01-31T11:38:03Z",
+      "side": 1,
+      "message": "Fixed, thank you!",
+      "parentUuid": "49142cff_8518e7d6",
       "range": {
         "startLine": 4066,
         "startChar": 4,
