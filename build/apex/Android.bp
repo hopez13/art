@@ -217,6 +217,7 @@ apex_defaults {
         "art_boot",
         "art_exec",
         "artd",
+        "dexopt_chroot_setup",
     ],
     multilib: {
         both: {
