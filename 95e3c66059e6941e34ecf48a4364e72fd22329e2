@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d8e1b6d_a7d4f4f9",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1904,
+      "author": {
+        "id": 1137063
+      },
+      "writtenOn": "2024-01-31T23:10:04Z",
+      "side": 1,
+      "message": "This assertion is failing and causing boot failure on eng builds; see b/323211262",
+      "revId": "95e3c66059e6941e34ecf48a4364e72fd22329e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
