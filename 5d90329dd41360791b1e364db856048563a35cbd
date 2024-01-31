@@ -144,6 +144,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e5cb0d94_964c3eb5",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 998,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-01-31T09:01:25Z",
+      "side": 1,
+      "message": "This is OK. I may change the pessimistic check on x86 later.",
+      "parentUuid": "0dec3bdb_3c99b468",
+      "range": {
+        "startLine": 997,
+        "startChar": 4,
+        "endLine": 998,
+        "endChar": 25
+      },
+      "revId": "5d90329dd41360791b1e364db856048563a35cbd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d7b064e4_c1e2fdde",
