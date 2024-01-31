@@ -1267,6 +1267,7 @@ void Instrumentation::Deoptimize(ArtMethod* method) {
     // If by the time we hit this frame we no longer need a deopt it is safe to continue.
     InstrumentAllThreadStacks(/* force_deopt= */ false);
   }
+  CHECK_EQ(method->GetEntryPointFromQuickCompiledCode(), GetQuickToInterpreterBridge());
 }
 
 void Instrumentation::Undeoptimize(ArtMethod* method) {
