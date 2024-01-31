@@ -1,6 +1,40 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a54e89ae_cef3539f",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2024-01-31T22:34:54Z",
+      "side": 1,
+      "message": "run-test use a more generous timeout to get better signal\n\n--timeout 3600\nseems to do a better job.",
+      "revId": "7c142094dacf73796914c10fae141af99634a8b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e523ba7b_4850aa5e",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2024-01-31T22:34:54Z",
+      "side": 1,
+      "message": "unimp here to check that we\u0027re actually running methods with nterp ..\n\nResults: \n- CF boot fails with SIGILL\nand\n- 001-HelloWorld fails in all modes with SIGILL\n\nwhich confirms this code is live.",
+      "revId": "7c142094dacf73796914c10fae141af99634a8b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c334cfa8_bf96f7c6",
@@ -20,6 +54,47 @@
         "endLine": 645,
         "endChar": 6
       },
+      "revId": "7c142094dacf73796914c10fae141af99634a8b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5766aa6f_9a5a3039",
+        "filename": "runtime/interpreter/mterp/riscv64/main.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 645,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2024-01-31T22:34:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c334cfa8_bf96f7c6",
+      "range": {
+        "startLine": 645,
+        "startChar": 3,
+        "endLine": 645,
+        "endChar": 6
+      },
+      "revId": "7c142094dacf73796914c10fae141af99634a8b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ac1b26e_fecf4c8a",
+        "filename": "runtime/nterp_helpers.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 472,
+      "author": {
+        "id": 1998570
+      },
+      "writtenOn": "2024-01-31T22:34:54Z",
+      "side": 1,
+      "message": "Sanity check - delete the default case, compiler will flag you what you\u0027ve missed.\n\nart/runtime/nterp_helpers.cc:245:15: error: 32 enumeration values not handled in switch: \u0027UNUSED_3E\u0027, \u0027UNUSED_3F\u0027, \u0027UNUSED_40\u0027... [-Werror,-Wswitch]\n      switch (pair-\u003eOpcode()) {\n\nwhich agrees with:\n\n$ cat art/libdexfile/dex/dex_instruction_list.h | grep UNUSED | wc -l\n32",
       "revId": "7c142094dacf73796914c10fae141af99634a8b2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
