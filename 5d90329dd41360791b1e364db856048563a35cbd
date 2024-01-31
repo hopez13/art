@@ -122,6 +122,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0dec3bdb_3c99b468",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 998,
+      "author": {
+        "id": 3257532
+      },
+      "writtenOn": "2024-01-31T01:49:31Z",
+      "side": 1,
+      "message": "Ah yes of course. Thank you for the clarification. I\u0027ve updated x86_64 to be in-line with arm64, and I\u0027ve fixed the off-by-one error in x86, but `COMPUTE_ARRAY_SIZE_UNKNOWN` is still pessimistic (i.e. it does not perform two size checks). Please let me know if more changes are required for this CL.",
+      "parentUuid": "e92d1790_3f7d4322",
+      "range": {
+        "startLine": 997,
+        "startChar": 4,
+        "endLine": 998,
+        "endChar": 25
+      },
+      "revId": "5d90329dd41360791b1e364db856048563a35cbd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d7b064e4_c1e2fdde",
         "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
         "patchSetId": 1
