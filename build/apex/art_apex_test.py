@@ -552,6 +552,7 @@ class ReleaseTargetChecker:
     self._checker.check_executable('art_boot')
     self._checker.check_executable('art_exec')
     self._checker.check_executable('artd')
+    self._checker.check_executable('artd_chroot')
     self._checker.check_executable('oatdump')
     self._checker.check_executable("odrefresh")
     self._checker.check_symlinked_multilib_executable('dex2oat')
