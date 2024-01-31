@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7edf6b71_0ae0dbef",
+        "filename": "runtime/thread_pool.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2024-01-31T18:12:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "379bc338_10651d07",
+      "range": {
+        "startLine": 187,
+        "startChar": 21,
+        "endLine": 187,
+        "endChar": 27
+      },
+      "revId": "1a72e0ed8bc0ddf22e7e2292535611b4dcd7124a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2a91d501_871510e1",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-01-31T16:58:12Z",
       "side": 1,
       "message": "What about `agent.cc`?",
+      "range": {
+        "startLine": 30,
+        "startChar": 14,
+        "endLine": 30,
+        "endChar": 20
+      },
+      "revId": "1a72e0ed8bc0ddf22e7e2292535611b4dcd7124a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4125cc8_cc99d936",
+        "filename": "runtime/ti/agent.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2024-01-31T18:12:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2a91d501_871510e1",
       "range": {
         "startLine": 30,
         "startChar": 14,
