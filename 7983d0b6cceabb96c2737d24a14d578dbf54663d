@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "16688de8_2f7315da",
+        "filename": "compiler/optimizing/code_generation_data.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1793992
+      },
+      "writtenOn": "2024-01-31T12:10:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "61bccd73_be3b1414",
+      "revId": "7983d0b6cceabb96c2737d24a14d578dbf54663d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "716488c2_2d93b5fd",
@@ -35,6 +53,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "22f9f74d_4df38482",
+        "filename": "compiler/optimizing/code_generation_data.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1793992
+      },
+      "writtenOn": "2024-01-31T12:10:07Z",
+      "side": 1,
+      "message": "Thanks, done.",
+      "parentUuid": "716488c2_2d93b5fd",
+      "revId": "7983d0b6cceabb96c2737d24a14d578dbf54663d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9baf468c_f1d0dc36",
@@ -48,6 +84,30 @@
       "writtenOn": "2024-01-30T16:05:42Z",
       "side": 1,
       "message": "Style: One per line.",
+      "range": {
+        "startLine": 102,
+        "startChar": 11,
+        "endLine": 103,
+        "endChar": 42
+      },
+      "revId": "7983d0b6cceabb96c2737d24a14d578dbf54663d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ff214c8_7bc3d0f9",
+        "filename": "compiler/optimizing/code_generation_data.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1793992
+      },
+      "writtenOn": "2024-01-31T12:10:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9baf468c_f1d0dc36",
       "range": {
         "startLine": 102,
         "startChar": 11,
@@ -81,6 +141,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e8f33994_eff20099",
+        "filename": "compiler/optimizing/code_generation_data.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1793992
+      },
+      "writtenOn": "2024-01-31T12:10:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d55d2d94_188dfe16",
+      "range": {
+        "startLine": 140,
+        "startChar": 40,
+        "endLine": 140,
+        "endChar": 47
+      },
+      "revId": "7983d0b6cceabb96c2737d24a14d578dbf54663d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0ca6869c_ed69cf46",
@@ -104,6 +188,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b8705f54_bb02b978",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 6801,
+      "author": {
+        "id": 1793992
+      },
+      "writtenOn": "2024-01-31T12:10:07Z",
+      "side": 1,
+      "message": "Placed them both before `GetSupportedLoadClassKind`.",
+      "parentUuid": "0ca6869c_ed69cf46",
+      "range": {
+        "startLine": 6801,
+        "startChar": 28,
+        "endLine": 6801,
+        "endChar": 53
+      },
+      "revId": "7983d0b6cceabb96c2737d24a14d578dbf54663d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c94a9cc3_69aa027b",
@@ -117,6 +225,30 @@
       "writtenOn": "2024-01-30T16:05:42Z",
       "side": 1,
       "message": "Maybe we should keep `kRuntimeCall` for non-PIC. (See `Test configuration, do not sharpen` in other functions in this file.)",
+      "range": {
+        "startLine": 477,
+        "startChar": 4,
+        "endLine": 477,
+        "endChar": 72
+      },
+      "revId": "7983d0b6cceabb96c2737d24a14d578dbf54663d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c01c5579_fc1887f9",
+        "filename": "compiler/optimizing/sharpening.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 477,
+      "author": {
+        "id": 1793992
+      },
+      "writtenOn": "2024-01-31T12:10:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c94a9cc3_69aa027b",
       "range": {
         "startLine": 477,
         "startChar": 4,
@@ -152,6 +284,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bf204192_1fa592f0",
+        "filename": "compiler/optimizing/sharpening.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 483,
+      "author": {
+        "id": 1793992
+      },
+      "writtenOn": "2024-01-31T12:10:07Z",
+      "side": 1,
+      "message": "Should it be similar to `ResolveMethodType`, but with `LookupResolvedType` calls instead of `ResolveType`?",
+      "parentUuid": "83965008_a65c9a78",
+      "range": {
+        "startLine": 483,
+        "startChar": 22,
+        "endLine": 483,
+        "endChar": 39
+      },
+      "revId": "7983d0b6cceabb96c2737d24a14d578dbf54663d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "34b5fe24_179c65ce",
         "filename": "compiler/optimizing/sharpening.cc",
         "patchSetId": 2
@@ -163,6 +319,24 @@
       "writtenOn": "2024-01-30T16:05:42Z",
       "side": 1,
       "message": "else clear the OOME?",
+      "revId": "7983d0b6cceabb96c2737d24a14d578dbf54663d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "124b7499_414a6761",
+        "filename": "compiler/optimizing/sharpening.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 491,
+      "author": {
+        "id": 1793992
+      },
+      "writtenOn": "2024-01-31T12:10:07Z",
+      "side": 1,
+      "message": "Should I DCHECK that it is OOME?",
+      "parentUuid": "34b5fe24_179c65ce",
       "revId": "7983d0b6cceabb96c2737d24a14d578dbf54663d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
