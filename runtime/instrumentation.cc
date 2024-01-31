@@ -1266,7 +1266,11 @@ void Instrumentation::Deoptimize(ArtMethod* method) {
     // This isn't a strong deopt. We deopt this method if it is still in the deopt methods list.
     // If by the time we hit this frame we no longer need a deopt it is safe to continue.
     InstrumentAllThreadStacks(/* force_deopt= */ false);
+  } else if (method->GetEntryPointFromQuickCompiledCode() != GetQuickToInterpreterBridge()) {
+    LOG(ERROR) << "InterpeterStubs installed but entrypoint is not interpreter bridge "
+               << method->PrettyMethod();
   }
+  DCHECK_EQ(method->GetEntryPointFromQuickCompiledCode(), GetQuickToInterpreterBridge());
 }
 
 void Instrumentation::Undeoptimize(ArtMethod* method) {
