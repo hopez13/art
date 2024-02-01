@@ -47,6 +47,15 @@
 #include "thread_list.h"
 #include "well_known_classes.h"
 
+#include <vector>
+#if defined(__linux__)
+#include <sched.h>
+#if defined(__arm__)
+#include <sys/personality.h>
+#include <sys/utsname.h>
+#endif  // __arm__
+#endif
+
 namespace art HIDDEN {
 namespace gc {
 namespace collector {
@@ -222,7 +231,43 @@ ConcurrentCopying::~ConcurrentCopying() {
   STLDeleteElements(&pooled_mark_stacks_);
 }
 
+//TODO: need move to inital phase and add cache
+//TODO: need get the value from product config
+std::vector<int32_t> cpu_set_ = {0,1,2,3,4,5,6};
+
+// Set CPU affinity from a string containing a comma-separated list of numeric CPU identifiers.
+static void SetCpuAffinity(const std::vector<int32_t>& cpu_list) {
+#ifdef __linux__
+  int cpu_count = sysconf(_SC_NPROCESSORS_CONF);
+  cpu_set_t target_cpu_set;
+  CPU_ZERO(&target_cpu_set);
+
+  for (int32_t cpu : cpu_list) {
+    if (cpu >= 0 && cpu < cpu_count) {
+      CPU_SET(cpu, &target_cpu_set);
+    } else {
+      // Argument error is considered fatal, suggests misconfigured system properties.
+      LOG(WARNING) << "Invalid cpu :" << cpu
+                   << " specified in --cpu-set argument (nprocessors =" << cpu_count << ")";
+    }
+  }
+
+  if (sched_setaffinity(getpid(), sizeof(target_cpu_set), &target_cpu_set) == -1) {
+    // Failure to set affinity may be outside control of requestor, log warning rather than
+    // treating as fatal.
+    LOG(INFO) << "Failed to set CPU affinity.";
+  }
+#else
+  LOG(WARNING) << "--cpu-set not supported on this platform.";
+#endif  // __linux__
+}
+
 void ConcurrentCopying::RunPhases() {
+
+  if (!cpu_set_.empty()) {
+    SetCpuAffinity(cpu_set_);
+  }
+
   CHECK(kUseBakerReadBarrier || kUseTableLookupReadBarrier);
   CHECK(!is_active_);
   is_active_ = true;
@@ -274,6 +319,8 @@ void ConcurrentCopying::RunPhases() {
   CHECK(is_active_);
   is_active_ = false;
   thread_running_gc_ = nullptr;
+
+//TODO: restore the cpu set.
 }
 
 class ConcurrentCopying::ActivateReadBarrierEntrypointsCheckpoint : public Closure {
