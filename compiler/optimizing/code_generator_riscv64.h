@@ -426,7 +426,7 @@ class CodeGeneratorRISCV64 : public CodeGenerator {
                        OptimizingCompilerStats* stats = nullptr);
   virtual ~CodeGeneratorRISCV64() {}
 
-  void GenerateFrameEntry() override;
+  bool TryGenerateFrameEntry() override;
   void GenerateFrameExit() override;
 
   void Bind(HBasicBlock* block) override;

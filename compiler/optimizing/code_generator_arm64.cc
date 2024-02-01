@@ -1325,7 +1325,7 @@ void CodeGeneratorARM64::MaybeIncrementHotness(HSuspendCheck* suspend_check, boo
   }
 }
 
-void CodeGeneratorARM64::GenerateFrameEntry() {
+bool CodeGeneratorARM64::TryGenerateFrameEntry() {
   MacroAssembler* masm = GetVIXLAssembler();
 
   // Check if we need to generate the clinit check. We will jump to the
@@ -1395,6 +1395,13 @@ void CodeGeneratorARM64::GenerateFrameEntry() {
   }
 
   if (!HasEmptyFrame()) {
+    // Make sure the frame size isn't unreasonably large.
+    if (UNLIKELY(GetFrameSize() > GetStackOverflowReservedBytes(InstructionSet::kArm64))) {
+      LOG(WARNING) << "Stack frame size is " << GetFrameSize() << " which is larger than "
+                   << GetStackOverflowReservedBytes(InstructionSet::kArm64) << " bytes";
+      return false;
+    }
+
     // Stack layout:
     //      sp[frame_size - 8]        : lr.
     //      ...                       : other preserved core registers.
@@ -1440,6 +1447,7 @@ void CodeGeneratorARM64::GenerateFrameEntry() {
   }
   MaybeIncrementHotness(/* suspend_check= */ nullptr, /* is_frame_entry= */ true);
   MaybeGenerateMarkingRegisterCheck(/* code= */ __LINE__);
+  return true;
 }
 
 void CodeGeneratorARM64::GenerateFrameExit() {

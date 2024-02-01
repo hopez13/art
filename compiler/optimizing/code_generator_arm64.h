@@ -612,7 +612,7 @@ class CodeGeneratorARM64 : public CodeGenerator {
                      OptimizingCompilerStats* stats = nullptr);
   virtual ~CodeGeneratorARM64() {}
 
-  void GenerateFrameEntry() override;
+  bool TryGenerateFrameEntry() override;
   void GenerateFrameExit() override;
 
   vixl::aarch64::CPURegList GetFramePreservedCoreRegisters() const;

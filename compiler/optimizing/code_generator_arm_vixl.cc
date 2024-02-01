@@ -2321,7 +2321,7 @@ void CodeGeneratorARMVIXL::MaybeIncrementHotness(HSuspendCheck* suspend_check,
   }
 }
 
-void CodeGeneratorARMVIXL::GenerateFrameEntry() {
+bool CodeGeneratorARMVIXL::TryGenerateFrameEntry() {
   bool skip_overflow_check =
       IsLeafMethod() && !FrameNeedsStackCheck(GetFrameSize(), InstructionSet::kArm);
   DCHECK(GetCompilerOptions().GetImplicitStackOverflowChecks());
@@ -2386,7 +2386,14 @@ void CodeGeneratorARMVIXL::GenerateFrameEntry() {
     // Ensure that the CFI opcode list is not empty.
     GetAssembler()->cfi().Nop();
     MaybeIncrementHotness(/* suspend_check= */ nullptr, /* is_frame_entry= */ true);
-    return;
+    return true;
+  }
+
+  // Make sure the frame size isn't unreasonably large.
+  if (UNLIKELY(GetFrameSize() > GetStackOverflowReservedBytes(InstructionSet::kArm))) {
+    LOG(WARNING) << "Stack frame size is " << GetFrameSize() << " which is larger than "
+                 << GetStackOverflowReservedBytes(InstructionSet::kArm) << " bytes";
+    return false;
   }
 
   if (!skip_overflow_check) {
@@ -2487,6 +2494,7 @@ void CodeGeneratorARMVIXL::GenerateFrameEntry() {
 
   MaybeIncrementHotness(/* suspend_check= */ nullptr, /* is_frame_entry= */ true);
   MaybeGenerateMarkingRegisterCheck(/* code= */ 1);
+  return true;
 }
 
 void CodeGeneratorARMVIXL::GenerateFrameExit() {

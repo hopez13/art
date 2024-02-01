@@ -22,6 +22,7 @@
 
 #include <stdint.h>
 
+#include "android-base/macros.h"
 #include "art_method-inl.h"
 #include "base/arena_allocator.h"
 #include "base/arena_containers.h"
@@ -937,7 +938,11 @@ CodeGenerator* OptimizingCompiler::TryCompile(ArenaAllocator* allocator,
                     regalloc_strategy,
                     compilation_stats_.get());
 
-  codegen->Compile();
+  if (UNLIKELY(!codegen->Compile())) {
+    VLOG(compiler) << "Method's frame is too big: " << graph->PrettyMethod();
+    MaybeRecordStat(compilation_stats_.get(), MethodCompilationStat::kNotCompiledFrameTooBig);
+    return nullptr;
+  }
   pass_observer.DumpDisassembly();
 
   MaybeRecordStat(compilation_stats_.get(), MethodCompilationStat::kCompiledBytecode);
@@ -1035,7 +1040,12 @@ CodeGenerator* OptimizingCompiler::TryCompileIntrinsic(
     return nullptr;
   }
 
-  codegen->Compile();
+  if (UNLIKELY(!codegen->Compile())) {
+    VLOG(compiler) << "Intrinsic method's frame is too big: " << method->GetIntrinsic() << " "
+                   << graph->PrettyMethod();
+    MaybeRecordStat(compilation_stats_.get(), MethodCompilationStat::kNotCompiledFrameTooBig);
+    return nullptr;
+  }
   pass_observer.DumpDisassembly();
 
   VLOG(compiler) << "Compiled intrinsic: " << method->GetIntrinsic()

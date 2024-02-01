@@ -81,7 +81,8 @@ class OptimizingCFITest : public CFITest, public OptimizingUnitTestHelper {
     code_gen_->block_order_ = &blocks_;
     code_gen_->ComputeSpillMask();
     code_gen_->SetFrameSize(frame_size);
-    code_gen_->GenerateFrameEntry();
+    const bool result = code_gen_->TryGenerateFrameEntry();
+    CHECK(result);
   }
 
   void Finish() {

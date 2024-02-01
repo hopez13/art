@@ -5811,7 +5811,7 @@ void CodeGeneratorRISCV64::GenerateMemoryBarrier(MemBarrierKind kind) {
   }
 }
 
-void CodeGeneratorRISCV64::GenerateFrameEntry() {
+bool CodeGeneratorRISCV64::TryGenerateFrameEntry() {
   // Check if we need to generate the clinit check. We will jump to the
   // resolution stub if the class is not initialized and the executing thread is
   // not the thread initializing it.
@@ -5876,9 +5876,10 @@ void CodeGeneratorRISCV64::GenerateFrameEntry() {
 
   if (!HasEmptyFrame()) {
     // Make sure the frame size isn't unreasonably large.
-    if (GetFrameSize() > GetStackOverflowReservedBytes(InstructionSet::kRiscv64)) {
-      LOG(FATAL) << "Stack frame larger than "
-                 << GetStackOverflowReservedBytes(InstructionSet::kRiscv64) << " bytes";
+    if (UNLIKELY(GetFrameSize() > GetStackOverflowReservedBytes(InstructionSet::kRiscv64))) {
+      LOG(WARNING) << "Stack frame size is " << GetFrameSize() << " which is larger than "
+                   << GetStackOverflowReservedBytes(InstructionSet::kRiscv64) << " bytes";
+      return false;
     }
 
     // Spill callee-saved registers.
@@ -5921,6 +5922,7 @@ void CodeGeneratorRISCV64::GenerateFrameEntry() {
     }
   }
   MaybeIncrementHotness(/* suspend_check= */ nullptr, /*is_frame_entry=*/ true);
+  return true;
 }
 
 void CodeGeneratorRISCV64::GenerateFrameExit() {
