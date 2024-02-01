@@ -18,6 +18,7 @@
 #define ART_LIBARTBASE_BASE_OS_H_
 
 #include <stdint.h>
+#include <sys/types.h>
 
 namespace unix_file {
 class FdFile;
@@ -53,6 +54,9 @@ class OS {
 
   // Check if a directory exists.
   static bool DirectoryExists(const char* name);
+
+  // Create a directory.
+  static bool CreateDirectory(const char* name, mode_t mode);
 
   // Get the size of a file (or -1 if it does not exist).
   static int64_t GetFileSizeBytes(const char* name);
