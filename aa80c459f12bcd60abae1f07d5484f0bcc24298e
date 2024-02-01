@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aea64139_39f61899",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 5744,
+      "author": {
+        "id": 2009035
+      },
+      "writtenOn": "2024-02-01T09:42:29Z",
+      "side": 1,
+      "message": "There is a GetInstructionSetFeatures() method in CodeGeneratorRISCV64 which does the cast for you.",
+      "revId": "aa80c459f12bcd60abae1f07d5484f0bcc24298e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
