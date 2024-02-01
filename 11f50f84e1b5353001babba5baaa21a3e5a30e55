@@ -22,6 +22,30 @@
       },
       "revId": "11f50f84e1b5353001babba5baaa21a3e5a30e55",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b225a109_37993b44",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2024-02-01T11:59:19Z",
+      "side": 1,
+      "message": "Well, it still needs a bit more state (the last_idx), but yes, something like that would work.  I could replace it with\n\n```\nstruct ToDoItem {\n  void* kind;  // Either \u0026CheckArrayElement or \u0026CheckAnnotationElement\n  size_t arg0;\n  size_t arg1;\n}\n```\n\nWhich is just less readable way to achieve exactly what `std::function` is doing. (almost bit by bit, except std::function has an extra field at the end to handle cases where there are more than three function args, which is not the case here).\n\nFor the record, I verified that this implementation does not do any allocations.  (other then the initial `todo_` list allocation).",
+      "parentUuid": "1027559c_2ed9c0ff",
+      "range": {
+        "startLine": 297,
+        "startChar": 35,
+        "endLine": 297,
+        "endChar": 43
+      },
+      "revId": "11f50f84e1b5353001babba5baaa21a3e5a30e55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
