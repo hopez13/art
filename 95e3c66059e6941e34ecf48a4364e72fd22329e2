@@ -16,6 +16,24 @@
       "message": "This assertion is failing and causing boot failure on eng builds; see b/323211262",
       "revId": "95e3c66059e6941e34ecf48a4364e72fd22329e2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "be68b12b_9d72621d",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1904,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-02-01T16:04:22Z",
+      "side": 1,
+      "message": "Thanks, quick fix here: https://android-review.git.corp.google.com/c/platform/art/+/2944085",
+      "parentUuid": "1d8e1b6d_a7d4f4f9",
+      "revId": "95e3c66059e6941e34ecf48a4364e72fd22329e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
