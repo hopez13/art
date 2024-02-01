@@ -185,8 +185,8 @@ class FieldAccessCallingConvention {
 
 class CodeGenerator : public DeletableArenaObject<kArenaAllocCodeGenerator> {
  public:
-  // Compiles the graph to executable instructions.
-  void Compile();
+  // Compiles the graph to executable instructions. Returns false if the frame is too big.
+  bool Compile();
   static std::unique_ptr<CodeGenerator> Create(HGraph* graph,
                                                const CompilerOptions& compiler_options,
                                                OptimizingCompilerStats* stats = nullptr);
@@ -213,7 +213,8 @@ class CodeGenerator : public DeletableArenaObject<kArenaAllocCodeGenerator> {
   virtual void EmitThunkCode(const linker::LinkerPatch& patch,
                              /*out*/ ArenaVector<uint8_t>* code,
                              /*out*/ std::string* debug_name);
-  virtual void GenerateFrameEntry() = 0;
+  // Tries to generate the FrameEntry. It returns false if the frame is too big.
+  virtual bool TryGenerateFrameEntry() = 0;
   virtual void GenerateFrameExit() = 0;
   virtual void Bind(HBasicBlock* block) = 0;
   virtual void MoveConstant(Location destination, int32_t value) = 0;

@@ -299,7 +299,7 @@ void CodeGenerator::InitializeCodeGenerationData() {
   code_generation_data_ = CodeGenerationData::Create(graph_->GetArenaStack(), GetInstructionSet());
 }
 
-void CodeGenerator::Compile() {
+bool CodeGenerator::Compile() {
   InitializeCodeGenerationData();
 
   // The register allocator already called `InitializeCodeGeneration`,
@@ -319,7 +319,9 @@ void CodeGenerator::Compile() {
                                    GetGraph()->HasShouldDeoptimizeFlag());
 
   size_t frame_start = GetAssembler()->CodeSize();
-  GenerateFrameEntry();
+  if (!TryGenerateFrameEntry()) {
+    return false;
+  }
   DCHECK_EQ(GetAssembler()->cfi().GetCurrentCFAOffset(), static_cast<int>(frame_size_));
   if (disasm_info_ != nullptr) {
     disasm_info_->SetFrameEntryInterval(frame_start, GetAssembler()->CodeSize());
@@ -368,6 +370,7 @@ void CodeGenerator::Compile() {
   Finalize();
 
   GetStackMapStream()->EndMethod(GetAssembler()->CodeSize());
+  return true;
 }
 
 void CodeGenerator::Finalize() {

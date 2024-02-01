@@ -1377,7 +1377,7 @@ void CodeGeneratorX86::MaybeIncrementHotness(HSuspendCheck* suspend_check, bool 
   }
 }
 
-void CodeGeneratorX86::GenerateFrameEntry() {
+bool CodeGeneratorX86::TryGenerateFrameEntry() {
   __ cfi().SetCurrentCFAOffset(kX86WordSize);  // return address
 
   // Check if we need to generate the clinit check. We will jump to the
@@ -1429,6 +1429,13 @@ void CodeGeneratorX86::GenerateFrameEntry() {
   }
 
   if (!HasEmptyFrame()) {
+    // Make sure the frame size isn't unreasonably large.
+    if (UNLIKELY(GetFrameSize() > GetStackOverflowReservedBytes(InstructionSet::kX86))) {
+      LOG(WARNING) << "Stack frame larger than "
+                   << GetStackOverflowReservedBytes(InstructionSet::kX86) << " bytes";
+      return false;
+    }
+
     for (int i = arraysize(kCoreCalleeSaves) - 1; i >= 0; --i) {
       Register reg = kCoreCalleeSaves[i];
       if (allocated_registers_.ContainsCoreRegister(reg)) {
@@ -1454,6 +1461,7 @@ void CodeGeneratorX86::GenerateFrameEntry() {
   }
 
   MaybeIncrementHotness(/* suspend_check= */ nullptr, /* is_frame_entry= */ true);
+  return true;
 }
 
 void CodeGeneratorX86::GenerateFrameExit() {
