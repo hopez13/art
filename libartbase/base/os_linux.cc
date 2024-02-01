@@ -92,6 +92,30 @@ bool OS::DirectoryExists(const char* name) {
   }
 }
 
+bool OS::CreateDirectory(const char* name, mode_t mode) {
+  if (!DirectoryExists(name)) {
+    if (mkdir(name, mode) == 0) {
+      return true;
+    }
+
+    if (errno == ENOENT) {
+      std::string path(name);
+      std::string::size_type pos = path.find_last_of('/');
+      if (pos != std::string::npos) {
+        if (!CreateDirectory(path.substr(0, pos).c_str(), mode)) {
+          return false;
+        }
+
+        return mkdir(name, mode) == 0;
+      }
+    }
+
+    return false;
+  }
+
+  return true;
+}
+
 int64_t OS::GetFileSizeBytes(const char* name) {
   struct stat st;
   if (stat(name, &st) == 0) {
