@@ -46,6 +46,122 @@
       },
       "revId": "11f50f84e1b5353001babba5baaa21a3e5a30e55",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c5a78c25_344e8cab",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-02-01T12:31:49Z",
+      "side": 1,
+      "message": "Ack. Maybe these lambdas don\u0027t generate the allocations that Vladimir mentioned.",
+      "parentUuid": "b225a109_37993b44",
+      "range": {
+        "startLine": 297,
+        "startChar": 35,
+        "endLine": 297,
+        "endChar": 43
+      },
+      "revId": "11f50f84e1b5353001babba5baaa21a3e5a30e55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ecbddb16_632a2acd",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1161,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-02-01T12:31:49Z",
+      "side": 1,
+      "message": "Always returns true now. Maybe a function rename is warranted to mention it is just adding an element to the `todo` stack",
+      "range": {
+        "startLine": 1161,
+        "startChar": 0,
+        "endLine": 1161,
+        "endChar": 4
+      },
+      "revId": "11f50f84e1b5353001babba5baaa21a3e5a30e55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df4650d7_e684ba9c",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1172,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-02-01T12:31:49Z",
+      "side": 1,
+      "message": "nit: `bypass`",
+      "range": {
+        "startLine": 1172,
+        "startChar": 52,
+        "endLine": 1172,
+        "endChar": 59
+      },
+      "revId": "11f50f84e1b5353001babba5baaa21a3e5a30e55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c291bee2_95d1ccda",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1208,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-02-01T12:31:49Z",
+      "side": 1,
+      "message": "Doesn\u0027t this mess up with the `ptr_` consistency?",
+      "range": {
+        "startLine": 1208,
+        "startChar": 27,
+        "endLine": 1208,
+        "endChar": 40
+      },
+      "revId": "11f50f84e1b5353001babba5baaa21a3e5a30e55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "045831cf_a1bcfaea",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1208,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-02-01T12:31:49Z",
+      "side": 1,
+      "message": "`bypass`",
+      "range": {
+        "startLine": 1208,
+        "startChar": 52,
+        "endLine": 1208,
+        "endChar": 59
+      },
+      "revId": "11f50f84e1b5353001babba5baaa21a3e5a30e55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
