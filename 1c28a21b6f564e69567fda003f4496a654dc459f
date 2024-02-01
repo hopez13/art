@@ -70,6 +70,53 @@
       },
       "revId": "1c28a21b6f564e69567fda003f4496a654dc459f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57a44f5a_cbf1baa5",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 446,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-01T14:41:28Z",
+      "side": 1,
+      "message": "Yes, `kWithoutReadBarrier` should solve this particular issue. But you\u0027d need to add a `ReadBarrierOption` to `Object::InstanceOf()` and everything called by that, so that you can pass `kWithoutReadBarrier`.\n\nBy the time we\u0027re sweeping root tables during GC, all reachable references (including the declaring class in `WellKnownClasses::java_lang_invoke_MethodType_makeImpl`) have been visited and changed to a to-space reference (if the object moved).\n\nWhat worries me is that the GC does not actually visit these references during marking, so the `MethodType` object could be dead. The immediate consequence here is that we\u0027d need to do this check on `new_method_type` (if not null) instead of `object`. However, we would also need to update the codegen to emit a slow path to refill the entry after it\u0027s been collected.\n\nWe have two options. Either add the slow path to refill the entry if it\u0027s been collected (I guess it would be collected during each GC if it wasn\u0027t actually used during the marking phase), or somehow visit these entries for live methods.",
+      "parentUuid": "fbb65c97_9a383939",
+      "range": {
+        "startLine": 446,
+        "startChar": 8,
+        "endLine": 446,
+        "endChar": 91
+      },
+      "revId": "1c28a21b6f564e69567fda003f4496a654dc459f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6ca98dba_ce0bb768",
+        "filename": "runtime/well_known_classes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-01T14:41:28Z",
+      "side": 1,
+      "message": "I\u0027d put this before `java_lang_reflect_InvocationTargetException`, `\u0027T\u0027 \u003c \u0027i\u0027 \u003c \u0027r\u0027` . (Do not include this in the special group for primitive boxing classes.)",
+      "range": {
+        "startLine": 275,
+        "startChar": 4,
+        "endLine": 276,
+        "endChar": 34
+      },
+      "revId": "1c28a21b6f564e69567fda003f4496a654dc459f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

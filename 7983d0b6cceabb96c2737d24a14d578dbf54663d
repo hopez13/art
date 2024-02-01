@@ -212,6 +212,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0564e9f_7f86d0d9",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 6801,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-01T14:41:28Z",
+      "side": 1,
+      "message": "Oh, the `NewJitRootClassPatch` was also misplaced. I would prefer to have the \"New.*Patch\" functions together but that\u0027s probably a bigger reordering that does not belong to this CL.",
+      "parentUuid": "b8705f54_bb02b978",
+      "range": {
+        "startLine": 6801,
+        "startChar": 28,
+        "endLine": 6801,
+        "endChar": 53
+      },
+      "revId": "7983d0b6cceabb96c2737d24a14d578dbf54663d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c94a9cc3_69aa027b",
@@ -306,6 +330,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "182d9918_aa642bc5",
+        "filename": "compiler/optimizing/sharpening.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 483,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-01T14:41:28Z",
+      "side": 1,
+      "message": "Actually, since we\u0027re now calling back to managed code (`MethodType.makeImpl()`) as part of `ResolveMethodType()`, this would be extremely difficult to do. So, let\u0027s not go that way.",
+      "parentUuid": "bf204192_1fa592f0",
+      "range": {
+        "startLine": 483,
+        "startChar": 22,
+        "endLine": 483,
+        "endChar": 39
+      },
+      "revId": "7983d0b6cceabb96c2737d24a14d578dbf54663d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "34b5fe24_179c65ce",
@@ -337,6 +385,24 @@
       "side": 1,
       "message": "Should I DCHECK that it is OOME?",
       "parentUuid": "34b5fe24_179c65ce",
+      "revId": "7983d0b6cceabb96c2737d24a14d578dbf54663d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "218080fc_c482aa0a",
+        "filename": "compiler/optimizing/sharpening.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 491,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-01T14:41:28Z",
+      "side": 1,
+      "message": "No, that\u0027s not necessary. And since it calls back to the managed code, we could also hit a SOE.",
+      "parentUuid": "124b7499_414a6761",
       "revId": "7983d0b6cceabb96c2737d24a14d578dbf54663d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
