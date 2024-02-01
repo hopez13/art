@@ -91,6 +91,7 @@ class JitLogger {
     JitLogger() : code_index_(0), marker_address_(nullptr) {}
 
     void OpenLog() {
+      EnsurePerfDirectory();
       OpenPerfMapLog();
       OpenJitDumpLog();
     }
@@ -107,6 +108,8 @@ class JitLogger {
     }
 
  private:
+    void EnsurePerfDirectory();
+
     // For perf-map profiling
     void OpenPerfMapLog();
     void WritePerfMapLog(const void* ptr, size_t code_size, ArtMethod* method)
