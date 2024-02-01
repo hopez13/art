@@ -3743,13 +3743,8 @@ void LocationsBuilderRISCV64::VisitIf(HIf* instruction) {
     if (GetGraph()->IsCompilingBaseline() &&
         codegen_->GetCompilerOptions().ProfileBranches() &&
         !Runtime::Current()->IsAotCompiler()) {
-      DCHECK(instruction->InputAt(0)->IsCondition());
-      ProfilingInfo* info = GetGraph()->GetProfilingInfo();
-      DCHECK(info != nullptr);
-      BranchCache* cache = info->GetBranchCache(instruction->GetDexPc());
-      if (cache != nullptr) {
-        locations->AddTemp(Location::RequiresRegister());
-      }
+      // Branch profiling requires an extra register, reserve it
+      locations->AddTemp(Location::RequiresRegister());
     }
   }
 }
