@@ -33,6 +33,12 @@ static const char* kLogPrefix = "/data/misc/trace";
 static const char* kLogPrefix = "/tmp";
 #endif
 
+void JitLogger::EnsurePerfDirectory() {
+  if (!OS::CreateDirectory(kLogPrefix, 0755)) {
+    LOG(WARNING) << "Could not create " << kLogPrefix << " directory";
+  }
+}
+
 // File format of perf-PID.map:
 // +---------------------+
 // |ADDR SIZE symbolname1|
