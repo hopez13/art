@@ -1388,6 +1388,12 @@ void CodeGeneratorARM64::GenerateFrameEntry() {
   }
 
   if (!HasEmptyFrame()) {
+    // Make sure the frame size isn't unreasonably large.
+    if (GetFrameSize() > GetStackOverflowReservedBytes(InstructionSet::kArm64)) {
+      LOG(FATAL) << "Stack frame larger than "
+                 << GetStackOverflowReservedBytes(InstructionSet::kArm64) << " bytes";
+    }
+
     // Stack layout:
     //      sp[frame_size - 8]        : lr.
     //      ...                       : other preserved core registers.

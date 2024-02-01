@@ -1417,6 +1417,12 @@ void CodeGeneratorX86::GenerateFrameEntry() {
   }
 
   if (!HasEmptyFrame()) {
+    // Make sure the frame size isn't unreasonably large.
+    if (GetFrameSize() > GetStackOverflowReservedBytes(InstructionSet::kX86)) {
+      LOG(FATAL) << "Stack frame larger than "
+                 << GetStackOverflowReservedBytes(InstructionSet::kX86) << " bytes";
+    }
+
     for (int i = arraysize(kCoreCalleeSaves) - 1; i >= 0; --i) {
       Register reg = kCoreCalleeSaves[i];
       if (allocated_registers_.ContainsCoreRegister(reg)) {
