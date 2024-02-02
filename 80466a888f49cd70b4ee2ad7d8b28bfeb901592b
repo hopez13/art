@@ -405,6 +405,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9713eb6a_f4cf5ecf",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1435,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-02T10:22:17Z",
+      "side": 1,
+      "message": "Add\n\n    // TODO(riscv64): Print pseudo-instruction aliases when applicable.",
+      "revId": "80466a888f49cd70b4ee2ad7d8b28bfeb901592b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b56a03a2_6ddbd960",
         "filename": "disassembler/disassembler_riscv64.cc",
         "patchSetId": 17
