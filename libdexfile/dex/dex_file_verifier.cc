@@ -1744,6 +1744,11 @@ bool DexFileVerifier::CheckIntraStringDataItem() {
       case 0x0c:
       case 0x0d: {
         // Bit pattern 110x has an additional byte.
+        if (UNLIKELY(ptr_ >= file_end)) {
+          ErrorStringPrintf("String data would go beyond end-of-file");
+          return false;
+        }
+
         uint8_t byte2 = *(ptr_++);
         if (UNLIKELY((byte2 & 0xc0) != 0x80)) {
           ErrorStringPrintf("Illegal continuation byte %x in string data", byte2);
@@ -1758,6 +1763,11 @@ bool DexFileVerifier::CheckIntraStringDataItem() {
       }
       case 0x0e: {
         // Bit pattern 1110 has 2 additional bytes.
+        if (UNLIKELY(ptr_ + 1 >= file_end)) {
+          ErrorStringPrintf("String data would go beyond end-of-file");
+          return false;
+        }
+
         uint8_t byte2 = *(ptr_++);
         if (UNLIKELY((byte2 & 0xc0) != 0x80)) {
           ErrorStringPrintf("Illegal continuation byte %x in string data", byte2);
@@ -1776,6 +1786,11 @@ bool DexFileVerifier::CheckIntraStringDataItem() {
         break;
       }
     }
+  }
+
+  if (UNLIKELY(ptr_ >= file_end)) {
+    ErrorStringPrintf("String data would go beyond end-of-file");
+    return false;
   }
 
   if (UNLIKELY(*(ptr_++) != '\0')) {
