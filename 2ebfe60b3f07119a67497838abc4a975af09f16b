@@ -16,6 +16,29 @@
       "message": "PTAL. I found the bug, so I updated the CL to include fix and also a couple of checks.",
       "revId": "2ebfe60b3f07119a67497838abc4a975af09f16b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "17953a7e_c83267d4",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-02-02T17:16:38Z",
+      "side": 1,
+      "message": "Move this to a single, or under a kIsDebugBuild.",
+      "range": {
+        "startLine": 269,
+        "startChar": 0,
+        "endLine": 271,
+        "endChar": 5
+      },
+      "revId": "2ebfe60b3f07119a67497838abc4a975af09f16b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
