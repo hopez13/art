@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bdb1dad0_c95e692a",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1163,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-02-02T08:32:33Z",
+      "side": 1,
+      "message": "Did the argument count you mentioned that triggers the allocation regarding the captured values? If so, we could enumerate them here to guard against future changes which could (unintendedly) trigger allocations.",
+      "range": {
+        "startLine": 1163,
+        "startChar": 17,
+        "endLine": 1163,
+        "endChar": 18
+      },
+      "revId": "e0792d21fab910e653b756adb1e5789d19726f65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
