@@ -1,0 +1,1274 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a1b362c_a757519f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 17
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-02T10:21:01Z",
+      "side": 1,
+      "message": "They were originally missed but I noticed that when working on https://android-review.googlesource.com/2705435 (see references to \"H\" and \"Q\" extensions) and deliberately left them out because we do not support them in the assembler.\n\nAs long as we do not disassemble other \"H\" and \"Q\" instructions, we may not want to disassemble loads and stores for consistency. But if you want to disassemble them anyway, it\u0027s fine with me.",
+      "range": {
+        "startLine": 14,
+        "startChar": 3,
+        "endLine": 14,
+        "endChar": 29
+      },
+      "revId": "80466a888f49cd70b4ee2ad7d8b28bfeb901592b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14339892_f4fd120a",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-02T10:21:01Z",
+      "side": 1,
+      "message": "Unnecessary (but feel free to keep the masking if you want to - it shall be optimized away by clang).",
+      "range": {
+        "startLine": 61,
+        "startChar": 73,
+        "endLine": 61,
+        "endChar": 80
+      },
+      "revId": "80466a888f49cd70b4ee2ad7d8b28bfeb901592b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c02062c_3963e4b5",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-02T10:21:01Z",
+      "side": 1,
+      "message": "Incorrect, `UImm12` should have `0xfffu` (which would be unnecessary).",
+      "range": {
+        "startLine": 63,
+        "startChar": 76,
+        "endLine": 63,
+        "endChar": 81
+      },
+      "revId": "80466a888f49cd70b4ee2ad7d8b28bfeb901592b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "98ddb1ce_5b7637ac",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-02T10:21:01Z",
+      "side": 1,
+      "message": "Style: Start function names with a capital letter.",
+      "range": {
+        "startLine": 100,
+        "startChar": 21,
+        "endLine": 100,
+        "endChar": 38
+      },
+      "revId": "80466a888f49cd70b4ee2ad7d8b28bfeb901592b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "222fc398_3b728ae2",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-02T10:21:01Z",
+      "side": 1,
+      "message": "Style: `is_load`.",
+      "range": {
+        "startLine": 100,
+        "startChar": 85,
+        "endLine": 100,
+        "endChar": 91
+      },
+      "revId": "80466a888f49cd70b4ee2ad7d8b28bfeb901592b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d1d11c0_5f48c86c",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-02T10:21:01Z",
+      "side": 1,
+      "message": "One register name per line for consistency with other `*RegName()` functions? The `};` should be on its own line.",
+      "range": {
+        "startLine": 190,
+        "startChar": 74,
+        "endLine": 190,
+        "endChar": 76
+      },
+      "revId": "80466a888f49cd70b4ee2ad7d8b28bfeb901592b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dcdd75bb_a6d390a7",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 356,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-02T10:21:01Z",
+      "side": 1,
+      "message": "Make these enums private members of `DisassemblerRiscv64` and use same naming as in the assembler? (`MemoryAddressMode` -\u003e `MemAddressMode`, remove `MOP_`; `kNfg\u003cN\u003e` -\u003e `k\u003cN\u003e`)",
+      "range": {
+        "startLine": 356,
+        "startChar": 11,
+        "endLine": 356,
+        "endChar": 28
+      },
+      "revId": "80466a888f49cd70b4ee2ad7d8b28bfeb901592b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f493218_e78e5e57",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-02T10:21:01Z",
+      "side": 1,
+      "message": "We could index the tables below with\n\n    const uint32_t width_index \u003d (insn32 \u003e\u003e 12) \u0026 3u;\n    DCHECK_EQ(width_index !\u003d 0u, (insn \u0026 0x4000u) !\u003d 0u));\n\nand drop the `nullptr, nullptr, nullptr, nullptr, ` from each row.",
+      "range": {
+        "startLine": 377,
+        "startChar": 2,
+        "endLine": 377,
+        "endChar": 46
+      },
+      "revId": "80466a888f49cd70b4ee2ad7d8b28bfeb901592b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b92039bd_0b672f6a",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 380,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-02T10:21:01Z",
+      "side": 1,
+      "message": "If we move all the printing from callers to this function (reducing code duplication in callers; renaming this function to`PrintRVVMemInstr()`), we could define\n\n    `const char* prefix \u003d is_load ? \"vl\" : \"vs\";\n\nand remove that prefix from the tables. Except for the \"fault-only-first\" and whole register load/store, we would use the same tables for loads and stores.",
+      "revId": "80466a888f49cd70b4ee2ad7d8b28bfeb901592b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7cee2ef4_cd7e9ecd",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 381,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-02T10:21:01Z",
+      "side": 1,
+      "message": "Check that mew\u003d0.",
+      "revId": "80466a888f49cd70b4ee2ad7d8b28bfeb901592b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d083b7e1_0e162544",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 509,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-02T10:21:01Z",
+      "side": 1,
+      "message": "We could have a two-dimensional table as for the unit-stride load above. (Some rows would contain only `nullptr`s.)",
+      "range": {
+        "startLine": 509,
+        "startChar": 10,
+        "endLine": 509,
+        "endChar": 23
+      },
+      "revId": "80466a888f49cd70b4ee2ad7d8b28bfeb901592b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c8d09232_968c5704",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 511,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-02T10:21:01Z",
+      "side": 1,
+      "message": "Should we print the pseudo-instruction `vl1r.v` instead?",
+      "range": {
+        "startLine": 511,
+        "startChar": 60,
+        "endLine": 511,
+        "endChar": 68
+      },
+      "revId": "80466a888f49cd70b4ee2ad7d8b28bfeb901592b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aebc0e5a_fbee9a62",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 563,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-02T10:21:01Z",
+      "side": 1,
+      "message": "Only for vm\u003d1 \u0026\u0026 nf\u003d0 \u0026\u0026 width\u003d\u003d0.",
+      "range": {
+        "startLine": 563,
+        "startChar": 10,
+        "endLine": 563,
+        "endChar": 44
+      },
+      "revId": "80466a888f49cd70b4ee2ad7d8b28bfeb901592b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee094161_4738a16f",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1038,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-02T10:21:01Z",
+      "side": 1,
+      "message": "After addressing the above suggestions, this may not be necessary.",
+      "range": {
+        "startLine": 1038,
+        "startChar": 3,
+        "endLine": 1038,
+        "endChar": 33
+      },
+      "revId": "80466a888f49cd70b4ee2ad7d8b28bfeb901592b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2e9e822d_6cf09620",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1043,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-02T10:21:01Z",
+      "side": 1,
+      "message": "As mentioned in the commit message, these were deliberately omitted. But including them simplifies the control flow below.",
+      "range": {
+        "startLine": 1043,
+        "startChar": 36,
+        "endLine": 1043,
+        "endChar": 41
+      },
+      "revId": "80466a888f49cd70b4ee2ad7d8b28bfeb901592b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "850e3bbe_a1c3bfd3",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1045,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-02T10:21:01Z",
+      "side": 1,
+      "message": "Style: One per line, so that we can write the type as `const char*`.",
+      "range": {
+        "startLine": 1045,
+        "startChar": 2,
+        "endLine": 1045,
+        "endChar": 53
+      },
+      "revId": "80466a888f49cd70b4ee2ad7d8b28bfeb901592b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "565ba9bd_8d35f9cf",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1050,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-02T10:21:01Z",
+      "side": 1,
+      "message": "`/*is_load\u003d*/`",
+      "range": {
+        "startLine": 1050,
+        "startChar": 43,
+        "endLine": 1050,
+        "endChar": 44
+      },
+      "revId": "80466a888f49cd70b4ee2ad7d8b28bfeb901592b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "70788722_258be141",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1090,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-02T10:21:01Z",
+      "side": 1,
+      "message": "`/*is_load\u003d*/`",
+      "range": {
+        "startLine": 1090,
+        "startChar": 43,
+        "endLine": 1090,
+        "endChar": 44
+      },
+      "revId": "80466a888f49cd70b4ee2ad7d8b28bfeb901592b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b56a03a2_6ddbd960",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1440,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-02T10:21:01Z",
+      "side": 1,
+      "message": "Should this be `v0.m`?",
+      "range": {
+        "startLine": 1440,
+        "startChar": 40,
+        "endLine": 1440,
+        "endChar": 42
+      },
+      "revId": "80466a888f49cd70b4ee2ad7d8b28bfeb901592b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a7c1aee_d128018f",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1440,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-02T10:21:01Z",
+      "side": 1,
+      "message": "Enclose in `(`, `)`?",
+      "range": {
+        "startLine": 1440,
+        "startChar": 19,
+        "endLine": 1440,
+        "endChar": 29
+      },
+      "revId": "80466a888f49cd70b4ee2ad7d8b28bfeb901592b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48224b73_1c0bd328",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1441,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-02T10:21:01Z",
+      "side": 1,
+      "message": "Style: I\u0027d prefer one per line, so that we can keep the type close together (`const char*`).",
+      "range": {
+        "startLine": 1441,
+        "startChar": 2,
+        "endLine": 1441,
+        "endChar": 78
+      },
+      "revId": "80466a888f49cd70b4ee2ad7d8b28bfeb901592b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "daf0ef2e_23c10947",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1458,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-02T10:21:01Z",
+      "side": 1,
+      "message": "I\u0027d prefer just 4 per line to make it easier to match the `funct6` when comparing with the `19. Vector Instruction Listing`. And the `};` should be on its own line.",
+      "range": {
+        "startLine": 1458,
+        "startChar": 58,
+        "endLine": 1458,
+        "endChar": 60
+      },
+      "revId": "80466a888f49cd70b4ee2ad7d8b28bfeb901592b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e91f2fa2_790d0636",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1463,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-02T10:21:01Z",
+      "side": 1,
+      "message": "Style: `(funct7 \u0026 1u) !\u003d 0u` - avoid implicit conversion to bool.",
+      "range": {
+        "startLine": 1463,
+        "startChar": 12,
+        "endLine": 1463,
+        "endChar": 24
+      },
+      "revId": "80466a888f49cd70b4ee2ad7d8b28bfeb901592b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "28d2013f_639ebbe0",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1469,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-02T10:21:01Z",
+      "side": 1,
+      "message": "Only for `(funct7 \u0026 1u) \u003d\u003d 0u`. The case with vm\u003d\u003d1 \u0026\u0026 rs2!\u003d0 should go to `\u003cunknown32\u003e`.\n\nMaybe reorder the code:\n\n    if ((funct7 \u0026 1u) \u003d\u003d 0u) {\n      [vmerge.vv]\n    } else if (GetRs2(insn32) \u003d\u003d 0) {\n      [vmv.v.v]\n    }  // else unknown instruction",
+      "range": {
+        "startLine": 1469,
+        "startChar": 10,
+        "endLine": 1469,
+        "endChar": 32
+      },
+      "revId": "80466a888f49cd70b4ee2ad7d8b28bfeb901592b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45ca26a7_01e3c2e0",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1472,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-02T10:21:01Z",
+      "side": 1,
+      "message": "Wrongly overwrites `\", v0\"` for `vmerge.vvm`.",
+      "range": {
+        "startLine": 1472,
+        "startChar": 8,
+        "endLine": 1472,
+        "endChar": 15
+      },
+      "revId": "80466a888f49cd70b4ee2ad7d8b28bfeb901592b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "73570ca3_5cea2a60",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1493,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-02T10:21:01Z",
+      "side": 1,
+      "message": "4 per line and `};` on its own line.",
+      "range": {
+        "startLine": 1493,
+        "startChar": 60,
+        "endLine": 1493,
+        "endChar": 62
+      },
+      "revId": "80466a888f49cd70b4ee2ad7d8b28bfeb901592b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88f57dee_559b862a",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1507,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-02T10:21:01Z",
+      "side": 1,
+      "message": "Same comments as for the `kOpIVV`.",
+      "range": {
+        "startLine": 1498,
+        "startChar": 8,
+        "endLine": 1507,
+        "endChar": 16
+      },
+      "revId": "80466a888f49cd70b4ee2ad7d8b28bfeb901592b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85cc2748_1eee9f44",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1524,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-02T10:21:01Z",
+      "side": 1,
+      "message": "Maybe `\"\u003cvmvNr.v\u003e\"`? Similar to the effectively unreachable `\"\u003cmerge/vmv\u003e\"` above.",
+      "range": {
+        "startLine": 1524,
+        "startChar": 52,
+        "endLine": 1524,
+        "endChar": 59
+      },
+      "revId": "80466a888f49cd70b4ee2ad7d8b28bfeb901592b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "edf19458_b3025b2e",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1528,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-02T10:21:01Z",
+      "side": 1,
+      "message": "Four per line, `};` on its own line.",
+      "range": {
+        "startLine": 1528,
+        "startChar": 59,
+        "endLine": 1528,
+        "endChar": 61
+      },
+      "revId": "80466a888f49cd70b4ee2ad7d8b28bfeb901592b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "507dd1ce_dc0d2836",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1543,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-02T10:21:01Z",
+      "side": 1,
+      "message": "Same comments as for the `kOpIVV`.",
+      "range": {
+        "startLine": 1534,
+        "startChar": 8,
+        "endLine": 1543,
+        "endChar": 16
+      },
+      "revId": "80466a888f49cd70b4ee2ad7d8b28bfeb901592b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "feb94b16_ad32b9d5",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1565,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-02T10:21:01Z",
+      "side": 1,
+      "message": "On it\u0027s own line.",
+      "range": {
+        "startLine": 1565,
+        "startChar": 89,
+        "endLine": 1565,
+        "endChar": 91
+      },
+      "revId": "80466a888f49cd70b4ee2ad7d8b28bfeb901592b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c185d257_f8b45e37",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1577,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-02T10:21:01Z",
+      "side": 1,
+      "message": "Four per line and `};` on its own line.",
+      "range": {
+        "startLine": 1577,
+        "startChar": 56,
+        "endLine": 1577,
+        "endChar": 58
+      },
+      "revId": "80466a888f49cd70b4ee2ad7d8b28bfeb901592b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "80a601da_08f50538",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1588,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-02T10:21:01Z",
+      "side": 1,
+      "message": "On its own line.",
+      "range": {
+        "startLine": 1588,
+        "startChar": 92,
+        "endLine": 1588,
+        "endChar": 94
+      },
+      "revId": "80466a888f49cd70b4ee2ad7d8b28bfeb901592b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4aa5ef9_50736a1c",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1599,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-02T10:21:01Z",
+      "side": 1,
+      "message": "Maybe `\"\u003cVWXUNARY0\u003e\"`?",
+      "range": {
+        "startLine": 1599,
+        "startChar": 28,
+        "endLine": 1599,
+        "endChar": 35
+      },
+      "revId": "80466a888f49cd70b4ee2ad7d8b28bfeb901592b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cdb67b3c_2859f579",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1599,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-02T10:21:01Z",
+      "side": 1,
+      "message": "Maybe `\"\u003cVXUNARY0\u003e\"`?",
+      "range": {
+        "startLine": 1599,
+        "startChar": 57,
+        "endLine": 1599,
+        "endChar": 64
+      },
+      "revId": "80466a888f49cd70b4ee2ad7d8b28bfeb901592b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4fa8a1d1_b6de9a09",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1600,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-02T10:21:01Z",
+      "side": 1,
+      "message": "Maybe `\"\u003cVMUNARY0\u003e\"`?",
+      "range": {
+        "startLine": 1600,
+        "startChar": 14,
+        "endLine": 1600,
+        "endChar": 21
+      },
+      "revId": "80466a888f49cd70b4ee2ad7d8b28bfeb901592b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1af7cb36_89c8769c",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1602,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-02T10:21:01Z",
+      "side": 1,
+      "message": "Encodings with vm\u003d0 for the .mm instuctions are reserved, so they should go to the `\"\u003cunknown32\u003e\"` path, same for `vcompress.vm`.",
+      "range": {
+        "startLine": 1602,
+        "startChar": 28,
+        "endLine": 1602,
+        "endChar": 39
+      },
+      "revId": "80466a888f49cd70b4ee2ad7d8b28bfeb901592b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c760027d_586a4c1f",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1608,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-02T10:21:01Z",
+      "side": 1,
+      "message": "Four per line and `};` on its own line.",
+      "range": {
+        "startLine": 1608,
+        "startChar": 70,
+        "endLine": 1608,
+        "endChar": 72
+      },
+      "revId": "80466a888f49cd70b4ee2ad7d8b28bfeb901592b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7e27a77_7d36f8dc",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1612,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-02T10:21:01Z",
+      "side": 1,
+      "message": "These need to be in reverse order for some instructions. For example, clang disassembly\n\n     0: d7 a0 33 86   vdiv.vv v1, v3, v7\n     4: d7 a0 71 a6   vmadd.vv v1, v3, v7\n\nshows that the same \"v3, v7\" args are stored in different bits - the difference is in `33` v. `71` for the byte that encodes four bits of rs1 and four bits of rs2.\n\nThe same is true for the OPFVV case. I\u0027m not sure about the other cases.",
+      "range": {
+        "startLine": 1611,
+        "startChar": 10,
+        "endLine": 1612,
+        "endChar": 41
+      },
+      "revId": "80466a888f49cd70b4ee2ad7d8b28bfeb901592b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "60408724_494761ac",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1636,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-02T10:21:01Z",
+      "side": 1,
+      "message": "Maybe `\"\u003cVRXUNARY0\u003e\"`?",
+      "range": {
+        "startLine": 1636,
+        "startChar": 32,
+        "endLine": 1636,
+        "endChar": 39
+      },
+      "revId": "80466a888f49cd70b4ee2ad7d8b28bfeb901592b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71947a14_ba31c0f3",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1645,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-02T10:21:01Z",
+      "side": 1,
+      "message": "Four per line and `};` on its own line.",
+      "range": {
+        "startLine": 1645,
+        "startChar": 73,
+        "endLine": 1645,
+        "endChar": 75
+      },
+      "revId": "80466a888f49cd70b4ee2ad7d8b28bfeb901592b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee369164_022e8f34",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1700,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-02T10:21:01Z",
+      "side": 1,
+      "message": "Four per line and `};` on its own line.",
+      "range": {
+        "startLine": 1700,
+        "startChar": 65,
+        "endLine": 1700,
+        "endChar": 67
+      },
+      "revId": "80466a888f49cd70b4ee2ad7d8b28bfeb901592b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4510301e_8a39a33d",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1711,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-02T10:21:01Z",
+      "side": 1,
+      "message": "On its own line.",
+      "range": {
+        "startLine": 1711,
+        "startChar": 96,
+        "endLine": 1711,
+        "endChar": 98
+      },
+      "revId": "80466a888f49cd70b4ee2ad7d8b28bfeb901592b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "02f98648_859eb30b",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1722,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-02T10:21:01Z",
+      "side": 1,
+      "message": "Maybe `\"\u003cVWFUNARY0\u003e\"`?",
+      "range": {
+        "startLine": 1722,
+        "startChar": 29,
+        "endLine": 1722,
+        "endChar": 36
+      },
+      "revId": "80466a888f49cd70b4ee2ad7d8b28bfeb901592b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b6756a2_35c9ff7c",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1722,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-02T10:21:01Z",
+      "side": 1,
+      "message": "Maybe `\"\u003cVFUNARY1\u003e\"`?",
+      "range": {
+        "startLine": 1722,
+        "startChar": 77,
+        "endLine": 1722,
+        "endChar": 84
+      },
+      "revId": "80466a888f49cd70b4ee2ad7d8b28bfeb901592b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d51df37_7245d970",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1722,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-02T10:21:01Z",
+      "side": 1,
+      "message": "Maybe `\"\u003cVFUNARY0\u003e\"`?",
+      "range": {
+        "startLine": 1722,
+        "startChar": 61,
+        "endLine": 1722,
+        "endChar": 68
+      },
+      "revId": "80466a888f49cd70b4ee2ad7d8b28bfeb901592b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "447496d3_ecd68edf",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1723,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-02T10:21:01Z",
+      "side": 1,
+      "message": "Maybe `\"\u003cvfmerge/vfmv\u003e\"`?",
+      "range": {
+        "startLine": 1723,
+        "startChar": 61,
+        "endLine": 1723,
+        "endChar": 68
+      },
+      "revId": "80466a888f49cd70b4ee2ad7d8b28bfeb901592b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ac1e294_050d8595",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1731,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-02T10:21:01Z",
+      "side": 1,
+      "message": "Four per line and `};` on its own line.",
+      "range": {
+        "startLine": 1731,
+        "startChar": 74,
+        "endLine": 1731,
+        "endChar": 76
+      },
+      "revId": "80466a888f49cd70b4ee2ad7d8b28bfeb901592b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "208f5385_cc3a2727",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1760,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-02T10:21:01Z",
+      "side": 1,
+      "message": "Maybe `\"\u003cVRFUNARY0\u003e\"`?",
+      "range": {
+        "startLine": 1760,
+        "startChar": 14,
+        "endLine": 1760,
+        "endChar": 21
+      },
+      "revId": "80466a888f49cd70b4ee2ad7d8b28bfeb901592b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "adaf8e41_927fa98e",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1771,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-02T10:21:01Z",
+      "side": 1,
+      "message": "On its own line.",
+      "range": {
+        "startLine": 1771,
+        "startChar": 73,
+        "endLine": 1771,
+        "endChar": 75
+      },
+      "revId": "80466a888f49cd70b4ee2ad7d8b28bfeb901592b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "91f8e811_fbbf59a1",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1785,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-02T10:21:01Z",
+      "side": 1,
+      "message": "Same comments as for the `kOpIVV`.",
+      "range": {
+        "startLine": 1776,
+        "startChar": 12,
+        "endLine": 1785,
+        "endChar": 20
+      },
+      "revId": "80466a888f49cd70b4ee2ad7d8b28bfeb901592b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d22f68f_ecee5b42",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1798,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-02T10:21:01Z",
+      "side": 1,
+      "message": "One per line and write the type as `const char*`.",
+      "revId": "80466a888f49cd70b4ee2ad7d8b28bfeb901592b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df374dce_58427ae2",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1800,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-02T10:21:01Z",
+      "side": 1,
+      "message": "Avoid implicit conversions to bool.",
+      "range": {
+        "startLine": 1799,
+        "startChar": 6,
+        "endLine": 1800,
+        "endChar": 34
+      },
+      "revId": "80466a888f49cd70b4ee2ad7d8b28bfeb901592b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "060f32c4_ab0563f5",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1825,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-02T10:21:01Z",
+      "side": 1,
+      "message": "This code is the same as above. Maybe we should have an `AppendVType(uint32_t zimm)` instead of `decodeVType(...)`.",
+      "range": {
+        "startLine": 1821,
+        "startChar": 8,
+        "endLine": 1825,
+        "endChar": 9
+      },
+      "revId": "80466a888f49cd70b4ee2ad7d8b28bfeb901592b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f709c8b3_1f7d9c0c",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1838,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-02T10:21:01Z",
+      "side": 1,
+      "message": "`!\u003d nullptr`",
+      "range": {
+        "startLine": 1838,
+        "startChar": 6,
+        "endLine": 1838,
+        "endChar": 9
+      },
+      "revId": "80466a888f49cd70b4ee2ad7d8b28bfeb901592b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f7917ff_2cdfa30d",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1844,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-02T10:21:01Z",
+      "side": 1,
+      "message": "`!\u003d nullptr`",
+      "range": {
+        "startLine": 1844,
+        "startChar": 6,
+        "endLine": 1844,
+        "endChar": 9
+      },
+      "revId": "80466a888f49cd70b4ee2ad7d8b28bfeb901592b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
