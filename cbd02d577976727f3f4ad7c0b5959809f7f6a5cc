@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ae06d09_3241dcfa",
+        "filename": "compiler/driver/compiler_options.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-02-02T09:23:56Z",
+      "side": 1,
+      "message": "Didn\u0027t inline this one since it is not a true/false simple value and we would probably like to keep the descriptive name.",
+      "range": {
+        "startLine": 64,
+        "startChar": 26,
+        "endLine": 64,
+        "endChar": 53
+      },
+      "revId": "cbd02d577976727f3f4ad7c0b5959809f7f6a5cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "12f5c779_b318ffc8",
+        "filename": "compiler/driver/compiler_options.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-02-02T09:23:56Z",
+      "side": 1,
+      "message": "Maybe with a refactor we could get rid of these too. JIT/AOT compiling are fine since we can set a default value (and parsing the options would override if the flag exists). The issue is tests which create compiler options without parsing flags so it is not trivial.",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 56
+      },
+      "revId": "cbd02d577976727f3f4ad7c0b5959809f7f6a5cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
