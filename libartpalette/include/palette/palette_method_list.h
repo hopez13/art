@@ -75,6 +75,8 @@
   /*         PALETTE_STATUS_NOT_SUPPORTED if the implementation no longer supports this */    \
   /*         call. This can happen at any future SDK level since this function wraps an */    \
   /*         internal unstable API. */                                                        \
-  M(PaletteSetTaskProfiles, int32_t tid, const char* const profiles[], size_t profiles_len)
+  M(PaletteSetTaskProfiles, int32_t tid, const char* const profiles[], size_t profiles_len)   \
+  /* Methods in version 4 API, corresponding to SDK level 35. */                              \
+  M(PaletteDebugStoreGetString, char* result, size_t max_size)
 
 #endif  // ART_LIBARTPALETTE_INCLUDE_PALETTE_PALETTE_METHOD_LIST_H_
