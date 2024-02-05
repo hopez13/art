@@ -3,6 +3,75 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c6c77f47_39656315",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1019,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-05T14:12:14Z",
+      "side": 1,
+      "message": "We could change this to\n\n    bool DexFileVerifier::CheckEncodedValues(size_t count) {\n      for (size_t i \u003d 0; i !\u003d count; ++i) {\n        ...\n        switch (...) {\n          ...\n          case DexFile::kDexAnnotationArray:\n            [check value_arg]\n            DECODE_UNSIGNED_CHECKED_FROM(ptr_, size);\n            count+\u003d size;  // + overflow check: either report error immediatelly,\n                           // or set to max size_t which shall eventually reach\n                           // EndOfFile() and report error.\n            break;\n          case DexFile::kDexAnnotationAnnotation:\n            [check value_arg]\n            [read and check anno_idx]\n            DECODE_UNSIGNED_CHECKED_FROM(ptr_, annotations_size);\n            todo_.emplace(/*remaining_values\u003d*/ count - i - 1u, annotations_size);\n            return true;\n          ...\n        }\n      }\n    }\n\nThen the only value type that needs to use the `todo_` stack is the `DexFile::kDexAnnotationAnnotation` and we would not really need to use a `std::function`.",
+      "range": {
+        "startLine": 1019,
+        "startChar": 0,
+        "endLine": 1019,
+        "endChar": 43
+      },
+      "revId": "e0792d21fab910e653b756adb1e5789d19726f65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ea7739d_7d605baf",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1034,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-05T14:12:14Z",
+      "side": 1,
+      "message": "Can you add the missing checks for going beyond the end of file here and below?",
+      "range": {
+        "startLine": 1034,
+        "startChar": 6,
+        "endLine": 1034,
+        "endChar": 12
+      },
+      "revId": "e0792d21fab910e653b756adb1e5789d19726f65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c1b3b6b_3cd2a23d",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1061,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-05T14:12:14Z",
+      "side": 1,
+      "message": "Can you rewrite `ReadUnsignedLittleEndian()` so that we can propagate the error from its `CheckListSize()` call?",
+      "range": {
+        "startLine": 1061,
+        "startChar": 21,
+        "endLine": 1061,
+        "endChar": 45
+      },
+      "revId": "e0792d21fab910e653b756adb1e5789d19726f65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bdb1dad0_c95e692a",
         "filename": "libdexfile/dex/dex_file_verifier.cc",
         "patchSetId": 7
