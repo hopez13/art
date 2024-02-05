@@ -37,3 +37,7 @@
     return v0
 .end method
 
+.method public static ensureInit()V
+    .registers 0
+    return-void
+.end method

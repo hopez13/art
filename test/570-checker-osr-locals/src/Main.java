@@ -69,6 +69,8 @@ public class Main {
   public static void runSmaliTest() {
     try {
       Class<?> c = Class.forName("WeirdLoop");
+      // Make sure class is initialized and 'weirdLoop' is compilible
+      c.getDeclaredMethod("ensureInit").invoke(null);
       int result = (int) c.getDeclaredMethod("weirdLoop").invoke(null);
       if (result != 42) {
         throw new Error("Unexpected result: " + result);
