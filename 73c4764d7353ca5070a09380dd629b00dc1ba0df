@@ -22,6 +22,30 @@
       },
       "revId": "73c4764d7353ca5070a09380dd629b00dc1ba0df",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f61df8d_ef1b0beb",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1712,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-02-05T14:12:26Z",
+      "side": 1,
+      "message": "Done. I slightly change the checks but the idea is the same.",
+      "parentUuid": "1375ccde_16bc1d73",
+      "range": {
+        "startLine": 1709,
+        "startChar": 4,
+        "endLine": 1712,
+        "endChar": 5
+      },
+      "revId": "73c4764d7353ca5070a09380dd629b00dc1ba0df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
