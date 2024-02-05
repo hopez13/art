@@ -694,7 +694,7 @@ bool HDeadCodeElimination::RemoveUnneededTries() {
   ScopedArenaAllocator allocator(graph_->GetArenaStack());
 
   // Collect which blocks are part of which try.
-  std::unordered_map<HBasicBlock*, TryBelongingInformation> tries;
+  ScopedArenaUnorderedMap<HBasicBlock*, TryBelongingInformation> tries(allocator.Adapter(kArenaAllocDCE));
   for (HBasicBlock* block : graph_->GetReversePostOrderSkipEntryBlock()) {
     if (block->IsTryBlock()) {
       HBasicBlock* key = block->GetTryCatchInformation()->GetTryEntry().GetBlock();
