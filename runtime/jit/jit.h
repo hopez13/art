@@ -519,6 +519,8 @@ class Jit {
   EXPORT void MaybeEnqueueCompilation(ArtMethod* method, Thread* self)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
+  EXPORT static bool TryPatternMatch(ArtMethod* method, CompilationKind compilation_kind);
+
  private:
   Jit(JitCodeCache* code_cache, JitOptions* options);
 
