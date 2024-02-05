@@ -199,14 +199,7 @@ public class ArtdRefCache {
 
         @NonNull
         public IArtd getArtd() {
-            IArtd artd =
-                    IArtd.Stub.asInterface(ArtModuleServiceInitializer.getArtModuleServiceManager()
-                                                   .getArtdServiceRegisterer()
-                                                   .waitForService());
-            if (artd == null) {
-                throw new IllegalStateException("Unable to connect to artd");
-            }
-            return artd;
+            return GlobalInjector.getInstance().getArtd();
         }
 
         @NonNull
