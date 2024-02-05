@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2024 The Android Open Source Project
+ * Copyright (C) 2023 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,13 +14,17 @@
  * limitations under the License.
  */
 
-package com.android.server.art;
+package com.android.server.art.model;
+
+import android.annotation.NonNull;
+import android.app.job.JobParameters;
+
+import com.android.server.art.BackgroundDexoptJobService;
 
 /** @hide */
-interface IDexoptChrootSetup {
-    const @utf8InCpp String CHROOT_DIR = "/mnt/pre_reboot_dexopt";
+public interface ArtServiceJobInterface {
+    boolean onStartJob(
+            @NonNull BackgroundDexoptJobService jobService, @NonNull JobParameters params);
 
-    void setUp();
-
-    void tearDown();
+    boolean onStopJob(@NonNull JobParameters params);
 }
