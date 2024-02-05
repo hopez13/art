@@ -34,6 +34,24 @@
       "parentUuid": "1ebe7762_96040dad",
       "revId": "939365b5cd7948631d44c2a020cdd466ded25f4d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5dacfaad_755fa5c7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-05T08:24:46Z",
+      "side": 1,
+      "message": "SGTM. Maybe we should also `LOG(WARNING)` in this presumably rare case and include the calculated frame size.",
+      "parentUuid": "58b46519_a414705b",
+      "revId": "939365b5cd7948631d44c2a020cdd466ded25f4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
