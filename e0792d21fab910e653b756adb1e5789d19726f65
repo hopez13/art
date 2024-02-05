@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9a22bb3c_9d61d2d3",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1019,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2024-02-05T15:15:37Z",
+      "side": 1,
+      "message": "It is still missing the `last_idx` capture, and with that added it just boils down to \"we can replace the automatic captures, with manual struct which is union/aggregate of the captures\".  So it is the same, just more verbose.\n\nHowever, your other point is that we could do a bit of inlining, and add the `count` argument.  I considered it but I didn\u0027t follow through because it causes bigger CL.  I will try (with the goal of removing the push/pop in array loop).",
+      "parentUuid": "c6c77f47_39656315",
+      "range": {
+        "startLine": 1019,
+        "startChar": 0,
+        "endLine": 1019,
+        "endChar": 43
+      },
+      "revId": "e0792d21fab910e653b756adb1e5789d19726f65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8ea7739d_7d605baf",
         "filename": "libdexfile/dex/dex_file_verifier.cc",
         "patchSetId": 7
