@@ -831,6 +831,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "16b51d35_0ef0eae3",
+        "filename": "runtime/jni_hash_set.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-02-05T17:05:51Z",
+      "side": 1,
+      "message": "Thanks for making it much clearer. 2 more questions about compiler behavior:\n\n1.\n\u003e so we would not need any branches dependent on the ISA and the function call target should be trivially guessed by the CPU\u0027s branch predictor.\n\nDon\u0027t we need to assign different function pointers to `fp_` based on isa? If isa is known in runtime, how could it be guessed by the CPU;s branch predictor?\n\n2.\n\u003e We could use a function template for arm64 and x86-64, so that the results of GetMaxIntLikeRegisterArgs() and GetMaxFloatOrDoubleRegisterArgs() would be known at compile time.\n\nIf using template, does the code looks like below? If so, why the result could be known at compile time as isa is a runtime known value?\n\n```\ntemplate \u003cclass isa\u003e\n...\nsize_t max_int_like_args \u003d isa::kMaxIntLikeRegisterArguments;\n```",
+      "parentUuid": "0416757e_70de3803",
+      "range": {
+        "startLine": 366,
+        "startChar": 4,
+        "endLine": 366,
+        "endChar": 23
+      },
+      "revId": "c144d9f461caa469b5b8d573a20b4caf08d2b38c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "054a76e9_60a69456",
         "filename": "runtime/jni_hash_set.h",
         "patchSetId": 2
