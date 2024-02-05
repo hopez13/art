@@ -18,4 +18,9 @@ package com.android.server.art;
 
 /** @hide */
 interface IDexoptChrootSetup {
+    const @utf8InCpp String CHROOT_DIR = "/mnt/pre_reboot_dexopt";
+
+    void setUp();
+
+    void tearDown();
 }
