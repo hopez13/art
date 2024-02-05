@@ -47,6 +47,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3793ad9c_1105baed",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2397,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-02-05T13:51:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8f339b29_3b8fd655",
+      "range": {
+        "startLine": 2392,
+        "startChar": 0,
+        "endLine": 2397,
+        "endChar": 3
+      },
+      "revId": "b866af1a458cdf6f78a6f0c3147df1fd0a2ca731",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2a15cc60_5e5315e5",
@@ -70,6 +94,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "94066e7f_b4ab65d6",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 943,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-02-05T13:51:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2a15cc60_5e5315e5",
+      "range": {
+        "startLine": 942,
+        "startChar": 4,
+        "endLine": 943,
+        "endChar": 93
+      },
+      "revId": "b866af1a458cdf6f78a6f0c3147df1fd0a2ca731",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4f4f9f1b_e90ff9b3",
@@ -83,6 +131,24 @@
       "writtenOn": "2024-02-05T10:42:53Z",
       "side": 1,
       "message": "We could strongly `CHECK()` this - intrinsics that pass the leaf method check above should never have such huge frames.",
+      "revId": "b866af1a458cdf6f78a6f0c3147df1fd0a2ca731",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d204ab0e_bda00722",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1043,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-02-05T13:51:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4f4f9f1b_e90ff9b3",
       "revId": "b866af1a458cdf6f78a6f0c3147df1fd0a2ca731",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
