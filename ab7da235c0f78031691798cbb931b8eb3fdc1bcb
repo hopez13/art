@@ -1,0 +1,245 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3350e56d_27274046",
+        "filename": "artd/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-02-05T01:39:43Z",
+      "side": 1,
+      "message": "The fuzzer stuff would ideally be better off in a separate CL, but optional.",
+      "range": {
+        "startLine": 110,
+        "startChar": 10,
+        "endLine": 110,
+        "endChar": 23
+      },
+      "revId": "ab7da235c0f78031691798cbb931b8eb3fdc1bcb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba84c15e_667ac7d0",
+        "filename": "artd/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-02-05T01:39:43Z",
+      "side": 1,
+      "message": "I wonder how fuzzers are run with the right linker namespace setup to even find such shared libs. I assume they only run on platforms with modules built from source, so do they smudge all the linker namespaces into one? Anyway, just a side thought.",
+      "range": {
+        "startLine": 116,
+        "startChar": 11,
+        "endLine": 116,
+        "endChar": 59
+      },
+      "revId": "ab7da235c0f78031691798cbb931b8eb3fdc1bcb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "acd7f4fa_4482e50d",
+        "filename": "artd/artd.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-02-05T01:39:43Z",
+      "side": 1,
+      "message": "Please add a short description of this, including that it runs in a chroot.",
+      "revId": "ab7da235c0f78031691798cbb931b8eb3fdc1bcb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6dbf254_8a846d1b",
+        "filename": "artd/artd_main.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-02-05T01:39:43Z",
+      "side": 1,
+      "message": "Isn\u0027t `ParseError` or similar better when it doesn\u0027t actually show any usage? (I don\u0027t think it should show full usage either.)",
+      "range": {
+        "startLine": 31,
+        "startChar": 18,
+        "endLine": 31,
+        "endChar": 23
+      },
+      "revId": "ab7da235c0f78031691798cbb931b8eb3fdc1bcb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3dfd763_d19250dc",
+        "filename": "artd_chroot/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-02-05T01:39:43Z",
+      "side": 1,
+      "message": "I think this name can lead to confusion with the artd instance running inside the chroot, which even though the process will be `artd`, is something we\u0027re likely to talk about as \"the chroot artd\" (I had to check that this wasn\u0027t in fact some variant of `artd` itself).\n\nSomething like `artd_chroot_setup` could alleviate that, but another thought is to name it from the purpose of the chroot instead, i.e. `dexopt_chroot_setup`. (And it\u0027s afterall more than just artd that\u0027ll run in it.) It doesn\u0027t fully describe the purpose - for that we\u0027d need `pre_reboot_dexopt_chroot_setup` but that\u0027s overly long.\n\nThe reason I think is\u0027s worthwhile to add `_setup` is to emphasise that this binary doesn\u0027t actually do the chroot itself (right?), and it\u0027s very easy to make that assumption otherwise. Granted, it also tears it down afterwards, but that\u0027s more of a detail. Another less temporal suffix could be `_env`.",
+      "range": {
+        "startLine": 41,
+        "startChar": 11,
+        "endLine": 41,
+        "endChar": 22
+      },
+      "revId": "ab7da235c0f78031691798cbb931b8eb3fdc1bcb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3dde32f5_eac85ea8",
+        "filename": "artd_chroot/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-02-05T01:39:43Z",
+      "side": 1,
+      "message": "These are not in the defaults because of a future cc_test? What about adding the boilerplate for that as well here?",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 21
+      },
+      "revId": "ab7da235c0f78031691798cbb931b8eb3fdc1bcb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba57b571_f69f6dca",
+        "filename": "artd_chroot/artd_chroot.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-02-05T01:39:43Z",
+      "side": 1,
+      "message": "Please add a class comment describing the general purpose of this.",
+      "revId": "ab7da235c0f78031691798cbb931b8eb3fdc1bcb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f5a1528_f17f69ee",
+        "filename": "artd_chroot/artd_chroot_main.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-02-05T01:39:43Z",
+      "side": 1,
+      "message": "```suggestion\n  if (Result\u003cvoid\u003e ret \u003d artd_chroot-\u003eStart(); !ret.ok()) {\n```",
+      "range": {
+        "startLine": 32,
+        "startChar": 6,
+        "endLine": 32,
+        "endChar": 10
+      },
+      "revId": "ab7da235c0f78031691798cbb931b8eb3fdc1bcb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "efe6ff0f_570d8b20",
+        "filename": "artd_chroot/binder/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-02-05T01:39:43Z",
+      "side": 1,
+      "message": "This isn\u0027t strictly necessary, right? This service will only be called on VIC and later. Would static checks be a problem if it\u0027s higher?",
+      "range": {
+        "startLine": 55,
+        "startChar": 22,
+        "endLine": 55,
+        "endChar": 24
+      },
+      "revId": "ab7da235c0f78031691798cbb931b8eb3fdc1bcb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0577e3c5_1fd8629e",
+        "filename": "build/apex/art.rc",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-02-05T01:39:43Z",
+      "side": 1,
+      "message": "Please add a sentence to describe what the services are for. Also I think this one isn\u0027t overly useful - it\u0027s easy to infer from `disabled` and `oneshot` below.",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 67
+      },
+      "revId": "ab7da235c0f78031691798cbb931b8eb3fdc1bcb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "466091a2_60539517",
+        "filename": "build/apex/art.rc",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-02-05T01:39:43Z",
+      "side": 1,
+      "message": "Why not use the system `chroot`?\n\nIf you add chroot to art_exec it ought to be tested too.",
+      "range": {
+        "startLine": 26,
+        "startChar": 24,
+        "endLine": 26,
+        "endChar": 58
+      },
+      "revId": "ab7da235c0f78031691798cbb931b8eb3fdc1bcb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
