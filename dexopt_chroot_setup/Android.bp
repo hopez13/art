@@ -28,12 +28,17 @@ cc_defaults {
     srcs: [
         "dexopt_chroot_setup.cc",
     ],
+    header_libs: [
+        "libarttools_binder_utils",
+    ],
     shared_libs: [
+        "libarttools", // Contains "libc++fs".
         "libbase",
         "libbinder_ndk",
     ],
     static_libs: [
         "dexopt_chroot_setup-aidl-ndk",
+        "libfstab",
     ],
 }
 
