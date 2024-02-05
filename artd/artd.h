@@ -199,6 +199,19 @@ class Artd : public aidl::com::android::server::art::BnArtd {
   ndk::ScopedAStatus getProfileSize(const aidl::com::android::server::art::ProfilePath& in_profile,
                                     int64_t* _aidl_return) override;
 
+  ndk::ScopedAStatus commitPreRebootStagedFiles(
+      const std::vector<aidl::com::android::server::art::ArtifactsPath>& in_artifacts,
+      const aidl::com::android::server::art::ProfilePath::WritableProfilePath& in_profile) override;
+
+  ndk::ScopedAStatus preRebootInit() override;
+
+  ndk::ScopedAStatus validateDexPath(const std::string& in_dexFile,
+                                     std::optional<std::string>* _aidl_return) override;
+
+  ndk::ScopedAStatus validateClassLoaderContext(const std::string& in_dexFile,
+                                                const std::string& in_classLoaderContext,
+                                                std::optional<std::string>* _aidl_return) override;
+
   android::base::Result<void> Start();
 
  private:
@@ -253,6 +266,10 @@ class Artd : public aidl::com::android::server::art::BnArtd {
       aidl::com::android::server::art::OutputProfile* dst_aidl,
       const std::string& dex_path,
       aidl::com::android::server::art::CopyAndRewriteProfileResult* aidl_return);
+
+  android::base::Result<void> PreRebootInitEnvVar();
+
+  android::base::Result<void> PreRebootInitBootImage();
 
   std::mutex cache_mu_;
   std::optional<std::vector<std::string>> cached_boot_image_locations_ GUARDED_BY(cache_mu_);
