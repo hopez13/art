@@ -19,13 +19,25 @@
 
 #include "aidl/com/android/server/art/BnDexoptChrootSetup.h"
 #include "android-base/result.h"
+#include "android-base/thread_annotations.h"
 
 namespace art {
 namespace dexopt_chroot_setup {
 
 class DexoptChrootSetup : public aidl::com::android::server::art::BnDexoptChrootSetup {
  public:
+  ndk::ScopedAStatus setUp() override;
+
+  ndk::ScopedAStatus tearDown() override;
+
   android::base::Result<void> Start();
+
+ private:
+  android::base::Result<void> SetUpChroot() const REQUIRES(mu_);
+
+  android::base::Result<void> TearDownChroot() const REQUIRES(mu_);
+
+  std::mutex mu_;
 };
 
 }  // namespace dexopt_chroot_setup
