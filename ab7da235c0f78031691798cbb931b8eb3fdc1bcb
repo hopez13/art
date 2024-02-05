@@ -95,6 +95,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5c30323_27ee09e6",
+        "filename": "artd/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-02-05T19:59:21Z",
+      "side": 1,
+      "message": "Aha, thanks!\n\n\u003e This is specified by the [fuzz] namespace.\n\nI presume you meant linker config section. Looks like recent work: https://r.android.com/2895222",
+      "parentUuid": "c3fd55f1_0f1956a4",
+      "range": {
+        "startLine": 116,
+        "startChar": 11,
+        "endLine": 116,
+        "endChar": 59
+      },
+      "revId": "ab7da235c0f78031691798cbb931b8eb3fdc1bcb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "acd7f4fa_4482e50d",
@@ -308,6 +332,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "870c1dec_cd7b1c11",
+        "filename": "artd_chroot/artd_chroot.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-02-05T19:59:21Z",
+      "side": 1,
+      "message": "Thanks, but please add something here too, for visibility since this is where the declarations are. Just a sentence or two is enough.",
+      "parentUuid": "dcee7351_43dfb874",
+      "revId": "ab7da235c0f78031691798cbb931b8eb3fdc1bcb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5f5a1528_f17f69ee",
         "filename": "artd_chroot/artd_chroot_main.cc",
         "patchSetId": 3
@@ -390,6 +432,30 @@
       "side": 1,
       "message": "It is necessary. The aidl interface is indirectly included in the ART APEX, and the ART APEX has `min_sdk_version: \"31\"`.\n\nChanging this to VIC gives me the following error.\n\n```\nerror: art/dexopt_chroot_setup/binder/Android.bp:25:1: module \"dexopt_chroot_setup-aidl-ndk\" variant \"android_x86_64_silvermont_static_apex31\" (created by module \"dex\nopt_chroot_setup-aidl-ndk-generator\" (created by module \"dexopt_chroot_setup-aidl_interface\")): should support min_sdk_version(31) for \"com.android.art\": newer SDK(Va\nnillaIceCream).\n\nDependency path: com.android.art{os:android,arch:common,apex:com.android.art}\n           via tag apex.dependencyTag{\"executable\"}\n    -\u003e dexopt_chroot_setup{os:android,image:,arch:x86_64_silvermont,sdk:,apex:apex31}\n           via tag cc.libraryDependencyTag: { Kind:staticLibraryDependency Order:normalLibraryDependency wholeStatic:false reexportFlags:false explicitlyVersioned:fal\nse dataLib:false ndk:false staticUnwinder:false makeSuffix: skipApexAllowedDependenciesCheck:false excludeInApex:false excludeInNonApex:false unexportedSymbols:false}\n    -\u003e dexopt_chroot_setup-aidl-ndk{os:android,image:,arch:x86_64_silvermont,sdk:,link:static,apex:apex31}\n\nConsider adding \u0027min_sdk_version: \"31\"\u0027 to \"dexopt_chroot_setup-aidl-ndk\"\n```",
       "parentUuid": "efe6ff0f_570d8b20",
+      "range": {
+        "startLine": 55,
+        "startChar": 22,
+        "endLine": 55,
+        "endChar": 24
+      },
+      "revId": "ab7da235c0f78031691798cbb931b8eb3fdc1bcb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aaffed64_d2943ac7",
+        "filename": "artd_chroot/binder/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-02-05T19:59:21Z",
+      "side": 1,
+      "message": "Ok, thanks for checking. There isn\u0027t that much in later versions that we\u0027re missing out on, I hope.",
+      "parentUuid": "5ab7186f_a42bbd5c",
       "range": {
         "startLine": 55,
         "startChar": 22,
