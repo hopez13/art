@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f40fdab_398a430c",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1019,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2024-02-05T16:15:58Z",
+      "side": 1,
+      "message": "What about this version (PS8)?  I am not giving up the `std::function`, but the `count` argument reduces the number of pushes/pops that we do.",
+      "parentUuid": "9a22bb3c_9d61d2d3",
+      "range": {
+        "startLine": 1019,
+        "startChar": 0,
+        "endLine": 1019,
+        "endChar": 43
+      },
+      "revId": "e0792d21fab910e653b756adb1e5789d19726f65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8ea7739d_7d605baf",
