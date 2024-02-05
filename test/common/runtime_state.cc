@@ -273,7 +273,13 @@ static void ForceJitCompiled(Thread* self,
   // Update the code cache to make sure the JIT code does not get deleted.
   // Note: this will apply to all JIT compilations.
   code_cache->SetGarbageCollectCode(false);
-  if (kind == CompilationKind::kBaseline || jit->GetJitCompiler()->IsBaselineCompiler()) {
+  if (jit->JitAtFirstUse()) {
+    ScopedObjectAccess soa(self);
+    // Will either ensure it's compiled or do the compilation itself. We do
+    // this before checking if we will execute JIT code in case the request
+    // is for an 'optimized' compilation.
+    jit->CompileMethod(method, self, kind, /*prejit=*/ false);
+  } else if (kind == CompilationKind::kBaseline || jit->GetJitCompiler()->IsBaselineCompiler()) {
     ScopedObjectAccess soa(self);
     jit->MaybeEnqueueCompilation(method, self);
   } else {
