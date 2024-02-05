@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "24f77078_9b5b0eb9",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-02-05T09:02:14Z",
+      "side": 1,
+      "message": "Even though I added the prefix `Try` to `GenerateFrameEntry`, I didn\u0027t want to do it for `Compile` since we already have `TryCompile`. We could rename this to `TryCompile` too for consistency regarding `TryXXX` methods which return `bool` values.",
+      "range": {
+        "startLine": 189,
+        "startChar": 7,
+        "endLine": 189,
+        "endChar": 14
+      },
+      "revId": "b866af1a458cdf6f78a6f0c3147df1fd0a2ca731",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
