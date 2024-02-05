@@ -853,6 +853,19 @@ public final class ArtManagerLocal {
     }
 
     /**
+     * Notifies ART Service that there are apexes staged. The current behavior is that ART Service
+     * schedules a pre-reboot dexopt job. This might change in the future.
+     *
+     * This immediately returns after scheduling the job and doesn't wait for the job to run.
+     */
+    @SuppressLint("UnflaggedApi") // Flag support for mainline is not available.
+    @RequiresApi(Build.VERSION_CODES.VANILLA_ICE_CREAM)
+    public void onApexStaged(@NonNull String[] stagedApexModuleNames) {
+        // TODO(b/311377497): Check system requirements.
+        mInjector.getPreRebootDexoptJob().schedule();
+    }
+
+    /**
      * Dumps the dexopt state of all packages in text format for debugging purposes.
      *
      * There are no stability guarantees for the output format.
