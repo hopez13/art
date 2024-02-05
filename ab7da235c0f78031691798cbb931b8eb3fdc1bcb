@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "ebc07b8a_feb23e21",
+        "filename": "artd/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-02-05T08:23:01Z",
+      "side": 1,
+      "message": "I think the fuzzer is part of the boilerplate, so it\u0027s better in the same CL. It\u0027s required when updating the SELinux policy for the artd_pre_reboot service. (We got exempted for artd because the fuzzer support wasn\u0027t there at that point, but I don\u0027t think we can get exempted for artd_pre_reboot this time.)",
+      "parentUuid": "3350e56d_27274046",
+      "range": {
+        "startLine": 110,
+        "startChar": 10,
+        "endLine": 110,
+        "endChar": 23
+      },
+      "revId": "ab7da235c0f78031691798cbb931b8eb3fdc1bcb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "ba84c15e_667ac7d0",
         "filename": "artd/Android.bp",
         "patchSetId": 3
@@ -37,6 +61,30 @@
       "writtenOn": "2024-02-05T01:39:43Z",
       "side": 1,
       "message": "I wonder how fuzzers are run with the right linker namespace setup to even find such shared libs. I assume they only run on platforms with modules built from source, so do they smudge all the linker namespaces into one? Anyway, just a side thought.",
+      "range": {
+        "startLine": 116,
+        "startChar": 11,
+        "endLine": 116,
+        "endChar": 59
+      },
+      "revId": "ab7da235c0f78031691798cbb931b8eb3fdc1bcb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c3fd55f1_0f1956a4",
+        "filename": "artd/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-02-05T08:23:01Z",
+      "side": 1,
+      "message": "The fuzzer variant builds the binary and all the dependencies at a special path (`$ANDROID_PRODUCT_OUT/data/fuzz`). Files in that folder doesn\u0027t go to the system image but can be transferred to the device through `adb sync data`. The dynamic linker links binaries in `/data/fuzz/\u003cisa\u003e/bin` against the dependencies in `/data/fuzz/\u003cisa\u003e/lib`. This is specified by the `[fuzz]` namespace.",
+      "parentUuid": "ba84c15e_667ac7d0",
       "range": {
         "startLine": 116,
         "startChar": 11,
@@ -64,6 +112,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac1333c5_6c356dbb",
+        "filename": "artd/artd.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-02-05T08:23:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "acd7f4fa_4482e50d",
+      "revId": "ab7da235c0f78031691798cbb931b8eb3fdc1bcb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a6dbf254_8a846d1b",
@@ -77,6 +143,30 @@
       "writtenOn": "2024-02-05T01:39:43Z",
       "side": 1,
       "message": "Isn\u0027t `ParseError` or similar better when it doesn\u0027t actually show any usage? (I don\u0027t think it should show full usage either.)",
+      "range": {
+        "startLine": 31,
+        "startChar": 18,
+        "endLine": 31,
+        "endChar": 23
+      },
+      "revId": "ab7da235c0f78031691798cbb931b8eb3fdc1bcb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f43cbd2_9d15c620",
+        "filename": "artd/artd_main.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-02-05T08:23:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a6dbf254_8a846d1b",
       "range": {
         "startLine": 31,
         "startChar": 18,
@@ -110,6 +200,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "61592faf_2c91b42e",
+        "filename": "artd_chroot/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-02-05T08:23:01Z",
+      "side": 1,
+      "message": "`dexopt_chroot_setup` SGTM. Thanks for the suggestion.",
+      "parentUuid": "e3dfd763_d19250dc",
+      "range": {
+        "startLine": 41,
+        "startChar": 11,
+        "endLine": 41,
+        "endChar": 22
+      },
+      "revId": "ab7da235c0f78031691798cbb931b8eb3fdc1bcb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3dde32f5_eac85ea8",
@@ -123,6 +237,30 @@
       "writtenOn": "2024-02-05T01:39:43Z",
       "side": 1,
       "message": "These are not in the defaults because of a future cc_test? What about adding the boilerplate for that as well here?",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 21
+      },
+      "revId": "ab7da235c0f78031691798cbb931b8eb3fdc1bcb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e196434_a4f4d32f",
+        "filename": "artd_chroot/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-02-05T08:23:01Z",
+      "side": 1,
+      "message": "Added cc_test. See the diff in PS4 -\u003e PS6.",
+      "parentUuid": "3dde32f5_eac85ea8",
       "range": {
         "startLine": 47,
         "startChar": 0,
@@ -150,6 +288,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dcee7351_43dfb874",
+        "filename": "artd_chroot/artd_chroot.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-02-05T08:23:01Z",
+      "side": 1,
+      "message": "Added README.md.",
+      "parentUuid": "ba57b571_f69f6dca",
+      "revId": "ab7da235c0f78031691798cbb931b8eb3fdc1bcb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5f5a1528_f17f69ee",
@@ -163,6 +319,30 @@
       "writtenOn": "2024-02-05T01:39:43Z",
       "side": 1,
       "message": "```suggestion\n  if (Result\u003cvoid\u003e ret \u003d artd_chroot-\u003eStart(); !ret.ok()) {\n```",
+      "range": {
+        "startLine": 32,
+        "startChar": 6,
+        "endLine": 32,
+        "endChar": 10
+      },
+      "revId": "ab7da235c0f78031691798cbb931b8eb3fdc1bcb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d1d2583_d0bc86be",
+        "filename": "artd_chroot/artd_chroot_main.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-02-05T08:23:01Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "5f5a1528_f17f69ee",
       "range": {
         "startLine": 32,
         "startChar": 6,
@@ -196,6 +376,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ab7186f_a42bbd5c",
+        "filename": "artd_chroot/binder/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-02-05T08:23:01Z",
+      "side": 1,
+      "message": "It is necessary. The aidl interface is indirectly included in the ART APEX, and the ART APEX has `min_sdk_version: \"31\"`.\n\nChanging this to VIC gives me the following error.\n\n```\nerror: art/dexopt_chroot_setup/binder/Android.bp:25:1: module \"dexopt_chroot_setup-aidl-ndk\" variant \"android_x86_64_silvermont_static_apex31\" (created by module \"dex\nopt_chroot_setup-aidl-ndk-generator\" (created by module \"dexopt_chroot_setup-aidl_interface\")): should support min_sdk_version(31) for \"com.android.art\": newer SDK(Va\nnillaIceCream).\n\nDependency path: com.android.art{os:android,arch:common,apex:com.android.art}\n           via tag apex.dependencyTag{\"executable\"}\n    -\u003e dexopt_chroot_setup{os:android,image:,arch:x86_64_silvermont,sdk:,apex:apex31}\n           via tag cc.libraryDependencyTag: { Kind:staticLibraryDependency Order:normalLibraryDependency wholeStatic:false reexportFlags:false explicitlyVersioned:fal\nse dataLib:false ndk:false staticUnwinder:false makeSuffix: skipApexAllowedDependenciesCheck:false excludeInApex:false excludeInNonApex:false unexportedSymbols:false}\n    -\u003e dexopt_chroot_setup-aidl-ndk{os:android,image:,arch:x86_64_silvermont,sdk:,link:static,apex:apex31}\n\nConsider adding \u0027min_sdk_version: \"31\"\u0027 to \"dexopt_chroot_setup-aidl-ndk\"\n```",
+      "parentUuid": "efe6ff0f_570d8b20",
+      "range": {
+        "startLine": 55,
+        "startChar": 22,
+        "endLine": 55,
+        "endChar": 24
+      },
+      "revId": "ab7da235c0f78031691798cbb931b8eb3fdc1bcb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0577e3c5_1fd8629e",
@@ -219,6 +423,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c9f42ef_2503e358",
+        "filename": "build/apex/art.rc",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-02-05T08:23:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0577e3c5_1fd8629e",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 67
+      },
+      "revId": "ab7da235c0f78031691798cbb931b8eb3fdc1bcb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "466091a2_60539517",
@@ -232,6 +460,30 @@
       "writtenOn": "2024-02-05T01:39:43Z",
       "side": 1,
       "message": "Why not use the system `chroot`?\n\nIf you add chroot to art_exec it ought to be tested too.",
+      "range": {
+        "startLine": 26,
+        "startChar": 24,
+        "endLine": 26,
+        "endChar": 58
+      },
+      "revId": "ab7da235c0f78031691798cbb931b8eb3fdc1bcb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "52e23ac7_fdfca5d0",
+        "filename": "build/apex/art.rc",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-02-05T08:23:01Z",
+      "side": 1,
+      "message": "I found that the system `chroot` doesn\u0027t print anything to logcat (of course). Using `art_exec` gives us better debuggability as we can print error logs there.\n\nI tried testing art_exec but didn\u0027t find a good way. To test it, I will have to setup the entire chroot environment, or no binary can run there, so I\u0027d like to omit the test for now. I think the implementation is unlikely to go wrong because it does nothing but makes a `chroot` syscall. It will be covered by the e2e test anyway.",
+      "parentUuid": "466091a2_60539517",
       "range": {
         "startLine": 26,
         "startChar": 24,
