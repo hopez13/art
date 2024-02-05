@@ -22,6 +22,75 @@
       },
       "revId": "9937bbbbaea39d9cdce38fec798938ba09dbac17",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6339729e_56df8f2d",
+        "filename": "libartservice/service/java/com/android/server/art/ArtManagerLocal.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 856,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-02-05T18:35:35Z",
+      "side": 1,
+      "message": "Nit: This is going a few steps in advance, isn\u0027t it? I suggest phrasing it something like this, to keep it honest: \"ART Service may use this to schedule a pre-reboot dexopt job.\"",
+      "range": {
+        "startLine": 856,
+        "startChar": 62,
+        "endLine": 856,
+        "endChar": 78
+      },
+      "revId": "9937bbbbaea39d9cdce38fec798938ba09dbac17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ece3e3d_63dabdce",
+        "filename": "libartservice/service/java/com/android/server/art/ArtManagerLocal.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 863,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-02-05T18:35:35Z",
+      "side": 1,
+      "message": "Are these the package names (e.g. `com.google.android.conscrypt`) or the APEX module identifiers (corresponding to the directory beneath `/apex`, e.g. `com.android.conscrypt` regardless of the module source)? Deserves a clarification.",
+      "range": {
+        "startLine": 863,
+        "startChar": 47,
+        "endLine": 863,
+        "endChar": 68
+      },
+      "revId": "9937bbbbaea39d9cdce38fec798938ba09dbac17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f738113_3de54635",
+        "filename": "libartservice/service/java/com/android/server/art/ArtManagerLocal.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 865,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-02-05T18:35:35Z",
+      "side": 1,
+      "message": "Perhaps leave this out for now so that this CL doesn\u0027t depend on the stack beneath it.",
+      "range": {
+        "startLine": 865,
+        "startChar": 8,
+        "endLine": 865,
+        "endChar": 53
+      },
+      "revId": "9937bbbbaea39d9cdce38fec798938ba09dbac17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
