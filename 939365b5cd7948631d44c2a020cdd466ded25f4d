@@ -16,6 +16,24 @@
       "message": "Can we bail out instead of aborting?",
       "revId": "939365b5cd7948631d44c2a020cdd466ded25f4d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "58b46519_a414705b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-02-05T08:16:31Z",
+      "side": 1,
+      "message": "I could change `CodeGenerator\u003carch\u003e::GenerateFrameEntry()` to return a boolean and `CodeGenerator::Compile()` too and we can handle that on `OptimizingCompiler::TryCompile` and `OptimizingCompiler::TryCompileIntrinsic`. There\u0027s a third caller of `CodeGenerator::Compile()` but it is the test utils and I think we can add a CHECK that it compiled successfully over there.\n\nDoes this sound good? I would change the RISC-V implementation too so it matches these changes",
+      "parentUuid": "1ebe7762_96040dad",
+      "revId": "939365b5cd7948631d44c2a020cdd466ded25f4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
