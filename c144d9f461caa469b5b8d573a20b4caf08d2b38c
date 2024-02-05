@@ -900,6 +900,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1916d8c6_c29836b7",
+        "filename": "runtime/oat/image.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-02-05T16:00:41Z",
+      "side": 1,
+      "message": "I\u0027m little confused about section ordering inside image. According to below conments, kSectionRuntimeMethods is in front of kSectionImTables.\n\n```\n251   /*\n252    * This describes the number and ordering of sections inside of Boot\n253    * and App Images.  It is very important that changes to this struct\n254    * are reflected in the compiler and loader.\n255    *\n256    * See:\n257    *   - ImageWriter::ImageInfo::CreateImageSections()\n258    *   - ImageWriter::Write()\n259    *   - ImageWriter::AllocMemory()\n260    */\n261   enum ImageSections {\n262     kSectionObjects,\n263     kSectionArtFields,\n264     kSectionArtMethods,\n265     kSectionRuntimeMethods,\n266     kSectionImTables,\n267     kSectionIMTConflictTables,\n268     kSectionInternedStrings,\n269     kSectionClassTable,\n270     kSectionStringReferenceOffsets,\n271     kSectionDexCacheArrays,\n272     kSectionMetadata,\n273     kSectionImageBitmap,\n274     kSectionCount,  // Number of elements in enum.\n275   };\n```\n\nBut in reality, the final section offset written to the Image depends on the Bin offset. However, in Bin, kRuntimeMethod is behind kImTable.\n\n```\n181   // Classify different kinds of bins that objects end up getting packed into during image writing.\n182   // Ordered from dirtiest to cleanest (until ArtMethods).\n183   enum class Bin {\n184     kKnownDirty,                  // Known dirty objects from --dirty-image-objects list\n185     kMiscDirty,                   // Dex caches, object locks, etc...\n186     kClassVerified,               // Class verified, but initializers haven\u0027t been run\n187     // Unknown mix of clean/dirty:\n188     kRegular,\n189     kClassInitialized,            // Class initializers have been run\n190     // All classes get their own bins since their fields often dirty\n191     kClassInitializedFinalStatics,  // Class initializers have been run, no non-final statics\n192     // Likely-clean:\n193     kString,                      // [String] Almost always immutable (except for obj header).\n194     // Definitely clean:\n195     kInternalClean,               // ART internal: image roots, boot image live objects, vtables\n196                                   // and interface tables, Object[]/int[]/long[].\n197     // Add more bins here if we add more segregation code.\n198     // Non mirror fields must be below.\n199     // ArtFields should be always clean.\n200     kArtField,\n201     // If the class is initialized, then the ArtMethods are probably clean.\n202     kArtMethodClean,\n203     // ArtMethods may be dirty if the class has native methods or a declaring class that isn\u0027t\n204     // initialized.\n205     kArtMethodDirty,\n206     // IMT (clean)\n207     kImTable,\n208     // Conflict tables (clean).\n209     kIMTConflictTable,\n210     // Runtime methods (always clean, do not have a length prefix array).\n211     kRuntimeMethod,\n212     // Metadata bin for data that is temporary during image lifetime.\n213     kMetadata,\n214     kLast \u003d kMetadata,\n215     // Number of bins which are for mirror objects.\n216     kMirrorCount \u003d kArtField,\n217   };\n```\n\nEven worse, if I move kSectionJniStubMethods downwards, NativeObjectRelocation offset may be invalid as the offset is the offset in Bin. I\u0027m not sure if I understand correctly, please correct me if I\u0027m wrong. Thanks!",
+      "parentUuid": "2669056a_28eca8df",
+      "range": {
+        "startLine": 269,
+        "startChar": 4,
+        "endLine": 269,
+        "endChar": 26
+      },
+      "revId": "c144d9f461caa469b5b8d573a20b4caf08d2b38c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6da0010b_7654a268",
         "filename": "runtime/oat/image.h",
         "patchSetId": 2
