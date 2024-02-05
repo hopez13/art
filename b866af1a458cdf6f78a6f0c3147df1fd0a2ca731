@@ -22,6 +22,46 @@
       },
       "revId": "b866af1a458cdf6f78a6f0c3147df1fd0a2ca731",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a15cc60_5e5315e5",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 943,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-05T10:42:53Z",
+      "side": 1,
+      "message": "If we add more checks to `codegen-\u003eCompile()`, this shall become misleading. I\u0027m wondering if we should fully move the check here. (We can ask the codegen for frame size and compare it to the SOE reservation size before the call.)",
+      "range": {
+        "startLine": 942,
+        "startChar": 4,
+        "endLine": 943,
+        "endChar": 93
+      },
+      "revId": "b866af1a458cdf6f78a6f0c3147df1fd0a2ca731",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f4f9f1b_e90ff9b3",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1043,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-05T10:42:53Z",
+      "side": 1,
+      "message": "We could strongly `CHECK()` this - intrinsics that pass the leaf method check above should never have such huge frames.",
+      "revId": "b866af1a458cdf6f78a6f0c3147df1fd0a2ca731",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
