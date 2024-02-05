@@ -22,6 +22,30 @@
       },
       "revId": "066c6ad3a198aacb9b7131b0315b3c3cee478fdf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "87d7e8a7_a45c0db5",
+        "filename": "libartservice/service/java/com/android/server/art/DexoptHelper.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-02-05T06:08:58Z",
+      "side": 0,
+      "message": "I remember it was only for the wakelock. It was done because otherwise acquiring the wakelock will fail if the calling uid is root or shell.\n\nHowever, to minimize the risk of this change, let\u0027s keep it for now. Added it back and added a TODO.",
+      "parentUuid": "f02b7d1d_a647f986",
+      "range": {
+        "startLine": 131,
+        "startChar": 29,
+        "endLine": 131,
+        "endChar": 58
+      },
+      "revId": "066c6ad3a198aacb9b7131b0315b3c3cee478fdf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
