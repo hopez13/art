@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f02b7d1d_a647f986",
+        "filename": "libartservice/service/java/com/android/server/art/DexoptHelper.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-02-05T01:58:14Z",
+      "side": 0,
+      "message": "Was this only for the wakelock? If so, why?",
+      "range": {
+        "startLine": 131,
+        "startChar": 29,
+        "endLine": 131,
+        "endChar": 58
+      },
+      "revId": "066c6ad3a198aacb9b7131b0315b3c3cee478fdf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
