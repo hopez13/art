@@ -70,6 +70,30 @@
       },
       "revId": "73c4764d7353ca5070a09380dd629b00dc1ba0df",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0caa8099_f5d4a154",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1712,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-05T14:25:56Z",
+      "side": 1,
+      "message": "For the record, my code above contains off-by-one errors, Those `case`s should have the same constants in the `if` and subtraction, for example\n\n      case 0x0e:\n        if (UNLIKELY(available_bytes \u003c\u003d 2)) { [error] }\n        available_bytes -\u003d 2u;",
+      "parentUuid": "a9b90f77_44e6e4cb",
+      "range": {
+        "startLine": 1709,
+        "startChar": 4,
+        "endLine": 1712,
+        "endChar": 5
+      },
+      "revId": "73c4764d7353ca5070a09380dd629b00dc1ba0df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
