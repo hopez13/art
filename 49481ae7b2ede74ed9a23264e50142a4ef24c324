@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26a8645b_fd715db4",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1709,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-05T14:16:50Z",
+      "side": 1,
+      "message": "Missing `return false` here and below.",
+      "revId": "49481ae7b2ede74ed9a23264e50142a4ef24c324",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
