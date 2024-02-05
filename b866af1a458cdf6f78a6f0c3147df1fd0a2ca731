@@ -26,6 +26,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8f339b29_3b8fd655",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2397,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-02-05T12:06:44Z",
+      "side": 1,
+      "message": "Does this need to be in GenerateFrameEntry? Looks like you could make this check generically without the need of changing all codegens, higher up.",
+      "range": {
+        "startLine": 2392,
+        "startChar": 0,
+        "endLine": 2397,
+        "endChar": 3
+      },
+      "revId": "b866af1a458cdf6f78a6f0c3147df1fd0a2ca731",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2a15cc60_5e5315e5",
         "filename": "compiler/optimizing/optimizing_compiler.cc",
         "patchSetId": 3
