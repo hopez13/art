@@ -467,6 +467,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f4f1bf40_0d542cf3",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 381,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-06T17:19:57Z",
+      "side": 1,
+      "message": "The bit 28 (extended memory element width, \"mew\") should be 0. Encodings with mew\u003d1 are reserved according to \"Table 13. Width encoding for vector loads and stores.\"",
+      "parentUuid": "aca8d183_432eb314",
+      "revId": "80466a888f49cd70b4ee2ad7d8b28bfeb901592b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d083b7e1_0e162544",
         "filename": "disassembler/disassembler_riscv64.cc",
         "patchSetId": 17

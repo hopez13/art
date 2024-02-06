@@ -89,6 +89,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cb648618_0d5b54a2",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 441,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-06T17:19:57Z",
+      "side": 1,
+      "message": "`/Store`",
+      "range": {
+        "startLine": 441,
+        "startChar": 50,
+        "endLine": 441,
+        "endChar": 54
+      },
+      "revId": "3303baacad7d0d25551621474c1ce67ec73cc010",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "66e2a4fa_3e8012e2",
         "filename": "disassembler/disassembler_riscv64.cc",
         "patchSetId": 18
@@ -105,6 +128,29 @@
         "startChar": 58,
         "endLine": 442,
         "endChar": 60
+      },
+      "revId": "3303baacad7d0d25551621474c1ce67ec73cc010",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46e389fb_38427f25",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 452,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-06T17:19:57Z",
+      "side": 1,
+      "message": "Needs special handling for stores. If we wanted to print the `vl\u003cN\u003er.v` pseudo-instruction instead of `vl\u003cN\u003ere8.v`, this would be simply\n\n    return (is_load || width_index \u003d\u003d 0u)\n        ? VWH_Mnemonics[enum_cast\u003cuint32_t\u003e(nf)][width_index]\n        : nullptr;\n\nBut if you prefer the full `vl\u003cN\u003ere8.v`, then you need a separate table for stores.",
+      "range": {
+        "startLine": 452,
+        "startChar": 17,
+        "endLine": 452,
+        "endChar": 69
       },
       "revId": "3303baacad7d0d25551621474c1ce67ec73cc010",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
@@ -156,6 +202,29 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "a2bb4152_f2dbb63f",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 521,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-06T17:19:57Z",
+      "side": 1,
+      "message": "Style: `kFpMemMnemonics`.",
+      "range": {
+        "startLine": 521,
+        "startChar": 35,
+        "endLine": 521,
+        "endChar": 49
+      },
+      "revId": "3303baacad7d0d25551621474c1ce67ec73cc010",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "158135f4_ddcea300",
@@ -174,6 +243,29 @@
         "startChar": 35,
         "endLine": 871,
         "endChar": 46
+      },
+      "revId": "3303baacad7d0d25551621474c1ce67ec73cc010",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4c32053_8f8dde13",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 882,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-06T17:19:57Z",
+      "side": 1,
+      "message": "Fits on one line. Indentation +2 spaces.",
+      "range": {
+        "startLine": 881,
+        "startChar": 8,
+        "endLine": 882,
+        "endChar": 36
       },
       "revId": "3303baacad7d0d25551621474c1ce67ec73cc010",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
@@ -342,6 +434,69 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c222346f_a5753234",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 1044,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-06T17:19:57Z",
+      "side": 1,
+      "message": "This could be all on one line. But if you prefer to keep 4 per line for consistency, that\u0027s also OK.",
+      "range": {
+        "startLine": 1043,
+        "startChar": 12,
+        "endLine": 1044,
+        "endChar": 53
+      },
+      "revId": "3303baacad7d0d25551621474c1ce67ec73cc010",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45d0b6be_bdacbfaf",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 1067,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-06T17:19:57Z",
+      "side": 1,
+      "message": "Could be 8 per line but 4 per line is also OK to keep. (Same a few times below.)",
+      "revId": "3303baacad7d0d25551621474c1ce67ec73cc010",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1c9ca4a3_58e4ca4a",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 1194,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-06T17:19:57Z",
+      "side": 1,
+      "message": "Indentation +2 spaces.",
+      "range": {
+        "startLine": 1194,
+        "startChar": 10,
+        "endLine": 1194,
+        "endChar": 12
+      },
+      "revId": "3303baacad7d0d25551621474c1ce67ec73cc010",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "78017e1b_02e7894b",
         "filename": "disassembler/disassembler_riscv64.cc",
         "patchSetId": 18
@@ -365,6 +520,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "eb48cc25_16efe053",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 1269,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-06T17:19:57Z",
+      "side": 1,
+      "message": "Shift the column by one space (to have one space before this comma)?",
+      "range": {
+        "startLine": 1269,
+        "startChar": 28,
+        "endLine": 1269,
+        "endChar": 29
+      },
+      "revId": "3303baacad7d0d25551621474c1ce67ec73cc010",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "008dd1b2_e96d3525",
         "filename": "disassembler/disassembler_riscv64.cc",
         "patchSetId": 18
@@ -381,6 +559,29 @@
         "startChar": 14,
         "endLine": 1320,
         "endChar": 44
+      },
+      "revId": "3303baacad7d0d25551621474c1ce67ec73cc010",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf3a3805_81caf578",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 1349,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-06T17:19:57Z",
+      "side": 1,
+      "message": "Those instructions where `MaybeSwapOperands()` did not swap should be printed as\n\n    vop rd, rs2, rs1\n\nFor example,\n\n    vdiv.vv vd, vs2, vs1\n\nWe need to either reorder the printing here, or flip the condition in `MaybeSwapOperands()`.",
+      "range": {
+        "startLine": 1347,
+        "startChar": 2,
+        "endLine": 1349,
+        "endChar": 3
       },
       "revId": "3303baacad7d0d25551621474c1ce67ec73cc010",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
