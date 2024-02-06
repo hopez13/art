@@ -141,6 +141,30 @@
       },
       "revId": "15031ca0b4a09b4e94a288ac47d18b213c685cb0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "60a3f8af_0bc4e804",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 697,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-06T12:42:52Z",
+      "side": 1,
+      "message": "I\u0027d rather keep a single container.\n\nThe `ScopedArenaVector\u003cTryBelongingInformation*\u003e` would use the least memory and may have a better optimized initialization (`memset`?). The `ScopedArenaVector\u003cstd::optional\u003cTryBelongingInformation\u003e\u003e` has a `TryBelongingInformation` allocated for each entry (not just try entry blocks) and the extra boolean for `std::optional` shall most likely be padded to the same size as `TryBelongingInformation*`. The difference in memory usage is likely to affect performance as well.",
+      "parentUuid": "6fdc43cb_53c035c1",
+      "range": {
+        "startLine": 697,
+        "startChar": 2,
+        "endLine": 697,
+        "endChar": 25
+      },
+      "revId": "15031ca0b4a09b4e94a288ac47d18b213c685cb0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
