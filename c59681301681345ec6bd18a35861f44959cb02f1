@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "149ddd41_89292fad",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-02-06T13:57:46Z",
+      "side": 1,
+      "message": "Is this a recent issue? There was a recent fix with jit on first use https://android-review.googlesource.com/c/platform/art/+/2950805",
+      "range": {
+        "startLine": 11,
+        "startChar": 5,
+        "endLine": 11,
+        "endChar": 21
+      },
+      "revId": "c59681301681345ec6bd18a35861f44959cb02f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "04355302_3109e91b",
@@ -14,6 +37,29 @@
       "writtenOn": "2024-02-06T13:50:48Z",
       "side": 1,
       "message": "There is a problem with class initialization and JitAtFirstUse() mode.\n\nFor some reason jit cannot compile test method which leads to hanging.\n\nThe problematic check is here $AOSP/art/runtime/jit/jit_code_cache.cc:1551\n\nI decided that probably it worth to fixup test to make sure at time of actual jitting class properly initialized",
+      "revId": "c59681301681345ec6bd18a35861f44959cb02f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b187bbb7_4456657c",
+        "filename": "test/570-checker-osr-locals/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-02-06T13:57:46Z",
+      "side": 1,
+      "message": "https://cs.android.com/android/platform/superproject/main/+/main:art/test/1934-jvmti-signal-thread/src/art/Test1934.java;l\u003d58-64;drc\u003db2a42f5f61213b74e9f581029e894ac2c08b846b this code does the same thing without the extra `ensureInit` method in smali.",
+      "range": {
+        "startLine": 73,
+        "startChar": 6,
+        "endLine": 73,
+        "endChar": 53
+      },
       "revId": "c59681301681345ec6bd18a35861f44959cb02f1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
