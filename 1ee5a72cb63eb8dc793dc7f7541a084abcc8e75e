@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "983f7847_4232b294",
+        "filename": "libartservice/service/java/com/android/server/art/PreRebootDexoptJob.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-02-06T21:01:34Z",
+      "side": 1,
+      "message": "It\u0027s better to add this in the same CL where it gets used (not just for reviewing, but also to make future history browsing easier).\n\n\u003e Please fix this WARNING reported by Error Prone: [UnusedVariable] The field \u0027JOB_PKG_NAME\u0027 is never read. /.../",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 75
+      },
+      "revId": "1ee5a72cb63eb8dc793dc7f7541a084abcc8e75e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0a56ea8_1818f7ff",
+        "filename": "libartservice/service/java/com/android/server/art/PreRebootDexoptJob.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-02-06T21:01:34Z",
+      "side": 1,
+      "message": "Same here, or else add a bit more scaffolding code to make use of the injector. What about adding a `PreRebootDexoptJobTest.java` embryo?\n\n\u003e Please fix this WARNING reported by Error Prone: [UnusedVariable] The field \u0027mInjector\u0027 is never read.",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 46
+      },
+      "revId": "1ee5a72cb63eb8dc793dc7f7541a084abcc8e75e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23a575cd_e5c30a09",
+        "filename": "libartservice/service/java/com/android/server/art/model/ArtServiceJobInterface.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-02-06T21:01:34Z",
+      "side": 1,
+      "message": "What about `DexoptJobInterface` as a narrower name, provided this interface will only cover the two dexopt jobs?",
+      "range": {
+        "startLine": 25,
+        "startChar": 17,
+        "endLine": 25,
+        "endChar": 39
+      },
+      "revId": "1ee5a72cb63eb8dc793dc7f7541a084abcc8e75e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
