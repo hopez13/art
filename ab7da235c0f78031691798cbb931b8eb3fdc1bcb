@@ -348,6 +348,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c22ee23_630acd07",
+        "filename": "artd_chroot/artd_chroot.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-02-06T03:16:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "870c1dec_cd7b1c11",
+      "revId": "ab7da235c0f78031691798cbb931b8eb3fdc1bcb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5f5a1528_f17f69ee",
@@ -456,6 +474,30 @@
       "side": 1,
       "message": "Ok, thanks for checking. There isn\u0027t that much in later versions that we\u0027re missing out on, I hope.",
       "parentUuid": "5ab7186f_a42bbd5c",
+      "range": {
+        "startLine": 55,
+        "startChar": 22,
+        "endLine": 55,
+        "endChar": 24
+      },
+      "revId": "ab7da235c0f78031691798cbb931b8eb3fdc1bcb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "67ec6768_9e492efd",
+        "filename": "artd_chroot/binder/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-02-06T03:16:05Z",
+      "side": 1,
+      "message": "This is only the min SDK version. It doesn\u0027t prevent us from using new APIs. We can guard the calls to new APIs with an SDK version check (see what we are doing in service-art.jar) and the build system will be fine with it.",
+      "parentUuid": "aaffed64_d2943ac7",
       "range": {
         "startLine": 55,
         "startChar": 22,
