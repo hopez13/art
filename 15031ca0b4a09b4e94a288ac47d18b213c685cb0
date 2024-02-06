@@ -50,6 +50,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "053ce349_01006444",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 597,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-02-06T12:25:13Z",
+      "side": 1,
+      "message": "Sounds good, it improves run time",
+      "parentUuid": "0f95d841_6a32507d",
+      "range": {
+        "startLine": 597,
+        "startChar": 2,
+        "endLine": 597,
+        "endChar": 16
+      },
+      "revId": "15031ca0b4a09b4e94a288ac47d18b213c685cb0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "a6218d37_91c48771",
         "filename": "compiler/optimizing/dead_code_elimination.cc",
         "patchSetId": 2
@@ -85,6 +109,30 @@
       "side": 1,
       "message": "Did you try `ScopedArenaVector\u003cTryBelongingInformation\u003e` or `ScopedArenaVector\u003cTryBelongingInformation*\u003e`?",
       "parentUuid": "a6218d37_91c48771",
+      "range": {
+        "startLine": 697,
+        "startChar": 2,
+        "endLine": 697,
+        "endChar": 25
+      },
+      "revId": "15031ca0b4a09b4e94a288ac47d18b213c685cb0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6fdc43cb_53c035c1",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 697,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-02-06T12:25:13Z",
+      "side": 1,
+      "message": "`ScopedArenaVector\u003cstd::optional\u003cTryBelongingInformation\u003e\u003e`, and skipping the `std::nullopt` when iterating. Do you think we could get some benefit by having a pointer to a `TryBelongingInformation`?\n\nAn alternative could be `ScopedArenaVector` combined with `BitVector` for faster iteration. Not sure if it will add too much complexity to the code, could be okay.",
+      "parentUuid": "ff142a8d_d324e252",
       "range": {
         "startLine": 697,
         "startChar": 2,
