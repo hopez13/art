@@ -95,6 +95,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c5629dcb_4a7b7a8e",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1034,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2024-02-06T12:35:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8ea7739d_7d605baf",
+      "range": {
+        "startLine": 1034,
+        "startChar": 6,
+        "endLine": 1034,
+        "endChar": 12
+      },
+      "revId": "e0792d21fab910e653b756adb1e5789d19726f65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5c1b3b6b_3cd2a23d",
@@ -142,6 +166,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2394b2a2_0317b2cb",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1061,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2024-02-06T12:35:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6e1f3f3b_2b246cea",
+      "range": {
+        "startLine": 1061,
+        "startChar": 21,
+        "endLine": 1061,
+        "endChar": 45
+      },
+      "revId": "e0792d21fab910e653b756adb1e5789d19726f65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bdb1dad0_c95e692a",
@@ -155,6 +203,30 @@
       "writtenOn": "2024-02-02T08:32:33Z",
       "side": 1,
       "message": "Did the argument count you mentioned that triggers the allocation regarding the captured values? If so, we could enumerate them here to guard against future changes which could (unintendedly) trigger allocations.",
+      "range": {
+        "startLine": 1163,
+        "startChar": 17,
+        "endLine": 1163,
+        "endChar": 18
+      },
+      "revId": "e0792d21fab910e653b756adb1e5789d19726f65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "562e1e57_707afc8d",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1163,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2024-02-06T12:35:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bdb1dad0_c95e692a",
       "range": {
         "startLine": 1163,
         "startChar": 17,
