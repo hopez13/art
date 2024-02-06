@@ -72,6 +72,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a4f2b14_fda46c33",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-02-06T14:13:44Z",
+      "side": 1,
+      "message": "Probably check in `JitCodeCache::NotifyCompilationOf` should be fixed for `JitInFirstUse` case",
+      "parentUuid": "42c7ac88_732a027f",
+      "range": {
+        "startLine": 11,
+        "startChar": 5,
+        "endLine": 11,
+        "endChar": 21
+      },
+      "revId": "c59681301681345ec6bd18a35861f44959cb02f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "04355302_3109e91b",
