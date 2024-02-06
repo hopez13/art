@@ -16,6 +16,24 @@
       "message": "There is a GetInstructionSetFeatures() method in CodeGeneratorRISCV64 which does the cast for you.",
       "revId": "aa80c459f12bcd60abae1f07d5484f0bcc24298e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3fbc3f59_d77db42e",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 5744,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-02-06T14:20:56Z",
+      "side": 1,
+      "message": "Thank you! Fixed",
+      "parentUuid": "aea64139_39f61899",
+      "revId": "aa80c459f12bcd60abae1f07d5484f0bcc24298e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
