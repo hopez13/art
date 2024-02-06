@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f95d841_6a32507d",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 597,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-06T09:35:19Z",
+      "side": 1,
+      "message": "We could try a `BitVector` indexed by the block id and iterate with\n\n    ArrayRef\u003cHBasicBlock* const\u003e blocks(graph-\u003eGetBlocks());\n    for (uint32_t block_id : blocks_in_try.Indexes()) {\n      HBasicBlock* block \u003d blocks[block_id];\n      ...\n    }",
+      "parentUuid": "23e7a982_ae80f24f",
+      "range": {
+        "startLine": 597,
+        "startChar": 2,
+        "endLine": 597,
+        "endChar": 16
+      },
+      "revId": "15031ca0b4a09b4e94a288ac47d18b213c685cb0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "a6218d37_91c48771",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-02-06T09:20:46Z",
       "side": 1,
       "message": "Tried using ScopedArenaVector but I was seeing slight regressions in run time.",
+      "range": {
+        "startLine": 697,
+        "startChar": 2,
+        "endLine": 697,
+        "endChar": 25
+      },
+      "revId": "15031ca0b4a09b4e94a288ac47d18b213c685cb0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff142a8d_d324e252",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 697,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-06T09:35:19Z",
+      "side": 1,
+      "message": "Did you try `ScopedArenaVector\u003cTryBelongingInformation\u003e` or `ScopedArenaVector\u003cTryBelongingInformation*\u003e`?",
+      "parentUuid": "a6218d37_91c48771",
       "range": {
         "startLine": 697,
         "startChar": 2,
