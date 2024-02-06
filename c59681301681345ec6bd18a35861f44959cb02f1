@@ -110,6 +110,30 @@
       },
       "revId": "c59681301681345ec6bd18a35861f44959cb02f1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b0bd5fd3_85cbb949",
+        "filename": "test/570-checker-osr-locals/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-02-06T14:09:15Z",
+      "side": 1,
+      "message": "So why line 71 does not initialize it?",
+      "parentUuid": "b187bbb7_4456657c",
+      "range": {
+        "startLine": 73,
+        "startChar": 6,
+        "endLine": 73,
+        "endChar": 53
+      },
+      "revId": "c59681301681345ec6bd18a35861f44959cb02f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
