@@ -158,6 +158,30 @@
       },
       "revId": "c59681301681345ec6bd18a35861f44959cb02f1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "537deebc_9911a307",
+        "filename": "test/570-checker-osr-locals/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-06T14:29:59Z",
+      "side": 1,
+      "message": "The line 71 should definitely initialize the class but it does not make it \"visibly initialized\", so we may be running the code in nterp.\n\nDo you have the recent nterp change https://android-review.googlesource.com/2935532 in your tree?",
+      "parentUuid": "b0bd5fd3_85cbb949",
+      "range": {
+        "startLine": 73,
+        "startChar": 6,
+        "endLine": 73,
+        "endChar": 53
+      },
+      "revId": "c59681301681345ec6bd18a35861f44959cb02f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
