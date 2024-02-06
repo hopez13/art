@@ -182,6 +182,30 @@
       },
       "revId": "c59681301681345ec6bd18a35861f44959cb02f1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "208b86f2_f5616fae",
+        "filename": "test/570-checker-osr-locals/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-02-06T14:35:01Z",
+      "side": 1,
+      "message": "I do. \n\nYeah, and the problem with this particular test that in `JitAtFirstUse` mode if initial compilation failed for some reason it won\u0027t be recompiled again. But initial compilation fails due to it requires `kVisiblyInitialized` state ($AOSP/art/runtime/jit/jit_code_cache.cc:1551). I assume that this check needs to be fixed for JitAtFirstUse(). Trying locally",
+      "parentUuid": "537deebc_9911a307",
+      "range": {
+        "startLine": 73,
+        "startChar": 6,
+        "endLine": 73,
+        "endChar": 53
+      },
+      "revId": "c59681301681345ec6bd18a35861f44959cb02f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
