@@ -70,6 +70,30 @@
       },
       "revId": "d764419beccebf431ca00968026a6cee068542ed",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5de72ec_caf6fd59",
+        "filename": "test/common/runtime_state.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-02-06T10:31:13Z",
+      "side": 1,
+      "message": "After offline talk, the jit at first use was falling in the `MaybeEnqueueCompilation` case and it wasn\u0027t jitting. Since jit at first use is a special case and mainly used on testing, this LGTM.",
+      "parentUuid": "2a921093_76c0f902",
+      "range": {
+        "startLine": 278,
+        "startChar": 9,
+        "endLine": 278,
+        "endChar": 22
+      },
+      "revId": "d764419beccebf431ca00968026a6cee068542ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
