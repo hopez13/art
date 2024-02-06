@@ -98,6 +98,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4707106e_4a637a77",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 446,
+      "author": {
+        "id": 1793992
+      },
+      "writtenOn": "2024-02-06T15:54:25Z",
+      "side": 1,
+      "message": "\u003e or somehow visit these entries for live methods.\n\nDo you mean something like `JitCodeCache::VisitRoots`?",
+      "parentUuid": "57a44f5a_cbf1baa5",
+      "range": {
+        "startLine": 446,
+        "startChar": 8,
+        "endLine": 446,
+        "endChar": 91
+      },
+      "revId": "1c28a21b6f564e69567fda003f4496a654dc459f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6ca98dba_ce0bb768",
         "filename": "runtime/well_known_classes.h",
         "patchSetId": 3
@@ -109,6 +133,30 @@
       "writtenOn": "2024-02-01T14:41:28Z",
       "side": 1,
       "message": "I\u0027d put this before `java_lang_reflect_InvocationTargetException`, `\u0027T\u0027 \u003c \u0027i\u0027 \u003c \u0027r\u0027` . (Do not include this in the special group for primitive boxing classes.)",
+      "range": {
+        "startLine": 275,
+        "startChar": 4,
+        "endLine": 276,
+        "endChar": 34
+      },
+      "revId": "1c28a21b6f564e69567fda003f4496a654dc459f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd6a03bf_c2b0ea9c",
+        "filename": "runtime/well_known_classes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1793992
+      },
+      "writtenOn": "2024-02-06T15:54:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6ca98dba_ce0bb768",
       "range": {
         "startLine": 275,
         "startChar": 4,
