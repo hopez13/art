@@ -89,6 +89,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "210b908e_86a32963",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 430,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-06T17:35:27Z",
+      "side": 1,
+      "message": "Why lower case `m`? I\u0027d think that our style is `kVusMnemonics` (or possibly `kVUSMnemonics`).",
+      "parentUuid": "215d8216_833184b5",
+      "range": {
+        "startLine": 430,
+        "startChar": 45,
+        "endLine": 430,
+        "endChar": 58
+      },
+      "revId": "3303baacad7d0d25551621474c1ce67ec73cc010",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cb648618_0d5b54a2",
         "filename": "disassembler/disassembler_riscv64.cc",
         "patchSetId": 18
@@ -225,6 +249,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "e74e8ed8_c9395eaf",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 521,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-06T17:35:27Z",
+      "side": 1,
+      "message": "The `constexpr` implies that the variable is `const`, so the top-level `const` is indeed unnecessary.",
+      "parentUuid": "e343b5cc_c601fb09",
+      "range": {
+        "startLine": 521,
+        "startChar": 29,
+        "endLine": 521,
+        "endChar": 34
+      },
+      "revId": "3303baacad7d0d25551621474c1ce67ec73cc010",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "158135f4_ddcea300",
@@ -330,6 +378,30 @@
       "writtenOn": "2024-02-06T17:05:50Z",
       "side": 1,
       "message": "This is the same as `funct6 \u003d\u003d 0x28u || funct6 \u003d\u003d 0x29u`, right?",
+      "range": {
+        "startLine": 909,
+        "startChar": 6,
+        "endLine": 909,
+        "endChar": 41
+      },
+      "revId": "3303baacad7d0d25551621474c1ce67ec73cc010",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "20472137_92424c87",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 909,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-06T17:35:27Z",
+      "side": 1,
+      "message": "No, this is hexadecimal, so it includes 0x2a..0x2f.",
+      "parentUuid": "048c32c4_732dc4e6",
       "range": {
         "startLine": 909,
         "startChar": 6,
@@ -508,6 +580,30 @@
       "writtenOn": "2024-02-06T17:05:50Z",
       "side": 1,
       "message": "nullptr",
+      "range": {
+        "startLine": 1231,
+        "startChar": 61,
+        "endLine": 1231,
+        "endChar": 75
+      },
+      "revId": "3303baacad7d0d25551621474c1ce67ec73cc010",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c27db763_485c88e6",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 1231,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-06T17:35:27Z",
+      "side": 1,
+      "message": "Oh, right. My suggestion in PS17 was wrong for OPFVV.",
+      "parentUuid": "78017e1b_02e7894b",
       "range": {
         "startLine": 1231,
         "startChar": 61,
