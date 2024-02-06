@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "04355302_3109e91b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-02-06T13:50:48Z",
+      "side": 1,
+      "message": "There is a problem with class initialization and JitAtFirstUse() mode.\n\nFor some reason jit cannot compile test method which leads to hanging.\n\nThe problematic check is here $AOSP/art/runtime/jit/jit_code_cache.cc:1551\n\nI decided that probably it worth to fixup test to make sure at time of actual jitting class properly initialized",
+      "revId": "c59681301681345ec6bd18a35861f44959cb02f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
