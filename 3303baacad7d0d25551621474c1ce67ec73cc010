@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "91797240_cd1e8d4b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 18
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-02-06T17:05:50Z",
+      "side": 1,
+      "message": "typo: Arithmetic",
+      "range": {
+        "startLine": 13,
+        "startChar": 10,
+        "endLine": 13,
+        "endChar": 22
+      },
+      "revId": "3303baacad7d0d25551621474c1ce67ec73cc010",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "fb645a22_d2fe2caa",
@@ -14,6 +37,351 @@
       "writtenOn": "2024-02-06T12:52:44Z",
       "side": 1,
       "message": "There is one question left which I didn\u0027t get. Could you please explain it a bit more?",
+      "revId": "3303baacad7d0d25551621474c1ce67ec73cc010",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f2af482e_55c67d3b",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-02-06T17:05:50Z",
+      "side": 1,
+      "message": "style: use lowercase `u`. Same in the other cases",
+      "range": {
+        "startLine": 90,
+        "startChar": 79,
+        "endLine": 90,
+        "endChar": 81
+      },
+      "revId": "3303baacad7d0d25551621474c1ce67ec73cc010",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "215d8216_833184b5",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 430,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-02-06T17:05:50Z",
+      "side": 1,
+      "message": "style: lowercase `m` in mnemonic",
+      "range": {
+        "startLine": 430,
+        "startChar": 45,
+        "endLine": 430,
+        "endChar": 58
+      },
+      "revId": "3303baacad7d0d25551621474c1ce67ec73cc010",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66e2a4fa_3e8012e2",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 442,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-02-06T17:05:50Z",
+      "side": 1,
+      "message": "`[8]` for consistency with the others",
+      "range": {
+        "startLine": 442,
+        "startChar": 58,
+        "endLine": 442,
+        "endChar": 60
+      },
+      "revId": "3303baacad7d0d25551621474c1ce67ec73cc010",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2013c515_3b9d6eb2",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 521,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-02-06T17:05:50Z",
+      "side": 1,
+      "message": "style: `kfpMemMnemonics`",
+      "range": {
+        "startLine": 521,
+        "startChar": 35,
+        "endLine": 521,
+        "endChar": 49
+      },
+      "revId": "3303baacad7d0d25551621474c1ce67ec73cc010",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e343b5cc_c601fb09",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 521,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-02-06T17:05:50Z",
+      "side": 1,
+      "message": "Is the second const in `const char* const` needed? The other `static constexpr const char*` arrays defined in the codebase don\u0027t have it.",
+      "range": {
+        "startLine": 521,
+        "startChar": 29,
+        "endLine": 521,
+        "endChar": 34
+      },
+      "revId": "3303baacad7d0d25551621474c1ce67ec73cc010",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "158135f4_ddcea300",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 871,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-02-06T17:05:50Z",
+      "side": 1,
+      "message": "No need to change but for the next time: personally I find it better to have early breaks for unexpected values e.g.\n```\nif ((vsew_v \u0026 0x4u) !\u003d 0u || lmul_v \u003d\u003d 0b100) {\n  os_ \u003c\u003c StringPrintf(\"0x%08x\", vtype) \u003c\u003c \"\\t# incorrect VType literal\";\n}\n\n... rest of the code ...\n```\n\nIt also helps to not have so many indentations.",
+      "range": {
+        "startLine": 871,
+        "startChar": 35,
+        "endLine": 871,
+        "endChar": 46
+      },
+      "revId": "3303baacad7d0d25551621474c1ce67ec73cc010",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "016b65b9_41dc8328",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 887,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-02-06T17:05:50Z",
+      "side": 1,
+      "message": "missing `u`",
+      "range": {
+        "startLine": 887,
+        "startChar": 42,
+        "endLine": 887,
+        "endChar": 43
+      },
+      "revId": "3303baacad7d0d25551621474c1ce67ec73cc010",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "203772cf_9e8a9b7a",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 898,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-02-06T17:05:50Z",
+      "side": 1,
+      "message": "Not sure I understand these comments. What do they represent?",
+      "range": {
+        "startLine": 898,
+        "startChar": 45,
+        "endLine": 898,
+        "endChar": 55
+      },
+      "revId": "3303baacad7d0d25551621474c1ce67ec73cc010",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "048c32c4_732dc4e6",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 909,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-02-06T17:05:50Z",
+      "side": 1,
+      "message": "This is the same as `funct6 \u003d\u003d 0x28u || funct6 \u003d\u003d 0x29u`, right?",
+      "range": {
+        "startLine": 909,
+        "startChar": 6,
+        "endLine": 909,
+        "endChar": 41
+      },
+      "revId": "3303baacad7d0d25551621474c1ce67ec73cc010",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "964146f3_660612fc",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 917,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-02-06T17:05:50Z",
+      "side": 1,
+      "message": "typo `vai`?",
+      "range": {
+        "startLine": 917,
+        "startChar": 26,
+        "endLine": 917,
+        "endChar": 29
+      },
+      "revId": "3303baacad7d0d25551621474c1ce67ec73cc010",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "11d7ce61_fef45206",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 920,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-02-06T17:05:50Z",
+      "side": 1,
+      "message": "Suggestion: You could define `const bool masked \u003d (funct7 \u0026 1) \u003d\u003d 0;` and use it in a couple of places in this method",
+      "range": {
+        "startLine": 920,
+        "startChar": 19,
+        "endLine": 920,
+        "endChar": 36
+      },
+      "revId": "3303baacad7d0d25551621474c1ce67ec73cc010",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1343acd_3495bfa5",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 927,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-02-06T17:05:50Z",
+      "side": 1,
+      "message": "Not sure I understand these comments",
+      "range": {
+        "startLine": 927,
+        "startChar": 34,
+        "endLine": 927,
+        "endChar": 49
+      },
+      "revId": "3303baacad7d0d25551621474c1ce67ec73cc010",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac03ceb6_ea977304",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 934,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-02-06T17:05:50Z",
+      "side": 1,
+      "message": "Why the angled brackets? Is it because it is special cased below?",
+      "range": {
+        "startLine": 934,
+        "startChar": 61,
+        "endLine": 934,
+        "endChar": 73
+      },
+      "revId": "3303baacad7d0d25551621474c1ce67ec73cc010",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "78017e1b_02e7894b",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 1231,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-02-06T17:05:50Z",
+      "side": 1,
+      "message": "nullptr",
+      "range": {
+        "startLine": 1231,
+        "startChar": 61,
+        "endLine": 1231,
+        "endChar": 75
+      },
+      "revId": "3303baacad7d0d25551621474c1ce67ec73cc010",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "008dd1b2_e96d3525",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 1320,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-02-06T17:05:50Z",
+      "side": 1,
+      "message": "`!\u003d 0u` and remove the comment",
+      "range": {
+        "startLine": 1320,
+        "startChar": 14,
+        "endLine": 1320,
+        "endChar": 44
+      },
       "revId": "3303baacad7d0d25551621474c1ce67ec73cc010",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }

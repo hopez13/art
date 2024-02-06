@@ -449,6 +449,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "565e418c_66ca55c8",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 381,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-02-06T17:05:50Z",
+      "side": 1,
+      "message": "I think he means that in the `7.3. Vector Load/Store Width Encoding` section of the manual, it says that `mew \u003d 1` (memory element width) is reserved",
+      "parentUuid": "aca8d183_432eb314",
+      "revId": "80466a888f49cd70b4ee2ad7d8b28bfeb901592b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d083b7e1_0e162544",
         "filename": "disassembler/disassembler_riscv64.cc",
         "patchSetId": 17
