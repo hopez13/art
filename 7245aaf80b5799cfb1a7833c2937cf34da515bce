@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "44795bef_5a111675",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-06T14:36:49Z",
+      "side": 1,
+      "message": "The code ensures that the profiling info actually exists. On failure, it aborts the compilation and never reaches the register allocation (and location builder).\n\nI guess you have the CL https://android-review.googlesource.com/2879726 from December in your tree, right?",
+      "range": {
+        "startLine": 10,
+        "startChar": 33,
+        "endLine": 10,
+        "endChar": 79
+      },
+      "revId": "7245aaf80b5799cfb1a7833c2937cf34da515bce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
