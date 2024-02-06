@@ -47,6 +47,54 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2702dd7_b1e43689",
+        "filename": "libartservice/service/java/com/android/server/art/ArtManagerLocal.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 856,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-02-06T03:33:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6339729e_56df8f2d",
+      "range": {
+        "startLine": 856,
+        "startChar": 62,
+        "endLine": 856,
+        "endChar": 78
+      },
+      "revId": "9937bbbbaea39d9cdce38fec798938ba09dbac17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e1e75c66_c8bd5ad5",
+        "filename": "libartservice/service/java/com/android/server/art/ArtManagerLocal.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 856,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-02-06T03:33:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ebd1c564_0e44c90c",
+      "range": {
+        "startLine": 856,
+        "startChar": 50,
+        "endLine": 856,
+        "endChar": 56
+      },
+      "revId": "9937bbbbaea39d9cdce38fec798938ba09dbac17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8ece3e3d_63dabdce",
@@ -60,6 +108,30 @@
       "writtenOn": "2024-02-05T18:35:35Z",
       "side": 1,
       "message": "Are these the package names (e.g. `com.google.android.conscrypt`) or the APEX module identifiers (corresponding to the directory beneath `/apex`, e.g. `com.android.conscrypt` regardless of the module source)? Deserves a clarification.",
+      "range": {
+        "startLine": 863,
+        "startChar": 47,
+        "endLine": 863,
+        "endChar": 68
+      },
+      "revId": "9937bbbbaea39d9cdce38fec798938ba09dbac17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d2ecef28_0318cbc0",
+        "filename": "libartservice/service/java/com/android/server/art/ArtManagerLocal.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 863,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-02-06T03:33:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8ece3e3d_63dabdce",
       "range": {
         "startLine": 863,
         "startChar": 47,
