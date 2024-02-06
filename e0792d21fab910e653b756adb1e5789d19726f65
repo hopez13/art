@@ -120,6 +120,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6e1f3f3b_2b246cea",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1061,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2024-02-06T11:11:06Z",
+      "side": 1,
+      "message": "Nice catch.  Although it is unrelated to this CL, so I will do that separately.\n\nI am concerned that the fuzzer didn\u0027t find this though.",
+      "parentUuid": "5c1b3b6b_3cd2a23d",
+      "range": {
+        "startLine": 1061,
+        "startChar": 21,
+        "endLine": 1061,
+        "endChar": 45
+      },
+      "revId": "e0792d21fab910e653b756adb1e5789d19726f65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bdb1dad0_c95e692a",
         "filename": "libdexfile/dex/dex_file_verifier.cc",
         "patchSetId": 7
