@@ -39,6 +39,30 @@
       },
       "revId": "355a0f09741f23250ce5f6a3d6e48e7d88df6e78",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c1720b9e_782539f6",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 927,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-07T14:20:51Z",
+      "side": 1,
+      "message": "Yes, we do need that. (But we may want to use `/*inout*/ const char**`.)\n\nThe top-level `const` on `funct6` is useless.",
+      "parentUuid": "39280f5d_c811e441",
+      "range": {
+        "startLine": 927,
+        "startChar": 53,
+        "endLine": 927,
+        "endChar": 87
+      },
+      "revId": "355a0f09741f23250ce5f6a3d6e48e7d88df6e78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
