@@ -192,6 +192,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f929c2fd_1553dcba",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 527,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-02-07T16:36:14Z",
+      "side": 1,
+      "message": "Spec says `C.JAL is an RV32C-only instruction that performs the same operation` in 16.4 so probably it is not needed for riscv64",
+      "parentUuid": "c6967d6b_6ddce630",
+      "revId": "781c53125435daa7c5e19aeefcc83a6e0017f0eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e242e0dc_53f10664",
         "filename": "compiler/utils/riscv64/assembler_riscv64.h",
         "patchSetId": 1
