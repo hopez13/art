@@ -541,6 +541,7 @@ bool HInliner::TryInline(HInvoke* invoke_instruction) {
                        << " statically resolve the target";
     // For baseline compilation, we will collect inline caches, so we should not
     // try to inline using them.
+    outermost_graph_->SetUsefulOptimizing();
     return false;
   }
 
@@ -2129,6 +2130,7 @@ bool HInliner::CanInlineBody(const HGraph* callee_graph,
         if (depth_ + 1 > maximum_inlining_depth_for_baseline) {
           LOG_FAIL_NO_STAT() << "Reached maximum depth for inlining in baseline compilation: "
                              << depth_ << " for " << callee_graph->GetArtMethod()->PrettyMethod();
+          outermost_graph_->SetUsefulOptimizing();
           return false;
         }
       }
