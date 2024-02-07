@@ -26,6 +26,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f2d91cff_e3498c18",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 540,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-07T12:40:01Z",
+      "side": 1,
+      "message": "Style: `kFpMemMnemonics`. (You picked Santiago\u0027s suggestion from PS18 but we do have a style guide that says the `F` should be capitalized.)",
+      "range": {
+        "startLine": 540,
+        "startChar": 29,
+        "endLine": 540,
+        "endChar": 44
+      },
+      "revId": "860c6a9ea31c2f926b2f4c2a41b8a70f2e95cf82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "02c6f533_66660d71",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 915,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-07T12:40:01Z",
+      "side": 1,
+      "message": "Note: While the style guide says that compile time constants should start with a `k`, I\u0027d prefer to keep these the way they are.",
+      "range": {
+        "startLine": 915,
+        "startChar": 22,
+        "endLine": 915,
+        "endChar": 31
+      },
+      "revId": "860c6a9ea31c2f926b2f4c2a41b8a70f2e95cf82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bcf54c8d_118abdce",
         "filename": "disassembler/disassembler_riscv64.cc",
         "patchSetId": 19
@@ -40,6 +86,29 @@
       "range": {
         "startLine": 1338,
         "startChar": 56,
+        "endLine": 1338,
+        "endChar": 74
+      },
+      "revId": "860c6a9ea31c2f926b2f4c2a41b8a70f2e95cf82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "13b76bc7_0743358e",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 1338,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-07T12:40:01Z",
+      "side": 1,
+      "message": "Remove? (You addressed only the first half of Santiago\u0027s comment in PS18.)",
+      "range": {
+        "startLine": 1338,
+        "startChar": 54,
         "endLine": 1338,
         "endChar": 74
       },
