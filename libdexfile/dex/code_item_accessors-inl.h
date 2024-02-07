@@ -202,7 +202,7 @@ template<typename NewLocalVisitor>
 inline bool CodeItemDebugInfoAccessor::DecodeDebugLocalInfo(
     bool is_static,
     uint32_t method_idx,
-    const NewLocalVisitor& new_local) const {
+    const NewLocalVisitor&& new_local) const {
   return dex_file_->DecodeDebugLocalInfo(RegistersSize(),
                                          InsSize(),
                                          InsnsSizeInCodeUnits(),
@@ -213,7 +213,7 @@ inline bool CodeItemDebugInfoAccessor::DecodeDebugLocalInfo(
 }
 
 template <typename Visitor>
-inline uint32_t CodeItemDebugInfoAccessor::VisitParameterNames(const Visitor& visitor) const {
+inline uint32_t CodeItemDebugInfoAccessor::VisitParameterNames(const Visitor&& visitor) const {
   const uint8_t* stream = dex_file_->GetDebugInfoStream(DebugInfoOffset());
   return (stream != nullptr) ? DexFile::DecodeDebugInfoParameterNames(&stream, visitor) : 0u;
 }
@@ -233,7 +233,7 @@ inline bool CodeItemDebugInfoAccessor::GetLineNumForPc(const uint32_t address,
 }
 
 template <typename Visitor>
-inline bool CodeItemDebugInfoAccessor::DecodeDebugPositionInfo(const Visitor& visitor) const {
+inline bool CodeItemDebugInfoAccessor::DecodeDebugPositionInfo(const Visitor&& visitor) const {
   return dex_file_->DecodeDebugPositionInfo(
       dex_file_->GetDebugInfoStream(DebugInfoOffset()),
       [this](uint32_t idx) {
