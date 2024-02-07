@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e295f96d_010806aa",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-07T13:12:17Z",
+      "side": 1,
+      "message": "Line too long.\n\nWe usually put `/*out*/` arguments last (also for `DecodeRVVMemMnemonic()`) and as use pointers instead of references (Santiago\u0027s comment from PS19 was `/*out*/ const char**`).",
+      "revId": "2930f79bb55d9526159101d45c16260c8214a4e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
