@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f048ad94_beafbd50",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 22
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-02-07T14:17:23Z",
+      "side": 1,
+      "message": "LGTM with comment resolved",
+      "revId": "355a0f09741f23250ce5f6a3d6e48e7d88df6e78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "39280f5d_c811e441",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 927,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-02-07T14:17:23Z",
+      "side": 1,
+      "message": "Do we need the `\u0026` in `rs1` and `rs2`? Swap will swap their contents, the pointers themselves won\u0027t change.",
+      "range": {
+        "startLine": 927,
+        "startChar": 53,
+        "endLine": 927,
+        "endChar": 87
+      },
+      "revId": "355a0f09741f23250ce5f6a3d6e48e7d88df6e78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
