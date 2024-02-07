@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c6d84f2_4fb02bc3",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 925,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-02-07T14:12:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "399a131d_1178cb56",
+      "range": {
+        "startLine": 917,
+        "startChar": 0,
+        "endLine": 925,
+        "endChar": 42
+      },
+      "revId": "645e07c716493992a95b6d808d7a07dea864421d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7533c963_ef78e05e",
@@ -60,6 +84,54 @@
       "writtenOn": "2024-02-07T13:50:15Z",
       "side": 1,
       "message": "`kOPIVVOpcodes`? or something similar starting with `k`? Same for other opcodes below",
+      "range": {
+        "startLine": 948,
+        "startChar": 41,
+        "endLine": 948,
+        "endChar": 53
+      },
+      "revId": "645e07c716493992a95b6d808d7a07dea864421d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "91b9a194_0dfa30a4",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 948,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-02-07T14:12:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7533c963_ef78e05e",
+      "range": {
+        "startLine": 948,
+        "startChar": 6,
+        "endLine": 948,
+        "endChar": 40
+      },
+      "revId": "645e07c716493992a95b6d808d7a07dea864421d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a4a6a53c_4880d5c6",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 948,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-02-07T14:12:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dba4b455_233f6fb8",
       "range": {
         "startLine": 948,
         "startChar": 41,
