@@ -24,6 +24,7 @@
 #include <algorithm>
 #include <memory>
 #include <mutex>
+#include <optional>
 #include <regex>
 #include <string>
 #include <vector>
@@ -88,15 +89,20 @@ std::mutex g_namespaces_mutex;
 LibraryNamespaces* g_namespaces GUARDED_BY(g_namespaces_mutex) = new LibraryNamespaces;
 NativeLoaderNamespace* g_nativeloader_extra_libs_namespace GUARDED_BY(g_namespaces_mutex) = nullptr;
 
-android_namespace_t* FindExportedNamespace(const char* caller_location) {
-  Result<std::string> name = nativeloader::FindApexNamespaceName(caller_location);
-  if (name.ok()) {
-    android_namespace_t* boot_namespace = android_get_exported_namespace(name->c_str());
-    LOG_ALWAYS_FATAL_IF((boot_namespace == nullptr),
-                        "Error finding namespace of apex: no namespace called %s", name->c_str());
-    return boot_namespace;
+std::optional<NativeLoaderNamespace> FindApexNamespace(const char* caller_location) {
+  std::optional<std::string> name = nativeloader::FindApexNamespaceName(caller_location);
+  if (name.has_value()) {
+    // Native Bridge is never used for APEXes.
+    Result<NativeLoaderNamespace> ns =
+        NativeLoaderNamespace::GetExportedNamespace(name.value(), /*is_bridged=*/false);
+    LOG_ALWAYS_FATAL_IF(!ns.ok(),
+                        "Error finding ns %s for APEX location %s: %s",
+                        name.value().c_str(),
+                        caller_location,
+                        ns.error().message().c_str());
+    return ns.value();
   }
-  return nullptr;
+  return std::nullopt;
 }
 
 Result<void> CreateNativeloaderDefaultNamespaceLibsLink(NativeLoaderNamespace& ns)
@@ -153,7 +159,13 @@ Result<void*> TryLoadNativeloaderExtraLib(const char* path) {
   if (!ns.ok()) {
     return ns.error();
   }
-  return ns.value()->Load(path);
+
+  Result<void*> res = ns.value()->Load(path);
+  ALOGD("Load %s using ns %s from NATIVELOADER_DEFAULT_NAMESPACE_LIBS match: %s",
+        path,
+        ns.value()->name().c_str(),
+        res.ok() ? "ok" : res.error().message().c_str());
+  return res;
 }
 
 Result<NativeLoaderNamespace*> CreateClassLoaderNamespaceLocked(JNIEnv* env,
@@ -261,17 +273,24 @@ void* OpenNativeLibrary(JNIEnv* env,
   if (class_loader == nullptr) {
     *needs_native_bridge = false;
     if (caller_location != nullptr) {
-      android_namespace_t* boot_namespace = FindExportedNamespace(caller_location);
-      if (boot_namespace != nullptr) {
+      std::optional<NativeLoaderNamespace> ns = FindApexNamespace(caller_location);
+      if (ns.has_value()) {
         const android_dlextinfo dlextinfo = {
             .flags = ANDROID_DLEXT_USE_NAMESPACE,
-            .library_namespace = boot_namespace,
+            .library_namespace = ns.value().ToRawAndroidNamespace(),
         };
         void* handle = android_dlopen_ext(path, RTLD_NOW, &dlextinfo);
+        ALOGD("Load %s using APEX ns %s for caller %s: %s",
+              path,
+              ns.value().name().c_str(),
+              caller_location,
+              handle != nullptr ? "ok" : dlerror());
         if (handle == nullptr) {
           *error_msg = strdup(dlerror());
         }
         return handle;
+      } else {
+        ALOGD("No APEX ns found to load %s for caller %s", path, caller_location);
       }
     }
 
@@ -293,6 +312,7 @@ void* OpenNativeLibrary(JNIEnv* env,
     // TODO(b/185833744): Investigate if this should fall back to the app main
     // namespace (aka anonymous namespace) instead.
     void* handle = OpenSystemLibrary(path, RTLD_NOW);
+    ALOGD("Load %s using system ns: %s", path, handle != nullptr ? "ok" : dlerror());
     if (handle == nullptr) {
       *error_msg = strdup(dlerror());
     }
@@ -300,31 +320,55 @@ void* OpenNativeLibrary(JNIEnv* env,
   }
 
   std::lock_guard<std::mutex> guard(g_namespaces_mutex);
-  NativeLoaderNamespace* ns = g_namespaces->FindNamespaceByClassLoader(env, class_loader);
 
-  if (ns == nullptr) {
-    // This is the case where the classloader was not created by ApplicationLoaders
-    // In this case we create an isolated not-shared namespace for it.
-    const std::string empty_dex_path;
-    Result<NativeLoaderNamespace*> isolated_ns =
-        CreateClassLoaderNamespaceLocked(env,
-                                         target_sdk_version,
-                                         class_loader,
-                                         nativeloader::API_DOMAIN_DEFAULT,
-                                         /*is_shared=*/false,
-                                         empty_dex_path,
-                                         library_path_j,
-                                         /*permitted_path=*/nullptr,
-                                         /*uses_library_list=*/nullptr);
-    if (!isolated_ns.ok()) {
-      *error_msg = strdup(isolated_ns.error().message().c_str());
-      return nullptr;
-    } else {
-      ns = isolated_ns.value();
+  {
+    NativeLoaderNamespace* ns = g_namespaces->FindNamespaceByClassLoader(env, class_loader);
+    if (ns != nullptr) {
+      *needs_native_bridge = ns->IsBridged();
+      Result<void*> handle = ns->Load(path);
+      ALOGD("Load %s using ns %s from class loader (caller=%s): %s",
+            path,
+            ns->name().c_str(),
+            caller_location == nullptr ? "<unknown>" : caller_location,
+            handle.ok() ? "ok" : handle.error().message().c_str());
+      if (!handle.ok()) {
+        *error_msg = strdup(handle.error().message().c_str());
+        return nullptr;
+      }
+      return handle.value();
     }
   }
 
-  return OpenNativeLibraryInNamespace(ns, path, needs_native_bridge, error_msg);
+  // This is the case where the classloader was not created by ApplicationLoaders
+  // In this case we create an isolated not-shared namespace for it.
+  const std::string empty_dex_path;
+  Result<NativeLoaderNamespace*> isolated_ns =
+      CreateClassLoaderNamespaceLocked(env,
+                                       target_sdk_version,
+                                       class_loader,
+                                       nativeloader::API_DOMAIN_DEFAULT,
+                                       /*is_shared=*/false,
+                                       empty_dex_path,
+                                       library_path_j,
+                                       /*permitted_path=*/nullptr,
+                                       /*uses_library_list=*/nullptr);
+  if (!isolated_ns.ok()) {
+    *error_msg = strdup(isolated_ns.error().message().c_str());
+    return nullptr;
+  }
+
+  *needs_native_bridge = isolated_ns.value()->IsBridged();
+  Result<void*> handle = isolated_ns.value()->Load(path);
+  ALOGD("Load %s using isolated ns %s (caller=%s): %s",
+        path,
+        isolated_ns.value()->name().c_str(),
+        caller_location == nullptr ? "<unknown>" : caller_location,
+        handle.ok() ? "ok" : handle.error().message().c_str());
+  if (!handle.ok()) {
+    *error_msg = strdup(handle.error().message().c_str());
+    return nullptr;
+  }
+  return handle.value();
 
 #else   // !ART_TARGET_ANDROID
   UNUSED(env, target_sdk_version, class_loader, caller_location);
