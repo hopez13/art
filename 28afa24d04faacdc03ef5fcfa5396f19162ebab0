@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "767baf31_8d0ad397",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 23
+      },
+      "lineNbr": 929,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-07T14:42:27Z",
+      "side": 1,
+      "message": "Note: We\u0027re usually using pointers, not references for `/*inout*/` arguments but this is not a strict rule.",
+      "range": {
+        "startLine": 929,
+        "startChar": 51,
+        "endLine": 929,
+        "endChar": 52
+      },
+      "revId": "28afa24d04faacdc03ef5fcfa5396f19162ebab0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
