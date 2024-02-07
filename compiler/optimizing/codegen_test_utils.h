@@ -203,7 +203,7 @@ template <typename Expected>
 static void VerifyGeneratedCode(InstructionSet target_isa,
                                 Expected (*f)(),
                                 bool has_result,
-                                Expected expected) {
+                                Expected&& expected) {
   ASSERT_TRUE(CanExecute(target_isa)) << "Target isa is not executable.";
 
   // Verify on simulator.
@@ -227,7 +227,7 @@ static void VerifyGeneratedCode(InstructionSet target_isa,
 template <typename Expected>
 static void Run(const CodeGenerator& codegen,
                 bool has_result,
-                Expected expected) {
+                Expected&& expected) {
   InstructionSet target_isa = codegen.GetInstructionSet();
 
   struct CodeHolder : CommonCompilerTestImpl {
@@ -260,7 +260,7 @@ static void RunCodeNoCheck(CodeGenerator* codegen,
                            HGraph* graph,
                            const std::function<void(HGraph*)>& hook_before_codegen,
                            bool has_result,
-                           Expected expected) {
+                           Expected&& expected) {
   {
     ScopedArenaAllocator local_allocator(graph->GetArenaStack());
     SsaLivenessAnalysis liveness(graph, codegen, &local_allocator);
@@ -280,7 +280,7 @@ static void RunCode(CodeGenerator* codegen,
                     HGraph* graph,
                     std::function<void(HGraph*)> hook_before_codegen,
                     bool has_result,
-                    Expected expected) {
+                    Expected&& expected) {
   ValidateGraph(graph);
   RunCodeNoCheck(codegen, graph, hook_before_codegen, has_result, expected);
 }
@@ -291,7 +291,7 @@ static void RunCode(CodegenTargetConfig target_config,
                     HGraph* graph,
                     std::function<void(HGraph*)> hook_before_codegen,
                     bool has_result,
-                    Expected expected) {
+                    Expected&& expected) {
   std::unique_ptr<CodeGenerator> codegen(target_config.CreateCodeGenerator(graph,
                                                                            compiler_options));
   RunCode(codegen.get(), graph, hook_before_codegen, has_result, expected);

@@ -2703,7 +2703,7 @@ struct ScopedRestoreHeapValues {
   }
 
   template<typename Func>
-  void ForEachRecord(Func func) {
+  void ForEachRecord(Func&& func) {
     for (size_t blk_id : Range(to_restore_.size())) {
       for (size_t heap_loc : Range(to_restore_[blk_id].size())) {
         LSEVisitor::ValueRecord* vr = &to_restore_[blk_id][heap_loc];
