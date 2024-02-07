@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "21d7527e_76e8b344",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1514166
+      },
+      "writtenOn": "2024-02-07T10:05:28Z",
+      "side": 1,
+      "message": "Please review and leave your suggestions. Lint-1 is from assembler_x86_64_test.cc. clang-format tools tries to change beyond the actual diff in the patch. Inspite of applying those changes, fails due to conflicting checks between clang-format and cpplint.",
+      "revId": "3425c71e2161404e76638fe3a022cad9709b9ad6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
