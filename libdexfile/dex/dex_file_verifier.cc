@@ -22,6 +22,7 @@
 #include <limits>
 #include <memory>
 #include <stack>
+#include <type_traits>
 
 #include "android-base/logging.h"
 #include "android-base/macros.h"
@@ -293,9 +294,29 @@ class DexFileVerifier {
 
   bool CheckPadding(uint32_t aligned_offset, DexFile::MapItemType type);
 
+  // Minimal alternative to std::function which guarantees not to allocate on heap.
+  template <size_t kMaxCapturedVariables>
+  class Lambda {
+   public:
+    template <typename F>
+    ALWAYS_INLINE Lambda(F fn) {
+      static_assert(sizeof(fn) <= sizeof(buffer_));
+      static_assert(std::is_trivially_copyable_v<F>);
+      memcpy(buffer_.data(), &fn, sizeof(fn));
+      this->fn_ = [](Buffer buffer) { return (*reinterpret_cast<F*>(buffer.data()))(); };
+    }
+
+    ALWAYS_INLINE bool operator()() { return fn_(buffer_); }
+
+   private:
+    using Buffer = std::array<size_t, kMaxCapturedVariables>;
+    Buffer buffer_;
+    bool (*fn_)(Buffer);
+  };
+
   // The encoded values, arrays and annotations are allowed to be very deeply nested,
   // so use heap todo-list instead of stack recursion (the work is done in LIFO order).
-  using ToDoList = std::stack<std::function<bool(DexFileVerifier* self)>>;
+  using ToDoList = std::stack<Lambda<3>>;
   bool CheckEncodedValues(uint32_t count);
   bool CheckEncodedArray();
   bool CheckEncodedAnnotation();
@@ -1133,7 +1154,7 @@ bool DexFileVerifier::CheckEncodedValues(uint32_t count) {
           return false;
         }
         // Schedule the remained of the work for later (the stack is processed in LIFO order).
-        todo_.emplace([count](auto* self) { return self->CheckEncodedValues(count); });
+        todo_.emplace([this, count]() { return CheckEncodedValues(count); });
         // Return immediately to avoid recursion (work is added to the todo list).
         return CheckEncodedArray();
       case DexFile::kDexAnnotationAnnotation:
@@ -1142,7 +1163,7 @@ bool DexFileVerifier::CheckEncodedValues(uint32_t count) {
           return false;
         }
         // Schedule the remained of the work for later (the stack is processed in LIFO order).
-        todo_.emplace([count](auto* self) { return self->CheckEncodedValues(count); });
+        todo_.emplace([this, count]() { return CheckEncodedValues(count); });
         // Return immediately to avoid recursion (work is added to the todo list).
         return CheckEncodedAnnotation();
       case DexFile::kDexAnnotationNull:
@@ -1195,9 +1216,9 @@ bool DexFileVerifier::CheckEncodedValues(uint32_t count) {
 
 bool DexFileVerifier::CheckEncodedArray() {
   DECODE_UNSIGNED_CHECKED_FROM(ptr_, count);
-  todo_.emplace([count](auto* self) {
-    if (!self->CheckEncodedValues(count)) {
-      self->failure_reason_ = "Bad encoded_array value: " + self->failure_reason_;
+  todo_.emplace([this, count]() {
+    if (!CheckEncodedValues(count)) {
+      failure_reason_ = "Bad encoded_array value: " + failure_reason_;
       return false;
     }
     return true;
@@ -1212,7 +1233,7 @@ bool DexFileVerifier::CheckEncodedAnnotation() {
   }
 
   DECODE_UNSIGNED_CHECKED_FROM(ptr_, count);
-  todo_.emplace([count](auto* self) { return self->CheckAnnotationElements(kDexNoIndex, count); });
+  todo_.emplace([this, count]() { return CheckAnnotationElements(kDexNoIndex, count); });
   return true;
 }
 
@@ -1231,7 +1252,7 @@ bool DexFileVerifier::CheckAnnotationElements(uint32_t last_idx, uint32_t count)
 
     // Schedule the remained of the work for later (the stack is processed in LIFO order).
     count--;
-    todo_.emplace([idx, count](auto* self) { return self->CheckAnnotationElements(idx, count); });
+    todo_.emplace([this, idx, count]() { return CheckAnnotationElements(idx, count); });
 
     // Check this element (non-recursive, so we can bypass the todo list).
     if (!CheckEncodedValues(/*count=*/1)) {
@@ -1244,9 +1265,9 @@ bool DexFileVerifier::CheckAnnotationElements(uint32_t last_idx, uint32_t count)
 // Keep processing the rest of the to-do list until we are finished or encounter an error.
 bool DexFileVerifier::FlushToDoList() {
   while (!todo_.empty()) {
-    std::function<bool(DexFileVerifier*)> fn = std::move(todo_.top());
+    Lambda lambda = std::move(todo_.top());
     todo_.pop();
-    if (!fn(this)) {
+    if (!lambda()) {
       return false;
     }
   }
