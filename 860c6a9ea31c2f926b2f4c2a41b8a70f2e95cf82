@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d5adc99_c7e3e66d",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-02-07T12:30:09Z",
+      "side": 1,
+      "message": "Style: `/*out*/ const char**`\n\n`out` in this context means that the input value is not used, and it is only used to return a `const char *`. Example in the RISC-V ART codebase regarding `out` https://cs.android.com/search?q\u003d%22%2F*out*%2F%20XRegister*%20adjusted_base%22\u0026sq\u003d\u0026ss\u003dandroid%2Fplatform%2Fsuperproject%2Fmain",
+      "range": {
+        "startLine": 417,
+        "startChar": 63,
+        "endLine": 417,
+        "endChar": 79
+      },
+      "revId": "860c6a9ea31c2f926b2f4c2a41b8a70f2e95cf82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bcf54c8d_118abdce",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 1338,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-02-07T12:30:09Z",
+      "side": 1,
+      "message": "suggestion: remove. I think this comment is not needed since we are comparing against zero",
+      "range": {
+        "startLine": 1338,
+        "startChar": 56,
+        "endLine": 1338,
+        "endChar": 74
+      },
+      "revId": "860c6a9ea31c2f926b2f4c2a41b8a70f2e95cf82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
