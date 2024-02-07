@@ -855,6 +855,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d4a4d840_a599edc1",
+        "filename": "runtime/jni_hash_set.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-07T17:31:57Z",
+      "side": 1,
+      "message": "1.\nThe constructor would still branch based on ISA but the hot path is the Equal/Hash where we would have just a function pointer call. The first call through that pointer shall be recorded by the CPU branch predictor. All subsequent calls from the same PC shall go to the same address, so they shall be correctly predicted until the entry in the branch predictor is evicted. (The map in `ClassLinker` is created once and never changed afterwards.)\n\n2.\nYou can add `constexpr` to `GetMaxIntLikeRegisterArgs()` and `GetMaxFloatOrDoubleRegisterArgs()`. If you then create a `template \u003cInstructionSet kIsa\u003e` function, you can also add `constexpr` to local variables `max_int_like_register_args` and `max_float_or_double_register_args`.",
+      "parentUuid": "16b51d35_0ef0eae3",
+      "range": {
+        "startLine": 366,
+        "startChar": 4,
+        "endLine": 366,
+        "endChar": 23
+      },
+      "revId": "c144d9f461caa469b5b8d573a20b4caf08d2b38c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "054a76e9_60a69456",
         "filename": "runtime/jni_hash_set.h",
         "patchSetId": 2
@@ -936,6 +960,30 @@
       "side": 1,
       "message": "I\u0027m little confused about section ordering inside image. According to below conments, kSectionRuntimeMethods is in front of kSectionImTables.\n\n```\n251   /*\n252    * This describes the number and ordering of sections inside of Boot\n253    * and App Images.  It is very important that changes to this struct\n254    * are reflected in the compiler and loader.\n255    *\n256    * See:\n257    *   - ImageWriter::ImageInfo::CreateImageSections()\n258    *   - ImageWriter::Write()\n259    *   - ImageWriter::AllocMemory()\n260    */\n261   enum ImageSections {\n262     kSectionObjects,\n263     kSectionArtFields,\n264     kSectionArtMethods,\n265     kSectionRuntimeMethods,\n266     kSectionImTables,\n267     kSectionIMTConflictTables,\n268     kSectionInternedStrings,\n269     kSectionClassTable,\n270     kSectionStringReferenceOffsets,\n271     kSectionDexCacheArrays,\n272     kSectionMetadata,\n273     kSectionImageBitmap,\n274     kSectionCount,  // Number of elements in enum.\n275   };\n```\n\nBut in reality, the final section offset written to the Image depends on the Bin offset. However, in Bin, kRuntimeMethod is behind kImTable.\n\n```\n181   // Classify different kinds of bins that objects end up getting packed into during image writing.\n182   // Ordered from dirtiest to cleanest (until ArtMethods).\n183   enum class Bin {\n184     kKnownDirty,                  // Known dirty objects from --dirty-image-objects list\n185     kMiscDirty,                   // Dex caches, object locks, etc...\n186     kClassVerified,               // Class verified, but initializers haven\u0027t been run\n187     // Unknown mix of clean/dirty:\n188     kRegular,\n189     kClassInitialized,            // Class initializers have been run\n190     // All classes get their own bins since their fields often dirty\n191     kClassInitializedFinalStatics,  // Class initializers have been run, no non-final statics\n192     // Likely-clean:\n193     kString,                      // [String] Almost always immutable (except for obj header).\n194     // Definitely clean:\n195     kInternalClean,               // ART internal: image roots, boot image live objects, vtables\n196                                   // and interface tables, Object[]/int[]/long[].\n197     // Add more bins here if we add more segregation code.\n198     // Non mirror fields must be below.\n199     // ArtFields should be always clean.\n200     kArtField,\n201     // If the class is initialized, then the ArtMethods are probably clean.\n202     kArtMethodClean,\n203     // ArtMethods may be dirty if the class has native methods or a declaring class that isn\u0027t\n204     // initialized.\n205     kArtMethodDirty,\n206     // IMT (clean)\n207     kImTable,\n208     // Conflict tables (clean).\n209     kIMTConflictTable,\n210     // Runtime methods (always clean, do not have a length prefix array).\n211     kRuntimeMethod,\n212     // Metadata bin for data that is temporary during image lifetime.\n213     kMetadata,\n214     kLast \u003d kMetadata,\n215     // Number of bins which are for mirror objects.\n216     kMirrorCount \u003d kArtField,\n217   };\n```\n\nEven worse, if I move kSectionJniStubMethods downwards, NativeObjectRelocation offset may be invalid as the offset is the offset in Bin. I\u0027m not sure if I understand correctly, please correct me if I\u0027m wrong. Thanks!",
       "parentUuid": "2669056a_28eca8df",
+      "range": {
+        "startLine": 269,
+        "startChar": 4,
+        "endLine": 269,
+        "endChar": 26
+      },
+      "revId": "c144d9f461caa469b5b8d573a20b4caf08d2b38c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "153e2507_4ef8ef07",
+        "filename": "runtime/oat/image.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-07T17:31:57Z",
+      "side": 1,
+      "message": "Looking at `boot.oat` with `hexdump`, I can see that the offset recorded in the `sections_[kSectionRuntimeMethods]` is indeed higher than `sections_[kSectionIMTConflictTables]`. Feel free to move the `kSectionRuntimeMethods` down to fix the discrepancy. (This requires changing the image version but you\u0027re already doing that anyway.)\n\nLooking at the `ImageWriter`, I see that `kSectionInternedStrings` and `kSectionClassTable` do not have their own bins. I guess moving the `kSectionJniTrampolines` down would require adding such bins and recording their sizes to fix the `native_object_relocations_` calculation. This is probably not trivial, so feel free to acknowledge and leave the `kSectionJniTrampolines` where it is.",
+      "parentUuid": "1916d8c6_c29836b7",
       "range": {
         "startLine": 269,
         "startChar": 4,
