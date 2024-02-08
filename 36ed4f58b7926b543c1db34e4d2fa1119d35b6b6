@@ -33,6 +33,24 @@
       "message": "`DCHEK(item.array_size \u003d\u003d 0u || item.annotation_size \u003d\u003d 0u);`\n\n(My suggestion would allow both to be non-zero but your code makes it much easier to read and understand.)",
       "revId": "36ed4f58b7926b543c1db34e4d2fa1119d35b6b6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0262afc3_03ffe23e",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1210,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2024-02-08T10:45:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5b9c4841_2190b985",
+      "revId": "36ed4f58b7926b543c1db34e4d2fa1119d35b6b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
