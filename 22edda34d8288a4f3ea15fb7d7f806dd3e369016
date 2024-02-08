@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "be39939c_302949ec",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1124746
+      },
+      "writtenOn": "2024-02-08T18:47:26Z",
+      "side": 1,
+      "message": "yes, the installed test location is the same regardless if it normal build or coverage enabled, so in this case both are trying to install different artifact to the same location.",
+      "parentUuid": "02c0a943_2cdb7e05",
+      "revId": "22edda34d8288a4f3ea15fb7d7f806dd3e369016",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "170d0329_6d2f1a90",
@@ -31,6 +49,24 @@
       "writtenOn": "2024-02-08T14:05:41Z",
       "side": 1,
       "message": "Do this just once at [the end](https://cs.android.com/android/platform/superproject/main/+/main:art/build/makevars.go;l\u003d59;drc\u003dcf103210525e6754369d03efe99a3cb4ed757a12) instead?",
+      "revId": "22edda34d8288a4f3ea15fb7d7f806dd3e369016",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0894f9dc_9744b992",
+        "filename": "build/art.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1124746
+      },
+      "writtenOn": "2024-02-08T18:47:26Z",
+      "side": 1,
+      "message": "It would the same in terms of performance right? this just dedup it more upstream?",
+      "parentUuid": "170d0329_6d2f1a90",
       "revId": "22edda34d8288a4f3ea15fb7d7f806dd3e369016",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
