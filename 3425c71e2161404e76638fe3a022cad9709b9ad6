@@ -16,6 +16,93 @@
       "message": "Please review and leave your suggestions. Lint-1 is from assembler_x86_64_test.cc. clang-format tools tries to change beyond the actual diff in the patch. Inspite of applying those changes, fails due to conflicting checks between clang-format and cpplint.",
       "revId": "3425c71e2161404e76638fe3a022cad9709b9ad6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6f22bd37_d4fb9c51",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-08T10:27:16Z",
+      "side": 1,
+      "message": "Lint-1 is for common typos. I\u0027ve flagged those with explicit comments.\n\nGerrit is also showing \"merge conflict\". Please rebase.",
+      "parentUuid": "21d7527e_76e8b344",
+      "revId": "3425c71e2161404e76638fe3a022cad9709b9ad6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc5eb03c_83627e04",
+        "filename": "compiler/utils/assembler_test.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-08T10:27:16Z",
+      "side": 1,
+      "message": "Should be `it\u0027s`.",
+      "range": {
+        "startLine": 79,
+        "startChar": 11,
+        "endLine": 79,
+        "endChar": 14
+      },
+      "revId": "3425c71e2161404e76638fe3a022cad9709b9ad6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a2612417_9ffef582",
+        "filename": "compiler/utils/assembler_test.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 753,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-08T10:27:16Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 753,
+        "startChar": 43,
+        "endLine": 753,
+        "endChar": 51
+      },
+      "revId": "3425c71e2161404e76638fe3a022cad9709b9ad6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da5d9cdc_38ffe19d",
+        "filename": "compiler/utils/assembler_test.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 771,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-08T10:27:16Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 771,
+        "startChar": 43,
+        "endLine": 771,
+        "endChar": 51
+      },
+      "revId": "3425c71e2161404e76638fe3a022cad9709b9ad6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
