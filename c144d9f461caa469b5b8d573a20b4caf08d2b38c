@@ -879,6 +879,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d5ddc905_b6511aa2",
+        "filename": "runtime/jni_hash_set.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-02-08T14:09:17Z",
+      "side": 1,
+      "message": "Thanks Vladimir!\n\n1.\nBy the way, if isa branch 9s used in Equal/Hash with \"if-else\", is the CPU branch predictor also correctly predicted since isa won\u0027t be changed in run-time?\n\n2.\nFor constexpr and template metaprogramming, does it need nontype parameter is known at compile-time? If the isa isn\u0027t known at compile-time(only known at run-time), how can the constexpr function return correct value at compile-time? Thanks!",
+      "parentUuid": "d4a4d840_a599edc1",
+      "range": {
+        "startLine": 366,
+        "startChar": 4,
+        "endLine": 366,
+        "endChar": 23
+      },
+      "revId": "c144d9f461caa469b5b8d573a20b4caf08d2b38c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "054a76e9_60a69456",
         "filename": "runtime/jni_hash_set.h",
         "patchSetId": 2
