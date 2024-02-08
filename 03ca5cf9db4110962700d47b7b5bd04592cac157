@@ -22,6 +22,30 @@
       },
       "revId": "03ca5cf9db4110962700d47b7b5bd04592cac157",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e8bfb652_69d840aa",
+        "filename": "libdexfile/dex/dex_file_verifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1246,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2024-02-08T15:39:51Z",
+      "side": 1,
+      "message": "They can be (e.g. zero sized array is allowed)",
+      "parentUuid": "d8299ffd_100663b1",
+      "range": {
+        "startLine": 1246,
+        "startChar": 33,
+        "endLine": 1246,
+        "endChar": 35
+      },
+      "revId": "03ca5cf9db4110962700d47b7b5bd04592cac157",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
