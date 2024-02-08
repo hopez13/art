@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "d71813e3_7d6bb88d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-02-08T09:15:29Z",
+      "side": 1,
+      "message": "Add `Bug: 323462814`.\n\nThis number is our internal bug where we saw the crash",
+      "revId": "1ea9a87f1affec3f601ab169047c48f02b34197c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "56fb11fd_40cad493",
@@ -31,6 +48,30 @@
       "writtenOn": "2024-02-08T08:37:47Z",
       "side": 1,
       "message": "I\u0027d prefer capitalized `AND`, so that it stands out as an operation name and not a conjunction.",
+      "range": {
+        "startLine": 3724,
+        "startChar": 38,
+        "endLine": 3724,
+        "endChar": 41
+      },
+      "revId": "1ea9a87f1affec3f601ab169047c48f02b34197c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0365bb70_6adccd50",
+        "filename": "test/458-checker-instruct-simplification/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 3724,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-02-08T09:15:29Z",
+      "side": 1,
+      "message": "alternative: `byte bitwise and` to ``byte bitwise `and` instruction``",
+      "parentUuid": "a77f77f7_56ea749d",
       "range": {
         "startLine": 3724,
         "startChar": 38,
