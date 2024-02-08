@@ -69,6 +69,24 @@
       "parentUuid": "170d0329_6d2f1a90",
       "revId": "22edda34d8288a4f3ea15fb7d7f806dd3e369016",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d53fff8e_d4e3425c",
+        "filename": "build/art.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-02-08T19:20:52Z",
+      "side": 1,
+      "message": "Here it removes duplicates in the whole list for every element added. I think it\u0027s enough to do it just once at the end.\n\n(It may be a totally insignificant, but Soong takes too long as it is, so it feels a bit unnecessary to make it worse.)",
+      "parentUuid": "0894f9dc_9744b992",
+      "revId": "22edda34d8288a4f3ea15fb7d7f806dd3e369016",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
