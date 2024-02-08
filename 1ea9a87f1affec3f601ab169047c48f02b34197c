@@ -16,6 +16,52 @@
       "message": "Hello! Please take a look at the fix of shifts simplification. Thank you!",
       "revId": "1ea9a87f1affec3f601ab169047c48f02b34197c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a77f77f7_56ea749d",
+        "filename": "test/458-checker-instruct-simplification/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 3724,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-08T08:37:47Z",
+      "side": 1,
+      "message": "I\u0027d prefer capitalized `AND`, so that it stands out as an operation name and not a conjunction.",
+      "range": {
+        "startLine": 3724,
+        "startChar": 38,
+        "endLine": 3724,
+        "endChar": 41
+      },
+      "revId": "1ea9a87f1affec3f601ab169047c48f02b34197c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2629f800_dd7035b5",
+        "filename": "test/458-checker-instruct-simplification/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 4310,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-08T08:37:47Z",
+      "side": 1,
+      "message": "Add another test with `0x0a`. Add tests with `0xaa` for methods below, `0xaabb` for the last two.",
+      "range": {
+        "startLine": 4310,
+        "startChar": 4,
+        "endLine": 4310,
+        "endChar": 73
+      },
+      "revId": "1ea9a87f1affec3f601ab169047c48f02b34197c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
