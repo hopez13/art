@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "743869f2_fa27cefe",
+        "filename": "libartservice/service/java/com/android/server/art/PreRebootDexoptJob.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-02-08T02:00:55Z",
+      "side": 1,
+      "message": "Ack. May I address it in a separate CL? I\u0027m thinking about adding the actual scheduling code guarded by a system property.",
+      "parentUuid": "983f7847_4232b294",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 75
+      },
+      "revId": "1ee5a72cb63eb8dc793dc7f7541a084abcc8e75e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f0a56ea8_1818f7ff",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "67c7f651_7376b2ba",
+        "filename": "libartservice/service/java/com/android/server/art/PreRebootDexoptJob.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-02-08T02:00:55Z",
+      "side": 1,
+      "message": "Ack. May I address it in a separate CL? I\u0027m thinking about adding the actual scheduling code guarded by a system property.",
+      "parentUuid": "f0a56ea8_1818f7ff",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 46
+      },
+      "revId": "1ee5a72cb63eb8dc793dc7f7541a084abcc8e75e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "23a575cd_e5c30a09",
@@ -60,6 +108,30 @@
       "writtenOn": "2024-02-06T21:01:34Z",
       "side": 1,
       "message": "What about `DexoptJobInterface` as a narrower name, provided this interface will only cover the two dexopt jobs?",
+      "range": {
+        "startLine": 25,
+        "startChar": 17,
+        "endLine": 25,
+        "endChar": 39
+      },
+      "revId": "1ee5a72cb63eb8dc793dc7f7541a084abcc8e75e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "37207080_2c731950",
+        "filename": "libartservice/service/java/com/android/server/art/model/ArtServiceJobInterface.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-02-08T02:00:55Z",
+      "side": 1,
+      "message": "Ack. May I address it in a separate CL?",
+      "parentUuid": "23a575cd_e5c30a09",
       "range": {
         "startLine": 25,
         "startChar": 17,
