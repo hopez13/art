@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e7c2088c_b8933e03",
+        "filename": "libnativeloader/library_namespaces.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-02-08T19:33:22Z",
+      "side": 0,
+      "message": "This check is moved into `GetApiDomainFromPath`.",
+      "range": {
+        "startLine": 258,
+        "startChar": 51,
+        "endLine": 258,
+        "endChar": 75
+      },
+      "revId": "e10dc458975828e28f551014b0309ff151bba362",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
