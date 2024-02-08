@@ -77,12 +77,7 @@ void CHAGuardVisitor::VisitBasicBlock(HBasicBlock* block) {
     return;
   }
   // Skip phis, just iterate through instructions.
-  HInstructionIterator it(block->GetInstructions());
-  instruction_iterator_ = &it;
-  for (; !it.Done(); it.Advance()) {
-    DCHECK(it.Current()->IsInBlock());
-    it.Current()->Accept(this);
-  }
+  VisitNonPhiInstructions(block);
 }
 
 void CHAGuardVisitor::RemoveGuard(HShouldDeoptimizeFlag* flag) {
