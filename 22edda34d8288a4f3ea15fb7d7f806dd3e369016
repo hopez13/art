@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "02c0a943_2cdb7e05",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-02-08T14:05:41Z",
+      "side": 1,
+      "message": "So the problem is that coverage and non-coverage variants of the tests get the same identifier?",
+      "revId": "22edda34d8288a4f3ea15fb7d7f806dd3e369016",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "170d0329_6d2f1a90",
+        "filename": "build/art.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-02-08T14:05:41Z",
+      "side": 1,
+      "message": "Do this just once at [the end](https://cs.android.com/android/platform/superproject/main/+/main:art/build/makevars.go;l\u003d59;drc\u003dcf103210525e6754369d03efe99a3cb4ed757a12) instead?",
+      "revId": "22edda34d8288a4f3ea15fb7d7f806dd3e369016",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
