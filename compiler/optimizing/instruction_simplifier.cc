@@ -39,13 +39,13 @@ namespace art HIDDEN {
 // is replaced with its copy if it is clonable.
 static constexpr bool kTestInstructionClonerExhaustively = false;
 
-class InstructionSimplifierVisitor final : public HGraphDelegateVisitor {
+class InstructionSimplifierVisitor final : public CRTPGraphVisitor<InstructionSimplifierVisitor> {
  public:
   InstructionSimplifierVisitor(HGraph* graph,
                                CodeGenerator* codegen,
                                OptimizingCompilerStats* stats,
                                bool be_loop_friendly)
-      : HGraphDelegateVisitor(graph),
+      : CRTPGraphVisitor<InstructionSimplifierVisitor>(graph),
         codegen_(codegen),
         stats_(stats),
         be_loop_friendly_(be_loop_friendly) {}
@@ -75,6 +75,8 @@ class InstructionSimplifierVisitor final : public HGraphDelegateVisitor {
   bool TryCombineVecMultiplyAccumulate(HVecMul* mul);
   void TryToReuseDiv(HRem* rem);
 
+ public:
+#define override
   void VisitShift(HBinaryOperation* shift);
   void VisitEqual(HEqual* equal) override;
   void VisitNotEqual(HNotEqual* equal) override;
@@ -115,6 +117,9 @@ class InstructionSimplifierVisitor final : public HGraphDelegateVisitor {
   void VisitInvoke(HInvoke* invoke) override;
   void VisitDeoptimize(HDeoptimize* deoptimize) override;
   void VisitVecMul(HVecMul* instruction) override;
+#undef override
+
+ private:
   void SimplifyBoxUnbox(HInvoke* instruction, ArtField* field, DataType::Type type);
   void SimplifySystemArrayCopy(HInvoke* invoke);
   void SimplifyStringEquals(HInvoke* invoke);

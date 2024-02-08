@@ -8567,6 +8567,49 @@ class HGraphVisitor : public ValueObject {
   DISALLOW_COPY_AND_ASSIGN(HGraphVisitor);
 };
 
+template <typename Visitor>
+class CRTPGraphVisitor {
+ public:
+  CRTPGraphVisitor(HGraph* graph, OptimizingCompilerStats* stats = nullptr)
+      : stats_(stats),
+        graph_(graph) {}
+
+ protected:
+  HGraph* GetGraph() const { return graph_; }
+
+  void VisitInstruction([[maybe_unused]] HInstruction* instruction) {}
+#define DECLARE_VISIT_INSTRUCTION(name, super)                                        \
+  void Visit##name(H##name* instr) { down_cast<Visitor*>(this)->Visit##super(instr); }
+  FOR_EACH_INSTRUCTION(DECLARE_VISIT_INSTRUCTION)
+#undef DECLARE_VISIT_INSTRUCTION
+
+  void VisitNonPhiInstructions(HBasicBlock* block) {
+    static_assert(std::is_final_v<Visitor>);
+    Visitor* visitor = down_cast<Visitor*>(this);
+    for (HInstructionIterator it(block->GetInstructions()); !it.Done(); it.Advance()) {
+      HInstruction* instruction = it.Current();
+      switch (instruction->GetKind()) {
+#define CASE_DISPATCH(name, super)                        \
+        case HInstruction::k##name:                       \
+          visitor->Visit##name(instruction->As##name());  \
+          break;
+        FOR_EACH_CONCRETE_INSTRUCTION(CASE_DISPATCH)
+#undef CASE_DISPATCH
+        case HInstruction::kLastInstructionKind:
+          DCHECK(false) << "UNREACHABLE";  // Let this be optimized away in release build.
+          break;
+      }
+    }
+  }
+
+  OptimizingCompilerStats* stats_;
+
+ private:
+  HGraph* const graph_;
+
+  DISALLOW_COPY_AND_ASSIGN(CRTPGraphVisitor);
+};
+
 class HGraphDelegateVisitor : public HGraphVisitor {
  public:
   explicit HGraphDelegateVisitor(HGraph* graph, OptimizingCompilerStats* stats = nullptr)
