@@ -903,6 +903,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ff70f8db_211741fe",
+        "filename": "runtime/jni_hash_set.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-08T16:49:00Z",
+      "side": 1,
+      "message": "1.\nYes, those jumps would be correctly predicted but with `if (isa_ \u003d\u003d InstructionSet::kArm64 || isa_ \u003d\u003d InstructionSet::kX86_64)`, we\u0027d have two branches to predict instead of one. (More code to execute, except for the arm64 architecture that\u0027s checked first). Additional branching would be needed for `GetMaxIntLikeRegisterArgs()` unless clang++ manages to specialize the code.\n\n2.\n(This is not really template metaprogramming.) Each equals/hash template function instantiation would have an ISA known at compile time and pass it to `GetMaxIntLikeRegisterArgs()` and `GetMaxFloatOrDoubleRegisterArgs()`. The constructor would select the appropriate equals/hash function instantiation at runtime.",
+      "parentUuid": "d5ddc905_b6511aa2",
+      "range": {
+        "startLine": 366,
+        "startChar": 4,
+        "endLine": 366,
+        "endChar": 23
+      },
+      "revId": "c144d9f461caa469b5b8d573a20b4caf08d2b38c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "054a76e9_60a69456",
         "filename": "runtime/jni_hash_set.h",
         "patchSetId": 2
