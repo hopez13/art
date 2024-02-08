@@ -22,6 +22,98 @@
       },
       "revId": "24be2335cb8fb3d0d7d9de3e550f6fad0f86724c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "336487ac_6fd69d43",
+        "filename": "libdexfile/dex/code_item_accessors-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-08T16:59:17Z",
+      "side": 1,
+      "message": "if you change the argument to `NewLocalVisitor\u0026\u0026 new_local`, you should forward it as `std::forward\u003cNewLocalVisitor\u003e(new_local)`. Similar below.",
+      "range": {
+        "startLine": 212,
+        "startChar": 41,
+        "endLine": 212,
+        "endChar": 50
+      },
+      "revId": "24be2335cb8fb3d0d7d9de3e550f6fad0f86724c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "53b22888_5de716fa",
+        "filename": "libdexfile/dex/code_item_accessors.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-08T16:59:17Z",
+      "side": 1,
+      "message": "Use either `const T\u0026` or (better) `T\u0026\u0026` but not `const T\u0026\u0026`. Same below.",
+      "range": {
+        "startLine": 167,
+        "startChar": 28,
+        "endLine": 167,
+        "endChar": 51
+      },
+      "revId": "24be2335cb8fb3d0d7d9de3e550f6fad0f86724c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f061388e_95ec1528",
+        "filename": "libelffile/elf/elf_debug_reader.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-08T16:59:17Z",
+      "side": 1,
+      "message": "`std::forward`",
+      "range": {
+        "startLine": 138,
+        "startChar": 50,
+        "endLine": 138,
+        "endChar": 59
+      },
+      "revId": "24be2335cb8fb3d0d7d9de3e550f6fad0f86724c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7fa3a137_ddff20d4",
+        "filename": "libelffile/elf/elf_debug_reader.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-08T16:59:17Z",
+      "side": 1,
+      "message": "`std::forward`",
+      "range": {
+        "startLine": 172,
+        "startChar": 45,
+        "endLine": 172,
+        "endChar": 65
+      },
+      "revId": "24be2335cb8fb3d0d7d9de3e550f6fad0f86724c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
