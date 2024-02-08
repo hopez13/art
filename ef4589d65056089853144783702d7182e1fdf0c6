@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f354fbe_a71248ef",
+        "filename": "runtime/jni/java_vm_ext.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 966,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-02-08T19:34:42Z",
+      "side": 1,
+      "message": "@ngeoffray@google.com, Jiyong had concern on https://r.android.com/877973 back when the caller class was added, namely that this could resolve to a (vdex?) path in dalvik-cache. It was dismissed back then because the caller class would only be used for APEXes when there are no class loader.\n\nWith this that\u0027s no longer the case though, so is that correct? If so, do we have another way to find the source dex path, or do we need to decode dalvik-cache paths here?",
+      "range": {
+        "startLine": 966,
+        "startChar": 26,
+        "endLine": 966,
+        "endChar": 50
+      },
+      "revId": "ef4589d65056089853144783702d7182e1fdf0c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
