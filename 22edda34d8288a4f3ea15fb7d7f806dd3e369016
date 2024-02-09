@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ea228125_e7b0adcd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-02-09T11:37:18Z",
+      "side": 1,
+      "message": "Hmm, then I\u0027m not sure I follow. The only thing this does is to remove duplicate names in `ART_TEST_LIST_*`. If the names are the same, then one of them can hardly be referring to the coverage build and the other to the normal one, can they? Did you mean that the duplicate names causes duplicate installation stanzas, even though both of them would be for the exact same build, i.e. both may be for the coverage test, or both may be for the normal one?",
+      "parentUuid": "be39939c_302949ec",
+      "revId": "22edda34d8288a4f3ea15fb7d7f806dd3e369016",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "170d0329_6d2f1a90",
         "filename": "build/art.go",
         "patchSetId": 1
