@@ -46,6 +46,30 @@
       },
       "revId": "ef4589d65056089853144783702d7182e1fdf0c6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6aa20ac_db0ad4b0",
+        "filename": "runtime/jni/java_vm_ext.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 966,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-02-09T11:15:55Z",
+      "side": 1,
+      "message": "Here\u0027s what Jiyong said:\n\n\u003e oh, I have the answer here. So it is a file path to the dex cache.\n\u003e \n\u003e IIUC, one thing that worries me is that the path contains arch as /data/dalvik-cache/arm64/aaaa@bbbb@cccc.dex... , which means this can\u0027t be used as an ID that uniquely represent the caller. Perhaps we can just send the basename?\n\nI mentioned vdex because that\u0027s the only file we write to dalvik-cache that can possibly contain dex code. It doesn\u0027t really matter - what matters is if this path can be to the dalvik-cache rather than the source apk or dex jar.",
+      "parentUuid": "2dfb6f61_05cfa601",
+      "range": {
+        "startLine": 966,
+        "startChar": 26,
+        "endLine": 966,
+        "endChar": 50
+      },
+      "revId": "ef4589d65056089853144783702d7182e1fdf0c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
