@@ -23,6 +23,7 @@ bootstrap_go_package {
         "art.go",
         "codegen.go",
         "makevars.go",
+        "quick_code_arch.go",
     ],
     pluginFor: ["soong_build"],
 }

@@ -52,6 +52,11 @@ func globalFlags(ctx android.LoadHookContext) ([]string, []string) {
 		gcType = "MS"
 	}
 
+	if ctx.Config().IsEnvTrue("ART_USE_SIMULATOR") {
+		cflags = append(cflags, "-DART_USE_SIMULATOR=1")
+		asflags = append(asflags, "-DART_USE_SIMULATOR=1")
+	}
+
 	cflags = append(cflags, "-DART_DEFAULT_GC_TYPE_IS_"+gcType)
 
 	if ctx.Config().IsEnvTrue("ART_HEAP_POISONING") {
@@ -365,6 +370,7 @@ func artDefaultsFactory() android.Module {
 	c := &codegenProperties{}
 	module := cc.DefaultsFactory(c)
 	android.AddLoadHook(module, func(ctx android.LoadHookContext) { codegen(ctx, c, staticAndSharedLibrary) })
+	installQuickCodeArchCustomizer(module, staticAndSharedLibrary)
 
 	return module
 }
