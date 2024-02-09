@@ -32,6 +32,13 @@ JIT_DEBUG_REGISTER_CODE_LDFLAGS = [
     "-Wl,--keep-unique,__dex_debug_register_code",
 ]
 
+soong_config_module_type_import {
+    from: "art/build/SoongConfig.bp",
+    module_types: [
+        "art_libart_cc_defaults",
+    ],
+}
+
 // These are defaults for native shared libaries that are expected to be
 // in stack traces often.
 cc_defaults {
@@ -225,8 +232,85 @@ cc_defaults {
     ],
 }
 
-// Common defaults for `libart-runtime_defaults` and `libartd-runtime_defaults`.
+// Quick code architecture specific sources. Only sources which relate to the quick code ISA
+// (see definition of StackType in thread.h) should be placed in this section. This is because all
+// simulator build configurations will always have a different quick code (target) ISA to that of
+// the native (host machine) ISA and therefore will require quick code specific sources (e.g:
+// assembly entrypoints) to be built for the host machine.
+
+// Architecture specific, quick code sources for libart-runtime when the simulator is in use, i.e.:
+// ART_USE_SIMULATOR is defined.
 cc_defaults {
+    name: "libart-runtime_quick_sim_defaults",
+    arch: {
+        arm64: {
+            srcs: [
+                "arch/arm64/context_arm64.cc",
+                "arch/arm64/entrypoints_init_arm64.cc",
+                "arch/arm64/jni_entrypoints_arm64.S",
+                "arch/arm64/quick_entrypoints_arm64.S",
+            ],
+        },
+        x86_64: {
+            srcs: [
+                "arch/arm64/context_arm64.cc",
+                "arch/arm64/entrypoints_init_arm64.cc",
+                "arch/arm64/jni_entrypoints_arm64.S",
+                "arch/arm64/quick_entrypoints_arm64.S",
+            ],
+        },
+    },
+}
+
+// Architecture specific, quick code sources for libart-runtime.
+cc_defaults {
+    name: "libart-runtime_quick_defaults",
+    arch: {
+        arm: {
+            srcs: [
+                "arch/arm/context_arm.cc",
+                "arch/arm/entrypoints_init_arm.cc",
+                "arch/arm/jni_entrypoints_arm.S",
+                "arch/arm/quick_entrypoints_arm.S",
+            ],
+        },
+        arm64: {
+            srcs: [
+                "arch/arm64/context_arm64.cc",
+                "arch/arm64/entrypoints_init_arm64.cc",
+                "arch/arm64/jni_entrypoints_arm64.S",
+                "arch/arm64/quick_entrypoints_arm64.S",
+            ],
+        },
+        riscv64: {
+            srcs: [
+                "arch/riscv64/context_riscv64.cc",
+                "arch/riscv64/entrypoints_init_riscv64.cc",
+                "arch/riscv64/jni_entrypoints_riscv64.S",
+                "arch/riscv64/quick_entrypoints_riscv64.S",
+            ],
+        },
+        x86: {
+            srcs: [
+                "arch/x86/context_x86.cc",
+                "arch/x86/entrypoints_init_x86.cc",
+                "arch/x86/jni_entrypoints_x86.S",
+                "arch/x86/quick_entrypoints_x86.S",
+            ],
+        },
+        x86_64: {
+            srcs: [
+                "arch/x86_64/context_x86_64.cc",
+                "arch/x86_64/entrypoints_init_x86_64.cc",
+                "arch/x86_64/jni_entrypoints_x86_64.S",
+                "arch/x86_64/quick_entrypoints_x86_64.S",
+            ],
+        },
+    },
+}
+
+// Common defaults for `libart-runtime_defaults` and `libartd-runtime_defaults`.
+art_libart_cc_defaults {
     name: "libart-runtime_common_defaults",
     defaults: ["libart_common_defaults"],
     srcs: [
@@ -462,12 +546,8 @@ cc_defaults {
             srcs: [
                 "interpreter/mterp/nterp.cc",
                 ":libart_mterp.armng",
-                "arch/arm/context_arm.cc",
-                "arch/arm/entrypoints_init_arm.cc",
                 "arch/arm/instruction_set_features_assembly_tests.S",
-                "arch/arm/jni_entrypoints_arm.S",
                 "arch/arm/memcmp16_arm.S",
-                "arch/arm/quick_entrypoints_arm.S",
                 "arch/arm/native_entrypoints_arm.S",
                 "arch/arm/quick_entrypoints_cc_arm.cc",
                 "arch/arm/thread_arm.cc",
@@ -478,11 +558,7 @@ cc_defaults {
             srcs: [
                 "interpreter/mterp/nterp.cc",
                 ":libart_mterp.arm64ng",
-                "arch/arm64/context_arm64.cc",
-                "arch/arm64/entrypoints_init_arm64.cc",
-                "arch/arm64/jni_entrypoints_arm64.S",
                 "arch/arm64/memcmp16_arm64.S",
-                "arch/arm64/quick_entrypoints_arm64.S",
                 "arch/arm64/native_entrypoints_arm64.S",
                 "arch/arm64/thread_arm64.cc",
                 "monitor_pool.cc",
@@ -492,11 +568,7 @@ cc_defaults {
         riscv64: {
             srcs: [
                 ":libart_mterp.riscv64",
-                "arch/riscv64/context_riscv64.cc",
-                "arch/riscv64/entrypoints_init_riscv64.cc",
                 "arch/riscv64/fault_handler_riscv64.cc",
-                "arch/riscv64/jni_entrypoints_riscv64.S",
-                "arch/riscv64/quick_entrypoints_riscv64.S",
                 "arch/riscv64/native_entrypoints_riscv64.S",
                 "arch/riscv64/thread_riscv64.cc",
                 "interpreter/mterp/nterp.cc",
@@ -507,11 +579,7 @@ cc_defaults {
             srcs: [
                 "interpreter/mterp/nterp.cc",
                 ":libart_mterp.x86ng",
-                "arch/x86/context_x86.cc",
-                "arch/x86/entrypoints_init_x86.cc",
-                "arch/x86/jni_entrypoints_x86.S",
                 "arch/x86/memcmp16_x86.S",
-                "arch/x86/quick_entrypoints_x86.S",
                 "arch/x86/native_entrypoints_x86.S",
                 "arch/x86/thread_x86.cc",
                 "arch/x86/fault_handler_x86.cc",
@@ -529,11 +597,7 @@ cc_defaults {
                 // shared between the x86 and x86_64 architectures.
                 "interpreter/mterp/nterp.cc",
                 ":libart_mterp.x86_64ng",
-                "arch/x86_64/context_x86_64.cc",
-                "arch/x86_64/entrypoints_init_x86_64.cc",
-                "arch/x86_64/jni_entrypoints_x86_64.S",
                 "arch/x86_64/memcmp16_x86_64.S",
-                "arch/x86_64/quick_entrypoints_x86_64.S",
                 "arch/x86_64/native_entrypoints_x86_64.S",
                 "arch/x86_64/thread_x86_64.cc",
                 "monitor_pool.cc",
@@ -544,6 +608,17 @@ cc_defaults {
             },
             avx2: {
                 asflags: ["-DMTERP_USE_AVX"],
+            },
+        },
+    },
+
+    soong_config_variables: {
+        art_use_simulator: {
+            // Simulator specific sources use two different ISA's which are split between native
+            // code and quick code.
+            defaults: ["libart-runtime_quick_sim_defaults"],
+            conditions_default: {
+                defaults: ["libart-runtime_quick_defaults"],
             },
         },
     },

@@ -101,3 +101,11 @@ soong_config_module_type {
     value_variables: ["art_debug_opt_flag"],
     properties: ["cflags"],
 }
+
+soong_config_module_type {
+    name: "art_libart_cc_defaults",
+    module_type: "cc_defaults",
+    config_namespace: "art_module",
+    bool_variables: ["art_use_simulator"],
+    properties: ["defaults"],
+}
