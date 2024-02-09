@@ -1,0 +1,176 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bea16276_d13eedc9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-09T10:58:47Z",
+      "side": 1,
+      "message": "Another partial review: header and a quick look at the `EmitCB()` uses in the .cc file.",
+      "revId": "ddeca19e802b945065cb50bbe1a56483c1e83dd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "15ecb3b1_82496aba",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 515,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-09T10:58:47Z",
+      "side": 1,
+      "message": "Lower-case `r`. Same for `CSrai`.",
+      "range": {
+        "startLine": 515,
+        "startChar": 9,
+        "endLine": 515,
+        "endChar": 10
+      },
+      "revId": "ddeca19e802b945065cb50bbe1a56483c1e83dd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba82921c_51a81217",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1808,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-09T10:58:47Z",
+      "side": 1,
+      "message": "Add \"not\"? (Or remove the text completely. C++ `static_assert` initially required the second argument but it no longer does.)",
+      "range": {
+        "startLine": 1808,
+        "startChar": 19,
+        "endLine": 1808,
+        "endChar": 44
+      },
+      "revId": "ddeca19e802b945065cb50bbe1a56483c1e83dd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7667f5ed_543dc4fa",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 2023,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-09T10:58:47Z",
+      "side": 1,
+      "message": "Remove. This is effectively included in the `dchecked_integral_cast\u003c\u003e` below.",
+      "range": {
+        "startLine": 2023,
+        "startChar": 4,
+        "endLine": 2023,
+        "endChar": 30
+      },
+      "revId": "ddeca19e802b945065cb50bbe1a56483c1e83dd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e42b5284_17dd64fb",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 2293,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-09T10:58:47Z",
+      "side": 1,
+      "message": "I\u0027d prefer to pass all args as 32-bit to the `EmitC*()` functions so that we don\u0027t lose the high bits before doing the `DCHECK()`s.",
+      "range": {
+        "startLine": 2293,
+        "startChar": 14,
+        "endLine": 2293,
+        "endChar": 22
+      },
+      "revId": "ddeca19e802b945065cb50bbe1a56483c1e83dd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3cca67a0_a3906248",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 2357,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-09T10:58:47Z",
+      "side": 1,
+      "message": "You could have kept the `\u003c\u003c rd_s` without the text. (But it\u0027s OK to omit.)",
+      "range": {
+        "startLine": 2357,
+        "startChar": 28,
+        "endLine": 2357,
+        "endChar": 29
+      },
+      "revId": "ddeca19e802b945065cb50bbe1a56483c1e83dd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42fb9d08_1c1262bf",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 2396,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-09T10:58:47Z",
+      "side": 1,
+      "message": "Line too long.",
+      "revId": "ddeca19e802b945065cb50bbe1a56483c1e83dd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ecb0ff0d_43dca2bb",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 2416,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-09T10:58:47Z",
+      "side": 1,
+      "message": "Maybe we should have separate `EmitCBArithmetic(funct3, uimm5, funct2, rd_s, opcode)` and `EmitCBBranch(funct3, offset, rs1_s, opcode)`. The latter could do the bit shuffling that\u0027s currently duplicated in `CBeqz()` and `CBnez()`.",
+      "range": {
+        "startLine": 2416,
+        "startChar": 7,
+        "endLine": 2416,
+        "endChar": 13
+      },
+      "revId": "ddeca19e802b945065cb50bbe1a56483c1e83dd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

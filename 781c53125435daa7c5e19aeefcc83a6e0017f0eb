@@ -131,6 +131,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b6552d78_f90e0250",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 494,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-09T10:58:47Z",
+      "side": 1,
+      "message": "Half-done in PS2 (changed to 32-bit but still unsigned).",
+      "parentUuid": "2aafe107_7d316d15",
+      "range": {
+        "startLine": 494,
+        "startChar": 27,
+        "endLine": 494,
+        "endChar": 35
+      },
+      "revId": "781c53125435daa7c5e19aeefcc83a6e0017f0eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e02d35e8_0734f0c9",
         "filename": "compiler/utils/riscv64/assembler_riscv64.h",
         "patchSetId": 1
