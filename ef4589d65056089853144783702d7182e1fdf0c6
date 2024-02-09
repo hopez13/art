@@ -22,6 +22,30 @@
       },
       "revId": "ef4589d65056089853144783702d7182e1fdf0c6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2dfb6f61_05cfa601",
+        "filename": "runtime/jni/java_vm_ext.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 966,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-02-09T09:42:41Z",
+      "side": 1,
+      "message": "This is out of my breadth here. I don\u0027t see how vdex would be associated with linker namespaces.",
+      "parentUuid": "2f354fbe_a71248ef",
+      "range": {
+        "startLine": 966,
+        "startChar": 26,
+        "endLine": 966,
+        "endChar": 50
+      },
+      "revId": "ef4589d65056089853144783702d7182e1fdf0c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
