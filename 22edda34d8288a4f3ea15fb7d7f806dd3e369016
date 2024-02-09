@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "60984ad1_7ea5bf4b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1124746
+      },
+      "writtenOn": "2024-02-09T21:48:33Z",
+      "side": 1,
+      "message": "the error is like this:\n\n[100% 1196/1196] writing legacy Make module rules ...\nFAILED: \nart/build/Android.gtest.mk:361: error: overriding commands for target `out/host/linux-x86/obj/PACKAGING/art-host-gtest_int\nermediates/art_cmdline_tests64.xml\u0027, previously defined at art/build/Android.gtest.mk:361\n20:22:30 ckati failed with: exit status 1\n\nso both the normal and coverage targets are trying to install this file to the same path, there might be other ways to fix this, but this is quickest one I can figure out.",
+      "parentUuid": "ea228125_e7b0adcd",
+      "revId": "22edda34d8288a4f3ea15fb7d7f806dd3e369016",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "170d0329_6d2f1a90",
         "filename": "build/art.go",
         "patchSetId": 1
