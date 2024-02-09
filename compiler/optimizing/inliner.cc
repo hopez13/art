@@ -135,6 +135,7 @@ void HInliner::UpdateInliningBudget() {
 }
 
 bool HInliner::Run() {
+  LOG(ERROR) << "RUN WITH " << codegen_->GetCompilerOptions().GetInlineMaxCodeUnits();
   if (codegen_->GetCompilerOptions().GetInlineMaxCodeUnits() == 0) {
     // Inlining effectively disabled.
     return false;
@@ -181,6 +182,10 @@ bool HInliner::Run() {
       HInvoke* call = instruction->AsInvokeOrNull();
       // As long as the call is not intrinsified, it is worth trying to inline.
       if (call != nullptr && !codegen_->IsImplementedIntrinsic(call)) {
+        {
+          ScopedObjectAccess soa(Thread::Current());
+          VLOG(compiler) << "YUP FOR " << call->GetResolvedMethod()->PrettyMethod();
+        }
         if (honor_noinline_directives) {
           // Debugging case: directives in method names control or assert on inlining.
           std::string callee_name =
@@ -541,6 +546,7 @@ bool HInliner::TryInline(HInvoke* invoke_instruction) {
                        << " statically resolve the target";
     // For baseline compilation, we will collect inline caches, so we should not
     // try to inline using them.
+    outermost_graph_->SetUsefulOptimizing();
     return false;
   }
 
@@ -1552,9 +1558,7 @@ bool HInliner::IsInliningEncouraged(const HInvoke* invoke_instruction,
     return false;
   }
 
-  size_t inline_max_code_units = graph_->IsCompilingBaseline()
-      ? CompilerOptions::kBaselineInlineMaxCodeUnits
-      : codegen_->GetCompilerOptions().GetInlineMaxCodeUnits();
+  size_t inline_max_code_units = codegen_->GetCompilerOptions().GetInlineMaxCodeUnits();
   if (accessor.InsnsSizeInCodeUnits() > inline_max_code_units) {
     LOG_FAIL(stats_, MethodCompilationStat::kNotInlinedCodeItem)
         << "Method " << method->PrettyMethod()
@@ -1562,6 +1566,14 @@ bool HInliner::IsInliningEncouraged(const HInvoke* invoke_instruction,
         << accessor.InsnsSizeInCodeUnits()
         << " > "
         << inline_max_code_units;
+    return false;
+  }
+
+  if (graph_->IsCompilingBaseline() &&
+      accessor.InsnsSizeInCodeUnits() > CompilerOptions::kBaselineInlineMaxCodeUnits) {
+    LOG_FAIL_NO_STAT() << "Reached baseline maximum code unit for inlining  "
+                       << method->PrettyMethod();
+    outermost_graph_->SetUsefulOptimizing();
     return false;
   }
 
@@ -2129,6 +2141,7 @@ bool HInliner::CanInlineBody(const HGraph* callee_graph,
         if (depth_ + 1 > maximum_inlining_depth_for_baseline) {
           LOG_FAIL_NO_STAT() << "Reached maximum depth for inlining in baseline compilation: "
                              << depth_ << " for " << callee_graph->GetArtMethod()->PrettyMethod();
+          outermost_graph_->SetUsefulOptimizing();
           return false;
         }
       }
