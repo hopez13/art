@@ -22,6 +22,53 @@
       },
       "revId": "3cb04fd67d7efb8d057f10b411e99528f9f0ecac",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa207924_bd889dbb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 12
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-02-09T20:47:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "50453dca_81a6fc75",
+      "range": {
+        "startLine": 24,
+        "startChar": 63,
+        "endLine": 24,
+        "endChar": 66
+      },
+      "revId": "3cb04fd67d7efb8d057f10b411e99528f9f0ecac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79ac073c_9cce6510",
+        "filename": "libnativeloader/native_loader.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-02-09T20:47:11Z",
+      "side": 1,
+      "message": "I\u0027m now thinking of restricting this to libraries specified through absolute paths - see discussion in http://b/186729817#comment8.",
+      "range": {
+        "startLine": 325,
+        "startChar": 65,
+        "endLine": 326,
+        "endChar": 50
+      },
+      "revId": "3cb04fd67d7efb8d057f10b411e99528f9f0ecac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
