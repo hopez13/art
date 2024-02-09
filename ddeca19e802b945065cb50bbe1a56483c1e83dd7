@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "57ef0aec_ecd9cc57",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 515,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-02-09T12:15:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "15ecb3b1_82496aba",
+      "range": {
+        "startLine": 515,
+        "startChar": 9,
+        "endLine": 515,
+        "endChar": 10
+      },
+      "revId": "ddeca19e802b945065cb50bbe1a56483c1e83dd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ba82921c_51a81217",
@@ -54,6 +78,30 @@
       "writtenOn": "2024-02-09T10:58:47Z",
       "side": 1,
       "message": "Add \"not\"? (Or remove the text completely. C++ `static_assert` initially required the second argument but it no longer does.)",
+      "range": {
+        "startLine": 1808,
+        "startChar": 19,
+        "endLine": 1808,
+        "endChar": 44
+      },
+      "revId": "ddeca19e802b945065cb50bbe1a56483c1e83dd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "59e4a35a_fced347a",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1808,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-02-09T12:15:55Z",
+      "side": 1,
+      "message": "Do you mean `Should not be RISC-V register`? I am a bit confused, this assert checks if register type in RISC-V type and message stands for that.\n\nAnyway we could remove text indeed",
+      "parentUuid": "ba82921c_51a81217",
       "range": {
         "startLine": 1808,
         "startChar": 19,
@@ -87,6 +135,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4776911_c4973b17",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 2023,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-02-09T12:15:55Z",
+      "side": 1,
+      "message": "Indeed",
+      "parentUuid": "7667f5ed_543dc4fa",
+      "range": {
+        "startLine": 2023,
+        "startChar": 4,
+        "endLine": 2023,
+        "endChar": 30
+      },
+      "revId": "ddeca19e802b945065cb50bbe1a56483c1e83dd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e42b5284_17dd64fb",
@@ -100,6 +172,30 @@
       "writtenOn": "2024-02-09T10:58:47Z",
       "side": 1,
       "message": "I\u0027d prefer to pass all args as 32-bit to the `EmitC*()` functions so that we don\u0027t lose the high bits before doing the `DCHECK()`s.",
+      "range": {
+        "startLine": 2293,
+        "startChar": 14,
+        "endLine": 2293,
+        "endChar": 22
+      },
+      "revId": "ddeca19e802b945065cb50bbe1a56483c1e83dd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4abb3a60_a1becb7c",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 2293,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-02-09T12:15:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e42b5284_17dd64fb",
       "range": {
         "startLine": 2293,
         "startChar": 14,
@@ -133,6 +229,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa7b2d00_b114047f",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 2357,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-02-09T12:15:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3cca67a0_a3906248",
+      "range": {
+        "startLine": 2357,
+        "startChar": 28,
+        "endLine": 2357,
+        "endChar": 29
+      },
+      "revId": "ddeca19e802b945065cb50bbe1a56483c1e83dd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "42fb9d08_1c1262bf",
@@ -150,6 +270,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "84826835_95b859e4",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 2396,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-02-09T12:15:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "42fb9d08_1c1262bf",
+      "revId": "ddeca19e802b945065cb50bbe1a56483c1e83dd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ecb0ff0d_43dca2bb",
@@ -163,6 +301,30 @@
       "writtenOn": "2024-02-09T10:58:47Z",
       "side": 1,
       "message": "Maybe we should have separate `EmitCBArithmetic(funct3, uimm5, funct2, rd_s, opcode)` and `EmitCBBranch(funct3, offset, rs1_s, opcode)`. The latter could do the bit shuffling that\u0027s currently duplicated in `CBeqz()` and `CBnez()`.",
+      "range": {
+        "startLine": 2416,
+        "startChar": 7,
+        "endLine": 2416,
+        "endChar": 13
+      },
+      "revId": "ddeca19e802b945065cb50bbe1a56483c1e83dd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "43345ee7_0f124c1a",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 2416,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-02-09T12:15:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ecb0ff0d_43dca2bb",
       "range": {
         "startLine": 2416,
         "startChar": 7,
