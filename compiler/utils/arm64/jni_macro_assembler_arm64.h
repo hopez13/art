@@ -94,12 +94,12 @@ class Arm64JNIMacroAssembler final : public JNIMacroAssemblerFwd<Arm64Assembler,
   void GetCurrentThread(FrameOffset dest_offset) override;
 
   // Manipulating local reference frames.
-  void PushLocalReferenceFrame(ManagedRegister jni_env_reg,
-                               ManagedRegister saved_cookie_reg,
-                               ManagedRegister temp_reg) override;
-  void PopLocalReferenceFrame(ManagedRegister jni_env_reg,
-                              ManagedRegister saved_cookie_reg,
-                              ManagedRegister temp_reg) override;
+  void LoadLocalReferenceFrameStates(ManagedRegister jni_env_reg,
+                                     ManagedRegister previous_state_reg,
+                                     ManagedRegister current_state_reg) override;
+  void StoreLocalReferenceFrameStates(ManagedRegister jni_env_reg,
+                                      ManagedRegister previous_state_reg,
+                                      ManagedRegister current_state_reg) override;
 
   // Decode JNI transition or local `jobject`. For (weak) global `jobject`, jump to slow path.
   void DecodeJNITransitionOrLocalJObject(ManagedRegister reg,
