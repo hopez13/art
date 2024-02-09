@@ -113,8 +113,7 @@ cc_defaults {
             ],
             shared_libs: [
                 "libdl_android",
-                "libstatspull", // for pulled atoms
-                "libstatssocket", // for pulled atoms
+                "libstatssocket",
                 "libz", // For adler32.
                 "heapprofd_client_api",
             ],
@@ -1219,7 +1218,6 @@ cc_library_static {
     export_generated_headers: ["statslog_art.h"],
     shared_libs: [
         "liblog",
-        "libstatspull",
         "libstatssocket",
         "libutils",
     ],

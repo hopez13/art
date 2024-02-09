@@ -168,10 +168,7 @@ cc_library_static {
                 "odr_metrics_record.cc",
                 "odr_statslog_android.cc",
             ],
-            shared_libs: [
-                "libstatspull",
-                "libstatssocket",
-            ],
+            shared_libs: ["libstatssocket"],
         },
         host: {
             srcs: ["odr_statslog_host.cc"],
