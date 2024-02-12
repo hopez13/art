@@ -179,6 +179,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d8d78fa5_20eb820a",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 494,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-12T14:23:57Z",
+      "side": 1,
+      "message": "The description says it\u0027s zero-extended but we need to consider this in the context.\n\nAll C instructions map to 32-bit instructions. In particular, these C loads/stores map to 32-bit loads/stores actually use signed offsets.\n\nWe\u0027re also going to forward the signed offsets from those 32-bit loads/store functions to the C loads/store functions and I\u0027d rather not do any conversion (implicit or explicit) when we we do.",
+      "parentUuid": "e0c9b3d9_ae5f5d91",
+      "range": {
+        "startLine": 494,
+        "startChar": 27,
+        "endLine": 494,
+        "endChar": 35
+      },
+      "revId": "781c53125435daa7c5e19aeefcc83a6e0017f0eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e02d35e8_0734f0c9",
         "filename": "compiler/utils/riscv64/assembler_riscv64.h",
         "patchSetId": 1

@@ -112,6 +112,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f1336331_0b572714",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1808,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-12T14:23:57Z",
+      "side": 1,
+      "message": "Sorry, I got confused and thought this said Vector register. (C does not support vector registers.)",
+      "parentUuid": "59e4a35a_fced347a",
+      "range": {
+        "startLine": 1808,
+        "startChar": 19,
+        "endLine": 1808,
+        "endChar": 44
+      },
+      "revId": "ddeca19e802b945065cb50bbe1a56483c1e83dd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7667f5ed_543dc4fa",
