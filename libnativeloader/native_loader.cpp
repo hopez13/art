@@ -52,8 +52,8 @@ namespace {
 using ::android::base::Result;
 using ::android::nativeloader::LibraryNamespaces;
 
-const std::regex kVendorPathRegex("(^|:)(/system)?/vendor/");
-const std::regex kProductPathRegex("(^|:)(/system)?/product/");
+const std::regex kVendorPathRegex("^(/system)?/vendor/");
+const std::regex kProductPathRegex("^(/system)?/product/");
 
 nativeloader::ApiDomain GetApiDomainFromPath(const std::string& path) {
   nativeloader::ApiDomain api_domain = nativeloader::API_DOMAIN_DEFAULT;
