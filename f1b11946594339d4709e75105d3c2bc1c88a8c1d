@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "97e4a115_06c139b8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-12T16:00:26Z",
+      "side": 1,
+      "message": "I recommend `--optimizing` as the primary test set for compiler changes.",
+      "range": {
+        "startLine": 9,
+        "startChar": 63,
+        "endLine": 9,
+        "endChar": 92
+      },
+      "revId": "f1b11946594339d4709e75105d3c2bc1c88a8c1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "50ccbee1_503a0ad4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-12T16:00:26Z",
+      "side": 1,
+      "message": "Please add\n\n    Bug: 283082089",
+      "revId": "f1b11946594339d4709e75105d3c2bc1c88a8c1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "946de284_55392692",
+        "filename": "compiler/optimizing/intrinsics_riscv64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1168,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-12T16:00:26Z",
+      "side": 1,
+      "message": "We should be able to allocate another X register from `srs` (and request one less temp from the register allocator) but we shall need to use explicit `Ld()` instead of `Loadd()` below.",
+      "range": {
+        "startLine": 1168,
+        "startChar": 2,
+        "endLine": 1168,
+        "endChar": 66
+      },
+      "revId": "f1b11946594339d4709e75105d3c2bc1c88a8c1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
