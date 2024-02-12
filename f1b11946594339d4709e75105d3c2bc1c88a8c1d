@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "de589816_cd12ecba",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 3163676
+      },
+      "writtenOn": "2024-02-12T16:29:28Z",
+      "side": 1,
+      "message": "But `--jit-on-first-use` looks more interesting for JIT since force to compile methods, otherwise some parts of tests are being executed on interpreter.\n\nThere was discussion on github https://github.com/google/android-riscv64/issues/120#issuecomment-1815176523\n\nIsn\u0027t `StringEquals` similar case?",
+      "parentUuid": "97e4a115_06c139b8",
+      "range": {
+        "startLine": 9,
+        "startChar": 63,
+        "endLine": 9,
+        "endChar": 92
+      },
+      "revId": "f1b11946594339d4709e75105d3c2bc1c88a8c1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "50ccbee1_503a0ad4",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
