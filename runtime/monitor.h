@@ -156,8 +156,13 @@ class Monitor {
   }
 
   // Inflate the lock on obj. May fail to inflate for spurious reasons, always re-check.
-  static void InflateThinLocked(Thread* self, Handle<mirror::Object> obj, LockWord lock_word,
-                                uint32_t hash_code) REQUIRES_SHARED(Locks::mutator_lock_);
+  // attempt_of_4 is in 1..4 inclusive. The 4th time a failed thread suspension will cause us
+  // to abort.
+  static void InflateThinLocked(Thread* self,
+                                Handle<mirror::Object> obj,
+                                LockWord lock_word,
+                                uint32_t hash_code,
+                                int attempt_of_4) REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Not exclusive because ImageWriter calls this during a Heap::VisitObjects() that
   // does not allow a thread suspension in the middle. TODO: maybe make this exclusive.
