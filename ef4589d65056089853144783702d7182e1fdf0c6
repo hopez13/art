@@ -70,6 +70,30 @@
       },
       "revId": "ef4589d65056089853144783702d7182e1fdf0c6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3817b109_42e7441b",
+        "filename": "runtime/jni/java_vm_ext.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 966,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2024-02-12T07:40:33Z",
+      "side": 1,
+      "message": "My understanding was that GetLocation() returns the true location of the dex file not its vdex.",
+      "parentUuid": "f6aa20ac_db0ad4b0",
+      "range": {
+        "startLine": 966,
+        "startChar": 26,
+        "endLine": 966,
+        "endChar": 50
+      },
+      "revId": "ef4589d65056089853144783702d7182e1fdf0c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
