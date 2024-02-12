@@ -212,7 +212,7 @@ int32_t Object::IdentityHashCodeHelper() {
         Thread* self = Thread::Current();
         StackHandleScope<1> hs(self);
         Handle<mirror::Object> h_this(hs.NewHandle(current_this));
-        Monitor::InflateThinLocked(self, h_this, lw, GenerateIdentityHashCode());
+        Monitor::InflateThinLocked(self, h_this, lw, GenerateIdentityHashCode(), 0);
         // A GC may have occurred when we switched to kBlocked.
         current_this = h_this.Get();
         break;

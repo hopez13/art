@@ -284,8 +284,18 @@ inline void Thread::AddSuspend1Barrier(WrappedSuspend1Barrier* suspend1_barrier)
   tlsPtr_.active_suspend1_barriers = suspend1_barrier;
 }
 
-inline void Thread::RemoveFirstSuspend1Barrier() {
+inline void Thread::RemoveFirstSuspend1Barrier(WrappedSuspend1Barrier* suspend1_barrier) {
+  DCHECK_EQ(tlsPtr_.active_suspend1_barriers, suspend1_barrier);
   tlsPtr_.active_suspend1_barriers = tlsPtr_.active_suspend1_barriers->next_;
+}
+
+inline void Thread::RemoveSuspend1Barrier(WrappedSuspend1Barrier* suspend1_barrier) {
+  // We should get a SIGSEGV with address of 4 or 8 if it's not in the list.
+  WrappedSuspend1Barrier** last = &tlsPtr_.active_suspend1_barriers;
+  while (*last != suspend1_barrier) {
+    last = &((*last)->next_);
+  }
+  *last = (*last)->next_;
 }
 
 inline bool Thread::HasActiveSuspendBarrier() {
