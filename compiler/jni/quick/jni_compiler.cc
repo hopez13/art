@@ -193,6 +193,36 @@ static JniCompiledMethod ArtJniCompileMethodInternal(const CompilerOptions& comp
     __ Bind(jclass_read_barrier_return.get());
   }
 
+  // 3.0 Load the JNIEnv* from the thread to a callee-save register if not critical native.
+  // We need this pointer for the first argument of the call but also for manipulating the
+  // `LocalReferenceTable` state, so we want to preserve it across the native call. We load
+  // this early for better instruction scheduling. This load is delayed for synchronized
+  // methods as the locking call can clobber callee-save scratch registers.
+  constexpr size_t kLRTSegmentStateSize = sizeof(jni::LRTSegmentState);
+  ArrayRef<const ManagedRegister> callee_save_scratch_regs = UNLIKELY(is_critical_native)
+      ? ArrayRef<const ManagedRegister>()
+      : main_jni_conv->CalleeSaveScratchRegisters();
+  ManagedRegister jni_env_reg = ManagedRegister::NoRegister();
+  ManagedRegister previous_state_reg = ManagedRegister::NoRegister();
+  ManagedRegister current_state_reg = ManagedRegister::NoRegister();
+  ManagedRegister callee_save_temp = ManagedRegister::NoRegister();
+  if (LIKELY(!is_critical_native)) {
+    // To pop the local reference frame later, we shall need the JNI environment pointer
+    // as well as the cookie, so we preserve them across calls in callee-save registers.
+    CHECK_GE(callee_save_scratch_regs.size(), 3u);  // At least 3 for each supported architecture.
+    jni_env_reg = callee_save_scratch_regs[0];
+    previous_state_reg = __ CoreRegisterWithSize(callee_save_scratch_regs[1], kLRTSegmentStateSize);
+    current_state_reg = __ CoreRegisterWithSize(callee_save_scratch_regs[2], kLRTSegmentStateSize);
+    callee_save_scratch_regs = callee_save_scratch_regs.SubArray(1u);
+    if (callee_save_scratch_regs.size() >= 4) {
+      callee_save_temp = callee_save_scratch_regs[3];
+    }
+    if (LIKELY(!is_synchronized)) {
+      // Load the JNI environment pointer.
+      __ LoadRawPtrFromThread(jni_env_reg, Thread::JniEnvOffset<kPointerSize>());
+    }
+  }
+
   // 1.3 Spill reference register arguments.
   constexpr FrameOffset kInvalidReferenceOffset =
       JNIMacroAssembler<kPointerSize>::kInvalidReferenceOffset;
@@ -259,13 +289,12 @@ static JniCompiledMethod ArtJniCompileMethodInternal(const CompilerOptions& comp
       }
     }
     __ CallFromThread(QUICK_ENTRYPOINT_OFFSET(kPointerSize, pJniLockObject));
+    // Load the JNI environment pointer.
+    __ LoadRawPtrFromThread(jni_env_reg, Thread::JniEnvOffset<kPointerSize>());
   }
 
   // 2.2. Transition from Runnable to Suspended.
   // Managed callee-saves were already saved, so these registers are now available.
-  ArrayRef<const ManagedRegister> callee_save_scratch_regs = UNLIKELY(is_critical_native)
-      ? ArrayRef<const ManagedRegister>()
-      : main_jni_conv->CalleeSaveScratchRegisters();
   std::unique_ptr<JNIMacroLabel> transition_to_native_slow_path;
   std::unique_ptr<JNIMacroLabel> transition_to_native_resume;
   if (LIKELY(!is_critical_native && !is_fast_native)) {
@@ -278,30 +307,14 @@ static JniCompiledMethod ArtJniCompileMethodInternal(const CompilerOptions& comp
 
   // 3. Push local reference frame.
   // Skip this for @CriticalNative methods, they cannot use any references.
-  ManagedRegister jni_env_reg = ManagedRegister::NoRegister();
-  ManagedRegister previous_state_reg = ManagedRegister::NoRegister();
-  ManagedRegister current_state_reg = ManagedRegister::NoRegister();
-  ManagedRegister callee_save_temp = ManagedRegister::NoRegister();
+
   if (LIKELY(!is_critical_native)) {
-    // To pop the local reference frame later, we shall need the JNI environment pointer
-    // as well as the cookie, so we preserve them across calls in callee-save registers.
-    CHECK_GE(callee_save_scratch_regs.size(), 3u);  // At least 3 for each supported architecture.
-    jni_env_reg = callee_save_scratch_regs[0];
-    constexpr size_t kLRTSegmentStateSize = sizeof(jni::LRTSegmentState);
-    previous_state_reg = __ CoreRegisterWithSize(callee_save_scratch_regs[1], kLRTSegmentStateSize);
-    current_state_reg = __ CoreRegisterWithSize(callee_save_scratch_regs[2], kLRTSegmentStateSize);
-    if (callee_save_scratch_regs.size() >= 4) {
-      callee_save_temp = callee_save_scratch_regs[3];
-    }
-    const MemberOffset previous_state_offset = JNIEnvExt::LrtPreviousStateOffset(kPointerSize);
-
-    // Load the JNI environment pointer.
-    __ LoadRawPtrFromThread(jni_env_reg, Thread::JniEnvOffset<kPointerSize>());
-
     // Load the local reference frame states.
     __ LoadLocalReferenceTableStates(jni_env_reg, previous_state_reg, current_state_reg);
-
+  }
+  if (LIKELY(!is_critical_native)) {
     // Store the current state as the previous state (push the LRT frame).
+    const MemberOffset previous_state_offset = JNIEnvExt::LrtPreviousStateOffset(kPointerSize);
     __ Store(jni_env_reg, previous_state_offset, current_state_reg, kLRTSegmentStateSize);
   }
 
