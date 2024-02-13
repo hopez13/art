@@ -170,7 +170,7 @@ TEST_F(FdFileTest, Copy) {
   ASSERT_EQ(static_cast<int64_t>(sizeof(src_data)), src.GetLength());
 
   art::ScratchFile dest_tmp;
-  FdFile dest(src_tmp.GetFilename(), O_RDWR, false);
+  FdFile dest(dest_tmp.GetFilename(), O_RDWR, false);
   ASSERT_GE(dest.Fd(), 0);
   ASSERT_TRUE(dest.IsOpened());
 
@@ -185,6 +185,188 @@ TEST_F(FdFileTest, Copy) {
   ASSERT_EQ(0, dest.Close());
   ASSERT_EQ(0, src.Close());
 }
+
+#ifdef __linux__
+TEST_F(FdFileTest, CopySparse) {
+  // The test validates that FdFile::Copy preserves sparsity of the file i.e. doesn't write zeroes
+  // to the output file in locations corresponding to empty blocks in the input file.
+  constexpr size_t kChunkSize = 64 * art::KB;
+
+  std::vector<int8_t> data_buffer(/*count=*/kChunkSize, /*value=*/1);
+  std::vector<int8_t> zero_buffer(/*count=*/kChunkSize, /*value=*/0);
+  std::vector<int8_t> check_buffer(/*count=*/kChunkSize);
+
+  auto verify = [&](size_t empty_prefix,
+                    size_t empty_suffix,
+                    size_t input_offset,
+                    size_t outer_bytes,
+                    size_t num_chunks) {
+    constexpr size_t kEstimateMaxFileMetadataSize = 128 * art::KB;
+    constexpr size_t kStatBlockSize = 512;
+    art::ScratchFile src_tmp;
+    FdFile src(src_tmp.GetFilename(), O_RDWR, /*check_usage=*/false);
+    ASSERT_TRUE(src.IsOpened());
+
+    /*
+     * Layout of the source file:
+     * - Skipped part:
+     *    [ optional <input_offset> empty region ]
+     *
+     * - Copied part (skipping <outer_bytes> at start and end):
+     *    [ optional <empty_prefix> empty region ]
+     *    [ <kChunkSize> data chunk              ]  -\
+     *    [ <kChunkSize> empty chunk             ]   |
+     *    [ <kChunkSize> data chunk              ]   |
+     *    [ <kChunkSize> empty chunk             ]    > (2 * num_chunks - 1) kChunkSize chunks
+     *    [ <kChunkSize> data chunk              ]   |
+     *    [   ...                                ]   |
+     *    [ <kChunkSize> data chunk              ]  -/
+     *    [ optional <empty_suffix> empty region ]
+     *
+     * To test the function is generic to copy an arbitrary length from an arbitrary offset within
+     * the source file (where these might be in the middle of allocated data chunks), the start
+     * range for copying is 'outer_bytes' into the copied part above, and the end range is
+     * 'outer_bytes' from its end.
+     */
+
+    // For simplicity, avoid reducing the first and last data chunks by larger than the chunk size.
+    ASSERT_LE(outer_bytes + empty_prefix, kChunkSize);
+    ASSERT_LE(outer_bytes + empty_suffix, kChunkSize);
+
+    int rc = lseek(src.Fd(), input_offset, SEEK_SET);
+    ASSERT_EQ(rc, input_offset);
+
+    rc = lseek(src.Fd(), empty_prefix, SEEK_CUR);
+    ASSERT_EQ(rc, input_offset + empty_prefix);
+    for (size_t i = 0; i < num_chunks; i++) {
+      // Write data leaving chunk size of unwritten space in between them
+      ASSERT_TRUE(src.WriteFully(data_buffer.data(), kChunkSize));
+      rc = lseek(src.Fd(), kChunkSize, SEEK_CUR);
+      ASSERT_NE(rc, -1);
+    }
+
+    ASSERT_EQ(0, src.SetLength(src.GetLength() + empty_suffix));
+    ASSERT_EQ(0, src.Flush());
+
+    size_t source_length = (2 * num_chunks - 1) * kChunkSize + empty_prefix + empty_suffix;
+    ASSERT_EQ(static_cast<int64_t>(source_length), src.GetLength() - input_offset);
+
+    struct stat src_stat;
+    rc = fstat(src.Fd(), &src_stat);
+    ASSERT_EQ(rc, 0);
+    ASSERT_GE(src_stat.st_blocks, num_chunks * kChunkSize / kStatBlockSize);
+    ASSERT_LE(src_stat.st_blocks,
+              kEstimateMaxFileMetadataSize + num_chunks * kChunkSize / kStatBlockSize);
+
+    art::ScratchFile dest_tmp;
+    FdFile dest(dest_tmp.GetFilename(), O_RDWR, /*check_usage=*/false);
+    ASSERT_TRUE(dest.IsOpened());
+
+    ASSERT_TRUE(dest.Copy(&src,
+                          input_offset + outer_bytes,
+                          src.GetLength() - input_offset - (2 * outer_bytes)));
+    ASSERT_EQ(0, dest.Flush());
+
+    size_t dest_length = source_length - (2 * outer_bytes);
+    ASSERT_EQ(static_cast<int64_t>(dest_length), dest.GetLength());
+
+    // The dest file offset should be the end of the file.
+    ASSERT_EQ(lseek(dest.Fd(), 0, SEEK_CUR), dest.GetLength());
+    // The src file offset should be at the end of what we have copied from it.
+    ASSERT_EQ(lseek(src.Fd(), 0, SEEK_CUR), src.GetLength() - outer_bytes);
+
+    if (outer_bytes == 0) {
+      // Number of blocks is only expected to be equal if the entire source file was copied, and it
+      // was a sparsity-preserving copy.
+      struct stat dest_stat;
+      rc = fstat(dest.Fd(), &dest_stat);
+      ASSERT_EQ(rc, 0);
+      ASSERT_EQ(dest_stat.st_blocks, src_stat.st_blocks);
+    }
+
+    rc = lseek(dest.Fd(), 0, SEEK_SET);
+    ASSERT_EQ(rc, 0);
+
+    // Test the resulting data within the destination file is correct.
+
+    // For testing partial copies, we skip an additional 'outer_bytes' of the start and end of the
+    // source file. This has the effect of reducing the size of the regions we should expect in the
+    // destination, calculated as follows.
+    size_t first_hole_size = 0;
+    size_t first_data_size = kChunkSize;
+    if (outer_bytes > empty_prefix) {
+      first_hole_size = 0;
+      first_data_size -= (outer_bytes + empty_prefix);
+    } else {
+      first_hole_size = empty_prefix - outer_bytes;
+    }
+    size_t last_hole_size = 0;
+    size_t last_data_size = kChunkSize;
+    if (outer_bytes > empty_suffix) {
+      last_hole_size = 0;
+      last_data_size -= (outer_bytes - empty_suffix);
+    } else {
+      last_hole_size = empty_suffix - outer_bytes;
+    }
+
+    ASSERT_TRUE(dest.ReadFully(check_buffer.data(), first_hole_size));
+    ASSERT_EQ(0, memcmp(check_buffer.data(), zero_buffer.data(), first_hole_size));
+
+    ASSERT_TRUE(dest.ReadFully(check_buffer.data(), first_data_size));
+    ASSERT_EQ(0, memcmp(check_buffer.data(), data_buffer.data(), first_data_size));
+
+    for (size_t i = 1; i < 2 * num_chunks - 2; i++) {
+      ASSERT_TRUE(dest.ReadFully(check_buffer.data(), kChunkSize));
+
+      if (i % 2 == 0) {
+        ASSERT_EQ(0, memcmp(check_buffer.data(), data_buffer.data(), kChunkSize));
+      } else {
+        ASSERT_EQ(0, memcmp(check_buffer.data(), zero_buffer.data(), kChunkSize));
+      }
+    }
+
+    ASSERT_TRUE(dest.ReadFully(check_buffer.data(), last_data_size));
+    ASSERT_EQ(0, memcmp(check_buffer.data(), data_buffer.data(), last_data_size));
+
+    ASSERT_TRUE(dest.ReadFully(check_buffer.data(), last_hole_size));
+    ASSERT_EQ(0, memcmp(check_buffer.data(), zero_buffer.data(), last_hole_size));
+
+    ASSERT_EQ(0, dest.Close());
+    ASSERT_EQ(0, src.Close());
+  };
+
+  auto full_subtest = [&](size_t empty_prefix, size_t empty_suffix) {
+    // Copy full source file.
+    verify(empty_prefix, empty_suffix, 0, 0, 16);
+    verify(empty_prefix, empty_suffix, kChunkSize, 0, 16);
+  };
+
+  auto partial_subtest = [&](size_t discarded_outer_bytes) {
+    // Test copying different offset and lengths relative to fixed source file.
+    verify(0, 0, 0, discarded_outer_bytes, 16);
+    verify(0, 0, kChunkSize, discarded_outer_bytes, 16);
+  };
+
+  // No empty prefix or suffix
+  full_subtest(0, 0);
+
+  for (size_t skip_size1 = 1; skip_size1 <= kChunkSize; skip_size1 <<= 2) {
+    // Empty prefix only
+    full_subtest(skip_size1, 0);
+    // Empty suffix only
+    full_subtest(0, skip_size1);
+    // Empty prefix and suffix
+    for (size_t skip_size2 = 1; skip_size2 <= kChunkSize; skip_size2 <<= 2) {
+      full_subtest(skip_size1, skip_size2);
+    }
+    // Start and end the copy in the middle of the first/last data chunk
+    partial_subtest(skip_size1);
+  }
+
+  // Test a larger file size with more chunks that should require more than one ioctl call.
+  verify(0, 0, kChunkSize, 0, 512);
+}
+#endif
 
 TEST_F(FdFileTest, MoveConstructor) {
   // New scratch file, zero-length.

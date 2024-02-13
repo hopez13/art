@@ -111,6 +111,7 @@ class FdFile : public RandomAccessFile {
   bool PwriteFully(const void* buffer, size_t byte_count, size_t offset) WARN_UNUSED;
 
   // Copy data from another file.
+  // Cannot copy if this file is non-empty (see comment in function implementation).
   bool Copy(FdFile* input_file, int64_t offset, int64_t size);
   // Clears the file content and resets the file offset to 0.
   // Returns true upon success, false otherwise.
@@ -164,6 +165,14 @@ class FdFile : public RandomAccessFile {
  private:
   template <bool kUseOffset>
   bool WriteFullyGeneric(const void* buffer, size_t byte_count, size_t offset);
+
+#ifdef __linux__
+  // Use sendfile to copy data from an input file to an output file, according to the given range
+  // starting at 'off' and ending at 'end'.
+  // Upon successful return, the value of 'off' will be equal to 'end'. The input file offset will
+  // not be modified.
+  static bool SendfileCopyDenseRange(int out_fd, int in_fd, off_t* off, off_t end);
+#endif
 
   void Destroy();  // For ~FdFile and operator=(&&).
 

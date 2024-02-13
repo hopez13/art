@@ -35,11 +35,14 @@
 #include <android-base/logging.h>
 
 // Includes needed for FdFile::Copy().
+#include "base/globals.h"
 #ifdef __linux__
+#include <linux/fiemap.h>
+#include <linux/fs.h>
+#include <sys/ioctl.h>
 #include <sys/sendfile.h>
 #else
 #include <algorithm>
-#include "base/globals.h"
 #include "base/stl_util.h"
 #endif
 
@@ -470,6 +473,21 @@ bool FdFile::WriteFully(const void* buffer, size_t byte_count) {
   return WriteFullyGeneric<false>(buffer, byte_count, 0u);
 }
 
+#ifdef __linux__
+bool FdFile::SendfileCopyDenseRange(int out_fd, int in_fd, off_t* off, off_t end) {
+  // As sendfile may not transfer all requested bytes in a single call, repeat until complete.
+  while (*off != end) {
+    int result = TEMP_FAILURE_RETRY(
+        sendfile(out_fd, in_fd, off, end - *off));
+    if (result == -1) {
+      return false;
+    }
+    // Ignore the number of bytes in `result`, sendfile() already updated `off`.
+  }
+  return true;
+}
+#endif
+
 bool FdFile::Copy(FdFile* input_file, int64_t offset, int64_t size) {
   DCHECK(!read_only_mode_);
   off_t off = static_cast<off_t>(offset);
@@ -483,16 +501,103 @@ bool FdFile::Copy(FdFile* input_file, int64_t offset, int64_t size) {
   if (size == 0) {
     return true;
   }
+
 #ifdef __linux__
-  // Use sendfile(), available for files since linux kernel 2.6.33.
+  // Use ioctl FIEMAP, available since linux kernel 2.6.27, to query the filesystem for the
+  // allocated file extents. Ensure the destination file has the same sparsity as the source file by
+  // copying these data sections only and skipping any holes. If FIEMAP ioctl call fails, fallback
+  // to a dense copy.
+  //
+  // Use lseek with SEEK_SET to skip holes, available since linux kernel 3.1.
+  //
+  // The data transfer itself is made efficient via sendfile() which does the copying entirely
+  // within the kernel, available for files since linux kernel 2.6.33.
+
+  if (GetLength() != 0) {
+    // Copying into non-empty files is not currently supported. The current implementation would
+    // incorrectly preserve all existing data regions within the output file which match the offsets
+    // of holes within the input file.
+    errno = EINVAL;
+    return false;
+  }
+
+  int64_t offset_diff = -off;
   off_t end = off + sz;
+
+  union FmBuffer { struct fiemap fm; uint8_t bytes[4 * art::KB]; };  // Read 4KB extents at a time.
+  std::unique_ptr<FmBuffer> fm_buffer(new FmBuffer);
+  struct fiemap* fm = &fm_buffer->fm;
+  struct fiemap_extent* extents = fm->fm_extents;
+  size_t requested_extent_count = (sizeof(*fm_buffer) - sizeof(*fm)) / sizeof(*extents);
+
   while (off != end) {
-    int result = TEMP_FAILURE_RETRY(
-        sendfile(Fd(), input_file->Fd(), &off, end - off));
-    if (result == -1) {
-      return false;
+    // Request the next chunk of file extents from the current offset via ioctl FIEMAP.
+    fm->fm_start = off;
+    fm->fm_length = end - off;
+    fm->fm_flags = 0;
+    fm->fm_extent_count = requested_extent_count;
+
+    if (ioctl(input_file->Fd(), FS_IOC_FIEMAP, fm) < 0) {
+      return FdFile::SendfileCopyDenseRange(Fd(), input_file->Fd(), &off, end);
     }
-    // Ignore the number of bytes in `result`, sendfile() already updated `off`.
+
+    struct fiemap_extent* extent;
+    for (size_t i = 0; i < fm->fm_mapped_extents; i++) {
+      extent = &fm->fm_extents[i];
+      off_t extent_start = extent->fe_logical;
+      off_t extent_end = extent_start + extent->fe_length;
+      DCHECK_LT(extent_start, end);
+
+      // The first extent can start before 'fm_start', if it resides in the middle of an extent, so
+      // ensure we start reading from whichever is later.
+      off = std::max(off, extent_start);
+
+      off_t out_offset = lseek(Fd(), off + offset_diff, SEEK_SET);
+      if (out_offset < 0) {
+        return false;
+      }
+      DCHECK_EQ(out_offset, off + offset_diff);
+
+      // Note: the last extent can end after 'end', if it resides in the middle of an extent, so
+      // ensure we stop reading from whichever is earlier.
+      off_t end_of_copy = std::min(end, extent_end);
+      if (!FdFile::SendfileCopyDenseRange(Fd(), input_file->Fd(), &off, end_of_copy)) {
+        return false;
+      }
+    }
+
+    // FIEMAP_EXTENT_LAST is implementation specific as to whether it identifies last extent in the
+    // file, or last extent in the requested range from fm_start.
+    // If the former, and our requested range is less than the file extents, then we will incur an
+    // additional ioctl call to find zero remaining extents in range.
+    if (fm->fm_mapped_extents == 0 || extent->fe_flags & FIEMAP_EXTENT_LAST) {
+      DCHECK_LE(off, end);
+
+      // We are finished, so update the input file offset.
+      off_t input_offset = lseek(input_file->Fd(), end, SEEK_SET);
+      if (input_offset < 0) {
+        return false;
+      }
+      DCHECK_EQ(input_offset, end);
+
+      if (off < end) {
+        // We didn't get to 'end' before running out of allocated file extents (the region between
+        // the current input offset and 'end' is a hole).
+        // Therefore, update the output file offset and length to create a hole in the output file,
+        // up to what would have been set if the block at the end of output file would have been
+        // non-empty.
+        off_t out_offset = lseek(Fd(), end + offset_diff, SEEK_SET);
+        if (out_offset < 0) {
+          return false;
+        }
+        DCHECK_EQ(out_offset, end + offset_diff);
+        if (SetLength(out_offset) != 0) {
+          return false;
+        }
+
+        off = end;
+      }
+    }
   }
 #else
   if (lseek(input_file->Fd(), off, SEEK_SET) != off) {
