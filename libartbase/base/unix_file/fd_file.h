@@ -111,6 +111,9 @@ class FdFile : public RandomAccessFile {
   bool PwriteFully(const void* buffer, size_t byte_count, size_t offset) WARN_UNUSED;
 
   // Copy data from another file.
+  // Only supports copies that will append regions to the file (see comment in implementation).
+  // To preserve the same sparsity as the input file, 'offset' must be aligned with the filesystem
+  // blocksize.
   bool Copy(FdFile* input_file, int64_t offset, int64_t size);
   // Clears the file content and resets the file offset to 0.
   // Returns true upon success, false otherwise.
@@ -164,6 +167,18 @@ class FdFile : public RandomAccessFile {
  private:
   template <bool kUseOffset>
   bool WriteFullyGeneric(const void* buffer, size_t byte_count, size_t offset);
+
+#ifdef __linux__
+  // Sparse copy of 'size' bytes from an input file, processing 'blocksize' bytes at a time via
+  // SparseWrite. Both this file's offset and the input file's offset will be incremented by 'size'
+  // bytes.
+  bool UserspaceSparseCopy(FdFile* input_file, size_t size, size_t blocksize);
+  // Check a block of 'size' data for non-zeroes. Blocks that contain data are written and zeroed
+  // blocks are skipped as holes.
+  bool SparseWrite(const uint8_t* data,
+                   size_t size,
+                   const std::vector<uint8_t>& zeroes);
+#endif
 
   void Destroy();  // For ~FdFile and operator=(&&).
 
