@@ -46,6 +46,30 @@
       },
       "revId": "f828fe13831779499c8f40b159f9c5a17aeb02b6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d1d52d87_8a2b7504",
+        "filename": "compiler/utils/assembler.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-02-13T16:13:59Z",
+      "side": 1,
+      "message": "\u003e Yeah I do, but on our testing board (VisionFive2) no such support and afaik there is also no publicly available chip with fast unaligned access yet.\n\nsure, but there\u0027s no publicly available chip with _lots_ of the things we require for Android, and we\u0027re not accepting patches to hack around those either :-)\n\n(on the other hand, we _do_ have a bunch of hacks for qemu as long as qemu is effectively \"the least worst hardware that\u0027s available to _everyone_\"... so if you wanted to sell this, i\u0027d have it in a separate patch, and present \"this is how much faster cuttlefish boot is with this patch\" as my motivation :-) [but i\u0027m assuming this doesn\u0027t help cuttlefish.])\n\n\u003e Why we could not use memcpy here? Clang should optimize it properly\n\ni\u0027d argue that since it\u0027s unrealistic to find and change all instances of this pattern (and likely undesirable from a code readability perspective to make the changes where we _do_ find them), if anyone really cares about this, they should change _clang_ to recognize this pattern in the IR and change it to suit crap hardware if/when targeting crap hardware.\n\nbut it\u0027s really up to the ART folks --- if they prefer this code anyway, fine. my point was just \"we not accepting changes like this in general\". (so if ART _does_ take this change, they should either remove this comment or change it to make it clear that hardware with slow unaligned accesses is unsupported by Android and won\u0027t pass CTS.)",
+      "parentUuid": "0bf40a7f_fb935f62",
+      "range": {
+        "startLine": 102,
+        "startChar": 7,
+        "endLine": 103,
+        "endChar": 60
+      },
+      "revId": "f828fe13831779499c8f40b159f9c5a17aeb02b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
