@@ -77,7 +77,7 @@ ScratchDir::~ScratchDir() {
   }
 }
 
-ScratchFile::ScratchFile() {
+ScratchFile::ScratchFile(bool keep_file) : keep_file_(keep_file) {
   // ANDROID_DATA needs to be set
   CHECK_NE(static_cast<char*>(nullptr), getenv("ANDROID_DATA")) <<
       "Are you subclassing RuntimeTest?";
@@ -116,7 +116,9 @@ ScratchFile& ScratchFile::operator=(ScratchFile&& other) noexcept {
 }
 
 ScratchFile::~ScratchFile() {
-  Unlink();
+  if (!keep_file_) {
+    Unlink();
+  }
 }
 
 int ScratchFile::GetFd() const {
