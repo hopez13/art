@@ -49,7 +49,9 @@ inline const char* DexFile::GetStringDataAndUtf16Length(const dex::StringId& str
                                                         uint32_t* utf16_length) const {
   DCHECK(utf16_length != nullptr) << GetLocation();
   const uint8_t* ptr = DataBegin() + string_id.string_data_off_;
-  *utf16_length = DecodeUnsignedLeb128(&ptr);
+  // *utf16_length = DecodeUnsignedLeb128(&ptr);
+  bool success = DecodeUnsignedLeb128Checked(&ptr, DataBegin() + DataSize(), utf16_length);
+  CHECK(success);
   return reinterpret_cast<const char*>(ptr);
 }
 
