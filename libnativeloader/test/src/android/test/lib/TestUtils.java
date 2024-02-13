@@ -50,7 +50,7 @@ public final class TestUtils {
     // Test that private libs are present, as a safeguard so that the dlopen
     // failures we expect in other tests aren't due to them not being there.
     public static void testPrivateLibsExist(String libDir, String libStem) {
-        for (int i = 1; i <= 6; ++i) {
+        for (int i = 1; i <= 10; ++i) {
             String libPath = libPath(libDir, libStem + i);
             assertWithMessage(libPath + " does not exist")
                     .that(new File(libPath).exists())
