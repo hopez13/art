@@ -37,11 +37,11 @@
 #include <android-base/logging.h>
 
 // Includes needed for FdFile::Copy().
+#include "base/globals.h"
 #ifdef __linux__
-#include <sys/sendfile.h>
+#include "base/bit_utils.h"
 #else
 #include <algorithm>
-#include "base/globals.h"
 #include "base/stl_util.h"
 #endif
 
@@ -527,6 +527,59 @@ bool FdFile::Rename(const std::string& new_path) {
   return true;
 }
 
+#ifdef __linux__
+// Write the range to the file if it contains any non-zeroed data. Otherwise, if the given data
+// range only contains zeroes, just update the file offset to skip the range. As filesystems which
+// support sparse files only allocate physical space to blocks that have been written, any whole
+// filesystem blocks that are skipped in this way will save storage space. Subsequent reads of bytes
+// in non-allocated blocks will simply return zeros without accessing the underlying storage.
+bool FdFile::SparseWrite(const uint8_t* data,
+                         size_t size,
+                         const std::vector<uint8_t>& zeroes) {
+  if (memcmp(zeroes.data(), data, size) == 0) {
+    // These bytes are all zeroes, skip them by moving the file offset via lseek SEEK_CUR (available
+    // since linux kernel 3.1).
+    if (TEMP_FAILURE_RETRY(lseek(Fd(), size, SEEK_CUR)) < 0) {
+      return false;
+    }
+  } else {
+    if (!WriteFully(data, size)) {
+      return false;
+    }
+  }
+  return true;
+}
+
+// Sparse copy from the input file by reading a buffer of length 'size' and iterating through each
+// block of size 'fs_blocksize', skipping blocks that are zero and writing those that contain data.
+//
+// While a sparse copy will be attempted for any input file offset, in order to preserve the same
+// sparsity, the input file offset must be aligned to fs_blocksize.
+bool FdFile::UserspaceSparseCopy(FdFile* input_file, size_t size, size_t fs_blocksize) {
+  std::unique_ptr<uint8_t[]> buffer(new uint8_t[size]);
+  if (!input_file->ReadFully(buffer.get(), size)) {
+    return false;
+  }
+  std::vector<uint8_t> zeroes(fs_blocksize, 0);
+  uint8_t* buffer_ptr = buffer.get();
+  // Iterate through each fs_blocksize within the buffer.
+  for (size_t next_block = fs_blocksize; next_block <= size; next_block += fs_blocksize,
+                                                             buffer_ptr += fs_blocksize) {
+    if (!SparseWrite(buffer_ptr, fs_blocksize, zeroes)) {
+      return false;
+    }
+  }
+  // Finish copying any remaining bytes.
+  const size_t remaining_bytes = size % fs_blocksize;
+  if (remaining_bytes > 0) {
+    if (!SparseWrite(buffer_ptr, remaining_bytes, zeroes)) {
+      return false;
+    }
+  }
+  return true;
+}
+#endif
+
 bool FdFile::Copy(FdFile* input_file, int64_t offset, int64_t size) {
   DCHECK(!read_only_mode_);
   off_t off = static_cast<off_t>(offset);
@@ -540,16 +593,49 @@ bool FdFile::Copy(FdFile* input_file, int64_t offset, int64_t size) {
   if (size == 0) {
     return true;
   }
+
 #ifdef __linux__
-  // Use sendfile(), available for files since linux kernel 2.6.33.
-  off_t end = off + sz;
-  while (off != end) {
-    int result = TEMP_FAILURE_RETRY(
-        sendfile(Fd(), input_file->Fd(), &off, end - off));
-    if (result == -1) {
+  off_t current_offset = TEMP_FAILURE_RETRY(lseek(Fd(), 0, SEEK_CUR));
+  if (GetLength() > current_offset) {
+    // Copying to an existing region of the destination file is not supported. The current
+    // implementation would incorrectly preserve all existing data regions within the output file
+    // which match the locations of holes within the input file.
+    errno = EINVAL;
+    return false;
+  }
+  struct stat input_stat;
+  int rc = TEMP_FAILURE_RETRY(fstat(input_file->Fd(), &input_stat));
+  if (rc < 0) {
+    return false;
+  }
+  const off_t fs_blocksize = input_stat.st_blksize;
+  const size_t end_length = GetLength() + sz;
+
+  // Start reading from 'off' in the input file.
+  off_t input_offset = TEMP_FAILURE_RETRY(lseek(input_file->Fd(), off, SEEK_SET));
+  DCHECK_EQ(input_offset, off);
+
+  // We process at least kMinReadBufferSize bytes of the input file at a time. As
+  // UserspaceSparseCopy requires reads to be aligned to fs_blocksize to preserve the input file's
+  // sparsity, round each read up to the nearest fs_blocksize.
+  constexpr off_t kMinReadBufferSize = 128 * art::KB;
+  const off_t buffer_size = art::RoundUp(kMinReadBufferSize, fs_blocksize);
+  for (off_t next_read = buffer_size; next_read <= sz; next_read += buffer_size) {
+    if (!UserspaceSparseCopy(input_file, buffer_size, fs_blocksize)) {
       return false;
     }
-    // Ignore the number of bytes in `result`, sendfile() already updated `off`.
+  }
+  // Finish copying any remaining bytes.
+  const size_t remaining_bytes = sz % buffer_size;
+  if (remaining_bytes > 0) {
+    if (!UserspaceSparseCopy(input_file, remaining_bytes, fs_blocksize)) {
+      return false;
+    }
+  }
+  // In case the last block from the input file was a hole, fix the length to what would have been
+  // set if it had been data.
+  if (SetLength(end_length) != 0) {
+    return false;
   }
 #else
   if (lseek(input_file->Fd(), off, SEEK_SET) != off) {

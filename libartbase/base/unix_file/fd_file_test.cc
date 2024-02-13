@@ -30,6 +30,31 @@ class FdFileTest : public RandomAccessFileTest {
     fclose(tmp);
     return new FdFile(fd, false);
   }
+#ifdef __linux__
+  // Variables and functions related to sparse copy tests.
+  static constexpr int kNumChunks = 8;
+  static constexpr size_t kChunkSize = 64 * art::KB;
+  static constexpr size_t kStatBlockSize = 512;
+  std::vector<int8_t> data_buffer_;
+  std::vector<int8_t> zero_buffer_;
+  std::vector<int8_t> check_buffer_;
+  size_t fs_blocksize_;
+  FdFileTest() {
+    data_buffer_.resize(kChunkSize, 1);
+    zero_buffer_.resize(kChunkSize);
+    check_buffer_.resize(kChunkSize);
+  }
+  void CreateSparseSourceFile(std::unique_ptr<FdFile>& out_file,
+                              size_t empty_prefix,
+                              size_t empty_suffix,
+                              off_t input_offset);
+  void TestSparseCopiedData(FdFile* dest,
+                            size_t empty_prefix,
+                            size_t empty_suffix,
+                            size_t copy_start_offset,
+                            size_t copy_end_offset);
+  size_t GetFilesystemBlockSize();
+#endif
 };
 
 TEST_F(FdFileTest, Read) {
@@ -158,27 +183,61 @@ TEST_F(FdFileTest, ReadWriteFullyWithOffset) {
   ASSERT_EQ(file.Close(), 0);
 }
 
-TEST_F(FdFileTest, Rename) {
-  art::ScratchFile src_tmp;
-  FdFile* src = src_tmp.GetFile();
+// Create a sparse file and return a pointer to it via the 'out_file' argument, necessary because
+// gtest assertions require the function to return void.
+void FdFileTest::CreateSparseSourceFile(std::unique_ptr<FdFile>& out_file,
+                                        size_t empty_prefix,
+                                        size_t empty_suffix,
+                                        off_t input_offset) {
+/*
+   * Layout of the source file:
+   *   [ optional <input_offset> empty region ]
+   *   [ optional <empty_prefix> empty region ]
+   *   [ <kChunkSize> data chunk              ]  -\
+   *   [ <kChunkSize> empty chunk             ]   |
+   *   [ <kChunkSize> data chunk              ]   |
+   *   [ <kChunkSize> empty chunk             ]    > (2 * kNumChunks - 1) kChunkSize chunks
+   *   [ <kChunkSize> data chunk              ]   |
+   *   [   ...                                ]   |
+   *   [ <kChunkSize> data chunk              ]  -/
+   *   [ optional <empty_suffix> empty region ]
+   */
+
+  // We return a new FdFile initialised from a temporary file generated via ScratchFile.
+  // So keep the file on disk when the ScratchFile's destructor is called, in which case the FdFile
+  // held by ScratchFile must explicitly marked as closed.
+  art::ScratchFile src_tmp(/*keep_file=*/true);
+  EXPECT_EQ(src_tmp.GetFile()->FlushClose(), 0);
+  FdFile* src = new FdFile(src_tmp.GetFilename(), O_RDWR, /*check_usage=*/false);
   ASSERT_TRUE(src->IsOpened());
 
-  // To test that rename preserves sparsity (on systems that support file sparsity), create a source
-  // file with 3 chunks: 2 data chunks separated by an empty 'hole' chunk.
-  constexpr size_t kChunkSize = 64 * art::KB;
-  std::vector<int8_t> data_buffer(kChunkSize, 1);
-  std::vector<int8_t> zero_buffer(kChunkSize, 0);
-  ASSERT_TRUE(src->WriteFully(data_buffer.data(), kChunkSize));
-  ASSERT_GT(lseek(src->Fd(), kChunkSize, SEEK_CUR), 0);
-  ASSERT_TRUE(src->WriteFully(data_buffer.data(), kChunkSize));
+  ASSERT_EQ(lseek(src->Fd(), input_offset, SEEK_SET), input_offset);
+  ASSERT_EQ(lseek(src->Fd(), empty_prefix, SEEK_CUR), (input_offset + empty_prefix));
+
+  ASSERT_TRUE(src->WriteFully(data_buffer_.data(), kChunkSize));
+  for (size_t i = 0; i < (kNumChunks -1); i++) {
+    // Leave a chunk size of unwritten space between each data chunk.
+    ASSERT_GT(lseek(src->Fd(), kChunkSize, SEEK_CUR), 0);
+    ASSERT_TRUE(src->WriteFully(data_buffer_.data(), kChunkSize));
+  }
+  ASSERT_EQ(src->SetLength(src->GetLength() + empty_suffix), 0);
   ASSERT_EQ(src->Flush(), 0);
 
+  size_t expected_length = (2 * kNumChunks - 1) * kChunkSize + empty_prefix + empty_suffix
+                           + input_offset;
+  ASSERT_EQ(src->GetLength(), expected_length);
+
+  out_file.reset(src);
+}
+
+TEST_F(FdFileTest, Rename) {
+  // To test that rename preserves sparsity (on systems that support file sparsity), create a sparse
+  // source file.
+  std::unique_ptr<FdFile> src;
+  ASSERT_NO_FATAL_FAILURE(CreateSparseSourceFile(src, 0, 0, 0));
+
   size_t src_offset = lseek(src->Fd(), 0, SEEK_CUR);
-  size_t source_length = 3 * kChunkSize;
-
-  // Confirm the source file's length is as expected, to be used later.
-  EXPECT_EQ(src->GetLength(), source_length);
-
+  size_t source_length = src->GetLength();
   struct stat src_stat;
   ASSERT_EQ(fstat(src->Fd(), &src_stat), 0);
 
@@ -212,15 +271,7 @@ TEST_F(FdFileTest, Rename) {
   // And it is exactly the same file in the new location, with the same contents.
   EXPECT_EQ(dest_stat.st_dev, src_stat.st_dev);
   EXPECT_EQ(dest_stat.st_ino, src_stat.st_ino);
-
-  ASSERT_EQ(lseek(dest.Fd(), 0, SEEK_CUR), 0);
-  std::vector<int8_t> check_buffer(kChunkSize);
-  ASSERT_TRUE(dest.ReadFully(check_buffer.data(), kChunkSize));
-  EXPECT_EQ(0, memcmp(check_buffer.data(), data_buffer.data(), kChunkSize));
-  ASSERT_TRUE(dest.ReadFully(check_buffer.data(), kChunkSize));
-  EXPECT_EQ(0, memcmp(check_buffer.data(), zero_buffer.data(), kChunkSize));
-  ASSERT_TRUE(dest.ReadFully(check_buffer.data(), kChunkSize));
-  EXPECT_EQ(0, memcmp(check_buffer.data(), data_buffer.data(), kChunkSize));
+  ASSERT_NO_FATAL_FAILURE(TestSparseCopiedData(&dest, 0, 0, 0, 0));
 
   EXPECT_EQ(dest.Close(), 0);
 }
@@ -252,6 +303,333 @@ TEST_F(FdFileTest, Copy) {
   ASSERT_EQ(0, dest.Close());
   ASSERT_EQ(0, src.Close());
 }
+
+#ifdef __linux__
+// Helper to assert correctness of the data copied to a destination file based on a source sparse
+// file created via FdFileTest::CreateSparseSourceFile.
+void FdFileTest::TestSparseCopiedData(FdFile* dest,
+                                      size_t empty_prefix,
+                                      size_t empty_suffix,
+                                      size_t copy_start_offset,
+                                      size_t copy_end_offset) {
+  // For testing partial copies of the source file, when 'copy_start_offset' or 'copy_end_offset'
+  // are non-zero, we further reduce the size of the regions we should expect in the output,
+  // calculated as follows.
+  size_t first_hole_size = 0;
+  size_t first_data_size = kChunkSize;
+  if (copy_start_offset > empty_prefix) {
+    first_hole_size = 0;
+    first_data_size -= (copy_start_offset - empty_prefix);
+  } else {
+    first_hole_size = empty_prefix - copy_start_offset;
+  }
+  size_t last_hole_size = 0;
+  size_t last_data_size = kChunkSize;
+  if (copy_end_offset > empty_suffix) {
+    last_hole_size = 0;
+    last_data_size -= (copy_end_offset - empty_suffix);
+  } else {
+    last_hole_size = empty_suffix - copy_end_offset;
+  }
+
+  ASSERT_TRUE(dest->ReadFully(check_buffer_.data(), first_hole_size));
+  EXPECT_EQ(0, memcmp(check_buffer_.data(), zero_buffer_.data(), first_hole_size));
+  ASSERT_TRUE(dest->ReadFully(check_buffer_.data(), first_data_size));
+  EXPECT_EQ(0, memcmp(check_buffer_.data(), data_buffer_.data(), first_data_size));
+
+  for (size_t i = 1; i < 2 * kNumChunks - 2; i++) {
+    ASSERT_TRUE(dest->ReadFully(check_buffer_.data(), kChunkSize));
+    if (i % 2 == 0) {
+      EXPECT_EQ(0, memcmp(check_buffer_.data(), data_buffer_.data(), kChunkSize));
+    } else {
+      EXPECT_EQ(0, memcmp(check_buffer_.data(), zero_buffer_.data(), kChunkSize));
+    }
+  }
+
+  ASSERT_TRUE(dest->ReadFully(check_buffer_.data(), last_data_size));
+  EXPECT_EQ(0, memcmp(check_buffer_.data(), data_buffer_.data(), last_data_size));
+  ASSERT_TRUE(dest->ReadFully(check_buffer_.data(), last_hole_size));
+  EXPECT_EQ(0, memcmp(check_buffer_.data(), zero_buffer_.data(), last_hole_size));
+}
+
+// Test that the file created by FdFileTest::CreateSparseSourceFile is sparse on the test
+// environment.
+TEST_F(FdFileTest, CopySparse_CreateSparseFile) {
+  // Create file with no empty prefix or suffix, and no offset.
+  std::unique_ptr<FdFile> src1;
+  ASSERT_NO_FATAL_FAILURE(CreateSparseSourceFile(src1, 0, 0, 0));
+
+  struct stat src1_stat;
+  ASSERT_EQ(fstat(src1->Fd(), &src1_stat), 0);
+  EXPECT_GE(src1_stat.st_blocks, kNumChunks * kChunkSize / kStatBlockSize);
+  EXPECT_LT(src1_stat.st_blocks * kStatBlockSize, src1_stat.st_size);
+
+  // Create file with a prefix region, suffix region, and an offset.
+  std::unique_ptr<FdFile> src2;
+  ASSERT_NO_FATAL_FAILURE(CreateSparseSourceFile(src2, kChunkSize, kChunkSize, kChunkSize));
+
+  // File should have the same number of allocated blocks.
+  struct stat src2_stat;
+  ASSERT_EQ(fstat(src2->Fd(), &src2_stat), 0);
+  EXPECT_EQ(src2_stat.st_blocks, src1_stat.st_blocks);
+
+  EXPECT_TRUE(src1->Erase(/*unlink=*/true));
+  EXPECT_TRUE(src2->Erase(/*unlink=*/true));
+}
+
+// Test complete copies of the source file produced by FdFileTest::CreateSparseSourceFile.
+TEST_F(FdFileTest, CopySparse_FullCopy) {
+  auto verify_fullcopy = [&](size_t empty_prefix, size_t empty_suffix, size_t offset) {
+    SCOPED_TRACE(testing::Message() << "prefix:" << empty_prefix << ", suffix:" << empty_suffix
+                 << ", offset:" << offset);
+
+    std::unique_ptr<FdFile> src;
+    ASSERT_NO_FATAL_FAILURE(CreateSparseSourceFile(src, empty_prefix, empty_suffix, offset));
+
+    art::ScratchFile dest_tmp;
+    FdFile dest(dest_tmp.GetFilename(), O_RDWR, /*check_usage=*/false);
+    ASSERT_TRUE(dest.IsOpened());
+
+    off_t copy_size = src->GetLength() - offset;
+    EXPECT_TRUE(dest.Copy(src.get(), offset, copy_size));
+    EXPECT_EQ(dest.Flush(), 0);
+
+    // Test destination length.
+    EXPECT_EQ(dest.GetLength(), copy_size);
+
+    // Test FD offsets.
+    EXPECT_EQ(lseek(dest.Fd(), 0, SEEK_CUR), dest.GetLength());
+    EXPECT_EQ(lseek(src->Fd(), 0, SEEK_CUR), src->GetLength());
+
+    // Test same number of allocated blocks for this full copy.
+    struct stat src_stat, dest_stat;
+    ASSERT_EQ(fstat(src->Fd(), &src_stat), 0);
+    ASSERT_EQ(fstat(dest.Fd(), &dest_stat), 0);
+    EXPECT_EQ(dest_stat.st_blocks, src_stat.st_blocks);
+
+    // Test the resulting data in the destination is correct.
+    ASSERT_EQ(lseek(dest.Fd(), 0, SEEK_SET), 0);
+    ASSERT_NO_FATAL_FAILURE(TestSparseCopiedData(&dest, empty_prefix, empty_suffix, 0, 0));
+
+    EXPECT_TRUE(src->Erase(/*unlink=*/true));
+  };
+
+  // Test full copies using different offsets and outer skip regions of sizes [0, 128, 2048, 32768].
+  ASSERT_NO_FATAL_FAILURE(verify_fullcopy(0, 0, 0));
+  ASSERT_NO_FATAL_FAILURE(verify_fullcopy(0, 0, kChunkSize/2));
+  for (size_t empty_region_size=128; empty_region_size <= kChunkSize/2; empty_region_size <<= 4) {
+    // Empty prefix.
+    ASSERT_NO_FATAL_FAILURE(verify_fullcopy(empty_region_size, 0, 0));
+    ASSERT_NO_FATAL_FAILURE(verify_fullcopy(empty_region_size, 0, kChunkSize/2));
+    // Empty suffix.
+    ASSERT_NO_FATAL_FAILURE(verify_fullcopy(0, empty_region_size, 0));
+    ASSERT_NO_FATAL_FAILURE(verify_fullcopy(0, empty_region_size, kChunkSize/2));
+    // Both.
+    ASSERT_NO_FATAL_FAILURE(verify_fullcopy(empty_region_size, empty_region_size, 0));
+    ASSERT_NO_FATAL_FAILURE(verify_fullcopy(empty_region_size, empty_region_size, kChunkSize/2));
+  }
+}
+
+// Test partial copies of the source file produced by FdFileTest::CreateSparseSourceFile. Depending
+// on the layout of the source file (as controlled by empty_prefix, empy_suffix, and input_offset),
+// partial copies may copy less data bytes, less zeroed 'hole' bytes, or both.
+TEST_F(FdFileTest, CopySparse_PartialCopy) {
+  auto verify_partialcopy = [&](size_t empty_prefix,
+                                size_t empty_suffix,
+                                size_t offset,
+                                size_t copy_start_offset,
+                                size_t copy_end_offset) {
+    // The file is copied starting from <input_offset> + <copy_start_offset>.
+    // The copy ends <copy_end_offset> from the end of the source file.
+    SCOPED_TRACE(testing::Message() << "prefix:" << empty_prefix << ", suffix:" << empty_suffix
+                 << ", offset:" << offset << ", copy_start_offset:" << copy_start_offset
+                 << ", copy_end_offset:" << copy_end_offset);
+
+    // For simplicity, do not discard more than one chunk from the start or end of the source file.
+    ASSERT_LE(copy_start_offset + empty_prefix, kChunkSize);
+    ASSERT_LE(copy_end_offset + empty_suffix, kChunkSize);
+
+    std::unique_ptr<FdFile> src;
+    ASSERT_NO_FATAL_FAILURE(CreateSparseSourceFile(src, empty_prefix, empty_suffix, offset));
+
+    art::ScratchFile dest_tmp;
+    FdFile dest(dest_tmp.GetFilename(), O_RDWR, /*check_usage=*/false);
+    ASSERT_TRUE(dest.IsOpened());
+
+    off_t copy_size = src->GetLength() - offset - copy_start_offset - copy_end_offset;
+    EXPECT_TRUE(dest.Copy(src.get(), offset + copy_start_offset, copy_size));
+    EXPECT_EQ(dest.Flush(), 0);
+
+    // Test destination length.
+    EXPECT_EQ(dest.GetLength(), copy_size);
+
+    // Test FD offsets.
+    EXPECT_EQ(lseek(dest.Fd(), 0, SEEK_CUR), dest.GetLength());
+    EXPECT_EQ(lseek(src->Fd(), 0, SEEK_CUR), src->GetLength() - copy_end_offset);
+
+    // Test the resulting data in the destination is correct.
+    ASSERT_EQ(lseek(dest.Fd(), 0, SEEK_SET), 0);
+    ASSERT_NO_FATAL_FAILURE(TestSparseCopiedData(&dest,
+                                                 empty_prefix,
+                                                 empty_suffix,
+                                                 copy_start_offset,
+                                                 copy_end_offset));
+
+    EXPECT_TRUE(src->Erase(/*unlink=*/true));
+  };
+
+  // Test partial copies with outer skip regions.
+  std::vector<size_t> outer_regions = {0, 128, 2 * art::KB, 32 * art::KB};
+  for (const auto& empty : outer_regions) {
+    for (size_t discard=0; discard <= 8 * art::KB; discard += 1 * art::KB) {
+      // Start copy after the data section start.
+      ASSERT_NO_FATAL_FAILURE(verify_partialcopy(empty, empty, empty, discard, 0));
+      // End copy before the file end.
+      ASSERT_NO_FATAL_FAILURE(verify_partialcopy(empty, empty, empty, 0, discard));
+      // Both.
+      ASSERT_NO_FATAL_FAILURE(verify_partialcopy(empty, empty, empty, discard, discard));
+    }
+  }
+}
+
+// Helper function to calculate the number of fstat blocks (st_blocks) discarded by a partial copy.
+size_t CalculateNumDiscardedFStatBlocks(size_t empty_prefix,
+                                        size_t empty_suffix,
+                                        size_t copy_start_offset,
+                                        size_t copy_end_offset,
+                                        size_t fs_blocksize,
+                                        size_t fstat_blocksize) {
+  // If the start/end is an empty prefix/suffix region, we might not be discarding any data.
+  size_t discard_start = copy_start_offset > empty_prefix ? copy_start_offset - empty_prefix : 0;
+  size_t discard_end = copy_end_offset > empty_suffix ? copy_end_offset - empty_suffix : 0;
+  // Each range gets rounded down to whole filesystem blocks that are discarded, which then need
+  // to be converted to fstat's block size.
+  size_t discarded_blocks = (discard_start / fs_blocksize) + (discard_end / fs_blocksize);
+  discarded_blocks *= (fs_blocksize / fstat_blocksize);
+  return discarded_blocks;
+}
+
+// Find the filesystem blocksize of the test environment by creating and calling fstat on a
+// temporary file.
+size_t FdFileTest::GetFilesystemBlockSize() {
+  if (fs_blocksize_ == 0) {
+    art::ScratchFile tmpfile;
+    FdFile tmp(tmpfile.GetFilename(), O_RDWR, /*check_usage=*/false);
+    if (!tmp.IsOpened()) {
+      return 0;
+    }
+    struct stat tmp_stat;
+    if (fstat(tmp.Fd(), &tmp_stat) != 0) {
+      return 0;
+    }
+    fs_blocksize_ = tmp_stat.st_blksize;
+  }
+  return fs_blocksize_;
+}
+
+// Test the copy function's requirement that only copies which are aligned with the filesystem
+// blocksize will preserve the source file's sparsity.
+TEST_F(FdFileTest, CopySparse_TestAlignment) {
+  size_t fs_blocksize = GetFilesystemBlockSize();
+  ASSERT_NE(fs_blocksize, 0);
+
+  auto verify_partialcopy = [&](size_t empty_prefix,
+                                size_t empty_suffix,
+                                size_t offset,
+                                size_t copy_start_offset,
+                                size_t copy_end_offset) {
+    SCOPED_TRACE(testing::Message() << "prefix:" << empty_prefix << ", suffix:" << empty_suffix
+                 << ", offset:" << offset << ", copy_start_offset:" << copy_start_offset
+                 << ", copy_end_offset:" << copy_end_offset);
+
+    // For simplicity, do not discard more than one chunk from the start or end of the source file.
+    ASSERT_LE(copy_start_offset + empty_prefix, kChunkSize);
+    ASSERT_LE(copy_end_offset + empty_suffix, kChunkSize);
+    // Only reason about the expected sparsity if the source data created in this test is aligned
+    // with the filesystem bock size. Otherwise, varying the offset could increase, decrease, or
+    // preserve the sparsity depending on data layout, which would complicate the test logic.
+    ASSERT_EQ((offset + empty_prefix) % fs_blocksize, 0);
+
+    std::unique_ptr<FdFile> src;
+    ASSERT_NO_FATAL_FAILURE(CreateSparseSourceFile(src, empty_prefix, empty_suffix, offset));
+
+    art::ScratchFile dest_tmp;
+    FdFile dest(dest_tmp.GetFilename(), O_RDWR, /*check_usage=*/false);
+    ASSERT_TRUE(dest.IsOpened());
+
+    off_t copy_size = src->GetLength() - offset - copy_start_offset - copy_end_offset;
+    EXPECT_TRUE(dest.Copy(src.get(), offset + copy_start_offset, copy_size));
+    EXPECT_EQ(dest.Flush(), 0);
+
+    // Test the alignment has the expected effect on the file sparsity after accounting for any data
+    // we didn't copy.
+    size_t discarded_blocks = CalculateNumDiscardedFStatBlocks(empty_prefix,
+                                                               empty_suffix,
+                                                               copy_start_offset,
+                                                               copy_end_offset,
+                                                               fs_blocksize,
+                                                               kStatBlockSize);
+    struct stat src_stat, dest_stat;
+    ASSERT_EQ(fstat(src->Fd(), &src_stat), 0);
+    ASSERT_EQ(fstat(dest.Fd(), &dest_stat), 0);
+
+    if ((offset + copy_start_offset) % fs_blocksize == 0) {
+      // If the start of the copy is aligned with the filesystem block size, then we expect the
+      // sparsity to be preserved.
+      EXPECT_EQ(dest_stat.st_blocks, src_stat.st_blocks - discarded_blocks);
+    } else {
+      // As we know that all data chunks are aligned, any non-aligned copy can only cause holes
+      // in the source file to be created as allocated data blocks in the output file.
+      EXPECT_GT(dest_stat.st_blocks, src_stat.st_blocks - discarded_blocks);
+    }
+
+    EXPECT_TRUE(src->Erase(/*unlink=*/true));
+  };
+
+  // Start the copy at different offsets relative to the data, moving in and out of alignment.
+  for (size_t discard=0; discard <= 2 * fs_blocksize; discard += 1 * art::KB) {
+    ASSERT_NO_FATAL_FAILURE(verify_partialcopy(0, 0, 0, discard, 0));
+    // Add an empty prefix and input offset that results in source file data remaining aligned.
+    ASSERT_NO_FATAL_FAILURE(verify_partialcopy(fs_blocksize/2, 0, fs_blocksize/2, discard, 0));
+  }
+}
+
+// Test the case where the destination file's FD offset is non-zero before the copy.
+TEST_F(FdFileTest, CopySparse_ToNonZeroOffset) {
+  constexpr size_t existing_datasize = kChunkSize;
+  constexpr size_t existing_holesize = kChunkSize;
+
+  std::unique_ptr<FdFile> src;
+  ASSERT_NO_FATAL_FAILURE(CreateSparseSourceFile(src, 0, 0, 0));
+
+  art::ScratchFile dest_tmp;
+  FdFile dest(dest_tmp.GetFilename(), O_RDWR, /*check_usage=*/false);
+  ASSERT_TRUE(dest.IsOpened());
+
+  // Modify the output file's FD offset by writing some data and lseeking to create a hole.
+  size_t existing_length = existing_datasize + existing_holesize;
+  ASSERT_TRUE(dest.WriteFully(data_buffer_.data(), existing_datasize));
+  EXPECT_EQ(lseek(dest.Fd(), existing_holesize, SEEK_CUR), existing_length);
+  ASSERT_EQ(0, dest.SetLength(existing_length));
+
+  off_t copy_size = src->GetLength();
+  EXPECT_TRUE(dest.Copy(src.get(), 0, copy_size));
+  EXPECT_EQ(dest.Flush(), 0);
+
+  // Test destination length.
+  EXPECT_EQ(dest.GetLength(), existing_length + copy_size);
+
+  // Test FD offsets.
+  EXPECT_EQ(lseek(dest.Fd(), 0, SEEK_CUR), dest.GetLength());
+  EXPECT_EQ(lseek(src->Fd(), 0, SEEK_CUR), src->GetLength());
+
+  // Test the copied data in the destination is correct, ignoring the first 'existing_length'.
+  ASSERT_EQ(lseek(dest.Fd(), existing_length, SEEK_SET), existing_length);
+  ASSERT_NO_FATAL_FAILURE(TestSparseCopiedData(&dest, 0, 0, 0, 0));
+
+  EXPECT_TRUE(src->Erase(/*unlink=*/true));
+}
+#endif
 
 TEST_F(FdFileTest, MoveConstructor) {
   // New scratch file, zero-length.

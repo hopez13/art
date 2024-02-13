@@ -63,7 +63,7 @@ class ScratchDir {
 
 class ScratchFile {
  public:
-  ScratchFile();
+  ScratchFile(bool keep_file = false);
 
   explicit ScratchFile(const std::string& filename);
 
@@ -93,6 +93,7 @@ class ScratchFile {
  private:
   std::string filename_;
   std::unique_ptr<File> file_;
+  bool keep_file_;  // Useful for debugging.
 };
 
 // Helper class that removes an environment variable whilst in scope.
