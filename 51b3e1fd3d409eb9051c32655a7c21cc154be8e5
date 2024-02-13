@@ -160,6 +160,621 @@
       },
       "revId": "51b3e1fd3d409eb9051c32655a7c21cc154be8e5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b69986c1_37a1a56b",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-13T18:06:01Z",
+      "side": 1,
+      "message": "Maybe `ScopedCompressedMode`?",
+      "range": {
+        "startLine": 64,
+        "startChar": 9,
+        "endLine": 64,
+        "endChar": 27
+      },
+      "revId": "51b3e1fd3d409eb9051c32655a7c21cc154be8e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f27b8df5_019f89cc",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1007,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-13T18:06:01Z",
+      "side": 1,
+      "message": "Style: `imm_bits`.",
+      "range": {
+        "startLine": 1007,
+        "startChar": 40,
+        "endLine": 1007,
+        "endChar": 47
+      },
+      "revId": "51b3e1fd3d409eb9051c32655a7c21cc154be8e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a1bc768_18c6ffa5",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1009,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-13T18:06:01Z",
+      "side": 1,
+      "message": "Style: `no_zero_imm`.",
+      "range": {
+        "startLine": 1009,
+        "startChar": 41,
+        "endLine": 1009,
+        "endChar": 50
+      },
+      "revId": "51b3e1fd3d409eb9051c32655a7c21cc154be8e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f1409fc_0459eb0b",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1016,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-13T18:06:01Z",
+      "side": 1,
+      "message": "Other templates use `int64_t` and then\n\n    ImmType new_imm \u003d CreateImmediate(imm);",
+      "range": {
+        "startLine": 1016,
+        "startChar": 11,
+        "endLine": 1016,
+        "endChar": 14
+      },
+      "revId": "51b3e1fd3d409eb9051c32655a7c21cc154be8e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "881e1480_8aef2b09",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1018,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-13T18:06:01Z",
+      "side": 1,
+      "message": "Style: Add `{`, `}` even for such trivial then-statement.",
+      "range": {
+        "startLine": 1018,
+        "startChar": 10,
+        "endLine": 1018,
+        "endChar": 19
+      },
+      "revId": "51b3e1fd3d409eb9051c32655a7c21cc154be8e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "120c74f5_2dad492e",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1024,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-13T18:06:01Z",
+      "side": 1,
+      "message": "`/*bias\u003d*/ 0, /*multiplier\u003d*/ 1`",
+      "range": {
+        "startLine": 1024,
+        "startChar": 24,
+        "endLine": 1024,
+        "endChar": 28
+      },
+      "revId": "51b3e1fd3d409eb9051c32655a7c21cc154be8e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb1eca11_96f13653",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1037,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-13T18:06:01Z",
+      "side": 1,
+      "message": "Style: Lower-case with underscores between words.",
+      "range": {
+        "startLine": 1034,
+        "startChar": 26,
+        "endLine": 1037,
+        "endChar": 38
+      },
+      "revId": "51b3e1fd3d409eb9051c32655a7c21cc154be8e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "13fb7e49_8941daef",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1042,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-13T18:06:01Z",
+      "side": 1,
+      "message": "Add `{`, `}` and also `CHECK_EQ(regs[0], Zero)` before dropping that element.",
+      "range": {
+        "startLine": 1042,
+        "startChar": 6,
+        "endLine": 1042,
+        "endChar": 30
+      },
+      "revId": "51b3e1fd3d409eb9051c32655a7c21cc154be8e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e98c5dd4_4e47c1ad",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1051,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-13T18:06:01Z",
+      "side": 1,
+      "message": "There are no FP instructions that would need these exclusions.",
+      "range": {
+        "startLine": 1050,
+        "startChar": 26,
+        "endLine": 1051,
+        "endChar": 41
+      },
+      "revId": "51b3e1fd3d409eb9051c32655a7c21cc154be8e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "00a27522_45ae13bb",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1077,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-13T18:06:01Z",
+      "side": 1,
+      "message": "`int64_t`, `CreateImmediate()`",
+      "range": {
+        "startLine": 1077,
+        "startChar": 13,
+        "endLine": 1077,
+        "endChar": 17
+      },
+      "revId": "51b3e1fd3d409eb9051c32655a7c21cc154be8e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf2017db_61a84b9f",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1079,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-13T18:06:01Z",
+      "side": 1,
+      "message": "Add `{`, `}`.",
+      "range": {
+        "startLine": 1079,
+        "startChar": 12,
+        "endLine": 1079,
+        "endChar": 21
+      },
+      "revId": "51b3e1fd3d409eb9051c32655a7c21cc154be8e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42d33b13_d045808b",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1086,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-13T18:06:01Z",
+      "side": 1,
+      "message": "Argument names.",
+      "range": {
+        "startLine": 1086,
+        "startChar": 26,
+        "endLine": 1086,
+        "endChar": 30
+      },
+      "revId": "51b3e1fd3d409eb9051c32655a7c21cc154be8e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d13bedee_cf2c5b27",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1098,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-13T18:06:01Z",
+      "side": 1,
+      "message": "There are no instruction that would need this exclusion.",
+      "range": {
+        "startLine": 1098,
+        "startChar": 27,
+        "endLine": 1098,
+        "endChar": 41
+      },
+      "revId": "51b3e1fd3d409eb9051c32655a7c21cc154be8e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1723a519_8cd0a67b",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1112,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-13T18:06:01Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 1112,
+        "startChar": 32,
+        "endLine": 1112,
+        "endChar": 41
+      },
+      "revId": "51b3e1fd3d409eb9051c32655a7c21cc154be8e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3fc1ba0b_3f3771e4",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1136,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-13T18:06:01Z",
+      "side": 1,
+      "message": "We should test all registers for `CMv` and `CAdd`.\n\nAlso add `CHECK()` that we\u0027re excluding `Zero`.",
+      "range": {
+        "startLine": 1136,
+        "startChar": 36,
+        "endLine": 1136,
+        "endChar": 67
+      },
+      "revId": "51b3e1fd3d409eb9051c32655a7c21cc154be8e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ee38cae_47eb18b6",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1147,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-13T18:06:01Z",
+      "side": 1,
+      "message": "You\u0027re calling this `noZeroImm` in other functions. (Should be `no_zero_imm`.)",
+      "range": {
+        "startLine": 1147,
+        "startChar": 29,
+        "endLine": 1147,
+        "endChar": 37
+      },
+      "revId": "51b3e1fd3d409eb9051c32655a7c21cc154be8e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86f3d041_99e72e09",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1151,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-13T18:06:01Z",
+      "side": 1,
+      "message": "`int64_t`, `CreateImmediate()`.",
+      "range": {
+        "startLine": 1151,
+        "startChar": 9,
+        "endLine": 1151,
+        "endChar": 12
+      },
+      "revId": "51b3e1fd3d409eb9051c32655a7c21cc154be8e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "05e7e4dc_eec2a195",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1153,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-13T18:06:01Z",
+      "side": 1,
+      "message": "Add `{`, `}`.",
+      "range": {
+        "startLine": 1153,
+        "startChar": 8,
+        "endLine": 1153,
+        "endChar": 17
+      },
+      "revId": "51b3e1fd3d409eb9051c32655a7c21cc154be8e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "610bbbd7_9f12a32a",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1168,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-13T18:06:01Z",
+      "side": 1,
+      "message": "Add `CHECK()` that we\u0027re excluding `Zero`.",
+      "range": {
+        "startLine": 1168,
+        "startChar": 11,
+        "endLine": 1168,
+        "endChar": 37
+      },
+      "revId": "51b3e1fd3d409eb9051c32655a7c21cc154be8e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3bc1c645_e71d7726",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3095,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-13T18:06:01Z",
+      "side": 1,
+      "message": "Add argument descriptions such as `/*no_zero\u003d*/` or `/*shift\u003d*/`. Same below.",
+      "range": {
+        "startLine": 3095,
+        "startChar": 44,
+        "endLine": 3095,
+        "endChar": 68
+      },
+      "revId": "51b3e1fd3d409eb9051c32655a7c21cc154be8e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "41685ee4_310df10c",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3116,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-13T18:06:01Z",
+      "side": 1,
+      "message": "`/*no_zero\u003d*/ false` Same for `CSdsp`.",
+      "range": {
+        "startLine": 3116,
+        "startChar": 51,
+        "endLine": 3116,
+        "endChar": 55
+      },
+      "revId": "51b3e1fd3d409eb9051c32655a7c21cc154be8e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1dd48134_8931b5d8",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3116,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-13T18:06:01Z",
+      "side": 1,
+      "message": "Copy-pasted load tests need to be updated to store tests.",
+      "range": {
+        "startLine": 3116,
+        "startChar": 37,
+        "endLine": 3116,
+        "endChar": 42
+      },
+      "revId": "51b3e1fd3d409eb9051c32655a7c21cc154be8e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "11282ed7_bfc518af",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3181,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-13T18:06:01Z",
+      "side": 1,
+      "message": "`int64_t`, `CreateImmediate()`",
+      "range": {
+        "startLine": 3181,
+        "startChar": 9,
+        "endLine": 3181,
+        "endChar": 16
+      },
+      "revId": "51b3e1fd3d409eb9051c32655a7c21cc154be8e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "82f0ea0e_951976d2",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3183,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-13T18:06:01Z",
+      "side": 1,
+      "message": "`{`, `}`",
+      "range": {
+        "startLine": 3183,
+        "startChar": 8,
+        "endLine": 3183,
+        "endChar": 17
+      },
+      "revId": "51b3e1fd3d409eb9051c32655a7c21cc154be8e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2da5610a_e036e1e2",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3186,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-13T18:06:01Z",
+      "side": 1,
+      "message": "`{`, `}`",
+      "range": {
+        "startLine": 3186,
+        "startChar": 8,
+        "endLine": 3186,
+        "endChar": 17
+      },
+      "revId": "51b3e1fd3d409eb9051c32655a7c21cc154be8e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "98a7ddf2_852fecac",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3236,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-13T18:06:01Z",
+      "side": 1,
+      "message": "`false` Same for `CSrai`,",
+      "range": {
+        "startLine": 3236,
+        "startChar": 56,
+        "endLine": 3236,
+        "endChar": 60
+      },
+      "revId": "51b3e1fd3d409eb9051c32655a7c21cc154be8e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45bba558_c5a49553",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3330,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-13T18:06:01Z",
+      "side": 1,
+      "message": "Missing test for `CUnimp()`.",
+      "revId": "51b3e1fd3d409eb9051c32655a7c21cc154be8e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
