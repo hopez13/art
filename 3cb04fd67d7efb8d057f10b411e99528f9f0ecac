@@ -82,6 +82,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e77c6fec_a8d0ce05",
+        "filename": "libnativeloader/native_loader.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-02-13T00:18:03Z",
+      "side": 1,
+      "message": "It\u0027s this way to facility the `LOG_ALWAYS_FATAL_IF` check below. I could change line 69 to a return, but it wouldn\u0027t help significantly.",
+      "parentUuid": "dfce9afd_c0a7f8c2",
+      "revId": "3cb04fd67d7efb8d057f10b411e99528f9f0ecac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "79ac073c_9cce6510",
@@ -95,6 +113,30 @@
       "writtenOn": "2024-02-09T20:47:11Z",
       "side": 1,
       "message": "I\u0027m now thinking of restricting this to libraries specified through absolute paths - see discussion in http://b/186729817#comment8.",
+      "range": {
+        "startLine": 325,
+        "startChar": 65,
+        "endLine": 326,
+        "endChar": 50
+      },
+      "revId": "3cb04fd67d7efb8d057f10b411e99528f9f0ecac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5296c2ae_07df7774",
+        "filename": "libnativeloader/native_loader.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-02-13T00:18:03Z",
+      "side": 1,
+      "message": "Done in PS13. I think there are benefits to this approach, but it doesn\u0027t work perfectly as-is.\n\nThe problem is that [loadLibrary0](https://cs.android.com/android/platform/superproject/main/+/main:libcore/ojluni/src/main/java/java/lang/Runtime.java;l\u003d1056;drc\u003d6b0ec6aa3395d4799ec10063f7e96ec07f1ebfca) searches for libraries on the java level, so we may see absolute paths in here even when the user calls `loadLibrary` with just a basename.\n\nI\u0027ll need to work more on that - the best way would be to ensure the java code linked above doesn\u0027t expand any paths that we search through the linker config at the native level. I don\u0027t yet know how feasible that may be. Pretty sure it\u0027ll be something we need to guard with compat checks though.\n\n@jiyong@google.com, @ngeoffray@google.com, any thoughts on this?",
+      "parentUuid": "79ac073c_9cce6510",
       "range": {
         "startLine": 325,
         "startChar": 65,

@@ -94,6 +94,30 @@
       },
       "revId": "ef4589d65056089853144783702d7182e1fdf0c6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "87089d9d_8bec4459",
+        "filename": "runtime/jni/java_vm_ext.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 966,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-02-13T00:18:03Z",
+      "side": 1,
+      "message": "Yes, you mentioned .dex files, not vdex. However .dex files are actually OAT files in `dalvik-cache`, so they don\u0027t contain any dex code either.\n\nvdex files otoh can actually contain dex code (when `classes*.dex` are compressed in the APK so we cannot map the dex code directly from there). I\u0027d still like to confirm that GetLocation() doesn\u0027t point to the vdex file in that case. @dsrbecky@google.com, do you know that?",
+      "parentUuid": "3817b109_42e7441b",
+      "range": {
+        "startLine": 966,
+        "startChar": 26,
+        "endLine": 966,
+        "endChar": 50
+      },
+      "revId": "ef4589d65056089853144783702d7182e1fdf0c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
