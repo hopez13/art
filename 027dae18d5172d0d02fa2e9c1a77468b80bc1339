@@ -34,6 +34,24 @@
       "parentUuid": "732476ba_ebf32105",
       "revId": "027dae18d5172d0d02fa2e9c1a77468b80bc1339",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6587f917_c2dc180f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2024-02-13T14:05:50Z",
+      "side": 1,
+      "message": "Thanks Santiago. FYI, all the top-level MTS test definitions are contained in `platform/test/mts` (much like top-level CTS test definitions are contained in `platform/cts`). This is essentially for the sake of test suite ownership and clarity.",
+      "parentUuid": "c6d0d6b6_fdf0de61",
+      "revId": "027dae18d5172d0d02fa2e9c1a77468b80bc1339",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
