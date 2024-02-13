@@ -18,6 +18,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ac9e529_6e46e44c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-13T12:26:45Z",
+      "side": 1,
+      "message": "Partial review: Tests not reviewed yet.",
+      "revId": "4124e89224c37d5246a4ff9a71bcee61b5e50755",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "48cb19fd_aa7e8955",
@@ -139,6 +156,98 @@
         "startChar": 17,
         "endLine": 863,
         "endChar": 31
+      },
+      "revId": "4124e89224c37d5246a4ff9a71bcee61b5e50755",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f654a8b_a83bc89c",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 910,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-13T12:26:45Z",
+      "side": 1,
+      "message": "Unnecessary extraction and re-composition. We should just convert signed to unsigned (say, `static_cast\u003cuint32_t\u003e(imm) \u0026 MaxInt\u003cuint32_t\u003e(6)`). Maybe add helper function `EncodeInt6()`? (Or change `EncodeInt5()` to templated `EncodeInt\u003cN\u003e()`?)",
+      "range": {
+        "startLine": 910,
+        "startChar": 21,
+        "endLine": 910,
+        "endChar": 35
+      },
+      "revId": "4124e89224c37d5246a4ff9a71bcee61b5e50755",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ba2e84e_39513f0c",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 917,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-13T12:26:45Z",
+      "side": 1,
+      "message": "`IsUint\u003c6\u003e(nzimm6)`",
+      "range": {
+        "startLine": 917,
+        "startChar": 9,
+        "endLine": 917,
+        "endChar": 61
+      },
+      "revId": "4124e89224c37d5246a4ff9a71bcee61b5e50755",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1315738c_3df1f17b",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 922,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-13T12:26:45Z",
+      "side": 1,
+      "message": "Unnecessary extraction and re-composition.",
+      "range": {
+        "startLine": 922,
+        "startChar": 21,
+        "endLine": 922,
+        "endChar": 35
+      },
+      "revId": "4124e89224c37d5246a4ff9a71bcee61b5e50755",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "126924f1_d1d07319",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 982,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-13T12:26:45Z",
+      "side": 1,
+      "message": "Just pass `shamt` directly to `EmitCI()` and let it `DCHECK(IsUint\u003c6\u003e(shamt))`.",
+      "range": {
+        "startLine": 982,
+        "startChar": 21,
+        "endLine": 982,
+        "endChar": 35
       },
       "revId": "4124e89224c37d5246a4ff9a71bcee61b5e50755",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
