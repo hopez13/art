@@ -52,6 +52,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ccae75a_e63b598f",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 786,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-02-13T15:37:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "48cb19fd_aa7e8955",
+      "revId": "4124e89224c37d5246a4ff9a71bcee61b5e50755",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bb1a736e_633d7cdb",
@@ -65,6 +83,30 @@
       "writtenOn": "2024-02-12T14:23:57Z",
       "side": 1,
       "message": "Add helper function `ExtractOffset52_76()` and use it in `CLwsp()` and `CSwsp()`. (Let `EmitCI()` split out the bit 5. Move offset `DCHECK()`s to that helper function.)",
+      "range": {
+        "startLine": 794,
+        "startChar": 21,
+        "endLine": 794,
+        "endChar": 35
+      },
+      "revId": "4124e89224c37d5246a4ff9a71bcee61b5e50755",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a414558d_798e3c41",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 794,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-02-13T15:37:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bb1a736e_633d7cdb",
       "range": {
         "startLine": 794,
         "startChar": 21,
@@ -92,6 +134,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "80563bdf_4ff25362",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 798,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-02-13T15:37:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a65b66ba_3909f342",
+      "revId": "4124e89224c37d5246a4ff9a71bcee61b5e50755",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2ef4c3e7_a16a8718",
@@ -105,6 +165,30 @@
       "writtenOn": "2024-02-12T14:23:57Z",
       "side": 1,
       "message": "Helper function `ExtractOffset53_86()` for `CLdsp()`, `CSdsp()`, `CFLdsp()` and `CFSdsp()`.",
+      "range": {
+        "startLine": 806,
+        "startChar": 21,
+        "endLine": 806,
+        "endChar": 35
+      },
+      "revId": "4124e89224c37d5246a4ff9a71bcee61b5e50755",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "19187892_f3dfcff7",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 806,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-02-13T15:37:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2ef4c3e7_a16a8718",
       "range": {
         "startLine": 806,
         "startChar": 21,
@@ -138,6 +222,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "347d03c4_f90fbfd6",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 854,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-02-13T15:37:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "25781684_88e3e344",
+      "range": {
+        "startLine": 854,
+        "startChar": 17,
+        "endLine": 854,
+        "endChar": 31
+      },
+      "revId": "4124e89224c37d5246a4ff9a71bcee61b5e50755",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "358921cb_f8d8e432",
@@ -161,6 +269,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "786dcac1_eff8a17a",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 863,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-02-13T15:37:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "358921cb_f8d8e432",
+      "range": {
+        "startLine": 863,
+        "startChar": 17,
+        "endLine": 863,
+        "endChar": 31
+      },
+      "revId": "4124e89224c37d5246a4ff9a71bcee61b5e50755",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7f654a8b_a83bc89c",
@@ -174,6 +306,30 @@
       "writtenOn": "2024-02-13T12:26:45Z",
       "side": 1,
       "message": "Unnecessary extraction and re-composition. We should just convert signed to unsigned (say, `static_cast\u003cuint32_t\u003e(imm) \u0026 MaxInt\u003cuint32_t\u003e(6)`). Maybe add helper function `EncodeInt6()`? (Or change `EncodeInt5()` to templated `EncodeInt\u003cN\u003e()`?)",
+      "range": {
+        "startLine": 910,
+        "startChar": 21,
+        "endLine": 910,
+        "endChar": 35
+      },
+      "revId": "4124e89224c37d5246a4ff9a71bcee61b5e50755",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f0fba76b_18ee5745",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 910,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-02-13T15:37:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7f654a8b_a83bc89c",
       "range": {
         "startLine": 910,
         "startChar": 21,
@@ -209,6 +365,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "987149e0_42128f98",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 917,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-02-13T15:37:14Z",
+      "side": 1,
+      "message": "Spec says \n```\nC.LUI loads the non-zero 6-bit immediate field into bits 17–12 of the destination register, clears the\nbottom 12 bits, and sign-extends bit 17 into all higher bits of the destination\n```\n\nSuggested check will not allow either in `[0xfffe0, 0xfffff]` which are correct values.",
+      "parentUuid": "2ba2e84e_39513f0c",
+      "range": {
+        "startLine": 917,
+        "startChar": 9,
+        "endLine": 917,
+        "endChar": 61
+      },
+      "revId": "4124e89224c37d5246a4ff9a71bcee61b5e50755",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1315738c_3df1f17b",
         "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
         "patchSetId": 3
@@ -220,6 +400,30 @@
       "writtenOn": "2024-02-13T12:26:45Z",
       "side": 1,
       "message": "Unnecessary extraction and re-composition.",
+      "range": {
+        "startLine": 922,
+        "startChar": 21,
+        "endLine": 922,
+        "endChar": 35
+      },
+      "revId": "4124e89224c37d5246a4ff9a71bcee61b5e50755",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "65b69c1f_13ec5341",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 922,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-02-13T15:37:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1315738c_3df1f17b",
       "range": {
         "startLine": 922,
         "startChar": 21,
@@ -243,6 +447,30 @@
       "writtenOn": "2024-02-13T12:26:45Z",
       "side": 1,
       "message": "Just pass `shamt` directly to `EmitCI()` and let it `DCHECK(IsUint\u003c6\u003e(shamt))`.",
+      "range": {
+        "startLine": 982,
+        "startChar": 21,
+        "endLine": 982,
+        "endChar": 35
+      },
+      "revId": "4124e89224c37d5246a4ff9a71bcee61b5e50755",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f0880d8d_8d920c4d",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 982,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-02-13T15:37:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "126924f1_d1d07319",
       "range": {
         "startLine": 982,
         "startChar": 21,
