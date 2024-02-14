@@ -236,6 +236,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "16813ac4_f7d5fe08",
+        "filename": "libnativeloader/native_loader.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2024-02-14T18:27:00Z",
+      "side": 1,
+      "message": "Right, makes sense. (I initially wanted to suggest `std::optional\u003cstd::string\u003e`, but I then realised that it would require additional changes that might not be desirable.)",
+      "parentUuid": "3724c64f_785e6cb2",
+      "range": {
+        "startLine": 268,
+        "startChar": 8,
+        "endLine": 268,
+        "endChar": 13
+      },
+      "revId": "05dd5cf014b679326061f709bc339894530ff8b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a3efa0be_bddc8796",
