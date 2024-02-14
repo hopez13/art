@@ -22,6 +22,30 @@
       },
       "revId": "51eb97c6b438ae75414cf539a1f94bdbcc9d9c9e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8267a2c9_ab03290a",
+        "filename": "libnativeloader/test/src/android/test/lib/TestUtils.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-02-14T17:35:17Z",
+      "side": 1,
+      "message": "It\u0027d require a lot of boilerplate and build mess to share  between hostside and device code. I\u0027ve added comments instead, but they\u0027re in https://r.android.com/2960202 since that\u0027s where this is introduced.",
+      "parentUuid": "cccce177_99faefd7",
+      "range": {
+        "startLine": 53,
+        "startChar": 29,
+        "endLine": 53,
+        "endChar": 31
+      },
+      "revId": "51eb97c6b438ae75414cf539a1f94bdbcc9d9c9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
