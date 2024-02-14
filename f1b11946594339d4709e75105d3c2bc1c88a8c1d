@@ -98,6 +98,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f65dad3e_f0c35f58",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-14T08:32:16Z",
+      "side": 1,
+      "message": "With `--optimizing`, the code is emitted ahead of time by running `dex2oat`.\n\nFor a change like this, I would not expect `--jit-on-first-use` to uncover issues that `--optimizing` did not find but it can sometimes happen.\n\nFeel free to keep the `Test:` as is. (But some tests are a bit flaky for `--no-image` with OOME occasionally thrown at some unexpected places.)",
+      "parentUuid": "85ddbbf5_69929e44",
+      "range": {
+        "startLine": 9,
+        "startChar": 63,
+        "endLine": 9,
+        "endChar": 92
+      },
+      "revId": "f1b11946594339d4709e75105d3c2bc1c88a8c1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "50ccbee1_503a0ad4",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
