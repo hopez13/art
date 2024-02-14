@@ -100,6 +100,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec87fcc2_5291e521",
+        "filename": "libnativeloader/native_loader.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-02-14T17:38:17Z",
+      "side": 1,
+      "message": "I had to do some refactoring in https://r.android.com/2962584 for stringency (we shouldn\u0027t stumble on things like \":/system/\" in app directories), so it ended up this way anyway. ;)",
+      "parentUuid": "e77c6fec_a8d0ce05",
+      "revId": "3cb04fd67d7efb8d057f10b411e99528f9f0ecac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "79ac073c_9cce6510",
@@ -137,6 +155,30 @@
       "side": 1,
       "message": "Done in PS13. I think there are benefits to this approach, but it doesn\u0027t work perfectly as-is.\n\nThe problem is that [loadLibrary0](https://cs.android.com/android/platform/superproject/main/+/main:libcore/ojluni/src/main/java/java/lang/Runtime.java;l\u003d1056;drc\u003d6b0ec6aa3395d4799ec10063f7e96ec07f1ebfca) searches for libraries on the java level, so we may see absolute paths in here even when the user calls `loadLibrary` with just a basename.\n\nI\u0027ll need to work more on that - the best way would be to ensure the java code linked above doesn\u0027t expand any paths that we search through the linker config at the native level. I don\u0027t yet know how feasible that may be. Pretty sure it\u0027ll be something we need to guard with compat checks though.\n\n@jiyong@google.com, @ngeoffray@google.com, any thoughts on this?",
       "parentUuid": "79ac073c_9cce6510",
+      "range": {
+        "startLine": 325,
+        "startChar": 65,
+        "endLine": 326,
+        "endChar": 50
+      },
+      "revId": "3cb04fd67d7efb8d057f10b411e99528f9f0ecac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "59d4de61_76412a64",
+        "filename": "libnativeloader/native_loader.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-02-14T17:38:17Z",
+      "side": 1,
+      "message": "There\u0027s some discussion on b/186729817. Looking at the compat impact on the test apps, I no longer think the path handling in `loadLibrary0` is a significant problem for this approach (although it is a bit counterintuitive and annoying).",
+      "parentUuid": "5296c2ae_07df7774",
       "range": {
         "startLine": 325,
         "startChar": 65,
