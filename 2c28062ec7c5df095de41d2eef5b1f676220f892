@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "46bb8e9f_03bf4bfc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2024-02-14T18:22:32Z",
+      "side": 1,
+      "message": "Good idea; I just tried the following value, which had the expected effect on `TEST_MAPPING`:\n\n```\n# Tests excluded from all test mapping test groups.\nfailing_tests_excluded_from_test_mapping \u003d {\n  # A pre-sumbit test.\n  \"art_standalone_cmdline_tests\": [\"CmdlineParserTest#TestCompilerOption\"],\n  # A post-sumbit test.\n  \"art_standalone_dexopt_chroot_setup_tests\": [\"DexoptChrootSetupTest#HelloWorld\"],\n}\n```",
+      "parentUuid": "eb92b2dd_c5f82eac",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 4
+      },
+      "revId": "2c28062ec7c5df095de41d2eef5b1f676220f892",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ef884743_664e5afc",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-01-10T15:05:43Z",
       "side": 1,
       "message": "I suggest an example in the comment to clarify what kind of identifier is expected here (it\u0027s not always clear what is meant with a \"test\").",
+      "range": {
+        "startLine": 307,
+        "startChar": 2,
+        "endLine": 307,
+        "endChar": 7
+      },
+      "revId": "2c28062ec7c5df095de41d2eef5b1f676220f892",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "001c181c_1be2da22",
+        "filename": "test/utils/regen-test-files",
+        "patchSetId": 1
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2024-02-14T18:22:32Z",
+      "side": 1,
+      "message": "Thanks for the suggestion; done in PS4.",
+      "parentUuid": "ef884743_664e5afc",
       "range": {
         "startLine": 307,
         "startChar": 2,
