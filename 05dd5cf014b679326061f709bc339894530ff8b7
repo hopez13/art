@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3dc5c0ad_1cc8d8e0",
+        "filename": "libnativeloader/native_loader.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2024-02-14T14:11:53Z",
+      "side": 1,
+      "message": "Suggestion: Rename `err_msg` to something more explicit (e.g. `dlerror_msg`), to distinguish this variable from `error_msg` below (line 275).",
+      "range": {
+        "startLine": 268,
+        "startChar": 14,
+        "endLine": 268,
+        "endChar": 21
+      },
+      "revId": "05dd5cf014b679326061f709bc339894530ff8b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "364297ff_4d01e18c",
+        "filename": "libnativeloader/native_loader.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2024-02-14T14:11:53Z",
+      "side": 1,
+      "message": "Suggestion: Consider using `std::optional\u003cchar*\u003e` here, in line with similar changes in this CL.",
+      "range": {
+        "startLine": 268,
+        "startChar": 8,
+        "endLine": 268,
+        "endChar": 13
+      },
+      "revId": "05dd5cf014b679326061f709bc339894530ff8b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3efa0be_bddc8796",
+        "filename": "libnativeloader/native_loader.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2024-02-14T14:11:53Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 297,
+        "startChar": 4,
+        "endLine": 297,
+        "endChar": 9
+      },
+      "revId": "05dd5cf014b679326061f709bc339894530ff8b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "206a0235_49b9dc3f",
+        "filename": "libnativeloader/native_loader.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2024-02-14T14:11:53Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 297,
+        "startChar": 10,
+        "endLine": 297,
+        "endChar": 17
+      },
+      "revId": "05dd5cf014b679326061f709bc339894530ff8b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
