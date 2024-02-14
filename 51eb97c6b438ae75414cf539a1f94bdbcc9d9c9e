@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cccce177_99faefd7",
+        "filename": "libnativeloader/test/src/android/test/lib/TestUtils.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2024-02-14T15:49:28Z",
+      "side": 1,
+      "message": "[minor] Is it worth extracting this 10 into a constant value? It could help both for documentation purposes (why was it 6 before and it is 10 now?) and for code de-duplication (the same values changes here and in libnativeloader/test/src/android/test/hostside/LibnativeloaderTest.java, so they seem to be related).",
+      "range": {
+        "startLine": 53,
+        "startChar": 29,
+        "endLine": 53,
+        "endChar": 31
+      },
+      "revId": "51eb97c6b438ae75414cf539a1f94bdbcc9d9c9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
