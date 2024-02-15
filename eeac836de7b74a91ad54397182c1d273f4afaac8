@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ab0d192e_f7a51ebe",
+        "filename": "runtime/mirror/object.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-02-15T12:56:53Z",
+      "side": 1,
+      "message": "Add a /* parameter_name\u003d */",
+      "range": {
+        "startLine": 215,
+        "startChar": 80,
+        "endLine": 215,
+        "endChar": 81
+      },
+      "revId": "eeac836de7b74a91ad54397182c1d273f4afaac8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d5a6268_64f6086b",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1138,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-02-15T12:56:53Z",
+      "side": 1,
+      "message": "why not `attempt_of_4 !\u003d 4` ?",
+      "range": {
+        "startLine": 1138,
+        "startChar": 8,
+        "endLine": 1138,
+        "endChar": 44
+      },
+      "revId": "eeac836de7b74a91ad54397182c1d273f4afaac8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
