@@ -360,5 +360,4 @@ bool JniCallingConvention::SwitchExtraJniArguments(size_t switch_value,
   }
 }
 
-
 }  // namespace art

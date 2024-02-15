@@ -426,28 +426,26 @@ JNI_SAVE_RETURN_VALUE_TRAMPOLINE \
      * calls `artLockObjectFromCode()` (the same as for managed code) for the
      * difficult cases, may block for GC.
      * Custom calling convention:
-     *     RBX holds the non-null object to lock.
-     *     Callee-save registers have been saved and can be used as temporaries (except RBX).
-     *     All argument registers need to be preserved.
+     *     R10 holds the non-null object to lock.
+     *     All argument registers and callee-save registers need to be preserved.
      */
 DEFINE_FUNCTION art_jni_lock_object
-    LOCK_OBJECT_FAST_PATH rbx, ebp, art_jni_lock_object_no_inline
+    LOCK_OBJECT_FAST_PATH r10, r11d, art_jni_lock_object_no_inline
 END_FUNCTION art_jni_lock_object
 
     /*
      * Entry from JNI stub that calls `artLockObjectFromCode()`
      * (the same as for managed code), may block for GC.
      * Custom calling convention:
-     *     RBX holds the non-null object to lock.
-     *     Callee-save registers have been saved and can be used as temporaries (except RBX).
-     *     All argument registers need to be preserved.
+     *     R10 holds the non-null object to lock.
+     *     All argument registers and callee-save registers need to be preserved.
      */
 DEFINE_FUNCTION art_jni_lock_object_no_inline
     // This is also the slow path for art_jni_lock_object.
     // Save register args RDI, RSI, RDX, RCX, R8, R9, mmx0-mmx7 and align stack.
     SAVE_MANAGED_ARGS_INCREASE_FRAME
     // Call `artLockObjectFromCode()`
-    movq %rbx, %rdi                       // Pass the object to lock.
+    movq %r10, %rdi                       // Pass the object to lock.
     movq %gs:THREAD_SELF_OFFSET, %rsi     // Pass Thread::Current().
     call SYMBOL(artLockObjectFromCode)    // (object, Thread*)
     // Check result.
@@ -470,16 +468,15 @@ END_FUNCTION art_jni_lock_object_no_inline
      * `artJniUnlockObject()` for the difficult cases. Note that failure to unlock
      * is fatal, so we do not need to check for exceptions in the slow path.
      * Custom calling convention:
-     *     RBX holds the non-null object to unlock.
-     *     Callee-save registers have been saved and can be used as temporaries (except RBX).
-     *     Return registers RAX and mmx0 need to be preserved.
+     *     R10 holds the non-null object to unlock.
+     *     Return registers RAX and mmx0 and callee-save registers need to be preserved.
      */
 DEFINE_FUNCTION art_jni_unlock_object
-    movq %rax, %r12                       // Preserve RAX in a different register.
-    UNLOCK_OBJECT_FAST_PATH rbx, ebp, /*saved_rax*/ r12, .Lunlock_object_jni_slow
+    movq %rax, %rsi                       // Preserve RAX in a different register.
+    UNLOCK_OBJECT_FAST_PATH r10, edi, /*saved_rax*/ rsi, .Lunlock_object_jni_slow
 
  .Lunlock_object_jni_slow:
-    movq %r12, %rax                       // Restore RAX.
+    movq %rsi, %rax                       // Restore RAX.
     jmp  SYMBOL(art_jni_unlock_object_no_inline)
 END_FUNCTION art_jni_unlock_object
 
@@ -487,10 +484,9 @@ END_FUNCTION art_jni_unlock_object
      * Entry from JNI stub that calls `artJniUnlockObject()`. Note that failure to
      * unlock is fatal, so we do not need to check for exceptions.
      * Custom calling convention:
-     *     RBX holds the non-null object to unlock.
-     *     Callee-save registers have been saved and can be used as temporaries (except RBX).
-     *     Return registers RAX and mmx0 need to be preserved.
+     *     R10 holds the non-null object to unlock.
+     *     Return registers RAX and mmx0 and callee-save registers need to be preserved.
      */
     // This is also the slow path for art_jni_unlock_object.
 JNI_SAVE_RETURN_VALUE_TRAMPOLINE \
-    art_jni_unlock_object_no_inline, artJniUnlockObject, rbx, gs:THREAD_SELF_OFFSET
+    art_jni_unlock_object_no_inline, artJniUnlockObject, r10, gs:THREAD_SELF_OFFSET

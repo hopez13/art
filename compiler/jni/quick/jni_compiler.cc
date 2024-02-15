@@ -548,7 +548,7 @@ static JniCompiledMethod ArtJniCompileMethodInternal(const CompilerOptions& comp
   // 7.2 Unlock the synchronization object for synchronized methods.
   //     Do this before exception poll to avoid extra unlocking in the exception slow path.
   if (UNLIKELY(is_synchronized)) {
-    ManagedRegister to_lock = main_jni_conv->LockingArgumentRegister();
+    ManagedRegister to_unlock = main_jni_conv->LockingArgumentRegister();
     mr_conv->ResetIterator(FrameOffset(current_frame_size));
     if (is_static) {
       // Pass the declaring class.
@@ -557,10 +557,10 @@ static JniCompiledMethod ArtJniCompileMethodInternal(const CompilerOptions& comp
       FrameOffset method_offset = mr_conv->MethodStackOffset();
       __ Load(temp, method_offset, kRawPointerSize);
       DCHECK_EQ(ArtMethod::DeclaringClassOffset().SizeValue(), 0u);
-      __ LoadGcRootWithoutReadBarrier(to_lock, temp, MemberOffset(0u));
+      __ LoadGcRootWithoutReadBarrier(to_unlock, temp, MemberOffset(0u));
     } else {
       // Pass the `this` argument from its spill slot.
-      __ LoadStackReference(to_lock, mr_conv->CurrentParamStackOffset());
+      __ LoadStackReference(to_unlock, mr_conv->CurrentParamStackOffset());
     }
     __ CallFromThread(QUICK_ENTRYPOINT_OFFSET(kPointerSize, pJniUnlockObject));
   }

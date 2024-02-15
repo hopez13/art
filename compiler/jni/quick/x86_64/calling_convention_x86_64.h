@@ -77,7 +77,7 @@ class X86_64JniCallingConvention final : public JniCallingConvention {
   }
 
   // Locking argument register, used to pass the synchronization object for calls
-  // to `JniLockObject()` and `JniUnlockObject()`.
+  // to the `JniLockObject` and `JniUnlockObject` entrypoints.
   ManagedRegister LockingArgumentRegister() const override;
 
   // Hidden argument register, used to pass the method pointer for @CriticalNative call.

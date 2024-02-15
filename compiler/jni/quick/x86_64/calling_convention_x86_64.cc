@@ -310,24 +310,38 @@ FrameOffset X86_64JniCallingConvention::CurrentParamStackOffset() {
   return FrameOffset(offset);
 }
 
+template <size_t kSize>
+static bool OverlapsRegister(const ManagedRegister (&register_list)[kSize],
+                             X86_64ManagedRegister reg) {
+  return std::any_of(
+      register_list,
+      register_list + kSize,
+      [reg](ManagedRegister other_reg) { return other_reg.AsX86_64().Overlaps(reg); });
+}
+
 ManagedRegister X86_64JniCallingConvention::LockingArgumentRegister() const {
   DCHECK(!IsFastNative());
   DCHECK(!IsCriticalNative());
   DCHECK(IsSynchronized());
-  // The callee-save register is RBX is suitable as a locking argument.
-  static_assert(kCalleeSaveRegisters[0].Equals(X86_64ManagedRegister::FromCpuRegister(RBX)));
-  return X86_64ManagedRegister::FromCpuRegister(RBX);
+  // R10 is neither managed callee-save, nor argument register, nor return register,
+  // so it's suitable as a locking argument register.
+  X86_64ManagedRegister locking_argument_register = X86_64ManagedRegister::FromCpuRegister(R10);
+  // TODO: Change to static_assert; std::any_of should be constexpr since C++20.
+  DCHECK(!OverlapsRegister(kCalleeSaveRegisters, locking_argument_register));
+  DCHECK(!OverlapsRegister(kCoreArgumentRegisters, locking_argument_register));
+  DCHECK(!locking_argument_register.Overlaps(ReturnRegister().AsX86_64()));
+  return locking_argument_register;
 }
 
 ManagedRegister X86_64JniCallingConvention::HiddenArgumentRegister() const {
   CHECK(IsCriticalNative());
-  // RAX is neither managed callee-save, nor argument register, nor scratch register.
-  DCHECK(std::none_of(kCalleeSaveRegisters,
-                      kCalleeSaveRegisters + std::size(kCalleeSaveRegisters),
-                      [](ManagedRegister callee_save) constexpr {
-                        return callee_save.Equals(X86_64ManagedRegister::FromCpuRegister(RAX));
-                      }));
-  return X86_64ManagedRegister::FromCpuRegister(RAX);
+  // RAX is neither managed/native callee-save, nor argument register.
+  X86_64ManagedRegister hidden_argument_register = X86_64ManagedRegister::FromCpuRegister(RAX);
+  // TODO: Change to static_assert; std::any_of should be constexpr since C++20.
+  DCHECK(!OverlapsRegister(kCalleeSaveRegisters, hidden_argument_register));
+  DCHECK(!OverlapsRegister(kNativeCalleeSaveRegisters, hidden_argument_register));
+  DCHECK(!OverlapsRegister(kCoreArgumentRegisters, hidden_argument_register));
+  return hidden_argument_register;
 }
 
 // Whether to use tail call (used only for @CriticalNative).
