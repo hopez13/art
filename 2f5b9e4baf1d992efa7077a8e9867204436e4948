@@ -39,6 +39,30 @@
       },
       "revId": "2f5b9e4baf1d992efa7077a8e9867204436e4948",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c405f06a_b076c50f",
+        "filename": "runtime/native/dalvik_system_VMRuntime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 593,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2024-02-15T15:29:37Z",
+      "side": 1,
+      "message": "There seems to be no kU yet: https://cs.android.com/android/platform/superproject/main/+/main:art/libartbase/base/sdk_version.h;l\u003d40",
+      "parentUuid": "43cfbddc_f364e399",
+      "range": {
+        "startLine": 593,
+        "startChar": 85,
+        "endLine": 593,
+        "endChar": 87
+      },
+      "revId": "2f5b9e4baf1d992efa7077a8e9867204436e4948",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
