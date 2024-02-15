@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b2df04c7_d97d9788",
+        "filename": "test/utils/regen-test-files",
+        "patchSetId": 2
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-02-15T14:59:02Z",
+      "side": 1,
+      "message": "There\u0027s no reason to support (and ignore) modules in `art_gtest_postsubmit_only_module_names` that aren\u0027t in `art_gtest_module_names`, is there? What about making that an error instead?",
+      "range": {
+        "startLine": 291,
+        "startChar": 36,
+        "endLine": 292,
+        "endChar": 84
+      },
+      "revId": "97c5b436289cd2170ff5924987b2c6d63e5d58d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
