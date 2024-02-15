@@ -24,7 +24,7 @@
 #include "base/memory_tool.h"
 #include "base/mutex.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace gc {
 
 namespace collector {

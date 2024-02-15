@@ -49,7 +49,7 @@
 #include "scoped_thread_state_change.h"
 #include "verify_object.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class ConditionVariable;
 enum class InstructionSet;

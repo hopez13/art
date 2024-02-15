@@ -25,7 +25,7 @@
 #include "parallel_move_resolver.h"
 #include "utils/x86_64/assembler_x86_64.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace x86_64 {
 
 // Use a local definition to prevent copying mistakes.

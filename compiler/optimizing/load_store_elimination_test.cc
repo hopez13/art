@@ -36,7 +36,7 @@
 #include "optimizing_unit_test.h"
 #include "scoped_thread_state_change.h"
 
-namespace art HIDDEN {
+namespace art {
 
 static constexpr bool kDebugLseTests = false;
 

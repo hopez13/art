@@ -20,7 +20,7 @@
 #include "base/stl_util.h"
 #include "thread-current-inl.h"
 
-namespace art HIDDEN {
+namespace art {
 
 std::vector<Mutex*>* QuasiAtomic::gSwapMutexes = nullptr;
 

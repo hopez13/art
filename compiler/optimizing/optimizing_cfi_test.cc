@@ -33,7 +33,7 @@
 
 namespace vixl32 = vixl::aarch32;
 
-namespace art HIDDEN {
+namespace art {
 
 class OptimizingCFITest : public CFITest, public OptimizingUnitTestHelper {
  public:

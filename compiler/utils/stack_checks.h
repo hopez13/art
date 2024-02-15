@@ -20,7 +20,7 @@
 #include "arch/instruction_set.h"
 #include "base/macros.h"
 
-namespace art HIDDEN {
+namespace art {
 
 // Size of a frame that we definitely consider large. Anything larger than this should
 // definitely get a stack overflow check.

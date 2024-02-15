@@ -30,7 +30,7 @@
 #include "dex/dex_file-inl.h"
 #include "elf/elf_builder.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace debug {
 
 // The ARM specification defines three special mapping symbols

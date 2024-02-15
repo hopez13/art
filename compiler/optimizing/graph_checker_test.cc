@@ -18,7 +18,7 @@
 #include "graph_checker.h"
 #include "optimizing_unit_test.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class GraphCheckerTest : public CommonCompilerTest, public OptimizingUnitTestHelper {
  protected:

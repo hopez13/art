@@ -18,7 +18,7 @@
 
 #include <ostream>
 
-namespace art HIDDEN {
+namespace art {
 
 std::ostream& operator<<(std::ostream& os, const Offset& offs) {
   return os << offs.Int32Value();

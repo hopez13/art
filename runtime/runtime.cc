@@ -195,7 +195,7 @@ namespace apex = com::android::apex;
 #include "asm_defines.def"
 #undef ASM_DEFINE
 
-namespace art HIDDEN {
+namespace art {
 
 // If a signal isn't handled properly, enable a handler that attempts to dump the Java stack.
 static constexpr bool kEnableJavaStackTraceHandler = false;

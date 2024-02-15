@@ -25,7 +25,7 @@
 #include "base/logging.h"
 #include "base/macros.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace riscv64 {
 
 constexpr size_t kFramePointerSize = static_cast<size_t>(PointerSize::k64);

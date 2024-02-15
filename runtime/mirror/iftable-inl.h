@@ -21,7 +21,7 @@
 #include "obj_ptr-inl.h"
 #include "object_array-inl.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace mirror {
 
 template<VerifyObjectFlags kVerifyFlags,

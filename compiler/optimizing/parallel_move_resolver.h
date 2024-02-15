@@ -23,7 +23,7 @@
 #include "data_type.h"
 #include "locations.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class HParallelMove;
 class MoveOperands;

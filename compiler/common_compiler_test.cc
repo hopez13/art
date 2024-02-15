@@ -42,7 +42,7 @@
 #include "thread-current-inl.h"
 #include "utils/atomic_dex_ref_map-inl.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class CommonCompilerTestImpl::CodeAndMetadata {
  public:

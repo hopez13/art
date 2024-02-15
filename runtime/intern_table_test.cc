@@ -25,7 +25,7 @@
 #include "mirror/string.h"
 #include "scoped_thread_state_change-inl.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class InternTableTest : public CommonRuntimeTest {
  protected:

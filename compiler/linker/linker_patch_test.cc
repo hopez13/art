@@ -19,7 +19,7 @@
 #include "base/macros.h"
 #include "linker_patch.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace linker {
 
 TEST(LinkerPatch, LinkerPatchOperators) {

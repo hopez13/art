@@ -23,7 +23,7 @@
 #include "base/mutex.h"
 #include "base/string_view_cpp20.h"
 
-namespace art HIDDEN {
+namespace art {
 
 // ART counterpart of the compat framework (go/compat-framework).
 // Created in order to avoid repeated up-calls to Java.

@@ -39,7 +39,7 @@
 #include "runtime.h"
 #include "ziparchive/zip_writer.h"
 
-namespace art HIDDEN {
+namespace art {
 
 static constexpr bool kDebugArgs = false;
 

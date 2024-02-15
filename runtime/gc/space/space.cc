@@ -25,7 +25,7 @@
 #include "runtime.h"
 #include "thread-current-inl.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace gc {
 namespace space {
 

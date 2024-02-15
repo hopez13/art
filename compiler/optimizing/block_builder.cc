@@ -21,7 +21,7 @@
 #include "dex/code_item_accessors-inl.h"
 #include "dex/dex_file_exception_helpers.h"
 
-namespace art HIDDEN {
+namespace art {
 
 HBasicBlockBuilder::HBasicBlockBuilder(HGraph* graph,
                                        const DexFile* const dex_file,

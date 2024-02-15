@@ -24,7 +24,7 @@
 
 #include "gtest/gtest.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class DeadCodeEliminationTest : public CommonCompilerTest, public OptimizingUnitTestHelper {
  protected:

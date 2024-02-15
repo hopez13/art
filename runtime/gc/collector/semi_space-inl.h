@@ -22,7 +22,7 @@
 #include "gc/accounting/heap_bitmap.h"
 #include "mirror/object-inl.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace gc {
 namespace collector {
 

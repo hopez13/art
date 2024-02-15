@@ -26,7 +26,7 @@
 #include "base/macros.h"
 #include "dex/method_reference.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class DexFile;
 

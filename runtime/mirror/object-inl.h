@@ -41,7 +41,7 @@
 #include "throwable.h"
 #include "write_barrier-inl.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace mirror {
 
 inline uint32_t Object::ClassSize(PointerSize pointer_size) {

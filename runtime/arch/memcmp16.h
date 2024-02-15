@@ -53,7 +53,7 @@ static inline int32_t MemCmp16(const uint16_t* s0, const uint16_t* s1, size_t co
 extern "C" int32_t memcmp16_generic_static(const uint16_t* s0, const uint16_t* s1, size_t count);
 #endif
 
-namespace art HIDDEN {
+namespace art {
 
 namespace testing {
 

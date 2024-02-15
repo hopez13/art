@@ -22,7 +22,7 @@
 
 #include <deque>
 
-namespace art HIDDEN {
+namespace art {
 
 namespace mirror {
 class Object;

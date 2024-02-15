@@ -38,7 +38,7 @@
 #include "thread-current-inl.h"
 #include "thread_list.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace gc {
 namespace collector {
 

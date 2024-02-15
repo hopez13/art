@@ -16,7 +16,7 @@
 
 #include "read_barrier.h"
 
-namespace art HIDDEN {
+namespace art {
 
 DEFINE_RUNTIME_DEBUG_FLAG(ReadBarrier, kEnableToSpaceInvariantChecks);
 DEFINE_RUNTIME_DEBUG_FLAG(ReadBarrier, kEnableReadBarrierInvariantChecks);

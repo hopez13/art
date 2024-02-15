@@ -36,7 +36,7 @@
 #include "register_line.h"
 #include "verifier_enums.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class ClassLinker;
 class DexFile;

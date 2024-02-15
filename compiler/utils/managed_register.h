@@ -23,7 +23,7 @@
 #include "base/macros.h"
 #include "base/value_object.h"
 
-namespace art HIDDEN {
+namespace art {
 
 namespace arm {
 class ArmManagedRegister;

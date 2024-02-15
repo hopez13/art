@@ -28,7 +28,7 @@
 #include "oat/stack_map.h"
 #include "stack_reference.h"
 
-namespace art HIDDEN {
+namespace art {
 
 namespace mirror {
 class Throwable;

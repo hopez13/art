@@ -23,7 +23,7 @@
 #include "base/macros.h"
 #include "obj_ptr.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace mirror {
 
 template<typename T, typename Container> class ArrayIter;

@@ -30,7 +30,7 @@
 #include "oat/oat_file.h"
 #include "scoped_thread_state_change.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class DexFile;
 class OatFile;

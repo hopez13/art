@@ -21,7 +21,7 @@
 #include "base/runtime_debug.h"
 #include "profile_saver_options.h"
 
-namespace art HIDDEN {
+namespace art {
 
 struct RuntimeArgumentMap;
 

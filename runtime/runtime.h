@@ -54,7 +54,7 @@
 #include "reflective_value_visitor.h"
 #include "runtime_stats.h"
 
-namespace art HIDDEN {
+namespace art {
 
 namespace gc {
 class AbstractSystemWeakHolder;

@@ -24,7 +24,7 @@
 #include "base/macros.h"
 #include "base/memory_region.h"
 
-namespace art HIDDEN {
+namespace art {
 
 // Dex register location container used by DexRegisterMap and StackMapStream.
 class DexRegisterLocation {

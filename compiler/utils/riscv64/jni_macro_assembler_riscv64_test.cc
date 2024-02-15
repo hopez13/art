@@ -34,7 +34,7 @@
 #include "base/macros.h"
 #include "base/malloc_arena_pool.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace riscv64 {
 
 #define __ assembler_.

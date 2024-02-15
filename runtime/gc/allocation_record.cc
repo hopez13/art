@@ -27,7 +27,7 @@
 
 #include <android-base/properties.h>
 
-namespace art HIDDEN {
+namespace art {
 namespace gc {
 
 int32_t AllocRecordStackTraceElement::ComputeLineNumber() const {

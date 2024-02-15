@@ -19,7 +19,7 @@
 #include "gtest/gtest.h"
 #include "android-base/logging.h"
 
-namespace art HIDDEN {
+namespace art {
 
 constexpr size_t BitString::kBitSizeAtPosition[BitString::kCapacity];
 constexpr size_t BitString::kCapacity;

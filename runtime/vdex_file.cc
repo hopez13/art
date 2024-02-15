@@ -44,7 +44,7 @@
 #include "runtime.h"
 #include "verifier/verifier_deps.h"
 
-namespace art HIDDEN {
+namespace art {
 
 using android::base::StringPrintf;
 

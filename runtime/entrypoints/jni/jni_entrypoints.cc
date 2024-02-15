@@ -33,7 +33,7 @@
 #include "scoped_thread_state_change-inl.h"
 #include "thread.h"
 
-namespace art HIDDEN {
+namespace art {
 
 static inline uint32_t GetInvokeStaticMethodIndex(ArtMethod* caller, uint32_t dex_pc)
     REQUIRES_SHARED(Locks::mutator_lock_) {

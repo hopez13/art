@@ -37,7 +37,7 @@
 #include "jit_memory_region.h"
 #include "profiling_info.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class ArtMethod;
 template<class T> class Handle;

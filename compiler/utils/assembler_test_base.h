@@ -35,7 +35,7 @@
 #include "exec_utils.h"
 #include "stream/file_output_stream.h"
 
-namespace art HIDDEN {
+namespace art {
 
 // If you want to take a look at the differences between the ART assembler and clang,
 // set this flag to true. The disassembled files will then remain in the tmp directory.

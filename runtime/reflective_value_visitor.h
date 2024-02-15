@@ -35,7 +35,7 @@
 #include "mirror/dex_cache.h"
 #include "obj_ptr.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class ArtField;
 class ArtMethod;

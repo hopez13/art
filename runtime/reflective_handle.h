@@ -21,7 +21,7 @@
 #include "base/value_object.h"
 #include "reflective_reference.h"
 
-namespace art HIDDEN {
+namespace art {
 
 // This is a holder similar to Handle<T> that is used to hold reflective references to ArtField and
 // ArtMethod structures. A reflective reference is one that must be updated if the underlying class

@@ -28,7 +28,7 @@
 #include "nodes.h"
 #include "optimizing/optimizing_compiler_stats.h"
 
-namespace art HIDDEN {
+namespace art {
 
 // A ReferenceInfo contains additional info about a reference such as
 // whether it's a singleton, returned, etc.

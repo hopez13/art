@@ -43,7 +43,7 @@
 #include "ssa_liveness_analysis.h"
 #include "utils/assembler.h"
 
-namespace art HIDDEN {
+namespace art {
 
 // Unique pass-name to identify that the dump is for printing to log.
 constexpr const char* kDebugDumpName = "debug";

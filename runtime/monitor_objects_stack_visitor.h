@@ -27,7 +27,7 @@
 #include "thread.h"
 #include "thread_state.h"
 
-namespace art HIDDEN {
+namespace art {
 
 namespace mirror {
 class Object;

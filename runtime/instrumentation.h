@@ -35,7 +35,7 @@
 #include "jvalue.h"
 #include "offsets.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace mirror {
 class Class;
 class Object;

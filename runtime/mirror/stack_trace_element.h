@@ -20,7 +20,7 @@
 #include "base/macros.h"
 #include "object.h"
 
-namespace art HIDDEN {
+namespace art {
 
 template<class T> class Handle;
 struct StackTraceElementOffsets;

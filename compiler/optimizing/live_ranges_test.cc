@@ -26,7 +26,7 @@
 #include "prepare_for_register_allocation.h"
 #include "ssa_liveness_analysis.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class LiveRangesTest : public CommonCompilerTest, public OptimizingUnitTestHelper {
  protected:

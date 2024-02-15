@@ -26,7 +26,7 @@
 #include "gc/gc_cause.h"
 #include "object_byte_pair.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace gc {
 namespace collector {
 

@@ -95,7 +95,7 @@ using ::android::modules::sdklevel::IsAtLeastV;
 }  // namespace
 #endif
 
-namespace art HIDDEN {
+namespace art {
 
 static bool HaveMremapDontunmap() {
   const size_t page_size = GetPageSizeSlow();

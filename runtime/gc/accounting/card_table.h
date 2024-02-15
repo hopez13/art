@@ -23,7 +23,7 @@
 #include "base/mem_map.h"
 #include "runtime_globals.h"
 
-namespace art HIDDEN {
+namespace art {
 
 namespace mirror {
 class Object;

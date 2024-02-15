@@ -18,7 +18,7 @@
 
 #include "nodes.h"
 
-namespace art HIDDEN {
+namespace art {
 
 void VisitEscapes(HInstruction* reference, EscapeVisitor& escape_visitor) {
   // References not allocated in the method are intrinsically escaped.

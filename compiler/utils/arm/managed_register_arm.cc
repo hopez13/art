@@ -18,7 +18,7 @@
 
 #include "base/globals.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace arm {
 
 // Returns true if this managed-register overlaps the other managed-register.

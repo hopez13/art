@@ -21,7 +21,7 @@
 
 #include "base/macros.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace x86_64 {
 
 enum Register {

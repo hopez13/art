@@ -25,7 +25,7 @@
 #include "base/scoped_arena_containers.h"
 #include "nodes.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class CodeGenerator;
 

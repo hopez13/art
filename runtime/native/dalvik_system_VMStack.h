@@ -21,7 +21,7 @@
 
 #include "base/macros.h"
 
-namespace art HIDDEN {
+namespace art {
 
 void register_dalvik_system_VMStack(JNIEnv* env);
 

@@ -22,7 +22,7 @@
 
 #include "base/macros.h"
 
-namespace art HIDDEN {
+namespace art {
 
 constexpr size_t kOatFileIndex = 0;
 constexpr size_t kDexFileIndexStart = 1;

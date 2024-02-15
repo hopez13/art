@@ -55,7 +55,7 @@
 #include "base/globals.h"
 #include "base/macros.h"
 
-namespace art HIDDEN {
+namespace art {
 
 #ifdef USE_BAKER_READ_BARRIER
 static constexpr bool kUseBakerReadBarrier = true;

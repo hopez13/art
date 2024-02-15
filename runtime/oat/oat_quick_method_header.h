@@ -26,7 +26,7 @@
 #include "quick/quick_method_frame_info.h"
 #include "stack_map.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class ArtMethod;
 

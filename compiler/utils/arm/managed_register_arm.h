@@ -23,7 +23,7 @@
 #include "constants_arm.h"
 #include "utils/managed_register.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace arm {
 
 // Values for register pairs.

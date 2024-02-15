@@ -21,7 +21,7 @@
 #include "base/bit_utils.h"
 #include "thread.h"
 
-namespace art HIDDEN {
+namespace art {
 
 void Thread::SetUpAlternateSignalStack() {
   // Bionic does this for us.

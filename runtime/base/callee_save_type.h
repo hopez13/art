@@ -22,7 +22,7 @@
 
 #include "base/macros.h"
 
-namespace art HIDDEN {
+namespace art {
 
 // Returns a special method that describes all callee saves being spilled to the stack.
 enum class CalleeSaveType : uint32_t {

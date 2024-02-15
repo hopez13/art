@@ -69,7 +69,7 @@
 #include "runtime.h"
 #include "space-inl.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace gc {
 namespace space {
 

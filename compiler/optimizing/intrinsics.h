@@ -24,7 +24,7 @@
 #include "optimization.h"
 #include "parallel_move_resolver.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class DexFile;
 

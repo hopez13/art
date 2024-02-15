@@ -22,7 +22,7 @@
 #include "collector_type.h"
 #include "gc_cause.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class Thread;
 

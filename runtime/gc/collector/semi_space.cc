@@ -52,7 +52,7 @@
 
 using ::art::mirror::Object;
 
-namespace art HIDDEN {
+namespace art {
 namespace gc {
 namespace collector {
 

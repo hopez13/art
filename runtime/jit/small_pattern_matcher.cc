@@ -20,7 +20,7 @@
 #include "dex/dex_instruction-inl.h"
 #include "entrypoints/entrypoint_utils-inl.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace jit {
 
 // The following methods will be directly invoked by our own JIT/AOT compiled

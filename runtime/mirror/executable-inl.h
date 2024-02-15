@@ -23,7 +23,7 @@
 #include "reflective_value_visitor.h"
 #include "verify_object.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace mirror {
 
 template <bool kTransactionActive,

@@ -24,7 +24,7 @@
 #include "mirror/object-inl.h"
 #include "scoped_thread_state_change-inl.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace jni {
 
 using android::base::StringPrintf;

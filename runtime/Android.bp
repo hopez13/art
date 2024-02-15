@@ -225,6 +225,7 @@ cc_defaults {
         //   manifest-art.json.
         "libjavacore",
     ],
+    cflags: ["-fvisibility=hidden"],
 }
 
 // Common defaults for `libart-runtime_defaults` and `libartd-runtime_defaults`.

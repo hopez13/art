@@ -34,7 +34,7 @@
 #include "gtest/gtest.h"
 #include "stream/file_output_stream.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace dwarf {
 
 #define DW_CHECK(substring) Check(substring, false, __FILE__, __LINE__)

@@ -33,7 +33,7 @@
 #include "object_byte_pair.h"
 #include "object_callbacks.h"
 
-namespace art HIDDEN {
+namespace art {
 
 namespace mirror {
 class Class;

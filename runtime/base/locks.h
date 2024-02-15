@@ -25,7 +25,7 @@
 #include "base/atomic.h"
 #include "base/macros.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class BaseMutex;
 class ConditionVariable;

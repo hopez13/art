@@ -30,7 +30,7 @@
 #include "base/utils.h"
 #include "optimizing/register_allocator.h"
 
-namespace art HIDDEN {
+namespace art {
 
 namespace jit {
 class JitCompiler;

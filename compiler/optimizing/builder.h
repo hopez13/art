@@ -25,7 +25,7 @@
 #include "dex/dex_file.h"
 #include "nodes.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class ArtMethod;
 class CodeGenerator;

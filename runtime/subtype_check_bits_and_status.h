@@ -24,7 +24,7 @@
 #include "class_status.h"
 #include "subtype_check_bits.h"
 
-namespace art HIDDEN {
+namespace art {
 
 /*
  * Enables a highly efficient O(1) subtype comparison by storing extra data

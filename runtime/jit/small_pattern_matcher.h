@@ -20,7 +20,7 @@
 #include "base/locks.h"
 #include "base/macros.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class ArtMethod;
 

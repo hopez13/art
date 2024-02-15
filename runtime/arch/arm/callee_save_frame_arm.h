@@ -26,7 +26,7 @@
 #include "registers_arm.h"
 #include "runtime_globals.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace arm {
 
 static constexpr uint32_t kArmCalleeSaveAlwaysSpills =

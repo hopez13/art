@@ -32,7 +32,7 @@
 #include "assembler_test_base.h"
 #include "common_runtime_test.h"  // For ScratchFile
 
-namespace art HIDDEN {
+namespace art {
 
 // Helper for a constexpr string length.
 constexpr size_t ConstexprStrLen(char const* str, size_t count = 0) {

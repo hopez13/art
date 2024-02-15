@@ -22,7 +22,7 @@
 #include "base/macros.h"
 #include "base/mutex.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class ArenaPool;
 

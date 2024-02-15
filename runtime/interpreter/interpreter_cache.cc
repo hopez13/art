@@ -17,7 +17,7 @@
 #include "interpreter_cache.h"
 #include "thread-inl.h"
 
-namespace art HIDDEN {
+namespace art {
 
 void InterpreterCache::Clear(Thread* owning_thread) {
   DCHECK(owning_thread->GetInterpreterCache() == this);

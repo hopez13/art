@@ -38,7 +38,7 @@
 #include "oat/oat.h"
 #include "stream/vector_output_stream.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace debug {
 
 using ElfRuntimeTypes = std::conditional<sizeof(void*) == 4, ElfTypes32, ElfTypes64>::type;

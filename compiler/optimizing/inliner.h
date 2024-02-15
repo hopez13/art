@@ -24,7 +24,7 @@
 #include "optimization.h"
 #include "profile/profile_compilation_info.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class CodeGenerator;
 class DexCompilationUnit;

@@ -27,7 +27,7 @@
 #include "dwarf/dwarf_constants.h"
 #include "elf/elf_builder.h"
 
-namespace art HIDDEN {
+namespace art {
 class OatHeader;
 struct JITCodeEntry;
 namespace mirror {

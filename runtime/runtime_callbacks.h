@@ -24,7 +24,7 @@
 #include "base/macros.h"
 #include "handle.h"
 
-namespace art HIDDEN {
+namespace art {
 
 namespace dex {
 struct ClassDef;

@@ -73,7 +73,7 @@ extern "C" JNIEXPORT jint JNICALL Java_MyClassNatives_sbar_1Critical(jint count)
 // TODO: In the Baker read barrier configuration, add checks to ensure
 // the Marking Register's value is correct.
 
-namespace art HIDDEN {
+namespace art {
 
 enum class JniKind {
   kNormal,      // Regular kind of un-annotated natives.

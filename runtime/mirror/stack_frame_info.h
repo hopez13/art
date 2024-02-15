@@ -22,7 +22,7 @@
 #include "object.h"
 #include "stack_trace_element.h"
 
-namespace art HIDDEN {
+namespace art {
 
 template<class T> class Handle;
 struct StackFrameInfoOffsets;

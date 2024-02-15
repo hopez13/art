@@ -21,7 +21,7 @@
 
 #include "base/macros.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace gc {
 
 // Which types of collections are able to be performed.

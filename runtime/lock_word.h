@@ -26,7 +26,7 @@
 #include "base/macros.h"
 #include "read_barrier.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace mirror {
 class Object;
 }  // namespace mirror

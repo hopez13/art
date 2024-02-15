@@ -23,7 +23,7 @@
 #include "stream/file_output_stream.h"
 #include "stream/vector_output_stream.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace linker {
 
 class OutputStreamTest : public CommonArtTest {

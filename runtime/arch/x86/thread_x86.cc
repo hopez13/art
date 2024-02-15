@@ -39,7 +39,7 @@ struct descriptor_table_entry_t {
 #include <asm/ldt.h>
 #endif
 
-namespace art HIDDEN {
+namespace art {
 
 void Thread::InitCpu() {
   // Take the ldt lock, Thread::Current isn't yet established.

@@ -38,7 +38,7 @@
 #include "throwable.h"
 #include "well_known_classes.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace mirror {
 
 Atomic<uint32_t> Object::hash_code_seed(987654321U + std::time(nullptr));

@@ -29,7 +29,7 @@
 #include "cmdline_parser.h"
 #include "compiler_options.h"
 
-namespace art HIDDEN {
+namespace art {
 
 template <>
 struct CmdlineType<CompilerFilter::Filter> : CmdlineTypeParser<CompilerFilter::Filter> {

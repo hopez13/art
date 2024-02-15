@@ -30,7 +30,7 @@
 #include "thread_list.h"
 #include "thread_pool.h"
 
-namespace art HIDDEN {
+namespace art {
 
 void ClassHierarchyAnalysis::AddDependency(ArtMethod* method,
                                            ArtMethod* dependent_method,

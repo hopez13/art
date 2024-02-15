@@ -20,7 +20,7 @@
 #include "mirror/array-inl.h"
 #include "mirror/string.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace arm64 {
 
 static constexpr uint32_t kArm64MemoryLoadLatency = 5;

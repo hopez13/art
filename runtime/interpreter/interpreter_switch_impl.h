@@ -24,7 +24,7 @@
 #include "jvalue.h"
 #include "obj_ptr.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class ShadowFrame;
 class Thread;

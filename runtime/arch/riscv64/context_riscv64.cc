@@ -25,7 +25,7 @@
 
 extern "C" __attribute__((weak)) void __hwasan_handle_longjmp(const void* sp_dst);
 
-namespace art HIDDEN {
+namespace art {
 namespace riscv64 {
 
 static constexpr uint64_t gZero = 0;

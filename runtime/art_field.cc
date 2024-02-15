@@ -29,7 +29,7 @@
 #include "scoped_thread_state_change-inl.h"
 #include "well_known_classes.h"
 
-namespace art HIDDEN {
+namespace art {
 
 void ArtField::SetOffset(MemberOffset num_bytes) {
   DCHECK(GetDeclaringClass()->IsLoaded() || GetDeclaringClass()->IsErroneous());

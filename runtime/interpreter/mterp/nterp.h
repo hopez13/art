@@ -24,7 +24,7 @@
 extern "C" void* artNterpAsmInstructionStart[];
 extern "C" void* artNterpAsmInstructionEnd[];
 
-namespace art HIDDEN {
+namespace art {
 
 class ArtMethod;
 

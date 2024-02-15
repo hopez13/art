@@ -21,7 +21,7 @@
 
 #include "base/macros.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace verifier {
 
 // The mode that the verifier should run as.

@@ -42,7 +42,7 @@
 #include "utils/assembler.h"
 #include "utils/label.h"
 
-namespace art HIDDEN {
+namespace art {
 
 // Binary encoding of 2^32 for type double.
 static int64_t constexpr k2Pow32EncodingForDouble = INT64_C(0x41F0000000000000);

@@ -26,7 +26,7 @@ namespace unwindstack {
 class Unwinder;
 }
 
-namespace art HIDDEN {
+namespace art {
 
 // Using libunwindstack
 class BacktraceCollector {

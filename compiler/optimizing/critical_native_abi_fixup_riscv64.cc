@@ -20,7 +20,7 @@
 #include "intrinsics.h"
 #include "nodes.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace riscv64 {
 
 // Fix up FP arguments passed in core registers for call to @CriticalNative by inserting fake calls

@@ -34,7 +34,7 @@
 #include "thread_list.h"
 #include "well_known_classes.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace instrumentation {
 
 class TestInstrumentationListener final : public instrumentation::InstrumentationListener {

@@ -46,7 +46,7 @@
 #define HAVE_TIMED_RWLOCK 0
 #endif
 
-namespace art HIDDEN {
+namespace art {
 
 class SHARED_LOCKABLE ReaderWriterMutex;
 class SHARED_LOCKABLE MutatorMutex;

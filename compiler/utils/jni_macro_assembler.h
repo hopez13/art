@@ -30,7 +30,7 @@
 #include "managed_register.h"
 #include "offsets.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class ArenaAllocator;
 class DebugFrameOpCodeWriterForAssembler;

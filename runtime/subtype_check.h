@@ -220,7 +220,7 @@ constexpr bool kBitstringSubtypeCheckEnabled = false;
  * All node targets (in `src <: target`) get Assigned, and any parent of an Initialized
  * node also gets Assigned.
  */
-namespace art HIDDEN {
+namespace art {
 
 struct MockSubtypeCheck;  // Forward declaration for testing.
 

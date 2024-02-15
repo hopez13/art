@@ -26,7 +26,7 @@
 #include "registers_x86.h"
 #include "runtime_globals.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace x86 {
 
 static constexpr uint32_t kX86CalleeSaveAlwaysSpills =

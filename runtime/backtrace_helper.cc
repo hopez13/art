@@ -38,7 +38,7 @@
 
 #endif
 
-namespace art HIDDEN {
+namespace art {
 
 // We only really support libunwindstack on linux which is unfortunate but since this is only for
 // gcstress this isn't a huge deal.

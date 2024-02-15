@@ -18,7 +18,7 @@
 
 #include "gtest/gtest.h"
 
-namespace art HIDDEN {
+namespace art {
 
 TEST(ArmInstructionSetFeaturesTest, ArmFeaturesFromVariant) {
   // Build features for a 32-bit ARM krait processor.

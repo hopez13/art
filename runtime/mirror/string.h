@@ -23,7 +23,7 @@
 #include "object.h"
 #include "runtime_globals.h"
 
-namespace art HIDDEN {
+namespace art {
 
 namespace gc {
 enum AllocatorType : char;

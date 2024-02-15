@@ -27,7 +27,7 @@
 #include "mirror/object.h"
 #include "runtime_globals.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class ArtField;
 class ArtMethod;

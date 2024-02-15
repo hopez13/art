@@ -34,7 +34,7 @@
 #include "thread-current-inl.h"
 #include "well_known_classes-inl.h"
 
-namespace art HIDDEN {
+namespace art {
 
 std::ostream& operator<<(std::ostream& os, const Intrinsics& intrinsic) {
   switch (intrinsic) {

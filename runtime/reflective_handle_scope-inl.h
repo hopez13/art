@@ -23,7 +23,7 @@
 #include "reflective_handle_scope.h"
 #include "thread-current-inl.h"
 
-namespace art HIDDEN {
+namespace art {
 
 template <size_t kNumFields, size_t kNumMethods>
 StackReflectiveHandleScope<kNumFields, kNumMethods>::StackReflectiveHandleScope(Thread* self) : field_pos_(0), method_pos_(0) {

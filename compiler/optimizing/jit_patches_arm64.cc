@@ -18,7 +18,7 @@
 #include "gc_root.h"
 #include "jit_patches_arm64.h"
 
-namespace art HIDDEN {
+namespace art {
 
 namespace arm64 {
 

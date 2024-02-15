@@ -47,7 +47,7 @@
 #include "thread.h"
 #include "well_known_classes-inl.h"
 
-namespace art HIDDEN {
+namespace art {
 
 static constexpr char kPathClassLoaderString[] = "PCL";
 static constexpr char kDelegateLastClassLoaderString[] = "DLC";

@@ -62,7 +62,7 @@
 #endif
 #endif  // ART_USE_FUTEXES
 
-namespace art HIDDEN {
+namespace art {
 
 using android::base::StringPrintf;
 

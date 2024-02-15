@@ -22,7 +22,7 @@
 
 #include "base/macros.h"
 
-namespace art HIDDEN {
+namespace art {
 
 enum class CompilationKind {
   kOsr,

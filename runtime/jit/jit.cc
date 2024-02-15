@@ -58,7 +58,7 @@
 
 using android::base::unique_fd;
 
-namespace art HIDDEN {
+namespace art {
 namespace jit {
 
 static constexpr bool kEnableOnStackReplacement = true;

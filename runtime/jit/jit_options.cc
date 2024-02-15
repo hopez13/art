@@ -18,7 +18,7 @@
 
 #include "runtime_options.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace jit {
 
 // Maximum permitted threshold value.

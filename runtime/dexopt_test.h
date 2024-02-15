@@ -23,7 +23,7 @@
 #include "base/macros.h"
 #include "dex2oat_environment_test.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class DexoptTest : public Dex2oatEnvironmentTest {
  public:

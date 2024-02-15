@@ -20,7 +20,7 @@
 #include "base/macros.h"
 #include "partial_mark_sweep.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace gc {
 namespace collector {
 

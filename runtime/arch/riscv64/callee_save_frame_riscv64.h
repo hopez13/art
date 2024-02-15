@@ -26,7 +26,7 @@
 #include "registers_riscv64.h"
 #include "runtime_globals.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace riscv64 {
 
 static constexpr uint32_t kRiscv64CalleeSaveAlwaysSpills =

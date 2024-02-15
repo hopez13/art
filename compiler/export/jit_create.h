@@ -19,7 +19,7 @@
 
 #include "base/macros.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace jit {
 
 class JitCompilerInterface;

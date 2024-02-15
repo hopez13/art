@@ -31,7 +31,7 @@
 #define sigwait64 sigwait
 #endif
 
-namespace art HIDDEN {
+namespace art {
 
 class SignalSet {
  public:

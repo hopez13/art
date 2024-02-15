@@ -34,7 +34,7 @@
 
 #include <cstdlib>
 
-namespace art HIDDEN {
+namespace art {
 namespace jni {
 
 static constexpr bool kDumpStackOnNonLocalReference = false;

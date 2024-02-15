@@ -33,7 +33,7 @@
 #include "string.h"
 #include "well_known_classes-inl.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace mirror {
 
 using android::base::StringPrintf;

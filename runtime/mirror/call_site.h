@@ -21,7 +21,7 @@
 #include "mirror/method_handle_impl.h"
 #include "obj_ptr.h"
 
-namespace art HIDDEN {
+namespace art {
 
 struct CallSiteOffsets;
 

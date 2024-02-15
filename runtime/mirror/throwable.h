@@ -19,7 +19,7 @@
 
 #include "object.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class RootVisitor;
 struct ThrowableOffsets;

@@ -20,7 +20,7 @@
 #include "base/macros.h"
 #include "mirror/object_reference.h"
 
-namespace art HIDDEN {
+namespace art {
 
 // A reference from the shadow stack to a MirrorType object within the Java heap.
 template<class MirrorType>

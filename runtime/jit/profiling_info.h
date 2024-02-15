@@ -25,7 +25,7 @@
 #include "interpreter/mterp/nterp.h"
 #include "offsets.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class ArtMethod;
 class CompilerOptions;

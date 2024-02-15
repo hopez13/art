@@ -24,7 +24,7 @@
 #include "object.h"
 #include "stack.h"
 
-namespace art HIDDEN {
+namespace art {
 
 struct EmulatedStackFrameOffsets;
 

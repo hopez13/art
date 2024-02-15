@@ -30,7 +30,7 @@
 #include <list>
 #include <vector>
 
-namespace art HIDDEN {
+namespace art {
 namespace gc {
 namespace collector {
 class GarbageCollector;

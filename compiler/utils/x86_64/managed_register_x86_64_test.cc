@@ -19,7 +19,7 @@
 #include "base/macros.h"
 #include "gtest/gtest.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace x86_64 {
 
 TEST(X86_64ManagedRegister, NoRegister) {

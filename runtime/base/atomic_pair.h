@@ -24,7 +24,7 @@
 
 #include "base/macros.h"
 
-namespace art HIDDEN {
+namespace art {
 
 // Implement 16-byte atomic pair using the seq-lock synchronization algorithm.
 // This is currently only used for DexCache.

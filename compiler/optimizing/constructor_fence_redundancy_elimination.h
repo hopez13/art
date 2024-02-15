@@ -20,7 +20,7 @@
 #include "base/macros.h"
 #include "optimization.h"
 
-namespace art HIDDEN {
+namespace art {
 
 /*
  * Constructor Fence Redundancy Elimination (CFRE).

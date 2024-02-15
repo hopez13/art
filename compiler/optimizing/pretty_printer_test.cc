@@ -26,7 +26,7 @@
 
 #include "gtest/gtest.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class PrettyPrinterTest : public CommonCompilerTest, public OptimizingUnitTestHelper {
  protected:

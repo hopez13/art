@@ -22,7 +22,7 @@
 #include "intrinsics_list.h"
 #include "utils/arm/assembler_arm_vixl.h"
 
-namespace art HIDDEN {
+namespace art {
 
 namespace arm {
 

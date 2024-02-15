@@ -21,7 +21,7 @@
 #include "mirror/object-inl.h"
 #include "runtime.h"
 
-namespace art HIDDEN {
+namespace art {
 
 void CodeGenerationData::EmitJitRoots(
     /*out*/std::vector<Handle<mirror::Object>>* roots) {

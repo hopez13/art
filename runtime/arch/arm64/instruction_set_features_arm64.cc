@@ -39,7 +39,7 @@
 #include <cpuinfo_aarch64.h>
 #endif
 
-namespace art HIDDEN {
+namespace art {
 
 using android::base::StringPrintf;
 

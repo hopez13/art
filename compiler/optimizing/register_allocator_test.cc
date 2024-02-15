@@ -32,7 +32,7 @@
 #include "ssa_liveness_analysis.h"
 #include "ssa_phi_elimination.h"
 
-namespace art HIDDEN {
+namespace art {
 
 using Strategy = RegisterAllocator::Strategy;
 

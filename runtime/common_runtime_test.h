@@ -38,7 +38,7 @@
 #include "runtime_globals.h"
 #include "scoped_thread_state_change-inl.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class MethodReference;
 class TypeReference;

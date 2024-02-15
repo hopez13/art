@@ -36,7 +36,7 @@
 #include "runtime_globals.h"
 #include "thread.h"
 
-namespace art HIDDEN {
+namespace art {
 
 namespace gc {
 namespace allocator {

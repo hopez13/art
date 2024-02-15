@@ -20,7 +20,7 @@
 #include "code_generator.h"
 #include "induction_var_range.h"
 
-namespace art HIDDEN {
+namespace art {
 
 void LoopAnalysis::CalculateLoopBasicProperties(HLoopInformation* loop_info,
                                                 LoopAnalysisInfo* analysis_results,

@@ -24,7 +24,7 @@
 
 #include "gtest/gtest.h"
 
-namespace art HIDDEN {
+namespace art {
 
 // Check that the stack mask of given stack map is identical
 // to the given bit vector. Returns true if they are same.

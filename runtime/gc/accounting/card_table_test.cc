@@ -27,7 +27,7 @@
 #include "scoped_thread_state_change-inl.h"
 #include "thread_pool.h"
 
-namespace art HIDDEN {
+namespace art {
 
 namespace mirror {
 class Object;

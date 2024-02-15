@@ -22,7 +22,7 @@
 #include "object_callbacks.h"
 #include "thread-inl.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace gc {
 
 class AbstractSystemWeakHolder {

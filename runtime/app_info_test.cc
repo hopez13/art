@@ -20,7 +20,7 @@
 
 #include "gtest/gtest.h"
 
-namespace art HIDDEN {
+namespace art {
 
 TEST(AppInfoTest, RegisterAppInfo) {
   AppInfo app_info;

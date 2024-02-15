@@ -18,7 +18,7 @@
 #include "base/enums.h"
 #include "thread.h"
 
-namespace art HIDDEN {
+namespace art {
 
 void Thread::InitCpu() {
   CHECK_EQ(THREAD_FLAGS_OFFSET, ThreadFlagsOffset<PointerSize::k64>().Int32Value());

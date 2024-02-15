@@ -28,7 +28,7 @@
 #include "base/globals.h"
 #include "base/macros.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace arm {
 
 // Defines constants and accessor classes to assemble, disassemble and

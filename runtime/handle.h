@@ -27,7 +27,7 @@
 #include "obj_ptr.h"
 #include "stack_reference.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class Thread;
 

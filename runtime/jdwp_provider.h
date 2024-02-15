@@ -22,7 +22,7 @@
 #include "base/macros.h"
 #include "runtime_globals.h"
 
-namespace art HIDDEN {
+namespace art {
 
 enum class JdwpProvider {
   kNone,

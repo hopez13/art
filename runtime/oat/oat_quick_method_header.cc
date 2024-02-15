@@ -31,7 +31,7 @@
 #include "stack_map.h"
 #include "thread.h"
 
-namespace art HIDDEN {
+namespace art {
 
 uint32_t OatQuickMethodHeader::ToDexPc(ArtMethod** frame,
                                        const uintptr_t pc,

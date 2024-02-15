@@ -20,7 +20,7 @@
 #include "arch/instruction_set_features.h"
 #include "base/macros.h"
 
-namespace art HIDDEN {
+namespace art {
 
 // SVE is currently not enabled.
 static constexpr bool kArm64AllowSVE = false;

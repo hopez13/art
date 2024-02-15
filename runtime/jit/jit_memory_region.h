@@ -26,7 +26,7 @@
 #include "gc_root-inl.h"
 #include "handle.h"
 
-namespace art HIDDEN {
+namespace art {
 
 namespace mirror {
 class Object;

@@ -29,7 +29,7 @@
 #include "base/utils.h"
 #include "common_runtime_test.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace jit {
 
 // These tests only run on bionic.

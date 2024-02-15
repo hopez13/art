@@ -34,7 +34,7 @@
 #include "obj_ptr.h"
 #include "thread_pool.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class ArtMethod;
 class ClassLinker;

@@ -35,7 +35,7 @@
 #include "optimizing_unit_test.h"
 #include "scoped_thread_state_change.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class LoadStoreAnalysisTest : public CommonCompilerTest, public OptimizingUnitTestHelper {
  public:

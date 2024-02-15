@@ -21,7 +21,7 @@
 
 #include "gtest/gtest.h"
 
-namespace art HIDDEN {
+namespace art {
 
 TEST(LiveInterval, GetStart) {
   ArenaPoolAndAllocator pool;

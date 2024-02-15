@@ -24,7 +24,7 @@
 #include "mirror/class.h"
 #include "mirror/class_loader.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class CompilerReflectionTest : public CommonCompilerTest {};
 

@@ -24,7 +24,7 @@
 #pragma clang diagnostic push
 #pragma clang diagnostic error "-Wconversion"
 
-namespace art HIDDEN {
+namespace art {
 namespace metrics {
 
 // Helper class to verify the metrics reporter.

@@ -24,7 +24,7 @@
 #include "oat/oat_file.h"
 #include "thread-current-inl.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace mirror {
 class Object;
 }  // namespace mirror

@@ -22,7 +22,7 @@
 #include "object_array-inl.h"
 #include "write_barrier.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace mirror {
 
 void Field::VisitTarget(ReflectiveValueVisitor* v) {

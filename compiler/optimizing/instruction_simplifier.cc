@@ -33,7 +33,7 @@
 #include "string_builder_append.h"
 #include "well_known_classes.h"
 
-namespace art HIDDEN {
+namespace art {
 
 // Whether to run an exhaustive test of individual HInstructions cloning when each instruction
 // is replaced with its copy if it is clonable.

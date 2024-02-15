@@ -22,7 +22,7 @@
 #include "base/macros.h"
 #include "jni.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class ArtMethod;
 class Thread;

@@ -23,7 +23,7 @@
 
 #include "base/macros.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace verifier {
 
 // RAII to inject a newline after a message.

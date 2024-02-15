@@ -21,7 +21,7 @@
 
 #include "base/macros.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace mirror {
 
 // Normal instance with at least one ref field other than the class.

@@ -25,7 +25,7 @@
 #include "thread.h"
 #include "utils/managed_register.h"
 
-namespace art HIDDEN {
+namespace art {
 
 enum class InstructionSet;
 

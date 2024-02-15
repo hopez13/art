@@ -19,7 +19,7 @@
 
 #include "method_verifier.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace verifier {
 
 inline RegisterLine* MethodVerifier::GetRegLine(uint32_t dex_pc) {

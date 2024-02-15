@@ -23,7 +23,7 @@
 #include "dwarf/headers.h"
 #include "gtest/gtest.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace dwarf {
 
 // Run the tests only on host since we need objdump.

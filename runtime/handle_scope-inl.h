@@ -28,7 +28,7 @@
 #include "thread-current-inl.h"
 #include "verify_object.h"
 
-namespace art HIDDEN {
+namespace art {
 
 template<size_t kNumReferences>
 inline FixedSizeHandleScope<kNumReferences>::FixedSizeHandleScope(BaseHandleScope* link)

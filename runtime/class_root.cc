@@ -18,7 +18,7 @@
 
 #include "base/logging.h"
 
-namespace art HIDDEN {
+namespace art {
 
 const char* GetClassRootDescriptor(ClassRoot class_root) {
   static const char* const class_roots_descriptors[] = {

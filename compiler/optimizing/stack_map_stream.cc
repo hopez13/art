@@ -33,7 +33,7 @@
 #include "runtime.h"
 #include "scoped_thread_state_change-inl.h"
 
-namespace art HIDDEN {
+namespace art {
 
 constexpr static bool kVerifyStackMaps = kIsDebugBuild;
 

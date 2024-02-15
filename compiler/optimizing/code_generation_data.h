@@ -31,7 +31,7 @@
 #include "mirror/string.h"
 #include "stack_map_stream.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class CodeGenerationData : public DeletableArenaObject<kArenaAllocCodeGenerator> {
  public:

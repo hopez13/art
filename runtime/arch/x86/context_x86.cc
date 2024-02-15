@@ -21,7 +21,7 @@
 #include "base/memory_tool.h"
 #include "quick/quick_method_frame_info.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace x86 {
 
 static constexpr uintptr_t gZero = 0;

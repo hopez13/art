@@ -28,7 +28,7 @@
 #include "gc_root.h"
 #include "handle_scope.h"
 
-namespace art HIDDEN {
+namespace art {
 
 namespace mirror {
 class Class;

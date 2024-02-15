@@ -47,7 +47,7 @@
 #include "thread.h"
 #include "thread_list.h"
 
-namespace art HIDDEN {
+namespace art {
 
 using android::base::StringPrintf;
 

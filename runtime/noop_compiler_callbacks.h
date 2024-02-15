@@ -20,7 +20,7 @@
 #include "base/macros.h"
 #include "compiler_callbacks.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class NoopCompilerCallbacks final : public CompilerCallbacks {
  public:

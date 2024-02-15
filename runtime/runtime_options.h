@@ -34,7 +34,7 @@
 #include "jit/profile_saver_options.h"
 #include "verifier/verifier_enums.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class CompilerCallbacks;
 class DexFile;

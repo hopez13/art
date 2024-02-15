@@ -24,7 +24,7 @@
 #include "runtime.h"
 #include "space.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class DexFile;
 enum class InstructionSet;

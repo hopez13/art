@@ -22,7 +22,7 @@
 #include "nodes.h"
 #include "optimizing_compiler_stats.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class CodeGenerator;
 class DexCompilationUnit;

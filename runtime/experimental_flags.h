@@ -21,7 +21,7 @@
 
 #include "base/macros.h"
 
-namespace art HIDDEN {
+namespace art {
 
 // Possible experimental features that might be enabled.
 struct ExperimentalFlags {

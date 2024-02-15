@@ -40,7 +40,7 @@
 #include "utils/x86/constants_x86.h"
 #include "well_known_classes.h"
 
-namespace art HIDDEN {
+namespace art {
 
 namespace x86 {
 

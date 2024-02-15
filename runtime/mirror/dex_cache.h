@@ -30,7 +30,7 @@
 #include "object.h"
 #include "object_array.h"
 
-namespace art HIDDEN {
+namespace art {
 
 namespace linker {
 class ImageWriter;

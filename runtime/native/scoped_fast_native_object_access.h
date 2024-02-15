@@ -22,7 +22,7 @@
 #include "base/macros.h"
 #include "scoped_thread_state_change.h"
 
-namespace art HIDDEN {
+namespace art {
 
 // Variant of ScopedObjectAccess that does no runnable transitions. Should only be used by "fast"
 // JNI methods.

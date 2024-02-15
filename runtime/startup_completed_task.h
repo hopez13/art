@@ -20,7 +20,7 @@
 #include "base/macros.h"
 #include "gc/task_processor.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class Thread;
 

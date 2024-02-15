@@ -22,7 +22,7 @@
 #include "base/bit_utils.h"
 #include "base/macros.h"
 
-namespace art HIDDEN {
+namespace art {
 
 template<typename T> class LengthPrefixedArray;
 

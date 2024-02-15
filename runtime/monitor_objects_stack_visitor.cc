@@ -20,7 +20,7 @@
 #include "read_barrier-inl.h"
 #include "thread-current-inl.h"
 
-namespace art HIDDEN {
+namespace art {
 
 bool MonitorObjectsStackVisitor::VisitFrame() {
   ArtMethod* m = GetMethod();

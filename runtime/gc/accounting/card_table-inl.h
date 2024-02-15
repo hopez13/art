@@ -26,7 +26,7 @@
 #include "base/mem_map.h"
 #include "space_bitmap.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace gc {
 namespace accounting {
 

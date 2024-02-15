@@ -28,7 +28,7 @@
 #include <set>
 #include <vector>
 
-namespace art HIDDEN {
+namespace art {
 
 namespace mirror {
 class Object;

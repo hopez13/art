@@ -28,7 +28,7 @@
 #include "utils/assembler.h"
 #include "utils/jni_macro_assembler.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace arm {
 
 class ArmVIXLJNIMacroAssembler final

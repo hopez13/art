@@ -40,7 +40,7 @@
 #include "thread.h"
 #include "verifier/method_verifier.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace interpreter {
 
 // Short-lived helper class which executes single DEX bytecode.  It is inlined by compiler.

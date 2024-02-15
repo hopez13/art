@@ -26,7 +26,7 @@
 #include "base/mem_map.h"
 #include "elf/elf_utils.h"
 
-namespace art HIDDEN {
+namespace art {
 
 template <typename ElfTypes>
 class ElfFileImpl {

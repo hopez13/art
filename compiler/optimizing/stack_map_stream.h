@@ -29,7 +29,7 @@
 #include "nodes.h"
 #include "oat/stack_map.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class CodeGenerator;
 

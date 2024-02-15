@@ -27,7 +27,7 @@
 #include "mirror/class.h"
 #include "oat/oat_quick_method_header.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class ArtMethod;
 class LinearAlloc;

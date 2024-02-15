@@ -25,7 +25,7 @@
 // Forward-declare for testing purposes.
 struct SubtypeCheckInfoTest;
 
-namespace art HIDDEN {
+namespace art {
 
 /**
  * SubtypeCheckInfo is a logical label for the class SubtypeCheck data, which is necessary to

@@ -23,7 +23,7 @@
 #include "base/mutex.h"
 #include "base/macros.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class Runtime;
 class SignalSet;

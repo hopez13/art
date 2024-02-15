@@ -27,7 +27,7 @@
 #include "dex/method_reference.h"
 #include "dex/type_reference.h"
 
-namespace art HIDDEN {
+namespace art {
 
 template <typename DexFileReferenceType, typename Value>
 inline size_t AtomicDexRefMap<DexFileReferenceType, Value>::NumberOfDexIndices(

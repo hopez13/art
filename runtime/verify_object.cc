@@ -23,7 +23,7 @@
 #include "runtime.h"
 #include "runtime_globals.h"
 
-namespace art HIDDEN {
+namespace art {
 
 void VerifyObjectImpl(ObjPtr<mirror::Object> obj) {
   if (kVerifyObjectSupport > kVerifyObjectModeFast) {

@@ -23,7 +23,7 @@
 #include "memory_tool_settings.h"
 #include "mirror/object-inl.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace gc {
 namespace space {
 

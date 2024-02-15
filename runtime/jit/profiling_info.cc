@@ -23,7 +23,7 @@
 #include "scoped_thread_state_change-inl.h"
 #include "thread.h"
 
-namespace art HIDDEN {
+namespace art {
 
 ProfilingInfo::ProfilingInfo(ArtMethod* method,
                              const std::vector<uint32_t>& inline_cache_entries,

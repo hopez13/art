@@ -22,7 +22,7 @@
 #include "object.h"
 #include "string.h"
 
-namespace art HIDDEN {
+namespace art {
 
 struct MethodTypeOffsets;
 class VariableSizedHandleScope;

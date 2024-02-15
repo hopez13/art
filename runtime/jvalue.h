@@ -24,7 +24,7 @@
 
 #include "obj_ptr.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace mirror {
 class Object;
 }  // namespace mirror

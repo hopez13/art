@@ -24,7 +24,7 @@
 #include "dex/dex_file.h"
 #include "nodes.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class HBasicBlockBuilder : public ValueObject {
  public:

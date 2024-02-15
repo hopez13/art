@@ -54,7 +54,7 @@
 #include "ti/agent.h"
 #include "well_known_classes-inl.h"
 
-namespace art HIDDEN {
+namespace art {
 
 using android::base::StringAppendF;
 using android::base::StringAppendV;

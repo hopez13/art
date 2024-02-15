@@ -28,7 +28,7 @@
 #include "runtime.h"
 #include "thread-current-inl.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace mirror {
 
 inline uint32_t Array::ClassSize(PointerSize pointer_size) {

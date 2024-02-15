@@ -26,7 +26,7 @@
 #include "read_barrier_option.h"
 #include "verify_object.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class DexFile;
 template<typename T> class LengthPrefixedArray;

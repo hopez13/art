@@ -27,7 +27,7 @@
 #include "parallel_move_resolver.h"
 #include "utils/riscv64/assembler_riscv64.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace riscv64 {
 
 // InvokeDexCallingConvention registers

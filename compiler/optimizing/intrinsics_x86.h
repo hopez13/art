@@ -21,7 +21,7 @@
 #include "intrinsics.h"
 #include "intrinsics_list.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class ArenaAllocator;
 class HInvokeStaticOrDirect;

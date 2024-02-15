@@ -59,7 +59,7 @@
 #include "scoped_thread_state_change-inl.h"
 #include "thread-current-inl.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class ClassLinkerTest : public CommonRuntimeTest {
  protected:

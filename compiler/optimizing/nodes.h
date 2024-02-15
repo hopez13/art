@@ -52,7 +52,7 @@
 #include "mirror/method_type.h"
 #include "offsets.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class ArenaStack;
 class CodeGenerator;
@@ -8541,7 +8541,7 @@ class HIntermediateAddress final : public HExpression<2> {
 #include "nodes_x86.h"
 #endif
 
-namespace art HIDDEN {
+namespace art {
 
 class OptimizingCompilerStats;
 

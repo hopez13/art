@@ -23,7 +23,7 @@
 
 #include "instruction_simplifier_shared.h"
 
-namespace art HIDDEN {
+namespace art {
 
 using helpers::CanFitInShifterOperand;
 

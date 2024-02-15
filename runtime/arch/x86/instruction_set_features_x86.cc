@@ -34,7 +34,7 @@
 #include <cpuinfo_x86.h>
 #endif
 
-namespace art HIDDEN {
+namespace art {
 
 using android::base::StringPrintf;
 

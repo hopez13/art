@@ -21,7 +21,7 @@
 #include "gc/accounting/space_bitmap.h"
 #include "malloc_space.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace gc {
 
 namespace space {

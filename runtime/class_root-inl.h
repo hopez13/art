@@ -25,7 +25,7 @@
 #include "obj_ptr-inl.h"
 #include "runtime.h"
 
-namespace art HIDDEN {
+namespace art {
 
 template <ReadBarrierOption kReadBarrierOption>
 inline ObjPtr<mirror::Class> GetClassRoot(ClassRoot class_root,

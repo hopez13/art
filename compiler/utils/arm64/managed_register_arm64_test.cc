@@ -21,7 +21,7 @@
 #include "base/macros.h"
 #include "gtest/gtest.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace arm64 {
 
 TEST(Arm64ManagedRegister, NoRegister) {

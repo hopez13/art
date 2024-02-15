@@ -24,7 +24,7 @@
 #include "jvalue.h"
 #include "unstarted_runtime_list.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class ArtMethod;
 class CodeItemDataAccessor;

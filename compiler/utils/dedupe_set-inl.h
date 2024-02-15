@@ -32,7 +32,7 @@
 #include "base/stl_util.h"
 #include "base/time_utils.h"
 
-namespace art HIDDEN {
+namespace art {
 
 template <typename InKey,
           typename StoreKey,

@@ -24,7 +24,7 @@
 #include "obj_ptr-inl.h"
 #include "read_barrier-inl.h"
 
-namespace art HIDDEN {
+namespace art {
 
 template<class MirrorType>
 template<ReadBarrierOption kReadBarrierOption>

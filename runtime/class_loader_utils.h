@@ -29,7 +29,7 @@
 #include "scoped_thread_state_change-inl.h"
 #include "well_known_classes-inl.h"
 
-namespace art HIDDEN {
+namespace art {
 
 // Returns true if the given class loader derives from BaseDexClassLoader.
 inline bool IsInstanceOfBaseDexClassLoader(Handle<mirror::ClassLoader> class_loader)

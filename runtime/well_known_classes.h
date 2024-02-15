@@ -23,7 +23,7 @@
 #include "obj_ptr.h"
 #include "read_barrier_option.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class ArtField;
 class ArtMethod;

@@ -26,7 +26,7 @@
 #include "base/macros.h"
 #include "base/variant_map.h"
 
-namespace art HIDDEN {
+namespace art {
 
 template <typename TValue>
 struct SimpleParseArgumentMapKey : VariantMapKey<TValue> {

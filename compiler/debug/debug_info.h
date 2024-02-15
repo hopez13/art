@@ -23,7 +23,7 @@
 #include "base/macros.h"
 #include "method_debug_info.h"
 
-namespace art HIDDEN {
+namespace art {
 class DexFile;
 
 namespace debug {

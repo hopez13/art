@@ -30,7 +30,7 @@
 #include "oat/oat_file.h"
 #include "oat/stack_map.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace debug {
 
 using PositionInfos = std::vector<DexFile::PositionInfo>;

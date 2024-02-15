@@ -25,7 +25,7 @@
 
 #include <memory>
 
-namespace art HIDDEN {
+namespace art {
 namespace gc {
 namespace space {
 

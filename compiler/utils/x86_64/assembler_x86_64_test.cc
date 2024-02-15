@@ -28,7 +28,7 @@
 #include "utils/assembler_test.h"
 #include "utils/jni_macro_assembler_test.h"
 
-namespace art HIDDEN {
+namespace art {
 
 TEST(AssemblerX86_64, CreateBuffer) {
   MallocArenaPool pool;

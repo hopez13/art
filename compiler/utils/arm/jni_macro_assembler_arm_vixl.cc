@@ -31,7 +31,7 @@ namespace vixl32 = vixl::aarch32;
 
 using vixl::ExactAssemblyScope;
 
-namespace art HIDDEN {
+namespace art {
 namespace arm {
 
 #ifdef ___

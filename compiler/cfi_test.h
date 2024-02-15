@@ -31,7 +31,7 @@
 #include "gtest/gtest.h"
 #include "thread.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class CFITest : public dwarf::DwarfTest {
  public:

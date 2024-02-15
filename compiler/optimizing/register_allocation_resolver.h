@@ -22,7 +22,7 @@
 #include "base/value_object.h"
 #include "data_type.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class ArenaAllocator;
 class CodeGenerator;

@@ -42,7 +42,7 @@
 #include "jni/local_reference_table.h"
 #include "stack_reference.h"
 
-namespace art HIDDEN {
+namespace art {
 
 using MacroAsm32UniquePtr = std::unique_ptr<JNIMacroAssembler<PointerSize::k32>>;
 

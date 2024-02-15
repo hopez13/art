@@ -37,7 +37,7 @@
 // - Multiple calls to AtomicPushBack*() and AtomicBumpBack() may be made concurrently,
 // provided no other calls are made at the same time.
 
-namespace art HIDDEN {
+namespace art {
 namespace gc {
 namespace accounting {
 

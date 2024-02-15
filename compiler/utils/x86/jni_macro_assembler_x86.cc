@@ -23,7 +23,7 @@
 #include "thread.h"
 #include "utils/assembler.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace x86 {
 
 static Register GetScratchRegister() {

@@ -21,7 +21,7 @@
 #include "base/macros.h"
 #include "mirror/object_reference.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class ArtField;
 class ArtMethod;

@@ -28,7 +28,7 @@
 #include "android-base/unique_fd.h"
 #include "base/macros.h"
 
-namespace art HIDDEN {
+namespace art {
 
 struct ProcessStat {
   // The total wall time, in milliseconds, that the process spent, or 0 if failed to get the value.

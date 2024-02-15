@@ -22,7 +22,7 @@
 #include "base/locks.h"
 #include "stack.h"
 
-namespace art HIDDEN {
+namespace art {
 class Thread;
 
 // Walks up the stack 'n' callers, when used with Thread::WalkStack.

@@ -23,7 +23,7 @@
 #include "base/mutex.h"
 #include "base/os.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class ArtMethod;
 

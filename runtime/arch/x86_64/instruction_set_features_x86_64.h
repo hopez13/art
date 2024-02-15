@@ -20,7 +20,7 @@
 #include "arch/x86/instruction_set_features_x86.h"
 #include "base/macros.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class X86_64InstructionSetFeatures;
 using X86_64FeaturesUniquePtr = std::unique_ptr<const X86_64InstructionSetFeatures>;

@@ -21,7 +21,7 @@
 #include "intrinsics_utils.h"
 #include "well_known_classes.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace riscv64 {
 
 using IntrinsicSlowPathRISCV64 = IntrinsicSlowPath<InvokeDexCallingConventionVisitorRISCV64,

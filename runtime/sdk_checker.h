@@ -23,7 +23,7 @@
 #include "base/macros.h"
 #include "dex/dex_file.h"
 
-namespace art HIDDEN {
+namespace art {
 
 /**
  * The SdkChecker verifies if a given symbol is present in a given classpath.

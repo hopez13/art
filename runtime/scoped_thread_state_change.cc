@@ -25,7 +25,7 @@
 #include "obj_ptr-inl.h"
 #include "runtime-inl.h"
 
-namespace art HIDDEN {
+namespace art {
 
 // See ScopedObjectAccessAlreadyRunnable::ScopedObjectAccessAlreadyRunnable(JavaVM*).
 static_assert(std::is_base_of<JavaVM, JavaVMExt>::value, "JavaVMExt does not extend JavaVM");

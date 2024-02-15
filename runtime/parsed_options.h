@@ -31,7 +31,7 @@
 #include "runtime_globals.h"
 #include "runtime_options.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class CompilerCallbacks;
 class DexFile;

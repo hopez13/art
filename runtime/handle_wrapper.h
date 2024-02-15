@@ -21,7 +21,7 @@
 #include "handle.h"
 #include "obj_ptr.h"
 
-namespace art HIDDEN {
+namespace art {
 
 // A wrapper which wraps around Object** and restores the pointer in the destructor.
 // TODO: Delete

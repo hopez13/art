@@ -21,7 +21,7 @@
 
 #include "base/macros.h"
 
-namespace art HIDDEN {
+namespace art {
 
 // These must match the values in dalvik.system.VMDebug.
 enum StatKinds {

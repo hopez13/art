@@ -28,7 +28,7 @@
 #include "gc_root.h"
 #include "obj_ptr.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace jni {
 class LocalReferenceTable;
 }  // namespace jni

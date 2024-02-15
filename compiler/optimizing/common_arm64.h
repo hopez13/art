@@ -32,7 +32,7 @@
 #include "aarch64/simulator-aarch64.h"
 #pragma GCC diagnostic pop
 
-namespace art HIDDEN {
+namespace art {
 
 using helpers::CanFitInShifterOperand;
 using helpers::HasShifterOperand;

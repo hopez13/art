@@ -21,7 +21,7 @@
 
 #include "mirror/class-inl.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace gc {
 
 template <ReadBarrierOption kReadBarrierOption>

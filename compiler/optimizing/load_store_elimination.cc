@@ -242,7 +242,7 @@
  * a hash map to the HeapLocationCollector.
  */
 
-namespace art HIDDEN {
+namespace art {
 
 #define LSE_VLOG \
   if (::art::LoadStoreElimination::kVerboseLoggingMode && VLOG_IS_ON(compiler)) LOG(INFO)

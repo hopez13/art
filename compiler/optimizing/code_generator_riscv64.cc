@@ -43,7 +43,7 @@
 #include "utils/riscv64/assembler_riscv64.h"
 #include "utils/stack_checks.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace riscv64 {
 
 // Placeholder values embedded in instructions, patched at link time.

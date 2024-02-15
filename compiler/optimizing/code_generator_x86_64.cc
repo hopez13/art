@@ -48,7 +48,7 @@
 #include "utils/x86_64/constants_x86_64.h"
 #include "utils/x86_64/managed_register_x86_64.h"
 
-namespace art HIDDEN {
+namespace art {
 
 template<class MirrorType>
 class GcRoot;

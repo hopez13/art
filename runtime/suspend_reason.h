@@ -21,7 +21,7 @@
 
 #include "base/macros.h"
 
-namespace art HIDDEN {
+namespace art {
 
 // The various reasons that we might be suspending a thread.
 enum class SuspendReason : char {

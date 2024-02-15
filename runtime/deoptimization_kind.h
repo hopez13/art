@@ -20,7 +20,7 @@
 #include "base/logging.h"
 #include "base/macros.h"
 
-namespace art HIDDEN {
+namespace art {
 
 enum class DeoptimizationKind {
   kAotInlineCache = 0,

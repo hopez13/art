@@ -40,7 +40,7 @@
 
 #include <atomic>
 
-namespace art HIDDEN {
+namespace art {
 namespace mirror {
 
 template<typename DexCachePair>

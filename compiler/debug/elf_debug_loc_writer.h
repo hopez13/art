@@ -27,7 +27,7 @@
 #include "dwarf/register.h"
 #include "oat/stack_map.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace debug {
 using Reg = dwarf::Reg;
 

@@ -25,7 +25,7 @@
 #include "runtime_globals.h"
 #include "thread_pool.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace gc {
 
 class HeapTask : public SelfDeletingTask {

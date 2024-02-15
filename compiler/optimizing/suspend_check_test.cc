@@ -23,7 +23,7 @@
 
 #include "gtest/gtest.h"
 
-namespace art HIDDEN {
+namespace art {
 
 /**
  * Check that the HGraphBuilder adds suspend checks to backward branches.

@@ -23,7 +23,7 @@
 #include "dex/class_reference.h"
 #include "dex/method_reference.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class CompilerDriver;
 

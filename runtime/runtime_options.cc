@@ -28,7 +28,7 @@
 #include "thread_list.h"
 #include "trace.h"
 
-namespace art HIDDEN {
+namespace art {
 
 // Specify storage for the RuntimeOptions keys.
 

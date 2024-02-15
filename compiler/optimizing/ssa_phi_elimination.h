@@ -21,7 +21,7 @@
 #include "nodes.h"
 #include "optimization.h"
 
-namespace art HIDDEN {
+namespace art {
 
 /**
  * Optimization phase that removes dead phis from the graph. Dead phis are unused

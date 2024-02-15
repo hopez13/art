@@ -22,7 +22,7 @@
 #include "arch/riscv64/jni_frame_riscv64.h"
 #include "utils/riscv64/managed_register_riscv64.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace riscv64 {
 
 static constexpr ManagedRegister kXArgumentRegisters[] = {

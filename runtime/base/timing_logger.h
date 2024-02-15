@@ -26,7 +26,7 @@
 #include <string>
 #include <vector>
 
-namespace art HIDDEN {
+namespace art {
 class TimingLogger;
 
 class CumulativeLogger {

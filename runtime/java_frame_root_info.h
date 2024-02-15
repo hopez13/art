@@ -24,7 +24,7 @@
 #include "base/macros.h"
 #include "gc_root.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class StackVisitor;
 

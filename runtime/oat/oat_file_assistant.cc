@@ -56,7 +56,7 @@
 #include "vdex_file.h"
 #include "zlib.h"
 
-namespace art HIDDEN {
+namespace art {
 
 using ::android::base::ConsumePrefix;
 using ::android::base::StringPrintf;

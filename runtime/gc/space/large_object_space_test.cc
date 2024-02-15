@@ -19,7 +19,7 @@
 #include "base/time_utils.h"
 #include "space_test.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace gc {
 namespace space {
 

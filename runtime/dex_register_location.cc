@@ -16,7 +16,7 @@
 
 #include "dex_register_location.h"
 
-namespace art HIDDEN {
+namespace art {
 
 std::ostream& operator<<(std::ostream& stream, DexRegisterLocation::Kind kind) {
   return stream << "Kind<" <<  static_cast<int32_t>(kind) << ">";

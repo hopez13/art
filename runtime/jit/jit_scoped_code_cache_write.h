@@ -22,7 +22,7 @@
 #include "base/systrace.h"
 #include "base/utils.h"  // For CheckedCall
 
-namespace art HIDDEN {
+namespace art {
 namespace jit {
 
 class JitMemoryRegion;

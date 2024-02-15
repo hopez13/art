@@ -30,7 +30,7 @@
 #include <list>
 #include <map>
 
-namespace art HIDDEN {
+namespace art {
 namespace gc {
 class Heap;
 }  // namespace gc

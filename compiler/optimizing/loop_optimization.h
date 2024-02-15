@@ -26,7 +26,7 @@
 #include "optimization.h"
 #include "superblock_cloner.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class CompilerOptions;
 class ArchNoOptsLoopHelper;

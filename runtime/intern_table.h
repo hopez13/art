@@ -25,7 +25,7 @@
 #include "gc/weak_root_state.h"
 #include "gc_root.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class IsMarkedVisitor;
 

@@ -23,7 +23,7 @@
 #include "compilation_kind.h"
 #include "dex/invoke_type.h"
 
-namespace art HIDDEN {
+namespace art {
 
 namespace dex {
 struct CodeItem;

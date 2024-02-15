@@ -37,7 +37,7 @@
 #include "x86/constants_x86.h"
 #include "x86_64/constants_x86_64.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class Assembler;
 class AssemblerBuffer;

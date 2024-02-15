@@ -28,7 +28,7 @@
 #include "mirror/method.h"
 #include "obj_ptr-inl.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace proxy_test {
 
 // Generate a proxy class with the given name and interfaces. This is a simplification from what

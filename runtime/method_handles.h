@@ -25,7 +25,7 @@
 #include "jvalue.h"
 #include "mirror/class.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class ShadowFrame;
 

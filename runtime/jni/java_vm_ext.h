@@ -25,7 +25,7 @@
 #include "obj_ptr.h"
 #include "reference_table.h"
 
-namespace art HIDDEN {
+namespace art {
 
 namespace linker {
 class ImageWriter;

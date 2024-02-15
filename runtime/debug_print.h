@@ -23,7 +23,7 @@
 
 // Helper functions for printing extra information for certain hard to diagnose bugs.
 
-namespace art HIDDEN {
+namespace art {
 
 EXPORT std::string DescribeSpace(ObjPtr<mirror::Class> klass)
     REQUIRES_SHARED(Locks::mutator_lock_) COLD_ATTR;

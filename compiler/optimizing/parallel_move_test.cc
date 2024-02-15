@@ -23,7 +23,7 @@
 #include "gtest/gtest-typed-test.h"
 #include "gtest/gtest.h"
 
-namespace art HIDDEN {
+namespace art {
 
 constexpr int kScratchRegisterStartIndexForTest = 100;
 

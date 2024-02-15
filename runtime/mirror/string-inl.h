@@ -25,7 +25,7 @@
 #include "dex/utf.h"
 #include "runtime_globals.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace mirror {
 
 inline uint32_t String::ClassSize(PointerSize pointer_size) {

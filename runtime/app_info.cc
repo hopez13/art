@@ -21,7 +21,7 @@
 #include "base/safe_map.h"
 #include "thread-inl.h"
 
-namespace art HIDDEN {
+namespace art {
 
 static constexpr const char* kUnknownValue = "unknown";
 

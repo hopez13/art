@@ -23,7 +23,7 @@
 
 #include "jit/jit.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class ArtMethod;
 class Compiler;

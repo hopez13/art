@@ -36,7 +36,7 @@
 
 #include "aarch32/constants-aarch32.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace arm {
 
 #define __ assembler->GetVIXLAssembler()->

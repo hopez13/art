@@ -20,7 +20,7 @@
 #include "base/locks.h"
 #include "thread-current-inl.h"
 
-namespace art HIDDEN {
+namespace art {
 
 template<typename T>
 class MutatorLockedDumpable {

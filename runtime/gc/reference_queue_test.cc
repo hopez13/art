@@ -23,7 +23,7 @@
 #include "reference_queue.h"
 #include "scoped_thread_state_change-inl.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace gc {
 
 class ReferenceQueueTest : public CommonRuntimeTest {

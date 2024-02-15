@@ -31,7 +31,7 @@
 #include "reflection.h"
 #include "runtime.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace hiddenapi {
 
 // Hidden API enforcement policy

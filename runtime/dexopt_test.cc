@@ -38,7 +38,7 @@
 #include "oat/oat_file_assistant.h"
 #include "profile/profile_compilation_info.h"
 
-namespace art HIDDEN {
+namespace art {
 void DexoptTest::SetUp() {
   ReserveImageSpace();
   Dex2oatEnvironmentTest::SetUp();

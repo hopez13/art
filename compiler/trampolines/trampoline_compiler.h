@@ -25,7 +25,7 @@
 #include "base/macros.h"
 #include "offsets.h"
 
-namespace art HIDDEN {
+namespace art {
 
 enum EntryPointCallingConvention {
   // ABI of calls to a method's native code, only used for native methods.

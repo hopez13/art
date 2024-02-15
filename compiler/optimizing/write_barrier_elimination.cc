@@ -24,7 +24,7 @@
 // TODO(b/310755375, solanes): Enable WBE with the fixes.
 constexpr bool kWBEEnabled = true;
 
-namespace art HIDDEN {
+namespace art {
 
 class WBEVisitor final : public HGraphVisitor {
  public:

@@ -30,7 +30,7 @@
 #include "verifier/reg_type_cache.h"
 #include "verifier_enums.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class ClassLinker;
 class CompilerCallbacks;

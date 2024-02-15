@@ -23,7 +23,7 @@
 #include "reference_queue.h"
 #include "runtime_globals.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class IsMarkedVisitor;
 class TimingLogger;

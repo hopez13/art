@@ -23,7 +23,7 @@
 #include "optimizing_unit_test.h"
 #include "side_effects_analysis.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class SelectGeneratorTest : public OptimizingUnitTest {
  protected:

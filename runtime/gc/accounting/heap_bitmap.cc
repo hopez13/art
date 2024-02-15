@@ -19,7 +19,7 @@
 #include "gc/accounting/space_bitmap-inl.h"
 #include "gc/space/space.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace gc {
 namespace accounting {
 

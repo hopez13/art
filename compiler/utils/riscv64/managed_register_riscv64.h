@@ -24,7 +24,7 @@
 #include "base/macros.h"
 #include "utils/managed_register.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace riscv64 {
 
 const int kNumberOfXRegIds = kNumberOfXRegisters;

@@ -24,7 +24,7 @@
 #include "mirror/object_array-alloc-inl.h"
 #include "mirror/string.h"
 
-namespace art HIDDEN {
+namespace art {
 
 namespace detail {
 

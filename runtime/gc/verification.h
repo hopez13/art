@@ -22,7 +22,7 @@
 #include "offsets.h"
 #include "read_barrier_option.h"
 
-namespace art HIDDEN {
+namespace art {
 
 namespace mirror {
 class Class;

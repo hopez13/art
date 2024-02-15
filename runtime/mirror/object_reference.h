@@ -28,7 +28,7 @@
 #include "obj_ptr.h"
 #include "runtime_globals.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace mirror {
 
 class Object;

@@ -20,7 +20,7 @@
 
 #include "gtest/gtest.h"
 
-namespace art HIDDEN {
+namespace art {
 
 // Run the tests only on host.
 #ifndef ART_TARGET_ANDROID

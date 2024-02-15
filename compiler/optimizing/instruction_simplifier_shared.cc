@@ -19,7 +19,7 @@
 #include "code_generator.h"
 #include "mirror/array-inl.h"
 
-namespace art HIDDEN {
+namespace art {
 
 namespace {
 

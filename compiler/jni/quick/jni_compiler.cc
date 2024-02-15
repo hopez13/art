@@ -50,7 +50,7 @@
 
 #define __ jni_asm->
 
-namespace art HIDDEN {
+namespace art {
 
 template <PointerSize kPointerSize>
 static void SetNativeParameter(JNIMacroAssembler<kPointerSize>* jni_asm,

@@ -35,7 +35,7 @@
 
 #include <list>
 
-namespace art HIDDEN {
+namespace art {
 
 // TODO: remove (only used for debugging purpose).
 static constexpr bool kEnableTransactionStats = false;

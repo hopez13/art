@@ -16,7 +16,7 @@
 
 #include "monitor.h"
 
-namespace art HIDDEN {
+namespace art {
 
 void Monitor::LogContentionEvent(Thread*, uint32_t, uint32_t, ArtMethod*, uint32_t) {
 }

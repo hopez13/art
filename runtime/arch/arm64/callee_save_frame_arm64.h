@@ -26,7 +26,7 @@
 #include "registers_arm64.h"
 #include "runtime_globals.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace arm64 {
 
 // Registers need to be restored but not preserved by aapcs64.

@@ -27,7 +27,7 @@
 
 #include "base/macros.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace ti {
 
 class Agent;

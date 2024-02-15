@@ -27,7 +27,7 @@
 #include "stack_reference.h"
 #include "thread.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace riscv64 {
 
 static constexpr size_t kSpillSize = 8;  // Both GPRs and FPRs

@@ -23,7 +23,7 @@
 #include "base/macros.h"
 #include "runtime_globals.h"
 
-namespace art HIDDEN {
+namespace art {
 
 // Allow the meaning of offsets to be strongly typed.
 class Offset {

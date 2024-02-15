@@ -30,7 +30,7 @@
 #include "runtime_globals.h"
 #include "verify_object.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class ArtField;
 class ArtMethod;

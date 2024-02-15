@@ -38,7 +38,7 @@
 #include "utils/x86_64/constants_x86_64.h"
 #include "well_known_classes.h"
 
-namespace art HIDDEN {
+namespace art {
 
 namespace x86_64 {
 

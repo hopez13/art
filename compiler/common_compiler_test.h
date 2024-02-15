@@ -29,7 +29,7 @@
 #include "compiler.h"
 #include "oat/oat_file.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace mirror {
 class ClassLoader;
 }  // namespace mirror

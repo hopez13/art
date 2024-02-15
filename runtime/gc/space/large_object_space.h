@@ -27,7 +27,7 @@
 #include <set>
 #include <vector>
 
-namespace art HIDDEN {
+namespace art {
 namespace gc {
 namespace space {
 

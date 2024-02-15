@@ -31,7 +31,7 @@
 #include "offsets.h"
 #include "utils/assembler.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace x86_64 {
 
 // Encodes an immediate value for operands.

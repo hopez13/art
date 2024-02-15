@@ -110,7 +110,7 @@
 #include <malloc.h>  // For mallinfo()
 #endif
 
-namespace art HIDDEN {
+namespace art {
 
 #ifdef ART_TARGET_ANDROID
 namespace {

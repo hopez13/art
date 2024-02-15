@@ -20,7 +20,7 @@
 #include "base/macros.h"
 #include "executable.h"
 
-namespace art HIDDEN {
+namespace art {
 
 template<class MirrorType> class ObjPtr;
 

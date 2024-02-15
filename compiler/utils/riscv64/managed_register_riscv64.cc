@@ -18,7 +18,7 @@
 
 #include "base/globals.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace riscv64 {
 
 bool Riscv64ManagedRegister::Overlaps(const Riscv64ManagedRegister& other) const {

@@ -21,7 +21,7 @@
 
 #include "obj_ptr-inl.h"
 
-namespace art HIDDEN {
+namespace art {
 
 template<VerifyObjectFlags kVerifyFlags /*= kDefaultVerifyFlags*/>
 inline void ShadowFrame::SetVRegReference(size_t i, ObjPtr<mirror::Object> val)

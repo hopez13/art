@@ -29,7 +29,7 @@
 #include "object-inl.h"
 #include "runtime.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace mirror {
 
 template<class T>

@@ -18,7 +18,7 @@
 
 #include <ostream>
 
-namespace art HIDDEN {
+namespace art {
 namespace arm64 {
 
 static const char* kRegisterNames[] = {

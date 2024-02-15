@@ -29,7 +29,7 @@
 #include "base/mutex.h"
 #include "runtime_globals.h"  // For CanDoImplicitNullCheckOn.
 
-namespace art HIDDEN {
+namespace art {
 
 class ArtMethod;
 class FaultHandler;

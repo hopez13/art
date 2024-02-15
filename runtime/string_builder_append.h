@@ -25,7 +25,7 @@
 #include "base/macros.h"
 #include "obj_ptr.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class Thread;
 

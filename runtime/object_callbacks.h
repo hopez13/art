@@ -19,7 +19,7 @@
 
 #include "base/macros.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace mirror {
 class Object;
 template<class MirrorType> class HeapReference;

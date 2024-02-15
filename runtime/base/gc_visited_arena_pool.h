@@ -28,7 +28,7 @@
 #include "read_barrier_config.h"
 #include "runtime.h"
 
-namespace art HIDDEN {
+namespace art {
 
 // GcVisitedArenaPool can be used for tracking allocations so that they can
 // be visited during GC to update the GC-roots inside them.

@@ -62,7 +62,7 @@
 #include "optimization.h"
 #include "optimizing/nodes.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class HSelectGenerator : public HOptimization {
  public:

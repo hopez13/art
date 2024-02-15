@@ -28,7 +28,7 @@
 #include "obj_ptr.h"
 #include "scoped_thread_state_change-inl.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace mirror {
 
 class CollectRootVisitor {

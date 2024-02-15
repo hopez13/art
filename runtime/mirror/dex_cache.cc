@@ -33,7 +33,7 @@
 #include "thread.h"
 #include "write_barrier.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace mirror {
 
 // Whether to allocate full dex cache arrays during startup. Currently disabled

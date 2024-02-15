@@ -24,7 +24,7 @@
 #include "object_reference.h"
 #include "string.h"
 
-namespace art HIDDEN {
+namespace art {
 
 struct ClassLoaderOffsets;
 class ClassTable;

@@ -21,7 +21,7 @@
 #include "base/macros.h"
 #include "jni/quick/calling_convention.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace x86_64 {
 
 class X86_64ManagedRuntimeCallingConvention final : public ManagedRuntimeCallingConvention {

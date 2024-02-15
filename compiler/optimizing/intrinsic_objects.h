@@ -24,7 +24,7 @@
 #include "obj_ptr.h"
 #include "offsets.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class ClassLinker;
 class MemberOffset;

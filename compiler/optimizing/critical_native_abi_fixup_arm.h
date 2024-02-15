@@ -21,7 +21,7 @@
 #include "nodes.h"
 #include "optimization.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace arm {
 
 class CriticalNativeAbiFixupArm : public HOptimization {

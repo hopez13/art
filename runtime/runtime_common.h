@@ -35,7 +35,7 @@
 #include "base/utils.h"
 #include "native_stack_dump.h"
 
-namespace art HIDDEN {
+namespace art {
 
 struct Backtrace {
  public:

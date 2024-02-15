@@ -18,7 +18,7 @@
 
 #include "stack.h"
 
-namespace art HIDDEN {
+namespace art {
 
 void JavaFrameRootInfo::Describe(std::ostream& os) const {
   const StackVisitor* visitor = stack_visitor_;

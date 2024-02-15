@@ -24,7 +24,7 @@
 #include "obj_ptr.h"
 #include "optimization.h"
 
-namespace art HIDDEN {
+namespace art {
 
 /**
  * Propagates reference types to instructions.

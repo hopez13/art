@@ -29,7 +29,7 @@
 #include "base/stl_util.h"     // STLDeleteElements
 #endif
 
-namespace art HIDDEN {
+namespace art {
 
 // Abstraction to keep monitors small enough to fit in a lock word (32bits). On 32bit systems the
 // monitor id loses the alignment bits of the Monitor*.

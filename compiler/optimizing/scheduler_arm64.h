@@ -20,7 +20,7 @@
 #include "base/macros.h"
 #include "scheduler.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace arm64 {
 
 class HSchedulerARM64 : public HScheduler {

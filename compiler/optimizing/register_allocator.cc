@@ -27,7 +27,7 @@
 #include "register_allocator_linear_scan.h"
 #include "ssa_liveness_analysis.h"
 
-namespace art HIDDEN {
+namespace art {
 
 template <typename IsCalleeSave>
 static uint32_t GetBlockedRegistersForCall(size_t num_registers, IsCalleeSave&& is_callee_save) {

@@ -22,7 +22,7 @@
 #include "base/macros.h"
 #include "debug/method_debug_info.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace debug {
 
 struct ElfCompilationUnit {

@@ -23,7 +23,7 @@
 #include "mirror/object_array.h"
 #include "obj_ptr.h"
 
-namespace art HIDDEN {
+namespace art {
 
 namespace mirror {
 class ClassLoader;

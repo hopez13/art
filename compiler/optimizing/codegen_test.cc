@@ -33,7 +33,7 @@
 
 #include "gtest/gtest.h"
 
-namespace art HIDDEN {
+namespace art {
 
 // Return all combinations of ISA and code generator that are executable on
 // hardware, or on simulator, and that we'd like to test.

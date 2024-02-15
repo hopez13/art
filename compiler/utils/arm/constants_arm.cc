@@ -16,7 +16,7 @@
 
 #include "constants_arm.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace arm {
 
 std::ostream& operator<<(std::ostream& os, const DRegister& rhs) {

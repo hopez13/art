@@ -24,7 +24,7 @@
 #include "thread-current-inl.h"
 #include "thread-inl.h"
 
-namespace art HIDDEN {
+namespace art {
 
 std::vector<jclass>  NonDebuggableClasses::non_debuggable_classes;
 

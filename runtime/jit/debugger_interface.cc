@@ -93,7 +93,7 @@
 //     attempting to run TSAN on this code.
 //
 
-namespace art HIDDEN {
+namespace art {
 
 static Mutex g_jit_debug_lock("JIT native debug entries", kNativeDebugInterfaceLock);
 static Mutex g_dex_debug_lock("DEX native debug entries", kNativeDebugInterfaceLock);
@@ -203,7 +203,7 @@ extern "C" {
 }
 }  // namespace art
 
-namespace art HIDDEN {
+namespace art {
 
 // The fields below are internal, but we keep them here anyway for consistency.
 // Their state is related to the static state above and it must be kept in sync.

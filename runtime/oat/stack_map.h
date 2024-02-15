@@ -32,7 +32,7 @@
 #include "dex_register_location.h"
 #include "quick/quick_method_frame_info.h"
 
-namespace art HIDDEN {
+namespace art {
 
 namespace linker {
 class CodeInfoTableDeduper;

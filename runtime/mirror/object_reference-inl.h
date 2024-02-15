@@ -21,7 +21,7 @@
 
 #include "obj_ptr-inl.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace mirror {
 
 template<bool kPoisonReferences, class MirrorType>

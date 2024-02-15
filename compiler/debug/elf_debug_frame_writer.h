@@ -27,7 +27,7 @@
 #include "dwarf/headers.h"
 #include "elf/elf_builder.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace debug {
 
 static constexpr bool kWriteDebugFrameHdr = false;

@@ -25,7 +25,7 @@
 #include "mirror/class-alloc-inl.h"
 #include "scoped_thread_state_change-inl.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class TransactionTest : public CommonRuntimeTest {
  protected:

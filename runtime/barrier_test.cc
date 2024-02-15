@@ -24,7 +24,7 @@
 #include "thread-current-inl.h"
 #include "thread_pool.h"
 
-namespace art HIDDEN {
+namespace art {
 class CheckWaitTask : public Task {
  public:
   CheckWaitTask(Barrier* barrier, AtomicInteger* count1, AtomicInteger* count2)

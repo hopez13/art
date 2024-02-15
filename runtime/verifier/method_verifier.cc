@@ -65,7 +65,7 @@
 #include "verifier/method_verifier.h"
 #include "verifier_deps.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace verifier {
 
 using android::base::StringPrintf;

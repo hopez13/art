@@ -31,7 +31,7 @@
 #include "utils/assembler.h"
 #include "utils/label.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace riscv64 {
 
 class ScratchRegisterScope;

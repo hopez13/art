@@ -28,7 +28,7 @@
 #include "reg_type.h"
 #include "reg_type_cache.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace verifier {
 
 inline const art::verifier::RegType& RegTypeCache::GetFromId(uint16_t id) const {

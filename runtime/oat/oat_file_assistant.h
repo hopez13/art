@@ -35,7 +35,7 @@
 #include "oat_file.h"
 #include "oat_file_assistant_context.h"
 
-namespace art HIDDEN {
+namespace art {
 
 namespace gc {
 namespace space {

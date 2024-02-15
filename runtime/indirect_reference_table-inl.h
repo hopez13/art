@@ -26,7 +26,7 @@
 #include "obj_ptr-inl.h"
 #include "verify_object.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace mirror {
 class Object;
 }  // namespace mirror

@@ -18,7 +18,7 @@
 
 #include "art_method-inl.h"
 
-namespace art HIDDEN {
+namespace art {
 
 mirror::Object* ShadowFrame::GetThisObject() const {
   ArtMethod* m = GetMethod();

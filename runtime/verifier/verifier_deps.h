@@ -31,7 +31,7 @@
 #include "thread.h"
 #include "verifier_enums.h"  // For MethodVerifier::FailureKind.
 
-namespace art HIDDEN {
+namespace art {
 
 class ArtField;
 class ArtMethod;

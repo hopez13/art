@@ -40,7 +40,7 @@
 
 #include "class_root-inl.h"
 
-namespace art HIDDEN {
+namespace art {
 
 // NOLINTBEGIN(bugprone-macro-parentheses)
 #define MAKE_OBJECT_FOR_GDB(ROOT, NAME, MIRROR)                 \

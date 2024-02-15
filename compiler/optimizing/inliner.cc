@@ -47,7 +47,7 @@
 #include "thread.h"
 #include "verifier/verifier_compiler_binding.h"
 
-namespace art HIDDEN {
+namespace art {
 
 // Instruction limit to control memory.
 static constexpr size_t kMaximumNumberOfTotalInstructions = 1024;

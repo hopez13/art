@@ -21,7 +21,7 @@
 
 #include "space_bitmap-inl.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace gc {
 namespace accounting {
 

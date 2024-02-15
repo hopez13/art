@@ -22,7 +22,7 @@
 #include "optimization.h"
 #include "optimizing/optimizing_compiler_stats.h"
 
-namespace art HIDDEN {
+namespace art {
 
 /**
  * Optimization pass performing a simple constant-expression

@@ -23,7 +23,7 @@
 #include "nodes.h"
 #include "optimization.h"
 
-namespace art HIDDEN {
+namespace art {
 
 /**
  * Transforms a graph into SSA form. The liveness guarantees of

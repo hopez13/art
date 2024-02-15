@@ -21,7 +21,7 @@
 #include "constants_x86_64.h"
 #include "utils/managed_register.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace x86_64 {
 
 // Values for register pairs.

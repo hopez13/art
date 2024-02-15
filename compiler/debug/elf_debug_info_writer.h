@@ -40,7 +40,7 @@
 #include "oat/oat_file.h"
 #include "obj_ptr-inl.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace debug {
 
 static std::vector<const char*> GetParamNames(const MethodDebugInfo* mi) {

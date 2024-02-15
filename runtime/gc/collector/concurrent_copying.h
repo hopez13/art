@@ -28,7 +28,7 @@
 #include <unordered_map>
 #include <vector>
 
-namespace art HIDDEN {
+namespace art {
 class Barrier;
 class Closure;
 class RootInfo;

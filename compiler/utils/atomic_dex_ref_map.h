@@ -23,7 +23,7 @@
 #include "base/safe_map.h"
 #include "dex/dex_file_reference.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class DexFile;
 

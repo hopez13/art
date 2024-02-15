@@ -34,7 +34,7 @@
 #include "base/malloc_arena_pool.h"
 #include "common_runtime_test.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace arm {
 
 // Include results file (generated manually)

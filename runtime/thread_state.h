@@ -21,7 +21,7 @@
 
 #include "base/macros.h"
 
-namespace art HIDDEN {
+namespace art {
 
 // State stored in our C++ class Thread.
 // When we refer to "a suspended state", or when function names mention "ToSuspended" or

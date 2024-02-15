@@ -19,7 +19,7 @@
 
 #include "base/macros.h"
 
-namespace art HIDDEN {
+namespace art {
 
 // The process state passed in from the activity manager, used to determine when to do trimming
 // and compaction.

@@ -24,7 +24,7 @@
 #include "base/value_object.h"
 #include "thread_state.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class JavaVMExt;
 class JNIEnvExt;

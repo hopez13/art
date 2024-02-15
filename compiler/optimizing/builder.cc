@@ -33,7 +33,7 @@
 #include "ssa_builder.h"
 #include "thread.h"
 
-namespace art HIDDEN {
+namespace art {
 
 HGraphBuilder::HGraphBuilder(HGraph* graph,
                              const CodeItemDebugInfoAccessor& accessor,

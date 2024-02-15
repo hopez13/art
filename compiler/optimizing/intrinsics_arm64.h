@@ -29,7 +29,7 @@ class MacroAssembler;
 }  // namespace aarch64
 }  // namespace vixl
 
-namespace art HIDDEN {
+namespace art {
 
 class ArenaAllocator;
 class HInvokeStaticOrDirect;

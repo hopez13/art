@@ -24,7 +24,7 @@
 #include "gc/collector/mark_compact.h"
 #include "jit/jit_memory_region.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace gc {
 namespace accounting {
 

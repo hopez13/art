@@ -41,7 +41,7 @@
 #include "jni/quick/x86_64/calling_convention_x86_64.h"
 #endif
 
-namespace art HIDDEN {
+namespace art {
 
 // Managed runtime calling convention
 

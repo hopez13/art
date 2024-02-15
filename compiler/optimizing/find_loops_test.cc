@@ -26,7 +26,7 @@
 
 #include "gtest/gtest.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class FindLoopsTest : public CommonCompilerTest, public OptimizingUnitTestHelper {};
 

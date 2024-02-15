@@ -31,7 +31,7 @@
 #include <cmath>
 #include <iomanip>
 
-namespace art HIDDEN {
+namespace art {
 
 CumulativeLogger::CumulativeLogger(const std::string& name)
     : name_(name),

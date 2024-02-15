@@ -20,7 +20,7 @@
 #include "arch/instruction_set_features.h"
 #include "base/macros.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class Riscv64InstructionSetFeatures;
 using Riscv64FeaturesUniquePtr = std::unique_ptr<const Riscv64InstructionSetFeatures>;

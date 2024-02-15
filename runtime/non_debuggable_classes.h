@@ -23,7 +23,7 @@
 #include "base/macros.h"
 #include "jni.h"
 
-namespace art HIDDEN {
+namespace art {
 
 struct NonDebuggableClasses {
  public:

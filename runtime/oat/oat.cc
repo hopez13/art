@@ -25,7 +25,7 @@
 #include "base/bit_utils.h"
 #include "base/strlcpy.h"
 
-namespace art HIDDEN {
+namespace art {
 
 using android::base::StringPrintf;
 

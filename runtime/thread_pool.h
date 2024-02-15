@@ -26,7 +26,7 @@
 #include "base/mem_map.h"
 #include "base/mutex.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class AbstractThreadPool;
 

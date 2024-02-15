@@ -21,7 +21,7 @@
 
 #include "base/macros.h"
 
-namespace art HIDDEN {
+namespace art {
 
 void register_jdk_internal_misc_Unsafe(JNIEnv* env);
 

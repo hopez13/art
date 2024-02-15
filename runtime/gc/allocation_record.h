@@ -25,7 +25,7 @@
 #include "gc_root.h"
 #include "obj_ptr.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class ArtMethod;
 class IsMarkedVisitor;

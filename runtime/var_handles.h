@@ -20,7 +20,7 @@
 #include "base/macros.h"
 #include "mirror/var_handle.h"
 
-namespace art HIDDEN {
+namespace art {
 
 namespace mirror {
 class RawMethodType;

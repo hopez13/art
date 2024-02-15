@@ -48,7 +48,7 @@
 #include "code_generator_x86_64.h"
 #endif
 
-namespace art HIDDEN {
+namespace art {
 
 using CreateCodegenFn = CodeGenerator* (*)(HGraph*, const CompilerOptions&);
 

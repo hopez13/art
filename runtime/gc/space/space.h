@@ -28,7 +28,7 @@
 #include "gc/collector/object_byte_pair.h"
 #include "runtime_globals.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace mirror {
 class Object;
 }  // namespace mirror

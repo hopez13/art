@@ -53,7 +53,7 @@
 #include "scoped_thread_state_change-inl.h"
 #include "vdex_file.h"
 
-namespace art HIDDEN {
+namespace art {
 
 using android::base::StringPrintf;
 

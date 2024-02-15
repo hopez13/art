@@ -24,7 +24,7 @@
 #include "base/macros.h"
 #include "dex/dex_file.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace debug {
 
 struct MethodDebugInfo {

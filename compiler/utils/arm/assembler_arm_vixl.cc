@@ -26,7 +26,7 @@
 
 using namespace vixl::aarch32;  // NOLINT(build/namespaces)
 
-namespace art HIDDEN {
+namespace art {
 namespace arm {
 
 #ifdef ___

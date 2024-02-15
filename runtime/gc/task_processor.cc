@@ -19,7 +19,7 @@
 #include "base/time_utils.h"
 #include "scoped_thread_state_change-inl.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace gc {
 
 TaskProcessor::TaskProcessor()

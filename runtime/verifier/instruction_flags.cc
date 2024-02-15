@@ -18,7 +18,7 @@
 
 #include <string.h>
 
-namespace art HIDDEN {
+namespace art {
 namespace verifier {
 
 std::string InstructionFlags::ToString() const {

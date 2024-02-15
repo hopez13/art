@@ -26,7 +26,7 @@
 #include "base/value_object.h"
 #include "block_namer.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class CodeGenerator;
 class DexCompilationUnit;

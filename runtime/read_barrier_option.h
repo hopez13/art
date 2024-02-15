@@ -19,7 +19,7 @@
 
 #include "base/macros.h"
 
-namespace art HIDDEN {
+namespace art {
 
 // Options for performing a read barrier or not.
 //

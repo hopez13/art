@@ -29,7 +29,7 @@
 #include "jni_id_type.h"
 #include "reflective_value_visitor.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace mirror {
 class Object;
 class ClassExt;

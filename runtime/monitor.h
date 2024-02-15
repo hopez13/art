@@ -37,7 +37,7 @@
 #include "runtime_callbacks.h"
 #include "thread_state.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class ArtMethod;
 class IsMarkedVisitor;

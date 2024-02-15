@@ -28,7 +28,7 @@
 #include "mirror/class.h"
 #include "mirror/object-readbarrier-inl.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace gc {
 namespace collector {
 

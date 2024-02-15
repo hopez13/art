@@ -21,7 +21,7 @@
 
 #include "base/macros.h"
 
-namespace art HIDDEN {
+namespace art {
 
 // TODO(260881207): register_dalvik_system_VMRuntime should be HIDDEN,
 // but some apps fail to launch (e.g. b/319255249).

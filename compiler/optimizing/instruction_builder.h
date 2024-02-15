@@ -28,7 +28,7 @@
 #include "handle.h"
 #include "nodes.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class ArenaBitVector;
 class ArtField;

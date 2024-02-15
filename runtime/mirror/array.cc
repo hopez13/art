@@ -31,7 +31,7 @@
 #include "object_array-inl.h"
 #include "thread.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace mirror {
 
 using android::base::StringPrintf;

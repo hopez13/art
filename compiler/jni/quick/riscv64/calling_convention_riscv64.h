@@ -21,7 +21,7 @@
 #include "base/macros.h"
 #include "jni/quick/calling_convention.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace riscv64 {
 
 class Riscv64ManagedRuntimeCallingConvention final : public ManagedRuntimeCallingConvention {

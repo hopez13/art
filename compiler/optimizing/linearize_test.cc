@@ -29,7 +29,7 @@
 #include "pretty_printer.h"
 #include "ssa_liveness_analysis.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class LinearizeTest : public CommonCompilerTest, public OptimizingUnitTestHelper {
  protected:

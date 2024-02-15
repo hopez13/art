@@ -54,7 +54,7 @@ namespace unwindstack {
 class AndroidLocalUnwinder;
 }  // namespace unwindstack
 
-namespace art HIDDEN {
+namespace art {
 
 namespace gc {
 namespace accounting {

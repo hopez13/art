@@ -37,7 +37,7 @@
 #include "aarch32/macro-assembler-aarch32.h"
 #pragma GCC diagnostic pop
 
-namespace art HIDDEN {
+namespace art {
 
 namespace linker {
 class Thumb2RelativePatcherTest;

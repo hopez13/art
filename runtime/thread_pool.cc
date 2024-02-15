@@ -34,7 +34,7 @@
 #include "runtime.h"
 #include "thread-current-inl.h"
 
-namespace art HIDDEN {
+namespace art {
 
 using android::base::StringPrintf;
 

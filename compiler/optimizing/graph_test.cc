@@ -23,7 +23,7 @@
 
 #include "gtest/gtest.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class GraphTest : public OptimizingUnitTest {
  protected:

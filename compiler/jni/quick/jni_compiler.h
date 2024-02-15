@@ -23,7 +23,7 @@
 #include "base/array_ref.h"
 #include "base/macros.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class ArenaAllocator;
 class ArtMethod;

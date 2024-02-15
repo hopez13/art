@@ -24,7 +24,7 @@
 #include "jni.h"
 #include "obj_ptr.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace mirror {
 class Class;
 class Object;

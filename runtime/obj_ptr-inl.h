@@ -23,7 +23,7 @@
 #include "obj_ptr.h"
 #include "thread-current-inl.h"
 
-namespace art HIDDEN {
+namespace art {
 
 template<class MirrorType>
 inline uintptr_t ObjPtr<MirrorType>::GetCurrentTrimedCookie() {

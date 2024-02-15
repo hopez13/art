@@ -21,7 +21,7 @@
 
 #include "base/macros.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class PACKED(4) QuickMethodFrameInfo {
  public:

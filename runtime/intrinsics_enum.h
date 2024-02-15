@@ -20,7 +20,7 @@
 #include "base/macros.h"
 #include "intrinsics_list.h"
 
-namespace art HIDDEN {
+namespace art {
 
 enum class Intrinsics {
 #define OPTIMIZING_INTRINSICS(Name, ...) \

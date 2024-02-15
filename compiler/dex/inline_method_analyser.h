@@ -28,7 +28,7 @@
  * only to allow the debugger to check whether a method has been inlined.
  */
 
-namespace art HIDDEN {
+namespace art {
 
 class CodeItemDataAccessor;
 

@@ -18,7 +18,7 @@
 
 #include "base/macros.h"
 
-namespace art HIDDEN {
+namespace art {
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wfloat-equal"

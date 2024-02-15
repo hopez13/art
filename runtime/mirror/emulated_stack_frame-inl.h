@@ -23,7 +23,7 @@
 #include "object-inl.h"
 #include "object_array-inl.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace mirror {
 
 inline ObjPtr<mirror::MethodType> EmulatedStackFrame::GetType() {

@@ -32,7 +32,7 @@
 #include "mirror/object-inl.h"
 #include "reg_type-inl.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace verifier {
 
 ALWAYS_INLINE static inline bool MatchingPrecisionForClass(const RegType* entry, bool precise)

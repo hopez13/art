@@ -24,7 +24,7 @@
 #include "object-inl.h"
 #include "string.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace mirror {
 
 ObjPtr<StackTraceElement> StackTraceElement::Alloc(Thread* self,

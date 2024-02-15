@@ -20,7 +20,7 @@
 #include "base/macros.h"
 #include "induction_var_analysis.h"
 
-namespace art HIDDEN {
+namespace art {
 
 /**
  * This class implements range analysis on expressions within loops. It takes the results

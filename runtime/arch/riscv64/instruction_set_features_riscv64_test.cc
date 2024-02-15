@@ -18,7 +18,7 @@
 
 #include <gtest/gtest.h>
 
-namespace art HIDDEN {
+namespace art {
 
 TEST(Riscv64InstructionSetFeaturesTest, Riscv64FeaturesFromDefaultVariant) {
   std::string error_msg;

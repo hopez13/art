@@ -32,7 +32,7 @@
 #include "thread_list.h"
 #include "thread_pool.h"
 
-namespace art HIDDEN {
+namespace art {
 
 // Quickly access the current thread from a JNIEnv.
 inline Thread* Thread::ForEnv(JNIEnv* env) {

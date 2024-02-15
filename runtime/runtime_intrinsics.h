@@ -20,7 +20,7 @@
 #include "base/locks.h"
 #include "base/macros.h"
 
-namespace art HIDDEN {
+namespace art {
 
 EXPORT void InitializeIntrinsics() REQUIRES_SHARED(Locks::mutator_lock_);
 

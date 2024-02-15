@@ -22,7 +22,7 @@
 #include "thread-current-inl.h"
 #include "runtime.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class MessageQueueTest : public CommonRuntimeTest {
  protected:

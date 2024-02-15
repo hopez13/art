@@ -22,7 +22,7 @@
 #include "art_field-inl.h"
 #include "art_method-inl.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace detail {
 
 template <typename MemberType, MemberType** kMember>

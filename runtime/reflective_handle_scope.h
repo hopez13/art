@@ -34,7 +34,7 @@
 #include "reflective_reference.h"
 #include "reflective_value_visitor.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class ArtField;
 class ArtMethod;

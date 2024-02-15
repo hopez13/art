@@ -19,7 +19,7 @@
 #include "base/scoped_arena_containers.h"
 #include "induction_var_range.h"
 
-namespace art HIDDEN {
+namespace art {
 
 /**
  * Returns true if the from/to types denote a narrowing, integral conversion (precision loss).

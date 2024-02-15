@@ -38,7 +38,7 @@
 #include "index_bss_mapping.h"
 #include "mirror/object.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class BitVector;
 class ClassLoaderContext;

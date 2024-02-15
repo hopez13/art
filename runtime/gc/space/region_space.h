@@ -25,7 +25,7 @@
 #include <functional>
 #include <map>
 
-namespace art HIDDEN {
+namespace art {
 namespace gc {
 
 namespace accounting {

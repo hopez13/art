@@ -22,7 +22,7 @@
 #include "art_field-inl.h"
 #include "class_ext-inl.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace mirror {
 
 template <bool kVisitNativeRoots,

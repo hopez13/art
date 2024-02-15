@@ -35,7 +35,7 @@
 #include "thread-inl.h"
 #include "unstarted_runtime.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace interpreter {
 
 ALWAYS_INLINE static ObjPtr<mirror::Object> ObjArg(uint32_t arg)

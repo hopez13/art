@@ -20,7 +20,7 @@
 #include "thread-current-inl.h"
 #include "thread_pool.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace gc {
 
 class TaskProcessorTest : public CommonRuntimeTest {

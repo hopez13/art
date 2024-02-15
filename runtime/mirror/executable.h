@@ -22,7 +22,7 @@
 #include "object.h"
 #include "read_barrier_option.h"
 
-namespace art HIDDEN {
+namespace art {
 
 struct ExecutableOffsets;
 class ArtMethod;

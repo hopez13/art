@@ -31,7 +31,7 @@
 
 #include "jni/jni_cfi_test_expected.inc"
 
-namespace art HIDDEN {
+namespace art {
 
 class JNICFITest : public CFITest {
  public:

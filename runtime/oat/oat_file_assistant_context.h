@@ -26,7 +26,7 @@
 #include "base/macros.h"
 #include "runtime.h"
 
-namespace art HIDDEN {
+namespace art {
 
 // A helper class for OatFileAssistant that fetches and caches information including boot image
 // checksums, bootclasspath checksums, and APEX versions. The same instance can be reused across

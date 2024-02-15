@@ -26,7 +26,7 @@
 #include "base/atomic.h"
 #include "base/bit_utils.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace gc {
 namespace accounting {
 

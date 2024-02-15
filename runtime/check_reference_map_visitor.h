@@ -26,7 +26,7 @@
 #include "scoped_thread_state_change-inl.h"
 #include "stack.h"
 
-namespace art HIDDEN {
+namespace art {
 
 // Helper class for tests checking that the compiler keeps track of dex registers
 // holding references.

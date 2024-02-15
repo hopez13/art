@@ -25,7 +25,7 @@
 #include "base/variant_map.h"
 #include "cmdline_types.h"
 
-namespace art HIDDEN {
+namespace art {
 
 enum class ProfileMethodsCheck : uint8_t;
 

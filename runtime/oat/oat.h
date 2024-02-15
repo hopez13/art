@@ -24,7 +24,7 @@
 #include "base/macros.h"
 #include "base/safe_map.h"
 
-namespace art HIDDEN {
+namespace art {
 
 enum class InstructionSet;
 class InstructionSetFeatures;

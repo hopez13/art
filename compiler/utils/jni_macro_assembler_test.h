@@ -31,7 +31,7 @@
 #include <fstream>
 #include <iterator>
 
-namespace art HIDDEN {
+namespace art {
 
 template<typename Ass>
 class JNIMacroAssemblerTest : public AssemblerTestBase {

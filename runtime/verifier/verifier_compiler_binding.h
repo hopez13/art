@@ -22,7 +22,7 @@
 #include "base/macros.h"
 #include "verifier_enums.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace verifier {
 
 ALWAYS_INLINE

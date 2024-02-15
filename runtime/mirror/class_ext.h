@@ -25,7 +25,7 @@
 #include "object_array.h"
 #include "string.h"
 
-namespace art HIDDEN {
+namespace art {
 
 struct ClassExtOffsets;
 class DexCacheVisitor;

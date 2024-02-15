@@ -21,7 +21,7 @@
 #include "sdk_checker.h"
 #include "class_linker.h"
 
-namespace art HIDDEN {
+namespace art {
 
 namespace gc {
 class Heap;

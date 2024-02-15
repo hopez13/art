@@ -24,7 +24,7 @@
 #include "image_space.h"
 #include "large_object_space.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace gc {
 namespace space {
 

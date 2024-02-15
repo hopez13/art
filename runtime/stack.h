@@ -29,7 +29,7 @@
 #include "obj_ptr.h"
 #include "quick/quick_method_frame_info.h"
 
-namespace art HIDDEN {
+namespace art {
 
 namespace mirror {
 class Object;

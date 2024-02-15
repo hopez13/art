@@ -40,7 +40,7 @@
 #define THREE_BYTE_VEX  0xC4
 #define VEX_INIT        0x00
 
-namespace art HIDDEN {
+namespace art {
 
 class X86InstructionSetFeatures;
 using X86FeaturesUniquePtr = std::unique_ptr<const X86InstructionSetFeatures>;

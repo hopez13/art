@@ -20,7 +20,7 @@
 #include "nodes.h"
 #include "optimization.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class CodeGenerator;
 

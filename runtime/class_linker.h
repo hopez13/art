@@ -44,7 +44,7 @@
 #include "oat/oat_file.h"
 #include "verifier/verifier_enums.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class ArtField;
 class ArtMethod;

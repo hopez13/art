@@ -34,7 +34,7 @@
 #include "jit/jit_code_cache.h"
 #include "jit/jit_logger.h"
 
-namespace art HIDDEN {
+namespace art {
 namespace jit {
 
 JitCompiler* JitCompiler::Create() {

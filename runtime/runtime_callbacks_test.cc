@@ -46,7 +46,7 @@
 #include "thread_list.h"
 #include "well_known_classes-inl.h"
 
-namespace art HIDDEN {
+namespace art {
 
 class RuntimeCallbacksTest : public CommonRuntimeTest {
  protected:

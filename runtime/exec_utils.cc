@@ -48,7 +48,7 @@
 #include "base/utils.h"
 #include "runtime.h"
 
-namespace art HIDDEN {
+namespace art {
 
 namespace {
 
