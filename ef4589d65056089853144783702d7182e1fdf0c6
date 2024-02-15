@@ -118,6 +118,30 @@
       },
       "revId": "ef4589d65056089853144783702d7182e1fdf0c6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad247c58_291616ed",
+        "filename": "runtime/jni/java_vm_ext.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 966,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-02-15T19:07:29Z",
+      "side": 1,
+      "message": "In the meeting earlier today Nicolas was fairly confident the location is always the apk or source dex jar, so we shouldn\u0027t get paths in `dalvik-cache` here.",
+      "parentUuid": "87089d9d_8bec4459",
+      "range": {
+        "startLine": 966,
+        "startChar": 26,
+        "endLine": 966,
+        "endChar": 50
+      },
+      "revId": "ef4589d65056089853144783702d7182e1fdf0c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
