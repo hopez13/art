@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ac9d2c8_438e219c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-02-15T16:11:22Z",
+      "side": 1,
+      "message": "PTAL. Thanks!",
+      "revId": "4bdc493fa2816a4f39a991cba398532998b04b05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0a25733_e8831134",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 828,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-02-15T16:11:22Z",
+      "side": 1,
+      "message": "I am using few unused bits from flags to specify which version we need. I don\u0027t know if we need additional checks here, like API level or something that makes sure we use these bits only above a certain version. \n\nAll the unused bits are set to 0 when starting method tracing using ```am profile start``` (which is also used by Android Studio) so it should be safe. Though VMDebug.startMethodTracing is a public API and I guess it isn\u0027t possible to make sure the unused bits are 0. If they are set to some other value, then we may generate a different format than expected. I don\u0027t think VMDebug.startMethodTracing is used much though.",
+      "range": {
+        "startLine": 828,
+        "startChar": 2,
+        "endLine": 828,
+        "endChar": 96
+      },
+      "revId": "4bdc493fa2816a4f39a991cba398532998b04b05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
