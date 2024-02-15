@@ -190,6 +190,30 @@
       },
       "revId": "8af139c6ffa368eb3ab1f4b2fa89e1063576e1a6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22576328_4f1f2393",
+        "filename": "libartservice/service/java/com/android/server/art/Dexopter.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-02-15T18:42:49Z",
+      "side": 1,
+      "message": "Iirc from an offline meeting last week, the take-away was to compile with the requested filter and surface warnings that the files aren\u0027t usable to the runtime.",
+      "parentUuid": "6ec7ae17_2d022446",
+      "range": {
+        "startLine": 336,
+        "startChar": 0,
+        "endLine": 365,
+        "endChar": 9
+      },
+      "revId": "8af139c6ffa368eb3ab1f4b2fa89e1063576e1a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
