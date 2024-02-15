@@ -3711,9 +3711,9 @@ void Thread::DumpFromGdb() const {
 
 // Explicitly instantiate 32 and 64bit thread offset dumping support.
 template
-void Thread::DumpThreadOffset<PointerSize::k32>(std::ostream& os, uint32_t offset);
+EXPORT void Thread::DumpThreadOffset<PointerSize::k32>(std::ostream& os, uint32_t offset);
 template
-void Thread::DumpThreadOffset<PointerSize::k64>(std::ostream& os, uint32_t offset);
+EXPORT void Thread::DumpThreadOffset<PointerSize::k64>(std::ostream& os, uint32_t offset);
 
 template<PointerSize ptr_size>
 void Thread::DumpThreadOffset(std::ostream& os, uint32_t offset) {

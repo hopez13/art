@@ -40,10 +40,12 @@ static void art_heap_usage_error(const char* function, void* p);
 #pragma GCC diagnostic ignored "-Wstrict-aliasing"
 #pragma GCC diagnostic ignored "-Wnull-pointer-arithmetic"
 #pragma GCC diagnostic ignored "-Wexpansion-to-defined"
+#pragma GCC visibility push(default)
 #include "dlmalloc.c"  // NOLINT
 // Note: dlmalloc.c uses a DEBUG define to drive debug code. This interferes with the DEBUG severity
 //       of libbase, so undefine it now.
 #undef DEBUG
+#pragma GCC visibility pop
 #pragma GCC diagnostic pop
 
 static void* art_heap_morecore(void* m, intptr_t increment) {
