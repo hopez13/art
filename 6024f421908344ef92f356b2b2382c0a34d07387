@@ -267,6 +267,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e23e108a_1762d8c0",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 2470,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-02-16T18:41:44Z",
+      "side": 1,
+      "message": "Ack, fine to keep as-is then.",
+      "parentUuid": "6dac2177_296800b5",
+      "range": {
+        "startLine": 2470,
+        "startChar": 14,
+        "endLine": 2470,
+        "endChar": 20
+      },
+      "revId": "6024f421908344ef92f356b2b2382c0a34d07387",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1834821c_55ea7e8f",
@@ -373,6 +397,30 @@
       "side": 1,
       "message": "We have `uimm`, `nzuimm` and `nzimm`, so why not `uoffset`? Maybe we should change all `u_offset` to `uoffset`?",
       "parentUuid": "1bb07afe_c46925f7",
+      "range": {
+        "startLine": 2528,
+        "startChar": 13,
+        "endLine": 2528,
+        "endChar": 20
+      },
+      "revId": "6024f421908344ef92f356b2b2382c0a34d07387",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a19e4712_d5b122fa",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 2528,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-02-16T18:41:44Z",
+      "side": 1,
+      "message": "all `uoffsets` are fine by me. I\u0027d rather not have two different conventions in the same file if possible",
+      "parentUuid": "92152800_3f302819",
       "range": {
         "startLine": 2528,
         "startChar": 13,
