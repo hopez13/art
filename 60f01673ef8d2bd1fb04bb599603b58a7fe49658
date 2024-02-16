@@ -22,6 +22,30 @@
       },
       "revId": "60f01673ef8d2bd1fb04bb599603b58a7fe49658",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c942d160_545054e6",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 928,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-16T10:15:39Z",
+      "side": 1,
+      "message": "No, 0x3b is correct for RV64. The new test passes.\n\n(I just noticed that there is a difference between RV32 with 0x33 and RV64 with 0x3b. I guess I was lucky to look at the right line.)",
+      "parentUuid": "2737e19d_a02673b0",
+      "range": {
+        "startLine": 928,
+        "startChar": 32,
+        "endLine": 928,
+        "endChar": 36
+      },
+      "revId": "60f01673ef8d2bd1fb04bb599603b58a7fe49658",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
