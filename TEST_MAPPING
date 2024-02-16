@@ -1426,6 +1426,9 @@
     },
     {
       "name": "libnativeloader_test[com.google.android.art.apex]"
+    },
+    {
+      "name": "CtsJdwpTestCases[com.google.android.art.apex]"
     }
   ],
   "presubmit": [
@@ -1434,9 +1437,6 @@
     },
     {
       "name": "BootImageProfileTest"
-    },
-    {
-      "name": "CtsJdwpTestCases"
     },
     {
       "name": "art-apex-update-rollback"
@@ -2859,6 +2859,9 @@
     },
     {
       "name": "libnativeloader_test"
+    },
+    {
+      "name": "CtsJdwpTestCases"
     }
   ],
   "hwasan-presubmit": [
@@ -4305,6 +4308,36 @@
     },
     {
       "name": "art_standalone_dexopt_chroot_setup_tests"
+    },
+    {
+      "name": "CtsDexMetadataHostTestCases"
+    },
+    {
+      "name": "CtsJdwpSecurityHostTestCases"
+    },
+    {
+      "name": "CtsJdwpTunnelHostTestCases"
+    },
+    {
+      "name": "CtsJniTestCases"
+    },
+    {
+      "name": "CtsJvmtiAttachingHostTestCases"
+    },
+    {
+      "name": "CtsJvmtiAttachingTestCases"
+    },
+    {
+      "name": "CtsJvmtiRedefineClassesHostTestCases"
+    },
+    {
+      "name": "CtsJvmtiTaggingHostTestCases"
+    },
+    {
+      "name": "CtsJvmtiTrackingHostTestCases"
+    },
+    {
+      "name": "CtsLibnativehelperTestCases"
     }
   ]
 }
