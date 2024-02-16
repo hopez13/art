@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e652c988_6df2b973",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-02-16T16:52:58Z",
+      "side": 1,
+      "message": "Partial review. Took a look at `compiler/utils/riscv64/assembler_riscv64.h`",
+      "revId": "6024f421908344ef92f356b2b2382c0a34d07387",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4eea1edb_e5297eb1",
@@ -19,6 +36,276 @@
         "startChar": 2,
         "endLine": 493,
         "endChar": 53
+      },
+      "revId": "6024f421908344ef92f356b2b2382c0a34d07387",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "742dd722_4624b427",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 2115,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-02-16T16:52:58Z",
+      "side": 1,
+      "message": "Can you provide comments explaining these extract offset methods and their names? We want to grab `offset`, ignore the last two bits (equivalent to scaling down by 4), and rearrange it so that we have `{offset[5], offset[4:2], offset[7:6]}`",
+      "range": {
+        "startLine": 2115,
+        "startChar": 28,
+        "endLine": 2115,
+        "endChar": 46
+      },
+      "revId": "6024f421908344ef92f356b2b2382c0a34d07387",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "158b9b86_3a5ac3d0",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 2145,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-02-16T16:52:58Z",
+      "side": 1,
+      "message": "inconsistent naming vs the previous method",
+      "range": {
+        "startLine": 2145,
+        "startChar": 4,
+        "endLine": 2145,
+        "endChar": 18
+      },
+      "revId": "6024f421908344ef92f356b2b2382c0a34d07387",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "84a33ca7_363a331f",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 2146,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-02-16T16:52:58Z",
+      "side": 1,
+      "message": "extra space",
+      "range": {
+        "startLine": 2146,
+        "startChar": 18,
+        "endLine": 2146,
+        "endChar": 20
+      },
+      "revId": "6024f421908344ef92f356b2b2382c0a34d07387",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "44edf921_ac84c179",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 2157,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-02-16T16:52:58Z",
+      "side": 1,
+      "message": "same here",
+      "range": {
+        "startLine": 2157,
+        "startChar": 4,
+        "endLine": 2157,
+        "endChar": 18
+      },
+      "revId": "6024f421908344ef92f356b2b2382c0a34d07387",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "171b5ca7_712647aa",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 2167,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-02-16T16:52:58Z",
+      "side": 1,
+      "message": "Maybe add a comment that `0` is reserved",
+      "revId": "6024f421908344ef92f356b2b2382c0a34d07387",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f392781_6d832381",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 2168,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-02-16T16:52:58Z",
+      "side": 1,
+      "message": "Wouldn\u0027t this be `IsUint\u003c6\u003e(uimm)`?",
+      "range": {
+        "startLine": 2168,
+        "startChar": 25,
+        "endLine": 2168,
+        "endChar": 72
+      },
+      "revId": "6024f421908344ef92f356b2b2382c0a34d07387",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "441a18a1_361cde70",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 2349,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-02-16T16:52:58Z",
+      "side": 1,
+      "message": "Since `opcode` is guaranteed to be `2`, not sure if we could have `constexpr uint32_t opcode \u003d 0b10u;` after the DCHECKs. Might be fine to keep as parameter for the consistency with the other methods.",
+      "range": {
+        "startLine": 2349,
+        "startChar": 64,
+        "endLine": 2349,
+        "endChar": 79
+      },
+      "revId": "6024f421908344ef92f356b2b2382c0a34d07387",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "774696fc_d6446088",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 2470,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-02-16T16:52:58Z",
+      "side": 1,
+      "message": "This is either `offset` or `shmat[5] | funct2`",
+      "range": {
+        "startLine": 2470,
+        "startChar": 14,
+        "endLine": 2470,
+        "endChar": 20
+      },
+      "revId": "6024f421908344ef92f356b2b2382c0a34d07387",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1834821c_55ea7e8f",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 2492,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-02-16T16:52:58Z",
+      "side": 1,
+      "message": "nit: in the Extract methods, this was named `u_offset`.",
+      "range": {
+        "startLine": 2492,
+        "startChar": 4,
+        "endLine": 2492,
+        "endChar": 20
+      },
+      "revId": "6024f421908344ef92f356b2b2382c0a34d07387",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d912a49d_5ebf2f28",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 2495,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-02-16T16:52:58Z",
+      "side": 1,
+      "message": "Maybe we can name these `immH3` and `immL5` similar to `EmitCI`",
+      "range": {
+        "startLine": 2495,
+        "startChar": 4,
+        "endLine": 2495,
+        "endChar": 18
+      },
+      "revId": "6024f421908344ef92f356b2b2382c0a34d07387",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c48d76ee_1343b404",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 2506,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-02-16T16:52:58Z",
+      "side": 1,
+      "message": "nit: this can be `rd` too. In fact, in the three call sites of this CL, we use `rd`",
+      "range": {
+        "startLine": 2506,
+        "startChar": 64,
+        "endLine": 2506,
+        "endChar": 69
+      },
+      "revId": "6024f421908344ef92f356b2b2382c0a34d07387",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1bb07afe_c46925f7",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 2528,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-02-16T16:52:58Z",
+      "side": 1,
+      "message": "`u_offset`",
+      "range": {
+        "startLine": 2528,
+        "startChar": 13,
+        "endLine": 2528,
+        "endChar": 20
       },
       "revId": "6024f421908344ef92f356b2b2382c0a34d07387",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
