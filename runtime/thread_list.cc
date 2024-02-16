@@ -1076,6 +1076,8 @@ Thread* ThreadList::SuspendThreadByPeer(jobject peer, SuspendReason reason) {
           if (thread->IsSuspended()) {
             // See the discussion in mutator_gc_coord.md and SuspendAllInternal for the race here.
             thread->RemoveFirstSuspend1Barrier();
+            // PassActiveSuspendBarriers cannot have seen our barrier, since it also acquires
+            // thread_suspend_count_lock_ . `wrapped_barrier` will not be accessed.
             if (!thread->HasActiveSuspendBarrier()) {
               thread->AtomicClearFlag(ThreadFlag::kActiveSuspendBarrier);
             }
@@ -1097,7 +1099,7 @@ Thread* ThreadList::SuspendThreadByPeer(jobject peer, SuspendReason reason) {
   }
   // Now wait for target to decrement suspend barrier.
   if (is_suspended || !WaitForSuspendBarrier(&wrapped_barrier.barrier_).has_value()) {
-    // wrapped_barrier.barrier_ has been decremented and will no longer be accessed.
+    // wrapped_barrier.barrier_ has will no longer be accessed.
     VLOG(threads) << "SuspendThreadByPeer thread suspended: " << *thread;
     if (ATraceEnabled()) {
       std::string name;
@@ -1105,7 +1107,11 @@ Thread* ThreadList::SuspendThreadByPeer(jobject peer, SuspendReason reason) {
       ATraceBegin(
           StringPrintf("SuspendThreadByPeer suspended %s for peer=%p", name.c_str(), peer).c_str());
     }
-    DCHECK(thread->IsSuspended());
+    if (kIsDebugBuild) {
+      CHECK(thread->IsSuspended());
+      MutexLock suspend_count_mu(self, *Locks::thread_suspend_count_lock_);
+      thread->CheckBarrierInactive(&wrapped_barrier);
+    }
     return thread;
   } else {
     LOG(WARNING) << "Suspended thread state_and_flags: " << thread->StateAndFlagsAsHexString();
@@ -1195,7 +1201,11 @@ Thread* ThreadList::SuspendThreadByThreadId(uint32_t thread_id, SuspendReason re
           StringPrintf("SuspendThreadByPeer suspended %s for id=%d", name.c_str(), thread_id)
               .c_str());
     }
-    DCHECK(thread->IsSuspended());
+    if (kIsDebugBuild) {
+      CHECK(thread->IsSuspended());
+      MutexLock suspend_count_mu(self, *Locks::thread_suspend_count_lock_);
+      thread->CheckBarrierInactive(&wrapped_barrier);
+    }
     return thread;
   } else {
     // thread still has a pointer to wrapped_barrier. Returning and continuing would be unsafe
