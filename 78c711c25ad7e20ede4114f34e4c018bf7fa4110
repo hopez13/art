@@ -1,0 +1,924 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "90b68d03_d92f5f7f",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1551,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-16T10:09:06Z",
+      "side": 1,
+      "message": "Should we have two separate functions, `GetCMOffsetD()` and `GetCMOffsetW()`? (Note that you\u0027re not just extracting the `imm5`, you\u0027re also directly converting it to the actual offset here.)\n\nMaybe move inside the disassembler class?",
+      "range": {
+        "startLine": 1551,
+        "startChar": 16,
+        "endLine": 1551,
+        "endChar": 24
+      },
+      "revId": "78c711c25ad7e20ede4114f34e4c018bf7fa4110",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "53bc69f2_4b714dd3",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1566,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-16T10:09:06Z",
+      "side": 1,
+      "message": "Maybe move inside the disassembler class? (Next to the `GetRs*()` functions for 32-bit instructions.)\n\nRename the non-`Short` functions to `GetRs1_16()` and `GetRs2_16()`?",
+      "range": {
+        "startLine": 1560,
+        "startChar": 0,
+        "endLine": 1566,
+        "endChar": 83
+      },
+      "revId": "78c711c25ad7e20ede4114f34e4c018bf7fa4110",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa7dc4ff_0ae6f8aa",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1569,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-16T10:09:06Z",
+      "side": 1,
+      "message": "Rename to `GetImm6_16`?",
+      "range": {
+        "startLine": 1569,
+        "startChar": 9,
+        "endLine": 1569,
+        "endChar": 17
+      },
+      "revId": "78c711c25ad7e20ede4114f34e4c018bf7fa4110",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5fa873b3_13ce1222",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1569,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-16T10:09:06Z",
+      "side": 1,
+      "message": "`uint32_t`?",
+      "range": {
+        "startLine": 1569,
+        "startChar": 18,
+        "endLine": 1569,
+        "endChar": 26
+      },
+      "revId": "78c711c25ad7e20ede4114f34e4c018bf7fa4110",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "730c2bfc_12da2c1e",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1572,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-16T10:09:06Z",
+      "side": 1,
+      "message": "For `bool` we prefer the unary operator `!`.",
+      "range": {
+        "startLine": 1572,
+        "startChar": 27,
+        "endLine": 1572,
+        "endChar": 36
+      },
+      "revId": "78c711c25ad7e20ede4114f34e4c018bf7fa4110",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b58a671_4656978a",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1573,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-16T10:09:06Z",
+      "side": 1,
+      "message": "Note that shifting negative values right is technically undefined behavior in C++. We could make it well defined by\n\n    uint32_t uimm40 \u003d BitFieldExtract(insn16, 2, 5);\n    uint32_t uimm5 \u003d BitFieldExtract(insn16, 12, 1);\n    uint32_t uimm \u003d BitFieldInsert(uimm40, uimm5, 5, 1);\n    if (std::is_unsigned_v\u003cT\u003e) {\n      return dchecked_integral_cast\u003cT\u003e(uimm);\n    } else {\n      return dchecked_integral_cast\u003cT\u003e(uimm) - dchecked_integral_cast\u003cT\u003e(uimm5 \u003c\u003c 6);\n    }\n\nThis only casts unsigned values that can be represented by the target type and performs a well-defined subtraction.\n\n(But feel free to leave it as is. We\u0027re using the right shift with negative values in too many places anyway.)",
+      "range": {
+        "startLine": 1573,
+        "startChar": 8,
+        "endLine": 1573,
+        "endChar": 24
+      },
+      "revId": "78c711c25ad7e20ede4114f34e4c018bf7fa4110",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ac8092c_68b6bc1c",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1578,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-16T10:09:06Z",
+      "side": 1,
+      "message": "Why not take the `uint32_t insn16` which is available at all call sites?",
+      "range": {
+        "startLine": 1578,
+        "startChar": 47,
+        "endLine": 1578,
+        "endChar": 66
+      },
+      "revId": "78c711c25ad7e20ede4114f34e4c018bf7fa4110",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "36bbc3dd_57cdd4e4",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1587,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-16T10:09:06Z",
+      "side": 1,
+      "message": "Please use `%04x` and 4 spaces.",
+      "range": {
+        "startLine": 1587,
+        "startChar": 74,
+        "endLine": 1587,
+        "endChar": 78
+      },
+      "revId": "78c711c25ad7e20ede4114f34e4c018bf7fa4110",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d645715_b9ca6ed9",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1596,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-16T10:09:06Z",
+      "side": 1,
+      "message": "Do you mean `\u003d\u003d`? Should we disassemble that as `c.unimp`?\n\nWhat about the encodings with insn16[12:5]\u003d\u003d0 \u0026\u0026 insn16[4:2]!\u003d0 ? Should they be printed as `\u003cunknown16\u003e`?",
+      "range": {
+        "startLine": 1596,
+        "startChar": 21,
+        "endLine": 1596,
+        "endChar": 23
+      },
+      "revId": "78c711c25ad7e20ede4114f34e4c018bf7fa4110",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1b174a84_bc85a79e",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1598,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-16T10:09:06Z",
+      "side": 1,
+      "message": "Already printed.",
+      "range": {
+        "startLine": 1598,
+        "startChar": 33,
+        "endLine": 1598,
+        "endChar": 45
+      },
+      "revId": "78c711c25ad7e20ede4114f34e4c018bf7fa4110",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "730409e1_f25ec3e9",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1602,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-16T10:09:06Z",
+      "side": 1,
+      "message": "`2`",
+      "range": {
+        "startLine": 1602,
+        "startChar": 86,
+        "endLine": 1602,
+        "endChar": 87
+      },
+      "revId": "78c711c25ad7e20ede4114f34e4c018bf7fa4110",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1c58776_3242d10e",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1603,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-16T10:09:06Z",
+      "side": 1,
+      "message": "`6`",
+      "range": {
+        "startLine": 1603,
+        "startChar": 77,
+        "endLine": 1603,
+        "endChar": 78
+      },
+      "revId": "78c711c25ad7e20ede4114f34e4c018bf7fa4110",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f905065_6a368bba",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1603,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-16T10:09:06Z",
+      "side": 1,
+      "message": "`2, 4`",
+      "range": {
+        "startLine": 1603,
+        "startChar": 40,
+        "endLine": 1603,
+        "endChar": 44
+      },
+      "revId": "78c711c25ad7e20ede4114f34e4c018bf7fa4110",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "693f5fd3_4793d950",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1605,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-16T10:09:06Z",
+      "side": 1,
+      "message": "Why hexadecimal and why the leading zeros? The latter applies to many non-hexadecimal formats below as well.\n\nWe could skip the `StringPrintf` and simply `\u003c\u003c decoded`.",
+      "range": {
+        "startLine": 1605,
+        "startChar": 19,
+        "endLine": 1605,
+        "endChar": 50
+      },
+      "revId": "78c711c25ad7e20ede4114f34e4c018bf7fa4110",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f96f76af_f1baf30a",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1621,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-16T10:09:06Z",
+      "side": 1,
+      "message": "`break;`",
+      "range": {
+        "startLine": 1620,
+        "startChar": 10,
+        "endLine": 1621,
+        "endChar": 17
+      },
+      "revId": "78c711c25ad7e20ede4114f34e4c018bf7fa4110",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0bc27b61_27a33931",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1624,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-16T10:09:06Z",
+      "side": 1,
+      "message": "The raw `insn16` value has already been printed above.\n\nShould we print `\u003cunknown16\u003e` instead of `\u003creserved16\u003e`?\n\nNote: \"Zcb\" load/store instruction are in this space.",
+      "range": {
+        "startLine": 1624,
+        "startChar": 17,
+        "endLine": 1624,
+        "endChar": 68
+      },
+      "revId": "78c711c25ad7e20ede4114f34e4c018bf7fa4110",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c8f210e_6ea5f373",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1650,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-16T10:09:06Z",
+      "side": 1,
+      "message": "`!\u003d 0u`",
+      "range": {
+        "startLine": 1650,
+        "startChar": 41,
+        "endLine": 1650,
+        "endChar": 42
+      },
+      "revId": "78c711c25ad7e20ede4114f34e4c018bf7fa4110",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "131b6cee_6085790c",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1657,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-16T10:09:06Z",
+      "side": 1,
+      "message": "Add `{`, `}` around both then-statement and else-statement.",
+      "range": {
+        "startLine": 1657,
+        "startChar": 24,
+        "endLine": 1657,
+        "endChar": 25
+      },
+      "revId": "78c711c25ad7e20ede4114f34e4c018bf7fa4110",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c0ca159_798b9401",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1666,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-16T10:09:06Z",
+      "side": 1,
+      "message": "Add `{`, `}` around both then-statement and else-statement.",
+      "range": {
+        "startLine": 1666,
+        "startChar": 21,
+        "endLine": 1666,
+        "endChar": 22
+      },
+      "revId": "78c711c25ad7e20ede4114f34e4c018bf7fa4110",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4316efa7_942745b3",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1670,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-16T10:09:06Z",
+      "side": 1,
+      "message": "`\u003cunknown16\u003e`?",
+      "range": {
+        "startLine": 1670,
+        "startChar": 45,
+        "endLine": 1670,
+        "endChar": 57
+      },
+      "revId": "78c711c25ad7e20ede4114f34e4c018bf7fa4110",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "02e4bbe2_d1823d4b",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1675,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-16T10:09:06Z",
+      "side": 1,
+      "message": "Add `{`, `}` around both then-statement and else-statement.",
+      "range": {
+        "startLine": 1675,
+        "startChar": 21,
+        "endLine": 1675,
+        "endChar": 22
+      },
+      "revId": "78c711c25ad7e20ede4114f34e4c018bf7fa4110",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20a6dcd7_3851fe59",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1683,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-16T10:09:06Z",
+      "side": 1,
+      "message": "Should we first check for `nzimm \u003d\u003d 0` and print `\u003cunknown16\u003e`? (Marked as \"RES\" in \"RVC Instruction Set Listings\" in both `c.addi16sp` and `c.lui` lines.)",
+      "range": {
+        "startLine": 1683,
+        "startChar": 10,
+        "endLine": 1683,
+        "endChar": 12
+      },
+      "revId": "78c711c25ad7e20ede4114f34e4c018bf7fa4110",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cee424ad_75de7400",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1690,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-16T10:09:06Z",
+      "side": 1,
+      "message": "`llvm-objdump` masks with `0xfffff`:\n\n     134: 7d 75         c.lui   a0, 1048575",
+      "range": {
+        "startLine": 1690,
+        "startChar": 70,
+        "endLine": 1690,
+        "endChar": 95
+      },
+      "revId": "78c711c25ad7e20ede4114f34e4c018bf7fa4110",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fadcea60_f5fb53a9",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1701,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-16T10:09:06Z",
+      "side": 1,
+      "message": "Add `{`, `}` around both then-statement and else-statement.",
+      "range": {
+        "startLine": 1701,
+        "startChar": 29,
+        "endLine": 1701,
+        "endChar": 30
+      },
+      "revId": "78c711c25ad7e20ede4114f34e4c018bf7fa4110",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a9197cf3_3d96a123",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1710,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-16T10:09:06Z",
+      "side": 1,
+      "message": "Add `{`, `}` around both then-statement and else-statement.",
+      "range": {
+        "startLine": 1710,
+        "startChar": 29,
+        "endLine": 1710,
+        "endChar": 30
+      },
+      "revId": "78c711c25ad7e20ede4114f34e4c018bf7fa4110",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e64dc4b6_0b91b4fa",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1723,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-16T10:09:06Z",
+      "side": 1,
+      "message": "Note: This is `c.mul` from \"Zcb\".",
+      "range": {
+        "startLine": 1723,
+        "startChar": 73,
+        "endLine": 1723,
+        "endChar": 80
+      },
+      "revId": "78c711c25ad7e20ede4114f34e4c018bf7fa4110",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2dfd1fc3_dcb88b1d",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1734,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-16T10:09:06Z",
+      "side": 1,
+      "message": "`\u003cunknown16\u003e`?\n\nNote: These include `c.{z,s}ext.*` and `c.not` from \"Zcb\".",
+      "range": {
+        "startLine": 1734,
+        "startChar": 49,
+        "endLine": 1734,
+        "endChar": 61
+      },
+      "revId": "78c711c25ad7e20ede4114f34e4c018bf7fa4110",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1f329e2_a864924a",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1744,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-16T10:09:06Z",
+      "side": 1,
+      "message": "3",
+      "range": {
+        "startLine": 1744,
+        "startChar": 49,
+        "endLine": 1744,
+        "endChar": 50
+      },
+      "revId": "78c711c25ad7e20ede4114f34e4c018bf7fa4110",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "598d3dfa_b6d75037",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1745,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-16T10:09:06Z",
+      "side": 1,
+      "message": "2",
+      "range": {
+        "startLine": 1745,
+        "startChar": 49,
+        "endLine": 1745,
+        "endChar": 50
+      },
+      "revId": "78c711c25ad7e20ede4114f34e4c018bf7fa4110",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4bd4e51_6dfff007",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1746,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-16T10:09:06Z",
+      "side": 1,
+      "message": "2",
+      "range": {
+        "startLine": 1746,
+        "startChar": 91,
+        "endLine": 1746,
+        "endChar": 92
+      },
+      "revId": "78c711c25ad7e20ede4114f34e4c018bf7fa4110",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b8c2e473_55d8c86e",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1753,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-16T10:09:06Z",
+      "side": 1,
+      "message": "3",
+      "range": {
+        "startLine": 1753,
+        "startChar": 49,
+        "endLine": 1753,
+        "endChar": 50
+      },
+      "revId": "78c711c25ad7e20ede4114f34e4c018bf7fa4110",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "481d21eb_a586ea6b",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1754,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-16T10:09:06Z",
+      "side": 1,
+      "message": "2",
+      "range": {
+        "startLine": 1754,
+        "startChar": 49,
+        "endLine": 1754,
+        "endChar": 50
+      },
+      "revId": "78c711c25ad7e20ede4114f34e4c018bf7fa4110",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2589a991_62e43ba6",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1770,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-16T10:09:06Z",
+      "side": 1,
+      "message": "Add `{`, `}` around both then-statement and else-statement.",
+      "range": {
+        "startLine": 1770,
+        "startChar": 36,
+        "endLine": 1770,
+        "endChar": 37
+      },
+      "revId": "78c711c25ad7e20ede4114f34e4c018bf7fa4110",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c3f09b4d_c247901e",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1774,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-16T10:09:06Z",
+      "side": 1,
+      "message": "`PrintHint16()` includes the `\\n`.\n\nThe printing of `\\n` is a bit messy. Maybe we should define a local variable that would print it from a destructor and remove all other `\\n` occurrences from this function.\n\nOr, maybe we could add `std::optional\u003cXRegister\u003e load_store_reg` so that we would not need the early returns and we would just print the load/store address after the main switch `if (load_store_reg.has_value())` and unconditionally finish with the `\\n`.",
+      "range": {
+        "startLine": 1774,
+        "startChar": 10,
+        "endLine": 1774,
+        "endChar": 22
+      },
+      "revId": "78c711c25ad7e20ede4114f34e4c018bf7fa4110",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb0da113_efa23dc7",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1779,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-16T10:09:06Z",
+      "side": 1,
+      "message": "What about introducing some helper functions to shuffle the bits? With\n\n    uint32_t Uimm6ToOffsetD16(uint32_t uimm6) {\n      return (BitFieldExtract(uimm6, 3, 3) \u003c\u003c 3) | (BitFieldExtract(uimm6, 0, 3) \u003c\u003c 6);\n    }\n\nwe could use `Uimm6ToOffsetD16(GetImm6\u003cuint32_t\u003e(insn16))` for `x.fldsp` and `Uimm6ToOffsetD16(BitFieldExtract(insn16, 7, 6))` for `c.fsdsp`. This would be similar to the helper functions in the assembler.\n\n(This would reduce the number of explicit `BitFieldExtract()` calls.)",
+      "range": {
+        "startLine": 1778,
+        "startChar": 19,
+        "endLine": 1779,
+        "endChar": 54
+      },
+      "revId": "78c711c25ad7e20ede4114f34e4c018bf7fa4110",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d2bc532_f9ff4b95",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1786,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-16T10:09:06Z",
+      "side": 1,
+      "message": "`4` (But we could use a helper function `Uimm6ToOffsetW()`.)",
+      "range": {
+        "startLine": 1786,
+        "startChar": 45,
+        "endLine": 1786,
+        "endChar": 46
+      },
+      "revId": "78c711c25ad7e20ede4114f34e4c018bf7fa4110",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "04072270_0ef968f2",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1791,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-16T10:09:06Z",
+      "side": 1,
+      "message": "`\u003cuknown16\u003e`? Raw insn already printed.",
+      "range": {
+        "startLine": 1791,
+        "startChar": 45,
+        "endLine": 1791,
+        "endChar": 57
+      },
+      "revId": "78c711c25ad7e20ede4114f34e4c018bf7fa4110",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "07c624ff_21f2d18e",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1805,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-16T10:09:06Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 1805,
+        "startChar": 45,
+        "endLine": 1805,
+        "endChar": 57
+      },
+      "revId": "78c711c25ad7e20ede4114f34e4c018bf7fa4110",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "24320d49_a080fc36",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1815,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-16T10:09:06Z",
+      "side": 1,
+      "message": "`\u003d\u003d`",
+      "range": {
+        "startLine": 1815,
+        "startChar": 18,
+        "endLine": 1815,
+        "endChar": 20
+      },
+      "revId": "78c711c25ad7e20ede4114f34e4c018bf7fa4110",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4aea35fb_d137d57a",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1824,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-16T10:09:06Z",
+      "side": 1,
+      "message": "`\u003cuknown16\u003e`? Raw insn already printed.",
+      "range": {
+        "startLine": 1824,
+        "startChar": 47,
+        "endLine": 1824,
+        "endChar": 59
+      },
+      "revId": "78c711c25ad7e20ede4114f34e4c018bf7fa4110",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
