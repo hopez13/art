@@ -173,6 +173,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "30472d9e_a2bdd6ba",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 2168,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-16T17:11:21Z",
+      "side": 1,
+      "message": "No, it\u0027s not. `IsUint\u003c6\u003e(uimm)` is [0, 0x3f] and we need [0, 0x1f] and [0xfffe0, 0xfffff], corresponding to values passed to the non-C `Lui()`.\n\nDo you want to suggest improvements to the comment above?",
+      "parentUuid": "2f392781_6d832381",
+      "range": {
+        "startLine": 2168,
+        "startChar": 25,
+        "endLine": 2168,
+        "endChar": 72
+      },
+      "revId": "6024f421908344ef92f356b2b2382c0a34d07387",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "441a18a1_361cde70",
@@ -209,6 +233,30 @@
       "writtenOn": "2024-02-16T16:52:58Z",
       "side": 1,
       "message": "This is either `offset` or `shmat[5] | funct2`",
+      "range": {
+        "startLine": 2470,
+        "startChar": 14,
+        "endLine": 2470,
+        "endChar": 20
+      },
+      "revId": "6024f421908344ef92f356b2b2382c0a34d07387",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6dac2177_296800b5",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 2470,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-16T17:11:21Z",
+      "side": 1,
+      "message": "That\u0027s true but it\u0027s also documented simply as `offset` in the section \"16.2 Compressed Instruction Formats\".",
+      "parentUuid": "774696fc_d6446088",
       "range": {
         "startLine": 2470,
         "startChar": 14,
@@ -301,6 +349,30 @@
       "writtenOn": "2024-02-16T16:52:58Z",
       "side": 1,
       "message": "`u_offset`",
+      "range": {
+        "startLine": 2528,
+        "startChar": 13,
+        "endLine": 2528,
+        "endChar": 20
+      },
+      "revId": "6024f421908344ef92f356b2b2382c0a34d07387",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "92152800_3f302819",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 2528,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-16T17:11:21Z",
+      "side": 1,
+      "message": "We have `uimm`, `nzuimm` and `nzimm`, so why not `uoffset`? Maybe we should change all `u_offset` to `uoffset`?",
+      "parentUuid": "1bb07afe_c46925f7",
       "range": {
         "startLine": 2528,
         "startChar": 13,
