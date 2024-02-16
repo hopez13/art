@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4eea1edb_e5297eb1",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 493,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-16T08:01:07Z",
+      "side": 1,
+      "message": "There is also the \"RISC-V Code Size Reduction\" spec that reclassifies the below instructions as \"Zca\" and \"Zcd\" (with \"Zcf\" not applicable to RV64) and introduces additional 16-bit instructions under \"Zcb\".\n\nAre you planning to add the \"Zcb\" instructions as well? (Note that I\u0027m just adding the \"Zbb\" `sext`/`zext` instructions that the \"Zcb\" `sext`/`zext` map to with https://android-review.googlesource.com/2965283 .)",
+      "range": {
+        "startLine": 493,
+        "startChar": 2,
+        "endLine": 493,
+        "endChar": 53
+      },
+      "revId": "6024f421908344ef92f356b2b2382c0a34d07387",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
