@@ -36,6 +36,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f63a6000_d4a40c21",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1514166
+      },
+      "writtenOn": "2024-02-18T00:57:20Z",
+      "side": 1,
+      "message": "Thanks for flagging this. Resolved all lint issues.",
+      "parentUuid": "6f22bd37_d4fb9c51",
+      "revId": "3425c71e2161404e76638fe3a022cad9709b9ad6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bc5eb03c_83627e04",
@@ -49,6 +67,30 @@
       "writtenOn": "2024-02-08T10:27:16Z",
       "side": 1,
       "message": "Should be `it\u0027s`.",
+      "range": {
+        "startLine": 79,
+        "startChar": 11,
+        "endLine": 79,
+        "endChar": 14
+      },
+      "revId": "3425c71e2161404e76638fe3a022cad9709b9ad6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a78e469e_31365176",
+        "filename": "compiler/utils/assembler_test.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1514166
+      },
+      "writtenOn": "2024-02-18T00:57:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bc5eb03c_83627e04",
       "range": {
         "startLine": 79,
         "startChar": 11,
@@ -119,6 +161,30 @@
       "writtenOn": "2024-02-08T10:27:16Z",
       "side": 1,
       "message": "typo",
+      "range": {
+        "startLine": 771,
+        "startChar": 43,
+        "endLine": 771,
+        "endChar": 51
+      },
+      "revId": "3425c71e2161404e76638fe3a022cad9709b9ad6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c073b5dd_c2e5b752",
+        "filename": "compiler/utils/assembler_test.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 771,
+      "author": {
+        "id": 1514166
+      },
+      "writtenOn": "2024-02-18T00:57:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "da5d9cdc_38ffe19d",
       "range": {
         "startLine": 771,
         "startChar": 43,
