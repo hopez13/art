@@ -5348,6 +5348,46 @@ void InstructionCodeGeneratorRISCV64::VisitXor(HXor* instruction) {
   HandleBinaryOp(instruction);
 }
 
+void LocationsBuilderRISCV64::VisitRiscv64ShiftAdd(HRiscv64ShiftAdd* instruction) {
+  DCHECK(codegen_->GetInstructionSetFeatures().HasZba());
+  DCHECK(DataType::IsIntegralType(instruction->GetType())) << instruction->GetType();
+
+  auto locations = new (GetGraph()->GetAllocator()) LocationSummary(instruction);
+  locations->SetInAt(0, Location::RequiresRegister());
+  locations->SetInAt(1, Location::RequiresRegister());
+  locations->SetOut(Location::RequiresRegister(), Location::kNoOutputOverlap);
+}
+
+void InstructionCodeGeneratorRISCV64::VisitRiscv64ShiftAdd(HRiscv64ShiftAdd* instruction) {
+  CHECK_EQ(instruction->GetType(), DataType::Type::kInt64)
+      << "Unexpected ShiftAdd type: " << instruction->GetType();
+  LocationSummary* locations = instruction->GetLocations();
+  Location first = locations->InAt(0);
+  Location second = locations->InAt(1);
+  Location dest = locations->Out();
+
+  switch (instruction->GetDistance()) {
+    case 1:
+      __ Sh1Add(dest.AsRegister<XRegister>(),
+                first.AsRegister<XRegister>(),
+                second.AsRegister<XRegister>());
+      break;
+    case 2:
+      __ Sh2Add(dest.AsRegister<XRegister>(),
+                first.AsRegister<XRegister>(),
+                second.AsRegister<XRegister>());
+      break;
+    case 3:
+      __ Sh3Add(dest.AsRegister<XRegister>(),
+                first.AsRegister<XRegister>(),
+                second.AsRegister<XRegister>());
+      break;
+    default:
+      LOG(FATAL) << "Unexpected distance of ShiftAdd: " << instruction->GetDistance();
+      UNREACHABLE();
+  };
+}
+
 void LocationsBuilderRISCV64::VisitVecReplicateScalar(HVecReplicateScalar* instruction) {
   UNUSED(instruction);
   LOG(FATAL) << "Unimplemented";
