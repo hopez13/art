@@ -20,6 +20,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5acdd0b2_7c4aa636",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-02-19T11:39:59Z",
+      "side": 1,
+      "message": "Suggest adding a Trace::kFormatV1 and Trace::kFormatV2.",
+      "range": {
+        "startLine": 337,
+        "startChar": 17,
+        "endLine": 337,
+        "endChar": 18
+      },
+      "revId": "4bdc493fa2816a4f39a991cba398532998b04b05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e0a25733_e8831134",
         "filename": "runtime/trace.cc",
         "patchSetId": 3
@@ -36,6 +59,254 @@
         "startChar": 2,
         "endLine": 828,
         "endChar": 96
+      },
+      "revId": "4bdc493fa2816a4f39a991cba398532998b04b05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe785a8e_740af646",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 828,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-02-19T11:39:59Z",
+      "side": 1,
+      "message": "Is that version stored in file?",
+      "parentUuid": "e0a25733_e8831134",
+      "range": {
+        "startLine": 828,
+        "startChar": 2,
+        "endLine": 828,
+        "endChar": 96
+      },
+      "revId": "4bdc493fa2816a4f39a991cba398532998b04b05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b70c773c_18d51ea0",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1476,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-02-19T11:39:59Z",
+      "side": 1,
+      "message": "current_buffer_ptr for consistency.",
+      "range": {
+        "startLine": 1476,
+        "startChar": 11,
+        "endLine": 1476,
+        "endChar": 26
+      },
+      "revId": "4bdc493fa2816a4f39a991cba398532998b04b05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b6936ca_4c5221ba",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1489,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-02-19T11:39:59Z",
+      "side": 1,
+      "message": "diff against what?",
+      "range": {
+        "startLine": 1489,
+        "startChar": 87,
+        "endLine": 1489,
+        "endChar": 95
+      },
+      "revId": "4bdc493fa2816a4f39a991cba398532998b04b05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8724165_2be197a5",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1678,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-02-19T11:39:59Z",
+      "side": 1,
+      "message": "I though this was already handled by `Append4LE` ?",
+      "range": {
+        "startLine": 1678,
+        "startChar": 0,
+        "endLine": 1678,
+        "endChar": 11
+      },
+      "revId": "4bdc493fa2816a4f39a991cba398532998b04b05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c3a7cfa4_29f40284",
+        "filename": "test/2246-trace-v2/dump_trace.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-02-19T11:39:59Z",
+      "side": 1,
+      "message": "ditto `current_buffer_ptr`",
+      "range": {
+        "startLine": 125,
+        "startChar": 17,
+        "endLine": 125,
+        "endChar": 30
+      },
+      "revId": "4bdc493fa2816a4f39a991cba398532998b04b05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "520a5e5a_17c8340f",
+        "filename": "test/2246-trace-v2/dump_trace.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-02-19T11:39:59Z",
+      "side": 1,
+      "message": "current_depth",
+      "range": {
+        "startLine": 128,
+        "startChar": 6,
+        "endLine": 128,
+        "endChar": 16
+      },
+      "revId": "4bdc493fa2816a4f39a991cba398532998b04b05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "37450b44_f37b7666",
+        "filename": "test/2246-trace-v2/dump_trace.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-02-19T11:39:59Z",
+      "side": 1,
+      "message": "If it\u0027s not found, it\u0027s supposed to be 0?",
+      "revId": "4bdc493fa2816a4f39a991cba398532998b04b05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6fa730c6_3b7920db",
+        "filename": "test/2246-trace-v2/dump_trace.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-02-19T11:39:59Z",
+      "side": 1,
+      "message": "abort?",
+      "range": {
+        "startLine": 135,
+        "startChar": 0,
+        "endLine": 135,
+        "endChar": 55
+      },
+      "revId": "4bdc493fa2816a4f39a991cba398532998b04b05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8521523f_785eb8fa",
+        "filename": "test/2246-trace-v2/dump_trace.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-02-19T11:39:59Z",
+      "side": 1,
+      "message": "abort?",
+      "range": {
+        "startLine": 144,
+        "startChar": 0,
+        "endLine": 144,
+        "endChar": 45
+      },
+      "revId": "4bdc493fa2816a4f39a991cba398532998b04b05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba5bb2b8_f7f90434",
+        "filename": "test/2246-trace-v2/run.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-02-19T11:39:59Z",
+      "side": 1,
+      "message": "grammar",
+      "range": {
+        "startLine": 19,
+        "startChar": 4,
+        "endLine": 19,
+        "endChar": 78
+      },
+      "revId": "4bdc493fa2816a4f39a991cba398532998b04b05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "012e2469_07d8f303",
+        "filename": "test/2246-trace-v2/run.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-02-19T11:39:59Z",
+      "side": 1,
+      "message": "Is that a TODO?",
+      "range": {
+        "startLine": 20,
+        "startChar": 1,
+        "endLine": 21,
+        "endChar": 28
       },
       "revId": "4bdc493fa2816a4f39a991cba398532998b04b05",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
