@@ -114,6 +114,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3d749389_cba4c77a",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 493,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-19T14:50:03Z",
+      "side": 1,
+      "message": "From that page, you can find the \"RISC-V Code Size Reduction\" by following the link to \"RISC-V Recently Ratified Extensions\". Or you can instead follow the link to the \"RISC-V Specification Status\" where you can see it listed as \"Ratified\". (In Q2\u002723 if I read the status correctly.)",
+      "parentUuid": "c28cacb5_763e4e7c",
+      "range": {
+        "startLine": 493,
+        "startChar": 2,
+        "endLine": 493,
+        "endChar": 53
+      },
+      "revId": "6024f421908344ef92f356b2b2382c0a34d07387",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "742dd722_4624b427",
         "filename": "compiler/utils/riscv64/assembler_riscv64.h",
         "patchSetId": 7
