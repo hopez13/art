@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "a296f27e_9ea1e373",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-02-19T13:06:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1ab0f915_60ed4f8d",
+      "range": {
+        "startLine": 7,
+        "startChar": 36,
+        "endLine": 7,
+        "endChar": 49
+      },
+      "revId": "6024f421908344ef92f356b2b2382c0a34d07387",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "e652c988_6df2b973",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 7
@@ -64,6 +88,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c28cacb5_763e4e7c",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 493,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-02-19T13:06:40Z",
+      "side": 1,
+      "message": "AFAIK there is still no official documentation about this change and new instruction. I would add once spec released. \n\nP.S. I check this page http://riscv.org/technical/specifications/",
+      "parentUuid": "4eea1edb_e5297eb1",
+      "range": {
+        "startLine": 493,
+        "startChar": 2,
+        "endLine": 493,
+        "endChar": 53
+      },
+      "revId": "6024f421908344ef92f356b2b2382c0a34d07387",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "742dd722_4624b427",
@@ -77,6 +125,30 @@
       "writtenOn": "2024-02-16T16:52:58Z",
       "side": 1,
       "message": "Can you provide comments explaining these extract offset methods and their names? We want to grab `offset`, ignore the last two bits (equivalent to scaling down by 4), and rearrange it so that we have `{offset[5], offset[4:2], offset[7:6]}`",
+      "range": {
+        "startLine": 2115,
+        "startChar": 28,
+        "endLine": 2115,
+        "endChar": 46
+      },
+      "revId": "6024f421908344ef92f356b2b2382c0a34d07387",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "17ed4e0d_5f902801",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 2115,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-02-19T13:06:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "742dd722_4624b427",
       "range": {
         "startLine": 2115,
         "startChar": 28,
@@ -110,6 +182,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0b8e69e_a9fb1dc9",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 2145,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-02-19T13:06:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "158b9b86_3a5ac3d0",
+      "range": {
+        "startLine": 2145,
+        "startChar": 4,
+        "endLine": 2145,
+        "endChar": 18
+      },
+      "revId": "6024f421908344ef92f356b2b2382c0a34d07387",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "84a33ca7_363a331f",
@@ -123,6 +219,30 @@
       "writtenOn": "2024-02-16T16:52:58Z",
       "side": 1,
       "message": "extra space",
+      "range": {
+        "startLine": 2146,
+        "startChar": 18,
+        "endLine": 2146,
+        "endChar": 20
+      },
+      "revId": "6024f421908344ef92f356b2b2382c0a34d07387",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "43ddb116_84488280",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 2146,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-02-19T13:06:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "84a33ca7_363a331f",
       "range": {
         "startLine": 2146,
         "startChar": 18,
@@ -156,6 +276,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e452ae6b_7d7446ce",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 2157,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-02-19T13:06:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "44edf921_ac84c179",
+      "range": {
+        "startLine": 2157,
+        "startChar": 4,
+        "endLine": 2157,
+        "endChar": 18
+      },
+      "revId": "6024f421908344ef92f356b2b2382c0a34d07387",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "171b5ca7_712647aa",
@@ -169,6 +313,24 @@
       "writtenOn": "2024-02-16T16:52:58Z",
       "side": 1,
       "message": "Maybe add a comment that `0` is reserved",
+      "revId": "6024f421908344ef92f356b2b2382c0a34d07387",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "baac964d_2a9f7031",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 2167,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-02-19T13:06:40Z",
+      "side": 1,
+      "message": "Isn\u0027t \u0027non-zero\u0027 enough? Usually it means that `0` is reserved. I could add extra description but it seems like duplication of existed information.",
+      "parentUuid": "171b5ca7_712647aa",
       "revId": "6024f421908344ef92f356b2b2382c0a34d07387",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -337,6 +499,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b5f449f4_ef8b748a",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 2492,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-02-19T13:06:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1834821c_55ea7e8f",
+      "range": {
+        "startLine": 2492,
+        "startChar": 4,
+        "endLine": 2492,
+        "endChar": 20
+      },
+      "revId": "6024f421908344ef92f356b2b2382c0a34d07387",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d912a49d_5ebf2f28",
@@ -360,6 +546,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7a5f8e59_28323f52",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 2495,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-02-19T13:06:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d912a49d_5ebf2f28",
+      "range": {
+        "startLine": 2495,
+        "startChar": 4,
+        "endLine": 2495,
+        "endChar": 18
+      },
+      "revId": "6024f421908344ef92f356b2b2382c0a34d07387",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c48d76ee_1343b404",
@@ -373,6 +583,30 @@
       "writtenOn": "2024-02-16T16:52:58Z",
       "side": 1,
       "message": "nit: this can be `rd` too. In fact, in the three call sites of this CL, we use `rd`",
+      "range": {
+        "startLine": 2506,
+        "startChar": 64,
+        "endLine": 2506,
+        "endChar": 69
+      },
+      "revId": "6024f421908344ef92f356b2b2382c0a34d07387",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "be761489_52090ed7",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 2506,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-02-19T13:06:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c48d76ee_1343b404",
       "range": {
         "startLine": 2506,
         "startChar": 64,
@@ -444,6 +678,30 @@
       "side": 1,
       "message": "all `uoffsets` are fine by me. I\u0027d rather not have two different conventions in the same file if possible",
       "parentUuid": "92152800_3f302819",
+      "range": {
+        "startLine": 2528,
+        "startChar": 13,
+        "endLine": 2528,
+        "endChar": 20
+      },
+      "revId": "6024f421908344ef92f356b2b2382c0a34d07387",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "40bd0b86_a9d09bff",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 2528,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-02-19T13:06:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a19e4712_d5b122fa",
       "range": {
         "startLine": 2528,
         "startChar": 13,
