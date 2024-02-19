@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe9ba87d_958e3050",
+        "filename": "runtime/native/dalvik_system_VMRuntime.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 593,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-19T09:00:17Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be `\u003c\u003d`?",
+      "range": {
+        "startLine": 593,
+        "startChar": 48,
+        "endLine": 593,
+        "endChar": 49
+      },
+      "revId": "e3ec04c31975de12893a52d034cf8b2af5cc9b0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
