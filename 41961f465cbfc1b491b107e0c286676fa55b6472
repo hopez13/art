@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ed9a6d9f_6b5898d6",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 853,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-19T16:45:46Z",
+      "side": 1,
+      "message": "`rd \u003d\u003d 0` is listed as a hint. Do we want to allow `CAddi()` to emit a hint?",
+      "parentUuid": "a72b2958_5faf27a8",
+      "range": {
+        "startLine": 853,
+        "startChar": 0,
+        "endLine": 853,
+        "endChar": 22
+      },
+      "revId": "41961f465cbfc1b491b107e0c286676fa55b6472",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "063ce1a2_abc58e49",
         "filename": "compiler/utils/riscv64/assembler_riscv64.h",
         "patchSetId": 8
