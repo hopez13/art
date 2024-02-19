@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a72b2958_5faf27a8",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 853,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-02-19T16:39:41Z",
+      "side": 1,
+      "message": "`rd` can be zero",
+      "range": {
+        "startLine": 853,
+        "startChar": 0,
+        "endLine": 853,
+        "endChar": 22
+      },
+      "revId": "41961f465cbfc1b491b107e0c286676fa55b6472",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "063ce1a2_abc58e49",
         "filename": "compiler/utils/riscv64/assembler_riscv64.h",
         "patchSetId": 8
@@ -203,6 +226,75 @@
         "startChar": 4,
         "endLine": 2165,
         "endChar": 54
+      },
+      "revId": "41961f465cbfc1b491b107e0c286676fa55b6472",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2eafb4e5_b63a3835",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 3226,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-02-19T16:39:41Z",
+      "side": 1,
+      "message": "Is there a reason to not use all of the possible values?",
+      "range": {
+        "startLine": 3223,
+        "startChar": 0,
+        "endLine": 3226,
+        "endChar": 0
+      },
+      "revId": "41961f465cbfc1b491b107e0c286676fa55b6472",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a9edf1e4_54b13c72",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 3255,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-02-19T16:39:41Z",
+      "side": 1,
+      "message": "false",
+      "range": {
+        "startLine": 3255,
+        "startChar": 40,
+        "endLine": 3255,
+        "endChar": 44
+      },
+      "revId": "41961f465cbfc1b491b107e0c286676fa55b6472",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9c01c9e2_f66c7c0e",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 3339,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-02-19T16:39:41Z",
+      "side": 1,
+      "message": "-6?",
+      "range": {
+        "startLine": 3339,
+        "startChar": 37,
+        "endLine": 3339,
+        "endChar": 39
       },
       "revId": "41961f465cbfc1b491b107e0c286676fa55b6472",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
