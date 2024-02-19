@@ -359,6 +359,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4645a5b5_e86ffb44",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 2167,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-02-19T15:40:11Z",
+      "side": 1,
+      "message": "Ah, I missed the non-zero. Feel free to remove `// uimm \u003d\u003d 0 is reserved.` if you want.",
+      "parentUuid": "baac964d_2a9f7031",
+      "revId": "6024f421908344ef92f356b2b2382c0a34d07387",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2f392781_6d832381",
@@ -396,6 +414,30 @@
       "side": 1,
       "message": "No, it\u0027s not. `IsUint\u003c6\u003e(uimm)` is [0, 0x3f] and we need [0, 0x1f] and [0xfffe0, 0xfffff], corresponding to values passed to the non-C `Lui()`.\n\nDo you want to suggest improvements to the comment above?",
       "parentUuid": "2f392781_6d832381",
+      "range": {
+        "startLine": 2168,
+        "startChar": 25,
+        "endLine": 2168,
+        "endChar": 72
+      },
+      "revId": "6024f421908344ef92f356b2b2382c0a34d07387",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c8f9a8e_7a5ed853",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 2168,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-02-19T15:40:11Z",
+      "side": 1,
+      "message": "But that\u0027s not what we are checking here right? `IsImmCLuiEncodable` checks that `uimm` is a `non-zero 6-bit immediate`. This is supported by its use where we do `nzimm6 \u0026 MaskLeastSignificant\u003cuint32_t\u003e(6),` to keep just 6 bits alive.\n\nThe fact that this is then inserted in the destination register and all of that is irrelevant here if I understood correctly.",
+      "parentUuid": "30472d9e_a2bdd6ba",
       "range": {
         "startLine": 2168,
         "startChar": 25,
