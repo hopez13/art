@@ -448,6 +448,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "a581d0dd_49effb3a",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 2168,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-02-19T15:55:17Z",
+      "side": 1,
+      "message": "If we wanted to keep bits [17:12], shouldn\u0027t we do an extract method? (and don\u0027t call `MaskLeastSignificant`)",
+      "parentUuid": "3c8f9a8e_7a5ed853",
+      "range": {
+        "startLine": 2168,
+        "startChar": 25,
+        "endLine": 2168,
+        "endChar": 72
+      },
+      "revId": "6024f421908344ef92f356b2b2382c0a34d07387",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "441a18a1_361cde70",
