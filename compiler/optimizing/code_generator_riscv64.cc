@@ -5334,6 +5334,66 @@ void InstructionCodeGeneratorRISCV64::VisitXor(HXor* instruction) {
   HandleBinaryOp(instruction);
 }
 
+void LocationsBuilderRISCV64::VisitRiscv64ShiftAdd(HRiscv64ShiftAdd* instruction) {
+  DCHECK(codegen_->GetInstructionSetFeatures().HasZba());
+  DCHECK(DataType::IsIntegralType(instruction->GetType())) << instruction->GetType();
+
+  auto locations = new (GetGraph()->GetAllocator()) LocationSummary(instruction);
+  locations->SetInAt(0, Location::RequiresRegister());
+  locations->SetInAt(1, Location::RequiresRegister());
+  locations->SetOut(Location::RequiresRegister(), Location::kNoOutputOverlap);
+}
+
+void InstructionCodeGeneratorRISCV64::VisitRiscv64ShiftAdd(HRiscv64ShiftAdd* instruction) {
+  DCHECK_NE(instruction->GetType(), DataType::Type::kInt32);
+
+  LocationSummary* locations = instruction->GetLocations();
+  Location first = locations->InAt(0);
+  Location second = locations->InAt(1);
+  Location dest = locations->Out();
+
+  if (instruction->GetType() == DataType::Type::kInt64 ||
+      instruction->GetType() == DataType::Type::kUint64) {
+    switch (instruction->GetDistance()) {
+      case 1:
+        __ Sh1Add(dest.AsRegister<XRegister>(), first.AsRegister<XRegister>(),
+                  second.AsRegister<XRegister>());
+        break;
+      case 2:
+        __ Sh2Add(dest.AsRegister<XRegister>(), first.AsRegister<XRegister>(),
+                  second.AsRegister<XRegister>());
+        break;
+      case 3:
+        __ Sh3Add(dest.AsRegister<XRegister>(), first.AsRegister<XRegister>(),
+                  second.AsRegister<XRegister>());
+        break;
+      default:
+        UNREACHABLE();
+    };
+  } else if (instruction->GetType() == DataType::Type::kUint8 ||
+             instruction->GetType() == DataType::Type::kUint16 ||
+             instruction->GetType() == DataType::Type::kUint32) {
+    switch (instruction->GetDistance()) {
+      case 1:
+        __ Sh1AddUw(dest.AsRegister<XRegister>(), first.AsRegister<XRegister>(),
+                  second.AsRegister<XRegister>());
+        break;
+      case 2:
+        __ Sh2AddUw(dest.AsRegister<XRegister>(), first.AsRegister<XRegister>(),
+                  second.AsRegister<XRegister>());
+        break;
+      case 3:
+        __ Sh3AddUw(dest.AsRegister<XRegister>(), first.AsRegister<XRegister>(),
+                  second.AsRegister<XRegister>());
+        break;
+      default:
+        UNREACHABLE();
+    };
+  } else {
+    UNREACHABLE();
+  }
+}
+
 void LocationsBuilderRISCV64::VisitVecReplicateScalar(HVecReplicateScalar* instruction) {
   UNUSED(instruction);
   LOG(FATAL) << "Unimplemented";

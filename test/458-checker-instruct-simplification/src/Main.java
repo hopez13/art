@@ -2007,6 +2007,97 @@ public class Main {
            (value << (shift - c129));  // Needs a named constant to generate Sub.
   }
 
+  /// CHECK-START: int Main.$noinline$intRiscvShift1Add(int, int) instruction_simplifier_riscv64 (before)
+  /// CHECK:          <<A:i\d+>>        ParameterValue
+  /// CHECK:          <<B:i\d+>>        ParameterValue
+  /// CHECK:          <<One:i\d+>>      IntConstant 1
+  /// CHECK:          <<Shift:i\d+>>    Shl [<<A>>,<<One>>]
+  /// CHECK:          <<Add:i\d+>>      Add [<<B>>,<<Shift>>]
+  /// CHECK:          <<Return:v\d+>>   Return [<<Add>>]
+
+  /// CHECK-START: int Main.$noinline$intRiscvShift1Add(int, int) instruction_simplifier_riscv64 (after)
+  /// CHECK-NOT: Riscv64Shift1Add
+
+  public static int $noinline$intRiscvShift1Add(int a, int b) {
+    return (a << 1) + b;
+  }
+
+  /// CHECK-START: long Main.$noinline$longRiscvShift1Add(long, long) instruction_simplifier_riscv64 (before)
+  /// CHECK:          <<A:j\d+>>        ParameterValue
+  /// CHECK:          <<B:j\d+>>        ParameterValue
+  /// CHECK:          <<One:i\d+>>      IntConstant 1
+  /// CHECK:          <<Shift:j\d+>>    Shl [<<A>>,<<One>>]
+  /// CHECK:          <<Add:j\d+>>      Add [<<B>>,<<Shift>>]
+  /// CHECK:          <<Return:v\d+>>   Return [<<Add>>]
+
+  /// CHECK-START: long Main.$noinline$longRiscvShift1Add(long, long) instruction_simplifier_riscv64 (after)
+  /// CHECK:          <<A:j\d+>>        ParameterValue
+  /// CHECK:          <<B:j\d+>>        ParameterValue
+  /// CHECK:          <<ShiftAdd:j\d+>> Riscv64Shift1Add [<<A>>,<<B>>]
+  /// CHECK-NOT: Shl
+  /// CHECK-NOT: Add
+
+  public static long $noinline$longRiscvShift1Add(long a, long b) {
+    return (a << 1) + b;
+  }
+
+  /// CHECK-START: long Main.$noinline$longRiscvShift2Add(long, long) instruction_simplifier_riscv64 (before)
+  /// CHECK:          <<A:j\d+>>        ParameterValue
+  /// CHECK:          <<B:j\d+>>        ParameterValue
+  /// CHECK:          <<Two:i\d+>>      IntConstant 2
+  /// CHECK:          <<Shift:j\d+>>    Shl [<<A>>,<<Two>>]
+  /// CHECK:          <<Add:j\d+>>      Add [<<B>>,<<Shift>>]
+  /// CHECK:          <<Return:v\d+>>   Return [<<Add>>]
+
+  /// CHECK-START: long Main.$noinline$longRiscvShift2Add(long, long) instruction_simplifier_riscv64 (after)
+  /// CHECK:          <<A:j\d+>>        ParameterValue
+  /// CHECK:          <<B:j\d+>>        ParameterValue
+  /// CHECK:          <<ShiftAdd:j\d+>> Riscv64Shift2Add [<<A>>,<<B>>]
+  /// CHECK-NOT: Shl
+  /// CHECK-NOT: Add
+
+  public static long $noinline$longRiscvShift2Add(long a, long b) {
+    return (a << 2) + b;
+  }
+
+  /// CHECK-START: long Main.$noinline$longRiscvShift3Add(long, long) instruction_simplifier_riscv64 (before)
+  /// CHECK:          <<A:j\d+>>        ParameterValue
+  /// CHECK:          <<B:j\d+>>        ParameterValue
+  /// CHECK:          <<Three:i\d+>>    IntConstant 3
+  /// CHECK:          <<Shift:j\d+>>    Shl [<<A>>,<<Three>>]
+  /// CHECK:          <<Add:j\d+>>      Add [<<B>>,<<Shift>>]
+  /// CHECK:          <<Return:v\d+>>   Return [<<Add>>]
+
+  /// CHECK-START: long Main.$noinline$longRiscvShift3Add(long, long) instruction_simplifier_riscv64 (after)
+  /// CHECK:          <<A:j\d+>>        ParameterValue
+  /// CHECK:          <<B:j\d+>>        ParameterValue
+  /// CHECK:          <<ShiftAdd:j\d+>> Riscv64Shift3Add [<<A>>,<<B>>]
+  /// CHECK-NOT: Shl
+  /// CHECK-NOT: Add
+
+  public static long $noinline$longRiscvShift3Add(long a, long b) {
+    return (a << 3) + b;
+  }
+
+  /// CHECK-START: long Main.$noinline$longReverseRiscvShift3Add(long, long) instruction_simplifier_riscv64 (before)
+  /// CHECK:          <<A:j\d+>>        ParameterValue
+  /// CHECK:          <<B:j\d+>>        ParameterValue
+  /// CHECK:          <<Three:i\d+>>    IntConstant 3
+  /// CHECK:          <<Shift:j\d+>>    Shl [<<A>>,<<Three>>]
+  /// CHECK:          <<Add:j\d+>>      Add [<<B>>,<<Shift>>]
+  /// CHECK:          <<Return:v\d+>>   Return [<<Add>>]
+
+  /// CHECK-START: long Main.$noinline$longRiscvShift3Add(long, long) instruction_simplifier_riscv64 (after)
+  /// CHECK:          <<A:j\d+>>        ParameterValue
+  /// CHECK:          <<B:j\d+>>        ParameterValue
+  /// CHECK:          <<ShiftAdd:j\d+>> Riscv64Shift3Add [<<A>>,<<B>>]
+  /// CHECK-NOT: Shl
+  /// CHECK-NOT: Add
+
+  public static long $noinline$longReverseRiscvShift3Add(long a, long b) {
+    return b + (a << 3);
+  }
+
   /// CHECK-START: int Main.$noinline$intAddSubSimplifyArg1(int, int) instruction_simplifier (before)
   /// CHECK:          <<X:i\d+>>        ParameterValue
   /// CHECK:          <<Y:i\d+>>        ParameterValue
@@ -4093,6 +4184,28 @@ public class Main {
     assertIntEquals(0xbd4c29b0, $noinline$intUnnecessaryShiftModifications(0xabcdef01, 3));
     assertIntEquals(0xc0fed1ca, $noinline$intNecessaryShiftModifications(0xabcdef01, 2));
     assertIntEquals(0x03578ebc, $noinline$intNecessaryShiftModifications(0xabcdef01, 3));
+
+    assertLongEquals(-3, $noinline$longRiscvShift1Add(-1, -1));
+    assertLongEquals(-1, $noinline$longRiscvShift1Add(0, -1));
+    assertLongEquals(-2, $noinline$longRiscvShift1Add(-1, 0));
+    assertLongEquals(0, $noinline$longRiscvShift1Add(0, 0));
+    assertLongEquals(1, $noinline$longRiscvShift1Add(0, 1));
+    assertLongEquals(2, $noinline$longRiscvShift1Add(1, 0));
+    assertLongEquals(3, $noinline$longRiscvShift1Add(1, 1));
+
+    assertLongEquals(0, $noinline$longRiscvShift2Add(0, 0));
+    assertLongEquals(1, $noinline$longRiscvShift2Add(0, 1));
+    assertLongEquals(4, $noinline$longRiscvShift2Add(1, 0));
+    assertLongEquals(5, $noinline$longRiscvShift2Add(1, 1));
+
+    assertLongEquals(0, $noinline$longRiscvShift3Add(0, 0));
+    assertLongEquals(0, $noinline$longReverseRiscvShift3Add(0, 0));
+    assertLongEquals(1, $noinline$longRiscvShift3Add(0, 1));
+    assertLongEquals(1, $noinline$longReverseRiscvShift3Add(0, 1));
+    assertLongEquals(8, $noinline$longRiscvShift3Add(1, 0));
+    assertLongEquals(8, $noinline$longReverseRiscvShift3Add(1, 0));
+    assertLongEquals(9, $noinline$longRiscvShift3Add(1, 1));
+    assertLongEquals(9, $noinline$longReverseRiscvShift3Add(1, 1));
 
     assertIntEquals(654321, $noinline$intAddSubSimplifyArg1(arg, 654321));
     assertIntEquals(arg, $noinline$intAddSubSimplifyArg2(arg, 654321));
