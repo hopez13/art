@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc9a2f0d_38b5d36c",
+        "filename": "runtime/thread-inl.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2024-02-20T23:18:21Z",
+      "side": 1,
+      "message": "Not sure what you mean. Are you referring to the alignment of fault address? What is stored in the `next_` field of the very first barrier?",
+      "range": {
+        "startLine": 293,
+        "startChar": 42,
+        "endLine": 293,
+        "endChar": 52
+      },
+      "revId": "18d7d4c2f9035636856965e0ee36ca216f1d2d34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6932b76c_408ef8cc",
+        "filename": "runtime/thread.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2024-02-20T23:18:21Z",
+      "side": 1,
+      "message": "It seems you mistakenly added indentation here",
+      "range": {
+        "startLine": 305,
+        "startChar": 0,
+        "endLine": 305,
+        "endChar": 10
+      },
+      "revId": "18d7d4c2f9035636856965e0ee36ca216f1d2d34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "43165a59_ee1e75af",
+        "filename": "runtime/thread.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 1764,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2024-02-20T23:18:21Z",
+      "side": 1,
+      "message": "I don\u0027t understand this statement. Can you please rephrase.",
+      "range": {
+        "startLine": 1764,
+        "startChar": 5,
+        "endLine": 1764,
+        "endChar": 53
+      },
+      "revId": "18d7d4c2f9035636856965e0ee36ca216f1d2d34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

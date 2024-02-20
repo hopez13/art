@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "135366a4_be2a09c4",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 695,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2024-02-20T23:18:21Z",
+      "side": 1,
+      "message": "Can you please use parenthesis to avoid the need to look at the operator precedence table.",
+      "range": {
+        "startLine": 695,
+        "startChar": 38,
+        "endLine": 695,
+        "endChar": 79
+      },
+      "revId": "30bcde11e0a40a493776f018ae4c452152dfab16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "597c015e_7b0eff17",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 949,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2024-02-20T23:18:21Z",
+      "side": 1,
+      "message": "Couldn\u0027t find where the name is being used.",
+      "range": {
+        "startLine": 949,
+        "startChar": 20,
+        "endLine": 949,
+        "endChar": 24
+      },
+      "revId": "30bcde11e0a40a493776f018ae4c452152dfab16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae337a27_1430c447",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1138,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2024-02-20T23:18:21Z",
+      "side": 1,
+      "message": "Just to be clear: as of this CL you are not really using this approach yet, right? This CL supports it and a future CL will actually use it?",
+      "range": {
+        "startLine": 1138,
+        "startChar": 8,
+        "endLine": 1138,
+        "endChar": 20
+      },
+      "revId": "30bcde11e0a40a493776f018ae4c452152dfab16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "356cebdf_2ffe2d3b",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1139,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2024-02-20T23:18:21Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 1139,
+        "startChar": 88,
+        "endLine": 1139,
+        "endChar": 92
+      },
+      "revId": "30bcde11e0a40a493776f018ae4c452152dfab16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "19a1eea5_6e1e64b1",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1145,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2024-02-20T23:18:21Z",
+      "side": 1,
+      "message": "Curious, why not `break`?",
+      "range": {
+        "startLine": 1145,
+        "startChar": 8,
+        "endLine": 1145,
+        "endChar": 16
+      },
+      "revId": "30bcde11e0a40a493776f018ae4c452152dfab16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
