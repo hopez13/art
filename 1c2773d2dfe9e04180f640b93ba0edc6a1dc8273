@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd790a12_43dd2320",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2024-02-20T18:48:45Z",
+      "side": 1,
+      "message": "```\n    FILE SIZE        VM SIZE    \n --------------  -------------- \n   +28%  +419Ki   +28%  +419Ki    LOAD #1 [R]\n    +175%  +259Ki  +175%  +259Ki    .dynstr\n    +133% +81.7Ki  +133% +81.7Ki    .dynsym\n    +5.0% +38.5Ki  +5.0% +38.5Ki    .eh_frame\n    +159% +21.0Ki  +159% +21.0Ki    .gnu.hash\n    +8.0% +9.43Ki  +8.0% +9.43Ki    .eh_frame_hdr\n    +133% +6.81Ki  +133% +6.81Ki    .gnu.version\n    +0.6% +2.16Ki  +0.6% +2.16Ki    .rodata\n    +0.5%    +168  +0.5%    +168    .rela.plt\n    +7.0%    +168  +7.0%    +168    .relr.dyn\n    +0.7%     +40  +0.7%     +40    .rela.dyn\n    +0.9%      +4  +0.9%      +4    .gnu.version_r\n  +1.7%  +136Ki  +1.7%  +136Ki    LOAD #2 [RX]\n    +1.7%  +135Ki  +1.7%  +135Ki    .text\n    +0.5%    +112  +0.5%    +112    .plt\n  +5.8% +8.70Ki  +5.8% +8.70Ki    LOAD #3 [RW]\n    +4.1% +5.51Ki  +4.1% +5.51Ki    .data.rel.ro\n     +80% +3.13Ki   +80% +3.13Ki    .got\n    +0.5%     +56  +0.5%     +56    .got.plt\n  [ \u003d ]       0  -0.0%     -24    LOAD #4 [RW]\n    [ \u003d ]       0  -0.0%     -16    .bss\n    [ \u003d ]       0  -0.1%      -8    .data\n -47.0%  -593Ki  [ \u003d ]       0    [Unmapped]\n   -12.3% -37.8Ki  [ \u003d ]       0    .gnu_debugdata\n   -58.3%  -555Ki  [ \u003d ]       0    [Unmapped]\n  -0.3% -29.1Ki  +5.9%  +564Ki    TOTAL\n```",
+      "revId": "1c2773d2dfe9e04180f640b93ba0edc6a1dc8273",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
