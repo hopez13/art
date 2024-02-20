@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2bc0633d_d7ce9b60",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1813,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-20T15:54:24Z",
+      "side": 1,
+      "message": "No, `11` is correct. The spec shows `imm[11|4|9:8|10|6|7|3:1|5]` in bits 2-12, so the `imm[11]` is in bit 12 and the `imm[4]` is in bit 11.",
+      "parentUuid": "06c9c27a_2a33dbd3",
+      "range": {
+        "startLine": 1813,
+        "startChar": 87,
+        "endLine": 1813,
+        "endChar": 89
+      },
+      "revId": "557bb81523a67e06c1e8ad486350ce997191b02e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "568074eb_8d1a50f2",
@@ -54,6 +78,30 @@
       "writtenOn": "2024-02-20T15:41:48Z",
       "side": 1,
       "message": "11",
+      "range": {
+        "startLine": 1816,
+        "startChar": 87,
+        "endLine": 1816,
+        "endChar": 89
+      },
+      "revId": "557bb81523a67e06c1e8ad486350ce997191b02e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "72523f24_05ea58e5",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1816,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-20T15:54:24Z",
+      "side": 1,
+      "message": "`12` is correct, see the comment above.",
+      "parentUuid": "568074eb_8d1a50f2",
       "range": {
         "startLine": 1816,
         "startChar": 87,
