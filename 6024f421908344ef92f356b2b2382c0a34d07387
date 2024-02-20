@@ -520,6 +520,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a9feea4_b1c6afe1",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 2168,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-02-20T08:41:50Z",
+      "side": 1,
+      "message": "Let me see if I got this right: The input to `IsImmCLuiEncodable` is not a full 32 bits value, but its bits `[31:12]` (where the bit `17` marks the sign bit) shifted towards the bottom i.e. bits `[19:0]` are the meaningful ones.\n\nSince we want a signed `non-zero 6-bit immediate` we want to keep values in the range `[0, 0x1f]`, and the range `[0xfffe0, 0xfffff]` for negative values since the sign bit was bit `17` (which is now bit `5` and replicated in the higher bits too)",
+      "parentUuid": "098200c1_51446f5a",
+      "range": {
+        "startLine": 2168,
+        "startChar": 25,
+        "endLine": 2168,
+        "endChar": 72
+      },
+      "revId": "6024f421908344ef92f356b2b2382c0a34d07387",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "441a18a1_361cde70",
