@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "02902017_0b435d8b",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-02-20T16:26:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9346e5c6_40641fe0",
+      "revId": "ad4fbb4edbdbc484a77b53e36057bfc444480398",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "580a1e5a_f676d5a0",
@@ -58,6 +76,48 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c0e5ce23_30dc5792",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-02-20T16:26:50Z",
+      "side": 1,
+      "message": "It is from `CL/S-type instruction` which stands for `Load/Store-type`. Since both have the same encoding I merged them into single M (Memory) instruction type",
+      "parentUuid": "99fab7fb_5dd1defe",
+      "range": {
+        "startLine": 114,
+        "startChar": 27,
+        "endLine": 114,
+        "endChar": 28
+      },
+      "revId": "ad4fbb4edbdbc484a77b53e36057bfc444480398",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "46791cf0_c47f57f1",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-02-20T16:26:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "580a1e5a_f676d5a0",
+      "revId": "ad4fbb4edbdbc484a77b53e36057bfc444480398",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ad0c62d3_0c6599e2",
@@ -81,6 +141,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f60f5bc4_e85a7572",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-02-20T16:26:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ad0c62d3_0c6599e2",
+      "range": {
+        "startLine": 137,
+        "startChar": 25,
+        "endLine": 137,
+        "endChar": 27
+      },
+      "revId": "ad4fbb4edbdbc484a77b53e36057bfc444480398",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1ebec96e_3ad0bf79",
@@ -94,6 +178,30 @@
       "writtenOn": "2024-02-20T15:41:48Z",
       "side": 1,
       "message": "nit: `T must be integral` or `Needs an integral type`",
+      "range": {
+        "startLine": 144,
+        "startChar": 42,
+        "endLine": 144,
+        "endChar": 59
+      },
+      "revId": "ad4fbb4edbdbc484a77b53e36057bfc444480398",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "32d001df_66c489b2",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-02-20T16:26:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1ebec96e_3ad0bf79",
       "range": {
         "startLine": 144,
         "startChar": 42,
@@ -140,6 +248,30 @@
       "writtenOn": "2024-02-20T15:41:48Z",
       "side": 1,
       "message": "Suggestion: Add comment `// Quadrant 0` as that\u0027s how they are ordered in the figures in the manual. Similar for others",
+      "range": {
+        "startLine": 1620,
+        "startChar": 4,
+        "endLine": 1620,
+        "endChar": 15
+      },
+      "revId": "ad4fbb4edbdbc484a77b53e36057bfc444480398",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8090ec04_22f28323",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 1620,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-02-20T16:26:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b6422916_598a70bb",
       "range": {
         "startLine": 1620,
         "startChar": 4,
