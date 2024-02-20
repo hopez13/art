@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "80281970_5d37035c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-02-20T15:11:07Z",
+      "side": 1,
+      "message": "I am not sure what is the best way to test auto-compression of SextB, SextH, ZextH and ZextH instructions. The problem is that clang assembler does not recognize sequence as compressed instruction so there is a need for some complex scheme. Probably it could be tested using format selector but I am not sure.",
+      "revId": "825ae8e8abb902a05e5a3c5deb32416dee0fdfbb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
