@@ -46,6 +46,29 @@
       },
       "revId": "62bb5ed002087c6549f502fa2988bffc43704d54",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dd8cea03_4c2ca62a",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 1646,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-20T17:01:58Z",
+      "side": 1,
+      "message": "clang-tidy error:\n\n`art/disassembler/disassembler_riscv64.cc:1646:  At least two spaces is best between code and comments  [whitespace/comments] [2]`\n\nSame for the other \"Quadrant\" comments.",
+      "range": {
+        "startLine": 1646,
+        "startChar": 15,
+        "endLine": 1646,
+        "endChar": 16
+      },
+      "revId": "62bb5ed002087c6549f502fa2988bffc43704d54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
