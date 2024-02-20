@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d904ed3_fb0c7346",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1669,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-02-20T10:10:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ad0b6fef_5f7e6115",
+      "range": {
+        "startLine": 1667,
+        "startChar": 14,
+        "endLine": 1669,
+        "endChar": 20
+      },
+      "revId": "1322628b7fa2db6bc1756f75ea5951091bd6db81",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "366dbccb_fbec7baa",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-02-20T08:14:44Z",
       "side": 1,
       "message": "Missing `\u003c\u003c \", \"`. Same for all the other places where I asked you to remove `StringPrintf(\", %04d\", ...)`.",
+      "range": {
+        "startLine": 1707,
+        "startChar": 49,
+        "endLine": 1707,
+        "endChar": 50
+      },
+      "revId": "1322628b7fa2db6bc1756f75ea5951091bd6db81",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "796a333c_88168ffc",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1707,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-02-20T10:10:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "366dbccb_fbec7baa",
       "range": {
         "startLine": 1707,
         "startChar": 49,
