@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f985698_891bc950",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 964,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-20T08:05:36Z",
+      "side": 1,
+      "message": "Add suffix \"u\" to \"Zcb\" to keep consistent style.",
+      "range": {
+        "startLine": 964,
+        "startChar": 12,
+        "endLine": 964,
+        "endChar": 20
+      },
+      "revId": "62ff60b332a4b64b79d6d0388ee1d305e0453cf7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7352901_213ed431",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 3392,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-20T08:05:36Z",
+      "side": 1,
+      "message": "Add parameter names to all \"Zcb\" load/store instruction tests.",
+      "range": {
+        "startLine": 3392,
+        "startChar": 50,
+        "endLine": 3392,
+        "endChar": 54
+      },
+      "revId": "62ff60b332a4b64b79d6d0388ee1d305e0453cf7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
