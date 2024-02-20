@@ -197,6 +197,38 @@ static inline bool DecodeSignedLeb128Checked(const uint8_t** data,
   return true;
 }
 
+static inline bool Decode64bitSignedLeb128Checked(const uint8_t** data,
+                                                  const void* end,
+                                                  int64_t* out) {
+  const uint8_t* ptr = *data;
+  int64_t result = 0;
+  // We have 64-bits and we can encode 7-bits per byte in leb128. The last byte
+  // can use all 8-bits. So we need a maximum of 9 bytes to encode a 64-bit
+  // value.
+  const int max_bytes = 9;
+  for (int index = 0; index < max_bytes; index++) {
+    if (ptr >= end) {
+      return false;
+    }
+
+    uint64_t curr = *(ptr++);
+    result |= ((curr & 0x7f) << (index * 7));
+    if (curr <= 0x7f) {
+      // End of encoding. We need to sign extend the result. If we are using all
+      // the bits then the result is already sign extended and we don't need to
+      // do anything.
+      if (index < max_bytes - 1) {
+        int shift = 64 - ((index + 1) * 7);
+        result = (result << shift) >> shift;
+      }
+      break;
+    }
+  }
+  *out = result;
+  *data = ptr;
+  return true;
+}
+
 // Returns the number of bytes needed to encode the value in unsigned LEB128.
 static inline uint32_t UnsignedLeb128Size(uint32_t data) {
   // bits_to_encode = (data != 0) ? 32 - CLZ(x) : 1  // 32 - CLZ(data | 1)
@@ -283,6 +315,19 @@ static inline void UpdateUnsignedLeb128(uint8_t* dest, uint32_t value) {
 
 static inline uint8_t* EncodeSignedLeb128(uint8_t* dest, int32_t value) {
   uint32_t extra_bits = static_cast<uint32_t>(value ^ (value >> 31)) >> 6;
+  uint8_t out = value & 0x7f;
+  while (extra_bits != 0u) {
+    *dest++ = out | 0x80;
+    value >>= 7;
+    out = value & 0x7f;
+    extra_bits >>= 7;
+  }
+  *dest++ = out;
+  return dest;
+}
+
+static inline uint8_t* Encode64bitSignedLeb128(uint8_t* dest, int64_t value) {
+  uint64_t extra_bits = static_cast<uint64_t>(value ^ (value >> 63)) >> 6;
   uint8_t out = value & 0x7f;
   while (extra_bits != 0u) {
     *dest++ = out | 0x80;

@@ -35,22 +35,27 @@ static const int kTraceEntries = 2;
 static const int kTraceActionBits = 2;
 static const int kSummary = 3;
 
-int ReadNumber(int num_bytes, uint8_t* header) {
-  int number = 0;
+uint64_t ReadNumber(int num_bytes, uint8_t* header) {
+  uint64_t number = 0;
   for (int i = 0; i < num_bytes; i++) {
-    number += header[i] << (i * 8);
+    uint64_t c = header[i];
+    number += c << (i * 8);
   }
   return number;
 }
 
-bool ProcessThreadOrMethodInfo(std::unique_ptr<File>& file, std::map<int, std::string>& name_map) {
-  uint8_t header[6];
-  if (!file->ReadFully(&header, sizeof(header))) {
+bool ProcessThreadOrMethodInfo(std::unique_ptr<File>& file,
+                               std::map<uint64_t, std::string>& name_map,
+                               bool is_method) {
+  uint8_t header[10];
+  uint8_t header_length = is_method ? 10 : 6;
+  if (!file->ReadFully(&header, header_length)) {
     printf("Couldn't read header\n");
     return false;
   }
-  int id = ReadNumber(4, header);
-  int length = ReadNumber(2, header + 4);
+  uint8_t num_bytes_for_id = is_method ? 8 : 4;
+  uint64_t id = ReadNumber(num_bytes_for_id, header);
+  int length = ReadNumber(2, header + num_bytes_for_id);
 
   char* name = new char[length];
   if (!file->ReadFully(name, length)) {
@@ -92,19 +97,19 @@ void print_trace_entry(const std::string& thread_name,
 
 bool ProcessTraceEntries(std::unique_ptr<File>& file,
                          std::map<int, int>& current_depth_map,
-                         std::map<int, std::string>& thread_map,
-                         std::map<int, std::string>& method_map,
+                         std::map<uint64_t, std::string>& thread_map,
+                         std::map<uint64_t, std::string>& method_map,
                          bool is_dual_clock,
                          const char* thread_name_filter) {
-  uint8_t header[20];
-  int header_size = is_dual_clock ? 20 : 16;
+  uint8_t header[24];
+  int header_size = is_dual_clock ? 24 : 20;
   if (!file->ReadFully(header, header_size)) {
     return false;
   }
 
   uint32_t thread_id = ReadNumber(4, header);
-  uint32_t method_value = ReadNumber(4, header + 4);
-  int offset = 8;
+  uint64_t method_value = ReadNumber(8, header + 4);
+  int offset = 12;
   if (is_dual_clock) {
     // Read timestamp.
     ReadNumber(4, header + offset);
@@ -123,8 +128,8 @@ bool ProcessTraceEntries(std::unique_ptr<File>& file,
   }
 
   const uint8_t* current_buffer_ptr = buffer;
-  int32_t method_id = method_value >> kTraceActionBits;
   uint8_t event_type = method_value & 0x3;
+  uint64_t method_id = (method_value >> kTraceActionBits) << kTraceActionBits;
   int current_depth = 0;
   if (current_depth_map.find(thread_id) != current_depth_map.end()) {
     // Get the current call stack depth. If it is the first method we are seeing on this thread
@@ -134,20 +139,25 @@ bool ProcessTraceEntries(std::unique_ptr<File>& file,
   std::string thread_name = thread_map[thread_id];
   bool print_thread_events = (thread_name.compare(thread_name_filter) == 0);
   if (method_map.find(method_id) == method_map.end()) {
-    LOG(FATAL) << "No entry for init method " << method_id;
+    LOG(FATAL) << "No entry for init method " << std::hex << method_id << " " << method_value;
   }
   if (print_thread_events) {
     print_trace_entry(thread_name, method_map[method_id], &current_depth, event_type);
   }
+  int64_t prev_method_value = method_value;
   for (int i = 0; i < num_records; i++) {
-    int32_t diff = 0;
-    bool success = DecodeSignedLeb128Checked(&current_buffer_ptr, buffer + total_size - 1, &diff);
-    if (!success) {
+    int64_t diff = 0;
+    auto buffer_ptr = current_buffer_ptr;
+    if (!Decode64bitSignedLeb128Checked(&current_buffer_ptr, buffer + total_size - 1, &diff)) {
       LOG(FATAL) << "Reading past the buffer???";
     }
-    int32_t curr_method_value = method_value + diff;
-    method_id = curr_method_value >> kTraceActionBits;
+    int64_t curr_method_value = prev_method_value + diff;
+    prev_method_value = curr_method_value;
     event_type = curr_method_value & 0x3;
+    method_id = (curr_method_value >> kTraceActionBits) << kTraceActionBits;
+    if (method_map.find(method_id) == method_map.end()) {
+      LOG(FATAL) << "No entry for method " << std::hex << method_id;
+    }
     if (print_thread_events) {
       print_trace_entry(thread_name, method_map[method_id], &current_depth, event_type);
     }
@@ -167,8 +177,8 @@ extern "C" JNIEXPORT void JNICALL Java_Main_dumpTrace(JNIEnv* env,
                                                       jstring threadName) {
   const char* file_name = env->GetStringUTFChars(fileName, nullptr);
   const char* thread_name = env->GetStringUTFChars(threadName, nullptr);
-  std::map<int, std::string> thread_map;
-  std::map<int, std::string> method_map;
+  std::map<uint64_t, std::string> thread_map;
+  std::map<uint64_t, std::string> method_map;
   std::map<int, int> current_depth_map;
 
   std::unique_ptr<File> file(OS::OpenFileForReading(file_name));
@@ -178,8 +188,7 @@ extern "C" JNIEXPORT void JNICALL Java_Main_dumpTrace(JNIEnv* env,
   }
 
   uint8_t header[32];
-  const bool success = file->ReadFully(&header, sizeof(header));
-  if (!success) {
+  if (!file->ReadFully(&header, sizeof(header))) {
     printf("Couldn't read header\n");
     return;
   }
@@ -189,9 +198,7 @@ extern "C" JNIEXPORT void JNICALL Java_Main_dumpTrace(JNIEnv* env,
     return;
   }
   int version = ReadNumber(2, header + 4);
-  if (success) {
-    printf("version=%0x\n", version);
-  }
+  printf("version=%0x\n", version);
 
   bool is_dual_clock = (version == kVersionDualClock);
   bool has_entries = true;
@@ -202,12 +209,12 @@ extern "C" JNIEXPORT void JNICALL Java_Main_dumpTrace(JNIEnv* env,
     }
     switch (entry_header) {
       case kThreadInfo:
-        if (!ProcessThreadOrMethodInfo(file, thread_map)) {
+        if (!ProcessThreadOrMethodInfo(file, thread_map, /*is_method=*/false)) {
           has_entries = false;
         }
         break;
       case kMethodInfo:
-        if (!ProcessThreadOrMethodInfo(file, method_map)) {
+        if (!ProcessThreadOrMethodInfo(file, method_map, /*is_method=*/true)) {
           has_entries = false;
         }
         break;
