@@ -96,6 +96,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cf412ae3_6c2e41be",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 853,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-20T08:53:23Z",
+      "side": 1,
+      "message": "Are you looking at an old spec? It says `dest!\u003d0` in `riscv-spec-20191213.pdf`.",
+      "parentUuid": "d43e422b_7a989ff0",
+      "range": {
+        "startLine": 853,
+        "startChar": 0,
+        "endLine": 853,
+        "endChar": 22
+      },
+      "revId": "41961f465cbfc1b491b107e0c286676fa55b6472",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "063ce1a2_abc58e49",

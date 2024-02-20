@@ -49,6 +49,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9dd8ac15_b5e70968",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-20T08:53:23Z",
+      "side": 1,
+      "message": "I would consider this a temporary measure to test these instructions. I\u0027m planning to rewrite this after merging. (Add all supported extensions to the default options, replace `use_simple_arch_` with `std::optional\u003c.\u003e march_override_`, ...)",
+      "parentUuid": "bcb88916_9402c163",
+      "range": {
+        "startLine": 87,
+        "startChar": 59,
+        "endLine": 87,
+        "endChar": 66
+      },
+      "revId": "62ff60b332a4b64b79d6d0388ee1d305e0453cf7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b7352901_213ed431",
         "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
         "patchSetId": 10
