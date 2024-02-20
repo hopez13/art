@@ -1,0 +1,153 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9346e5c6_40641fe0",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-02-20T15:41:48Z",
+      "side": 1,
+      "message": "Can we add comments for these methods e.g. ```Extracts the offset from a compressed instruction where `offset[5:3]` is in bits `[12:10]` and `offset[2|6]` is in bits `[6:5]` ```",
+      "revId": "ad4fbb4edbdbc484a77b53e36057bfc444480398",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "580a1e5a_f676d5a0",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-02-20T15:41:48Z",
+      "side": 1,
+      "message": "`DCHECK(IsInt\u003c16\u003e(insn16));`. Similar for others",
+      "revId": "ad4fbb4edbdbc484a77b53e36057bfc444480398",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99fab7fb_5dd1defe",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-02-20T15:41:48Z",
+      "side": 1,
+      "message": "What does the `M` represent here?",
+      "range": {
+        "startLine": 114,
+        "startChar": 27,
+        "endLine": 114,
+        "endChar": 28
+      },
+      "revId": "ad4fbb4edbdbc484a77b53e36057bfc444480398",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ad0c62d3_0c6599e2",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-02-20T15:41:48Z",
+      "side": 1,
+      "message": "Suggestion: `\u003c`. It doesn\u0027t make sense to use `32`. Also in the case that this code gets reused in a 32-bit arch we might run into undefined behavior with the shifts.",
+      "range": {
+        "startLine": 137,
+        "startChar": 25,
+        "endLine": 137,
+        "endChar": 27
+      },
+      "revId": "ad4fbb4edbdbc484a77b53e36057bfc444480398",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ebec96e_3ad0bf79",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-02-20T15:41:48Z",
+      "side": 1,
+      "message": "nit: `T must be integral` or `Needs an integral type`",
+      "range": {
+        "startLine": 144,
+        "startChar": 42,
+        "endLine": 144,
+        "endChar": 59
+      },
+      "revId": "ad4fbb4edbdbc484a77b53e36057bfc444480398",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d5b01eb_0dc66bc1",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-02-20T15:41:48Z",
+      "side": 1,
+      "message": "It\u0027s a bit confusing that these methods are also used to get Rd. It\u0027s fine to keep as-is because I don\u0027t think we can have something better.",
+      "range": {
+        "startLine": 164,
+        "startChar": 0,
+        "endLine": 165,
+        "endChar": 95
+      },
+      "revId": "ad4fbb4edbdbc484a77b53e36057bfc444480398",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b6422916_598a70bb",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 1620,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-02-20T15:41:48Z",
+      "side": 1,
+      "message": "Suggestion: Add comment `// Quadrant 0` as that\u0027s how they are ordered in the figures in the manual. Similar for others",
+      "range": {
+        "startLine": 1620,
+        "startChar": 4,
+        "endLine": 1620,
+        "endChar": 15
+      },
+      "revId": "ad4fbb4edbdbc484a77b53e36057bfc444480398",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
