@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f6a59787_cfd092c4",
+        "filename": "dex2oat/driver/compiler_driver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 472,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-02-21T16:30:27Z",
+      "side": 1,
+      "message": "Removed.",
+      "parentUuid": "72385419_998204c8",
+      "range": {
+        "startLine": 472,
+        "startChar": 70,
+        "endLine": 472,
+        "endChar": 95
+      },
+      "revId": "c144d9f461caa469b5b8d573a20b4caf08d2b38c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fcc72c44_65729b68",
@@ -95,6 +119,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e07c7e42_ed1f5886",
+        "filename": "dex2oat/driver/compiler_driver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 494,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-02-21T16:30:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "08791bdc_56997b90",
+      "range": {
+        "startLine": 493,
+        "startChar": 12,
+        "endLine": 494,
+        "endChar": 45
+      },
+      "revId": "c144d9f461caa469b5b8d573a20b4caf08d2b38c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "716f9885_8d5dbcce",
@@ -108,6 +156,30 @@
       "writtenOn": "2024-01-25T16:20:15Z",
       "side": 1,
       "message": "Remove \"could\". We skip the compilation.",
+      "range": {
+        "startLine": 496,
+        "startChar": 85,
+        "endLine": 496,
+        "endChar": 90
+      },
+      "revId": "c144d9f461caa469b5b8d573a20b4caf08d2b38c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1da1fa7a_b6d4f68b",
+        "filename": "dex2oat/driver/compiler_driver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 496,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-02-21T16:30:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "716f9885_8d5dbcce",
       "range": {
         "startLine": 496,
         "startChar": 85,
@@ -141,6 +213,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "87ad61ef_6989d9c4",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1479,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-02-21T16:30:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5000c8af_f020bb3b",
+      "range": {
+        "startLine": 1478,
+        "startChar": 10,
+        "endLine": 1479,
+        "endChar": 56
+      },
+      "revId": "c144d9f461caa469b5b8d573a20b4caf08d2b38c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bae681fc_ca3ee3d8",
@@ -154,6 +250,30 @@
       "writtenOn": "2024-01-25T16:20:15Z",
       "side": 1,
       "message": "Unnecessary `reinterpret_cast\u003c\u003e` to the same type as input.",
+      "range": {
+        "startLine": 3089,
+        "startChar": 24,
+        "endLine": 3089,
+        "endChar": 64
+      },
+      "revId": "c144d9f461caa469b5b8d573a20b4caf08d2b38c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0d0c23c_b1de225a",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3089,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-02-21T16:30:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bae681fc_ca3ee3d8",
       "range": {
         "startLine": 3089,
         "startChar": 24,
@@ -187,6 +307,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "98c0339f_43865e00",
+        "filename": "dex2oat/linker/image_writer.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-02-21T16:30:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "afe0294e_a0be067a",
+      "range": {
+        "startLine": 213,
+        "startChar": 7,
+        "endLine": 213,
+        "endChar": 29
+      },
+      "revId": "c144d9f461caa469b5b8d573a20b4caf08d2b38c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d371159a_6fa693ec",
@@ -200,6 +344,30 @@
       "writtenOn": "2024-01-25T16:20:15Z",
       "side": 1,
       "message": "`kJniStubMethods`",
+      "range": {
+        "startLine": 214,
+        "startChar": 4,
+        "endLine": 214,
+        "endChar": 18
+      },
+      "revId": "c144d9f461caa469b5b8d573a20b4caf08d2b38c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7172d27c_42f96a39",
+        "filename": "dex2oat/linker/image_writer.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-02-21T16:30:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d371159a_6fa693ec",
       "range": {
         "startLine": 214,
         "startChar": 4,
@@ -233,6 +401,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "191985a6_c06b44aa",
+        "filename": "dex2oat/linker/image_writer.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 456,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-02-21T16:30:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6aa5dc25_8f689460",
+      "range": {
+        "startLine": 456,
+        "startChar": 7,
+        "endLine": 456,
+        "endChar": 32
+      },
+      "revId": "c144d9f461caa469b5b8d573a20b4caf08d2b38c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6a3973ba_ee164662",
@@ -246,6 +438,30 @@
       "writtenOn": "2024-01-25T16:20:15Z",
       "side": 1,
       "message": "`AssignJniStubMethodOffset`",
+      "range": {
+        "startLine": 503,
+        "startChar": 7,
+        "endLine": 503,
+        "endChar": 32
+      },
+      "revId": "c144d9f461caa469b5b8d573a20b4caf08d2b38c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "08f00199_298c90c6",
+        "filename": "dex2oat/linker/image_writer.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 503,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-02-21T16:30:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6a3973ba_ee164662",
       "range": {
         "startLine": 503,
         "startChar": 7,
@@ -279,6 +495,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9900bc21_83b537e8",
+        "filename": "dex2oat/linker/image_writer.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 541,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-02-21T16:30:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "456902c5_7e4e2d00",
+      "range": {
+        "startLine": 541,
+        "startChar": 9,
+        "endLine": 541,
+        "endChar": 32
+      },
+      "revId": "c144d9f461caa469b5b8d573a20b4caf08d2b38c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cc7623a7_7f147755",
@@ -292,6 +532,30 @@
       "writtenOn": "2024-01-25T16:20:15Z",
       "side": 1,
       "message": "`jni_stub_map_`",
+      "range": {
+        "startLine": 662,
+        "startChar": 13,
+        "endLine": 662,
+        "endChar": 28
+      },
+      "revId": "c144d9f461caa469b5b8d573a20b4caf08d2b38c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4859c6bb_cd4e3b2c",
+        "filename": "dex2oat/linker/image_writer.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 662,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-02-21T16:30:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cc7623a7_7f147755",
       "range": {
         "startLine": 662,
         "startChar": 13,
@@ -325,6 +589,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "335ca919_75ea4adc",
+        "filename": "dex2oat/linker/image_writer.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 665,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-02-21T16:30:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "54e7b4d9_0eee6ff8",
+      "range": {
+        "startLine": 664,
+        "startChar": 2,
+        "endLine": 665,
+        "endChar": 75
+      },
+      "revId": "c144d9f461caa469b5b8d573a20b4caf08d2b38c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1a9f163d_1de58f8f",
@@ -338,6 +626,30 @@
       "writtenOn": "2024-01-25T16:20:15Z",
       "side": 1,
       "message": "This would be unnecessary if we changed `ClassLinker::boot_native_methods_` to map directly to the code.",
+      "range": {
+        "startLine": 669,
+        "startChar": 35,
+        "endLine": 669,
+        "endChar": 56
+      },
+      "revId": "c144d9f461caa469b5b8d573a20b4caf08d2b38c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d4d5c16_62e255f1",
+        "filename": "dex2oat/linker/image_writer.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 669,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-02-21T16:30:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1a9f163d_1de58f8f",
       "range": {
         "startLine": 669,
         "startChar": 35,
@@ -371,6 +683,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "471ce281_85180ce6",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1063,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-02-21T16:30:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e43f6b3b_da995ba0",
+      "range": {
+        "startLine": 1063,
+        "startChar": 8,
+        "endLine": 1063,
+        "endChar": 31
+      },
+      "revId": "c144d9f461caa469b5b8d573a20b4caf08d2b38c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a412be7f_ca7c00a8",
@@ -384,6 +720,30 @@
       "writtenOn": "2024-01-25T16:20:15Z",
       "side": 1,
       "message": "This function is used only by the test and the same information can be retrieved by using `GetOatMethodQuickCode()` and functions from `OatQuickMethodHeader`, so it should be moved to the test.",
+      "range": {
+        "startLine": 720,
+        "startChar": 20,
+        "endLine": 720,
+        "endChar": 45
+      },
+      "revId": "c144d9f461caa469b5b8d573a20b4caf08d2b38c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b3fb600d_1a339de9",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 720,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-02-21T16:30:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a412be7f_ca7c00a8",
       "range": {
         "startLine": 720,
         "startChar": 20,
@@ -411,6 +771,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e36692bc_00fc54a6",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2380,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-02-21T16:30:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "615ccbe5_6a227191",
+      "revId": "c144d9f461caa469b5b8d573a20b4caf08d2b38c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "44ddf58c_cf77581b",
@@ -434,6 +812,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4efe791f_5aac2dc4",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2384,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-02-21T16:30:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "44ddf58c_cf77581b",
+      "range": {
+        "startLine": 2384,
+        "startChar": 27,
+        "endLine": 2384,
+        "endChar": 33
+      },
+      "revId": "c144d9f461caa469b5b8d573a20b4caf08d2b38c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f221ffa9_882ee5f7",
@@ -447,6 +849,30 @@
       "writtenOn": "2024-01-25T16:20:15Z",
       "side": 1,
       "message": "`/*set_value\u003d*/ false`\n\nBut maybe we can make this a template argument and it shall become `/*kSetValue\u003d*/ false`.",
+      "range": {
+        "startLine": 2386,
+        "startChar": 46,
+        "endLine": 2386,
+        "endChar": 51
+      },
+      "revId": "c144d9f461caa469b5b8d573a20b4caf08d2b38c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "02698fa1_f2863d08",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2386,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-02-21T16:30:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f221ffa9_882ee5f7",
       "range": {
         "startLine": 2386,
         "startChar": 46,
@@ -528,6 +954,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a8d308a_1e913191",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3708,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-02-21T16:30:27Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "78ec3432_0c69f5a9",
+      "range": {
+        "startLine": 3708,
+        "startChar": 19,
+        "endLine": 3708,
+        "endChar": 33
+      },
+      "revId": "c144d9f461caa469b5b8d573a20b4caf08d2b38c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6c977cde_3f9cd17b",
@@ -541,6 +991,30 @@
       "writtenOn": "2024-01-25T16:20:15Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 3759,
+        "startChar": 6,
+        "endLine": 3759,
+        "endChar": 58
+      },
+      "revId": "c144d9f461caa469b5b8d573a20b4caf08d2b38c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "957f84cf_c7b4abaf",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3759,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-02-21T16:30:27Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "6c977cde_3f9cd17b",
       "range": {
         "startLine": 3759,
         "startChar": 6,
@@ -574,6 +1048,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ce0eae5_ec96d5a1",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 897,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-02-21T16:30:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e86ce4d5_d698bd2d",
+      "range": {
+        "startLine": 897,
+        "startChar": 7,
+        "endLine": 897,
+        "endChar": 29
+      },
+      "revId": "c144d9f461caa469b5b8d573a20b4caf08d2b38c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "434296ac_ec3e9618",
@@ -587,6 +1085,30 @@
       "writtenOn": "2024-01-25T16:20:15Z",
       "side": 1,
       "message": "This is for test only. I would look for a way to move this to the test itself.",
+      "range": {
+        "startLine": 901,
+        "startChar": 7,
+        "endLine": 901,
+        "endChar": 29
+      },
+      "revId": "c144d9f461caa469b5b8d573a20b4caf08d2b38c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "703ae413_d194deb1",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 901,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-02-21T16:30:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "434296ac_ec3e9618",
       "range": {
         "startLine": 901,
         "startChar": 7,
@@ -620,6 +1142,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "65d173c2_0cf2ea73",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1429,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-02-21T16:30:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1b2e1551_7e75660e",
+      "range": {
+        "startLine": 1429,
+        "startChar": 20,
+        "endLine": 1429,
+        "endChar": 45
+      },
+      "revId": "c144d9f461caa469b5b8d573a20b4caf08d2b38c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3a6618ee_c09d1bfb",
@@ -633,6 +1179,30 @@
       "writtenOn": "2024-01-25T16:20:15Z",
       "side": 1,
       "message": "`boot_image_jni_stubs_` or `boot_image_jni_stub_map_`",
+      "range": {
+        "startLine": 1430,
+        "startChar": 13,
+        "endLine": 1430,
+        "endChar": 33
+      },
+      "revId": "c144d9f461caa469b5b8d573a20b4caf08d2b38c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "26b6f484_a65a707f",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1430,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-02-21T16:30:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3a6618ee_c09d1bfb",
       "range": {
         "startLine": 1430,
         "startChar": 13,
@@ -666,6 +1236,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a773b96_3b7bb051",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2618,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-02-21T16:30:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "383bcd5e_2cb00c1f",
+      "range": {
+        "startLine": 2618,
+        "startChar": 90,
+        "endLine": 2618,
+        "endChar": 91
+      },
+      "revId": "c144d9f461caa469b5b8d573a20b4caf08d2b38c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "321e6468_e8bf821b",
@@ -679,6 +1273,30 @@
       "writtenOn": "2024-01-25T16:20:15Z",
       "side": 1,
       "message": "Used only in test. We should look for ways to do this in test code itself.",
+      "range": {
+        "startLine": 600,
+        "startChar": 2,
+        "endLine": 601,
+        "endChar": 72
+      },
+      "revId": "c144d9f461caa469b5b8d573a20b4caf08d2b38c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc0ddef0_4038262c",
+        "filename": "runtime/instrumentation.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 601,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-02-21T16:30:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "321e6468_e8bf821b",
       "range": {
         "startLine": 600,
         "startChar": 2,
@@ -712,6 +1330,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e31263b0_b2f9bfcf",
+        "filename": "runtime/jni_hash_set.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-02-21T16:30:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c5f4f12_1ed56324",
+      "range": {
+        "startLine": 119,
+        "startChar": 6,
+        "endLine": 119,
+        "endChar": 18
+      },
+      "revId": "c144d9f461caa469b5b8d573a20b4caf08d2b38c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "56bd154a_ba917522",
@@ -735,6 +1377,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b5243552_a9ef4373",
+        "filename": "runtime/jni_hash_set.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-02-21T16:30:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "56bd154a_ba917522",
+      "range": {
+        "startLine": 120,
+        "startChar": 0,
+        "endLine": 120,
+        "endChar": 2
+      },
+      "revId": "c144d9f461caa469b5b8d573a20b4caf08d2b38c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f729fb19_8980316c",
@@ -748,6 +1414,30 @@
       "writtenOn": "2024-01-25T16:20:15Z",
       "side": 1,
       "message": "This looks more like a value in a map, not really a part of the key. And maybe we could actually use maps with different value types. For example, the `ClassLinker::boot_native_methods_` could map directly to the code, so that we do not need to call `boot_method-\u003eGetOatMethodQuickCode(GetImagePointerSize())` anymore in `LinkCode()`.",
+      "range": {
+        "startLine": 157,
+        "startChar": 6,
+        "endLine": 157,
+        "endChar": 24
+      },
+      "revId": "c144d9f461caa469b5b8d573a20b4caf08d2b38c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "109b5760_4607bedf",
+        "filename": "runtime/jni_hash_set.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-02-21T16:30:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f729fb19_8980316c",
       "range": {
         "startLine": 157,
         "startChar": 6,
@@ -925,6 +1615,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "09978d56_28e09ca8",
+        "filename": "runtime/jni_hash_set.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-02-21T16:30:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ff70f8db_211741fe",
+      "range": {
+        "startLine": 366,
+        "startChar": 4,
+        "endLine": 366,
+        "endChar": 23
+      },
+      "revId": "c144d9f461caa469b5b8d573a20b4caf08d2b38c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "054a76e9_60a69456",
@@ -948,6 +1662,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ad9ac44_a8ba4a79",
+        "filename": "runtime/jni_hash_set.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-02-21T16:30:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "054a76e9_60a69456",
+      "range": {
+        "startLine": 369,
+        "startChar": 6,
+        "endLine": 369,
+        "endChar": 16
+      },
+      "revId": "c144d9f461caa469b5b8d573a20b4caf08d2b38c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "09cf9e55_b52894ef",
@@ -961,6 +1699,30 @@
       "writtenOn": "2024-01-25T16:20:15Z",
       "side": 1,
       "message": "We could pull this shared code out of the `if`. We could also `DCHECK_EQ(updated, orig)` in the else block.",
+      "range": {
+        "startLine": 137,
+        "startChar": 6,
+        "endLine": 137,
+        "endChar": 41
+      },
+      "revId": "c144d9f461caa469b5b8d573a20b4caf08d2b38c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ede90843_1e8a353e",
+        "filename": "runtime/oat/image-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-02-21T16:30:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "09cf9e55_b52894ef",
       "range": {
         "startLine": 137,
         "startChar": 6,
@@ -1042,6 +1804,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca7cda0c_442f3f6c",
+        "filename": "runtime/oat/image.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-02-21T16:30:27Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "153e2507_4ef8ef07",
+      "range": {
+        "startLine": 269,
+        "startChar": 4,
+        "endLine": 269,
+        "endChar": 26
+      },
+      "revId": "c144d9f461caa469b5b8d573a20b4caf08d2b38c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6da0010b_7654a268",
@@ -1055,6 +1841,30 @@
       "writtenOn": "2024-01-25T16:20:15Z",
       "side": 1,
       "message": "`VisitJniStubMethods`",
+      "range": {
+        "startLine": 412,
+        "startChar": 7,
+        "endLine": 412,
+        "endChar": 26
+      },
+      "revId": "c144d9f461caa469b5b8d573a20b4caf08d2b38c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "39dce608_354d62d2",
+        "filename": "runtime/oat/image.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-02-21T16:30:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6da0010b_7654a268",
       "range": {
         "startLine": 412,
         "startChar": 7,
@@ -1088,6 +1898,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "69714d2e_3c7e9007",
+        "filename": "runtime/oat/image.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-02-21T16:30:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a8cadf19_a387a00f",
+      "range": {
+        "startLine": 415,
+        "startChar": 27,
+        "endLine": 415,
+        "endChar": 41
+      },
+      "revId": "c144d9f461caa469b5b8d573a20b4caf08d2b38c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9cc0db31_8b407e79",
@@ -1101,6 +1935,30 @@
       "writtenOn": "2024-01-25T16:20:15Z",
       "side": 1,
       "message": "The `S` is ambiguous here, it could mean `short`. Use the `s` prefix as in `sbar()`.",
+      "range": {
+        "startLine": 60,
+        "startChar": 25,
+        "endLine": 60,
+        "endChar": 26
+      },
+      "revId": "c144d9f461caa469b5b8d573a20b4caf08d2b38c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "80ba0a54_eb398001",
+        "filename": "test/MyClassNatives/MyClassNatives.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-02-21T16:30:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9cc0db31_8b407e79",
       "range": {
         "startLine": 60,
         "startChar": 25,
@@ -1128,6 +1986,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d8c310e3_38820c56",
+        "filename": "test/MyClassNatives/MyClassNatives.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-02-21T16:30:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e9f17de2_1e4405a5",
+      "revId": "c144d9f461caa469b5b8d573a20b4caf08d2b38c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ee78959e_7a0db3b8",
@@ -1141,6 +2017,30 @@
       "writtenOn": "2024-01-25T16:20:15Z",
       "side": 1,
       "message": "Argument indentation should be twice the normal indentation. Add 4 spaces.\n\nSame 4x below.",
+      "range": {
+        "startLine": 387,
+        "startChar": 4,
+        "endLine": 387,
+        "endChar": 8
+      },
+      "revId": "c144d9f461caa469b5b8d573a20b4caf08d2b38c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "77135b99_dcd7d7b4",
+        "filename": "test/MyClassNatives/MyClassNatives.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-02-21T16:30:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ee78959e_7a0db3b8",
       "range": {
         "startLine": 387,
         "startChar": 4,
