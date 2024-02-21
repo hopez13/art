@@ -2053,28 +2053,45 @@ void MarkCompact::ZeropageIoctl(void* addr,
                                 bool tolerate_enoent) {
   struct uffdio_zeropage uffd_zeropage;
   DCHECK(IsAlignedParam(addr, gPageSize));
-  uffd_zeropage.range.start = reinterpret_cast<uintptr_t>(addr);
-  uffd_zeropage.range.len = length;
   uffd_zeropage.mode = 0;
-  int ret = ioctl(uffd_, UFFDIO_ZEROPAGE, &uffd_zeropage);
-  if (LIKELY(ret == 0)) {
-    DCHECK_EQ(uffd_zeropage.zeropage, static_cast<ssize_t>(length));
-  } else {
-    CHECK((tolerate_enoent && errno == ENOENT) || (tolerate_eexist && errno == EEXIST))
-        << "ioctl_userfaultfd: zeropage failed: " << strerror(errno) << ". addr:" << addr;
+  while (length > 0) {
+    uffd_zeropage.range.start = reinterpret_cast<uintptr_t>(addr);
+    uffd_zeropage.range.len = length;
+    int ret = ioctl(uffd_, UFFDIO_ZEROPAGE, &uffd_zeropage);
+    if (LIKELY(ret == 0)) {
+      DCHECK_EQ(uffd_zeropage.zeropage, static_cast<ssize_t>(length));
+      break;
+    } else if (errno == EAGAIN && uffd_zeropage.zeropage >= 0) {
+      addr = static_cast<uint8_t*>(addr) + uffd_zeropage.zeropage;
+      length -= uffd_zeropage.zeropage;
+    } else {
+      CHECK((tolerate_enoent && errno == ENOENT) || (tolerate_eexist && errno == EEXIST))
+          << "ioctl_userfaultfd: zeropage failed: " << strerror(errno) << ". addr:" << addr;
+      break;
+    }
   }
 }
 
 void MarkCompact::CopyIoctl(void* dst, void* buffer, size_t length) {
   struct uffdio_copy uffd_copy;
-  uffd_copy.src = reinterpret_cast<uintptr_t>(buffer);
-  uffd_copy.dst = reinterpret_cast<uintptr_t>(dst);
-  uffd_copy.len = length;
   uffd_copy.mode = 0;
-  CHECK_EQ(ioctl(uffd_, UFFDIO_COPY, &uffd_copy), 0)
-      << "ioctl_userfaultfd: copy failed: " << strerror(errno) << ". src:" << buffer
-      << " dst:" << dst;
-  DCHECK_EQ(uffd_copy.copy, static_cast<ssize_t>(length));
+  while (length > 0) {
+    uffd_copy.src = reinterpret_cast<uintptr_t>(buffer);
+    uffd_copy.dst = reinterpret_cast<uintptr_t>(dst);
+    uffd_copy.len = length;
+    int ret = ioctl(uffd_, UFFDIO_COPY, &uffd_copy);
+    if (ret == 0) {
+      DCHECK_EQ(uffd_copy.copy, static_cast<ssize_t>(length));
+      break;
+    } else if (errno == EAGAIN && uffd_copy.copy >= 0) {
+      dst = static_cast<uint8_t*>(dst) + uffd_copy.copy;
+      buffer = static_cast<uint8_t*>(buffer) + uffd_copy.copy;
+      length -= uffd_copy.copy;
+    } else {
+      LOG(FATAL) << "ioctl_userfaultfd: copy failed: " << strerror(errno)
+                 << ". src:" << buffer << " dst:" << dst;
+    }
+  }
 }
 
 template <int kMode, typename CompactionFn>
@@ -2283,7 +2300,7 @@ bool MarkCompact::FreeFromSpacePages(size_t cur_page_idx, int mode, size_t end_i
     DCHECK_LT(gBufferPages, kMinFromSpaceMadviseSize);
     size -= gBufferPages;
     uint8_t* addr = last_reclaimed_page_ - size;
-    int behavior = minor_fault_initialized_ ? MADV_REMOVE : MADV_DONTNEED;
+    int behavior = minor_fault_initialized_ ? MADV_REMOVE : MADV_FREE;
     CHECK_EQ(madvise(addr + from_space_slide_diff_, size, behavior), 0)
         << "madvise of from-space failed: " << strerror(errno);
     last_reclaimed_page_ = addr;
