@@ -545,7 +545,10 @@ class MarkCompact final : public GarbageCollector {
   // address containing the compacted content from moving_pages_status_ array.
   // Returns number of bytes (should be multiple of page-size) that are mapped
   // by the thread.
-  size_t MapMovingSpacePages(size_t arr_idx, size_t arr_len) REQUIRES_SHARED(Locks::mutator_lock_);
+  size_t MapMovingSpacePages(size_t start_idx,
+                             size_t arr_len,
+                             bool from_fault,
+                             bool return_on_contention) REQUIRES_SHARED(Locks::mutator_lock_);
 
   bool IsValidFd(int fd) const { return fd >= 0; }
 
@@ -563,8 +566,9 @@ class MarkCompact final : public GarbageCollector {
   void MarkZygoteLargeObjects() REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(Locks::heap_bitmap_lock_);
 
-  void ZeropageIoctl(void* addr, size_t length, bool tolerate_eexist, bool tolerate_enoent);
-  void CopyIoctl(void* dst, void* buffer, size_t length);
+  size_t ZeropageIoctl(void* addr, size_t length, bool tolerate_eexist, bool tolerate_enoent);
+  size_t CopyIoctl(
+      void* dst, void* buffer, size_t length, bool single_ioctl, bool return_on_contention);
 
   // Called after updating linear-alloc page(s) to map the page. It first
   // updates the state of the pages to kProcessedAndMapping and after ioctl to
