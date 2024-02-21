@@ -850,6 +850,7 @@ class MarkCompact final : public GarbageCollector {
   // non-zygote processes during first GC, which sets up everyting for using
   // minor-fault from next GC.
   bool map_linear_alloc_shared_;
+  volatile bool mmap_lock_is_contended_;
   // Clamping statue of `info_map_`. Initialized with 'NotDone'. Once heap is
   // clamped but info_map_ is delayed, we set it to 'Pending'. Once 'info_map_'
   // is also clamped, then we set it to 'Finished'.
