@@ -366,7 +366,8 @@ bool GarbageCollector::ShouldEagerlyReleaseMemoryToOS() const {
   // Keep on the memory if the app is in foreground. If it is in background or
   // goes into the background (see invocation with cause kGcCauseCollectorTransition),
   // release the memory.
-  return !runtime->InJankPerceptibleProcessState();
+  // return !runtime->InJankPerceptibleProcessState();
+  return true;
 }
 
 void GarbageCollector::RecordFree(const ObjectBytePair& freed) {
