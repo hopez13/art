@@ -22,6 +22,30 @@
       },
       "revId": "67a4d90667ba59399b9fdbbc378ed9afae92eef3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a380f918_4b48b6f4",
+        "filename": "compiler/utils/jni_macro_assembler.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-21T09:24:49Z",
+      "side": 1,
+      "message": "Yes, we call `delete` (with `std::unique_ptr\u003c\u003e`).\n\nOur labels have non-trivial destructors, checking that they are not in the \"linked but not bound\" state.",
+      "parentUuid": "8626152c_865d3b61",
+      "range": {
+        "startLine": 264,
+        "startChar": 29,
+        "endLine": 264,
+        "endChar": 49
+      },
+      "revId": "67a4d90667ba59399b9fdbbc378ed9afae92eef3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
