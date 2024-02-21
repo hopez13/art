@@ -39,6 +39,30 @@
       },
       "revId": "9e13bb0188775c599d8c2ea2a33b4772e6991832",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1bbf673_fa80b2da",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-21T09:47:12Z",
+      "side": 1,
+      "message": "I think an external contributor shall most likely lose the Presubmit-Verified and Code-Review even for a comment-only adjustment. I\u0027m going to submit as is and fix the typo in a follow-up.",
+      "parentUuid": "94ff7224_46d7dc7f",
+      "range": {
+        "startLine": 166,
+        "startChar": 9,
+        "endLine": 166,
+        "endChar": 18
+      },
+      "revId": "9e13bb0188775c599d8c2ea2a33b4772e6991832",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
