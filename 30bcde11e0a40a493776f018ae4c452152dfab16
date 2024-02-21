@@ -142,6 +142,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bbca0077_7f67787b",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1138,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2024-02-21T06:13:06Z",
+      "side": 1,
+      "message": "Thanks for pointing out. I just wanted to see how the caller side is handling attempt_of_4 thing.",
+      "parentUuid": "7628add4_87204e46",
+      "range": {
+        "startLine": 1138,
+        "startChar": 8,
+        "endLine": 1138,
+        "endChar": 20
+      },
+      "revId": "30bcde11e0a40a493776f018ae4c452152dfab16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "356cebdf_2ffe2d3b",
