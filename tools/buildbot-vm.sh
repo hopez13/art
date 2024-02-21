@@ -45,8 +45,8 @@ if [[ $action = create ]]; then
 
     # sudo apt install qemu-system-<arch> qemu-efi cloud-image-utils
 
-    # Get the cloud image for Ubunty 22.04 (Jammy)
-    wget "http://cloud-images.ubuntu.com/releases/22.04/release/$ART_TEST_VM_IMG"
+    # Get the cloud image for Ubunty 23.10 (Mantic Minotaur)
+    wget "http://cloud-images.ubuntu.com/releases/23.10/release/$ART_TEST_VM_IMG"
 
     if [[ "$TARGET_ARCH" = "riscv64" ]]; then
         # Get U-Boot for Ubuntu 22.04 (Jammy)
