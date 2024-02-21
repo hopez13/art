@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8626152c_865d3b61",
+        "filename": "compiler/utils/jni_macro_assembler.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-02-21T09:22:07Z",
+      "side": 1,
+      "message": "Do we call `delete` on the labels? If not, this could be an `ArenaObject`\n\n```suggestion\nclass JNIMacroLabel : public ArenaObject\u003ckArenaAllocAssembler\u003e {\n```",
+      "range": {
+        "startLine": 264,
+        "startChar": 29,
+        "endLine": 264,
+        "endChar": 49
+      },
+      "revId": "67a4d90667ba59399b9fdbbc378ed9afae92eef3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
