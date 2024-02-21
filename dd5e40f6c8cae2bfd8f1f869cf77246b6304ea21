@@ -34,6 +34,24 @@
       "parentUuid": "a6a7fdee_1262ce86",
       "revId": "dd5e40f6c8cae2bfd8f1f869cf77246b6304ea21",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d66a3cc_ad0dc99e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-02-21T11:51:47Z",
+      "side": 1,
+      "message": "Ah okay. Thanks! I am a bit unsure with the regression range. This test seems passing flakily with a low frequency on git_main and failing with a low frequency on qpr-dev-plus-aosp. It\u0027s tricky to find culprit and the regression range is slightly different on both branches. Though lgtm with the revert if it fixes the failures. Thanks!",
+      "parentUuid": "c4cc26e8_a2987307",
+      "revId": "dd5e40f6c8cae2bfd8f1f869cf77246b6304ea21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
