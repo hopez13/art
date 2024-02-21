@@ -110,6 +110,8 @@ static bool HaveMremapDontunmap() {
     return false;
   }
 }
+static bool gUffdSupportsMmapTrylock = false;
+static std::atomic<size_t> mmap_trylock_retries, mmap_lock_contended, total_ioctls;
 // We require MREMAP_DONTUNMAP functionality of the mremap syscall, which was
 // introduced in 5.13 kernel version. But it was backported to GKI kernels.
 static bool gHaveMremapDontunmap = IsKernelVersionAtLeast(5, 13) || HaveMremapDontunmap();
@@ -142,6 +144,27 @@ bool KernelSupportsUffd() {
       struct uffdio_api api = {.api = UFFD_API, .features = 0, .ioctls = 0};
       CHECK_EQ(ioctl(fd, UFFDIO_API, &api), 0) << "ioctl_userfaultfd : API:" << strerror(errno);
       gUffdFeatures = api.features;
+      {
+        // Check if MMAP_TRYLOCK feature is supported
+        const size_t page_size = GetPageSizeSlow();
+        void* mem =
+            mmap(nullptr, page_size, PROT_READ | PROT_WRITE, MAP_ANONYMOUS | MAP_PRIVATE, -1, 0);
+        CHECK_NE(mem, MAP_FAILED) << " errno: " << errno;
+
+        struct uffdio_zeropage uffd_zeropage;
+        uffd_zeropage.mode = static_cast<uint64_t>(1) << 2;
+        uffd_zeropage.range.start = reinterpret_cast<uintptr_t>(mem);
+        uffd_zeropage.range.len = page_size;
+        CHECK(ioctl(fd, UFFDIO_ZEROPAGE, &uffd_zeropage) != 0);
+        if (errno != EINVAL) {
+          gUffdSupportsMmapTrylock = true;
+          LOG(INFO) << "MMAP_TRYLOCK is supported in uffd errno:" << errno;
+        } else {
+          LOG(INFO) << "MMAP_TRYLOCK is not supported in uffd addr:" << mem
+                    << " page-size:" << page_size;
+        }
+        munmap(mem, page_size);
+      }
       close(fd);
       // Minimum we need is sigbus feature for using userfaultfd.
       return (api.features & kUffdFeaturesForSigbus) == kUffdFeaturesForSigbus;
@@ -754,6 +777,9 @@ void MarkCompact::InitializePhase() {
   // TODO: Would it suffice to read it once in the constructor, which is called
   // in zygote process?
   pointer_size_ = Runtime::Current()->GetClassLinker()->GetImagePointerSize();
+  mmap_trylock_retries.store(0, std::memory_order_relaxed);
+  mmap_lock_contended.store(0, std::memory_order_relaxed);
+  total_ioctls.store(0, std::memory_order_relaxed);
 }
 
 class MarkCompact::ThreadFlipVisitor : public Closure {
@@ -2047,34 +2073,95 @@ void MarkCompact::MapProcessedPages(uint8_t* to_space_start,
   }
 }
 
+static void BackOff(uint32_t i) {
+  static constexpr uint32_t kYieldMax = 5;
+  // TODO: Consider adding x86 PAUSE and/or ARM YIELD here.
+  if (i <= kYieldMax) {
+    sched_yield();
+  } else {
+    // nanosleep is not in the async-signal-safe list, but bionic implements it
+    // with a pure system call, so it should be fine.
+    NanoSleep(10000ull * (i - kYieldMax));
+  }
+}
+
 void MarkCompact::ZeropageIoctl(void* addr,
                                 size_t length,
                                 bool tolerate_eexist,
                                 bool tolerate_enoent) {
+  bool is_gc_thread = Thread::Current() == thread_running_gc_;
+  uint32_t backoff_count = 0;
   struct uffdio_zeropage uffd_zeropage;
   DCHECK(IsAlignedParam(addr, gPageSize));
-  uffd_zeropage.range.start = reinterpret_cast<uintptr_t>(addr);
-  uffd_zeropage.range.len = length;
-  uffd_zeropage.mode = 0;
-  int ret = ioctl(uffd_, UFFDIO_ZEROPAGE, &uffd_zeropage);
-  if (LIKELY(ret == 0)) {
-    DCHECK_EQ(uffd_zeropage.zeropage, static_cast<ssize_t>(length));
-  } else {
-    CHECK((tolerate_enoent && errno == ENOENT) || (tolerate_eexist && errno == EEXIST))
-        << "ioctl_userfaultfd: zeropage failed: " << strerror(errno) << ". addr:" << addr;
+  uffd_zeropage.mode = gUffdSupportsMmapTrylock ? (static_cast<uint64_t>(1) << 2) : 0;
+  if (!is_gc_thread) {
+    total_ioctls.fetch_add(1, std::memory_order_relaxed);
+  }
+  while (length > 0) {
+    uffd_zeropage.range.start = reinterpret_cast<uintptr_t>(addr);
+    uffd_zeropage.range.len = length;
+    int ret = ioctl(uffd_, UFFDIO_ZEROPAGE, &uffd_zeropage);
+    if (LIKELY(ret == 0)) {
+      DCHECK_EQ(uffd_zeropage.zeropage, static_cast<ssize_t>(length));
+      break;
+    } else if (errno == EAGAIN) {
+      if (uffd_zeropage.zeropage > 0) {
+        addr = static_cast<uint8_t*>(addr) + uffd_zeropage.zeropage;
+        length -= uffd_zeropage.zeropage;
+        if (!is_gc_thread) {
+          mmap_lock_contended.fetch_add(1, std::memory_order_relaxed);
+        }
+      } else if (uffd_zeropage.zeropage < 0) {
+        CHECK(uffd_zeropage.zeropage == EAGAIN);
+        if (!is_gc_thread) {
+          mmap_trylock_retries.fetch_add(1, std::memory_order_relaxed);
+        }
+      }
+      BackOff(backoff_count++);
+    } else {
+      CHECK((tolerate_enoent && errno == ENOENT) || (tolerate_eexist && errno == EEXIST))
+          << "ioctl_userfaultfd: zeropage failed: " << strerror(errno) << ". addr:" << addr;
+      break;
+    }
   }
 }
 
 void MarkCompact::CopyIoctl(void* dst, void* buffer, size_t length) {
+  bool is_gc_thread = Thread::Current() == thread_running_gc_;
+  uint32_t backoff_count = 0;
   struct uffdio_copy uffd_copy;
-  uffd_copy.src = reinterpret_cast<uintptr_t>(buffer);
-  uffd_copy.dst = reinterpret_cast<uintptr_t>(dst);
-  uffd_copy.len = length;
-  uffd_copy.mode = 0;
-  CHECK_EQ(ioctl(uffd_, UFFDIO_COPY, &uffd_copy), 0)
-      << "ioctl_userfaultfd: copy failed: " << strerror(errno) << ". src:" << buffer
-      << " dst:" << dst;
-  DCHECK_EQ(uffd_copy.copy, static_cast<ssize_t>(length));
+  uffd_copy.mode = gUffdSupportsMmapTrylock ? (static_cast<uint64_t>(1) << 2) : 0;
+  if (!is_gc_thread) {
+    total_ioctls.fetch_add(1, std::memory_order_relaxed);
+  }
+  while (length > 0) {
+    uffd_copy.src = reinterpret_cast<uintptr_t>(buffer);
+    uffd_copy.dst = reinterpret_cast<uintptr_t>(dst);
+    uffd_copy.len = length;
+    int ret = ioctl(uffd_, UFFDIO_COPY, &uffd_copy);
+    if (ret == 0) {
+      DCHECK_EQ(uffd_copy.copy, static_cast<ssize_t>(length));
+      break;
+    } else if (errno == EAGAIN) {
+      if (uffd_copy.copy > 0) {
+        dst = static_cast<uint8_t*>(dst) + uffd_copy.copy;
+        buffer = static_cast<uint8_t*>(buffer) + uffd_copy.copy;
+        length -= uffd_copy.copy;
+        if (!is_gc_thread) {
+          mmap_lock_contended.fetch_add(1, std::memory_order_relaxed);
+        }
+      } else if (uffd_copy.copy < 0) {
+        DCHECK(uffd_copy.copy == EAGAIN);
+        if (!is_gc_thread) {
+          mmap_trylock_retries.fetch_add(1, std::memory_order_relaxed);
+        }
+      }
+      BackOff(backoff_count++);
+    } else {
+      LOG(FATAL) << "ioctl_userfaultfd: copy failed: " << strerror(errno) << ". src:" << buffer
+                 << " dst:" << dst;
+    }
+  }
 }
 
 template <int kMode, typename CompactionFn>
@@ -2131,18 +2218,6 @@ bool MarkCompact::DoPageCompactionWithStateChange(size_t page_idx,
     // Only GC thread could have set the state to Processed.
     DCHECK_NE(expected_state, static_cast<uint8_t>(PageState::kProcessed));
     return false;
-  }
-}
-
-static void BackOff(uint32_t i) {
-  static constexpr uint32_t kYieldMax = 5;
-  // TODO: Consider adding x86 PAUSE and/or ARM YIELD here.
-  if (i <= kYieldMax) {
-    sched_yield();
-  } else {
-    // nanosleep is not in the async-signal-safe list, but bionic implements it
-    // with a pure system call, so it should be fine.
-    NanoSleep(10000ull * (i - kYieldMax));
   }
 }
 
@@ -3632,7 +3707,8 @@ bool MarkCompact::MapUpdatedLinearAllocPages(uint8_t* start_page,
         state += DivideByPageSize(map_len);
       }
       if (free_pages) {
-        ZeroAndReleaseMemory(start_shadow_page, map_len);
+        CHECK_EQ(madvise(start_shadow_page, map_len, MADV_DONTNEED), 0)
+            << "madvise of from-space failed: " << strerror(errno);
       }
       if (single_ioctl) {
         break;
@@ -4718,6 +4794,9 @@ void MarkCompact::FinishPhase() {
   GcVisitedArenaPool* arena_pool =
       static_cast<GcVisitedArenaPool*>(Runtime::Current()->GetLinearAllocArenaPool());
   arena_pool->DeleteUnusedArenas();
+  LOG(INFO) << "Total uffd ioctls: " << total_ioctls.load(std::memory_order_relaxed)
+            << " mmap_trylock_retries: " << mmap_trylock_retries.load(std::memory_order_relaxed)
+            << " mmap_lock_contended: " << mmap_lock_contended.load(std::memory_order_relaxed);
 }
 
 }  // namespace collector
