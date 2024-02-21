@@ -4893,4 +4893,19 @@ ScopedExceptionStorage::~ScopedExceptionStorage() {
 
 }  // namespace art
 
+__attribute__((weak))
+extern "C" void ArtSetBinderFun( size_t(*fun)() );
+extern "C" size_t BinderNumArtMutexes() {
+  art::Thread* thread = art::Thread::Current();
+  if (thread == nullptr) return 0;
+  return thread->NumberOfHeldMutexes();
+}
+__attribute__((constructor))
+void install() {
+    if (ArtSetBinderFun == nullptr) return;
+    ArtSetBinderFun(&BinderNumArtMutexes);
+}
+
+
+
 #pragma clang diagnostic pop  // -Wconversion
