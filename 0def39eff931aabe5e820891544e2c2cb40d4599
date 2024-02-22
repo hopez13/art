@@ -16,6 +16,24 @@
       "message": "This method could work for x86/x86_64 host test, but failed in target arm64 test. `ensureCompiledCallThroughEntrypoint` still timeout in arm64 target test. Could you please help share some suggestion? Another solution is disable boot image in run.py with `image\u003dFalse`.",
       "revId": "0def39eff931aabe5e820891544e2c2cb40d4599",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "082ae9cc_7bc50b3e",
+        "filename": "test/667-jit-jni-stub/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-02-22T07:38:28Z",
+      "side": 1,
+      "message": "Fixed. Since the visibly initilization will defer, we should make sure the state before deoptimize. Below reference told us why x86/x86_64 has no issue.\n\n\u003e Thanks to the x86 memory model, we do not need any more fences and we can immediately mark the class as visibly initilized.",
+      "parentUuid": "6ecb2c97_d79b8475",
+      "revId": "0def39eff931aabe5e820891544e2c2cb40d4599",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
