@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f6f3b15a_205b60e7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-02-22T19:59:06Z",
+      "side": 1,
+      "message": "`art_libartservice_tests` fails on `ArtServiceGcTest#GetGarbageCollector`.\n\nAlso, atest just refuses to find `art_odrefresh_tests`, and I can\u0027t see why.",
+      "range": {
+        "startLine": 61,
+        "startChar": 6,
+        "endLine": 61,
+        "endChar": 26
+      },
+      "revId": "5f0cbd142d777ed5cd6da0f125b72edcd9cefc3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
