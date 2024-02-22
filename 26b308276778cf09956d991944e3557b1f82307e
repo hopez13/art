@@ -16,6 +16,24 @@
       "message": "Hi Artem, I wanted to experiment with SVE+QEMU a bit, but this CL on it\u0027s own does not build.  I get:\n\n`dex2oatd: runtime.cc:716 (loop_optimization): art::GraphChecker: VecReplicateScalar 300 predication mode is incorrect; see HVecOperation::MustBePredicated.`\n\nDo you have any thoughts?",
       "revId": "26b308276778cf09956d991944e3557b1f82307e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0075707b_4d94d6ec",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1975361
+      },
+      "writtenOn": "2024-02-22T13:48:25Z",
+      "side": 1,
+      "message": "Hi David! It is the perfect time to raise this question as we have just restarted the SVE activities, which were paused for sometime (which might have made some code broken).\n\nLet me check the situation and get back to you on this.",
+      "parentUuid": "bf39f817_bba23446",
+      "revId": "26b308276778cf09956d991944e3557b1f82307e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
