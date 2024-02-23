@@ -16,6 +16,29 @@
       "message": "Many tests failed. However, they both show up as \"non-blocking warning\" and \"presubmit-verified -1\" in our system. So, it\u0027s unclear to me if they\u0027re caused by this. b/326264601 for discrepency in presubmit results. Will re-run since commit message says all art tests ran, but you may want to check these locally as well:\n\n```\nart-run-test-482-checker-loop-back-edge-use(module-abi\u003dx86_64) \nart-run-test-580-checker-string-fact-intrinsics(module-abi\u003dx86_64) \nart-run-test-640-checker-integer-valueof(module-abi\u003dx86_64) \nart_standalone_compiler_tests(module-abi\u003dx86_64) \nart_standalone_dex2oat_tests(module-abi\u003dx86_64) \nart_standalone_dexdump_tests(module-abi\u003dx86_64) \nart_standalone_dexlist_tests(module-abi\u003dx86_64) \nart_standalone_dexoptanalyzer_tests(module-abi\u003dx86_64) \nart_standalone_libartbase_tests(module-abi\u003dx86_64) \nart_standalone_libartpalette_tests(module-abi\u003dx86_64) \nart_standalone_libartservice_tests(module-abi\u003dx86_64) \nart_standalone_oatdump_tests(module-abi\u003dx86_64) \nart_standalone_profman_tests(module-abi\u003dx86_64) \nart_standalone_runtime_tests(module-abi\u003dx86_64) \n```",
       "revId": "8e2b34e54af5a079a3cb9035a56e442eb1ee2b94",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57441733_bbe64908",
+        "filename": "libartbase/base/unix_file/fd_file_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-02-23T01:41:06Z",
+      "side": 1,
+      "message": "nit: if any of these cases fail, it will cause the test to fail. You might want to move \u0027verify\u0027 into a separate function, and then call these from different TEST_F entires. That may help if there are failures which only break certain parts of these.",
+      "range": {
+        "startLine": 338,
+        "startChar": 2,
+        "endLine": 367,
+        "endChar": 35
+      },
+      "revId": "8e2b34e54af5a079a3cb9035a56e442eb1ee2b94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
