@@ -43,6 +43,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ea144220_bd14fbff",
+        "filename": "libartbase/base/unix_file/fd_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 555,
+      "author": {
+        "id": 1710792
+      },
+      "writtenOn": "2024-02-23T18:51:23Z",
+      "side": 1,
+      "message": "this makes an assumption that copying starts that offset 0 for output FD. But original code doesn\u0027t seem to have such assumption. Are we sure this assumption is OK?",
+      "revId": "8e2b34e54af5a079a3cb9035a56e442eb1ee2b94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "57441733_bbe64908",
         "filename": "libartbase/base/unix_file/fd_file_test.cc",
         "patchSetId": 1
