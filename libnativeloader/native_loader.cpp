@@ -218,7 +218,9 @@ jstring CreateClassLoaderNamespace(JNIEnv* env,
 
   Result<nativeloader::ApiDomain> api_domain = nativeloader::GetApiDomainFromPathList(dex_path);
   if (!api_domain.ok()) {
-    return env->NewStringUTF(api_domain.error().message().c_str());
+    ALOGW("%s - creating classloader namespace with default access.",
+          api_domain.error().message().c_str());
+    api_domain = nativeloader::API_DOMAIN_DEFAULT;
   }
 
   std::lock_guard<std::mutex> guard(g_namespaces_mutex);
