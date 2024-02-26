@@ -22,6 +22,30 @@
       },
       "revId": "09cf2fc482f5a6a4d69fccc955fc151ec53d674e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8f3832e_2800a852",
+        "filename": "test/2274-checker-bitwise-gvn/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-02-26T10:59:43Z",
+      "side": 1,
+      "message": "The pass name is slightly different `instruction_simplifier_arm` vs `instruction_simplifier_arm64`",
+      "parentUuid": "497c72d4_2764f861",
+      "range": {
+        "startLine": 30,
+        "startChar": 20,
+        "endLine": 30,
+        "endChar": 25
+      },
+      "revId": "09cf2fc482f5a6a4d69fccc955fc151ec53d674e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
