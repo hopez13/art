@@ -16,6 +16,24 @@
       "message": "Should there be a product for these as well?",
       "revId": "ec63e2a1f7f3c9faceb15aefa388d350338b2418",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "13b13706_07f64f67",
+        "filename": "tools/luci/config/main.star",
+        "patchSetId": 1
+      },
+      "lineNbr": 492,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2024-02-26T23:41:02Z",
+      "side": 1,
+      "message": "The product is irrelevant for host builds",
+      "parentUuid": "964b080c_411c9f91",
+      "revId": "ec63e2a1f7f3c9faceb15aefa388d350338b2418",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
