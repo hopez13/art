@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f121d6b0_b47303b3",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 655,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-02-26T09:10:41Z",
+      "side": 0,
+      "message": "This was also missing a `return` statement, making this return false even when we replaced with a `HRor`",
+      "revId": "89a46d558447f376e965a03d49033ca1787cc146",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

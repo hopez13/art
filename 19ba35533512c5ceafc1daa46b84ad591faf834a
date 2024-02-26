@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "07c9ce9c_703963ec",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 624,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-02-26T09:10:41Z",
+      "side": 1,
+      "message": "drive-by: the function already returns true, and this is in line with the other `TryReplaceWithRotate` methods.",
+      "range": {
+        "startLine": 624,
+        "startChar": 4,
+        "endLine": 624,
+        "endChar": 10
+      },
+      "revId": "19ba35533512c5ceafc1daa46b84ad591faf834a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
