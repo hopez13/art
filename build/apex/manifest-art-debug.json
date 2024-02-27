@@ -1,0 +1,15 @@
+{
+  "name": "com.android.art",
+
+  // High version number that ensures that packages using this manifest (Debug
+  // ART APEX, Testing ART APEX) can be installed on virtually all Android
+  // desert releases.
+  "version": 990091000,
+
+  "provideNativeLibs": [
+    "libjdwp.so"
+  ],
+  "requireNativeLibs": [
+    "libicu_jni.so"
+  ]
+}
