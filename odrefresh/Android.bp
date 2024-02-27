@@ -45,6 +45,7 @@ cc_defaults {
         "libarttools", // Contains "libc++fs".
         "libbase",
         "liblog",
+        "libselinux",
     ],
     static_libs: [
         "libmodules-utils-build",
