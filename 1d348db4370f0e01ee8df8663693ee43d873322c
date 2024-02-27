@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d6eaa38_e69c5503",
+        "filename": "test/2246-trace-v2/dump_trace.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1096713
+      },
+      "writtenOn": "2024-02-27T13:28:58Z",
+      "side": 1,
+      "message": "Here we set `success` as a `const`...",
+      "revId": "1d348db4370f0e01ee8df8663693ee43d873322c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f455d2ac_7115339e",
+        "filename": "test/2246-trace-v2/dump_trace.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1096713
+      },
+      "writtenOn": "2024-02-27T13:28:58Z",
+      "side": 1,
+      "message": "...and we `return` from this function if it turns out to be `false`...",
+      "revId": "1d348db4370f0e01ee8df8663693ee43d873322c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee38fc5d_c6c862f8",
+        "filename": "test/2246-trace-v2/dump_trace.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1096713
+      },
+      "writtenOn": "2024-02-27T13:28:58Z",
+      "side": 1,
+      "message": "...so this `if` check is always `true`.\n\nI don\u0027t know if we wanted to set `success` to a different value (and get rid of the `const`), check a different condition here, or maybe just get rid of this `if` check.",
+      "revId": "1d348db4370f0e01ee8df8663693ee43d873322c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
