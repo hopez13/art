@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b92ef875_710e7e25",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-02-27T16:33:24Z",
+      "side": 1,
+      "message": "@kiyoungkim@google.com, @jooyung@google.com, PTAL at the test failure in b/326631342. The test app had this dex path list:\n\n```\n/system/framework/android.test.mock.jar:\n/system/framework/android.test.base.jar:\n/system_ext/framework/androidx.window.sidecar.jar:\n/system_ext/framework/androidx.window.extensions.jar:\n/system/framework/android.test.runner.jar:\n/data/app/~~hHMsZfcdMUoReJkQ68xEwA\u003d\u003d/com.android.imsserviceentitlement.tests-TXpv1KESuoVr6LWWRN7ipQ\u003d\u003d/base.apk:\n/product/priv-app/ImsServiceEntitlement/ImsServiceEntitlement.apk\n```\n\nThe [old code](https://cs.android.com/android/_/android/platform/art/+/6a181d347d4aef6d4cd149c262204e668c2895a2:libnativeloader/library_namespaces.cpp;l\u003d110-123;drc\u003d760e495e79c03ce9c748a93ff42e6e3dd00bfc05) would classify a package with that path as APK_ORIGIN_PRODUCT, but to me it looks like the test app is installed in /data and just lists some shared jars in other partitions. Shouldn\u0027t it always be loaded with APK_ORIGIN_DEFAULT (now API_DOMAIN_DEFAULT)?",
+      "range": {
+        "startLine": 13,
+        "startChar": 46,
+        "endLine": 15,
+        "endChar": 68
+      },
+      "revId": "e1b6547e8ee9241e5b032d84a73b24b3c2bdc0e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
