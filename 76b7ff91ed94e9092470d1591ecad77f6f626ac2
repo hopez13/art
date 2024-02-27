@@ -1,0 +1,141 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2cca9e3_133857de",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-02-27T19:20:12Z",
+      "side": 1,
+      "message": "Which atests?",
+      "range": {
+        "startLine": 13,
+        "startChar": 6,
+        "endLine": 13,
+        "endChar": 11
+      },
+      "revId": "76b7ff91ed94e9092470d1591ecad77f6f626ac2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e6e58a32_0390c8fb",
+        "filename": "libartpalette/apex/palette.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-02-27T19:20:12Z",
+      "side": 1,
+      "message": "Please remove the empty line to attach the comment to the function.",
+      "revId": "76b7ff91ed94e9092470d1591ecad77f6f626ac2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "15106c29_834c29fe",
+        "filename": "libartpalette/apex/palette.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-02-27T19:20:12Z",
+      "side": 1,
+      "message": "On a device with an older API level this will [call](https://cs.android.com/android/platform/superproject/main/+/main:art/libartpalette/apex/palette.cc;l\u003d93;drc\u003d65e2d80c24f414de646b0cab430139da0171af97) `PaletteMethodNotSupported` so the result string won\u0027t be updated. Please make sure this wrapper deals with that.",
+      "range": {
+        "startLine": 262,
+        "startChar": 9,
+        "endLine": 262,
+        "endChar": 28
+      },
+      "revId": "76b7ff91ed94e9092470d1591ecad77f6f626ac2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c4daf00_fe9aa515",
+        "filename": "libartpalette/include/palette/palette_method_list.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-02-27T19:20:12Z",
+      "side": 1,
+      "message": "Please add an \"empty\" line here, like between the other API levels above.",
+      "revId": "76b7ff91ed94e9092470d1591ecad77f6f626ac2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46d6474e_e26f3cea",
+        "filename": "libartpalette/include/palette/palette_method_list.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-02-27T19:20:12Z",
+      "side": 1,
+      "message": "Please document the API. It\u0027s a bit awkward in this multi-line macro, but this is effectively where the API docs go (cf. `PaletteSetTaskProfiles` just above).\n\n(Btw, I have a TODO to revamp this dlopen/dlsym mess to an ordinary native API and then these docs will move to a standard header file according to the NDK guidelines.)",
+      "revId": "76b7ff91ed94e9092470d1591ecad77f6f626ac2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d866804_7779926d",
+        "filename": "libartpalette/libartpalette.map",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-02-27T19:20:12Z",
+      "side": 1,
+      "message": "Please add a test of this method to `art/libartpalette/apex/palette_test.cc`. It\u0027ll get run in (M)CTS and on all the platform versions we support, which is what we need to guarantee API coverage.",
+      "range": {
+        "startLine": 58,
+        "startChar": 4,
+        "endLine": 58,
+        "endChar": 30
+      },
+      "revId": "76b7ff91ed94e9092470d1591ecad77f6f626ac2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc1d6138_4e61e5cb",
+        "filename": "libartpalette/system/palette_fake.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-02-27T19:20:12Z",
+      "side": 1,
+      "message": "Dito.",
+      "revId": "76b7ff91ed94e9092470d1591ecad77f6f626ac2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
