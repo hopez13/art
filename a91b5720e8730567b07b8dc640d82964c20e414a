@@ -35,6 +35,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "29c4f29e_57f85dab",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-02-27T16:55:11Z",
+      "side": 1,
+      "message": "Thanks!",
+      "revId": "a91b5720e8730567b07b8dc640d82964c20e414a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ada5d737_1b41f6c4",
@@ -48,6 +65,30 @@
       "writtenOn": "2024-02-27T16:53:22Z",
       "side": 1,
       "message": "typo\n```suggestion\n      // race if the thread is detaching and trying to flush the buffer too. Since we hold the\n```",
+      "range": {
+        "startLine": 738,
+        "startChar": 55,
+        "endLine": 738,
+        "endChar": 60
+      },
+      "revId": "a91b5720e8730567b07b8dc640d82964c20e414a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1dcfd7c8_96f84c74",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 738,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-02-27T16:55:11Z",
+      "side": 1,
+      "message": "Fix applied.",
+      "parentUuid": "ada5d737_1b41f6c4",
       "range": {
         "startLine": 738,
         "startChar": 55,
