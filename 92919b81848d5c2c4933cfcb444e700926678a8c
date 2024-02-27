@@ -16,6 +16,29 @@
       "message": "friendly ping",
       "revId": "92919b81848d5c2c4933cfcb444e700926678a8c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da9bc6fc_f25d651c",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 669,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-27T15:30:27Z",
+      "side": 1,
+      "message": "I don\u0027t like the fact that we\u0027re polluting the `HInstruction::StrictlyDominates()` interface with an extra argument.\n\nWe could instead mark visited instructions in a `BitVector visited` and change this check to\n\n    if (!user-\u003eIsPhi() \u0026\u0026\n        instruction-\u003eGetBlock() \u003d\u003d user-\u003eGetBlock()\n            ? visited.IsBitSet(user.GetId())\n            : !instruction-\u003eGetBlock()-\u003eDominates(user-\u003eGetBlock())) {\n\nWe would not even need to clear the `visited` for each block and we could use it to check that we do not have duplicate instruction ids.\n\nWe would need to reverse the environment use domination check below and do it when visiting the used instruction rather than the user.\n\n    // Ensure an instruction dominates all its environment uses.\n    for (const HUseListNode\u003cHEnvironment*\u003e\u0026 use : instruction-\u003eGetEnvUses()) {\n      HUser* user \u003d use.GetUser()-\u003eGetHolder();\n      if (user-\u003eIsPhi()) {\n        \u003cerror: Phis don\u0027t have environments\u003e\n      }\n      if (instruction-\u003eGetBlock() \u003d\u003d user-\u003eGetBlock()\n              ? visited.IsBitSet(user.GetId())\n              : !instruction-\u003eGetBlock()-\u003eDominates(user-\u003eGetBlock())) {\n        \u003cerror: environment use not dominated\u003e\n      }\n    }",
+      "range": {
+        "startLine": 669,
+        "startChar": 40,
+        "endLine": 669,
+        "endChar": 57
+      },
+      "revId": "92919b81848d5c2c4933cfcb444e700926678a8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
