@@ -34,6 +34,23 @@
       "parentUuid": "bf39f817_bba23446",
       "revId": "26b308276778cf09956d991944e3557b1f82307e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "54ea27f1_5e392459",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2024-02-27T14:02:40Z",
+      "side": 1,
+      "message": "Artem: If possible, could you create a compile-time define to enable the SVE via environment variable? (or a run-time flag, but I assume define is easier)",
+      "revId": "26b308276778cf09956d991944e3557b1f82307e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
