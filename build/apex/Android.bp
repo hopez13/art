@@ -432,7 +432,9 @@ art_module_cc_defaults {
             enabled: true,
         },
     },
-
+    cflags: [
+        "-Oz",
+    ],
     target: {
         darwin: {
             enabled: false, // No python3.
