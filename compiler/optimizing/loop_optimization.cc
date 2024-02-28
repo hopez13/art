@@ -1284,6 +1284,8 @@ void HLoopOptimization::VectorizePredicated(LoopNode* node,
                                             HBasicBlock* exit) {
   DCHECK(IsInPredicatedVectorizationMode());
 
+  vector_external_set_->clear();
+
   HBasicBlock* header = node->loop_info->GetHeader();
   HBasicBlock* preheader = node->loop_info->GetPreHeader();
 
@@ -1369,6 +1371,8 @@ void HLoopOptimization::VectorizeTraditional(LoopNode* node,
                                              HBasicBlock* exit,
                                              int64_t trip_count) {
   DCHECK(!IsInPredicatedVectorizationMode());
+
+  vector_external_set_->clear();
 
   HBasicBlock* header = node->loop_info->GetHeader();
   HBasicBlock* preheader = node->loop_info->GetPreHeader();
@@ -1567,7 +1571,6 @@ HPhi* HLoopOptimization::InitializeForNewLoop(HBasicBlock* new_preheader, HInstr
   vector_header_->AddPhi(phi);
   vector_index_ = phi;
   vector_permanent_map_->clear();
-  vector_external_set_->clear();
   predicate_info_map_->clear();
 
   return phi;
@@ -2209,7 +2212,7 @@ void HLoopOptimization::GenerateVecInv(HInstruction* org, DataType::Type type) {
       vector = new (global_allocator_)
           HVecReplicateScalar(global_allocator_, input, type, vector_length_, kNoDexPc);
       vector_permanent_map_->Put(org, Insert(vector_preheader_, vector));
-      vector_external_set_->insert(vector);
+      MaybeInsertInVectorExternalSet(vector);
     }
     vector_map_->Put(org, vector);
   }
@@ -2338,7 +2341,7 @@ void HLoopOptimization::GenerateVecReductionPhiInputs(HPhi* phi, HInstruction* r
                                                                     vector_length,
                                                                     kNoDexPc));
     }
-    vector_external_set_->insert(new_init);
+    MaybeInsertInVectorExternalSet(new_init);
   } else {
     new_init = ReduceAndExtractIfNeeded(new_init);
   }
@@ -2367,12 +2370,12 @@ HInstruction* HLoopOptimization::ReduceAndExtractIfNeeded(HInstruction* instruct
       HVecReduce* reduce = new (global_allocator_) HVecReduce(
           global_allocator_, instruction, type, vector_length, kind, kNoDexPc);
       exit->InsertInstructionBefore(reduce, exit->GetFirstInstruction());
-      vector_external_set_->insert(reduce);
+      MaybeInsertInVectorExternalSet(reduce);
       instruction = new (global_allocator_) HVecExtractScalar(
           global_allocator_, reduce, type, vector_length, 0, kNoDexPc);
       exit->InsertInstructionAfter(instruction, reduce);
 
-      vector_external_set_->insert(instruction);
+      MaybeInsertInVectorExternalSet(instruction);
     }
   }
   return instruction;
@@ -3174,6 +3177,12 @@ void HLoopOptimization::InitPredicateInfoMap(LoopNode* node,
   diamond_false_info->SetControlPredicate(diamond_top_info->GetFalsePredicate());
 
   back_edge_info->SetControlPredicate(header_info->GetTruePredicate());
+}
+
+void HLoopOptimization::MaybeInsertInVectorExternalSet(HInstruction* instruction) {
+  if (IsInPredicatedVectorizationMode()) {
+    vector_external_set_->insert(instruction);
+  }
 }
 
 }  // namespace art
