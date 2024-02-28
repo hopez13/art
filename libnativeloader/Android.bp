@@ -9,11 +9,79 @@ package {
     default_applicable_licenses: ["art_license"],
 }
 
+cc_library_headers {
+    name: "libnativeloader-headers",
+    defaults: ["art_defaults"],
+    apex_available: [
+        "//apex_available:platform",
+        "com.android.art",
+        "com.android.art.debug",
+        "com.android.media",
+    ],
+    visibility: [
+        "//art:__subpackages__",
+        // TODO(b/133140750): Clean this up.
+        "//frameworks/av/media/libstagefright",
+        "//frameworks/native/libs/graphicsenv",
+        "//frameworks/native/vulkan/libvulkan",
+    ],
+    host_supported: true,
+    export_include_dirs: ["include"],
+    header_libs: ["jni_headers"],
+    export_header_lib_headers: ["jni_headers"],
+}
+
 cc_defaults {
     name: "libnativeloader-defaults",
     defaults: ["art_defaults"],
-    header_libs: ["libnativeloader-headers"],
-    export_header_lib_headers: ["libnativeloader-headers"],
+    header_libs: [
+        "libnativehelper_header_only",
+        "libnativeloader-headers",
+    ],
+    export_header_lib_headers: ["libnativeloader-headers"], // TODO
+    static_libs: ["libbase"],
+    shared_libs: [
+        "liblog",
+        "libnativebridge",
+    ],
+    target: {
+        android: {
+            shared_libs: [
+                "libdl_android",
+            ],
+            static_libs: [
+                "libPlatformProperties",
+            ],
+            ldflags: ["-Wl,--exclude-libs=libPlatformProperties.a"],
+        },
+    },
+}
+
+// Parts of libnativeloader that is also used in the tests and that doesn't have
+// stable APIs and hence needs to be linked statically into them. It's split out
+// from libnativeloader so that the tests still can link libnativeloader
+// dynamically for API coverage testing.
+cc_library_static {
+    name: "libnativeloader_impl",
+    defaults: [
+        "art_defaults",
+        "libnativeloader-defaults",
+    ],
+    host_supported: true,
+    target: {
+        android: {
+            srcs: [
+                "library_namespaces.cpp",
+                "native_loader_namespace.cpp",
+                "public_libraries.cpp",
+            ],
+        },
+    },
+    apex_available: [
+        "com.android.art",
+        "com.android.art.debug",
+        "test_broken_com.android.art",
+    ],
 }
 
 art_cc_library {
@@ -33,13 +101,8 @@ art_cc_library {
     srcs: [
         "native_loader.cpp",
     ],
-    header_libs: [
-        "libnativehelper_header_only",
-    ],
-    shared_libs: [
-        "liblog",
-        "libnativebridge",
-        "libbase",
+    static_libs: [
+        "libnativeloader_impl",
     ],
     target: {
         // Library search path needed for running host tests remotely (from testcases directory).
@@ -56,17 +119,10 @@ art_cc_library {
             ],
         },
         android: {
-            srcs: [
-                "library_namespaces.cpp",
-                "native_loader_namespace.cpp",
-                "public_libraries.cpp",
-            ],
-            shared_libs: [
-                "libdl_android",
-            ],
-            static_libs: [
-                "libPlatformProperties",
-            ],
+            // Version script to expose only the NDK plus a few extra functions
+            // needed for testing. This avoids the tests linking other unstable
+            // APIs dynamically through this lib.
+            version_script: "libnativeloader_test.map",
         },
     },
     stubs: {
@@ -95,28 +151,6 @@ cc_library {
     shared_libs: ["liblog"],
 }
 
-cc_library_headers {
-    name: "libnativeloader-headers",
-    defaults: ["art_defaults"],
-    apex_available: [
-        "//apex_available:platform",
-        "com.android.art",
-        "com.android.art.debug",
-        "com.android.media",
-    ],
-    visibility: [
-        "//art:__subpackages__",
-        // TODO(b/133140750): Clean this up.
-        "//frameworks/av/media/libstagefright",
-        "//frameworks/native/libs/graphicsenv",
-        "//frameworks/native/vulkan/libvulkan",
-    ],
-    host_supported: true,
-    export_include_dirs: ["include"],
-    header_libs: ["jni_headers"],
-    export_header_lib_headers: ["jni_headers"],
-}
-
 cc_defaults {
     name: "libnativeloader-test-defaults",
     defaults: [
@@ -139,10 +173,9 @@ cc_defaults {
         "libnativehelper_header_only",
     ],
     static_libs: [
-        "libgmock",
-    ],
-    shared_libs: [
         "libbase",
+        "libgmock",
+        "libnativeloader_impl",
     ],
 
     test_suites: ["device-tests"],
@@ -163,12 +196,9 @@ art_cc_test {
         "native_loader_test.cpp",
         "open_system_library.cpp",
     ],
-    static_libs: [
-        "libbase",
-        "libnativeloader",
-    ],
     shared_libs: [
         "liblog",
+        "libnativeloader",
     ],
     target: {
         android: {
