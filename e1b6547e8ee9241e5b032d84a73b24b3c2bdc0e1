@@ -22,6 +22,30 @@
       },
       "revId": "e1b6547e8ee9241e5b032d84a73b24b3c2bdc0e1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0fd96620_e6a22b37",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1413436
+      },
+      "writtenOn": "2024-02-28T10:08:40Z",
+      "side": 1,
+      "message": "First of all I don\u0027t understand how dex path list from the comment can cause `Path list crosses partition boundaries`, because in theory app domain should stay default until it hits `/product/priv-app`. API_DOMAIN_DEFAULT -\u003e API_DOMAIN_PRODUCT should not cause an error.\n\nThe example is probably originally bundled in product, and update of the app installed in /data, and I think this case fits with API_DOMAIN_PRODUCT, but I prefer @justinyun to answer this case.",
+      "parentUuid": "b92ef875_710e7e25",
+      "range": {
+        "startLine": 13,
+        "startChar": 46,
+        "endLine": 15,
+        "endChar": 68
+      },
+      "revId": "e1b6547e8ee9241e5b032d84a73b24b3c2bdc0e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
