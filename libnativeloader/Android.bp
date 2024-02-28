@@ -9,92 +9,6 @@ package {
     default_applicable_licenses: ["art_license"],
 }
 
-cc_defaults {
-    name: "libnativeloader-defaults",
-    defaults: ["art_defaults"],
-    header_libs: ["libnativeloader-headers"],
-    export_header_lib_headers: ["libnativeloader-headers"],
-}
-
-art_cc_library {
-    name: "libnativeloader",
-    defaults: ["libnativeloader-defaults"],
-    visibility: [
-        "//frameworks/base/cmds/app_process",
-        // TODO(b/133140750): Clean this up.
-        "//frameworks/base/native/webview/loader",
-    ],
-    apex_available: [
-        "com.android.art",
-        "com.android.art.debug",
-        "test_broken_com.android.art",
-    ],
-    host_supported: true,
-    srcs: [
-        "native_loader.cpp",
-    ],
-    header_libs: [
-        "libnativehelper_header_only",
-    ],
-    shared_libs: [
-        "liblog",
-        "libnativebridge",
-        "libbase",
-    ],
-    target: {
-        // Library search path needed for running host tests remotely (from testcases directory).
-        linux_glibc_x86: {
-            ldflags: [
-                "-Wl,-rpath,$ORIGIN/../art_common/out/host/linux-x86/lib",
-                "-Wl,--enable-new-dtags",
-            ],
-        },
-        linux_glibc_x86_64: {
-            ldflags: [
-                "-Wl,-rpath,$ORIGIN/../art_common/out/host/linux-x86/lib64",
-                "-Wl,--enable-new-dtags",
-            ],
-        },
-        android: {
-            srcs: [
-                "library_namespaces.cpp",
-                "native_loader_namespace.cpp",
-                "public_libraries.cpp",
-            ],
-            shared_libs: [
-                "libdl_android",
-            ],
-            static_libs: [
-                "libPlatformProperties",
-            ],
-        },
-    },
-    stubs: {
-        symbol_file: "libnativeloader.map.txt",
-        versions: ["1"],
-    },
-}
-
-// TODO(b/124250621) eliminate the need for this library
-cc_library {
-    name: "libnativeloader_lazy",
-    defaults: ["libnativeloader-defaults"],
-    visibility: [
-        "//frameworks/base/core/jni",
-        "//frameworks/native/opengl/libs",
-        "//frameworks/native/vulkan/libvulkan",
-    ],
-    apex_available: [
-        "//apex_available:platform",
-        "com.android.media",
-        "com.android.media.swcodec",
-    ],
-    host_supported: false,
-    srcs: ["native_loader_lazy.cpp"],
-    runtime_libs: ["libnativeloader"],
-    shared_libs: ["liblog"],
-}
-
 cc_library_headers {
     name: "libnativeloader-headers",
     defaults: ["art_defaults"],
@@ -115,6 +29,129 @@ cc_library_headers {
     export_include_dirs: ["include"],
     header_libs: ["jni_headers"],
     export_header_lib_headers: ["jni_headers"],
+}
+
+cc_defaults {
+    name: "libnativeloader-defaults",
+    defaults: ["art_defaults"],
+    header_libs: [
+        "libnativehelper_header_only",
+        "libnativeloader-headers",
+    ],
+    export_header_lib_headers: ["libnativeloader-headers"],
+    shared_libs: ["liblog"],
+    target: {
+        android: {
+            static_libs: ["libPlatformProperties"],
+        },
+    },
+}
+
+// Parts of libnativeloader that is also used in the tests and that doesn't have
+// stable APIs and hence needs to be linked statically into them. They are split
+// out from libnativeloader so that the tests still can link libnativeloader
+// dynamically for API coverage testing. This library may have dynamic
+// dependencies only on NDK libs.
+cc_library_static {
+    name: "libnativeloader_impl",
+    defaults: [
+        "art_defaults",
+        "libnativeloader-defaults",
+    ],
+    apex_available: [
+        "com.android.art",
+        "com.android.art.debug",
+        "test_broken_com.android.art",
+    ],
+    host_supported: true,
+    header_libs: [
+        "libbase_headers",
+        "libnativebridge-headers",
+    ],
+    target: {
+        android: {
+            srcs: [
+                "library_namespaces.cpp",
+                "native_loader_namespace.cpp",
+                "public_libraries.cpp",
+            ],
+        },
+    },
+}
+
+art_cc_library {
+    name: "libnativeloader",
+    defaults: ["libnativeloader-defaults"],
+    visibility: [
+        "//frameworks/base/cmds/app_process",
+        // TODO(b/133140750): Clean this up.
+        "//frameworks/base/native/webview/loader",
+    ],
+    apex_available: [
+        "com.android.art",
+        "com.android.art.debug",
+        "test_broken_com.android.art",
+    ],
+    host_supported: true,
+    srcs: [
+        "native_loader.cpp",
+    ],
+    static_libs: ["libnativeloader_impl"],
+    shared_libs: [
+        "libbase",
+        "libnativebridge",
+    ],
+    target: {
+        // Library search path needed for running host tests remotely (from testcases directory).
+        linux_glibc_x86: {
+            ldflags: [
+                "-Wl,-rpath,$ORIGIN/../art_common/out/host/linux-x86/lib",
+                "-Wl,--enable-new-dtags",
+            ],
+        },
+        linux_glibc_x86_64: {
+            ldflags: [
+                "-Wl,-rpath,$ORIGIN/../art_common/out/host/linux-x86/lib64",
+                "-Wl,--enable-new-dtags",
+            ],
+        },
+        android: {
+            shared_libs: ["libdl_android"],
+            // Version script to expose only the NDK plus a few extra functions
+            // needed for CTS testing, to avoid that the tests link other
+            // unstable APIs dynamically through this lib.
+            version_script: "libnativeloader_test.map",
+        },
+    },
+    stubs: {
+        symbol_file: "libnativeloader.map.txt",
+        versions: ["1"],
+    },
+}
+
+// Wrapper that loads nativeloader.so lazily, to be used to deal with layer
+// inversion in places like in early boot where libnativeloader or
+// libnativebridge isn't available.
+// TODO(b/124250621) eliminate the need for this library
+cc_library {
+    name: "libnativeloader_lazy",
+    defaults: ["art_defaults"],
+    visibility: [
+        "//frameworks/base/core/jni",
+        "//frameworks/native/opengl/libs",
+        "//frameworks/native/vulkan/libvulkan",
+    ],
+    apex_available: [
+        "//apex_available:platform",
+        "com.android.media",
+        "com.android.media.swcodec",
+    ],
+    host_supported: false,
+    srcs: ["native_loader_lazy.cpp"],
+    header_libs: ["libnativeloader-headers"],
+    export_header_lib_headers: ["libnativeloader-headers"],
+    runtime_libs: ["libnativeloader"],
+    shared_libs: ["liblog"],
 }
 
 cc_defaults {
@@ -139,10 +176,9 @@ cc_defaults {
         "libnativehelper_header_only",
     ],
     static_libs: [
-        "libgmock",
-    ],
-    shared_libs: [
         "libbase",
+        "libgmock",
+        "libnativeloader_impl",
     ],
 
     test_suites: ["device-tests"],
@@ -163,12 +199,9 @@ art_cc_test {
         "native_loader_test.cpp",
         "open_system_library.cpp",
     ],
-    static_libs: [
-        "libbase",
-        "libnativeloader",
-    ],
     shared_libs: [
         "liblog",
+        "libnativeloader",
     ],
     target: {
         android: {
