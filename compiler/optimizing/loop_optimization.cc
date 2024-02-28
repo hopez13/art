@@ -1284,6 +1284,8 @@ void HLoopOptimization::VectorizePredicated(LoopNode* node,
                                             HBasicBlock* exit) {
   DCHECK(IsInPredicatedVectorizationMode());
 
+  vector_external_set_->clear();
+
   HBasicBlock* header = node->loop_info->GetHeader();
   HBasicBlock* preheader = node->loop_info->GetPreHeader();
 
@@ -1369,6 +1371,8 @@ void HLoopOptimization::VectorizeTraditional(LoopNode* node,
                                              HBasicBlock* exit,
                                              int64_t trip_count) {
   DCHECK(!IsInPredicatedVectorizationMode());
+
+  vector_external_set_->clear();
 
   HBasicBlock* header = node->loop_info->GetHeader();
   HBasicBlock* preheader = node->loop_info->GetPreHeader();
@@ -1567,7 +1571,6 @@ HPhi* HLoopOptimization::InitializeForNewLoop(HBasicBlock* new_preheader, HInstr
   vector_header_->AddPhi(phi);
   vector_index_ = phi;
   vector_permanent_map_->clear();
-  vector_external_set_->clear();
   predicate_info_map_->clear();
 
   return phi;
