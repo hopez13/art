@@ -46,6 +46,30 @@
       },
       "revId": "e1b6547e8ee9241e5b032d84a73b24b3c2bdc0e1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "58ebcfe3_142cae86",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-02-28T21:57:12Z",
+      "side": 1,
+      "message": "It\u0027s together with https://r.android.com/2933611 that added system as a separate API domain.\n\n\u003e The example is probably originally bundled in product,\n\nNo, it\u0027s a test app installed in /data, but it instruments an app in /product/priv-app.\n\n\u003e and update of the app installed in /data\n\nThat\u0027s interesting. If a product app gets an update on /data (through Play(?)), it keeps full access to the product libraries? (That\u0027d put fairly specific demands on the targeting when it\u0027s updated, but for all I know it may be a solved problem.) If so, how do we detect that? Would the dex path for the updated app always contain a /product path in that case? The updated app would presumably not have the old app in its dex path (unlike the instrumentation case above).\n\nFrankly I wasn\u0027t aware that the dex path would include the paths to (at least) system shared jars like that. Makes me wonder if they get their own classloaders, and if system is treated differently from other partitions in that regard.",
+      "parentUuid": "0fd96620_e6a22b37",
+      "range": {
+        "startLine": 13,
+        "startChar": 46,
+        "endLine": 15,
+        "endChar": 68
+      },
+      "revId": "e1b6547e8ee9241e5b032d84a73b24b3c2bdc0e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
