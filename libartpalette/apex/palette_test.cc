@@ -176,4 +176,10 @@ TEST_F(PaletteClientTest, SetTaskProfilesCpp) {
 #endif
 }
 
+TEST_F(PaletteClientTest, DebugStore) {
+  std::array<char, 20> result{};
+  EXPECT_EQ(PALETTE_STATUS_OK, PaletteDebugStoreGetString(result.data(), result.size()));
+  EXPECT_TRUE(strnlen(result.data(), result.size()) < result.size());
+}
+
 }  // namespace art

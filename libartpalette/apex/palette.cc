@@ -254,4 +254,12 @@ palette_status_t PaletteSetTaskProfiles(int32_t tid,
   return m(tid, profiles, profiles_len);
 }
 
+// Methods in version 4 API, corresponding to SDK level 35.
+
+palette_status_t PaletteDebugStoreGetString(char* result, size_t max_size) {
+  PaletteDebugStoreGetStringMethod m =
+      PaletteLoader::Instance().GetPaletteDebugStoreGetStringMethod();
+  return m(result, max_size);
+}
+
 }  // extern "C"
