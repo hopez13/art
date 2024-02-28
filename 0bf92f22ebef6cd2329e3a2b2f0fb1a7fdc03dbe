@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52395759_55d7d351",
+        "filename": "compiler/optimizing/intrinsics_riscv64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1143,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-02-28T14:25:35Z",
+      "side": 1,
+      "message": "Should we add these also to `Riscv64JNIMacroAssembler::TryToTransitionFromRunnableToNative` and `Riscv64JNIMacroAssembler::TryToTransitionFromNativeToRunnable`? They also do LR/SC",
+      "range": {
+        "startLine": 1143,
+        "startChar": 4,
+        "endLine": 1143,
+        "endChar": 35
+      },
+      "revId": "0bf92f22ebef6cd2329e3a2b2f0fb1a7fdc03dbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ffda29c_87f03ece",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-02-28T14:25:35Z",
+      "side": 1,
+      "message": "nit: `runtime`",
+      "range": {
+        "startLine": 46,
+        "startChar": 71,
+        "endLine": 46,
+        "endChar": 79
+      },
+      "revId": "0bf92f22ebef6cd2329e3a2b2f0fb1a7fdc03dbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b538db0_3cfb14b1",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-02-28T14:25:35Z",
+      "side": 1,
+      "message": "Alternatively, we could do `MinInt\u003cRiscv64ExtensionMask\u003e(enum_cast\u003c\u003e(Riscv64Extension::kLast));`. I think these are equal except when `Riscv64Extension` is exactly 32 elements",
+      "range": {
+        "startLine": 77,
+        "startChar": 4,
+        "endLine": 77,
+        "endChar": 75
+      },
+      "revId": "0bf92f22ebef6cd2329e3a2b2f0fb1a7fdc03dbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52969cc1_7be394f8",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-02-28T14:25:35Z",
+      "side": 1,
+      "message": "This assume that the `march` is `rv64imafdv_zba_zbb` plus `c`. Is there a way to check that here? Maybe we can do `DCHECK_EQ(smo_.GetOldOverride(), \"-march\u003drv64imafdv_zba_zbb\");` in the body of the constructor. My concern is that this can mistakenly add new extensions when the idea is that it will be just supressing the compressed ones.\n\nWe would have to define the getter in `ScopedMarchOverride` too.\n\nSimilar for the two scopes below.",
+      "range": {
+        "startLine": 78,
+        "startChar": 29,
+        "endLine": 78,
+        "endChar": 47
+      },
+      "revId": "0bf92f22ebef6cd2329e3a2b2f0fb1a7fdc03dbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
