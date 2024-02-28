@@ -17,10 +17,6 @@
 #ifndef ART_RUNTIME_THREAD_LIST_H_
 #define ART_RUNTIME_THREAD_LIST_H_
 
-#include <bitset>
-#include <list>
-#include <vector>
-
 #include "barrier.h"
 #include "base/histogram.h"
 #include "base/mutex.h"
@@ -29,7 +25,10 @@
 #include "jni.h"
 #include "reflective_handle_scope.h"
 #include "suspend_reason.h"
-#include "thread_state.h"
+
+#include <bitset>
+#include <list>
+#include <vector>
 
 namespace art HIDDEN {
 namespace gc {
@@ -95,10 +94,8 @@ class ThreadList {
   // Suspend a thread using its thread id, typically used by lock/monitor inflation. Returns the
   // thread on success else null. The thread id is used to identify the thread to avoid races with
   // the thread terminating. Note that as thread ids are recycled this may not suspend the expected
-  // thread, that may be terminating. 'attempt_of_4' is zero if this is the only
-  // attempt, or 1..4 to try 4 times with fractional timeouts.
-  // TODO: Reconsider the use of thread_id, now that we have ThreadExitFlag.
-  Thread* SuspendThreadByThreadId(uint32_t thread_id, SuspendReason reason, int attempt_of_4 = 0)
+  // thread, that may be terminating.
+  Thread* SuspendThreadByThreadId(uint32_t thread_id, SuspendReason reason)
       REQUIRES(!Locks::mutator_lock_,
                !Locks::thread_list_lock_,
                !Locks::thread_suspend_count_lock_);
@@ -220,9 +217,7 @@ class ThreadList {
   // the diagnostic information. If 0 is passed, we return an empty string on timeout.  Normally
   // the caller does not hold the mutator lock. See the comment at the call in
   // RequestSynchronousCheckpoint for the only exception.
-  std::optional<std::string> WaitForSuspendBarrier(AtomicInteger* barrier,
-                                                   pid_t t = 0,
-                                                   int attempt_of_4 = 0)
+  std::optional<std::string> WaitForSuspendBarrier(AtomicInteger* barrier, pid_t t = 0)
       REQUIRES(!Locks::thread_list_lock_, !Locks::thread_suspend_count_lock_);
 
  private:
@@ -238,19 +233,6 @@ class ThreadList {
   void ResumeAllInternal(Thread* self)
       REQUIRES(Locks::thread_list_lock_, Locks::thread_suspend_count_lock_)
           UNLOCK_FUNCTION(Locks::mutator_lock_);
-
-  // Helper to actually suspend a single thread. This is called with thread_list_lock_ held and
-  // the caller guarantees that *thread is valid until that is released.  We "release the mutator
-  // lock", by switching to self_state.  'attempt_of_4' is 0 if we only attempt once, and 1..4 if
-  // we are going to try 4 times with a quarter of the full timeout. 'func_name' is used only to
-  // identify ourselves for logging.
-  bool SuspendThread(Thread* self,
-                     Thread* thread,
-                     SuspendReason reason,
-                     ThreadState self_state,
-                     const char* func_name,
-                     int attempt_of_4) RELEASE(Locks::thread_list_lock_)
-      RELEASE_SHARED(Locks::mutator_lock_);
 
   void SuspendAllInternal(Thread* self, SuspendReason reason = SuspendReason::kInternal)
       REQUIRES(!Locks::thread_list_lock_,

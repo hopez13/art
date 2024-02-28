@@ -1054,11 +1054,8 @@ void Monitor::Inflate(Thread* self, Thread* owner, ObjPtr<mirror::Object> obj, i
   }
 }
 
-void Monitor::InflateThinLocked(Thread* self,
-                                Handle<mirror::Object> obj,
-                                LockWord lock_word,
-                                uint32_t hash_code,
-                                int attempt_of_4) {
+void Monitor::InflateThinLocked(Thread* self, Handle<mirror::Object> obj, LockWord lock_word,
+                                uint32_t hash_code) {
   DCHECK_EQ(lock_word.GetState(), LockWord::kThinLocked);
   uint32_t owner_thread_id = lock_word.ThinLockOwner();
   if (owner_thread_id == self->GetThreadId()) {
@@ -1071,8 +1068,7 @@ void Monitor::InflateThinLocked(Thread* self,
     Thread* owner;
     {
       ScopedThreadSuspension sts(self, ThreadState::kWaitingForLockInflation);
-      owner = thread_list->SuspendThreadByThreadId(
-          owner_thread_id, SuspendReason::kInternal, attempt_of_4);
+      owner = thread_list->SuspendThreadByThreadId(owner_thread_id, SuspendReason::kInternal);
     }
     if (owner != nullptr) {
       // We succeeded in suspending the thread, check the lock's status didn't change.
@@ -1111,7 +1107,6 @@ ObjPtr<mirror::Object> Monitor::MonitorEnter(Thread* self,
   uint32_t thread_id = self->GetThreadId();
   size_t contention_count = 0;
   constexpr size_t kExtraSpinIters = 100;
-  int inflation_attempt = 1;
   StackHandleScope<1> hs(self);
   Handle<mirror::Object> h_obj(hs.NewHandle(obj));
   while (true) {
@@ -1158,7 +1153,7 @@ ObjPtr<mirror::Object> Monitor::MonitorEnter(Thread* self,
             continue;  // Go again.
           } else {
             // We'd overflow the recursion count, so inflate the monitor.
-            InflateThinLocked(self, h_obj, lock_word, 0, inflation_attempt++);
+            InflateThinLocked(self, h_obj, lock_word, 0);
           }
         } else {
           if (trylock) {
@@ -1179,7 +1174,7 @@ ObjPtr<mirror::Object> Monitor::MonitorEnter(Thread* self,
           } else {
             contention_count = 0;
             // No ordering required for initial lockword read. Install rereads it anyway.
-            InflateThinLocked(self, h_obj, lock_word, 0, inflation_attempt++);
+            InflateThinLocked(self, h_obj, lock_word, 0);
           }
         }
         continue;  // Start from the beginning.
