@@ -22,6 +22,30 @@
       },
       "revId": "93d319a94379c14194fc30569ed35b70ae73898f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b4068637_646044ee",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-02-28T09:20:47Z",
+      "side": 1,
+      "message": "It was the automatic clang-format. Given that it is just whitespace, I\u0027d just keep it.",
+      "parentUuid": "469d9ba7_ae6b8f5f",
+      "range": {
+        "startLine": 307,
+        "startChar": 0,
+        "endLine": 311,
+        "endChar": 42
+      },
+      "revId": "93d319a94379c14194fc30569ed35b70ae73898f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
