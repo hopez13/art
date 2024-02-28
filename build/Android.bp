@@ -309,6 +309,7 @@ art_debug_defaults {
         "-DDYNAMIC_ANNOTATIONS_ENABLED=1",
         "-DVIXL_DEBUG",
         "-UNDEBUG",
+        "-Oz",
     ],
     asflags: [
         "-UNDEBUG",
@@ -328,7 +329,7 @@ art_debug_defaults {
         art_debug_opt_flag: {
             cflags: ["%s"],
             conditions_default: {
-                cflags: ["-Og"],
+                cflags: ["-Oz"],
             },
         },
     },
