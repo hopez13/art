@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd5ad424_cf520920",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1951730
+      },
+      "writtenOn": "2024-02-28T16:05:04Z",
+      "side": 1,
+      "message": "Added a test in platette_test.cc",
+      "parentUuid": "e2cca9e3_133857de",
+      "range": {
+        "startLine": 13,
+        "startChar": 6,
+        "endLine": 13,
+        "endChar": 11
+      },
+      "revId": "76b7ff91ed94e9092470d1591ecad77f6f626ac2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e6e58a32_0390c8fb",
@@ -37,6 +61,24 @@
       "writtenOn": "2024-02-27T19:20:12Z",
       "side": 1,
       "message": "Please remove the empty line to attach the comment to the function.",
+      "revId": "76b7ff91ed94e9092470d1591ecad77f6f626ac2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d257efa0_e25867ca",
+        "filename": "libartpalette/apex/palette.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1951730
+      },
+      "writtenOn": "2024-02-28T16:05:04Z",
+      "side": 1,
+      "message": "This is merely a separator, not meant to document this function. which is consistent with the commenting style of other methods in palette.cc, where a comment separator is used for each SDK level. Do you think this comment should be attached to the function?",
+      "parentUuid": "e6e58a32_0390c8fb",
       "revId": "76b7ff91ed94e9092470d1591ecad77f6f626ac2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -64,6 +106,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d8787d70_e989a504",
+        "filename": "libartpalette/apex/palette.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1951730
+      },
+      "writtenOn": "2024-02-28T16:05:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "15106c29_834c29fe",
+      "range": {
+        "startLine": 262,
+        "startChar": 9,
+        "endLine": 262,
+        "endChar": 28
+      },
+      "revId": "76b7ff91ed94e9092470d1591ecad77f6f626ac2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0c4daf00_fe9aa515",
@@ -81,6 +147,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "66e1b155_8164c19c",
+        "filename": "libartpalette/include/palette/palette_method_list.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1951730
+      },
+      "writtenOn": "2024-02-28T16:05:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0c4daf00_fe9aa515",
+      "revId": "76b7ff91ed94e9092470d1591ecad77f6f626ac2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "46d6474e_e26f3cea",
@@ -94,6 +178,24 @@
       "writtenOn": "2024-02-27T19:20:12Z",
       "side": 1,
       "message": "Please document the API. It\u0027s a bit awkward in this multi-line macro, but this is effectively where the API docs go (cf. `PaletteSetTaskProfiles` just above).\n\n(Btw, I have a TODO to revamp this dlopen/dlsym mess to an ordinary native API and then these docs will move to a standard header file according to the NDK guidelines.)",
+      "revId": "76b7ff91ed94e9092470d1591ecad77f6f626ac2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca43690a_148aaa00",
+        "filename": "libartpalette/include/palette/palette_method_list.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1951730
+      },
+      "writtenOn": "2024-02-28T16:05:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "46d6474e_e26f3cea",
       "revId": "76b7ff91ed94e9092470d1591ecad77f6f626ac2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -121,6 +223,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9acaa397_eae47733",
+        "filename": "libartpalette/libartpalette.map",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1951730
+      },
+      "writtenOn": "2024-02-28T16:05:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1d866804_7779926d",
+      "range": {
+        "startLine": 58,
+        "startChar": 4,
+        "endLine": 58,
+        "endChar": 30
+      },
+      "revId": "76b7ff91ed94e9092470d1591ecad77f6f626ac2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dc1d6138_4e61e5cb",
@@ -134,6 +260,24 @@
       "writtenOn": "2024-02-27T19:20:12Z",
       "side": 1,
       "message": "Dito.",
+      "revId": "76b7ff91ed94e9092470d1591ecad77f6f626ac2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d222f12_f85747bc",
+        "filename": "libartpalette/system/palette_fake.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1951730
+      },
+      "writtenOn": "2024-02-28T16:05:04Z",
+      "side": 1,
+      "message": "The same applies to this comment. I intended it as a separator, not as function documentation, in accordance with other separators in the file. Please let me know if I should still attach it to the function",
+      "parentUuid": "dc1d6138_4e61e5cb",
       "revId": "76b7ff91ed94e9092470d1591ecad77f6f626ac2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
