@@ -2049,6 +2049,30 @@
       },
       "revId": "c144d9f461caa469b5b8d573a20b4caf08d2b38c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e7fb5279_cc895c3a",
+        "filename": "test/MyClassNatives/MyClassNatives.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-28T16:13:01Z",
+      "side": 1,
+      "message": "Not done. But I can see that old code has the same wrong indentation, so let\u0027s keep this as is for consistency.",
+      "parentUuid": "77135b99_dcd7d7b4",
+      "range": {
+        "startLine": 387,
+        "startChar": 4,
+        "endLine": 387,
+        "endChar": 8
+      },
+      "revId": "c144d9f461caa469b5b8d573a20b4caf08d2b38c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

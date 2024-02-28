@@ -1,0 +1,389 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "43ecf9f4_da9b4660",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1566,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-28T16:13:01Z",
+      "side": 1,
+      "message": "Style: We could put this on one line.\n\nAnd if you\u0027re using `{`, `}` for initialization of `JniStubKey`, maybe we could use the same style here and remove the `\u003d`. But feel free to leave the `\u003d` here - the `JniStubMethodRelocation` is plain `struct`.",
+      "range": {
+        "startLine": 1563,
+        "startChar": 4,
+        "endLine": 1566,
+        "endChar": 6
+      },
+      "revId": "ce4f82a4e54f1507fa68397fa9a3e9ef1b8eb9bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "004337ee_32e5c904",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 2618,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-28T16:13:01Z",
+      "side": 1,
+      "message": "`/*kUpdate\u003d*/`\n\nThe argument name does not contain the trailing `d` in the header file. And I\u0027d prefer the `\u003d` even if I don\u0027t expect clang-tidy to check template argument names.",
+      "range": {
+        "startLine": 2618,
+        "startChar": 39,
+        "endLine": 2618,
+        "endChar": 51
+      },
+      "revId": "ce4f82a4e54f1507fa68397fa9a3e9ef1b8eb9bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "151d06a3_f54c79fb",
+        "filename": "runtime/jni_stub_hash_map.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-28T16:13:01Z",
+      "side": 1,
+      "message": "Style: `kMaxFloatOrDoubleRegisterArgs` (compile-time constant). Similarly `kMaxIntLikeRegisterArgs` below. Same for \"Equals\".",
+      "range": {
+        "startLine": 117,
+        "startChar": 19,
+        "endLine": 117,
+        "endChar": 52
+      },
+      "revId": "ce4f82a4e54f1507fa68397fa9a3e9ef1b8eb9bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e7de34f_5c1272f9",
+        "filename": "runtime/jni_stub_hash_map.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-28T16:13:01Z",
+      "side": 1,
+      "message": "\"if it\u0027s in a register\"",
+      "range": {
+        "startLine": 144,
+        "startChar": 36,
+        "endLine": 144,
+        "endChar": 52
+      },
+      "revId": "ce4f82a4e54f1507fa68397fa9a3e9ef1b8eb9bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b5c73e95_6890bb01",
+        "filename": "runtime/jni_stub_hash_map.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-28T16:13:01Z",
+      "side": 1,
+      "message": "\"code\"",
+      "range": {
+        "startLine": 149,
+        "startChar": 54,
+        "endLine": 149,
+        "endChar": 59
+      },
+      "revId": "ce4f82a4e54f1507fa68397fa9a3e9ef1b8eb9bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "97927380_406337d3",
+        "filename": "runtime/jni_stub_hash_map.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-28T16:13:01Z",
+      "side": 1,
+      "message": "Move the `jni_stub_hash_map*` files to `oat/`?",
+      "revId": "ce4f82a4e54f1507fa68397fa9a3e9ef1b8eb9bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa564905_a7b37009",
+        "filename": "runtime/jni_stub_hash_map.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-28T16:13:01Z",
+      "side": 1,
+      "message": "Move to initializer-list (before `shorty_(shorty)`).",
+      "range": {
+        "startLine": 52,
+        "startChar": 4,
+        "endLine": 52,
+        "endChar": 90
+      },
+      "revId": "ce4f82a4e54f1507fa68397fa9a3e9ef1b8eb9bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "152782be_f0414f31",
+        "filename": "runtime/jni_stub_hash_map.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-28T16:13:01Z",
+      "side": 1,
+      "message": "Simply forward to the other constructor:\n\n    JniStubKey(ArtMethod* method) REQUIRES_SHARED(Locks::mutator_lock_)\n        : JniStubKey(method-\u003eGetAccessFlags(), method-\u003eGetShortyView()) {}",
+      "range": {
+        "startLine": 55,
+        "startChar": 70,
+        "endLine": 60,
+        "endChar": 3
+      },
+      "revId": "ce4f82a4e54f1507fa68397fa9a3e9ef1b8eb9bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "10b1e1fe_11c1caf0",
+        "filename": "runtime/jni_stub_hash_map.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-28T16:13:01Z",
+      "side": 1,
+      "message": "We should rewrite the `HashMap\u003c\u003e` to wrap an `EmptyFn` for `Key` to provide the \"empty\" API for the pair, so that we can drop this template argument. But that\u0027s out of scope in this change.",
+      "range": {
+        "startLine": 83,
+        "startChar": 0,
+        "endLine": 83,
+        "endChar": 25
+      },
+      "revId": "ce4f82a4e54f1507fa68397fa9a3e9ef1b8eb9bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4874a8d_1051a5bb",
+        "filename": "runtime/jni_stub_hash_map.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-28T16:13:01Z",
+      "side": 1,
+      "message": "Move implementation to the .cc file. (Then we can remove the forward declarations for `JniStubKeyOptimizedHash` and `JniStubKeyGenericHash` above and explicit specializations from the .cc file.)",
+      "range": {
+        "startLine": 97,
+        "startChar": 46,
+        "endLine": 97,
+        "endChar": 47
+      },
+      "revId": "ce4f82a4e54f1507fa68397fa9a3e9ef1b8eb9bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "70998681_79d5e11c",
+        "filename": "runtime/jni_stub_hash_map.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-28T16:13:01Z",
+      "side": 1,
+      "message": "Move implementation to .cc file.",
+      "range": {
+        "startLine": 129,
+        "startChar": 48,
+        "endLine": 129,
+        "endChar": 49
+      },
+      "revId": "ce4f82a4e54f1507fa68397fa9a3e9ef1b8eb9bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5e32bd0_ea46e9bd",
+        "filename": "runtime/jni_stub_hash_map.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-28T16:13:01Z",
+      "side": 1,
+      "message": "Nit: Use `typename` for consistency.",
+      "range": {
+        "startLine": 160,
+        "startChar": 10,
+        "endLine": 160,
+        "endChar": 15
+      },
+      "revId": "ce4f82a4e54f1507fa68397fa9a3e9ef1b8eb9bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "68eccfcb_bd6c3040",
+        "filename": "runtime/jni_stub_hash_map_test.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-28T16:13:01Z",
+      "side": 1,
+      "message": "Unused, please remove. (Note: We usually pass `ArrayRef\u003c\u003e` by value.)",
+      "range": {
+        "startLine": 55,
+        "startChar": 5,
+        "endLine": 55,
+        "endChar": 12
+      },
+      "revId": "ce4f82a4e54f1507fa68397fa9a3e9ef1b8eb9bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b25c07a6_1af6f921",
+        "filename": "runtime/jni_stub_hash_map_test.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-28T16:13:01Z",
+      "side": 1,
+      "message": "Style: Does this fit on one line?",
+      "range": {
+        "startLine": 67,
+        "startChar": 8,
+        "endLine": 68,
+        "endChar": 57
+      },
+      "revId": "ce4f82a4e54f1507fa68397fa9a3e9ef1b8eb9bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6321fcd7_b5009177",
+        "filename": "runtime/oat/image-inl.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-28T16:13:01Z",
+      "side": 1,
+      "message": "`kUpdate`",
+      "range": {
+        "startLine": 118,
+        "startChar": 15,
+        "endLine": 118,
+        "endChar": 23
+      },
+      "revId": "ce4f82a4e54f1507fa68397fa9a3e9ef1b8eb9bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bcdb1579_e6576c35",
+        "filename": "test/667-jit-jni-stub/src/Main.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-28T16:13:01Z",
+      "side": 1,
+      "message": "Add space before `(`.",
+      "range": {
+        "startLine": 160,
+        "startChar": 17,
+        "endLine": 160,
+        "endChar": 18
+      },
+      "revId": "ce4f82a4e54f1507fa68397fa9a3e9ef1b8eb9bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4003ffe_c3b53bfd",
+        "filename": "test/common/runtime_state.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 452,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-28T16:13:01Z",
+      "side": 1,
+      "message": "\"to avoid entrypoint being set\"",
+      "range": {
+        "startLine": 452,
+        "startChar": 50,
+        "endLine": 452,
+        "endChar": 72
+      },
+      "revId": "ce4f82a4e54f1507fa68397fa9a3e9ef1b8eb9bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
