@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "620649b7_8d7b78fe",
+        "filename": "compiler/optimizing/intrinsics_riscv64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1143,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-28T16:56:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "52395759_55d7d351",
+      "range": {
+        "startLine": 1143,
+        "startChar": 4,
+        "endLine": 1143,
+        "endChar": 35
+      },
+      "revId": "0bf92f22ebef6cd2329e3a2b2f0fb1a7fdc03dbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7ffda29c_87f03ece",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-02-28T14:25:35Z",
       "side": 1,
       "message": "nit: `runtime`",
+      "range": {
+        "startLine": 46,
+        "startChar": 71,
+        "endLine": 46,
+        "endChar": 79
+      },
+      "revId": "0bf92f22ebef6cd2329e3a2b2f0fb1a7fdc03dbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d08cc3d1_2c19b751",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-28T16:56:34Z",
+      "side": 1,
+      "message": "I prefer \"run time\" to describe the time when the code is running. The term \"runtime\" usually refers to `libart.so` code.",
+      "parentUuid": "7ffda29c_87f03ece",
       "range": {
         "startLine": 46,
         "startChar": 71,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d2fc311a_ad696f6b",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-28T16:56:34Z",
+      "side": 1,
+      "message": "No, they are not equal. `MinInt\u003c\u003e()` with an unsigned type is 0.",
+      "parentUuid": "4b538db0_3cfb14b1",
+      "range": {
+        "startLine": 77,
+        "startChar": 4,
+        "endLine": 77,
+        "endChar": 75
+      },
+      "revId": "0bf92f22ebef6cd2329e3a2b2f0fb1a7fdc03dbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "52969cc1_7be394f8",
@@ -83,6 +155,30 @@
       "writtenOn": "2024-02-28T14:25:35Z",
       "side": 1,
       "message": "This assume that the `march` is `rv64imafdv_zba_zbb` plus `c`. Is there a way to check that here? Maybe we can do `DCHECK_EQ(smo_.GetOldOverride(), \"-march\u003drv64imafdv_zba_zbb\");` in the body of the constructor. My concern is that this can mistakenly add new extensions when the idea is that it will be just supressing the compressed ones.\n\nWe would have to define the getter in `ScopedMarchOverride` too.\n\nSimilar for the two scopes below.",
+      "range": {
+        "startLine": 78,
+        "startChar": 29,
+        "endLine": 78,
+        "endChar": 47
+      },
+      "revId": "0bf92f22ebef6cd2329e3a2b2f0fb1a7fdc03dbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "09461306_3df9856a",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-28T16:56:34Z",
+      "side": 1,
+      "message": "I was thinking about fetching the existing `march` and doing string manipulation but it\u0027s a lot of work, so I\u0027d prefer to stick to the existing code for now.",
+      "parentUuid": "52969cc1_7be394f8",
       "range": {
         "startLine": 78,
         "startChar": 29,
