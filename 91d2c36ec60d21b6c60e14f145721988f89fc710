@@ -16,6 +16,24 @@
       "message": "Testing with Ryan\u0027s changes: https://android-build.corp.google.com/builds/abtd/run/L25200030002253921",
       "revId": "91d2c36ec60d21b6c60e14f145721988f89fc710",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0710c52f_9d423c0f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1978766
+      },
+      "writtenOn": "2024-02-29T23:33:56Z",
+      "side": 1,
+      "message": "Failed with the same error:\nhttps://android-build.corp.google.com/artifact/pending/P70888604/test_suites_x86_64-trunk_staging_coverage/latest/view/logs%2Fbuild_error.log\n```\n\nException in thread \"main\" java.lang.OutOfMemoryError: Required array length 2147483639 + 9 is too large\n\tat java.base/jdk.internal.util.ArraysSupport.hugeLength(ArraysSupport.java:649)\n\tat java.base/jdk.internal.util.ArraysSupport.newLength(ArraysSupport.java:642)\n\tat java.base/java.io.ByteArrayOutputStream.ensureCapacity(ByteArrayOutputStream.java:100)\n\tat java.base/java.io.ByteArrayOutputStream.write(ByteArrayOutputStream.java:130)\n\tat com.android.signapk.CountingOutputStream.write(CountingOutputStream.java:46)\n\tat java.base/java.util.zip.ZipOutputStream.write(ZipOutputStream.java:354)\n\tat com.android.signapk.SignApk.copyFiles(SignApk.java:513)\n\tat com.android.signapk.SignApk.main(SignApk.java:1290)\nLLVM Profile Error: Failed to write file \"/data/misc/trace/clang-1801104-14318149188255462052_0.profraw\": No such file or directory\n```",
+      "parentUuid": "5ebed680_2189517d",
+      "revId": "91d2c36ec60d21b6c60e14f145721988f89fc710",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
