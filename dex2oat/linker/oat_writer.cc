@@ -2092,32 +2092,48 @@ size_t OatWriter::InitIndexBssMappings(size_t offset) {
                                         oat_dex_files_[i].method_type_bss_mapping_offset_);
   }
 
-  if (!(compiler_options_.IsBootImage() || compiler_options_.IsBootImageExtension())) {
+  if (!compiler_options_.IsBootImage()) {
     ArrayRef<const DexFile* const> boot_class_path(
         Runtime::Current()->GetClassLinker()->GetBootClassPath());
-    // We initialize bcp_bss_info for single image and purposively leave it empty for the multi
-    // image case.
+    // We initialize bcp_bss_info except for the boot image case.
     // Note that we have an early break at the beginning of the method, so `bcp_bss_info_` will also
     // be empty in the case of having no mappings at all.
     DCHECK(bcp_bss_info_.empty());
     bcp_bss_info_.resize(boot_class_path.size());
-    for (size_t i = 0, size = bcp_bss_info_.size(); i != size; ++i) {
-      const DexFile* dex_file = boot_class_path[i];
-      DCHECK(!ContainsElement(*dex_files_, dex_file));
-      offset = InitIndexBssMappingsHelper(offset,
-                                          dex_file,
-                                          number_of_method_dex_files,
-                                          number_of_type_dex_files,
-                                          number_of_public_type_dex_files,
-                                          number_of_package_type_dex_files,
-                                          number_of_string_dex_files,
-                                          number_of_method_type_dex_files,
-                                          bcp_bss_info_[i].method_bss_mapping_offset,
-                                          bcp_bss_info_[i].type_bss_mapping_offset,
-                                          bcp_bss_info_[i].public_type_bss_mapping_offset,
-                                          bcp_bss_info_[i].package_type_bss_mapping_offset,
-                                          bcp_bss_info_[i].string_bss_mapping_offset,
-                                          bcp_bss_info_[i].method_type_bss_mapping_offset);
+    // The boot image extension might have duplicates between the dex files and the BCP dex
+    // files. We will skipped the dex files in common, to have unique entries. We use two offsets to
+    // keep track of the skipped dex files.
+    size_t bcp_index = 0u;
+    size_t bcp_bss_info_index = 0u;
+    const bool boot_image_extension = compiler_options_.IsBootImageExtension();
+    for (size_t size = bcp_bss_info_.size(); bcp_bss_info_index != size;
+         /*++bcp_bss_info_index in loop*/ ++bcp_index) {
+      const DexFile* dex_file = boot_class_path[bcp_index];
+      if (boot_image_extension) {
+        if (ContainsElement(*dex_files_, dex_file)) {
+          bcp_bss_info_.erase(bcp_bss_info_.begin() + bcp_bss_info_index);
+          size--;
+          continue;
+        }
+      } else {
+        DCHECK(!ContainsElement(*dex_files_, dex_file));
+      }
+      offset = InitIndexBssMappingsHelper(
+          offset,
+          dex_file,
+          number_of_method_dex_files,
+          number_of_type_dex_files,
+          number_of_public_type_dex_files,
+          number_of_package_type_dex_files,
+          number_of_string_dex_files,
+          number_of_method_type_dex_files,
+          bcp_bss_info_[bcp_bss_info_index].method_bss_mapping_offset,
+          bcp_bss_info_[bcp_bss_info_index].type_bss_mapping_offset,
+          bcp_bss_info_[bcp_bss_info_index].public_type_bss_mapping_offset,
+          bcp_bss_info_[bcp_bss_info_index].package_type_bss_mapping_offset,
+          bcp_bss_info_[bcp_bss_info_index].string_bss_mapping_offset,
+          bcp_bss_info_[bcp_bss_info_index].method_type_bss_mapping_offset);
+      ++bcp_bss_info_index;
     }
   }
 
@@ -3013,23 +3029,38 @@ size_t OatWriter::WriteIndexBssMappings(OutputStream* out,
     }
   }
 
-  if (!(compiler_options_.IsBootImage() || compiler_options_.IsBootImageExtension())) {
+  if (!(compiler_options_.IsBootImage())) {
+    // The boot image extension might have duplicates between the dex files and the BCP dex
+    // files. We already removed those from bcp_bss_info_ in InitIndexBssMappings. To have the
+    // corresponding dex files in this method, we have to use two offsets to keep track of the
+    // skipped dex files.
+    size_t bcp_index = 0u;
+    size_t bcp_bss_info_index = 0u;
     ArrayRef<const DexFile* const> boot_class_path(
         Runtime::Current()->GetClassLinker()->GetBootClassPath());
-    for (size_t i = 0, size = bcp_bss_info_.size(); i != size; ++i) {
-      const DexFile* dex_file = boot_class_path[i];
-      DCHECK(!ContainsElement(*dex_files_, dex_file));
-      relative_offset =
-          WriteIndexBssMappingsHelper(out,
-                                      file_offset,
-                                      relative_offset,
-                                      dex_file,
-                                      bcp_bss_info_[i].method_bss_mapping_offset,
-                                      bcp_bss_info_[i].type_bss_mapping_offset,
-                                      bcp_bss_info_[i].public_type_bss_mapping_offset,
-                                      bcp_bss_info_[i].package_type_bss_mapping_offset,
-                                      bcp_bss_info_[i].string_bss_mapping_offset,
-                                      bcp_bss_info_[i].method_type_bss_mapping_offset);
+    const bool boot_image_extension = compiler_options_.IsBootImageExtension();
+    for (size_t size = bcp_bss_info_.size(); bcp_bss_info_index != size;
+         ++bcp_index /*++bcp_bss_info_index in loop*/) {
+      const DexFile* dex_file = boot_class_path[bcp_index];
+      if (boot_image_extension) {
+        if (ContainsElement(*dex_files_, dex_file)) {
+          continue;
+        }
+      } else {
+        DCHECK(!ContainsElement(*dex_files_, dex_file));
+      }
+      relative_offset = WriteIndexBssMappingsHelper(
+          out,
+          file_offset,
+          relative_offset,
+          dex_file,
+          bcp_bss_info_[bcp_bss_info_index].method_bss_mapping_offset,
+          bcp_bss_info_[bcp_bss_info_index].type_bss_mapping_offset,
+          bcp_bss_info_[bcp_bss_info_index].public_type_bss_mapping_offset,
+          bcp_bss_info_[bcp_bss_info_index].package_type_bss_mapping_offset,
+          bcp_bss_info_[bcp_bss_info_index].string_bss_mapping_offset,
+          bcp_bss_info_[bcp_bss_info_index].method_type_bss_mapping_offset);
+      ++bcp_bss_info_index;
       if (relative_offset == 0u) {
         return 0u;
       }
