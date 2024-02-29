@@ -85,6 +85,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d1ef6883_c09d9d2d",
+        "filename": "libartpalette/apex/palette.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-02-29T14:29:26Z",
+      "side": 1,
+      "message": "Well, it\u0027s a bit of a mix in places, but in this file they\u0027re attached to each function as you can see above. We\u0027ve decided that going forward it\u0027s better to generally group them by function rather than SDK level, so that\u0027s why I\u0027m asking for this.",
+      "parentUuid": "d257efa0_e25867ca",
+      "revId": "76b7ff91ed94e9092470d1591ecad77f6f626ac2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "15106c29_834c29fe",
         "filename": "libartpalette/apex/palette.cc",
         "patchSetId": 2
@@ -120,6 +138,30 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "15106c29_834c29fe",
+      "range": {
+        "startLine": 262,
+        "startChar": 9,
+        "endLine": 262,
+        "endChar": 28
+      },
+      "revId": "76b7ff91ed94e9092470d1591ecad77f6f626ac2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b8cee186_4596a238",
+        "filename": "libartpalette/apex/palette.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-02-29T14:29:26Z",
+      "side": 1,
+      "message": "Thanks, I think you\u0027re right it\u0027s better done one level up.",
+      "parentUuid": "d8787d70_e989a504",
       "range": {
         "startLine": 262,
         "startChar": 9,
@@ -278,6 +320,24 @@
       "side": 1,
       "message": "The same applies to this comment. I intended it as a separator, not as function documentation, in accordance with other separators in the file. Please let me know if I should still attach it to the function",
       "parentUuid": "dc1d6138_4e61e5cb",
+      "revId": "76b7ff91ed94e9092470d1591ecad77f6f626ac2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "47bb043b_0f2e3194",
+        "filename": "libartpalette/system/palette_fake.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-02-29T14:29:26Z",
+      "side": 1,
+      "message": "Yes please do as discussed earlier.",
+      "parentUuid": "9d222f12_f85747bc",
       "revId": "76b7ff91ed94e9092470d1591ecad77f6f626ac2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }

@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0868cc67_3580f74a",
+        "filename": "libartbase/base/debugstore.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-02-29T14:29:26Z",
+      "side": 1,
+      "message": "It\u0027s only necessary to do this when `PaletteDebugStoreGetString` returns `PALETTE_STATUS_NOT_SUPPORTED`. This is fine too, but then it\u0027s worth a comment that it\u0027s to deal with that situation, because it\u0027s not obvious.",
+      "range": {
+        "startLine": 30,
+        "startChar": 2,
+        "endLine": 30,
+        "endChar": 19
+      },
+      "revId": "a425bfc68e6acb0e8154484a26bcabe2aaab861b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a60f8363_b918e571",
+        "filename": "libartpalette/apex/palette_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-02-29T14:29:26Z",
+      "side": 1,
+      "message": "Is it possible to test that it actually gets some data? That\u0027d help us ensure the functionality works across OEMs. Or do you have an E2E CTS test elsewhere?",
+      "range": {
+        "startLine": 173,
+        "startChar": 2,
+        "endLine": 173,
+        "endChar": 69
+      },
+      "revId": "a425bfc68e6acb0e8154484a26bcabe2aaab861b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4931d65_2d927df2",
+        "filename": "libartpalette/include/palette/palette_method_list.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-02-29T14:29:26Z",
+      "side": 1,
+      "message": "Please mention it\u0027s null terminated.",
+      "range": {
+        "startLine": 87,
+        "startChar": 50,
+        "endLine": 87,
+        "endChar": 71
+      },
+      "revId": "a425bfc68e6acb0e8154484a26bcabe2aaab861b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d1d31b19_7b8bcd2a",
+        "filename": "libartpalette/include/palette/palette_method_list.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-02-29T14:29:26Z",
+      "side": 1,
+      "message": "Nit: Align indentation here.",
+      "range": {
+        "startLine": 90,
+        "startChar": 21,
+        "endLine": 90,
+        "endChar": 23
+      },
+      "revId": "a425bfc68e6acb0e8154484a26bcabe2aaab861b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
