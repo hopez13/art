@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45cd69f2_557a7824",
+        "filename": "test/569-checker-pattern-replacement/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-02-29T16:04:36Z",
+      "side": 1,
+      "message": "These are unnecessary as the $inline$ checks this",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 0
+      },
+      "revId": "ee6437e131866a01ed4addf50d79eaef99623473",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
