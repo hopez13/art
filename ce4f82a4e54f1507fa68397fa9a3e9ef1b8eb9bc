@@ -602,6 +602,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6777baea_bdddc64c",
+        "filename": "runtime/jni_stub_hash_map_test.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-02-29T15:10:01Z",
+      "side": 1,
+      "message": "Also, please add a comment that this is teaching gtest how to print the `ArrayRef\u003c\u003e`?",
+      "parentUuid": "831d986f_4bd1bdee",
+      "range": {
+        "startLine": 55,
+        "startChar": 5,
+        "endLine": 55,
+        "endChar": 12
+      },
+      "revId": "ce4f82a4e54f1507fa68397fa9a3e9ef1b8eb9bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b25c07a6_1af6f921",
         "filename": "runtime/jni_stub_hash_map_test.cc",
         "patchSetId": 8
