@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0fdaaeb1_a01ec045",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-02-29T17:06:33Z",
+      "side": 1,
+      "message": "I had to update the `BootClasspathJarsWithExplicitCompilerFilter` and `BootClasspathJarsWithDefaultCompilerFilter` tests for them to pass as they were expecting to see `verify` in the command line",
+      "range": {
+        "startLine": 19,
+        "startChar": 6,
+        "endLine": 19,
+        "endChar": 22
+      },
+      "revId": "b84a3ab59a1e88d024168c847741f862bbe18493",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
