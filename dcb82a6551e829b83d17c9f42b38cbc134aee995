@@ -16,6 +16,24 @@
       "message": "While reviewing another libartpalette change in aosp/2856177 I realised this hasn\u0027t been merged. The API complete deadline was Feb 14th, so maybe it\u0027s too late for VIC now?",
       "revId": "dcb82a6551e829b83d17c9f42b38cbc134aee995",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "91861f57_32cd310d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2024-02-29T16:07:08Z",
+      "side": 1,
+      "message": "Yes, I guess so. It\u0027s not a super urgent change; let\u0027s target the next SDK Level then.",
+      "parentUuid": "4a8b988b_59e6e863",
+      "revId": "dcb82a6551e829b83d17c9f42b38cbc134aee995",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
