@@ -2797,6 +2797,228 @@ void IntrinsicCodeGeneratorRISCV64::VisitJdkUnsafeGetAndSetReference(HInvoke* in
   GenUnsafeGetAndUpdate(invoke, DataType::Type::kReference, codegen_, GetAndUpdateOp::kSet);
 }
 
+void IntrinsicLocationsBuilderRISCV64::VisitStringCompareTo(HInvoke* invoke) {
+  LocationSummary* locations =
+      new (allocator_) LocationSummary(invoke,
+                                       invoke->InputAt(1)->CanBeNull()
+                                       ? LocationSummary::kCallOnSlowPath
+                                       : LocationSummary::kNoCall,
+                                       kIntrinsified);
+  locations->SetInAt(0, Location::RequiresRegister());
+  locations->SetInAt(1, Location::RequiresRegister());
+  locations->AddTemp(Location::RequiresRegister());
+  locations->AddTemp(Location::RequiresRegister());
+  locations->AddTemp(Location::RequiresRegister());
+  // Need temporary registers for String compression's feature.
+  if (mirror::kUseStringCompression) {
+    locations->AddTemp(Location::RequiresRegister());
+  }
+  locations->SetOut(Location::RequiresRegister(), Location::kOutputOverlap);
+}
+
+void IntrinsicCodeGeneratorRISCV64::VisitStringCompareTo(HInvoke* invoke) {
+  Riscv64Assembler* assembler = GetAssembler();
+  DCHECK(assembler->IsExtensionEnabled(Riscv64Extension::kZbb));
+  LocationSummary* locations = invoke->GetLocations();
+
+  XRegister str = locations->InAt(0).AsRegister<XRegister>();
+  XRegister arg = locations->InAt(1).AsRegister<XRegister>();
+  XRegister out = locations->Out().AsRegister<XRegister>();
+
+  XRegister temp0 = locations->GetTemp(0).AsRegister<XRegister>();
+  XRegister temp1 = locations->GetTemp(1).AsRegister<XRegister>();
+  XRegister temp2 = locations->GetTemp(2).AsRegister<XRegister>();
+  XRegister temp3;
+  if (mirror::kUseStringCompression) {
+    temp3 = locations->GetTemp(3).AsRegister<XRegister>();
+  }
+
+  Riscv64Label loop;
+  Riscv64Label find_char_diff;
+  Riscv64Label end;
+  Riscv64Label different_compression;
+
+  // Get offsets of count and value fields within a string object.
+  const int32_t count_offset = mirror::String::CountOffset().Int32Value();
+  const int32_t value_offset = mirror::String::ValueOffset().Int32Value();
+
+  // Note that the null check must have been done earlier.
+  DCHECK(!invoke->CanDoImplicitNullCheckOn(invoke->InputAt(0)));
+
+  // Take slow path and throw if input can be and is null.
+  SlowPathCodeRISCV64* slow_path = nullptr;
+  const bool can_slow_path = invoke->InputAt(1)->CanBeNull();
+  if (can_slow_path) {
+    slow_path = new (codegen_->GetScopedAllocator()) IntrinsicSlowPathRISCV64(invoke);
+    codegen_->AddSlowPath(slow_path);
+    __ Beqz(arg, slow_path->GetEntryLabel());
+  }
+
+  // Reference equality check, return 0 if same reference.
+  __ Subw(out, str, arg);
+  __ Beqz(out, &end);
+
+  if (mirror::kUseStringCompression) {
+    // Load `count` fields of this and argument strings.
+    __ Loadwu(temp3, str, count_offset);
+    __ Loadwu(temp2, arg, count_offset);
+    // Clean out compression flag from lengths.
+    __ Srliw(temp0, temp3, 1u);
+    __ Srliw(temp1, temp2, 1u);
+  } else {
+    // Load lengths of this and argument strings.
+    __ Loadwu(temp0, str, count_offset);
+    __ Loadwu(temp1, arg, count_offset);
+  }
+  // out = length diff.
+  __ Subw(out, temp0, temp1);
+
+  ScratchRegisterScope scratch_scope(assembler);
+  XRegister temp4 = scratch_scope.AllocateXRegister();
+
+  // Find minu(temp0, temp0, temp1)
+  __ Minu(temp0, temp0, temp1);
+  
+  // Shorter string is empty?
+  __ Beqz(temp0, &end);
+
+  if (mirror::kUseStringCompression) {
+    // Extract both compression flags
+    __ Andi(temp3, temp3, 1);
+    __ Andi(temp2, temp2, 1);
+    __ Bne(temp2, temp3, &different_compression);
+  }
+  // Store offset of string value in preparation for comparison loop.
+  __ Li(temp1, value_offset);
+  if (mirror::kUseStringCompression) {
+    // For string compression, calculate the number of bytes to compare (not chars).
+    // This could in theory exceed INT32_MAX, so treat temp0 as unsigned.
+    __ Sll(temp0, temp0, temp3);
+  }
+
+  // Assertions that must be held in order to compare strings 8 bytes at a time.
+  DCHECK_ALIGNED(value_offset, 8);
+  static_assert(IsAligned<8>(kObjectAlignment), "String of odd length is not zero padded");
+
+  const size_t char_size = DataType::Size(DataType::Type::kUint16);
+  DCHECK_EQ(char_size, 2u);
+
+  // Loop to compare 4x16-bit characters at a time (ok because of string data alignment).
+  __ Bind(&loop);
+  __ Add(temp4, str, temp1);
+  __ Ld(temp4, temp4, 0);
+  __ Add(temp2, arg, temp1);
+  __ Ld(temp2, temp2, 0);
+  __ Bne(temp4, temp2, &find_char_diff);
+  __ Addi(temp1, temp1, char_size * 4);
+  // With string compression, we have compared 8 bytes, otherwise 4 chars.
+  // May be optimize and remove this instruction
+  __ Addi(temp0, temp0, (mirror::kUseStringCompression) ? -8 : -4);
+  __ Bgt(temp0, Zero, &loop);
+  __ J(&end);
+
+  // Find the single character difference.
+  __ Bind(&find_char_diff);
+  // Get the bit position of the first character that differs.
+  __ Xor(temp1, temp2, temp4);
+  __ Ctz(temp1, temp1);
+
+  // If the number of chars remaining <= the index where the difference occurs (0-3), then
+  // the difference occurs outside the remaining string data, so just return length diff (out).
+  // Unlike ARM, we're doing the comparison in one go here, without the subtraction at the
+  // find_char_diff_2nd_cmp path, so it doesn't matter whether the comparison is signed or
+  // unsigned when string compression is disabled.
+  // When it's enabled, the comparison must be unsigned.
+
+  __ Srliw(temp1, temp1, (mirror::kUseStringCompression) ? 3 : 4);
+  __ Ble(temp0, temp1, &end);
+
+  // Extract the characters and calculate the difference.
+  __ Slliw(temp1, temp1, (mirror::kUseStringCompression) ? 3 : 4);
+  if (mirror:: kUseStringCompression) {
+    __ Slliw(temp0, temp3, 3u);
+    __ Not(temp0, temp0);
+    __ And(temp1, temp1, temp0);
+  }
+  __ Srl(temp2, temp2, temp1);
+  __ Srl(temp4, temp4, temp1);
+  if (mirror::kUseStringCompression) {
+    // Prioritize the case of compressed strings and calculate such result first.
+    __ ZextB(temp1, temp4);
+    __ ZextB(temp0, temp2);
+    __ Subw(out, temp1, temp0);
+    __ Beqz(temp3, &end);  // If actually compressed, we're done.
+  }
+  __ ZextH(temp4, temp4);
+  __ ZextH(temp2, temp2);
+  __ Subw(out, temp4, temp2);
+
+  if (mirror::kUseStringCompression) {
+    __ J(&end);
+    __ Bind(&different_compression);
+
+    // Comparison for different compression style.
+    const size_t c_char_size = DataType::Size(DataType::Type::kInt8);
+    DCHECK_EQ(c_char_size, 1u);
+
+    Riscv64Label select_uncompressed;
+    Riscv64Label select_uncompressed_end;
+
+    // `temp1` will hold the compressed data pointer, `temp2` the uncompressed data pointer.
+    __ Xor(temp4, str, arg);
+    __ Addi(temp1, temp2, -1);
+    __ Addi(temp2, temp3, -1);
+    __ And(temp1, temp4, temp1);
+    __ And(temp2, temp4, temp2);
+    __ Xor(temp1, temp1, str);
+    __ Xor(temp2, temp2, str);
+
+    // We want to free up the temp3, currently holding `str` compression flag, for comparison.
+    // So, we move it to the bottom bit of the iteration count `temp0` which we then need to treat
+    // as unsigned. Start by freeing the bit with a LSL and continue further down by a SUB which
+    // will allow `subs temp0, #2; bhi different_compression_loop` to serve as the loop condition.
+    __ Slli(temp0, temp0, 1u);
+
+    // Adjust temp1 and temp2 from string pointers to data pointers.
+    __ Addiw(temp1, temp1, value_offset);
+    __ Addiw(temp2, temp2, value_offset);
+
+    // Complete the move of the compression flag.
+    __ Sub(temp0, temp0, temp3);
+
+    Riscv64Label different_compression_loop;
+    Riscv64Label different_compression_diff;
+
+    // May be use out as temporary register?
+    __ Bind(&different_compression_loop);
+    __ Lbu(temp4, temp1, 0);
+    __ Addiw(temp1, temp1, c_char_size);
+    __ Lhu(temp3, temp2, 0);
+    __ Addi(temp2, temp2, char_size);
+    __ Sub(temp4, temp4, temp3);
+    __ Bnez(temp4, &different_compression_diff);
+    // May be incorrect, need to treat temp0 as unsigned
+    __ Addi(temp0, temp0, -2);
+    __ Bgt(temp0, Zero, &different_compression_loop);
+    __ J(&end);
+
+    // Calculate the difference.
+    __ Bind(&different_compression_diff);
+    __ Andi(temp0, temp0, 1);
+    __ Mv(out, temp4);
+    __ Beqz(temp0, &end);
+    static_assert(static_cast<uint32_t>(mirror::StringCompressionFlag::kCompressed) == 0u,
+                  "Expecting 0=compressed, 1=uncompressed");
+    __ Neg(out, temp4);
+  }
+
+  __ Bind(&end);
+
+  if (can_slow_path) {
+    __ Bind(slow_path->GetExitLabel());
+  }
+}
+
 class VarHandleSlowPathRISCV64 : public IntrinsicSlowPathRISCV64 {
  public:
   VarHandleSlowPathRISCV64(HInvoke* invoke, std::memory_order order)

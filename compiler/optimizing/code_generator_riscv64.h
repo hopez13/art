@@ -72,6 +72,7 @@ static constexpr int32_t kFClassNaNMinValue = 0x100;
   V(FP16Min)                                    \
   V(FP16Max)                                    \
   V(StringCompareTo)                            \
+  V(StringEquals)                               \
   V(StringGetCharsNoCheck)                      \
   V(StringStringIndexOf)                        \
   V(StringStringIndexOfAfter)                   \
