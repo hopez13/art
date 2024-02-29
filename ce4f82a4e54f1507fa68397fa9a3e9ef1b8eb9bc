@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c59a264_d7dd23c9",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1566,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-02-29T07:14:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "43ecf9f4_da9b4660",
+      "range": {
+        "startLine": 1563,
+        "startChar": 4,
+        "endLine": 1566,
+        "endChar": 6
+      },
+      "revId": "ce4f82a4e54f1507fa68397fa9a3e9ef1b8eb9bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "004337ee_32e5c904",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-02-28T16:13:01Z",
       "side": 1,
       "message": "`/*kUpdate\u003d*/`\n\nThe argument name does not contain the trailing `d` in the header file. And I\u0027d prefer the `\u003d` even if I don\u0027t expect clang-tidy to check template argument names.",
+      "range": {
+        "startLine": 2618,
+        "startChar": 39,
+        "endLine": 2618,
+        "endChar": 51
+      },
+      "revId": "ce4f82a4e54f1507fa68397fa9a3e9ef1b8eb9bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0407b150_c1b8ebf1",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 2618,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-02-29T07:14:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "004337ee_32e5c904",
       "range": {
         "startLine": 2618,
         "startChar": 39,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ebd3b0f_c84867f9",
+        "filename": "runtime/jni_stub_hash_map.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-02-29T07:14:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "151d06a3_f54c79fb",
+      "range": {
+        "startLine": 117,
+        "startChar": 19,
+        "endLine": 117,
+        "endChar": 52
+      },
+      "revId": "ce4f82a4e54f1507fa68397fa9a3e9ef1b8eb9bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1e7de34f_5c1272f9",
@@ -83,6 +155,30 @@
       "writtenOn": "2024-02-28T16:13:01Z",
       "side": 1,
       "message": "\"if it\u0027s in a register\"",
+      "range": {
+        "startLine": 144,
+        "startChar": 36,
+        "endLine": 144,
+        "endChar": 52
+      },
+      "revId": "ce4f82a4e54f1507fa68397fa9a3e9ef1b8eb9bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e62c41f_c6647148",
+        "filename": "runtime/jni_stub_hash_map.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-02-29T07:14:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1e7de34f_5c1272f9",
       "range": {
         "startLine": 144,
         "startChar": 36,
@@ -116,6 +212,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2eba315_fb44f578",
+        "filename": "runtime/jni_stub_hash_map.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-02-29T07:14:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b5c73e95_6890bb01",
+      "range": {
+        "startLine": 149,
+        "startChar": 54,
+        "endLine": 149,
+        "endChar": 59
+      },
+      "revId": "ce4f82a4e54f1507fa68397fa9a3e9ef1b8eb9bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "97927380_406337d3",
@@ -129,6 +249,24 @@
       "writtenOn": "2024-02-28T16:13:01Z",
       "side": 1,
       "message": "Move the `jni_stub_hash_map*` files to `oat/`?",
+      "revId": "ce4f82a4e54f1507fa68397fa9a3e9ef1b8eb9bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6476159c_83b096aa",
+        "filename": "runtime/jni_stub_hash_map.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-02-29T07:14:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "97927380_406337d3",
       "revId": "ce4f82a4e54f1507fa68397fa9a3e9ef1b8eb9bc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -156,6 +294,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c690f15_c3fd622e",
+        "filename": "runtime/jni_stub_hash_map.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-02-29T07:14:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aa564905_a7b37009",
+      "range": {
+        "startLine": 52,
+        "startChar": 4,
+        "endLine": 52,
+        "endChar": 90
+      },
+      "revId": "ce4f82a4e54f1507fa68397fa9a3e9ef1b8eb9bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "152782be_f0414f31",
@@ -169,6 +331,30 @@
       "writtenOn": "2024-02-28T16:13:01Z",
       "side": 1,
       "message": "Simply forward to the other constructor:\n\n    JniStubKey(ArtMethod* method) REQUIRES_SHARED(Locks::mutator_lock_)\n        : JniStubKey(method-\u003eGetAccessFlags(), method-\u003eGetShortyView()) {}",
+      "range": {
+        "startLine": 55,
+        "startChar": 70,
+        "endLine": 60,
+        "endChar": 3
+      },
+      "revId": "ce4f82a4e54f1507fa68397fa9a3e9ef1b8eb9bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "74b57ffb_96b5fc65",
+        "filename": "runtime/jni_stub_hash_map.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-02-29T07:14:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "152782be_f0414f31",
       "range": {
         "startLine": 55,
         "startChar": 70,
@@ -225,6 +411,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "47414192_c604a84d",
+        "filename": "runtime/jni_stub_hash_map.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-02-29T07:14:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a4874a8d_1051a5bb",
+      "range": {
+        "startLine": 97,
+        "startChar": 46,
+        "endLine": 97,
+        "endChar": 47
+      },
+      "revId": "ce4f82a4e54f1507fa68397fa9a3e9ef1b8eb9bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "70998681_79d5e11c",
@@ -248,6 +458,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b76b21e7_a0685c09",
+        "filename": "runtime/jni_stub_hash_map.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-02-29T07:14:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "70998681_79d5e11c",
+      "range": {
+        "startLine": 129,
+        "startChar": 48,
+        "endLine": 129,
+        "endChar": 49
+      },
+      "revId": "ce4f82a4e54f1507fa68397fa9a3e9ef1b8eb9bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f5e32bd0_ea46e9bd",
@@ -261,6 +495,30 @@
       "writtenOn": "2024-02-28T16:13:01Z",
       "side": 1,
       "message": "Nit: Use `typename` for consistency.",
+      "range": {
+        "startLine": 160,
+        "startChar": 10,
+        "endLine": 160,
+        "endChar": 15
+      },
+      "revId": "ce4f82a4e54f1507fa68397fa9a3e9ef1b8eb9bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6628e751_8c66311d",
+        "filename": "runtime/jni_stub_hash_map.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-02-29T07:14:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f5e32bd0_ea46e9bd",
       "range": {
         "startLine": 160,
         "startChar": 10,
@@ -296,6 +554,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d4fbf739_694c8fc6",
+        "filename": "runtime/jni_stub_hash_map_test.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-02-29T07:14:34Z",
+      "side": 1,
+      "message": "I refered this [link](https://google.github.io/googletest/advanced.html#teaching-googletest-how-to-print-your-values) to customize the output of machine code. It\u0027s much easier to use if we want to convert it to assembly instructions (I can paste all the output to online hex to arm/x86_64 [website](https://armconverter.com/?disasm) to get the final assembly instructions). This way we can compare exactly which lines of assembly instructions are inconsistent, and we can better modify our code according to the test results. This is especially effective in boot image self-check.\n\nBut imperfection, however, is that now we store \u0027const void*\u0027 in boot_image_jni_stubs_ map. So we can\u0027t back out the ArtMethod and get its pretty name. Do you have idea on this? Thanks!\n\n[Original output: x86_64]\n```\nart/runtime/oat/jni_stub_hash_map_test.cc:(151) Failure in test JniStubHashMapTest.CriticalNative\nExpected: (method_code) !\u003d (cmp_method_code), actual: { \u0027H\u0027 (72, 0x48), \u0027\\x83\u0027 (131), \u0027\\xEC\u0027 (236), \u0027(\u0027 (40, 0x28), \u0027\\xF2\u0027 (242), \u0027D\u0027 (68, 0x44), \u0027\\xF\u0027 (15), \u0027\\x11\u0027 (17), \u0027|\u0027 (124, 0x7C), \u0027$\u0027 (36, 0x24), \u0027 \u0027 (32, 0x20), \u0027\\xF2\u0027 (242), \u0027D\u0027 (68, 0x44), \u0027\\xF\u0027 (15), \u0027\\x11\u0027 (17), \u0027t\u0027 (116, 0x74), \u0027$\u0027 (36, 0x24), \u0027\\x18\u0027 (24), \u0027\\xF2\u0027 (242), \u0027D\u0027 (68, 0x44), \u0027\\xF\u0027 (15), \u0027\\x11\u0027 (17), \u0027l\u0027 (108, 0x6C), \u0027$\u0027 (36, 0x24), \u0027\\x10\u0027 (16), \u0027\\xF2\u0027 (242), \u0027D\u0027 (68, 0x44), \u0027\\xF\u0027 (15), \u0027\\x11\u0027 (17), \u0027d\u0027 (100, 0x64), \u0027$\u0027 (36, 0x24), \u0027\\b\u0027 (8), ... } vs { \u0027H\u0027 (72, 0x48), \u0027\\x83\u0027 (131), \u0027\\xEC\u0027 (236), \u0027(\u0027 (40, 0x28), \u0027\\xF2\u0027 (242), \u0027D\u0027 (68, 0x44), \u0027\\xF\u0027 (15), \u0027\\x11\u0027 (17), \u0027|\u0027 (124, 0x7C), \u0027$\u0027 (36, 0x24), \u0027 \u0027 (32, 0x20), \u0027\\xF2\u0027 (242), \u0027D\u0027 (68, 0x44), \u0027\\xF\u0027 (15), \u0027\\x11\u0027 (17), \u0027t\u0027 (116, 0x74), \u0027$\u0027 (36, 0x24), \u0027\\x18\u0027 (24), \u0027\\xF2\u0027 (242), \u0027D\u0027 (68, 0x44), \u0027\\xF\u0027 (15), \u0027\\x11\u0027 (17), \u0027l\u0027 (108, 0x6C), \u0027$\u0027 (36, 0x24), \u0027\\x10\u0027 (16), \u0027\\xF2\u0027 (242), \u0027D\u0027 (68, 0x44), \u0027\\xF\u0027 (15), \u0027\\x11\u0027 (17), \u0027d\u0027 (100, 0x64), \u0027$\u0027 (36, 0x24), \u0027\\b\u0027 (8), ... }\nbase method: int MyClassNatives.returnInt_Critical(), compared method: double MyClassNatives.returnDouble_Critical()\n```\n\n[Current output: x86_64]\n```\nart/runtime/oat/jni_stub_hash_map_test.cc:(151) Failure in test JniStubHashMapTest.CriticalNative\nExpected: (method_code) !\u003d (cmp_method_code), actual: [[[ 48 83 ec 28 f2 44 0f 11 7c 24 20 f2 44 0f 11 74 24 18 f2 44 0f 11 6c 24 10 f2 44 0f 11 64 24 08 48 89 f8 ff 50 10 f2 44 0f 10 64 24 08 f2 44 0f 10 6c 24 10 f2 44 0f 10 74 24 18 f2 44 0f 10 7c 24 20 48 83 c4 28 c3 ]]] vs [[[ 48 83 ec 28 f2 44 0f 11 7c 24 20 f2 44 0f 11 74 24 18 f2 44 0f 11 6c 24 10 f2 44 0f 11 64 24 08 48 89 f8 ff 50 10 f2 44 0f 10 64 24 08 f2 44 0f 10 6c 24 10 f2 44 0f 10 74 24 18 f2 44 0f 10 7c 24 20 48 83 c4 28 c3 ]]]\nbase method: int MyClassNatives.returnInt_Critical(), compared method: double MyClassNatives.returnDouble_Critical()\n```",
+      "parentUuid": "68eccfcb_bd6c3040",
+      "range": {
+        "startLine": 55,
+        "startChar": 5,
+        "endLine": 55,
+        "endChar": 12
+      },
+      "revId": "ce4f82a4e54f1507fa68397fa9a3e9ef1b8eb9bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b25c07a6_1af6f921",
         "filename": "runtime/jni_stub_hash_map_test.cc",
         "patchSetId": 8
@@ -317,6 +599,53 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f1403ef_174d7116",
+        "filename": "runtime/jni_stub_hash_map_test.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-02-29T07:14:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b25c07a6_1af6f921",
+      "range": {
+        "startLine": 67,
+        "startChar": 8,
+        "endLine": 68,
+        "endChar": 57
+      },
+      "revId": "ce4f82a4e54f1507fa68397fa9a3e9ef1b8eb9bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1c085ff5_96a10865",
+        "filename": "runtime/jni_stub_hash_map_test.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-02-29T07:14:34Z",
+      "side": 1,
+      "message": "By default, the CommonRuntimeTest only load primary boot image, how do we get it to load more boot images to enrich the test set? Thanks!",
+      "range": {
+        "startLine": 270,
+        "startChar": 0,
+        "endLine": 270,
+        "endChar": 57
+      },
+      "revId": "ce4f82a4e54f1507fa68397fa9a3e9ef1b8eb9bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6321fcd7_b5009177",
@@ -330,6 +659,30 @@
       "writtenOn": "2024-02-28T16:13:01Z",
       "side": 1,
       "message": "`kUpdate`",
+      "range": {
+        "startLine": 118,
+        "startChar": 15,
+        "endLine": 118,
+        "endChar": 23
+      },
+      "revId": "ce4f82a4e54f1507fa68397fa9a3e9ef1b8eb9bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1b20501e_15c7b9b7",
+        "filename": "runtime/oat/image-inl.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-02-29T07:14:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6321fcd7_b5009177",
       "range": {
         "startLine": 118,
         "startChar": 15,
@@ -363,6 +716,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fbfbd68e_ff98acab",
+        "filename": "test/667-jit-jni-stub/src/Main.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-02-29T07:14:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bcdb1579_e6576c35",
+      "range": {
+        "startLine": 160,
+        "startChar": 17,
+        "endLine": 160,
+        "endChar": 18
+      },
+      "revId": "ce4f82a4e54f1507fa68397fa9a3e9ef1b8eb9bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d4003ffe_c3b53bfd",
@@ -376,6 +753,30 @@
       "writtenOn": "2024-02-28T16:13:01Z",
       "side": 1,
       "message": "\"to avoid entrypoint being set\"",
+      "range": {
+        "startLine": 452,
+        "startChar": 50,
+        "endLine": 452,
+        "endChar": 72
+      },
+      "revId": "ce4f82a4e54f1507fa68397fa9a3e9ef1b8eb9bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd669777_36ba8bbb",
+        "filename": "test/common/runtime_state.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 452,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-02-29T07:14:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d4003ffe_c3b53bfd",
       "range": {
         "startLine": 452,
         "startChar": 50,
