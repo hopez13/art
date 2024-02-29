@@ -66,6 +66,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "69d93b5b_bc9fabd8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1069898
+      },
+      "writtenOn": "2024-02-29T20:59:17Z",
+      "side": 1,
+      "message": "To be used with native-bridge every NDK library needs to be specially instrumented. We either need to bring a guest copy of this library with the translator, or develop a proxy library which would forward app\u0027s calls from its native guest code to the host system NDK library. That\u0027s why native-bridge only supports this for NDK libraries avaialble to apps.",
+      "parentUuid": "65785028_390c0803",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 63
+      },
+      "revId": "b2b067192ac047b99c0d03104c5d7dbf79192ef1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5eda45ae_a25cfaf4",
         "filename": "libnativeloader/Android.bp",
         "patchSetId": 3
@@ -77,6 +101,30 @@
       "writtenOn": "2024-02-29T20:30:32Z",
       "side": 1,
       "message": "libnativeloader is an exported API, and we added this test to CTS explicitly to load it dynamically for API coverage testing, so this CL made the test moot. I\u0027m going to revert this CL in https://r.android.com/2982036, but I think we can also remove the test from CTS since it appears we get coverage anyway (http://screen/6WHmW6cSTrVecz3 shows 100% even though this test has been defunct for some time).",
+      "range": {
+        "startLine": 180,
+        "startChar": 0,
+        "endLine": 181,
+        "endChar": 18
+      },
+      "revId": "b2b067192ac047b99c0d03104c5d7dbf79192ef1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a1e86e9_2b454488",
+        "filename": "libnativeloader/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1069898
+      },
+      "writtenOn": "2024-02-29T20:59:17Z",
+      "side": 1,
+      "message": "Reverting is fine with me. But we should either remove such tests from CTS requirements, or disable them in native-bridge mode (we have test-controllers to detect this case).",
+      "parentUuid": "5eda45ae_a25cfaf4",
       "range": {
         "startLine": 180,
         "startChar": 0,
