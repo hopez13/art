@@ -97,6 +97,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "51e05a81_30d6ffcf",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-02-29T09:37:55Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "d08cc3d1_2c19b751",
+      "range": {
+        "startLine": 46,
+        "startChar": 71,
+        "endLine": 46,
+        "endChar": 79
+      },
+      "revId": "0bf92f22ebef6cd2329e3a2b2f0fb1a7fdc03dbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "4b538db0_3cfb14b1",
         "filename": "compiler/utils/riscv64/assembler_riscv64.h",
         "patchSetId": 6
@@ -132,6 +156,30 @@
       "side": 1,
       "message": "No, they are not equal. `MinInt\u003c\u003e()` with an unsigned type is 0.",
       "parentUuid": "4b538db0_3cfb14b1",
+      "range": {
+        "startLine": 77,
+        "startChar": 4,
+        "endLine": 77,
+        "endChar": 75
+      },
+      "revId": "0bf92f22ebef6cd2329e3a2b2f0fb1a7fdc03dbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0785021d_97f93e6c",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-02-29T09:37:55Z",
+      "side": 1,
+      "message": "Ah, you\u0027re right. I was thinking of signed",
+      "parentUuid": "d2fc311a_ad696f6b",
       "range": {
         "startLine": 77,
         "startChar": 4,
@@ -179,6 +227,30 @@
       "side": 1,
       "message": "I was thinking about fetching the existing `march` and doing string manipulation but it\u0027s a lot of work, so I\u0027d prefer to stick to the existing code for now.",
       "parentUuid": "52969cc1_7be394f8",
+      "range": {
+        "startLine": 78,
+        "startChar": 29,
+        "endLine": 78,
+        "endChar": 47
+      },
+      "revId": "0bf92f22ebef6cd2329e3a2b2f0fb1a7fdc03dbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d44e6b8a_5af3a2ed",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-02-29T09:37:55Z",
+      "side": 1,
+      "message": "Sure, no worries. This is used in test code only",
+      "parentUuid": "09461306_3df9856a",
       "range": {
         "startLine": 78,
         "startChar": 29,
