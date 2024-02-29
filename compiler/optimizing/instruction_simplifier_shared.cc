@@ -18,6 +18,7 @@
 
 #include "code_generator.h"
 #include "mirror/array-inl.h"
+#include "optimizing/nodes.h"
 
 namespace art HIDDEN {
 
@@ -229,6 +230,32 @@ bool TryMergeNegatedInput(HBinaryOperation* op) {
   return false;
 }
 
+bool TryMergeWithAnd(HSub* instruction) {
+  HAnd* and_instr = instruction->GetRight()->AsAndOrNull();
+  if (and_instr == nullptr) {
+    return false;
+  }
+
+  if (and_instr->GetLeft() != instruction->GetLeft() &&
+      and_instr->GetRight() != instruction->GetLeft()) {
+    return false;
+  }
+
+  const bool left_is_the_equal = and_instr->GetLeft() == instruction->GetLeft();
+
+  HBitwiseNegatedRight* bnr = new (instruction->GetBlock()->GetGraph()->GetAllocator())
+      HBitwiseNegatedRight(instruction->GetType(),
+                           HInstruction::InstructionKind::kAnd,
+                           instruction->GetLeft(),
+                           left_is_the_equal ? and_instr->InputAt(1) : and_instr->InputAt(0),
+                           instruction->GetDexPc());
+  instruction->GetBlock()->ReplaceAndRemoveInstructionWith(instruction, bnr);
+  // Since we don't run DCE after this phase, try to manually remove the And instruction.
+  if (!and_instr->HasUses()) {
+    and_instr->GetBlock()->RemoveInstruction(and_instr);
+  }
+  return true;
+}
 
 bool TryExtractArrayAccessAddress(CodeGenerator* codegen,
                                   HInstruction* access,

@@ -1,0 +1,5 @@
+Tests that we turn
+    i1: AND a, b
+        SUB a, i1
+into:
+        BIC a, a, b

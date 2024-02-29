@@ -20,6 +20,7 @@
 #include "instruction_simplifier_shared.h"
 #include "mirror/array-inl.h"
 #include "mirror/string.h"
+#include "optimizing/nodes.h"
 
 namespace art HIDDEN {
 
@@ -249,8 +250,14 @@ void InstructionSimplifierArm64Visitor::VisitSub(HSub* instruction) {
   if (IsSubRightSubLeftShl(instruction)) {
     HInstruction* shl = instruction->GetRight()->InputAt(0);
     if (shl->InputAt(1)->IsConstant() && TryReplaceSubSubWithSubAdd(instruction)) {
-      TryMergeIntoUsersShifterOperand(shl);
+      if (TryMergeIntoUsersShifterOperand(shl)) {
+        return;
+      }
     }
+  }
+
+  if (TryMergeWithAnd(instruction)) {
+    return;
   }
 }
 
