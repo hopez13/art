@@ -130,7 +130,7 @@ constexpr const char* kPrimaryCompilerFilter = "speed-profile";
 
 // The compiler filter for boot image mainline extension. We don't have profiles for mainline BCP
 // jars, so we always use "verify".
-constexpr const char* kMainlineCompilerFilter = "verify";
+constexpr const char* kMainlineCompilerFilter = "speed";
 
 void EraseFiles(const std::vector<std::unique_ptr<File>>& files) {
   for (auto& file : files) {
