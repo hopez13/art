@@ -1,5 +1,92 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df3eaee1_7f73c045",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-02-29T20:30:32Z",
+      "side": 1,
+      "message": "I just recently discovered this CL, and it has a problem discussed later. Going forward please ensure to include me as a reviewer on all libnativeloader (and libnativebridge) changes in the ART module.",
+      "revId": "b2b067192ac047b99c0d03104c5d7dbf79192ef1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e5cc5b7_a7e9ff54",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-02-29T20:30:32Z",
+      "side": 1,
+      "message": "For Mainline modules we need to add (M)CTS tests for APEX stable APIs, to get API coverage. My understanding is that they\u0027re effectively treated as NDK APIs from Mainline PoV, even though they aren\u0027t public. go/mainline-api-coverage",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 56
+      },
+      "revId": "b2b067192ac047b99c0d03104c5d7dbf79192ef1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "65785028_390c0803",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-02-29T20:30:32Z",
+      "side": 1,
+      "message": "Why exactly is that? I can\u0027t view the test links in b/268440713, but the linker error says libnativebridge.so cannot be loaded. However it ought to be present in the ART APEX regardless of native bridge support.",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 63
+      },
+      "revId": "b2b067192ac047b99c0d03104c5d7dbf79192ef1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5eda45ae_a25cfaf4",
+        "filename": "libnativeloader/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-02-29T20:30:32Z",
+      "side": 1,
+      "message": "libnativeloader is an exported API, and we added this test to CTS explicitly to load it dynamically for API coverage testing, so this CL made the test moot. I\u0027m going to revert this CL in https://r.android.com/2982036, but I think we can also remove the test from CTS since it appears we get coverage anyway (http://screen/6WHmW6cSTrVecz3 shows 100% even though this test has been defunct for some time).",
+      "range": {
+        "startLine": 180,
+        "startChar": 0,
+        "endLine": 181,
+        "endChar": 18
+      },
+      "revId": "b2b067192ac047b99c0d03104c5d7dbf79192ef1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
