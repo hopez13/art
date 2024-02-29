@@ -70,6 +70,30 @@
       },
       "revId": "e1b6547e8ee9241e5b032d84a73b24b3c2bdc0e1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9f32935_7a274614",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1146974
+      },
+      "writtenOn": "2024-02-29T06:24:33Z",
+      "side": 1,
+      "message": "I think `API_DOMAIN_DEFAULT` is the SYSTEM domain and that provides framework APIs to non-system partitions. That\u0027s why `API_DOMAIN_DEFAULT` is allowed to the other domains.\nIf we have an independent domain for system, that does not allow non-system apps use the libs loaded from bootclasspath, does it?",
+      "parentUuid": "58ebcfe3_142cae86",
+      "range": {
+        "startLine": 13,
+        "startChar": 46,
+        "endLine": 15,
+        "endChar": 68
+      },
+      "revId": "e1b6547e8ee9241e5b032d84a73b24b3c2bdc0e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
