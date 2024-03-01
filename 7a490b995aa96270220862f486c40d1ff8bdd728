@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b847fd5e_ec3ebcba",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2024-03-01T17:22:05Z",
+      "side": 0,
+      "message": "Why not change here directly? You can change the static_assert to be on `kPreferredAllocSpaceAgain`.",
+      "range": {
+        "startLine": 207,
+        "startChar": 31,
+        "endLine": 207,
+        "endChar": 34
+      },
+      "revId": "7a490b995aa96270220862f486c40d1ff8bdd728",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
