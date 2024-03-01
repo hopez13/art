@@ -46,6 +46,30 @@
       },
       "revId": "7a490b995aa96270220862f486c40d1ff8bdd728",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9dc07bd7_3cf516dd",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2024-03-01T18:42:15Z",
+      "side": 0,
+      "message": "\u003e However `IsAligned()` with a pointer rather than an integral isn\u0027t a valid constexpr\n\nI think the reason is that the definition of IsAligned() (in `libartbase/base/bit_utils.h`) for pointers is not constexpr whereas for integrals it is. Can you try making it constexpr? It should work as it just calls the integral IsAligned().",
+      "parentUuid": "2476c741_7292f5a7",
+      "range": {
+        "startLine": 207,
+        "startChar": 31,
+        "endLine": 207,
+        "endChar": 34
+      },
+      "revId": "7a490b995aa96270220862f486c40d1ff8bdd728",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
