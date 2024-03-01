@@ -626,6 +626,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9f8d8efa_026b1e3a",
+        "filename": "runtime/jni_stub_hash_map_test.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-03-01T03:04:13Z",
+      "side": 1,
+      "message": "Done.\n\n\u003e I don\u0027t understand your question about the ArtMethod and its pretty name. In all the ASSERT_{EQ,NE} statements that use the PrintTo you have already added the pretty name with additional \u003c\u003c.\n\nSorry, my bad. I didn\u0027t say it clearly. The pain point exists in boot image self check. As you can see, I only print the method pretty name, but not the compared one, because the compared stub was got from `boot_image_jni_stubs_` map, it\u0027s a raw pointer. I could modify the return of ClassLinker\u0027s `FindBootJniStub` method to meet the needs, but it\u0027s only used for test, seems unnecessary. However, if the pretty name of the compared method is missing, then the shorty information is missing when test failed. It\u0027s not convenient for us to find the real issue. But since you have plan to generate a large set of shorty and flags combinations, maybe it doesn\u0027t seem to matter if compared method\u0027s pretty name is missing. What do you think? Thanks!\n\n```\n          ASSERT_EQ(method_code_size, boot_jni_stub_size)\n              \u003c\u003c \"method: \" \u003c\u003c method.PrettyMethod();\n          ASSERT_EQ(memcmp(quick_code, boot_jni_stub, method_code_size), 0)\n              \u003c\u003c \"method: \" \u003c\u003c method.PrettyMethod();\n```",
+      "parentUuid": "6777baea_bdddc64c",
+      "range": {
+        "startLine": 55,
+        "startChar": 5,
+        "endLine": 55,
+        "endChar": 12
+      },
+      "revId": "ce4f82a4e54f1507fa68397fa9a3e9ef1b8eb9bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b25c07a6_1af6f921",
         "filename": "runtime/jni_stub_hash_map_test.cc",
         "patchSetId": 8
