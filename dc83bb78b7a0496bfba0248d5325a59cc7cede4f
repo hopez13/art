@@ -88,6 +88,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "91bcf4bd_fb453b87",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2267,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2024-03-01T00:35:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "589b7268_75f1f79f",
+      "range": {
+        "startLine": 2267,
+        "startChar": 21,
+        "endLine": 2267,
+        "endChar": 24
+      },
+      "revId": "dc83bb78b7a0496bfba0248d5325a59cc7cede4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d1206eff_af88a8c9",
@@ -111,6 +135,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b7eb2816_f07e2840",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2281,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2024-03-01T00:35:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d1206eff_af88a8c9",
+      "range": {
+        "startLine": 2281,
+        "startChar": 4,
+        "endLine": 2281,
+        "endChar": 51
+      },
+      "revId": "dc83bb78b7a0496bfba0248d5325a59cc7cede4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ea60b9d4_c665e881",
@@ -124,6 +172,30 @@
       "writtenOn": "2024-01-28T15:18:23Z",
       "side": 1,
       "message": "extra space",
+      "range": {
+        "startLine": 3495,
+        "startChar": 83,
+        "endLine": 3495,
+        "endChar": 85
+      },
+      "revId": "dc83bb78b7a0496bfba0248d5325a59cc7cede4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ec8f195_4b6d73ad",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3495,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2024-03-01T00:35:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ea60b9d4_c665e881",
       "range": {
         "startLine": 3495,
         "startChar": 83,
@@ -159,6 +231,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ebc6622f_35fe79f2",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3629,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2024-03-01T00:35:09Z",
+      "side": 1,
+      "message": "Yes that was the idea. I hope that\u0027s ok? I think I have used that at several locations (even prior to this CL).",
+      "parentUuid": "bb62d5b4_06e1bf07",
+      "range": {
+        "startLine": 3629,
+        "startChar": 73,
+        "endLine": 3629,
+        "endChar": 80
+      },
+      "revId": "dc83bb78b7a0496bfba0248d5325a59cc7cede4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c937a283_e37b6708",
         "filename": "runtime/gc/collector/mark_compact.cc",
         "patchSetId": 4
@@ -170,6 +266,30 @@
       "writtenOn": "2024-02-01T00:42:53Z",
       "side": 1,
       "message": "This is used long before it is assigned anything non-null, so please add a comment about what it represents.",
+      "range": {
+        "startLine": 3794,
+        "startChar": 1,
+        "endLine": 3794,
+        "endChar": 45
+      },
+      "revId": "dc83bb78b7a0496bfba0248d5325a59cc7cede4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9fb9c77c_b4e7c8cb",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3794,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2024-03-01T00:35:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c937a283_e37b6708",
       "range": {
         "startLine": 3794,
         "startChar": 1,
@@ -250,6 +370,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9781679_e359aa47",
+        "filename": "runtime/gc/collector/mark_compact.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 525,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2024-03-01T00:35:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8d0ef960_0548008a",
+      "range": {
+        "startLine": 521,
+        "startChar": 2,
+        "endLine": 525,
+        "endChar": 47
+      },
+      "revId": "dc83bb78b7a0496bfba0248d5325a59cc7cede4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5607ac90_973a1efb",
@@ -273,6 +417,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e20a8009_19bfbe96",
+        "filename": "runtime/gc/collector/mark_compact.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 706,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2024-03-01T00:35:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5607ac90_973a1efb",
+      "range": {
+        "startLine": 705,
+        "startChar": 1,
+        "endLine": 706,
+        "endChar": 51
+      },
+      "revId": "dc83bb78b7a0496bfba0248d5325a59cc7cede4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7c8d542c_1373edf1",
@@ -286,6 +454,30 @@
       "writtenOn": "2024-02-01T00:42:53Z",
       "side": 1,
       "message": "Is it safe to just say that kProcessed entries also contain the from-space offset? Or is it easy to make that invariant hold? If so, it would be better to describe it that way instead.",
+      "range": {
+        "startLine": 719,
+        "startChar": 29,
+        "endLine": 721,
+        "endChar": 19
+      },
+      "revId": "dc83bb78b7a0496bfba0248d5325a59cc7cede4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e16e0b09_655b0610",
+        "filename": "runtime/gc/collector/mark_compact.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 721,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2024-03-01T00:35:09Z",
+      "side": 1,
+      "message": "That\u0027s right. kProcessed entries only can have the offset. Updated the comment.",
+      "parentUuid": "7c8d542c_1373edf1",
       "range": {
         "startLine": 719,
         "startChar": 29,
