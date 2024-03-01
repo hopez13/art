@@ -70,6 +70,30 @@
       },
       "revId": "7a490b995aa96270220862f486c40d1ff8bdd728",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "65893c30_4137f76e",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1958325
+      },
+      "writtenOn": "2024-03-01T18:54:27Z",
+      "side": 0,
+      "message": "AFAICT, a `constexpr` cannot have a `reinterpret_cast` from a pointer to a `uintprt_t` so I\u0027m afraid that\u0027s not working. I\u0027m not so confident with the details of the standard, but I assume it\u0027s to do with pointer representation not being portable.\n\nFor reference, if I have this:\n\n```c++\ntemplate\u003cint n, typename T\u003e\nconstexpr inline bool IsAligned(T* x) {\n  return IsAligned\u003cn\u003e(reinterpret_cast\u003cconst uintptr_t\u003e(x));\n}\n```\n\nIt fails with:\n\n```c++\nart/runtime/gc/heap.cc:211:15: error: static assertion expression is not an integral constant expression\n  211 | static_assert(IsAligned\u003ckMaxPMDSize\u003e(Heap::kPreferredAllocSpaceBegin),\n      |               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nart/runtime/gc/heap.cc:211:38: note: read of non-constexpr variable \u0027kPreferredAllocSpaceBegin\u0027 is not allowed in a constant expression\n  211 | static_assert(IsAligned\u003ckMaxPMDSize\u003e(Heap::kPreferredAllocSpaceBegin),\n      |                                      ^\nart/runtime/gc/heap.cc:208:22: note: declared here\n  208 | uint8_t* const Heap::kPreferredAllocSpaceBegin \u003d\n```\n\nOf course the error message could do with adding more details 😊",
+      "parentUuid": "9dc07bd7_3cf516dd",
+      "range": {
+        "startLine": 207,
+        "startChar": 31,
+        "endLine": 207,
+        "endChar": 34
+      },
+      "revId": "7a490b995aa96270220862f486c40d1ff8bdd728",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
