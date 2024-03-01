@@ -118,6 +118,30 @@
       },
       "revId": "7a490b995aa96270220862f486c40d1ff8bdd728",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "179e9371_0babe688",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1958325
+      },
+      "writtenOn": "2024-03-01T19:47:36Z",
+      "side": 0,
+      "message": "\u003e Sorry for the trouble. I\u0027m just trying to avoid creating new variables or change the type of existing ones. But I also like the idea of adding a static_assert.\n\nNo problem! It\u0027s better to spend time getting something nice and clean. I\u0027ll give it a go on Monday, however I\u0027m not sure it\u0027s going to be possible to have both a pointer and a `constexpr`, as it seems the standard specifically disallows `reinterpret_cast` in `constexpr` in general.\n\nTo me it seems changing the type from a pointer to `uintptr_t` might be the simplest and cleanest option, but I\u0027ll check next week if I can find a better solution.",
+      "parentUuid": "d917de6b_d674583d",
+      "range": {
+        "startLine": 207,
+        "startChar": 31,
+        "endLine": 207,
+        "endChar": 34
+      },
+      "revId": "7a490b995aa96270220862f486c40d1ff8bdd728",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
