@@ -94,6 +94,30 @@
       },
       "revId": "7a490b995aa96270220862f486c40d1ff8bdd728",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d917de6b_d674583d",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2024-03-01T19:07:09Z",
+      "side": 0,
+      "message": "From the error it seems like the issue is that `kPreferredAllocSpaceBegin` is not constexpr. Can you try moving its definition to heap.h, make it constexpr (anyways the notation we follow in ART is that variables starting with `k` are constexpr), and then re-try.\n\nBasically I\u0027m saying to do what you suggested in your first comment but without changing kPreferredAllocSpaceBegin to integral.\n\nSorry for the trouble. I\u0027m just trying to avoid creating new variables or change the type of existing ones. But I also like the idea of adding a static_assert.",
+      "parentUuid": "65893c30_4137f76e",
+      "range": {
+        "startLine": 207,
+        "startChar": 31,
+        "endLine": 207,
+        "endChar": 34
+      },
+      "revId": "7a490b995aa96270220862f486c40d1ff8bdd728",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
