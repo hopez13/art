@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "df565d39_edc919e6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1958325
+      },
+      "writtenOn": "2024-03-01T11:02:25Z",
+      "side": 1,
+      "message": "Hi there,\n\nThis CL ensures that the PMD-alignment optimisation on the uffd-backed memory carry over from 4k to 16k kernels, and subsequently removes the warning we see there. I validated this CL on a Pixel6 devices with a 16k kernel, and it indeed reduces the WorldStopTimeDuringGCAvg metric. I measured ~13% on little cores, and 26-29% on big\u0026mid cores when running dacapo.\n\nWDYT?\n\nThanks,\nPierre",
+      "revId": "e74f7402befb07fab4664c8a0ede6afdf1069641",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
