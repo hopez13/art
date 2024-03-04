@@ -1,0 +1,211 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ff25332_c52deedd",
+        "filename": "libartbase/base/hash_map.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-03-04T08:28:36Z",
+      "side": 1,
+      "message": "`art/libartbase/base/hash_map.h:30:  Single-parameter constructors should be marked explicit.  [runtime/explicit] [5]`",
+      "range": {
+        "startLine": 30,
+        "startChar": 2,
+        "endLine": 30,
+        "endChar": 64
+      },
+      "revId": "1daf230bf62824ee64724198449a58b6ccd3217d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c80b0aff_dcdbb7a2",
+        "filename": "libartbase/base/hash_map.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-03-04T08:28:36Z",
+      "side": 1,
+      "message": "art/libartbase/base/hash_map.h:47:  Single-parameter constructors should be marked explicit.  [runtime/explicit] [5]",
+      "range": {
+        "startLine": 47,
+        "startChar": 2,
+        "endLine": 47,
+        "endChar": 20
+      },
+      "revId": "1daf230bf62824ee64724198449a58b6ccd3217d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec3300f2_50209df2",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 899,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-03-04T08:28:36Z",
+      "side": 1,
+      "message": "`art/runtime/class_linker.h:899:  Missing space after ,  [whitespace/comma] [3]`",
+      "range": {
+        "startLine": 899,
+        "startChar": 43,
+        "endLine": 899,
+        "endChar": 44
+      },
+      "revId": "1daf230bf62824ee64724198449a58b6ccd3217d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b651b8b_d7c47619",
+        "filename": "runtime/oat/jni_stub_hash_map.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-03-04T08:28:36Z",
+      "side": 1,
+      "message": "`art/runtime/oat/jni_stub_hash_map.cc:355:  At least two spaces is best between code and comments  [whitespace/comments] [2]`",
+      "range": {
+        "startLine": 355,
+        "startChar": 1,
+        "endLine": 355,
+        "endChar": 2
+      },
+      "revId": "1daf230bf62824ee64724198449a58b6ccd3217d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b10bc7ae_b46388b5",
+        "filename": "runtime/oat/jni_stub_hash_map.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-03-04T08:28:36Z",
+      "side": 1,
+      "message": "`art/runtime/oat/jni_stub_hash_map.h:46:  Single-parameter constructors should be marked explicit.  [runtime/explicit] [5]`",
+      "range": {
+        "startLine": 46,
+        "startChar": 2,
+        "endLine": 46,
+        "endChar": 13
+      },
+      "revId": "1daf230bf62824ee64724198449a58b6ccd3217d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a80791ab_9016ffef",
+        "filename": "runtime/oat/jni_stub_hash_map.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-03-04T08:28:36Z",
+      "side": 1,
+      "message": "`art/runtime/oat/jni_stub_hash_map.h:111:  At least two spaces is best between code and comments  [whitespace/comments] [2]`",
+      "range": {
+        "startLine": 111,
+        "startChar": 1,
+        "endLine": 111,
+        "endChar": 2
+      },
+      "revId": "1daf230bf62824ee64724198449a58b6ccd3217d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57ee2e58_5b6e8bc8",
+        "filename": "runtime/oat/jni_stub_hash_map.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-03-04T08:28:36Z",
+      "side": 1,
+      "message": "`art/runtime/oat/jni_stub_hash_map.h:113:  At least two spaces is best between code and comments  [whitespace/comments] [2]`",
+      "range": {
+        "startLine": 113,
+        "startChar": 6,
+        "endLine": 113,
+        "endChar": 7
+      },
+      "revId": "1daf230bf62824ee64724198449a58b6ccd3217d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d93d730b_3624d6ae",
+        "filename": "runtime/oat/jni_stub_hash_map_test.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-03-04T08:28:36Z",
+      "side": 1,
+      "message": "`art/runtime/oat/jni_stub_hash_map_test.cc:62:  Using C-style cast.  Use static_cast\u003cint\u003e(...) instead  [readability/casting] [4]`",
+      "range": {
+        "startLine": 62,
+        "startChar": 60,
+        "endLine": 62,
+        "endChar": 65
+      },
+      "revId": "1daf230bf62824ee64724198449a58b6ccd3217d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b6b7e1ea_675792aa",
+        "filename": "runtime/oat/jni_stub_hash_map_test.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-03-04T08:28:36Z",
+      "side": 1,
+      "message": "`art/runtime/oat/jni_stub_hash_map_test.cc:299:  At least two spaces is best between code and comments  [whitespace/comments] [2]`",
+      "range": {
+        "startLine": 299,
+        "startChar": 1,
+        "endLine": 299,
+        "endChar": 2
+      },
+      "revId": "1daf230bf62824ee64724198449a58b6ccd3217d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
