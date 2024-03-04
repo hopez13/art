@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "24dbdd4d_ec947d9d",
+        "filename": "compiler/optimizing/instruction_simplifier_shared.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-03-04T09:50:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0f05f3b_790fc7bb",
+      "range": {
+        "startLine": 21,
+        "startChar": 10,
+        "endLine": 21,
+        "endChar": 21
+      },
+      "revId": "5c09f9a626f253271ecdcea223c8b8ea48ffcc50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "56bed803_828e8901",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-03-04T09:27:36Z",
       "side": 1,
       "message": "`Right` (and add a test to check that this wrorks)",
+      "range": {
+        "startLine": 242,
+        "startChar": 44,
+        "endLine": 242,
+        "endChar": 48
+      },
+      "revId": "5c09f9a626f253271ecdcea223c8b8ea48ffcc50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7760c9b_e323c6b6",
+        "filename": "compiler/optimizing/instruction_simplifier_shared.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-03-04T09:50:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "56bed803_828e8901",
       "range": {
         "startLine": 242,
         "startChar": 44,
@@ -110,6 +158,54 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0612af05_91194209",
+        "filename": "compiler/optimizing/instruction_simplifier_shared.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-03-04T09:50:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f331d1a8_04098062",
+      "range": {
+        "startLine": 251,
+        "startChar": 78,
+        "endLine": 251,
+        "endChar": 88
+      },
+      "revId": "5c09f9a626f253271ecdcea223c8b8ea48ffcc50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b3a8cad3_3cc29f8a",
+        "filename": "compiler/optimizing/instruction_simplifier_shared.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-03-04T09:50:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7e97371f_2eab4345",
+      "range": {
+        "startLine": 251,
+        "startChar": 54,
+        "endLine": 251,
+        "endChar": 64
+      },
+      "revId": "5c09f9a626f253271ecdcea223c8b8ea48ffcc50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "18a44a5e_af5b83bb",
@@ -123,6 +219,24 @@
       "writtenOn": "2024-03-04T09:27:36Z",
       "side": 1,
       "message": "Are you testing simplification of the auto-vectorized code? Why not test the pattern directly?\n\nCan we add that to `564-checker-negbitwise` instead of creating a new test?",
+      "revId": "5c09f9a626f253271ecdcea223c8b8ea48ffcc50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff10e7a6_631d4a01",
+        "filename": "test/2275-checker-and-sub-into-bic/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-03-04T09:50:27Z",
+      "side": 1,
+      "message": "I was just using the repro from the bug. Using a minimal test sounds better. Done.",
+      "parentUuid": "18a44a5e_af5b83bb",
       "revId": "5c09f9a626f253271ecdcea223c8b8ea48ffcc50",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
