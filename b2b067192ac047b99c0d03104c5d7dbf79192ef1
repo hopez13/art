@@ -162,6 +162,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7f93ab4a_29639c72",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1069898
+      },
+      "writtenOn": "2024-03-04T18:36:15Z",
+      "side": 1,
+      "message": "Generally we are trying to use stock loader sources as-is, keep necessary modifications minimal, and just compile it for native-bridge ABI in addition to host\u0027s ABI. Also we generally try to maintain guest behavior indistinguishable from host for better CTS-compliance / app-compatibility / fidelity.",
+      "parentUuid": "fa5b4133_e3087b42",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 63
+      },
+      "revId": "b2b067192ac047b99c0d03104c5d7dbf79192ef1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5eda45ae_a25cfaf4",
         "filename": "libnativeloader/Android.bp",
         "patchSetId": 3
