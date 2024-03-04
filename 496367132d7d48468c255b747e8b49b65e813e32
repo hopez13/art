@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "08268825_30daacf7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-03-04T14:57:21Z",
+      "side": 1,
+      "message": "Done and added b/307231036#comment23.",
+      "parentUuid": "4be9b2d3_ab3b0cc7",
+      "revId": "496367132d7d48468c255b747e8b49b65e813e32",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8f234017_b0b1ebd0",
@@ -43,6 +61,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "0fdcd468_348cc7b8",
+        "filename": "libartservice/service/java/com/android/server/art/ReasonMapping.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-03-04T14:57:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8f234017_b0b1ebd0",
+      "range": {
+        "startLine": 191,
+        "startChar": 41,
+        "endLine": 192,
+        "endChar": 13
+      },
+      "revId": "496367132d7d48468c255b747e8b49b65e813e32",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "a5d58647_623fee35",
         "filename": "libartservice/service/java/com/android/server/art/ReasonMapping.java",
         "patchSetId": 1
@@ -54,6 +96,30 @@
       "writtenOn": "2024-03-04T13:59:27Z",
       "side": 1,
       "message": "Do you know how common it is that OEMs set this? It may limit the reach of this change.",
+      "range": {
+        "startLine": 198,
+        "startChar": 40,
+        "endLine": 198,
+        "endChar": 78
+      },
+      "revId": "496367132d7d48468c255b747e8b49b65e813e32",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2f7f852_c9783e79",
+        "filename": "libartservice/service/java/com/android/server/art/ReasonMapping.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-03-04T14:57:21Z",
+      "side": 1,
+      "message": "We currently don\u0027t have a way to know this. If OEMs set this, I\u0027d prefer respecting it, so limiting the reach is kind of WAI.",
+      "parentUuid": "a5d58647_623fee35",
       "range": {
         "startLine": 198,
         "startChar": 40,
