@@ -1,6 +1,52 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "b0f05f3b_790fc7bb",
+        "filename": "compiler/optimizing/instruction_simplifier_shared.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-03-04T09:27:36Z",
+      "side": 1,
+      "message": "Remove directory name. (This file is in the same directory.)",
+      "range": {
+        "startLine": 21,
+        "startChar": 10,
+        "endLine": 21,
+        "endChar": 21
+      },
+      "revId": "5c09f9a626f253271ecdcea223c8b8ea48ffcc50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "56bed803_828e8901",
+        "filename": "compiler/optimizing/instruction_simplifier_shared.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-03-04T09:27:36Z",
+      "side": 1,
+      "message": "`Right` (and add a test to check that this wrorks)",
+      "range": {
+        "startLine": 242,
+        "startChar": 44,
+        "endLine": 242,
+        "endChar": 48
+      },
+      "revId": "5c09f9a626f253271ecdcea223c8b8ea48ffcc50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "36642fdd_ddbfbaab",
@@ -14,6 +60,69 @@
       "writtenOn": "2024-03-04T08:58:59Z",
       "side": 1,
       "message": "I think it is same to assume that `AND a, a` is not occurring since the regular instruction simplifier already handles that",
+      "revId": "5c09f9a626f253271ecdcea223c8b8ea48ffcc50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f331d1a8_04098062",
+        "filename": "compiler/optimizing/instruction_simplifier_shared.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-03-04T09:27:36Z",
+      "side": 1,
+      "message": "`GetLeft()`",
+      "range": {
+        "startLine": 251,
+        "startChar": 78,
+        "endLine": 251,
+        "endChar": 88
+      },
+      "revId": "5c09f9a626f253271ecdcea223c8b8ea48ffcc50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e97371f_2eab4345",
+        "filename": "compiler/optimizing/instruction_simplifier_shared.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-03-04T09:27:36Z",
+      "side": 1,
+      "message": "`GetRight()`",
+      "range": {
+        "startLine": 251,
+        "startChar": 54,
+        "endLine": 251,
+        "endChar": 64
+      },
+      "revId": "5c09f9a626f253271ecdcea223c8b8ea48ffcc50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18a44a5e_af5b83bb",
+        "filename": "test/2275-checker-and-sub-into-bic/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-03-04T09:27:36Z",
+      "side": 1,
+      "message": "Are you testing simplification of the auto-vectorized code? Why not test the pattern directly?\n\nCan we add that to `564-checker-negbitwise` instead of creating a new test?",
       "revId": "5c09f9a626f253271ecdcea223c8b8ea48ffcc50",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
