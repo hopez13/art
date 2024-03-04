@@ -138,6 +138,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fa5b4133_e3087b42",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-03-04T18:13:24Z",
+      "side": 1,
+      "message": "Oh, so the error is coming from a completely different linker? Would it be possible to clarify that in the error messages?",
+      "parentUuid": "991f5b3e_be1061d9",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 63
+      },
+      "revId": "b2b067192ac047b99c0d03104c5d7dbf79192ef1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5eda45ae_a25cfaf4",
         "filename": "libnativeloader/Android.bp",
         "patchSetId": 3
