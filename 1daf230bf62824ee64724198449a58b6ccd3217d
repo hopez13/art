@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "867b5e43_b76ccd2b",
+        "filename": "libartbase/base/hash_map.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-03-04T08:47:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2ff25332_c52deedd",
+      "range": {
+        "startLine": 30,
+        "startChar": 2,
+        "endLine": 30,
+        "endChar": 64
+      },
+      "revId": "1daf230bf62824ee64724198449a58b6ccd3217d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c80b0aff_dcdbb7a2",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-03-04T08:28:36Z",
       "side": 1,
       "message": "art/libartbase/base/hash_map.h:47:  Single-parameter constructors should be marked explicit.  [runtime/explicit] [5]",
+      "range": {
+        "startLine": 47,
+        "startChar": 2,
+        "endLine": 47,
+        "endChar": 20
+      },
+      "revId": "1daf230bf62824ee64724198449a58b6ccd3217d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "437ff738_179c8504",
+        "filename": "libartbase/base/hash_map.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-03-04T08:47:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c80b0aff_dcdbb7a2",
       "range": {
         "startLine": 47,
         "startChar": 2,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f081d185_6682e4b8",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 899,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-03-04T08:47:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ec3300f2_50209df2",
+      "range": {
+        "startLine": 899,
+        "startChar": 43,
+        "endLine": 899,
+        "endChar": 44
+      },
+      "revId": "1daf230bf62824ee64724198449a58b6ccd3217d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3b651b8b_d7c47619",
@@ -83,6 +155,30 @@
       "writtenOn": "2024-03-04T08:28:36Z",
       "side": 1,
       "message": "`art/runtime/oat/jni_stub_hash_map.cc:355:  At least two spaces is best between code and comments  [whitespace/comments] [2]`",
+      "range": {
+        "startLine": 355,
+        "startChar": 1,
+        "endLine": 355,
+        "endChar": 2
+      },
+      "revId": "1daf230bf62824ee64724198449a58b6ccd3217d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a1c763c9_ea345b5f",
+        "filename": "runtime/oat/jni_stub_hash_map.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-03-04T08:47:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3b651b8b_d7c47619",
       "range": {
         "startLine": 355,
         "startChar": 1,
@@ -116,6 +212,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9fdadb8_4e59a49d",
+        "filename": "runtime/oat/jni_stub_hash_map.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-03-04T08:47:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b10bc7ae_b46388b5",
+      "range": {
+        "startLine": 46,
+        "startChar": 2,
+        "endLine": 46,
+        "endChar": 13
+      },
+      "revId": "1daf230bf62824ee64724198449a58b6ccd3217d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a80791ab_9016ffef",
@@ -129,6 +249,30 @@
       "writtenOn": "2024-03-04T08:28:36Z",
       "side": 1,
       "message": "`art/runtime/oat/jni_stub_hash_map.h:111:  At least two spaces is best between code and comments  [whitespace/comments] [2]`",
+      "range": {
+        "startLine": 111,
+        "startChar": 1,
+        "endLine": 111,
+        "endChar": 2
+      },
+      "revId": "1daf230bf62824ee64724198449a58b6ccd3217d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "edcdb431_c3377a5a",
+        "filename": "runtime/oat/jni_stub_hash_map.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-03-04T08:47:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a80791ab_9016ffef",
       "range": {
         "startLine": 111,
         "startChar": 1,
@@ -162,6 +306,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "18125247_33b49658",
+        "filename": "runtime/oat/jni_stub_hash_map.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-03-04T08:47:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "57ee2e58_5b6e8bc8",
+      "range": {
+        "startLine": 113,
+        "startChar": 6,
+        "endLine": 113,
+        "endChar": 7
+      },
+      "revId": "1daf230bf62824ee64724198449a58b6ccd3217d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d93d730b_3624d6ae",
@@ -185,6 +353,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e7f0b054_98ee7958",
+        "filename": "runtime/oat/jni_stub_hash_map_test.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-03-04T08:47:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d93d730b_3624d6ae",
+      "range": {
+        "startLine": 62,
+        "startChar": 60,
+        "endLine": 62,
+        "endChar": 65
+      },
+      "revId": "1daf230bf62824ee64724198449a58b6ccd3217d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b6b7e1ea_675792aa",
@@ -198,6 +390,30 @@
       "writtenOn": "2024-03-04T08:28:36Z",
       "side": 1,
       "message": "`art/runtime/oat/jni_stub_hash_map_test.cc:299:  At least two spaces is best between code and comments  [whitespace/comments] [2]`",
+      "range": {
+        "startLine": 299,
+        "startChar": 1,
+        "endLine": 299,
+        "endChar": 2
+      },
+      "revId": "1daf230bf62824ee64724198449a58b6ccd3217d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f9d4b7dc_0c6eec17",
+        "filename": "runtime/oat/jni_stub_hash_map_test.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-03-04T08:47:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b6b7e1ea_675792aa",
       "range": {
         "startLine": 299,
         "startChar": 1,
