@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "36642fdd_ddbfbaab",
+        "filename": "compiler/optimizing/instruction_simplifier_shared.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-03-04T08:58:59Z",
+      "side": 1,
+      "message": "I think it is same to assume that `AND a, a` is not occurring since the regular instruction simplifier already handles that",
+      "revId": "5c09f9a626f253271ecdcea223c8b8ea48ffcc50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
