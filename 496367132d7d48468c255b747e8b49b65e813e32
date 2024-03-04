@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4be9b2d3_ab3b0cc7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-03-04T13:59:27Z",
+      "side": 1,
+      "message": "It\u0027d be nice to have some rationale for this change here, like that it gives better utilisation to have other dex2oat\u0027s running in the downtime between dexopt tasks. Maybe with more detail on measurements in the ticket, for posterity.",
+      "revId": "496367132d7d48468c255b747e8b49b65e813e32",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f234017_b0b1ebd0",
+        "filename": "libartservice/service/java/com/android/server/art/ReasonMapping.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-03-04T13:59:27Z",
+      "side": 1,
+      "message": "This isn\u0027t accurate anymore. I don\u0027t think we should document the exact logic for determining the default because that\u0027s an implementation detail. Rather it\u0027s better to say something like that the default is tuned to strike a good balance between device load and dexopt coverage, depending on the situation.",
+      "range": {
+        "startLine": 191,
+        "startChar": 41,
+        "endLine": 192,
+        "endChar": 13
+      },
+      "revId": "496367132d7d48468c255b747e8b49b65e813e32",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5d58647_623fee35",
+        "filename": "libartservice/service/java/com/android/server/art/ReasonMapping.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-03-04T13:59:27Z",
+      "side": 1,
+      "message": "Do you know how common it is that OEMs set this? It may limit the reach of this change.",
+      "range": {
+        "startLine": 198,
+        "startChar": 40,
+        "endLine": 198,
+        "endChar": 78
+      },
+      "revId": "496367132d7d48468c255b747e8b49b65e813e32",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
