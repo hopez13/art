@@ -114,6 +114,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "991f5b3e_be1061d9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1069898
+      },
+      "writtenOn": "2024-03-04T17:40:24Z",
+      "side": 1,
+      "message": "Main executable in there is running under translation as well, and it\u0027s using translator\u0027s dynamic linker which ignores host\u0027s libnativebridge.so. As I explained in the previous comment, since the translator cannot find its version of libnativebridge.so we see the same error message as if the library didn\u0027t exist on host.",
+      "parentUuid": "22aeccde_1e55ea8b",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 63
+      },
+      "revId": "b2b067192ac047b99c0d03104c5d7dbf79192ef1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5eda45ae_a25cfaf4",
         "filename": "libnativeloader/Android.bp",
         "patchSetId": 3
