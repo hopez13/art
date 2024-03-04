@@ -90,6 +90,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "22aeccde_1e55ea8b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-03-04T16:15:58Z",
+      "side": 1,
+      "message": "I was wondering more about the specific error:\n\n```\nCANNOT LINK EXECUTABLE \"/data/local/tmp/art_libnativebridge_cts_tests/art_libnativebridge_cts_tests\": library \"libnativebridge.so\" not found: needed by main executable\n```\n\nThat means libnativebridge.so, or possibly one of its DL_NEEDED dependencies, don\u0027t exist. But libnativebridge.so should always exist, and it only depends on NDK libs. If the native bridge implementation doesn\u0027t exist then we\u0027d get an error from the dlopen call inside it instead.\n\nAlso, is there somewhere in CI where I can test native bridge?",
+      "parentUuid": "69d93b5b_bc9fabd8",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 63
+      },
+      "revId": "b2b067192ac047b99c0d03104c5d7dbf79192ef1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5eda45ae_a25cfaf4",
         "filename": "libnativeloader/Android.bp",
         "patchSetId": 3
