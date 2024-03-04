@@ -142,6 +142,30 @@
       },
       "revId": "7a490b995aa96270220862f486c40d1ff8bdd728",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6df94cb_19eae56f",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1958325
+      },
+      "writtenOn": "2024-03-04T12:25:57Z",
+      "side": 0,
+      "message": "\u003e From the error it seems like the issue is that kPreferredAllocSpaceBegin is not constexpr. Can you try moving its definition to heap.h, make it constexpr (anyways the notation we follow in ART is that variables starting with k are constexpr), and then re-try.\n\nTrying this in heap.h for example:\n\n```\n  static constexpr uint8_t* kPreferredAllocSpaceBegin \u003d\n      reinterpret_cast\u003cuint8_t*\u003e(320 * MB - Heap::kDefaultNonMovingSpaceCapacity);\n```\n\nI\u0027m afraid it does not work because `reinterpret_cast` cannot produce a constexpr, and is specifically disallowed by the standard.\n\n```\nart/runtime/gc/heap.h:159:29: error: constexpr variable \u0027kPreferredAllocSpaceBegin\u0027 must be initialized by a constant expression\n  160 |   static constexpr uint8_t* kPreferredAllocSpaceBegin \u003d\n      |                             ^\n  161 |       reinterpret_cast\u003cuint8_t*\u003e(320 * MB - Heap::kDefaultNonMovingSpaceCapacity);\n      |       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nart/runtime/gc/heap.h:160:7: note: reinterpret_cast is not allowed in a constant expression\n  160 |       reinterpret_cast\u003cuint8_t*\u003e(320 * MB - Heap::kDefaultNonMovingSpaceCapacity);\n      |       ^\n1 error generated.\n```\n\nHowever! Over the weekend I remembered seeing a clever pattern, in the V8 JS engine, where you can use a `constexpr` lambda to wrap a constant expression. This way, we can move the `reinterpret_cast` out of the initializer, and allow us to write the static assert in the lambda, keeping the intermediary integral constant local to that scope.\n\n```\n// 320 MB (0x14000000) - (default non-moving space capacity).\n// The value is picked to ensure it is aligned to the largest supported PMD\n// size, which is 32mb with a 16k page size on AArch64.\nuint8_t* const Heap::kPreferredAllocSpaceBegin \u003d reinterpret_cast\u003cuint8_t*\u003e(([]() constexpr {\n  constexpr size_t kBegin \u003d 320 * MB - Heap::kDefaultNonMovingSpaceCapacity;\n  constexpr int kMaxPMDSize \u003d (kMaxPageSize / sizeof(uint64_t)) * kMaxPageSize;\n  static_assert(IsAligned\u003ckMaxPMDSize\u003e(kBegin),\n                \"kPreferredAllocSpaceBegin should be aligned to the maximum \"\n                \"supported PMD size.\");\n  return kBegin;\n})());\n```\n\nAlthough it might look a bit weird, and I don\u0027t see this pattern in ART, it seems like a nice solution, that does not introduce any new constant, and does not change the type, WDYT?",
+      "parentUuid": "179e9371_0babe688",
+      "range": {
+        "startLine": 207,
+        "startChar": 31,
+        "endLine": 207,
+        "endChar": 34
+      },
+      "revId": "7a490b995aa96270220862f486c40d1ff8bdd728",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
