@@ -34,6 +34,29 @@
       "parentUuid": "5ebed680_2189517d",
       "revId": "91d2c36ec60d21b6c60e14f145721988f89fc710",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "792b6b9c_b2ecff8f",
+        "filename": "build/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1058860
+      },
+      "writtenOn": "2024-03-04T18:45:54Z",
+      "side": 1,
+      "message": "Not sure how `soong_config_variables` work.  @ccross@android.com Is the `-Oz` above getting overridden by this?",
+      "range": {
+        "startLine": 332,
+        "startChar": 0,
+        "endLine": 332,
+        "endChar": 32
+      },
+      "revId": "91d2c36ec60d21b6c60e14f145721988f89fc710",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
