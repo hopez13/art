@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e3888d5_3603433c",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-03-04T06:14:43Z",
+      "side": 1,
+      "message": "Please replace with `IsExtensionEnabled(Riscv64Extension::kZca)` from https://android-review.googlesource.com/2973813 .\n\nI\u0027d prefer this change to be split, one for loads, one for arithmetic instructions and one for branches. The first two could be together if you really want to but I definitely want branches in their own change. I anticipate a lot of complexity for the branches and especially branch tests.",
+      "range": {
+        "startLine": 71,
+        "startChar": 6,
+        "endLine": 71,
+        "endChar": 28
+      },
+      "revId": "22e1174f722397456d675438478431ec23a649f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
