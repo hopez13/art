@@ -648,6 +648,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "105dee45_7ec4276e",
+        "filename": "runtime/jni_stub_hash_map_test.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-03-04T06:31:28Z",
+      "side": 1,
+      "message": "I think it\u0027s OK as is. If the boot image self check failed, I would expect it to be reproducible and we could then easily modify the code to find the method. (For example by visiting the JNI stub methods in boot images and checking their oat code pointers.)",
+      "parentUuid": "9f8d8efa_026b1e3a",
+      "range": {
+        "startLine": 55,
+        "startChar": 5,
+        "endLine": 55,
+        "endChar": 12
+      },
+      "revId": "ce4f82a4e54f1507fa68397fa9a3e9ef1b8eb9bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b25c07a6_1af6f921",
