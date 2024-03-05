@@ -187,18 +187,27 @@ public class PrimaryDexUtils {
         String baseClassLoaderName = dexInfos.get(0).mClassLoaderName;
         String sharedLibrariesContext = dexInfos.get(0).mSharedLibrariesContext;
         List<String> classpath = new ArrayList<>();
+
+        // Generate the full CLC.
+        for (PrimaryDexInfoBuilder dexInfo : dexInfos) {
+            classpath.add(dexInfo.mRelativeDexPath);
+        }
+
         for (PrimaryDexInfoBuilder dexInfo : dexInfos) {
             if (dexInfo.mSplit.isHasCode()) {
                 dexInfo.mClassLoaderContext = encodeClassLoader(baseClassLoaderName, classpath,
                         null /* parentContext */, sharedLibrariesContext);
             }
+
+            // TODO(solanes): CHECK THIS COMMENT
+
             // Note that the splits with no code are not removed from the classpath computation.
             // I.e., split_n might get the split_n-1 in its classpath dependency even if split_n-1
             // has no code.
             // The splits with no code do not matter for the runtime which ignores APKs without code
             // when doing the classpath checks. As such we could actually filter them but we don't
             // do it in order to keep consistency with how the apps are loaded.
-            classpath.add(dexInfo.mRelativeDexPath);
+            // classpath.add(dexInfo.mRelativeDexPath);
         }
     }
 
