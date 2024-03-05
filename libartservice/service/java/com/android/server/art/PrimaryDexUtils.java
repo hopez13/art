@@ -179,26 +179,31 @@ public class PrimaryDexUtils {
      * In this case, all the splits will be loaded in the base apk class loader (in the order of
      * their definition).
      *
-     * The CLC for the base APK is `CLN[]{shared-libraries}`; the CLC for the n-th split APK is
-     * `CLN[base.apk, split_0.apk, ..., split_n-1.apk]{shared-libraries}`; where `CLN` is the
-     * class loader name for the base APK.
+     * The CLC for the base APK is `CLN[]{shared-libraries}`; the CLC for the base and the n-th
+     * splits is `CLN[base.apk, split_0.apk, ..., split_n-1.apk, split_n.apk]{shared-libraries}`;
+     * where `CLN` is the class loader name for the base APK.
      */
     private static void computeClassLoaderContexts(@NonNull List<PrimaryDexInfoBuilder> dexInfos) {
         String baseClassLoaderName = dexInfos.get(0).mClassLoaderName;
         String sharedLibrariesContext = dexInfos.get(0).mSharedLibrariesContext;
         List<String> classpath = new ArrayList<>();
+
+        // Generate the full CLC to be passed on to every dex file.
+        // Note that the splits with no code are not removed from the classpath computation.
+        // e.g., split_n might get the split_n-1 in its classpath dependency even if split_n-1
+        // has no code.
+        // The splits with no code do not matter for the runtime which ignores APKs without code
+        // when doing the classpath checks. As such we could actually filter them but we don't
+        // do it in order to keep consistency with how the apps are loaded.
+        for (PrimaryDexInfoBuilder dexInfo : dexInfos) {
+            classpath.add(dexInfo.mRelativeDexPath);
+        }
+
         for (PrimaryDexInfoBuilder dexInfo : dexInfos) {
             if (dexInfo.mSplit.isHasCode()) {
                 dexInfo.mClassLoaderContext = encodeClassLoader(baseClassLoaderName, classpath,
                         null /* parentContext */, sharedLibrariesContext);
             }
-            // Note that the splits with no code are not removed from the classpath computation.
-            // I.e., split_n might get the split_n-1 in its classpath dependency even if split_n-1
-            // has no code.
-            // The splits with no code do not matter for the runtime which ignores APKs without code
-            // when doing the classpath checks. As such we could actually filter them but we don't
-            // do it in order to keep consistency with how the apps are loaded.
-            classpath.add(dexInfo.mRelativeDexPath);
         }
     }
 
