@@ -108,6 +108,22 @@ public class ArtdRefCache {
         }
     }
 
+    /**
+     * Resets ArtdRefCache to its initial state. ArtdRefCache is guaranteed to be GC-able after
+     * this call.
+     *
+     * Can only be called when there is no pin.
+     */
+    public void reset() {
+        synchronized (mLock) {
+            if (mPinCount != 0) {
+                throw new IllegalStateException("Cannot reset ArtdRefCache when there are pins");
+            }
+            mArtd = null;
+            mDebouncer.cancel();
+        }
+    }
+
     @GuardedBy("mLock")
     private void delayedDropIfNoPinLocked() {
         if (mPinCount == 0) {
@@ -162,15 +178,15 @@ public class ArtdRefCache {
             }
         }
 
-        @SuppressWarnings("Finalize") // Follows the recommended pattern for CloseGuard.
-        protected void finalize() throws Throwable {
-            try {
-                mGuard.warnIfOpen();
-                close();
-            } finally {
-                super.finalize();
-            }
-        }
+        // @SuppressWarnings("Finalize") // Follows the recommended pattern for CloseGuard.
+        // protected void finalize() throws Throwable {
+        //     try {
+        //         mGuard.warnIfOpen();
+        //         close();
+        //     } finally {
+        //         super.finalize();
+        //     }
+        // }
     }
 
     private class CacheDeathRecipient implements DeathRecipient {
@@ -194,19 +210,12 @@ public class ArtdRefCache {
     public static class Injector {
         Injector() {
             // Call the getters for various dependencies, to ensure correct initialization order.
-            ArtModuleServiceInitializer.getArtModuleServiceManager();
+            GlobalInjector.getInstance().checkArtd();
         }
 
         @NonNull
         public IArtd getArtd() {
-            IArtd artd =
-                    IArtd.Stub.asInterface(ArtModuleServiceInitializer.getArtModuleServiceManager()
-                                                   .getArtdServiceRegisterer()
-                                                   .waitForService());
-            if (artd == null) {
-                throw new IllegalStateException("Unable to connect to artd");
-            }
-            return artd;
+            return GlobalInjector.getInstance().getArtd();
         }
 
         @NonNull
