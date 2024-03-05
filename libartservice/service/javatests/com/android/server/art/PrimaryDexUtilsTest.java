@@ -77,15 +77,25 @@ public class PrimaryDexUtilsTest {
                         (DetailedPrimaryDexInfo info)
                                 -> Pair.create(info.splitName(), info.classLoaderContext()),
                         "has split name and CLC of"))
-                .containsExactly(Pair.create(null, "PCL[]" + sharedLibrariesContext),
-                        Pair.create("split_0", "PCL[base.apk]" + sharedLibrariesContext),
+                .containsExactly(Pair.create(null,
+                                         "PCL[base.apk:split_0.apk:split_1.apk:split_2.apk:split_3."
+                                         + "apk:split_4.apk]"
+                                                 + sharedLibrariesContext),
+                        Pair.create("split_0",
+                                "PCL[base.apk:split_0.apk:split_1.apk:split_2.apk:split_3.apk:"
+                                + "split_4.apk]"
+                                        + sharedLibrariesContext),
                         Pair.create("split_2",
-                                "PCL[base.apk:split_0.apk:split_1.apk]" + sharedLibrariesContext),
+                                "PCL[base.apk:split_0.apk:split_1.apk:split_2.apk:split_3.apk:"
+                                + "split_4.apk]"
+                                        + sharedLibrariesContext),
                         Pair.create("split_3",
-                                "PCL[base.apk:split_0.apk:split_1.apk:split_2.apk]"
+                                "PCL[base.apk:split_0.apk:split_1.apk:split_2.apk:split_3.apk:"
+                                + "split_4.apk]"
                                         + sharedLibrariesContext),
                         Pair.create("split_4",
-                                "PCL[base.apk:split_0.apk:split_1.apk:split_2.apk:split_3.apk]"
+                                "PCL[base.apk:split_0.apk:split_1.apk:split_2.apk:split_3.apk:"
+                                + "split_4.apk]"
                                         + sharedLibrariesContext));
     }
 

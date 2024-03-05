@@ -326,15 +326,17 @@ public class PrimaryDexopterParameterizedTest extends PrimaryDexopterTestBase {
         // The first one is normal.
         doReturn(dexoptIsNeeded())
                 .when(mArtd)
-                .getDexoptNeeded("/somewhere/app/foo/base.apk", "arm64", "PCL[]",
-                        mParams.mExpectedCompilerFilter, mParams.mExpectedDexoptTrigger);
+                .getDexoptNeeded("/somewhere/app/foo/base.apk", "arm64",
+                        "PCL[base.apk:split_0.apk:split_1.apk]", mParams.mExpectedCompilerFilter,
+                        mParams.mExpectedDexoptTrigger);
         doReturn(createArtdDexoptResult(false /* cancelled */, 100 /* wallTimeMs */,
                          400 /* cpuTimeMs */, 30000 /* sizeBytes */, 32000 /* sizeBeforeBytes */))
                 .when(mArtd)
                 .dexopt(deepEq(buildOutputArtifacts("/somewhere/app/foo/base.apk", "arm64",
                                 mParams.mIsInDalvikCache, permissionSettings,
                                 mParams.mExpectedOutputIsPreReboot)),
-                        eq("/somewhere/app/foo/base.apk"), eq("arm64"), eq("PCL[]"),
+                        eq("/somewhere/app/foo/base.apk"), eq("arm64"),
+                        eq("PCL[base.apk:split_0.apk:split_1.apk]"),
                         eq(mParams.mExpectedCompilerFilter), any() /* profile */,
                         isNull() /* inputVdex */, isNull() /* dmFile */,
                         eq(PriorityClass.INTERACTIVE), argThat(dexoptOptionsMatcher), any());
@@ -342,14 +344,16 @@ public class PrimaryDexopterParameterizedTest extends PrimaryDexopterTestBase {
         // The second one fails on `dexopt`.
         doReturn(dexoptIsNeeded())
                 .when(mArtd)
-                .getDexoptNeeded("/somewhere/app/foo/base.apk", "arm", "PCL[]",
-                        mParams.mExpectedCompilerFilter, mParams.mExpectedDexoptTrigger);
+                .getDexoptNeeded("/somewhere/app/foo/base.apk", "arm",
+                        "PCL[base.apk:split_0.apk:split_1.apk]", mParams.mExpectedCompilerFilter,
+                        mParams.mExpectedDexoptTrigger);
         doThrow(ServiceSpecificException.class)
                 .when(mArtd)
                 .dexopt(deepEq(buildOutputArtifacts("/somewhere/app/foo/base.apk", "arm",
                                 mParams.mIsInDalvikCache, permissionSettings,
                                 mParams.mExpectedOutputIsPreReboot)),
-                        eq("/somewhere/app/foo/base.apk"), eq("arm"), eq("PCL[]"),
+                        eq("/somewhere/app/foo/base.apk"), eq("arm"),
+                        eq("PCL[base.apk:split_0.apk:split_1.apk]"),
                         eq(mParams.mExpectedCompilerFilter), any() /* profile */,
                         isNull() /* inputVdex */, isNull() /* dmFile */,
                         eq(PriorityClass.INTERACTIVE), argThat(dexoptOptionsMatcher), any());
@@ -357,21 +361,24 @@ public class PrimaryDexopterParameterizedTest extends PrimaryDexopterTestBase {
         // The third one doesn't need dexopt.
         doReturn(dexoptIsNotNeeded())
                 .when(mArtd)
-                .getDexoptNeeded("/somewhere/app/foo/split_0.apk", "arm64", "PCL[base.apk]",
-                        mParams.mExpectedCompilerFilter, mParams.mExpectedDexoptTrigger);
+                .getDexoptNeeded("/somewhere/app/foo/split_0.apk", "arm64",
+                        "PCL[base.apk:split_0.apk:split_1.apk]", mParams.mExpectedCompilerFilter,
+                        mParams.mExpectedDexoptTrigger);
 
         // The fourth one is normal.
         doReturn(dexoptIsNeeded())
                 .when(mArtd)
-                .getDexoptNeeded("/somewhere/app/foo/split_0.apk", "arm", "PCL[base.apk]",
-                        mParams.mExpectedCompilerFilter, mParams.mExpectedDexoptTrigger);
+                .getDexoptNeeded("/somewhere/app/foo/split_0.apk", "arm",
+                        "PCL[base.apk:split_0.apk:split_1.apk]", mParams.mExpectedCompilerFilter,
+                        mParams.mExpectedDexoptTrigger);
         doReturn(createArtdDexoptResult(false /* cancelled */, 200 /* wallTimeMs */,
                          200 /* cpuTimeMs */, 10000 /* sizeBytes */, 0 /* sizeBeforeBytes */))
                 .when(mArtd)
                 .dexopt(deepEq(buildOutputArtifacts("/somewhere/app/foo/split_0.apk", "arm",
                                 mParams.mIsInDalvikCache, permissionSettings,
                                 mParams.mExpectedOutputIsPreReboot)),
-                        eq("/somewhere/app/foo/split_0.apk"), eq("arm"), eq("PCL[base.apk]"),
+                        eq("/somewhere/app/foo/split_0.apk"), eq("arm"),
+                        eq("PCL[base.apk:split_0.apk:split_1.apk]"),
                         eq(mParams.mExpectedCompilerFilter), any() /* profile */,
                         isNull() /* inputVdex */, isNull() /* dmFile */,
                         eq(PriorityClass.INTERACTIVE), argThat(dexoptOptionsMatcher), any());
