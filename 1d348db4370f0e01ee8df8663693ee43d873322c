@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6fe31c6a_841046c9",
+        "filename": "test/2246-trace-v2/dump_trace.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-03-05T14:13:03Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "5d6eaa38_e69c5503",
+      "revId": "1d348db4370f0e01ee8df8663693ee43d873322c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f455d2ac_7115339e",
@@ -35,6 +53,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7bc4ec36_3b0a7fc3",
+        "filename": "test/2246-trace-v2/dump_trace.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-03-05T14:13:03Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "f455d2ac_7115339e",
+      "revId": "1d348db4370f0e01ee8df8663693ee43d873322c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ee38fc5d_c6c862f8",
@@ -48,6 +84,24 @@
       "writtenOn": "2024-02-27T13:28:58Z",
       "side": 1,
       "message": "...so this `if` check is always `true`.\n\nI don\u0027t know if we wanted to set `success` to a different value (and get rid of the `const`), check a different condition here, or maybe just get rid of this `if` check.",
+      "revId": "1d348db4370f0e01ee8df8663693ee43d873322c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0dd2ef6_f5a6c904",
+        "filename": "test/2246-trace-v2/dump_trace.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-03-05T14:13:03Z",
+      "side": 1,
+      "message": "Thanks! We don\u0027t need to check success here anymore. I fixed this here: https://android-review.git.corp.google.com/c/platform/art/+/2986229/1/test/2246-trace-v2/dump_trace.cc#191",
+      "parentUuid": "ee38fc5d_c6c862f8",
       "revId": "1d348db4370f0e01ee8df8663693ee43d873322c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
