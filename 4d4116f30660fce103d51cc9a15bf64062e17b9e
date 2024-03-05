@@ -22,6 +22,30 @@
       },
       "revId": "4d4116f30660fce103d51cc9a15bf64062e17b9e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d430092_e5b9d8b7",
+        "filename": "compiler/optimizing/loop_optimization.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 554,
+      "author": {
+        "id": 1975361
+      },
+      "writtenOn": "2024-03-05T13:22:11Z",
+      "side": 1,
+      "message": "This was my intentional consideration to keep it for traditional vectorization - to keep the code, shared between predicated and traditional paths, generic; so it is less brittle. Specifically I was trying to reduce the number of \"IsInPredicatedVectorizationMode()\" - there are very few of those now and only in special places, not in the middle of the algorithm.\n\nBut if you prefer, I could implement your suggestion, I can see the benefit.",
+      "parentUuid": "e77a859c_fe17e852",
+      "range": {
+        "startLine": 553,
+        "startChar": 74,
+        "endLine": 554,
+        "endChar": 26
+      },
+      "revId": "4d4116f30660fce103d51cc9a15bf64062e17b9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
