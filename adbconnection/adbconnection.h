@@ -24,6 +24,7 @@
 
 #include <limits>
 #include <memory>
+#include <string>
 #include <vector>
 
 #include "adbconnection/client.h"
@@ -69,6 +70,25 @@ struct AdbConnectionDdmCallback : public art::DdmCallback {
   AdbConnectionState* connection_;
 };
 
+struct AdbConnectionAppInfoCallback : public art::AppInfoCallback {
+  explicit AdbConnectionAppInfoCallback(AdbConnectionState* connection) : connection_(connection) {}
+
+  void OnProcessNamed(const std::string& process_name) REQUIRES_SHARED(art::Locks::mutator_lock_);
+
+ private:
+  void OnApplicationAdded(const std::string& package_name)
+      REQUIRES_SHARED(art::Locks::mutator_lock_);
+
+ private:
+  void OnSetstate(int state) REQUIRES_SHARED(art::Locks::mutator_lock_);
+
+ private:
+  void OnUserIdKnown(int uid) REQUIRES_SHARED(art::Locks::mutator_lock_);
+
+ private:
+  AdbConnectionState* connection_;
+};
+
 class AdbConnectionState {
  public:
   explicit AdbConnectionState(const std::string& name);
@@ -82,6 +102,15 @@ class AdbConnectionState {
   // hand-shaking yet.
   void PublishDdmData(uint32_t type, const art::ArrayRef<const uint8_t>& data);
 
+  // Wake up the poll. Call this if the set of interesting event has changed. They will be
+  // recalculated and poll will be called again via fdevent write. This wakeup  relies on fdevent
+  // and should be ACKed via AcknowledgeWakeup.
+  void WakeupPollLoop();
+
+  // After a call to WakeupPollLoop, the fdevent internal buffer should be decreased via
+  // this method.
+  void AcknowledgeWakeup();
+
   // Stops debugger threads during shutdown.
   void StopDebuggerThreads();
 
@@ -89,6 +118,11 @@ class AdbConnectionState {
   bool DebuggerThreadsStarted() {
     return started_debugger_threads_;
   }
+
+  void OnProcessNamed(const std::string& process_name);
+  void OnApplicationAdded(const std::string& package_name);
+  void OnSetstate(int state);
+  void OnUserIdKnown(int uid);
 
  private:
   uint32_t NextDdmId();
@@ -121,6 +155,7 @@ class AdbConnectionState {
 
   AdbConnectionDebuggerController controller_;
   AdbConnectionDdmCallback ddm_callback_;
+  AdbConnectionAppInfoCallback appinfo_callback_;
 
   // Eventfd used to allow the StopDebuggerThreads function to wake up sleeping threads
   android::base::unique_fd sleep_event_fd_;
