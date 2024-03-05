@@ -17,13 +17,19 @@
 public class Main {
   static class ExpectedError extends Error {}
 
+  /// CHECK-START: void Main.localStaticNopAndThrow() inliner (before)
+  /// CHECK:                          InvokeStaticOrDirect method_name:Main.localStaticNop
+
+  /// CHECK-START: void Main.localStaticNopAndThrow() inliner (after)
+  /// CHECK-NOT:                      InvokeStaticOrDirect method_name:Main.localStaticNop
+
   public static void localStaticNopAndThrow() {
     // Pattern matching replaces the invoke even in a block that ends with a `throw`.
-    $inline$localStaticNop();
+    localStaticNop();
     throw new ExpectedError();
   }
 
-  public static void $inline$localStaticNop() {}
+  public static void localStaticNop() {}
 
   /// CHECK-START: void Main.staticNopNeverInline() inliner (before)
   /// CHECK:                          InvokeStaticOrDirect
