@@ -70,6 +70,17 @@ class DdmCallback {
       REQUIRES_SHARED(Locks::mutator_lock_) = 0;
 };
 
+class AppInfoCallback {
+ public:
+  virtual ~AppInfoCallback() {}
+  virtual void OnProcessNamed(const std::string& process_name)
+      REQUIRES_SHARED(Locks::mutator_lock_) = 0;
+  virtual void OnApplicationAdded(const std::string& package_name)
+      REQUIRES_SHARED(Locks::mutator_lock_) = 0;
+  virtual void OnWaitingForDebugger(bool waiting) REQUIRES_SHARED(Locks::mutator_lock_) = 0;
+  virtual void OnUserIdKnown(int uid) REQUIRES_SHARED(Locks::mutator_lock_) = 0;
+};
+
 class DebuggerControlCallback {
  public:
   virtual ~DebuggerControlCallback() {}
@@ -240,6 +251,14 @@ class EXPORT RuntimeCallbacks {
   void AddDdmCallback(DdmCallback* cb) REQUIRES_SHARED(Locks::mutator_lock_);
   void RemoveDdmCallback(DdmCallback* cb) REQUIRES_SHARED(Locks::mutator_lock_);
 
+  void OnProcessNamed(const std::string& process_name) REQUIRES_SHARED(Locks::mutator_lock_);
+  void OnApplicationAdded(const std::string& package_name) REQUIRES_SHARED(Locks::mutator_lock_);
+  void OnWaitingForDebugger(bool waiting) REQUIRES_SHARED(Locks::mutator_lock_);
+  void OnUserIdKnown(int uid) REQUIRES_SHARED(Locks::mutator_lock_);
+
+  void AddAppInfoCallback(AppInfoCallback* cb) REQUIRES_SHARED(Locks::mutator_lock_);
+  void RemoveAppInfoCallback(AppInfoCallback* cb) REQUIRES_SHARED(Locks::mutator_lock_);
+
   void StartDebugger() REQUIRES_SHARED(Locks::mutator_lock_);
   // NO_THREAD_SAFETY_ANALYSIS since this is only called when we are in the middle of shutting down
   // and the mutator_lock_ is no longer acquirable.
@@ -279,6 +298,7 @@ class EXPORT RuntimeCallbacks {
       GUARDED_BY(callback_lock_);
   std::vector<DdmCallback*> ddm_callbacks_
       GUARDED_BY(callback_lock_);
+  std::vector<AppInfoCallback*> appinfo_callbacks_ GUARDED_BY(callback_lock_);
   std::vector<DebuggerControlCallback*> debugger_control_callbacks_
       GUARDED_BY(callback_lock_);
   std::vector<ReflectiveValueVisitCallback*> reflective_value_visit_callbacks_

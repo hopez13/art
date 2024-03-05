@@ -55,13 +55,16 @@ namespace art HIDDEN {
 
 static jobjectArray VMDebug_getVmFeatureList(JNIEnv* env, jclass) {
   ScopedObjectAccess soa(Thread::ForEnv(env));
-  return soa.AddLocalReference<jobjectArray>(CreateStringArray(soa.Self(), {
-      "method-trace-profiling",
-      "method-trace-profiling-streaming",
-      "method-sample-profiling",
-      "hprof-heap-dump",
-      "hprof-heap-dump-streaming",
-  }));
+  return soa.AddLocalReference<jobjectArray>(
+      CreateStringArray(soa.Self(),
+                        {
+                            "method-trace-profiling",
+                            "method-trace-profiling-streaming",
+                            "method-sample-profiling",
+                            "hprof-heap-dump",
+                            "hprof-heap-dump-streaming",
+                            "app_info",
+                        }));
 }
 
 static void VMDebug_startAllocCounting(JNIEnv*, jclass) {
