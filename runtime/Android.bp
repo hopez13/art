@@ -341,6 +341,7 @@ cc_defaults {
         "mirror/var_handle.cc",
         "monitor.cc",
         "monitor_objects_stack_visitor.cc",
+        "native/android_os_Debug.cc",
         "native/dalvik_system_BaseDexClassLoader.cc",
         "native/dalvik_system_DexFile.cc",
         "native/dalvik_system_VMDebug.cc",
