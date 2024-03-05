@@ -46,6 +46,30 @@
       },
       "revId": "4d4116f30660fce103d51cc9a15bf64062e17b9e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3873d3b2_8d345e03",
+        "filename": "compiler/optimizing/loop_optimization.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 554,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-03-05T13:55:44Z",
+      "side": 1,
+      "message": "How much of the shared code would have `if (IsInPredicatedVectorizationMode)`? Is it just related to `vector_external_set_`?",
+      "parentUuid": "9d430092_e5b9d8b7",
+      "range": {
+        "startLine": 553,
+        "startChar": 74,
+        "endLine": 554,
+        "endChar": 26
+      },
+      "revId": "4d4116f30660fce103d51cc9a15bf64062e17b9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
