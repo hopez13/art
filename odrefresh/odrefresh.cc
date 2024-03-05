@@ -85,6 +85,7 @@
 #include "odr_fs_utils.h"
 #include "odr_metrics.h"
 #include "odrefresh/odrefresh.h"
+#include "selinux/android.h"
 #include "selinux/selinux.h"
 #include "tools/cmdline_builder.h"
 
@@ -145,47 +146,26 @@ void EraseFiles(const std::vector<std::unique_ptr<File>>& files) {
 // Returns true if all files are moved, false otherwise.
 bool MoveOrEraseFiles(const std::vector<std::unique_ptr<File>>& files,
                       std::string_view output_directory_path) {
-  std::vector<std::unique_ptr<File>> output_files;
   for (auto& file : files) {
     std::string file_basename(Basename(file->GetPath()));
-    std::string output_file_path = ART_FORMAT("{}/{}", output_directory_path, file_basename);
-    std::string input_file_path = file->GetPath();
+    std::string new_file_path = ART_FORMAT("{}/{}", output_directory_path, file_basename);
+    std::string old_file_path = file->GetPath();
 
-    output_files.emplace_back(OS::CreateEmptyFileWriteOnly(output_file_path.c_str()));
-    if (output_files.back() == nullptr) {
-      PLOG(ERROR) << "Failed to open " << QuotePath(output_file_path);
-      output_files.pop_back();
-      EraseFiles(output_files);
+    if (!file->Rename(new_file_path)) {
+      PLOG(ERROR) << "Failed to rename " << QuotePath(old_file_path) << " to "
+                  << QuotePath(new_file_path);
       EraseFiles(files);
       return false;
     }
 
-    if (fchmod(output_files.back()->Fd(), kFileMode) != 0) {
-      PLOG(ERROR) << "Could not set file mode on " << QuotePath(output_file_path);
-      EraseFiles(output_files);
+    if (file->FlushCloseOrErase() != 0) {
+      PLOG(ERROR) << "Failed to flush and close file " << QuotePath(new_file_path);
       EraseFiles(files);
       return false;
     }
 
-    size_t file_bytes = file->GetLength();
-    if (!output_files.back()->Copy(file.get(), /*offset=*/0, file_bytes)) {
-      PLOG(ERROR) << "Failed to copy " << QuotePath(file->GetPath()) << " to "
-                  << QuotePath(output_file_path);
-      EraseFiles(output_files);
-      EraseFiles(files);
-      return false;
-    }
-
-    if (!file->Erase(/*unlink=*/true)) {
-      PLOG(ERROR) << "Failed to erase " << QuotePath(file->GetPath());
-      EraseFiles(output_files);
-      EraseFiles(files);
-      return false;
-    }
-
-    if (output_files.back()->FlushCloseOrErase() != 0) {
-      PLOG(ERROR) << "Failed to flush and close file " << QuotePath(output_file_path);
-      EraseFiles(output_files);
+    if (selinux_android_restorecon(new_file_path.c_str(), 0) < 0) {
+      LOG(ERROR) << "Failed to set security context for file " << QuotePath(new_file_path);
       EraseFiles(files);
       return false;
     }
