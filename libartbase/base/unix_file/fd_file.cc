@@ -341,11 +341,16 @@ int FdFile::Close() {
   return 0;
 }
 
-int FdFile::Flush() {
-  DCHECK(!read_only_mode_);
+int FdFile::Flush(bool flush_metadata) {
+  DCHECK(flush_metadata || !read_only_mode_);
 
 #ifdef __linux__
-  int rc = TEMP_FAILURE_RETRY(fdatasync(fd_));
+  int rc;
+  if (flush_metadata) {
+    rc = TEMP_FAILURE_RETRY(fsync(fd_));
+  } else {
+    rc = TEMP_FAILURE_RETRY(fdatasync(fd_));
+  }
 #else
   int rc = TEMP_FAILURE_RETRY(fsync(fd_));
 #endif
@@ -468,6 +473,38 @@ bool FdFile::PwriteFully(const void* buffer, size_t byte_count, size_t offset) {
 
 bool FdFile::WriteFully(const void* buffer, size_t byte_count) {
   return WriteFullyGeneric<false>(buffer, byte_count, 0u);
+}
+
+bool FdFile::Rename(const std::string& new_path) {
+  std::string old_path = file_path_;
+  int rc = std::rename(old_path.c_str(), new_path.c_str());
+  if (rc != 0) {
+    LOG(ERROR) << "Rename from '" << old_path << "' to '" << new_path << "' failed.";
+    return false;
+  }
+  file_path_ = new_path;
+
+  // As rename mutates the source/dest directory inode metadata rather than the file, flush them.
+  std::string old_dir = android::base::Dirname(old_path);
+  std::string new_dir = android::base::Dirname(new_path);
+  std::vector<std::string> sync_dirs = {old_dir};
+  if (new_dir != old_dir) {
+    sync_dirs.emplace_back(new_dir);
+  }
+  for (auto& dirname : sync_dirs) {
+    FdFile dir = FdFile(dirname, O_RDONLY, false);
+    rc = dir.Flush(true);
+    if (rc != 0) {
+      LOG(ERROR) << "Flushing directory '" << dirname << "' during rename failed.";
+      return false;
+    }
+    rc = dir.Close();
+    if (rc != 0) {
+      LOG(ERROR) << "Closing directory '" << dirname << "' during rename failed.";
+      return false;
+    }
+  }
+  return true;
 }
 
 bool FdFile::Copy(FdFile* input_file, int64_t offset, int64_t size) {

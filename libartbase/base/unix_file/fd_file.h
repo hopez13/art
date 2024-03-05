@@ -73,7 +73,8 @@ class FdFile : public RandomAccessFile {
   int64_t GetLength() const override;
   int64_t Write(const char* buf, int64_t byte_count, int64_t offset) override WARN_UNUSED;
 
-  int Flush() override WARN_UNUSED;
+  int Flush() override WARN_UNUSED { return Flush(false); }
+  int Flush(bool flush_metadata) WARN_UNUSED;
 
   // Short for SetLength(0); Flush(); Close();
   // If the file was opened with a path name and unlink = true, also calls Unlink() on the path.
@@ -110,6 +111,13 @@ class FdFile : public RandomAccessFile {
   bool WriteFully(const void* buffer, size_t byte_count) WARN_UNUSED;
   bool PwriteFully(const void* buffer, size_t byte_count, size_t offset) WARN_UNUSED;
 
+  // Change the file path. If a file at new_path already exists, it will be replaced.
+  // On Linux, the rename syscall will fail unless the source and destination are on the same
+  // mounted filesystem.
+  // This function is not expected to modify the file data itself, instead it modifies the inodes of
+  // the source and destination directories, and therefore the function flushes those file
+  // descriptors following the rename.
+  bool Rename(const std::string& new_path);
   // Copy data from another file.
   bool Copy(FdFile* input_file, int64_t offset, int64_t size);
   // Clears the file content and resets the file offset to 0.
