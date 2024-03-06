@@ -200,9 +200,13 @@ static std::string InitVendorPublicLibraries() {
 // contains the extended public libraries that are loaded from the system namespace.
 static std::string InitProductPublicLibraries() {
   std::vector<std::string> sonames;
+<<<<<<< HEAD   (bed1f3 [automerger skipped] Use llndk.libraries.txt from system if )
   if (is_product_treblelized()) {
     ReadExtensionLibraries("/product/etc", &sonames);
   }
+=======
+  ReadExtensionLibraries("/product/etc", &sonames);
+>>>>>>> BRANCH (96d09a Use product vndk version to check if product vndk is depreca)
   std::string libs = android::base::Join(sonames, ':');
   ALOGD("InitProductPublicLibraries: %s", libs.c_str());
   return libs;
@@ -217,9 +221,12 @@ static std::string InitExtendedPublicLibraries() {
   std::vector<std::string> sonames;
   ReadExtensionLibraries("/system/etc", &sonames);
   ReadExtensionLibraries("/system_ext/etc", &sonames);
+<<<<<<< HEAD   (bed1f3 [automerger skipped] Use llndk.libraries.txt from system if )
   if (!is_product_treblelized()) {
     ReadExtensionLibraries("/product/etc", &sonames);
   }
+=======
+>>>>>>> BRANCH (96d09a Use product vndk version to check if product vndk is depreca)
   std::string libs = android::base::Join(sonames, ':');
   ALOGD("InitExtendedPublicLibraries: %s", libs.c_str());
   return libs;
@@ -260,10 +267,13 @@ static std::string InitLlndkLibrariesVendor() {
 }
 
 static std::string InitLlndkLibrariesProduct() {
+<<<<<<< HEAD   (bed1f3 [automerger skipped] Use llndk.libraries.txt from system if )
   if (!is_product_treblelized()) {
     ALOGD("InitLlndkLibrariesProduct: Product is not treblelized");
     return "";
   }
+=======
+>>>>>>> BRANCH (96d09a Use product vndk version to check if product vndk is depreca)
   std::string config_file;
   if (IsProductVndkEnabled()) {
     config_file = kLlndkLibrariesFile;
@@ -424,6 +434,7 @@ const std::map<std::string, std::string>& apex_public_libraries() {
   return public_libraries;
 }
 
+<<<<<<< HEAD   (bed1f3 [automerger skipped] Use llndk.libraries.txt from system if )
 bool is_product_treblelized() {
 #if defined(ART_TARGET_ANDROID)
   // Product is not treblelized iff launching version is prior to R and
@@ -437,6 +448,8 @@ bool is_product_treblelized() {
 #endif
 }
 
+=======
+>>>>>>> BRANCH (96d09a Use product vndk version to check if product vndk is depreca)
 std::string get_vndk_version(bool is_product_vndk) {
 #if defined(ART_TARGET_ANDROID)
   if (is_product_vndk) {

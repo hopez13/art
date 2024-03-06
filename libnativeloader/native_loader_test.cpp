@@ -380,6 +380,7 @@ TEST_P(NativeLoaderTest_Create, UnbundledProductApp) {
   dex_path = "/product/app/foo/foo.apk";
   is_shared = false;
 
+<<<<<<< HEAD   (bed1f3 [automerger skipped] Use llndk.libraries.txt from system if )
   if (is_product_treblelized()) {
     expected_namespace_prefix = "product-clns";
     expected_library_path =
@@ -392,6 +393,15 @@ TEST_P(NativeLoaderTest_Create, UnbundledProductApp) {
       expected_link_with_vndk_product_ns = true;
     }
   }
+=======
+  expected_namespace_prefix = "product-clns";
+  expected_library_path = expected_library_path + ":/product/" LIB_DIR ":/system/product/" LIB_DIR;
+  expected_permitted_path =
+      expected_permitted_path + ":/product/" LIB_DIR ":/system/product/" LIB_DIR;
+  expected_shared_libs_to_platform_ns =
+      append_extended_libraries(default_public_libraries() + ":" + llndk_libraries_product());
+  expected_link_with_vndk_product_ns = true;
+>>>>>>> BRANCH (96d09a Use product vndk version to check if product vndk is depreca)
 
   SetExpectations();
   RunTest();

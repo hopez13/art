@@ -259,9 +259,15 @@ Result<NativeLoaderNamespace*> LibraryNamespaces::Create(JNIEnv* env,
 
       // Different name is useful for debugging
       namespace_name = kVendorClassloaderNamespaceName;
+<<<<<<< HEAD   (bed1f3 [automerger skipped] Use llndk.libraries.txt from system if )
     } else if (api_domain == API_DOMAIN_PRODUCT) {
       unbundled_app_domain = API_DOMAIN_PRODUCT;
       api_domain_msg = "unbundled product apk";
+=======
+    } else if (apk_origin == APK_ORIGIN_PRODUCT) {
+      unbundled_app_origin = APK_ORIGIN_PRODUCT;
+      apk_origin_msg = "unbundled product apk";
+>>>>>>> BRANCH (96d09a Use product vndk version to check if product vndk is depreca)
 
       // Like for vendor apks, give access to the product libs since they are
       // bundled together in the same partition.
@@ -419,10 +425,14 @@ Result<NativeLoaderNamespace*> LibraryNamespaces::Create(JNIEnv* env,
   const std::string product_libs =
       filter_public_libraries(target_sdk_version, uses_libraries, product_public_libraries());
   if (!product_libs.empty()) {
+<<<<<<< HEAD   (bed1f3 [automerger skipped] Use llndk.libraries.txt from system if )
     Result<NativeLoaderNamespace> target_ns = system_ns;
     if (is_product_treblelized()) {
       target_ns = NativeLoaderNamespace::GetExportedNamespace(kProductNamespaceName, is_bridged);
     }
+=======
+    auto target_ns = NativeLoaderNamespace::GetExportedNamespace(kProductNamespaceName, is_bridged);
+>>>>>>> BRANCH (96d09a Use product vndk version to check if product vndk is depreca)
     if (target_ns.ok()) {
       linked = app_ns->Link(&target_ns.value(), product_libs);
       if (!linked.ok()) {
