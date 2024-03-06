@@ -388,9 +388,13 @@ TEST_P(NativeLoaderTest_Create, UnbundledProductApp) {
         expected_permitted_path + ":/product/" LIB_DIR ":/system/product/" LIB_DIR;
     expected_shared_libs_to_platform_ns =
         append_extended_libraries(default_public_libraries() + ":" + llndk_libraries_product());
+<<<<<<< HEAD   (0011b5 [automerger skipped] Use product vndk version to check if pr)
     if (android::base::GetProperty("ro.product.vndk.version", "") != "") {
       expected_link_with_vndk_product_ns = true;
     }
+=======
+    expected_link_with_vndk_product_ns = true;
+>>>>>>> BRANCH (c83181 Check if product is treblelized)
   }
 
   SetExpectations();

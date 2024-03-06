@@ -259,9 +259,15 @@ Result<NativeLoaderNamespace*> LibraryNamespaces::Create(JNIEnv* env,
 
       // Different name is useful for debugging
       namespace_name = kVendorClassloaderNamespaceName;
+<<<<<<< HEAD   (0011b5 [automerger skipped] Use product vndk version to check if pr)
     } else if (api_domain == API_DOMAIN_PRODUCT) {
       unbundled_app_domain = API_DOMAIN_PRODUCT;
       api_domain_msg = "unbundled product apk";
+=======
+    } else if (apk_origin == APK_ORIGIN_PRODUCT && is_product_treblelized()) {
+      unbundled_app_origin = APK_ORIGIN_PRODUCT;
+      apk_origin_msg = "unbundled product apk";
+>>>>>>> BRANCH (c83181 Check if product is treblelized)
 
       // Like for vendor apks, give access to the product libs since they are
       // bundled together in the same partition.
@@ -419,7 +425,11 @@ Result<NativeLoaderNamespace*> LibraryNamespaces::Create(JNIEnv* env,
   const std::string product_libs =
       filter_public_libraries(target_sdk_version, uses_libraries, product_public_libraries());
   if (!product_libs.empty()) {
+<<<<<<< HEAD   (0011b5 [automerger skipped] Use product vndk version to check if pr)
     Result<NativeLoaderNamespace> target_ns = system_ns;
+=======
+    auto target_ns = system_ns;
+>>>>>>> BRANCH (c83181 Check if product is treblelized)
     if (is_product_treblelized()) {
       target_ns = NativeLoaderNamespace::GetExportedNamespace(kProductNamespaceName, is_bridged);
     }
