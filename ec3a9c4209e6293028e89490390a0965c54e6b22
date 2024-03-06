@@ -313,6 +313,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "53a062ae_964700d7",
+        "filename": "runtime/oat/jni_stub_hash_map.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-03-06T16:19:19Z",
+      "side": 1,
+      "message": "Maybe `DCHECK_EQ()`. The `if (TranslateArgToJniShorty(ch_lhs) !\u003d TranslateArgToJniShorty(ch_rhs))` above should ensure that it holds.",
+      "parentUuid": "88da85d2_eb42fcac",
+      "range": {
+        "startLine": 287,
+        "startChar": 8,
+        "endLine": 287,
+        "endChar": 35
+      },
+      "revId": "ec3a9c4209e6293028e89490390a0965c54e6b22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "531b869d_d5340dd4",
         "filename": "runtime/oat/jni_stub_hash_map.cc",
         "patchSetId": 15
@@ -347,6 +371,24 @@
       "writtenOn": "2024-03-06T15:43:46Z",
       "side": 1,
       "message": "Vladimir do you know if this should have the `HIDDEN` attribute?",
+      "revId": "ec3a9c4209e6293028e89490390a0965c54e6b22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d640546f_0ca32dab",
+        "filename": "runtime/oat/jni_stub_hash_map.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-03-06T16:19:19Z",
+      "side": 1,
+      "message": "Yes, all `namespace art {` have been converted to `namespace art HIDDEN {` in the `runtime/` directory. However, that means we need to annotate symbols needed by `dex2oat` with `EXTERN`. That\u0027s probably just the `JniStubKeyHash` and `JniStubKeyEquals` constructors.",
+      "parentUuid": "ce8e9626_d6618587",
       "revId": "ec3a9c4209e6293028e89490390a0965c54e6b22",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -433,6 +475,30 @@
       "writtenOn": "2024-03-06T15:43:46Z",
       "side": 1,
       "message": "Is this setting it just for this test? Shouldn\u0027t we set the old value after this test is done? We do similar things with e.g. `ScopedMarchOverride`",
+      "range": {
+        "startLine": 263,
+        "startChar": 4,
+        "endLine": 263,
+        "endChar": 26
+      },
+      "revId": "ec3a9c4209e6293028e89490390a0965c54e6b22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6241157_f02c7b46",
+        "filename": "runtime/oat/jni_stub_hash_map_test.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-03-06T16:19:19Z",
+      "side": 1,
+      "message": "I find some of the `Scoped*` helpers in tests (including `ScopedMarchOverride`) somewhat unnecessary. They essentially allow some testing patterns that we actually don\u0027t use, so simple `Set*` replacements would be suffcient.",
+      "parentUuid": "60d9b746_ef47d40e",
       "range": {
         "startLine": 263,
         "startChar": 4,
