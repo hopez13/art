@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5cdebe60_c707896d",
+        "filename": "runtime/oat/jni_stub_hash_map.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-03-06T09:02:13Z",
+      "side": 1,
+      "message": "Given that `kThumb2` is essentially equivalent to `kArm`, we should move the `case` there:\n\n    case InstructionSet::kArm:\n    case InstructionSet::kThumb2:\n      hash_func_ \u003d JniStubKeyGenericHash;\n      break;",
+      "range": {
+        "startLine": 187,
+        "startChar": 25,
+        "endLine": 187,
+        "endChar": 32
+      },
+      "revId": "d60f6a9dff3481a503f3cd6d17b3221756328700",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a824ed3d_4c9cd0fb",
+        "filename": "runtime/oat/jni_stub_hash_map.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-03-06T09:02:13Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 345,
+        "startChar": 25,
+        "endLine": 345,
+        "endChar": 32
+      },
+      "revId": "d60f6a9dff3481a503f3cd6d17b3221756328700",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
