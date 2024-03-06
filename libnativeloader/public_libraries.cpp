@@ -249,7 +249,11 @@ static std::string InitLlndkLibrariesVendor() {
   } else {
     config_file = kLlndkLibrariesNoVndkFile;
   }
+<<<<<<< HEAD   (04a110 Convert And+Sub into bic if possible)
   Result<std::vector<std::string>> sonames = ReadConfig(config_file, always_true);
+=======
+  auto sonames = ReadConfig(config_file, always_true);
+>>>>>>> BRANCH (f70182 Use llndk.libraries.txt from system if VNDK is deprecated)
   if (!sonames.ok()) {
     LOG_ALWAYS_FATAL("%s", sonames.error().message().c_str());
     return "";
@@ -271,7 +275,11 @@ static std::string InitLlndkLibrariesProduct() {
   } else {
     config_file = kLlndkLibrariesNoVndkFile;
   }
+<<<<<<< HEAD   (04a110 Convert And+Sub into bic if possible)
   Result<std::vector<std::string>> sonames = ReadConfig(config_file, always_true);
+=======
+  auto sonames = ReadConfig(config_file, always_true);
+>>>>>>> BRANCH (f70182 Use llndk.libraries.txt from system if VNDK is deprecated)
   if (!sonames.ok()) {
     LOG_ALWAYS_FATAL("%s", sonames.error().message().c_str());
     return "";
