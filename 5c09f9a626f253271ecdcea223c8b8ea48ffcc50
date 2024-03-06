@@ -112,6 +112,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c943b31_b5ffca52",
+        "filename": "compiler/optimizing/instruction_simplifier_shared.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-03-06T08:21:56Z",
+      "side": 1,
+      "message": "You never know what other passes can be introduced before the arch-specific simplification but it\u0027s OK to ignore that and generate BNR with both inputs equal.",
+      "parentUuid": "36642fdd_ddbfbaab",
+      "revId": "5c09f9a626f253271ecdcea223c8b8ea48ffcc50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f331d1a8_04098062",
