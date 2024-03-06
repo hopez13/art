@@ -1,0 +1,469 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e1bd6a6_d8f2d621",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1558,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-03-06T15:43:46Z",
+      "side": 1,
+      "message": "`JniStubKey(method)`\n\nSame for the others using `{}`.",
+      "range": {
+        "startLine": 1558,
+        "startChar": 31,
+        "endLine": 1558,
+        "endChar": 49
+      },
+      "revId": "ec3a9c4209e6293028e89490390a0965c54e6b22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c11d69f0_18f76d69",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1561,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-03-06T15:43:46Z",
+      "side": 1,
+      "message": "nit: this can be `constexpr`. Same for line 2637",
+      "range": {
+        "startLine": 1561,
+        "startChar": 4,
+        "endLine": 1561,
+        "endChar": 39
+      },
+      "revId": "ec3a9c4209e6293028e89490390a0965c54e6b22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "33d4ca8d_5e044a3e",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1451,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-03-06T15:43:46Z",
+      "side": 1,
+      "message": "nit: `gc::space::ImageSpace*`",
+      "range": {
+        "startLine": 1451,
+        "startChar": 7,
+        "endLine": 1451,
+        "endChar": 11
+      },
+      "revId": "ec3a9c4209e6293028e89490390a0965c54e6b22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "21efa5ad_012ffb5f",
+        "filename": "runtime/oat/image-inl.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-03-06T15:43:46Z",
+      "side": 1,
+      "message": "Is there a reason to not do `pos +\u003d static_cast\u003csize_t\u003e(pointer_size);` here and do it in line 144?",
+      "revId": "ec3a9c4209e6293028e89490390a0965c54e6b22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "90bd017e_3b3af5e2",
+        "filename": "runtime/oat/jni_stub_hash_map.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-03-06T15:43:46Z",
+      "side": 1,
+      "message": "nit: `constexpr`. Same for the ones in `TranslateReturnTypeToJniShorty` below",
+      "range": {
+        "startLine": 31,
+        "startChar": 9,
+        "endLine": 31,
+        "endChar": 14
+      },
+      "revId": "ec3a9c4209e6293028e89490390a0965c54e6b22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c1c9c61_50f0521d",
+        "filename": "runtime/oat/jni_stub_hash_map.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-03-06T15:43:46Z",
+      "side": 1,
+      "message": "Is it not covered in the `other` translations? Or do you mean to support it with an optimized version?",
+      "range": {
+        "startLine": 45,
+        "startChar": 5,
+        "endLine": 45,
+        "endChar": 27
+      },
+      "revId": "ec3a9c4209e6293028e89490390a0965c54e6b22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "11e05184_8251ce1a",
+        "filename": "runtime/oat/jni_stub_hash_map.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-03-06T15:43:46Z",
+      "side": 1,
+      "message": "RISC-V here and in `GetMaxFloatOrDoubleRegisterArgs` will never be called right? Do we want to keep it separate?",
+      "range": {
+        "startLine": 71,
+        "startChar": 0,
+        "endLine": 73,
+        "endChar": 0
+      },
+      "revId": "ec3a9c4209e6293028e89490390a0965c54e6b22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b2c2d812_ed3c1fa9",
+        "filename": "runtime/oat/jni_stub_hash_map.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-03-06T15:43:46Z",
+      "side": 1,
+      "message": "`stack_offset` doesn\u0027t reset every loop but `is_stack_offset_matters` does. Is this intended?",
+      "range": {
+        "startLine": 125,
+        "startChar": 0,
+        "endLine": 127,
+        "endChar": 41
+      },
+      "revId": "ec3a9c4209e6293028e89490390a0965c54e6b22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "25de8ce5_0a97d159",
+        "filename": "runtime/oat/jni_stub_hash_map.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-03-06T15:43:46Z",
+      "side": 1,
+      "message": "nit: `stack_offset_matters`",
+      "range": {
+        "startLine": 127,
+        "startChar": 9,
+        "endLine": 127,
+        "endChar": 32
+      },
+      "revId": "ec3a9c4209e6293028e89490390a0965c54e6b22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12599910_faffd891",
+        "filename": "runtime/oat/jni_stub_hash_map.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-03-06T15:43:46Z",
+      "side": 1,
+      "message": "One definition per line",
+      "range": {
+        "startLine": 217,
+        "startChar": 0,
+        "endLine": 217,
+        "endChar": 68
+      },
+      "revId": "ec3a9c4209e6293028e89490390a0965c54e6b22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c45c365d_07b8234b",
+        "filename": "runtime/oat/jni_stub_hash_map.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-03-06T15:43:46Z",
+      "side": 1,
+      "message": "One definition per line",
+      "range": {
+        "startLine": 220,
+        "startChar": 0,
+        "endLine": 221,
+        "endChar": 22
+      },
+      "revId": "ec3a9c4209e6293028e89490390a0965c54e6b22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0835662e_dd5d929d",
+        "filename": "runtime/oat/jni_stub_hash_map.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-03-06T15:43:46Z",
+      "side": 1,
+      "message": "nit: `stack_offset_matters`",
+      "range": {
+        "startLine": 224,
+        "startChar": 9,
+        "endLine": 224,
+        "endChar": 32
+      },
+      "revId": "ec3a9c4209e6293028e89490390a0965c54e6b22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af58ded4_2265492c",
+        "filename": "runtime/oat/jni_stub_hash_map.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-03-06T15:43:46Z",
+      "side": 1,
+      "message": "What if we have `IsFloatOrDoubleArg(ch_lhs)` as true but `IsFloatOrDoubleArg(ch_lrs)` as false? We would skip and not check that right? Is that okay?",
+      "revId": "ec3a9c4209e6293028e89490390a0965c54e6b22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88da85d2_eb42fcac",
+        "filename": "runtime/oat/jni_stub_hash_map.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-03-06T15:43:46Z",
+      "side": 1,
+      "message": "Should we check `IsFloatOrDoubleArg(ch_lhs) \u003d\u003d IsFloatOrDoubleArg(ch_rhs)` before this?",
+      "range": {
+        "startLine": 287,
+        "startChar": 8,
+        "endLine": 287,
+        "endChar": 35
+      },
+      "revId": "ec3a9c4209e6293028e89490390a0965c54e6b22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "531b869d_d5340dd4",
+        "filename": "runtime/oat/jni_stub_hash_map.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-03-06T15:43:46Z",
+      "side": 1,
+      "message": "nit: We can have all cases with `JniStubKeyGenericEquals` together i.e.\n```\n    case InstructionSet::kArm:\n    case InstructionSet::kThumb2:\n    case InstructionSet::kRiscv64:\n    case InstructionSet::kX86:\n      equals_func_ \u003d JniStubKeyGenericEquals;\n      break;\n```\n\nSame for `JniStubKeyGenericHash`",
+      "range": {
+        "startLine": 335,
+        "startChar": 0,
+        "endLine": 357,
+        "endChar": 1
+      },
+      "revId": "ec3a9c4209e6293028e89490390a0965c54e6b22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce8e9626_d6618587",
+        "filename": "runtime/oat/jni_stub_hash_map.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-03-06T15:43:46Z",
+      "side": 1,
+      "message": "Vladimir do you know if this should have the `HIDDEN` attribute?",
+      "revId": "ec3a9c4209e6293028e89490390a0965c54e6b22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "34286950_bfaec39c",
+        "filename": "runtime/oat/jni_stub_hash_map.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-03-06T15:43:46Z",
+      "side": 1,
+      "message": "Can you move these closer to their uses? Before `JniStubKeyHash` and `JniStubKeyEquals` respectively sounds good.\n\nThis also removes the need for the forward declaration in line 29",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 88
+      },
+      "revId": "ec3a9c4209e6293028e89490390a0965c54e6b22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f89ac78_27f8584c",
+        "filename": "runtime/oat/jni_stub_hash_map_test.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-03-06T15:43:46Z",
+      "side": 1,
+      "message": "How is this used?",
+      "range": {
+        "startLine": 59,
+        "startChar": 12,
+        "endLine": 59,
+        "endChar": 19
+      },
+      "revId": "ec3a9c4209e6293028e89490390a0965c54e6b22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a526e97_4398f6fd",
+        "filename": "runtime/oat/jni_stub_hash_map_test.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-03-06T15:43:46Z",
+      "side": 1,
+      "message": "nit: `std::string_view`",
+      "range": {
+        "startLine": 124,
+        "startChar": 21,
+        "endLine": 124,
+        "endChar": 76
+      },
+      "revId": "ec3a9c4209e6293028e89490390a0965c54e6b22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "60d9b746_ef47d40e",
+        "filename": "runtime/oat/jni_stub_hash_map_test.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-03-06T15:43:46Z",
+      "side": 1,
+      "message": "Is this setting it just for this test? Shouldn\u0027t we set the old value after this test is done? We do similar things with e.g. `ScopedMarchOverride`",
+      "range": {
+        "startLine": 263,
+        "startChar": 4,
+        "endLine": 263,
+        "endChar": 26
+      },
+      "revId": "ec3a9c4209e6293028e89490390a0965c54e6b22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "551cb28c_5f8eea58",
+        "filename": "runtime/oat/jni_stub_hash_map_test.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-03-06T15:43:46Z",
+      "side": 1,
+      "message": "suggestion: Maybe define the lambda before (`auto visitor \u003d ...`) and then do `header.VisitPackedArtMethods(visitor, space-\u003eBegin(), ptr_size);`",
+      "range": {
+        "startLine": 280,
+        "startChar": 4,
+        "endLine": 300,
+        "endChar": 33
+      },
+      "revId": "ec3a9c4209e6293028e89490390a0965c54e6b22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
