@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "95cf4e76_d0b2c39b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2024-03-06T23:16:56Z",
+      "side": 1,
+      "message": "A few more nits. Otherwise this lokks fine.",
+      "revId": "f6084442e581bb62b9bba931e1e6134065f58443",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef527f3d_65635461",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 3439,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2024-03-06T23:16:56Z",
+      "side": 1,
+      "message": "Should probably be named \u0027self\u0027.",
+      "range": {
+        "startLine": 3439,
+        "startChar": 10,
+        "endLine": 3439,
+        "endChar": 16
+      },
+      "revId": "f6084442e581bb62b9bba931e1e6134065f58443",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c3d468e9_c5423d33",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 3493,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2024-03-06T23:16:56Z",
+      "side": 1,
+      "message": "Could this be marginally simplified to\nif (!use_uffd_sigbus_) {\n  break;\n}\nBackOff ...\n\nThe continue is redundant, right?",
+      "range": {
+        "startLine": 3493,
+        "startChar": 6,
+        "endLine": 3493,
+        "endChar": 29
+      },
+      "revId": "f6084442e581bb62b9bba931e1e6134065f58443",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "06bd933c_0a9bdf79",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 3570,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2024-03-06T23:16:56Z",
+      "side": 1,
+      "message": "Other kMinorFault code to be removed in future CL.",
+      "range": {
+        "startLine": 3570,
+        "startChar": 10,
+        "endLine": 3570,
+        "endChar": 58
+      },
+      "revId": "f6084442e581bb62b9bba931e1e6134065f58443",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4b91027_c6767626",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 3915,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2024-03-06T23:16:56Z",
+      "side": 1,
+      "message": "Maybe just refer to the previous instance of this comment. Factoring it out into a separate function would be nice, but seems hard.",
+      "range": {
+        "startLine": 3909,
+        "startChar": 14,
+        "endLine": 3915,
+        "endChar": 31
+      },
+      "revId": "f6084442e581bb62b9bba931e1e6134065f58443",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79d19721_1e52a675",
+        "filename": "runtime/gc/collector/mark_compact.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 726,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2024-03-06T23:16:56Z",
+      "side": 1,
+      "message": "Can we simplify this to:\n[last_reclaimable_page_, cur_reclaimable_page_) have been used to store compacted ... ?\n```suggestion\n  // [last_reclaimable_page_, cur_reclaimable_page_) have been used to store\n  // compacted contents for batching.\n```",
+      "range": {
+        "startLine": 725,
+        "startChar": 2,
+        "endLine": 726,
+        "endChar": 77
+      },
+      "revId": "f6084442e581bb62b9bba931e1e6134065f58443",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
