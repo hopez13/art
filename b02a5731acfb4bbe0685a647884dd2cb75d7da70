@@ -16,6 +16,29 @@
       "message": "PTAL. Thanks!",
       "revId": "b02a5731acfb4bbe0685a647884dd2cb75d7da70",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf6a9c31_78ff9cf9",
+        "filename": "test/2246-trace-v2/dump_trace.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-03-06T17:23:06Z",
+      "side": 1,
+      "message": "typical convention is to put out parameters last.",
+      "range": {
+        "startLine": 91,
+        "startChar": 0,
+        "endLine": 91,
+        "endChar": 40
+      },
+      "revId": "b02a5731acfb4bbe0685a647884dd2cb75d7da70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
