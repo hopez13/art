@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ca6fd9d_c679e32d",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1558,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-03-06T17:52:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7e1bd6a6_d8f2d621",
+      "range": {
+        "startLine": 1558,
+        "startChar": 31,
+        "endLine": 1558,
+        "endChar": 49
+      },
+      "revId": "ec3a9c4209e6293028e89490390a0965c54e6b22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c11d69f0_18f76d69",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-03-06T15:43:46Z",
       "side": 1,
       "message": "nit: this can be `constexpr`. Same for line 2637",
+      "range": {
+        "startLine": 1561,
+        "startChar": 4,
+        "endLine": 1561,
+        "endChar": 39
+      },
+      "revId": "ec3a9c4209e6293028e89490390a0965c54e6b22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b311cfff_e3a9ffdd",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1561,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-03-06T17:52:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c11d69f0_18f76d69",
       "range": {
         "startLine": 1561,
         "startChar": 4,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a920ee92_ebdd13b1",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1451,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-03-06T17:52:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "33d4ca8d_5e044a3e",
+      "range": {
+        "startLine": 1451,
+        "startChar": 7,
+        "endLine": 1451,
+        "endChar": 11
+      },
+      "revId": "ec3a9c4209e6293028e89490390a0965c54e6b22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "21efa5ad_012ffb5f",
@@ -87,6 +159,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee7f7231_18865bfe",
+        "filename": "runtime/oat/image-inl.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-03-06T17:52:10Z",
+      "side": 1,
+      "message": "Consistent with the methods above. If added here, does it means pos start at 4 or 8 but not 0?",
+      "parentUuid": "21efa5ad_012ffb5f",
+      "revId": "ec3a9c4209e6293028e89490390a0965c54e6b22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "90bd017e_3b3af5e2",
@@ -100,6 +190,30 @@
       "writtenOn": "2024-03-06T15:43:46Z",
       "side": 1,
       "message": "nit: `constexpr`. Same for the ones in `TranslateReturnTypeToJniShorty` below",
+      "range": {
+        "startLine": 31,
+        "startChar": 9,
+        "endLine": 31,
+        "endChar": 14
+      },
+      "revId": "ec3a9c4209e6293028e89490390a0965c54e6b22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "008a7910_bcf062f4",
+        "filename": "runtime/oat/jni_stub_hash_map.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-03-06T17:52:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "90bd017e_3b3af5e2",
       "range": {
         "startLine": 31,
         "startChar": 9,
@@ -133,6 +247,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6875aa2c_4543f1d7",
+        "filename": "runtime/oat/jni_stub_hash_map.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-03-06T17:52:10Z",
+      "side": 1,
+      "message": "Yes, I plan to support riscv64 with an optimized version.",
+      "parentUuid": "0c1c9c61_50f0521d",
+      "range": {
+        "startLine": 45,
+        "startChar": 5,
+        "endLine": 45,
+        "endChar": 27
+      },
+      "revId": "ec3a9c4209e6293028e89490390a0965c54e6b22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "11e05184_8251ce1a",
@@ -146,6 +284,30 @@
       "writtenOn": "2024-03-06T15:43:46Z",
       "side": 1,
       "message": "RISC-V here and in `GetMaxFloatOrDoubleRegisterArgs` will never be called right? Do we want to keep it separate?",
+      "range": {
+        "startLine": 71,
+        "startChar": 0,
+        "endLine": 73,
+        "endChar": 0
+      },
+      "revId": "ec3a9c4209e6293028e89490390a0965c54e6b22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "791a660a_50d085ee",
+        "filename": "runtime/oat/jni_stub_hash_map.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-03-06T17:52:10Z",
+      "side": 1,
+      "message": "I plan to support it when RISC-V in art is stable. Maybe I can delete it and add it back when I support RISC-V someday.",
+      "parentUuid": "11e05184_8251ce1a",
       "range": {
         "startLine": 71,
         "startChar": 0,
@@ -202,6 +364,54 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1cff58cb_44132cfe",
+        "filename": "runtime/oat/jni_stub_hash_map.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-03-06T17:52:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "25de8ce5_0a97d159",
+      "range": {
+        "startLine": 127,
+        "startChar": 9,
+        "endLine": 127,
+        "endChar": 32
+      },
+      "revId": "ec3a9c4209e6293028e89490390a0965c54e6b22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f552f843_5ce3ef20",
+        "filename": "runtime/oat/jni_stub_hash_map.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-03-06T17:52:10Z",
+      "side": 1,
+      "message": "Yes, it\u0027s intended.",
+      "parentUuid": "b2c2d812_ed3c1fa9",
+      "range": {
+        "startLine": 125,
+        "startChar": 0,
+        "endLine": 127,
+        "endChar": 41
+      },
+      "revId": "ec3a9c4209e6293028e89490390a0965c54e6b22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "12599910_faffd891",
@@ -215,6 +425,30 @@
       "writtenOn": "2024-03-06T15:43:46Z",
       "side": 1,
       "message": "One definition per line",
+      "range": {
+        "startLine": 217,
+        "startChar": 0,
+        "endLine": 217,
+        "endChar": 68
+      },
+      "revId": "ec3a9c4209e6293028e89490390a0965c54e6b22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b026724c_dc81c6cb",
+        "filename": "runtime/oat/jni_stub_hash_map.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-03-06T17:52:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "12599910_faffd891",
       "range": {
         "startLine": 217,
         "startChar": 0,
@@ -248,6 +482,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e5294875_296b6a4e",
+        "filename": "runtime/oat/jni_stub_hash_map.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-03-06T17:52:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c45c365d_07b8234b",
+      "range": {
+        "startLine": 220,
+        "startChar": 0,
+        "endLine": 221,
+        "endChar": 22
+      },
+      "revId": "ec3a9c4209e6293028e89490390a0965c54e6b22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0835662e_dd5d929d",
@@ -271,6 +529,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e1ade6dc_173b0e1e",
+        "filename": "runtime/oat/jni_stub_hash_map.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-03-06T17:52:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0835662e_dd5d929d",
+      "range": {
+        "startLine": 224,
+        "startChar": 9,
+        "endLine": 224,
+        "endChar": 32
+      },
+      "revId": "ec3a9c4209e6293028e89490390a0965c54e6b22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "af58ded4_2265492c",
@@ -284,6 +566,24 @@
       "writtenOn": "2024-03-06T15:43:46Z",
       "side": 1,
       "message": "What if we have `IsFloatOrDoubleArg(ch_lhs)` as true but `IsFloatOrDoubleArg(ch_lrs)` as false? We would skip and not check that right? Is that okay?",
+      "revId": "ec3a9c4209e6293028e89490390a0965c54e6b22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f1d9076a_2287bc03",
+        "filename": "runtime/oat/jni_stub_hash_map.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-03-06T17:52:10Z",
+      "side": 1,
+      "message": "i will increment itself by 1 but j won\u0027t change. So next loop will get same character in right hand, then check again.",
+      "parentUuid": "af58ded4_2265492c",
       "revId": "ec3a9c4209e6293028e89490390a0965c54e6b22",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -335,6 +635,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b347b408_f05c1323",
+        "filename": "runtime/oat/jni_stub_hash_map.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-03-06T17:52:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "53a062ae_964700d7",
+      "range": {
+        "startLine": 287,
+        "startChar": 8,
+        "endLine": 287,
+        "endChar": 35
+      },
+      "revId": "ec3a9c4209e6293028e89490390a0965c54e6b22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "531b869d_d5340dd4",
@@ -348,6 +672,30 @@
       "writtenOn": "2024-03-06T15:43:46Z",
       "side": 1,
       "message": "nit: We can have all cases with `JniStubKeyGenericEquals` together i.e.\n```\n    case InstructionSet::kArm:\n    case InstructionSet::kThumb2:\n    case InstructionSet::kRiscv64:\n    case InstructionSet::kX86:\n      equals_func_ \u003d JniStubKeyGenericEquals;\n      break;\n```\n\nSame for `JniStubKeyGenericHash`",
+      "range": {
+        "startLine": 335,
+        "startChar": 0,
+        "endLine": 357,
+        "endChar": 1
+      },
+      "revId": "ec3a9c4209e6293028e89490390a0965c54e6b22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "67f4922a_7c84f19d",
+        "filename": "runtime/oat/jni_stub_hash_map.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-03-06T17:52:10Z",
+      "side": 1,
+      "message": "I considered this before, Just thought it would be convenient to change a particular one to optimized later. But your suggestion code looks clean.",
+      "parentUuid": "531b869d_d5340dd4",
       "range": {
         "startLine": 335,
         "startChar": 0,
@@ -395,6 +743,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3710d18d_b2379dc4",
+        "filename": "runtime/oat/jni_stub_hash_map.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-03-06T17:52:10Z",
+      "side": 1,
+      "message": "Can I know how to do this? Thanks!",
+      "parentUuid": "d640546f_0ca32dab",
+      "revId": "ec3a9c4209e6293028e89490390a0965c54e6b22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "34286950_bfaec39c",
         "filename": "runtime/oat/jni_stub_hash_map.h",
         "patchSetId": 15
@@ -406,6 +772,30 @@
       "writtenOn": "2024-03-06T15:43:46Z",
       "side": 1,
       "message": "Can you move these closer to their uses? Before `JniStubKeyHash` and `JniStubKeyEquals` respectively sounds good.\n\nThis also removes the need for the forward declaration in line 29",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 88
+      },
+      "revId": "ec3a9c4209e6293028e89490390a0965c54e6b22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb42b850_7dc8b984",
+        "filename": "runtime/oat/jni_stub_hash_map.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-03-06T17:52:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "34286950_bfaec39c",
       "range": {
         "startLine": 31,
         "startChar": 0,
@@ -439,6 +829,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a22767c4_01c999dd",
+        "filename": "runtime/oat/jni_stub_hash_map_test.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-03-06T17:52:10Z",
+      "side": 1,
+      "message": "https://android-review.googlesource.com/c/platform/art/+/2919307/comment/68eccfcb_bd6c3040/\n\nAnswered this before.",
+      "parentUuid": "2f89ac78_27f8584c",
+      "range": {
+        "startLine": 59,
+        "startChar": 12,
+        "endLine": 59,
+        "endChar": 19
+      },
+      "revId": "ec3a9c4209e6293028e89490390a0965c54e6b22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4a526e97_4398f6fd",
@@ -452,6 +866,30 @@
       "writtenOn": "2024-03-06T15:43:46Z",
       "side": 1,
       "message": "nit: `std::string_view`",
+      "range": {
+        "startLine": 124,
+        "startChar": 21,
+        "endLine": 124,
+        "endChar": 76
+      },
+      "revId": "ec3a9c4209e6293028e89490390a0965c54e6b22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "432c18bd_9af9615e",
+        "filename": "runtime/oat/jni_stub_hash_map_test.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-03-06T17:52:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a526e97_4398f6fd",
       "range": {
         "startLine": 124,
         "startChar": 21,
@@ -509,6 +947,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f9303f68_866b6fb6",
+        "filename": "runtime/oat/jni_stub_hash_map_test.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-03-06T17:52:10Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "d6241157_f02c7b46",
+      "range": {
+        "startLine": 263,
+        "startChar": 4,
+        "endLine": 263,
+        "endChar": 26
+      },
+      "revId": "ec3a9c4209e6293028e89490390a0965c54e6b22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "551cb28c_5f8eea58",
@@ -522,6 +984,30 @@
       "writtenOn": "2024-03-06T15:43:46Z",
       "side": 1,
       "message": "suggestion: Maybe define the lambda before (`auto visitor \u003d ...`) and then do `header.VisitPackedArtMethods(visitor, space-\u003eBegin(), ptr_size);`",
+      "range": {
+        "startLine": 280,
+        "startChar": 4,
+        "endLine": 300,
+        "endChar": 33
+      },
+      "revId": "ec3a9c4209e6293028e89490390a0965c54e6b22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2d40f00_a6fb991b",
+        "filename": "runtime/oat/jni_stub_hash_map_test.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-03-06T17:52:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "551cb28c_5f8eea58",
       "range": {
         "startLine": 280,
         "startChar": 4,
