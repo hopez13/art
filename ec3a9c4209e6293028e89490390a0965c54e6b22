@@ -179,6 +179,47 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a1feeeb4_db428d04",
+        "filename": "runtime/oat/image-inl.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-03-07T08:37:44Z",
+      "side": 1,
+      "message": "Not sure if I understand. What I meant is having\n`  for (size_t pos \u003d 0; pos \u003c section.Size(); pos +\u003d static_cast\u003csize_t\u003e(pointer_size);) {`\ninstead of the `pos +\u003d static_cast\u003csize_t\u003e(pointer_size);` below.\n\nThe method above increases the value with a lambda. Your case is different",
+      "parentUuid": "ee7f7231_18865bfe",
+      "revId": "ec3a9c4209e6293028e89490390a0965c54e6b22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5642ae13_eb0f1364",
+        "filename": "runtime/oat/image-inl.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-03-07T08:37:44Z",
+      "side": 1,
+      "message": "This can be moved out of the loop, right? i.e. `uint8_t* updated_base \u003d base + section.Offset();`? I don\u0027t think it should change with each loop iteration",
+      "range": {
+        "startLine": 125,
+        "startChar": 19,
+        "endLine": 125,
+        "endChar": 43
+      },
+      "revId": "ec3a9c4209e6293028e89490390a0965c54e6b22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "90bd017e_3b3af5e2",
         "filename": "runtime/oat/jni_stub_hash_map.cc",
         "patchSetId": 15
@@ -308,6 +349,30 @@
       "side": 1,
       "message": "I plan to support it when RISC-V in art is stable. Maybe I can delete it and add it back when I support RISC-V someday.",
       "parentUuid": "11e05184_8251ce1a",
+      "range": {
+        "startLine": 71,
+        "startChar": 0,
+        "endLine": 73,
+        "endChar": 0
+      },
+      "revId": "ec3a9c4209e6293028e89490390a0965c54e6b22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "59b19caf_daa0da49",
+        "filename": "runtime/oat/jni_stub_hash_map.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-03-07T08:37:44Z",
+      "side": 1,
+      "message": "Thanks! I prefer it when CLs add what\u0027s necessary for right now. Otherwise, we end up having dead code.",
+      "parentUuid": "791a660a_50d085ee",
       "range": {
         "startLine": 71,
         "startChar": 0,
