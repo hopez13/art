@@ -46,6 +46,30 @@
       },
       "revId": "22e1174f722397456d675438478431ec23a649f9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "90b62764_92264af5",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-03-07T09:31:02Z",
+      "side": 1,
+      "message": "Please add `Bug: 328561342` to commit messages for all new changes related the 16-bit instructions.",
+      "parentUuid": "506b07d6_f8df8eca",
+      "range": {
+        "startLine": 71,
+        "startChar": 6,
+        "endLine": 71,
+        "endChar": 28
+      },
+      "revId": "22e1174f722397456d675438478431ec23a649f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
