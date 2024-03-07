@@ -195,6 +195,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "05f8d607_0f80702a",
+        "filename": "runtime/oat/image-inl.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-03-07T08:58:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a1feeeb4_db428d04",
+      "revId": "ec3a9c4209e6293028e89490390a0965c54e6b22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5642ae13_eb0f1364",
@@ -208,6 +226,30 @@
       "writtenOn": "2024-03-07T08:37:44Z",
       "side": 1,
       "message": "This can be moved out of the loop, right? i.e. `uint8_t* updated_base \u003d base + section.Offset();`? I don\u0027t think it should change with each loop iteration",
+      "range": {
+        "startLine": 125,
+        "startChar": 19,
+        "endLine": 125,
+        "endChar": 43
+      },
+      "revId": "ec3a9c4209e6293028e89490390a0965c54e6b22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "73ff5990_74846bc0",
+        "filename": "runtime/oat/image-inl.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-03-07T08:58:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5642ae13_eb0f1364",
       "range": {
         "startLine": 125,
         "startChar": 19,
