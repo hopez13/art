@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "29b3ac76_c27f4494",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 3439,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2024-03-07T00:30:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ef527f3d_65635461",
+      "range": {
+        "startLine": 3439,
+        "startChar": 10,
+        "endLine": 3439,
+        "endChar": 16
+      },
+      "revId": "f6084442e581bb62b9bba931e1e6134065f58443",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c3d468e9_c5423d33",
@@ -54,6 +78,30 @@
       "writtenOn": "2024-03-06T23:16:56Z",
       "side": 1,
       "message": "Could this be marginally simplified to\nif (!use_uffd_sigbus_) {\n  break;\n}\nBackOff ...\n\nThe continue is redundant, right?",
+      "range": {
+        "startLine": 3493,
+        "startChar": 6,
+        "endLine": 3493,
+        "endChar": 29
+      },
+      "revId": "f6084442e581bb62b9bba931e1e6134065f58443",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "da29c4b1_accdcb2f",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 3493,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2024-03-07T00:30:59Z",
+      "side": 1,
+      "message": "Yeah, `continue` was redundant.",
+      "parentUuid": "c3d468e9_c5423d33",
       "range": {
         "startLine": 3493,
         "startChar": 6,
@@ -110,6 +158,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "beb5259c_cfd64490",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 3915,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2024-03-07T00:30:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d4b91027_c6767626",
+      "range": {
+        "startLine": 3909,
+        "startChar": 14,
+        "endLine": 3915,
+        "endChar": 31
+      },
+      "revId": "f6084442e581bb62b9bba931e1e6134065f58443",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "79d19721_1e52a675",
@@ -123,6 +195,30 @@
       "writtenOn": "2024-03-06T23:16:56Z",
       "side": 1,
       "message": "Can we simplify this to:\n[last_reclaimable_page_, cur_reclaimable_page_) have been used to store compacted ... ?\n```suggestion\n  // [last_reclaimable_page_, cur_reclaimable_page_) have been used to store\n  // compacted contents for batching.\n```",
+      "range": {
+        "startLine": 725,
+        "startChar": 2,
+        "endLine": 726,
+        "endChar": 77
+      },
+      "revId": "f6084442e581bb62b9bba931e1e6134065f58443",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "87c18037_149a3bb9",
+        "filename": "runtime/gc/collector/mark_compact.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 726,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2024-03-07T00:30:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "79d19721_1e52a675",
       "range": {
         "startLine": 725,
         "startChar": 2,
