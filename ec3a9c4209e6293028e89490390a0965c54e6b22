@@ -759,6 +759,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "eedcc7f6_775407c7",
+        "filename": "runtime/oat/jni_stub_hash_map.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-03-07T02:52:14Z",
+      "side": 1,
+      "message": "Does it should be `EXPORT` but not `EXTERN`? BTW, one interesting story about HIDDEN visibility of runtime. Some Xposed-like tools(e.g TaiChi) in China found they couldn\u0027t find some symbols in libart.so in Android 15 preview version, so they used a tool named [xDl](https://github.com/hexhacking/xDL) to handle this case (it find symbols in .gnu_debugdata).",
+      "parentUuid": "3710d18d_b2379dc4",
+      "revId": "ec3a9c4209e6293028e89490390a0965c54e6b22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "34286950_bfaec39c",
