@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb4ac572_d72bc487",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1698,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-03-07T11:35:32Z",
+      "side": 1,
+      "message": "For normal inlining, `CanInlineBody()` does not count anything in the entry block (it uses `callee_graph-\u003eGetReversePostOrderSkipEntryBlock()`).\n\nNote that we do not reduce the `total_number_of_instructions_` when we remove the invoke.",
+      "range": {
+        "startLine": 1698,
+        "startChar": 39,
+        "endLine": 1698,
+        "endChar": 74
+      },
+      "revId": "10e4f3cffc0323f446b7da7757915018d8b06a76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
