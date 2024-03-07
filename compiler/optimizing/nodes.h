@@ -6607,6 +6607,7 @@ class HArraySet final : public HExpression<3> {
     SetPackedFlag<kFlagNeedsTypeCheck>(false);
     // Clear the `CanTriggerGC` flag too as we can only trigger a GC when doing a type check.
     SetSideEffects(GetSideEffects().Exclusion(SideEffects::CanTriggerGC()));
+    RemoveEnvironment();
   }
 
   void ClearValueCanBeNull() {
