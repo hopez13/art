@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85da72c8_633f3504",
+        "filename": "tools/luci/config/main.star",
+        "patchSetId": 1
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-03-07T14:47:15Z",
+      "side": 1,
+      "message": "suggestion\n```\nshort_name \u003d name\n            .replace(\"-x86-poison-debug\", \"-x86-psn\")\n            .replace(\"-x86-gcstress-debug\", \"-x86-gcs\")\n            .replace(\"-x86_64-poison-debug\", \"-x86_64-psn\")\n            .replace(\"-x86_64\", \"-x64\")\n            .replace(\"-ndebug-build_only\", \"-bo\")\n            .replace(\"-non-gen-cc\", \"-ngen\")\n            .replace(\"-cdex-fast\", \"-cdx\")\n            .replace(\"-debug\", \"-dbg\")\n            .replace(\"-ndebug\", \"-ndbg\")\n```",
+      "range": {
+        "startLine": 220,
+        "startChar": 0,
+        "endLine": 229,
+        "endChar": 55
+      },
+      "revId": "ddb5c48aba1afafa351ef2c0d244e07106efc801",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
