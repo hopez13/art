@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b7522889_3e3a4eef",
+        "filename": "libarttools/art_exec.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-03-07T14:23:05Z",
+      "side": 1,
+      "message": "Another option may be to override argv[0] inside the child process. I don\u0027t really think that\u0027s better since this has the benefit that the --process-name-suffix argument goes together with --chroot, but I wonder if you have reasons to solve it this way that I\u0027m missing?",
+      "range": {
+        "startLine": 235,
+        "startChar": 4,
+        "endLine": 235,
+        "endChar": 51
+      },
+      "revId": "7373fc5a4eedc4b340ee5f475072b146d694c0c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
