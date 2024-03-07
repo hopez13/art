@@ -777,6 +777,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "61b08ff3_70899a23",
+        "filename": "runtime/oat/jni_stub_hash_map.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-03-07T08:05:40Z",
+      "side": 1,
+      "message": "`EXPORT` is correct. (This macro is defined in `macros.h` together with `HIDDEN`.)\n\nThere are two reasons why we\u0027re trying to hide the symbols. It makes `libart.so` smaller and it hides implementation details that can easily change. The latter is supposed to reduce the chance that DRM/obfuscation libraries shall break when we change these implementation details. But if they work around that by using the debug data (which we definitely want to keep for logging stack traces), their apps/libraries shall keep breaking with every major Android release. And we may start releasing substantial ART changes even more frequently in the future.",
+      "parentUuid": "eedcc7f6_775407c7",
+      "revId": "ec3a9c4209e6293028e89490390a0965c54e6b22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "34286950_bfaec39c",
