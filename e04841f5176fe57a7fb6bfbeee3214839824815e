@@ -1,0 +1,176 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "76076106_2129315a",
+        "filename": "libartbase/base/unix_file/fd_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 506,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-03-07T13:53:45Z",
+      "side": 1,
+      "message": "This looks like a lot of complexity to me. Does it have to be done? I.e., did you encounter issues in odrefresh or in the test without doing this? As the kernel eventually flushes the change, can we just wait for that?",
+      "range": {
+        "startLine": 487,
+        "startChar": 2,
+        "endLine": 506,
+        "endChar": 3
+      },
+      "revId": "e04841f5176fe57a7fb6bfbeee3214839824815e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "40bdfd30_552dce74",
+        "filename": "libartbase/base/unix_file/fd_file.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-03-07T13:53:45Z",
+      "side": 1,
+      "message": "Add argument comments.\n\n```suggestion\n  int Flush() override WARN_UNUSED { return Flush(/*flush_metadata\u003d*/false); }\n```\n\nHere and in `Rename()`.",
+      "range": {
+        "startLine": 76,
+        "startChar": 50,
+        "endLine": 76,
+        "endChar": 55
+      },
+      "revId": "e04841f5176fe57a7fb6bfbeee3214839824815e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "638408d9_a6332186",
+        "filename": "libartbase/base/unix_file/fd_file.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-03-07T13:53:45Z",
+      "side": 1,
+      "message": "Make it private?",
+      "revId": "e04841f5176fe57a7fb6bfbeee3214839824815e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a3da835_ebaff543",
+        "filename": "libartbase/base/unix_file/fd_file.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-03-07T13:53:45Z",
+      "side": 1,
+      "message": "As the old path can be provided by the user through a constructor, it doesn\u0027t necessarily point to the file that the fd is backed by.\n\nI think the behavior of this function is better to be similar to what\u0027s described on `Unlink()`:\n\n```\n  // Call unlink() if the file was opened with a path, and if open() with the name shows that\n  // the file descriptor of this file is still up-to-date. \n```\n\nmeaning you need to perform the same check that `Unlink()` does, and update the description of this function.",
+      "range": {
+        "startLine": 120,
+        "startChar": 7,
+        "endLine": 120,
+        "endChar": 13
+      },
+      "revId": "e04841f5176fe57a7fb6bfbeee3214839824815e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d967472_85218936",
+        "filename": "libartbase/base/unix_file/fd_file_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-03-07T13:53:45Z",
+      "side": 1,
+      "message": "Use `EXPECT_FALSE`.\n\nhttps://google.github.io/googletest/primer.html#assertions:\n\n\u003e Usually EXPECT_* are preferred, as they allow more than one failure to be reported in a test. However, you should use ASSERT_* if it doesn’t make sense to continue when the assertion in question fails.\n\n```suggestion\n  EXPECT_FALSE(art::OS::FileExists(old_filename.c_str()));\n```",
+      "range": {
+        "startLine": 200,
+        "startChar": 2,
+        "endLine": 200,
+        "endChar": 14
+      },
+      "revId": "e04841f5176fe57a7fb6bfbeee3214839824815e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ffab0ec0_e25ea0cd",
+        "filename": "libartbase/base/unix_file/fd_file_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-03-07T13:53:45Z",
+      "side": 1,
+      "message": "Add argument comment.",
+      "range": {
+        "startLine": 201,
+        "startChar": 38,
+        "endLine": 201,
+        "endChar": 43
+      },
+      "revId": "e04841f5176fe57a7fb6bfbeee3214839824815e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da4e81c9_8cecba39",
+        "filename": "libartbase/base/unix_file/fd_file_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-03-07T13:53:45Z",
+      "side": 1,
+      "message": "It will be good to also compare `st_dev` and `st_ino` to ensure that it\u0027s exactly the same file after the move. I even think you don\u0027t have to compare the file contents if `st_dev` and `st_ino` indicate that it\u0027s exactly the same file, but that\u0027s up to you.\n\n```suggestion\n  EXPECT_EQ(dest_stat.st_blocks, src_stat.st_blocks);\n  EXPECT_EQ(dest_stat.st_dev, src_stat.st_dev);\n  EXPECT_EQ(dest_stat.st_ino, src_stat.st_ino);\n```",
+      "revId": "e04841f5176fe57a7fb6bfbeee3214839824815e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9f73a16_f6cd798c",
+        "filename": "libartbase/base/unix_file/fd_file_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-03-07T13:53:45Z",
+      "side": 1,
+      "message": "Use `EXPECT_EQ`.",
+      "range": {
+        "startLine": 217,
+        "startChar": 2,
+        "endLine": 217,
+        "endChar": 11
+      },
+      "revId": "e04841f5176fe57a7fb6bfbeee3214839824815e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
