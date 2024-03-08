@@ -110,10 +110,56 @@ static inline int32_t DecodeUnsignedLeb128P1(const uint8_t** data) {
   return DecodeUnsignedLeb128(data) - 1;
 }
 
+template <typename T>
+static inline bool DecodeSignedLeb128Helper(const uint8_t** data, const void* end, T* out) {
+  static_assert(sizeof(T) == 8 || sizeof(T) == 4);
+  const uint8_t* ptr = *data;
+  T result = 0;
+  // We have 64-bits and we can encode 7-bits per byte in leb128. The last byte
+  // can use all 8-bits. So we need a maximum of 9 bytes to encode a 64-bit
+  // value.
+  const int max_bytes = (sizeof(T) == 8) ? 10 : 5;
+  const int num_bits = (sizeof(T) * 8);
+  for (int index = 0; index < max_bytes; index++) {
+    if (end != nullptr && ptr >= end) {
+      return false;
+    }
+
+    uint64_t curr = *(ptr++);
+    result |= ((curr & 0x7f) << (index * 7));
+    if (curr <= 0x7f) {
+      // End of encoding. We need to sign extend the result. If we are using all
+      // the bits then the result is already sign extended and we don't need to
+      // do anything.
+      if (index < max_bytes - 1) {
+        int shift = num_bits - ((index + 1) * 7);
+        result = (result << shift) >> shift;
+      }
+      break;
+    }
+  }
+  *out = result;
+  *data = ptr;
+  return true;
+}
+
+template <typename T>
+static inline bool DecodeSignedLeb128Checked(const uint8_t** data, const void* end, T* out) {
+  return DecodeSignedLeb128Helper(data, end, out);
+}
+
+template <typename T>
+static inline T DecodeSignedLeb128(const uint8_t** data) {
+  T value = 0;
+  DecodeSignedLeb128Helper(data, nullptr, &value);
+  return value;
+}
+
 // Reads a signed LEB128 value, updating the given pointer to point
 // just past the end of the read value. This function tolerates
 // non-zero high-order bits in the fifth encoded byte.
-static inline int32_t DecodeSignedLeb128(const uint8_t** data) {
+template <>
+inline int32_t DecodeSignedLeb128(const uint8_t** data) {
   const uint8_t* ptr = *data;
   int32_t result = *(ptr++);
   if (result <= 0x7f) {
@@ -144,57 +190,6 @@ static inline int32_t DecodeSignedLeb128(const uint8_t** data) {
   }
   *data = ptr;
   return result;
-}
-
-static inline bool DecodeSignedLeb128Checked(const uint8_t** data,
-                                             const void* end,
-                                             int32_t* out) {
-  const uint8_t* ptr = *data;
-  if (ptr >= end) {
-    return false;
-  }
-  int32_t result = *(ptr++);
-  if (result <= 0x7f) {
-    result = (result << 25) >> 25;
-  } else {
-    if (ptr >= end) {
-      return false;
-    }
-    int cur = *(ptr++);
-    result = (result & 0x7f) | ((cur & 0x7f) << 7);
-    if (cur <= 0x7f) {
-      result = (result << 18) >> 18;
-    } else {
-      if (ptr >= end) {
-        return false;
-      }
-      cur = *(ptr++);
-      result |= (cur & 0x7f) << 14;
-      if (cur <= 0x7f) {
-        result = (result << 11) >> 11;
-      } else {
-        if (ptr >= end) {
-          return false;
-        }
-        cur = *(ptr++);
-        result |= (cur & 0x7f) << 21;
-        if (cur <= 0x7f) {
-          result = (result << 4) >> 4;
-        } else {
-          if (ptr >= end) {
-            return false;
-          }
-          // Note: We don't check to see if cur is out of range here,
-          // meaning we tolerate garbage in the four high-order bits.
-          cur = *(ptr++);
-          result |= cur << 28;
-        }
-      }
-    }
-  }
-  *data = ptr;
-  *out = static_cast<uint32_t>(result);
-  return true;
 }
 
 // Returns the number of bytes needed to encode the value in unsigned LEB128.
@@ -236,11 +231,12 @@ static inline T* ReverseSearchUnsignedLeb128(T* end_ptr) {
 }
 
 // Returns the number of bytes needed to encode the value in unsigned LEB128.
-static inline uint32_t SignedLeb128Size(int32_t data) {
+static inline uint32_t SignedLeb128Size(int64_t data) {
   // Like UnsignedLeb128Size(), but we need one bit beyond the highest bit that differs from sign.
-  data = data ^ (data >> 31);
-  uint32_t x = 1 /* we need to encode the sign bit */ + 6 + 32 - CLZ(data | 1U);
-  return (x * 37) >> 8;
+  uint64_t bits_to_encode = static_cast<uint64_t>(data ^ (data >> 63));
+  uint32_t num_bits = 1 /* we need to encode the sign bit */ + 6 + 64 - CLZ(bits_to_encode | 1U);
+  // See UnsignedLeb128Size for explanation. This is basically num_bits / 7.
+  return (num_bits * 37) >> 8;
 }
 
 static inline uint8_t* EncodeUnsignedLeb128(uint8_t* dest, uint32_t value) {
@@ -281,8 +277,8 @@ static inline void UpdateUnsignedLeb128(uint8_t* dest, uint32_t value) {
   }
 }
 
-static inline uint8_t* EncodeSignedLeb128(uint8_t* dest, int32_t value) {
-  uint32_t extra_bits = static_cast<uint32_t>(value ^ (value >> 31)) >> 6;
+static inline uint8_t* EncodeSignedLeb128(uint8_t* dest, int64_t value) {
+  uint64_t extra_bits = static_cast<uint64_t>(value ^ (value >> 63)) >> 6;
   uint8_t out = value & 0x7f;
   while (extra_bits != 0u) {
     *dest++ = out | 0x80;
@@ -294,9 +290,7 @@ static inline uint8_t* EncodeSignedLeb128(uint8_t* dest, int32_t value) {
   return dest;
 }
 
-template<typename Vector>
-static inline void EncodeSignedLeb128(Vector* dest, int32_t value) {
-  static_assert(std::is_same_v<typename Vector::value_type, uint8_t>, "Invalid value type");
+static inline void EncodeSignedLeb128(std::vector<uint8_t>* dest, int32_t value) {
   uint32_t extra_bits = static_cast<uint32_t>(value ^ (value >> 31)) >> 6;
   uint8_t out = value & 0x7f;
   while (extra_bits != 0u) {

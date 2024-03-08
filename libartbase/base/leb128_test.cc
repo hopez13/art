@@ -91,6 +91,40 @@ static DecodeSignedLeb128TestCase sleb128_tests[] = {
     {static_cast<int32_t>(0x80000000), {0x80, 0x80, 0x80, 0x80, 0x78}},
 };
 
+struct Decode64bitSignedLeb128TestCase {
+  int64_t decoded;
+  uint8_t leb128_data[10];
+};
+
+static Decode64bitSignedLeb128TestCase sleb128_64bit_tests[] = {
+    {0,                   {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}},
+    {1,                   {1, 0, 0, 0, 0, 0, 0, 0, 0, 0}},
+    {0x3F,                {0x3F, 0, 0, 0, 0, 0, 0, 0, 0, 0}},
+    {0x40,                {0xC0, 0 /* sign bit */, 0, 0, 0, 0, 0, 0, 0, 0}},
+    {0x800000000,         {0x80, 0x80, 0x80, 0x80, 0x80, 0x01, 0, 0, 0, 0}},
+    {0x100000000,         {0x80, 0x80, 0x80, 0x80, 0x10, 0, 0, 0, 0, 0}},
+    {0x700000000,         {0x80, 0x80, 0x80, 0x80, 0xF0, 0 /* sign bit */, 0, 0, 0, 0}},
+    {0x704081002,         {0x82, 0xA0, 0xA0, 0xA0, 0xF0, 0 /* sign bit*/, 0, 0, 0}},
+    {0x07FFFFFFFFFFFFFF,  {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0x07, 0}},
+    {0x23FFFFFFFFFFFFFF,  {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0x23, 0}},
+    {0x0800000000000000,  {0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x08, 0}},
+    {0x0800000008400421,  {0xA1, 0x88, 0x80, 0xC2, 0x80, 0x80, 0x80, 0x80, 0x08, 0}},
+    {0x70FFFFFFFFFFFFFF,  {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xF0, 0 /* sign bit*/}},
+    {0x7000000000000081,  {0x81, 0x81, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0xF0, 0 /* sign bit*/}},
+    {0x0FFFFFFFFFFFFFFF,  {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0x0F, 0}},
+    {-1,                  {0x7F, 0, 0, 0, 0, 0, 0, 0, 0, 0}},
+    {-2,                  {0x7E, 0, 0, 0, 0, 0, 0, 0, 0, 0}},
+    {-0x3F,               {0x41, 0, 0, 0, 0, 0, 0, 0, 0, 0}},
+    {-0x40,               {0x40, 0, 0, 0, 0, 0, 0, 0, 0, 0}},
+    {-0x200000000,        {0x80, 0x80, 0x80, 0x80, 0x60, 0, 0, 0, 0}},
+    {-0x200000001,        {0xFF, 0xFF, 0xFF, 0xFF, 0x5F, 0, 0, 0, 0}},
+    {-0x0800000000000000, {0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x78, 0}},
+    {-0x0800000000000001, {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0x77, 0}},
+    {-0x2000000000000000, {0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x60, 0}},
+    {static_cast<int64_t>(0x8000000000000000),
+     {0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x7F}},
+};
+
 TEST(Leb128Test, UnsignedSinglesVector) {
   // Test individual encodings.
   for (size_t i = 0; i < arraysize(uleb128_tests); ++i) {
@@ -187,7 +221,7 @@ TEST(Leb128Test, SignedSinglesVector) {
         EXPECT_EQ(data_ptr[j], 0U) << " i = " << i << " j = " << j;
       }
     }
-    EXPECT_EQ(DecodeSignedLeb128(&data_ptr), sleb128_tests[i].decoded) << " i = " << i;
+    EXPECT_EQ(DecodeSignedLeb128<int32_t>(&data_ptr), sleb128_tests[i].decoded) << " i = " << i;
   }
 }
 
@@ -206,7 +240,27 @@ TEST(Leb128Test, SignedSingles) {
         EXPECT_EQ(data_ptr[j], 0U) << " i = " << i << " j = " << j;
       }
     }
-    EXPECT_EQ(DecodeSignedLeb128(&data_ptr), sleb128_tests[i].decoded) << " i = " << i;
+    EXPECT_EQ(DecodeSignedLeb128<int32_t>(&data_ptr), sleb128_tests[i].decoded) << " i = " << i;
+  }
+}
+
+TEST(Leb128Test, SignedSingles64bit) {
+  // Test individual encodings.
+  for (size_t i = 0; i < arraysize(sleb128_64bit_tests); ++i) {
+    uint8_t encoded_data[10];
+    uint8_t* end = EncodeSignedLeb128(encoded_data, sleb128_64bit_tests[i].decoded);
+    size_t data_size = static_cast<size_t>(end - encoded_data);
+    EXPECT_EQ(SignedLeb128Size(sleb128_64bit_tests[i].decoded), data_size);
+    const uint8_t* data_ptr = &sleb128_64bit_tests[i].leb128_data[0];
+    for (size_t j = 0; j < 10; ++j) {
+      if (j < data_size) {
+        EXPECT_EQ(data_ptr[j], encoded_data[j]) << " i = " << i << " j = " << j;
+      } else {
+        EXPECT_EQ(data_ptr[j], 0U) << " i = " << i << " j = " << j;
+      }
+    }
+    EXPECT_EQ(DecodeSignedLeb128<int64_t>(&data_ptr), sleb128_64bit_tests[i].decoded)
+        << " i = " << i;
   }
 }
 
@@ -225,7 +279,8 @@ TEST(Leb128Test, SignedStreamVector) {
     for (size_t j = SignedLeb128Size(sleb128_tests[i].decoded); j < 5; ++j) {
       EXPECT_EQ(data_ptr[j], 0) << " i = " << i << " j = " << j;
     }
-    EXPECT_EQ(DecodeSignedLeb128(&encoded_data_ptr), sleb128_tests[i].decoded) << " i = " << i;
+    EXPECT_EQ(DecodeSignedLeb128<int32_t>(&encoded_data_ptr), sleb128_tests[i].decoded)
+        << " i = " << i;
   }
   EXPECT_EQ(builder.GetData().size(),
             static_cast<size_t>(encoded_data_ptr - &builder.GetData()[0]));
@@ -248,7 +303,31 @@ TEST(Leb128Test, SignedStream) {
     for (size_t j = SignedLeb128Size(sleb128_tests[i].decoded); j < 5; ++j) {
       EXPECT_EQ(data_ptr[j], 0) << " i = " << i << " j = " << j;
     }
-    EXPECT_EQ(DecodeSignedLeb128(&encoded_data_ptr), sleb128_tests[i].decoded) << " i = " << i;
+    EXPECT_EQ(DecodeSignedLeb128<int32_t>(&encoded_data_ptr), sleb128_tests[i].decoded)
+        << " i = " << i;
+  }
+  EXPECT_EQ(data_size, static_cast<size_t>(encoded_data_ptr - encoded_data));
+}
+
+TEST(Leb128Test, SignedStream64bit) {
+  // Encode a number of entries.
+  uint8_t encoded_data[10 * arraysize(sleb128_64bit_tests)];
+  uint8_t* end = encoded_data;
+  for (size_t i = 0; i < arraysize(sleb128_64bit_tests); ++i) {
+    end = EncodeSignedLeb128(end, sleb128_64bit_tests[i].decoded);
+  }
+  size_t data_size = static_cast<size_t>(end - encoded_data);
+  const uint8_t* encoded_data_ptr = encoded_data;
+  for (size_t i = 0; i < arraysize(sleb128_64bit_tests); ++i) {
+    const uint8_t* data_ptr = &sleb128_64bit_tests[i].leb128_data[0];
+    for (size_t j = 0; j < SignedLeb128Size(sleb128_64bit_tests[i].decoded); ++j) {
+      EXPECT_EQ(data_ptr[j], encoded_data_ptr[j]) << " i = " << i << " j = " << j;
+    }
+    for (size_t j = SignedLeb128Size(sleb128_64bit_tests[i].decoded); j < 5; ++j) {
+      EXPECT_EQ(data_ptr[j], 0) << " i = " << i << " j = " << j;
+    }
+    EXPECT_EQ(DecodeSignedLeb128<int64_t>(&encoded_data_ptr), sleb128_64bit_tests[i].decoded)
+        << " i = " << i;
   }
   EXPECT_EQ(data_size, static_cast<size_t>(encoded_data_ptr - encoded_data));
 }

@@ -943,7 +943,7 @@ class ResolveCatchBlockExceptionsClassVisitor : public ClassVisitor {
     const uint8_t* encoded_catch_handler_list = accessor.GetCatchHandlerData();
     size_t num_encoded_catch_handlers = DecodeUnsignedLeb128(&encoded_catch_handler_list);
     for (size_t i = 0; i < num_encoded_catch_handlers; i++) {
-      int32_t encoded_catch_handler_size = DecodeSignedLeb128(&encoded_catch_handler_list);
+      int32_t encoded_catch_handler_size = DecodeSignedLeb128<int32_t>(&encoded_catch_handler_list);
       bool has_catch_all = false;
       if (encoded_catch_handler_size <= 0) {
         encoded_catch_handler_size = -encoded_catch_handler_size;

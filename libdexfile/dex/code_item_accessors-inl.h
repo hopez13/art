@@ -156,7 +156,7 @@ inline const void* CodeItemDataAccessor::CodeItemDataEnd() const {
   const uint32_t handlers_size = DecodeUnsignedLeb128(&handler_data);
   // Manually read each handler.
   for (uint32_t i = 0; i < handlers_size; ++i) {
-    int32_t uleb128_count = DecodeSignedLeb128(&handler_data) * 2;
+    int32_t uleb128_count = DecodeSignedLeb128<int32_t>(&handler_data) * 2;
     if (uleb128_count <= 0) {
       uleb128_count = -uleb128_count + 1;
     }

@@ -69,7 +69,7 @@ void CatchHandlerIterator::Init(const CodeItemDataAccessor& accessor, int32_t of
 
 void CatchHandlerIterator::Init(const uint8_t* handler_data) {
   current_data_ = handler_data;
-  remaining_count_ = DecodeSignedLeb128(&current_data_);
+  remaining_count_ = DecodeSignedLeb128<int32_t>(&current_data_);
 
   // If remaining_count_ is non-positive, then it is the negative of
   // the number of catch types, and the catches are followed by a
