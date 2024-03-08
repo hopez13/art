@@ -1288,8 +1288,10 @@ ClassLoaderContext::VerificationResult ClassLoaderContext::VerifyClassLoaderCont
   CHECK(expected != nullptr);
   if (!ClassLoaderInfoMatch(
           *info, *expected, context_spec, dex_file_name, verify_names, verify_checksums)) {
+    LOG(ERROR) << "ClassLoaderInfoMatch MISMATCH";
     return VerificationResult::kMismatch;
   }
+  LOG(ERROR) << "ClassLoaderInfoMatch NO MISMATCH";
   return VerificationResult::kVerifies;
 }
 
