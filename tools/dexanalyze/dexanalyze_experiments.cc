@@ -118,7 +118,7 @@ void AnalyzeDebugInfo::ProcessDexFiles(
                 total_advance_pc_bytes_ += stream - op_start;
                 break;
               case DexFile::DBG_ADVANCE_LINE:
-                DecodeSignedLeb128(&stream);  // line_diff
+                DecodeSignedLeb128<int32_t>(&stream);  // line_diff
                 total_advance_line_bytes_ += stream - op_start;
                 break;
               case DexFile::DBG_START_LOCAL:

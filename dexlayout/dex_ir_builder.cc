@@ -60,7 +60,7 @@ static uint32_t GetDebugInfoStreamSize(const uint8_t* debug_info_stream) {
         DecodeUnsignedLeb128(&stream);  // addr_diff
         break;
       case DexFile::DBG_ADVANCE_LINE:
-        DecodeSignedLeb128(&stream);  // line_diff
+        DecodeSignedLeb128<int32_t>(&stream);  // line_diff
         break;
       case DexFile::DBG_START_LOCAL:
         DecodeUnsignedLeb128(&stream);  // register_num
@@ -868,7 +868,7 @@ CodeItem* BuilderMaps::DedupeOrCreateCodeItem(const DexFile& dex_file,
           break;
         }
       }
-      int32_t size = DecodeSignedLeb128(&handlers_data);
+      int32_t size = DecodeSignedLeb128<int32_t>(&handlers_data);
       bool has_catch_all = size <= 0;
       if (has_catch_all) {
         size = -size;

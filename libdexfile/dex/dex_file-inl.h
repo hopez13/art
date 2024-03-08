@@ -306,7 +306,7 @@ bool DexFile::DecodeDebugLocalInfo(const uint8_t* stream,
         address += DecodeUnsignedLeb128(&stream);
         break;
       case DBG_ADVANCE_LINE:
-        DecodeSignedLeb128(&stream);  // Line.
+        DecodeSignedLeb128<int32_t>(&stream);  // Line.
         break;
       case DBG_START_LOCAL:
       case DBG_START_LOCAL_EXTENDED: {
@@ -445,7 +445,7 @@ bool DexFile::DecodeDebugPositionInfo(const uint8_t* stream,
         entry.address_ += DecodeUnsignedLeb128(&stream);
         break;
       case DBG_ADVANCE_LINE:
-        entry.line_ += DecodeSignedLeb128(&stream);
+        entry.line_ += DecodeSignedLeb128<int32_t>(&stream);
         break;
       case DBG_START_LOCAL:
         DecodeUnsignedLeb128(&stream);  // reg.
