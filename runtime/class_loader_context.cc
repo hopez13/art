@@ -1301,9 +1301,16 @@ ClassLoaderContext::VerificationResult ClassLoaderContext::VerifyClassLoaderCont
   ClassLoaderInfo* expected = expected_context.class_loader_chain_.get();
   CHECK(info != nullptr);
   CHECK(expected != nullptr);
+<<<<<<< HEAD   (0b7855 Always respect the compiler filter from "-m" of a shell comm)
   if (!ClassLoaderInfoMatch(*info, *expected, context_spec, verify_names, verify_checksums)) {
+=======
+  if (!ClassLoaderInfoMatch(
+          *info, *expected, context_spec, dex_file_name, verify_names, verify_checksums)) {
+    LOG(ERROR) << "ClassLoaderInfoMatch MISMATCH";
+>>>>>>> CHANGE (dfbf5c Update odrefresh to use the full CLC)
     return VerificationResult::kMismatch;
   }
+  LOG(ERROR) << "ClassLoaderInfoMatch NO MISMATCH";
   return VerificationResult::kVerifies;
 }
 

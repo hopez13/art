@@ -44,8 +44,13 @@ std::ostream& operator<<(std::ostream& stream, StubType stub_type);
 class EXPORT PACKED(4) OatHeader {
  public:
   static constexpr std::array<uint8_t, 4> kOatMagic { { 'o', 'a', 't', '\n' } };
+<<<<<<< HEAD   (0b7855 Always respect the compiler filter from "-m" of a shell comm)
   // Last oat version changed reason: Implement `HLoadClass::LoadKind::kAppImageRelRo`.
   static constexpr std::array<uint8_t, 4> kOatVersion{{'2', '4', '4', '\0'}};
+=======
+  // Last oat version changed reason: store resolved MethodType-s in .bss.
+  static constexpr std::array<uint8_t, 4> kOatVersion{{'2', '4', '2', '\0'}};
+>>>>>>> CHANGE (dfbf5c Update odrefresh to use the full CLC)
 
   static constexpr const char* kDex2OatCmdLineKey = "dex2oat-cmdline";
   static constexpr const char* kDebuggableKey = "debuggable";
