@@ -456,9 +456,6 @@ class InstrumentationTest : public CommonRuntimeTest {
         return listener.received_branch_event;
       case instrumentation::Instrumentation::kWatchedFramePop:
         return listener.received_watched_frame_pop;
-      default:
-        LOG(FATAL) << "Unknown instrumentation event " << event_type;
-        UNREACHABLE();
     }
   }
 };

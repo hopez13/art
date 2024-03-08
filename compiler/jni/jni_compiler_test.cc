@@ -76,14 +76,14 @@ extern "C" JNIEXPORT jint JNICALL Java_MyClassNatives_sbar_1Critical(jint count)
 namespace art HIDDEN {
 
 enum class JniKind {
-  kNormal,      // Regular kind of un-annotated natives.
-  kFast,        // Native method annotated with @FastNative.
-  kCritical,    // Native method annotated with @CriticalNative.
-  kCount        // How many different types of JNIs we can have.
+  kNormal,            // Regular kind of un-annotated natives.
+  kFast,              // Native method annotated with @FastNative.
+  kCritical,          // Native method annotated with @CriticalNative.
+  kLast = kCritical
 };
 
 // Used to initialize array sizes that want to have different state per current jni.
-static constexpr size_t kJniKindCount = static_cast<size_t>(JniKind::kCount);
+static constexpr size_t kJniKindCount = static_cast<size_t>(JniKind::kLast) + 1;
 // Do not use directly, use the helpers instead.
 uint32_t gCurrentJni = static_cast<uint32_t>(JniKind::kNormal);
 
@@ -119,9 +119,6 @@ static std::string CurrentJniStringSuffix() {
     case static_cast<uint32_t>(JniKind::kCritical): {
       return "_Critical";
     }
-    default:
-      LOG(FATAL) << "Invalid current JNI value: " << gCurrentJni;
-      UNREACHABLE();
   }
 }
 

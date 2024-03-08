@@ -1803,9 +1803,6 @@ bool HInliner::TryPatternSubstitution(HInvoke* invoke_instruction,
       *return_replacement = nullptr;
       break;
     }
-    default:
-      LOG(FATAL) << "UNREACHABLE";
-      UNREACHABLE();
   }
   return true;
 }
