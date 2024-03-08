@@ -16,6 +16,24 @@
       "message": "nit: move `host` before `verbose` to keep in line with how `target` does it.",
       "revId": "4c6422e87349ecc4a147f40aee5212fe08d544eb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a6cc6af8_00ded9c4",
+        "filename": "tools/luci/config/main.star",
+        "patchSetId": 1
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2024-03-08T11:45:39Z",
+      "side": 1,
+      "message": "That is intentional (for now), since this is the exact order on LUCI now.",
+      "parentUuid": "4ed10e43_02bf8883",
+      "revId": "4c6422e87349ecc4a147f40aee5212fe08d544eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
