@@ -431,19 +431,25 @@ TEST_F(OdRefreshTest, BootClasspathJarsFallback) {
 }
 
 TEST_F(OdRefreshTest, AllSystemServerJars) {
-  EXPECT_CALL(*mock_exec_utils_,
-              DoExecAndReturnCode(AllOf(Contains(Flag("--dex-file=", location_provider_jar_)),
-                                        Contains("--class-loader-context=PCL[]"),
-                                        Not(Contains(Flag("--class-loader-context-fds=", _))),
-                                        Contains(Flag("--cache-info-fd=", FdOf(cache_info_xml_))))))
+  EXPECT_CALL(
+      *mock_exec_utils_,
+      DoExecAndReturnCode(
+          AllOf(Contains(Flag("--dex-file=", location_provider_jar_)),
+                Contains(Flag("--class-loader-context=",
+                              ART_FORMAT("PCL[{}:{}]", location_provider_jar_, services_jar_))),
+                Contains(ListFlag("--class-loader-context-fds=",
+                                  ElementsAre(FdOf(location_provider_jar_), FdOf(services_jar_)))),
+                Contains(Flag("--cache-info-fd=", FdOf(cache_info_xml_))))))
       .WillOnce(Return(0));
   EXPECT_CALL(
       *mock_exec_utils_,
-      DoExecAndReturnCode(AllOf(
-          Contains(Flag("--dex-file=", services_jar_)),
-          Contains(Flag("--class-loader-context=", ART_FORMAT("PCL[{}]", location_provider_jar_))),
-          Contains(Flag("--class-loader-context-fds=", FdOf(location_provider_jar_))),
-          Contains(Flag("--cache-info-fd=", FdOf(cache_info_xml_))))))
+      DoExecAndReturnCode(
+          AllOf(Contains(Flag("--dex-file=", services_jar_)),
+                Contains(Flag("--class-loader-context=",
+                              ART_FORMAT("PCL[{}:{}]", location_provider_jar_, services_jar_))),
+                Contains(ListFlag("--class-loader-context-fds=",
+                                  ElementsAre(FdOf(location_provider_jar_), FdOf(services_jar_)))),
+                Contains(Flag("--cache-info-fd=", FdOf(cache_info_xml_))))))
       .WillOnce(Return(0));
   EXPECT_CALL(
       *mock_exec_utils_,
@@ -479,8 +485,10 @@ TEST_F(OdRefreshTest, PartialSystemServerJars) {
       *mock_exec_utils_,
       DoExecAndReturnCode(AllOf(
           Contains(Flag("--dex-file=", services_jar_)),
-          Contains(Flag("--class-loader-context=", ART_FORMAT("PCL[{}]", location_provider_jar_))),
-          Contains(Flag("--class-loader-context-fds=", FdOf(location_provider_jar_))))))
+          Contains(Flag("--class-loader-context=",
+                        ART_FORMAT("PCL[{}:{}]", location_provider_jar_, services_jar_))),
+          Contains(ListFlag("--class-loader-context-fds=",
+                            ElementsAre(FdOf(location_provider_jar_), FdOf(services_jar_)))))))
       .WillOnce(Return(0));
   EXPECT_CALL(
       *mock_exec_utils_,
