@@ -22,6 +22,30 @@
       },
       "revId": "ddb5c48aba1afafa351ef2c0d244e07106efc801",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4d480a8_d6287921",
+        "filename": "tools/luci/config/main.star",
+        "patchSetId": 1
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2024-03-08T11:44:52Z",
+      "side": 1,
+      "message": "That is not valid python :-D  There would be ways to make it work, but I went fir the simple verbose one.",
+      "parentUuid": "85da72c8_633f3504",
+      "range": {
+        "startLine": 220,
+        "startChar": 0,
+        "endLine": 229,
+        "endChar": 55
+      },
+      "revId": "ddb5c48aba1afafa351ef2c0d244e07106efc801",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
