@@ -366,9 +366,6 @@ class InstrumentationTest : public CommonRuntimeTest {
         return instr->HasBranchListeners();
       case instrumentation::Instrumentation::kWatchedFramePop:
         return instr->HasWatchedFramePopListeners();
-      default:
-        LOG(FATAL) << "Unknown instrumentation event " << event_type;
-        UNREACHABLE();
     }
   }
 
@@ -424,9 +421,6 @@ class InstrumentationTest : public CommonRuntimeTest {
         instr->ExceptionHandledEvent(self, event_exception);
         break;
       }
-      default:
-        LOG(FATAL) << "Unknown instrumentation event " << event_type;
-        UNREACHABLE();
     }
   }
 
@@ -456,9 +450,6 @@ class InstrumentationTest : public CommonRuntimeTest {
         return listener.received_branch_event;
       case instrumentation::Instrumentation::kWatchedFramePop:
         return listener.received_watched_frame_pop;
-      default:
-        LOG(FATAL) << "Unknown instrumentation event " << event_type;
-        UNREACHABLE();
     }
   }
 };
