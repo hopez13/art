@@ -94,6 +94,30 @@
       },
       "revId": "e1b6547e8ee9241e5b032d84a73b24b3c2bdc0e1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc37b3e3_ebecca42",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-03-08T19:50:41Z",
+      "side": 1,
+      "message": "So the system domain should be in `API_DOMAIN_DEFAULT` because it provides APIs to other domains? Then does that mean that vendor and product domains don\u0027t? I thought they could.\n\nIn https://r.android.com/2933611 I wanted to use `GetApiDomainFromPath` (formerly `GetApkOriginFromDexPath`) to identify what access a jar or apk should have depending on its location. However the `dex_path` passed to `CreateClassLoaderNamespace` doesn\u0027t seem to work for that - judging from the example above it contains paths to both the app apk and any shared java libs the classloader needs, regardless of partition.\n\nThat means that for an app to be considered a vendor or product apk, it only needs to depend on a shared lib in either of those partitions, while the app itself can be anywhere (except in the other partition). Iow, any downloaded app in /data can purport to be a vendor or product app just by the shared libs it depends on. Is that WAI?\n\n(System apps seems to be handled completely differently - for them it\u0027s the `is_shared` flag (`isBundledApp` in [LoadedApk.java](https://cs.android.com/android/platform/superproject/main/+/main:frameworks/base/core/java/android/app/LoadedApk.java;l\u003d885;drc\u003dcc6a187eebd95e4c44e1571a3d2584d0160b01a5)) that gives them full access to system libs.)",
+      "parentUuid": "e9f32935_7a274614",
+      "range": {
+        "startLine": 13,
+        "startChar": 46,
+        "endLine": 15,
+        "endChar": 68
+      },
+      "revId": "e1b6547e8ee9241e5b032d84a73b24b3c2bdc0e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
