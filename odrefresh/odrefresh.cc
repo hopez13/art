@@ -2043,6 +2043,13 @@ OnDeviceRefresh::CompileSystemServer(const std::string& staging_dir,
     return CompilationResult::Error(OdrMetrics::Status::kNoSpace, "Insufficient space");
   }
 
+  // Generate full CLC.
+  for (const std::string& jar : all_systemserver_jars_) {
+    if (ContainsElement(systemserver_classpath_jars_, jar)) {
+      classloader_context.emplace_back(jar);
+    }
+  }
+
   for (const std::string& jar : all_systemserver_jars_) {
     if (ContainsElement(system_server_jars_to_compile, jar)) {
       CompilationResult current_result =
@@ -2056,9 +2063,9 @@ OnDeviceRefresh::CompileSystemServer(const std::string& staging_dir,
       }
     }
 
-    if (ContainsElement(systemserver_classpath_jars_, jar)) {
-      classloader_context.emplace_back(jar);
-    }
+    // if (ContainsElement(systemserver_classpath_jars_, jar)) {
+    //   classloader_context.emplace_back(jar);
+    // }
   }
 
   return result;
