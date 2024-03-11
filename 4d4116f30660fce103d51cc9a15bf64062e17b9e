@@ -70,6 +70,30 @@
       },
       "revId": "4d4116f30660fce103d51cc9a15bf64062e17b9e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b96b511_cf24c43e",
+        "filename": "compiler/optimizing/loop_optimization.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 554,
+      "author": {
+        "id": 1975361
+      },
+      "writtenOn": "2024-03-11T15:43:42Z",
+      "side": 1,
+      "message": "I\u0027ve added the MaybeInsert function; in the end it wasn\u0027t too invasive. PTAL.",
+      "parentUuid": "3873d3b2_8d345e03",
+      "range": {
+        "startLine": 553,
+        "startChar": 74,
+        "endLine": 554,
+        "endChar": 26
+      },
+      "revId": "4d4116f30660fce103d51cc9a15bf64062e17b9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
