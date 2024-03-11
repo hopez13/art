@@ -118,6 +118,30 @@
       },
       "revId": "e1b6547e8ee9241e5b032d84a73b24b3c2bdc0e1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c4eea4f3_89f1383d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-03-11T21:33:50Z",
+      "side": 1,
+      "message": "Instead of landing this CL I\u0027m changing the behaviour to remain compatible in `CreateClassLoaderNamespace` in https://r.android.com/c/2977712/3, i.e. treat system paths like data and only error out if paths in both vendor and product partitions are present.\n\nI\u0027d still like to understand how this is intended to work though, so PTAL at the questions above.",
+      "parentUuid": "dc37b3e3_ebecca42",
+      "range": {
+        "startLine": 13,
+        "startChar": 46,
+        "endLine": 15,
+        "endChar": 68
+      },
+      "revId": "e1b6547e8ee9241e5b032d84a73b24b3c2bdc0e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
