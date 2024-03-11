@@ -33,6 +33,24 @@
       "message": "I\u0027d expect this to not be needed right? Maybe we can DCHECK that it is already empty",
       "revId": "4b4c9093e50d1d49b03ec80aea4a3daa62a050d7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8e299632_923bffc0",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1375,
+      "author": {
+        "id": 1975361
+      },
+      "writtenOn": "2024-03-11T17:03:19Z",
+      "side": 1,
+      "message": "Yeah, I\u0027ve also noticed that. The problem is that in the current design all the vectorization related data struсtures are reset/cleared before the vectorization [or particular vectorization stage] happens (other example on the line 1571+).\n\nHere if don\u0027t clear this set, I believe there might be data left in it from the vectorization of the previous predicated loop in the graph (when mixed mode vectorization is enabled).\n\nI would keep it as it is - to keep it consistent; and if change is still desired, we could do a general refactoring for the process of cleaning data structures separately.",
+      "parentUuid": "e5e36066_b695fb03",
+      "revId": "4b4c9093e50d1d49b03ec80aea4a3daa62a050d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
