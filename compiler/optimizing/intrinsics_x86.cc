@@ -3816,7 +3816,7 @@ static void GenerateVarHandleCommonChecks(HInvoke *invoke,
       break;
     }
     default:
-      // Unimplemented
+      LOG(FATAL) << "Unreachable";
       UNREACHABLE();
   }
 
@@ -4350,6 +4350,7 @@ static void GenerateVarHandleGetAndSet(HInvoke* invoke, CodeGeneratorX86* codege
       break;
     }
     default:
+      LOG(FATAL) << "Unreachable";
       UNREACHABLE();
   }
 
@@ -4688,6 +4689,7 @@ static void GenerateVarHandleGetAndAdd(HInvoke* invoke, CodeGeneratorX86* codege
       break;
     }
     default:
+      LOG(FATAL) << "Unreachable";
       UNREACHABLE();
   }
 
@@ -4782,6 +4784,7 @@ static void GenerateBitwiseOp(HInvoke* invoke,
       __ andl(left, right);
       break;
     default:
+      LOG(FATAL) << "Unreachable";
       UNREACHABLE();
   }
 }
