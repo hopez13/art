@@ -897,6 +897,7 @@ CodeGenerator* OptimizingCompiler::TryCompile(ArenaAllocator* allocator,
           break;
         }
         case kAnalysisSuccess:
+          CHECK(false) << "Unreachable";
           UNREACHABLE();
       }
       pass_observer.SetGraphInBadState();

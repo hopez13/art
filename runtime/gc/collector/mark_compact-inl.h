@@ -217,6 +217,7 @@ uint32_t MarkCompact::LiveWordsBitmap<kAlignment>::FindNthLiveWordOffset(size_t 
       }
     }
   }
+  CHECK(false) << "Unreachable";
   UNREACHABLE();
 }
 

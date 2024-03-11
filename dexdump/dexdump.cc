@@ -1891,6 +1891,7 @@ static void dumpCallSite(const DexFile* pDexFile, u4 idx) {
         value = it.GetJavaValue().z ? "true" : "false";
         break;
       case EncodedArrayValueIterator::ValueType::kEndOfInput:
+        CHECK(false) << "Unreachable";
         UNREACHABLE();
     }
 

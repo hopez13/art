@@ -3763,6 +3763,7 @@ void MarkCompact::ConcurrentlyProcessLinearAllocPage(uint8_t* fault_page, bool i
           }
           return;
         case PageState::kMutatorProcessing:
+          CHECK(false) << "Unreachable";
           UNREACHABLE();
         case PageState::kProcessedAndMapped:
           // Somebody else took care of the page.

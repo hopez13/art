@@ -18,6 +18,7 @@
 
 #include <limits>
 
+#include "android-base/logging.h"
 #include "arch/x86/instruction_set_features_x86.h"
 #include "art_method.h"
 #include "base/bit_utils.h"
@@ -3817,6 +3818,7 @@ static void GenerateVarHandleCommonChecks(HInvoke *invoke,
     }
     default:
       // Unimplemented
+      CHECK(false) << "Unreachable";
       UNREACHABLE();
   }
 
@@ -4350,6 +4352,7 @@ static void GenerateVarHandleGetAndSet(HInvoke* invoke, CodeGeneratorX86* codege
       break;
     }
     default:
+      CHECK(false) << "Unreachable";
       UNREACHABLE();
   }
 
@@ -4688,6 +4691,7 @@ static void GenerateVarHandleGetAndAdd(HInvoke* invoke, CodeGeneratorX86* codege
       break;
     }
     default:
+      CHECK(false) << "Unreachable";
       UNREACHABLE();
   }
 
@@ -4782,6 +4786,7 @@ static void GenerateBitwiseOp(HInvoke* invoke,
       __ andl(left, right);
       break;
     default:
+      CHECK(false) << "Unreachable";
       UNREACHABLE();
   }
 }
