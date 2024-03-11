@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cba16209_c21a6f2e",
+        "filename": "libartbase/base/leb128.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-03-11T08:42:50Z",
+      "side": 1,
+      "message": "We could, but that requires some additional checks. I instead merged both of them into one which I felt was cleaner. I uploaded CL here:\nhttps://android-review.git.corp.google.com/c/platform/art/+/2996157",
+      "parentUuid": "6544dcfb_d52cebf3",
+      "revId": "3d84bf26989bb325b92a48934990567dd98a2304",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dd0f6068_c9684bf7",
@@ -31,6 +49,30 @@
       "writtenOn": "2024-03-06T17:21:41Z",
       "side": 1,
       "message": "Looks like this could be shared with a template method?",
+      "range": {
+        "startLine": 316,
+        "startChar": 0,
+        "endLine": 340,
+        "endChar": 1
+      },
+      "revId": "3d84bf26989bb325b92a48934990567dd98a2304",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a695c15e_3639fa64",
+        "filename": "libartbase/base/leb128.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-03-11T08:42:50Z",
+      "side": 1,
+      "message": "Thanks Nicolas! Addressed this in another CL: https://android-review.git.corp.google.com/c/platform/art/+/2996157\n\nI will rebase this one once the other CL lands.",
+      "parentUuid": "dd0f6068_c9684bf7",
       "range": {
         "startLine": 316,
         "startChar": 0,
