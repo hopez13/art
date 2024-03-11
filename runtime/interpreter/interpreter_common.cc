@@ -639,6 +639,7 @@ static ObjPtr<mirror::Class> GetClassForBootstrapArgument(EncodedArrayValueItera
     case EncodedArrayValueIterator::ValueType::kNull:
       return nullptr;
     case EncodedArrayValueIterator::ValueType::kEndOfInput:
+      LOG(FATAL) << "Unreachable";
       UNREACHABLE();
   }
 }
@@ -718,11 +719,11 @@ static bool GetArgumentForBootstrapMethod(Thread* self,
     case EncodedArrayValueIterator::ValueType::kArray:
     case EncodedArrayValueIterator::ValueType::kAnnotation:
     case EncodedArrayValueIterator::ValueType::kNull:
+    case EncodedArrayValueIterator::ValueType::kEndOfInput:
       // Unreachable - unsupported types that have been checked when
       // determining the effect call site type based on the bootstrap
       // argument types.
-      UNREACHABLE();
-    case EncodedArrayValueIterator::ValueType::kEndOfInput:
+      LOG(FATAL) << "Unreachable";
       UNREACHABLE();
   }
 }
@@ -763,11 +764,11 @@ static bool PackArgumentForBootstrapMethod(Thread* self,
     case EncodedArrayValueIterator::ValueType::kArray:
     case EncodedArrayValueIterator::ValueType::kAnnotation:
     case EncodedArrayValueIterator::ValueType::kNull:
+    case EncodedArrayValueIterator::ValueType::kEndOfInput:
       // Unreachable - unsupported types that have been checked when
       // determining the effect call site type based on the bootstrap
       // argument types.
-      UNREACHABLE();
-    case EncodedArrayValueIterator::ValueType::kEndOfInput:
+      LOG(FATAL) << "Unreachable";
       UNREACHABLE();
   }
 }
@@ -853,6 +854,7 @@ static bool PackCollectorArrayForBootstrapMethod(Thread* self,
   } else if (component_type == GetClassRoot<mirror::Class>()) {
     COLLECT_REFERENCE_ARRAY(mirror::Class, Type);
   } else {
+    LOG(FATAL) << "Unreachable";
     UNREACHABLE();
   }
   #undef COLLECT_PRIMITIVE_ARRAY
