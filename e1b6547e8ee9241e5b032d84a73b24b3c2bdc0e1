@@ -166,6 +166,30 @@
       },
       "revId": "e1b6547e8ee9241e5b032d84a73b24b3c2bdc0e1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a399286_0579b5cc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-03-12T16:13:01Z",
+      "side": 1,
+      "message": "\u003e the upgradable apps act as vendor or product apps only if the original app is installed in that partition on device launch\n\nRight, but how do we tell that by looking at the dex path list (originating, afaict, from [`zip`](https://cs.android.com/android/platform/superproject/main/+/main:frameworks/base/core/java/android/app/LoadedApk.java;l\u003d983-993;drc\u003dcc6a187eebd95e4c44e1571a3d2584d0160b01a5) in LoadedApk.java)?\n\nAgain, considering the paths we see on it in the first comment above, it appears to list the shared lib dependencies too, e.g. `/system_ext/framework/androidx.window.extensions.jar`.\n\n- Will all vendor and product apps list a path in their respective partitions, including updated ones in /data?\n- Can no other apps list paths in the vendor and product partitions?\n\nA pointer to the code where that logic happens would be most appreciated.\n\n\u003e I vaguely thought \u0027system\u0027 is default and accessible from any apps because the system partition provides common libraries (such as NDK) to all other partitions.\n\nSure, but on the flip side, is it the case that vendor and product partitions **never** provides common java libraries (with stable APIs) to apps in other partitions?",
+      "parentUuid": "166d0488_a82e113e",
+      "range": {
+        "startLine": 13,
+        "startChar": 46,
+        "endLine": 15,
+        "endChar": 68
+      },
+      "revId": "e1b6547e8ee9241e5b032d84a73b24b3c2bdc0e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
