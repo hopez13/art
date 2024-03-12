@@ -16,6 +16,46 @@
       "message": "Errors are pre-existing. I ran gtests",
       "revId": "991b2d6e32c22ddd2b0d6251394866917fed898b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1dccbc18_6a9577c1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-03-12T13:39:23Z",
+      "side": 1,
+      "message": "Thanks! lgtm with a comment.",
+      "revId": "991b2d6e32c22ddd2b0d6251394866917fed898b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f032da61_7f5551f6",
+        "filename": "compiler/optimizing/common_arm64.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-03-12T13:39:23Z",
+      "side": 1,
+      "message": "Here and below, can\u0027t we just drop the default?",
+      "range": {
+        "startLine": 349,
+        "startChar": 4,
+        "endLine": 351,
+        "endChar": 20
+      },
+      "revId": "991b2d6e32c22ddd2b0d6251394866917fed898b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
