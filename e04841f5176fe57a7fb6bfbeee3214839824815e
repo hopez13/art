@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9b4a51af_c70a7960",
+        "filename": "libartbase/base/unix_file/fd_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 478,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2024-03-12T11:41:22Z",
+      "side": 1,
+      "message": "I will update this function to condition on GuardState::kFlushed (when check_usage\u003d\u003dtrue), as the rename must only happen once the file is written to disk.\n\nThis failing scenario (open/write/close/rename without a flush) is stated in the ext4 documentation under auto_da_alloc: https://www.kernel.org/doc/Documentation/filesystems/ext4.txt.",
+      "range": {
+        "startLine": 478,
+        "startChar": 0,
+        "endLine": 478,
+        "endChar": 48
+      },
+      "revId": "e04841f5176fe57a7fb6bfbeee3214839824815e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "76076106_2129315a",
         "filename": "libartbase/base/unix_file/fd_file.cc",
         "patchSetId": 1
@@ -14,6 +37,30 @@
       "writtenOn": "2024-03-07T13:53:45Z",
       "side": 1,
       "message": "This looks like a lot of complexity to me. Does it have to be done? I.e., did you encounter issues in odrefresh or in the test without doing this? As the kernel eventually flushes the change, can we just wait for that?",
+      "range": {
+        "startLine": 487,
+        "startChar": 2,
+        "endLine": 506,
+        "endChar": 3
+      },
+      "revId": "e04841f5176fe57a7fb6bfbeee3214839824815e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71dcbeb0_dc237cff",
+        "filename": "libartbase/base/unix_file/fd_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 506,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2024-03-12T11:41:22Z",
+      "side": 1,
+      "message": "Thanks for the comments - I will address them.\n\nRegarding the directory flushing - I don\u0027t have a failing test, rather my intention is to follow the same data integrity process that the rest of the functions implement (and mandate under check_usage) where changes are flushed explicitly rather than waiting for the filesystem to commit on the commit timer. I think the only case the existing FdFile::Flush() usage protects against is a system crash before a scheduled commit (5s on Pixel 6 ext4) is made, hence this is would be the similar failure mode when considering the rename function.\n\nPOSIX guarantees that rename is atomic, in the sense that the destination will either represent the renamed file or whatever was there previously, never some partial state. However, flushing data to disk is still required to make the change persistent. \n\nFor the case of rename, as the \u0027data\u0027 in this case isn\u0027t contents of the file but the directory entries mapped in the source/destination directory file descriptor, persistence requires that those directories are synced rather than the file itself. An upcoming change to POSIX is looking to make this clearer (accepted for issue 8 of the standard): https://austingroupbugs.net/view.php?id\u003d672#c1618 (see XRAT A.4.8). Further, the man page for fdatasync explicitly mentions that fsync() on the directory FD is required to ensure the directory entry update reaches disk: https://linux.die.net/man/2/fdatasync. \n\nWe could potentially consider this situation unimportant to protect against. I think the possible outcomes would be that the source and destination directories contain both, neither, or only one of the files following the reboot.\n\nA compromise might be to expose a static `FlushParentDirectory(std::string file_path)` function and allow the caller to choose whether or not more guaranteed persistence is necessary. In this case, perhaps odrefresh would not call it, but future uses of FdFile::Rename (on files that aren\u0027t easily regenerated) could. What do you think?",
+      "parentUuid": "76076106_2129315a",
       "range": {
         "startLine": 487,
         "startChar": 2,
