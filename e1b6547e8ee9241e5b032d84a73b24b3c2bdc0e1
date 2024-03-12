@@ -142,6 +142,30 @@
       },
       "revId": "e1b6547e8ee9241e5b032d84a73b24b3c2bdc0e1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "166d0488_a82e113e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1146974
+      },
+      "writtenOn": "2024-03-12T04:46:02Z",
+      "side": 1,
+      "message": "Sorry for the late update.\n\n\u003e Iow, any downloaded app in /data can purport to be a vendor or product app just by the shared libs it depends on. Is that WAI?\n\nI don\u0027t know the location of the reference code, but AFAIK, the upgradable apps act as vendor or product apps only if the original app is installed in that partition on device launch.\n\n\u003e I\u0027d still like to understand how this is intended to work though, so PTAL at the questions above.\n\nI vaguely thought \u0027system\u0027 is default and accessible from any apps because the system partition provides common libraries (such as NDK) to all other partitions.\n\u0027unbundled\u0027 in this context means the apps are using only stable interfaces. That does not mean no dependencies on system partition.",
+      "parentUuid": "c4eea4f3_89f1383d",
+      "range": {
+        "startLine": 13,
+        "startChar": 46,
+        "endLine": 15,
+        "endChar": 68
+      },
+      "revId": "e1b6547e8ee9241e5b032d84a73b24b3c2bdc0e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
