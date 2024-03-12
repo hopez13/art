@@ -71,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "da8bb30e_f9d67760",
+        "filename": "libartbase/base/unix_file/fd_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 506,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-03-12T14:53:10Z",
+      "side": 1,
+      "message": "Thanks for the considerations. OK to flush the parent directories.",
+      "parentUuid": "71dcbeb0_dc237cff",
+      "range": {
+        "startLine": 487,
+        "startChar": 2,
+        "endLine": 506,
+        "endChar": 3
+      },
+      "revId": "e04841f5176fe57a7fb6bfbeee3214839824815e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "40bdfd30_552dce74",
