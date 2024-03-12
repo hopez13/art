@@ -56,6 +56,30 @@
       },
       "revId": "991b2d6e32c22ddd2b0d6251394866917fed898b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ccdc03d8_b41bdb18",
+        "filename": "compiler/optimizing/common_arm64.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-03-12T13:43:37Z",
+      "side": 1,
+      "message": "`HDataProcWithShifterOp::OpKind` is either a shift, or an extend. There are several missing e.g. `kUXTB` here or `kASR` below since they are the other type. We need to check it is one of the valid ones.\n\nMaybe they can be decoupled and be two different enums but I\u0027d rather leave that refactor for another time.",
+      "parentUuid": "f032da61_7f5551f6",
+      "range": {
+        "startLine": 349,
+        "startChar": 4,
+        "endLine": 351,
+        "endChar": 20
+      },
+      "revId": "991b2d6e32c22ddd2b0d6251394866917fed898b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
