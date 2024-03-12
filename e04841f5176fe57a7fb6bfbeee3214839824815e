@@ -242,6 +242,23 @@
       },
       "revId": "e04841f5176fe57a7fb6bfbeee3214839824815e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26d7fa7b_bf76c071",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-03-12T18:26:37Z",
+      "side": 1,
+      "message": "Just realized that you need to call [`selinux_android_restorecon`](https://cs.android.com/android/platform/superproject/main/+/main:external/selinux/libselinux/include/selinux/android.h;l\u003d73;drc\u003d71c806d9f13939dda9ac9648171bb20849cf96f6) after the move. The staging dir and the output dir have different SELinux labels. Calling that function changes the SELinux label on the file to the right one.",
+      "revId": "e04841f5176fe57a7fb6bfbeee3214839824815e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
