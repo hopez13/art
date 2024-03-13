@@ -1,0 +1,205 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "515d86ef_3191ac65",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-03-13T10:24:48Z",
+      "side": 1,
+      "message": "Thanks! just a few minor comments.",
+      "revId": "c3d625fe83c2c596817d1c37a3773828261de440",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "44a50b67_9375653a",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3819,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-03-13T10:24:48Z",
+      "side": 1,
+      "message": "Should we log expected_coordinates_count? Something like\nLOG(FATAL) \u003c\u003c \"Unexpected Coordinates Count \" \u003c\u003c expected_coordinates_count;",
+      "range": {
+        "startLine": 3819,
+        "startChar": 20,
+        "endLine": 3819,
+        "endChar": 33
+      },
+      "revId": "c3d625fe83c2c596817d1c37a3773828261de440",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1abe0774_c460762f",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 4353,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-03-13T10:24:48Z",
+      "side": 1,
+      "message": "Similarly here:\nLOG(FATAL) \u003c\u003c \"Unexpected type \" \u003c\u003c value_type;",
+      "range": {
+        "startLine": 4353,
+        "startChar": 6,
+        "endLine": 4353,
+        "endChar": 34
+      },
+      "revId": "c3d625fe83c2c596817d1c37a3773828261de440",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd16ba27_5e05e132",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 4692,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-03-13T10:24:48Z",
+      "side": 1,
+      "message": "Here and the below one as well.",
+      "range": {
+        "startLine": 4692,
+        "startChar": 6,
+        "endLine": 4692,
+        "endChar": 34
+      },
+      "revId": "c3d625fe83c2c596817d1c37a3773828261de440",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "47fce3e1_7a070d49",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 4496,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-03-13T10:24:48Z",
+      "side": 1,
+      "message": "Maybe also log type?",
+      "range": {
+        "startLine": 4496,
+        "startChar": 8,
+        "endLine": 4496,
+        "endChar": 18
+      },
+      "revId": "c3d625fe83c2c596817d1c37a3773828261de440",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c56398d1_28ac2226",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2458,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-03-13T10:24:48Z",
+      "side": 1,
+      "message": "Why not LOG(FATAL) / CHECK_EQ here? I don\u0027t know the code too well but I am assuming there was an UNREACHABLE because we didn\u0027t want to put a nullptr in vector_map_. I guess DCHECK_EQ makes it behave as it is in now (i.e. put nullptr if vector_mode_ isn\u0027t kVector) but I wonder if that was the expected behaviour.",
+      "range": {
+        "startLine": 2458,
+        "startChar": 8,
+        "endLine": 2458,
+        "endChar": 41
+      },
+      "revId": "c3d625fe83c2c596817d1c37a3773828261de440",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d7515b03_47dce0e4",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2771,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-03-13T10:24:48Z",
+      "side": 1,
+      "message": "Same as earlier comment.",
+      "range": {
+        "startLine": 2771,
+        "startChar": 6,
+        "endLine": 2771,
+        "endChar": 39
+      },
+      "revId": "c3d625fe83c2c596817d1c37a3773828261de440",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b9912c8_9eb91c57",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1718,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-03-13T10:24:48Z",
+      "side": 1,
+      "message": "I guess we are covering all cases but compiler can\u0027t figure it out right. Not sure there\u0027s a easy way out apart from adding a enum.",
+      "range": {
+        "startLine": 1718,
+        "startChar": 10,
+        "endLine": 1718,
+        "endChar": 38
+      },
+      "revId": "c3d625fe83c2c596817d1c37a3773828261de440",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e8fe12f_49b14613",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 857,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-03-13T10:24:48Z",
+      "side": 1,
+      "message": "LOG(FATAL) \u003c\u003c \"Unexpected component type \" \u003c\u003c component_type;",
+      "range": {
+        "startLine": 857,
+        "startChar": 3,
+        "endLine": 857,
+        "endChar": 32
+      },
+      "revId": "c3d625fe83c2c596817d1c37a3773828261de440",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
