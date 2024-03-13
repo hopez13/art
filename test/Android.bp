@@ -73,18 +73,6 @@ art_module_cc_defaults {
         "art_test_common_defaults",
     ],
     host_supported: true,
-    soong_config_variables: {
-        source_build: {
-            target: {
-                android: {
-                    test_for: [
-                        "com.android.art",
-                        "com.android.art.debug",
-                    ],
-                },
-            },
-        },
-    },
     target: {
         // The following set of relative_install_paths installs the library in a
         // location that will be available as java.library.path in run tests.
@@ -122,6 +110,12 @@ art_cc_defaults {
     name: "art_test_internal_library_defaults",
     defaults: ["art_test_defaults"],
     target: {
+        android: {
+            test_for: [
+                "com.android.art",
+                "com.android.art.debug",
+            ],
+        },
         android_arm: {
             relative_install_path: "com.android.art/lib",
         },
@@ -340,10 +334,6 @@ art_cc_defaults {
     // Don't use --exclude-libs=ALL, because it breaks tests under ASAN by hiding __asan* symbols.
     ldflags: [
         "-Wl,--exclude-libs=libart-gtest.a",
-    ],
-    test_for: [
-        "com.android.art",
-        "com.android.art.debug",
     ],
 }
 
