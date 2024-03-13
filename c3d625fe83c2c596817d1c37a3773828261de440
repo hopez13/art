@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "63d53836_84bf9884",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3819,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-03-13T14:19:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "44a50b67_9375653a",
+      "range": {
+        "startLine": 3819,
+        "startChar": 20,
+        "endLine": 3819,
+        "endChar": 33
+      },
+      "revId": "c3d625fe83c2c596817d1c37a3773828261de440",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1abe0774_c460762f",
@@ -54,6 +78,30 @@
       "writtenOn": "2024-03-13T10:24:48Z",
       "side": 1,
       "message": "Similarly here:\nLOG(FATAL) \u003c\u003c \"Unexpected type \" \u003c\u003c value_type;",
+      "range": {
+        "startLine": 4353,
+        "startChar": 6,
+        "endLine": 4353,
+        "endChar": 34
+      },
+      "revId": "c3d625fe83c2c596817d1c37a3773828261de440",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c2d71b7_3b3674f2",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 4353,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-03-13T14:19:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1abe0774_c460762f",
       "range": {
         "startLine": 4353,
         "startChar": 6,
@@ -87,6 +135,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8f3dbbba_2595e9fb",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 4692,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-03-13T14:19:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cd16ba27_5e05e132",
+      "range": {
+        "startLine": 4692,
+        "startChar": 6,
+        "endLine": 4692,
+        "endChar": 34
+      },
+      "revId": "c3d625fe83c2c596817d1c37a3773828261de440",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "47fce3e1_7a070d49",
@@ -100,6 +172,30 @@
       "writtenOn": "2024-03-13T10:24:48Z",
       "side": 1,
       "message": "Maybe also log type?",
+      "range": {
+        "startLine": 4496,
+        "startChar": 8,
+        "endLine": 4496,
+        "endChar": 18
+      },
+      "revId": "c3d625fe83c2c596817d1c37a3773828261de440",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8fbd8402_36fcce0d",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 4496,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-03-13T14:19:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "47fce3e1_7a070d49",
       "range": {
         "startLine": 4496,
         "startChar": 8,
@@ -133,6 +229,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7eec93cd_0fbb7b6e",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2458,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-03-13T14:19:54Z",
+      "side": 1,
+      "message": "My understanding of the code was that `UNREACHABLE();` was expected to trap. Before my change the `CHECK` in line 2470 would have triggered when `vector_mode_` is `kSequential`.\n\nI originally had `CHECK_EQ` in lines 2458 and 2771 but I think these are fine to keep as `DCHECK`s",
+      "parentUuid": "c56398d1_28ac2226",
+      "range": {
+        "startLine": 2458,
+        "startChar": 8,
+        "endLine": 2458,
+        "endChar": 41
+      },
+      "revId": "c3d625fe83c2c596817d1c37a3773828261de440",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d7515b03_47dce0e4",
@@ -146,6 +266,30 @@
       "writtenOn": "2024-03-13T10:24:48Z",
       "side": 1,
       "message": "Same as earlier comment.",
+      "range": {
+        "startLine": 2771,
+        "startChar": 6,
+        "endLine": 2771,
+        "endChar": 39
+      },
+      "revId": "c3d625fe83c2c596817d1c37a3773828261de440",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "12b7d2a0_df63d5e7",
+        "filename": "compiler/optimizing/loop_optimization.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2771,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-03-13T14:19:54Z",
+      "side": 1,
+      "message": "Replied in the other comment",
+      "parentUuid": "d7515b03_47dce0e4",
       "range": {
         "startLine": 2771,
         "startChar": 6,
@@ -179,6 +323,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "143200f1_53564e4b",
+        "filename": "disassembler/disassembler_riscv64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1718,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-03-13T14:19:54Z",
+      "side": 1,
+      "message": "Yeah, `funct3` is a 3-bit value but its C++ type is `uint32_t`",
+      "parentUuid": "5b9912c8_9eb91c57",
+      "range": {
+        "startLine": 1718,
+        "startChar": 10,
+        "endLine": 1718,
+        "endChar": 38
+      },
+      "revId": "c3d625fe83c2c596817d1c37a3773828261de440",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7e8fe12f_49b14613",
@@ -192,6 +360,30 @@
       "writtenOn": "2024-03-13T10:24:48Z",
       "side": 1,
       "message": "LOG(FATAL) \u003c\u003c \"Unexpected component type \" \u003c\u003c component_type;",
+      "range": {
+        "startLine": 857,
+        "startChar": 3,
+        "endLine": 857,
+        "endChar": 32
+      },
+      "revId": "c3d625fe83c2c596817d1c37a3773828261de440",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "32db5dc0_688851e0",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 857,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-03-13T14:19:54Z",
+      "side": 1,
+      "message": "Done (in a slightly more complicated way due to `ObjPtr` and mirror classes)",
+      "parentUuid": "7e8fe12f_49b14613",
       "range": {
         "startLine": 857,
         "startChar": 3,
