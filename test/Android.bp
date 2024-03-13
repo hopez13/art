@@ -214,12 +214,10 @@ art_cc_defaults {
     // These really are gtests, but the gtest library comes from `libart(d)-gtest.so`.
     gtest: false,
 
+    header_libs: [
+        "libnativeloader-headers",
+    ],
     shared_libs: [
-        // `libnativeloader` must be shared, otherwise host gtests can't load libraries from
-        // "art_common/out/host", which is present in `libnativeloader` RUNPATH.
-        // TODO(b/247108425): modify gtests RUNPATH so that `libnativeloader` can be static linked.
-        "libnativeloader",
-
         // `libart(d)` (`art/runtime/jni/java_vm_ext.cc`) and `libnativehelper`
         // (`libnativehelper/JniInvocation.c`) define symbols with the same name
         // (e.g. `JNI_GetDefaultJavaVMInitArgs`).
