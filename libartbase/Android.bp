@@ -34,7 +34,7 @@ cc_defaults {
         "base/arena_bit_vector.cc",
         "base/bit_vector.cc",
         "base/compiler_filter.cc",
-        "base/enums.cc",
+        "base/pointer_size.cc",
         "base/file_magic.cc",
         "base/file_utils.cc",
         "base/flags.cc",
