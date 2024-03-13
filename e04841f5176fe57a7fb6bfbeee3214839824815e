@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6536b891_8b40aac9",
+        "filename": "libartbase/base/unix_file/fd_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 478,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2024-03-13T16:49:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9b4a51af_c70a7960",
+      "range": {
+        "startLine": 478,
+        "startChar": 0,
+        "endLine": 478,
+        "endChar": 48
+      },
+      "revId": "e04841f5176fe57a7fb6bfbeee3214839824815e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "76076106_2129315a",
@@ -118,6 +142,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "431fbbc7_4ec29a48",
+        "filename": "libartbase/base/unix_file/fd_file.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2024-03-13T16:49:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "40bdfd30_552dce74",
+      "range": {
+        "startLine": 76,
+        "startChar": 50,
+        "endLine": 76,
+        "endChar": 55
+      },
+      "revId": "e04841f5176fe57a7fb6bfbeee3214839824815e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "638408d9_a6332186",
@@ -135,6 +183,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "df3da3e9_c3bd0b75",
+        "filename": "libartbase/base/unix_file/fd_file.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2024-03-13T16:49:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "638408d9_a6332186",
+      "revId": "e04841f5176fe57a7fb6bfbeee3214839824815e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6a3da835_ebaff543",
@@ -148,6 +214,30 @@
       "writtenOn": "2024-03-07T13:53:45Z",
       "side": 1,
       "message": "As the old path can be provided by the user through a constructor, it doesn\u0027t necessarily point to the file that the fd is backed by.\n\nI think the behavior of this function is better to be similar to what\u0027s described on `Unlink()`:\n\n```\n  // Call unlink() if the file was opened with a path, and if open() with the name shows that\n  // the file descriptor of this file is still up-to-date. \n```\n\nmeaning you need to perform the same check that `Unlink()` does, and update the description of this function.",
+      "range": {
+        "startLine": 120,
+        "startChar": 7,
+        "endLine": 120,
+        "endChar": 13
+      },
+      "revId": "e04841f5176fe57a7fb6bfbeee3214839824815e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bee64875_f4c24083",
+        "filename": "libartbase/base/unix_file/fd_file.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2024-03-13T16:49:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6a3da835_ebaff543",
       "range": {
         "startLine": 120,
         "startChar": 7,
@@ -181,6 +271,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "650d6a19_d40ed505",
+        "filename": "libartbase/base/unix_file/fd_file_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2024-03-13T16:49:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2d967472_85218936",
+      "range": {
+        "startLine": 200,
+        "startChar": 2,
+        "endLine": 200,
+        "endChar": 14
+      },
+      "revId": "e04841f5176fe57a7fb6bfbeee3214839824815e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ffab0ec0_e25ea0cd",
@@ -194,6 +308,30 @@
       "writtenOn": "2024-03-07T13:53:45Z",
       "side": 1,
       "message": "Add argument comment.",
+      "range": {
+        "startLine": 201,
+        "startChar": 38,
+        "endLine": 201,
+        "endChar": 43
+      },
+      "revId": "e04841f5176fe57a7fb6bfbeee3214839824815e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6045be5e_febf063f",
+        "filename": "libartbase/base/unix_file/fd_file_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2024-03-13T16:49:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ffab0ec0_e25ea0cd",
       "range": {
         "startLine": 201,
         "startChar": 38,
@@ -221,6 +359,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e20c88a_bceb5e73",
+        "filename": "libartbase/base/unix_file/fd_file_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2024-03-13T16:49:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "da4e81c9_8cecba39",
+      "revId": "e04841f5176fe57a7fb6bfbeee3214839824815e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b9f73a16_f6cd798c",
@@ -244,6 +400,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b8091a7_f6a014eb",
+        "filename": "libartbase/base/unix_file/fd_file_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2024-03-13T16:49:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b9f73a16_f6cd798c",
+      "range": {
+        "startLine": 217,
+        "startChar": 2,
+        "endLine": 217,
+        "endChar": 11
+      },
+      "revId": "e04841f5176fe57a7fb6bfbeee3214839824815e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "26d7fa7b_bf76c071",
@@ -257,6 +437,24 @@
       "writtenOn": "2024-03-12T18:26:37Z",
       "side": 1,
       "message": "Just realized that you need to call [`selinux_android_restorecon`](https://cs.android.com/android/platform/superproject/main/+/main:external/selinux/libselinux/include/selinux/android.h;l\u003d73;drc\u003d71c806d9f13939dda9ac9648171bb20849cf96f6) after the move. The staging dir and the output dir have different SELinux labels. Calling that function changes the SELinux label on the file to the right one.",
+      "revId": "e04841f5176fe57a7fb6bfbeee3214839824815e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b43bfc8_0328e1ab",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2024-03-13T16:49:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "26d7fa7b_bf76c071",
       "revId": "e04841f5176fe57a7fb6bfbeee3214839824815e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
