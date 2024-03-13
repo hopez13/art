@@ -86,6 +86,24 @@
       "parentUuid": "2dbbf4a9_c3dd6ac2",
       "revId": "26b308276778cf09956d991944e3557b1f82307e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d6ec2b2_4611ffc6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2024-03-13T18:16:18Z",
+      "side": 1,
+      "message": "I think that using QEMU with 128 bits does indeed work now.\n\nCan you expand this CL so that it can be enabled by environment variable?  Then we can continuously run the SVE tests on LUCI.",
+      "parentUuid": "aa48353d_8baa0e18",
+      "revId": "26b308276778cf09956d991944e3557b1f82307e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
