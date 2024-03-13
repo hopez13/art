@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "326cd6af_258c86d3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-03-13T17:58:10Z",
+      "side": 1,
+      "message": "Looks like it doesn\u0027t compile.\n\n```\nart/libartbase/base/unix_file/fd_file.cc:508:28: error: implicit instantiation of undefined template \u0027std::vector\u003cstd::basic_string\u003cchar\u003e\u003e\u0027\n  508 |   std::vector\u003cstd::string\u003e sync_dirs \u003d {new_dir};\n      |                            ^\nexternal/libcxx/include/iosfwd:217:28: note: template is declared here\n  217 | class _LIBCPP_TEMPLATE_VIS vector;\n      |                            ^\n1 error generated.\n```",
+      "revId": "8d705ccfa3f500a27c05cdb54a5da623c7a2587b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "28fb0879_c957f86c",
         "filename": "libartbase/base/unix_file/fd_file.cc",
         "patchSetId": 2
