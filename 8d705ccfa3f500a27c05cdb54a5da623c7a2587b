@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "28fb0879_c957f86c",
+        "filename": "libartbase/base/unix_file/fd_file.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 513,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-03-13T17:22:38Z",
+      "side": 1,
+      "message": "Please add argument comment (`/*check_usage\u003d*/`), here and on the line below.",
+      "range": {
+        "startLine": 513,
+        "startChar": 43,
+        "endLine": 513,
+        "endChar": 48
+      },
+      "revId": "8d705ccfa3f500a27c05cdb54a5da623c7a2587b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
