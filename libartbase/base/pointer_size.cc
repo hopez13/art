@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-#include "enums.h"
+#include "pointer_size.h"
 
 #include <ostream>
 
