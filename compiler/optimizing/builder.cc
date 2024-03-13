@@ -84,6 +84,14 @@ bool HGraphBuilder::SkipCompilation() {
     return true;
   }
 
+  if (UNLIKELY(code_units == 0u)) {
+    // Change to VLOG(compiler) after debugging.
+    LOG(ERROR) << "Skip compilation of empty method "
+                   << dex_file_->PrettyMethod(dex_compilation_unit_->GetDexMethodIndex());
+    MaybeRecordStat(compilation_stats_, MethodCompilationStat::kNotCompiledEmptyMethod);
+    return true;
+  }
+
   return false;
 }
 

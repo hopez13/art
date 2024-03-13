@@ -30,6 +30,8 @@ namespace art {
 
 inline void CodeItemInstructionAccessor::Init(uint32_t insns_size_in_code_units,
                                               const uint16_t* insns) {
+  // Remove after debugging.
+  CHECK_NE(insns_size_in_code_units, 0u);
   insns_size_in_code_units_ = insns_size_in_code_units;
   insns_ = insns;
 }
