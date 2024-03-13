@@ -190,6 +190,30 @@
       },
       "revId": "e1b6547e8ee9241e5b032d84a73b24b3c2bdc0e1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "653c5a04_73b5ac01",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1146974
+      },
+      "writtenOn": "2024-03-13T11:42:11Z",
+      "side": 1,
+      "message": "I thought this was about the native world, but it\u0027s not? I searched for the history about the path list loop-up and found @jiyong@google.com\u0027s old submission in an internal branch (ag/2769352).\n\n\u003e is it the case that vendor and product partitions never provides common java libraries (with stable APIs) to apps in other partitions?\n\nThey can define public libraries but only for their own apks in the same partition.\n\nhttps://cs.android.com/android/platform/superproject/main/+/main:art/libnativeloader/library_namespaces.cpp;l\u003d404?q\u003dart%2Flibnativeloader%2Flibrary_namespaces.cpp\nThis is how vendor and product public libraries are added to their namespaces.\n\nBut still, I don\u0027t know if it applies to java libraries.",
+      "parentUuid": "9a399286_0579b5cc",
+      "range": {
+        "startLine": 13,
+        "startChar": 46,
+        "endLine": 15,
+        "endChar": 68
+      },
+      "revId": "e1b6547e8ee9241e5b032d84a73b24b3c2bdc0e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
