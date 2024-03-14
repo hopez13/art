@@ -1060,7 +1060,8 @@ class ImageSpace::Loader {
         const uint64_t start = NanoTime();
         Thread* const self = Thread::Current();
         static constexpr size_t kMinBlocks = 2u;
-        const bool use_parallel = pool != nullptr && image_header.GetBlockCount() >= kMinBlocks;
+        const bool use_parallel =
+            false;  // pool != nullptr && image_header.GetBlockCount() >= kMinBlocks;
         bool failed_decompression = false;
         for (const ImageHeader::Block& block : image_header.GetBlocks(temp_map.Begin())) {
           auto function = [&](Thread*) {
