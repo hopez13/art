@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa1bb85c_3283546b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-03-14T14:26:36Z",
+      "side": 1,
+      "message": "Thanks!",
+      "revId": "6fd7e5182d25bc5440cdc5f720c98a1ffd1191f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ed4b6906_400a3d8a",
@@ -38,6 +55,30 @@
       "side": 1,
       "message": "I thought the same, but don\u0027t know enough about it to have a stronger opinion. I thought that since this is the JVM behavior we can\u0027t do much about it.",
       "parentUuid": "ed4b6906_400a3d8a",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 19
+      },
+      "revId": "6fd7e5182d25bc5440cdc5f720c98a1ffd1191f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7336e846_79e77dc0",
+        "filename": "test/984-obsolete-invoke/expected-stdout.jvm.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-03-14T14:26:36Z",
+      "side": 1,
+      "message": "Ya, true. Let\u0027s land this and if we see flakiness we can even disable this test for jvm.",
+      "parentUuid": "68398df5_c4bedca8",
       "range": {
         "startLine": 10,
         "startChar": 0,
