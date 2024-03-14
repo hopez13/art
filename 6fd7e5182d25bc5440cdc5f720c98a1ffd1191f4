@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed4b6906_400a3d8a",
+        "filename": "test/984-obsolete-invoke/expected-stdout.jvm.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-03-14T14:10:19Z",
+      "side": 1,
+      "message": "I am unsure why we are seeing this here. When we invoke an obsolete method we should throw an error and not invoke the method. I am not sure what\u0027s happening here. It seems like we are executing some part of the new method (print \"Hello - Transformed\") and then throwing an exception. That seems a bit strange. I tried to look for documentation on invoking obsolete methods but I couldn\u0027t find any. In any case, executing a partial function seems incorrect. Is that a bug in jvm?",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 19
+      },
+      "revId": "6fd7e5182d25bc5440cdc5f720c98a1ffd1191f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
