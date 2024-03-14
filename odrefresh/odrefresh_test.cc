@@ -226,10 +226,6 @@ class OdRefreshTest : public CommonArtTest {
     config_.SetSystemServerCompilerFilter("");
     config_.SetArtifactDirectory(dalvik_cache_dir_);
 
-    std::string staging_dir = dalvik_cache_dir_ + "/staging";
-    ASSERT_TRUE(EnsureDirectoryExists(staging_dir));
-    config_.SetStagingDir(staging_dir);
-
     auto mock_exec_utils = std::make_unique<MockExecUtils>();
     mock_exec_utils_ = mock_exec_utils.get();
 
