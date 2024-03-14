@@ -72,6 +72,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "35a2b7ba_6417d194",
+        "filename": "libartbase/base/leb128.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2024-03-14T17:48:43Z",
+      "side": 1,
+      "message": "Isn\u0027t the signed just unsinged + extension as post-processing?\n\nSimilarly the check vs non-check can be optional (eg with `std::optional\u003cchar*\u003e end`)",
+      "parentUuid": "5b4f713d_36dc21ba",
+      "revId": "d69ad3359aee9469553280ece25ca252f6e2892f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3ca91bbf_d203cd44",
         "filename": "libartbase/base/leb128.h",
         "patchSetId": 2
@@ -118,6 +136,24 @@
       "side": 1,
       "message": "This one is used only for the Checked version (DecodeSignedLeb128Checked) for 32-bit. That is used only in the Dex file verifier. Do you think that could be performance critical? \n\nThe DecodeSignedLeb128 is still unrolled. I didn\u0027t want to touch it because I was unsure. Though, I am not really sure if unrolling manually is much better for performance. I guess clang should unroll right?",
       "parentUuid": "c4f1160c_4364d069",
+      "revId": "d69ad3359aee9469553280ece25ca252f6e2892f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6e3151e_f1c6a071",
+        "filename": "libartbase/base/leb128.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2024-03-14T17:48:43Z",
+      "side": 1,
+      "message": "I think the dex file versifier is still important to keep fast.\n\nI wouldn\u0027t assume clang would unroll it unless told so.",
+      "parentUuid": "6efc533e_a6647072",
       "revId": "d69ad3359aee9469553280ece25ca252f6e2892f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
