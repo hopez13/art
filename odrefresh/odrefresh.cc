@@ -1726,27 +1726,26 @@ WARN_UNUSED CompilationResult OnDeviceRefresh::RunDex2oat(
       std::make_pair(artifacts.ImagePath(), artifacts.ImageKind()),
       std::make_pair(artifacts.OatPath(), "oat"),
       std::make_pair(artifacts.VdexPath(), "output-vdex")};
-  std::vector<std::unique_ptr<File>> staging_files;
-  for (const auto& [location, kind] : location_kind_pairs) {
-    std::string staging_location = GetStagingLocation(staging_dir, location);
-    std::unique_ptr<File> staging_file(OS::CreateEmptyFile(staging_location.c_str()));
-    if (staging_file == nullptr) {
-      return CompilationResult::Error(
-          OdrMetrics::Status::kIoError,
-          ART_FORMAT("Failed to create {} file '{}': {}", kind, staging_location, strerror(errno)));
-    }
-    // Don't check the state of the staging file. It doesn't need to be flushed because it's removed
-    // after the compilation regardless of success or failure.
-    staging_file->MarkUnchecked();
-    args.Add(StringPrintf("--%s-fd=%d", kind, staging_file->Fd()));
-    staging_files.emplace_back(std::move(staging_file));
-  }
 
   std::string install_location = Dirname(artifacts.OatPath());
   if (!EnsureDirectoryExists(install_location)) {
     return CompilationResult::Error(
         OdrMetrics::Status::kIoError,
         ART_FORMAT("Error encountered when preparing directory '{}'", install_location));
+  }
+
+  std::vector<std::unique_ptr<File>> output_files;
+  for (const auto& [location, kind] : location_kind_pairs) {
+    std::string output_location =
+        staging_dir.empty() ? location : GetStagingLocation(staging_dir, location);
+    std::unique_ptr<File> output_file(OS::CreateEmptyFile(output_location.c_str()));
+    if (output_file == nullptr) {
+      return CompilationResult::Error(
+          OdrMetrics::Status::kIoError,
+          ART_FORMAT("Failed to create {} file '{}': {}", kind, output_location, strerror(errno)));
+    }
+    args.Add(StringPrintf("--%s-fd=%d", kind, output_file->Fd()));
+    output_files.emplace_back(std::move(output_file));
   }
 
   args.Concat(std::move(extra_args));
@@ -1772,10 +1771,26 @@ WARN_UNUSED CompilationResult OnDeviceRefresh::RunDex2oat(
         dex2oat_result);
   }
 
-  if (!MoveOrEraseFiles(staging_files, install_location)) {
-    return CompilationResult::Error(
-        OdrMetrics::Status::kIoError,
-        ART_FORMAT("Failed to commit artifacts to '{}'", install_location));
+  if (staging_dir.empty()) {
+    for (const std::unique_ptr<File>& file : output_files) {
+      if (file->FlushCloseOrErase() != 0) {
+        return CompilationResult::Error(
+            OdrMetrics::Status::kIoError,
+            ART_FORMAT("Failed to flush close file '{}'", file->GetPath()));
+      }
+    }
+  } else {
+    for (const std::unique_ptr<File>& file : output_files) {
+      if (file->Flush() != 0) {
+        return CompilationResult::Error(OdrMetrics::Status::kIoError,
+                                        ART_FORMAT("Failed to flush file '{}'", file->GetPath()));
+      }
+    }
+    if (!MoveOrEraseFiles(output_files, install_location)) {
+      return CompilationResult::Error(
+          OdrMetrics::Status::kIoError,
+          ART_FORMAT("Failed to commit artifacts to '{}'", install_location));
+    }
   }
 
   return CompilationResult::Dex2oatOk(timer.duration().count(), dex2oat_result);
@@ -2103,8 +2118,10 @@ WARN_UNUSED ExitCode OnDeviceRefresh::Compile(OdrMetrics& metrics,
     return ExitCode::kCleanupFailed;
   }
 
-  if (!config_.GetStagingDir().empty()) {
-    staging_dir = config_.GetStagingDir();
+  if (config_.GetCompilationOsMode()) {
+    // We don't need to stage files in CompOS. If the compilation fails (partially or entirely),
+    // CompOS will not sign any artifacts, and odsign will discard CompOS outputs entirely.
+    staging_dir = "";
   } else {
     // Create staging area and assign label for generating compilation artifacts.
     Result<std::string> res = CreateStagingDirectory();
@@ -2115,8 +2132,6 @@ WARN_UNUSED ExitCode OnDeviceRefresh::Compile(OdrMetrics& metrics,
     }
     staging_dir = res.value();
   }
-
-  std::string error_msg;
 
   uint32_t dex2oat_invocation_count = 0;
   uint32_t total_dex2oat_invocation_count = compilation_options.CompilationUnitCount();
