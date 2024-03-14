@@ -37,6 +37,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9ce50c16_da350cdd",
+        "filename": "libartbase/base/leb128.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2024-03-14T17:22:58Z",
+      "side": 1,
+      "message": "So you have not updated the unsigned version, right?\n\nI wonder if we could have just one shared implementation (which supports up to 64bit, uses clang attributes to unroll the loop, or is always-inline template recursive to unroll the loop)",
+      "revId": "d69ad3359aee9469553280ece25ca252f6e2892f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3ca91bbf_d203cd44",
         "filename": "libartbase/base/leb128.h",
         "patchSetId": 2
