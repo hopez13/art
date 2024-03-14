@@ -36,6 +36,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8f4fcb4_f9e631a4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2024-03-14T13:39:03Z",
+      "side": 1,
+      "message": "Looking into this further, some symbols (including vector) were being included via base/macros.h, then android-base/format.h, then fmt/std.h. The final include is only if `ifndef _WIN32`, which is why I didn\u0027t see it on my environment.\n\nAnyway, I have added the necessary includes for the source file directly.",
+      "parentUuid": "aac228d1_5f8c5225",
+      "revId": "8d705ccfa3f500a27c05cdb54a5da623c7a2587b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7e0a5663_dcbbfca0",
@@ -49,6 +67,30 @@
       "writtenOn": "2024-03-14T13:00:25Z",
       "side": 1,
       "message": "Please do both logging and DCHECK like what `FdFile::Destroy()` does. Logging is for any build, and DCHECK is for surfacing the problem even better on a debug build.\n```suggestion\n    if (guard_state_ \u003c GuardState::kFlushed) {\n      LOG(ERROR) \u003c\u003c \"File \" \u003c\u003c file_path_ \u003c\u003c \" has not been flushed before renaming.\";\n    }\n    DCHECK_GE(guard_state_, GuardState::kFlushed);\n```",
+      "range": {
+        "startLine": 483,
+        "startChar": 4,
+        "endLine": 483,
+        "endChar": 13
+      },
+      "revId": "8d705ccfa3f500a27c05cdb54a5da623c7a2587b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "85b1aed4_9ee6d61b",
+        "filename": "libartbase/base/unix_file/fd_file.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 483,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2024-03-14T13:39:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7e0a5663_dcbbfca0",
       "range": {
         "startLine": 483,
         "startChar": 4,
@@ -96,6 +138,30 @@
       "side": 1,
       "message": "Will do.",
       "parentUuid": "28fb0879_c957f86c",
+      "range": {
+        "startLine": 513,
+        "startChar": 43,
+        "endLine": 513,
+        "endChar": 48
+      },
+      "revId": "8d705ccfa3f500a27c05cdb54a5da623c7a2587b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "94742ef9_28319c75",
+        "filename": "libartbase/base/unix_file/fd_file.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 513,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2024-03-14T13:39:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9033eda2_af4d64cf",
       "range": {
         "startLine": 513,
         "startChar": 43,
