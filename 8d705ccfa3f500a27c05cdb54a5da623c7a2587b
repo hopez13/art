@@ -38,6 +38,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7e0a5663_dcbbfca0",
+        "filename": "libartbase/base/unix_file/fd_file.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 483,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-03-14T13:00:25Z",
+      "side": 1,
+      "message": "Please do both logging and DCHECK like what `FdFile::Destroy()` does. Logging is for any build, and DCHECK is for surfacing the problem even better on a debug build.\n```suggestion\n    if (guard_state_ \u003c GuardState::kFlushed) {\n      LOG(ERROR) \u003c\u003c \"File \" \u003c\u003c file_path_ \u003c\u003c \" has not been flushed before renaming.\";\n    }\n    DCHECK_GE(guard_state_, GuardState::kFlushed);\n```",
+      "range": {
+        "startLine": 483,
+        "startChar": 4,
+        "endLine": 483,
+        "endChar": 13
+      },
+      "revId": "8d705ccfa3f500a27c05cdb54a5da623c7a2587b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "28fb0879_c957f86c",
         "filename": "libartbase/base/unix_file/fd_file.cc",
         "patchSetId": 2
