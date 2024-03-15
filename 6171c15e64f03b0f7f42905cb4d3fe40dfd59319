@@ -67,6 +67,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e002af55_d7063c90",
+        "filename": "libartservice/service/java/com/android/server/art/ArtdRefCache.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-03-15T18:44:57Z",
+      "side": 1,
+      "message": "Is this used from somewhere outside tests?",
+      "range": {
+        "startLine": 119,
+        "startChar": 16,
+        "endLine": 119,
+        "endChar": 21
+      },
+      "revId": "6171c15e64f03b0f7f42905cb4d3fe40dfd59319",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4458f60b_8b51f9e5",
         "filename": "libartservice/service/java/com/android/server/art/ArtdRefCache.java",
         "patchSetId": 2
@@ -126,6 +149,30 @@
       "side": 1,
       "message": "Oh, wait, I see the race here. We may get a false warning before `mGuard.close()` is executed.\n\nDone.",
       "parentUuid": "9cdf0ed8_74d36abb",
+      "range": {
+        "startLine": 170,
+        "startChar": 12,
+        "endLine": 170,
+        "endChar": 31
+      },
+      "revId": "6171c15e64f03b0f7f42905cb4d3fe40dfd59319",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "142050c6_568c9546",
+        "filename": "libartservice/service/java/com/android/server/art/ArtdRefCache.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-03-15T18:44:57Z",
+      "side": 1,
+      "message": "Can you please fill me in? The cleaner may only run if this object is phantom reachable. How do we get here then?",
+      "parentUuid": "e0b9a1ce_f396c870",
       "range": {
         "startLine": 170,
         "startChar": 12,
