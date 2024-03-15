@@ -88,6 +88,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "41638f30_70f3bfde",
+        "filename": "libartservice/service/java/com/android/server/art/ArtdRefCache.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-03-15T18:50:11Z",
+      "side": 1,
+      "message": "Yes, it will be used in Pre-reboot Dexopt.",
+      "parentUuid": "e002af55_d7063c90",
+      "range": {
+        "startLine": 119,
+        "startChar": 16,
+        "endLine": 119,
+        "endChar": 21
+      },
+      "revId": "6171c15e64f03b0f7f42905cb4d3fe40dfd59319",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4458f60b_8b51f9e5",
@@ -173,6 +197,30 @@
       "side": 1,
       "message": "Can you please fill me in? The cleaner may only run if this object is phantom reachable. How do we get here then?",
       "parentUuid": "e0b9a1ce_f396c870",
+      "range": {
+        "startLine": 170,
+        "startChar": 12,
+        "endLine": 170,
+        "endChar": 31
+      },
+      "revId": "6171c15e64f03b0f7f42905cb4d3fe40dfd59319",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e756adb_cbc1bbec",
+        "filename": "libartservice/service/java/com/android/server/art/ArtdRefCache.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-03-15T18:50:11Z",
+      "side": 1,
+      "message": "Let\u0027s say T0 is the main thread and T1 is the cleaner thread. Consider the following code:\n\n```\n1       try (var pin \u003d mArtdRefCache.new Pin()) {\n2           mArtdRefCache.getArtd();\n3       } \u003c----- `close()` is called.\n```\n\nAs soon as T0 reaches line 3, the pin object becomes phantom reachable, even if the `close()` method is still being executed. Then what can happen is:\n\n1. T0: Enter `close()`\n2. T1: Enter `Cleanup.run()`\n3. T1: Call `mGuard.warnIfOpen()` \u003c--- False warning",
+      "parentUuid": "142050c6_568c9546",
       "range": {
         "startLine": 170,
         "startChar": 12,
