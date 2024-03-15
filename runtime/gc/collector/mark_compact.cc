@@ -56,6 +56,7 @@
 #include "scoped_thread_state_change-inl.h"
 #include "sigchain.h"
 #include "thread_list.h"
+#include "utils/perf_hint.h"
 
 #ifdef ART_TARGET_ANDROID
 #include "android-modules-utils/sdk_level.h"
@@ -781,6 +782,9 @@ class MarkCompact::FlipCallback : public Closure {
 };
 
 void MarkCompact::RunPhases() {
+  int thread_id = GetTid();
+  PerfHint::setSchedAttr(true, thread_id);
+
   Thread* self = Thread::Current();
   thread_running_gc_ = self;
   Runtime* runtime = Runtime::Current();
@@ -822,6 +826,8 @@ void MarkCompact::RunPhases() {
 
   FinishPhase();
   thread_running_gc_ = nullptr;
+
+  PerfHint::setSchedAttr(false, thread_id);
 }
 
 void MarkCompact::InitMovingSpaceFirstObjects(const size_t vec_len) {

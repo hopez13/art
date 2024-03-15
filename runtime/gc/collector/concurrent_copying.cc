@@ -45,6 +45,7 @@
 #include "scoped_thread_state_change-inl.h"
 #include "thread-inl.h"
 #include "thread_list.h"
+#include "utils/perf_hint.h"
 #include "well_known_classes.h"
 
 namespace art HIDDEN {
@@ -223,6 +224,9 @@ ConcurrentCopying::~ConcurrentCopying() {
 }
 
 void ConcurrentCopying::RunPhases() {
+  int thread_id = GetTid();
+  PerfHint::setSchedAttr(true, thread_id);
+
   CHECK(kUseBakerReadBarrier || kUseTableLookupReadBarrier);
   CHECK(!is_active_);
   is_active_ = true;
@@ -274,6 +278,8 @@ void ConcurrentCopying::RunPhases() {
   CHECK(is_active_);
   is_active_ = false;
   thread_running_gc_ = nullptr;
+
+  PerfHint::setSchedAttr(false, thread_id);
 }
 
 class ConcurrentCopying::ActivateReadBarrierEntrypointsCheckpoint : public Closure {
