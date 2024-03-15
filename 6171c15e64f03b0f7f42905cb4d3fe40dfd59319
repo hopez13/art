@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "3bed33ea_a4372841",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-03-15T18:34:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fd9eefab_f8423c17",
+      "range": {
+        "startLine": 9,
+        "startChar": 37,
+        "endLine": 10,
+        "endChar": 69
+      },
+      "revId": "6171c15e64f03b0f7f42905cb4d3fe40dfd59319",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "93166dac_b3545405",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
@@ -78,6 +102,30 @@
       "side": 1,
       "message": "Originally, `Reference.reachabilityFence(this)` was for preventing the `close()` method from being called twice: once by our code and once by the finalizer concurrently. With `Cleaner`, this doesn\u0027t seem to possibility happen because [the doc](https://docs.oracle.com/javase%2F9%2Fdocs%2Fapi%2F%2F/java/lang/ref/Cleaner.Cleanable.html#clean--) says\n\n\u003e The cleanable\u0027s cleaning action is invoked at most once regardless of the number of calls to clean.\n\nTherefore, I don\u0027t think we need `Reference.reachabilityFence(this)` anymore. Am I missing anything?",
       "parentUuid": "4458f60b_8b51f9e5",
+      "range": {
+        "startLine": 170,
+        "startChar": 12,
+        "endLine": 170,
+        "endChar": 31
+      },
+      "revId": "6171c15e64f03b0f7f42905cb4d3fe40dfd59319",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0b9a1ce_f396c870",
+        "filename": "libartservice/service/java/com/android/server/art/ArtdRefCache.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-03-15T18:34:43Z",
+      "side": 1,
+      "message": "Oh, wait, I see the race here. We may get a false warning before `mGuard.close()` is executed.\n\nDone.",
+      "parentUuid": "9cdf0ed8_74d36abb",
       "range": {
         "startLine": 170,
         "startChar": 12,
