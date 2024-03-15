@@ -88,6 +88,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a224381_8a8e47ba",
+        "filename": "libartbase/base/leb128.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-03-15T17:35:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "35a2b7ba_6417d194",
+      "revId": "d69ad3359aee9469553280ece25ca252f6e2892f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3ca91bbf_d203cd44",
@@ -101,6 +119,24 @@
       "writtenOn": "2024-03-14T16:29:13Z",
       "side": 1,
       "message": "you can make the template argument default to uint32_t",
+      "revId": "d69ad3359aee9469553280ece25ca252f6e2892f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b3bfc7b_891a6210",
+        "filename": "libartbase/base/leb128.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-03-15T17:35:52Z",
+      "side": 1,
+      "message": "Done. I made it to int32_t for signed and uint32_t for unsigned.",
+      "parentUuid": "3ca91bbf_d203cd44",
       "revId": "d69ad3359aee9469553280ece25ca252f6e2892f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -154,6 +190,24 @@
       "side": 1,
       "message": "I think the dex file versifier is still important to keep fast.\n\nI wouldn\u0027t assume clang would unroll it unless told so.",
       "parentUuid": "6efc533e_a6647072",
+      "revId": "d69ad3359aee9469553280ece25ca252f6e2892f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9992e30a_9b569bf6",
+        "filename": "libartbase/base/leb128.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-03-15T17:35:52Z",
+      "side": 1,
+      "message": "I checked the output of the unrolled version and the loop version in godbolt. For Unsigned it\u0027s mostly the same, infact the loop version has one instruction less. \n\nFor the signed version, the main difference is for (a \u003c\u003c shift) \u003e\u003e shift the unrolled version uses\n\n``\nsbfx    w0, w8, #0, #7\n``\n\nWhere as the loop version uses\n``\nmov     w9, #25   \nlsl     w8, w8, w9\nasr     w0, w8, w9\n``\n\nI am not really sure why maybe some optimization pass ordering issue but I guess it isn\u0027t too much of a problem. So I merged all of them into one. If you think it is a problem, I can run some micro benchmarks or we can specialize the case for the signed 32-bit ones. Let me know.\n\nHere\u0027s the godbolt output for all 4 cases if you want to take a look:\nUnsigned: https://godbolt.org/z/cKKqTq4E8\nUnsignedChecked: https://godbolt.org/z/TeGxYh5dW\nSigned:  https://godbolt.org/z/7q1enjhT6\nSignedChecked: https://godbolt.org/z/PY5zax66a",
+      "parentUuid": "f6e3151e_f1c6a071",
       "revId": "d69ad3359aee9469553280ece25ca252f6e2892f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
