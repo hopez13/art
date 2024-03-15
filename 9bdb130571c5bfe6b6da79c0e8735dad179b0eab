@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "764a8004_20487b70",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2024-03-15T18:28:34Z",
+      "side": 1,
+      "message": "Nit: Java (here and elsewhere, when it\u0027s not part of an identifier).",
+      "range": {
+        "startLine": 7,
+        "startChar": 37,
+        "endLine": 7,
+        "endChar": 41
+      },
+      "revId": "9bdb130571c5bfe6b6da79c0e8735dad179b0eab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "19db7512_6b678e76",
@@ -19,6 +42,29 @@
         "startChar": 43,
         "endLine": 27,
         "endChar": 10
+      },
+      "revId": "9bdb130571c5bfe6b6da79c0e8735dad179b0eab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0e1bc39_f4e3a737",
+        "filename": "libnativeloader/library_namespaces.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2024-03-15T18:28:34Z",
+      "side": 1,
+      "message": "```suggestion\n        // libraries and the app\u0027s APKs which may be in /data.\n```",
+      "range": {
+        "startLine": 128,
+        "startChar": 29,
+        "endLine": 128,
+        "endChar": 37
       },
       "revId": "9bdb130571c5bfe6b6da79c0e8735dad179b0eab",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
