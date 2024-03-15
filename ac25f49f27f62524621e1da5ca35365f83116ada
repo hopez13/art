@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b49672e_b934c69b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1863710
+      },
+      "writtenOn": "2024-03-15T12:22:10Z",
+      "side": 1,
+      "message": "Hi Santiago, the JDK change seems to affect these tests. I\u0027m still not sure why. I think it\u0027s better to disable for now until I have a fix to solve presubmit issues. Could you PTAL?",
+      "revId": "ac25f49f27f62524621e1da5ca35365f83116ada",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
