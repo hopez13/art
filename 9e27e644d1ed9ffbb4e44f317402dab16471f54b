@@ -16,6 +16,121 @@
       "message": "PS3 removed an offending DCHECK that was incorrect du to a race. I\u0027m not relying on tha property anyway. This did pass\n\nart/test/testrunner/testrunner.py --host -b --all-gc --all-debuggable",
       "revId": "9e27e644d1ed9ffbb4e44f317402dab16471f54b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "957772d5_80053005",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1646,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2024-03-15T21:28:57Z",
+      "side": 1,
+      "message": "spelling",
+      "range": {
+        "startLine": 1646,
+        "startChar": 65,
+        "endLine": 1646,
+        "endChar": 74
+      },
+      "revId": "9e27e644d1ed9ffbb4e44f317402dab16471f54b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3132e25f_647456d2",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1669,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2024-03-15T21:28:57Z",
+      "side": 1,
+      "message": "Don\u0027t we need to rollback this change below with collector_type and thread?",
+      "range": {
+        "startLine": 1669,
+        "startChar": 6,
+        "endLine": 1669,
+        "endChar": 29
+      },
+      "revId": "9e27e644d1ed9ffbb4e44f317402dab16471f54b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6501a94d_3c350f8c",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2789,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2024-03-15T21:28:57Z",
+      "side": 1,
+      "message": "The comment seems redundant after the above one.",
+      "range": {
+        "startLine": 2789,
+        "startChar": 8,
+        "endLine": 2789,
+        "endChar": 37
+      },
+      "revId": "9e27e644d1ed9ffbb4e44f317402dab16471f54b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "31ca6c50_73d98b41",
+        "filename": "runtime/thread.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 487,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2024-03-15T21:28:57Z",
+      "side": 1,
+      "message": "2 spaces",
+      "range": {
+        "startLine": 487,
+        "startChar": 85,
+        "endLine": 487,
+        "endChar": 87
+      },
+      "revId": "9e27e644d1ed9ffbb4e44f317402dab16471f54b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "efe4be01_8115d4ca",
+        "filename": "runtime/thread.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 488,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2024-03-15T21:28:57Z",
+      "side": 1,
+      "message": "But now we are also returning `kInvalidState` if `fail_on_suspend_req` is true and there is a suspend request. Shouldn\u0027t that be also documented here?",
+      "range": {
+        "startLine": 488,
+        "startChar": 53,
+        "endLine": 488,
+        "endChar": 89
+      },
+      "revId": "9e27e644d1ed9ffbb4e44f317402dab16471f54b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
