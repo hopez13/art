@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af59f18c_1907cec4",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-03-15T15:09:35Z",
+      "side": 1,
+      "message": "Please hold. It turns out that `restorecon` doesn\u0027t work because the SELinux policy doesn\u0027t allow odrefresh to do it. We\u0027ll try to find a solution and get back to you.",
+      "range": {
+        "startLine": 167,
+        "startChar": 8,
+        "endLine": 167,
+        "endChar": 64
+      },
+      "revId": "cf3480f740a2abe5e56a721e58fd92dd0cc31cf8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
