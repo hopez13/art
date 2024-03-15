@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "15fbf2fd_aef05fca",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1646,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2024-03-15T22:43:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "957772d5_80053005",
+      "range": {
+        "startLine": 1646,
+        "startChar": 65,
+        "endLine": 1646,
+        "endChar": 74
+      },
+      "revId": "9e27e644d1ed9ffbb4e44f317402dab16471f54b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3132e25f_647456d2",
@@ -54,6 +78,30 @@
       "writtenOn": "2024-03-15T21:28:57Z",
       "side": 1,
       "message": "Don\u0027t we need to rollback this change below with collector_type and thread?",
+      "range": {
+        "startLine": 1669,
+        "startChar": 6,
+        "endLine": 1669,
+        "endChar": 29
+      },
+      "revId": "9e27e644d1ed9ffbb4e44f317402dab16471f54b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d72a89b_96cab9be",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1669,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2024-03-15T22:43:47Z",
+      "side": 1,
+      "message": "Good question. I can find no actual uses of it, aside from a log entry. And it\u0027s unclear to me what the right answer should be in the very unlikely case that another GC sneaks in. This can already refer to the last GC critical section instead of actual GC. I changed the comment in the declaration to give this more wiggle-room, but left the code. I think it\u0027s worth maintaining, but it deserves a minimum amount of code.",
+      "parentUuid": "3132e25f_647456d2",
       "range": {
         "startLine": 1669,
         "startChar": 6,
@@ -87,6 +135,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c5aa504_6f56ee34",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2789,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2024-03-15T22:43:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6501a94d_3c350f8c",
+      "range": {
+        "startLine": 2789,
+        "startChar": 8,
+        "endLine": 2789,
+        "endChar": 37
+      },
+      "revId": "9e27e644d1ed9ffbb4e44f317402dab16471f54b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "31ca6c50_73d98b41",
@@ -110,6 +182,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "90e258ce_08aed0ea",
+        "filename": "runtime/thread.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 487,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2024-03-15T22:43:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "31ca6c50_73d98b41",
+      "range": {
+        "startLine": 487,
+        "startChar": 85,
+        "endLine": 487,
+        "endChar": 87
+      },
+      "revId": "9e27e644d1ed9ffbb4e44f317402dab16471f54b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "efe4be01_8115d4ca",
@@ -123,6 +219,30 @@
       "writtenOn": "2024-03-15T21:28:57Z",
       "side": 1,
       "message": "But now we are also returning `kInvalidState` if `fail_on_suspend_req` is true and there is a suspend request. Shouldn\u0027t that be also documented here?",
+      "range": {
+        "startLine": 488,
+        "startChar": 53,
+        "endLine": 488,
+        "endChar": 89
+      },
+      "revId": "9e27e644d1ed9ffbb4e44f317402dab16471f54b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "af4f9b40_992fab8d",
+        "filename": "runtime/thread.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 488,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2024-03-15T22:43:47Z",
+      "side": 1,
+      "message": "The comment here tells clients not to pass an argument, so I think it\u0027s OK not to specify correctly what happens if you do. But the Try... function did need a comment to this effect. Added that.",
+      "parentUuid": "efe4be01_8115d4ca",
       "range": {
         "startLine": 488,
         "startChar": 53,
