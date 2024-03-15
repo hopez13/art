@@ -18,4 +18,16 @@ package com.android.server.art;
 
 /** @hide */
 interface IDexoptChrootSetup {
+    const @utf8InCpp String CHROOT_DIR = "/mnt/pre_reboot_dexopt/chroot";
+
+    /**
+     * Sets up the chroot environment.
+     *
+     * @param otaSlot The slot that contains the OTA update, "_a" or "_b", or null for a Mainline
+     *         update.
+     */
+    void setUp(@nullable @utf8InCpp String otaSlot);
+
+    /** Tears down the chroot environment. */
+    void tearDown();
 }
