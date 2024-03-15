@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6f67467_5e721eb8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2024-03-15T21:27:56Z",
+      "side": 1,
+      "message": "Just a couple of nits.",
+      "revId": "af1246a5abfaff6e6fc0efb5630beb267d73f1fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "388469ea_df721fca",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2064,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2024-03-15T21:27:56Z",
+      "side": 1,
+      "message": "If I understand the spec correctly, errors are returned both as errno and as -uffd_zeropage.zeropage. Though presumably not for EAGAIN. Maybe DCHECK that in the ret !\u003d 0 \u0026\u0026 errno !\u003d EAGAIN case? Just because it\u0027s a strange API, and it seems wise to sanity check errno, since we\u0027re relying on it.",
+      "range": {
+        "startLine": 2064,
+        "startChar": 4,
+        "endLine": 2064,
+        "endChar": 33
+      },
+      "revId": "af1246a5abfaff6e6fc0efb5630beb267d73f1fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2494a450_cf293e22",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 3882,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2024-03-15T21:27:56Z",
+      "side": 1,
+      "message": "Subtract\n```suggestion\n          // Subtract arena_size that was added above as it\u0027s not part of\n```",
+      "range": {
+        "startLine": 3882,
+        "startChar": 13,
+        "endLine": 3882,
+        "endChar": 22
+      },
+      "revId": "af1246a5abfaff6e6fc0efb5630beb267d73f1fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
