@@ -253,6 +253,30 @@
       },
       "revId": "6171c15e64f03b0f7f42905cb4d3fe40dfd59319",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "42e41a32_300983ea",
+        "filename": "libartservice/service/java/com/android/server/art/ArtdRefCache.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-03-18T14:21:56Z",
+      "side": 1,
+      "message": "I think you are right! I only thought about the reachability of the object from the caller of `close`, but not from `close` itself. In fact, in `close` itself, like you said, `this` is strongly reachable until the execution reaches `mCleanable.clean()` (i.e., `this.mCleanable.clean()`), unless the compiler reorders the instructions. But for peace of mind, let\u0027s keep the reachability fence.",
+      "parentUuid": "1c519da9_6ba37dd4",
+      "range": {
+        "startLine": 170,
+        "startChar": 12,
+        "endLine": 170,
+        "endChar": 31
+      },
+      "revId": "6171c15e64f03b0f7f42905cb4d3fe40dfd59319",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
