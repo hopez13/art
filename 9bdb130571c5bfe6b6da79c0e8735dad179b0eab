@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "b2a4ee8b_16548dbc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-03-18T12:38:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "764a8004_20487b70",
+      "range": {
+        "startLine": 7,
+        "startChar": 37,
+        "endLine": 7,
+        "endChar": 41
+      },
+      "revId": "9bdb130571c5bfe6b6da79c0e8735dad179b0eab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "19db7512_6b678e76",
         "filename": "/COMMIT_MSG",
         "patchSetId": 3
@@ -60,6 +84,30 @@
       "writtenOn": "2024-03-15T18:28:34Z",
       "side": 1,
       "message": "```suggestion\n        // libraries and the app\u0027s APKs which may be in /data.\n```",
+      "range": {
+        "startLine": 128,
+        "startChar": 29,
+        "endLine": 128,
+        "endChar": 37
+      },
+      "revId": "9bdb130571c5bfe6b6da79c0e8735dad179b0eab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "21e11fa7_6e9a999a",
+        "filename": "libnativeloader/library_namespaces.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-03-18T12:38:21Z",
+      "side": 1,
+      "message": "Phrased slightly differently - the dex list may contain APKs for more than one app.",
+      "parentUuid": "d0e1bc39_f4e3a737",
       "range": {
         "startLine": 128,
         "startChar": 29,
