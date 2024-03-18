@@ -229,6 +229,30 @@
       },
       "revId": "6171c15e64f03b0f7f42905cb4d3fe40dfd59319",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c519da9_6ba37dd4",
+        "filename": "libartservice/service/java/com/android/server/art/ArtdRefCache.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-03-18T13:20:56Z",
+      "side": 1,
+      "message": "\u003e the pin object becomes phantom reachable, even if the close() method is still being executed.\n\nHmm, I thought there\u0027d be a strong ref on the stack during the whole `close` call, but the compiler may rearrange it like this then?\n\n```\n        public void close() {\n            CloseGuard g \u003d mGuard;\n            Cleaner.Cleanable c \u003d mCleanable;\n            // No longer need to access `this`, so the reference on the stack\n            // is cleared here and it becomes phantom reachable.\n            g.close();\n            c.clean();\n        }\n```\n\nIf so it\u0027s prudent to use a reachability fence for the sake of clarity, but I\u0027m curious if the compiler does things like that in practice - it\u0027s not obvious that it\u0027d provide any performance benefit.",
+      "parentUuid": "5e756adb_cbc1bbec",
+      "range": {
+        "startLine": 170,
+        "startChar": 12,
+        "endLine": 170,
+        "endChar": 31
+      },
+      "revId": "6171c15e64f03b0f7f42905cb4d3fe40dfd59319",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
