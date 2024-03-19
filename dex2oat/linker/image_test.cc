@@ -19,6 +19,7 @@
 
 #include "image_test.h"
 
+#include "base/enums.h"
 #include "oat/image.h"
 #include "scoped_thread_state_change-inl.h"
 #include "thread.h"
@@ -74,6 +75,7 @@ TEST_F(ImageTest, ImageHeaderIsValid) {
   uint32_t oat_file_end = ART_BASE_ADDRESS + (2 * kElfSegmentAlignment + 2 * KB);
   ImageSection sections[ImageHeader::kSectionCount];
   uint32_t image_reservation_size = RoundUp(oat_file_end - image_begin, kElfSegmentAlignment);
+  static_assert(sizeof(void*) == 4u || sizeof(void*) == 8u);
   ImageHeader image_header(image_reservation_size,
                            /*component_count=*/ 1u,
                            image_begin,
@@ -89,8 +91,7 @@ TEST_F(ImageTest, ImageHeaderIsValid) {
                            /*boot_image_size=*/ 0u,
                            /*boot_image_component_count=*/ 0u,
                            /*boot_image_checksum=*/ 0u,
-                           sizeof(void*));
-
+                           static_cast<PointerSize>(sizeof(void*)));
   ASSERT_TRUE(image_header.IsValid());
 
   // Please note that for the following condition to be true, the above values should be chosen in
@@ -224,6 +225,7 @@ TEST_F(ImageTest, ImageChecksum) {
   ImageSection sections[ImageHeader::kSectionCount];
   // We require bitmap section to be at least kElfSegmentAlignment.
   sections[ImageHeader::kSectionImageBitmap] = ImageSection(0, kElfSegmentAlignment);
+  static_assert(sizeof(void*) == 4u || sizeof(void*) == 8u);
   ImageHeader image_header(/*image_reservation_size=*/ kElfSegmentAlignment,
                            /*component_count=*/ 1u,
                            image_begin,
@@ -239,7 +241,7 @@ TEST_F(ImageTest, ImageChecksum) {
                            /*boot_image_size=*/ 0u,
                            /*boot_image_component_count=*/ 0u,
                            /*boot_image_checksum=*/ 0u,
-                           sizeof(void*));
+                           static_cast<PointerSize>(sizeof(void*)));
     ASSERT_TRUE(image_header.IsValid());
 
     std::string error_msg;
