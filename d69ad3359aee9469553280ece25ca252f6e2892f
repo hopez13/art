@@ -210,6 +210,24 @@
       "parentUuid": "f6e3151e_f1c6a071",
       "revId": "d69ad3359aee9469553280ece25ca252f6e2892f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b8851ce4_2a56c496",
+        "filename": "libartbase/base/leb128.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-03-19T16:25:12Z",
+      "side": 1,
+      "message": "I noticed in the \"UnsignedChecked\" godbolt output that the old unrolled version has a range check before reading the first character but the new version does not.",
+      "parentUuid": "9992e30a_9b569bf6",
+      "revId": "d69ad3359aee9469553280ece25ca252f6e2892f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
