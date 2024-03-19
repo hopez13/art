@@ -1301,11 +1301,6 @@ bool ClassLinker::InitFromBootImage(std::string* error_msg) {
   std::vector<gc::space::ImageSpace*> spaces = heap->GetBootImageSpaces();
   CHECK(!spaces.empty());
   const ImageHeader& image_header = spaces[0]->GetImageHeader();
-  uint32_t pointer_size_unchecked = image_header.GetPointerSizeUnchecked();
-  if (!ValidPointerSize(pointer_size_unchecked)) {
-    *error_msg = StringPrintf("Invalid image pointer size: %u", pointer_size_unchecked);
-    return false;
-  }
   image_pointer_size_ = image_header.GetPointerSize();
   if (!runtime->IsAotCompiler()) {
     // Only the Aot compiler supports having an image with a different pointer size than the
