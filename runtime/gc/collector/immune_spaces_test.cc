@@ -134,6 +134,7 @@ class ImmuneSpacesTest : public CommonArtTest {
     std::unique_ptr<FakeOatFile> oat_file(new FakeOatFile(oat_map.Begin(), oat_map.End()));
     // Create image header.
     ImageSection sections[ImageHeader::kSectionCount];
+    static_assert(sizeof(void*) == 4u || sizeof(void*) == 8u);
     new (image_map.Begin()) ImageHeader(
         /*image_reservation_size=*/ image_size,
         /*component_count=*/ 1u,
@@ -151,7 +152,7 @@ class ImmuneSpacesTest : public CommonArtTest {
         /*boot_image_size=*/ 0u,
         /*boot_image_component_count=*/ 0u,
         /*boot_image_checksum=*/ 0u,
-        /*pointer_size=*/ sizeof(void*));
+        /*pointer_size=*/ static_cast<PointerSize>(sizeof(void*)));
     return new FakeImageSpace(std::move(image_map),
                               std::move(live_bitmap),
                               std::move(oat_file),
