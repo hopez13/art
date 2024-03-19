@@ -33,6 +33,24 @@
       "message": "I would be tempted to make the `end` std::optional and make this `if (end.has_value() \u0026\u0026 ptr \u003e\u003d end.value()) {`",
       "revId": "823abca3fd381fe88ff0ec693271a735c51a4559",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d2ef7877_f49d2a7f",
+        "filename": "libartbase/base/leb128.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-03-19T17:57:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5ff0dcd5_2c811d57",
+      "revId": "823abca3fd381fe88ff0ec693271a735c51a4559",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
