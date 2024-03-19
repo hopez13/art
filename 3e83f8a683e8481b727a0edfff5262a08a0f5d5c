@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "668d6321_3edbb60e",
+        "filename": "libartservice/service/java/com/android/server/art/GlobalInjector.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-03-19T16:10:56Z",
+      "side": 1,
+      "message": "Discussed offline and added comments. PTAL, thanks.",
+      "parentUuid": "8fa3e106_21998ec0",
+      "range": {
+        "startLine": 41,
+        "startChar": 57,
+        "endLine": 41,
+        "endChar": 63
+      },
+      "revId": "3e83f8a683e8481b727a0edfff5262a08a0f5d5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5494633c_ce0f6d73",
@@ -54,6 +78,30 @@
       "writtenOn": "2024-03-18T18:11:29Z",
       "side": 1,
       "message": "This could use a comment. It\u0027s used in code that talks about getters, so maybe call it `checkGetArtModuleServiceManager` to make it more self-explanatory. In the pre-reboot code the manager object may be called something else, but whatever it is it\u0027d be good if this method made it more clear that it\u0027s checking the getter for the registrerer for `Artd`, not `Artd` itself.",
+      "range": {
+        "startLine": 66,
+        "startChar": 25,
+        "endLine": 66,
+        "endChar": 34
+      },
+      "revId": "3e83f8a683e8481b727a0edfff5262a08a0f5d5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d29ec4c4_ed652663",
+        "filename": "libartservice/service/java/com/android/server/art/GlobalInjector.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-03-19T16:10:56Z",
+      "side": 1,
+      "message": "Renamed.",
+      "parentUuid": "5494633c_ce0f6d73",
       "range": {
         "startLine": 66,
         "startChar": 25,
