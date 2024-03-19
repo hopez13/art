@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "122719a6_1e3c8575",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-03-19T21:26:59Z",
+      "side": 1,
+      "message": "It was added in https://r.android.com/1649428 to support e.g. `atest --host libunwindstack_unit_test`. Can you please test that it still works with prebuilts where these are gone?\n\n(That test links `libdexfile_support` statically, but that in turn has a [runtime dependency](https://cs.android.com/android/platform/superproject/main/+/main:art/libdexfile/Android.bp;l\u003d442;drc\u003d56ab4a69151d4fc9308058a6ba8059ee49d8633f) on `libdexfile`, even on host. Maybe the right way to go there is to link it statically into `libdexfile_support` on host, but I don\u0027t remember if there was a reason why we didn\u0027t take that route back then.)",
+      "revId": "ba5a42786a9ca6004640a220d2d11e58e4ce8431",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
