@@ -126,6 +126,9 @@ class AssemblerTestBase : public testing::Test {
           "ART code size=" << art_code.size() << ", reference code size=" << ref_code.size();
     } else if (art_code.size() < ref_code.size()) {
       EXPECT_TRUE(false) << "ART code is smaller than the reference code. Too good to be true?";
+    } else if (require_same_encoding_) {
+      EXPECT_TRUE(false) << "Reference assembler chose a different encoding than ART "
+          " (of the same size) but the test is set up to require the same encoding";
     } else {
       LOG(INFO) << "Reference assembler chose a different encoding than ART (of the same size)";
     }
@@ -282,6 +285,7 @@ class AssemblerTestBase : public testing::Test {
 
   std::optional<ScratchDir> scratch_dir_;
   std::string android_data_;
+  bool require_same_encoding_ = true;
   DISALLOW_COPY_AND_ASSIGN(AssemblerTestBase);
 };
 
