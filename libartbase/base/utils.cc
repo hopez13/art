@@ -175,21 +175,6 @@ bool IsKernelVersionAtLeast(int reqd_major, int reqd_minor) {
 }
 #endif
 
-bool CacheOperationsMaySegFault() {
-#if defined(__linux__) && defined(__aarch64__)
-  // Avoid issue on older ARM64 kernels where data cache operations could be classified as writes
-  // and cause segmentation faults. This was fixed in Linux 3.11rc2:
-  //
-  // https://github.com/torvalds/linux/commit/db6f41063cbdb58b14846e600e6bc3f4e4c2e888
-  //
-  // This behaviour means we should avoid the dual view JIT on the device. This is just
-  // an issue when running tests on devices that have an old kernel.
-  return !IsKernelVersionAtLeast(3, 12);
-#else
-  return false;
-#endif
-}
-
 uint32_t GetTid() {
 #if defined(__APPLE__)
   uint64_t owner;
