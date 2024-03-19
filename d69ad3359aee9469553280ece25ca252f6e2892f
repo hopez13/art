@@ -228,6 +228,24 @@
       "parentUuid": "9992e30a_9b569bf6",
       "revId": "d69ad3359aee9469553280ece25ca252f6e2892f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "791d76ba_f3d903c0",
+        "filename": "libartbase/base/leb128.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-03-19T16:42:01Z",
+      "side": 1,
+      "message": "Thanks for pointing it out. That\u0027s my mistake, I was doing the ptr \u003e\u003d end after the first read. I will update the CL with the new code.\n\nHere\u0027s the correct comparison for checked ones:\nUsignedChecked: https://godbolt.org/z/bn57zxh6o\nSignedChecked: https://godbolt.org/z/9boWYxesb\n\nFor unchecked versions it doesn\u0027t change:\nUnsigned: https://godbolt.org/z/v9ajcvTG1\nSigned: https://godbolt.org/z/PxnEEojhs",
+      "parentUuid": "b8851ce4_2a56c496",
+      "revId": "d69ad3359aee9469553280ece25ca252f6e2892f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
