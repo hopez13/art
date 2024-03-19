@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f6ef88c_0272a0db",
+        "filename": "compiler/optimizing/code_generator_riscv64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 3298324
+      },
+      "writtenOn": "2024-03-19T16:49:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "60013b55_47aab73a",
+      "range": {
+        "startLine": 74,
+        "startChar": 0,
+        "endLine": 75,
+        "endChar": 49
+      },
+      "revId": "c7e27d31fce07d192237de6e00e7baa467a02482",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fdfec0f0_e816bb6e",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-03-19T16:12:48Z",
       "side": 1,
       "message": "Please fix this WARNING reported by Check Contents: Please remove the trailing whitespace.\n\nAnalyzer Description: Validates that changes do not have prohibited expressions in them.\nOwner: ayeaye-team@google.com\n\nPlease remove the trailing whitespace.",
+      "range": {
+        "startLine": 2881,
+        "startChar": 0,
+        "endLine": 2881,
+        "endChar": 2
+      },
+      "revId": "c7e27d31fce07d192237de6e00e7baa467a02482",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cf046743_b3d142f2",
+        "filename": "compiler/optimizing/intrinsics_riscv64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2881,
+      "author": {
+        "id": 3298324
+      },
+      "writtenOn": "2024-03-19T16:49:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fdfec0f0_e816bb6e",
       "range": {
         "startLine": 2881,
         "startChar": 0,
