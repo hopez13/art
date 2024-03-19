@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da038c65_14cc5bab",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1468,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-03-19T14:54:36Z",
+      "side": 1,
+      "message": "What do you mean by this part of the sentence?",
+      "range": {
+        "startLine": 1468,
+        "startChar": 7,
+        "endLine": 1468,
+        "endChar": 76
+      },
+      "revId": "c5b7d9ca322d5ae30463dc290dfa90cc70d782e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "382aff65_826f417c",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1452,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-03-19T14:54:36Z",
+      "side": 1,
+      "message": "\"check for deoptimization on exit\"",
+      "range": {
+        "startLine": 1451,
+        "startChar": 69,
+        "endLine": 1452,
+        "endChar": 10
+      },
+      "revId": "c5b7d9ca322d5ae30463dc290dfa90cc70d782e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "721a157f_d82ff28e",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1453,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-03-19T14:54:36Z",
+      "side": 1,
+      "message": "We should instead do this check in `FixupStaticTrampolines()` and `LinkCode()`. The `debuggable` state can change, so we can end up with a non-empty `boot_image_jni_stubs_` in a `debugable` process anyway. The state change to `debuggable` replaces already initialized entrypoints but we\u0027ll need to avoid the boot JNI stubs for methods initialized afterwards.",
+      "range": {
+        "startLine": 1453,
+        "startChar": 2,
+        "endLine": 1453,
+        "endChar": 37
+      },
+      "revId": "c5b7d9ca322d5ae30463dc290dfa90cc70d782e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4614aa6f_b5d9e202",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 877,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-03-19T14:54:36Z",
+      "side": 1,
+      "message": "Pull the shared code out of the then-block and else-block. (Just like it was originally in the PS1. Feel free to keep the `CHECK()` in the then-block.)",
+      "range": {
+        "startLine": 877,
+        "startChar": 16,
+        "endLine": 877,
+        "endChar": 91
+      },
+      "revId": "c5b7d9ca322d5ae30463dc290dfa90cc70d782e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
