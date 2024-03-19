@@ -89,6 +89,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "174c65b3_3053f09f",
+        "filename": "libartservice/service/java/com/android/server/art/GlobalInjector.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-03-19T21:49:46Z",
+      "side": 1,
+      "message": "Yes, I intend to do it in a separate CL, as discussed. Does the comment look good to you?",
+      "parentUuid": "8d1eab52_a530aa14",
+      "range": {
+        "startLine": 41,
+        "startChar": 57,
+        "endLine": 41,
+        "endChar": 63
+      },
+      "revId": "3e83f8a683e8481b727a0edfff5262a08a0f5d5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5494633c_ce0f6d73",
@@ -150,6 +174,30 @@
       "side": 1,
       "message": "I think `check\u003eGet\u003cArtModuleServiceManager` is even better, because it says what kind of check it is. But close enough.",
       "parentUuid": "d29ec4c4_ed652663",
+      "range": {
+        "startLine": 66,
+        "startChar": 25,
+        "endLine": 66,
+        "endChar": 34
+      },
+      "revId": "3e83f8a683e8481b727a0edfff5262a08a0f5d5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "39a4d37b_97d6accc",
+        "filename": "libartservice/service/java/com/android/server/art/GlobalInjector.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-03-19T21:49:46Z",
+      "side": 1,
+      "message": "In the Pre-reboot Dexopt case, there is not getter involved. Instead, PreRebootDexoptGlobalInjector holds a reference to the ArtModuleServiceManager instance. I think it\u0027s more accurate without \"Get\". Basically, it checks that we have access to the ArtModuleServiceManager instance, regardless of how.",
+      "parentUuid": "a71f52d5_8fa10aca",
       "range": {
         "startLine": 66,
         "startChar": 25,
