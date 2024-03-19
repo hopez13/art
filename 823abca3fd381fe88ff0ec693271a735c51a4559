@@ -16,6 +16,23 @@
       "message": "Thanks David!\n\nDavid and Vladimir PTAL. Thanks!",
       "revId": "823abca3fd381fe88ff0ec693271a735c51a4559",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ff0dcd5_2c811d57",
+        "filename": "libartbase/base/leb128.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2024-03-19T16:52:53Z",
+      "side": 1,
+      "message": "I would be tempted to make the `end` std::optional and make this `if (end.has_value() \u0026\u0026 ptr \u003e\u003d end.value()) {`",
+      "revId": "823abca3fd381fe88ff0ec693271a735c51a4559",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
