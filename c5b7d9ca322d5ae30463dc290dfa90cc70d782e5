@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "56f5462a_3d56c8be",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1468,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-03-19T16:05:41Z",
+      "side": 1,
+      "message": "I do find it confusing and would prefer this to be removed.\n\nAFAIK, the only reason to not compile JNI stubs in a boot image extension is being added in this change - an appropriate JNI stub is already present in the primary boot image. Or is there another case where we do not compile a JNI stub?",
+      "parentUuid": "24803486_b3ca2328",
+      "range": {
+        "startLine": 1468,
+        "startChar": 7,
+        "endLine": 1468,
+        "endChar": 76
+      },
+      "revId": "c5b7d9ca322d5ae30463dc290dfa90cc70d782e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "382aff65_826f417c",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 2
@@ -85,6 +109,30 @@
       "side": 1,
       "message": "I\u0027m planing to edit this to \"since we never use AOT code for debuggable.\"",
       "parentUuid": "382aff65_826f417c",
+      "range": {
+        "startLine": 1451,
+        "startChar": 69,
+        "endLine": 1452,
+        "endChar": 10
+      },
+      "revId": "c5b7d9ca322d5ae30463dc290dfa90cc70d782e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67037420_1660813a",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1452,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-03-19T16:05:41Z",
+      "side": 1,
+      "message": "OK. Alternatively, you could also drop the first part of the sentence:\n\n    // We never use AOT code for debuggable.",
+      "parentUuid": "5d8c6f32_fc3beb34",
       "range": {
         "startLine": 1451,
         "startChar": 69,
@@ -168,6 +216,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "eecbf446_9f05bcb2",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1453,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-03-19T16:05:41Z",
+      "side": 1,
+      "message": "The difference between the `LinkCode()` and `FixupStaticTrampolines()` is unfortunate. I\u0027m wondering if we should change `FixupStaticTrampolines()` to fetch the `OatClass` and do the same call as `LinkCode()`. Then we could just let the `InitializeMethodsCode()` do the check instead of having any explicit check in the `ClassLinker`.\n\nThe `CodeInfo::IsDebuggable()` check in `CodeSupportsEntryExitHooks()` is applied only to code in JIT code cache. The boot JNI stubs are in the boot image, not in the JIT code cache.",
+      "parentUuid": "88f6cbe7_6016b25c",
+      "range": {
+        "startLine": 1453,
+        "startChar": 2,
+        "endLine": 1453,
+        "endChar": 37
+      },
+      "revId": "c5b7d9ca322d5ae30463dc290dfa90cc70d782e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4614aa6f_b5d9e202",
         "filename": "runtime/stack.cc",
         "patchSetId": 2
@@ -203,6 +275,30 @@
       "side": 1,
       "message": "These 2 methods are not the same, one is `FromEntryPoint`, another is `FromCodePointer`. Because the code got from JIT cache is code pointer but it is entrypoint(especially for thumb2) when got from boot jni stubs.",
       "parentUuid": "4614aa6f_b5d9e202",
+      "range": {
+        "startLine": 877,
+        "startChar": 16,
+        "endLine": 877,
+        "endChar": 91
+      },
+      "revId": "c5b7d9ca322d5ae30463dc290dfa90cc70d782e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "33e76510_ca611aba",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 877,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-03-19T16:05:41Z",
+      "side": 1,
+      "message": "I see. So there was an ARM bug in the previously merged CL?\n\nWe could still have a shared `FromCodePointer()` call outside the if-block and then-block. We would just need to add `EntryPointToCodePointer()` to line 872.",
+      "parentUuid": "552a8eac_9f12c7e5",
       "range": {
         "startLine": 877,
         "startChar": 16,
