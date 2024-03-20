@@ -251,6 +251,10 @@ interface IArtd {
      */
     long getProfileSize(in com.android.server.art.ProfilePath profile);
 
+    void commitPreRebootStagedFiles(
+            in List<com.android.server.art.ArtifactsPath> artifacts,
+            in com.android.server.art.ProfilePath.WritableProfilePath profile);
+
     // The methods below are only for Pre-reboot Dexopt and only supported in Pre-reboot Dexopt
     // mode.
 
