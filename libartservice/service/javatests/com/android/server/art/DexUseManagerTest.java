@@ -97,6 +97,7 @@ public class DexUseManagerTest {
     @Mock private DexUseManagerLocal.Injector mInjector;
     @Mock private IArtd mArtd;
     @Mock private Context mContext;
+    @Mock private ArtManagerLocal mArtManagerLocal;
     private DexUseManagerLocal mDexUseManager;
     private String mCeDir;
     private String mDeDir;
@@ -167,6 +168,7 @@ public class DexUseManagerTest {
         lenient().when(mInjector.getContext()).thenReturn(mContext);
         lenient().when(mInjector.getAllPackageNames()).thenReturn(mPackageStates.keySet());
         lenient().when(mInjector.isPreReboot()).thenReturn(false);
+        lenient().when(mInjector.getArtManagerLocal()).thenReturn(mArtManagerLocal);
 
         mDexUseManager = new DexUseManagerLocal(mInjector);
         mDexUseManager.systemReady();

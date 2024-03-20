@@ -132,6 +132,7 @@ using ::art::tools::NonFatal;
 using ::ndk::ScopedAStatus;
 
 using TmpProfilePath = ProfilePath::TmpProfilePath;
+using WritableProfilePath = ProfilePath::WritableProfilePath;
 
 constexpr const char* kServiceName = "artd";
 constexpr const char* kPreRebootServiceName = "artd_pre_reboot";
@@ -1346,6 +1347,45 @@ ScopedAStatus Artd::getProfileSize(const ProfilePath& in_profile, int64_t* _aidl
   RETURN_FATAL_IF_PRE_REBOOT(options_);
   std::string profile_path = OR_RETURN_FATAL(BuildProfileOrDmPath(in_profile));
   *_aidl_return = GetSize(profile_path).value_or(0);
+  return ScopedAStatus::ok();
+}
+
+ScopedAStatus Artd::commitPreRebootStagedFiles(
+    const std::vector<ArtifactsPath>& in_artifacts,
+    const std::vector<WritableProfilePath>& in_profiles) {
+  RETURN_FATAL_IF_PRE_REBOOT(options_);
+
+  auto move = [](const std::string& src, const std::string& dst) -> Result<void> {
+    std::error_code ec;
+    std::filesystem::rename(src, dst, ec);
+    if (ec && ec.value() != ENOENT) {
+      return Errorf("Failed to move file '{}' to '{}': {}", src, dst, ec.message());
+    }
+    if (!ec) {
+      LOG(INFO) << ART_FORMAT("Committed pre-reboot staged file '{}' to '{}'", src, dst);
+    }
+    return {};
+  };
+
+  // TODO: Make this atomic.
+  for (const ArtifactsPath& artifacts : in_artifacts) {
+    RETURN_FATAL_IF_PRE_REBOOT_MISMATCH(options_, artifacts.isPreReboot, "artifacts");
+    ArtifactsPath pre_reboot_artifacts = artifacts;
+    pre_reboot_artifacts.isPreReboot = true;
+    RawArtifactsPath src_artifacts = OR_RETURN_FATAL(BuildArtifactsPath(pre_reboot_artifacts));
+    RawArtifactsPath dst_artifacts = OR_RETURN_FATAL(BuildArtifactsPath(artifacts));
+    OR_RETURN_NON_FATAL(move(src_artifacts.oat_path, dst_artifacts.oat_path));
+    OR_RETURN_NON_FATAL(move(src_artifacts.vdex_path, dst_artifacts.vdex_path));
+    OR_RETURN_NON_FATAL(move(src_artifacts.art_path, dst_artifacts.art_path));
+  }
+  for (const WritableProfilePath& profile : in_profiles) {
+    RETURN_FATAL_IF_PRE_REBOOT_MISMATCH(options_, PreRebootFlag(profile), "profiles");
+    WritableProfilePath pre_reboot_profile = profile;
+    PreRebootFlag(pre_reboot_profile) = true;
+    std::string src_profile = OR_RETURN_FATAL(BuildWritableProfilePath(pre_reboot_profile));
+    std::string dst_profile = OR_RETURN_FATAL(BuildWritableProfilePath(profile));
+    OR_RETURN_NON_FATAL(move(src_profile, dst_profile));
+  }
   return ScopedAStatus::ok();
 }
 
