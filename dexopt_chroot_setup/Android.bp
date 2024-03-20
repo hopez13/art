@@ -60,7 +60,7 @@ art_cc_binary {
 
 // This test only has the standalone version. A bundled test runs on host and in
 // chroot, neither of which is suitable for this test beucase this test sets up
-// chroot during the test.
+// a real chroot environment.
 art_cc_test {
     name: "art_standalone_dexopt_chroot_setup_tests",
     defaults: [
