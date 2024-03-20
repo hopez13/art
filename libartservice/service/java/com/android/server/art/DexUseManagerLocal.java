@@ -169,6 +169,7 @@ public class DexUseManagerLocal {
     /** Notifies dex use manager that {@link Context#registerReceiver} is ready for use. */
     public void systemReady() {
         Utils.check(!mInjector.isPreReboot());
+        LocalManagerRegistry.getManager(ArtManagerLocal.class).systemReady();
         // Save the data when the device is being shut down. The receiver is blocking, with a
         // 10s timeout.
         mInjector.getContext().registerReceiver(new BroadcastReceiver() {

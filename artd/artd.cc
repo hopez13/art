@@ -132,6 +132,7 @@ using ::art::tools::NonFatal;
 using ::ndk::ScopedAStatus;
 
 using TmpProfilePath = ProfilePath::TmpProfilePath;
+using WritableProfilePath = ProfilePath::WritableProfilePath;
 
 constexpr const char* kServiceName = "artd";
 constexpr const char* kPreRebootServiceName = "artd_pre_reboot";
@@ -1345,6 +1346,38 @@ ScopedAStatus Artd::getProfileSize(const ProfilePath& in_profile, int64_t* _aidl
   RETURN_FATAL_IF_PRE_REBOOT(options_);
   std::string profile_path = OR_RETURN_FATAL(BuildProfileOrDmPath(in_profile));
   *_aidl_return = GetSize(profile_path).value_or(0);
+  return ScopedAStatus::ok();
+}
+
+ScopedAStatus Artd::commitPreRebootStagedFiles(const std::vector<ArtifactsPath>& in_artifacts,
+                                               const WritableProfilePath& in_profile) {
+  auto move = [](const std::string& src, const std::string& dst) -> Result<void> {
+    std::error_code ec;
+    std::filesystem::rename(src, dst, ec);
+    if (ec && ec.value() != ENOENT) {
+      return Errorf("Failed to move file '{}' to '{}': {}", src, dst, ec.message());
+    }
+    if (!ec) {
+      LOG(INFO) << ART_FORMAT("Committed pre-reboot staged file '{}' to '{}'", src, dst);
+    }
+    return {};
+  };
+
+  // TODO: Make this atomic.
+  for (const ArtifactsPath& artifacts : in_artifacts) {
+    RawArtifactsPath src_artifacts =
+        OR_RETURN_FATAL(BuildArtifactsPath(artifacts, /*is_pre_reboot=*/true));
+    RawArtifactsPath dst_artifacts =
+        OR_RETURN_FATAL(BuildArtifactsPath(artifacts, /*is_pre_reboot=*/false));
+    OR_RETURN_NON_FATAL(move(src_artifacts.oat_path, dst_artifacts.oat_path));
+    OR_RETURN_NON_FATAL(move(src_artifacts.vdex_path, dst_artifacts.vdex_path));
+    OR_RETURN_NON_FATAL(move(src_artifacts.art_path, dst_artifacts.art_path));
+  }
+  std::string src_profile =
+      OR_RETURN_FATAL(BuildWritableProfilePath(in_profile, /*is_pre_reboot=*/true));
+  std::string dst_profile =
+      OR_RETURN_FATAL(BuildWritableProfilePath(in_profile, /*is_pre_reboot=*/false));
+  OR_RETURN_NON_FATAL(move(src_profile, dst_profile));
   return ScopedAStatus::ok();
 }
 
