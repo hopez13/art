@@ -168,6 +168,8 @@ public class DexUseManagerLocal {
 
     /** Notifies dex use manager that {@link Context#registerReceiver} is ready for use. */
     public void systemReady() {
+        Utils.check(!mInjector.isPreReboot());
+        LocalManagerRegistry.getManager(ArtManagerLocal.class).systemReady();
         // Save the data when the device is being shut down. The receiver is blocking, with a
         // 10s timeout.
         mInjector.getContext().registerReceiver(new BroadcastReceiver() {
@@ -528,6 +530,10 @@ public class DexUseManagerLocal {
     }
 
     private void save() {
+        if (mInjector.isPreReboot()) {
+            return;
+        }
+
         var builder = DexUseProto.newBuilder();
         int thisRevision;
         synchronized (mLock) {
@@ -1163,7 +1169,7 @@ public class DexUseManagerLocal {
             mContext = context;
 
             // Call the getters for various dependencies, to ensure correct initialization order.
-            ArtModuleServiceInitializer.getArtModuleServiceManager();
+            GlobalInjector.getInstance().checkArtModuleServiceManager();
             getPackageManagerLocal();
         }
 
@@ -1197,6 +1203,10 @@ public class DexUseManagerLocal {
                             getPackageManagerLocal().withUnfilteredSnapshot()) {
                 return new HashSet<>(snapshot.getPackageStates().keySet());
             }
+        }
+
+        public boolean isPreReboot() {
+            return GlobalInjector.getInstance().isPreReboot();
         }
 
         @NonNull
