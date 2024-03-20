@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e191c9e_f80724d7",
+        "filename": "libartbase/base/debugstore.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1951730
+      },
+      "writtenOn": "2024-03-20T12:09:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0868cc67_3580f74a",
+      "range": {
+        "startLine": 30,
+        "startChar": 2,
+        "endLine": 30,
+        "endChar": 19
+      },
+      "revId": "a425bfc68e6acb0e8154484a26bcabe2aaab861b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a60f8363_b918e571",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-02-29T14:29:26Z",
       "side": 1,
       "message": "Is it possible to test that it actually gets some data? That\u0027d help us ensure the functionality works across OEMs. Or do you have an E2E CTS test elsewhere?",
+      "range": {
+        "startLine": 173,
+        "startChar": 2,
+        "endLine": 173,
+        "endChar": 69
+      },
+      "revId": "a425bfc68e6acb0e8154484a26bcabe2aaab861b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "10bfb315_729790f2",
+        "filename": "libartpalette/apex/palette_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1951730
+      },
+      "writtenOn": "2024-03-20T12:09:50Z",
+      "side": 1,
+      "message": "I\u0027ve added a string length assertion to ensure it returns something.",
+      "parentUuid": "a60f8363_b918e571",
       "range": {
         "startLine": 173,
         "startChar": 2,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e5266664_77df0dbb",
+        "filename": "libartpalette/include/palette/palette_method_list.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1951730
+      },
+      "writtenOn": "2024-03-20T12:09:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a4931d65_2d927df2",
+      "range": {
+        "startLine": 87,
+        "startChar": 50,
+        "endLine": 87,
+        "endChar": 71
+      },
+      "revId": "a425bfc68e6acb0e8154484a26bcabe2aaab861b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d1d31b19_7b8bcd2a",
@@ -83,6 +155,30 @@
       "writtenOn": "2024-02-29T14:29:26Z",
       "side": 1,
       "message": "Nit: Align indentation here.",
+      "range": {
+        "startLine": 90,
+        "startChar": 21,
+        "endLine": 90,
+        "endChar": 23
+      },
+      "revId": "a425bfc68e6acb0e8154484a26bcabe2aaab861b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1901bb4c_cb8f9af6",
+        "filename": "libartpalette/include/palette/palette_method_list.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1951730
+      },
+      "writtenOn": "2024-03-20T12:09:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d1d31b19_7b8bcd2a",
       "range": {
         "startLine": 90,
         "startChar": 21,
