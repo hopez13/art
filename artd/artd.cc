@@ -130,6 +130,7 @@ using ::art::tools::NonFatal;
 using ::ndk::ScopedAStatus;
 
 using TmpProfilePath = ProfilePath::TmpProfilePath;
+using WritableProfilePath = ProfilePath::WritableProfilePath;
 
 constexpr const char* kServiceName = "artd";
 constexpr const char* kPreRebootServiceName = "artd_pre_reboot";
@@ -253,7 +254,9 @@ Result<void> PrepareArtifactsDirs(const OutputArtifacts& output_artifacts,
     return {};
   }
 
-  std::filesystem::path oat_path(OR_RETURN(BuildOatPath(output_artifacts.artifactsPath)));
+  std::filesystem::path oat_path(
+      OR_RETURN(BuildArtifactsPath(output_artifacts.artifactsPath, /*is_pre_reboot=*/false))
+          .oat_path);
   std::filesystem::path isa_dir = oat_path.parent_path();
   std::filesystem::path oat_dir = isa_dir.parent_path();
   DCHECK_EQ(oat_dir.filename(), "oat");
@@ -510,12 +513,13 @@ ScopedAStatus Artd::isAlive(bool* _aidl_return) {
 }
 
 ScopedAStatus Artd::deleteArtifacts(const ArtifactsPath& in_artifactsPath, int64_t* _aidl_return) {
-  std::string oat_path = OR_RETURN_FATAL(BuildOatPath(in_artifactsPath));
+  RawArtifactsPath path =
+      OR_RETURN_FATAL(BuildArtifactsPath(in_artifactsPath, /*is_pre_reboot=*/false));
 
   *_aidl_return = 0;
-  *_aidl_return += GetSizeAndDeleteFile(oat_path);
-  *_aidl_return += GetSizeAndDeleteFile(OatPathToVdexPath(oat_path));
-  *_aidl_return += GetSizeAndDeleteFile(OatPathToArtPath(oat_path));
+  *_aidl_return += GetSizeAndDeleteFile(path.oat_path);
+  *_aidl_return += GetSizeAndDeleteFile(path.vdex_path);
+  *_aidl_return += GetSizeAndDeleteFile(path.art_path);
 
   return ScopedAStatus::ok();
 }
@@ -617,7 +621,8 @@ ndk::ScopedAStatus Artd::CopyAndRewriteProfileImpl(File src,
                                                    OutputProfile* dst_aidl,
                                                    const std::string& dex_path,
                                                    CopyAndRewriteProfileResult* aidl_return) {
-  std::string dst_path = OR_RETURN_FATAL(BuildFinalProfilePath(dst_aidl->profilePath));
+  std::string dst_path =
+      OR_RETURN_FATAL(BuildFinalProfilePath(dst_aidl->profilePath, options_.is_pre_reboot));
   OR_RETURN_FATAL(ValidateDexPath(dex_path));
 
   FdLogger fd_logger;
@@ -667,6 +672,7 @@ ndk::ScopedAStatus Artd::CopyAndRewriteProfileImpl(File src,
   aidl_return->status = CopyAndRewriteProfileResult::Status::SUCCESS;
   dst_aidl->profilePath.id = dst->TempId();
   dst_aidl->profilePath.tmpPath = dst->TempPath();
+  dst_aidl->profilePath.isPreReboot = options_.is_pre_reboot;
   return ScopedAStatus::ok();
 }
 
@@ -708,8 +714,13 @@ ndk::ScopedAStatus Artd::copyAndRewriteEmbeddedProfile(OutputProfile* in_dst,
 }
 
 ndk::ScopedAStatus Artd::commitTmpProfile(const TmpProfilePath& in_profile) {
+  if (in_profile.isPreReboot != options_.is_pre_reboot) {
+    return Fatal("in_profile.isPreReboot != options_.is_pre_reboot");
+  }
+
   std::string tmp_profile_path = OR_RETURN_FATAL(BuildTmpProfilePath(in_profile));
-  std::string ref_profile_path = OR_RETURN_FATAL(BuildFinalProfilePath(in_profile));
+  std::string ref_profile_path =
+      OR_RETURN_FATAL(BuildFinalProfilePath(in_profile, in_profile.isPreReboot));
 
   std::error_code ec;
   std::filesystem::rename(tmp_profile_path, ref_profile_path, ec);
@@ -742,7 +753,8 @@ ndk::ScopedAStatus Artd::getProfileVisibility(const ProfilePath& in_profile,
 
 ndk::ScopedAStatus Artd::getArtifactsVisibility(const ArtifactsPath& in_artifactsPath,
                                                 FileVisibility* _aidl_return) {
-  std::string oat_path = OR_RETURN_FATAL(BuildOatPath(in_artifactsPath));
+  std::string oat_path =
+      OR_RETURN_FATAL(BuildArtifactsPath(in_artifactsPath, /*is_pre_reboot=*/false)).oat_path;
   *_aidl_return = OR_RETURN_NON_FATAL(GetFileVisibility(oat_path));
   return ScopedAStatus::ok();
 }
@@ -776,7 +788,7 @@ ndk::ScopedAStatus Artd::mergeProfiles(const std::vector<ProfilePath>& in_profil
     profile_paths.push_back(std::move(profile_path));
   }
   std::string output_profile_path =
-      OR_RETURN_FATAL(BuildFinalProfilePath(in_outputProfile->profilePath));
+      OR_RETURN_FATAL(BuildFinalProfilePath(in_outputProfile->profilePath, options_.is_pre_reboot));
   for (const std::string& dex_file : in_dexFiles) {
     OR_RETURN_FATAL(ValidateDexPath(dex_file));
   }
@@ -886,6 +898,7 @@ ndk::ScopedAStatus Artd::mergeProfiles(const std::vector<ProfilePath>& in_profil
   *_aidl_return = true;
   in_outputProfile->profilePath.id = output_profile_file->TempId();
   in_outputProfile->profilePath.tmpPath = output_profile_file->TempPath();
+  in_outputProfile->profilePath.isPreReboot = options_.is_pre_reboot;
   return ScopedAStatus::ok();
 }
 
@@ -946,9 +959,8 @@ ndk::ScopedAStatus Artd::dexopt(
     ArtdDexoptResult* _aidl_return) {
   _aidl_return->cancelled = false;
 
-  std::string oat_path = OR_RETURN_FATAL(BuildOatPath(in_outputArtifacts.artifactsPath));
-  std::string vdex_path = OatPathToVdexPath(oat_path);
-  std::string art_path = OatPathToArtPath(oat_path);
+  RawArtifactsPath artifacts_path =
+      OR_RETURN_FATAL(BuildArtifactsPath(in_outputArtifacts.artifactsPath, options_.is_pre_reboot));
   OR_RETURN_FATAL(ValidateDexPath(in_dexFile));
   std::optional<std::string> profile_path =
       in_profile.has_value() ?
@@ -1013,12 +1025,13 @@ ndk::ScopedAStatus Artd::dexopt(
     }
   }
 
-  std::unique_ptr<NewFile> oat_file = OR_RETURN_NON_FATAL(NewFile::Create(oat_path, fs_permission));
-  args.Add("--oat-fd=%d", oat_file->Fd()).Add("--oat-location=%s", oat_path);
+  std::unique_ptr<NewFile> oat_file =
+      OR_RETURN_NON_FATAL(NewFile::Create(artifacts_path.oat_path, fs_permission));
+  args.Add("--oat-fd=%d", oat_file->Fd()).Add("--oat-location=%s", artifacts_path.oat_path);
   fd_logger.Add(*oat_file);
 
   std::unique_ptr<NewFile> vdex_file =
-      OR_RETURN_NON_FATAL(NewFile::Create(vdex_path, fs_permission));
+      OR_RETURN_NON_FATAL(NewFile::Create(artifacts_path.vdex_path, fs_permission));
   args.Add("--output-vdex-fd=%d", vdex_file->Fd());
   fd_logger.Add(*vdex_file);
 
@@ -1027,18 +1040,18 @@ ndk::ScopedAStatus Artd::dexopt(
 
   std::unique_ptr<NewFile> art_file = nullptr;
   if (in_dexoptOptions.generateAppImage) {
-    art_file = OR_RETURN_NON_FATAL(NewFile::Create(art_path, fs_permission));
+    art_file = OR_RETURN_NON_FATAL(NewFile::Create(artifacts_path.art_path, fs_permission));
     args.Add("--app-image-fd=%d", art_file->Fd());
     args.AddIfNonEmpty("--image-format=%s", props_->GetOrEmpty("dalvik.vm.appimageformat"));
     fd_logger.Add(*art_file);
     files_to_commit.push_back(art_file.get());
   } else {
-    files_to_delete.push_back(art_path);
+    files_to_delete.push_back(artifacts_path.art_path);
   }
 
   std::unique_ptr<NewFile> swap_file = nullptr;
   if (ShouldCreateSwapFileForDexopt()) {
-    std::string swap_file_path = ART_FORMAT("{}.swap", oat_path);
+    std::string swap_file_path = ART_FORMAT("{}.swap", artifacts_path.oat_path);
     swap_file =
         OR_RETURN_NON_FATAL(NewFile::Create(swap_file_path, FsPermission{.uid = -1, .gid = -1}));
     args.Add("--swap-fd=%d", swap_file->Fd());
@@ -1203,10 +1216,10 @@ ScopedAStatus Artd::cleanup(const std::vector<ProfilePath>& in_profilesToKeep,
     files_to_keep.insert(OR_RETURN_FATAL(BuildProfileOrDmPath(profile)));
   }
   for (const ArtifactsPath& artifacts : in_artifactsToKeep) {
-    std::string oat_path = OR_RETURN_FATAL(BuildOatPath(artifacts));
-    files_to_keep.insert(OatPathToVdexPath(oat_path));
-    files_to_keep.insert(OatPathToArtPath(oat_path));
-    files_to_keep.insert(std::move(oat_path));
+    RawArtifactsPath path = OR_RETURN_FATAL(BuildArtifactsPath(artifacts, /*is_pre_reboot=*/false));
+    files_to_keep.insert(std::move(path.oat_path));
+    files_to_keep.insert(std::move(path.vdex_path));
+    files_to_keep.insert(std::move(path.art_path));
   }
   for (const VdexPath& vdex : in_vdexFilesToKeep) {
     files_to_keep.insert(OR_RETURN_FATAL(BuildVdexPath(vdex)));
@@ -1274,11 +1287,12 @@ ScopedAStatus Artd::deleteRuntimeArtifacts(const RuntimeArtifactsPath& in_runtim
 }
 
 ScopedAStatus Artd::getArtifactsSize(const ArtifactsPath& in_artifactsPath, int64_t* _aidl_return) {
-  std::string oat_path = OR_RETURN_FATAL(BuildOatPath(in_artifactsPath));
+  RawArtifactsPath path =
+      OR_RETURN_FATAL(BuildArtifactsPath(in_artifactsPath, /*is_pre_reboot=*/false));
   *_aidl_return = 0;
-  *_aidl_return += GetSize(oat_path).value_or(0);
-  *_aidl_return += GetSize(OatPathToVdexPath(oat_path)).value_or(0);
-  *_aidl_return += GetSize(OatPathToArtPath(oat_path)).value_or(0);
+  *_aidl_return += GetSize(path.oat_path).value_or(0);
+  *_aidl_return += GetSize(path.vdex_path).value_or(0);
+  *_aidl_return += GetSize(path.art_path).value_or(0);
   return ScopedAStatus::ok();
 }
 
@@ -1698,6 +1712,38 @@ Result<void> Artd::PreRebootInitBootImages() {
   }
 
   return {};
+}
+
+ScopedAStatus Artd::commitPreRebootStagedFiles(const std::vector<ArtifactsPath>& in_artifacts,
+                                               const WritableProfilePath& in_profile) {
+  auto move = [](const std::string& src, const std::string& dst) -> Result<void> {
+    std::error_code ec;
+    std::filesystem::rename(src, dst, ec);
+    if (ec && ec.value() != ENOENT) {
+      return Errorf("Failed to move file '{}' to '{}': {}", src, dst, ec.message());
+    }
+    if (!ec) {
+      LOG(INFO) << ART_FORMAT("Committed pre-reboot staged file '{}' to '{}'", src, dst);
+    }
+    return {};
+  };
+
+  // TODO: Make this atomic.
+  for (const ArtifactsPath& artifacts : in_artifacts) {
+    RawArtifactsPath src_artifacts =
+        OR_RETURN_FATAL(BuildArtifactsPath(artifacts, /*is_pre_reboot=*/true));
+    RawArtifactsPath dst_artifacts =
+        OR_RETURN_FATAL(BuildArtifactsPath(artifacts, /*is_pre_reboot=*/false));
+    OR_RETURN_NON_FATAL(move(src_artifacts.oat_path, dst_artifacts.oat_path));
+    OR_RETURN_NON_FATAL(move(src_artifacts.vdex_path, dst_artifacts.vdex_path));
+    OR_RETURN_NON_FATAL(move(src_artifacts.art_path, dst_artifacts.art_path));
+  }
+  std::string src_profile =
+      OR_RETURN_FATAL(BuildWritableProfilePath(in_profile, /*is_pre_reboot=*/true));
+  std::string dst_profile =
+      OR_RETURN_FATAL(BuildWritableProfilePath(in_profile, /*is_pre_reboot=*/false));
+  OR_RETURN_NON_FATAL(move(src_profile, dst_profile));
+  return ScopedAStatus::ok();
 }
 
 ScopedAStatus Artd::validateDexPath(const std::string& in_dexFile,

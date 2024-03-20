@@ -56,6 +56,8 @@ using SecondaryRefProfilePath = ProfilePath::SecondaryRefProfilePath;
 using TmpProfilePath = ProfilePath::TmpProfilePath;
 using WritableProfilePath = ProfilePath::WritableProfilePath;
 
+constexpr const char* kPreRebootSuffix = ".staged";
+
 // Only to be changed for testing.
 std::string_view gListRootDir = "/";
 
@@ -153,7 +155,8 @@ Result<std::string> BuildArtBinPath(const std::string& binary_name) {
   return ART_FORMAT("{}/bin/{}", OR_RETURN(GetArtRootOrError()), binary_name);
 }
 
-Result<std::string> BuildOatPath(const ArtifactsPath& artifacts_path) {
+Result<RawArtifactsPath> BuildArtifactsPath(const ArtifactsPath& artifacts_path,
+                                            bool is_pre_reboot) {
   OR_RETURN(ValidateDexPath(artifacts_path.dexPath));
 
   InstructionSet isa = GetInstructionSetFromString(artifacts_path.isa.c_str());
@@ -162,21 +165,33 @@ Result<std::string> BuildOatPath(const ArtifactsPath& artifacts_path) {
   }
 
   std::string error_msg;
-  std::string path;
+  RawArtifactsPath path;
   if (artifacts_path.isInDalvikCache) {
     // Apps' OAT files are never in ART APEX data.
-    if (!OatFileAssistant::DexLocationToOatFilename(
-            artifacts_path.dexPath, isa, /*deny_art_apex_data_files=*/true, &path, &error_msg)) {
+    if (!OatFileAssistant::DexLocationToOatFilename(artifacts_path.dexPath,
+                                                    isa,
+                                                    /*deny_art_apex_data_files=*/true,
+                                                    &path.oat_path,
+                                                    &error_msg)) {
       return Error() << error_msg;
     }
-    return path;
   } else {
     if (!OatFileAssistant::DexLocationToOdexFilename(
-            artifacts_path.dexPath, isa, &path, &error_msg)) {
+            artifacts_path.dexPath, isa, &path.oat_path, &error_msg)) {
       return Error() << error_msg;
     }
-    return path;
   }
+
+  path.vdex_path = ReplaceFileExtension(path.oat_path, "vdex");
+  path.art_path = ReplaceFileExtension(path.oat_path, "art");
+
+  if (is_pre_reboot) {
+    path.oat_path += kPreRebootSuffix;
+    path.vdex_path += kPreRebootSuffix;
+    path.art_path += kPreRebootSuffix;
+  }
+
+  return path;
 }
 
 Result<std::string> BuildPrimaryRefProfilePath(
@@ -221,24 +236,38 @@ Result<std::string> BuildSecondaryCurProfilePath(
       "{}/oat/{}.cur.prof", dex_path.parent_path().string(), dex_path.filename().string());
 }
 
-Result<std::string> BuildFinalProfilePath(const TmpProfilePath& tmp_profile_path) {
-  const WritableProfilePath& final_path = tmp_profile_path.finalPath;
-  switch (final_path.getTag()) {
+static Result<std::string> BuildWritableProfilePathImpl(const WritableProfilePath& profile_path) {
+  switch (profile_path.getTag()) {
     case WritableProfilePath::forPrimary:
-      return BuildPrimaryRefProfilePath(final_path.get<WritableProfilePath::forPrimary>());
+      return BuildPrimaryRefProfilePath(profile_path.get<WritableProfilePath::forPrimary>());
     case WritableProfilePath::forSecondary:
-      return BuildSecondaryRefProfilePath(final_path.get<WritableProfilePath::forSecondary>());
+      return BuildSecondaryRefProfilePath(profile_path.get<WritableProfilePath::forSecondary>());
       // No default. All cases should be explicitly handled, or the compilation will fail.
   }
   // This should never happen. Just in case we get a non-enumerator value.
   LOG(FATAL) << ART_FORMAT("Unexpected writable profile path type {}",
-                           fmt::underlying(final_path.getTag()));
+                           fmt::underlying(profile_path.getTag()));
+}
+
+Result<std::string> BuildWritableProfilePath(const WritableProfilePath& profile_path,
+                                             bool is_pre_reboot) {
+  std::string path = OR_RETURN(BuildWritableProfilePathImpl(profile_path));
+  if (is_pre_reboot) {
+    path += kPreRebootSuffix;
+  }
+  return path;
+}
+
+Result<std::string> BuildFinalProfilePath(const TmpProfilePath& tmp_profile_path,
+                                          bool is_pre_reboot) {
+  return BuildWritableProfilePath(tmp_profile_path.finalPath, is_pre_reboot);
 }
 
 Result<std::string> BuildTmpProfilePath(const TmpProfilePath& tmp_profile_path) {
   OR_RETURN(ValidatePathElementSubstring(tmp_profile_path.id, "id"));
-  return NewFile::BuildTempPath(OR_RETURN(BuildFinalProfilePath(tmp_profile_path)),
-                                tmp_profile_path.id);
+  return NewFile::BuildTempPath(
+      OR_RETURN(BuildFinalProfilePath(tmp_profile_path, tmp_profile_path.isPreReboot)),
+      tmp_profile_path.id);
 }
 
 Result<std::string> BuildDexMetadataPath(const DexMetadataPath& dex_metadata_path) {
@@ -271,7 +300,9 @@ Result<std::string> BuildProfileOrDmPath(const ProfilePath& profile_path) {
 
 Result<std::string> BuildVdexPath(const VdexPath& vdex_path) {
   DCHECK(vdex_path.getTag() == VdexPath::artifactsPath);
-  return OatPathToVdexPath(OR_RETURN(BuildOatPath(vdex_path.get<VdexPath::artifactsPath>())));
+  return OR_RETURN(BuildArtifactsPath(vdex_path.get<VdexPath::artifactsPath>(),
+                                      /*is_pre_reboot=*/false))
+      .vdex_path;
 }
 
 void TestOnlySetListRootDir(std::string_view root_dir) { gListRootDir = root_dir; }
