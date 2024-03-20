@@ -16,6 +16,29 @@
       "message": "FTR, the MCTS lint is wrong here - filed b/330519636.",
       "revId": "002aca7141e7baf488b02f330b307f059c47a84d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "74b2db99_21f99b11",
+        "filename": "libnativebridge/tests/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2024-03-20T18:16:32Z",
+      "side": 1,
+      "message": "Please fix this ERROR reported by Mcts Tag Check: No mcts-\u003cmodule\u003e tag found for test_suites in line 160 of Android.bp file. If you tag the test as both cts and mts-\u003cmodule\u003e, then you must also add a corresponding mcts-\u003cmodule\u003e tag.\n\nAnalyzer Description: Validates that the tests must contain a MCTS tag if both CTS and MTS tags exist.\nOwner: liutongbo@google.com\n\nNo mcts-\u003cmodule\u003e tag found for test_suites in line 160 of Android.bp file. If you tag the test as both cts and mts-\u003cmodule\u003e, then you must also add a corresponding mcts-\u003cmodule\u003e tag.\nFor more details, please check out go/mcts-guide#presubmit-check. If you have any questions, please reach out to liutongbo@google.com.",
+      "range": {
+        "startLine": 0,
+        "startChar": 0,
+        "endLine": 0,
+        "endChar": 0
+      },
+      "revId": "002aca7141e7baf488b02f330b307f059c47a84d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
