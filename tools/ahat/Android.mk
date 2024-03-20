@@ -94,7 +94,7 @@ AHAT_RI_TEST_DUMP_HPROF := $(AHAT_RI_TEST_DUMP_COMMON)/ri-test-dump.hprof
 $(AHAT_RI_TEST_DUMP_HPROF): PRIVATE_AHAT_RI_TEST_DUMP_JAR := $(AHAT_RI_TEST_DUMP_JAR)
 $(AHAT_RI_TEST_DUMP_HPROF): $(AHAT_RI_TEST_DUMP_JAR)
 	rm -rf $@
-	java -cp $(PRIVATE_AHAT_RI_TEST_DUMP_JAR) Main $@
+	./prebuilts/jdk/jdk17/linux-x86/bin/java -cp $(PRIVATE_AHAT_RI_TEST_DUMP_JAR) Main $@
 
 # --- ahat-tests.jar --------------
 # To run these tests, use: atest ahat-tests --host
