@@ -16,6 +16,24 @@
       "message": "It was added in https://r.android.com/1649428 to support e.g. `atest --host libunwindstack_unit_test`. Can you please test that it still works with prebuilts where these are gone?\n\n(That test links `libdexfile_support` statically, but that in turn has a [runtime dependency](https://cs.android.com/android/platform/superproject/main/+/main:art/libdexfile/Android.bp;l\u003d442;drc\u003d56ab4a69151d4fc9308058a6ba8059ee49d8633f) on `libdexfile`, even on host. Maybe the right way to go there is to link it statically into `libdexfile_support` on host, but I don\u0027t remember if there was a reason why we didn\u0027t take that route back then.)",
       "revId": "ba5a42786a9ca6004640a220d2d11e58e4ce8431",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6869b285_51478fc6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1878380
+      },
+      "writtenOn": "2024-03-20T00:24:35Z",
+      "side": 1,
+      "message": "Thanks Martin, I verified the following for `cf_x86_64_phone` in internal main\n- Switched to prebuilts using `RELEASE_DEFAULT_MODULE_BUILD_FROM_SOURCE\u003dFalse`\n- Commented out the Android.bp defs of these two libs in `prebuilts/module_sdk`.\n\nThe following unit test passed.\n\n```\natest --host --no-bazel-mode libunwindstack_unit_test\n```\n\n(Aside: I was running into some pre-existing issues with atest\u0027s Bazel sandboxing, so I had to use the non bazel mode)",
+      "parentUuid": "122719a6_1e3c8575",
+      "revId": "ba5a42786a9ca6004640a220d2d11e58e4ce8431",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
