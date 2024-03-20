@@ -62,6 +62,30 @@
       },
       "revId": "303de5b99fa6528688c18f32d462bc9917f36545",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0899b7f1_114c0f1d",
+        "filename": "libartbase/base/enums.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-03-20T14:42:31Z",
+      "side": 1,
+      "message": "Added a `static_assert` in `ImageHeader`\u0027s constructor",
+      "parentUuid": "fe86cdb5_3323da28",
+      "range": {
+        "startLine": 26,
+        "startChar": 25,
+        "endLine": 26,
+        "endChar": 33
+      },
+      "revId": "303de5b99fa6528688c18f32d462bc9917f36545",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
