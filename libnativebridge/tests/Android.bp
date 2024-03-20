@@ -91,12 +91,15 @@ cc_test_library {
     defaults: ["libnativebridge-test-case-defaults"],
 }
 
+<<<<<<< HEAD   (2997dd Use JDK 17 to build RI hprof test dump)
 cc_test_library {
     name: "libnativebridge7criticalnative",
     srcs: ["NativeBridge7CriticalNative_lib.cpp"],
     defaults: ["libnativebridge-test-case-defaults"],
 }
 
+=======
+>>>>>>> BRANCH (002aca Revert "libnativebridge_test: link non-public libs staticall)
 cc_test {
     name: "libnativebridge-tests",
     defaults: [
@@ -191,8 +194,11 @@ cc_test {
         "libnativebridge_lazy",
     ],
     srcs: ["libnativebridge_api_test.cpp"],
+<<<<<<< HEAD   (2997dd Use JDK 17 to build RI hprof test dump)
     test_suites: [
         "general-tests",
         "mts-art",
     ],
+=======
+>>>>>>> BRANCH (002aca Revert "libnativebridge_test: link non-public libs staticall)
 }
