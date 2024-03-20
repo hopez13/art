@@ -21,6 +21,7 @@
 #include <sys/syscall.h>
 #include <unistd.h>
 
+#include <cstring>
 #include <filesystem>
 
 #ifdef ART_TARGET_ANDROID
@@ -165,4 +166,18 @@ TEST_F(PaletteClientTest, SetTaskProfilesCpp) {
     }
   }
 #endif
+}
+
+TEST_F(PaletteClientTest, DebugStore) {
+  std::array<char, 20> result{};
+
+  EXPECT_EQ(PALETTE_STATUS_OK, PaletteDebugStoreGetString(result.data(), result.size()));
+
+  size_t len = strnlen(result.data(), result.size());
+  EXPECT_TRUE(len < result.size());
+
+  const char* start = "1,0,";
+  const char* end = "::";
+  EXPECT_TRUE(len > strlen(start) + strlen(end));
+  EXPECT_EQ(strncmp(result.data() + len - strlen(end), end, strlen(end)), 0);
 }
