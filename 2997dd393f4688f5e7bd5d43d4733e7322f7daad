@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cfdd643e_130f0f6b",
+        "filename": "tools/ahat/Android.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1863710
+      },
+      "writtenOn": "2024-03-20T12:16:01Z",
+      "side": 1,
+      "message": "I wanted to use ANDROID_BUILD_TOP, but this doesn\u0027t work anymore (see https://android.googlesource.com/platform/build/+/master/Changes.md#android_build_top-android_build_top).",
+      "range": {
+        "startLine": 98,
+        "startChar": 1,
+        "endLine": 98,
+        "endChar": 2
+      },
+      "revId": "2997dd393f4688f5e7bd5d43d4733e7322f7daad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
