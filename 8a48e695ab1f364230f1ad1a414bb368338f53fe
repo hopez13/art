@@ -3,6 +3,75 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "11d0ad3e_104e1e0b",
+        "filename": "compiler/optimizing/intrinsics_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2805,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-03-20T16:38:11Z",
+      "side": 1,
+      "message": "Indentation: +4 spaces.",
+      "range": {
+        "startLine": 2804,
+        "startChar": 39,
+        "endLine": 2805,
+        "endChar": 66
+      },
+      "revId": "8a48e695ab1f364230f1ad1a414bb368338f53fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "343c832b_e048db15",
+        "filename": "compiler/optimizing/intrinsics_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2831,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-03-20T16:38:11Z",
+      "side": 1,
+      "message": "` \u003d kNoXRegister`",
+      "range": {
+        "startLine": 2831,
+        "startChar": 17,
+        "endLine": 2831,
+        "endChar": 18
+      },
+      "revId": "8a48e695ab1f364230f1ad1a414bb368338f53fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57967d75_51becca7",
+        "filename": "compiler/optimizing/intrinsics_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2858,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-03-20T16:38:11Z",
+      "side": 1,
+      "message": "I\u0027d prefer a 64-bit `Sub()` for references.",
+      "range": {
+        "startLine": 2858,
+        "startChar": 5,
+        "endLine": 2858,
+        "endChar": 9
+      },
+      "revId": "8a48e695ab1f364230f1ad1a414bb368338f53fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6fc0b0e4_98660b7a",
         "filename": "compiler/optimizing/intrinsics_riscv64.cc",
         "patchSetId": 3
@@ -19,6 +88,75 @@
         "startChar": 0,
         "endLine": 2877,
         "endChar": 54
+      },
+      "revId": "8a48e695ab1f364230f1ad1a414bb368338f53fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "40086ea2_1ea6465d",
+        "filename": "compiler/optimizing/intrinsics_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2879,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-03-20T16:38:11Z",
+      "side": 1,
+      "message": "\"the length of the shorter string\"",
+      "range": {
+        "startLine": 2879,
+        "startChar": 10,
+        "endLine": 2879,
+        "endChar": 35
+      },
+      "revId": "8a48e695ab1f364230f1ad1a414bb368338f53fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3118ecf_4d0c4857",
+        "filename": "compiler/optimizing/intrinsics_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2894,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-03-20T16:38:11Z",
+      "side": 1,
+      "message": "The `sll`, `addi` and `b.gt` below are appropriate for an `int64_t` rather than `uint32_t`, so this copy-pasted comment should be updated accordingly.",
+      "range": {
+        "startLine": 2894,
+        "startChar": 64,
+        "endLine": 2894,
+        "endChar": 72
+      },
+      "revId": "8a48e695ab1f364230f1ad1a414bb368338f53fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7508f2ac_104a0fa0",
+        "filename": "compiler/optimizing/intrinsics_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2898,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-03-20T16:38:11Z",
+      "side": 1,
+      "message": "\"hold\"",
+      "range": {
+        "startLine": 2898,
+        "startChar": 26,
+        "endLine": 2898,
+        "endChar": 33
       },
       "revId": "8a48e695ab1f364230f1ad1a414bb368338f53fe",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
@@ -72,6 +210,53 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "eefa5615_70cfe649",
+        "filename": "compiler/optimizing/intrinsics_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2914,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-03-20T16:38:11Z",
+      "side": 1,
+      "message": "We could pre-calculate the end of the compared data before the loop instead of decrementing the counter inside the loop. The `b.gt` below would compare `temp1` to the pre-calculated end. (But we\u0027d need to use another temporary or adjust the calculation below.)",
+      "parentUuid": "60c16649_314f2373",
+      "range": {
+        "startLine": 2914,
+        "startChar": 0,
+        "endLine": 2914,
+        "endChar": 48
+      },
+      "revId": "8a48e695ab1f364230f1ad1a414bb368338f53fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "854bcedf_afbf666c",
+        "filename": "compiler/optimizing/intrinsics_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2930,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-03-20T16:38:11Z",
+      "side": 1,
+      "message": "I would drop this bit as we\u0027re treating `temp0` as `int64_t`.",
+      "range": {
+        "startLine": 2927,
+        "startChar": 2,
+        "endLine": 2930,
+        "endChar": 56
+      },
+      "revId": "8a48e695ab1f364230f1ad1a414bb368338f53fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f89e5028_49e2393b",
         "filename": "compiler/optimizing/intrinsics_riscv64.cc",
         "patchSetId": 3
@@ -88,6 +273,53 @@
         "startChar": 0,
         "endLine": 2941,
         "endChar": 3
+      },
+      "revId": "8a48e695ab1f364230f1ad1a414bb368338f53fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "960fd01a_9cb1e061",
+        "filename": "compiler/optimizing/intrinsics_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2941,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-03-20T16:38:11Z",
+      "side": 1,
+      "message": "Unlike the arm64 code, we store the right-shifted value of `temp1` back to `temp1` before the comparison with `temp0` (line 2932 above; compare with CMP-shifted-operand on arm64), so we need the left-shift to get the relevant bits in the right position. The BIC is not needed because the \u003e\u003e, \u003c\u003c have cleared those bits.\n\nNote that we have the `Andn()` instruction in the assember and we should use it instead of the NOT+AND.",
+      "parentUuid": "f89e5028_49e2393b",
+      "range": {
+        "startLine": 2936,
+        "startChar": 0,
+        "endLine": 2941,
+        "endChar": 3
+      },
+      "revId": "8a48e695ab1f364230f1ad1a414bb368338f53fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7da8df6_bc7bd1c6",
+        "filename": "compiler/optimizing/intrinsics_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2949,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-03-20T16:38:11Z",
+      "side": 1,
+      "message": "I\u0027d prefer branch-free code. If the result of the SLLI in line 2938 above is stored in `temp3` instead of `temp0`, we can reuse it for\n\n    li temp0, -256  // ~0xff\n    slliw temp0, temp0, temp3  // temp3 \u003d 0 or 8, temp0 :\u003d ~0xff or ~0xffff\n    andn temp1, temp4, temp0  // Extract 8 or 16 bits.\n    andn temp0, temp2, temp0  // Extract 8 or 16 bits.\n    subw out, temp1, temp0\n\nThis is also fewer instuctions to execute. (On arm64 it would be more instructions but maybe the branch-free code would be faster.)",
+      "range": {
+        "startLine": 2949,
+        "startChar": 7,
+        "endLine": 2949,
+        "endChar": 11
       },
       "revId": "8a48e695ab1f364230f1ad1a414bb368338f53fe",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
@@ -141,6 +373,92 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f95dc193_9356a665",
+        "filename": "compiler/optimizing/intrinsics_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2973,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-03-20T16:38:11Z",
+      "side": 1,
+      "message": "This is a long sequence. What about\n\n    xor temp4, str, arg\n    addi temp2, temp3, -1  // -1 if str is compressed, 0 otherwise\n    and temp2, temp2, temp4  // str^arg if str is compressed, 0 otherwise\n    xor temp1, temp2, arg  // str if str is compressed, arg otherwise\n    xor temp2, temp2, str  // arg if str is compressed, str otherwise\n\n(This could be slower due to data dependencies.)",
+      "revId": "8a48e695ab1f364230f1ad1a414bb368338f53fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4237fdcd_d5114196",
+        "filename": "compiler/optimizing/intrinsics_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2978,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-03-20T16:38:11Z",
+      "side": 1,
+      "message": "Update ARM-specific comments.",
+      "range": {
+        "startLine": 2977,
+        "startChar": 20,
+        "endLine": 2978,
+        "endChar": 98
+      },
+      "revId": "8a48e695ab1f364230f1ad1a414bb368338f53fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0ac78a0_455e0aac",
+        "filename": "compiler/optimizing/intrinsics_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2979,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-03-20T16:38:11Z",
+      "side": 1,
+      "message": "If we don\u0027t mind the bit being flipped, we can store the `temp3 - 1` from the string selection (lines 2997-2973 above) back to `temp3` and do a `sh1add` here, avoiding the `sub` below.",
+      "range": {
+        "startLine": 2979,
+        "startChar": 4,
+        "endLine": 2979,
+        "endChar": 30
+      },
+      "revId": "8a48e695ab1f364230f1ad1a414bb368338f53fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba30d0b8_73e1aa83",
+        "filename": "compiler/optimizing/intrinsics_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2983,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-03-20T16:38:11Z",
+      "side": 1,
+      "message": "These should be `Addi()`, not `Addiw()`.",
+      "range": {
+        "startLine": 2982,
+        "startChar": 4,
+        "endLine": 2983,
+        "endChar": 41
+      },
+      "revId": "8a48e695ab1f364230f1ad1a414bb368338f53fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7f083bf2_6a5572c2",
         "filename": "compiler/optimizing/intrinsics_riscv64.cc",
         "patchSetId": 3
@@ -152,6 +470,93 @@
       "writtenOn": "2024-03-20T09:47:37Z",
       "side": 1,
       "message": "Shouldn\u0027t this load happen one line after? i.e. after the temp1 has been increased. Same for lhu in line 2995",
+      "revId": "8a48e695ab1f364230f1ad1a414bb368338f53fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f231862c_15ce655c",
+        "filename": "compiler/optimizing/intrinsics_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2993,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-03-20T16:38:11Z",
+      "side": 1,
+      "message": "No, this corresponds to the post-increment load on arm64.",
+      "parentUuid": "7f083bf2_6a5572c2",
+      "revId": "8a48e695ab1f364230f1ad1a414bb368338f53fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5900a73f_736c28ed",
+        "filename": "compiler/optimizing/intrinsics_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2999,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-03-20T16:38:11Z",
+      "side": 1,
+      "message": "Please remove. We\u0027re treating `temp0` as `int64_t`.",
+      "range": {
+        "startLine": 2999,
+        "startChar": 4,
+        "endLine": 2999,
+        "endChar": 56
+      },
+      "revId": "8a48e695ab1f364230f1ad1a414bb368338f53fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4af75ebd_6b2520c5",
+        "filename": "compiler/optimizing/intrinsics_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3001,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-03-20T16:38:11Z",
+      "side": 1,
+      "message": "Nit: `Bgtz`.",
+      "range": {
+        "startLine": 3001,
+        "startChar": 7,
+        "endLine": 3001,
+        "endChar": 10
+      },
+      "revId": "8a48e695ab1f364230f1ad1a414bb368338f53fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c69595f_22e5d5bb",
+        "filename": "compiler/optimizing/intrinsics_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3008,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-03-20T16:38:11Z",
+      "side": 1,
+      "message": "This could be done branch-free:\n\n    andi temp0, temp0, 1\n    sub temp0, zero, temp0  |  addi temp0, temp0, -1\n    xor out, temp4, temp0\n    sub out, out, temp0\n\nwhere the second instruction depends on whether the compression flag has been flipped or not (see comment in line 2979).",
+      "range": {
+        "startLine": 3008,
+        "startChar": 7,
+        "endLine": 3008,
+        "endChar": 11
+      },
       "revId": "8a48e695ab1f364230f1ad1a414bb368338f53fe",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
