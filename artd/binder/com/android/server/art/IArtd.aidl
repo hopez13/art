@@ -235,6 +235,12 @@ interface IArtd {
      */
     long getProfileSize(in com.android.server.art.ProfilePath profile);
 
+    void commitPreRebootStagedFiles(
+            in List<com.android.server.art.ArtifactsPath> artifacts,
+            in com.android.server.art.ProfilePath.WritableProfilePath profile);
+
+    void preRebootInit();
+
     /** For Pre-reboot Dexopt use. See {@link ArtJni#validateDexPath}. */
     @nullable @utf8InCpp String validateDexPath(@utf8InCpp String dexFile);
 
