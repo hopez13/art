@@ -246,6 +246,24 @@
       "parentUuid": "b8851ce4_2a56c496",
       "revId": "d69ad3359aee9469553280ece25ca252f6e2892f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a952762_0b02a170",
+        "filename": "libartbase/base/leb128.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2024-03-20T14:26:30Z",
+      "side": 1,
+      "message": "I double checked the std::optional in godbolt and the clang output does not seem to make any sense. Minified version: https://godbolt.org/z/K15xejbna\n\nShould we file a clang bug?\n\nIn other news, using \u0027const std::optional\u003cconst uint8_t*\u003e\u0026` works around the issue.",
+      "parentUuid": "791d76ba_f3d903c0",
+      "revId": "d69ad3359aee9469553280ece25ca252f6e2892f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
