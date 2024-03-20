@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "957f858f_c8c15f85",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-03-20T14:31:18Z",
+      "side": 1,
+      "message": "Vladimir, could you PTAL. Thanks!",
+      "revId": "303de5b99fa6528688c18f32d462bc9917f36545",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42c279a0_ff631f72",
+        "filename": "libartbase/base/enums.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-03-20T14:31:18Z",
+      "side": 1,
+      "message": "Vladimir, I guess it is safe to use uint32_t here, but do you know any case where we needed it to be size_t.",
+      "range": {
+        "startLine": 26,
+        "startChar": 25,
+        "endLine": 26,
+        "endChar": 33
+      },
+      "revId": "303de5b99fa6528688c18f32d462bc9917f36545",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe86cdb5_3323da28",
+        "filename": "libartbase/base/enums.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-03-20T14:31:18Z",
+      "side": 1,
+      "message": "We should also add a comment why we need it to be uint32_t and also assert in ImageHeader that PointerSize is 32-bit.",
+      "range": {
+        "startLine": 26,
+        "startChar": 25,
+        "endLine": 26,
+        "endChar": 33
+      },
+      "revId": "303de5b99fa6528688c18f32d462bc9917f36545",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
