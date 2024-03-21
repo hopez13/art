@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7141c886_0a67d9c8",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-03-21T15:09:52Z",
+      "side": 1,
+      "message": "Remove. (The `jit_code_cache-inl.h` is already #included.)",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 31
+      },
+      "revId": "2b8e3c6efe794c016b6a6376293a469c38d215ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "19911611_b8168b43",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-03-21T15:09:52Z",
+      "side": 1,
+      "message": "Remove. (The `runtime-inl.h` is already #included.)",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 20
+      },
+      "revId": "2b8e3c6efe794c016b6a6376293a469c38d215ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bdfae795_a9549c45",
+        "filename": "runtime/jit/jit_code_cache-inl.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-03-21T15:09:52Z",
+      "side": 1,
+      "message": "Going over the whole method code map for each visited method is extremely slow.\n\nWe\u0027d need a Boost.MultiIndex or at least a Boost.Bimap here. Without that, we shall need to maintain two separate maps in the JIT code cache.\n\nDoes the `method_code_map_` hold all code for a method? (Baseline, optimized, OSR.)",
+      "range": {
+        "startLine": 46,
+        "startChar": 2,
+        "endLine": 46,
+        "endChar": 44
+      },
+      "revId": "2b8e3c6efe794c016b6a6376293a469c38d215ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
