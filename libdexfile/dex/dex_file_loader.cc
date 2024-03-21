@@ -199,6 +199,10 @@ bool DexFileLoader::GetMultiDexChecksum(std::optional<uint32_t>* checksum,
       *checksum = checksum->value_or(kEmptyMultiDexChecksum) ^ zip_entry->GetCrc32();
     }
     return true;
+  } else {
+      if (only_contains_uncompressed_dex != nullptr) {
+          *only_contains_uncompressed_dex = false;
+      }
   }
   if (!MapRootContainer(error_msg)) {
     return false;
