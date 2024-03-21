@@ -34,6 +34,24 @@
       "parentUuid": "122719a6_1e3c8575",
       "revId": "ba5a42786a9ca6004640a220d2d11e58e4ce8431",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ebb8450_5364680f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-03-21T18:55:25Z",
+      "side": 1,
+      "message": "Hmm, I don\u0027t see how that runtime dependency I pointed to above would work on host if libdexfile gets loaded - it appears to still load libartpalette and libartbase [dynamically there](https://cs.android.com/android/platform/superproject/main/+/main:art/libdexfile/Android.bp;l\u003d92,196).\n\nCould you please check that the host built `libdexfile.so` doesn\u0027t have `NEEDED` entries for either of the two dependencies? If it does, I don\u0027t think it\u0027ll work. If we don\u0027t need libdexfile.so on host at all then it\u0027d be better to remove its host library altogether, i.e. move `\"libdexfile\"` from `linux` to `android` in the art-module-sdk module.",
+      "parentUuid": "6869b285_51478fc6",
+      "revId": "ba5a42786a9ca6004640a220d2d11e58e4ce8431",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
