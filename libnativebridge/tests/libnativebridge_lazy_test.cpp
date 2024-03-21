@@ -21,34 +21,33 @@
 
 namespace android {
 
-class NativeBridgeApiTest : public ::testing::Test {};
+class NativeBridgeLazyTest : public ::testing::Test {};
 
-// Test the exported API in libnativebridge and libnativebridge_lazy.
 // The testing we can do here is limited since there's no exported API to
 // actually load the native bridge, but we only need to test the trivial
 // wrappers.
 
-TEST_F(NativeBridgeApiTest, NeedsNativeBridge) {
+TEST_F(NativeBridgeLazyTest, NeedsNativeBridge) {
   EXPECT_FALSE(NeedsNativeBridge(ABI_STRING));
 }
 
-TEST_F(NativeBridgeApiTest, PreInitializeNativeBridge) {
+TEST_F(NativeBridgeLazyTest, PreInitializeNativeBridge) {
   EXPECT_FALSE(PreInitializeNativeBridge(nullptr, ""));
 }
 
-TEST_F(NativeBridgeApiTest, NativeBridgeAvailable) {
+TEST_F(NativeBridgeLazyTest, NativeBridgeAvailable) {
   EXPECT_FALSE(NativeBridgeAvailable());
 }
 
-TEST_F(NativeBridgeApiTest, NativeBridgeInitialized) {
+TEST_F(NativeBridgeLazyTest, NativeBridgeInitialized) {
   EXPECT_FALSE(NativeBridgeInitialized());
 }
 
-TEST_F(NativeBridgeApiTest, NativeBridgeGetTrampoline) {
+TEST_F(NativeBridgeLazyTest, NativeBridgeGetTrampoline) {
   EXPECT_EQ(nullptr, NativeBridgeGetTrampoline(nullptr, nullptr, nullptr, 0));
 }
 
-TEST_F(NativeBridgeApiTest, NativeBridgeGetError) {
+TEST_F(NativeBridgeLazyTest, NativeBridgeGetError) {
   EXPECT_STREQ("native bridge is not initialized", NativeBridgeGetError());
 }
 
