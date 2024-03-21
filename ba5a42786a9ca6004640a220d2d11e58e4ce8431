@@ -70,6 +70,24 @@
       "parentUuid": "9ebb8450_5364680f",
       "revId": "ba5a42786a9ca6004640a220d2d11e58e4ce8431",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c66cef9_6c10d6b3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-03-21T21:12:21Z",
+      "side": 1,
+      "message": "I suspect that\u0027s just an effect of how the Soong SDK generation works - it just doesn\u0027t pass on `runtime_libs` into the prebuilt Soong modules. Be that as it may, libdexfile_support [does load](https://cs.android.com/android/platform/superproject/main/+/main:art/libdexfile/external/dex_file_supp.cc;l\u003d63;drc\u003df34513630c38f485454d93b6f6c5c86aed117b44) `libdexfile.so` (there\u0027s also a libdexfile_support_static that\u0027s linked statically with libdexfile, and if we have host tests that really needs it I think the best way would be to let the host version of libdexfile_support do exactly that).\n\nI suspect the test doesn\u0027t fail just because it (perhaps no longer?) tests dex dependent functionality very well. It\u0027ll only try to load `libdexfile.so` if it encounters dex frames in the unwound stack.\n\nIn any case, the point remains - it doesn\u0027t make sense to have a prebuilt `libdexfile.so` on host that depends on `libartpalette.so` and `libartbase.so` who no longer exists there.\n\nNote that the host version of `libdexfile.so` is in art-module-sdk, not art-module-host-exports. That\u0027s because of Soong limitations.",
+      "parentUuid": "68eaa4bd_7d1e7616",
+      "revId": "ba5a42786a9ca6004640a220d2d11e58e4ce8431",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
