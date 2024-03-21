@@ -264,6 +264,24 @@
       "parentUuid": "791d76ba_f3d903c0",
       "revId": "d69ad3359aee9469553280ece25ca252f6e2892f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "473f2909_3943445a",
+        "filename": "libartbase/base/leb128.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-03-21T10:13:27Z",
+      "side": 1,
+      "message": "Ya, I looked at the clang output too and it seems to be a bug.\n\nI update the code to use the workaround.",
+      "parentUuid": "3a952762_0b02a170",
+      "revId": "d69ad3359aee9469553280ece25ca252f6e2892f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
