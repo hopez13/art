@@ -86,6 +86,30 @@
       },
       "revId": "303de5b99fa6528688c18f32d462bc9917f36545",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7db52edd_a5c6ffdd",
+        "filename": "libartbase/base/enums.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-03-21T07:48:25Z",
+      "side": 1,
+      "message": "The only reason I can think of to use an `enum class ... : size_t` would be to avoid uninitialized padding in some struct having such `enum` fields. I prefer to use `uint32_t` by default, smaller only if I want to densely pack multiple fields.",
+      "parentUuid": "42c279a0_ff631f72",
+      "range": {
+        "startLine": 26,
+        "startChar": 25,
+        "endLine": 26,
+        "endChar": 33
+      },
+      "revId": "303de5b99fa6528688c18f32d462bc9917f36545",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

@@ -16,6 +16,75 @@
       "message": "Thanks! lgtm but I will let vladimir +2 this one.",
       "revId": "42bb3c7f84c6d241ac701732893be76566bbf994",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd4d9c90_b46849b9",
+        "filename": "dex2oat/linker/image_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-03-21T07:48:25Z",
+      "side": 1,
+      "message": "`kRuntimePointerSize` (and drop the `static_assert` above)",
+      "range": {
+        "startLine": 94,
+        "startChar": 27,
+        "endLine": 94,
+        "endChar": 66
+      },
+      "revId": "42bb3c7f84c6d241ac701732893be76566bbf994",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0066c9b9_421ffec0",
+        "filename": "dex2oat/linker/image_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-03-21T07:48:25Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 244,
+        "startChar": 27,
+        "endLine": 244,
+        "endChar": 66
+      },
+      "revId": "42bb3c7f84c6d241ac701732893be76566bbf994",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ceb6d53d_c0fb1e9e",
+        "filename": "runtime/gc/collector/immune_spaces_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-03-21T07:48:25Z",
+      "side": 1,
+      "message": "`kRuntimePointerSize`",
+      "range": {
+        "startLine": 155,
+        "startChar": 26,
+        "endLine": 155,
+        "endChar": 65
+      },
+      "revId": "42bb3c7f84c6d241ac701732893be76566bbf994",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
