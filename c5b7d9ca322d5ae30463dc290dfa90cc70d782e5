@@ -146,6 +146,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e88f002d_ecba0164",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1468,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-03-21T09:29:40Z",
+      "side": 1,
+      "message": "Yes, I hadn\u0027t made any changes to compiler_driver.cc at that time(when I found the com.android.org.conscrypt.xxx methods are not compiled). I want to use oatdump to dump the contents in oat file to prove this(without this CL, latest aosp/main), but seems oatdump couldn\u0027t work and I have no idea why it couldn\u0027t work(tested both on user-debug and eng), do you know how I get the oatdump logs? Thanks!\n\n```\n ➜ adb shell\npineapple:/ # oatdump --oat-file\u003d/system/framework/arm64/boot.oat\n1|pineapple:/ # oatdump --image\u003d/system/framework/boot.art\n1|pineapple:/ # oatdump --symbolize\u003d/system/framework/boot.oat\n```",
+      "parentUuid": "93fb71c9_696982b8",
+      "range": {
+        "startLine": 1468,
+        "startChar": 7,
+        "endLine": 1468,
+        "endChar": 76
+      },
+      "revId": "c5b7d9ca322d5ae30463dc290dfa90cc70d782e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "382aff65_826f417c",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 2
