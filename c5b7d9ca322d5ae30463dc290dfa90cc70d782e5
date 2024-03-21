@@ -122,6 +122,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "93fb71c9_696982b8",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1468,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-03-21T07:54:37Z",
+      "side": 1,
+      "message": "Are you sure the reason for not compiling those methods isn\u0027t the exclusion in `CompileMethodQuick()` / `compiler_driver.cc` that\u0027s added in this CL?",
+      "parentUuid": "3507b9f0_19a2ef9c",
+      "range": {
+        "startLine": 1468,
+        "startChar": 7,
+        "endLine": 1468,
+        "endChar": 76
+      },
+      "revId": "c5b7d9ca322d5ae30463dc290dfa90cc70d782e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "382aff65_826f417c",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 2
