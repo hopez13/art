@@ -179,19 +179,19 @@ template <typename T, size_t size> class DexCachePairArray {
   }
 
   DexCachePair<T> GetPair(uint32_t index) {
-    return entries_[SlotIndex(index)].load(std::memory_order_relaxed);
+    return entries_[SlotIndex(index)].load(std::memory_order_acquire);
   }
 
   void SetPair(uint32_t index, DexCachePair<T> value) {
-    entries_[SlotIndex(index)].store(value, std::memory_order_relaxed);
+    entries_[SlotIndex(index)].store(value, std::memory_order_release);
   }
 
   void Clear(uint32_t index) {
     uint32_t slot = SlotIndex(index);
     // This is racy but should only be called from the transactional interpreter.
-    if (entries_[slot].load(std::memory_order_relaxed).index == index) {
+    if (entries_[slot].load(std::memory_order_acquire).index == index) {
       DexCachePair<T> cleared(nullptr, DexCachePair<T>::InvalidIndexForSlot(slot));
-      entries_[slot].store(cleared, std::memory_order_relaxed);
+      entries_[slot].store(cleared, std::memory_order_release);
     }
   }
 

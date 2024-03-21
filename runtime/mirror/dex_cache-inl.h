@@ -101,7 +101,7 @@ inline void DexCachePair<T>::Initialize(std::atomic<DexCachePair<T>>* dex_cache)
   DexCachePair<T> first_elem;
   first_elem.object = GcRoot<T>(nullptr);
   first_elem.index = InvalidIndexForSlot(0);
-  dex_cache[0].store(first_elem, std::memory_order_relaxed);
+  dex_cache[0].store(first_elem, std::memory_order_release);
 }
 
 template <typename T>
