@@ -47,6 +47,7 @@ import androidx.test.runner.AndroidJUnit4;
 import com.android.server.art.model.ArtFlags;
 import com.android.server.art.model.DexoptParams;
 import com.android.server.art.model.DexoptResult;
+import com.android.server.art.proto.DexMetadataConfig;
 import com.android.server.art.testing.TestingUtils;
 
 import org.junit.Before;
@@ -117,7 +118,9 @@ public class PrimaryDexopterTest extends PrimaryDexopterTestBase {
                 .thenReturn(TestingUtils.createCopyAndRewriteProfileNoProfile());
 
         // By default, no DM file exists.
-        lenient().when(mArtd.getDmFileVisibility(any())).thenReturn(FileVisibility.NOT_FOUND);
+        lenient()
+                .when(mDexMetadataHelperInjector.getDmPath(any()))
+                .thenReturn("/non-existent/base.dm");
 
         // Dexopt is by default needed and successful.
         lenient()
@@ -187,9 +190,8 @@ public class PrimaryDexopterTest extends PrimaryDexopterTestBase {
 
     @Test
     public void testDexoptDm() throws Exception {
-        lenient()
-                .when(mArtd.getDmFileVisibility(deepEq(mDmFile)))
-                .thenReturn(FileVisibility.OTHER_READABLE);
+        String dmPath = TestingUtils.createTempZipWithEntry("primary.vdex", new byte[0] /* data */);
+        lenient().when(mDexMetadataHelperInjector.getDmPath(mDexPath)).thenReturn(dmPath);
 
         List<DexContainerFileDexoptResult> results = mPrimaryDexopter.dexopt();
         verifyStatusAllOk(results);
@@ -415,8 +417,7 @@ public class PrimaryDexopterTest extends PrimaryDexopterTestBase {
         verifyEmbeddedProfileNotUsed(mDexPath);
     }
 
-    @Test
-    public void testDexoptUsesEmbeddedProfile() throws Exception {
+    private void checkDexoptUsesEmbeddedProfile() throws Exception {
         makeEmbeddedProfileUsable(mDexPath);
 
         List<DexContainerFileDexoptResult> results = mPrimaryDexopter.dexopt();
@@ -435,6 +436,42 @@ public class PrimaryDexopterTest extends PrimaryDexopterTestBase {
         verifyProfileNotUsed(mRefProfile);
         verifyProfileNotUsed(mPrebuiltProfile);
         verifyProfileNotUsed(mDmProfile);
+    }
+
+    @Test
+    public void testDexoptUsesEmbeddedProfileNoDm() throws Exception {
+        checkDexoptUsesEmbeddedProfile();
+    }
+
+    @Test
+    public void testDexoptUsesEmbeddedProfileDmNoConfig() throws Exception {
+        String dmPath = TestingUtils.createTempZipWithEntry("primary.vdex", new byte[0] /* data */);
+        lenient().when(mDexMetadataHelperInjector.getDmPath(mDexPath)).thenReturn(dmPath);
+        checkDexoptUsesEmbeddedProfile();
+    }
+
+    @Test
+    public void testDexoptUsesEmbeddedProfileDmEmptyConfig() throws Exception {
+        String dmPath = TestingUtils.createTempZipWithEntry("config.pb", new byte[0] /* data */);
+        lenient().when(mDexMetadataHelperInjector.getDmPath(mDexPath)).thenReturn(dmPath);
+        checkDexoptUsesEmbeddedProfile();
+    }
+
+    @Test
+    public void testDexoptUsesEmbeddedProfileDmDisableEmbeddedProfile() throws Exception {
+        var config = DexMetadataConfig.newBuilder().setEnableEmbeddedProfile(false).build();
+        String dmPath = TestingUtils.createTempZipWithEntry("config.pb", config.toByteArray());
+        lenient().when(mDexMetadataHelperInjector.getDmPath(mDexPath)).thenReturn(dmPath);
+
+        makeEmbeddedProfileUsable(mDexPath);
+
+        List<DexContainerFileDexoptResult> results = mPrimaryDexopter.dexopt();
+        verifyStatusAllOk(results);
+
+        checkDexoptWithNoProfile(verify(mArtd), mDexPath, "arm64", "verify");
+        checkDexoptWithNoProfile(verify(mArtd), mDexPath, "arm", "verify");
+
+        verifyEmbeddedProfileNotUsed(mDexPath);
     }
 
     @Test
