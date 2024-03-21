@@ -93,6 +93,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1fb02167_9193fece",
+        "filename": "compiler/optimizing/intrinsics_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2877,
+      "author": {
+        "id": 3298324
+      },
+      "writtenOn": "2024-03-21T12:42:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6fc0b0e4_98660b7a",
+      "range": {
+        "startLine": 2875,
+        "startChar": 0,
+        "endLine": 2877,
+        "endChar": 54
+      },
+      "revId": "8a48e695ab1f364230f1ad1a414bb368338f53fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "40086ea2_1ea6465d",
@@ -175,6 +199,30 @@
       "writtenOn": "2024-03-20T09:47:37Z",
       "side": 1,
       "message": "This can be `constexpr` right? If so, the DCHECK in line 2903 can become a static assert",
+      "range": {
+        "startLine": 2902,
+        "startChar": 2,
+        "endLine": 2902,
+        "endChar": 7
+      },
+      "revId": "8a48e695ab1f364230f1ad1a414bb368338f53fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "97557101_882751d2",
+        "filename": "compiler/optimizing/intrinsics_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2902,
+      "author": {
+        "id": 3298324
+      },
+      "writtenOn": "2024-03-21T12:42:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6ad926c7_6c20ad4e",
       "range": {
         "startLine": 2902,
         "startChar": 2,
@@ -348,6 +396,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b053a593_88b923d5",
+        "filename": "compiler/optimizing/intrinsics_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2962,
+      "author": {
+        "id": 3298324
+      },
+      "writtenOn": "2024-03-21T12:42:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f02fc240_e7025c4f",
+      "range": {
+        "startLine": 2960,
+        "startChar": 0,
+        "endLine": 2962,
+        "endChar": 0
+      },
+      "revId": "8a48e695ab1f364230f1ad1a414bb368338f53fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d8b6efe3_f5dc5d98",
@@ -361,6 +433,30 @@
       "writtenOn": "2024-03-20T09:47:37Z",
       "side": 1,
       "message": "unused, remove",
+      "range": {
+        "startLine": 2963,
+        "startChar": 0,
+        "endLine": 2964,
+        "endChar": 41
+      },
+      "revId": "8a48e695ab1f364230f1ad1a414bb368338f53fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d9a3065_1cb5629f",
+        "filename": "compiler/optimizing/intrinsics_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2964,
+      "author": {
+        "id": 3298324
+      },
+      "writtenOn": "2024-03-21T12:42:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d8b6efe3_f5dc5d98",
       "range": {
         "startLine": 2963,
         "startChar": 0,
