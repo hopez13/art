@@ -52,6 +52,24 @@
       "parentUuid": "6869b285_51478fc6",
       "revId": "ba5a42786a9ca6004640a220d2d11e58e4ce8431",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "68eaa4bd_7d1e7616",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1878380
+      },
+      "writtenOn": "2024-03-21T20:33:44Z",
+      "side": 1,
+      "message": "I think when art prebuilt sdk is used, the host `libdexfile` (source or prebuilt) does not get loaded at all. \n\nIn the context of `libunwindstack_unit_test-\u003elibdexfile_support` dependency, art\u0027s module sdk provides a prebuilt version of this static library. The prebuilt static library does not have `libdexfile` in its [runtime libs](https://source.corp.google.com/h/googleplex-android/platform/prebuilts/module_sdk/art/+/bd3df3053e9c58a093f54c01576a82b71c76a6ed:current/sdk/Android.bp;l\u003d1206-1252;drc\u003d512c7389fe7289ca25342ec08737e6f7f5580e15;bpv\u003d1;bpt\u003d0)",
+      "parentUuid": "9ebb8450_5364680f",
+      "revId": "ba5a42786a9ca6004640a220d2d11e58e4ce8431",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
