@@ -22,6 +22,30 @@
       },
       "revId": "cf3480f740a2abe5e56a721e58fd92dd0cc31cf8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "725b505e_25c637cb",
+        "filename": "odrefresh/odrefresh.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2024-03-21T21:15:24Z",
+      "side": 1,
+      "message": "Done. Guarded on IsAtLeastV as discussed. On U and lower, the solution to the overhead will be an updated copy function to enable sparsity, merged as the separate CL (this is in progress).",
+      "parentUuid": "af59f18c_1907cec4",
+      "range": {
+        "startLine": 167,
+        "startChar": 8,
+        "endLine": 167,
+        "endChar": 64
+      },
+      "revId": "cf3480f740a2abe5e56a721e58fd92dd0cc31cf8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
