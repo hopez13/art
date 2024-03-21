@@ -68,6 +68,30 @@
       },
       "revId": "2b8e3c6efe794c016b6a6376293a469c38d215ce",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "640f8c99_e1a493b9",
+        "filename": "runtime/jit/jit_code_cache-inl.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1793992
+      },
+      "writtenOn": "2024-03-21T15:44:40Z",
+      "side": 1,
+      "message": "\u003e we shall need to maintain two separate maps in the JIT code cache.\n\nI hoped there is a better way I don\u0027t see :) Will do so, thanks.\n\n\u003e Does the method_code_map_ hold all code for a method? (Baseline, optimized, OSR.)\n\nIf I understand [1] correctly, then yes.\n\n[1] https://cs.android.com/android/platform/superproject/main/+/main:art/runtime/jit/jit_code_cache.cc;l\u003d765;drc\u003d0d5dbf73461556afcd6e1a7e1109199d0fc16887",
+      "parentUuid": "bdfae795_a9549c45",
+      "range": {
+        "startLine": 46,
+        "startChar": 2,
+        "endLine": 46,
+        "endChar": 44
+      },
+      "revId": "2b8e3c6efe794c016b6a6376293a469c38d215ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
