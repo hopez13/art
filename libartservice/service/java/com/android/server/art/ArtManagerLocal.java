@@ -733,7 +733,7 @@ public final class ArtManagerLocal {
 
             InitProfileResult result = Utils.getOrInitReferenceProfile(mInjector.getArtd(),
                     dexInfo.dexPath(), PrimaryDexUtils.buildRefProfilePath(pkgState, dexInfo),
-                    PrimaryDexUtils.getExternalProfiles(dexInfo),
+                    PrimaryDexUtils.getExternalProfiles(dexInfo), true /* enableEmbeddedProfile */,
                     PrimaryDexUtils.buildOutputProfile(pkgState, dexInfo, Process.SYSTEM_UID,
                             Process.SYSTEM_UID, false /* isPublic */));
             if (!result.externalProfileErrors().isEmpty()) {
