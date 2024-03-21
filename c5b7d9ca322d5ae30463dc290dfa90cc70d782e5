@@ -216,6 +216,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "405a0be3_8c830889",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1468,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-03-21T14:54:44Z",
+      "side": 1,
+      "message": "I see these methods compiled on ToT (`main`, internal - I didn\u0027t check AOSP) with and without this CL. Just search for `^  [0-9]+:.*NativeCrypto\\.(EVP_DigestUpdate|HMAC_Update|HMAC_Init_ex)\\b` in\n\n    DPOA64\u003dout/soong/dexpreopt_arm64; \\\n    DPOA64BI\u003d$DPOA64/dex_artjars/android/apex/art_boot_images; \\\n    oatdump \\\n        --instruction-set\u003darm64 \\\n        --oat-file\u003d$DPOA64BI/javalib/arm64/boot-conscrypt.oat \\\n        --dex-file\u003d$DPOA64/dex_artjars_input/conscrypt.jar \\\n        2\u003e\u00261 | less",
+      "parentUuid": "a3418c78_185c69ce",
+      "range": {
+        "startLine": 1468,
+        "startChar": 7,
+        "endLine": 1468,
+        "endChar": 76
+      },
+      "revId": "c5b7d9ca322d5ae30463dc290dfa90cc70d782e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "382aff65_826f417c",
