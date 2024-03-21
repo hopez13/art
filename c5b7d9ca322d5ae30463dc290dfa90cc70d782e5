@@ -96,6 +96,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e763b99a_04976c5c",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1468,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-03-21T06:32:57Z",
+      "side": 1,
+      "message": "Removed the confusing comments.",
+      "parentUuid": "3507b9f0_19a2ef9c",
+      "range": {
+        "startLine": 1468,
+        "startChar": 7,
+        "endLine": 1468,
+        "endChar": 76
+      },
+      "revId": "c5b7d9ca322d5ae30463dc290dfa90cc70d782e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "382aff65_826f417c",
@@ -324,6 +348,30 @@
       "side": 1,
       "message": "FixupStaticTrampoline use below way to set entrypoint. Though `UpdateMethodsCode` doesn\u0027t check if we can use AOT code here, `GetCodeForInvoke` will do the check (in `GetOptimizedCodeFor`). So it\u0027s safe for originally codes. But once this change get merged, things get complicated. I don\u0027t want to check in the `ClassLinker` explicitly, either. But I haven\u0027t came up with an elegant way yet.\n\n```\ninstrumentation-\u003eUpdateMethodsCode(method, instrumentation-\u003eGetCodeForInvoke(method));\n```",
       "parentUuid": "c34593c3_ad2a9001",
+      "range": {
+        "startLine": 1453,
+        "startChar": 2,
+        "endLine": 1453,
+        "endChar": 37
+      },
+      "revId": "c5b7d9ca322d5ae30463dc290dfa90cc70d782e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "67fde826_aa2cf02e",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1453,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2024-03-21T06:32:57Z",
+      "side": 1,
+      "message": "Add runtime IsJavaDebuggable check here.",
+      "parentUuid": "50aa3dc2_b27b729f",
       "range": {
         "startLine": 1453,
         "startChar": 2,
