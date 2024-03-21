@@ -16,6 +16,57 @@
       "message": "Adding Vali to take a look at the .proto file.",
       "revId": "2992e5297f343fd6549aeeb970c23f66fb6facfe",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c9044435_cf7dd1ae",
+        "filename": "libartservice/service/proto/dex_metadata_config.proto",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1951215
+      },
+      "writtenOn": "2024-03-21T21:26:08Z",
+      "side": 1,
+      "message": "Since the 2 other proto files in libartservice use proto3, I\u0027m inclined to recommend using proto3 here as well for consistency.\n\nIndeed, in the case we need to use disable_embedded_profile, as the default must be false.\n\nUp to you.",
+      "revId": "2992e5297f343fd6549aeeb970c23f66fb6facfe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "578aaae1_0640187b",
+        "filename": "libartservice/service/proto/dex_metadata_config.proto",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1951215
+      },
+      "writtenOn": "2024-03-21T21:26:08Z",
+      "side": 1,
+      "message": "I think we should be a bit more verbose. Something along the lines of \"Whether to enable using the embedded profile (...), if it exists\".",
+      "revId": "2992e5297f343fd6549aeeb970c23f66fb6facfe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a2b66252_3beab0d1",
+        "filename": "libartservice/service/proto/dex_metadata_config.proto",
+        "patchSetId": 4
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1951215
+      },
+      "writtenOn": "2024-03-21T21:26:08Z",
+      "side": 1,
+      "message": "s/dex/APK",
+      "revId": "2992e5297f343fd6549aeeb970c23f66fb6facfe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
