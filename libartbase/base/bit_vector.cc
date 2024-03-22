@@ -47,8 +47,7 @@ BitVector::BitVector(uint32_t start_bits,
               static_cast<uint32_t*>(allocator->Alloc(BitsToWords(start_bits) * kWordBytes))) {
   // We don't know if the allocator cleared things.
   // TODO(solanes): We should be able to remove this call to `ClearAllBits`. Currently we have two
-  // allocators: `MallocAllocator` which sets it to zero and `NoopAllocator` which does not.
-  // As a note, MallocAllocator is a misnomer as it uses `calloc` which sets the memory to zero.
+  // allocators: `CallocAllocator` which sets it to zero and `NoopAllocator` which does not.
   ClearAllBits();
 }
 
