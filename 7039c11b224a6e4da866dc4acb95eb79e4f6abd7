@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3668f0b3_83adf3d1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 2001310
+      },
+      "writtenOn": "2024-03-22T07:26:49Z",
+      "side": 1,
+      "message": "Hi all, apologies for bumping this - I just wanted to make a comment about an interesting apparent side effect of this change:\nI\u0027ve noticed that implicit suspend checks seem to confuse LLDB when the debuggee has a mix of managed and native threads.\nOne obvious way to work around this is to make LLDB \"pass\" segmentation fault signals and not \"stop\" on them since most likely they are due to this feature as long as the code is \"healthy\". However, when debugging actual segmentation faults in native code, that becomes less than ideal.\nI couldn\u0027t find an easy way to override this behavior. I was thinking of maybe using LLDB\u0027s Python interface to tell it which threads are managed (so SIGSEGV on them could be ignored) but I feel there may be a simpler solution I\u0027m just unaware of.\nAt any rate, thank you for reading! I do love the ingenuity of this optimization.",
+      "revId": "7039c11b224a6e4da866dc4acb95eb79e4f6abd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
