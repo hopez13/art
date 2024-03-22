@@ -1,0 +1,176 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c1c6351d_34f089ea",
+        "filename": "compiler/optimizing/instruction_simplifier_riscv64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-03-22T08:53:38Z",
+      "side": 1,
+      "message": "We tipically just leave it as `OptimizingCompilerStats* stats_`. It will get filled in the constructor.\n\nIf you want to have a default value please use `OptimizingCompilerStats* stats_ \u003d nullptr;`",
+      "range": {
+        "startLine": 91,
+        "startChar": 2,
+        "endLine": 91,
+        "endChar": 43
+      },
+      "revId": "886fd6e3959689365ff475e27a9bd253ab950561",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fce4ea55_6dbb839a",
+        "filename": "compiler/optimizing/instruction_simplifier_riscv64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-03-22T08:53:38Z",
+      "side": 1,
+      "message": "style: We don\u0027t have `HIDDEN` in the comment in the footer",
+      "range": {
+        "startLine": 101,
+        "startChar": 20,
+        "endLine": 101,
+        "endChar": 26
+      },
+      "revId": "886fd6e3959689365ff475e27a9bd253ab950561",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "970644a3_fe4ca3e1",
+        "filename": "compiler/optimizing/nodes_riscv64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-03-22T08:53:38Z",
+      "side": 1,
+      "message": "Same here as with the compiler stats above, no need for default value.",
+      "revId": "886fd6e3959689365ff475e27a9bd253ab950561",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6918b829_9d9493bf",
+        "filename": "test/458-checker-riscv64-shift-add/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-03-22T08:53:38Z",
+      "side": 1,
+      "message": "Please remove this file. We have the script `regen-test-files` that runs and we upload the Android.bp in batches",
+      "range": {
+        "startLine": 1,
+        "startChar": 17,
+        "endLine": 1,
+        "endChar": 33
+      },
+      "revId": "886fd6e3959689365ff475e27a9bd253ab950561",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1c61b264_022c818b",
+        "filename": "test/458-checker-riscv64-shift-add/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-03-22T08:53:38Z",
+      "side": 1,
+      "message": "This method never gets called in main. Please call it to make sure we have regression tests",
+      "range": {
+        "startLine": 35,
+        "startChar": 30,
+        "endLine": 35,
+        "endChar": 47
+      },
+      "revId": "886fd6e3959689365ff475e27a9bd253ab950561",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "74ab5f7d_d63fbc11",
+        "filename": "test/458-checker-riscv64-shift-add/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-03-22T08:53:38Z",
+      "side": 1,
+      "message": "Can you add tests for when `a` is `long` and `b` is `int`? The distance is allowed to be 32-bits",
+      "revId": "886fd6e3959689365ff475e27a9bd253ab950561",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "92441bf5_4c1dde46",
+        "filename": "test/458-checker-riscv64-shift-add/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-03-22T08:53:38Z",
+      "side": 1,
+      "message": "Separate each CHECK-NOT with its own header e.g.\n```\n  /// CHECK-START: long Main.$noinline$longRiscvShift1Add(long, long) instruction_simplifier_riscv64 (after)\n  /// CHECK-NOT: Shl\n```\n\nSame for the others",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 20
+      },
+      "revId": "886fd6e3959689365ff475e27a9bd253ab950561",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "13cc161c_a4b56c25",
+        "filename": "test/458-checker-riscv64-shift-add/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-03-22T08:53:38Z",
+      "side": 1,
+      "message": "style: Have this numbers be explicitly long e.g. `-1L`",
+      "range": {
+        "startLine": 116,
+        "startChar": 54,
+        "endLine": 116,
+        "endChar": 60
+      },
+      "revId": "886fd6e3959689365ff475e27a9bd253ab950561",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
