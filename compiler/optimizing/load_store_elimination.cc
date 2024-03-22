@@ -1876,7 +1876,6 @@ bool LSEVisitor::TryReplacingLoopPhiPlaceholderWithDefault(
                          /*start_bits=*/ num_phi_placeholders_,
                          /*expandable=*/ false,
                          kArenaAllocLSE);
-  visited.ClearAllBits();
   ScopedArenaVector<PhiPlaceholder> work_queue(allocator.Adapter(kArenaAllocLSE));
 
   // Use depth first search to check if any non-Phi input is unknown.
@@ -1966,7 +1965,6 @@ bool LSEVisitor::TryReplacingLoopPhiPlaceholderWithSingleInput(
                          /*start_bits=*/ num_phi_placeholders_,
                          /*expandable=*/ false,
                          kArenaAllocLSE);
-  visited.ClearAllBits();
   ScopedArenaVector<PhiPlaceholder> work_queue(allocator.Adapter(kArenaAllocLSE));
 
   // Use depth first search to check if any non-Phi input is unknown.
@@ -2377,7 +2375,6 @@ std::optional<LSEVisitor::PhiPlaceholder> LSEVisitor::TryToMaterializeLoopPhis(
   // Find Phi placeholders to materialize.
   ArenaBitVector phi_placeholders_to_materialize(
       &allocator, num_phi_placeholders_, /*expandable=*/ false, kArenaAllocLSE);
-  phi_placeholders_to_materialize.ClearAllBits();
   DataType::Type type = load->GetType();
   bool can_use_default_or_phi = IsDefaultOrPhiAllowedForLoad(load);
   std::optional<PhiPlaceholder> loop_phi_with_unknown_input = FindLoopPhisToMaterialize(
@@ -2681,12 +2678,10 @@ void LSEVisitor::FindOldValueForPhiPlaceholder(PhiPlaceholder phi_placeholder,
                          /*start_bits=*/ num_phi_placeholders_,
                          /*expandable=*/ false,
                          kArenaAllocLSE);
-  visited.ClearAllBits();
 
   // Find Phi placeholders to try and match against existing Phis or other replacement values.
   ArenaBitVector phi_placeholders_to_materialize(
       &allocator, num_phi_placeholders_, /*expandable=*/ false, kArenaAllocLSE);
-  phi_placeholders_to_materialize.ClearAllBits();
   std::optional<PhiPlaceholder> loop_phi_with_unknown_input = FindLoopPhisToMaterialize(
       phi_placeholder, &phi_placeholders_to_materialize, type, /*can_use_default_or_phi=*/true);
   if (loop_phi_with_unknown_input) {
@@ -2791,7 +2786,6 @@ void LSEVisitor::FindStoresWritingOldValues() {
                                    /*start_bits=*/ GetGraph()->GetCurrentInstructionId(),
                                    /*expandable=*/ false,
                                    kArenaAllocLSE);
-  eliminated_stores.ClearAllBits();
 
   for (uint32_t store_id : kept_stores_.Indexes()) {
     DCHECK(kept_stores_.IsBitSet(store_id));
