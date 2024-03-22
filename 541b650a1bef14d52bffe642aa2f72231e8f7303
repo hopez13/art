@@ -16,6 +16,24 @@
       "message": "This fails art_standalone_dex2oat_tests, art_standalone_dexoptanalyzer_tests, art_standalone_runtime_tests.",
       "revId": "541b650a1bef14d52bffe642aa2f72231e8f7303",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "838cc251_ad0e6000",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-03-22T18:08:07Z",
+      "side": 1,
+      "message": "The tests passed in a rerun. The failures look unrelated.",
+      "parentUuid": "c651a8d3_6612b53d",
+      "revId": "541b650a1bef14d52bffe642aa2f72231e8f7303",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
