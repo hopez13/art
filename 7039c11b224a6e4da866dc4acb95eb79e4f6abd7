@@ -16,6 +16,24 @@
       "message": "Hi all, apologies for bumping this - I just wanted to make a comment about an interesting apparent side effect of this change:\nI\u0027ve noticed that implicit suspend checks seem to confuse LLDB when the debuggee has a mix of managed and native threads.\nOne obvious way to work around this is to make LLDB \"pass\" segmentation fault signals and not \"stop\" on them since most likely they are due to this feature as long as the code is \"healthy\". However, when debugging actual segmentation faults in native code, that becomes less than ideal.\nI couldn\u0027t find an easy way to override this behavior. I was thinking of maybe using LLDB\u0027s Python interface to tell it which threads are managed (so SIGSEGV on them could be ignored) but I feel there may be a simpler solution I\u0027m just unaware of.\nAt any rate, thank you for reading! I do love the ingenuity of this optimization.",
       "revId": "7039c11b224a6e4da866dc4acb95eb79e4f6abd7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "af207bca_2245249c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2024-03-22T11:01:14Z",
+      "side": 1,
+      "message": "This is to some extent a pre-existing issue, since null checks are also commonly done implicitly via SIGSEGV. And the new garbage collector relies heavily on SIGBUS. But yes, it does make debugging SIGSEGVs a bit more challenging. However, please see\n\nhttps://cs.android.com/android/platform/superproject/main/+/main:art/runtime/fault_handler.cc;l\u003d47 (art_sigsegv_fault())",
+      "parentUuid": "3668f0b3_83adf3d1",
+      "revId": "7039c11b224a6e4da866dc4acb95eb79e4f6abd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
