@@ -88,6 +88,24 @@
       "parentUuid": "68eaa4bd_7d1e7616",
       "revId": "ba5a42786a9ca6004640a220d2d11e58e4ce8431",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd439d1e_f1a76686",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1878380
+      },
+      "writtenOn": "2024-03-22T17:57:31Z",
+      "side": 1,
+      "message": "\u003e Be that as it may, libdexfile_support does load libdexfile.so\n\nAh you are right, I forgot to check dlopen usages in libdexfile_support\u0027s source code.\n\nLooking at the [archived snapshots](https://source.corp.google.com/search?q\u003dname.*libdexfile_support%5C%22\u0026ct\u003dos\u0026sq\u003drepo:googleplex-android%2Fplatform%2Fsuperproject%2Fmain%20b:main), it looks like we were never providing `libdexfile` as a runtime dependency of `libdexfile_support`?\n\n\u003e  it\u0027d be better to remove its host library altogether, i.e. move \"libdexfile\" from linux to android in the art-module-sdk module.\n\nThis sounds reasonable to me. I have moved it from `linux` to `android`. As an extension, would you have thoughts on\n(1) Whether we need to prebuilts of host variants of other libraries like `libandroidio` in module sdk?\n(2) Whether we need prebuilts of the static libraries (e.g. `libdexfile_support`) in module sdk? (Were these added for branch minimization?)\n\n\u003e Note that the host version of libdexfile.so is in art-module-sdk, not art-module-host-exports. That\u0027s because of Soong limitations.\n\nCould you elaborate on the soong limitation here? Is there a tracking bug for this?",
+      "parentUuid": "6c66cef9_6c10d6b3",
+      "revId": "ba5a42786a9ca6004640a220d2d11e58e4ce8431",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
