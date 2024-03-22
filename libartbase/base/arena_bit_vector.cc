@@ -84,6 +84,9 @@ ArenaBitVector::ArenaBitVector(ArenaAllocator* allocator,
   :  BitVector(start_bits,
                expandable,
                ArenaBitVectorAllocator<ArenaAllocator>::Create(allocator, kind)) {
+  if (kIsDebugBuild) {
+    DCHECK_EQ(GetHighestBitSet(), -1) << "The arena bit vector should start empty";
+  }
 }
 
 ArenaBitVector::ArenaBitVector(ScopedArenaAllocator* allocator,
@@ -93,6 +96,9 @@ ArenaBitVector::ArenaBitVector(ScopedArenaAllocator* allocator,
   :  BitVector(start_bits,
                expandable,
                ArenaBitVectorAllocator<ScopedArenaAllocator>::Create(allocator, kind)) {
+  if (kIsDebugBuild) {
+    DCHECK_EQ(GetHighestBitSet(), -1) << "The arena bit vector should start empty";
+  }
 }
 
 }  // namespace art
