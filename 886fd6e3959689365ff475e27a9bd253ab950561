@@ -49,6 +49,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f28ef021_4bc1f88e",
+        "filename": "compiler/optimizing/instruction_simplifier_riscv64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 3270422
+      },
+      "writtenOn": "2024-03-22T10:48:01Z",
+      "side": 1,
+      "message": "The formatting hook has added this.",
+      "parentUuid": "fce4ea55_6dbb839a",
+      "range": {
+        "startLine": 101,
+        "startChar": 20,
+        "endLine": 101,
+        "endChar": 26
+      },
+      "revId": "886fd6e3959689365ff475e27a9bd253ab950561",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "970644a3_fe4ca3e1",
         "filename": "compiler/optimizing/nodes_riscv64.h",
         "patchSetId": 2
