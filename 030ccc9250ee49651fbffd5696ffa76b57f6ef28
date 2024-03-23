@@ -16,6 +16,24 @@
       "message": "Isn\u0027t this module public already?",
       "revId": "030ccc9250ee49651fbffd5696ffa76b57f6ef28",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f665796b_9c9e36c9",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 1386891
+      },
+      "writtenOn": "2024-03-23T03:27:59Z",
+      "side": 1,
+      "message": "https://cs.android.com/android/platform/superproject/main/+/main:art/Android.bp;l\u003d4?q\u003dart%2FAndroid.bp\u0026ss\u003dandroid%2Fplatform%2Fsuperproject%2Fmain\nit looks like it has default visibility(sub_package)",
+      "parentUuid": "d20155d1_0052830c",
+      "revId": "030ccc9250ee49651fbffd5696ffa76b57f6ef28",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
