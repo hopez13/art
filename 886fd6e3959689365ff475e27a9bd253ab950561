@@ -178,6 +178,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "64cf5e2f_dd66d6c2",
+        "filename": "compiler/optimizing/nodes_riscv64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-03-25T14:08:11Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "4271aca4_60cdef9b",
+      "revId": "886fd6e3959689365ff475e27a9bd253ab950561",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6918b829_9d9493bf",
@@ -191,6 +209,30 @@
       "writtenOn": "2024-03-22T08:53:38Z",
       "side": 1,
       "message": "Please remove this file. We have the script `regen-test-files` that runs and we upload the Android.bp in batches",
+      "range": {
+        "startLine": 1,
+        "startChar": 17,
+        "endLine": 1,
+        "endChar": 33
+      },
+      "revId": "886fd6e3959689365ff475e27a9bd253ab950561",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "49a5a22f_21ed5e0a",
+        "filename": "test/458-checker-riscv64-shift-add/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-03-25T14:08:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6918b829_9d9493bf",
       "range": {
         "startLine": 1,
         "startChar": 17,
@@ -343,6 +385,30 @@
       "writtenOn": "2024-03-22T08:53:38Z",
       "side": 1,
       "message": "style: Have this numbers be explicitly long e.g. `-1L`",
+      "range": {
+        "startLine": 116,
+        "startChar": 54,
+        "endLine": 116,
+        "endChar": 60
+      },
+      "revId": "886fd6e3959689365ff475e27a9bd253ab950561",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bdfdabdd_849c5736",
+        "filename": "test/458-checker-riscv64-shift-add/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-03-25T14:08:11Z",
+      "side": 1,
+      "message": "This is missing. My comment was to avoid implicit conversions. Please update the code or resolve this comment (we cannot merge changes with unresolved comments)",
+      "parentUuid": "13cc161c_a4b56c25",
       "range": {
         "startLine": 116,
         "startChar": 54,

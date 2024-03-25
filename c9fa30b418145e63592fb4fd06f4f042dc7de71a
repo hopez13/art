@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "657b0b35_305a4937",
+        "filename": "test/458-checker-riscv64-shift-add/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-03-25T14:08:11Z",
+      "side": 1,
+      "message": "Each `CHECK-NOT` should have its own `CHECK-START`",
+      "range": {
+        "startLine": 57,
+        "startChar": 0,
+        "endLine": 59,
+        "endChar": 20
+      },
+      "revId": "c9fa30b418145e63592fb4fd06f4f042dc7de71a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
