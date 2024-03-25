@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8eb2ef29_32ddcf5b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-03-25T13:31:34Z",
+      "side": 1,
+      "message": "PTAL at the failing builds. They\u0027re actually tests run at build time. You\u0027ll find the actual failures in the build log:\n\n```\n[ RUN      ] PaletteClientTest.DebugStore\nart/libartpalette/apex/palette_test.cc:(181) Failure in test PaletteClientTest.DebugStore\nValue of: len \u003e strlen(start) + strlen(end)\n  Actual: false\nExpected: true\nart/libartpalette/apex/palette_test.cc:(182) Failure in test PaletteClientTest.DebugStore\nExpected equality of these values:\n  strncmp(result.data() + len - strlen(end), end, strlen(end))\n    Which is: -1\n  0\nPaletteClientTest.DebugStore exited with exitcode 1.\n[  FAILED  ] PaletteClientTest.DebugStore (12 ms)\n```\n\nThe problem is probably that the test runs on host.",
+      "revId": "0478c642e373b9199c70586f7aa5c76f277d7d78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d25987f9_2c05c82c",
+        "filename": "libartpalette/apex/palette.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-03-25T13:31:34Z",
+      "side": 1,
+      "message": "As discussed elsewhere, we may be a bit late for 35. Change to 36 here and in other places? I don\u0027t know if 36 (or the next dessert codename) is even possible to specify as a version at this time, but I hope so.",
+      "range": {
+        "startLine": 257,
+        "startChar": 56,
+        "endLine": 257,
+        "endChar": 58
+      },
+      "revId": "0478c642e373b9199c70586f7aa5c76f277d7d78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a21baad_90ea3a97",
+        "filename": "libartpalette/include/palette/palette_method_list.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-03-25T13:31:34Z",
+      "side": 1,
+      "message": "Nitty-nit: \"A pointer to a null-terminated character array\"\n```suggestion\n  /* @param result A pointer to a null-terminated character array where the retrieved */      \\\n```",
+      "range": {
+        "startLine": 87,
+        "startChar": 19,
+        "endLine": 87,
+        "endChar": 65
+      },
+      "revId": "0478c642e373b9199c70586f7aa5c76f277d7d78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
