@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e28343f_8599c948",
+        "filename": "compiler/optimizing/intrinsics_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2805,
+      "author": {
+        "id": 3298324
+      },
+      "writtenOn": "2024-03-25T07:35:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "11d0ad3e_104e1e0b",
+      "range": {
+        "startLine": 2804,
+        "startChar": 39,
+        "endLine": 2805,
+        "endChar": 66
+      },
+      "revId": "8a48e695ab1f364230f1ad1a414bb368338f53fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "343c832b_e048db15",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2769eaee_bc0f12e3",
+        "filename": "compiler/optimizing/intrinsics_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2831,
+      "author": {
+        "id": 3298324
+      },
+      "writtenOn": "2024-03-25T07:35:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "343c832b_e048db15",
+      "range": {
+        "startLine": 2831,
+        "startChar": 17,
+        "endLine": 2831,
+        "endChar": 18
+      },
+      "revId": "8a48e695ab1f364230f1ad1a414bb368338f53fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "57967d75_51becca7",
@@ -60,6 +108,30 @@
       "writtenOn": "2024-03-20T16:38:11Z",
       "side": 1,
       "message": "I\u0027d prefer a 64-bit `Sub()` for references.",
+      "range": {
+        "startLine": 2858,
+        "startChar": 5,
+        "endLine": 2858,
+        "endChar": 9
+      },
+      "revId": "8a48e695ab1f364230f1ad1a414bb368338f53fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f39f7af0_62bf3828",
+        "filename": "compiler/optimizing/intrinsics_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2858,
+      "author": {
+        "id": 3298324
+      },
+      "writtenOn": "2024-03-25T07:35:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "57967d75_51becca7",
       "range": {
         "startLine": 2858,
         "startChar": 5,
@@ -140,6 +212,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bbc2dc91_2fa4ef80",
+        "filename": "compiler/optimizing/intrinsics_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2879,
+      "author": {
+        "id": 3298324
+      },
+      "writtenOn": "2024-03-25T07:35:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "40086ea2_1ea6465d",
+      "range": {
+        "startLine": 2879,
+        "startChar": 10,
+        "endLine": 2879,
+        "endChar": 35
+      },
+      "revId": "8a48e695ab1f364230f1ad1a414bb368338f53fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a3118ecf_4d0c4857",
@@ -163,6 +259,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c20c7e97_8116b6f4",
+        "filename": "compiler/optimizing/intrinsics_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2894,
+      "author": {
+        "id": 3298324
+      },
+      "writtenOn": "2024-03-25T07:35:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a3118ecf_4d0c4857",
+      "range": {
+        "startLine": 2894,
+        "startChar": 64,
+        "endLine": 2894,
+        "endChar": 72
+      },
+      "revId": "8a48e695ab1f364230f1ad1a414bb368338f53fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7508f2ac_104a0fa0",
@@ -176,6 +296,30 @@
       "writtenOn": "2024-03-20T16:38:11Z",
       "side": 1,
       "message": "\"hold\"",
+      "range": {
+        "startLine": 2898,
+        "startChar": 26,
+        "endLine": 2898,
+        "endChar": 33
+      },
+      "revId": "8a48e695ab1f364230f1ad1a414bb368338f53fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff173ab5_6f93a9f8",
+        "filename": "compiler/optimizing/intrinsics_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2898,
+      "author": {
+        "id": 3298324
+      },
+      "writtenOn": "2024-03-25T07:35:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7508f2ac_104a0fa0",
       "range": {
         "startLine": 2898,
         "startChar": 26,
@@ -303,6 +447,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9878c975_fb2991ee",
+        "filename": "compiler/optimizing/intrinsics_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2930,
+      "author": {
+        "id": 3298324
+      },
+      "writtenOn": "2024-03-25T07:35:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "854bcedf_afbf666c",
+      "range": {
+        "startLine": 2927,
+        "startChar": 2,
+        "endLine": 2930,
+        "endChar": 56
+      },
+      "revId": "8a48e695ab1f364230f1ad1a414bb368338f53fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f89e5028_49e2393b",
@@ -350,6 +518,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f443191a_bebe189c",
+        "filename": "compiler/optimizing/intrinsics_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2941,
+      "author": {
+        "id": 3298324
+      },
+      "writtenOn": "2024-03-25T07:35:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "960fd01a_9cb1e061",
+      "range": {
+        "startLine": 2936,
+        "startChar": 0,
+        "endLine": 2941,
+        "endChar": 3
+      },
+      "revId": "8a48e695ab1f364230f1ad1a414bb368338f53fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b7da8df6_bc7bd1c6",
@@ -363,6 +555,30 @@
       "writtenOn": "2024-03-20T16:38:11Z",
       "side": 1,
       "message": "I\u0027d prefer branch-free code. If the result of the SLLI in line 2938 above is stored in `temp3` instead of `temp0`, we can reuse it for\n\n    li temp0, -256  // ~0xff\n    slliw temp0, temp0, temp3  // temp3 \u003d 0 or 8, temp0 :\u003d ~0xff or ~0xffff\n    andn temp1, temp4, temp0  // Extract 8 or 16 bits.\n    andn temp0, temp2, temp0  // Extract 8 or 16 bits.\n    subw out, temp1, temp0\n\nThis is also fewer instuctions to execute. (On arm64 it would be more instructions but maybe the branch-free code would be faster.)",
+      "range": {
+        "startLine": 2949,
+        "startChar": 7,
+        "endLine": 2949,
+        "endChar": 11
+      },
+      "revId": "8a48e695ab1f364230f1ad1a414bb368338f53fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "060a4141_071bcffb",
+        "filename": "compiler/optimizing/intrinsics_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2949,
+      "author": {
+        "id": 3298324
+      },
+      "writtenOn": "2024-03-25T07:35:02Z",
+      "side": 1,
+      "message": "I have separated cases for kUseStringCompression\u003dfalse and true, because in case of false we can\u0027t use temp3 register",
+      "parentUuid": "b7da8df6_bc7bd1c6",
       "range": {
         "startLine": 2949,
         "startChar": 7,
@@ -484,6 +700,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4692c344_301d902c",
+        "filename": "compiler/optimizing/intrinsics_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2973,
+      "author": {
+        "id": 3298324
+      },
+      "writtenOn": "2024-03-25T07:35:02Z",
+      "side": 1,
+      "message": "I think it\u0027s way better. I corrected str/arg selection accordingly",
+      "parentUuid": "f95dc193_9356a665",
+      "revId": "8a48e695ab1f364230f1ad1a414bb368338f53fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4237fdcd_d5114196",
@@ -497,6 +731,30 @@
       "writtenOn": "2024-03-20T16:38:11Z",
       "side": 1,
       "message": "Update ARM-specific comments.",
+      "range": {
+        "startLine": 2977,
+        "startChar": 20,
+        "endLine": 2978,
+        "endChar": 98
+      },
+      "revId": "8a48e695ab1f364230f1ad1a414bb368338f53fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "70c6ee5d_155e100c",
+        "filename": "compiler/optimizing/intrinsics_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2978,
+      "author": {
+        "id": 3298324
+      },
+      "writtenOn": "2024-03-25T07:35:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4237fdcd_d5114196",
       "range": {
         "startLine": 2977,
         "startChar": 20,
@@ -530,6 +788,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e669afd_ae17b0e0",
+        "filename": "compiler/optimizing/intrinsics_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2979,
+      "author": {
+        "id": 3298324
+      },
+      "writtenOn": "2024-03-25T07:35:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f0ac78a0_455e0aac",
+      "range": {
+        "startLine": 2979,
+        "startChar": 4,
+        "endLine": 2979,
+        "endChar": 30
+      },
+      "revId": "8a48e695ab1f364230f1ad1a414bb368338f53fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ba30d0b8_73e1aa83",
@@ -543,6 +825,30 @@
       "writtenOn": "2024-03-20T16:38:11Z",
       "side": 1,
       "message": "These should be `Addi()`, not `Addiw()`.",
+      "range": {
+        "startLine": 2982,
+        "startChar": 4,
+        "endLine": 2983,
+        "endChar": 41
+      },
+      "revId": "8a48e695ab1f364230f1ad1a414bb368338f53fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "328246e2_8cd6a552",
+        "filename": "compiler/optimizing/intrinsics_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2983,
+      "author": {
+        "id": 3298324
+      },
+      "writtenOn": "2024-03-25T07:35:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ba30d0b8_73e1aa83",
       "range": {
         "startLine": 2982,
         "startChar": 4,
@@ -611,6 +917,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "15d9b2f4_c850663d",
+        "filename": "compiler/optimizing/intrinsics_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2999,
+      "author": {
+        "id": 3298324
+      },
+      "writtenOn": "2024-03-25T07:35:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5900a73f_736c28ed",
+      "range": {
+        "startLine": 2999,
+        "startChar": 4,
+        "endLine": 2999,
+        "endChar": 56
+      },
+      "revId": "8a48e695ab1f364230f1ad1a414bb368338f53fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4af75ebd_6b2520c5",
@@ -634,6 +964,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b54ad118_114b951a",
+        "filename": "compiler/optimizing/intrinsics_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3001,
+      "author": {
+        "id": 3298324
+      },
+      "writtenOn": "2024-03-25T07:35:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4af75ebd_6b2520c5",
+      "range": {
+        "startLine": 3001,
+        "startChar": 7,
+        "endLine": 3001,
+        "endChar": 10
+      },
+      "revId": "8a48e695ab1f364230f1ad1a414bb368338f53fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5c69595f_22e5d5bb",
@@ -647,6 +1001,30 @@
       "writtenOn": "2024-03-20T16:38:11Z",
       "side": 1,
       "message": "This could be done branch-free:\n\n    andi temp0, temp0, 1\n    sub temp0, zero, temp0  |  addi temp0, temp0, -1\n    xor out, temp4, temp0\n    sub out, out, temp0\n\nwhere the second instruction depends on whether the compression flag has been flipped or not (see comment in line 2979).",
+      "range": {
+        "startLine": 3008,
+        "startChar": 7,
+        "endLine": 3008,
+        "endChar": 11
+      },
+      "revId": "8a48e695ab1f364230f1ad1a414bb368338f53fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce8ababa_9e6a9a75",
+        "filename": "compiler/optimizing/intrinsics_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3008,
+      "author": {
+        "id": 3298324
+      },
+      "writtenOn": "2024-03-25T07:35:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c69595f_22e5d5bb",
       "range": {
         "startLine": 3008,
         "startChar": 7,
