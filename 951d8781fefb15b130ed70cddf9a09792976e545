@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8fa5751c_d17da0e1",
+        "filename": "compiler/optimizing/intrinsics_riscv64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2966,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-03-25T10:08:41Z",
+      "side": 1,
+      "message": "Please fix this WARNING reported by Check Contents: Please remove the trailing whitespace.\n\nAnalyzer Description: Validates that changes do not have prohibited expressions in them.\nOwner: ayeaye-team@google.com\n\nPlease remove the trailing whitespace.",
+      "range": {
+        "startLine": 2966,
+        "startChar": 92,
+        "endLine": 2966,
+        "endChar": 93
+      },
+      "revId": "951d8781fefb15b130ed70cddf9a09792976e545",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
