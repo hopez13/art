@@ -92,6 +92,30 @@
       },
       "revId": "a193b67dc4959834dbb280a28e3d70925a207d0d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f6b171e_66d96f77",
+        "filename": "libartbase/base/bit_vector.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-03-25T11:20:38Z",
+      "side": 1,
+      "message": "For a fixed-size bit vector, this could be a `DCHECK()`. No run-time check in the release mode.\n\n`size_t` would be 64-bit on 64-bit architectures, so we\u0027d halve the number of operations in some functions (`Intersect()`, `Union()`, `Subtract()`, ...).",
+      "parentUuid": "6cee3466_3ae7d56b",
+      "range": {
+        "startLine": 173,
+        "startChar": 30,
+        "endLine": 173,
+        "endChar": 46
+      },
+      "revId": "a193b67dc4959834dbb280a28e3d70925a207d0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
