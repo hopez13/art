@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f50608c_6c9cef31",
+        "filename": "compiler/optimizing/instruction_simplifier_riscv64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 3270422
+      },
+      "writtenOn": "2024-03-25T14:00:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c1c6351d_34f089ea",
+      "range": {
+        "startLine": 91,
+        "startChar": 2,
+        "endLine": 91,
+        "endChar": 43
+      },
+      "revId": "886fd6e3959689365ff475e27a9bd253ab950561",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fce4ea55_6dbb839a",
@@ -95,6 +119,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e17f5eb5_1f6cc3da",
+        "filename": "compiler/optimizing/instruction_simplifier_riscv64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 3270422
+      },
+      "writtenOn": "2024-03-25T14:00:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4192fdb4_4d28c2b1",
+      "range": {
+        "startLine": 101,
+        "startChar": 20,
+        "endLine": 101,
+        "endChar": 26
+      },
+      "revId": "886fd6e3959689365ff475e27a9bd253ab950561",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "970644a3_fe4ca3e1",
@@ -108,6 +156,24 @@
       "writtenOn": "2024-03-22T08:53:38Z",
       "side": 1,
       "message": "Same here as with the compiler stats above, no need for default value.",
+      "revId": "886fd6e3959689365ff475e27a9bd253ab950561",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4271aca4_60cdef9b",
+        "filename": "compiler/optimizing/nodes_riscv64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 3270422
+      },
+      "writtenOn": "2024-03-25T14:00:32Z",
+      "side": 1,
+      "message": "I made it be `distance_ \u003d UINT32_MAX;`",
+      "parentUuid": "970644a3_fe4ca3e1",
       "revId": "886fd6e3959689365ff475e27a9bd253ab950561",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -158,6 +224,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d08e8c9b_48303312",
+        "filename": "test/458-checker-riscv64-shift-add/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 3270422
+      },
+      "writtenOn": "2024-03-25T14:00:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1c61b264_022c818b",
+      "range": {
+        "startLine": 35,
+        "startChar": 30,
+        "endLine": 35,
+        "endChar": 47
+      },
+      "revId": "886fd6e3959689365ff475e27a9bd253ab950561",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "74ab5f7d_d63fbc11",
@@ -175,6 +265,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c2e6a70_915bab2e",
+        "filename": "test/458-checker-riscv64-shift-add/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 3270422
+      },
+      "writtenOn": "2024-03-25T14:00:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "74ab5f7d_d63fbc11",
+      "revId": "886fd6e3959689365ff475e27a9bd253ab950561",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "92441bf5_4c1dde46",
@@ -188,6 +296,30 @@
       "writtenOn": "2024-03-22T08:53:38Z",
       "side": 1,
       "message": "Separate each CHECK-NOT with its own header e.g.\n```\n  /// CHECK-START: long Main.$noinline$longRiscvShift1Add(long, long) instruction_simplifier_riscv64 (after)\n  /// CHECK-NOT: Shl\n```\n\nSame for the others",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 20
+      },
+      "revId": "886fd6e3959689365ff475e27a9bd253ab950561",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8d25cb9_1393316f",
+        "filename": "test/458-checker-riscv64-shift-add/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 3270422
+      },
+      "writtenOn": "2024-03-25T14:00:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "92441bf5_4c1dde46",
       "range": {
         "startLine": 51,
         "startChar": 0,
