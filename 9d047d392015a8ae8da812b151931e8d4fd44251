@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "882b652d_d9859beb",
+        "filename": "libartbase/base/arena_bit_vector.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-03-25T10:44:18Z",
+      "side": 1,
+      "message": "Remove. This is implicit in the `DCHECK_EQ()`.",
+      "range": {
+        "startLine": 87,
+        "startChar": 2,
+        "endLine": 87,
+        "endChar": 20
+      },
+      "revId": "9d047d392015a8ae8da812b151931e8d4fd44251",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf7e271d_c86b5597",
+        "filename": "libartbase/base/arena_bit_vector.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-03-25T10:44:18Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 99,
+        "startChar": 2,
+        "endLine": 99,
+        "endChar": 20
+      },
+      "revId": "9d047d392015a8ae8da812b151931e8d4fd44251",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
