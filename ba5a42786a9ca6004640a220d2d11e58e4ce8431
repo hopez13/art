@@ -106,6 +106,24 @@
       "parentUuid": "6c66cef9_6c10d6b3",
       "revId": "ba5a42786a9ca6004640a220d2d11e58e4ce8431",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "987eef50_fba47dce",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-03-25T13:12:05Z",
+      "side": 1,
+      "message": "\u003e Looking at the archived snapshots, it looks like we were never providing libdexfile as a runtime dependency of libdexfile_support?\n\nYou mean there are no `runtime_lib` entries? No, but it doesn\u0027t matter if the .so file already is in the right place so that dlopen finds it.\n\n\u003e (1) Whether we need to prebuilts of host variants of other libraries like libandroidio in module sdk?\n\nMaybe not. Back then the goal was to completely unbundle ART from the platform, so that all build and test use cases would work with these prebuilt SDKs. That\u0027s no longer the case - with a smaller scope for the prebuilts it\u0027s entirely possible that many of them aren\u0027t used.\n\nI certainly wouldn\u0027t mind getting rid of as many of them as we can. Note though that we need to support prebuilt SDKs in older platform builds too, maybe as far back as S. I\u0027d be surprised if anyone takes a prebuilt SDK on any platform version, switches to the prebuilts, and expects to still be able to build tests (CTS, mostly). But who knows - it still requires testing. I know APE tests prebuilts they release to partners but I don\u0027t have the details.\n\n\u003e (2) Whether we need prebuilts of the static libraries (e.g. libdexfile_support) in module sdk? (Were these added for branch minimization?)\n\nIt should be the same thing there.\n\n\u003e Could you elaborate on the soong limitation here? Is there a tracking bug for this?\n\nCome to think of it, the limitation may be in the prebuilt SDK generation. You cannot have different variants of the same library in different SDK modules. Supporting that would make the innards quite a bit more complex.",
+      "parentUuid": "fd439d1e_f1a76686",
+      "revId": "ba5a42786a9ca6004640a220d2d11e58e4ce8431",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "87074e9e_04d7c5c2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-03-25T13:12:05Z",
+      "side": 1,
+      "message": "I\u0027m not sure it isn\u0027t strongly coupled - that may depend on the use cases. But iiuc that\u0027s not the point here. Rather, the purpose with it has been to support building host tests and other host tools from prebuilts, so it\u0027s more relevant to claim that there\u0027s no longer any need to build those from prebuilts (tbh I\u0027m still not sure that\u0027s entirely true, but I\u0027m in favour of giving it a try).",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 30
+      },
+      "revId": "830b4d849822125572cfe8bfe29f7d78172f5a84",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
