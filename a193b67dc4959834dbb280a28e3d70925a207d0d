@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b3cf9aa_73709eb6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-03-25T15:19:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "df78a789_817b0000",
+      "range": {
+        "startLine": 11,
+        "startChar": 4,
+        "endLine": 11,
+        "endChar": 7
+      },
+      "revId": "a193b67dc4959834dbb280a28e3d70925a207d0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "da258ceb_0a91ccf2",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-03-25T11:00:09Z",
       "side": 1,
       "message": "I\u0027d remove this. There are many other uses in the code base.",
+      "range": {
+        "startLine": 33,
+        "startChar": 21,
+        "endLine": 33,
+        "endChar": 48
+      },
+      "revId": "a193b67dc4959834dbb280a28e3d70925a207d0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "281d19a6_0e19b30a",
+        "filename": "libartbase/base/bit_vector.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-03-25T15:19:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "da258ceb_0a91ccf2",
       "range": {
         "startLine": 33,
         "startChar": 21,
@@ -108,6 +156,30 @@
       "side": 1,
       "message": "For a fixed-size bit vector, this could be a `DCHECK()`. No run-time check in the release mode.\n\n`size_t` would be 64-bit on 64-bit architectures, so we\u0027d halve the number of operations in some functions (`Intersect()`, `Union()`, `Subtract()`, ...).",
       "parentUuid": "6cee3466_3ae7d56b",
+      "range": {
+        "startLine": 173,
+        "startChar": 30,
+        "endLine": 173,
+        "endChar": 46
+      },
+      "revId": "a193b67dc4959834dbb280a28e3d70925a207d0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3384054b_ddab47af",
+        "filename": "libartbase/base/bit_vector.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-03-25T15:19:53Z",
+      "side": 1,
+      "message": "I will leave it for future CLs. Created b/331194861 to track this.",
+      "parentUuid": "7f6b171e_66d96f77",
       "range": {
         "startLine": 173,
         "startChar": 30,
