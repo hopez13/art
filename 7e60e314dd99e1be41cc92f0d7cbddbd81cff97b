@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1cfec09d_84efcb48",
+        "filename": "runtime/mirror/dex_cache.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-03-25T11:37:12Z",
+      "side": 1,
+      "message": "Note: Even if we were widely using this function, the only \"bad\" side-effect or racing below is the eviction of a different valid entry and that\u0027s certainly OK for a cache. We\u0027re storing a value that shall never be a matched, so we do not need to make any memory visible with a release operation.",
+      "range": {
+        "startLine": 191,
+        "startChar": 4,
+        "endLine": 191,
+        "endChar": 81
+      },
+      "revId": "7e60e314dd99e1be41cc92f0d7cbddbd81cff97b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
