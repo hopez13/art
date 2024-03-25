@@ -16,6 +16,24 @@
       "message": "WDYT about this change? We can make the allocators/callers themselves the responsible ones to clear the bit vector but I fear that we will start having `ClearAllBits` calls again \"just in case\".",
       "revId": "47cd80000b2217f5b37e1f49da00865ca4c7bd00",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f7ae894_b8f5bd6e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-03-25T11:10:03Z",
+      "side": 1,
+      "message": "I\u0027m fine with this. As long as we mostly use the `ArenaBitVector` which guarantees zero-initialization, I\u0027m not afraid of proliferating `ClearAllBits()` calls.\n\nWe could add more wrappers in the `ArenaBitVector` if needed, such as `CreateFixedAllSet()` (non-expandable, all bits set) which can skip the zero-initialization for `ScopedArenaAllocator`.",
+      "parentUuid": "6068b583_41aab59c",
+      "revId": "47cd80000b2217f5b37e1f49da00865ca4c7bd00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
