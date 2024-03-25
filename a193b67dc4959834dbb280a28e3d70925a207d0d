@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df78a789_817b0000",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-03-25T11:00:09Z",
+      "side": 1,
+      "message": "\"which\" (the allocator is not a person)",
+      "range": {
+        "startLine": 11,
+        "startChar": 4,
+        "endLine": 11,
+        "endChar": 7
+      },
+      "revId": "a193b67dc4959834dbb280a28e3d70925a207d0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da258ceb_0a91ccf2",
+        "filename": "libartbase/base/bit_vector.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-03-25T11:00:09Z",
+      "side": 1,
+      "message": "I\u0027d remove this. There are many other uses in the code base.",
+      "range": {
+        "startLine": 33,
+        "startChar": 21,
+        "endLine": 33,
+        "endChar": 48
+      },
+      "revId": "a193b67dc4959834dbb280a28e3d70925a207d0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "633aa048_9f31a330",
+        "filename": "libartbase/base/bit_vector.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-03-25T11:00:09Z",
+      "side": 1,
+      "message": "Since, you\u0027re trying to optimize the `BitVector` usage, why not create a separate class (maybe `FixedBitVector`) that does not need these run-time checks? And/or change the underlying storage unit to `size_t`?",
+      "range": {
+        "startLine": 173,
+        "startChar": 30,
+        "endLine": 173,
+        "endChar": 46
+      },
+      "revId": "a193b67dc4959834dbb280a28e3d70925a207d0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
