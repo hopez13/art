@@ -124,6 +124,24 @@
       "parentUuid": "fd439d1e_f1a76686",
       "revId": "ba5a42786a9ca6004640a220d2d11e58e4ce8431",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3be6504e_04fa06fa",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1878380
+      },
+      "writtenOn": "2024-03-25T20:45:55Z",
+      "side": 1,
+      "message": "\u003e I certainly wouldn\u0027t mind getting rid of as many of them as we can.\n\nAck, this would be my preference as well. It might be an O(N) effort, but it would be nice if we could remove them gradually.\n\n\u003e Note though that we need to support prebuilt SDKs in older platform builds too, maybe as far back as S.\n\nYou are right, I had completely forgot about this. I think this CL is not submittable as-is because the next drop of module sdk generated with this CL will not be compatible with \u003c\u003dU trees. In those trees, we disable sources of art modules when prebuilt module sdk is active. Therefore `libunwindstack` and co will emit a `missing host variant` of `libdexfile` error if we remove the host variant from prebuilts/module_sdk.\n\nWould you know how we have previously handled the scenario where we want to drop a soong module from module sdk without breaking older desserts? I have a WIP CL (aosp/3011798) that does this implicitly in `build/soong` by looking at `SOONG_SDK_SNAPSHOT_TARGET_BUILD_RELEASE`, but I am sure if this is the best solution.",
+      "parentUuid": "987eef50_fba47dce",
+      "revId": "ba5a42786a9ca6004640a220d2d11e58e4ce8431",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
