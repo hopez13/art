@@ -68,6 +68,30 @@
       },
       "revId": "a193b67dc4959834dbb280a28e3d70925a207d0d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6cee3466_3ae7d56b",
+        "filename": "libartbase/base/bit_vector.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-03-25T11:12:35Z",
+      "side": 1,
+      "message": "We\u0027d still need it for the range check, right?\n\nHow is `size_t` better than `uint32_t`?",
+      "parentUuid": "633aa048_9f31a330",
+      "range": {
+        "startLine": 173,
+        "startChar": 30,
+        "endLine": 173,
+        "endChar": 46
+      },
+      "revId": "a193b67dc4959834dbb280a28e3d70925a207d0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
