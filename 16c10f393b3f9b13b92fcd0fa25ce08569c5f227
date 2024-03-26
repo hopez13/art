@@ -1,0 +1,274 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ef1ffad_f35e2a37",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-03-26T16:12:42Z",
+      "side": 1,
+      "message": "I haven\u0027t checked the tests yet. I\u0027ll check them once the current comments are addressed.",
+      "revId": "16c10f393b3f9b13b92fcd0fa25ce08569c5f227",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "077aa8c6_46144222",
+        "filename": "libartbase/base/unix_file/fd_file.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 535,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-03-26T16:12:42Z",
+      "side": 1,
+      "message": "Please move these comments to the header file.",
+      "range": {
+        "startLine": 531,
+        "startChar": 0,
+        "endLine": 535,
+        "endChar": 93
+      },
+      "revId": "16c10f393b3f9b13b92fcd0fa25ce08569c5f227",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb065c10_d704478b",
+        "filename": "libartbase/base/unix_file/fd_file.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 538,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-03-26T16:12:42Z",
+      "side": 1,
+      "message": "DCHECK whether the size of `zeroes` is larger than or equal to `size`.\n```suggestion\n                         const std::vector\u003cuint8_t\u003e\u0026 zeroes) {\n  DCHECK_GE(zeroes.size(), size);\n```",
+      "range": {
+        "startLine": 538,
+        "startChar": 61,
+        "endLine": 538,
+        "endChar": 62
+      },
+      "revId": "16c10f393b3f9b13b92fcd0fa25ce08569c5f227",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c3f50e65_8a71b8f8",
+        "filename": "libartbase/base/unix_file/fd_file.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 557,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-03-26T16:12:42Z",
+      "side": 1,
+      "message": "Please move these comments to the header file.",
+      "range": {
+        "startLine": 553,
+        "startChar": 0,
+        "endLine": 557,
+        "endChar": 67
+      },
+      "revId": "16c10f393b3f9b13b92fcd0fa25ce08569c5f227",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0bfa8ad0_c8089a28",
+        "filename": "libartbase/base/unix_file/fd_file.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 563,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-03-26T16:12:42Z",
+      "side": 1,
+      "message": "Please add argument comment.",
+      "range": {
+        "startLine": 563,
+        "startChar": 44,
+        "endLine": 563,
+        "endChar": 45
+      },
+      "revId": "16c10f393b3f9b13b92fcd0fa25ce08569c5f227",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b62036d_c0cb082d",
+        "filename": "libartbase/base/unix_file/fd_file.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 599,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-03-26T16:12:42Z",
+      "side": 1,
+      "message": "In addition to this, I guess `current_offset` also has to be a multiple of the fs block size?",
+      "range": {
+        "startLine": 599,
+        "startChar": 6,
+        "endLine": 599,
+        "endChar": 34
+      },
+      "revId": "16c10f393b3f9b13b92fcd0fa25ce08569c5f227",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8244e0c_95eda903",
+        "filename": "libartbase/base/unix_file/fd_file.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 607,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-03-26T16:12:42Z",
+      "side": 1,
+      "message": "I think we should stat on the output file?\n```suggestion\n  int rc \u003d TEMP_FAILURE_RETRY(fstat(Fd(), \u0026input_stat));\n```",
+      "range": {
+        "startLine": 607,
+        "startChar": 36,
+        "endLine": 607,
+        "endChar": 46
+      },
+      "revId": "16c10f393b3f9b13b92fcd0fa25ce08569c5f227",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0360ff45_0385104e",
+        "filename": "libartbase/base/unix_file/fd_file.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 608,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-03-26T16:12:42Z",
+      "side": 1,
+      "message": "Nit: inline this\n```suggestion\n  if (TEMP_FAILURE_RETRY(fstat(input_file-\u003eFd(), \u0026input_stat)) \u003c 0) {\n    return false;\n```",
+      "range": {
+        "startLine": 608,
+        "startChar": 6,
+        "endLine": 608,
+        "endChar": 8
+      },
+      "revId": "16c10f393b3f9b13b92fcd0fa25ce08569c5f227",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b92fa5b0_8fe20b9d",
+        "filename": "libartbase/base/unix_file/fd_file.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 615,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-03-26T16:12:42Z",
+      "side": 1,
+      "message": "Handle this value in `UserspaceSparseCopy`?",
+      "range": {
+        "startLine": 615,
+        "startChar": 8,
+        "endLine": 615,
+        "endChar": 20
+      },
+      "revId": "16c10f393b3f9b13b92fcd0fa25ce08569c5f227",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e29c62c2_8dba80e2",
+        "filename": "libartbase/base/unix_file/fd_file.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 634,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-03-26T16:12:42Z",
+      "side": 1,
+      "message": "I think it\u0027s too complicated to have two for loops, one nested in another. Instead, can we process all data in one `UserspaceSparseCopy` call? You can mmap the input file to avoid `ReadFully`.",
+      "range": {
+        "startLine": 618,
+        "startChar": 2,
+        "endLine": 634,
+        "endChar": 3
+      },
+      "revId": "16c10f393b3f9b13b92fcd0fa25ce08569c5f227",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16766126_99c05f2a",
+        "filename": "libartbase/base/unix_file/fd_file.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 635,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-03-26T16:12:42Z",
+      "side": 1,
+      "message": "blocks",
+      "range": {
+        "startLine": 635,
+        "startChar": 22,
+        "endLine": 635,
+        "endChar": 27
+      },
+      "revId": "16c10f393b3f9b13b92fcd0fa25ce08569c5f227",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3229d763_aa43b1ff",
+        "filename": "libartbase/base/unix_file/fd_file.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-03-26T16:12:42Z",
+      "side": 1,
+      "message": "Add a comment to describe what the user is supposed to pass to this parameter.",
+      "range": {
+        "startLine": 195,
+        "startChar": 47,
+        "endLine": 195,
+        "endChar": 53
+      },
+      "revId": "16c10f393b3f9b13b92fcd0fa25ce08569c5f227",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
