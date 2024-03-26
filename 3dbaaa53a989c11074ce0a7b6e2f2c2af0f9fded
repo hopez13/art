@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e8245f4_e8aa40f0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-03-26T09:40:22Z",
+      "side": 1,
+      "message": "Thanks!",
+      "revId": "3dbaaa53a989c11074ce0a7b6e2f2c2af0f9fded",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "65b9b2d4_8fb47022",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 722,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-03-26T09:40:22Z",
+      "side": 1,
+      "message": "I can see why these were added in utils. These sound like they could be useful elsewhere too. I am fine with this change though. We can move them to utils when we have another use.",
+      "range": {
+        "startLine": 722,
+        "startChar": 12,
+        "endLine": 722,
+        "endChar": 46
+      },
+      "revId": "3dbaaa53a989c11074ce0a7b6e2f2c2af0f9fded",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
