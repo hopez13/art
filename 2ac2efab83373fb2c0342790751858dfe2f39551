@@ -1,0 +1,280 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b8469cbc_014272e0",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 5353,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-03-26T15:17:40Z",
+      "side": 1,
+      "message": "Check for `kInt64` to be consistent with the check in `InstructionCodeGeneratorRISCV64::VisitRiscv64ShiftAdd()`.",
+      "range": {
+        "startLine": 5353,
+        "startChar": 9,
+        "endLine": 5353,
+        "endChar": 57
+      },
+      "revId": "2ac2efab83373fb2c0342790751858dfe2f39551",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c75128b_54545514",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 5355,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-03-26T15:17:40Z",
+      "side": 1,
+      "message": "Style: Use `LocationSummary*`. (The type is short enough and not template argument-dependent, so make it explicit.)",
+      "range": {
+        "startLine": 5355,
+        "startChar": 2,
+        "endLine": 5355,
+        "endChar": 6
+      },
+      "revId": "2ac2efab83373fb2c0342790751858dfe2f39551",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2514c49a_dfba22e3",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 5367,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-03-26T15:17:40Z",
+      "side": 1,
+      "message": "If we extract registers here, the `Sh\u003cN\u003eAdd()` calls below shall fit on one line.",
+      "range": {
+        "startLine": 5365,
+        "startChar": 2,
+        "endLine": 5367,
+        "endChar": 35
+      },
+      "revId": "2ac2efab83373fb2c0342790751858dfe2f39551",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7596638e_98916d74",
+        "filename": "compiler/optimizing/instruction_simplifier_riscv64.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-03-26T15:17:40Z",
+      "side": 1,
+      "message": "The function name is too generic. It may become confusing when we add more riscv64 simplifications. As there is only one use, I\u0027d recommend explicitly inlining the function.",
+      "range": {
+        "startLine": 42,
+        "startChar": 14,
+        "endLine": 42,
+        "endChar": 25
+      },
+      "revId": "2ac2efab83373fb2c0342790751858dfe2f39551",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "21c64646_22141076",
+        "filename": "compiler/optimizing/instruction_simplifier_riscv64.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-03-26T15:17:40Z",
+      "side": 1,
+      "message": "This is always true for the \"right\" input of any shift. The bytecode does not permit the shift distance to come from a wide variable.",
+      "range": {
+        "startLine": 63,
+        "startChar": 29,
+        "endLine": 63,
+        "endChar": 54
+      },
+      "revId": "2ac2efab83373fb2c0342790751858dfe2f39551",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c4f818d4_4f659d35",
+        "filename": "compiler/optimizing/instruction_simplifier_riscv64.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-03-26T15:17:40Z",
+      "side": 1,
+      "message": "This removes the `HAdd` from the graph. If the `HAdd` was immediately after the `HShl`, we shall visit the already-removed `HAdd` before terminating the iteration, see `HInstructionIterator` implementation.\n\nI strongly recommend doing these optimizations when we visit the last instruction in the sequence (in this case `HAdd`) even if that requires flipping the pattern recognition around.\n\nMaybe we should add a test case where we expect to apply this optimization twice in the same block.",
+      "range": {
+        "startLine": 87,
+        "startChar": 21,
+        "endLine": 87,
+        "endChar": 52
+      },
+      "revId": "2ac2efab83373fb2c0342790751858dfe2f39551",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5946cf47_961286c8",
+        "filename": "compiler/optimizing/nodes_riscv64.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-03-26T15:17:40Z",
+      "side": 1,
+      "message": "Unreachable. Remove and rebase once the https://android-review.googlesource.com/3014213 is merged.",
+      "range": {
+        "startLine": 44,
+        "startChar": 13,
+        "endLine": 44,
+        "endChar": 56
+      },
+      "revId": "2ac2efab83373fb2c0342790751858dfe2f39551",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "937910da_c4ca8b64",
+        "filename": "compiler/optimizing/nodes_riscv64.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-03-26T15:17:40Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 54,
+        "startChar": 13,
+        "endLine": 55,
+        "endChar": 57
+      },
+      "revId": "2ac2efab83373fb2c0342790751858dfe2f39551",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "093869e4_a7adcdad",
+        "filename": "compiler/optimizing/nodes_riscv64.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-03-26T15:17:40Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 60,
+        "startChar": 13,
+        "endLine": 61,
+        "endChar": 58
+      },
+      "revId": "2ac2efab83373fb2c0342790751858dfe2f39551",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "13cbf346_e8b20cdf",
+        "filename": "compiler/optimizing/nodes_riscv64.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-03-26T15:17:40Z",
+      "side": 1,
+      "message": "I\u0027d prefer to keep the default implementation (which should be made `final`). We should instead update the `HGraphVisualizer` to print the `distance` as an attribute.",
+      "range": {
+        "startLine": 70,
+        "startChar": 2,
+        "endLine": 75,
+        "endChar": 3
+      },
+      "revId": "2ac2efab83373fb2c0342790751858dfe2f39551",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "737ebd10_40518c4a",
+        "filename": "compiler/optimizing/nodes_riscv64.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-03-26T15:17:40Z",
+      "side": 1,
+      "message": "Please remove. There is no constructor that would use this default value.",
+      "range": {
+        "startLine": 87,
+        "startChar": 26,
+        "endLine": 87,
+        "endChar": 39
+      },
+      "revId": "2ac2efab83373fb2c0342790751858dfe2f39551",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "887c5e0a_fb1c0189",
+        "filename": "compiler/optimizing/optimization.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-03-26T15:17:40Z",
+      "side": 1,
+      "message": "Please remove (including the assembler #include). We may want to add non-Zba optimizations to this pass in the future.\n\nZba shall be a required extension for Android and the code below checks that `opt !\u003d nullptr`, so we would get a crash anyway.",
+      "range": {
+        "startLine": 324,
+        "startChar": 8,
+        "endLine": 325,
+        "endChar": 72
+      },
+      "revId": "2ac2efab83373fb2c0342790751858dfe2f39551",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
