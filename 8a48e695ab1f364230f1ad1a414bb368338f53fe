@@ -426,6 +426,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f938f1ed_8f39b073",
+        "filename": "compiler/optimizing/intrinsics_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2914,
+      "author": {
+        "id": 3298324
+      },
+      "writtenOn": "2024-03-26T18:01:28Z",
+      "side": 1,
+      "message": "I tried to adjust the calculations below without using an additional temporary register. As far, as I figured out, this can only be done for a loop that compares strings with the same compression flag. So the question is whether adding another register compensates for removing one instruction in the loop. What do you think about that?",
+      "parentUuid": "eefa5615_70cfe649",
+      "range": {
+        "startLine": 2914,
+        "startChar": 0,
+        "endLine": 2914,
+        "endChar": 48
+      },
+      "revId": "8a48e695ab1f364230f1ad1a414bb368338f53fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "854bcedf_afbf666c",
         "filename": "compiler/optimizing/intrinsics_riscv64.cc",
         "patchSetId": 3
