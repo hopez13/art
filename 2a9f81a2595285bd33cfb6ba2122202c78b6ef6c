@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f92fb9fc_10a10872",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-03-26T16:29:11Z",
+      "side": 1,
+      "message": "huh... that makes no sense, but i can repro locally...\n\nah, it looks like the glibc header that contains these macros doesn\u0027t get transitively included from \u003celf.h\u003e...\n\nah, okay, so glibc\u0027s actually fucked here. they have ELF64_ST_BIND() and ELF32_ST_BIND() but only the uapi header has ELF_ST_BIND() but -- unlike bionic -- they don\u0027t _really_ use the uapi headers, so you can\u0027t include both their \u003celf.h\u003e and the uapi \u003clinux/elf.h\u003e because of name collisions.\n\nstupidly, the definitions of ELF32_ST_* and ELF64_ST_* are the same, so we _could_ go that way, but it would look at bit odd at both callsites...\n```\n~/aosp-main-with-phones/art$ grep -r ELF_ST_\nlibelffile/elf/elf_builder.h:      auto is_local \u003d [](const Elf_Sym\u0026 sym) { return ELF_ST_BIND(sym.st_info) \u003d\u003d STB_LOCAL; };\nlibelffile/elf/elf_debug_reader.h:        if (ELF_ST_TYPE(symbol.st_info) \u003d\u003d STT_FUNC \u0026\u0026\n```\nthe other other alternative would be to have\n```\n#if !defined(__BIONIC__)\n#define ELF_ST_BIND(x) ELF64_ST_BIND(x)\n#define ELF_ST_TYPE(x) ELF64_ST_TYPE(x)\n#endif\n```\n(because, looking more closely, i think musl is in a similar boat, having the 32/64 macros but -- despite the fact they\u0027re both the same! -- no generic one.)",
+      "revId": "2a9f81a2595285bd33cfb6ba2122202c78b6ef6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
