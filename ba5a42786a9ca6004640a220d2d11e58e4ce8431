@@ -142,6 +142,24 @@
       "parentUuid": "987eef50_fba47dce",
       "revId": "ba5a42786a9ca6004640a220d2d11e58e4ce8431",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f294a9fd_e71aa42a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-03-26T22:27:08Z",
+      "side": 1,
+      "message": "All right, please let me know if/when you\u0027d like to continue with this CL.\n\n\u003e Therefore libunwindstack and co will emit a missing host variant of libdexfile error if we remove the host variant from prebuilts/module_sdk.\n\nAh right, they may fail already at the Soong stage. (`SOONG_ALLOW_MISSING_DEPENDENCIES\u003dtrue` could help delay the error enough so that the relevant builds still go through, but that\u0027s probably not a viable workaround.)\n\n\u003e Would you know how we have previously handled the scenario where we want to drop a soong module from module sdk without breaking older desserts?\n\nNo, I\u0027ve never attempted to remove a prebuilt before. I suggest talking to paulduffin@ about that.\n\nIf you go with a hardcoded special case in Soong I\u0027d appreciate some comments next to the library entries here so we don\u0027t forget about it.\n\nBtw, there\u0027s active work on setting up prebuilt drop tests on main and released platforms (see ab/git_main-mainline-prebuilt-drop - I\u0027d share a doc about it but I noticed I don\u0027t have access to it myself).",
+      "parentUuid": "3be6504e_04fa06fa",
+      "revId": "ba5a42786a9ca6004640a220d2d11e58e4ce8431",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
