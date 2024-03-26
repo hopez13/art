@@ -57,10 +57,21 @@ struct ElfTypes64 {
   using Dyn = Elf64_Dyn;
 };
 
+<<<<<<< PATCH SET (2a9f81 Remove duplicate ELF_ST_BIND() and ELF_ST_TYPE() macros.)
+// Architecture dependent flags for the ELF header.
+#define EF_ARM_EABI_VER5 0x05000000
+
+#define EI_ABIVERSION 8
+#if !defined(STV_DEFAULT)
+#define STV_DEFAULT 0
+#endif
+
+=======
 #define ELF_ST_BIND(x) ((x) >> 4)
 #define ELF_ST_TYPE(x) ((x) & 0xf)
 
 // Missing from musl (https://www.openwall.com/lists/musl/2024/03/21/10).
+>>>>>>> BASE      (a4e003 Rename thread that does OOM perfetto dump)
 #ifndef EF_RISCV_RVC
 #define EF_RISCV_RVC 0x1
 #define EF_RISCV_FLOAT_ABI_DOUBLE 0x4
