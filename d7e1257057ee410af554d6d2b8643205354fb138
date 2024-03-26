@@ -16,6 +16,24 @@
       "message": "Line too long. Try to stick to 60 characters per line in a commit message.",
       "revId": "d7e1257057ee410af554d6d2b8643205354fb138",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "124d0e6f_aaa9d76c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-03-26T15:41:33Z",
+      "side": 1,
+      "message": "yeah, this is another cider-ism. i\u0027ll file a bug, but i\u0027d expect to see a lot more of these in future...\n\n(gerrit formats it correctly, but it\u0027ll look weird in the \"file\" view of the commit message. i actually don\u0027t know what `git log` does...)",
+      "parentUuid": "8fec1e08_76dd5e30",
+      "revId": "d7e1257057ee410af554d6d2b8643205354fb138",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
