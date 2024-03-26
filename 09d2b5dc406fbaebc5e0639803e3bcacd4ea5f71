@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "888a6355_f9b79558",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 5388,
+      "author": {
+        "id": 3270422
+      },
+      "writtenOn": "2024-03-26T11:42:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "99650eff_bffa50eb",
+      "revId": "09d2b5dc406fbaebc5e0639803e3bcacd4ea5f71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d5b12048_b63c73d0",
@@ -31,6 +49,30 @@
       "writtenOn": "2024-03-26T08:58:05Z",
       "side": 1,
       "message": "These should be `CHECK-START-RISCV64` or they will fail on other archs. If you run this test for arm64 you will see a failure.",
+      "range": {
+        "startLine": 30,
+        "startChar": 6,
+        "endLine": 30,
+        "endChar": 17
+      },
+      "revId": "09d2b5dc406fbaebc5e0639803e3bcacd4ea5f71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b96ea18_ad26de4d",
+        "filename": "test/458-checker-riscv64-shift-add/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 3270422
+      },
+      "writtenOn": "2024-03-26T11:42:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d5b12048_b63c73d0",
       "range": {
         "startLine": 30,
         "startChar": 6,
