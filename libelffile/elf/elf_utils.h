@@ -57,9 +57,6 @@ struct ElfTypes64 {
   using Dyn = Elf64_Dyn;
 };
 
-#define ELF_ST_BIND(x) ((x) >> 4)
-#define ELF_ST_TYPE(x) ((x) & 0xf)
-
 // Architecture dependent flags for the ELF header.
 #define EF_ARM_EABI_VER5 0x05000000
 
