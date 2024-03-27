@@ -305,6 +305,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8aaa9eba_45ceda3c",
+        "filename": "compiler/optimizing/nodes_riscv64.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 3270422
+      },
+      "writtenOn": "2024-03-27T17:05:23Z",
+      "side": 1,
+      "message": "Do you propose to have `distance` as a `packed field` instead of data member in `HRiscv64ShiftAdd`?",
+      "parentUuid": "facf435c_7e83aacd",
+      "range": {
+        "startLine": 70,
+        "startChar": 2,
+        "endLine": 75,
+        "endChar": 3
+      },
+      "revId": "2ac2efab83373fb2c0342790751858dfe2f39551",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "737ebd10_40518c4a",
         "filename": "compiler/optimizing/nodes_riscv64.h",
         "patchSetId": 8
