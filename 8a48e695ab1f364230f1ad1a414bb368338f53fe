@@ -450,6 +450,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "61ed1763_fc16de55",
+        "filename": "compiler/optimizing/intrinsics_riscv64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2914,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-03-27T10:24:23Z",
+      "side": 1,
+      "message": "I see, there\u0027s no way to calculate the end offset and still hide the compression bit somewhere (as we do for the mixed compression case) without an extra temporary.\n\nMost strings are short, so I think removing the instruction from the loop is not that important. Maybe we should just remove this comment and submit the code as is.",
+      "parentUuid": "f938f1ed_8f39b073",
+      "range": {
+        "startLine": 2914,
+        "startChar": 0,
+        "endLine": 2914,
+        "endChar": 48
+      },
+      "revId": "8a48e695ab1f364230f1ad1a414bb368338f53fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "854bcedf_afbf666c",
         "filename": "compiler/optimizing/intrinsics_riscv64.cc",
         "patchSetId": 3
