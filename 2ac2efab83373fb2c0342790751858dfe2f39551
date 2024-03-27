@@ -73,6 +73,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "133c3c78_8ac89501",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 5355,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-03-27T13:03:41Z",
+      "side": 1,
+      "message": "Yes, `auto` is useful but it also hides information. You\u0027re right that the information is present on the same line here but I\u0027d still prefer the explicit type. This file already uses the explicit type for other allocated `locations`, so there\u0027s also the argument that we should be consistent within the file.",
+      "parentUuid": "512fd460_1590d2e9",
+      "range": {
+        "startLine": 5355,
+        "startChar": 2,
+        "endLine": 5355,
+        "endChar": 6
+      },
+      "revId": "2ac2efab83373fb2c0342790751858dfe2f39551",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2514c49a_dfba22e3",
         "filename": "compiler/optimizing/code_generator_riscv64.cc",
         "patchSetId": 8
