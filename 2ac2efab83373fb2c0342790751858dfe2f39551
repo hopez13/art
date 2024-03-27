@@ -49,6 +49,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "512fd460_1590d2e9",
+        "filename": "compiler/optimizing/code_generator_riscv64.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 5355,
+      "author": {
+        "id": 3270422
+      },
+      "writtenOn": "2024-03-27T11:56:32Z",
+      "side": 1,
+      "message": "Is it already explicit by calling the constructor? I consider C++\u0027s `auto` feature useful.",
+      "parentUuid": "5c75128b_54545514",
+      "range": {
+        "startLine": 5355,
+        "startChar": 2,
+        "endLine": 5355,
+        "endChar": 6
+      },
+      "revId": "2ac2efab83373fb2c0342790751858dfe2f39551",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2514c49a_dfba22e3",
         "filename": "compiler/optimizing/code_generator_riscv64.cc",
         "patchSetId": 8
