@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "26d0c31c_57dbed5d",
+        "filename": "libartbase/base/leb128.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-03-27T09:25:58Z",
+      "side": 1,
+      "message": "I had to change it to reference because of a clang bug. It generates a lot of dead code. David created a minified version of the bug here: https://godbolt.org/z/K15xejbna\n\nOther option is to not use optional and just pass void* and use a nullptr. Clang does optimize a expected for this case. Though I think using std::optional is more modern.",
+      "parentUuid": "2814ce21_7bdb8edd",
+      "range": {
+        "startLine": 33,
+        "startChar": 38,
+        "endLine": 33,
+        "endChar": 71
+      },
+      "revId": "7f0245780b3207f69e094d06f966c826a5af6f39",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e6b6f4bf_6cdf579b",
         "filename": "libartbase/base/leb128.h",
         "patchSetId": 6
@@ -37,6 +61,30 @@
       "writtenOn": "2024-03-26T13:29:44Z",
       "side": 1,
       "message": "This can be calculated as `(num_bits + 6u) / 7u`.",
+      "range": {
+        "startLine": 39,
+        "startChar": 2,
+        "endLine": 39,
+        "endChar": 50
+      },
+      "revId": "7f0245780b3207f69e094d06f966c826a5af6f39",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c5e23bb2_969654a8",
+        "filename": "libartbase/base/leb128.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-03-27T09:25:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e6b6f4bf_6cdf579b",
       "range": {
         "startLine": 39,
         "startChar": 2,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d603b832_72da175a",
+        "filename": "libartbase/base/leb128.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-03-27T09:25:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2d5aabe5_05845ada",
+      "range": {
+        "startLine": 40,
+        "startChar": 8,
+        "endLine": 40,
+        "endChar": 11
+      },
+      "revId": "7f0245780b3207f69e094d06f966c826a5af6f39",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f3caf1f1_c71e7202",
@@ -93,6 +165,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ded672f_c5cd45ea",
+        "filename": "libartbase/base/leb128.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-03-27T09:25:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f3caf1f1_c71e7202",
+      "range": {
+        "startLine": 41,
+        "startChar": 41,
+        "endLine": 41,
+        "endChar": 48
+      },
+      "revId": "7f0245780b3207f69e094d06f966c826a5af6f39",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6c847563_5203f534",
@@ -106,6 +202,30 @@
       "writtenOn": "2024-03-26T13:29:44Z",
       "side": 1,
       "message": "Maybe `std::make_unsigned_t\u003cT\u003e`?",
+      "range": {
+        "startLine": 46,
+        "startChar": 4,
+        "endLine": 46,
+        "endChar": 12
+      },
+      "revId": "7f0245780b3207f69e094d06f966c826a5af6f39",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "30f2818c_e45539ec",
+        "filename": "libartbase/base/leb128.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-03-27T09:25:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6c847563_5203f534",
       "range": {
         "startLine": 46,
         "startChar": 4,
@@ -141,6 +261,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "553e2f81_a2493145",
+        "filename": "libartbase/base/leb128.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-03-27T09:25:58Z",
+      "side": 1,
+      "message": "This doesn\u0027t generate that worse code. This new epression generates:\n\n``\nlsl     w8, w9, w8\nand     w8, w0, w8\nlsl     w8, w8, #1\n ``\n \nInstead of \n\n``\nlsl     w8, w8, w9\nasr     w0, w8, w9\n``\n\nAnother change is the `lsl - asr` was repeated with each unrolled iteration where as the current one with `lsl - and - lsl` is just in one block and we jump to it. So overall, I think it is not bad I think.\n\n\nJust to add the original manually unrolled code generated which was even better. Not sure why clang doesn\u0027t do it in this case.\n``\nsbfx    w0, w9, #0, \u003cconstant\u003e\n``",
+      "parentUuid": "bd960854_39efc068",
+      "range": {
+        "startLine": 54,
+        "startChar": 19,
+        "endLine": 54,
+        "endChar": 45
+      },
+      "revId": "7f0245780b3207f69e094d06f966c826a5af6f39",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a87d1acc_071dc081",
         "filename": "libartbase/base/leb128.h",
         "patchSetId": 6
@@ -152,6 +296,30 @@
       "writtenOn": "2024-03-26T13:29:44Z",
       "side": 1,
       "message": "Nit: `Unsigned` functions are in the reverse order - first unchecked, then `Checked`.",
+      "range": {
+        "startLine": 100,
+        "startChar": 16,
+        "endLine": 100,
+        "endChar": 34
+      },
+      "revId": "7f0245780b3207f69e094d06f966c826a5af6f39",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c60564b_e5184536",
+        "filename": "libartbase/base/leb128.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-03-27T09:25:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a87d1acc_071dc081",
       "range": {
         "startLine": 100,
         "startChar": 16,
@@ -185,6 +353,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "55943195_e77d9326",
+        "filename": "libartbase/base/leb128_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-03-27T09:25:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "46e8b10f_f70562f4",
+      "range": {
+        "startLine": 99,
+        "startChar": 39,
+        "endLine": 99,
+        "endChar": 58
+      },
+      "revId": "7f0245780b3207f69e094d06f966c826a5af6f39",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3d62de47_69436b77",
@@ -198,6 +390,30 @@
       "writtenOn": "2024-03-26T13:29:44Z",
       "side": 1,
       "message": "10",
+      "range": {
+        "startLine": 324,
+        "startChar": 74,
+        "endLine": 324,
+        "endChar": 75
+      },
+      "revId": "7f0245780b3207f69e094d06f966c826a5af6f39",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9ffea44_160ddb35",
+        "filename": "libartbase/base/leb128_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-03-27T09:25:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3d62de47_69436b77",
       "range": {
         "startLine": 324,
         "startChar": 74,
