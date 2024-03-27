@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c9ca0bb_59e857df",
+        "filename": "compiler/optimizing/intrinsics_riscv64.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2936,
+      "author": {
+        "id": 3298324
+      },
+      "writtenOn": "2024-03-27T13:29:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c9fb9e2_0942f56e",
+      "range": {
+        "startLine": 2936,
+        "startChar": 4,
+        "endLine": 2936,
+        "endChar": 5
+      },
+      "revId": "a921ed0605078fd231915943f389931d4ef73f99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4c46f41c_15210574",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-03-27T13:19:25Z",
       "side": 1,
       "message": "Remove space.",
+      "range": {
+        "startLine": 2937,
+        "startChar": 9,
+        "endLine": 2937,
+        "endChar": 10
+      },
+      "revId": "a921ed0605078fd231915943f389931d4ef73f99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "85b9a517_c7a85e2a",
+        "filename": "compiler/optimizing/intrinsics_riscv64.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2937,
+      "author": {
+        "id": 3298324
+      },
+      "writtenOn": "2024-03-27T13:29:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4c46f41c_15210574",
       "range": {
         "startLine": 2937,
         "startChar": 9,
