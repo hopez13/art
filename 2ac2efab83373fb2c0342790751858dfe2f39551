@@ -258,6 +258,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b979a672_0f2ddf75",
+        "filename": "compiler/optimizing/nodes_riscv64.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-03-27T18:00:54Z",
+      "side": 1,
+      "message": "Maybe implement `InstructionDataEquals()` to allow GVN to remove unnecessary copies.",
+      "revId": "2ac2efab83373fb2c0342790751858dfe2f39551",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "13cbf346_e8b20cdf",
         "filename": "compiler/optimizing/nodes_riscv64.h",
         "patchSetId": 8
@@ -317,6 +334,30 @@
       "side": 1,
       "message": "Do you propose to have `distance` as a `packed field` instead of data member in `HRiscv64ShiftAdd`?",
       "parentUuid": "facf435c_7e83aacd",
+      "range": {
+        "startLine": 70,
+        "startChar": 2,
+        "endLine": 75,
+        "endChar": 3
+      },
+      "revId": "2ac2efab83373fb2c0342790751858dfe2f39551",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1eee504a_2e0e6fa5",
+        "filename": "compiler/optimizing/nodes_riscv64.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-03-27T18:00:54Z",
+      "side": 1,
+      "message": "Have a look at `VisitMultiplyAccumulate()` in `graph_visualizer.cc`, it shows how to print an attribute and it has an architecture-specific #ifdef guard.\n\nMoving `distance` to `packed_fields_` is a cleanup that\u0027s nice but not necessary. I was reluctant to propose that because I\u0027d rather have this merged soon. If you find it trivial to do, go ahead.",
+      "parentUuid": "8aaa9eba_45ceda3c",
       "range": {
         "startLine": 70,
         "startChar": 2,
