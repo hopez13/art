@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b55c751_a7abba8b",
+        "filename": "libartbase/base/leb128.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-03-27T11:13:15Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "26d0c31c_57dbed5d",
+      "range": {
+        "startLine": 33,
+        "startChar": 38,
+        "endLine": 33,
+        "endChar": 71
+      },
+      "revId": "7f0245780b3207f69e094d06f966c826a5af6f39",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e6b6f4bf_6cdf579b",
@@ -273,6 +297,30 @@
       "side": 1,
       "message": "This doesn\u0027t generate that worse code. This new epression generates:\n\n``\nlsl     w8, w9, w8\nand     w8, w0, w8\nlsl     w8, w8, #1\n ``\n \nInstead of \n\n``\nlsl     w8, w8, w9\nasr     w0, w8, w9\n``\n\nAnother change is the `lsl - asr` was repeated with each unrolled iteration where as the current one with `lsl - and - lsl` is just in one block and we jump to it. So overall, I think it is not bad I think.\n\n\nJust to add the original manually unrolled code generated which was even better. Not sure why clang doesn\u0027t do it in this case.\n``\nsbfx    w0, w9, #0, \u003cconstant\u003e\n``",
       "parentUuid": "bd960854_39efc068",
+      "range": {
+        "startLine": 54,
+        "startChar": 19,
+        "endLine": 54,
+        "endChar": 45
+      },
+      "revId": "7f0245780b3207f69e094d06f966c826a5af6f39",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "028faf80_fa638f69",
+        "filename": "libartbase/base/leb128.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-03-27T11:13:15Z",
+      "side": 1,
+      "message": "We have the sign bit also in `curr`, so we can save a couple of instructions with `result - ((curr \u0026 0x40u) \u003c\u003c (index * 7 + 1))`. Godbolt shows an improvement.\n\nOr we can ask the clang team what they recommend for sign-extending a value from a certain bit without using undefined behavior in C++.\n\nI think clang would need to consider it beneficial to specialize the code for individual constants that feed the Phi used for the shifts. Otherwise, the code shall be shared and architecture-dependent optimizations do not pick up the pattern.",
+      "parentUuid": "553e2f81_a2493145",
       "range": {
         "startLine": 54,
         "startChar": 19,

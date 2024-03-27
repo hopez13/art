@@ -16,6 +16,29 @@
       "message": "Thanks for the review Vladimir! PTAL. I also added tests for unsigned 64-bit.",
       "revId": "8db5f86bd8efc611810c49edde365c3650143609",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4978d025_5631888b",
+        "filename": "libartbase/base/leb128.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-03-27T11:13:15Z",
+      "side": 1,
+      "message": "We could add `LIKELY()`. Adding `__builtin_expect(., true)` in Godbolt shows that it moves the result expression after the first comparison.",
+      "range": {
+        "startLine": 48,
+        "startChar": 8,
+        "endLine": 48,
+        "endChar": 20
+      },
+      "revId": "8db5f86bd8efc611810c49edde365c3650143609",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
