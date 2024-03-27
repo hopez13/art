@@ -39,12 +39,21 @@ extern "C" void* native_bridge7_getTrampoline(void* /* handle */,
   return nullptr;
 }
 
-extern "C" void* native_bridge7_getTrampoline2(void* /* handle */,
-                                               const char* /* name */,
-                                               const char* /* shorty */,
-                                               uint32_t /* len */,
-                                               android::JNICallType jni_call_type) {
+extern "C" void* native_bridge7_getTrampolineWithJniCallType(void* /* handle */,
+                                                             const char* /* name */,
+                                                             const char* /* shorty */,
+                                                             uint32_t /* len */,
+                                                             android::JNICallType jni_call_type) {
   android::SetGetTrampoline2Called(jni_call_type);
+  return nullptr;
+}
+
+extern "C" void* native_bridge7_getTrampolineFnPtrWithJniCallType(
+    const void* /* method */,
+    const char* /* shorty */,
+    uint32_t /* len */,
+    android::JNICallType jni_call_type) {
+  android::SetGetTrampolineFnPtrCalled(jni_call_type);
   return nullptr;
 }
 
@@ -134,4 +143,5 @@ android::NativeBridgeCallbacks NativeBridgeItf{
     // v6
     &native_bridge7_preZygoteFork,
     // v7
-    &native_bridge7_getTrampoline2};
+    &native_bridge7_getTrampolineWithJniCallType,
+    &native_bridge7_getTrampolineFnPtrWithJniCallType};

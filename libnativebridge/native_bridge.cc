@@ -571,10 +571,10 @@ void* NativeBridgeLoadLibrary(const char* libpath, int flag) {
 
 void* NativeBridgeGetTrampoline(void* handle, const char* name, const char* shorty,
                                 uint32_t len) {
-  return NativeBridgeGetTrampoline2(handle, name, shorty, len, kJNICallTypeRegular);
+  return NativeBridgeGetTrampolineWithJniCallType(handle, name, shorty, len, kJNICallTypeRegular);
 }
 
-void* NativeBridgeGetTrampoline2(
+void* NativeBridgeGetTrampolineWithJniCallType(
     void* handle, const char* name, const char* shorty, uint32_t len, JNICallType jni_call_type) {
   if (!NativeBridgeInitialized()) {
     return nullptr;
@@ -591,6 +591,23 @@ void* NativeBridgeGetTrampoline2(
   }
 
   return callbacks->getTrampoline(handle, name, shorty, len);
+}
+
+void* NativeBridgeFnPtrGetTrampolineWithJniCallType(const void* method,
+                                                    const char* shorty,
+                                                    uint32_t len,
+                                                    JNICallType jni_call_type) {
+  if (!NativeBridgeInitialized()) {
+    return nullptr;
+  }
+
+  if (isCompatibleWith(CRITICAL_NATIVE_SUPPORT_VERSION)) {
+    return callbacks->getTrampolineFnPtrWithJNICallType(method, shorty, len, jni_call_type);
+  } else {
+    ALOGE("not compatible with version %d, getTrampolineFnPtrWithJNICallType() isn't invoked",
+          CRITICAL_NATIVE_SUPPORT_VERSION);
+    return nullptr;
+  }
 }
 
 bool NativeBridgeIsSupported(const char* libpath) {

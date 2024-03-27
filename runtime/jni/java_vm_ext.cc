@@ -183,7 +183,7 @@ class SharedLibrary {
     CHECK(NeedsNativeBridge());
 
     uint32_t len = 0;
-    return android::NativeBridgeGetTrampoline2(
+    return android::NativeBridgeGetTrampolineWithJniCallType(
         handle_, symbol_name.c_str(), shorty, len, jni_call_type);
   }
 

@@ -69,10 +69,18 @@ void* NativeBridgeGetTrampoline(void* handle, const char* name, const char* shor
   return f(handle, name, shorty, len);
 }
 
-void* NativeBridgeGetTrampoline2(
+void* NativeBridgeGetTrampolineWithJniCallType(
     void* handle, const char* name, const char* shorty, uint32_t len, JNICallType jni_call_type) {
-  static auto f = GET_FUNC_PTR(NativeBridgeGetTrampoline2);
+  static auto f = GET_FUNC_PTR(NativeBridgeGetTrampolineWithJniCallType);
   return f(handle, name, shorty, len, jni_call_type);
+}
+
+void* NativeBridgeGetTrampolineFnPtrWithJniCallType(const void* method,
+                                                    const char* shorty,
+                                                    uint32_t len,
+                                                    JNICallType jni_call_type) {
+  static auto f = GET_FUNC_PTR(NativeBridgeGetTrampolineFnPtrWithJniCallType);
+  return f(method, shorty, len, jni_call_type);
 }
 
 const char* NativeBridgeGetError() {
