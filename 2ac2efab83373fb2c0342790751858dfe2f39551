@@ -281,6 +281,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "facf435c_7e83aacd",
+        "filename": "compiler/optimizing/nodes_riscv64.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 3270422
+      },
+      "writtenOn": "2024-03-27T15:08:53Z",
+      "side": 1,
+      "message": "\u003e We should instead update the HGraphVisualizer to print the distance as an attribute.\n\nCould you please explain with more detail?",
+      "parentUuid": "13cbf346_e8b20cdf",
+      "range": {
+        "startLine": 70,
+        "startChar": 2,
+        "endLine": 75,
+        "endChar": 3
+      },
+      "revId": "2ac2efab83373fb2c0342790751858dfe2f39551",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "737ebd10_40518c4a",
         "filename": "compiler/optimizing/nodes_riscv64.h",
         "patchSetId": 8
