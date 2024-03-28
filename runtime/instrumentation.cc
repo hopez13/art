@@ -1269,7 +1269,13 @@ void Instrumentation::Deoptimize(ArtMethod* method) {
     // This isn't a strong deopt. We deopt this method if it is still in the deopt methods list.
     // If by the time we hit this frame we no longer need a deopt it is safe to continue.
     InstrumentAllThreadStacks(/* force_deopt= */ false);
+  } else if (method->IsObsolete()) {
+    // If method was deoptimized and marked as obsolete it should have `GetInvokeObsoleteMethodStub`
+    // as its quick entry point
+    CHECK(method->GetEntryPointFromQuickCompiledCode() == GetInvokeObsoleteMethodStub());
+    return;
   }
+
   CHECK_EQ(method->GetEntryPointFromQuickCompiledCode(), GetQuickToInterpreterBridge());
 }
 
