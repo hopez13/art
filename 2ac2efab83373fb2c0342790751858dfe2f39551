@@ -275,6 +275,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ead0d051_140c5c44",
+        "filename": "compiler/optimizing/nodes_riscv64.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-03-28T10:19:42Z",
+      "side": 1,
+      "message": "Also to not de-duplicate instructions with different shifts e.g. instructions with the same instruction inputs but different `distance` should be considered different",
+      "parentUuid": "b979a672_0f2ddf75",
+      "revId": "2ac2efab83373fb2c0342790751858dfe2f39551",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "13cbf346_e8b20cdf",
         "filename": "compiler/optimizing/nodes_riscv64.h",
         "patchSetId": 8
