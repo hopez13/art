@@ -160,6 +160,24 @@
       "parentUuid": "3be6504e_04fa06fa",
       "revId": "ba5a42786a9ca6004640a220d2d11e58e4ce8431",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "607aec3d_66a30fae",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1878380
+      },
+      "writtenOn": "2024-03-28T00:11:56Z",
+      "side": 1,
+      "message": "I discussed this with Paul offline. In the current state, there is no nice way to conditionally drop these libraries based on the dessert version. I would like to propose this workaround in soong (aosp/3011798) for now.\n\nThis CL itself should be a no-op, but I have left some comments in Android.bp about the workaround that the host variants of these libraries will not be present in \u003e\u003dV snapshots.",
+      "parentUuid": "f294a9fd_e71aa42a",
+      "revId": "ba5a42786a9ca6004640a220d2d11e58e4ce8431",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
