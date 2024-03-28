@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca5d44e3_1a52804e",
+        "filename": "test/odsign/test-src/com/android/tests/odsign/CompOsTestUtils.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1917980
+      },
+      "writtenOn": "2024-03-28T05:47:49Z",
+      "side": 1,
+      "message": "Let\u0027s rename it as `assumeFsVerityEnabled`\n```suggestion\n    public void assumeFsVerityEnabled() throws Exception {\n```",
+      "range": {
+        "startLine": 142,
+        "startChar": 16,
+        "endLine": 142,
+        "endChar": 42
+      },
+      "revId": "9cce9c2f6041156e90b6911cf9b894ea03f468ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
