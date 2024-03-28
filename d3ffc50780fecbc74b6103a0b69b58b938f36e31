@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c941388e_cb7df925",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-03-28T10:40:33Z",
+      "side": 1,
+      "message": "Thanks for the CL! A couple more minor nits.",
+      "revId": "d3ffc50780fecbc74b6103a0b69b58b938f36e31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b2c83ddc_dcda1d9c",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1267,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-03-28T10:40:33Z",
+      "side": 1,
+      "message": "nit: drop \"deoptimized and\". Obsolete methods should always have the ObsoleteMethodStub.",
+      "range": {
+        "startLine": 1267,
+        "startChar": 22,
+        "endLine": 1267,
+        "endChar": 36
+      },
+      "revId": "d3ffc50780fecbc74b6103a0b69b58b938f36e31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2cebb27_c743bed5",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1269,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-03-28T10:40:33Z",
+      "side": 1,
+      "message": "```suggestion\n    CHECK_EQ(method-\u003eGetEntryPointFromQuickCompiledCode(), GetInvokeObsoleteMethodStub());\n```",
+      "range": {
+        "startLine": 1269,
+        "startChar": 4,
+        "endLine": 1269,
+        "endChar": 89
+      },
+      "revId": "d3ffc50780fecbc74b6103a0b69b58b938f36e31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
