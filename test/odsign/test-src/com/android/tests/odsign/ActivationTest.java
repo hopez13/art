@@ -17,6 +17,7 @@
 package com.android.tests.odsign;
 
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assume.assumeTrue;
 
 import com.android.tests.odsign.annotation.CtsTestCase;
 import com.android.tradefed.testtype.DeviceJUnit4ClassRunner;
@@ -36,6 +37,7 @@ import java.util.Set;
  */
 @Ignore("See derived classes, each produces the file for running the following verification")
 abstract class ActivationTest extends BaseHostJUnit4Test {
+    private static final int ANDROID_API_LEVEL_R = 30;
     private static final String TEST_APP_PACKAGE_NAME = "com.android.tests.odsign";
     private static final String TEST_APP_APK = "odsign_e2e_test_app.apk";
 
@@ -44,6 +46,8 @@ abstract class ActivationTest extends BaseHostJUnit4Test {
     @Before
     public void setUp() throws Exception {
         mTestUtils = new OdsignTestUtils(getTestInformation());
+        assumeTrue("Test only applicable to devices launching on Android 11 or later.",
+            (getDevice().getLaunchApiLevel() >= ANDROID_API_LEVEL_R));
     }
 
     @Test
