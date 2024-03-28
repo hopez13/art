@@ -1262,6 +1262,14 @@ void Instrumentation::Deoptimize(ArtMethod* method) {
     CHECK(has_not_been_deoptimized) << "Method " << ArtMethod::PrettyMethod(method)
         << " is already deoptimized";
   }
+
+  if (method->IsObsolete()) {
+    // If method was deoptimized and marked as obsolete it should have `GetInvokeObsoleteMethodStub`
+    // as its quick entry point
+    CHECK(method->GetEntryPointFromQuickCompiledCode() == GetInvokeObsoleteMethodStub());
+    return;
+  }
+
   if (!InterpreterStubsInstalled()) {
     UpdateEntryPoints(method, GetQuickToInterpreterBridge());
 
@@ -1270,6 +1278,7 @@ void Instrumentation::Deoptimize(ArtMethod* method) {
     // If by the time we hit this frame we no longer need a deopt it is safe to continue.
     InstrumentAllThreadStacks(/* force_deopt= */ false);
   }
+
   CHECK_EQ(method->GetEntryPointFromQuickCompiledCode(), GetQuickToInterpreterBridge());
 }
 
