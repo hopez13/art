@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "382a47ef_4bcef40f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1878380
+      },
+      "writtenOn": "2024-03-28T16:56:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8af4a16d_65418049",
+      "range": {
+        "startLine": 15,
+        "startChar": 49,
+        "endLine": 15,
+        "endChar": 61
+      },
+      "revId": "a741635df23ce38e8a9db933060ee57c7fc5e769",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9a55a2ac_8edb5b17",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-03-28T10:59:38Z",
       "side": 1,
       "message": "Can you please delete this? Since we\u0027ve decided to remove these libraries (at least for future platforms) we won\u0027t be pursuing this anymore.",
+      "range": {
+        "startLine": 189,
+        "startChar": 16,
+        "endLine": 190,
+        "endChar": 77
+      },
+      "revId": "a741635df23ce38e8a9db933060ee57c7fc5e769",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4f981cb8_3a736a9f",
+        "filename": "build/sdk/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1878380
+      },
+      "writtenOn": "2024-03-28T16:56:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9a55a2ac_8edb5b17",
       "range": {
         "startLine": 189,
         "startChar": 16,
