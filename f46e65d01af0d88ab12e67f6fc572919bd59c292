@@ -16,6 +16,29 @@
       "message": "Seems like the change I4a406cace0ef87b4f482a11f907e51ad496abb86 was not properly tested. Added a bit more accurate check",
       "revId": "f46e65d01af0d88ab12e67f6fc572919bd59c292",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1072472_f296d987",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1277,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-03-28T10:31:05Z",
+      "side": 1,
+      "message": "We can check for obsolete method first and return early. We don\u0027t need to update the entrypoints for obsolete functions. We should never invoke them.\n\nSomething like:\n\n```\nif (method-\u003eIsObsolete()) {\n CHECK(method-\u003eGetEntryPointFromQuickCompiledCode() \u003d\u003d GetInvokeObsoleteMethodStub());\n return;\n}\n\nif (!InterpreterStubsInstalled()) {\n....\n\n```",
+      "range": {
+        "startLine": 1272,
+        "startChar": 9,
+        "endLine": 1277,
+        "endChar": 3
+      },
+      "revId": "f46e65d01af0d88ab12e67f6fc572919bd59c292",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
