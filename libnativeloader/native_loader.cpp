@@ -437,6 +437,8 @@ void NativeLoaderFreeErrorMessage(char* msg) {
 }
 
 #if defined(ART_TARGET_ANDROID)
+bool IsNamespaceNativeBridged(const struct NativeLoaderNamespace* ns) { return ns->IsBridged(); }
+
 void* OpenNativeLibraryInNamespace(NativeLoaderNamespace* ns, const char* path,
                                    bool* needs_native_bridge, char** error_msg) {
   Result<void*> handle = ns->Load(path);
