@@ -261,6 +261,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c42a0869_dd9f0d77",
+        "filename": "compiler/optimizing/nodes_riscv64.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 3270422
+      },
+      "writtenOn": "2024-04-02T15:53:14Z",
+      "side": 1,
+      "message": "I consider that we should pass `kInt64` explicitly.",
+      "parentUuid": "d0378abc_587941b7",
+      "range": {
+        "startLine": 24,
+        "startChar": 34,
+        "endLine": 24,
+        "endChar": 45
+      },
+      "revId": "be39164e79a9ee6fc0a25084be8aaac758de0142",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8cb6916f_dd5fce4f",
         "filename": "compiler/optimizing/nodes_riscv64.h",
         "patchSetId": 9
