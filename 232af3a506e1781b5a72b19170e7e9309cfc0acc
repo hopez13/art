@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "44f49814_c00ffe7f",
+        "filename": "libartservice/service/java/com/android/server/art/ArtJni.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-02T15:34:44Z",
+      "side": 1,
+      "message": "Ah, right. Didn\u0027t think about those but they are good points.",
+      "parentUuid": "e6965cf9_667ebdf3",
+      "range": {
+        "startLine": 43,
+        "startChar": 51,
+        "endLine": 56,
+        "endChar": 33
+      },
+      "revId": "232af3a506e1781b5a72b19170e7e9309cfc0acc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6f19e50b_3f0f43a4",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-04-02T15:07:57Z",
       "side": 1,
       "message": "Nit: Maybe using an `else` here makes the code more clear. Then if there happens to be a code path without return above the compiler would complain, instead of incorrectly calling the native method.\n```suggestion\n        } else {\n            return validateDexPathNative(dexPath);\n        }\n```",
+      "range": {
+        "startLine": 80,
+        "startChar": 8,
+        "endLine": 80,
+        "endChar": 9
+      },
+      "revId": "232af3a506e1781b5a72b19170e7e9309cfc0acc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b4b7e469_0a016340",
+        "filename": "libartservice/service/java/com/android/server/art/ArtJni.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-02T15:34:44Z",
+      "side": 1,
+      "message": "It\u0027s intentional that I omitted `else` here because Pre-reboot Dexopt is exceptional due to that it can\u0027t load the native library and we do want to call the native method in any other cases.",
+      "parentUuid": "6f19e50b_3f0f43a4",
       "range": {
         "startLine": 80,
         "startChar": 8,
