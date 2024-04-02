@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f6bd25e_c2e8fcc0",
+        "filename": "compiler/optimizing/register_allocator.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-04-02T14:45:36Z",
+      "side": 1,
+      "message": "Remove one blank line.",
+      "revId": "b7e0a2a3511a61d9c03b79899b938b86a0a48476",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "04bb3712_9ea1bf30",
+        "filename": "compiler/optimizing/register_allocator_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-04-02T14:45:36Z",
+      "side": 1,
+      "message": "Remove unnecessary declarations. The `TEST_F` macro defines a subclass and these functions from the base class shall not be defined.",
+      "revId": "b7e0a2a3511a61d9c03b79899b938b86a0a48476",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f4958fa_8198f816",
+        "filename": "compiler/optimizing/register_allocator_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 777,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-04-02T14:45:36Z",
+      "side": 1,
+      "message": "Change to `TEST_F` and drop the `TEST_F` below.",
+      "range": {
+        "startLine": 777,
+        "startChar": 0,
+        "endLine": 777,
+        "endChar": 70
+      },
+      "revId": "b7e0a2a3511a61d9c03b79899b938b86a0a48476",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
