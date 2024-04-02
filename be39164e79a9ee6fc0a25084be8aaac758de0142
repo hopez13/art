@@ -96,6 +96,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cfb845b8_60816582",
+        "filename": "compiler/optimizing/instruction_simplifier_riscv64.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-04-02T12:16:59Z",
+      "side": 1,
+      "message": "Remove this check and add `if (!shl-\u003eHasUses())` for the `shl-\u003eGetBlock()-\u003eRemoveInstruction(shl)` below.",
+      "parentUuid": "17b5d342_0d2edccc",
+      "range": {
+        "startLine": 70,
+        "startChar": 4,
+        "endLine": 72,
+        "endChar": 5
+      },
+      "revId": "be39164e79a9ee6fc0a25084be8aaac758de0142",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1564c4a5_b66a63c4",
         "filename": "compiler/optimizing/instruction_simplifier_riscv64.cc",
         "patchSetId": 9
