@@ -33,6 +33,167 @@
       "message": "Friendly ping. go/review-speed",
       "revId": "6922b236d71e5d1118186d7d0f8c94b4365497fb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0df41db9_e05f9f38",
+        "filename": "libartservice/service/java/com/android/server/art/ArtManagerLocal.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 736,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-02T20:42:14Z",
+      "side": 1,
+      "message": "Why is this hardcoded? Don\u0027t we get DM files here too?",
+      "range": {
+        "startLine": 736,
+        "startChar": 66,
+        "endLine": 736,
+        "endChar": 98
+      },
+      "revId": "6922b236d71e5d1118186d7d0f8c94b4365497fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f64c92c8_541ca156",
+        "filename": "libartservice/service/java/com/android/server/art/DexMetadataHelper.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-02T20:42:14Z",
+      "side": 1,
+      "message": "This is a just a nice pure function that tests ought to cover together with the other logic. I suggest making the `new ZipFile(dmPath)` call mockable instead. That\u0027s where the I/O happens.",
+      "range": {
+        "startLine": 98,
+        "startChar": 15,
+        "endLine": 98,
+        "endChar": 24
+      },
+      "revId": "6922b236d71e5d1118186d7d0f8c94b4365497fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a69ed73a_df07263d",
+        "filename": "libartservice/service/java/com/android/server/art/Dexopter.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-02T20:42:14Z",
+      "side": 1,
+      "message": "Please restrict the scope of this.\n\nOr perhaps better, move the logic below into `getDexMetadataInfo`. It can take `buildDmPath(dexInfo)` as a nullable argument and return a `DexMetadataInfo` that also has an appropriately set `dmPath`. There\u0027s already some logic in it for returning a default info so it\u0027s better to consolidate that there. Also, with `dmPath` in the record maybe the `exists` flag isn\u0027t necessary.",
+      "range": {
+        "startLine": 128,
+        "startChar": 34,
+        "endLine": 128,
+        "endChar": 42
+      },
+      "revId": "6922b236d71e5d1118186d7d0f8c94b4365497fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9e5f69a_ecab4975",
+        "filename": "libartservice/service/java/com/android/server/art/Dexopter.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-02T20:42:14Z",
+      "side": 1,
+      "message": "Worth logging the path to it, or does that happen earlier in the code path?\n```suggestion\n                        Log.i(TAG, \"Embedded profile disabled by config in the dm file \"\n                                + dmInfo.path());\n```",
+      "range": {
+        "startLine": 142,
+        "startChar": 75,
+        "endLine": 142,
+        "endChar": 86
+      },
+      "revId": "6922b236d71e5d1118186d7d0f8c94b4365497fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c042997_9f6c99f4",
+        "filename": "libartservice/service/java/com/android/server/art/Utils.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-02T20:42:14Z",
+      "side": 1,
+      "message": "This argument list is starting to get unwieldy. Next time we should perhaps consider replacing most of it with an AutoValue class or something.",
+      "range": {
+        "startLine": 374,
+        "startChar": 62,
+        "endLine": 377,
+        "endChar": 45
+      },
+      "revId": "6922b236d71e5d1118186d7d0f8c94b4365497fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7edb625c_bcb8e511",
+        "filename": "libartservice/service/javatests/com/android/server/art/PrimaryDexopterTest.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 455,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-02T20:42:14Z",
+      "side": 1,
+      "message": "I\u0027m not sure if this is equivalent to a proto with garbage in it. Maybe add a separate test for that?",
+      "range": {
+        "startLine": 455,
+        "startChar": 73,
+        "endLine": 455,
+        "endChar": 95
+      },
+      "revId": "6922b236d71e5d1118186d7d0f8c94b4365497fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5eba4547_81835c1e",
+        "filename": "libartservice/service/javatests/com/android/server/art/PrimaryDexopterTest.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 462,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-02T20:42:14Z",
+      "side": 1,
+      "message": "Another test case is to have this true but no embedded profile present.",
+      "range": {
+        "startLine": 462,
+        "startChar": 52,
+        "endLine": 462,
+        "endChar": 83
+      },
+      "revId": "6922b236d71e5d1118186d7d0f8c94b4365497fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
