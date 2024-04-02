@@ -16,6 +16,24 @@
       "message": "This is okay but I\u0027d also rename the process itself, not just the thread, so this does not contribute to crash metric of processes like system_server and the like.\n\nConcretely this requires a call to  AndroidRuntime::getRuntime()-\u003esetArgv0.\nThe process name can be as long as you want.\n\nNote: I believe that if you pass setProcName\u003dtrue in setArgv0 you can skip the current call. Because the forked process will have only 1 thread \u003d\u003d the main thread, so the pthread_setname_np will have the same effect of what you are doing here",
       "revId": "fb3a354ebcbac487544a9d97b3722a31fbe76398",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0fd85bdf_a96d84de",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1896186
+      },
+      "writtenOn": "2024-04-02T16:09:54Z",
+      "side": 1,
+      "message": "I think I want the forked process to still contain the original process name, otherwise in tombstones we\u0027ll have no idea what the original process was.\n\nWe can continue the (internal) discussion on crash attribution in https://b.corp.google.com/issues/316381065",
+      "parentUuid": "6fbefce7_efb885dc",
+      "revId": "fb3a354ebcbac487544a9d97b3722a31fbe76398",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
