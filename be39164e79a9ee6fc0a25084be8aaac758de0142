@@ -120,6 +120,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7256146d_1ac6e386",
+        "filename": "compiler/optimizing/instruction_simplifier_riscv64.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 3270422
+      },
+      "writtenOn": "2024-04-02T12:53:52Z",
+      "side": 1,
+      "message": "O, I\u0027ve understood. `Add` has no Environment but `HasOnlyOneNonEnvironmentUse` makes an extra call for us which is `HasExactlyOneElement()`.",
+      "parentUuid": "cfb845b8_60816582",
+      "range": {
+        "startLine": 70,
+        "startChar": 4,
+        "endLine": 72,
+        "endChar": 5
+      },
+      "revId": "be39164e79a9ee6fc0a25084be8aaac758de0142",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1564c4a5_b66a63c4",
         "filename": "compiler/optimizing/instruction_simplifier_riscv64.cc",
         "patchSetId": 9
