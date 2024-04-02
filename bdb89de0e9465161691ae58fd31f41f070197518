@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "baae6d69_fdfeead7",
+        "filename": "libnativebridge/include/nativebridge/native_bridge.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-04-02T12:20:32Z",
+      "side": 1,
+      "message": "Isn\u0027t the `NativeBridgeGetTrampoline2` needed for binary compatibility with older Android versions? (Just like `NativeBridgeGetTrampoline` which is deprecated but not removed.)",
+      "range": {
+        "startLine": 92,
+        "startChar": 6,
+        "endLine": 92,
+        "endChar": 46
+      },
+      "revId": "bdb89de0e9465161691ae58fd31f41f070197518",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
