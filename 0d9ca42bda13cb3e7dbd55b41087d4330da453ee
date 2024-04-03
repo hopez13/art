@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc58b315_0f31e0ae",
+        "filename": "libartservice/service/java/com/android/server/art/DexMetadataHelper.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-03T13:03:35Z",
+      "side": 1,
+      "message": "Can be private?\n```suggestion\n    private DexMetadataInfo getDefaultDexMetadataInfo() {\n```",
+      "range": {
+        "startLine": 83,
+        "startChar": 4,
+        "endLine": 83,
+        "endChar": 10
+      },
+      "revId": "0d9ca42bda13cb3e7dbd55b41087d4330da453ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7df4dcc_f67db739",
+        "filename": "libartservice/service/java/com/android/server/art/DexMetadataHelper.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-03T13:03:35Z",
+      "side": 1,
+      "message": "Perhaps take a `DexMetadataPath` instead?",
+      "range": {
+        "startLine": 88,
+        "startChar": 45,
+        "endLine": 88,
+        "endChar": 51
+      },
+      "revId": "0d9ca42bda13cb3e7dbd55b41087d4330da453ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63e9b089_8b73c3c8",
+        "filename": "libartservice/service/java/com/android/server/art/DexMetadataHelper.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-03T13:03:35Z",
+      "side": 1,
+      "message": "Typo: \"it\"\n```suggestion\n     * @param dmPath Represents the path to the dm file, if it exists. Or null if the file doesn\u0027t\n```",
+      "range": {
+        "startLine": 94,
+        "startChar": 59,
+        "endLine": 94,
+        "endChar": 60
+      },
+      "revId": "0d9ca42bda13cb3e7dbd55b41087d4330da453ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9e36003_f299327b",
+        "filename": "libartservice/service/java/com/android/server/art/DexMetadataHelper.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-03T13:03:35Z",
+      "side": 1,
+      "message": "\"it\" here too.\n```suggestion\n     * @param config The config deserialized from `config.pb`, if it exists. Or the default instance\n     *         if the file doesn\u0027t exist or an error occurred.\n```",
+      "range": {
+        "startLine": 96,
+        "startChar": 65,
+        "endLine": 96,
+        "endChar": 66
+      },
+      "revId": "0d9ca42bda13cb3e7dbd55b41087d4330da453ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32727487_d19325ab",
+        "filename": "libartservice/service/java/com/android/server/art/Dexopter.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-03T13:03:35Z",
+      "side": 1,
+      "message": "This isn\u0027t a very user friendly format. I suggest making `DexMetadataHelper.getDmPath` public so it can be used here.",
+      "range": {
+        "startLine": 136,
+        "startChar": 39,
+        "endLine": 136,
+        "endChar": 57
+      },
+      "revId": "0d9ca42bda13cb3e7dbd55b41087d4330da453ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e5f235d_e662d34f",
+        "filename": "libartservice/service/javatests/com/android/server/art/ArtManagerLocalTest.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 929,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-03T13:03:35Z",
+      "side": 1,
+      "message": "Don\u0027t you need a `verify` call at the end to do this?",
+      "range": {
+        "startLine": 929,
+        "startChar": 11,
+        "endLine": 929,
+        "endChar": 52
+      },
+      "revId": "0d9ca42bda13cb3e7dbd55b41087d4330da453ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
