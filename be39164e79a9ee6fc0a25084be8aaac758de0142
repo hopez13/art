@@ -458,6 +458,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ed9d551b_46f50795",
+        "filename": "compiler/optimizing/nodes_riscv64.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 3270422
+      },
+      "writtenOn": "2024-04-03T11:44:44Z",
+      "side": 1,
+      "message": "And `Riscv64ShiftAdd` inherits it from `HBinaryOperation`.",
+      "parentUuid": "ef2bfee7_11b1bf84",
+      "revId": "be39164e79a9ee6fc0a25084be8aaac758de0142",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7a7c73d8_94d652a4",
         "filename": "test/458-checker-riscv64-shift-add/src/Main.java",
         "patchSetId": 9
