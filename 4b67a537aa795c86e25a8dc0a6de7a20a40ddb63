@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b027e11f_19d93882",
+        "filename": "compiler/optimizing/instruction_simplifier_riscv64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 3270422
+      },
+      "writtenOn": "2024-04-03T15:43:10Z",
+      "side": 1,
+      "message": "Variable `shift` is unused in the example.",
+      "parentUuid": "5ae92839_7872e2d4",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 5
+      },
+      "revId": "4b67a537aa795c86e25a8dc0a6de7a20a40ddb63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bc70ffc2_78adb34d",
         "filename": "compiler/optimizing/instruction_simplifier_riscv64.h",
         "patchSetId": 11
