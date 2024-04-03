@@ -422,6 +422,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "691f6557_2ac5328b",
+        "filename": "compiler/optimizing/nodes_riscv64.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-04-03T10:18:04Z",
+      "side": 1,
+      "message": "Partially done in PS10.\n\nDo we want to make this movable and clonable?",
+      "parentUuid": "8cb6916f_dd5fce4f",
+      "revId": "be39164e79a9ee6fc0a25084be8aaac758de0142",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7a7c73d8_94d652a4",
         "filename": "test/458-checker-riscv64-shift-add/src/Main.java",
         "patchSetId": 9
