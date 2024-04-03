@@ -49,6 +49,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2d71f993_b8a2d394",
+        "filename": "compiler/optimizing/instruction_simplifier_riscv64.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 3270422
+      },
+      "writtenOn": "2024-04-03T09:47:53Z",
+      "side": 1,
+      "message": "Unfortunately I haven\u0027t got a warning after `m build-art-host`",
+      "parentUuid": "9fb8b7be_41a49238",
+      "range": {
+        "startLine": 84,
+        "startChar": 10,
+        "endLine": 84,
+        "endChar": 13
+      },
+      "revId": "e6161ea98bddf7e129a07230fbdc41539c582d0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "76a10483_544a2200",
         "filename": "compiler/optimizing/instruction_simplifier_riscv64.cc",
         "patchSetId": 10
