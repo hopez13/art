@@ -69,6 +69,24 @@
       "message": "If it compiles I am happy.  (but I guess it does not for now)",
       "revId": "2a9f81a2595285bd33cfb6ba2122202c78b6ef6c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61013d3f_a1d35527",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-04-03T00:17:28Z",
+      "side": 1,
+      "message": "no, it doesn\u0027t, so that\u0027s the question --- which fix do you like best/dislike least:\n1. do nothing: keep this duplication (but add a comment explaining why it exists, because we\u0027re not monsters).\n2. replace the callers\u0027 ELF_ST_\u003cfoo\u003e with ELF64_ST_\u003cfoo\u003e (which is fine because the ELF32_ST_\u003cfoo\u003e and ELF64_ST_\u003cfoo\u003e macros are the same, but doesn\u0027t _look_ fine, at least until we delete ILP32 in a few years).\n3. define the size-independent ELF_ST_\u003cfoo\u003e as ELF_64_ST\u003cfoo\u003e in this header, so it\u0027s clearly just a name change, and you are actually using the libc macros rather than trying to change something about them.\n\nin case it\u0027s not clear what i meant by option 3, basically this:\n```\n#if !defined(__BIONIC__)\n#define ELF_ST_BIND(x) ELF64_ST_BIND(x)\n#define ELF_ST_TYPE(x) ELF64_ST_TYPE(x)\n#endif\n```",
+      "parentUuid": "a42225fd_9774a04b",
+      "revId": "2a9f81a2595285bd33cfb6ba2122202c78b6ef6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
