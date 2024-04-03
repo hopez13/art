@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "448cf0ee_05c52421",
+        "filename": "libartbase/base/unix_file/fd_file.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 535,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2024-04-03T16:25:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "077aa8c6_46144222",
+      "range": {
+        "startLine": 531,
+        "startChar": 0,
+        "endLine": 535,
+        "endChar": 93
+      },
+      "revId": "16c10f393b3f9b13b92fcd0fa25ce08569c5f227",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "eb065c10_d704478b",
@@ -54,6 +78,30 @@
       "writtenOn": "2024-03-26T16:12:42Z",
       "side": 1,
       "message": "DCHECK whether the size of `zeroes` is larger than or equal to `size`.\n```suggestion\n                         const std::vector\u003cuint8_t\u003e\u0026 zeroes) {\n  DCHECK_GE(zeroes.size(), size);\n```",
+      "range": {
+        "startLine": 538,
+        "startChar": 61,
+        "endLine": 538,
+        "endChar": 62
+      },
+      "revId": "16c10f393b3f9b13b92fcd0fa25ce08569c5f227",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "96c3c215_abdb42c7",
+        "filename": "libartbase/base/unix_file/fd_file.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 538,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2024-04-03T16:25:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eb065c10_d704478b",
       "range": {
         "startLine": 538,
         "startChar": 61,
@@ -87,6 +135,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b176fe74_377501d0",
+        "filename": "libartbase/base/unix_file/fd_file.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 557,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2024-04-03T16:25:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c3f50e65_8a71b8f8",
+      "range": {
+        "startLine": 553,
+        "startChar": 0,
+        "endLine": 557,
+        "endChar": 67
+      },
+      "revId": "16c10f393b3f9b13b92fcd0fa25ce08569c5f227",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0bfa8ad0_c8089a28",
@@ -100,6 +172,30 @@
       "writtenOn": "2024-03-26T16:12:42Z",
       "side": 1,
       "message": "Please add argument comment.",
+      "range": {
+        "startLine": 563,
+        "startChar": 44,
+        "endLine": 563,
+        "endChar": 45
+      },
+      "revId": "16c10f393b3f9b13b92fcd0fa25ce08569c5f227",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "56e704b4_c8be4b4a",
+        "filename": "libartbase/base/unix_file/fd_file.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 563,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2024-04-03T16:25:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0bfa8ad0_c8089a28",
       "range": {
         "startLine": 563,
         "startChar": 44,
@@ -135,6 +231,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "86d5b392_2fcf26a8",
+        "filename": "libartbase/base/unix_file/fd_file.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 599,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2024-04-03T16:25:10Z",
+      "side": 1,
+      "message": "That\u0027s true, to preserve the same sparsity in the output blocks as we have in the input blocks, both need to be aligned to the blocksize.\n\nWherever possible I am avoiding introducing further restrictions on the use of the copy function (a different offset alignment could even improve upon the sparsity present in the input file, depending on data layout), so I would probably not put this as an exit condition? It should certainly be noted at least, so I\u0027ve updated the header comments, PTAL!",
+      "parentUuid": "7b62036d_c0cb082d",
+      "range": {
+        "startLine": 599,
+        "startChar": 6,
+        "endLine": 599,
+        "endChar": 34
+      },
+      "revId": "16c10f393b3f9b13b92fcd0fa25ce08569c5f227",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f8244e0c_95eda903",
         "filename": "libartbase/base/unix_file/fd_file.cc",
         "patchSetId": 4
@@ -146,6 +266,30 @@
       "writtenOn": "2024-03-26T16:12:42Z",
       "side": 1,
       "message": "I think we should stat on the output file?\n```suggestion\n  int rc \u003d TEMP_FAILURE_RETRY(fstat(Fd(), \u0026input_stat));\n```",
+      "range": {
+        "startLine": 607,
+        "startChar": 36,
+        "endLine": 607,
+        "endChar": 46
+      },
+      "revId": "16c10f393b3f9b13b92fcd0fa25ce08569c5f227",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "02f38e8b_4cbdc6f5",
+        "filename": "libartbase/base/unix_file/fd_file.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 607,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2024-04-03T16:25:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f8244e0c_95eda903",
       "range": {
         "startLine": 607,
         "startChar": 36,
@@ -179,6 +323,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "36ab4dba_7ef6e856",
+        "filename": "libartbase/base/unix_file/fd_file.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 608,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2024-04-03T16:25:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0360ff45_0385104e",
+      "range": {
+        "startLine": 608,
+        "startChar": 6,
+        "endLine": 608,
+        "endChar": 8
+      },
+      "revId": "16c10f393b3f9b13b92fcd0fa25ce08569c5f227",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b92fa5b0_8fe20b9d",
@@ -192,6 +360,30 @@
       "writtenOn": "2024-03-26T16:12:42Z",
       "side": 1,
       "message": "Handle this value in `UserspaceSparseCopy`?",
+      "range": {
+        "startLine": 615,
+        "startChar": 8,
+        "endLine": 615,
+        "endChar": 20
+      },
+      "revId": "16c10f393b3f9b13b92fcd0fa25ce08569c5f227",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d12fe357_4b5b0040",
+        "filename": "libartbase/base/unix_file/fd_file.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 615,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2024-04-03T16:25:10Z",
+      "side": 1,
+      "message": "With the mmap implementation we no longer need to set the input FD offset to be read() from.\n\nWe do however need to set the appropriate offset following the copy, which I\u0027ve now added to `UserspaceSparseCopy` as suggested.",
+      "parentUuid": "b92fa5b0_8fe20b9d",
       "range": {
         "startLine": 615,
         "startChar": 8,
@@ -225,6 +417,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "47a19624_12d346a8",
+        "filename": "libartbase/base/unix_file/fd_file.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 634,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2024-04-03T16:25:10Z",
+      "side": 1,
+      "message": "Sounds reasonable - I have made this change.",
+      "parentUuid": "e29c62c2_8dba80e2",
+      "range": {
+        "startLine": 618,
+        "startChar": 2,
+        "endLine": 634,
+        "endChar": 3
+      },
+      "revId": "16c10f393b3f9b13b92fcd0fa25ce08569c5f227",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "16766126_99c05f2a",
@@ -248,6 +464,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "82ee2a67_3c0a96c8",
+        "filename": "libartbase/base/unix_file/fd_file.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 635,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2024-04-03T16:25:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "16766126_99c05f2a",
+      "range": {
+        "startLine": 635,
+        "startChar": 22,
+        "endLine": 635,
+        "endChar": 27
+      },
+      "revId": "16c10f393b3f9b13b92fcd0fa25ce08569c5f227",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3229d763_aa43b1ff",
@@ -261,6 +501,30 @@
       "writtenOn": "2024-03-26T16:12:42Z",
       "side": 1,
       "message": "Add a comment to describe what the user is supposed to pass to this parameter.",
+      "range": {
+        "startLine": 195,
+        "startChar": 47,
+        "endLine": 195,
+        "endChar": 53
+      },
+      "revId": "16c10f393b3f9b13b92fcd0fa25ce08569c5f227",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c77088d7_82217fc8",
+        "filename": "libartbase/base/unix_file/fd_file.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2024-04-03T16:25:10Z",
+      "side": 1,
+      "message": "Done. It perhaps is a little clunky, but the alternative is to allocate an array on every call, or make a more complicated conditional (e.g. memcmp `data` with an offset version of itself), which both less desirable.",
+      "parentUuid": "3229d763_aa43b1ff",
       "range": {
         "startLine": 195,
         "startChar": 47,
