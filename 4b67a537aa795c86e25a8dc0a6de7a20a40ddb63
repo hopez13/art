@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ae92839_7872e2d4",
+        "filename": "compiler/optimizing/instruction_simplifier_riscv64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-04-03T15:33:04Z",
+      "side": 1,
+      "message": "If the shift is used in other places, do we want to skip this optimization? We could potentially still do it. Otherwise we will miss an optimization on for example:\n\n```\npublic static long foo(long a, long b, long c) {\n  long shift \u003d a \u003c\u003c 1;\n  long add_1 \u003d a + b\n  long add_2 \u003d a + c;\n  return add_1 + add_2;\n}\n```\nsince the shift has two uses.",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 5
+      },
+      "revId": "4b67a537aa795c86e25a8dc0a6de7a20a40ddb63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc70ffc2_78adb34d",
+        "filename": "compiler/optimizing/instruction_simplifier_riscv64.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-04-03T15:33:04Z",
+      "side": 1,
+      "message": "Is this needed?",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 20
+      },
+      "revId": "4b67a537aa795c86e25a8dc0a6de7a20a40ddb63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "842b5e89_ff8f4513",
+        "filename": "compiler/optimizing/nodes_riscv64.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-04-03T15:33:04Z",
+      "side": 1,
+      "message": "No need as it is the same as `HBinaryOperation`",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 55
+      },
+      "revId": "4b67a537aa795c86e25a8dc0a6de7a20a40ddb63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0cd71025_21b8ddb3",
+        "filename": "compiler/optimizing/nodes_riscv64.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-04-03T15:33:04Z",
+      "side": 1,
+      "message": "We usually use the fields themselves (and not `GetPackedFields`), for example https://cs.android.com/android/platform/superproject/main/+/main:art/compiler/optimizing/nodes.h;l\u003d3683-3686;drc\u003d515faa7cf81b33607b7926600265be5c58ef300d. Was there a reason to do it like this and not using `GetDistance`?",
+      "range": {
+        "startLine": 40,
+        "startChar": 11,
+        "endLine": 40,
+        "endChar": 78
+      },
+      "revId": "4b67a537aa795c86e25a8dc0a6de7a20a40ddb63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
