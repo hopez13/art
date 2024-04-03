@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f546164c_0744b704",
+        "filename": "compiler/optimizing/instruction_simplifier_riscv64.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-04-03T07:06:09Z",
+      "side": 1,
+      "message": "Done in PS10.",
+      "parentUuid": "f62abb1b_60715ce0",
+      "range": {
+        "startLine": 52,
+        "startChar": 4,
+        "endLine": 52,
+        "endChar": 93
+      },
+      "revId": "be39164e79a9ee6fc0a25084be8aaac758de0142",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9311743c_94cee798",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-04-02T10:00:36Z",
       "side": 1,
       "message": "Used only once, so we could \"inline\" it.",
+      "range": {
+        "startLine": 64,
+        "startChar": 15,
+        "endLine": 64,
+        "endChar": 23
+      },
+      "revId": "be39164e79a9ee6fc0a25084be8aaac758de0142",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b7d756f2_822a0925",
+        "filename": "compiler/optimizing/instruction_simplifier_riscv64.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-04-03T07:06:09Z",
+      "side": 1,
+      "message": "Done in PS10.",
+      "parentUuid": "9311743c_94cee798",
       "range": {
         "startLine": 64,
         "startChar": 15,
@@ -213,6 +261,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bdd660ec_d0da3237",
+        "filename": "compiler/optimizing/instruction_simplifier_riscv64.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-04-03T07:06:09Z",
+      "side": 1,
+      "message": "Used `auto* const` in PS10.",
+      "parentUuid": "1564c4a5_b66a63c4",
+      "range": {
+        "startLine": 74,
+        "startChar": 4,
+        "endLine": 74,
+        "endChar": 14
+      },
+      "revId": "be39164e79a9ee6fc0a25084be8aaac758de0142",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ee50e289_4ca28bf0",
@@ -226,6 +298,30 @@
       "writtenOn": "2024-04-02T10:00:36Z",
       "side": 1,
       "message": "`HRiscv64ShiftAdd*` is short enough. (I would even consider `auto* const` better than `const auto` here.)",
+      "range": {
+        "startLine": 75,
+        "startChar": 4,
+        "endLine": 75,
+        "endChar": 14
+      },
+      "revId": "be39164e79a9ee6fc0a25084be8aaac758de0142",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b0355cf9_eb613398",
+        "filename": "compiler/optimizing/instruction_simplifier_riscv64.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-04-03T07:06:09Z",
+      "side": 1,
+      "message": "Used `auto* const` in PS10.",
+      "parentUuid": "ee50e289_4ca28bf0",
       "range": {
         "startLine": 75,
         "startChar": 4,
@@ -283,6 +379,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "929fb5f1_1effa810",
+        "filename": "compiler/optimizing/nodes_riscv64.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-04-03T07:06:09Z",
+      "side": 1,
+      "message": "Acknowledged. Done in PS10.",
+      "parentUuid": "c42a0869_dd9f0d77",
+      "range": {
+        "startLine": 24,
+        "startChar": 34,
+        "endLine": 24,
+        "endChar": 45
+      },
+      "revId": "be39164e79a9ee6fc0a25084be8aaac758de0142",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8cb6916f_dd5fce4f",
@@ -323,6 +443,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "810f4783_206679e6",
+        "filename": "test/458-checker-riscv64-shift-add/src/Main.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-04-03T07:06:09Z",
+      "side": 1,
+      "message": "Done in PS10.",
+      "parentUuid": "7a7c73d8_94d652a4",
+      "range": {
+        "startLine": 55,
+        "startChar": 40,
+        "endLine": 55,
+        "endChar": 55
+      },
+      "revId": "be39164e79a9ee6fc0a25084be8aaac758de0142",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ec46f7d4_8385ad25",
@@ -336,6 +480,24 @@
       "writtenOn": "2024-04-02T10:00:36Z",
       "side": 1,
       "message": "Please add a test for two simplifications, for example\n\n    long x \u003d b + (a \u003c\u003c 1)\n    long y \u003d a + (b \u003c\u003c 2);\n    return x ^ y;",
+      "revId": "be39164e79a9ee6fc0a25084be8aaac758de0142",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b63b451_ee7aa334",
+        "filename": "test/458-checker-riscv64-shift-add/src/Main.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-04-03T07:06:09Z",
+      "side": 1,
+      "message": "Done in PS10.",
+      "parentUuid": "ec46f7d4_8385ad25",
       "revId": "be39164e79a9ee6fc0a25084be8aaac758de0142",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
