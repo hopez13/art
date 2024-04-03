@@ -255,6 +255,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "15d99cc6_63abc3e2",
+        "filename": "libartbase/base/unix_file/fd_file.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 599,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-03T18:59:46Z",
+      "side": 1,
+      "message": "Note that this is the offset of the output file, not the offset of the input file. Therefore, I think an unaligned offset leads to a net loss, regardless of the data layout (correct me if I\u0027m wrong). If `current_offset` is not aligned, then the behavior of `FdFile::UserspaceSparseCopy` won\u0027t make sense because it intends to operate on fs blocks.\n\nTo support an unaligned `current_offset`, you probably have to add one more `SparseWrite` to `FdFile::UserspaceSparseCopy`, in order to handle the leading bytes. However, I\u0027m not sure it\u0027s worth it, as all our use cases of `FdFile::Copy` copy data to an empty output file. Given this, I think it\u0027s fine to add one more restriction, for simplicity. I even think we should restrict `current_offset` to be exactly 0.",
+      "parentUuid": "86d5b392_2fcf26a8",
+      "range": {
+        "startLine": 599,
+        "startChar": 6,
+        "endLine": 599,
+        "endChar": 34
+      },
+      "revId": "16c10f393b3f9b13b92fcd0fa25ce08569c5f227",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f8244e0c_95eda903",
         "filename": "libartbase/base/unix_file/fd_file.cc",
         "patchSetId": 4
@@ -525,6 +549,30 @@
       "side": 1,
       "message": "Done. It perhaps is a little clunky, but the alternative is to allocate an array on every call, or make a more complicated conditional (e.g. memcmp `data` with an offset version of itself), which both less desirable.",
       "parentUuid": "3229d763_aa43b1ff",
+      "range": {
+        "startLine": 195,
+        "startChar": 47,
+        "endLine": 195,
+        "endChar": 53
+      },
+      "revId": "16c10f393b3f9b13b92fcd0fa25ce08569c5f227",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "04312466_968da93a",
+        "filename": "libartbase/base/unix_file/fd_file.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-03T18:59:46Z",
+      "side": 1,
+      "message": "Yes, I agree. That\u0027s why all I asked for is a comment. Thanks for adding it!",
+      "parentUuid": "c77088d7_82217fc8",
       "range": {
         "startLine": 195,
         "startChar": 47,

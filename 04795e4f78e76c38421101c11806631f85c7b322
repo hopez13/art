@@ -1,0 +1,481 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20078d1f_1ff98e1d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-03T18:59:46Z",
+      "side": 1,
+      "message": "There are two one test cases to review, but I\u0027d like to send out the current comments first, to avoid overwhelming the author.\n\nI think the `offset` parameter in the tests can be eliminated because it seems to me that it\u0027s just a combination of `empty_prefix` and `copy_start_offset`. Eliminating it will considerably simplify the tests. I\u0027ll review the remaining two test cases once that is done. Or, if there is a necessity of the `offset` parameter that I overlooked, please don\u0027t hesitate to let me know.",
+      "revId": "04795e4f78e76c38421101c11806631f85c7b322",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ff4b6ed_697c3156",
+        "filename": "libartbase/base/unix_file/fd_file.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 551,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-03T18:59:46Z",
+      "side": 1,
+      "message": "output_stat\n```suggestion\n  struct stat output_stat;\n  if (TEMP_FAILURE_RETRY(fstat(Fd(), \u0026output_stat)) \u003c 0) {\n```",
+      "range": {
+        "startLine": 551,
+        "startChar": 14,
+        "endLine": 551,
+        "endChar": 24
+      },
+      "revId": "04795e4f78e76c38421101c11806631f85c7b322",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "84ad8ead_e89989bb",
+        "filename": "libartbase/base/unix_file/fd_file.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 558,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-03T18:59:46Z",
+      "side": 1,
+      "message": "Please add argument comments.",
+      "range": {
+        "startLine": 558,
+        "startChar": 19,
+        "endLine": 558,
+        "endChar": 26
+      },
+      "revId": "04795e4f78e76c38421101c11806631f85c7b322",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c84874d_c4074a00",
+        "filename": "libartbase/base/unix_file/fd_file.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 558,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-03T18:59:46Z",
+      "side": 1,
+      "message": "This can potentially cause memory leak if extra care is not taken. Could you please use [`art::MemMap`](https://cs.android.com/android/platform/superproject/main/+/main:art/libartbase/base/mem_map.h;l\u003d61;drc\u003db343f663e9b0d63ed4423f6e217d5de34e437440), which is more C++ idiomatic? You may need to call `art::MemMap::Init` before using it.\n\nOr, at the very least, use [`android::base::ScopeGuard`](https://cs.android.com/android/platform/superproject/main/+/main:system/libbase/include/android-base/scopeguard.h;l\u003d27;drc\u003d6fe6a1d1fb7e7b1b6e8ba14994237038a683a036) to do the `munmap`.",
+      "range": {
+        "startLine": 558,
+        "startChar": 2,
+        "endLine": 558,
+        "endChar": 11
+      },
+      "revId": "04795e4f78e76c38421101c11806631f85c7b322",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6636b43_cebbe51d",
+        "filename": "libartbase/base/unix_file/fd_file.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 567,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-03T18:59:46Z",
+      "side": 1,
+      "message": "If you use `art::MemMap` or `android::base::ScopeGuard` as suggested above, you don\u0027t need this variable. Instead, simply return false whenever things go wrong.",
+      "range": {
+        "startLine": 567,
+        "startChar": 2,
+        "endLine": 567,
+        "endChar": 22
+      },
+      "revId": "04795e4f78e76c38421101c11806631f85c7b322",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f77d9893_ac81d0cb",
+        "filename": "libartbase/base/unix_file/fd_file.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 584,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-03T18:59:46Z",
+      "side": 1,
+      "message": "Is this type casting needed? Looks like the line above doesn\u0027t do type casting and it\u0027s fine? If it\u0027s needed, please use `static_cast`.",
+      "range": {
+        "startLine": 584,
+        "startChar": 32,
+        "endLine": 584,
+        "endChar": 39
+      },
+      "revId": "04795e4f78e76c38421101c11806631f85c7b322",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0bcf4244_2acce96f",
+        "filename": "libartbase/base/unix_file/fd_file.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 584,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-03T18:59:46Z",
+      "side": 1,
+      "message": "I think it\u0027s better to return false rather than DCHECK.",
+      "range": {
+        "startLine": 584,
+        "startChar": 2,
+        "endLine": 584,
+        "endChar": 11
+      },
+      "revId": "04795e4f78e76c38421101c11806631f85c7b322",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf5a0514_0b8d66ba",
+        "filename": "libartbase/base/unix_file/fd_file.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-03T18:59:46Z",
+      "side": 1,
+      "message": "Can this be const?\n```suggestion\n  bool UserspaceSparseCopy(const FdFile* input_file, off_t off, size_t size);\n```",
+      "range": {
+        "startLine": 194,
+        "startChar": 27,
+        "endLine": 194,
+        "endChar": 34
+      },
+      "revId": "04795e4f78e76c38421101c11806631f85c7b322",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5629b5b4_082997fe",
+        "filename": "libartbase/base/unix_file/fd_file_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-03T18:59:46Z",
+      "side": 1,
+      "message": "No need to cache this. Looks like `GetFilesystemBlockSize` is called in only one test case. Even if it\u0027s called in multiple test cases, the cache won\u0027t make any difference because every test case runs in a separate process and gets a separate instance of the test fixture class.",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 23
+      },
+      "revId": "04795e4f78e76c38421101c11806631f85c7b322",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "41947555_13a7530d",
+        "filename": "libartbase/base/unix_file/fd_file_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-03T18:59:46Z",
+      "side": 1,
+      "message": "Style nit: We add `/*out*/` to output parameters and put them after input parameters.\n```suggestion\nvoid FdFileTest::CreateSparseSourceFile(size_t empty_prefix,\n                                        size_t empty_suffix,\n                                        off_t input_offset,\n                                        /*out*/ std::unique_ptr\u003cFdFile\u003e\u0026 out_file) {\n```",
+      "range": {
+        "startLine": 188,
+        "startChar": 0,
+        "endLine": 191,
+        "endChar": 61
+      },
+      "revId": "04795e4f78e76c38421101c11806631f85c7b322",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1f6d2584_029859e4",
+        "filename": "libartbase/base/unix_file/fd_file_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-03T18:59:46Z",
+      "side": 1,
+      "message": "I think they serve exactly the same purpose here, so maybe only keep one. Then you can remove many redundant test cases.",
+      "range": {
+        "startLine": 194,
+        "startChar": 0,
+        "endLine": 195,
+        "endChar": 47
+      },
+      "revId": "04795e4f78e76c38421101c11806631f85c7b322",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c802722b_d82c0b97",
+        "filename": "libartbase/base/unix_file/fd_file_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-03T18:59:46Z",
+      "side": 1,
+      "message": "`art::ScratchFile::GetFile` returns an FdFile. Why don\u0027t we simply use that instead of creating `FdFile` ourselves?\n\nYou can return the entire `ScratchFile` instead of just the `FdFile`. Then you even don\u0027t have to manually erase it after the test is done.\n\n```suggestion\n  art::ScratchFile src_tmp;\n  FdFile* src \u003d src_tmp.GetFile();\n  ASSERT_TRUE(src-\u003eIsOpened());\n```",
+      "range": {
+        "startLine": 206,
+        "startChar": 0,
+        "endLine": 212,
+        "endChar": 31
+      },
+      "revId": "04795e4f78e76c38421101c11806631f85c7b322",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc3008e1_5406aa2a",
+        "filename": "libartbase/base/unix_file/fd_file_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-03T18:59:46Z",
+      "side": 1,
+      "message": "Style nit: Add space after the operator.\n```suggestion\n  for (size_t i \u003d 0; i \u003c (kNumChunks - 1); i++) {\n```",
+      "range": {
+        "startLine": 218,
+        "startChar": 37,
+        "endLine": 218,
+        "endChar": 38
+      },
+      "revId": "04795e4f78e76c38421101c11806631f85c7b322",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "06e7a18e_a439f164",
+        "filename": "libartbase/base/unix_file/fd_file_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-03T18:59:46Z",
+      "side": 1,
+      "message": "Add argument comments. Here and below.",
+      "range": {
+        "startLine": 237,
+        "startChar": 26,
+        "endLine": 237,
+        "endChar": 48
+      },
+      "revId": "04795e4f78e76c38421101c11806631f85c7b322",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b1717cf7_f07c54fd",
+        "filename": "libartbase/base/unix_file/fd_file_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-03T18:59:46Z",
+      "side": 1,
+      "message": "I wonder how we can reduce this complexity. It looks like this function is just doing memcmp\u0027s, not checking the sparsity. Therefore, can we simply memcmp the source file and the destination file?",
+      "range": {
+        "startLine": 308,
+        "startChar": 0,
+        "endLine": 353,
+        "endChar": 1
+      },
+      "revId": "04795e4f78e76c38421101c11806631f85c7b322",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "75235531_8fdb7d51",
+        "filename": "libartbase/base/unix_file/fd_file_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-03T18:59:46Z",
+      "side": 1,
+      "message": "Test name must not contain underscores. https://google.github.io/googletest/reference/testing.html#TEST_F",
+      "range": {
+        "startLine": 357,
+        "startChar": 29,
+        "endLine": 357,
+        "endChar": 30
+      },
+      "revId": "04795e4f78e76c38421101c11806631f85c7b322",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6306983e_95b4201f",
+        "filename": "libartbase/base/unix_file/fd_file_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-03T18:59:46Z",
+      "side": 1,
+      "message": "Nit: Move this to the left operand, to make this line consistent with the line below.",
+      "range": {
+        "startLine": 364,
+        "startChar": 56,
+        "endLine": 364,
+        "endChar": 73
+      },
+      "revId": "04795e4f78e76c38421101c11806631f85c7b322",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea06f6ad_0bbb8b0d",
+        "filename": "libartbase/base/unix_file/fd_file_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-03T18:59:46Z",
+      "side": 1,
+      "message": "Is it possible to make the upper bound a bit more precise?",
+      "range": {
+        "startLine": 365,
+        "startChar": 50,
+        "endLine": 365,
+        "endChar": 67
+      },
+      "revId": "04795e4f78e76c38421101c11806631f85c7b322",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dba7fe20_7dd739ed",
+        "filename": "libartbase/base/unix_file/fd_file_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-03T18:59:46Z",
+      "side": 1,
+      "message": "Style nit: Spaces around operators. Here and in many other places.",
+      "range": {
+        "startLine": 420,
+        "startChar": 31,
+        "endLine": 420,
+        "endChar": 32
+      },
+      "revId": "04795e4f78e76c38421101c11806631f85c7b322",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5bf391fe_fffd40fa",
+        "filename": "libartbase/base/unix_file/fd_file_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 508,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-03T18:59:46Z",
+      "side": 1,
+      "message": "kStatBlockSize?",
+      "range": {
+        "startLine": 508,
+        "startChar": 38,
+        "endLine": 508,
+        "endChar": 53
+      },
+      "revId": "04795e4f78e76c38421101c11806631f85c7b322",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "64585b2a_606c82f6",
+        "filename": "libartbase/base/unix_file/fd_file_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 522,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-03T18:59:46Z",
+      "side": 1,
+      "message": "Simply use `tmpfile.GetFd()`.",
+      "range": {
+        "startLine": 522,
+        "startChar": 14,
+        "endLine": 522,
+        "endChar": 22
+      },
+      "revId": "04795e4f78e76c38421101c11806631f85c7b322",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
