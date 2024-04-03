@@ -91,6 +91,30 @@
       },
       "revId": "4b67a537aa795c86e25a8dc0a6de7a20a40ddb63",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "47d3dec2_c62c5926",
+        "filename": "compiler/optimizing/nodes_riscv64.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 3270422
+      },
+      "writtenOn": "2024-04-03T15:40:07Z",
+      "side": 1,
+      "message": "I thought somebody can add an important field and will forget to update `InstructionDataEquals`.",
+      "parentUuid": "0cd71025_21b8ddb3",
+      "range": {
+        "startLine": 40,
+        "startChar": 11,
+        "endLine": 40,
+        "endChar": 78
+      },
+      "revId": "4b67a537aa795c86e25a8dc0a6de7a20a40ddb63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
