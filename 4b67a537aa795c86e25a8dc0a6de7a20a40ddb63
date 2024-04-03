@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "162aa254_fe65ff86",
+        "filename": "compiler/optimizing/instruction_simplifier_riscv64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-04-03T16:05:51Z",
+      "side": 1,
+      "message": "I assume `shift` should have been used instead of `a` in the lines that define `add_1` and `add_2`.\n\nThis seems to be the same question that I asked on PS9. In that thread, Anton wrote that \"[i]t seems to [him] that we should expect that `sh\u003cN\u003eadd` is slower than `add`.\" Under that assumption, using 2x`sh1add` may be worse than 1x`sll`+2x`add`.",
+      "parentUuid": "b027e11f_19d93882",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 5
+      },
+      "revId": "4b67a537aa795c86e25a8dc0a6de7a20a40ddb63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bc70ffc2_78adb34d",
         "filename": "compiler/optimizing/instruction_simplifier_riscv64.h",
         "patchSetId": 11
