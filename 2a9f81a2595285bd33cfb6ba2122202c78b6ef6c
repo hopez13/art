@@ -105,6 +105,24 @@
       "parentUuid": "61013d3f_a1d35527",
       "revId": "2a9f81a2595285bd33cfb6ba2122202c78b6ef6c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "950915f7_f91e9f9f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2024-04-03T12:09:21Z",
+      "side": 1,
+      "message": "Well, I care about the code, but I don\u0027t care much how the macros are defined.  I happy to +2 whatever compiles.\n\nI like the option 3 as well to avoid saying ELF64 in 32-bit code. (maybe add comment next to the #define)",
+      "parentUuid": "aca57ff0_bf337270",
+      "revId": "2a9f81a2595285bd33cfb6ba2122202c78b6ef6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
