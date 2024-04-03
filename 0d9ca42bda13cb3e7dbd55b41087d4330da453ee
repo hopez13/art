@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7af3b2a9_40f1dba1",
+        "filename": "libartservice/service/java/com/android/server/art/DexMetadataHelper.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-03T13:35:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bc58b315_0f31e0ae",
+      "range": {
+        "startLine": 83,
+        "startChar": 4,
+        "endLine": 83,
+        "endChar": 10
+      },
+      "revId": "0d9ca42bda13cb3e7dbd55b41087d4330da453ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b7df4dcc_f67db739",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-04-03T13:03:35Z",
       "side": 1,
       "message": "Perhaps take a `DexMetadataPath` instead?",
+      "range": {
+        "startLine": 88,
+        "startChar": 45,
+        "endLine": 88,
+        "endChar": 51
+      },
+      "revId": "0d9ca42bda13cb3e7dbd55b41087d4330da453ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8dd883bc_04985b45",
+        "filename": "libartservice/service/java/com/android/server/art/DexMetadataHelper.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-03T13:35:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b7df4dcc_f67db739",
       "range": {
         "startLine": 88,
         "startChar": 45,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a5517ff_a303641c",
+        "filename": "libartservice/service/java/com/android/server/art/DexMetadataHelper.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-03T13:35:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "63e9b089_8b73c3c8",
+      "range": {
+        "startLine": 94,
+        "startChar": 59,
+        "endLine": 94,
+        "endChar": 60
+      },
+      "revId": "0d9ca42bda13cb3e7dbd55b41087d4330da453ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b9e36003_f299327b",
@@ -83,6 +155,30 @@
       "writtenOn": "2024-04-03T13:03:35Z",
       "side": 1,
       "message": "\"it\" here too.\n```suggestion\n     * @param config The config deserialized from `config.pb`, if it exists. Or the default instance\n     *         if the file doesn\u0027t exist or an error occurred.\n```",
+      "range": {
+        "startLine": 96,
+        "startChar": 65,
+        "endLine": 96,
+        "endChar": 66
+      },
+      "revId": "0d9ca42bda13cb3e7dbd55b41087d4330da453ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8846e4a8_f116c019",
+        "filename": "libartservice/service/java/com/android/server/art/DexMetadataHelper.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-03T13:35:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b9e36003_f299327b",
       "range": {
         "startLine": 96,
         "startChar": 65,
@@ -116,6 +212,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6491fe2a_3fa09505",
+        "filename": "libartservice/service/java/com/android/server/art/Dexopter.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-03T13:35:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "32727487_d19325ab",
+      "range": {
+        "startLine": 136,
+        "startChar": 39,
+        "endLine": 136,
+        "endChar": 57
+      },
+      "revId": "0d9ca42bda13cb3e7dbd55b41087d4330da453ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9e5f235d_e662d34f",
@@ -129,6 +249,30 @@
       "writtenOn": "2024-04-03T13:03:35Z",
       "side": 1,
       "message": "Don\u0027t you need a `verify` call at the end to do this?",
+      "range": {
+        "startLine": 929,
+        "startChar": 11,
+        "endLine": 929,
+        "endChar": 52
+      },
+      "revId": "0d9ca42bda13cb3e7dbd55b41087d4330da453ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b429fc97_e797e55a",
+        "filename": "libartservice/service/javatests/com/android/server/art/ArtManagerLocalTest.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 929,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-03T13:35:57Z",
+      "side": 1,
+      "message": "No. `when` without `lenient` makes sure the method is called.",
+      "parentUuid": "9e5f235d_e662d34f",
       "range": {
         "startLine": 929,
         "startChar": 11,
