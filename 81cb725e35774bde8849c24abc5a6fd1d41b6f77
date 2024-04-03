@@ -16,6 +16,24 @@
       "message": "What happened here?",
       "revId": "81cb725e35774bde8849c24abc5a6fd1d41b6f77",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "27f1a410_e9a18f89",
+        "filename": "dex2oat/dex2oat_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1665,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-03T17:35:39Z",
+      "side": 1,
+      "message": "This test uses a plain dex file and expects the vdex to contain dex, so my change broke it. I have to add \"--copy-dex-files\u003dalways\" to keep the original behavior.",
+      "parentUuid": "d2dbc47a_8df18aaf",
+      "revId": "81cb725e35774bde8849c24abc5a6fd1d41b6f77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
