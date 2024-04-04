@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad9b54a8_aae67374",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1793992
+      },
+      "writtenOn": "2024-04-04T13:22:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7141c886_0a67d9c8",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 31
+      },
+      "revId": "2b8e3c6efe794c016b6a6376293a469c38d215ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "19911611_b8168b43",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-03-21T15:09:52Z",
       "side": 1,
       "message": "Remove. (The `runtime-inl.h` is already #included.)",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 20
+      },
+      "revId": "2b8e3c6efe794c016b6a6376293a469c38d215ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c494b2f8_7b7b72c1",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1793992
+      },
+      "writtenOn": "2024-04-04T13:22:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "19911611_b8168b43",
       "range": {
         "startLine": 47,
         "startChar": 0,

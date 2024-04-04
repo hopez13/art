@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "077b0005_dee103a2",
+        "filename": "runtime/jit/jit_code_cache-inl.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1793992
+      },
+      "writtenOn": "2024-04-04T13:22:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e1824f69_1a4f9047",
+      "range": {
+        "startLine": 34,
+        "startChar": 2,
+        "endLine": 36,
+        "endChar": 3
+      },
+      "revId": "b559cd2cdd409395d5d2d169855267612e4ffedf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "76702134_694fe00b",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-03-28T14:37:01Z",
       "side": 1,
       "message": "For better readability, remove this and move the following code in else?",
+      "range": {
+        "startLine": 437,
+        "startChar": 10,
+        "endLine": 437,
+        "endChar": 18
+      },
+      "revId": "b559cd2cdd409395d5d2d169855267612e4ffedf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f00a7ef_9bdab4cc",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 437,
+      "author": {
+        "id": 1793992
+      },
+      "writtenOn": "2024-04-04T13:22:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "76702134_694fe00b",
       "range": {
         "startLine": 437,
         "startChar": 10,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "edfa4785_69587abb",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 607,
+      "author": {
+        "id": 1793992
+      },
+      "writtenOn": "2024-04-04T13:22:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f5614431_2bab05ac",
+      "range": {
+        "startLine": 607,
+        "startChar": 11,
+        "endLine": 607,
+        "endChar": 16
+      },
+      "revId": "b559cd2cdd409395d5d2d169855267612e4ffedf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f665f293_57a29932",
@@ -93,6 +165,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4f0fcd0_39230e70",
+        "filename": "runtime/jit/jit_code_cache.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1793992
+      },
+      "writtenOn": "2024-04-04T13:22:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f665f293_57a29932",
+      "range": {
+        "startLine": 363,
+        "startChar": 14,
+        "endLine": 363,
+        "endChar": 29
+      },
+      "revId": "b559cd2cdd409395d5d2d169855267612e4ffedf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dc627485_223a81b3",
@@ -106,6 +202,30 @@
       "writtenOn": "2024-03-28T14:37:01Z",
       "side": 1,
       "message": "Add `TODO:` at the beginning for something that you leaving for later.",
+      "range": {
+        "startLine": 561,
+        "startChar": 5,
+        "endLine": 561,
+        "endChar": 10
+      },
+      "revId": "b559cd2cdd409395d5d2d169855267612e4ffedf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "857f10b0_56fa1306",
+        "filename": "runtime/jit/jit_code_cache.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 561,
+      "author": {
+        "id": 1793992
+      },
+      "writtenOn": "2024-04-04T13:22:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dc627485_223a81b3",
       "range": {
         "startLine": 561,
         "startChar": 5,
