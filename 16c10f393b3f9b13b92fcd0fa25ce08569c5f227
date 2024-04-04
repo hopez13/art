@@ -327,6 +327,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a57293be_9fc28c7e",
+        "filename": "libartbase/base/unix_file/fd_file.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 599,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-04T12:47:59Z",
+      "side": 1,
+      "message": "Cool. Constraining the function to only accepting aligned output offset SGTM!",
+      "parentUuid": "d22a6515_1b0de776",
+      "range": {
+        "startLine": 599,
+        "startChar": 6,
+        "endLine": 599,
+        "endChar": 34
+      },
+      "revId": "16c10f393b3f9b13b92fcd0fa25ce08569c5f227",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f8244e0c_95eda903",
         "filename": "libartbase/base/unix_file/fd_file.cc",
         "patchSetId": 4
