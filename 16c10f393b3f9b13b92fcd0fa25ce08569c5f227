@@ -279,6 +279,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5cedb45b_e5d64b3b",
+        "filename": "libartbase/base/unix_file/fd_file.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 599,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2024-04-04T10:46:40Z",
+      "side": 1,
+      "message": "I think there are (quite contrived!) cases where an unaligned output offset would have a positive impact on sparsity. For a small example: a 8KB input split into data (1) and holes (0) as 0110 (so 2 allocated 4KB blocks). When copying the entire file, if the destination offset is also 0 we would end with the same layout and 2 allocated (0 sparse) blocks, but if we set the destination offset to 2KB (not aligned), we would end with 1 allocated (1 sparse) blocks as 00110. The latter means our destination is larger than the source, which is a little strange but potentially acceptable (I note an earlier comment raising the possibility of copying as an append https://android-review.googlesource.com/c/platform/art/+/2968600/1..5/libartbase/base/unix_file/fd_file.cc#b555). Of course, if the input offset was not zero, the output offset would necessarily need to be different to keep that sparsity, so all three variables (input offset, output offset, data layout) are heavily dependent.\n\nMy view of UserspaceSparseCopy has been that it only iterates through the memory and skips zeroed blocks as a best effort - in theory we could skip/write each byte instead of each block and potentially allow for increased sparsity depending on where those zeroes are relative to where we are copying to.\n\nThis is because I wasn\u0027t necessarily guaranteeing that the resulting file will be sparse, instead only that the copy mechanism is sparse, as we can\u0027t control how the underlying filesystem will handle those skipped regions, or even that the filesystem will support sparsity at all.\n\nHowever, I completely agree that simplicity should be preferred. I\u0027m just hesistant that we might be decreasing simplicity by making UserspaceSparseCopy concern itself with where the user wants data to come from or go to.\n\nThe above is simply my general thoughts and somewhat academic considering the current uses cases are simple copy an entire file A to a new empty file B!\n\nAs for actions, I don\u0027t have a problem with constraining the function. As per the linked comment and the possibility of copying as an append, probably ensuring the output offset is aligned (rather than 0) is preferable, so I will do that in the upcoming PS unless I hear otherwise. Thanks!",
+      "parentUuid": "15d99cc6_63abc3e2",
+      "range": {
+        "startLine": 599,
+        "startChar": 6,
+        "endLine": 599,
+        "endChar": 34
+      },
+      "revId": "16c10f393b3f9b13b92fcd0fa25ce08569c5f227",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f8244e0c_95eda903",
         "filename": "libartbase/base/unix_file/fd_file.cc",
         "patchSetId": 4

@@ -18,6 +18,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2105d8ed_d2cda731",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2024-04-04T10:46:40Z",
+      "side": 1,
+      "message": "Thank you for the detailed review! I am currently addressing the comments. I had a couple of early comments about two specific topics as I am doing the update, see below.",
+      "revId": "04795e4f78e76c38421101c11806631f85c7b322",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0ff4b6ed_697c3156",
@@ -151,6 +168,30 @@
         "startChar": 2,
         "endLine": 584,
         "endChar": 11
+      },
+      "revId": "04795e4f78e76c38421101c11806631f85c7b322",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e48f883_d42c829c",
+        "filename": "libartbase/base/unix_file/fd_file.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 584,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2024-04-04T10:46:40Z",
+      "side": 1,
+      "message": "As both off and size are longs (but signed and unsigned), they evaluate as an unsigned value. It is then the comparison operator that complains via -Wsign-compare as we compare it with input_offset (signed). There is no comparison in the line above so the compiler accepts it.\n\nI\u0027ll therefore add a static_cast in the upcoming PS, thanks!",
+      "parentUuid": "f77d9893_ac81d0cb",
+      "range": {
+        "startLine": 584,
+        "startChar": 32,
+        "endLine": 584,
+        "endChar": 39
       },
       "revId": "04795e4f78e76c38421101c11806631f85c7b322",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
