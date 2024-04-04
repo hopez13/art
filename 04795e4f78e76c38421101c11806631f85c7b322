@@ -37,6 +37,41 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e3241885_d1e53e4b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2024-04-04T23:10:03Z",
+      "side": 1,
+      "message": "Thank you for the comments. After some consideration, I agree that the `offset` parameter was not achieving much and will be pushing an updated patchset asap.\n\nI did not want to stay too far from an accepted implementation merged in https://android-review.googlesource.com/c/platform/art/+/2889346/9/libartbase/base/unix_file/fd_file_test.cc#249, but if you have strong thoughts on reducing complexity then it would be further possible to simplify by dropping the prefix/suffix regions altogether.\n\nIn that case we would be be reducing the tests to only operate on one constant input file, but the PartialCopy test cases would go some of the way to have a similar effect because some of those can result in copies that start/end in empty regions. On the other hand, the tests already exist and perhaps more coverage is better than less. Do let me know if you have any thoughts on this!",
+      "parentUuid": "20078d1f_1ff98e1d",
+      "revId": "04795e4f78e76c38421101c11806631f85c7b322",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f0b883db_bac78ce8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2024-04-04T23:10:03Z",
+      "side": 1,
+      "message": "I have addressed all comments locally and I\u0027m currently testing/reviewing to update here ASAP. Two comments stood out that I wanted to raise early. Thanks!",
+      "revId": "04795e4f78e76c38421101c11806631f85c7b322",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0ff4b6ed_697c3156",
         "filename": "libartbase/base/unix_file/fd_file.cc",
         "patchSetId": 5
@@ -440,6 +475,30 @@
       "writtenOn": "2024-04-03T18:59:46Z",
       "side": 1,
       "message": "Is it possible to make the upper bound a bit more precise?",
+      "range": {
+        "startLine": 365,
+        "startChar": 50,
+        "endLine": 365,
+        "endChar": 67
+      },
+      "revId": "04795e4f78e76c38421101c11806631f85c7b322",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1f39c7ac_0d9d9f04",
+        "filename": "libartbase/base/unix_file/fd_file_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2024-04-04T23:10:03Z",
+      "side": 1,
+      "message": "Ideally we would be exact: with 8 chunks of aligned 64KB data regions, we should expect 128 blocks (or stat.st_blocks to be 1024 as st_blocks are given in units of 512). However, in this specific example on my Pixel 6 test device I get 129 blocks (1032 st blocks) here.\n\nI believe this is because the filesystem will allocate potentially multiple additional blocks for metadata to track the extents of the file, which depends on whether or not the file is considered continuous or fragmented. \n\nNote that in PS1 we had kEstimateMaxFileMetadataSize to account for this, which was set to 128KB following the previous patch (see https://android-review.googlesource.com/c/platform/art/+/2889346/9/libartbase/base/unix_file/fd_file_test.cc#249). My understanding is that this value was originally quite large because the size of this metadata is not very predictable and is relative to how the filesystem handles the allocation, so is very filesystem and disk state dependent. \n\nThere might be a sensible way to reliably calculate the number of additional metadata blocks which I am not aware of, but 128KB certainly felt quite arbitrary and didn\u0027t serve much of a purpose as an wide upper bound other than to indicate that the file wasn\u0027t completely allocated on disk (i.e. that it was sparse).\n\nI therefore replaced with an assertion that was more precise to what that test was achieving: checking that the file is sparse by confirming that the size is greater than the capacity of the allocated blocks. Therefore we avoid the potentially error prone / unnecessary estimation of exactly how much additional data we expect the filesystem to allocate - the last thing I would want is failing tests on various future filesystems because my boundary estimate was too tight!",
+      "parentUuid": "ea06f6ad_0bbb8b0d",
       "range": {
         "startLine": 365,
         "startChar": 50,
