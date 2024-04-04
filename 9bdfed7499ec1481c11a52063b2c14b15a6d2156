@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2ce2e40_4899eecd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-04-04T15:17:31Z",
+      "side": 1,
+      "message": "Odd that it didn\u0027t fail on presubmit/postsubmit when `def` started being in the RO data but in any case this test doesn\u0027t require a particular string (only that one that needs a BSS entry)",
+      "revId": "9bdfed7499ec1481c11a52063b2c14b15a6d2156",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
