@@ -17,6 +17,7 @@
 #include "artd.h"
 
 #include <fcntl.h>
+#include <stdlib.h>
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <unistd.h>
@@ -25,6 +26,7 @@
 #include <chrono>
 #include <condition_variable>
 #include <csignal>
+#include <cstdint>
 #include <cstdio>
 #include <cstring>
 #include <filesystem>
@@ -35,7 +37,6 @@
 #include <string>
 #include <thread>
 #include <type_traits>
-#include <unordered_set>
 #include <utility>
 #include <vector>
 
@@ -108,6 +109,7 @@ using ::testing::DoAll;
 using ::testing::ElementsAre;
 using ::testing::Field;
 using ::testing::HasSubstr;
+using ::testing::InSequence;
 using ::testing::IsEmpty;
 using ::testing::Matcher;
 using ::testing::MockFunction;
@@ -116,6 +118,7 @@ using ::testing::Property;
 using ::testing::ResultOf;
 using ::testing::Return;
 using ::testing::SetArgPointee;
+using ::testing::StrEq;
 using ::testing::UnorderedElementsAreArray;
 using ::testing::WithArg;
 
@@ -2437,6 +2440,123 @@ TEST_F(ArtdTest, getProfileSize) {
                       &aidl_return)
                   .isOk());
   EXPECT_EQ(aidl_return, 1);
+}
+
+class ArtdPreRebootTest : public ArtdTest {
+ protected:
+  void SetUp() override {
+    ArtdTest::SetUp();
+
+    pre_reboot_tmp_dir_ = scratch_path_ + "/artd_tmp";
+    std::filesystem::create_directories(pre_reboot_tmp_dir_);
+    init_environ_rc_path_ = scratch_path_ + "/init.environ.rc";
+
+    auto mock_props = std::make_unique<MockSystemProperties>();
+    mock_props_ = mock_props.get();
+    EXPECT_CALL(*mock_props_, GetProperty).Times(AnyNumber()).WillRepeatedly(Return(""));
+    auto mock_exec_utils = std::make_unique<MockExecUtils>();
+    mock_exec_utils_ = mock_exec_utils.get();
+    artd_ = ndk::SharedRefBase::make<Artd>(Options{.is_pre_reboot = true},
+                                           std::move(mock_props),
+                                           std::move(mock_exec_utils),
+                                           mock_kill_.AsStdFunction(),
+                                           mock_fstat_.AsStdFunction(),
+                                           mock_mount_.AsStdFunction(),
+                                           mock_restorecon_.AsStdFunction(),
+                                           pre_reboot_tmp_dir_,
+                                           init_environ_rc_path_);
+
+    ON_CALL(mock_restorecon_, Call).WillByDefault(Return(Result<void>()));
+
+    constexpr const char* kInitEnvironRcTmpl = R"(
+      on early-init
+          export ANDROID_ART_ROOT {}
+          export ANDROID_DATA {}
+    )";
+    ASSERT_TRUE(WriteStringToFile(ART_FORMAT(kInitEnvironRcTmpl, art_root_, android_data_),
+                                  init_environ_rc_path_));
+  }
+
+  std::string pre_reboot_tmp_dir_;
+  std::string init_environ_rc_path_;
+  MockFunction<int(const char*, const char*, const char*, uint32_t, const void*)> mock_mount_;
+  MockFunction<Result<void>(const std::string&,
+                            const std::optional<OutputArtifacts::PermissionSettings::SeContext>&,
+                            bool)>
+      mock_restorecon_;
+};
+
+TEST_F(ArtdPreRebootTest, preRebootInit) {
+  // Clear the env var to check that it can get the env var from init.environ.rc.
+  setenv("ANDROID_ART_ROOT", /*value=*/"", /*overwrite=*/1);
+
+  InSequence seq;
+
+  EXPECT_CALL(*mock_exec_utils_,
+              DoExecAndReturnCode(
+                  AllOf(WhenSplitBy("--",
+                                    AllOf(Contains(art_root_ + "/bin/art_exec"),
+                                          Contains("--drop-capabilities")),
+                                    Contains("/apex/com.android.sdkext/bin/derive_classpath")),
+                        HasKeepFdsFor("/proc/self/fd/")),
+                  _,
+                  _))
+      .WillOnce(DoAll(WithArg<0>(WriteToFdFlag("/proc/self/fd/", "export BOOTCLASSPATH /foo:/bar")),
+                      Return(0)));
+
+  EXPECT_CALL(mock_mount_,
+              Call(StrEq(pre_reboot_tmp_dir_ + "/art_apex_data"),
+                   StrEq("/data/misc/apexdata/com.android.art"),
+                   /*fs_type=*/nullptr,
+                   MS_BIND | MS_PRIVATE,
+                   /*data=*/nullptr))
+      .WillOnce(Return(0));
+
+  EXPECT_CALL(mock_mount_,
+              Call(StrEq(pre_reboot_tmp_dir_ + "/odrefresh"),
+                   StrEq("/data/misc/odrefresh"),
+                   /*fs_type=*/nullptr,
+                   MS_BIND | MS_PRIVATE,
+                   /*data=*/nullptr))
+      .WillOnce(Return(0));
+
+  EXPECT_CALL(*mock_exec_utils_,
+              DoExecAndReturnCode(WhenSplitBy("--",
+                                              AllOf(Contains(art_root_ + "/bin/art_exec"),
+                                                    Contains("--drop-capabilities")),
+                                              AllOf(Contains(art_root_ + "/bin/odrefresh"),
+                                                    Contains("--only-boot-images"),
+                                                    Contains("--compile"))),
+                                  _,
+                                  _))
+      .WillOnce(Return(0));
+
+  EXPECT_TRUE(artd_->preRebootInit().isOk());
+
+  EXPECT_EQ(getenv("ANDROID_ART_ROOT"), art_root_);
+  EXPECT_STREQ(getenv("BOOTCLASSPATH"), "/foo:/bar");
+  EXPECT_TRUE(std::filesystem::exists(pre_reboot_tmp_dir_ + "/preparation_done"));
+
+  // Reset env vars to simulate that artd died and restarted.
+  ASSERT_EQ(setenv("ANDROID_ART_ROOT", "", /*replace=*/1), 0);
+  ASSERT_EQ(setenv("BOOTCLASSPATH", "", /*replace=*/1), 0);
+
+  // Calling again will not involve `mount`, `derive_classpath`, or `odrefresh` but only restore env
+  // vars.
+  EXPECT_TRUE(artd_->preRebootInit().isOk());
+  EXPECT_EQ(getenv("ANDROID_ART_ROOT"), art_root_);
+  EXPECT_STREQ(getenv("BOOTCLASSPATH"), "/foo:/bar");
+}
+
+TEST_F(ArtdPreRebootTest, preRebootInitNoRetry) {
+  // Simulate that a previous attempt failed halfway.
+  ASSERT_TRUE(WriteStringToFile("", pre_reboot_tmp_dir_ + "/classpath"));
+
+  ndk::ScopedAStatus status = artd_->preRebootInit();
+  EXPECT_FALSE(status.isOk());
+  EXPECT_EQ(status.getExceptionCode(), EX_ILLEGAL_STATE);
+  EXPECT_STREQ(status.getMessage(),
+               "preRebootInit must not be concurrently called or retried after failure");
 }
 
 }  // namespace
