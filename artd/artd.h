@@ -50,6 +50,10 @@ struct Options {
   // If true, this artd instance is for Pre-reboot Dexopt. It runs in a chroot environment that is
   // set up by dexopt_chroot_setup.
   bool is_pre_reboot = false;
+
+  // If set, overrides the default temp dir for Pre-reboot Dexopt.
+  // For testing use only.
+  std::optional<std::string> test_only_override_pre_reboot_tmp_dir = std::nullopt;
 };
 
 class ArtdCancellationSignal : public aidl::com::android::server::art::BnArtdCancellationSignal {
@@ -206,6 +210,8 @@ class Artd : public aidl::com::android::server::art::BnArtd {
                                                 const std::string& in_classLoaderContext,
                                                 std::optional<std::string>* _aidl_return) override;
 
+  ndk::ScopedAStatus preRebootInit() override;
+
   android::base::Result<void> Start();
 
  private:
@@ -255,11 +261,22 @@ class Artd : public aidl::com::android::server::art::BnArtd {
 
   android::base::Result<struct stat> Fstat(const art::File& file) const;
 
+  // Creates a new dir at `source` and bind-mounts it at `target`. If `source` already exists, it
+  // will be removed.
+  android::base::Result<void> BindMountNewDir(const std::string& source,
+                                              const std::string& target) const;
+
+  android::base::Result<void> BindMount(const std::string& source, const std::string& target) const;
+
   ndk::ScopedAStatus CopyAndRewriteProfileImpl(
       File src,
       aidl::com::android::server::art::OutputProfile* dst_aidl,
       const std::string& dex_path,
       aidl::com::android::server::art::CopyAndRewriteProfileResult* aidl_return);
+
+  android::base::Result<void> PreRebootInitSetEnvFromFile(const std::string& path);
+  android::base::Result<void> PreRebootInitDeriveClasspath(const std::string& path);
+  android::base::Result<void> PreRebootInitBootImages();
 
   std::mutex cache_mu_;
   std::optional<std::vector<std::string>> cached_boot_image_locations_ GUARDED_BY(cache_mu_);
