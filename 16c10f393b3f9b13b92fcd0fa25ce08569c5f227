@@ -303,6 +303,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d22a6515_1b0de776",
+        "filename": "libartbase/base/unix_file/fd_file.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 599,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2024-04-04T11:12:22Z",
+      "side": 1,
+      "message": "On further consideration of that toy example - I think you are right. As we always copy based on the input offset, it looks like it doesn\u0027t actually matter what the output data layout is, because we are writing the zeroes instead of skipping them. The example output \u0027should\u0027 have 1 sparse block, but would infact have 0. This would only be improved if we were to parse (write/skip) the memory at a finer granularity, e.g. in 2KB chunks for that example.\n\nTherefore, it seems with the current function there might indeed be no case where an unligned output offset would be better afterall.\n\nAnyway the plan is unchanged, I just wanted to confirm the above!",
+      "parentUuid": "5cedb45b_e5d64b3b",
+      "range": {
+        "startLine": 599,
+        "startChar": 6,
+        "endLine": 599,
+        "endChar": 34
+      },
+      "revId": "16c10f393b3f9b13b92fcd0fa25ce08569c5f227",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f8244e0c_95eda903",
         "filename": "libartbase/base/unix_file/fd_file.cc",
         "patchSetId": 4
