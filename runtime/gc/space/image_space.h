@@ -388,7 +388,7 @@ class ImageSpace : public MemMapSpace {
                                    size_t bcp_index,
                                    bool boot_image_extension) {
       std::vector<std::string> expanded = ExpandMultiImageLocations(
-          ArrayRef<const std::string>(boot_class_path_).SubArray(bcp_index, 1u),
+          ArrayRef<const std::string>(boot_class_path_locations_).SubArray(bcp_index, 1u),
           location,
           boot_image_extension);
       DCHECK_EQ(expanded.size(), 1u);
