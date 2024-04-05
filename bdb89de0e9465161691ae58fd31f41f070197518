@@ -72,6 +72,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1f6c4de_050533cb",
+        "filename": "libnativebridge/include/nativebridge/native_bridge.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1041673
+      },
+      "writtenOn": "2024-04-05T09:07:41Z",
+      "side": 1,
+      "message": "ok, reverted this part.",
+      "parentUuid": "aee424ab_2c665c95",
+      "range": {
+        "startLine": 92,
+        "startChar": 6,
+        "endLine": 92,
+        "endChar": 46
+      },
+      "revId": "bdb89de0e9465161691ae58fd31f41f070197518",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "66da18b1_e5a1e4bd",
@@ -85,6 +109,30 @@
       "writtenOn": "2024-04-04T14:07:46Z",
       "side": 1,
       "message": "I would use `NativeBridgeGetTrampoline\u003cSuffix\u003e` with `\u003cSuffix\u003e` something like `FnPtr`, `ForFnPtr`, `ForFunctionPointer`, `Direct`, etc. I would drop the `WithJniCallType`.\n\nNote that the naming here is inconsistent, you\u0027re calling the first argument both a function pointer (in this function\u0027s name) and a method (argument name, comments). I think this a function and a \"native method implementation\" but not a \"method\". Please clean this up here and for the `getTrampolineFnPtrWithJNICallType`.",
+      "range": {
+        "startLine": 98,
+        "startChar": 6,
+        "endLine": 98,
+        "endChar": 51
+      },
+      "revId": "bdb89de0e9465161691ae58fd31f41f070197518",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "50c01cf3_f2df9619",
+        "filename": "libnativebridge/include/nativebridge/native_bridge.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1041673
+      },
+      "writtenOn": "2024-04-05T09:07:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "66da18b1_e5a1e4bd",
       "range": {
         "startLine": 98,
         "startChar": 6,
