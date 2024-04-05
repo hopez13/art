@@ -70,6 +70,30 @@
       },
       "revId": "a3b3eb2081c3839cacd946d5d43ffd5cfeffbc49",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "25caeec9_1a584a87",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-05T18:28:44Z",
+      "side": 1,
+      "message": "The concurrency is for `BatchDexoptReason`\u0027s. I don\u0027t see how it affects package install.",
+      "parentUuid": "d75d4a00_65e23f44",
+      "range": {
+        "startLine": 10,
+        "startChar": 32,
+        "endLine": 11,
+        "endChar": 33
+      },
+      "revId": "a3b3eb2081c3839cacd946d5d43ffd5cfeffbc49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
