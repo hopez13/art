@@ -22,6 +22,30 @@
       },
       "revId": "a3b3eb2081c3839cacd946d5d43ffd5cfeffbc49",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3031e6ba_c662a84a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-05T18:19:44Z",
+      "side": 1,
+      "message": "We discussed this f2f a few week ago and I showed you the local experiment results got from a Pixel device. With concurrency 1, `first-boot` took 12s; with concurrency 2, `first-boot` took 10s; with concurrency 4, `first-boot` took 8s.",
+      "parentUuid": "6b0f4bfe_605b24a6",
+      "range": {
+        "startLine": 10,
+        "startChar": 32,
+        "endLine": 11,
+        "endChar": 33
+      },
+      "revId": "a3b3eb2081c3839cacd946d5d43ffd5cfeffbc49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
