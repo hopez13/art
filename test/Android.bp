@@ -178,6 +178,10 @@ filegroup {
     ],
 }
 
+// Defaults for tests that can run using atest against an ART APEX installed on
+// any supported platform. These tests can only depend on NDK libraries from
+// platform and exported module libraries. Any other libraries must be pushed
+// with the test or linked statically.
 art_cc_defaults {
     name: "art_standalone_test_defaults",
     defaults: [
@@ -206,6 +210,9 @@ art_cc_defaults {
             suffix: "64",
         },
     },
+
+    min_sdk_version: "31", // Same as the ART APEX.
+    stl: "libc++_static",
 }
 
 // Properties common to `art_gtest_defaults` and `art_standalone_gtest_defaults`.
