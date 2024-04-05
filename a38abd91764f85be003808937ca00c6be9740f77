@@ -1,0 +1,205 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "46023ad2_e1c138f3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-04-05T17:01:06Z",
+      "side": 1,
+      "message": "Thanks! Mostly lgtm. Just a few suggestions and clarifications.",
+      "revId": "a38abd91764f85be003808937ca00c6be9740f77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "efa60a00_620cf44d",
+        "filename": "runtime/common_throws.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-04-05T17:01:06Z",
+      "side": 1,
+      "message": "Maybe we can have the default type of stack as Native. I think Native is the most often used type so it might be easier for readability.",
+      "range": {
+        "startLine": 257,
+        "startChar": 10,
+        "endLine": 257,
+        "endChar": 30
+      },
+      "revId": "a38abd91764f85be003808937ca00c6be9740f77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cce74895_0df44851",
+        "filename": "runtime/entrypoints/quick/quick_throw_entrypoints.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-04-05T17:01:06Z",
+      "side": 1,
+      "message": "Maybe a comment here about the QuickStackType is needed for supporting simulator. Maybe also mention it is same as native stack unless we are building for a simulator.",
+      "range": {
+        "startLine": 110,
+        "startChar": 3,
+        "endLine": 110,
+        "endChar": 49
+      },
+      "revId": "a38abd91764f85be003808937ca00c6be9740f77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6cf7fa75_1c696384",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 977,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-04-05T17:01:06Z",
+      "side": 1,
+      "message": "Any reason why we want to do GetThreadStack outside of InitStack. Just asking to understand the change.",
+      "range": {
+        "startLine": 977,
+        "startChar": 2,
+        "endLine": 977,
+        "endChar": 16
+      },
+      "revId": "a38abd91764f85be003808937ca00c6be9740f77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f4be96fb_01d06f78",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2816,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-04-05T17:01:06Z",
+      "side": 1,
+      "message": "Do we need this for native stack at all?",
+      "range": {
+        "startLine": 2816,
+        "startChar": 6,
+        "endLine": 2816,
+        "endChar": 38
+      },
+      "revId": "a38abd91764f85be003808937ca00c6be9740f77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e8bcada_ca9346d9",
+        "filename": "runtime/thread.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-04-05T17:01:06Z",
+      "side": 1,
+      "message": "Is this required for this patch? Or was it just a leftover when splitting the patches?",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 33
+      },
+      "revId": "a38abd91764f85be003808937ca00c6be9740f77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e41a7a5f_d1d59772",
+        "filename": "runtime/thread.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-04-05T17:01:06Z",
+      "side": 1,
+      "message": "Maybe expand the comment to mention that for quick code we might either use simulator or native depending on whether we are building for a simulator.",
+      "range": {
+        "startLine": 201,
+        "startChar": 3,
+        "endLine": 201,
+        "endChar": 53
+      },
+      "revId": "a38abd91764f85be003808937ca00c6be9740f77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dacac590_eec0b449",
+        "filename": "runtime/thread.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1111,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-04-05T17:01:06Z",
+      "side": 1,
+      "message": "Maybe we can default this to Native too. Also for GetStackEnd and GetStackBegin.",
+      "range": {
+        "startLine": 1111,
+        "startChar": 12,
+        "endLine": 1111,
+        "endChar": 32
+      },
+      "revId": "a38abd91764f85be003808937ca00c6be9740f77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "342224c1_1e0e96f1",
+        "filename": "runtime/thread.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1178,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-04-05T17:01:06Z",
+      "side": 1,
+      "message": "If we only need this for quick type maybe we could drop the template?",
+      "range": {
+        "startLine": 1178,
+        "startChar": 7,
+        "endLine": 1178,
+        "endChar": 22
+      },
+      "revId": "a38abd91764f85be003808937ca00c6be9740f77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
