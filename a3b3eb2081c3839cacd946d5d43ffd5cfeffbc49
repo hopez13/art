@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b0f4bfe_605b24a6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-05T17:14:41Z",
+      "side": 1,
+      "message": "This isn\u0027t clear to me. I agree for situations where a larger number of files are dexopted in a batch operation. However e.g. on package install only a few dex files get compiled, right?\n\nI reason like this: With a concurrency of 4 the first 4 dex2oat runs will be scheduled at the same time, and that\u0027s probably worse than running them one by one because of more I/O and memory bandwidth in parallel and higher memory footprint. The benefit comes later when dex2oat runs of different lengths have gotten the shutdown/startup periods out of sync between the CPUs. I\u0027d think that\u0027s getting likely to happen only after 8-10 runs.\n\nThat\u0027s of course just speculation, but it means the change isn\u0027t obviously beneficial. Do you have measurements?\n\nOtherwise I think this justifies extending it to boot reasons, but not package install.",
+      "range": {
+        "startLine": 10,
+        "startChar": 32,
+        "endLine": 11,
+        "endChar": 33
+      },
+      "revId": "a3b3eb2081c3839cacd946d5d43ffd5cfeffbc49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
