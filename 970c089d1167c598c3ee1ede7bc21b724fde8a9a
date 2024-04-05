@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ffa95dee_3de3cd47",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-04-05T09:58:21Z",
+      "side": 1,
+      "message": "Done. I\u0027d hope that clang can optimize the new and old version to essentially the same code but the new version is much easier to optimize.",
+      "parentUuid": "a91c88a7_b723492c",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 60
+      },
+      "revId": "970c089d1167c598c3ee1ede7bc21b724fde8a9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8cb7cfae_2f0bf0d5",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-04-05T09:39:07Z",
       "side": 1,
       "message": "cpp lint is complaining about a missing space here",
+      "range": {
+        "startLine": 4089,
+        "startChar": 68,
+        "endLine": 4089,
+        "endChar": 69
+      },
+      "revId": "970c089d1167c598c3ee1ede7bc21b724fde8a9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "13bff33b_6ce7171b",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4089,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-04-05T09:58:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8cb7cfae_2f0bf0d5",
       "range": {
         "startLine": 4089,
         "startChar": 68,
@@ -84,6 +132,30 @@
       "side": 1,
       "message": "I just noticed that if we want to go this route, I guess we can change the `|\u003d` for just returns e.g. `return kAccFastNative` since that would be the only flag.",
       "parentUuid": "a7588c58_a2510e54",
+      "range": {
+        "startLine": 1308,
+        "startChar": 2,
+        "endLine": 1308,
+        "endChar": 4
+      },
+      "revId": "970c089d1167c598c3ee1ede7bc21b724fde8a9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd30d5aa_67710c92",
+        "filename": "runtime/dex/dex_file_annotations.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1308,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-04-05T09:58:21Z",
+      "side": 1,
+      "message": "I\u0027d prefer to keep the code as is for now.\n\nI definitely do not want to make the change in this CL. And native methods are very few compared to non-native, so I do not consider this cleanup important.",
+      "parentUuid": "87782fe4_31bf3d45",
       "range": {
         "startLine": 1308,
         "startChar": 2,
