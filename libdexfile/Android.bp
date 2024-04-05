@@ -461,6 +461,7 @@ art_cc_defaults {
     defaults: [
         "art_module_source_build_defaults",
     ],
+    stl: "libc++", // TODO: Figure out why libc++_static doesn't work here.
     test_suites: ["general-tests"],
     srcs: [
         "external/dex_file_supp_test.cc",

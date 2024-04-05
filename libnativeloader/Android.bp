@@ -133,6 +133,7 @@ cc_defaults {
     ],
     host_supported: false,
 
+    stl: "libc++", // TODO: Figure out why libc++_static doesn't work here.
     cflags: ["-DANDROID"],
 
     // The tests mock libdl_android and libnativebridge symbols, so export them
