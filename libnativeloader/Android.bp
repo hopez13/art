@@ -146,11 +146,12 @@ cc_defaults {
         "libnativebridge-headers",
         "libnativehelper_header_only",
     ],
-    static_libs: [
-        "libgmock",
-    ],
     shared_libs: [
-        "libbase",
+        "liblog", // libbase dependency
+    ],
+    static_libs: [
+        "libbase", // Must be statically linked in standalone tests
+        "libgmock",
     ],
 
     test_for: [
