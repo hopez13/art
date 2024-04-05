@@ -70,6 +70,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a1faa54f_ab8b962e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2024-04-05T14:25:03Z",
+      "side": 1,
+      "message": "In the latest patchset I have not removed the prefix/suffix but I have attempted to significantly simplify as much as seemed reasonable without overly reducing the tested functionality, PTAL!",
+      "parentUuid": "e3241885_d1e53e4b",
+      "revId": "04795e4f78e76c38421101c11806631f85c7b322",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0ff4b6ed_697c3156",
@@ -83,6 +101,30 @@
       "writtenOn": "2024-04-03T18:59:46Z",
       "side": 1,
       "message": "output_stat\n```suggestion\n  struct stat output_stat;\n  if (TEMP_FAILURE_RETRY(fstat(Fd(), \u0026output_stat)) \u003c 0) {\n```",
+      "range": {
+        "startLine": 551,
+        "startChar": 14,
+        "endLine": 551,
+        "endChar": 24
+      },
+      "revId": "04795e4f78e76c38421101c11806631f85c7b322",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "078ff498_1e947a51",
+        "filename": "libartbase/base/unix_file/fd_file.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 551,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2024-04-05T14:25:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ff4b6ed_697c3156",
       "range": {
         "startLine": 551,
         "startChar": 14,
@@ -139,6 +181,54 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a163eec1_faedc837",
+        "filename": "libartbase/base/unix_file/fd_file.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 558,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2024-04-05T14:25:03Z",
+      "side": 1,
+      "message": "Done (line no longer exists but I have reviewed the other changes).",
+      "parentUuid": "84ad8ead_e89989bb",
+      "range": {
+        "startLine": 558,
+        "startChar": 19,
+        "endLine": 558,
+        "endChar": 26
+      },
+      "revId": "04795e4f78e76c38421101c11806631f85c7b322",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7850ff16_62abcc9f",
+        "filename": "libartbase/base/unix_file/fd_file.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 558,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2024-04-05T14:25:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0c84874d_c4074a00",
+      "range": {
+        "startLine": 558,
+        "startChar": 2,
+        "endLine": 558,
+        "endChar": 11
+      },
+      "revId": "04795e4f78e76c38421101c11806631f85c7b322",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d6636b43_cebbe51d",
@@ -152,6 +242,30 @@
       "writtenOn": "2024-04-03T18:59:46Z",
       "side": 1,
       "message": "If you use `art::MemMap` or `android::base::ScopeGuard` as suggested above, you don\u0027t need this variable. Instead, simply return false whenever things go wrong.",
+      "range": {
+        "startLine": 567,
+        "startChar": 2,
+        "endLine": 567,
+        "endChar": 22
+      },
+      "revId": "04795e4f78e76c38421101c11806631f85c7b322",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef767541_0634d01c",
+        "filename": "libartbase/base/unix_file/fd_file.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 567,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2024-04-05T14:25:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d6636b43_cebbe51d",
       "range": {
         "startLine": 567,
         "startChar": 2,
@@ -232,6 +346,54 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "76d08b5e_ea6b7651",
+        "filename": "libartbase/base/unix_file/fd_file.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 584,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2024-04-05T14:25:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0bcf4244_2acce96f",
+      "range": {
+        "startLine": 584,
+        "startChar": 2,
+        "endLine": 584,
+        "endChar": 11
+      },
+      "revId": "04795e4f78e76c38421101c11806631f85c7b322",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c95c5cd_bee7efc2",
+        "filename": "libartbase/base/unix_file/fd_file.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 584,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2024-04-05T14:25:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4e48f883_d42c829c",
+      "range": {
+        "startLine": 584,
+        "startChar": 32,
+        "endLine": 584,
+        "endChar": 39
+      },
+      "revId": "04795e4f78e76c38421101c11806631f85c7b322",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cf5a0514_0b8d66ba",
@@ -245,6 +407,30 @@
       "writtenOn": "2024-04-03T18:59:46Z",
       "side": 1,
       "message": "Can this be const?\n```suggestion\n  bool UserspaceSparseCopy(const FdFile* input_file, off_t off, size_t size);\n```",
+      "range": {
+        "startLine": 194,
+        "startChar": 27,
+        "endLine": 194,
+        "endChar": 34
+      },
+      "revId": "04795e4f78e76c38421101c11806631f85c7b322",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "39f3beb6_d78974e4",
+        "filename": "libartbase/base/unix_file/fd_file.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2024-04-05T14:25:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cf5a0514_0b8d66ba",
       "range": {
         "startLine": 194,
         "startChar": 27,
@@ -278,6 +464,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "addd0064_6d030c50",
+        "filename": "libartbase/base/unix_file/fd_file_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2024-04-05T14:25:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5629b5b4_082997fe",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 23
+      },
+      "revId": "04795e4f78e76c38421101c11806631f85c7b322",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "41947555_13a7530d",
@@ -291,6 +501,30 @@
       "writtenOn": "2024-04-03T18:59:46Z",
       "side": 1,
       "message": "Style nit: We add `/*out*/` to output parameters and put them after input parameters.\n```suggestion\nvoid FdFileTest::CreateSparseSourceFile(size_t empty_prefix,\n                                        size_t empty_suffix,\n                                        off_t input_offset,\n                                        /*out*/ std::unique_ptr\u003cFdFile\u003e\u0026 out_file) {\n```",
+      "range": {
+        "startLine": 188,
+        "startChar": 0,
+        "endLine": 191,
+        "endChar": 61
+      },
+      "revId": "04795e4f78e76c38421101c11806631f85c7b322",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e5888b8_59632a03",
+        "filename": "libartbase/base/unix_file/fd_file_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2024-04-05T14:25:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "41947555_13a7530d",
       "range": {
         "startLine": 188,
         "startChar": 0,
@@ -324,6 +558,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "356c15b2_0be47737",
+        "filename": "libartbase/base/unix_file/fd_file_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2024-04-05T14:25:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1f6d2584_029859e4",
+      "range": {
+        "startLine": 194,
+        "startChar": 0,
+        "endLine": 195,
+        "endChar": 47
+      },
+      "revId": "04795e4f78e76c38421101c11806631f85c7b322",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c802722b_d82c0b97",
@@ -337,6 +595,30 @@
       "writtenOn": "2024-04-03T18:59:46Z",
       "side": 1,
       "message": "`art::ScratchFile::GetFile` returns an FdFile. Why don\u0027t we simply use that instead of creating `FdFile` ourselves?\n\nYou can return the entire `ScratchFile` instead of just the `FdFile`. Then you even don\u0027t have to manually erase it after the test is done.\n\n```suggestion\n  art::ScratchFile src_tmp;\n  FdFile* src \u003d src_tmp.GetFile();\n  ASSERT_TRUE(src-\u003eIsOpened());\n```",
+      "range": {
+        "startLine": 206,
+        "startChar": 0,
+        "endLine": 212,
+        "endChar": 31
+      },
+      "revId": "04795e4f78e76c38421101c11806631f85c7b322",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1aea64d5_9c96ac95",
+        "filename": "libartbase/base/unix_file/fd_file_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2024-04-05T14:25:03Z",
+      "side": 1,
+      "message": "Done. As this means that ScratchFile remains in scope during the test cases (e.g. rename), I have reverted the part that adds keep_file support to ScratchFile.",
+      "parentUuid": "c802722b_d82c0b97",
       "range": {
         "startLine": 206,
         "startChar": 0,
@@ -370,6 +652,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7f735fa_8499460e",
+        "filename": "libartbase/base/unix_file/fd_file_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2024-04-05T14:25:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dc3008e1_5406aa2a",
+      "range": {
+        "startLine": 218,
+        "startChar": 37,
+        "endLine": 218,
+        "endChar": 38
+      },
+      "revId": "04795e4f78e76c38421101c11806631f85c7b322",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "06e7a18e_a439f164",
@@ -383,6 +689,30 @@
       "writtenOn": "2024-04-03T18:59:46Z",
       "side": 1,
       "message": "Add argument comments. Here and below.",
+      "range": {
+        "startLine": 237,
+        "startChar": 26,
+        "endLine": 237,
+        "endChar": 48
+      },
+      "revId": "04795e4f78e76c38421101c11806631f85c7b322",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4baf59c_cdd1d22b",
+        "filename": "libartbase/base/unix_file/fd_file_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2024-04-05T14:25:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "06e7a18e_a439f164",
       "range": {
         "startLine": 237,
         "startChar": 26,
@@ -416,6 +746,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8df6b32b_58d0fb92",
+        "filename": "libartbase/base/unix_file/fd_file_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2024-04-05T14:25:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b1717cf7_f07c54fd",
+      "range": {
+        "startLine": 308,
+        "startChar": 0,
+        "endLine": 353,
+        "endChar": 1
+      },
+      "revId": "04795e4f78e76c38421101c11806631f85c7b322",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "75235531_8fdb7d51",
@@ -439,6 +793,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ff4e840_39395a37",
+        "filename": "libartbase/base/unix_file/fd_file_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2024-04-05T14:25:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "75235531_8fdb7d51",
+      "range": {
+        "startLine": 357,
+        "startChar": 29,
+        "endLine": 357,
+        "endChar": 30
+      },
+      "revId": "04795e4f78e76c38421101c11806631f85c7b322",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6306983e_95b4201f",
@@ -452,6 +830,30 @@
       "writtenOn": "2024-04-03T18:59:46Z",
       "side": 1,
       "message": "Nit: Move this to the left operand, to make this line consistent with the line below.",
+      "range": {
+        "startLine": 364,
+        "startChar": 56,
+        "endLine": 364,
+        "endChar": 73
+      },
+      "revId": "04795e4f78e76c38421101c11806631f85c7b322",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "493e3461_11b3caa4",
+        "filename": "libartbase/base/unix_file/fd_file_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2024-04-05T14:25:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6306983e_95b4201f",
       "range": {
         "startLine": 364,
         "startChar": 56,
@@ -532,6 +934,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2db952a_cfc176c1",
+        "filename": "libartbase/base/unix_file/fd_file_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2024-04-05T14:25:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dba7fe20_7dd739ed",
+      "range": {
+        "startLine": 420,
+        "startChar": 31,
+        "endLine": 420,
+        "endChar": 32
+      },
+      "revId": "04795e4f78e76c38421101c11806631f85c7b322",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5bf391fe_fffd40fa",
@@ -555,6 +981,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "54992c01_fe233443",
+        "filename": "libartbase/base/unix_file/fd_file_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 508,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2024-04-05T14:25:03Z",
+      "side": 1,
+      "message": "Done - as an anonymous function this didn\u0027t have access to FdFileTest members, but looking again there was only one place that used this function, so I have simplified and inlined it.",
+      "parentUuid": "5bf391fe_fffd40fa",
+      "range": {
+        "startLine": 508,
+        "startChar": 38,
+        "endLine": 508,
+        "endChar": 53
+      },
+      "revId": "04795e4f78e76c38421101c11806631f85c7b322",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "64585b2a_606c82f6",
@@ -568,6 +1018,30 @@
       "writtenOn": "2024-04-03T18:59:46Z",
       "side": 1,
       "message": "Simply use `tmpfile.GetFd()`.",
+      "range": {
+        "startLine": 522,
+        "startChar": 14,
+        "endLine": 522,
+        "endChar": 22
+      },
+      "revId": "04795e4f78e76c38421101c11806631f85c7b322",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "503d8858_0038cc45",
+        "filename": "libartbase/base/unix_file/fd_file_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 522,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2024-04-05T14:25:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "64585b2a_606c82f6",
       "range": {
         "startLine": 522,
         "startChar": 14,
