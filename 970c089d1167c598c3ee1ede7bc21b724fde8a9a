@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "50b10c79_69bfd268",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-04-05T10:01:19Z",
+      "side": 1,
+      "message": "Actually, the `LoadMethod()` is not inlined, so clang cannot really optimize the two versions to the same code.",
+      "parentUuid": "ffa95dee_3de3cd47",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 60
+      },
+      "revId": "970c089d1167c598c3ee1ede7bc21b724fde8a9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8cb7cfae_2f0bf0d5",
