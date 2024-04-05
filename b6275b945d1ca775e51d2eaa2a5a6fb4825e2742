@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "141f6bcc_2318261a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1041673
+      },
+      "writtenOn": "2024-04-05T10:03:16Z",
+      "side": 1,
+      "message": "I did it for the sake of keeping them smaller, squashed them into one.",
+      "parentUuid": "70c83981_98cc7a12",
+      "revId": "b6275b945d1ca775e51d2eaa2a5a6fb4825e2742",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f182dc67_be1924c3",
@@ -35,6 +53,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0347b7b9_65b445a2",
+        "filename": "libnativeloader/native_loader.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 1041673
+      },
+      "writtenOn": "2024-04-05T10:03:16Z",
+      "side": 1,
+      "message": "done",
+      "parentUuid": "f182dc67_be1924c3",
+      "revId": "b6275b945d1ca775e51d2eaa2a5a6fb4825e2742",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a5d88b4b_6580ddee",
@@ -48,6 +84,30 @@
       "writtenOn": "2024-04-04T14:09:59Z",
       "side": 1,
       "message": "Wrap this in a `ScopedLocalRef` to avoid leaking local references. The native code could call `RegisterNatives` for many classes without destroying the local reference table segment. (In a not-very-useful example, one could even call `RegisterNatives` repeatedly in a loop for the same class.)",
+      "range": {
+        "startLine": 2582,
+        "startChar": 32,
+        "endLine": 2582,
+        "endChar": 49
+      },
+      "revId": "b6275b945d1ca775e51d2eaa2a5a6fb4825e2742",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "81e28c5e_be84c62c",
+        "filename": "runtime/jni/jni_internal.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2582,
+      "author": {
+        "id": 1041673
+      },
+      "writtenOn": "2024-04-05T10:03:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a5d88b4b_6580ddee",
       "range": {
         "startLine": 2582,
         "startChar": 32,
@@ -77,6 +137,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f2046c72_c3dd581b",
+        "filename": "runtime/jni/jni_internal.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2692,
+      "author": {
+        "id": 1041673
+      },
+      "writtenOn": "2024-04-05T10:03:16Z",
+      "side": 1,
+      "message": "It intercepts call to JavaVM RegisterNatives and generates a wrapper for every guest function. Then it fixes the pointers to point to the wrappers and passes it no host implementation (there is change in binary_translation repo in this topic which removes the code that does it, since with this change it is no longer needed).\n\nlink: https://android-review.git.corp.google.com/c/platform/frameworks/libs/native_bridge_support/+/3019067",
+      "parentUuid": "64b24706_78f77412",
+      "revId": "b6275b945d1ca775e51d2eaa2a5a6fb4825e2742",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2b9e26ca_da818538",
         "filename": "runtime/jni/jni_internal.cc",
         "patchSetId": 1
@@ -88,6 +166,30 @@
       "writtenOn": "2024-04-04T14:09:59Z",
       "side": 1,
       "message": "This check is repeated for each method but it is a loop invariant in the caller. We should reduce it to a bool in the caller right after creating the `jclass_loader`.\n\nWe should guard that code with `#if defined(__ANDROID__)` and maybe move the check to a helper function to ensure the timely destruction of the local referene `jclass_loader`.",
+      "range": {
+        "startLine": 2918,
+        "startChar": 4,
+        "endLine": 2922,
+        "endChar": 5
+      },
+      "revId": "b6275b945d1ca775e51d2eaa2a5a6fb4825e2742",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d9981cc9_8234ffd7",
+        "filename": "runtime/jni/jni_internal.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2922,
+      "author": {
+        "id": 1041673
+      },
+      "writtenOn": "2024-04-05T10:03:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2b9e26ca_da818538",
       "range": {
         "startLine": 2918,
         "startChar": 4,
@@ -111,6 +213,30 @@
       "writtenOn": "2024-04-04T14:09:59Z",
       "side": 1,
       "message": "Remove. The caller has a `ScopedObjectAccess`, so it already holds the mutator lock. Instead, annotate this function with `REQUIRES_SHARED(Locks::mutator_lock_)`.\n\nThe `self` argument shall not be needed anymore, so it should be removed.",
+      "range": {
+        "startLine": 2925,
+        "startChar": 4,
+        "endLine": 2925,
+        "endChar": 52
+      },
+      "revId": "b6275b945d1ca775e51d2eaa2a5a6fb4825e2742",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0e7854e_f02583d6",
+        "filename": "runtime/jni/jni_internal.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2925,
+      "author": {
+        "id": 1041673
+      },
+      "writtenOn": "2024-04-05T10:03:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9e3c8567_2ce78853",
       "range": {
         "startLine": 2925,
         "startChar": 4,
