@@ -79,9 +79,10 @@ art_cc_defaults {
         "tools_test.cc",
     ],
     shared_libs: [
-        "libbase",
+        "liblog", // libbase dependency
     ],
     static_libs: [
+        "libbase", // Must be statically linked in standalone tests
         "libgmock",
     ],
     target: {
