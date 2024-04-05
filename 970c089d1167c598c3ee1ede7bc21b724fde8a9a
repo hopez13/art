@@ -68,6 +68,30 @@
       },
       "revId": "970c089d1167c598c3ee1ede7bc21b724fde8a9a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "87782fe4_31bf3d45",
+        "filename": "runtime/dex/dex_file_annotations.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1308,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-04-05T09:45:10Z",
+      "side": 1,
+      "message": "I just noticed that if we want to go this route, I guess we can change the `|\u003d` for just returns e.g. `return kAccFastNative` since that would be the only flag.",
+      "parentUuid": "a7588c58_a2510e54",
+      "range": {
+        "startLine": 1308,
+        "startChar": 2,
+        "endLine": 1308,
+        "endChar": 4
+      },
+      "revId": "970c089d1167c598c3ee1ede7bc21b724fde8a9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
