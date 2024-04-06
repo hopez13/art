@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c4e37f74_58756067",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1229339
+      },
+      "writtenOn": "2024-04-06T09:08:35Z",
+      "side": 1,
+      "message": "This CL wasn\u0027t necessary for building ART with the new libc++, but there were about ~1000 warnings from FallbackConstIter for a default build target, so it\u0027s a useful fix. It should also get ART closer to building with C++20.",
+      "revId": "5a4a9a8ce43a9055a1f572e48633572d307eb923",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
