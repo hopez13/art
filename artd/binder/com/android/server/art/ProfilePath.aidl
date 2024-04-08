@@ -92,5 +92,7 @@ union ProfilePath {
         @utf8InCpp String id;
         /** The path to the temporary file. Filled by artd. */
         @utf8InCpp String tmpPath;
+        /** Whether the profile is for Pre-reboot Dexopt. Filled by artd. */
+        boolean isPreReboot;
     }
 }
