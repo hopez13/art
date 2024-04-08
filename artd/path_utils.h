@@ -18,15 +18,21 @@
 #define ART_ARTD_PATH_UTILS_H_
 
 #include <string>
+#include <type_traits>
 #include <vector>
 
 #include "aidl/com/android/server/art/BnArtd.h"
 #include "android-base/result.h"
 #include "base/file_utils.h"
-#include "fstab/fstab.h"
 
 namespace art {
 namespace artd {
+
+struct RawArtifactsPath {
+  std::string oat_path;
+  std::string vdex_path;
+  std::string art_path;
+};
 
 android::base::Result<std::string> GetAndroidDataOrError();
 
@@ -48,19 +54,9 @@ android::base::Result<void> ValidateRuntimeArtifactsPath(
 
 android::base::Result<std::string> BuildArtBinPath(const std::string& binary_name);
 
-// Returns the absolute path to the OAT file built from the `ArtifactsPath`.
-android::base::Result<std::string> BuildOatPath(
+// Returns the absolute paths to files built from the `ArtifactsPath`.
+android::base::Result<RawArtifactsPath> BuildArtifactsPath(
     const aidl::com::android::server::art::ArtifactsPath& artifacts_path);
-
-// Returns the path to the VDEX file that corresponds to the OAT file.
-inline std::string OatPathToVdexPath(const std::string& oat_path) {
-  return ReplaceFileExtension(oat_path, "vdex");
-}
-
-// Returns the path to the ART file that corresponds to the OAT file.
-inline std::string OatPathToArtPath(const std::string& oat_path) {
-  return ReplaceFileExtension(oat_path, "art");
-}
 
 android::base::Result<std::string> BuildPrimaryRefProfilePath(
     const aidl::com::android::server::art::ProfilePath::PrimaryRefProfilePath&
@@ -95,6 +91,23 @@ android::base::Result<std::string> BuildProfileOrDmPath(
 
 android::base::Result<std::string> BuildVdexPath(
     const aidl::com::android::server::art::VdexPath& vdex_path);
+
+template <typename T,
+          typename U = std::remove_cv_t<T>,
+          typename = std::enable_if_t<
+              std::is_same_v<U, aidl::com::android::server::art::ProfilePath::WritableProfilePath>>>
+std::conditional_t<std::is_const_v<T>, bool, bool&> PreRebootFlag(T& profile_path) {
+  switch (profile_path.getTag()) {
+    case U::forPrimary:
+      return profile_path.template get<U::forPrimary>().isPreReboot;
+    case U::forSecondary:
+      return profile_path.template get<U::forSecondary>().isPreReboot;
+      // No default. All cases should be explicitly handled, or the compilation will fail.
+  }
+  // This should never happen. Just in case we get a non-enumerator value.
+  LOG(FATAL) << ART_FORMAT("Unexpected writable profile path type {}",
+                           fmt::underlying(profile_path.getTag()));
+}
 
 // Sets the root dir for `ListManagedFiles` and `ListRuntimeImageFiles`.
 // The passed string must be alive until the test ends.

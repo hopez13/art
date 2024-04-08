@@ -28,4 +28,6 @@ parcelable ArtifactsPath {
     @utf8InCpp String isa;
     /** Whether the dexopt artifacts are in the dalvik-cache folder. */
     boolean isInDalvikCache;
+    /** Whether the dexopt artifacts are for Pre-reboot Dexopt. */
+    boolean isPreReboot;
 }
