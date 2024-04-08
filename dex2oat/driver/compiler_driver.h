@@ -243,7 +243,9 @@ class CompilerDriver {
   // verification was successful.
   bool FastVerify(jobject class_loader,
                   const std::vector<const DexFile*>& dex_files,
-                  TimingLogger* timings);
+                  ThreadPool* thread_pool,
+                  size_t thread_count,
+                  TimingLogger* timings) REQUIRES(!Locks::mutator_lock_);
 
   void Verify(jobject class_loader,
               const std::vector<const DexFile*>& dex_files,

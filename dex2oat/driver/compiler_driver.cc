@@ -1717,6 +1717,8 @@ static void LoadAndUpdateStatus(const ClassAccessor& accessor,
 
 bool CompilerDriver::FastVerify(jobject jclass_loader,
                                 const std::vector<const DexFile*>& dex_files,
+                                ThreadPool* thread_pool,
+                                size_t thread_count,
                                 TimingLogger* timings) {
   CompilerCallbacks* callbacks = Runtime::Current()->GetCompilerCallbacks();
   verifier::VerifierDeps* verifier_deps = callbacks->GetVerifierDeps();
@@ -1725,6 +1727,14 @@ bool CompilerDriver::FastVerify(jobject jclass_loader,
     return false;
   }
   TimingLogger::ScopedTiming t("Fast Verify", timings);
+
+  if (thread_count > 1) {
+    // Use the multiple threads to resolve the dex file before validating the dependencies. If we
+    // only have one thread, this doesn't provide an extra benefit.
+    for (const auto* dex_file : dex_files) {
+      ResolveDexFile(jclass_loader, *dex_file, thread_pool, thread_count, timings);
+    }
+  }
 
   ScopedObjectAccess soa(Thread::Current());
   StackHandleScope<2> hs(soa.Self());
@@ -1807,7 +1817,12 @@ bool CompilerDriver::FastVerify(jobject jclass_loader,
 void CompilerDriver::Verify(jobject jclass_loader,
                             const std::vector<const DexFile*>& dex_files,
                             TimingLogger* timings) {
-  if (FastVerify(jclass_loader, dex_files, timings)) {
+  // Verification updates VerifierDeps and needs to run single-threaded to be deterministic.
+  bool force_determinism = GetCompilerOptions().IsForceDeterminism();
+  ThreadPool* verify_thread_pool =
+      force_determinism ? single_thread_pool_.get() : parallel_thread_pool_.get();
+  size_t verify_thread_count = force_determinism ? 1U : parallel_thread_count_;
+  if (FastVerify(jclass_loader, dex_files, verify_thread_pool, verify_thread_count, timings)) {
     return;
   }
 
@@ -1830,11 +1845,6 @@ void CompilerDriver::Verify(jobject jclass_loader,
     }
   }
 
-  // Verification updates VerifierDeps and needs to run single-threaded to be deterministic.
-  bool force_determinism = GetCompilerOptions().IsForceDeterminism();
-  ThreadPool* verify_thread_pool =
-      force_determinism ? single_thread_pool_.get() : parallel_thread_pool_.get();
-  size_t verify_thread_count = force_determinism ? 1U : parallel_thread_count_;
   for (const DexFile* dex_file : dex_files) {
     CHECK(dex_file != nullptr);
     VerifyDexFile(jclass_loader,
