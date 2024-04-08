@@ -114,7 +114,7 @@ public class ArtFileManager {
             boolean isInDalvikCache = Utils.isInDalvikCache(pkgState, mInjector.getArtd());
             for (PrimaryDexInfo dexInfo : PrimaryDexUtils.getDexInfo(pkg)) {
                 for (Abi abi : Utils.getAllAbis(pkgState)) {
-                    artifacts.add(AidlUtils.buildArtifactsPath(
+                    artifacts.add(AidlUtils.buildArtifactsPathAsInput(
                             dexInfo.dexPath(), abi.isa(), isInDalvikCache));
                     // Runtime images are only generated for primary dex files.
                     runtimeArtifacts.add(AidlUtils.buildRuntimeArtifactsPath(
@@ -127,7 +127,7 @@ public class ArtFileManager {
             for (SecondaryDexInfo dexInfo :
                     mInjector.getDexUseManager().getSecondaryDexInfo(pkgState.getPackageName())) {
                 for (Abi abi : Utils.getAllAbisForNames(dexInfo.abiNames(), pkgState)) {
-                    artifacts.add(AidlUtils.buildArtifactsPath(
+                    artifacts.add(AidlUtils.buildArtifactsPathAsInput(
                             dexInfo.dexPath(), abi.isa(), false /* isInDalvikCache */));
                 }
             }
@@ -157,8 +157,9 @@ public class ArtFileManager {
                         dexInfo.dexPath(), abi.isa(), dexInfo.classLoaderContext());
                 if (result.artifactsLocation == ArtifactsLocation.DALVIK_CACHE
                         || result.artifactsLocation == ArtifactsLocation.NEXT_TO_DEX) {
-                    ArtifactsPath thisArtifacts = AidlUtils.buildArtifactsPath(dexInfo.dexPath(),
-                            abi.isa(), result.artifactsLocation == ArtifactsLocation.DALVIK_CACHE);
+                    ArtifactsPath thisArtifacts =
+                            AidlUtils.buildArtifactsPathAsInput(dexInfo.dexPath(), abi.isa(),
+                                    result.artifactsLocation == ArtifactsLocation.DALVIK_CACHE);
                     if (result.compilationReason.equals(ArtConstants.REASON_VDEX)) {
                         // Only the VDEX file is usable.
                         vdexFiles.add(VdexPath.artifactsPath(thisArtifacts));
@@ -194,7 +195,7 @@ public class ArtFileManager {
 
         if (options.forPrimaryDex()) {
             for (PrimaryDexInfo dexInfo : PrimaryDexUtils.getDexInfo(pkg)) {
-                refProfiles.add(PrimaryDexUtils.buildRefProfilePath(pkgState, dexInfo));
+                refProfiles.add(PrimaryDexUtils.buildRefProfilePathAsInput(pkgState, dexInfo));
                 curProfiles.addAll(mInjector.isSystemOrRootOrShell()
                                 ? PrimaryDexUtils.getCurProfiles(
                                           mInjector.getUserManager(), pkgState, dexInfo)
@@ -214,7 +215,8 @@ public class ArtFileManager {
                         && !mInjector.getCallingUserHandle().equals(dexInfo.userHandle())) {
                     continue;
                 }
-                refProfiles.add(AidlUtils.buildProfilePathForSecondaryRef(dexInfo.dexPath()));
+                refProfiles.add(
+                        AidlUtils.buildProfilePathForSecondaryRefAsInput(dexInfo.dexPath()));
                 curProfiles.add(AidlUtils.buildProfilePathForSecondaryCur(dexInfo.dexPath()));
             }
         }
