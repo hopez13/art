@@ -394,7 +394,9 @@ class ArtdTest : public CommonArtTest {
     vdex_path_ = artifacts_path_;
     dm_path_ = DexMetadataPath{.dexPath = dex_file_};
     std::filesystem::create_directories(
-        std::filesystem::path(OR_FATAL(BuildFinalProfilePath(tmp_profile_path_))).parent_path());
+        std::filesystem::path(
+            OR_FATAL(BuildFinalProfilePath(tmp_profile_path_, /*is_pre_reboot=*/false)))
+            .parent_path());
   }
 
   void TearDown() override {
@@ -564,10 +566,11 @@ class ArtdTest : public CommonArtTest {
     }
 
     // Files to be replaced.
-    std::string oat_path = OR_FATAL(BuildOatPath(artifacts_path_));
-    CreateFile(oat_path, "old_oat");
-    CreateFile(OatPathToVdexPath(oat_path), "old_vdex");
-    CreateFile(OatPathToArtPath(oat_path), "old_art");
+    RawArtifactsPath artifacts_path =
+        OR_FATAL(BuildArtifactsPath(artifacts_path_, /*is_pre_reboot=*/false));
+    CreateFile(artifacts_path.oat_path, "old_oat");
+    CreateFile(artifacts_path.vdex_path, "old_vdex");
+    CreateFile(artifacts_path.art_path, "old_art");
   }
 };
 
@@ -1412,6 +1415,7 @@ TEST_F(ArtdTest, copyAndRewriteProfileSuccess) {
   EXPECT_THAT(dst.profilePath.id, Not(IsEmpty()));
   std::string real_path = OR_FATAL(BuildTmpProfilePath(dst.profilePath));
   EXPECT_EQ(dst.profilePath.tmpPath, real_path);
+  EXPECT_FALSE(dst.profilePath.isPreReboot);
   CheckContent(real_path, "def");
 }
 
@@ -1654,7 +1658,8 @@ TEST_F(ArtdTest, commitTmpProfile) {
   EXPECT_TRUE(artd_->commitTmpProfile(tmp_profile_path_).isOk());
 
   EXPECT_FALSE(std::filesystem::exists(tmp_profile_file));
-  EXPECT_TRUE(std::filesystem::exists(OR_FATAL(BuildFinalProfilePath(tmp_profile_path_))));
+  EXPECT_TRUE(std::filesystem::exists(
+      OR_FATAL(BuildFinalProfilePath(tmp_profile_path_, /*is_pre_reboot=*/false))));
 }
 
 TEST_F(ArtdTest, commitTmpProfileFailed) {
@@ -1666,7 +1671,8 @@ TEST_F(ArtdTest, commitTmpProfileFailed) {
       status.getMessage(),
       ContainsRegex(R"re(Failed to move .*primary\.prof\.12345\.tmp.* to .*primary\.prof)re"));
 
-  EXPECT_FALSE(std::filesystem::exists(OR_FATAL(BuildFinalProfilePath(tmp_profile_path_))));
+  EXPECT_FALSE(std::filesystem::exists(
+      OR_FATAL(BuildFinalProfilePath(tmp_profile_path_, /*is_pre_reboot=*/false))));
 }
 
 TEST_F(ArtdTest, deleteProfile) {
@@ -1777,12 +1783,16 @@ TEST_F(ArtdGetVisibilityTest, getProfileVisibilityPermissionDenied) {
 
 TEST_F(ArtdGetVisibilityTest, getArtifactsVisibilityOtherReadable) {
   TestGetVisibilityOtherReadable(
-      &Artd::getArtifactsVisibility, artifacts_path_, OR_FATAL(BuildOatPath(artifacts_path_)));
+      &Artd::getArtifactsVisibility,
+      artifacts_path_,
+      OR_FATAL(BuildArtifactsPath(artifacts_path_, /*is_pre_reboot=*/false)).oat_path);
 }
 
 TEST_F(ArtdGetVisibilityTest, getArtifactsVisibilityNotOtherReadable) {
   TestGetVisibilityNotOtherReadable(
-      &Artd::getArtifactsVisibility, artifacts_path_, OR_FATAL(BuildOatPath(artifacts_path_)));
+      &Artd::getArtifactsVisibility,
+      artifacts_path_,
+      OR_FATAL(BuildArtifactsPath(artifacts_path_, /*is_pre_reboot=*/false)).oat_path);
 }
 
 TEST_F(ArtdGetVisibilityTest, getArtifactsVisibilityNotFound) {
@@ -1791,7 +1801,9 @@ TEST_F(ArtdGetVisibilityTest, getArtifactsVisibilityNotFound) {
 
 TEST_F(ArtdGetVisibilityTest, getArtifactsVisibilityPermissionDenied) {
   TestGetVisibilityPermissionDenied(
-      &Artd::getArtifactsVisibility, artifacts_path_, OR_FATAL(BuildOatPath(artifacts_path_)));
+      &Artd::getArtifactsVisibility,
+      artifacts_path_,
+      OR_FATAL(BuildArtifactsPath(artifacts_path_, /*is_pre_reboot=*/false)).oat_path);
 }
 
 TEST_F(ArtdGetVisibilityTest, getDexFileVisibilityOtherReadable) {
@@ -2556,6 +2568,92 @@ TEST_F(ArtdPreRebootTest, preRebootInitNoRetry) {
   EXPECT_EQ(status.getExceptionCode(), EX_ILLEGAL_STATE);
   EXPECT_STREQ(status.getMessage(),
                "preRebootInit must not be concurrently called or retried after failure");
+}
+
+TEST_F(ArtdPreRebootTest, dexopt) {
+  dexopt_options_.generateAppImage = true;
+
+  EXPECT_CALL(*mock_exec_utils_, DoExecAndReturnCode)
+      .WillOnce(DoAll(WithArg<0>(WriteToFdFlag("--oat-fd=", "oat")),
+                      WithArg<0>(WriteToFdFlag("--output-vdex-fd=", "vdex")),
+                      WithArg<0>(WriteToFdFlag("--app-image-fd=", "art")),
+                      Return(0)));
+  RunDexopt();
+
+  CheckContent(scratch_path_ + "/a/oat/arm64/b.odex.staged", "oat");
+  CheckContent(scratch_path_ + "/a/oat/arm64/b.vdex.staged", "vdex");
+  CheckContent(scratch_path_ + "/a/oat/arm64/b.art.staged", "art");
+}
+
+TEST_F(ArtdPreRebootTest, copyAndRewriteProfile) {
+  std::string src_file = OR_FATAL(BuildTmpProfilePath(tmp_profile_path_));
+  CreateFile(src_file, "valid_profile");
+
+  CreateFile(dex_file_);
+
+  EXPECT_CALL(*mock_exec_utils_, DoExecAndReturnCode)
+      .WillOnce(DoAll(WithArg<0>(WriteToFdFlag("--reference-profile-file-fd=", "def")),
+                      Return(ProfmanResult::kCopyAndUpdateSuccess)));
+
+  auto [result, dst] = OR_FAIL(RunCopyAndRewriteProfile());
+
+  EXPECT_EQ(result.status, CopyAndRewriteProfileResult::Status::SUCCESS);
+  EXPECT_TRUE(dst.profilePath.isPreReboot);
+  EXPECT_THAT(dst.profilePath.tmpPath, ContainsRegex(R"re(/primary\.prof\.staged\.\w+\.tmp$)re"));
+  CheckContent(dst.profilePath.tmpPath, "def");
+}
+
+TEST_F(ArtdPreRebootTest, copyAndRewriteEmbeddedProfile) {
+  CreateZipWithSingleEntry(dex_file_, "assets/art-profile/baseline.prof", "valid_profile");
+
+  EXPECT_CALL(*mock_exec_utils_, DoExecAndReturnCode)
+      .WillOnce(DoAll(WithArg<0>(WriteToFdFlag("--reference-profile-file-fd=", "def")),
+                      Return(ProfmanResult::kCopyAndUpdateSuccess)));
+
+  auto [result, dst] = OR_FAIL(RunCopyAndRewriteEmbeddedProfile());
+
+  EXPECT_EQ(result.status, CopyAndRewriteProfileResult::Status::SUCCESS);
+  EXPECT_TRUE(dst.profilePath.isPreReboot);
+  EXPECT_THAT(dst.profilePath.tmpPath, ContainsRegex(R"re(/primary\.prof\.staged\.\w+\.tmp$)re"));
+  CheckContent(dst.profilePath.tmpPath, "def");
+}
+
+TEST_F(ArtdPreRebootTest, mergeProfiles) {
+  const TmpProfilePath& reference_profile_path = tmp_profile_path_;
+  std::string reference_profile_file = OR_FATAL(BuildTmpProfilePath(reference_profile_path));
+  CreateFile(reference_profile_file, "abc");
+
+  PrimaryCurProfilePath profile_1_path{
+      .userId = 1, .packageName = "com.android.foo", .profileName = "primary"};
+  std::string profile_1_file = OR_FATAL(BuildPrimaryCurProfilePath(profile_1_path));
+  CreateFile(profile_1_file, "def");
+
+  OutputProfile output_profile{.profilePath = reference_profile_path,
+                               .fsPermission = FsPermission{.uid = -1, .gid = -1}};
+  output_profile.profilePath.id = "";
+  output_profile.profilePath.tmpPath = "";
+
+  std::string dex_file_1 = scratch_path_ + "/a/b.apk";
+  CreateFile(dex_file_1);
+
+  EXPECT_CALL(*mock_exec_utils_, DoExecAndReturnCode)
+      .WillOnce(DoAll(WithArg<0>(ClearAndWriteToFdFlag("--reference-profile-file-fd=", "merged")),
+                      Return(ProfmanResult::kCompile)));
+
+  bool result;
+  EXPECT_TRUE(artd_
+                  ->mergeProfiles({profile_1_path},
+                                  reference_profile_path,
+                                  &output_profile,
+                                  {dex_file_1},
+                                  /*in_options=*/{},
+                                  &result)
+                  .isOk());
+  EXPECT_TRUE(result);
+  EXPECT_TRUE(output_profile.profilePath.isPreReboot);
+  EXPECT_THAT(output_profile.profilePath.tmpPath,
+              ContainsRegex(R"re(/primary\.prof\.staged\.\w+\.tmp$)re"));
+  CheckContent(output_profile.profilePath.tmpPath, "merged");
 }
 
 }  // namespace
