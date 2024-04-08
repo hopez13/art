@@ -128,6 +128,7 @@ using ::testing::WithArg;
 using PrimaryCurProfilePath = ProfilePath::PrimaryCurProfilePath;
 using PrimaryRefProfilePath = ProfilePath::PrimaryRefProfilePath;
 using TmpProfilePath = ProfilePath::TmpProfilePath;
+using WritableProfilePath = ProfilePath::WritableProfilePath;
 
 using std::literals::operator""s;  // NOLINT
 
@@ -391,7 +392,8 @@ class ArtdTest : public CommonArtTest {
     compiler_filter_ = "speed";
     tmp_profile_path_ =
         TmpProfilePath{.finalPath = PrimaryRefProfilePath{.packageName = "com.android.foo",
-                                                          .profileName = "primary"},
+                                                          .profileName = "primary",
+                                                          .isPreReboot = false},
                        .id = "12345"};
     profile_path_ = tmp_profile_path_;
     vdex_path_ = artifacts_path_;
@@ -446,7 +448,7 @@ class ArtdTest : public CommonArtTest {
       std::pair<std::conditional_t<kExpectOk, CopyAndRewriteProfileResult, ndk::ScopedAStatus>,
                 OutputProfile>>;
 
-  // Runs `copyAndRewriteProfile` with `tmp_profile_path_` and `dex_file_`.
+  // Runs `copyAndRewriteProfile` with `profile_path_` and `dex_file_`.
   template <bool kExpectOk = true>
   RunCopyAndRewriteProfileResult<kExpectOk> RunCopyAndRewriteProfile() {
     OutputProfile dst{.profilePath = tmp_profile_path_,
@@ -456,7 +458,7 @@ class ArtdTest : public CommonArtTest {
 
     CopyAndRewriteProfileResult result;
     ndk::ScopedAStatus status =
-        artd_->copyAndRewriteProfile(tmp_profile_path_, &dst, dex_file_, &result);
+        artd_->copyAndRewriteProfile(*profile_path_, &dst, dex_file_, &result);
     if constexpr (kExpectOk) {
       if (!status.isOk()) {
         return Error() << status.getMessage();
@@ -567,10 +569,10 @@ class ArtdTest : public CommonArtTest {
     }
 
     // Files to be replaced.
-    std::string oat_path = OR_FATAL(BuildOatPath(artifacts_path_));
-    CreateFile(oat_path, "old_oat");
-    CreateFile(OatPathToVdexPath(oat_path), "old_vdex");
-    CreateFile(OatPathToArtPath(oat_path), "old_art");
+    RawArtifactsPath artifacts_path = OR_FATAL(BuildArtifactsPath(artifacts_path_));
+    CreateFile(artifacts_path.oat_path, "old_oat");
+    CreateFile(artifacts_path.vdex_path, "old_vdex");
+    CreateFile(artifacts_path.art_path, "old_art");
   }
 };
 
@@ -1388,7 +1390,7 @@ TEST_F(ArtdTest, isProfileUsableFailed) {
 }
 
 TEST_F(ArtdTest, copyAndRewriteProfileSuccess) {
-  std::string src_file = OR_FATAL(BuildTmpProfilePath(tmp_profile_path_));
+  std::string src_file = OR_FATAL(BuildProfileOrDmPath(*profile_path_));
   CreateFile(src_file, "valid_profile");
 
   CreateFile(dex_file_);
@@ -1420,7 +1422,7 @@ TEST_F(ArtdTest, copyAndRewriteProfileSuccess) {
 
 // The input is a plain profile file in the wrong format.
 TEST_F(ArtdTest, copyAndRewriteProfileBadProfileWrongFormat) {
-  std::string src_file = OR_FATAL(BuildTmpProfilePath(tmp_profile_path_));
+  std::string src_file = OR_FATAL(BuildProfileOrDmPath(*profile_path_));
   CreateFile(src_file, "wrong_format");
 
   CreateFile(dex_file_);
@@ -1439,7 +1441,7 @@ TEST_F(ArtdTest, copyAndRewriteProfileBadProfileWrongFormat) {
 
 // The input is a plain profile file that doesn't match the APK.
 TEST_F(ArtdTest, copyAndRewriteProfileBadProfileNoMatch) {
-  std::string src_file = OR_FATAL(BuildTmpProfilePath(tmp_profile_path_));
+  std::string src_file = OR_FATAL(BuildProfileOrDmPath(*profile_path_));
   CreateFile(src_file, "no_match");
 
   CreateFile(dex_file_);
@@ -1457,7 +1459,7 @@ TEST_F(ArtdTest, copyAndRewriteProfileBadProfileNoMatch) {
 
 // The input is a plain profile file that is empty.
 TEST_F(ArtdTest, copyAndRewriteProfileNoProfileEmpty) {
-  std::string src_file = OR_FATAL(BuildTmpProfilePath(tmp_profile_path_));
+  std::string src_file = OR_FATAL(BuildProfileOrDmPath(*profile_path_));
   CreateFile(src_file, "");
 
   CreateFile(dex_file_);
@@ -1485,7 +1487,7 @@ TEST_F(ArtdTest, copyAndRewriteProfileNoProfileNoFile) {
 
 // The input is a dm file with a profile entry in the wrong format.
 TEST_F(ArtdTest, copyAndRewriteProfileNoProfileDmWrongFormat) {
-  std::string src_file = OR_FATAL(BuildTmpProfilePath(tmp_profile_path_));
+  std::string src_file = OR_FATAL(BuildProfileOrDmPath(*profile_path_));
   CreateZipWithSingleEntry(src_file, "primary.prof", "wrong_format");
 
   CreateFile(dex_file_);
@@ -1504,7 +1506,7 @@ TEST_F(ArtdTest, copyAndRewriteProfileNoProfileDmWrongFormat) {
 
 // The input is a dm file with a profile entry that doesn't match the APK.
 TEST_F(ArtdTest, copyAndRewriteProfileNoProfileDmNoMatch) {
-  std::string src_file = OR_FATAL(BuildTmpProfilePath(tmp_profile_path_));
+  std::string src_file = OR_FATAL(BuildProfileOrDmPath(*profile_path_));
   CreateZipWithSingleEntry(src_file, "primary.prof", "no_match");
 
   CreateFile(dex_file_);
@@ -1522,7 +1524,7 @@ TEST_F(ArtdTest, copyAndRewriteProfileNoProfileDmNoMatch) {
 
 // The input is a dm file with a profile entry that is empty.
 TEST_F(ArtdTest, copyAndRewriteProfileNoProfileDmEmpty) {
-  std::string src_file = OR_FATAL(BuildTmpProfilePath(tmp_profile_path_));
+  std::string src_file = OR_FATAL(BuildProfileOrDmPath(*profile_path_));
   CreateZipWithSingleEntry(src_file, "primary.prof");
 
   CreateFile(dex_file_);
@@ -1539,7 +1541,7 @@ TEST_F(ArtdTest, copyAndRewriteProfileNoProfileDmEmpty) {
 
 // The input is a dm file without a profile entry.
 TEST_F(ArtdTest, copyAndRewriteProfileNoProfileDmNoEntry) {
-  std::string src_file = OR_FATAL(BuildTmpProfilePath(tmp_profile_path_));
+  std::string src_file = OR_FATAL(BuildProfileOrDmPath(*profile_path_));
   CreateZipWithSingleEntry(src_file, "primary.vdex");
 
   CreateFile(dex_file_);
@@ -1555,7 +1557,7 @@ TEST_F(ArtdTest, copyAndRewriteProfileNoProfileDmNoEntry) {
 }
 
 TEST_F(ArtdTest, copyAndRewriteProfileException) {
-  std::string src_file = OR_FATAL(BuildTmpProfilePath(tmp_profile_path_));
+  std::string src_file = OR_FATAL(BuildProfileOrDmPath(*profile_path_));
   CreateFile(src_file, "valid_profile");
 
   CreateFile(dex_file_);
@@ -1779,13 +1781,15 @@ TEST_F(ArtdGetVisibilityTest, getProfileVisibilityPermissionDenied) {
 }
 
 TEST_F(ArtdGetVisibilityTest, getArtifactsVisibilityOtherReadable) {
-  TestGetVisibilityOtherReadable(
-      &Artd::getArtifactsVisibility, artifacts_path_, OR_FATAL(BuildOatPath(artifacts_path_)));
+  TestGetVisibilityOtherReadable(&Artd::getArtifactsVisibility,
+                                 artifacts_path_,
+                                 OR_FATAL(BuildArtifactsPath(artifacts_path_)).oat_path);
 }
 
 TEST_F(ArtdGetVisibilityTest, getArtifactsVisibilityNotOtherReadable) {
-  TestGetVisibilityNotOtherReadable(
-      &Artd::getArtifactsVisibility, artifacts_path_, OR_FATAL(BuildOatPath(artifacts_path_)));
+  TestGetVisibilityNotOtherReadable(&Artd::getArtifactsVisibility,
+                                    artifacts_path_,
+                                    OR_FATAL(BuildArtifactsPath(artifacts_path_)).oat_path);
 }
 
 TEST_F(ArtdGetVisibilityTest, getArtifactsVisibilityNotFound) {
@@ -1793,8 +1797,9 @@ TEST_F(ArtdGetVisibilityTest, getArtifactsVisibilityNotFound) {
 }
 
 TEST_F(ArtdGetVisibilityTest, getArtifactsVisibilityPermissionDenied) {
-  TestGetVisibilityPermissionDenied(
-      &Artd::getArtifactsVisibility, artifacts_path_, OR_FATAL(BuildOatPath(artifacts_path_)));
+  TestGetVisibilityPermissionDenied(&Artd::getArtifactsVisibility,
+                                    artifacts_path_,
+                                    OR_FATAL(BuildArtifactsPath(artifacts_path_)).oat_path);
 }
 
 TEST_F(ArtdGetVisibilityTest, getDexFileVisibilityOtherReadable) {
@@ -1836,8 +1841,7 @@ TEST_F(ArtdGetVisibilityTest, getDmFileVisibilityPermissionDenied) {
 }
 
 TEST_F(ArtdTest, mergeProfiles) {
-  const TmpProfilePath& reference_profile_path = tmp_profile_path_;
-  std::string reference_profile_file = OR_FATAL(BuildTmpProfilePath(reference_profile_path));
+  std::string reference_profile_file = OR_FATAL(BuildProfileOrDmPath(*profile_path_));
   CreateFile(reference_profile_file, "abc");
 
   // Doesn't exist.
@@ -1850,7 +1854,7 @@ TEST_F(ArtdTest, mergeProfiles) {
   std::string profile_1_file = OR_FATAL(BuildPrimaryCurProfilePath(profile_1_path));
   CreateFile(profile_1_file, "def");
 
-  OutputProfile output_profile{.profilePath = reference_profile_path,
+  OutputProfile output_profile{.profilePath = tmp_profile_path_,
                                .fsPermission = FsPermission{.uid = -1, .gid = -1}};
   output_profile.profilePath.id = "";
   output_profile.profilePath.tmpPath = "";
@@ -1883,7 +1887,7 @@ TEST_F(ArtdTest, mergeProfiles) {
   bool result;
   EXPECT_TRUE(artd_
                   ->mergeProfiles({profile_0_path, profile_1_path},
-                                  reference_profile_path,
+                                  profile_path_,
                                   &output_profile,
                                   {dex_file_1, dex_file_2},
                                   /*in_options=*/{},
@@ -1938,10 +1942,6 @@ TEST_F(ArtdTest, mergeProfilesEmptyReferenceProfile) {
 }
 
 TEST_F(ArtdTest, mergeProfilesProfilesDontExist) {
-  const TmpProfilePath& reference_profile_path = tmp_profile_path_;
-  std::string reference_profile_file = OR_FATAL(BuildTmpProfilePath(reference_profile_path));
-  CreateFile(reference_profile_file, "abc");
-
   // Doesn't exist.
   PrimaryCurProfilePath profile_0_path{
       .userId = 0, .packageName = "com.android.foo", .profileName = "primary"};
@@ -1952,7 +1952,7 @@ TEST_F(ArtdTest, mergeProfilesProfilesDontExist) {
       .userId = 1, .packageName = "com.android.foo", .profileName = "primary"};
   std::string profile_1_file = OR_FATAL(BuildPrimaryCurProfilePath(profile_1_path));
 
-  OutputProfile output_profile{.profilePath = reference_profile_path,
+  OutputProfile output_profile{.profilePath = tmp_profile_path_,
                                .fsPermission = FsPermission{.uid = -1, .gid = -1}};
   output_profile.profilePath.id = "";
   output_profile.profilePath.tmpPath = "";
@@ -1964,7 +1964,7 @@ TEST_F(ArtdTest, mergeProfilesProfilesDontExist) {
   bool result;
   EXPECT_TRUE(artd_
                   ->mergeProfiles({profile_0_path},
-                                  std::nullopt,
+                                  /*in_referenceProfile=*/std::nullopt,
                                   &output_profile,
                                   {dex_file_},
                                   /*in_options=*/{},
@@ -2478,6 +2478,9 @@ class ArtdPreRebootTest : public ArtdTest {
     )";
     ASSERT_TRUE(WriteStringToFile(ART_FORMAT(kInitEnvironRcTmpl, art_root_, android_data_),
                                   init_environ_rc_path_));
+
+    tmp_profile_path_.finalPath.get<WritableProfilePath::forPrimary>().isPreReboot = true;
+    output_artifacts_.artifactsPath.isPreReboot = true;
   }
 
   std::string pre_reboot_tmp_dir_;
@@ -2593,6 +2596,88 @@ TEST_F(ArtdPreRebootTest, preRebootInitNoRetry) {
   EXPECT_EQ(status.getExceptionCode(), EX_ILLEGAL_STATE);
   EXPECT_STREQ(status.getMessage(),
                "preRebootInit must not be concurrently called or retried after failure");
+}
+
+TEST_F(ArtdPreRebootTest, dexopt) {
+  dexopt_options_.generateAppImage = true;
+
+  EXPECT_CALL(*mock_exec_utils_, DoExecAndReturnCode)
+      .WillOnce(DoAll(WithArg<0>(WriteToFdFlag("--oat-fd=", "oat")),
+                      WithArg<0>(WriteToFdFlag("--output-vdex-fd=", "vdex")),
+                      WithArg<0>(WriteToFdFlag("--app-image-fd=", "art")),
+                      Return(0)));
+  RunDexopt();
+
+  CheckContent(scratch_path_ + "/a/oat/arm64/b.odex.staged", "oat");
+  CheckContent(scratch_path_ + "/a/oat/arm64/b.vdex.staged", "vdex");
+  CheckContent(scratch_path_ + "/a/oat/arm64/b.art.staged", "art");
+}
+
+TEST_F(ArtdPreRebootTest, copyAndRewriteProfile) {
+  std::string src_file = OR_FATAL(BuildProfileOrDmPath(*profile_path_));
+  CreateFile(src_file, "valid_profile");
+
+  CreateFile(dex_file_);
+
+  EXPECT_CALL(*mock_exec_utils_, DoExecAndReturnCode)
+      .WillOnce(DoAll(WithArg<0>(WriteToFdFlag("--reference-profile-file-fd=", "def")),
+                      Return(ProfmanResult::kCopyAndUpdateSuccess)));
+
+  auto [result, dst] = OR_FAIL(RunCopyAndRewriteProfile());
+
+  EXPECT_EQ(result.status, CopyAndRewriteProfileResult::Status::SUCCESS);
+  EXPECT_THAT(dst.profilePath.tmpPath, ContainsRegex(R"re(/primary\.prof\.staged\.\w+\.tmp$)re"));
+  CheckContent(dst.profilePath.tmpPath, "def");
+}
+
+TEST_F(ArtdPreRebootTest, copyAndRewriteEmbeddedProfile) {
+  CreateZipWithSingleEntry(dex_file_, "assets/art-profile/baseline.prof", "valid_profile");
+
+  EXPECT_CALL(*mock_exec_utils_, DoExecAndReturnCode)
+      .WillOnce(DoAll(WithArg<0>(WriteToFdFlag("--reference-profile-file-fd=", "def")),
+                      Return(ProfmanResult::kCopyAndUpdateSuccess)));
+
+  auto [result, dst] = OR_FAIL(RunCopyAndRewriteEmbeddedProfile());
+
+  EXPECT_EQ(result.status, CopyAndRewriteProfileResult::Status::SUCCESS);
+  EXPECT_THAT(dst.profilePath.tmpPath, ContainsRegex(R"re(/primary\.prof\.staged\.\w+\.tmp$)re"));
+  CheckContent(dst.profilePath.tmpPath, "def");
+}
+
+TEST_F(ArtdPreRebootTest, mergeProfiles) {
+  std::string reference_profile_file = OR_FATAL(BuildProfileOrDmPath(*profile_path_));
+  CreateFile(reference_profile_file, "abc");
+
+  PrimaryCurProfilePath profile_1_path{
+      .userId = 1, .packageName = "com.android.foo", .profileName = "primary"};
+  std::string profile_1_file = OR_FATAL(BuildPrimaryCurProfilePath(profile_1_path));
+  CreateFile(profile_1_file, "def");
+
+  OutputProfile output_profile{.profilePath = tmp_profile_path_,
+                               .fsPermission = FsPermission{.uid = -1, .gid = -1}};
+  output_profile.profilePath.id = "";
+  output_profile.profilePath.tmpPath = "";
+
+  std::string dex_file_1 = scratch_path_ + "/a/b.apk";
+  CreateFile(dex_file_1);
+
+  EXPECT_CALL(*mock_exec_utils_, DoExecAndReturnCode)
+      .WillOnce(DoAll(WithArg<0>(ClearAndWriteToFdFlag("--reference-profile-file-fd=", "merged")),
+                      Return(ProfmanResult::kCompile)));
+
+  bool result;
+  EXPECT_TRUE(artd_
+                  ->mergeProfiles({profile_1_path},
+                                  profile_path_,
+                                  &output_profile,
+                                  {dex_file_1},
+                                  /*in_options=*/{},
+                                  &result)
+                  .isOk());
+  EXPECT_TRUE(result);
+  EXPECT_THAT(output_profile.profilePath.tmpPath,
+              ContainsRegex(R"re(/primary\.prof\.staged\.\w+\.tmp$)re"));
+  CheckContent(output_profile.profilePath.tmpPath, "merged");
 }
 
 }  // namespace
