@@ -88,6 +88,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d82de82_beb74e03",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-08T13:03:39Z",
+      "side": 1,
+      "message": "Thanks! The test provides good coverage, so I\u0027m all for it. I only brought up `offset` because the functionality that it provided could be achieved with `empty_prefix` and `copy_start_offset`. I do think `empty_prefix` and `empty_suffix` should be kept.",
+      "parentUuid": "a1faa54f_ab8b962e",
+      "revId": "04795e4f78e76c38421101c11806631f85c7b322",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0ff4b6ed_697c3156",
@@ -866,6 +884,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9067a6cf_1e3c4a8a",
+        "filename": "libartbase/base/unix_file/fd_file_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-08T13:03:39Z",
+      "side": 1,
+      "message": "Sorry, I didn\u0027t explain myself clearly. What I meant was\n\n```suggestion\n  EXPECT_GE(src1_stat.st_blocks * kStatBlockSize, kNumChunks * kChunkSize);\n```\n\nIn this way, both this EXPECT and the one below have the same left operand: the number of allocated bytes.",
+      "parentUuid": "493e3461_11b3caa4",
+      "range": {
+        "startLine": 364,
+        "startChar": 56,
+        "endLine": 364,
+        "endChar": 73
+      },
+      "revId": "04795e4f78e76c38421101c11806631f85c7b322",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ea06f6ad_0bbb8b0d",
         "filename": "libartbase/base/unix_file/fd_file_test.cc",
         "patchSetId": 5
@@ -901,6 +943,30 @@
       "side": 1,
       "message": "Ideally we would be exact: with 8 chunks of aligned 64KB data regions, we should expect 128 blocks (or stat.st_blocks to be 1024 as st_blocks are given in units of 512). However, in this specific example on my Pixel 6 test device I get 129 blocks (1032 st blocks) here.\n\nI believe this is because the filesystem will allocate potentially multiple additional blocks for metadata to track the extents of the file, which depends on whether or not the file is considered continuous or fragmented. \n\nNote that in PS1 we had kEstimateMaxFileMetadataSize to account for this, which was set to 128KB following the previous patch (see https://android-review.googlesource.com/c/platform/art/+/2889346/9/libartbase/base/unix_file/fd_file_test.cc#249). My understanding is that this value was originally quite large because the size of this metadata is not very predictable and is relative to how the filesystem handles the allocation, so is very filesystem and disk state dependent. \n\nThere might be a sensible way to reliably calculate the number of additional metadata blocks which I am not aware of, but 128KB certainly felt quite arbitrary and didn\u0027t serve much of a purpose as an wide upper bound other than to indicate that the file wasn\u0027t completely allocated on disk (i.e. that it was sparse).\n\nI therefore replaced with an assertion that was more precise to what that test was achieving: checking that the file is sparse by confirming that the size is greater than the capacity of the allocated blocks. Therefore we avoid the potentially error prone / unnecessary estimation of exactly how much additional data we expect the filesystem to allocate - the last thing I would want is failing tests on various future filesystems because my boundary estimate was too tight!",
       "parentUuid": "ea06f6ad_0bbb8b0d",
+      "range": {
+        "startLine": 365,
+        "startChar": 50,
+        "endLine": 365,
+        "endChar": 67
+      },
+      "revId": "04795e4f78e76c38421101c11806631f85c7b322",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "00ef5681_83295432",
+        "filename": "libartbase/base/unix_file/fd_file_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-08T13:03:39Z",
+      "side": 1,
+      "message": "Sounds reasonable to me!",
+      "parentUuid": "1f39c7ac_0d9d9f04",
       "range": {
         "startLine": 365,
         "startChar": 50,
