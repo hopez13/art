@@ -135,6 +135,8 @@ cc_defaults {
 
     cflags: ["-DANDROID"],
 
+    stl: "libc++_static",
+
     // The tests mock libdl_android and libnativebridge symbols, so export them
     // to override the ones loaded from their libs.
     ldflags: [
