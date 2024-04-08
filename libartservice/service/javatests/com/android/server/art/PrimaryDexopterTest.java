@@ -303,8 +303,7 @@ public class PrimaryDexopterTest extends PrimaryDexopterTestBase {
         verifyEmbeddedProfileNotUsed(mDexPath);
     }
 
-    @Test
-    public void testDexoptMergesProfiles() throws Exception {
+    private void checkDexoptMergesProfiles(boolean deletesCurProfiles) throws Exception {
         setPackageInstalledForUserIds(0, 2);
 
         when(mArtd.mergeProfiles(any(), any(), any(), any(), any())).thenReturn(true);
@@ -341,10 +340,25 @@ public class PrimaryDexopterTest extends PrimaryDexopterTestBase {
 
         inOrder.verify(mArtd).commitTmpProfile(deepEq(mPrivateOutputProfile.profilePath));
 
-        inOrder.verify(mArtd).deleteProfile(deepEq(
-                AidlUtils.buildProfilePathForPrimaryCur(0 /* userId */, PKG_NAME, "primary")));
-        inOrder.verify(mArtd).deleteProfile(deepEq(
-                AidlUtils.buildProfilePathForPrimaryCur(2 /* userId */, PKG_NAME, "primary")));
+        if (deletesCurProfiles) {
+            inOrder.verify(mArtd).deleteProfile(deepEq(
+                    AidlUtils.buildProfilePathForPrimaryCur(0 /* userId */, PKG_NAME, "primary")));
+            inOrder.verify(mArtd).deleteProfile(deepEq(
+                    AidlUtils.buildProfilePathForPrimaryCur(2 /* userId */, PKG_NAME, "primary")));
+        } else {
+            verify(mArtd, never()).deleteProfile(any());
+        }
+    }
+
+    @Test
+    public void testDexoptMergesProfiles() throws Exception {
+        checkDexoptMergesProfiles(true /* deletesCurProfiles */);
+    }
+
+    @Test
+    public void testDexoptMergesProfilesPreReboot() throws Exception {
+        when(mInjector.isPreReboot()).thenReturn(true);
+        checkDexoptMergesProfiles(false /* deletesCurProfiles */);
     }
 
     @Test
