@@ -38,6 +38,11 @@ union ProfilePath {
         @utf8InCpp String packageName;
         /** The stem of the profile file */
         @utf8InCpp String profileName;
+        /**
+         * Whether the profile is for Pre-reboot Dexopt. For now, this is always `false` for inputs
+         * because we never take Pre-reboot profiles as inputs.
+         */
+        boolean isPreReboot;
     }
 
     /**
@@ -70,6 +75,11 @@ union ProfilePath {
          * `{/data,/mnt/expand/<volume-uuid>}/{user,user_de}/<user-id>/<package-name>/...`.
          */
         @utf8InCpp String dexPath;
+        /**
+         * Whether the profile is for Pre-reboot Dexopt. For now, this is always `false` for inputs
+         * because we never take Pre-reboot profiles as inputs.
+         */
+        boolean isPreReboot;
     }
 
     /** Represents a current profile of a secondary dex file. */
