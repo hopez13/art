@@ -195,6 +195,11 @@ public class PrimaryDexopterParameterizedTest extends PrimaryDexopterTestBase {
         params.mExpectedCompilerFilter = "verify";
         list.add(params);
 
+        params = new Params();
+        params.mIsPreReboot = true;
+        params.mExpectedDeletesRuntimeArtifacts = false;
+        list.add(params);
+
         return list;
     }
 
@@ -204,6 +209,7 @@ public class PrimaryDexopterParameterizedTest extends PrimaryDexopterTestBase {
 
         lenient().when(mInjector.isSystemUiPackage(any())).thenReturn(mParams.mIsSystemUi);
         lenient().when(mInjector.isLauncherPackage(any())).thenReturn(mParams.mIsLauncher);
+        lenient().when(mInjector.isPreReboot()).thenReturn(mParams.mIsPreReboot);
 
         lenient()
                 .when(SystemProperties.getBoolean(eq("dalvik.vm.always_debuggable"), anyBoolean()))
@@ -326,12 +332,16 @@ public class PrimaryDexopterParameterizedTest extends PrimaryDexopterTestBase {
                         isNull() /* inputVdex */, isNull() /* dmFile */,
                         eq(PriorityClass.INTERACTIVE), argThat(dexoptOptionsMatcher), any());
 
-        // Only delete runtime artifacts for successful dexopt operations, namely the first one and
-        // the fourth one.
-        doReturn(1l).when(mArtd).deleteRuntimeArtifacts(deepEq(AidlUtils.buildRuntimeArtifactsPath(
-                PKG_NAME, "/somewhere/app/foo/base.apk", "arm64")));
-        doReturn(1l).when(mArtd).deleteRuntimeArtifacts(deepEq(AidlUtils.buildRuntimeArtifactsPath(
-                PKG_NAME, "/somewhere/app/foo/split_0.apk", "arm")));
+        if (mParams.mExpectedDeletesRuntimeArtifacts) {
+            // Only delete runtime artifacts for successful dexopt operations, namely the first one
+            // and the fourth one.
+            doReturn(1l).when(mArtd).deleteRuntimeArtifacts(
+                    deepEq(AidlUtils.buildRuntimeArtifactsPath(
+                            PKG_NAME, "/somewhere/app/foo/base.apk", "arm64")));
+            doReturn(1l).when(mArtd).deleteRuntimeArtifacts(
+                    deepEq(AidlUtils.buildRuntimeArtifactsPath(
+                            PKG_NAME, "/somewhere/app/foo/split_0.apk", "arm")));
+        }
 
         assertThat(mPrimaryDexopter.dexopt())
                 .comparingElementsUsing(TestingUtils.<DexContainerFileDexoptResult>deepEquality())
@@ -360,6 +370,10 @@ public class PrimaryDexopterParameterizedTest extends PrimaryDexopterTestBase {
         verify(mArtd, times(3))
                 .dexopt(any(), any(), any(), any(), any(), any(), any(), any(), anyInt(), any(),
                         any());
+
+        if (!mParams.mExpectedDeletesRuntimeArtifacts) {
+            verify(mArtd, times(0)).deleteRuntimeArtifacts(any());
+        }
     }
 
     private static class Params {
@@ -379,6 +393,7 @@ public class PrimaryDexopterParameterizedTest extends PrimaryDexopterTestBase {
         public boolean mShouldDowngrade = false;
         public boolean mSkipIfStorageLow = false;
         public boolean mIgnoreProfile = false;
+        public boolean mIsPreReboot = false;
 
         // System properties.
         public boolean mAlwaysDebuggable = false;
@@ -390,6 +405,7 @@ public class PrimaryDexopterParameterizedTest extends PrimaryDexopterTestBase {
                 | DexoptTrigger.PRIMARY_BOOT_IMAGE_BECOMES_USABLE | DexoptTrigger.NEED_EXTRACTION;
         public boolean mExpectedIsDebuggable = false;
         public boolean mExpectedIsHiddenApiPolicyEnabled = true;
+        public boolean mExpectedDeletesRuntimeArtifacts = true;
 
         public String toString() {
             return String.format("isInDalvikCache=%b,"
@@ -405,19 +421,22 @@ public class PrimaryDexopterParameterizedTest extends PrimaryDexopterTestBase {
                             + "shouldDowngrade=%b,"
                             + "skipIfStorageLow=%b,"
                             + "ignoreProfile=%b,"
+                            + "isPreReboot=%b,"
                             + "alwaysDebuggable=%b"
                             + " => "
                             + "expectedCallbackInputCompilerFilter=%s,"
                             + "expectedCompilerFilter=%s,"
                             + "expectedDexoptTrigger=%d,"
                             + "expectedIsDebuggable=%b,"
-                            + "expectedIsHiddenApiPolicyEnabled=%b",
+                            + "expectedIsHiddenApiPolicyEnabled=%b"
+                            + "expectedDeleteRuntimeArtifacts=%b",
                     mIsInDalvikCache, mHiddenApiEnforcementPolicy, mIsVmSafeMode, mIsDebuggable,
                     mIsSystemUi, mIsLauncher, mIsUseEmbeddedDex, mRequestedCompilerFilter,
                     mCallbackReturnedCompilerFilter, mForce, mShouldDowngrade, mSkipIfStorageLow,
-                    mIgnoreProfile, mAlwaysDebuggable, mExpectedCallbackInputCompilerFilter,
-                    mExpectedCompilerFilter, mExpectedDexoptTrigger, mExpectedIsDebuggable,
-                    mExpectedIsHiddenApiPolicyEnabled);
+                    mIgnoreProfile, mIsPreReboot, mAlwaysDebuggable,
+                    mExpectedCallbackInputCompilerFilter, mExpectedCompilerFilter,
+                    mExpectedDexoptTrigger, mExpectedIsDebuggable,
+                    mExpectedIsHiddenApiPolicyEnabled, mExpectedDeletesRuntimeArtifacts);
         }
     }
 }
