@@ -293,7 +293,7 @@ public abstract class Dexopter<DexInfoType extends DetailedDexInfo> {
                             profile = null;
                         }
                     }
-                    if (profileMerged) {
+                    if (profileMerged && !mInjector.isPreReboot()) {
                         // Note that this is just an optimization, to reduce the amount of data that
                         // the runtime writes on every profile save. The profile merge result on the
                         // next run won't change regardless of whether the cleanup is done or not
@@ -527,7 +527,7 @@ public abstract class Dexopter<DexInfoType extends DetailedDexInfo> {
         // images are still usable, technically, they can still be used to improve runtime
         // performance; if they are no longer usable, they will be deleted by the file GC during the
         // daily background dexopt job anyway.
-        if (!result.cancelled) {
+        if (!result.cancelled && !mInjector.isPreReboot()) {
             mInjector.getArtd().deleteRuntimeArtifacts(AidlUtils.buildRuntimeArtifactsPath(
                     mPkgState.getPackageName(), target.dexInfo().dexPath(), target.isa()));
         }
@@ -772,6 +772,10 @@ public abstract class Dexopter<DexInfoType extends DetailedDexInfo> {
         @NonNull
         public DexMetadataHelper getDexMetadataHelper() {
             return new DexMetadataHelper();
+        }
+
+        public boolean isPreReboot() {
+            return GlobalInjector.getInstance().isPreReboot();
         }
     }
 }
