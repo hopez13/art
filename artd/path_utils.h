@@ -23,10 +23,17 @@
 #include "aidl/com/android/server/art/BnArtd.h"
 #include "android-base/result.h"
 #include "base/file_utils.h"
-#include "fstab/fstab.h"
 
 namespace art {
 namespace artd {
+
+constexpr const char* kPreRebootSuffix = ".staged";
+
+struct RawArtifactsPath {
+  std::string oat_path;
+  std::string vdex_path;
+  std::string art_path;
+};
 
 android::base::Result<std::string> GetAndroidDataOrError();
 
@@ -48,19 +55,9 @@ android::base::Result<void> ValidateRuntimeArtifactsPath(
 
 android::base::Result<std::string> BuildArtBinPath(const std::string& binary_name);
 
-// Returns the absolute path to the OAT file built from the `ArtifactsPath`.
-android::base::Result<std::string> BuildOatPath(
+// Returns the absolute paths to files built from the `ArtifactsPath`.
+android::base::Result<RawArtifactsPath> BuildArtifactsPath(
     const aidl::com::android::server::art::ArtifactsPath& artifacts_path);
-
-// Returns the path to the VDEX file that corresponds to the OAT file.
-inline std::string OatPathToVdexPath(const std::string& oat_path) {
-  return ReplaceFileExtension(oat_path, "vdex");
-}
-
-// Returns the path to the ART file that corresponds to the OAT file.
-inline std::string OatPathToArtPath(const std::string& oat_path) {
-  return ReplaceFileExtension(oat_path, "art");
-}
 
 android::base::Result<std::string> BuildPrimaryRefProfilePath(
     const aidl::com::android::server::art::ProfilePath::PrimaryRefProfilePath&
