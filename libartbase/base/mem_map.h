@@ -348,7 +348,7 @@ class MemMap {
 
 #ifdef ART_PAGE_SIZE_AGNOSTIC
   static inline size_t GetPageSize() {
-    DCHECK_NE(page_size_, 0u);
+    CHECK_NE(page_size_, 0u);
     return page_size_;
   }
 #else
