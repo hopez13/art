@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8d2a597_a358e4e0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-04-09T08:29:38Z",
+      "side": 1,
+      "message": "Thanks!",
+      "revId": "355f844adaeaf4d4f4d20f0fae44da203ec7d386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3b82c54e_4bf21be8",
@@ -14,6 +31,30 @@
       "writtenOn": "2024-04-09T08:09:27Z",
       "side": 1,
       "message": "Is profman the only parser for these generated profiles? If not, should we ignore any entries that have dex pcs that are higher than the number of code units in the current method here? That way other parsers don\u0027t need to change.",
+      "range": {
+        "startLine": 1337,
+        "startChar": 8,
+        "endLine": 1337,
+        "endChar": 60
+      },
+      "revId": "355f844adaeaf4d4f4d20f0fae44da203ec7d386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "16fbaffe_ea5d3425",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1337,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-04-09T08:29:38Z",
+      "side": 1,
+      "message": "Spoke to Nicolas offline. Cloud profiles ignore such entries and on device profman is the only consumer of profiles. So it is okay to ignore it in profman.",
+      "parentUuid": "3b82c54e_4bf21be8",
       "range": {
         "startLine": 1337,
         "startChar": 8,
